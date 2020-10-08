@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 39a3b9d7dd9efbda93de0b5d7c5f9938922d0012
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89295263"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631291"
 ---
 # <a name="add-an-api-manually"></a>Aggiungere manualmente un'API
 
@@ -39,7 +39,7 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 2. Fare clic su **+ Aggiungi API** nel menu a sinistra.
 3. Selezionare **API vuota** dall'elenco.  
     ![Blank API](media/add-api-manually/blank-api.png)  
-4. Immettere le impostazioni per l'API. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#-import-and-publish-a-backend-api).
+4. Immettere le impostazioni per l'API. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#import-and-publish-a-backend-api).
 5. Selezionare **Create** (Crea).
 
 A questo punto, non si hanno operazioni in Gestione API di cui viene eseguito il mapping alle operazioni nell'API back-end. Se si chiama un'operazione esposta tramite il back-end, ma non tramite Gestione API, viene visualizzato un errore **404**.

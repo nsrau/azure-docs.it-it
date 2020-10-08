@@ -1,19 +1,19 @@
 ---
 title: Esempi di interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server singolo
 description: Questo articolo elenca alcuni esempi di codice dell'interfaccia della riga di comando di Azure disponibili per l'interazione con il Database di Azure per PostgreSQL - Server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc, devx-track-azurecli
 ms.date: 5/6/2019
-ms.openlocfilehash: aca37ea3d3d1509a6866d4febcdc9a4eb3f9bdb4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f317734b7020002add710eb9d661028e8df34087
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496543"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91707643"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL - Server singolo
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL.

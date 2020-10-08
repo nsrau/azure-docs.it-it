@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 60f82a3197366081c66c4b7a1fe9c4ebe7762c94
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228376"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91628698"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Esercitazione: Integrare una singola foresta con un singolo tenant di Azure AD
 
@@ -61,16 +61,16 @@ Questa esercitazione descrive come creare un ambiente ibrido di gestione delle i
 5. Eseguire l'agente di provisioning di Azure AD Connect.
 6. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.
 
-   ![Schermata iniziale](media/how-to-install/install1.png)
+   ![Screenshot che mostra la schermata iniziale del pacchetto dell'agente di provisioning di Microsoft Azure AD Connect.](media/how-to-install/install1.png)
 
 7. Al termine dell'operazione verrà avviata la configurazione guidata.  Accedere con l'account amministratore globale di Azure AD.  Si noti che se è abilitata la sicurezza avanzata di Internet Explorer, l'accesso verrà bloccato.  In tal caso, chiudere l'installazione, disabilitare la sicurezza avanzata di Internet Explorer in Server Manager e fare clic su **AAD Connect Provisioning Agent Wizard** (Configurazione guidata dell'agente di provisioning AAD Connect) per riavviare l'installazione.
 8. Nella schermata **Connect Active Directory** (Connetti Active Directory) fare clic su **Aggiungi directory** quindi accedere con l'account amministratore di dominio di Active Directory.  NOTA:  L'account amministratore di dominio non dovrebbe avere requisiti per la modifica della password. Se la password scade o viene cambiata, sarà necessario riconfigurare l'agente con le nuove credenziali. Questa operazione aggiungerà la directory locale.  Fare clic su **Avanti**.
 
-   ![Schermata iniziale](media/how-to-install/install3.png)
+   ![Screenshot della schermata per la connessione di Active Directory.](media/how-to-install/install3.png)
 
 9. Nella schermata **Configurazione completata** fare clic su **Conferma**.  Questa operazione registrerà e riavvierà l'agente.
 
-   ![Schermata iniziale](media/how-to-install/install4.png)
+   ![Screenshot che mostra la schermata di completamento della configurazione.](media/how-to-install/install4.png)
 
 10. Al termine dell'operazione verrà visualizzato un avviso: **Your agent configuration was successfully verified** (La configurazione dell'agente è stata verificata).  È possibile fare clic su **Esci**.</br>
 ![Schermata iniziale](media/how-to-install/install5.png)</br>
@@ -112,7 +112,7 @@ Per verificare se l'agente è in esecuzione, seguire questa procedura:
 5.  Fare clic su **Nuova configurazione**
 ![Screenshot della schermata Provisioning di Azure AD (anteprima) con il collegamento "Nuova configurazione" evidenziato.](media/tutorial-single-forest/configure1.png)
 7.  Nella schermata di configurazione, immettere un valore per **Messaggio di posta elettronica di notifica**, spostare il selettore su **Abilita** e fare clic su **Salva**.
-![Screenshot della schermata di configurazione con il messaggio di posta elettronica di notifica compilato e l'opzione Abilita selezionata.](media/tutorial-single-forest/configure2.png)
+![Screenshot della schermata di configurazione con il messaggio di posta elettronica di notifica compilato e l'opzione Abilita selezionata.](media/how-to-configure/configure2.png)
 1.  Lo stato della configurazione dovrebbe ora essere **Integro**.
 ![Screenshot di Provisioning di Azure AD (anteprima) che mostra lo stato Integro.](media/how-to-configure/manage4.png)
 

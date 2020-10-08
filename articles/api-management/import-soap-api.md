@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 58f2a102349baff0b70e2a0c9f72c8a4e0e44046
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905651"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626820"
 ---
 # <a name="import-soap-api"></a>Importare un'API SOAP
 
@@ -45,7 +45,7 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 3. In **Specifica WSDL** immettere l'URL in cui risiede l'API SOAP.
 4. Il pulsante di opzione **Pass-through SOAP** è selezionato per impostazione predefinita. Con questa selezione, l'API verrà esposta come SOAP. Il consumer dovrà usare regole SOAP. Se si vuole convertire l'API in REST, seguire la procedura descritta in [Importare un'API SOAP e convertirla in REST](restify-soap-api.md).
 
-    ![Pass-through](./media/import-soap-api/pass-through.png)
+    ![Screenshot che mostra la finestra di dialogo Crea da WSDL in cui è possibile immettere una specifica WSDL.](./media/import-soap-api/pass-through.png)
 5. Premere TAB.
 
     Nei campi seguenti verranno inserite le informazioni dell'API SOAP: nome visualizzato, nome e descrizione.
@@ -58,7 +58,7 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 
     * **Starter**
     * **Illimitato**   
-8. Immettere altre impostazioni API. È possibile impostare i valori durante la creazione o configurarli successivamente passando alla scheda **Impostazioni**. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#-import-and-publish-a-backend-api).
+8. Immettere altre impostazioni API. È possibile impostare i valori durante la creazione o configurarli successivamente passando alla scheda **Impostazioni**. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#import-and-publish-a-backend-api).
 9. Selezionare **Create** (Crea).
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Testare la nuova API nel portale amministrativo

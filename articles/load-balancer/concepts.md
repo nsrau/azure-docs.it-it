@@ -11,18 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 9765f685f2fccc9332a2f07d907aac415aa2c57f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 61620a8497765c4d8f90a3d616bd2f4b932f8dcc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333920"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91629030"
 ---
-# <a name="azure-load-balancer-concepts"></a>Concetti di Azure Load Balancer
+# <a name="azure-load-balancer-algorithm"></a>Algoritmo di Azure Load Balancer
 
-Load Balancer offre numerose funzionalità per le applicazioni UDP e TCP. 
+Load Balancer offre numerose funzionalità per le applicazioni UDP e TCP.
 
 ## <a name="load-balancing-algorithm"></a>Algoritmo di bilanciamento del carico
+
 È possibile creare una regola di bilanciamento del carico per distribuire il traffico dal pool front-end a un pool back-end. Azure Load Balancer usa un algoritmo hash per la distribuzione dei flussi in ingresso (non i byte). Load Balancer riscrive le intestazioni dei flussi nelle istanze del pool back-end. Un server è disponibile per ricevere i nuovi flussi quando un probe di integrità indica un endpoint di back-end integro.
 
 Per impostazione predefinita, Load Balancer usa un hash a 5 tuple.
@@ -35,7 +36,7 @@ L'hash include:
 - **Porta di destinazione**
 - **Numero di protocollo IP per il mapping dei flussi ai server disponibili**
 
-L'affinità con un indirizzo IP di origine viene creata tramite un hash a due o tre tuple. Tutti i pacchetti dello stesso flusso arrivano nella stessa istanza dietro il front-end con carico bilanciato. 
+L'affinità con un indirizzo IP di origine viene creata tramite un hash a due o tre tuple. Tutti i pacchetti dello stesso flusso arrivano nella stessa istanza dietro il front-end con carico bilanciato.
 
 Quando il client avvia un nuovo flusso dallo stesso indirizzo IP di origine, la porta di origine cambia. Di conseguenza, l'hash a 5 tuple può determinare l'instradamento del traffico a un endpoint back-end diverso.
 Per altre informazioni, vedere [Configurare la modalità di distribuzione per Azure Load Balancer](./load-balancer-distribution-mode.md).
@@ -50,46 +51,13 @@ L'immagine seguente mostra la distribuzione basata su hash:
 
 Load Balancer non interagisce direttamente con il protocollo TCP o UDP o con il livello dell'applicazione. Può essere supportato qualsiasi scenario di applicazione TCP o UDP. Load Balancer non chiude né genera flussi o interagisce con il payload del flusso. Load Balancer non fornisce la funzionalità del gateway del livello applicazione. Gli handshake del protocollo si verificano sempre direttamente tra il client e l'istanza del pool back-end. Una risposta a un flusso in ingresso è sempre una risposta da una macchina virtuale. Quando il flusso arriva nella macchina virtuale, viene mantenuto anche l'indirizzo IP di origine.
 
-* A ogni endpoint risponde una macchina virtuale. Ad esempio, si verifica sempre un handshake TCP tra il client e la macchina virtuale back-end selezionata. Una risposta a una richiesta in un front-end è una risposta generata da una macchina virtuale di back-end. Quando si convalida correttamente la connettività a un front-end, si convalida anche la connettività per almeno una macchina virtuale back-end.
-* I payload dell'applicazione sono trasparenti per Load Balancer. Qualsiasi applicazione UDP o TCP può essere supportata.
-* Poiché Load Balancer non interagisce con il payload TCP e fornisce l'offload TLS, è possibile creare scenari crittografati completi. L'uso di Load Balancer consente di ottenere un'ampia scalabilità orizzontale per le applicazioni TLS terminando la connessione TLS nella macchina virtuale stessa. Ad esempio, la funzionalità di codifica della sessione TLS è limitata solo dal tipo e dal numero di macchine virtuali aggiunte al pool di back-end.
-
-## <a name="outbound-connections"></a>Connessioni in uscita 
-
-I flussi dal pool back-end agli indirizzi IP pubblici vengono mappati al front-end. Azure converte le connessioni in uscita all'indirizzo IP front-end pubblico tramite la regola di bilanciamento del carico in uscita. Questa configurazione presenta i vantaggi seguenti. Semplicità di aggiornamento e di ripristino di emergenza dei servizi, perché è possibile eseguire il mapping dinamico del front-end a un'altra istanza del servizio. Gestione semplificata degli elenchi di controllo di accesso (ACL). Gli ACL espressi in termini di indirizzi IP front-end non si modificano in caso di ridimensionamento o di ridistribuzione dei servizi. La conversione delle connessioni in uscita in un numero di indirizzi IP inferiore a quello delle macchine riduce il carico correlato all'implementazione di elenchi di destinatari sicuri. Per altre informazioni su SNAT (Source Network Address Translation) e Azure Load Balancer, vedere [SNAT e Azure Load Balancer](load-balancer-outbound-connections.md).
-
-## <a name="availability-zones"></a>Zone di disponibilità 
-
-Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità. Le configurazioni delle zone di disponibilità sono disponibili per il servizio Load Balancer Standard sia pubblico che interno. Un front-end con ridondanza della zona sopravvive all'errore di zona usando l'infrastruttura dedicata in tutte le zone contemporaneamente. Inoltre, è possibile garantire un front-end a una zona specifica. Un front-end di zona viene gestito dall'infrastruttura dedicata in una singola zona. Per il pool back-end è disponibile il bilanciamento del carico tra zone. Tutte le risorse macchina virtuale in una rete virtuale possono far parte di un pool back-end. Il servizio Load Balancer Basic non supporta le zone. Per altre informazioni, vedere la [discussione dettagliata sulle abilità associate alle zone di disponibilità](load-balancer-standard-availability-zones.md) e la [panoramica delle zone di disponibilità](../availability-zones/az-overview.md).
-
-## <a name="ha-ports"></a>Porte a disponibilità elevata
-
-È possibile configurare regole di bilanciamento del carico per le porte con disponibilità elevata per garantire la scalabilità e l'affidabilità elevata dell'applicazione. Il bilanciamento del carico per flusso sulle porte di breve durata dell'indirizzo IP front-end del servizio di bilanciamento del carico interno viene fornito da queste regole. La funzionalità è utile nei casi in cui specificare le singole porte è poco pratico o non opportuno. Una regola per le porte a disponibilità elevata consente di creare scenari con architettura attiva-passiva o attiva-attiva n+1. Questi scenari sono destinati alle appliance di rete virtuale e alle applicazioni che richiedono ampi intervalli di porte in ingresso. È possibile usare un probe di integrità per determinare i back-end che dovranno ricevere nuovi flussi.  È possibile utilizzare un gruppo di sicurezza di rete per emulare uno scenario di intervallo di porte. Il servizio Load Balancer Basic non supporta le porte a disponibilità elevata. Consultare [per ulteriori dettagli su porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
-
-## <a name="multiple-frontends"></a>Più front-end 
-
-Load Balancer supporta più regole con più front-end.  Load Balancer Standard estende questa funzionalità agli scenari in uscita. Le regole in uscita sono l'inverso di una regola in ingresso. La regola in uscita crea un'associazione per le connessioni in uscita. Load Balancer Standard usa tutti i front-end associati a una risorsa macchina virtuale tramite una regola di bilanciamento del carico. Inoltre, un parametro della regola di bilanciamento del carico consente di eliminare una regola di bilanciamento del carico ai fini della connettività in uscita, per consentire la selezione di front-end specifici o di nessun front-end. Per il confronto, Load Balancer Basic seleziona un singolo front-end in modo casuale. Non esiste la possibilità di controllare il front-end selezionato.
-
-## <a name="floating-ip"></a>IP mobile
-
-Alcuni scenari di applicazione preferiscono o richiedono l'uso della stessa porta da parte di più istanze dell'applicazione in una singola macchina virtuale nel pool back-end. Esempi comuni di riutilizzo delle porte includono il clustering per la disponibilità elevata, le appliance virtuali di rete e l'esposizione di più endpoint TLS senza rieseguire la crittografia di rete. Per riutilizzare la porta di back-end tra più regole, è necessario abilitare l'indirizzo IP mobile nella definizione della regola.
-
-Il termine **IP mobile** appartiene alla terminologia di Azure e fa riferimento a una parte della cosiddetta configurazione Direct Server Return (DSR). La configurazione DSR è costituita da due parti: 
-
-- Topologia di flussi
-- Schema di mapping degli indirizzi IP
-
-A livello di piattaforma, Azure Load Balancer viene sempre eseguito in una topologia di flussi DSR indipendentemente dal fatto che l'indirizzo IP mobile sia abilitato o meno. Ciò significa che la parte in uscita di un flusso viene sempre correttamente riscritta in un flusso direttamente nell'origine.
-Senza IP mobile, per semplicità Azure espone uno schema di mappatura degli indirizzi IP tradizionale per il servizio di bilanciamento del carico (IP delle istanze di macchine virtuali). L'abilitazione dell'IP mobile modifica il mapping degli indirizzi IP con l'IP front-end del servizio di bilanciamento del carico per offrire una maggiore flessibilità. Fare clic [qui](load-balancer-multivip-overview.md) per altre informazioni.
-
+- A ogni endpoint risponde una macchina virtuale. Ad esempio, si verifica sempre un handshake TCP tra il client e la macchina virtuale back-end selezionata. Una risposta a una richiesta in un front-end è una risposta generata da una macchina virtuale di back-end. Quando si convalida correttamente la connettività a un front-end, si convalida anche la connettività per almeno una macchina virtuale back-end.
+- I payload dell'applicazione sono trasparenti per Load Balancer. Qualsiasi applicazione UDP o TCP può essere supportata.
+- Poiché Load Balancer non interagisce con il payload TCP e fornisce l'offload TLS, è possibile creare scenari crittografati completi. L'uso di Load Balancer consente di ottenere un'ampia scalabilità orizzontale per le applicazioni TLS terminando la connessione TLS nella macchina virtuale stessa. Ad esempio, la funzionalità di codifica della sessione TLS è limitata solo dal tipo e dal numero di macchine virtuali aggiunte al pool di back-end.
 
 ## <a name="limitations"></a><a name = "limitations"></a>Limitazioni
 
-- L'IP mobile non è attualmente supportato nelle configurazioni IP secondarie per gli scenari di bilanciamento del carico interno o pubblico.
-
 - Una regola di bilanciamento del carico non può estendersi a due reti virtuali.  I front-end e le relative istanze di back-end devono trovarsi nella stessa rete virtuale.  
-
-- I ruoli di lavoro Web senza rete virtuale e altri servizi della piattaforma Microsoft possono essere accessibili dalle istanze solo dietro a un servizio Load Balancer Standard interno. Non fare affidamento su questa accessibilità, in quanto il servizio stesso o la piattaforma sottostante possono essere soggetti a modifiche senza preavviso. Se è necessaria la connettività in uscita quando si usa un servizio di bilanciamento del carico interno Standard, è necessario configurare la [connettività in uscita](load-balancer-outbound-connections.md).
 
 - Load Balancer fornisce funzionalità di bilanciamento del carico e il port forwarding per protocolli TCP o UDP specifici. Le regole di bilanciamento del carico e le regole NAT in ingresso supportano TCP e UDP, ma non altri protocolli IP, ad esempio ICMP.
 

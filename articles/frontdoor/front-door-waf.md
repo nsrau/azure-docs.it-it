@@ -1,5 +1,5 @@
 ---
-title: Dimensionare e proteggere un'app Web con il servizio Frontdoor di Azure e WAF
+title: "Esercitazione: Dimensionare e proteggere un'app Web tramite il servizio Frontdoor di Azure e Web application firewall di Azure (WAF)"
 description: Questa esercitazione illustra come usare Web application firewall di Azure con il servizio Frontdoor di Azure.
 services: frontdoor
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276255"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626480"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Esercitazione: Dimensionare rapidamente e proteggere un'applicazione Web tramite il servizio Frontdoor di Azure e Web application firewall di Azure (WAF)
 
-Molte applicazioni Web hanno riscontrato un rapido aumento del traffico nelle ultime settimane in relazione al COVID-19. Per queste applicazioni Web si osserva inoltre un picco di traffico dannoso con attacchi Denial of Service. Un modo efficace per gestire entrambe queste esigenze, aumentando le prestazioni per i picchi di traffico e attivando la protezione dagli attacchi, consiste nel configurare Frontdoor di Azure con Azure WAF come livello di accelerazione, memorizzazione nella cache e sicurezza davanti all'app Web. Questo articolo offre indicazioni su come configurare rapidamente il servizio Frontdoor di Azure con Azure WAF per tutte le app Web in esecuzione all'interno o all'esterno di Azure. 
+Molte applicazioni Web hanno riscontrato un rapido aumento del traffico nelle ultime settimane in relazione al COVID-19. Per queste applicazioni Web si osserva inoltre un picco di traffico dannoso con attacchi Denial of Service. Un modo efficace per gestire entrambe queste esigenze, aumentando le prestazioni dell'applicazione per i picchi di traffico e attivando la protezione dagli attacchi, consiste nel configurare Frontdoor di Azure con Azure WAF come livello di accelerazione, memorizzazione nella cache e sicurezza davanti all'app Web. Questo articolo offre indicazioni su come configurare il servizio Frontdoor di Azure con Azure WAF per tutte le app Web in esecuzione all'interno o all'esterno di Azure. 
 
 In questa esercitazione verrà usata l'interfaccia della riga di comando di Azure per configurare WAF. In alternativa, è possibile usare il portale di Azure, Azure PowerShell, Azure Resource Manager o le API REST di Azure. 
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Le istruzioni fornite in questa esercitazione usano l'interfaccia della riga di comando di Azure. [Vedere questa guida](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) per iniziare a usare l'interfaccia della riga di comando di Azure.
+- Le istruzioni fornite in questa esercitazione usano l'interfaccia della riga di comando di Azure. [Vedere questa guida](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) per iniziare a usare l'interfaccia della riga di comando di Azure.
 
   > [!TIP] 
   > Un modo semplice e rapido per iniziare a usare l'interfaccia della riga di comando di Azure è rappresentato da [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -48,7 +48,7 @@ In questa esercitazione si apprenderà come:
    ```
 
 > [!NOTE] 
-> Per altre informazioni sui comandi usati in questa esercitazione, vedere [Informazioni di riferimento dell'interfaccia della riga di comando di Azure per il servizio Frontdoor](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
+> Per altre informazioni sui comandi usati in questa esercitazione, vedere [Informazioni di riferimento dell'interfaccia della riga di comando di Azure per il servizio Frontdoor](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
 
 ## <a name="create-an-azure-front-door-resource"></a>Creare una risorsa Frontdoor di Azure
 
@@ -136,7 +136,7 @@ Se è necessario che i clienti accedano al sito Web usando il dominio radice, ad
 
 È anche necessario aggiornare la configurazione di Frontdoor di Azure per [aggiungere il dominio personalizzato](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) affinché riconosca questo mapping.
 
-Se per raggiungere l'applicazione Web si usa un dominio personalizzato e si vuole abilitare il protocollo HTTPS, è necessario [configurare i certificati per il dominio personalizzato in Frontdoor di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Se infine si usa un dominio personalizzato per raggiungere l'applicazione Web e si vuole abilitare il protocollo HTTPS, è necessario [configurare i certificati per il dominio personalizzato in Frontdoor di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
 ## <a name="lock-down-your-web-application"></a>Bloccare l'applicazione Web
 
@@ -144,7 +144,7 @@ Si consiglia di verificare che solo i vertici di Frontdoor di Azure possano comu
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
+Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF:
 
 ```azurecli-interactive
   az group delete \
@@ -158,6 +158,3 @@ Per informazioni su come risolvere i problemi relativi a Frontdoor, vedere le gu
 
 > [!div class="nextstepaction"]
 > [Risoluzione dei più frequenti problemi di routing](front-door-troubleshoot-routing.md)
-
-> [!div class="nextstepaction"]
-> [Autorità di certificazione consentite](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

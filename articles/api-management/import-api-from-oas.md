@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 346156c624a4c8b1c1d6cc490fc0559f364b4b9d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905568"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626871"
 ---
 # <a name="import-an-openapi-specification"></a>Importare una specifica OpenAPI
 
@@ -42,7 +42,7 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 2. Selezionare **Specifica OpenAPI** dall'elenco **Add a new API** (Aggiungere una nuova API).
 
     ![Specifica OpenAPI](./media/import-api-from-oas/oas-api.png)
-3. Immettere le impostazioni API. È possibile impostare i valori durante la creazione o configurarli successivamente passando alla scheda **Impostazioni**. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#-import-and-publish-a-backend-api).
+3. Immettere le impostazioni API. È possibile impostare i valori durante la creazione o configurarli successivamente passando alla scheda **Impostazioni**. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#import-and-publish-a-backend-api).
 4. Selezionare **Create** (Crea).
 
 > [!NOTE]

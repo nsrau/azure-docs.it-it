@@ -6,24 +6,24 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356877"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619017"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questa esercitazione illustra uno scenario di ripristino di emergenza completo per un'applicazione SaaS multi-tenant implementata con il database per modello di tenant. Si usa il [ripristino geografico](recovery-using-backups.md) per ripristinare in un'area alternativa i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. Dopo aver risolto il problema, si usa la [replica geografica](active-geo-replication-overview.md) per ricollocare i database modificati nella rispettiva area di origine.
 
-![Il diagramma mostra le aree originali e di ripristino, entrambe con un'app, un catalogo, immagini originali o speculari di server e pool, backup automatici nell'archivio, con l'area di ripristino che accetta la replica geografica del backup e il server e il pool per i nuovi tenant.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Il diagramma mostra un'area originale e una di ripristino, che hanno entrambe un'app, un catalogo, un'immagine originale o speculare dei server e dei pool, backup automatici nella risorsa di archiviazione. L'area di ripristino accetta la replica geografica del backup e ha un server e un pool per i nuovi tenant.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 Il ripristino geografico è la soluzione di ripristino di emergenza a minor costo per il database SQL di Azure. Il ripristino da backup con ridondanza geografica, tuttavia, può comportare la perdita di dati fino a un'ora. Tale operazione può richiedere tempi lunghi, a seconda della dimensione di ogni database. 
 
@@ -42,8 +42,8 @@ Questa esercitazione illustra entrambi i flussi di lavoro di ripristino e ricoll
  
 
 Prima di iniziare questa esercitazione, eseguire queste operazioni:
-* Distribuire l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md). 
-* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Distribuire l'app di database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database per tenant SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md). 
+* Installare Azure PowerShell. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introduzione al modello di ripristino geografico
 
@@ -63,12 +63,12 @@ Il ripristino di emergenza è importante per molte applicazioni, per motivi di c
 Questa esercitazione usa le funzionalità del database SQL di Azure e della piattaforma Azure per risolvere i problemi seguenti:
 
 * [Modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), per riservare tutta la capacità necessaria il più rapidamente possibile. I modelli di Azure Resource Manager vengono usati per effettuare il provisioning di un'immagine speculare dei server e dei pool elastici di origine nell'area di ripristino. Per il provisioning di nuovi tenant vengono creati anche un server e un pool separati.
-* [Libreria client del database elastico](elastic-database-client-library.md) (libreria EDCL) per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
-* [Funzionalità di ripristino della gestione](elastic-database-recovery-manager.md) delle partizioni di libreria EDCL per mantenere le voci del percorso del database nel catalogo durante il ripristino e il ricollocamento.  
+* [Libreria EDCL](elastic-database-client-library.md) (Elastic Database Client Library, libreria client dei database elastici), per creare e gestire un catalogo di database tenant. Il catalogo esteso include informazioni di configurazione del pool e del database aggiornate periodicamente.
+* [Funzionalità di ripristino della gestione delle partizioni](elastic-database-recovery-manager.md) della libreria EDCL, per gestire le voci relative alle posizioni dei database nel catalogo durante il ripristino e il ricollocamento.  
 * [Ripristino geografico](../../key-vault/general/disaster-recovery-guidance.md), per ripristinare i database di catalogo e tenant dai backup con ridondanza geografica gestiti automaticamente. 
 * [Operazioni di ripristino asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) inviate in ordine di priorità di tenant, vengono inserite in coda per ogni pool dal sistema ed elaborate in batch per evitare il sovraccarico del pool. Queste operazioni possono essere annullate prima o durante l'esecuzione, se necessario.   
 * [Replica geografica](active-geo-replication-overview.md), per ricollocare i database nell'area di origine dopo l'interruzione. Quando si usa la replica geografica, non si verifica alcuna perdita di dati e l'impatto sul tenant è minimo.
-* [Alias DNS di SQL Server](../../sql-database/dns-alias-overview.md)per consentire al processo di sincronizzazione del catalogo di connettersi al catalogo attivo indipendentemente dalla relativa posizione.  
+* [Alias DNS del server SQL](../../sql-database/dns-alias-overview.md), per consentire la connessione del processo di sincronizzazione con il catalogo attivo indipendentemente dalla relativa posizione.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Ottenere gli script per il ripristino di emergenza
 
@@ -97,7 +97,7 @@ Prima di iniziare il processo di ripristino, esaminare il normale stato di integ
 
 3. Nel [portale di Azure](https://portal.azure.com) esaminare e aprire il gruppo di risorse in cui è stata distribuita l'app.
 
-   Si notino le risorse e l'area in cui vengono distribuiti i componenti del servizio app e il database SQL.
+   Osservare le risorse e l'area in cui vengono distribuiti i componenti del servizio app e il database SQL.
 
 ## <a name="sync-the-tenant-configuration-into-the-catalog"></a>Sincronizzazione della configurazione del tenant nel catalogo
 
@@ -361,7 +361,7 @@ Dopo la pulizia degli script, l'applicazione torna allo stato iniziale. A questo
 ## <a name="designing-the-application-to-ensure-that-the-app-and-the-database-are-co-located"></a>Progettazione dell'applicazione per assicurarsi che l'app e il database si trovino in un percorso condiviso 
 L'applicazione è progettata per connettersi sempre da un'istanza nella stessa area come il database del tenant. Ciò consente di ridurre la latenza tra l'applicazione e il database. Questa ottimizzazione presuppone che l'interazione tra l'app e il database sia più frequente rispetto a quella tra l'utente e l'app.  
 
-Per un certo intervallo di tempo durante il ricollocamento, i database tenant potrebbero essere distribuiti tra aree di origine e di ripristino. Per ogni database, l'app esegue una ricerca DNS nell'area in cui si trova il database in base al nome del server tenant. Il nome del server è un alias. in cui è incluso il nome dell'area. Se l'applicazione non si trova nella stessa area del database, viene reindirizzata all'istanza di nella stessa area del server. Il reindirizzamento all'istanza nella stessa area del database riduce la latenza tra l'app e il database.  
+Per un certo intervallo di tempo durante il ricollocamento, i database tenant potrebbero essere distribuiti tra aree di origine e di ripristino. Per ogni database, l'app esegue una ricerca DNS nell'area in cui si trova il database in base al nome del server tenant. Il nome del server è un alias in cui è incluso il nome dell'area. Se l'applicazione non si trova nella stessa area del database, viene eseguito il reindirizzamento all'istanza presente nella stessa area del server. Il reindirizzamento all'istanza nella stessa area del database riduce la latenza tra l'app e il database.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -369,7 +369,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > [!div class="checklist"]
 > 
 > * Usare il catalogo dei tenant per memorizzare periodicamente le informazioni di configurazione aggiornate e consentire così la creazione di un ambiente di ripristino con immagine speculare in un'altra area.
-> * Ripristinare i database nell'area di ripristino usando il ripristino geografico.
+> * Usare il ripristino geografico per ripristinare i database nell'area di ripristino.
 > * Aggiornare il catalogo dei tenant in base alle posizioni dei database tenant. 
 > * Usare un alias DNS per consentire a un'applicazione di connettersi al catalogo dei tenant senza dover ridefinire la configurazione.
 > * Usare la replica geografica per ricollocare i database ripristinati nella rispettiva area di origine dopo che è stato risolto un problema di interruzione.

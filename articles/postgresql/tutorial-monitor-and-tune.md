@@ -1,17 +1,17 @@
 ---
 title: 'Esercitazione: Monitorare e ottimizzare - Database di Azure per PostgreSQL - Server singolo'
 description: Questa esercitazione illustra il monitoraggio e l'ottimizzazione in Database di Azure per PostgreSQL, con server singolo.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f211ce7e52ccaa6793435159d0ce1c64fe8b63ed
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895091"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91705282"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Esercitazione: Monitorare e ottimizzare Database di Azure per PostgreSQL - Server singolo
 
@@ -52,7 +52,7 @@ La visualizzazione [Informazioni dettagliate prestazioni query](concepts-query-p
 
 2. La scheda**Query a esecuzione prolungata** mostra le prime 5 query in base alla durata media per esecuzione, aggregate in intervalli di 15 minuti. 
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Pagina di destinazione Informazioni dettagliate prestazioni query":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Parametri del server Query Store":::
 
    È possibile visualizzare altre query selezionando **Numero di query** dall'elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
@@ -64,7 +64,7 @@ La visualizzazione [Informazioni dettagliate prestazioni query](concepts-query-p
 
 6. Selezionare la scheda **Statistiche di attesa** per visualizzare le corrispondenti visualizzazioni in attesa nel server.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Statistiche di attesa di Informazioni dettagliate prestazioni query":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Parametri del server Query Store":::
 
 ### <a name="permissions"></a>Autorizzazioni
 Autorizzazioni **Proprietario** oppure **Collaboratore** necessarie per visualizzare il testo delle query in Informazioni dettagliate prestazioni query. **Lettore** può visualizzare i grafici e tabelle ma non il testo della query.
@@ -75,7 +75,7 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 1. Aprire **Raccomandazioni per le prestazioni** dalla sezione **Supporto + risoluzione dei problemi** della barra dei menu nella pagina del portale di Azure per il server PostgreSQL.
    
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Pagina di destinazione Elementi consigliati per le prestazioni":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Parametri del server Query Store":::
 
 2. Selezionare **Analizza** e scegliere un database. Viene avviata l'analisi.
 
@@ -85,7 +85,7 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 5. Un elemento consigliato illustrerà informazioni su **Database**, **Tabella**, **Colonna**, e **Dimensioni indice** pertinenti.
 
-   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Risultati Elementi consigliati per le prestazioni":::
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Parametri del server Query Store":::
 
 6. Per implementare l'elemento consigliato, copiare il testo della query ed eseguirlo dal client preferito.
 

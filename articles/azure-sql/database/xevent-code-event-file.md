@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: sample
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
-ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: e9f3f1ca6005ff8c61211263944513d859d6d23e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485478"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620189"
 ---
-# <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Codice di destinazione del file di eventi per gli eventi estesi nel database SQL di Azure
+# <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -41,7 +41,7 @@ Questo argomento presenta un esempio di codice in due fasi:
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato da Database SQL di Azure, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
 
-- Un account e una sottoscrizione di Azure. È possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
+- Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Qualsiasi database in cui è possibile creare una tabella.
   
   - Facoltativamente, è possibile [creare un database dimostrativo **AdventureWorksLT**](single-database-create-quickstart.md) in pochi minuti.
@@ -54,7 +54,7 @@ Questo argomento presenta un esempio di codice in due fasi:
 
 - È necessario che i [moduli di Azure PowerShell](https://go.microsoft.com/?linkid=9811175) siano installati.
 
-  - I moduli forniscono comandi come- **New-AzStorageAccount**.
+  - I moduli forniscono comandi come **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: Codice di PowerShell per il contenitore di archiviazione di Azure
 
@@ -74,7 +74,7 @@ Lo script inizia con comandi di pulitura dopo un'eventuale esecuzione precedente
 
 ### <a name="powershell-code"></a>Codice PowerShell
 
-Questo script di PowerShell presuppone che sia già stato installato il modulo AZ. Per informazioni, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
+Questo script di PowerShell presuppone che il modulo Az sia già stato installato. Per informazioni, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -239,7 +239,7 @@ Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
 -->
 
 > [!NOTE]
-> Nell'esempio di codice PowerShell precedente, gli eventi estesi di SQL non sono compatibili con gli account di archiviazione ADLS Gen2.
+> Nell'esempio di codice PowerShell precedente, gli eventi estesi di SQL non sono compatibili con gli account di archiviazione di ADLS Gen2.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: Codice Transact-SQL che utilizza il contenitore di Archiviazione di Azure
 
@@ -451,9 +451,9 @@ GO
 
 ## <a name="output"></a>Output
 
-Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. **\<event>** Viene visualizzato un elemento che mostra un'istruzione Update.
+Al termine dell'esecuzione dello script Transact-SQL, fare clic su una cella sotto l'intestazione della colonna **event_data_XML**. Viene visualizzato un elemento **\<event>** che mostra un'istruzione UPDATE.
 
-Di seguito è riportato un **\<event>** elemento generato durante il test:
+Di seguito è riportato un elemento **\<event>** generato durante il test:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -512,13 +512,13 @@ Si supponga di voler eseguire l'esempio di Transact-SQL precedente in Microsoft 
   
   - Nessun account di Archiviazione di Azure deve essere coinvolto.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 Per ulteriori informazioni sugli account e i contenitori nel servizio Archiviazione di Azure, vedere:
 
 - [Come usare l'archiviazione BLOB da .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [Denominazione e riferimento a contenitori, BLOB e metadati](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 - [Lavorare con il contenitore radice](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lezione 1: creare criteri di accesso archiviati e una firma di accesso condiviso in un contenitore di Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+- [Lezione 1: creare criteri di accesso archiviati e la firma di accesso condiviso in un contenitore di Azure](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lezione 2: Creare credenziali di SQL Server usando una firma di accesso condiviso](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Eventi estesi per Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)

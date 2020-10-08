@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356775"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619696"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Effettuare il provisioning di nuovi tenant e registrarli nel catalogo
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,14 +46,14 @@ Il catalogo consente di modificare il nome o la posizione del database con un im
 
 Il catalogo può inoltre archiviare altri metadati di tenant o database, ad esempio la versione dello schema, il piano di servizio o i contratti di servizio offerti ai tenant, nonché informazioni per la gestione delle applicazioni, il supporto tecnico o DevOps.
 
-Oltre all'applicazione SaaS, il catalogo può abilitare strumenti di database. Nell'esempio SaaS di database per tenant Wingtip Tickets il catalogo viene usato per abilitare le query tra tenant, che vengono esaminate nell'esercitazione relativa al [Reporting ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestione dei processi tra database viene esaminata nelle esercitazioni relative alla [gestione dello schema](saas-tenancy-schema-management.md) e all' [analisi dei tenant](saas-tenancy-tenant-analytics.md) .
+Oltre all'applicazione SaaS, il catalogo può abilitare strumenti di database. Nell'esempio SaaS di database per tenant Wingtip Tickets il catalogo viene usato per abilitare le query tra tenant, come illustrato nell'[esercitazione sul reporting ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestione dei processi tra database viene esaminata nelle esercitazioni relative alla [gestione dello schema](saas-tenancy-schema-management.md) e all'[analisi del tenant](saas-tenancy-tenant-analytics.md).
 
 Negli esempi SaaS Wingtip Tickets il catalogo viene implementato tramite le funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](elastic-database-client-library.md). La libreria EDCL è disponibile in Java e in .NET Framework. La libreria EDCL consente a un'applicazione di creare, gestire e usare una mappa partizioni supportata da database.
 
 Una mappa partizioni contiene un elenco di partizioni (database) e il mapping tra le chiavi (tenant) e le partizioni. Le funzioni della libreria EDCL vengono usate durante il provisioning dei tenant per creare le voci nella mappa partizioni. Vengono inoltre usate in fase di esecuzione dalle applicazioni per connettersi al database corretto. La libreria client dei database elastici memorizza nella cache le informazioni di connessione per ridurre al minimo il traffico verso il database del catalogo e per velocizzare l'applicazione.
 
 > [!IMPORTANT]
-> I dati di mapping sono accessibili nel database del catalogo, ma *non vengono modificati*. Per modificare i dati di mapping è possibile usare solo le API della libreria EDCL. Modificando direttamente i dati di mapping si corre il rischio di danneggiare il catalogo e pertanto questa modifica non è supportata.
+> I dati di mapping sono accessibili nel database del catalogo, ma *non devono essere modificati*. Per modificare i dati di mapping è possibile usare solo le API della libreria EDCL. Modificando direttamente i dati di mapping si corre il rischio di danneggiare il catalogo e pertanto questa modifica non è supportata.
 
 
 ## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introduzione al modello di provisioning SaaS
@@ -78,15 +78,15 @@ Gli script e il codice sorgente dell'applicazione SaaS Wingtip Tickets sono disp
 
 Per comprendere come l'applicazione Wingtip Tickets implementa il provisioning di nuovi tenant, quando si effettua il provisioning di un tenant aggiungere un punto di interruzione e seguire il flusso di lavoro.
 
-1. In PowerShell ISE aprire... \\ Learning modules \\ ProvisionAndCatalog \\ _Demo-ProvisionAndCatalog.ps1_ e impostare i parametri seguenti:
+1. In PowerShell ISE aprire ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ e impostare i parametri seguenti:
 
    * **$TenantName** = nome della nuova sede di eventi, ad esempio *Bushwillow Blues*.
    * **$VenueType** = uno dei tipi di sede predefiniti: _blues, classicalmusic, dance, jazz, judo, motor racing, multipurpose, opera, rockmusic, soccer_.
-   * **$DemoScenario**  =  **1**, effettuare *il provisioning di un singolo tenant*.
+   * **$DemoScenario** = **1**, *Provisioning di un tenant singolo*.
 
 2. Per aggiungere un punto di interruzione, posizionare il cursore in un punto qualsiasi sulla riga contenente il testo *New-Tenant `* e quindi premere F9.
 
-   ![Screenshot mostra uno script con nuovo tenant evidenziato per l'aggiunta di un punto di interruzione.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Lo screenshot mostra uno script con New-Tenant evidenziato per l'aggiunta di un punto di interruzione.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Per eseguire lo script, premere F5.
 
@@ -104,19 +104,19 @@ Non è necessario seguire esplicitamente questo flusso di lavoro in cui viene il
 * **Importazione del modulo CatalogAndDatabaseManagement.psm1**. Fornisce un catalogo e un'astrazione a livello di tenant per le funzioni di [gestione delle partizioni](elastic-scale-shard-map-management.md). Questo modulo incapsula gran parte del modello di catalogazione e vale la pena esplorarlo.
 * **Importazione del modulo SubscriptionManagement.psm1**. Include le funzioni per l'accesso a Azure e per la selezione della sottoscrizione di Azure che si vuole utilizzare.
 * **Recupero dei dettagli di configurazione**. Eseguire l'istruzione Get-Configuration usando F11 e vedere come è specificata la configurazione dell'app. Di seguito sono definiti i nomi delle risorse e altri valori specifici dell'app. Non modificare questi valori finché non si ha familiarità con gli script.
-* **Ottenere l'oggetto catalogo.** Eseguire l'istruzione Get-Catalog, che compone e restituisce un oggetto catalogo usato nello script di livello superiore. Questa funzione usa funzioni di gestione di partizioni importate da **AzureShardManagement.psm1**. L'oggetto catalogo è composto da quanto segue:
+* **Recupero dell'oggetto catalogo**. Eseguire l'istruzione Get-Catalog, che compone e restituisce un oggetto catalogo usato nello script di livello superiore. Questa funzione usa funzioni di gestione di partizioni importate da **AzureShardManagement.psm1**. L'oggetto catalogo è composto da quanto segue:
 
-   * $catalogServerFullyQualifiedName viene costruito usando il Stem standard e il nome utente: _Catalog- \<user\> . database. Windows .NET_.
+   * Il valore $catalogServerFullyQualifiedName viene creato usando l'origine standard e il nome utente: _catalog-\<user\>.database.windows.net_.
    * Il valore $catalogDatabaseName viene recuperato dalla configurazione: *tenantcatalog*.
    * L'oggetto $shardMapManager viene inizializzato dal database del catalogo.
    * L'oggetto $shardMap viene inizializzato dalla mappa partizioni _tenantcatalog_ nel database del catalogo. In questo modo viene composto e restituito un oggetto catalogo, che viene usato nello script di livello superiore.
-* **Calcolare la nuova chiave del tenant.** Viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
-* **Controllare se la chiave del tenant esiste già.** Il catalogo viene controllato per verificare che la chiave sia disponibile.
+* **Calcolo della chiave per il nuovo tenant**. Viene usata una funzione hash per creare la chiave del tenant dal nome del tenant.
+* **Controllo dell'esistenza della chiave del tenant**. Il catalogo viene controllato per verificare che la chiave sia disponibile.
 * **Provisioning del database tenant con New-TenantDatabase.** Usare F11 per eseguire le singole istruzioni e vedere come viene effettuato il provisioning del database usando un [modello di Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     Il nome del database viene costruito dal nome del tenant, in modo che sia chiaro quale partizione appartiene a quale tenant. È possibile adottare anche altre convenzioni di denominazione per il database. Un modello di Gestione risorse crea un database tenant copiando un database modello (_baseTenantDB_) nel server di catalogo. In alternativa, è possibile creare un database e inizializzarlo importando un file BACPAC oppure eseguire uno script di inizializzazione da un percorso noto.
 
-    Il modello di Gestione risorse si trova nella cartella ..\Learning Modules\Common\: *tenantdatabasecopytemplate.js*
+    Il modello di Resource Manager è disponibile nella cartella …\Learning Modules\Common: *tenantdatabasecopytemplate.json*
 
 * **Inizializzazione del database tenant**. Vengono aggiunti il nome della sede di eventi (tenant) e il tipo di sede. In questa fase è possibile eseguire anche altre operazioni di inizializzazione.
 
@@ -138,7 +138,7 @@ Questo esercizio descrive come effettuare il provisioning di un batch di 17 tena
 
 1. In PowerShell ISE aprire ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*. Modificare il parametro *$DemoScenario* impostandolo su 3:
 
-   * **$DemoScenario**  =  **3**, effettuare *il provisioning di un batch di tenant*.
+   * **$DemoScenario** = **3***Provisioning di un batch di tenant*.
 2. Per eseguire lo script, premere F5.
 
 Lo script distribuisce un batch di altri tenant e usa un [modello di Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) che controlla il batch e delega il provisioning di ogni database a un modello collegato. L'uso dei modelli in questo modo consente ad Azure Resource Manager di gestire il processo di provisioning per lo script. I modelli effettuano il provisioning dei database in parallelo e, se necessario, gestiscono i tentativi. Lo script è idempotent, pertanto, se non riesce o si interrompe per qualsiasi motivo, eseguirlo nuovamente.
@@ -177,5 +177,5 @@ Provare l'[Esercitazione sul monitoraggio delle prestazioni](../../sql-database/
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * Altre [esercitazioni basate sull'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Libreria client di database elastici](elastic-database-client-library.md)
+* [Libreria client dei database elastici](elastic-database-client-library.md)
 * [Debug degli script in Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)

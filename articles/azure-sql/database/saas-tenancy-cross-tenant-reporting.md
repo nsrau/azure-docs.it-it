@@ -1,22 +1,22 @@
 ---
-title: Creazione di report per query su più database
+title: Query di report in più database
 description: Reporting tra tenant tramite query distribuite.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: 03e8719b256fc758874bd7375deed0637da9447e
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361739"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620308"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Reporting tra tenant tramite query distribuite
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,7 +53,7 @@ Grazie alla distribuzione delle query tra i database tenant, la query elastica o
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
-Gli script e il codice sorgente dell'applicazione del database multi-tenant SaaS Wingtip Tickets sono disponibili nel repository GitHub [repository wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
+Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Creare i dati di vendita dei biglietti
 
@@ -93,10 +93,10 @@ Per esaminare la definizione della vista *Venues*:
 
 1. In **Esplora oggetti** espandere **contosoconcerthall** > **Viste**:
 
-   ![Screenshot mostra il contenuto del nodo views, inclusi quattro tipi di evento d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Lo screenshot mostra il contenuto del nodo Viste, inclusi quattro tipi di dbo Venue.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Fare clic con il pulsante destro del mouse su **dbo.Venues**.
-3. Selezionare **la visualizzazione script come**  >  **Crea in**una  >  **nuova finestra dell'editor di query**
+3. Selezionare **Crea script per vista** > **CREATE in** > **Nuova finestra editor di query**.
 
 Creare uno script per qualsiasi altra vista *Venue* per scoprire come viene aggiunto *VenueId*.
 
@@ -106,7 +106,7 @@ Questo esercizio distribuisce il database _adhocreporting_, ovvero il database p
 
 1. In *PowerShell ISE* aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1*. 
 
-1. Impostare **$DemoScenario = 2**, _distribuire un database di report ad hoc_.
+1. Impostare **$DemoScenario = 2**, _Distribuire un database di reporting ad hoc_.
 
 1. Premere **F5** per eseguire lo script e creare il database *adhocreporting*.
 
@@ -148,7 +148,7 @@ Dopo avere configurato il database *adhocreporting*, è possibile procedere ed e
 
 Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano per visualizzare i dettagli. 
 
-È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)**, usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Poiché ogni *VenueId* esegue il mapping a un singolo database, l'applicazione di filtri viene eseguita facilmente in remoto, restituendo solo i dati necessari.
+È importante sottolineare che l'impostazione **DISTRIBUTION = SHARDED(VenueId)**, usata per la definizione dell'origine dati esterna, consente di migliorare le prestazioni in molti scenari. Dato che ogni *VenueId* corrisponde a un singolo database, è possibile filtrare facilmente i dati in remoto e restituire solo i dati necessari.
 
 1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SQL Server Management Studio.
 2. Assicurarsi di essere connessi al database **adhocreporting**.

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 09/30/2020
 ms.author: victorh
-ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00a84fbf694a58128712abf806ff12df96f0e5e9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91399449"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596678"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
@@ -89,6 +89,7 @@ Gestione firewall di Azure presenta i problemi noti seguenti:
 |Le regole dell'applicazione non riescono in un hub protetto con DNS personalizzato (anteprima) configurato.|Il DNS personalizzato (anteprima) non funziona nelle distribuzioni di hub protetti e nelle distribuzioni di reti virtuali hub in cui è abilitato il tunneling forzato.|La correzione è in corso di analisi.|
 |Protezione DDoS Standard non è supportato con hub virtuali protetti|Protezione DDoS Standard non è integrato con reti WAN virtuali.|Analisi in corso|
 |I log attività non sono supportati completamente|Il criterio firewall non supporta attualmente i log attività.|Analisi in corso|
+|Configurazione di intervalli di indirizzi IP privati SNAT|Le [impostazioni degli intervalli IP privati](../firewall/snat-private-range.md) vengono ignorate se è configurato il criterio di Firewall di Azure. Viene usato il comportamento predefinito di Firewall di Azure, in cui non si applicano le regole di rete SNAT quando l'indirizzo IP di destinazione si trova in un intervallo di indirizzi IP privati in base a [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Analisi in corso
 
 ## <a name="next-steps"></a>Passaggi successivi
 

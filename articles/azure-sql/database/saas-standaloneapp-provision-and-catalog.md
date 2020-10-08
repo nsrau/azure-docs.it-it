@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b3d886186d26c398a83643c93b98192fca16df6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027002"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619458"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Effettuare il provisioning di nuovi tenant e catalogarli usando il modello SaaS di un'applicazione per ogni tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ L'articolo presenta due parti principali:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Modello di applicazione autonoma per ogni tenant
 
-Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le applicazioni SaaS multi-tenant.  In questo modello viene effettuato il provisioning di un'app autonoma per ogni tenant. L'applicazione comprende i componenti a livello di applicazione e un database SQL di Azure.  Ogni app del tenant può essere distribuita nella sottoscrizione del fornitore.  In alternativa, Azure offre un [programma di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/overview), in base a cui un'app può essere distribuita nella sottoscrizione di un tenant e gestita dal fornitore per conto del tenant.
+Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le applicazioni SaaS multi-tenant.  In questo modello viene effettuato il provisioning di un'app autonoma per ogni tenant. L'applicazione è costituita da componenti a livello di applicazione e da un database SQL di Azure.  Ogni app del tenant può essere distribuita nella sottoscrizione del fornitore.  In alternativa, Azure offre un [programma di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/overview), in base a cui un'app può essere distribuita nella sottoscrizione di un tenant e gestita dal fornitore per conto del tenant.
 
    ![modello di applicazione per ogni tenant](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -77,12 +77,12 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 
 ## <a name="provision-the-catalog"></a>Effettuare il provisioning del catalogo
 
-In questa attività si apprenderà come effettuare il provisioning del catalogo usato per registrare tutti i database tenant. Contenuto del modulo:
+In questa attività si apprenderà come effettuare il provisioning del catalogo usato per registrare tutti i database tenant. Si eseguiranno le operazioni seguenti:
 
 * **Effettuare il provisioning del database di catalogo** usando un modello di gestione delle risorse di Azure. Il database viene inizializzato importando un file BACPAC.
 * **Registrare le app del tenant di esempio** che sono state distribuite in precedenza.  Ogni tenant viene registrato con una chiave calcolata da un hash del nome del tenant.  Anche il nome del tenant viene archiviato in una tabella di estensione nel catalogo.
 
-1. In PowerShell ISE aprire *. ..\Learning Modules\UserConfig.PSM* e aggiornare il **\<user\>** valore al valore usato durante la distribuzione delle tre applicazioni di esempio.  **Salvare il file**.
+1. In PowerShell ISE aprire *...\Learning Modules\UserConfig.psm* e aggiornare il valore **\<user\>** in base al valore usato per la distribuzione delle tre applicazioni di esempio.  **Salvare il file**.
 1. In PowerShell ISE aprire *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* e impostare **$Scenario = 1**. Distribuire il catalogo di tenant e registrare i tenant predefiniti.
 
 1. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga contenente il testo `& $PSScriptRoot\New-Catalog.ps1`, quindi premere **F9**.
@@ -98,8 +98,8 @@ Al completamento dello script il catalogo sarà disponibile e saranno stati regi
 
 A questo punto esaminare le risorse appena create.
 
-1. Aprire il [portale di Azure](https://portal.azure.com/) ed esplorare i gruppi di risorse.  Aprire il gruppo **Wingtip-SA-Catalog \<user\> -** Resource e prendere nota del server di catalogo e del database.
-1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando login, quindi immettere la password = **P \@ ssword1**.
+1. Aprire il [portale di Azure](https://portal.azure.com/) ed esplorare i gruppi di risorse.  Aprire il gruppo di risorse **wingtip-sa-catalog-\<user\>** e prendere nota del server e del database del catalogo.
+1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando Accesso e quindi immettere la password = **P\@ssword1**.
 
 
 1. Esplorare lo schema del database *tenantcatalog*.
@@ -116,7 +116,7 @@ A questo punto esaminare le risorse appena create.
 
 ## <a name="provision-a-new-tenant-application"></a>Effettuare il provisioning di una nuova applicazione di tenant
 
-In questa attività si apprenderà come effettuare il provisioning di una singola applicazione di tenant. Contenuto del modulo:
+In questa attività si apprenderà come effettuare il provisioning di una singola applicazione di tenant. Si eseguiranno le operazioni seguenti:
 
 * **Creare un nuovo gruppo di risorse** per il tenant.
 * **Effettuare il provisioning dell'applicazione e del database** nel nuovo gruppo di risorse usando un modello di gestione delle risorse di Azure.  Questa azione include l'inizializzazione del database con i dati di riferimento e lo schema comune importando un file BACPAC.

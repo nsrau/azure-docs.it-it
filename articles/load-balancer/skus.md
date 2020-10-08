@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654481"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631444"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU di Azure Load Balancer
 
@@ -54,7 +54,9 @@ Per altre informazioni, vedere [Limiti di Load Balancer](https://docs.microsoft.
 
 - Gli SKU non sono modificabili. Non è possibile modificare lo SKU di una risorsa esistente.
 - Una risorsa autonoma per macchine virtuali, una risorsa per un set di disponibilità o una risorsa per un set di scalabilità di macchine virtuali può essere riferita a uno SKU, non a entrambi.
-- Le [operazioni di spostamento delle sottoscrizioni](../azure-resource-manager/management/move-resource-group-and-subscription.md) non sono supportate per le risorse Load Balancer Standard e indirizzo IP pubblico Standard.
+- [Operazioni di spostamento](../azure-resource-manager/management/move-resource-group-and-subscription.md):
+  - le operazioni di spostamento dei gruppi di risorse (all'interno della stessa sottoscrizione) **sono supportate** per Load Balancer Standard e l'indirizzo IP pubblico standard. 
+  - Le [operazioni di spostamento dei gruppi di sottoscrizioni](../azure-resource-manager/management/move-support-resources.md) **non** sono supportate per le risorse Load Balancer Standard e indirizzo IP pubblico standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

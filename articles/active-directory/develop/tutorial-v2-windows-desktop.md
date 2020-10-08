@@ -1,6 +1,7 @@
 ---
-title: Introduzione all'uso di Microsoft Identity Platform con un'app Windows Desktop
-description: Informazioni su come un'applicazione .NET per Windows Desktop (XAML) può ottenere un token di accesso e chiamare un'API protetta da Microsoft Identity Platform.
+title: "Esercitazione: Creare un'app Windows Presentation Foundation (WPF) che usa Microsoft Identity Platform per l'autenticazione | Azure"
+titleSuffix: Microsoft identity platform
+description: In questa esercitazione si creerà un'applicazione WPF che usa Microsoft Identity Platform per consentire l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph per loro conto.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,24 +12,32 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b82193fda64f2cf265c879c5cda9141be1b576f8
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181538"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627891"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chiamare l'API Microsoft Graph da un'app Windows Desktop
+# <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Esercitazione: Chiamare l'API Microsoft Graph da un'app Windows Desktop
 
-Questa guida illustra come un'applicazione .NET per Windows Desktop (XAML) nativa usa un token di accesso per chiamare l'API Microsoft Graph. L'app può accedere anche ad altre API che richiedono token di accesso da un endpoint di Microsoft Identity Platform per sviluppatori v2.0, la piattaforma in precedenza denominata Azure AD.
+Questa guida illustra come un'applicazione .NET per Windows Desktop (XAML) nativa usa un token di accesso per chiamare l'API Microsoft Graph. L'app può accedere anche ad altre API che richiedono token di accesso da Microsoft Identity Platform.
 
 Dopo aver completato la Guida, l'applicazione sarà in grado di chiamare un'API protetta che usa account personali (inclusi outlook.com, live.com e altri). L'applicazione userà anche account di lavoro e di formazione da qualsiasi società o organizzazione che usa Azure Active Directory.
 
-> [!NOTE]
-> La guida richiede Visual Studio 2015 Update 3, Visual Studio 2017 o Visual Studio 2019. Non si dispone di nessuna di queste versioni? [Scaricare gratuitamente Visual Studio 2019](https://www.visualstudio.com/downloads/).
+Contenuto dell'esercitazione:
 
->[!NOTE]
-> Se non si ha familiarità con Microsoft Identity Platform, è consigliabile iniziare con l'articolo [Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop](quickstart-v2-windows-desktop.md).
+> [!div class="checklist"]
+> * Creare un progetto *Windows Presentation Foundation (WPF)* in Visual Studio
+> * Installare Microsoft Authentication Library (MSAL) per .NET
+> * Registrare l'applicazione nel portale di Azure
+> * Aggiungere il codice per supportare l'accesso e la disconnessione
+> * Aggiungere il codice per chiamare l'API Microsoft Graph
+> * Testare l'app
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 
@@ -367,3 +376,10 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 Oltre al token di accesso che viene usato per chiamare l'API Microsoft Graph, dopo l'accesso dell'utente, MSAL ottiene anche un token ID. Questo token contiene un piccolo subset di informazioni relative agli utenti. Il metodo `DisplayBasicTokenInfo` visualizza le informazioni di base contenute nel token. Ad esempio, visualizza l'ID e il nome visualizzato dell'utente, la data di scadenza del token e la stringa che rappresenta il token di accesso. Premendo più volte il pulsante *Call Microsoft Graph API* (Chiama API Microsoft Graph), è possibile vedere che lo stesso token è stato usato per più richieste successive. Se MSAL decide che è il momento di rinnovare il token, è possibile anche vedere la data di scadenza estesa.
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Altre informazioni sulla creazione di app desktop che chiamano API Web protette nella serie di scenari in più parti:
+
+> [!div class="nextstepaction"]
+> [Scenario: App desktop che chiama le API Web](scenario-desktop-overview.md)

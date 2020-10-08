@@ -1,22 +1,22 @@
 ---
 title: Analisi su più tenant con dati estratti
-description: Query di analisi tra tenant usando i dati estratti da più database SQL di Azure in un'app a tenant singolo.
+description: Query di analisi su più tenant con dati estratti da diversi database SQL di Azure in un'app a singolo tenant.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cd80f0b2a5e2ad1fd4c2cff73728d57a2beafc7e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361518"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619543"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Questa esercitazione illustra in dettaglio uno scenario di analisi completo per 
 
 1.  **Estrarre** i dati dal database di ogni tenant e **caricarli** in un archivio di analisi.
 2.  **Trasformare i dati estratti** per l'elaborazione dell'analisi.
-3.  Usare gli strumenti di **Business Intelligence** per creare informazioni utili, che possono guidare il processo decisionale. 
+3.  Usare strumenti di **business intelligence** per ottenere informazioni dettagliate utili su cui basare il processo decisionale. 
 
 In questa esercitazione si apprenderà come:
 
@@ -44,7 +44,7 @@ Le applicazioni SaaS multi-tenant in genere hanno un'elevata quantità di dati d
 
 L'accesso ai dati per tutti i tenant è semplice quando tutti i dati si trovano in un unico database multi-tenant. È invece più complesso quando sono distribuiti su larga scala in potenzialmente migliaia di database. Un modo per superare tale complessità e per ridurre l'impatto delle query di analisi sui dati transazionali consiste nell'estrarre i dati in un database o un data warehouse di analisi progettato specificatamente.
 
-Questa esercitazione presenta uno scenario di analisi completo per l'applicazione SaaS Wingtip Tickets. Prima viene usato *Processi elastici* per estrarre i dati da ogni database tenant e caricarli nelle tabelle di staging in un archivio di analitica, L'archivio di analisi può essere un database SQL o un pool SQL. Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../../data-factory/introduction.md).
+Questa esercitazione presenta uno scenario di analisi completo per l'applicazione SaaS Wingtip Tickets. Prima viene usato *Processi elastici* per estrarre i dati da ogni database tenant e caricarli nelle tabelle di staging in un archivio di analitica, che può essere un database SQL o un pool SQL. Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../../data-factory/introduction.md).
 
 I dati aggregati vengono quindi trasformati in un set di tabelle con [schema star](https://www.wikipedia.org/wiki/Star_schema). Le tabelle sono costituite da una tabella dei fatti centrale e dalle tabelle delle dimensioni correlate.  Per Wingtip Tickets:
 
@@ -80,20 +80,20 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 In questa esercitazione viene eseguita un'analisi sui dati relativi alle vendite di biglietti. In questo passaggio si generano i dati relativi ai biglietti per tutti i tenant.  Successivamente, questi dati verranno estratti per l'analisi. *Assicurarsi di aver effettuato il provisioning del batch di tenant come descritto in precedenza, per avere una quantità significativa di dati*. Una quantità sufficientemente elevata di dati può esporre vari modelli diversi di acquisto dei biglietti.
 
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* e impostare il valore seguente:
-    - **$DemoScenario**  =  **1** acquistare i ticket per gli eventi in tutte le sedi
+    - **$DemoScenario** = **1** (acquisto di biglietti per gli eventi in tutte le sedi)
 2. Premere **F5** per eseguire lo script e creare la cronologia di acquisto dei biglietti per ogni evento in ogni sede.  Lo script viene eseguito per diversi minuti per generare decine di migliaia di biglietti.
 
 ### <a name="deploy-the-analytics-store"></a>Distribuire l'archivio di analisi
-Spesso tutti i dati dei tenant sono contenuti in numerosi database transazionali. È necessario aggregare i dati dei tenant dei diversi database transazionali in un archivio di analisi. L'aggregazione consente di eseguire query efficienti sui dati. In questa esercitazione viene usato un database SQL di Azure per archiviare i dati aggregati.
+Spesso tutti i dati dei tenant sono contenuti in numerosi database transazionali. È necessario aggregare i dati dei tenant dei diversi database transazionali in un archivio di analisi. L'aggregazione consente di eseguire query efficienti sui dati. In questa esercitazione, per archiviare i dati aggregati viene usato un database SQL di Azure.
 
 Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tenantanalytics**, e le tabelle predefinite che verranno popolate più avanti nell'esercitazione:
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*. 
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto:
-    - Per usare il database SQL senza l'archivio colonne, impostare **$DemoScenario**  =  **2**
-    - Per usare il database SQL con l'archivio colonne, impostare **$DemoScenario**  =  **3**  
+    - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
+    - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
 3. Premere **F5** per eseguire lo script dimostrativo che chiama lo script *Deploy-TenantAnalytics\<XX>.ps1* e crea l'archivio di analisi dei tenant. 
 
-Ora che l'applicazione è stata distribuita e è stata compilata con dati del tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettere i server **tenants1-ssword1- &lt; User &gt; ** e **Catalog-- &lt; User &gt; ** usando login = *Developer*, password = *P \@ *. Per altre indicazioni, vedere l'[esercitazione introduttiva](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+Dopo aver distribuito l'applicazione e avervi inserito i dati dei tenant a cui si è interessati, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;Utente&gt;** e **catalog-dpt-&lt;Utente&gt;** con l'account di accesso *developer* e la password *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
 
 ![architectureOverView](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -138,7 +138,7 @@ Ogni processo estrae i rispettivi dati e li inserisce nell'archivio di analisi. 
 4. Premere F5 per eseguire lo script che crea ed esegue il processo che estrae i dati relativi ai biglietti e ai clienti dal database di ogni tenant. Il processo salva i dati nell'archivio di analisi.
 5. Eseguire una query sulla tabella TicketsRawData del database tenantanalytics per verificare che la tabella sia stata popolata con le informazioni sui biglietti di tutti i tenant.
 
-![Screenshot mostra il database ExtractTickets con il TicketsRawData d b o selezionato in Esplora oggetti.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![Lo screenshot mostra il database ExtractTickets con il dbo TicketsRawData selezionato in Esplora oggetti.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Ripetere i passaggi precedenti, sostituendo però **\ExtractTickets.sql** con **\ExtractVenuesEvents.sql** nel passaggio 2.
 
@@ -175,9 +175,9 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **database** nel riquadro sinistro, quindi immettere nome utente = *Developer*e immettere password = *P \@ ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **Database** nel riquadro sinistro e quindi immettere il nome utente *developer* e la password *P\@ssword1*. Fare clic su **Connetti**.  
 
-    ![Screenshot mostra la finestra di dialogo SQL Server database in cui è possibile immettere un nome utente e una password.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![Lo screenshot mostra la finestra di dialogo Database di SQL Server in cui è possibile immettere un nome utente e una password.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
 
@@ -185,13 +185,13 @@ Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora
 
 Per iniziare, si analizzano i dati relativi alle vendite di biglietti per individuare la variazione nell'utilizzo tra le diverse sedi. Selezionare le opzioni seguenti in Power BI per tracciare un grafico a barre del numero totale di biglietti venduti da ogni sede. A causa della variazione casuale nel generatore di biglietti, i risultati effettivi potrebbero essere diversi.
  
-![Screenshot mostra una visualizzazione e i controlli di Power B I per la visualizzazione dei dati sul lato destro.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![Lo screenshot mostra una visualizzazione di Power BI e i controlli per la visualizzazione dei dati sulla destra.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 Il tracciato precedente conferma la variazione nel numero di biglietti venduti da ogni sede. Le sedi che vendono una maggiore quantità di biglietti usano di più il servizio rispetto a quelle con vendite inferiori. Questo potrebbe offrire l'opportunità di adattare l'allocazione delle risorse alle esigenze dei diversi tenant.
 
 È possibile analizzare ulteriormente i dati per individuare la variazione delle vendite di biglietti nel tempo. Selezionare le opzioni seguenti in Power BI per tracciare il numero totale di biglietti venduti ogni giorno per un periodo di 60 giorni.
  
-![Screenshot mostra la visualizzazione di Power B I denominata distribuzione dei biglietti e il giorno della vendita.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![Lo screenshot mostra la visualizzazione di Power BI denominata Ticket Sale Distribution versus Sale Day.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 Il grafico precedente mostra un picco nelle vendite di biglietti per alcune sedi. Questi picchi rafforzano l'idea che alcune sedi potrebbe utilizzare le risorse di sistema in modo sproporzionato. Per ora non è stato rilevato un modello ovvio nella ricorrenza dei picchi.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Selezionare le opzioni di visualizzazione seguenti per tracciare la percentuale di biglietti venduta da ogni sede e determinare così il successo relativo di ognuna.
 
-![Screenshot mostra la visualizzazione di Power B I denominata media dei ticket venduti da ogni sede.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![Lo screenshot mostra la visualizzazione di Power BI denominata Average Tickets Sold By Each Venue.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 Il tracciato precedente mostra che nonostante la maggior parte delle sedi venda oltre l'80% dei propri biglietti, alcune hanno difficoltà a riempire più della metà dei posti. Modificare la selezione nell'area dei valori per ottenere la percentuale minima o massima di biglietti venduta per ogni sede.
 

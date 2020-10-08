@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
-ms.translationtype: MT
+ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91356826"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91618940"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL di Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "91356826"
 
 Questa esercitazione illustra come distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets (Wingtip). L'app usa un modello di database per tenant per archiviare i dati di più tenant. L'app è stata progettata per presentare le funzionalità del database SQL di Azure che semplificano l'abilitazione degli scenari SaaS.
 
-Cinque minuti dopo la selezione di **Distribuisci in Azure**, è disponibile un'applicazione SaaS multi-tenant. L'app include un database che viene eseguito nel database SQL di Azure. L'app viene distribuita con tre tenant di esempio, ognuno con il proprio database. Tutti i database vengono distribuiti in un pool elastico SQL. L'app viene distribuita nella sottoscrizione di Azure. Si ottiene l'accesso completo per l'esplorazione e l'utilizzo dei singoli componenti dell'app. Il codice sorgente C# dell'applicazione e gli script di gestione sono disponibili nel [repository GitHub repository wingtipticketssaas-DbPerTenant][github-wingtip-dpt].
+Cinque minuti dopo la selezione di **Distribuisci in Azure**, è disponibile un'applicazione SaaS multi-tenant. L'app include un database che viene eseguito nel database SQL di Azure. L'app viene distribuita con tre tenant di esempio, ognuno con il proprio database. Tutti i database vengono distribuiti in un pool elastico SQL. L'app viene distribuita nella sottoscrizione di Azure. Si ottiene l'accesso completo per l'esplorazione e l'utilizzo dei singoli componenti dell'app. Gli script di gestione e il codice sorgente in C# dell'applicazione sono disponibili nel [repository WingtipTicketsSaaS-DbPerTenant di GitHub][github-wingtip-dpt].
 
 In questa esercitazione si apprenderà:
 
@@ -65,7 +65,7 @@ Scegliere ora i nomi e annotarli.
     > Alcune impostazioni di autenticazione e per i firewall server sono intenzionalmente non protette a scopo dimostrativo. È consigliabile creare un nuovo gruppo di risorse. Non usare gruppi di risorse, server o pool esistenti. Non usare questa applicazione, gli script o eventuali risorse distribuite per la produzione. Eliminare questo gruppo di risorse quando non è più necessario usare l'applicazione per interrompere la fatturazione correlata.
 
     - **Gruppo di risorse**: selezionare **Crea nuovo** e specificare il nome univoco scelto in precedenza per il gruppo di risorse.
-    - **Località**: selezionare un percorso dall'elenco a discesa.
+    - **Località**: selezionare una località dall'elenco a discesa.
     - **Utente**: usare il valore del nome utente scelto in precedenza.
 
 1. Distribuire l'applicazione.
@@ -98,7 +98,7 @@ Gli script si trovano nella cartella ...\\WingtipTicketsSaaS-DbPerTenant-master\
 
 Prima di eseguire uno script, aggiornare il gruppo di risorse e i valori utente nel file UserConfig. Impostare queste variabili sui valori usati durante la distribuzione.
 
-1. In PowerShell ISE aprire... \\ Moduli di formazione \\ **userconfig. psm1**
+1. In PowerShell ISE aprire ...\\Learning Modules\\**UserConfig.psm1**
 1. Aggiornare **ResourceGroupName** e **Name** con i valori specifici della distribuzione in uso (solo alle righe 10 e 11).
 1. Salvare le modifiche.
 
@@ -108,7 +108,7 @@ Sono presenti riferimenti a questi valori in quasi ogni script.
 
 L'app illustra le sedi che ospitano gli eventi. I tipi di sede includono sale concerto, jazz club e club sportivi. Nell'app Wingtip Tickets le sedi sono registrate come tenant. Una sede registrata come tenant consente la visualizzazione dell'elenco di eventi e la vendita dei biglietti ai clienti. Ogni sede è associata a un sito Web personalizzato in cui sono elencati i relativi eventi e dove è possibile la vendita dei biglietti.
 
-Internamente nell'app, ogni tenant ottiene un database distribuito in un pool elastico.
+Internamente nell'app ogni tenant ottiene un database distribuito in un pool elastico.
 
 Una pagina centrale **Events Hub** (Hub eventi) visualizza un elenco di collegamenti ai tenant nella distribuzione.
 
@@ -118,7 +118,7 @@ Una pagina centrale **Events Hub** (Hub eventi) visualizza un elenco di collegam
 
 2. Selezionare **Fabrikam Jazz Club** nella pagina Events Hub.
 
-    ![Eventi](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
+    ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
 ### <a name="azure-traffic-manager"></a>Gestione traffico di Azure
 
@@ -130,8 +130,8 @@ L'applicazione Wingtip usa  [*Gestione traffico di Azure*](../../traffic-manage
 
     | Parte URL        | Descrizione       |
     | :-------------- | :---------------- |
-    | eventi. Wingtip-criteri di | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* (*-sa*) o di *database multi-tenant* (*-mt*). |
-    | . * &lt; utente &gt; * di | *af1* nell'esempio. |
+    | events.wingtip-dpt | Le parti degli eventi dell'app Wingtip.<br /><br /> *-dpt* distingue l'implementazione di *database per tenant* dell'app Wingtip Tickets dalle altre implementazioni, ad esempio quelle di app per tenant *singole* (*-sa*) o di *database multi-tenant* (*-mt*). |
+    | . *&lt;user&gt;* | *af1* nell'esempio. |
     | .trafficmanager.net/ | Gestione traffico, URL di base. |
     | fabrikamjazzclub | Identifica il tenant denominato Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -142,7 +142,7 @@ L'applicazione Wingtip usa  [*Gestione traffico di Azure*](../../traffic-manage
   - Il catalogo viene implementato tramite la *gestione di mappe partizioni*.
 - La pagina Events Hub usa i metadati estesi nel catalogo per creare gli URL della pagina con l'elenco degli eventi per ogni tenant.
 
-In un ambiente di produzione, in genere si crea un record DNS CNAME per [*puntare un dominio Internet aziendale*](../../traffic-manager/traffic-manager-point-internet-domain.md)   al nome DNS di gestione traffico.
+In un ambiente di produzione si crea in genere un record CNAME DNS per  [*configurare un dominio Internet aziendale in modo che faccia riferimento*](../../traffic-manager/traffic-manager-point-internet-domain.md)  al nome DNS di Gestione traffico.
 
 > [!NOTE]
 > L'uso di gestione traffico potrebbe non essere immediatamente evidente in questa esercitazione. L'obiettivo di questa serie di esercitazioni consiste nel presentare modelli in grado di gestire la scalabilità di un ambiente di produzione complesso. In tal caso, ad esempio, sarebbero necessarie più app Web distribuite in tutto il mondo, con percorso condiviso con i database e gestione traffico dovrebbe eseguire l'instradamento tra queste istanze.
@@ -154,7 +154,7 @@ Al termine della distribuzione, è possibile usare l'app.
 
 Lo script di PowerShell *Demo-LoadGenerator* avvia un carico di lavoro che viene eseguito su tutti i database tenant. Il carico del mondo reale in molte app SaaS è generalmente sporadico e imprevedibile. Per simulare il tipo di carico, il generatore produce un carico con picchi casuali o picchi di attività per ogni tenant. I picchi vengono eseguiti a intervalli casuali. Il modello di carico si manifesta completamente solo dopo alcuni minuti. Lasciare agire il generatore per almeno tre o quattro minuti prima di monitorare il carico.
 
-1. In PowerShell ISE aprire il... \\ Il modulo Learning modules \\ Utilities \\ *Demo-LoadGenerator.ps1* script.
+1. In PowerShell ISE aprire ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* script.
 2. Premere F5 per eseguire lo script e avviare il generatore di carico. Per il momento lasciare invariati i valori predefiniti dei parametri.
 3. Accedere al proprio account Azure e, se necessario, selezionare la sottoscrizione che si vuole usare.
 
@@ -212,7 +212,7 @@ Per il nuovo database tenant sono state eseguite le operazioni seguenti:
 - Inizializzazione.
 - Registrazione nel catalogo.
 
-Dopo il completamento del provisioning, il sito degli *eventi* del nuovo tenant viene visualizzato nel browser.
+Al termine del provisioning, nel browser viene visualizzato il sito degli *eventi* del nuovo tenant.
 
 ![Nuovo tenant](./media/saas-dbpertenant-get-started-deploy/red-maple-racing.png)
 
@@ -225,7 +225,7 @@ Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è possibi
 1. Nel  [portale di Azure](https://portal.azure.com) passare all'elenco di server SQL. Aprire quindi il server **catalog-dpt-&lt;UTENTE&gt;**.
     - Il server di catalogo contiene due database, **tenantcatalog** e **basetenantdb**, un database modello che viene copiato per creare nuovi tenant.
 
-   ![Screenshot mostra una pagina di panoramica del server di catalogo con i due database.](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![Lo screenshot mostra una pagina di panoramica del server di catalogo con i due database.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Tornare all'elenco di istanze di SQL Server.
 
@@ -249,7 +249,7 @@ Passare al server **tenants1-dpt-&lt;utente&gt;** e selezionare **Pool1** per vi
 - Il primo grafico, etichettato come **Utilizzo delle risorse**, mostra l'utilizzo eDTU del pool.
 - Il secondo grafico mostra l'utilizzo eDTU dei cinque database più attivi nel pool.
 
-I due grafici illustrano che i pool elastici e il database SQL sono adatti ai carichi di lavoro di applicazioni SaaS non prevedibili. I grafici mostrano che quattro database, ognuno dei quali con picchi di utilizzo fino a 40 eDTU, vengono supportati senza problemi da un pool da 50 eDTU. Il pool da 50 eDTU può supportare anche carichi di lavoro più pesanti. Se è stato effettuato il provisioning dei database come database singoli, per supportare i picchi ogni database deve essere un S2 (50 DTU). Il costo di quattro database S2 singoli corrisponde circa al triplo del prezzo del pool. Nelle situazioni reali, i clienti di database SQL eseguono fino a 500 database in pool da 200 eDTU. Per ulteriori informazioni, vedere l' [esercitazione sul monitoraggio delle prestazioni](saas-dbpertenant-performance-monitoring.md).
+I due grafici illustrano che i pool elastici e il database SQL sono adatti ai carichi di lavoro di applicazioni SaaS non prevedibili. I grafici mostrano che quattro database, ognuno dei quali con picchi di utilizzo fino a 40 eDTU, vengono supportati senza problemi da un pool da 50 eDTU. Il pool da 50 eDTU può supportare anche carichi di lavoro più pesanti. Se è stato effettuato il provisioning dei database come database singoli, per supportare i picchi ogni database deve essere un S2 (50 DTU). Il costo di quattro database S2 singoli corrisponde circa al triplo del prezzo del pool. Nelle situazioni reali, i clienti di database SQL eseguono fino a 500 database in pool da 200 eDTU. Per altre informazioni, vedere l'[esercitazione sul monitoraggio delle prestazioni](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -270,7 +270,7 @@ In questa esercitazione si è appreso:
 > - Come visualizzare l'utilizzo del pool per monitorare l'attività dei tenant
 > - Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-Successivamente, provare l' [esercitazione su provisioning e catalogazione](saas-dbpertenant-provision-and-catalog.md).
+Successivamente, eseguire l'[esercitazione su provisioning e catalogazione](saas-dbpertenant-provision-and-catalog.md).
 
 <!-- Link references. -->
 

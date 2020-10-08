@@ -3,22 +3,47 @@ title: Connettere macchine virtuali non di Azure al Centro sicurezza di Azure
 description: Informazioni su come connettere macchine virtuali non di Azure al Centro sicurezza di Azure
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6f2889c298f525e1babf80f86d4ae140ef2ce96f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448960"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612218"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Connettere macchine virtuali non di Azure al Centro sicurezza
 
-Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. È possibile aggiungere computer non Azure nella pagina **Attività iniziali** o **Inventario**, come descritto di seguito.
+Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. 
 
-## <a name="add-non-azure-computers"></a>Aggiungere computer non Azure 
+È possibile aggiungere computer non Azure in uno dei modi seguenti:
+
+- Usando Azure Arc (**consigliato**)
+- Dalle pagine del Centro sicurezza nel portale di Azure (**Attività iniziali** e **Inventario**)
+
+Ogni modalità è illustrata di seguito.
+
+## <a name="add-non-azure-machines-with-azure-arc"></a>Aggiungere computer non Azure con Azure Arc
+
+Usare Azure Arc è il modo migliore per aggiungere i computer non Azure al Centro sicurezza di Azure.
+
+Un computer con Azure Arc abilitato diventa una risorsa di Azure e viene visualizzato nel Centro sicurezza con raccomandazioni quali le altre risorse di Azure. 
+
+Azure Arc fornisce anche funzionalità avanzate, ad esempio le opzioni per abilitare i criteri nel computer, distribuire l'agente di Log Analytics come estensione, semplificare la distribuzione con altri servizi di Azure e altre ancora. Per una panoramica dei vantaggi, vedere [Scenari supportati](../azure-arc/servers/overview.md#supported-scenarios).
+
+**Per distribuire Azure Arc:**
+
+- Per un solo computer, seguire le istruzioni contenute nell'articolo [Avvio rapido: Connettere un computer ibrido con server abilitati per Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- Per distribuire Azure Arc su larga scala, vedere [Connettere macchine virtuali ibride ad Azure su larga scala](../azure-arc/servers/onboard-service-principal.md)
+
+Altre informazioni su [Azure Arc](../azure-arc/servers/overview.md).
+
+> [!TIP]
+> Se si esegue l'onboarding di computer AWS, il connettore del Centro sicurezza per AWS gestisce in modo trasparente e automatico la distribuzione di Azure Arc. Per altre informazioni, vedere [Connettere gli account AWS a Centro sicurezza di Azure](quickstart-onboard-aws.md).
+
+## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Aggiungere computer non Azure dalle pagine del portale del Centro sicurezza
 
 1. Dal menu del Centro sicurezza aprire la pagina **Attività iniziali**.
 1. Selezionare la scheda **Introduzione**.
@@ -29,6 +54,8 @@ Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezz
 
     > [!TIP]
     > È anche possibile aprire Aggiungi computer tramite il pulsante **Aggiungi server non di Azure** della pagina **Inventario**.
+    > 
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Scheda Attività iniziali della pagina Attività iniziali":::
 
     Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare l'area di lavoro che si desidera usare.
 
@@ -89,12 +116,13 @@ Per altre informazioni sull'installazione e la configurazione dell'agente, veder
 
 
 ## <a name="verifying"></a>Verifica
-Congratulazioni! A questo punto è possibile visualizzare i computer Azure e non Azure in un'unica posizione. Aprire la pagina inventario dell'[inventario degli asset](asset-inventory.md) e filtrare in base ai tipi di risorsa appropriati. Queste due icone distinguono i tipi:
+Congratulazioni! A questo punto è possibile visualizzare i computer Azure e non Azure in un'unica posizione. Aprire la pagina inventario dell'[inventario degli asset](asset-inventory.md) e filtrare in base ai tipi di risorsa appropriati. Queste icone distinguono i tipi:
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Computer non Azure
+  ![Icona di Azure Spring Cloud per il computer non Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Computer non Azure
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Macchina virtuale di Azure
+  ![Icona di Azure Spring Cloud per il computer Azure](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Macchina virtuale di Azure
 
+  ![Icona di Azure Spring Cloud per il computer Azure Arc](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Computer con abilitazione di Azure Arc
 
 ## <a name="next-steps"></a>Passaggi successivi
 

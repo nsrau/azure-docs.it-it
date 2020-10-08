@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 2829b1c71aebcc97452fc658e6509e4fae42da8c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345275"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91616806"
 ---
 # <a name="in-memory-sample"></a>Esempio in memoria
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Per altre informazioni, vedere:
 
 &nbsp;
 
-## <a name="1-install-the-in-memory-oltp-sample"></a>1. installare l'esempio di OLTP in memoria
+## <a name="1-install-the-in-memory-oltp-sample"></a>1. Installare l'esempio di OLTP in memoria
 
 È possibile creare il database AdventureWorksLT di esempio con pochi clic nel [portale di Azure](https://portal.azure.com/). I passaggi descritti in questa sezione illustrano come migliorare il database AdventureWorksLT con oggetti OLTP in memoria e dimostra i vantaggi sulle prestazioni.
 
@@ -47,7 +47,7 @@ Per una dimostrazione più semplice e visivamente più interessante sulle presta
 
 ### <a name="installation-steps"></a>Procedura di installazione
 
-1. Nel [portale di Azure](https://portal.azure.com/)creare un database premium o business critical in un server. Impostare **Origine** sul database AdventureWorksLT di esempio. Per istruzioni dettagliate, vedere [creare il primo database nel database SQL di Azure](database/single-database-create-quickstart.md).
+1. Nel [portale di Azure](https://portal.azure.com/)creare un database premium o business critical in un server. Impostare **Origine** sul database AdventureWorksLT di esempio. Per istruzioni dettagliate, vedere [Creare il primo database nel database SQL di Azure](database/single-database-create-quickstart.md).
 
 2. Connettersi al database con SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -82,7 +82,7 @@ Se il risultato è **0**, le funzionalità in memoria non sono supportate, mentr
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-È possibile esaminare le tabelle ottimizzate per la memoria tramite **Esplora oggetti** in SSMS. Fare clic con il pulsante destro del mouse su **tabelle**  >  **filtro**  >  **Impostazioni filtro**con  >  **ottimizzazione per la memoria** Il valore è uguale a 1.
+È possibile esaminare le tabelle ottimizzate per la memoria tramite **Esplora oggetti** in SSMS. Fare doppio clic su **Tabelle** > **Filtro** > **Impostazioni filtro** > **Con ottimizzazione per la memoria**. Il valore è uguale a 1.
 
 In alternativa, è possibile eseguire una query delle viste del catalogo, ad esempio:
 
@@ -205,7 +205,7 @@ Al termine, `ostress.exe` scrive la durata dell'esecuzione come ultima riga di o
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Reimposta, modifica per *_ondisk*, quindi Esegui di nuovo
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Reimpostare, modificare per l'esecuzione *_ondisk* ed eseguire di nuovo il test
 
 Dopo aver ottenuto il risultato dell'esecuzione *_inmem*, seguire la procedura indicata di seguito per l'esecuzione *_ondisk*:
 
@@ -229,11 +229,11 @@ I test delle funzionalità in memoria hanno mostrato un miglioramento delle pres
 
 &nbsp;
 
-## <a name="2-install-the-in-memory-analytics-sample"></a>2. installare l'esempio di analisi in memoria
+## <a name="2-install-the-in-memory-analytics-sample"></a>2. Installare l'esempio di analisi in memoria
 
 In questa sezione vengono messi a confronto i risultati di statistiche e IO quando si usa un indice columnstore rispetto a un indice ad albero B tradizionale.
 
-Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile usare un indice columnstore non cluster. Per informazioni dettagliate, vedere gli [indici columnstore descritti](https://msdn.microsoft.com/library/gg492088.aspx).
+Per l'analisi in tempo reale in un carico di lavoro OLTP, è spesso preferibile usare un indice columnstore non cluster. Per informazioni dettagliate, vedere [Descrizione degli indici columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
 
 ### <a name="prepare-the-columnstore-analytics-test"></a>Preparare il test di analisi columnstore
 
@@ -335,17 +335,17 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva 1: tecnologie OLTP in memoria per migliorare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Avvio rapido 1: Tecnologie OLTP in memoria per ottimizzare le prestazioni di T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Usare OLTP in memoria in un'applicazione Azure SQL esistente](in-memory-oltp-configure.md)
+- [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](in-memory-oltp-configure.md)
 
-- [Monitorare l'archiviazione OLTP in memoria](in-memory-oltp-monitor-space.md) per OLTP in memoria
+- [Monitoraggio dell'archiviazione OLTP in memoria](in-memory-oltp-monitor-space.md) per OLTP in memoria.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 ### <a name="deeper-information"></a>Approfondimenti
 
-- [Informazioni su come il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con OLTP in memoria nel database SQL di Azure](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Informazioni in Learn how Quorum doubles key database's workload while lowering DTU by 70% with In-Memory OLTP in Azure SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database) (Il quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con OLTP in memoria nel database SQL di Azure)
 
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure)
 
@@ -359,13 +359,13 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 #### <a name="application-design"></a>Progettazione di applicazioni
 
-- [OLTP in memoria (ottimizzazione per la memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP in memoria (ottimizzazione in memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Usare OLTP in memoria in un'applicazione Azure SQL esistente](in-memory-oltp-configure.md)
+- [Usare OLTP in memoria in un'applicazione esistente del database SQL di Azure.](in-memory-oltp-configure.md)
 
 #### <a name="tools"></a>Strumenti
 
-- [Azure portal](https://portal.azure.com/)
+- [Portale di Azure](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

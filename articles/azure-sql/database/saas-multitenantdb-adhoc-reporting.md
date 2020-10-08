@@ -1,24 +1,24 @@
 ---
-title: Query di Reporting ad hoc su più database
-description: Eseguire query di Reporting ad hoc su più database SQL di Azure in un esempio di app multi-tenant.
+title: Query di reporting ad hoc in più database
+description: Eseguire query di reporting ad hoc su più database SQL di Azure in un esempio di app multi-tenant.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 098ac343885db3e267dcefb3785f5abd55d17ee2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
-ms.translationtype: MT
+ms.openlocfilehash: beb683eef2691aad46c84da1010184182d452257
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441035"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91619679"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Eseguire query di analisi ad hoc su più database (database SQL di Azure)
+# <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Eseguire query di reporting ad hoc su più database (database SQL di Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In questa esercitazione si eseguono query distribuite sull'intero set di database tenant per consentire il reporting ad hoc interattivo. Queste query consentono di estrarre informazioni approfondite nascoste nei dati operativi quotidiani dell'app SaaS Wingtip Tickets. Si richiede a tal fine la distribuzione di un database di analisi aggiuntivo nel server di catalogo e l'uso di query elastica per abilitare le query distribuite.
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà:
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
+* È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio (SSMS) è installato. Per scaricare e installare SSMS, vedere [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
@@ -47,7 +47,7 @@ Le applicazioni SaaS possono analizzare la grande quantità di dati del tenant a
 
 L'accesso a questi dati è semplice quando sono raccolti in un singolo database multi-tenant, ma non è altrettanto semplice in una distribuzione su larga scala potenzialmente in migliaia di database. Uno degli approcci possibili prevede l'uso di una [query elastica](elastic-query-overview.md), che consente di eseguire query su un set di database distribuiti con uno schema comune. Questi database possono essere distribuiti in sottoscrizioni e gruppi di risorse diversi, ma devono condividere un account di accesso comune per poter estrarre dati da tutti i database. La query elastica usa un singolo database *principale* in cui sono definite le tabelle esterne speculari alle tabelle o alle viste nei database (tenant) distribuiti. Le query inviate a questo database principale vengono compilate per produrre un piano di query distribuito, con il push di parti della query ai database tenant all'occorrenza. La query elastica usa la mappa partizioni nel database del catalogo per determinare la posizione di tutti i database tenant. La configurazione e l'esecuzione di query sono semplici con il linguaggio [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) standard e sono supportate query ad hoc da strumenti come Power BI ed Excel.
 
-Grazie alla distribuzione delle query tra i database tenant, la query elastica offre informazioni dettagliate immediate sui dati di produzione attivi. Tuttavia, dato che la query elastica esegue il pull dei dati potenzialmente da molti database, la latenza delle query può talvolta essere superiore a quella di query equivalenti inviate a un singolo database multi-tenant. Assicurarsi di progettare query che riducano al minimo i dati restituiti. La query elastica è spesso la soluzione ideale per eseguire query su piccole quantità di dati in tempo reale, in alternativa alla creazione di query analitiche o report usati di frequente e complessi. Se le query non offrono prestazioni adeguate, esaminare il [piano di esecuzione](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) per scoprire quale parte della query è stata inviata al database remoto e quanti dati vengono restituiti. Per ottenere un servizio migliore per le query che richiedono un'elaborazione analitica complessa, in alcuni casi è consigliabile salvare i dati tenant estratti in un database ottimizzato per le query analitiche. Il database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse) potrebbero ospitare tale database di analisi.
+Grazie alla distribuzione delle query tra i database tenant, la query elastica offre informazioni dettagliate immediate sui dati di produzione attivi. Tuttavia, dato che la query elastica esegue il pull dei dati potenzialmente da molti database, la latenza delle query può talvolta essere superiore a quella di query equivalenti inviate a un singolo database multi-tenant. Assicurarsi di progettare query che riducano al minimo i dati restituiti. La query elastica è spesso la soluzione ideale per eseguire query su piccole quantità di dati in tempo reale, in alternativa alla creazione di query analitiche o report usati di frequente e complessi. Se le query non offrono prestazioni adeguate, esaminare il [piano di esecuzione](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) per scoprire quale parte della query è stata inviata al database remoto e quanti dati vengono restituiti. Per ottenere un servizio migliore per le query che richiedono un'elaborazione analitica complessa, in alcuni casi è consigliabile salvare i dati tenant estratti in un database ottimizzato per le query analitiche. Database SQL e Azure Synapse Analytics (in precedenza SQL Data Warehouse) possono ospitare un database analitico di questo tipo.
 
 Questo modello di analisi è spiegato nell'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md).
 

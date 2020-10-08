@@ -1,25 +1,27 @@
 ---
-title: 'Avvio rapido: Creare un rilevatore di oggetti - Servizio Visione personalizzata'
+title: 'Avvio rapido: Creare un rilevatore di oggetti con il sito Web di Visione personalizzata'
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido descrive come usare il sito Web di Visione personalizzata per creare un modello di classificazione di immagini.
+description: Questo argomento di avvio rapido descrive come usare il sito Web di Visione personalizzata per creare un modello di rilevamento oggetti ed eseguirne il training e il test.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/30/2020
 ms.author: pafarley
-ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: cog-serv-seo-aug-2020
+keywords: riconoscimento delle immagini, app per il riconoscimento delle immagini, visione personalizzata
+ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549548"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91596892"
 ---
-# <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Guida introduttiva: Come creare un rilevatore di oggetti con Visione personalizzata
+# <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Avvio rapido: Creare un rilevatore di oggetti con il sito Web di Visione personalizzata
 
-In questa esercitazione dell'avvio rapido, si apprenderà a creare un rilevatore di oggetti tramite il sito Web di Visione personalizzata. Dopo aver creato un modello di rilevatore, è possibile usare il servizio Visione personalizzata per il rilevamento oggetti.
+Questo argomento di avvio rapido descrive come usare il sito Web di Visione personalizzata per creare un modello di rilevamento oggetti. Dopo aver compilato un modello, è possibile testarlo con nuove immagini e infine integrarlo nell'app di riconoscimento delle immagini.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
@@ -27,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 - Un set di immagini con cui eseguire il training del modello di rilevatore. È possibile usare il set di [immagini di esempio](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) in GitHub. In alternativa, è possibile scegliere immagini personalizzate usando i suggerimenti seguenti.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creare risorse di Visione personalizzata nel portale di Azure
+## <a name="create-custom-vision-resources"></a>Creare risorse di Visione personalizzata
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +47,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 1. Immettere un nome e una descrizione per il progetto. Selezionare quindi un gruppo di risorse. Se l'account connesso è associato a un account Azure, l'elenco a discesa Gruppo di risorse visualizzerà tutti i gruppi di risorse di Azure che includono una risorsa Servizio visione artificiale personalizzato. 
 
    > [!NOTE]
-   > Se non sono disponibili gruppi di risorse, verificare di aver eseguito l'accesso a [customvision.ai](https://customvision.ai) con lo stesso account usato per il [portale di Azure](https://portal.azure.com/). Verificare inoltre di avere selezionato nel portale del servizio Visione personalizzata la stessa "Directory" corrispondente alla directory del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
+   > Se non sono disponibili gruppi di risorse, verificare di aver eseguito l'accesso a [customvision.ai](https://customvision.ai) con lo stesso account usato per il [portale di Azure](https://portal.azure.com/). Verificare inoltre di aver selezionato nel sito Web di Visione personalizzata la stessa "Directory" corrispondente alla directory del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
 
 1. In __Tipi di progetto__ selezionare __Rilevamento oggetti__.
 
@@ -118,3 +120,4 @@ In questa esercitazione dell'avvio rapido si è appreso a creare ed eseguire il 
 > [!div class="nextstepaction"]
 > [Testare un modello e ripeterne il training](test-your-model.md)
 
+* [Informazioni su Visione personalizzata](./overview.md)

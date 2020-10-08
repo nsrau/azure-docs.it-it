@@ -1,22 +1,22 @@
 ---
-title: Gestire lo schema in un'app a tenant singolo
+title: Gestire lo schema in un'app a singolo tenant
 description: Gestire lo schema per più tenant in un'app a singolo tenant che usa database SQL di Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 60c2330578ef4b8e3e40dc3e37a0c8b1eb291e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 62e20a10e9709bc69a746a6f62e949c47c3a6d02
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255552"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620155"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,26 +37,26 @@ In questa esercitazione si apprenderà come:
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-* È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](../../sql-database/saas-dbpertenant-get-started-deploy.md)
+* È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](../../sql-database/saas-dbpertenant-get-started-deploy.md) (Distribuire ed esplorare l'applicazione del database per tenant SaaS Wingtip Tickets)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * La versione più recente di SQL Server Management Studio (SSMS) è installata. [Scaricare e installare SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduzione ai modelli di gestione dello schema SaaS
 
-Il modello con un database per ogni tenant consente di isolare i dati del tenant in modo efficace, ma aumenta il numero di database per cui eseguire gestione e manutenzione. [Processi elastici](../../sql-database/elastic-jobs-overview.md) facilita l'amministrazione e la gestione di più database. I processi consentono di eseguire in modo sicuro e affidabile attività (script T-SQL) in un gruppo di database. I processi possono anche distribuire modifiche ai dati di riferimento comuni e degli schemi in tutti i database tenant in un'applicazione. Il servizio Processi elastici può essere usato infine per gestire un database *modello* del database usato per creare nuovi tenant, assicurandosi che disponga sempre dello schema e dei dati di riferimento più recenti.
+Il modello con un database per ogni tenant consente di isolare i dati del tenant in modo efficace, ma aumenta il numero di database per cui eseguire gestione e manutenzione. Il servizio [Processi elastici](../../sql-database/elastic-jobs-overview.md) facilita l'amministrazione e la gestione di più database. I processi consentono di eseguire in modo sicuro e affidabile attività (script T-SQL) in un gruppo di database. I processi possono anche distribuire modifiche ai dati di riferimento comuni e degli schemi in tutti i database tenant in un'applicazione. Il servizio Processi elastici può essere usato infine per gestire un database *modello* del database usato per creare nuovi tenant, assicurandosi che disponga sempre dello schema e dei dati di riferimento più recenti.
 
 ![schermata](./media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
-## <a name="elastic-jobs-public-preview"></a>Anteprima pubblica dei processi elastici
+## <a name="elastic-jobs-public-preview"></a>Anteprima pubblica di Processi elastici
 
-È disponibile una nuova versione del servizio Processi elastici che è ora una funzionalità integrata di database SQL di Azure. Questa nuova versione dei processi elastici è attualmente disponibile in anteprima pubblica. Questa anteprima pubblica supporta attualmente l'uso di PowerShell per creare un agente processo e T-SQL per creare e gestire i processi.
-Per ulteriori informazioni, vedere l'articolo relativo ai [processi di database elastici](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview) .
+È disponibile una nuova versione del servizio Processi elastici che è ora una funzionalità integrata di database SQL di Azure. Questa nuova versione del servizio Processi elastici è attualmente in anteprima pubblica. Questa anteprima pubblica supporta attualmente l'uso di PowerShell per creare un agente processo e di T-SQL per creare e gestire i processi.
+Per altre informazioni, vedere l'articolo [Processi di database elastico](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview).
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
-Il codice sorgente dell'applicazione e gli script di gestione sono disponibili nel repository GitHub [repository wingtipticketssaas-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) . Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
+Gli script di gestione e il codice sorgente sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creare un database dell'agente processo e un nuovo agente processo
 
@@ -102,12 +102,12 @@ Questo esercizio usa un processo per ricompilare l'indice sulla chiave primaria 
 Creare un processo usando le stesse stored procedure di sistema per i processi.
 
 1. Aprire SSMS e connettersi al server _catalog-dpt-&lt;user&gt;.database.windows.net_
-1. Apri il file _... \\ Learning modules \\ schema Management \\ OnlineReindex. SQL_
+1. Aprire il file _…\\Learning Modules\\Schema Management\\OnlineReindex.sql_
 1. Fare clic con il pulsante destro del mouse, scegliere Connessione e quindi connettersi al server _catalog-dpt-&lt;user&gt;.database.windows.net_, se non si è già connessi
 1. Verificare di essere connessi al database _jobagent_ e premere **F5** per eseguire lo script
 
 Esaminare gli elementi seguenti nello script _OnlineReindex.sql_:
-* **SP \_ Add \_ Job** crea un nuovo processo denominato "online REINDEX PK \_ \_ VenueTyp \_ \_ 265E44FD7FD4C885"
+* **sp\_add\_job** crea un nuovo processo denominato "Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885".
 * **sp\_add\_jobstep** crea il passaggio del processo contenente il testo del comando T-SQL per aggiornare l'indice.
 * Le viste rimaste nello script monitorano l'esecuzione del processo. Usare queste query per esaminare il valore di stato nella colonna **lifecycle** per determinare quando il processo viene completato su tutti i membri del gruppo di destinazione.
 
@@ -123,10 +123,10 @@ In questa esercitazione si è appreso come:
 > * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
-Successivamente, provare l' [esercitazione per la creazione di report ad hoc](../../sql-database/saas-tenancy-cross-tenant-reporting.md) per esplorare l'esecuzione di query distribuite tra database tenant.
+Provare quindi a eseguire l'[esercitazione sul reporting ad hoc](../../sql-database/saas-tenancy-cross-tenant-reporting.md) per esaminare l'esecuzione di query distribuite tra database tenant.
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Altre esercitazioni basate sulla distribuzione dell'applicazione SaaS di database per tenant Wingtip Tickets](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Altre esercitazioni basate sulla distribuzione dell'applicazione del database per tenant SaaS Wingtip Tickets](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Gestione dei database cloud con scalabilità orizzontale](../../sql-database/elastic-jobs-overview.md)
