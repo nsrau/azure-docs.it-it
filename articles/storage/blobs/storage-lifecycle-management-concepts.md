@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707765"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822389"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -76,7 +76,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Selezionare **BLOB di base** per impostare le condizioni per la regola. Nell'esempio seguente i BLOB vengono spostati nell'archiviazione ad accesso sporadico se non sono stati modificati per 30 giorni.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Pagina BLOB di base di gestione del ciclo di vita in portale di Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Gestione del ciclo di vita aggiungere una pagina Dettagli regola in portale di Azure":::
 
    L' **ultima opzione accessibile** è disponibile in anteprima nelle aree seguenti:
 
@@ -91,7 +91,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Se è stata selezionata l'opzione **limita BLOB con filtri** nella pagina **Dettagli** , selezionare **filtro impostato** per aggiungere un filtro facoltativo. Nell'esempio seguente vengono filtrati i BLOB nel contenitore *mylifecyclecontainer* che iniziano con "log".
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Pagina set di filtri di gestione del ciclo di vita in portale di Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Gestione del ciclo di vita aggiungere una pagina Dettagli regola in portale di Azure":::
 
 1. Selezionare **Aggiungi** per aggiungere il nuovo criterio.
 
@@ -164,7 +164,7 @@ $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 
 #Set the policy
-$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
 # <a name="template"></a>[Modello](#tab/template)
@@ -241,12 +241,12 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio presenta diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Necessario |
+| Nome parametro | Tipo di parametro | Note | Obbligatoria |
 |----------------|----------------|-------|----------|
-| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | Vero |
-| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | Vero |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | True |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | True |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
 
 ## <a name="rules"></a>Regole
 
@@ -316,10 +316,10 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 | Azione                      | BLOB di base                                   | Snapshot      |
 |-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportate |
-| enableAutoTierToHotFromCool | Supporta i BLOB attualmente a livello di accesso sporadico        | Non supportate |
-| tierToArchive               | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportate |
-| eliminare                      | Supportato per `blockBlob` e `appendBlob`  | Supportato     |
+| tierToCool                  | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportato |
+| enableAutoTierToHotFromCool | Supporta i BLOB attualmente a livello di accesso sporadico        | Non supportato |
+| tierToArchive               | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportato |
+| Elimina                      | Supportato per `blockBlob` e `appendBlob`  | Supportato     |
 
 >[!NOTE]
 >Se nello stesso BLOB è stata definita più di un'azione, la gestione del ciclo di vita applica al BLOB l'azione meno costosa. Ad esempio, l'azione `delete` è meno costosa dell'azione `tierToArchive`. L'azione `tierToArchive` è meno costosa dell'azione `tierToCool`.

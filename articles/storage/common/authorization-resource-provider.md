@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 162aa0c382ec22f946d20299fbb990b92481518f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714688"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822285"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usare il provider di risorse di archiviazione di Azure per accedere alle risorse di gestione
 
@@ -47,7 +47,7 @@ I ruoli predefiniti che concedono le autorizzazioni per chiamare le operazioni d
 |    Ruolo di Azure    |    Descrizione    |    Include l'accesso alle chiavi dell'account?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietario** | Può gestire tutte le risorse di archiviazione e l'accesso alle risorse.  | Sì, fornisce le autorizzazioni per visualizzare e rigenerare le chiavi dell'account di archiviazione. |
-| **Collaboratore**  | Consente di gestire tutte le risorse di archiviazione, ma non di gestire l'assegnazione alle risorse. | Sì, fornisce le autorizzazioni per visualizzare e rigenerare le chiavi dell'account di archiviazione. |
+| **Collaboratore**  | Consente di gestire tutte le risorse di archiviazione, ma non di gestire l'accesso alle risorse. | Sì, fornisce le autorizzazioni per visualizzare e rigenerare le chiavi dell'account di archiviazione. |
 | **Lettore** | Consente di visualizzare le informazioni sull'account di archiviazione, ma non di visualizzare le chiavi dell'account. | No. |
 | **Collaboratore account di archiviazione** | Può gestire l'account di archiviazione, ottenere informazioni sui gruppi di risorse e le risorse della sottoscrizione, nonché creare e gestire distribuzioni di gruppi di risorse di sottoscrizione. | Sì, fornisce le autorizzazioni per visualizzare e rigenerare le chiavi dell'account di archiviazione. |
 | **Amministratore accessi utente** | Può gestire l'accesso all'account di archiviazione.   | Sì, consente a un'entità di sicurezza di assegnare autorizzazioni a se stessi e ad altri utenti. |

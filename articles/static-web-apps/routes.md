@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906784"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91822322"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Route in App Web statiche di Azure (anteprima)
 

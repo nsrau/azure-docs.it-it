@@ -3,12 +3,12 @@ title: Errore durante il superamento delle dimensioni del processo
 description: Viene descritto come risolvere gli errori quando la dimensione o il modello del processo è troppo grande.
 ms.topic: troubleshooting
 ms.date: 10/07/2020
-ms.openlocfilehash: 5f0df102611dba8ce49da948b14110fff32dc2a9
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 638bdef246fc908ab997bfb99e7526febdb3792e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812897"
+ms.locfileid: "91822156"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>Risoluzione degli errori per la dimensione del processo superata
 
@@ -40,7 +40,7 @@ La prima opzione consiste nel semplificare il modello. Questa opzione funziona q
 
 ## <a name="solution-2---reduce-name-size"></a>Soluzione 2-ridurre le dimensioni del nome
 
-Provare ad abbreviare la lunghezza dei nomi usati per [parametri](template-parameters.md), [variabili](template-variables.md)e [output](template-outputs.md). Quando questi valori vengono ripetuti tramite i cicli di copia, un nome grande viene moltiplicato più volte. La dimensione finale del modello è inutilmente grande.
+Provare ad abbreviare la lunghezza dei nomi usati per [parametri](template-parameters.md), [variabili](template-variables.md)e [output](template-outputs.md). Quando questi valori vengono ripetuti tramite i cicli di copia, un nome grande viene moltiplicato più volte.
 
 ## <a name="solution-3---use-serial-copy"></a>Soluzione 3: usare la copia seriale
 

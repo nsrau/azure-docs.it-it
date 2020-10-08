@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d143c9648f84dd0c8b45122cf2271539a0b9d1cf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086331"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821704"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Ottimizzare Apache HBase con Apache Ambari in Azure HDInsight
 
@@ -89,7 +89,7 @@ Maggiori sono le dimensioni del file di area, minore è il numero di suddivision
 
 ## <a name="define-memstore-size"></a>Definire le dimensioni del memstore
 
-Le dimensioni del memstore sono definite dai parametri `hbase.regionserver.global.memstore.UpperLimit` e `hbase.regionserver.global.memstore.LowerLimit`. Se si impostano questi parametri sullo stesso valore, si riducono le pause tra un'operazione di scrittura e l'altra (aumentando anche la frequenza di flush) e migliorano le prestazioni in scrittura.
+Le dimensioni del memstore sono definite dai parametri `hbase.regionserver.global.memstore.upperLimit` e `hbase.regionserver.global.memstore.lowerLimit`. Se si impostano questi parametri sullo stesso valore, si riducono le pause tra un'operazione di scrittura e l'altra (aumentando anche la frequenza di flush) e migliorano le prestazioni in scrittura.
 
 ## <a name="set-memstore-local-allocation-buffer"></a>Impostare il buffer di allocazione locale del memstore
 
