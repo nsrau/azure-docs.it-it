@@ -4,12 +4,12 @@ description: Questo articolo descrive come concatenare una coda o una sottoscriz
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333682"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819569"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
 
@@ -52,6 +52,8 @@ Se si concatenano singoli argomenti per ottenere un argomento composito con dive
 Il bus di servizio addebita un'operazione per ogni messaggio inoltrato. Ad esempio, se viene inviato un messaggio a un argomento con 20 sottoscrizioni, ognuna delle quali configurata per l'inoltro automatico dei messaggi a una coda o un argomento differente, vengono addebitate 21 operazioni se tutte le sottoscrizioni di primo livello ricevono una copia del messaggio.
 
 Per creare una sottoscrizione concatenata a un'altra coda o a un argomento, l'autore della sottoscrizione deve disporre delle autorizzazioni di **gestione** per l'entità di origine e di destinazione. Per l'invio di messaggi solo all'argomento di origine sono necessarie le autorizzazioni di **invio** per l'argomento di origine.
+
+Non creare una catena che supera i 4 hop. I messaggi che superano i 4 hop sono non recapitabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

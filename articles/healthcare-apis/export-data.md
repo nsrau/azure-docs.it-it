@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: ee7ba96a7cc8789e1a949db80bc84c63b28f4518
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 433d3391e7b2b99d72ea71f1b4d48c3e04a46afc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531667"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819983"
 ---
 # <a name="how-to-export-fhir-data"></a>Come esportare i dati di FHIR
 
-La funzionalità di esportazione bulk consente di esportare i dati dal server FHIR in base alla specifica] FHIR] ( https://hl7.org/fhir/uv/bulkdata/export/index.html) . 
+La funzionalità di esportazione bulk consente di esportare i dati dal server FHIR in base alla [specifica FHIR](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
 Prima di usare $export, è necessario assicurarsi che l'API di Azure per FHIR sia configurata per usarla. Per la configurazione delle impostazioni di esportazione e la creazione dell'account di archiviazione di Azure, fare riferimento alla [pagina Configura dati di esportazione](configure-export-data.md).
 
@@ -24,7 +24,7 @@ Prima di usare $export, è necessario assicurarsi che l'API di Azure per FHIR si
 
 Dopo aver configurato l'API di Azure per FHIR per l'esportazione, è possibile usare il comando $export per esportare i dati dal servizio. I dati verranno archiviati nell'account di archiviazione specificato durante la configurazione dell'esportazione. Per informazioni su come richiamare $export comando in FHIR server, vedere la documentazione sulla [specifica $Export](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
 
-Il comando $export nell'API di Azure per FHIR accetta un parametro _ \_ contenitore_ facoltativo che specifica il contenitore all'interno dell'account di archiviazione configurato in cui devono essere esportati i dati. Se viene specificato un contenitore, i dati verranno esportati in tale contenitore in una nuova cartella con il nome. Se non viene specificato alcun contenitore, i dati verranno esportati in un nuovo contenitore con il nome
+Il comando $export nell'API di Azure per FHIR accetta un parametro _ \_ contenitore_ facoltativo che specifica il contenitore all'interno dell'account di archiviazione configurato in cui devono essere esportati i dati. Se viene specificato un contenitore, i dati verranno esportati in tale contenitore in una nuova cartella con il nome del contenitore. Se non viene specificato alcun contenitore, i dati verranno esportati in un nuovo contenitore.
 
 `https://<<FHIR service base URL>>/$export?_container=<<container_name>>`
 

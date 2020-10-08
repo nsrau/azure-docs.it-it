@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 877e90fa3c1c8a595c438fc6745c142e97b5692c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803280"
+ms.locfileid: "91819263"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -75,7 +75,7 @@ Per consentire il consenso dell'utente, scegliere i criteri di consenso per le a
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
      -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("{consent-policy-id}")
+     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
   ```
 
 Sostituire `{consent-policy-id}` con l'ID dei criteri che si desidera applicare. È possibile scegliere un [criterio di consenso app personalizzato](manage-app-consent-policies.md#create-a-custom-app-consent-policy) creato oppure è possibile scegliere tra i criteri predefiniti seguenti:
@@ -90,7 +90,7 @@ Ad esempio, per abilitare il consenso dell'utente in base ai criteri predefiniti
 ```powershell
 Set-AzureADMSAuthorizationPolicy `
    -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("microsoft-user-default-low")
+   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
 ```
 
 ---

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: e5b0eb5fc9014a4f8df0f0cc363b5dddb45674af
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804181"
+ms.locfileid: "91819712"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 
@@ -24,7 +24,7 @@ Le organizzazioni potrebbero avere più sottoscrizioni di Azure. Ogni sottoscriz
 Questo articolo descrive i passaggi di base che è possibile seguire per trasferire una sottoscrizione a una directory Azure AD diversa e ricreare alcune risorse dopo il trasferimento.
 
 > [!NOTE]
-> Per le sottoscrizioni del provider di servizi cloud (CSP) di Azure, la modifica della directory Azure AD per la sottoscrizione non è supportata.
+> Per le sottoscrizioni di Azure Cloud Solution Provider (CSP), la modifica della Azure AD directory per la sottoscrizione non è supportata.
 
 ## <a name="overview"></a>Panoramica
 
@@ -313,7 +313,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Disabilitare e riabilitare le identità gestite assegnate dal sistema.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -329,7 +329,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Elimina, ricrea e Connetti identità gestite assegnate dall'utente.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

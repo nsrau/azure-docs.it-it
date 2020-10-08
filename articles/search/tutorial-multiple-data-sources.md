@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d3dd75d246c1f74253a9ce910e50b05402065464
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 06b80b5fe14a7a913d8ad8454c6568b04fe01c2f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998459"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819798"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Esercitazione: Indicizzazione da più origini dati con .NET SDK
 
@@ -61,19 +61,19 @@ Questo esempio usa due piccoli set di dati che descrivono sette hotel fittizi. U
 
 1. Selezionare **Esplora dati**, quindi selezionare **Nuovo database**.
 
-   ![Creare un nuovo database](media/tutorial-multiple-data-sources/cosmos-newdb.png "Creare un nuovo database")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Creare un nuovo database" border="false":::
 
 1. Immettere il nome **hotel-rooms-db**. Accettare i valori predefiniti per le impostazioni rimanenti.
 
-   ![Configurare il database](media/tutorial-multiple-data-sources/cosmos-dbname.png "Configurare il database")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Creare un nuovo database" border="false":::
 
 1. Creare un nuovo contenitore. Usare il database esistente appena creato. Immettere **hotels** come nome del contenitore e usare **/HotelId** come chiave di partizione.
 
-   ![Aggiungere il contenitore](media/tutorial-multiple-data-sources/cosmos-add-container.png "Aggiungere il contenitore")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Creare un nuovo database" border="false":::
 
 1. In **hotels** selezionare **Elementi** e quindi fare clic su **Carica elemento** sulla barra dei comandi. Passare alla cartella di progetto e selezionare il file **cosmosdb/HotelsDataSubset_CosmosDb.json**.
 
-   ![Caricare nella raccolta di Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Caricare nella raccolta di Azure Cosmos DB")
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Creare un nuovo database" border="false":::
 
 1. Premere Aggiorna per aggiornare la visualizzazione degli elementi nella raccolta di hotel. Dovrebbero essere visualizzati sette nuovi documenti di database.
 
@@ -83,11 +83,11 @@ Questo esempio usa due piccoli set di dati che descrivono sette hotel fittizi. U
 
 1. [Creare un contenitore BLOB](../storage/blobs/storage-quickstart-blobs-portal.md) denominato **hotel-rooms** in cui archiviare i file JSON delle camere di hotel di esempio. È possibile impostare il livello di accesso pubblico su uno qualsiasi dei relativi valori validi.
 
-   ![Creare un contenitore BLOB](media/tutorial-multiple-data-sources/blob-add-container.png "Creare un contenitore BLOB")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Creare un nuovo database" border="false":::
 
 1. Dopo aver creato il contenitore, aprirlo e selezionare **Carica** nella barra dei comandi. Passare alla cartella contenente i file di esempio. Selezionare tutti i file e quindi fare clic su **Carica**.
 
-   ![Caricare file](media/tutorial-multiple-data-sources/blob-upload.png "Caricare file")
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Creare un nuovo database" border="false":::
 
 Dopo aver completato il caricamento, i file dovrebbero essere visualizzati nell'elenco relativo al contenitore di dati.
 
@@ -105,7 +105,7 @@ Per interagire con il servizio Ricerca cognitiva di Azure, sono necessari l'URL 
 
    Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-   ![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-nodejs/service-name-and-keys.png)
+   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Creare un nuovo database" border="false":::
 
 La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -115,7 +115,7 @@ La presenza di una chiave valida stabilisce una relazione di trust, in base alle
 
 1. Nella scheda **Sfoglia** trovare e quindi installare **Microsoft.Azure.Search** (versione 9.0.1 o successiva). Sarà necessario completare altre finestra di dialogo per terminare l'installazione.
 
-    ![Uso di NuGet per aggiungere librerie di Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Creare un nuovo database" border="false":::
 
 1. Cercare il pacchetto NuGet **Microsoft.Extensions.Configuration.Json** e installarlo.
 
@@ -352,7 +352,7 @@ Poiché l'indice è già stato popolato con i dati degli hotel del database Azur
 
 Nel portale di Azure aprire la pagina **Panoramica** del servizio di ricerca e individuare l'indice **hotel-rooms-sample** nell'elenco **Indici**.
 
-  ![Elenco di indici di Ricerca cognitiva di Azure](media/tutorial-multiple-data-sources/index-list.png "Elenco di indici di Ricerca cognitiva di Azure")
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Creare un nuovo database" border="false":::
 
 Fare clic sull'indice hotel-rooms-sample nell'elenco. Verrà visualizzata un'interfaccia di Esplora ricerche per l'indice. Immettere una query per un termine tipo "Luxury". I risultati dovrebbero contenere almeno un documento, che dovrebbe mostrare un elenco di oggetti camera nella matrice di camere.
 

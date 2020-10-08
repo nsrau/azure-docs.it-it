@@ -5,24 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
-ms.author: alzam
-ms.openlocfilehash: 279c66fa16ac82335a074da60bce35325d4b4499
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.date: 10/07/2020
+ms.author: cherylmc
+ms.openlocfilehash: 51004005e10416f3138f69f91b93b9cd19ed3944
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439472"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819761"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticazione Azure Active Directory: configurare un client VPN per le connessioni del protocollo OpenVPN P2S
 
 Questo articolo illustra come configurare un client VPN per connettersi a una rete virtuale usando la VPN da punto a sito e l'autenticazione Azure Active Directory. Prima di poter connettersi ed eseguire l'autenticazione con Azure AD, è necessario innanzitutto configurare il tenant di Azure AD. Per altre informazioni, vedere [configurare un tenant di Azure ad](openvpn-azure-ad-tenant.md).
 
-> [!NOTE]
-> L'autenticazione di Azure AD è supportata solo per le connessioni tramite il protocollo OpenVPN®.
->
-> Per l'autenticazione Azure AD è necessario il client VPN di Azure, disponibile solo per Windows 10.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Utilizzo dei profili client
 
@@ -94,7 +90,7 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminare](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![Elimina](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Creare una connessione
 
@@ -116,7 +112,7 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 5. Una volta stabilita la connessione, l'icona diventerà verde e si **disconnetterà**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Per connettersi automaticamente
 
@@ -194,7 +190,7 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 ```
 
 > [!NOTE]
-> Il client Azure AD OpenVPN usa le voci della tabella dei criteri di risoluzione dei nomi DNS, che significa che i server DNS non saranno elencati nell'output di `ipconfig /all` . Per confermare le impostazioni DNS in uso, vedere [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) in PowerShell.
+> Il client Azure AD OpenVPN usa le voci della tabella dei criteri di risoluzione dei nomi DNS, che significa che i server DNS non saranno elencati nell'output di `ipconfig /all` . Per confermare le impostazioni DNS in uso, vedere [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) in PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Ricerca per categorie aggiungere route personalizzate al client VPN?
@@ -235,7 +231,7 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>È possibile importare il profilo da un prompt della riga di comando?
 
-È possibile importare il profilo da un prompt della riga di comando inserendo il file di **azurevpnconfig.xml** scaricato nella cartella **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** ed eseguendo il comando seguente:
+È possibile importare il profilo da un prompt della riga di comando inserendo il file di **azurevpnconfig.xml** scaricato nella cartella **%USERPROFILE%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** ed eseguendo il comando seguente:
 
 ```
 azurevpn -i azurevpnconfig.xml 

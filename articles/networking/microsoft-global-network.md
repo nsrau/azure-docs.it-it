@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398390"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819891"
 ---
 # <a name="microsoft-global-network"></a>Rete globale Microsoft
 
-Microsoft possiede e gestisce una delle più grandi reti backbone del mondo. Questa architettura globale e sofisticata, che si estende su più di 250.000 chilometri, connette i data center Microsoft e i clienti. 
+Microsoft possiede e gestisce una delle più grandi reti backbone del mondo. Questa architettura globale e sofisticata, che si estende su più di 165.000 chilometri, connette i nostri data center e i clienti. 
  
 Ogni giorno, i clienti di tutto il mondo si connettono e passano trilioni di richieste a Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox e molti altri. Indipendentemente dal tipo, i clienti si aspettano affidabilità e velocità di risposta istantanee dai servizi Microsoft. 
  
-La [rete globale Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) è una parte essenziale dell'erogazione di un'esperienza eccezionale sul cloud. Connettendo i [data center](https://azure.microsoft.com/global-infrastructure/) Microsoft tra 54 aree di Azure e su una vasta struttura di nodi perimetrali strategicamente ubicati in tutto il mondo, la rete globale Microsoft offre la disponibilità, la capacità e la flessibilità necessarie per soddisfare qualsiasi esigenza.
+La [rete globale Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) è una parte essenziale dell'erogazione di un'esperienza eccezionale sul cloud. Connettendo i nostri [Data Center](https://azure.microsoft.com/global-infrastructure/) Microsoft in 61 aree di Azure e una rete di grandi dimensioni di nodi perimetrali dislocati in tutto il mondo, la nostra rete globale offre la disponibilità, la capacità e la flessibilità necessaria per soddisfare qualsiasi esigenza.
 
 ![Rete globale Microsoft](./media/microsoft-global-network/microsoft-global-wan.png)
  
 ## <a name="get-the-premium-cloud-network"></a>Rete cloud all'avanguardia
  
-Usando il cloud Microsoft, è facile scegliere la [migliore esperienza possibile](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/). Dal momento in cui il traffico dei clienti arriva nella rete globale attraverso i nodi perimetrali ubicati strategicamente, i dati si spostano su route ottimizzate quasi alla velocità della luce. In questo modo, si ottiene latenza ottimale per le migliori prestazioni. Questi nodi perimetrali, tutti interconnessi a più di 3500 esclusivi partner Internet (peer) tramite migliaia di connessioni in oltre 165 località, forniscono le fondamenta della strategia di interconnessione di Microsoft. 
+Usando il cloud Microsoft, è facile scegliere la [migliore esperienza possibile](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/). Dal momento in cui il traffico dei clienti arriva nella rete globale attraverso i nodi perimetrali ubicati strategicamente, i dati si spostano su route ottimizzate quasi alla velocità della luce. In questo modo, si ottiene latenza ottimale per le migliori prestazioni. Questi nodi perimetrali, tutti interconnessi a più di 4000 partner Internet esclusivi (peer) con migliaia di connessioni in più di 175 località, costituiscono la base della strategia di interconnessione. 
  
 Per connessioni da Londra a Tokyo, da Washington DC a Los Angeles, le prestazioni di rete vengono quantificate e interessate da fattori come latenza, instabilità, perdita di pacchetti e velocità effettiva.  Microsoft preferisce e usa interconnessioni dirette anziché collegamenti di transito, perché queste mantengono il traffico di risposta simmetrico e gli hop, le parti di peering e i percorsi quanto più brevi e semplici possibile. 
 

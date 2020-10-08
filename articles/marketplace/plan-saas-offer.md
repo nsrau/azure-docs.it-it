@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 1d75e0d9f57aee495524e2d35231dd3c78cedea1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91708119"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819939"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -158,11 +158,11 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
     Questa casella di testo contiene controlli avanzati dell'editor di testo che è possibile usare per rendere più accattivante la descrizione. È anche possibile usare i tag HTML per formattare la descrizione. È possibile immettere fino a 3.000 caratteri di testo in questa casella, incluso il markup HTML. Per altri suggerimenti, vedere [Scrivere un'ottima descrizione dell'app](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 
 - **Introduzione istruzioni**: se si sceglie di vendere l'offerta tramite Microsoft (offerta transazionale), questo campo è obbligatorio. Queste sono istruzioni per aiutare i clienti a connettersi all'offerta SaaS. È possibile aggiungere fino a 3.000 caratteri di testo e collegamenti a documentazione online più dettagliata.
-- **Parole chiave di ricerca** (facoltativo): fornire fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel Marketplace. Non è necessario includere il **nome** e la **Descrizione**dell'offerta: il testo viene automaticamente incluso nella ricerca.
+- **Parole chiave di ricerca** (facoltativo): fornire fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta negli archivi online. Non è necessario includere il **nome** e la **Descrizione**dell'offerta: il testo viene automaticamente incluso nella ricerca.
 - **Collegamento all'informativa sulla privacy**: l'URL per l'informativa sulla privacy dell'azienda. È necessario fornire un'informativa sulla privacy valida e avere la responsabilità di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy.
 - **Informazioni di contatto**: è necessario designare i contatti seguenti dall'organizzazione:
   - **Contatto del supporto tecnico**: fornire il nome, il telefono e il messaggio di posta elettronica per i partner Microsoft da usare quando i clienti aprono i biglietti. È inoltre necessario includere l'URL per il sito Web di supporto.
-  - **Contatto tecnico**: fornire il nome, il telefono e il messaggio di posta elettronica che Microsoft deve usare direttamente quando si verificano problemi con l'offerta. Le informazioni di contatto non sono elencate nel Marketplace.
+  - **Contatto tecnico**: fornire il nome, il telefono e il messaggio di posta elettronica che Microsoft deve usare direttamente quando si verificano problemi con l'offerta. Le informazioni di contatto non sono elencate nel Marketplace commerciale.
   - **Contatto del programma CSP** (facoltativo): specificare il nome, il telefono e il messaggio di posta elettronica se si opta per il programma CSP, in modo che i partner possano contattare l'utente per qualsiasi domanda. È anche possibile includere un URL per i materiali di marketing.
 - **Collegamenti utili** (facoltativo): è possibile fornire collegamenti a diverse risorse per gli utenti dell'offerta. Ad esempio forum, domande frequenti e note sulla versione.
 - **Documenti di supporto**: è possibile fornire fino a tre documenti rivolte ai clienti, ad esempio white paper, brochure, elenchi di controllo o presentazioni di PowerPoint.
@@ -174,16 +174,16 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
 
   Questi logo vengono usati in posizioni diverse negli archivi online:
 
-  -  Il logo piccolo viene visualizzato nei risultati della ricerca di Azure Marketplace e nella pagina principale Microsoft AppSource e nei risultati della ricerca.
-  -  Il logo medio viene visualizzato quando si crea una nuova risorsa in Microsoft Azure.
-  -  Il logo di grandi dimensioni viene visualizzato nella pagina di inserzione dell'offerta in Azure Marketplace e Microsoft AppSource.
+  - Il logo piccolo viene visualizzato nei risultati della ricerca di Azure Marketplace e nella pagina principale Microsoft AppSource e nei risultati della ricerca.
+  - Il logo medio viene visualizzato quando si crea una nuova risorsa in Microsoft Azure.
+  - Il logo di grandi dimensioni viene visualizzato nella pagina di inserzione dell'offerta in Azure Marketplace e Microsoft AppSource.
 
 - **Supporti-schermate**: è necessario aggiungere almeno uno e un massimo di cinque screenshot con i requisiti seguenti, che mostrano il funzionamento dell'offerta:
   - 1280 x 720 pixel
   - file con estensione png
   - Deve includere una didascalia
 - **Media-video** (facoltativo): è possibile aggiungere fino a quattro video con i requisiti seguenti, che dimostrano l'offerta:
-  - Name
+  - Nome
   - URL: deve essere ospitato solo su YouTube o Vimeo.
   - Anteprima: file 1280 x 720. png
 
