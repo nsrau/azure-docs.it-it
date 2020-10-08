@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: b05084a7d01f4c5d5d5a79b60ac0b8ba47843622
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031399"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816785"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurare e personalizzare le attività di compilazione
 
@@ -131,7 +131,7 @@ Le opzioni disponibili includono:
 
 > [!NOTE]
 >
-> - Gli analizzatori Roslyn sono integrati con il compilatore e possono essere eseguiti solo come parte della compilazione csc.exe. Di conseguenza, questa attività richiede che il comando del compilatore eseguito in precedenza nella compilazione venga riprodotto o eseguito nuovamente. Questa riproduzione o esecuzione viene eseguita eseguendo una query Visual Studio Team Services (VSTS) per i log delle attività di compilazione di MSBuild.
+> - Gli analizzatori Roslyn sono integrati con il compilatore e possono essere eseguiti solo come parte della compilazione csc.exe. Di conseguenza, questa attività richiede che il comando del compilatore eseguito in precedenza nella compilazione venga riprodotto o eseguito nuovamente. Questa riproduzione o esecuzione viene eseguita eseguendo una query su Azure DevOps (in precedenza Visual Studio Team Services) per i log delle attività di compilazione di MSBuild.
 >
 >   Non esiste un altro modo per l'attività per ottenere in modo affidabile la riga di comando di compilazione MSBuild dalla definizione di compilazione. È stata considerata l'aggiunta di una casella di testo a mano libera per consentire agli utenti di immettere le righe di comando. Tuttavia, sarebbe difficile tenere le righe di comando aggiornate e sincronizzate con la build principale.
 >

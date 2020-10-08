@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447906"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816824"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -48,7 +48,7 @@ Infine, l'esperienza è incredibilmente semplice.
 - Le macchine virtuali non devono essere collegate a un'area di lavoro di log Analytics in una sottoscrizione diversa
 - Il servizio di gestione delle sottoscrizioni sandbox al momento non è supportato
 
-È necessario avere il ruolo **collaboratore** per abilitare la gestione tramite un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account automanage, sono necessarie le autorizzazioni seguenti: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+Per abilitare Gestione automatica usando un account di Gestione automatica esistente, è necessario avere il ruolo **Collaboratore**. Se si abilita Gestione automatica con un nuovo account di Gestione automatica, è necessario avere le autorizzazioni seguenti: ruolo **Proprietario** o **Collaboratore** insieme al ruolo **Amministratore Accesso utenti**.
 
 È anche importante notare che automanage supporta solo le macchine virtuali Windows situate nelle aree seguenti: Europa occidentale, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale, Stati Uniti centro-occidentali.
 
@@ -105,7 +105,7 @@ L'account di gestione automatica è il contesto di sicurezza o l'identità con c
 Nel portale di Azure esperienza, quando si Abilita la funzionalità di gestione delle macchine virtuali, è disponibile un elenco a discesa avanzate nel pannello **Abilita VM di Azure per le procedure consigliate** che consente di assegnare o creare manualmente l'account automanage.
 
 > [!NOTE]
-> È necessario avere il ruolo **collaboratore** per abilitare la gestione tramite un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account automanage, sono necessarie le autorizzazioni seguenti: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+> Per abilitare Gestione automatica usando un account di Gestione automatica esistente, è necessario avere il ruolo **Collaboratore**. Se si abilita Gestione automatica con un nuovo account di Gestione automatica, è necessario avere le autorizzazioni seguenti: ruolo **Proprietario** o **Collaboratore** insieme al ruolo **Amministratore Accesso utenti**.
 
 
 ## <a name="status-of-vms"></a>Stato delle macchine virtuali
@@ -134,13 +134,13 @@ Per eseguire questa operazione nella portale di Azure, passare alla pagina **ges
 
 Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare clic su **Disabilita**.
 
-```
-Disabling automanagement in a VM results in the following behavior:
+> [!NOTE]
+> La disabilitazione della gestione in una macchina virtuale comporta il comportamento seguente:
+>
+> - La configurazione della macchina virtuale e dei servizi di cui viene caricata non cambia.
+> - Eventuali addebiti causati da tali servizi rimangono fatturabili e continuano a essere addebitati.
+> - Eventuali comportamenti di gestione immediata si interrompono immediatamente.
 
-1.    The configuration of the VM and the services it's onboarded to will not be changed
-2.    Any changes incurred by those services will remain billable and will continue to be incurred
-3.    Any Automanage behaviors will stop immediately
-```
 
 Prima di tutto, la macchina virtuale non verrà disattivata da nessuno dei servizi che sono stati caricati e configurati. Tutti gli addebiti subiti da tali servizi continueranno a essere fatturabili. Se necessario, sarà necessario eseguire l'operazione di disattivazione. Qualsiasi comportamento di gestione di automanage viene interrotto immediatamente. Ad esempio, la macchina virtuale non sarà più monitorata per la deviazione.
 

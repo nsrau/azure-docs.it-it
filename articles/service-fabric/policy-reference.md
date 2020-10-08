@@ -1,15 +1,15 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Service Fabric
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Service Fabric. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 215c313e2d1967f3922e060ad18bd2fa083950c0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b26a3ec0e91a21a2dd99391c0fa28f428b4b1daa
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978776"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816694"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Definizioni predefinite di Criteri di Azure per Azure Service Fabric
 

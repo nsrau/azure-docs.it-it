@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: a01ca051f676f6a62face2c8ef0c9055c0c98c31
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 93c697162bfcb51b77c2e6f48b5824b81070bf51
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757521"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816417"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -334,6 +334,35 @@ Di seguito sono riportate le possibili opzioni di configurazione all'interno del
             "customProtoHeaderName": "<proto header value>"
         }
     },
+    "login": {
+        "routes": {
+            "logoutEndpoint": "<logout endpoint>"
+        },
+        "tokenStore": {
+            "enabled": <true|false>,
+            "tokenRefreshExtensionHours": "<double>",
+            "fileSystem": {
+                "directory": "<directory to store the tokens in if using a file system token store (default)>"
+            },
+            "azureBlobStorage": {
+                "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
+            }
+        },
+        "preserveUrlFragmentsForLogins": <true|false>,
+        "allowedExternalRedirectUri": [
+            "https://uri1.azurewebsites.net/",
+            "https://uri2.azurewebsites.net/",
+            "url_scheme_of_your_app://easyauth.callback"
+        ],
+        "cookieExpiration": {
+            "convention": "FixedTime|IdentityProviderDerived",
+            "timeToExpiration": "<timespan>"
+        },
+        "nonce": {
+            "validateNonce": <true|false>,
+            "nonceExpirationInterval": "<timespan>"
+        }
+    },
     "identityProviders": {
         "azureActiveDirectory": {
             "enabled": <true|false>,
@@ -438,35 +467,6 @@ Di seguito sono riportate le possibili opzioni di configurazione all'interno del
                 }
             },
             //...
-        }
-    },
-    "login": {
-        "routes": {
-            "logoutEndpoint": "<logout endpoint>"
-        },
-        "tokenStore": {
-            "enabled": <true|false>,
-            "tokenRefreshExtensionHours": "<double>",
-            "fileSystem": {
-                "directory": "<directory to store the tokens in if using a file system token store (default)>"
-            },
-            "azureBlobStorage": {
-                "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
-            }
-        },
-        "preserveUrlFragmentsForLogins": <true|false>,
-        "allowedExternalRedirectUri": [
-            "https://uri1.azurewebsites.net/",
-            "https://uri2.azurewebsites.net/",
-            "url_scheme_of_your_app://easyauth.callback"
-        ],
-        "cookieExpiration": {
-            "convention": "FixedTime|IdentityProviderDerived",
-            "timeToExpiration": "<timespan>"
-        },
-        "nonce": {
-            "validateNonce": <true|false>,
-            "nonceExpirationInterval": "<timespan>"
         }
     }
 }

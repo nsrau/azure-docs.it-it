@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
-ms.openlocfilehash: 3b6162552e43c9f475bef2ca3097da22ae198011
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713684"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817531"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Gestire e trovare i dati BLOB di Azure con indice BLOB (anteprima)
 
@@ -72,8 +72,11 @@ Ai tag di indice BLOB si applicano i limiti seguenti:
 - Le chiavi e i valori dei tag distinguono
 - Le chiavi e i valori dei tag supportano solo i tipi di dati stringa. eventuali numeri, date, ore o caratteri speciali verranno salvati come stringhe
 - Le chiavi e i valori dei tag devono rispettare le seguenti regole di denominazione:
-  - Caratteri alfanumerici: a-z, A-Z, 0-9
-  - Caratteri speciali: spazio, più, meno, punto, due punti, uguale a, carattere di sottolineatura, barra
+  - Caratteri alfanumerici:
+    - **a** - **z** (lettere minuscole)
+    - **A** - **Z** (lettere maiuscole)
+    - **0** - **9** (numeri)
+  - Caratteri speciali validi: spazio, più, meno, punto, due punti, uguale a, carattere di sottolineatura, barra ( ` +-.:=_/` )
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Recupero e visualizzazione di tag di indice BLOB
 
@@ -129,7 +132,7 @@ La tabella seguente mostra tutti gli operatori validi per le operazioni condizio
 |     <      |  Minore di   | "Age" < "32" |
 |     <=     |  Minore o uguale a  | "Company" <= "contoso" |
 |    AND     |  And logico  | "Rank" >=' 010' è Rank ' <' 100' |
-|     OPPURE     | OR logico   | "Status" = "Done" o "Priority" >= "05" |
+|     OR     | OR logico   | "Status" = "Done" o "Priority" >= "05" |
 
 > [!NOTE]
 > Sono disponibili due operatori aggiuntivi, non uguali e logici, che sono consentiti nell'intestazione x-ms-if-Tags condizionale per l'operazione BLOB, ma non esistono nell'operazione FindBlobsByTags.

@@ -4,16 +4,16 @@ description: Monitoraggio delle app non HTTP .NET Core/.NET Framework con Applic
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 12be39e36c003531b815e137cbd1d360ca7f0fd6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 643edf81d6a98c8f423267b657feb9dfb6da1070
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760479"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816397"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights per le applicazioni del servizio Worker (applicazioni non HTTP)
 
-Application Insights sta rilasciando un nuovo SDK, denominato `Microsoft.ApplicationInsights.WorkerService` , che è più adatto per carichi di lavoro non http come la messaggistica, le attività in background, le applicazioni console e così via. Questi tipi di applicazioni non hanno la nozione di richiesta HTTP in ingresso come un'applicazione Web ASP.NET/ASP.NET Core tradizionale e pertanto l'uso di pacchetti di Application Insights per [ASP.NET](asp-net.md) o le applicazioni [ASP.NET Core](asp-net-core.md) non è supportato.
+[Application Insights SDK per il servizio Worker](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) è un nuovo SDK, ideale per carichi di lavoro non http come la messaggistica, le attività in background, le applicazioni console e così via. Questi tipi di applicazioni non hanno la nozione di richiesta HTTP in ingresso come un'applicazione Web ASP.NET/ASP.NET Core tradizionale e pertanto l'uso di pacchetti di Application Insights per [ASP.NET](asp-net.md) o le applicazioni [ASP.NET Core](asp-net-core.md) non è supportato.
 
 Il nuovo SDK non esegue alcuna raccolta di dati di telemetria. Viene invece riportata in altri agenti di raccolta automatici Application Insights come [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) e così via. Questo SDK espone i metodi di estensione in `IServiceCollection` per abilitare e configurare la raccolta di dati di telemetria.
 
@@ -138,7 +138,7 @@ In [questo](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&vi
 
 L'esempio completo è condiviso [qui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Installare Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) pacchetto nell'applicazione.
+1. Installare il pacchetto [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) nell'applicazione.
 2. Aggiungere `services.AddApplicationInsightsTelemetryWorkerService();` al `ConfigureServices()` metodo, come nell'esempio seguente:
 
 ```csharp
@@ -225,7 +225,7 @@ Come indicato all'inizio di questo articolo, è possibile usare il nuovo pacchet
 
 L'esempio completo è condiviso [qui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Installare Microsoft. ApplicationInsights. WorkerService ( https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) pacchetto nell'applicazione.
+1. Installare il pacchetto [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) nell'applicazione.
 
 2. Modificare Program.cs come riportato di seguito.
 
@@ -293,7 +293,7 @@ Questa applicazione console usa anche lo stesso valore predefinito `TelemetryCon
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione
 
-Eseguire l'applicazione. I ruoli di lavoro di esempio di tutti gli esempi precedenti effettuano una chiamata http ogni secondo a bing.com e generano anche alcuni log con ILogger. Queste righe vengono incapsulate nella `StartOperation` chiamata di `TelemetryClient` , che viene usata per creare un'operazione (in questo esempio `RequestTelemetry` denominato "Operation"). Application Insights raccoglierà i log ILogger (avviso o superiore per impostazione predefinita) e le dipendenze e verranno correlati a con la `RequestTelemetry` relazione padre-figlio. La correlazione funziona anche tra processo/limite di rete. Ad esempio, se la chiamata è stata effettuata a un altro componente monitorato, sarà correlato anche a questo elemento padre.
+Eseguire l'applicazione. I ruoli di lavoro di esempio di tutti gli esempi precedenti effettuano una chiamata http ogni secondo a bing.com e generano anche alcuni log che usano `ILogger` . Queste righe vengono incapsulate nella `StartOperation` chiamata di `TelemetryClient` , che viene usata per creare un'operazione (in questo esempio `RequestTelemetry` denominato "Operation"). Application Insights raccoglierà i log ILogger (avviso o superiore per impostazione predefinita) e le dipendenze e verranno correlati a con la `RequestTelemetry` relazione padre-figlio. La correlazione funziona anche tra processo/limite di rete. Ad esempio, se la chiamata è stata effettuata a un altro componente monitorato, sarà correlato anche a questo elemento padre.
 
 Questa operazione personalizzata di `RequestTelemetry` può essere considerata come l'equivalente di una richiesta Web in ingresso in una tipica applicazione Web. Sebbene non sia necessario usare un'operazione, si adatta al modello di dati di [correlazione Application Insights](./correlation.md) , che `RequestTelemetry` funge da operazione padre e ogni telemetria generata all'interno dell'iterazione del ruolo di lavoro viene considerata logicamente appartenente alla stessa operazione. Questo approccio assicura anche che tutti i dati di telemetria generati (automatici e manuali) avranno lo stesso comportamento `operation_id` . Quando il campionamento è basato su `operation_id` , l'algoritmo di campionamento mantiene o Elimina tutti i dati di telemetria da un'unica iterazione.
 
