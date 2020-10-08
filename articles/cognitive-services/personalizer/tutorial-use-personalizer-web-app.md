@@ -1,15 +1,17 @@
 ---
 title: Usare app Web - Personalizza esperienze
 description: Personalizzare un'app Web .NET C# con un ciclo di Personalizza esperienze per fornire il contenuto corretto a un utente in base alle azioni (con caratteristiche) e alle caratteristiche del contesto.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59881a749676f4f5408c1ffc87b3bcf75c512e1e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316223"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777259"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Esercitazione: Usare Personalizza esperienze in un'app Web .NET
 

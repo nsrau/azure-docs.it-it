@@ -1,14 +1,16 @@
 ---
 title: "Esercitazione: Eseguire l'integrazione con Power Virtual Agents - QnA Maker"
 description: Questa esercitazione illustra come migliorare la qualità della knowledge base con l'apprendimento attivo. È possibile rivedere, accettare o rifiutare oppure aggiungere senza rimuovere o modificare le domande esistenti.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 06/08/2020
-ms.openlocfilehash: 6d00833a1331ebca9b070d90f32ee30c56bd5f96
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42b50fcf0df27ddbc3e587a7d8e038e4979935ae
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319215"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91777413"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Esercitazione: Aggiungere una knowledge base a Power Virtual Agents
 Creare ed estendere un bot [Power Virtual Agents](https://powervirtualagents.microsoft.com/) per fornire risposte da una knowledge base.

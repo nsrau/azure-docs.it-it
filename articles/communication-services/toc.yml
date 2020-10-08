@@ -5,7 +5,7 @@
   items:
     - name: Che cos'è l'offerta Servizi di comunicazione di Azure?
       href: overview.md
-- name: Guide rapide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una risorsa di Servizi di comunicazione
@@ -20,10 +20,14 @@
       items:
         - name: Ottenere un numero di telefono
           href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Aggiungere chiamate telefoniche all'app
+          href: quickstarts/voice-video-calling/pstn-call.md
         - name: Inviare SMS
           href: quickstarts/telephony-sms/send.md
         - name: Gestire gli eventi SMS
           href: quickstarts/telephony-sms/handle-sms-events.md
+        - name: Inviare un SMS in App per la logica di Azure
+          href: quickstarts/telephony-sms/logic-app.md
     - name: Chiamate vocali e video
       items:
         - name: Aggiungere chiamate vocali all'app

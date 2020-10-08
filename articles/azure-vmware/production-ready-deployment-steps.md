@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1a9ff313243650cc3f9c44be2eb1c62da5557955
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578864"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91802209"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -19,6 +19,40 @@ I processi di questo avvio rapido consentono di ottenere un ambiente pronto per 
 >[!IMPORTANT]
 >Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo. Per altre informazioni, vedere [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md). 
 
+## <a name="subscription"></a>Subscription
+
+Identificare la sottoscrizione che si vuole usare per distribuire la soluzione Azure VMware.  È possibile creare una nuova sottoscrizione o riutilizzare una sottoscrizione esistente.
+
+>[!NOTE]
+>La sottoscrizione deve essere associata a un Contratto Enterprise Microsoft.
+
+## <a name="resource-group"></a>Resource group
+
+Identificare il gruppo di risorse da usare per la soluzione Azure VMware.  Viene in genere creato un gruppo di risorse specifico per la soluzione Azure VMware, ma è possibile usare un gruppo di risorse esistente.
+
+## <a name="region"></a>Area
+
+Identificare l'area in cui si vuole distribuire la soluzione Azure VMware.  Per altre informazioni, vedere [Prodotti di Azure disponibili in base all'area](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
+
+## <a name="resource-name"></a>Nome risorsa
+
+Definire il nome della risorsa da usare durante la distribuzione.  Il nome della risorsa è un nome descrittivo usato per il cloud privato della soluzione Azure VMware.
+
+## <a name="size-nodes"></a>Nodi dimensioni
+
+Identificare i nodi dimensioni da usare durante la distribuzione della soluzione Azure VMware.  Per un elenco completo, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#hosts).
+
+## <a name="number-of-hosts"></a>Numero di host
+
+Definire il numero di host da distribuire nel cloud privato della soluzione Azure VMware.  Il numero minimo di nodi è tre e il numero massimo è 16 nodi per cluster.  Per altre informazioni, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#clusters).
+
+È sempre possibile estendere il cluster in un secondo momento se è necessario incrementare il numero di distribuzione iniziale.
+
+## <a name="vcenter-admin-password"></a>Password dell'amministratore di vCenter
+Definire la password dell'amministratore di vCenter.  Durante la distribuzione verrà creata una password per l'amministratore di vCenter. La password è assegnata a cloudadmin@vsphere.local nell'account dell'amministratore durante la compilazione di vCenter. Verrà usata per accedere a vCenter.
+
+## <a name="nsx-t-admin-password"></a>Password dell'amministratore di NSX-T
+Definire la password dell'amministratore di NSX-T.  Durante la distribuzione verrà creata una password per l'amministratore di NSX-T. La password è assegnata all'utente amministratore nell'account NSX durante la compilazione di NSX. Verrà usata per accedere a NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segmento di indirizzo IP
 
@@ -63,41 +97,6 @@ Identificare un blocco di indirizzi di rete CIDR `/29`, necessario per il peerin
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificazione - Segmento dell'indirizzo IP" border="false":::
 
-## <a name="subscription"></a>Subscription
-
-Identificare la sottoscrizione che si vuole usare per distribuire la soluzione Azure VMware.  È possibile creare una nuova sottoscrizione o riutilizzare una sottoscrizione esistente.
-
->[!NOTE]
->La sottoscrizione deve essere associata a un Contratto Enterprise Microsoft.
-
-## <a name="resource-group"></a>Resource group
-
-Identificare il gruppo di risorse da usare per la soluzione Azure VMware.  Viene in genere creato un gruppo di risorse specifico per la soluzione Azure VMware, ma è possibile usare un gruppo di risorse esistente.
-
-## <a name="region"></a>Area
-
-Identificare l'area in cui si vuole distribuire la soluzione Azure VMware.  Per altre informazioni, vedere [Prodotti di Azure disponibili in base all'area](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
-
-## <a name="resource-name"></a>Nome risorsa
-
-Definire il nome della risorsa da usare durante la distribuzione.  Il nome della risorsa è un nome descrittivo usato per il cloud privato della soluzione Azure VMware.
-
-## <a name="size-nodes"></a>Nodi dimensioni
-
-Identificare i nodi dimensioni da usare durante la distribuzione della soluzione Azure VMware.  Per un elenco completo, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#hosts).
-
-## <a name="number-of-hosts"></a>Numero di host
-
-Definire il numero di host da distribuire nel cloud privato della soluzione Azure VMware.  Il numero minimo di nodi è tre e il numero massimo è 16 nodi per cluster.  Per altre informazioni, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#clusters).
-
-È sempre possibile estendere il cluster in un secondo momento se è necessario incrementare il numero di distribuzione iniziale.
-
-## <a name="vcenter-admin-password"></a>Password dell'amministratore di vCenter
-Definire la password dell'amministratore di vCenter.  Durante la distribuzione verrà creata una password per l'amministratore di vCenter. La password è assegnata a cloudadmin@vsphere.local nell'account dell'amministratore durante la compilazione di vCenter. Verrà usata per accedere a vCenter.
-
-## <a name="nsx-t-admin-password"></a>Password dell'amministratore di NSX-T
-Definire la password dell'amministratore di NSX-T.  Durante la distribuzione verrà creata una password per l'amministratore di NSX-T. La password è assegnata all'utente amministratore nell'account NSX durante la compilazione di NSX. Verrà usata per accedere a NSX-T Manager.
-
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rete virtuale di Azure da collegare alla soluzione Azure VMware
 
 Per accedere al cloud privato della soluzione Azure VMware, il circuito ExpressRoute, incluso nella soluzione Azure VMware, deve essere collegato a una Rete virtuale di Azure.  Durante la distribuzione è possibile definire una nuova rete virtuale o sceglierne una esistente.
@@ -120,8 +119,6 @@ In entrambi i casi, è necessario documentare le operazioni da eseguire in quest
 >Questa rete virtuale viene visualizzata dall'ambiente locale e dalla soluzione Azure VMware, quindi è necessario assicurarsi che non siano presenti sovrapposizioni per il segmento IP usato in questa rete virtuale e nelle subnet.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificazione - Segmento dell'indirizzo IP" border="false":::
-
-
 
 ## <a name="vmware-hcx-network-segments"></a>Segmenti di rete di VMware HCX
 

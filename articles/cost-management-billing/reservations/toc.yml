@@ -130,3 +130,7 @@
       href: /rest/api/consumption/usagedetails
     - name: Gestione costi - API REST di dettagli su prenotazioni e consumo
       href: /rest/api/consumption/reservationsdetails
+- name: Risorse
+  items:
+    - name: 'Modulo Learn: Risparmiare con le istanze riservate'
+      href: /learn/modules/save-money-with-azure-reserved-instances

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9daa09209818b9e01738630911a1bb926e3c257d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079944"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801597"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Esercitazione: Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
 
@@ -47,7 +47,7 @@ Prima di iniziare questa esercitazione sullo sviluppo dell’applicazione, è ne
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
+* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true).
 * [Eclipse IDE per sviluppatori Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Un sito Web di Azure con Java Runtime Environment (ad esempio Tomcat o Jetty) abilitato.](../app-service/quickstart-java.md)
 
@@ -67,7 +67,7 @@ Per creare l'applicazione JSP:
 
 1. Si inizierà con la creazione di un progetto Java. Avviare Eclipse, quindi fare clic su **File**, **New** (Nuovo) e quindi su **Dynamic Web Project** (Progetto Web dinamico). Se **Dynamic Web Project** (Progetto Web dinamico) non è presente nell'elenco dei progetti disponibili, seguire questa procedura: fare clic su **File**, su **New** (Nuovo) e su **Project** (Progetto), espandere **Web**, fare clic su **Dynamic Web Project** (Progetto Web dinamico), quindi selezionare **Next** (Avanti).
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Sviluppo di applicazioni Java JSP":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Applicazione Java My ToDo List":::
 
 1. Immettere un nome di progetto nella casella **Project name** (Nome progetto) e dal menu a discesa **Target Runtime** (Runtime di destinazione) selezionare facoltativamente un valore, ad esempio Apache Tomcat v7.0, e quindi fare clic su **Finish** (Fine). Se si seleziona un runtime di destinazione, sarà possibile eseguire il progetto in locale tramite Eclipse.
 
@@ -75,7 +75,7 @@ Per creare l'applicazione JSP:
 
 1. Nella finestra di dialogo **New JSP File** (Nuovo file JSP) assegnare al file il nome **index.jsp**. Mantenere il nome **WebContent** per la cartella padre, come illustrato di seguito, e quindi fare clic su **Next** (Avanti).
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Esercitazione sull'applicazione Web Java - Creare un nuovo file JSP":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Applicazione Java My ToDo List":::
 
 1. Per le finalità di questa esercitazione, nella finestra di dialogo **Select JSP Template** (Seleziona modello JSP) selezionare **New JSP File (html)** (Nuovo file JSP - html), quindi fare clic su **Finish** (Fine).
 
@@ -91,7 +91,7 @@ Per creare l'applicazione JSP:
 
 1. Se nel passaggio 2 è stato impostato un runtime di destinazione, è possibile fare clic su **Project** (Progetto), quindi su **Run** (Esegui) per eseguire l'applicazione JSP in locale:
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Esercitazione sull'applicazione Java - Hello World":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Applicazione Java My ToDo List":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Installare Java SDK SQL
 

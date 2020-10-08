@@ -302,13 +302,12 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Progettazione con DRM multiplo di riferimento
               href: media-services-cenc-with-multidrm-access-control.md
-        - name: Elaborare con Indexer
-          href: media-services-index-content.md
-          items:
-            - name: Set di impostazioni per le attività
-              href: indexer-task-preset.md
     - name: Analizzare il contenuto
       items:
+        - name: Elaborare con Indexer
+          href: media-services-index-content.md
+        - name: Set di impostazioni per le attività
+          href: indexer-task-preset.md
         - name: Elaborare con lo strumento di offuscamento dei volti
           href: media-services-face-redaction.md
         - name: Procedura dettagliata per lo strumento di offuscamento dei volti

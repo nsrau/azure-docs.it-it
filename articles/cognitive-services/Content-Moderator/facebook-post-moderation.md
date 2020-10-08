@@ -8,18 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 9d8801037be55a262268afcd6e8f5751d158c76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 478f7b7671a71d0d1f1f56c5d1d9889db81f7d37
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548515"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760198"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Esercitazione: Moderare i post e i comandi di Facebook con Azure Content Moderator
 
 Questa esercitazione illustra come usare Azure Content Moderator per moderare post e commenti su una pagina di Facebook. Facebook invierà il contenuto pubblicato dai visitatori nel servizio Content Moderator. Successivamente, i flussi di lavoro di Content Moderator pubblicheranno il contenuto o creeranno revisioni con lo strumento di revisione, a seconda dei punteggi e delle soglie del contenuto. Vedere il [video dimostrativo di Build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) per un esempio pratico di questo scenario.
+
+> [!IMPORTANT]
+> Nel 2018 Facebook ha implementato criteri di verifica più rigorosi delle app Facebook. Se l'app non è stata revisionata e approvata dal team di revisione di Facebook, non sarà possibile completare i passaggi di questa esercitazione.
 
 Questa esercitazione illustra come:
 
@@ -33,9 +36,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Questo diagramma illustra ogni componente di questo scenario:
 
 ![Diagramma di Content Moderator che riceve informazioni provenienti da Facebook mediante "FBListener" e che invia informazioni tramite "CMListener"](images/tutorial-facebook-moderation.png)
-
-> [!IMPORTANT]
-> Nel 2018 Facebook ha implementato criteri di verifica più rigorosi delle app Facebook. Se l'app non è stata revisionata e approvata dal team di revisione di Facebook, non sarà possibile completare i passaggi di questa esercitazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
