@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Servizio Azure SignalR
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Servizio Azure SignalR. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 00e09247789a6675c971c99ff74a3d14d9c7ddb6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06bd2d443a6c179e6193a243087636b78269c68b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976524"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818714"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Definizioni predefinite di Criteri di Azure per Servizio Azure SignalR
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324060"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819034"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -248,6 +248,10 @@ Per avere correttamente le connessioni HTTPS al back-end, sia per i probe di int
 1. **Mancata corrispondenza del nome del soggetto del certificato**: per le connessioni HTTPS, la porta anteriore prevede che il back-end presenti un certificato da una CA valida con i nomi di soggetto corrispondenti al nome host del back-end. Ad esempio, se il nome host del back-end è impostato su `myapp-centralus.contosonews.net` e il certificato presentato dal back-end durante l'handshake TLS non ha `myapp-centralus.contosonews.net` né `*myapp-centralus*.contosonews.net` nel nome del soggetto, la porta anteriore rifiuterà la connessione e restituirà un errore. 
     1. **Soluzione**: Sebbene non sia consigliabile dal punto di vista della conformità, è possibile risolvere questo errore disabilitando la verifica del nome del soggetto del certificato per la porta anteriore. Questo è presente in impostazioni in portale di Azure e in BackendPoolsSettings nell'API.
 2. **Certificato di hosting back-end da autorità di certificazione non valida**: solo i certificati delle [autorità di certificazione valide](/azure/frontdoor/front-door-troubleshoot-allowed-ca) possono essere usati nel back-end con sportello anteriore. I certificati da autorità di certificazione interne o certificati autofirmati non sono consentiti.
+
+### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>È possibile usare l'autenticazione client/reciproca con lo sportello anteriore di Azure?
+
+No. Sebbene il front-end di Azure supporti TLS 1,2, che ha introdotto l'autenticazione client/reciproca in [RFC 5246](https://tools.ietf.org/html/rfc5246), attualmente, la porta anteriore di Azure non supporta l'autenticazione client/reciproca.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostica e registrazione
 

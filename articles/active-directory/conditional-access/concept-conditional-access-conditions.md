@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcbd58c5d8dc12898fe343dbba6c3a6f8cd61b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258713"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818347"
 ---
-# <a name="conditional-access-conditions"></a>Accesso condizionale: condizioni
+# <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
 
 All'interno di un criterio di accesso condizionale, un amministratore può usare i segnali provenienti da condizioni come il rischio, la piattaforma del dispositivo o la località per migliorare le decisioni relative ai criteri. 
 
@@ -49,6 +49,9 @@ Azure AD l'accesso condizionale supporta le piattaforme per dispositivi seguenti
 - macOS
 
 Se si blocca l'autenticazione legacy usando la condizione di **altri client** , è anche possibile impostare la condizione della piattaforma del dispositivo.
+
+> [!IMPORTANT]
+> Microsoft consiglia di disporre di un criterio di accesso condizionale per le piattaforme per dispositivi non supportate. Se ad esempio si vuole bloccare l'accesso alle risorse aziendali da Linux o da altri client non supportati, è necessario configurare un criterio con una condizione per le piattaforme del dispositivo che includa qualsiasi dispositivo ed esclude le piattaforme del dispositivo supportate e concedere il set di controllo per bloccare l'accesso.
 
 ## <a name="locations"></a>Percorsi
 
@@ -113,7 +116,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
-| Windows Server 2008 R2 | Internet Explorer |
+| Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
 > [!NOTE]

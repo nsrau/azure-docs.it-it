@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 002aa9da465d86392aaaa5d404f67959b341ecf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445937"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818978"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creare una connessione da sito a sito usando il portale di Azure (distribuzione classica)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91445937"
 Questo articolo illustra come usare il portale di Azure per creare una connessione gateway VPN da sito a sito dalla rete locale alla rete virtuale. I passaggi descritti in questo articolo si applicano al modello di distribuzione classica e non si applicano al modello di distribuzione corrente Gestione risorse. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -104,7 +104,7 @@ Dopo aver creato la rete virtuale, è possibile aggiungere l'indirizzo IP di un 
 
 In genere il sito locale fa riferimento alla posizione locale. Contiene l'indirizzo IP del dispositivo VPN a cui si crea una connessione e gli intervalli di indirizzi IP che verranno distribuiti tramite il gateway VPN al dispositivo VPN.
 
-1. Nella pagina del VNet, in **Impostazioni**, fare clic su **diagramma**.
+1. Nella pagina del VNet, in **monitoraggio**, fare clic su **diagramma**.
 1. Nella pagina **connessioni VPN** fare clic su **Nessuna connessione VPN esistente. Per iniziare, fare clic qui**.
 1. Per **tipo di connessione**lasciare selezionata l'opzione **da sito a sito** .
 4. Fare clic su **Sito locale - Configurare le impostazioni necessarie** per aprire la pagina **Sito locale**. Configurare le impostazioni e quindi fare clic su **OK** per salvarle.
@@ -182,7 +182,7 @@ Questo passaggio illustra come impostare la chiave condivisa e creare la conness
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
 
-### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Passaggio 2. Impostare la chiave condivisa e creare la connessione
+### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Passaggio 2: Impostare la chiave condivisa e creare la connessione
 
 Quando si crea una VNet classica nel portale (non usando PowerShell), Azure aggiunge il nome del gruppo di risorse al nome breve. Ad esempio, in base ad Azure, il nome del VNet creato per questo esercizio è "Group TestRG1 TestVNet1", non "TestVNet1". PowerShell richiede il nome completo della rete virtuale e non il nome breve visualizzato nel portale. Il nome lungo non è visibile nel portale. La procedura seguente consente di esportare il file di configurazione di rete per ottenere i valori esatti per il nome della rete virtuale. 
 

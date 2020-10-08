@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 112c1c6a0fbbd7e0011890d1ce92c6e21e168137
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450375"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817976"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativa
 
@@ -38,8 +38,10 @@ Amministratore licenze  |  Consente di assegnare, rimuovere e aggiornare le asse
 Amministratore password  |  Consente di reimpostare le password per gli amministratori non amministratori e password solo nell'unità amministrativa assegnata.
 Amministratore utenti  |  Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione delle password per gli amministratori limitati all'interno dell'unità amministrativa assegnata.
 
-## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Entità di sicurezza che possono essere assegnate a un ruolo con ambito AU
-Le seguenti entità di sicurezza possono essere assegnate a un ruolo con ambito AU:
+## <a name="security-principals-that-can-be-assigned-to-a-scoped-role"></a>Entità di sicurezza che possono essere assegnate a un ruolo con ambito
+
+Le seguenti entità di sicurezza possono essere assegnate a un ruolo con un ambito di unità amministrativa:
+
 * Utenti
 * Gruppi di cloud assegnabili con ruolo (anteprima)
 * Nome dell'entità servizio (SPN)

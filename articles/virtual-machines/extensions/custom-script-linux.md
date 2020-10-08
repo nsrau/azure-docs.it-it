@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dbfc2173f6631aff2d65c770a5204bbd72d3ed1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085725"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818815"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -55,6 +55,7 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
 * Il tempo massimo consentito per l'esecuzione dello script è pari a 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
 * Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
+* Non è consigliabile eseguire uno script che provocherà l'arresto o l'aggiornamento dell'agente di macchine virtuali. Questo potrebbe lasciare l'estensione in uno stato di transizione e causare un timeout.
 * Se si dispone di uno script che determinerà un riavvio, installare le applicazioni ed eseguire gli script e così via. È necessario pianificare il riavvio usando un processo cron o usando strumenti come DSC o chef, estensioni Puppet.
 * L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](../linux/using-cloud-init.md) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio systemd.
 * È possibile applicare una sola versione di un'estensione alla macchina virtuale. Per eseguire un secondo script personalizzato, è necessario rimuovere l'estensione dello script personalizzata e riapplicarla con lo script aggiornato. 
@@ -118,7 +119,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | INT |
 | fileUris (es.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute (es.) | MyPythonScript.py Python\<my-param1> | string |
+| commandToExecute (es.) | MyPythonScript.py Python \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (esempio) | false | boolean |
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
@@ -127,7 +128,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | managedIdentity (es.) | { } o { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } o { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | Oggetto JSON |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
-* `apiVersion`: La apiVersion più aggiornata è reperibile usando [Esplora inventario risorse](https://resources.azure.com/) o dall'interfaccia della riga di comando di Azure usando il comando seguente`az provider list -o json`
+* `apiVersion`: La apiVersion più aggiornata è reperibile usando [Esplora inventario risorse](https://resources.azure.com/) o dall'interfaccia della riga di comando di Azure usando il comando seguente `az provider list -o json`
 * `skipDos2Unix`: (facoltativo, booleano) ignorare la conversione dos2unix dello script o degli URL di file basati su script.
 * `timestamp` (facoltativo, valore integer a 32 bit) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.  Qualsiasi valore intero è accettabile, purché sia diverso dal valore precedente.
 * `commandToExecute`: (**obbligatorio** se lo script non è impostato, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password.

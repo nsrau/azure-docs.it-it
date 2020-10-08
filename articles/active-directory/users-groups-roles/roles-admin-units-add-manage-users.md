@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e223dd46806551fbba05127b70a9119a5d9c75
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 0d29f4ef5806eb8ed9385696dea78f4ae0992b93
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661143"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91818244"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Aggiungere e gestire gli utenti in un'unità amministrativa in Azure Active Directory
 
@@ -31,21 +31,30 @@ Per i passaggi necessari per preparare l'uso di PowerShell e Microsoft Graph per
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-È possibile assegnare utenti a unità amministrative in due modi.
+È possibile assegnare utenti a unità amministrative singolarmente o in un'operazione bulk.
 
-1. Assegnazione singola
+- Assegnazione singola da un profilo utente
 
-    1. È possibile passare all'Azure AD nel portale e selezionare utenti e selezionare l'utente da assegnare a un'unità amministrativa. È quindi possibile selezionare unità amministrative nel pannello di sinistra. L'utente può essere assegnato a una o più unità amministrative facendo clic su * * assegna a unità amministrativa e selezionando le unità amministrative in cui l'utente deve essere assegnato.
+   1. Accedere al centro di [amministrazione Azure ad](https://portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi.
+   1. Selezionare **utenti** e selezionare l'utente da assegnare a un'unità amministrativa per aprire il profilo dell'utente.
+   1. Selezionare **unità amministrative**. L'utente può essere assegnato a una o più unità amministrative selezionando **assegna a unità amministrativa** e selezionando le unità amministrative in cui l'utente deve essere assegnato.
 
        ![Selezionare Aggiungi e quindi immettere un nome per l'unità amministrativa](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. È possibile passare a Azure AD nel portale e selezionare unità amministrative nel riquadro sinistro, quindi selezionare l'unità amministrativa a cui assegnare gli utenti. Selezionare **tutti gli utenti** e quindi fare clic su **Aggiungi membro**. È quindi possibile procedere e selezionare uno o più utenti da assegnare all'unità amministrativa dal riquadro di destra.
+- Assegnazione singola da un'unità amministrativa
+
+   1. Accedere al centro di [amministrazione Azure ad](https://portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi.
+   1. Selezionare **unità amministrative** , quindi selezionare l'unità amministrativa a cui assegnare gli utenti.
+   1. Selezionare **tutti gli utenti** e quindi selezionare **Aggiungi membro** per selezionare uno o più utenti da assegnare all'unità amministrativa dal riquadro **Aggiungi membro** .
 
         ![selezionare un'unità amministrativa e quindi Aggiungi membro](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
-1. Assegnazione in blocco
+- Assegnazione in blocco
 
-    Passare a Azure AD nel portale e selezionare unità amministrative. Selezionare l'unità amministrativa in cui si desidera aggiungere gli utenti. Per continuare, fare clic su tutti gli utenti > Aggiungi membri da un file con estensione CSV. È quindi possibile scaricare il modello CSV e modificare il file. Il formato è semplice e richiede l'aggiunta di un singolo UPN in ogni riga. Quando il file è pronto, salvarlo in una posizione appropriata e quindi caricarlo nel passaggio 3 come evidenziato nello snapshot.
+   1. Accedere al centro di [amministrazione Azure ad](https://portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi.
+   1. Selezionare **unità amministrative**.
+   1. Selezionare l'unità amministrativa in cui si desidera aggiungere gli utenti.
+   1. Aprire **tutti gli utenti**  >  **aggiungere membri da un file con estensione CSV**. È quindi possibile scaricare il modello con valori delimitati da virgole (CSV) e modificare il file. Il formato è semplice e richiede l'aggiunta di un singolo nome dell'entità utente in ogni riga. Quando il file è pronto, salvarlo in una posizione appropriata e quindi caricarlo come parte di questo passaggio.
 
     ![assegnare in blocco gli utenti a un'unità amministrativa](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
