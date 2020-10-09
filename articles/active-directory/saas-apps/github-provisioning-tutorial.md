@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 847c69a18a73d67b9b994e72686a4073ddd6d27f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358322"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857537"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Esercitazione: Configurare GitHub per il provisioning utenti automatico
 
@@ -28,6 +28,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Tenant di Azure Active Directory
 * Un'organizzazione GitHub creata in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), che richiede il [piano di fatturazione GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * Un account utente in GitHub con autorizzazioni di amministratore per l'organizzazione
+* [SAML configurato per l'organizzazione cloud aziendale GitHub](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * Verificare che sia stato fornito l'accesso OAuth per l'organizzazione, come descritto [qui](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * Il provisioning di SCIM in una singola organizzazione è supportato solo quando SSO è abilitato a livello di organizzazione
 
@@ -51,9 +52,6 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 ## <a name="configuring-user-provisioning-to-github"></a>Configurazione del provisioning utenti in GitHub
 
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di GitHub e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in GitHub in base all'assegnazione di utenti e gruppi in Azure AD.
-
-> [!TIP]
-> Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per GitHub, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configurare il provisioning automatico degli account utente in GitHub in Azure AD
 

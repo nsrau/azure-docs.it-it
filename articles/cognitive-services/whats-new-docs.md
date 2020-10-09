@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 73a097907a5b44c77ba5e1a9ead4cb4e3a8077c6
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777748"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857810"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Documentazione di servizi cognitivi: novità del 1 ° settembre 2020-30 settembre 2020
 
@@ -22,7 +22,7 @@ Benvenuti in What ' s New in the cognitive Services docs dal 1 ° settembre 2020
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Guida introduttiva: creare una risorsa di servizi cognitivi usando l'interfaccia della riga di comando di Azure](cognitive-services-apis-create-account-cli.md)
+- [Guida introduttiva: creare una risorsa di servizi cognitivi usando l'interfaccia della Command-Line di Azure](cognitive-services-apis-create-account-cli.md)
 - [Avvio rapido: Creare una risorsa di Servizi cognitivi con la libreria client di gestione di Azure](cognitive-services-apis-create-account-client-library.md)
 - [Guida introduttiva: creare una risorsa di servizi cognitivi usando il portale di Azure](cognitive-services-apis-create-account.md)
 - [Avvio rapido: Creare una risorsa di Servizi cognitivi con un modello di Resource Manager](create-account-resource-manager-template.md)
@@ -80,7 +80,7 @@ Benvenuti in What ' s New in the cognitive Services docs dal 1 ° settembre 2020
 - [Avvio rapido: Usare le API REST per personalizzare la soluzione](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
 - [Procedura: configurare gli avvisi e ricevere notifiche tramite un hook](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
 
-## <a name="text-analytics"></a>Analisi del testo
+## <a name="text-analytics"></a>Text Analytics
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
@@ -99,3 +99,5 @@ Le persone seguenti hanno contribuito ai documenti di servizi cognitivi durante 
 - [iAmBipinPaul-para](https://github.com/iAmBipinPaul) Paul (1)
 - [rexwan](https://github.com/rexwan) -Rex Wang (1)
 - [rglidden](https://github.com/rglidden) -Richard Glidden (1)
+
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

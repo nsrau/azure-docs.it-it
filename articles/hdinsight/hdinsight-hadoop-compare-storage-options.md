@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536749"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856195"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
 È possibile scegliere tra alcuni servizi di archiviazione di Azure diversi quando si creano cluster HDInsight:
 
-* [Archiviazione di Azure](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
-* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
+* [Archiviazione BLOB di Azure con HDInsight](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen2 con HDInsight](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1 con HDInsight](./overview-data-lake-storage-gen1.md)
 
 Questo articolo offre una panoramica di questi tipi di archiviazione e delle relative funzionalità univoche.
 
@@ -52,13 +52,13 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere 
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 * | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
-| 3.6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sì |
+| 3,6 | Data Lake Storage Gen1 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
 | 4.0 | Data Lake Storage Gen1 | Qualsiasi | No |
 | 4.0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen1 | No |
 
-* = Può trattarsi di uno o più account Data Lake Storage Gen2, purché siano tutti impostati per usare la stessa identità gestita per l'accesso al cluster.
+* = Può trattarsi di uno o più Data Lake Storage Gen2, purché tutti siano impostati in modo da usare la stessa identità gestita per l'accesso al cluster.
 
 > [!NOTE]
 > Data Lake Storage Gen2 archiviazione primaria non è supportata per i cluster Spark 2,1 o 2,2.
@@ -71,8 +71,8 @@ Azure HDInsight non archivia i dati dei clienti. Il mezzo principale di archivia
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica di Archiviazione di Azure](./overview-azure-storage.md)
-* [Panoramica di Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
-* [Panoramica di Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Panoramica di archiviazione di Azure in HDInsight](./overview-azure-storage.md)
+* [Panoramica di Azure Data Lake Storage Gen1 in HDInsight](./overview-data-lake-storage-gen1.md)
+* [Panoramica di Azure Data Lake Storage Gen2 in HDInsight](./overview-data-lake-storage-gen2.md)
 * [Introduzione ad Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduzione ad Archiviazione di Azure](../storage/common/storage-introduction.md)

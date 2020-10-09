@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996687"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856486"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creare un trigger per l'esecuzione di una pipeline in una finestra a cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -147,7 +147,7 @@ Per usare i valori delle variabili di sistema **WindowStart** e **WindowEnd** ne
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordine di esecuzione delle finestre in uno scenario di recupero delle informazioni
 
-Se il startTime del trigger è nel passato, in base a questa formula, M = (CurrentTime-TriggerStartTime)/TriggerSliceSize, il trigger genererà {M} il recupero (paste) viene eseguito in parallelo, rispettando la concorrenza dei trigger, prima di eseguire le esecuzioni future. L'ordine di esecuzione per Windows è deterministico, dall'intervallo più vecchio a quello più recente. Attualmente non è possibile modificare questo comportamento.
+Se il startTime del trigger è nel passato, in base a questa formula, M = (CurrentTime-TriggerStartTime)/TumblingWindowSize, il trigger genererà {M} il recupero (paste) viene eseguito in parallelo, rispettando la concorrenza dei trigger, prima di eseguire le esecuzioni future. L'ordine di esecuzione per Windows è deterministico, dall'intervallo più vecchio a quello più recente. Attualmente non è possibile modificare questo comportamento.
 
 ### <a name="existing-triggerresource-elements"></a>Elementi TriggerResource esistenti
 

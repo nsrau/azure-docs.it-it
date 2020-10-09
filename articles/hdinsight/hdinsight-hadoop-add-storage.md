@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 23e7b0f8dcb0c64259627d5350511ebdc48d6fac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078973"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856229"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
-Informazioni su come usare le azioni script per aggiungere altri *account* di archiviazione di Azure a HDInsight. La procedura descritta in questo documento consente di aggiungere un *account* di archiviazione a un cluster HDInsight esistente. Questo articolo si applica agli *account* di archiviazione (non all'account di archiviazione del cluster predefinito) e non a una risorsa di archiviazione aggiuntiva, ad esempio [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) e [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
+Informazioni su come usare le azioni script per aggiungere altri *account* di archiviazione di Azure a HDInsight. La procedura descritta in questo documento consente di aggiungere un *account* di archiviazione a un cluster HDInsight esistente. Questo articolo si applica agli *account* di archiviazione (non all'account di archiviazione del cluster predefinito) e non a una risorsa di archiviazione aggiuntiva, ad esempio [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) e [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md) .
 
 > [!IMPORTANT]  
 > Le informazioni contenute in questo documento illustrano come aggiungere altri account di archiviazione a un cluster dopo che è stato creato. Per informazioni sull'aggiunta di account di archiviazione durante la creazione del cluster, vedere [Configurare cluster in HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro](hdinsight-hadoop-provision-linux-clusters.md).
@@ -28,7 +28,7 @@ Informazioni su come usare le azioni script per aggiungere altri *account* di ar
 * Nome e chiave dell'account di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-keys-manage.md).
 * Se si usa PowerShell, è necessario il modulo AZ.  Vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Durante l'elaborazione, lo script esegue le azioni seguenti:
 
@@ -55,8 +55,8 @@ Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#script-acti
 |Tipo/i di nodo|Head|
 |Parametri|`ACCOUNTNAME``ACCOUNTKEY` `-p` (facoltativo)|
 
-* `ACCOUNTNAME`è il nome dell'account di archiviazione da aggiungere al cluster HDInsight.
-* `ACCOUNTKEY`è il tasto di accesso per `ACCOUNTNAME` .
+* `ACCOUNTNAME` è il nome dell'account di archiviazione da aggiungere al cluster HDInsight.
+* `ACCOUNTKEY` è il tasto di accesso per `ACCOUNTNAME` .
 * `-p` è facoltativo. Se specificato, la chiave non è crittografata e viene archiviata nel file di core-site.xml come testo normale.
 
 ## <a name="verification"></a>Verifica

@@ -5,16 +5,16 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 05/28/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 133b565bc54feaf49a2fec9dd0056ca8e7ef43f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538246"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857725"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticazione e autorizzazione per Ancoraggi nello spazio di Azure
 
@@ -37,7 +37,7 @@ Le chiavi dell'account consentono di iniziare a usare il servizio Ancoraggi spaz
 
 ## <a name="account-keys"></a>Chiavi dell'account
 
-Il modo più semplice per iniziare è usare le chiavi dell'account per accedere all'account di Ancoraggi nello spazio di Azure. Le chiavi dell'account sono disponibili nel portale di Azure. Accedere all'account e selezionare la scheda "Chiavi".
+Il modo più semplice per iniziare è usare le chiavi dell'account per accedere all'account di Ancoraggi nello spazio di Azure. Le chiavi dell'account sono disponibili nel portale di Azure. Passare all'account e selezionare la scheda "chiavi".
 
 ![Screenshot che mostra la pagina "chiavi" con il pulsante "copia" per la "chiave primaria" evidenziata.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
@@ -95,28 +95,28 @@ Al termine dell'operazione, l'SDK gestirà lo scambio della chiave dell'account 
 Per le applicazioni destinate agli utenti di Azure Active Directory, l'approccio consigliato consiste nell'usare un token Azure AD per l'utente. Il token può essere ottenuto tramite la [libreria MSAL](../../active-directory/develop/msal-overview.md). Seguire la procedura illustrata nell'argomento [Registrare un'applicazione](../../active-directory/develop/quickstart-register-app.md) della guida introduttiva, che prevede i passaggi seguenti:
 
 1. Eseguire la configurazione nel portale di Azure
-    1.  Registrare l'applicazione in Azure AD come **applicazione nativa**. Come parte della registrazione sarà necessario indicare se l'applicazione dovrà essere multi-tenant o meno e specificare gli URL di reindirizzamento consentiti per l'applicazione.
+    1.    Registrare l'applicazione in Azure AD come **applicazione nativa**. Come parte della registrazione sarà necessario indicare se l'applicazione dovrà essere multi-tenant o meno e specificare gli URL di reindirizzamento consentiti per l'applicazione.
         1.  Passare alla scheda **Autorizzazioni API**
         2.  Selezionare **Aggiungi un'autorizzazione**
-            1.  Nella scheda **API usate dall'organizzazione** selezionare **Realtà mista**
+            1.  Selezionare il **provider di risorse di realtà mista** in API uso della scheda della **mia organizzazione**
             2.  Selezionare **Autorizzazioni delegate**
             3.  In **mixedreality** selezionare la casella **mixedreality.signin**
             4.  Selezionare **Aggiungi autorizzazioni**
         3.  Selezionare **Concedi consenso amministratore**
-    2.  Concedere all'applicazione o agli utenti l'accesso alla risorsa:
-        1.  Passare alla risorsa di Ancoraggi nello spazio nel portale di Azure
-        2.  Passare alla scheda **Controllo di accesso (IAM)**
-        3.  Fare clic su **Aggiungi un'assegnazione di ruolo**
-            1.  [Selezionare un ruolo](#role-based-access-control)
-            2.  Nel campo **Seleziona** immettere i nomi degli utenti, dei gruppi e/o delle applicazioni a cui si desidera assegnare l'accesso.
-            3.  Premere **Salva**.
+    2.    Concedere all'applicazione o agli utenti l'accesso alla risorsa:
+        1.    Passare alla risorsa di Ancoraggi nello spazio nel portale di Azure
+        2.    Passare alla scheda **Controllo di accesso (IAM)**
+        3.    Fare clic su **Aggiungi un'assegnazione di ruolo**
+            1.    [Selezionare un ruolo](#role-based-access-control)
+            2.    Nel campo **Seleziona** immettere i nomi degli utenti, dei gruppi e/o delle applicazioni a cui si desidera assegnare l'accesso.
+            3.    Premere **Salva**.
 2. Nel codice:
-    1.  Usare l'**ID applicazione** e l'**URI di reindirizzamento** dell'applicazione di Azure AD come parametri **ID client** e **RedirectUri** in MSAL
-    2.  Impostare le informazioni relative al tenant:
-        1.  Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
-        2.  Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con **Organizzazioni**
-        3.  Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con **Comuni**
-    3.  Nella richiesta di token impostare l'**ambito** su "https://sts.mixedreality.azure.com//.default". Questo ambito indicherà ad Azure AD che l'applicazione richiede un token per il servizio token di sicurezza (STS) di Realtà mista.
+    1.    Usare l'**ID applicazione** e l'**URI di reindirizzamento** dell'applicazione di Azure AD come parametri **ID client** e **RedirectUri** in MSAL
+    2.    Impostare le informazioni relative al tenant:
+        1.    Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+        2.    Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con **Organizzazioni**
+        3.    Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con **Comuni**
+    3.    Nella richiesta di token impostare l'**ambito** su "https://sts.mixedreality.azure.com//.default". Questo ambito indicherà ad Azure AD che l'applicazione richiede un token per il servizio token di sicurezza (STS) di Realtà mista.
 
 In questo modo, l'applicazione dovrebbe essere in grado di ottenere dalla libreria MSAL un token di Azure AD. È possibile impostare tale token di Azure AD come **authenticationToken** nell'oggetto config della sessione cloud.
 
@@ -170,24 +170,24 @@ In questo schema si presuppone che l'app esegua l'autenticazione per il servizio
 
 Il token di accesso di Azure AD viene recuperato tramite la [libreria MSAL](../../active-directory/develop/msal-overview.md). Seguire la procedura illustrata nell'argomento [Registrare un'applicazione](../../active-directory/develop/quickstart-register-app.md) della guida introduttiva, che prevede i passaggi seguenti:
 
-1.  Eseguire la configurazione nel portale di Azure:
-    1.  Registrare l'applicazione in Azure AD:
-        1.  Nel portale di Azure selezionare **Azure Active Directory** e quindi **Registrazioni app**
-        2.  Selezionare **Registrazione nuova applicazione**
-        3.  Immettere il nome dell'applicazione, impostare il tipo di applicazione su **App Web/API** e immettere l'URL di autenticazione per il servizio. Quindi fare clic su **Crea**.
-        4.  In tale applicazione, fare clic su **Impostazioni**, quindi selezionare la scheda **certificati e segreti** . Creare un nuovo segreto client, selezionare una durata e fare clic su **Aggiungi**. Assicurarsi di salvare il valore del segreto, perché sarà necessario includerlo nel codice del servizio Web.
-    2.  Concedere all'applicazione e/o agli utenti l'accesso alla risorsa:
-        1.  Accedere alla risorsa di Ancoraggi nello spazio nel portale di Azure
-        2.  Passare alla scheda **Controllo di accesso (IAM)**
-        3.  Fare clic su **Aggiungi un'assegnazione di ruolo**
-        1.  [Selezionare un ruolo](#role-based-access-control)
-        2.  Nel campo **Seleziona** immettere i nomi delle applicazioni create e alle quali si desidera assegnare l'accesso. Se si desidera che gli utenti dell'app dispongano di ruoli diversi rispetto all'account di Ancoraggi nello spazio, è necessario registrare più applicazioni in Azure AD e assegnare un ruolo distinto a ognuno. Quindi implementare la logica di autorizzazione in modo che venga usato il ruolo degli utenti corretto.
-        3.  Nota: nella selezione **Aggiungi assegnazione ruolo** si vuole che l'opzione **assegna accesso** a sia impostata su "Azure ad utente, gruppo o entità servizio".
-    3.  Premere **Salva**.
-2.  Nel codice (si noti che è possibile usare l'esempio di servizio incluso in GitHub):
-    1.  Usare l'ID, il segreto e l'URI di reindirizzamento dell'applicazione di Azure AD come parametri ID client, segreto e RedirectUri in MSAL
-    2.  Impostare l'ID tenant sull'ID tenant di Azure AD specificato nel parametro relativo all'autorità in MSAL.
-    3.  Nella richiesta del token impostare l'**ambito** su "https://sts.mixedreality.azure.com//.default"
+1.    Eseguire la configurazione nel portale di Azure:
+    1.    Registrare l'applicazione in Azure AD:
+        1.    Nel portale di Azure selezionare **Azure Active Directory** e quindi **Registrazioni app**
+        2.    Selezionare **Registrazione nuova applicazione**
+        3.    Immettere il nome dell'applicazione, impostare il tipo di applicazione su **App Web/API** e immettere l'URL di autenticazione per il servizio. Quindi fare clic su **Crea**.
+        4.    In tale applicazione, fare clic su **Impostazioni**, quindi selezionare la scheda **certificati e segreti** . Creare un nuovo segreto client, selezionare una durata e fare clic su **Aggiungi**. Assicurarsi di salvare il valore del segreto, perché sarà necessario includerlo nel codice del servizio Web.
+    2.    Concedere all'applicazione e/o agli utenti l'accesso alla risorsa:
+        1.    Accedere alla risorsa di Ancoraggi nello spazio nel portale di Azure
+        2.    Passare alla scheda **Controllo di accesso (IAM)**
+        3.    Fare clic su **Aggiungi un'assegnazione di ruolo**
+        1.    [Selezionare un ruolo](#role-based-access-control)
+        2.    Nel campo **Seleziona** immettere i nomi delle applicazioni create e alle quali si desidera assegnare l'accesso. Se si vuole che gli utenti dell'app abbiano ruoli diversi rispetto all'account degli ancoraggi spaziali, è necessario registrare più applicazioni nel Azure AD e assegnare a ognuno un ruolo separato. Quindi implementare la logica di autorizzazione in modo che venga usato il ruolo degli utenti corretto.
+        3.    Nota: nella selezione **Aggiungi assegnazione ruolo** si vuole che l'opzione **assegna accesso** a sia impostata su "Azure ad utente, gruppo o entità servizio".
+    3.    Premere **Salva**.
+2.    Nel codice (si noti che è possibile usare l'esempio di servizio incluso in GitHub):
+    1.    Usare l'ID, il segreto e l'URI di reindirizzamento dell'applicazione di Azure AD come parametri ID client, segreto e RedirectUri in MSAL
+    2.    Impostare l'ID tenant sull'ID tenant di Azure AD specificato nel parametro relativo all'autorità in MSAL.
+    3.    Nella richiesta del token impostare l'**ambito** su "https://sts.mixedreality.azure.com//.default"
 
 In questo modo il servizio back-end potrà recuperare un token di Azure AD. Il token potrà quindi essere scambiato con un token MR che verrà restituito al client. Il recupero di un token MR tramite un token di Azure AD viene eseguito tramite una chiamata REST. Di seguito è riportata una chiamata di esempio:
 

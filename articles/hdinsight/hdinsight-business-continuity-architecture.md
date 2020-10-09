@@ -8,12 +8,12 @@ keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: cb3ef1e802546d5a8b1574b304770fe7a364e2df
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2020
-ms.locfileid: "91843924"
+ms.locfileid: "91856433"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Architetture di continuità aziendale di Azure HDInsight
 
@@ -206,8 +206,6 @@ La replica dei criteri Ranger tra i database primari e secondari può causare la
 
 Per ulteriori informazioni sugli elementi trattati in questo articolo, vedere:
 
-* [Riferimento REST Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Installare e configurare Azure PowerShell modulo AZ](/powershell/azure/)
-* [Gestire HDInsight tramite Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [provisioning di cluster HDInsight basati su Linux](hdinsight-hadoop-provision-linux-clusters.md)
+* [Continuità aziendale di Azure HDInsight](./hdinsight-business-continuity.md)
+* [Architettura della soluzione a disponibilità elevata di Azure HDInsight case study](./hdinsight-high-availability-case-study.md)
+* [Cosa sono Apache Hive e HiveQL in Azure HDInsight](./hadoop/hdinsight-use-hive.md)

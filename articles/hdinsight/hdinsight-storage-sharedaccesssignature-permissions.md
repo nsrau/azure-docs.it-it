@@ -1,6 +1,6 @@
 ---
 title: "Limitare l'accesso usando le firme di accesso condiviso: Azure HDInsight"
-description: Informazioni su come usare le firme di accesso condiviso per limitare l'accesso di HDInsight ai dati archiviati nei BLOB di archiviazione di Azure.
+description: Informazioni su come usare le firme di accesso condiviso per limitare l'accesso HDInsight ai dati archiviati nell'archivio BLOB di Azure.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 8ab181eb72b5a3ab54ad8dba19d23288926b8969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea14a67f11974c8f7cdeea9eb84e5efb2377fb15
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006314"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856565"
 ---
-# <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
+# <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione BLOB di Azure per limitare l'accesso ai dati in HDInsight
 
-HDInsight ha accesso completo ai dati negli account di archiviazione di Azure associati al cluster. È possibile usare le firme di accesso condiviso nel contenitore BLOB per limitare l'accesso ai dati, Le firme di accesso condiviso sono una funzionalità degli account di archiviazione di Azure che consente di limitare l'accesso ai dati. Ad esempio, concedendo l'accesso in sola lettura ai dati.
+HDInsight ha accesso completo ai dati negli account di archiviazione BLOB di Azure associati al cluster. È possibile usare le firme di accesso condiviso nel contenitore BLOB per limitare l'accesso ai dati, Le firme di accesso condiviso (SAS) sono una funzionalità di account di archiviazione BLOB di Azure che consente di limitare l'accesso ai dati. Ad esempio, concedendo l'accesso in sola lettura ai dati.
 
 > [!IMPORTANT]  
 > Per una soluzione che usi Apache Ranger, considerare la possibilità di usare HDInsight aggiunto al dominio. Per altre informazioni, vedere il documento [Configurare i cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-configure.md).
@@ -39,7 +39,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
 
 * Se si usa C#, Visual Studio deve essere 2013 o versione successiva.
 
-* Schema URI per l'account di archiviazione. Questo schema è `wasb://` per archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`.
+* Schema URI per l'account di archiviazione. Questo schema è `wasb://` per l'archiviazione BLOB di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per l'archiviazione BLOB di Azure, l'URI è `wasbs://` .
 
 * Un cluster HDInsight esistente a cui aggiungere una firma di accesso condiviso. In caso contrario, è possibile usare Azure PowerShell per creare un cluster e aggiungere una firma di accesso condiviso durante la creazione del cluster.
 
@@ -48,7 +48,7 @@ HDInsight ha accesso completo ai dati negli account di archiviazione di Azure as
   * Un progetto di Visual Studio che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
   * Uno script di Python che può creare un contenitore di archiviazione, i criteri archiviati e la firma di accesso condiviso da usare con HDInsight.
   * Uno script di PowerShell in grado di creare un cluster HDInsight e configurarlo per l'uso della firma di accesso condiviso. Di seguito viene usata una versione aggiornata.
-  * Un file di esempio:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * Un file di esempio: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>Firme di accesso condiviso
 
@@ -86,7 +86,7 @@ Salvare il token SAS prodotto alla fine di ogni metodo. Il token sarà simile al
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Uso di PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 Sostituire `RESOURCEGROUP` , `STORAGEACCOUNT` e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o rivedere il `-File` parametro in modo che contenga il percorso assoluto per `Set-AzStorageblobcontent` . Immettere il seguente comando di PowerShell:
 
@@ -357,7 +357,7 @@ Se si dispone di un cluster esistente, è possibile aggiungere la firma di acces
 
 1. Espandere la sezione **core personalizzato-sito** , scorrere fino alla fine e quindi selezionare **Aggiungi proprietà...**. Usare i valori seguenti per **Key** e **value**:
 
-    * **Chiave**:`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Chiave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
     * **Value**: la firma di accesso condiviso restituita da uno dei metodi eseguiti in precedenza.
 
     Sostituire `CONTAINERNAME` con il nome del contenitore usato con l'applicazione C# o SAS. Sostituire `STORAGEACCOUNTNAME` con il nome dell'account di archiviazione usato.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 61e5c60317bf872b8e27a7bd2edea7247e01a3b8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91439418"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858014"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per le macchine virtuali
 
@@ -107,6 +107,6 @@ Per informazioni sui casi in cui vengono generate raccomandazioni per ognuna di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul modo in cui il [Centro sicurezza raccoglie i dati e sull'agente di Log Analytics](security-center-enable-data-collection.md).
+- Informazioni sul modo in cui il [Centro sicurezza raccoglie i dati tramite l'agente di Log Analytics](security-center-enable-data-collection.md).
 - Informazioni su come il [Centro sicurezza gestisce e protegge i dati](security-center-data-security.md).
 - Informazioni sulle [piattaforme che supportano il Centro sicurezza](security-center-os-coverage.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 55ffd563ea0a99d32608bd90bd53d7dc88eb4cf2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961813"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856586"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -101,15 +101,15 @@ I dati di esempio e i file con estensione jar sono disponibili nel file system H
 
 Nella maggior parte delle distribuzioni di Hadoop, i dati vengono archiviati in HDFS. Il file system HDFS è supportato dall'archiviazione locale nei computer del cluster. L'uso di sistema locale può essere costoso per una soluzione basata su cloud dove viene addebitata una tariffa oraria o al minuto per le risorse di calcolo.
 
-Quando si usa HDInsight, i file di dati vengono archiviati in modo adattabile e resiliente nel cloud tramite Archiviazione BLOB di Azure e, facoltativamente, Azure Data Lake Storage. Questo servizio offre i seguenti vantaggi:
+Quando si usa HDInsight, i file di dati vengono archiviati in modo flessibile e flessibile nel cloud usando l'archiviazione BLOB di Azure e, facoltativamente, Azure Data Lake Storage Gen1/Gen2. Questo servizio offre i seguenti vantaggi:
 
 * Archiviazione a lungo termine economica.
 * Accessibilità da servizi esterni, ad esempio siti Web, utilità di caricamento e download di file, SDK di linguaggi diversi e Web browser.
 * Capacità file elevata e archiviazione adattabile elevata.
 
-Per altre informazioni, vedere [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Informazioni sui BLOB) e [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+Per altre informazioni, vedere [archiviazione BLOB di Azure](../storage/common/storage-introduction.md), [Azure Data Lake storage Gen1](../data-lake-store/data-lake-store-overview.md)o [Azure Data Lake storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-Quando si usa Archiviazione di Azure o Data Lake Storage, non è necessario eseguire alcuna operazione particolare da HDInsight per accedere ai dati. Ad esempio, il comando seguente elenca i file presenti in `/example/data` indipendentemente dal fatto che la cartella sia disponibile in Archiviazione di Azure o in Data Lake Storage:
+Quando si usa l'archiviazione BLOB di Azure o Data Lake Storage Gen1/Gen2, non è necessario eseguire alcuna operazione speciale da HDInsight per accedere ai dati. Ad esempio, il comando seguente elenca i file presenti in `/example/data` indipendentemente dal fatto che la cartella sia disponibile in Archiviazione di Azure o in Data Lake Storage:
 
 ```console
 hdfs dfs -ls /example/data
@@ -135,7 +135,7 @@ Quando si usa [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lak
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Usato durante la comunicazione con un account di archiviazione non predefinito. ad esempio quando si dispone di un account di archiviazione aggiuntivo o quando si accede a dati archiviati in un account di archiviazione pubblicamente accessibile.
 
-Quando si usa [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), usare uno degli schemi URI seguenti:
+Quando si usa [**Azure Data Lake Storage Gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md), usare uno degli schemi URI seguenti:
 
 * `adl:///`: Consente di accedere all'istanza predefinita di Data Lake Storage per il cluster.
 
@@ -189,7 +189,7 @@ Per individuare le informazioni di archiviazione usando il portale di Azure, seg
 
 Esistono vari modi per accedere ai dati dall'esterno del cluster HDInsight. Di seguito sono indicati alcuni collegamenti a utilità e SDK da usare per lavorare con i dati:
 
-Se si usa __Archiviazione di Azure__, vedere i collegamenti seguenti per informazioni sulle modalità di accesso ai dati:
+Se si usa l' __archiviazione BLOB di Azure__, vedere i collegamenti seguenti per i modi in cui è possibile accedere ai dati:
 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): comandi dell'interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `az storage` per informazioni sull'uso dell'archiviazione o `az storage blob` per i comandi specifici dei BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): uno script Python per l'uso con i BLOB in Archiviazione di Azure.
@@ -203,7 +203,7 @@ Se si usa __Archiviazione di Azure__, vedere i collegamenti seguenti per informa
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-Se si usa __Azure Data Lake Storage__, vedere i collegamenti seguenti per informazioni sulle modalità di accesso ai dati:
+Se si usa __Azure Data Lake storage Gen1__, vedere i collegamenti seguenti per i modi in cui è possibile accedere ai dati:
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

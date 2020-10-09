@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 2f602c23f182ede2b9897563a8421163e1328e24
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 44c87a3415a236f614510aa3163ad2e9cbd1f64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079191"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856178"
 ---
 # <a name="use-scp-with-apache-hadoop-in-azure-hdinsight"></a>Usare SCP con Apache Hadoop in Azure HDInsight
 
@@ -42,7 +42,7 @@ Usare `scp` quando è necessario caricare una risorsa per l'uso da una sessione 
 Per informazioni sul caricamento diretto dei dati nell'archivio compatibile con HDFS, vedere i documenti seguenti:
 
 * [HDInsight con archiviazione di Azure](hdinsight-hadoop-use-blob-storage.md).
-* [HDInsight con Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
+* [HDInsight con Azure Data Lake storage Gen1](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

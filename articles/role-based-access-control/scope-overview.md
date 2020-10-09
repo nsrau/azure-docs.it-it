@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: 80a05fd389ecaf504f58d12bf8efe87debd4ab86
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604305"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856152"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Informazioni sull'ambito per RBAC di Azure
 
@@ -22,9 +22,13 @@ ms.locfileid: "91604305"
 
 ## <a name="scope-levels"></a>Livelli di ambito
 
-In Azure è possibile specificare un ambito a quattro livelli: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)e risorsa. Gli ambiti sono strutturati in una relazione padre-figlio. Ogni livello di gerarchia rende più specifico l'ambito. È possibile assegnare i ruoli in qualsiasi livello di ambito. Il livello selezionato determina la frequenza con cui viene applicato il ruolo. I livelli inferiori ereditano le autorizzazioni dei ruoli dai livelli più alti. 
+In Azure è possibile specificare un ambito a quattro livelli: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)e risorsa. Gli ambiti sono strutturati in una relazione padre-figlio. Ogni livello di gerarchia rende più specifico l'ambito. È possibile assegnare i ruoli a qualsiasi livello dell'ambito. Il livello selezionato determina la frequenza con cui viene applicato il ruolo. I livelli inferiori ereditano le autorizzazioni dei ruoli dai livelli più alti. 
 
 ![Ambito per un'assegnazione di ruolo](./media/scope-overview/rbac-scope-no-label.png)
+
+I gruppi di gestione sono un livello di ambito sopra le sottoscrizioni, ma i gruppi di gestione supportano gerarchie più complesse. Nel diagramma seguente viene illustrato un esempio di una gerarchia di gruppi di gestione e sottoscrizioni che è possibile definire. Per ulteriori informazioni sui gruppi di gestione, vedere informazioni sui [gruppi di gestione di Azure](../governance/management-groups/overview.md).
+
+![Gruppo di gestione e gerarchia delle sottoscrizioni](./media/scope-overview/rbac-scope-management-groups.png)
 
 ## <a name="scope-format"></a>Formato ambito
 
@@ -62,10 +66,10 @@ I gruppi di gestione sono un livello superiore alle sottoscrizioni e hanno l'amb
 ## <a name="scope-examples"></a>Esempi di ambito
 
 > [!div class="mx-tableFixed"]
-> | Ambito | Esempio |
+> | Scope | Esempio |
 > | --- | --- |
 > | Gruppo di gestione | `/providers/Microsoft.Management/managementGroups/marketing-group` |
-> | Subscription | `/subscriptions/00000000-0000-0000-0000-000000000000` |
+> | Sottoscrizione | `/subscriptions/00000000-0000-0000-0000-000000000000` |
 > | Resource group | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg` |
 > |  | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales` |
 > | Risorsa | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/azurestorage12345/blobServices/default/containers/blob-container-01` |
@@ -118,6 +122,6 @@ I gruppi di gestione sono un livello superiore alle sottoscrizioni e hanno l'amb
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Passaggi per l'aggiunta di un'assegnazione di ruolo](role-assignments-steps.md)
+- [Procedura per aggiungere un'assegnazione di ruolo](role-assignments-steps.md)
 - [Provider di risorse per i servizi di Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Organizzare le risorse con i gruppi di gestione di Azure ](../governance/management-groups/overview.md)
+- [Che cosa sono i gruppi di gestione di Azure?](../governance/management-groups/overview.md)

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: f7d2351fdc39ec4600cbca2e436cdcd527157275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332965"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856110"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -68,7 +68,7 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 
 
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 - **Rilevamento delle modifiche ai dati:** sincronizzazione dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Si noti che BULK INSERT non attiva i trigger per impostazione predefinita. Se FIRE_TRIGGERS non è specificato, non viene eseguito alcun trigger di inserimento. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
 - **Sincronizzazione dei dati:** La sincronizzazione dei dati è progettata in un modello hub e spoke. L'hub viene sincronizzato con ogni membro singolarmente. Le modifiche dall'hub vengono scaricate nel membro e le modifiche apportate dal membro vengono caricate nell'hub.
@@ -126,7 +126,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 > - I dati tra l'hub e il membro possono essere persi anche se la sincronizzazione non segnala alcun problema.
 > - La sincronizzazione può avere esito negativo perché la tabella di rilevamento include una riga non esistente dall'origine a causa della modifica della chiave primaria.
 
-- L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- L'isolamento dello snapshot deve essere abilitato sia per i membri della sincronizzazione che per l'hub. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitazioni generali
 
@@ -137,7 +137,7 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 - I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
 - L'autenticazione Azure Active Directory non è supportata.
 - Le tabelle con lo stesso nome ma con uno schema diverso (ad esempio, dbo. Customers e Sales. Customers) non sono supportate.
-- Le colonne con tipi di dati definiti dall'utente non sono supportate
+- Le colonne con tipi di dati User-Defined non sono supportate
 - Lo stato di trasferimento di server tra sottoscrizioni diverse non è supportato. 
 
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati

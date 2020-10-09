@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c64c376e8f283336573500e69ac31989b5947961
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: eda6e6b5ef2b68c55bf1f7f6ceb30bb6aea21d67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598247"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856348"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -418,7 +418,6 @@ Nel riquadro **Aggiungi endpoint server** immettere le informazioni seguenti per
 - **Path**: percorso di Windows Server da sincronizzare come parte del gruppo di sincronizzazione.
 - **Suddivisione in livelli cloud**: l'opzione che abilita o disabilita la suddivisione in livelli cloud, che consente di archiviare a livelli in File di Azure i file che si usano o a cui si accede raramente.
 - **Spazio**disponibile nel volume: la quantità di spazio disponibile da riservare nel volume in cui si trova l'endpoint server. Se ad esempio lo spazio disponibile nel volume è impostato su 50% per un volume con un singolo endpoint server, circa la metà dei dati viene archiviata a livelli in File di Azure. A prescindere dall'abilitazione o meno della suddivisione in livelli nel cloud, per la condivisione file di Azure è sempre disponibile una copia completa dei dati nel gruppo di sincronizzazione.
-- **Modalità di download iniziale**: si tratta di una selezione facoltativa, a partire dall'agente versione 11, che può essere utile quando sono presenti file nella condivisione file di Azure, ma non nel server. Una situazione di questo tipo può verificarsi, ad esempio, se si crea un endpoint server per aggiungere un altro server di succursale a un gruppo di sincronizzazione o quando si esegue il ripristino di emergenza di un server non riuscito. Se è abilitata la suddivisione in livelli nel cloud, per impostazione predefinita viene richiamata solo lo spazio dei nomi, nessun contenuto di file. Questa opzione è utile se si ritiene che le richieste di accesso utente debbano decidere quale contenuto del file viene richiamato al server. Se la suddivisione in livelli cloud è disabilitata, per impostazione predefinita lo spazio dei nomi verrà scaricato per primo e i file verranno richiamati in base al timestamp dell'Ultima modifica fino a quando non viene raggiunta la capacità locale. È tuttavia possibile modificare la modalità di download iniziale solo nello spazio dei nomi. Una terza modalità può essere usata solo se la suddivisione in livelli cloud è disabilitata per questo endpoint server. Questa modalità evita di richiamare prima lo spazio dei nomi. I file verranno visualizzati nel server locale solo se hanno avuto la possibilità di eseguire il download completo. Questa modalità è utile se, ad esempio, un'applicazione richiede la presenza di file completi e non tollera i file a livelli nello spazio dei nomi.
 
 Per aggiungere l'endpoint server, selezionare **Crea**. I file vengono ora mantenuti sincronizzati tra la condivisione file di Azure e Windows Server. 
 
@@ -429,8 +428,6 @@ Eseguire i comandi di PowerShell seguenti per creare l'endpoint server e assicur
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
-# Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
-$initialDownloadPolicy = NamespaceOnly
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
@@ -447,16 +444,14 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath `
         -CloudTiering `
-        -VolumeFreeSpacePercent $volumeFreeSpacePercentage `
-        -InitialDownloadPolicy $initialDownloadPolicy
+        -VolumeFreeSpacePercent $volumeFreeSpacePercentage
 } else {
     # Create server endpoint
     New-AzStorageSyncServerEndpoint `
         -Name $registeredServer.FriendlyName `
         -SyncGroup $syncGroup `
         -ServerResourceId $registeredServer.ResourceId `
-        -ServerLocalPath $serverEndpointPath `
-        -InitialDownloadPolicy $initialDownloadPolicy
+        -ServerLocalPath $serverEndpointPath
 }
 ```
 
@@ -483,7 +478,6 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
                                                  --cloud-tiering on \
                                                  --volume-free-space-percent 85 \
                                                  --tier-files-older-than-days 15 \
-                                                 --initial-download-policy NamespaceOnly [OR] NamespaceThenModifiedFiles [OR] AvoidTieredFiles
                                                  --offline-data-transfer on \
                                                  --offline-data-transfer-share-name myfilesharename \
 
@@ -509,25 +503,25 @@ Se si vuole configurare sincronizzazione file di Azure per l'uso con le impostaz
 Le procedure consigliate per l'esecuzione dell'onboarding in Sincronizzazione file di Azure per la prima volta senza alcun tempo di inattività e mantenendo intatta la fedeltà dei file e dell'elenco di controllo di accesso (ACL) sono le seguenti:
  
 1. Distribuire un servizio di sincronizzazione archiviazione.
-2. Creare un gruppo di sincronizzazione.
-3. Installare l'agente di Sincronizzazione file di Azure nel server con il set di dati completo.
-4. Registrare il server e creare un endpoint del server nella condivisione. 
-5. Consentire alla sincronizzazione di eseguire il caricamento completo in condivisione file di Azure (endpoint cloud).  
-6. Al termine del caricamento iniziale, installare l'agente di Sincronizzazione file di Azure in ognuno dei server rimanenti.
-7. Creare nuove condivisioni file in ognuno dei server rimanenti.
-8. Creare endpoint server nelle nuove condivisioni file con i criteri di suddivisione in livelli nel cloud, se lo si desidera. Per questo passaggio sono necessarie altre risorse di archiviazione disponibili per l'installazione iniziale.
-9. Consentire Sincronizzazione file di Azure agente di eseguire un ripristino rapido dello spazio dei nomi completo senza il trasferimento effettivo dei dati. Dopo la sincronizzazione completa dello spazio dei nomi, il motore di sincronizzazione riempirà lo spazio su disco locale in base ai criteri suddivisione in livelli nel cloud per l'endpoint server. 
-10. Verificare che la sincronizzazione sia stata completata e testare la topologia in base alle esigenze. 
-11. Reindirizzare gli utenti e le applicazioni a questa nuova condivisione.
-12. Facoltativamente, è possibile eliminare le condivisioni duplicate nei server.
+1. Creare un gruppo di sincronizzazione.
+1. Installare l'agente di Sincronizzazione file di Azure nel server con il set di dati completo.
+1. Registrare il server e creare un endpoint del server nella condivisione. 
+1. Consentire alla sincronizzazione di eseguire il caricamento completo in condivisione file di Azure (endpoint cloud).  
+1. Al termine del caricamento iniziale, installare l'agente di Sincronizzazione file di Azure in ognuno dei server rimanenti.
+1. Creare nuove condivisioni file in ognuno dei server rimanenti.
+1. Creare endpoint server nelle nuove condivisioni file con i criteri di suddivisione in livelli nel cloud, se lo si desidera. Per questo passaggio sono necessarie altre risorse di archiviazione disponibili per l'installazione iniziale.
+1. Consentire Sincronizzazione file di Azure agente di eseguire un ripristino rapido dello spazio dei nomi completo senza il trasferimento effettivo dei dati. Dopo la sincronizzazione completa dello spazio dei nomi, il motore di sincronizzazione riempirà lo spazio su disco locale in base ai criteri suddivisione in livelli nel cloud per l'endpoint server. 
+1. Verificare che la sincronizzazione sia stata completata e testare la topologia in base alle esigenze. 
+1. Reindirizzare gli utenti e le applicazioni a questa nuova condivisione.
+1. Facoltativamente, è possibile eliminare le condivisioni duplicate nei server.
  
 Se non si dispone di risorse di archiviazione extra per l'onboarding iniziale e si desidera collegarsi alle condivisioni esistenti, è possibile effettuare il pre-seeding dei dati nelle condivisioni file di Azure. Questo approccio è consigliato solo se è possibile accettare il tempo di inattività e garantire che non avvenga alcuna modifica nelle condivisioni dei server durante il processo di onboarding iniziale. 
  
 1. Assicurarsi che i dati in uno qualsiasi dei server non possano essere modificati durante il processo di onboarding.
-2. Pre-inizializzare le condivisioni file di Azure con i dati del server usando uno strumento di trasferimento dei dati tramite SMB. Robocopy, ad esempio. È anche possibile usare AzCopy su REST. Assicurarsi di usare AzCopy con le opzioni appropriate per mantenere i timestamp e gli attributi degli ACL.
-3. Creare una topologia di Sincronizzazione file di Azure con gli endpoint del server desiderati che puntano alle condivisioni esistenti.
-4. Consentire alla sincronizzazione di completare il processo di riconciliazione in tutti gli endpoint. 
-5. Una volta completata la riconciliazione, è possibile aprire le condivisioni per le modifiche.
+1. Pre-inizializzare le condivisioni file di Azure con i dati del server usando uno strumento di trasferimento dei dati tramite SMB. Robocopy, ad esempio. È anche possibile usare AzCopy su REST. Assicurarsi di usare AzCopy con le opzioni appropriate per mantenere i timestamp e gli attributi degli ACL.
+1. Creare una topologia di Sincronizzazione file di Azure con gli endpoint del server desiderati che puntano alle condivisioni esistenti.
+1. Consentire alla sincronizzazione di completare il processo di riconciliazione in tutti gli endpoint. 
+1. Una volta completata la riconciliazione, è possibile aprire le condivisioni per le modifiche.
  
 Attualmente, l'approccio di pre-seeding presenta alcune limitazioni: 
 - Le modifiche ai dati nel server prima che la topologia di sincronizzazione sia completamente operativa possono causare conflitti negli endpoint server.  
@@ -550,7 +544,7 @@ Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]]
 
 Gli snapshot VSS vengono presi da un intero volume. Per impostazione predefinita, possono esistere fino a 64 snapshot per un determinato volume, a cui è concesso spazio sufficiente per archiviare gli snapshot. Il servizio Copia Shadow del volume gestisce automaticamente questa operazione. La pianificazione predefinita dello snapshot richiede due snapshot al giorno, da lunedì a venerdì. Questa pianificazione può essere configurata tramite un'attività pianificata di Windows. Il cmdlet PowerShell precedente esegue due operazioni:
 1. Configura la suddivisione in livelli cloud di sincronizzazione file di Azure nel volume specificato in modo che sia compatibile con le versioni precedenti e garantisce che un file possa essere ripristinato da una versione precedente, anche se è stato suddiviso in livelli nel cloud nel server. 
-2. Abilita la pianificazione VSS predefinita. È quindi possibile decidere di modificarlo in un secondo momento. 
+1. Abilita la pianificazione VSS predefinita. È quindi possibile decidere di modificarlo in un secondo momento. 
 
 > [!Note]  
 > Esistono due aspetti importanti da notare:
@@ -575,40 +569,6 @@ Il numero massimo predefinito di snapshot VSS per volume (64), nonché la pianif
 
 Se gli snapshot VSS max. 64 per volume non sono l'impostazione corretta, è possibile [modificare tale valore tramite una chiave del registro di sistema](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Per rendere effettive le nuove limitazioni, è necessario eseguire di nuovo il cmdlet per abilitare la compatibilità delle versioni precedente in ogni volume precedentemente abilitato, con il flag-Force per prendere in considerazione il nuovo numero massimo di snapshot VSS per volume. Verrà generato un numero di giorni compatibili appena calcolato. Si noti che questa modifica avrà effetto solo sui nuovi file a livelli e sovrascriverà le personalizzazioni della pianificazione VSS che potrebbero essere state apportate.
-
-<a id="proactive-recall"></a>
-## <a name="proactively-recall-new-and-changed-files-from-an-azure-file-share"></a>Richiamare in modo proattivo i file nuovi e modificati da una condivisione file di Azure
-
-Con Agent versione 11, una nuova modalità diventa disponibile in un endpoint server. Questa modalità consente alle aziende distribuite a livello globale di avere la cache del server in un'area remota prepopolata anche prima che gli utenti locali accedano a tutti i file. Se abilitata su un endpoint server, questa modalità farà in modo che il server richiami i file creati o modificati nella condivisione file di Azure.
-
-### <a name="scenario"></a>Scenario
-
-Una società distribuita a livello globale ha filiali negli Stati Uniti e in India. Al mattino (US Time) gli Information Worker creano una nuova cartella e nuovi file per un nuovo progetto e lavorano tutto il giorno. Sincronizzazione file di Azure sincronizza la cartella e i file nella condivisione file di Azure (endpoint cloud). Gli Information Worker in India continueranno a lavorare sul progetto nel fuso orario. Quando arrivano al mattino, il server locale Sincronizzazione file di Azure abilitato in India deve avere i nuovi file disponibili localmente, in modo che il team India possa lavorare in modo efficiente da una cache locale. L'abilitazione di questa modalità impedisce che l'accesso al file iniziale risulti più lento a causa del richiamo su richiesta e consente al server di richiamare in modo proattivo i file non appena sono stati modificati o creati nella condivisione file di Azure.
-
-> [!IMPORTANT]
-> È importante tenere presente che il rilevamento delle modifiche nella condivisione file di Azure che si avvicinano al server può aumentare il traffico in uscita e la fatturazione da Azure. Se i file richiamati al server non sono effettivamente necessari localmente, il richiamo non necessario al server può avere conseguenze negative. Utilizzare questa modalità quando si conosce il popolamento preliminare della cache in un server con modifiche recenti nel cloud avrà un effetto positivo sugli utenti o sulle applicazioni che utilizzano i file in tale server.
-
-### <a name="enable-a-server-endpoint-to-proactively-recall-what-changed-in-an-azure-file-share"></a>Abilitare un endpoint server per richiamare in modo proattivo le modifiche apportate in una condivisione file di Azure
-
-# <a name="portal"></a>[Portale](#tab/proactive-portal)
-
-1. Nel [portale di Azure](https://portal.azure.com/)andare al servizio di sincronizzazione archiviazione, selezionare il gruppo di sincronizzazione corretto e quindi identificare l'endpoint server per il quale si desidera tenere traccia delle modifiche nella condivisione file di Azure (endpoint cloud).
-1. Nella sezione suddivisione in livelli nel cloud trovare l'argomento "download di condivisione file di Azure". Verrà visualizzata la modalità attualmente selezionata e sarà possibile modificarla per tenere traccia delle modifiche apportate alla condivisione file di Azure in modo più accurato e richiamarle in modo proattivo al server.
-
-:::image type="content" source="media/storage-sync-files-deployment-guide/proactive-download.png" alt-text="Immagine che mostra il comportamento di download della condivisione file di Azure per un endpoint server attualmente attivo e un pulsante per aprire un menu che consente di modificarlo.":::
-
-# <a name="powershell"></a>[PowerShell](#tab/proactive-powershell)
-
-È possibile modificare le proprietà dell'endpoint server in PowerShell tramite il cmdlet [set-AzStorageSyncServerEndpoint](https://docs.microsoft.com/powershell/module/az.storagesync/set-azstoragesyncserverendpoint) .
-
-```powershell
-# Optional parameter. Default: "UpdateLocallyCachedFiles", alternative behavior: "DownloadNewAndModifiedFiles"
-$recallBehavior = "DownloadNewAndModifiedFiles"
-
-Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode $recallBehavior
-```
-
----
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Eseguire la migrazione di una distribuzione di Replica DFS (DFS-R) in Sincronizzazione file di Azure
 Per eseguire la migrazione di una distribuzione di DFS-R in Sincronizzazione file di Azure:

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 33c54738b1ab3c90118c86bbf78bdcc3348658e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a0471055e4648944aa07d10fef67f5e7235a76b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048716"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856924"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creare un cluster HDInsight con Data Lake Storage Gen1 usando un modello di Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "87048716"
 
 Informazioni su come usare Azure PowerShell per configurare un cluster HDInsight con Azure Data Lake Storage Gen1 **come risorsa di archiviazione aggiuntiva**.
 
-Per i tipi di cluster supportati, Data Lake Storage Gen1 può essere usato come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo. Quando Data Lake Storage Gen1 viene usato come risorsa di archiviazione aggiuntiva, l'account di archiviazione predefinito per i cluster saranno i BLOB del servizio di archiviazione di Azure (WASB) e i file correlati ai cluster (ad esempio log e così via) vengono scritti nella risorsa di archiviazione predefinita, mentre i dati da elaborare possono essere archiviati in un account Data Lake Storage Gen1. L'uso di Data Lake Storage Gen1 come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster.
+Per i tipi di cluster supportati, Data Lake Storage Gen1 può essere usato come risorsa di archiviazione predefinita o come account di archiviazione aggiuntivo. Quando Data Lake Storage Gen1 viene usato come risorsa di archiviazione aggiuntiva, l'account di archiviazione predefinito per i cluster sarà ancora archiviazione BLOB di Azure (WASB) e i file correlati al cluster, ad esempio i log e così via, verranno ancora scritti nella risorsa di archiviazione predefinita, mentre i dati che si desidera elaborare possono essere archiviati in un account di Data Lake Storage Gen1. L'uso di Data Lake Storage Gen1 come account di archiviazione aggiuntivo non ha impatto sulle prestazioni o sulla possibilità di leggere/scrivere nella risorsa di archiviazione dal cluster.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Uso di Data Lake Storage Gen1 per l'archiviazione di cluster HDInsight
 
@@ -71,16 +71,16 @@ Il modello distribuisce i tipi di risorse seguenti:
 * [Microsoft. HDInsight/cluster](/azure/templates/microsoft.hdinsight/clusters)
 
 ## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Caricare dati di esempio in Data Lake Storage Gen1
-Il modello di Resource Manager crea un nuovo account Data Lake Storage Gen1 e lo associa al cluster HDInsight. È ora necessario caricare alcuni dati di esempio in Data Lake Storage Gen1. Questi dati saranno necessari più avanti nell'esercitazione per eseguire i processi da un cluster HDInsight che accede ai dati nell'account Data Lake Storage Gen1. Per istruzioni su come caricare i dati, vedere [Caricare un file nell'account Data Lake Storage Gen1](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+Il modello di Gestione risorse crea un nuovo account di archiviazione con Data Lake Storage Gen1 e lo associa al cluster HDInsight. È ora necessario caricare alcuni dati di esempio in Data Lake Storage Gen1. Questi dati saranno necessari più avanti nell'esercitazione per eseguire i processi da un cluster HDInsight che accede ai dati nell'account di archiviazione con Data Lake Storage Gen1. Per istruzioni su come caricare i dati, vedere [caricare un file in data Lake storage Gen1](data-lake-store-get-started-portal.md#uploaddata). Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ## <a name="set-relevant-acls-on-the-sample-data"></a>Impostare ACL rilevanti per i dati di esempio
 Per assicurarsi che i dati di esempio caricati siano accessibili dal cluster HDInsight, è necessario verificare che l'applicazione Azure AD usata per stabilire l'identità tra il cluster HDInsight e Data Lake Storage Gen1 disponga dell'accesso al file o alla cartella a cui si sta tentando di accedere. A questo scopo, eseguire i passaggi seguenti.
 
-1. Trovare il nome dell'applicazione Azure AD associata al cluster HDInsight e all'account Data Lake Storage Gen1. Per ricercare il nome è possibile aprire il pannello del cluster HDInsight creato usando il modello di Resource Manager, fare clic sulla scheda **Identità AAD del cluster** e cercare il valore **Nome visualizzato dell'entità servizio**.
+1. Trovare il nome dell'applicazione Azure AD associata al cluster HDInsight e l'account di archiviazione con Data Lake Storage Gen1. Un modo per cercare il nome consiste nell'aprire il pannello del cluster HDInsight creato con il modello di Gestione risorse, fare clic sulla scheda **cluster Azure ad Identity** e cercare il valore del **nome visualizzato dell'entità servizio**.
 2. A questo punto, consentire all'applicazione di Azure AD di accedere al file o alla cartella a cui si desidera accedere dal cluster HDInsight. Per impostare gli elenchi di controllo di accesso (ACL) corretti nel file o nella cartella in Data Lake Storage Gen1, vedere [Protezione dei dati Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Eseguire i processi di test nel cluster HDInsight per usare Data Lake Storage Gen1
-Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di test nel cluster per verificare che il cluster HDInsight possa accedere a Data Lake Storage Gen1. A questo scopo, verrà eseguito un processo Hive di esempio che crea una tabella con i dati di esempio caricati in precedenza nell'account Data Lake Storage Gen1.
+Dopo aver configurato un cluster HDInsight, è possibile eseguire processi di test nel cluster per verificare che il cluster HDInsight possa accedere a Data Lake Storage Gen1. A tale scopo, verrà eseguito un processo hive di esempio che crea una tabella usando i dati di esempio caricati in precedenza nell'account di archiviazione con Data Lake Storage Gen1.
 
 In questa sezione si accede tramite SSH a un cluster HDInsight Linux ed è stata eseguita la query hive di esempio. Se si usa un client Windows, è consigliabile usare **PuTTY**, che può essere scaricato da [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -122,10 +122,10 @@ In questa sezione si accede tramite SSH a un cluster HDInsight Linux ed eseguono
 
 Per altre informazioni sull'uso di PuTTY, vedere [Usare SSH con Hadoop basato su Linux in HDInsight da Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-Dopo avere stabilito la connessione, usare il comando del file system HDFS seguente per visualizzare i file nell'account Data Lake Storage Gen1.
+Una volta stabilita la connessione, usare il comando HDFS filesystem seguente per elencare i file nell'account di archiviazione con Data Lake Storage Gen1.
 
 ```
-hdfs dfs -ls adl://<Data Lake Storage Gen1 account name>.azuredatalakestore.net:443/
+hdfs dfs -ls adl://<storage account with Data Lake Storage Gen1 name>.azuredatalakestore.net:443/
 ```
 
 Dovrebbe essere visualizzato il file precedentemente caricato in Data Lake Storage Gen1.
@@ -141,4 +141,4 @@ Found 1 items
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Copiare i dati dai BLOB di Archiviazione di Azure a Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
-* [Usare Data Lake Storage Gen1 con i cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Usare Data Lake Storage Gen1 con i cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)

@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: c6a55958102c89c78fe2cd797bb59cf72f9ec505
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 855cbe3d2926a04af773aa32ea0ab63bde89491c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773145"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91857266"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso di endpoint privati per l'app Web di Azure
 
@@ -114,6 +114,8 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 Quando si usa una funzione di Azure in un piano elastico Premium con endpoint privato, per eseguire la funzione nel portale Web di Azure, è necessario avere accesso diretto alla rete oppure si riceverà un errore HTTP 403. In altre parole, il browser deve essere in grado di raggiungere l'endpoint privato per eseguire la funzione dal portale Web di Azure. 
 
 È possibile connettersi fino a 100 endpoint privato a un'app Web specifica.
+
+La funzionalità di debug remoto non è disponibile quando l'endpoint privato è abilitato per l'app Web. Si consiglia di distribuire il codice in uno slot e di eseguirne il debug remoto.
 
 L'endpoint privato è disponibile per app Web PremiumV2, PremiumV3, Windows e Linux, in contenitori o non in contenitori e per il piano Premium di funzioni di Azure (talvolta definito piano elastico Premium). 
 
