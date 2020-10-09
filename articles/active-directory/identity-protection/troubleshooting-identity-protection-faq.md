@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75443579"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827906"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
@@ -99,3 +99,7 @@ Dato che i rischi per l'utente sono cumulativi e non scadono, un utente può ave
 ### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Cause per cui un accesso presenta un punteggio Elevato di "rischio di accesso (aggregato)" quando l'attività di rilevamento associata presenta un rischio basso o medio.
 
 Il punteggio elevato di rischio aggregato potrebbe essere basato su altre funzionalità di accesso o sul fatto che sono stati generati più rilevamenti per tale accesso. E viceversa, un accesso potrebbe avere un rischio di accesso (aggregato) di livello Medio anche se i rilevamenti associati a tale accesso sono di rischio Elevato. 
+
+### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>Perché il rilevamento collegato a un accesso rischioso ha un livello di rischio diverso rispetto al livello di rischio di accesso (in tempo reale)? 
+
+Di recente sono stati apportati miglioramenti al calcolo del rischio di accesso in tempo reale. La discrepanza osservata tra il livello di rilevamento del rischio e il livello di rischio di accesso è il risultato di tali modifiche. Si noti che il rischio di accesso in tempo reale è il valore utilizzato durante l'applicazione dei criteri. 

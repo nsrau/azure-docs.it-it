@@ -3,12 +3,12 @@ title: Monitorare un sito di SharePoint con Application Insights
 description: Avviare il monitoraggio di una nuova applicazione con una nuova chiave di strumentazione
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: afd7a5fc8ccf7546078fa8a4ffa7a076cb05be6a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f07c317a61c91daf7a469c1f9eaf1fb80d4ecc49
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757249"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825294"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Monitorare un sito di SharePoint con Application Insights
 
@@ -141,4 +141,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](./app-insights-overview.md) per altri tipi di app.
 
 <!--Link references-->
-

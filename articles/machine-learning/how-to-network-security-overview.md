@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: 7bc56f6296bf41933348fad9ea4aeb640b9afbf0
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776018"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825506"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -158,6 +158,12 @@ Per abilitare la funzionalità di studio completo all'interno di un VNet, vedere
 Configurare il firewall per controllare l'accesso alle risorse dell'area di lavoro Azure Machine Learning e alla rete Internet pubblica. Sebbene sia consigliabile usare il firewall di Azure, è possibile usare altri prodotti firewall per proteggere la rete. Per domande su come consentire la comunicazione attraverso il firewall, consultare la documentazione relativa al firewall in uso.
 
 Per altre informazioni sulle impostazioni del firewall, vedere [usare l'area di lavoro dietro un firewall](how-to-access-azureml-behind-firewall.md).
+
+## <a name="custom-dns"></a>DNS personalizzato
+
+Se è necessario usare una soluzione DNS personalizzata per la rete virtuale, è necessario aggiungere i record host per l'area di lavoro.
+
+Per altre informazioni sui nomi di dominio e sugli indirizzi IP richiesti, vedere [come usare un'area di lavoro con un server DNS personalizzato](how-to-custom-dns.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

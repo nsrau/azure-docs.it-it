@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: d850bcf2ffbd3867ab28d7dee54df3f8b427fd6e
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 22f524ed4f01ad5b3be110008a82cd31c5c476c5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404747"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827847"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Trasformazione origine nel flusso di dati di mapping 
 
@@ -57,7 +57,9 @@ Azure Data Factory può accedere a più di [90 connettori nativi](connector-over
 
 ## <a name="source-settings"></a>Impostazioni origine
 
-Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di origine** . Qui è possibile selezionare o creare il set di dati a cui si riportano i punti di origine. È anche possibile selezionare le opzioni relative allo schema e al campionamento per i dati.
+Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di origine** . Qui è possibile selezionare o creare il set di dati a cui si riportano i punti di origine. È anche possibile selezionare le opzioni relative allo schema e al campionamento per i dati. 
+
+I valori di sviluppo per i parametri del set di dati possono essere configurati nelle [impostazioni di debug](concepts-data-flow-debug-mode.md) (richiede l'accensione della modalità di debug).
 
 ![Scheda Impostazioni di origine](media/data-flow/source1.png "Scheda Impostazioni di origine")
 

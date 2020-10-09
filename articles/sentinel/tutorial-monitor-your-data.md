@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 8d8f1343d92f66dc464ab7064949bbabb813268e
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798541"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826553"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Esercitazione: Visualizzare e monitorare i dati
 
@@ -44,19 +44,19 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
 
 1. Passare a **Cartelle di lavoro** e quindi selezionare **Modelli** per visualizzare l'elenco completo delle cartelle di lavoro predefinite di Azure Sentinel. Per sapere quali sono pertinenti per i tipi di dati connessi, il campo **Tipi di dati obbligatori** in ogni cartella di lavoro elenca il tipo di dati accanto a un segno di spunta verde se i dati rilevanti sono già stati trasmessi ad Azure Sentinel.
   ![Passare a Cartelle di lavoro](./media/tutorial-monitor-data/access-workbooks.png)
-1. Fare clic su **Visualizza la cartella di lavoro** per visualizzare il modello popolato con i dati.
+1. Fare clic su **Visualizza modello** per visualizzare il modello popolato con i dati.
   
-1. Per modificare la cartella di lavoro, selezionare **Salva** e quindi selezionare il percorso in cui si vuole salvare il file JSON per il modello. 
+1. Per modificare la cartella di lavoro, selezionare **Save (Salva**) e quindi selezionare il percorso in cui si vuole salvare il file JSON per il modello. 
 
    > [!NOTE]
-   > Viene quindi creata una risorsa di Azure basata sul modello pertinente e viene salvato il file JSON del modello e non i dati.
+   > In questo modo si crea una risorsa di Azure basata sul modello pertinente e si salva il file JSON della cartella di lavoro e non i dati.
 
 
-1. Selezionare **Visualizza la cartella di lavoro**. Fare quindi clic sul pulsante **Modifica** nella parte superiore della schermata. A questo punto è possibile modificare la cartella di lavoro e personalizzarla in base alle esigenze. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md).
+1. Selezionare **Visualizza cartella di lavoro salvata**. Fare quindi clic sul pulsante **Modifica** nella parte superiore della schermata. A questo punto è possibile modificare la cartella di lavoro e personalizzarla in base alle esigenze. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md).
 ![Visualizza la cartella di lavoro](./media/tutorial-monitor-data/workbook-graph.png)
 1. Dopo avere apportato le modifiche, è possibile salvare la cartella di lavoro. 
 
-1. È anche possibile clonare la cartella di lavoro: Selezionare **Modifica** e quindi **Salva con nome**, assicurandosi di salvarlo con un altro nome, nella stessa sottoscrizione e nello stesso gruppo di risorse. Queste cartelle di lavoro vengono visualizzate nella scheda **Cartelle di lavoro personali**.
+1. È anche possibile clonare la cartella di lavoro: Selezionare **Modifica** e quindi **Salva con nome**, assicurandosi di salvarlo con un altro nome, nella stessa sottoscrizione e nello stesso gruppo di risorse. Queste cartelle di lavoro clonate vengono visualizzate nella scheda **cartelle di lavoro** .
 
 
 ## <a name="create-new-workbook"></a>Creare una nuova cartella di lavoro
@@ -66,9 +66,9 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
 
 1. Per modificare la cartella di lavoro, selezionare **Modifica** e quindi aggiungere testo, query e parametri, se necessari. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md). 
 
-1. Quando si crea una query, impostare **Origine dati** su **Log**, **Tipo di risorsa** su **Analisi log** e quindi scegliere le aree di lavoro pertinenti. 
+1. Quando si compila una query, assicurarsi che l' **origine dati** sia impostata su **logs** e **tipo di risorsa** sia impostato su **log Analytics**, quindi scegliere le aree di lavoro pertinenti. 
 
-1. Dopo aver creato la cartella di lavoro, salvarla prestando attenzione a salvarla nella sottoscrizione e nel gruppo di risorse dell'area di lavoro di Azure Sentinel.
+1. Dopo aver creato la cartella di lavoro, salvare la cartella di lavoro, assicurandosi di salvarla nella sottoscrizione e nel gruppo di risorse dell'area di lavoro di Azure Sentinel.
 
 1. Se si vuole consentire ad altri utenti dell'organizzazione di usare la cartella di lavoro, in **Salva in** selezionare **Report condivisi**. Se si vuole che la cartella di lavoro non sia disponibile per altri utenti, selezionare **Report personali**.
 
@@ -79,15 +79,13 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
 
 ## <a name="how-to-delete-workbooks"></a>Come eliminare le cartelle di lavoro
 
-È possibile eliminare le cartelle di lavoro create da un modello di Azure Sentinel. 
-
-Per eliminare una cartella di lavoro personalizzata, nella pagina Cartelle di lavoro selezionare la cartella di lavoro salvata che si vuole eliminare e selezionare **Elimina**. La cartella di lavoro salvata verrà rimossa.
+Per eliminare una cartella di lavoro salvata (un modello salvato o una cartella di lavoro personalizzata), nella pagina cartelle di lavoro selezionare la cartella di lavoro salvata che si desidera eliminare e selezionare **Elimina**. La cartella di lavoro salvata verrà rimossa.
 
 > [!NOTE]
-> Oltre alla risorsa verranno rimosse anche tutte le modifiche apportate al modello, mentre il modello originale rimarrà disponibile.
+> In questo modo viene rimossa la risorsa cartella di lavoro e tutte le modifiche apportate al modello. mentre il modello originale rimarrà disponibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come visualizzare i dati in Azure Sentinel.
+In questa esercitazione si è appreso come visualizzare i dati in Azure Sentinel, usando le cartelle di lavoro di Azure.
 
 Per informazioni su come automatizzare le risposte alle minacce, vedere [Configurare le risposte automatiche alle minacce in Azure Sentinel](tutorial-respond-threats-playbook.md).

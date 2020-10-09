@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Configurazione app di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Configurazione app di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 ms.topic: reference
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bb0b78605d0f8015d3019e29a152a44c65331287
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30f57594ea7366e8835ed0d7773886ed83fe622d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986757"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825354"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-configuration"></a>Definizioni predefinite di Criteri di Azure per Configurazione app di Azure
 

@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977561"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825787"
 ---
-# <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di monitoraggio di Azure
+# <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
-Le cartelle di lavoro di forniscono un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure. Consentono di accedere a più origini dati da Azure e combinarle in esperienze interattive unificate. 
+Le cartelle di lavoro offrono un canvas flessibile per l'analisi dei dati e la creazione di report visivi avanzati nel portale di Azure. Consentono di accedere a più origini dati da Azure e combinarle in esperienze interattive unificate. 
 
 Ecco una procedura dettagliata video sulla creazione di cartelle di lavoro.
 
@@ -25,9 +25,9 @@ Ecco una procedura dettagliata video sulla creazione di cartelle di lavoro.
 
 ## <a name="data-sources"></a>Origini dati
 
-Le cartelle di lavoro possono eseguire query sui dati da più origini in Azure. Gli autori delle cartelle di lavoro possono trasformare questi dati per fornire informazioni dettagliate sulla disponibilità, le prestazioni, l'utilizzo e l'integrità complessiva dei componenti sottostanti. Ad esempio, l'analisi dei log delle prestazioni dalle macchine virtuali per identificare le istanze di CPU elevata o di memoria insufficiente e visualizzare i risultati come griglia in un report interattivo.
+Le cartelle di lavoro possono eseguire query su dati di origini diverse in Azure. Gli autori delle cartelle di lavoro possono trasformare questi dati per offrire informazioni dettagliate sulla disponibilità, le prestazioni, l'uso e l'integrità complessiva dei componenti sottostanti. Ad esempio, l'analisi dei log delle prestazioni dalle macchine virtuali per identificare le istanze di CPU elevata o di memoria insufficiente e visualizzare i risultati come griglia in un report interattivo.
   
-Ma la vera potenza delle cartelle di lavoro è la possibilità di combinare i dati provenienti da origini diverse all'interno di un singolo report. Ciò consente la creazione di visualizzazioni di risorse Composite o join tra le risorse che consentono dati e informazioni dettagliate più completi che altrimenti sarebbero impossibili.
+Ma il vero valore delle cartelle di lavoro è la capacità di combinare dati provenienti da origini diverse in un unico report. Ciò consente la creazione di visualizzazioni di risorse Composite o join tra le risorse che consentono dati e informazioni dettagliate più completi che altrimenti sarebbero impossibili.
 
 Le cartelle di lavoro sono attualmente compatibili con le origini dati seguenti:
 
@@ -53,7 +53,7 @@ Le cartelle di lavoro di offrono un set completo di funzionalità per la visuali
 
 ![Visualizzazioni di cartelle di lavoro di esempio](./media/workbooks-overview/visualizations.png)
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 

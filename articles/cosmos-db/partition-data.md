@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 57417a80ea83005c01b6f2a17206d46e6c049719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98cd28e8b770ebfb7ab395fbe7fff16a078e3529
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112779"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826853"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Il numero di partizioni fisiche nel contenitore Cosmos dipende da quanto segue:
 
 Non esiste alcun limite al numero totale di partizioni fisiche nel contenitore. Man mano che la velocità effettiva con provisioning o la dimensione dei dati aumenta, Azure Cosmos DB creerà automaticamente nuove partizioni fisiche suddividendo quelle esistenti. Le divisioni di partizioni fisiche non influiscano sulla disponibilità dell'applicazione. Dopo la suddivisione della partizione fisica, tutti i dati all'interno di una singola partizione logica verranno comunque archiviati nella stessa partizione fisica. Una suddivisione della partizione fisica crea semplicemente un nuovo mapping delle partizioni logiche alle partizioni fisiche.
 
-La velocità effettiva con provisioning per un contenitore è divisa uniformemente tra le partizioni fisiche. Una progettazione di chiavi di partizione che non distribuisce in modo uniforme le richieste di velocità effettiva potrebbe creare partizioni "Hot". Le partizioni a caldo possono comportare la limitazione della frequenza e l'utilizzo inefficiente della velocità effettiva con provisioning e costi più elevati.
+La velocità effettiva con provisioning per un contenitore è divisa uniformemente tra le partizioni fisiche. Una progettazione di chiavi di partizione che non distribuisce le richieste in modo uniforme può comportare un numero eccessivo di richieste indirizzate a un piccolo subset di partizioni che diventano "Hot". Le partizioni a caldo causano un uso inefficiente della velocità effettiva con provisioning, che può comportare la limitazione della frequenza e costi più elevati.
 
 È possibile visualizzare le partizioni fisiche del contenitore nella sezione **archiviazione** del pannello **metriche** del portale di Azure:
 
@@ -54,7 +54,7 @@ La maggior parte dei contenitori Cosmos di piccole dimensioni richiede solo una 
 
 La figura seguente mostra come le partizioni logiche vengono mappate alle partizioni fisiche distribuite a livello globale:
 
-:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Immagine che illustra il partizionamento Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="Visualizzazione del numero di partizioni fisiche" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

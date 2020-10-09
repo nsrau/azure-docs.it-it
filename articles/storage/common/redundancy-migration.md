@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51f8d1eaa76a30e39647830b54c30cb8f7e8bb8e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613969"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827305"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -123,8 +123,11 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
 
 È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nel portale selezionare l'account di archiviazione da convertire in archiviazione con ridondanza della zona.
 
-1. Seleziona **nuova richiesta di supporto**
-2. Completare le **nozioni di base** con le informazioni relative all'account. Nella sezione **Assistenza** selezionare **Gestione Account di archiviazione** e la risorsa che si vuole convertire in archiviazione con ridondanza della zona.
+1. Selezionare **nuova richiesta di supporto**.
+2. Completare le **nozioni** di base in base alle informazioni sull'account: 
+    - **Tipo di problema**: selezionare **tecnico**.
+    - **Servizio**: selezionare **servizi personali** e **Gestione account di archiviazione**.
+    - **Risorsa**: selezionare la risorsa che si vuole convertire in ZRS.
 3. Selezionare **Avanti**.
 4. Specificare i valori seguenti nella sezione **Problema**:
     - **Gravità**: lasciare il valore predefinito.

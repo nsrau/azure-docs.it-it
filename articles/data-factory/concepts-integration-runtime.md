@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485720"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827538"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory 
 
@@ -69,7 +69,7 @@ Il runtime di integrazione di Azure fornisce il calcolo nativo per spostare i da
 
 L'invio di attività è un'operazione semplice che consente di instradare l'attività al servizio di calcolo di destinazione, pertanto non è necessario aumentare le dimensioni di calcolo per questo scenario.
 
-Per informazioni sulla creazione e la configurazione di un Azure IR, fare riferimento a come creare e configurare Azure IR in Guida alle procedure. 
+Per informazioni sulla creazione e la configurazione di un Azure IR, vedere [How to create and configure Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > Il runtime di integrazione di Azure dispone di proprietà correlate al runtime del flusso di dati, che definisce l'infrastruttura di calcolo sottostante da usare per l'esecuzione dei flussi di dati. 

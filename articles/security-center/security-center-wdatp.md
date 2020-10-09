@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2020
+ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: 66a04ebec6eb9d7219d4d5db3bdd1dfd780a730f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 92feb159fe4c893a55d37fa90c34acf4c4c93631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445989"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826165"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -28,11 +28,11 @@ Il Centro sicurezza di Azure si integra con [Microsoft Defender Advanced Threat 
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|Richiede [Azure Defender](security-center-pricing.md)|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|È necessario [Azure Defender](security-center-pricing.md)|
 |Computer supportati:|![Sì](./media/icons/yes-icon.png) Macchine virtuali di Azure che eseguono Windows<br>![Sì](./media/icons/yes-icon.png) Computer Azure Arc che eseguono Windows|
-|Ruoli e autorizzazioni necessari:|Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione**o **collaboratore della sottoscrizione**|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali.<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure pubblici<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|Autorizzazioni e ruoli obbligatori:|Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione**o **collaboratore della sottoscrizione**|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali.<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure pubblici<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
 |||
 
 

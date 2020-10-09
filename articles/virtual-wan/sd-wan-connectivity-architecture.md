@@ -1,19 +1,19 @@
 ---
-title: Architettura della connettività SD-WAN
+title: Architetture di connettività WAN e SD-WAN virtuali
 titleSuffix: Azure Virtual WAN
 description: Informazioni sull'interconnessione di una rete SD-WAN privata con la rete WAN virtuale di Azure
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: 87e9549419bccc36d743871755e782a71e93e5e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e3f6f947b86b1cb34fde66c62199336403037827
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267466"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828061"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Architettura della connettività SD-WAN con la rete WAN virtuale di Azure
 
@@ -22,6 +22,7 @@ La rete WAN virtuale di Azure è un servizio di rete che riunisce molti servizi 
 Anche se la rete WAN virtuale di Azure è di per sé una rete WAN definita dal software (SD-WAN), è stata progettata anche per facilitare l'interconnessione con le tecnologie e i servizi SD-WAN locali. Molti di questi servizi sono offerti dall'ecosistema della [rete WAN virtuale](virtual-wan-locations-partners.md) di Microsoft e dai partner dei servizi gestiti [(MSP)](../networking/networking-partners-msp.md) della Rete di Azure. Le aziende che trasformano la rete WAN privata in SD-WAN possono scegliere tra varie opzioni per interconnettere la rete SD-WAN privata con la rete WAN virtuale di Azure. Sono disponibili le opzioni seguenti:
 
 * Modello di interconnessione diretta
+* Modello di interconnessione diretta con appliance virtuale di VWAN-Hub
 * Modello di interconnessione indiretta
 * Modello WAN ibrido gestito con il provider di servizi gestiti ([MSP](../networking/networking-partners-msp.md)) preferito
 
@@ -29,7 +30,7 @@ In tutti questi casi, l'interconnessione della rete WAN virtuale con SD-WAN è s
 
 ## <a name="direct-interconnect-model"></a><a name="direct"></a>Modello di interconnessione diretta
 
-![Modello di interconnessione diretta](./media/sd-wan-connectivity-architecture/direct.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="Modello di interconnessione diretta":::
 
 In questo modello di architettura, l'apparecchiatura CPE (Customer-Premises Equipment) del ramo SD-WAN è connessa direttamente agli hub di rete WAN virtuale tramite connessioni IPsec. Tale apparecchiatura può anche essere connessa ad altri rami tramite la rete SD-WAN privata o può sfruttare la rete WAN virtuale per la connettività da ramo a ramo. I rami che devono accedere ai carichi di lavoro in Azure saranno in grado di accedere in modo diretto e sicuro ad Azure tramite uno o più tunnel IPsec terminati in uno o più hub di rete WAN virtuale.
 
@@ -39,11 +40,22 @@ L'apparecchiatura CPE SD-WAN continua a essere il punto in cui vengono implement
 
 In questo modello, alcune ottimizzazioni del traffico proprietarie del fornitore, basate su caratteristiche di traffico in tempo reale, potrebbero non essere supportate perché la connettività alla rete WAN virtuale avviene tramite IPsec e la VPN IPsec viene terminata nel gateway VPN della rete WAN virtuale. Ad esempio, la selezione dinamica del percorso nel dispositivo CPE del ramo è possibile grazie allo scambio di informazioni sui pacchetti di rete tra il dispositivo del ramo e un altro nodo SD-WAN, che consente di identificare, dinamicamente nel ramo, il collegamento ottimale da usare per il traffico in base a criteri di priorità. Questa funzionalità può essere utile nelle aree in cui è necessaria l'ottimizzazione dell'ultimo miglio (il ramo verso il POP Microsoft più vicino).
 
-Con la rete WAN virtuale, gli utenti possono sfruttare la funzionalità di selezione del percorso di Azure, ovvero la selezione del percorso basata su criteri tra più collegamenti ISP dal dispositivo CPE del ramo ai gateway VPN della rete WAN virtuale. La rete WAN virtuale consente la configurazione di più collegamenti (percorsi) dallo stesso dispositivo CPE del ramo SD-WAN. Ogni collegamento rappresenta una connessione a doppio tunnel da un indirizzo IP pubblico univoco del dispositivo CPE SD-WAN a due istanze diverse del gateway VPN della rete WAN virtuale di Azure. I fornitori di reti SD-WAN possono implementare il percorso ottimale verso Azure, in base ai criteri di traffico impostati dal motore dei criteri nei collegamenti CPE. Sul lato di Azure, tutte le connessioni in arrivo vengono gestite allo stesso modo.
+Con la rete WAN virtuale, gli utenti possono sfruttare la funzionalità di selezione del percorso di Azure, ovvero la selezione del percorso basata su criteri tra più collegamenti ISP dal dispositivo CPE del ramo ai gateway VPN della rete WAN virtuale. La rete WAN virtuale consente la configurazione di più collegamenti (percorsi) dallo stesso dispositivo CPE del ramo SD-WAN. Ogni collegamento rappresenta una connessione a doppio tunnel da un indirizzo IP pubblico univoco del dispositivo CPE SD-WAN a due istanze diverse del gateway VPN della rete WAN virtuale di Azure. I fornitori di reti SD-WAN possono implementare il percorso ottimale verso Azure, in base ai criteri di traffico impostati dal motore dei criteri nei collegamenti CPE. Al termine di Azure, tutte le connessioni in arrivo vengono gestite in modo analogo.
+
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>Modello di interconnessione diretta con appliance virtuale di VWAN-Hub
+
+:::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Modello di interconnessione diretta":::
+
+Questo modello di architettura supporta la distribuzione di un'appliance virtuale di rete di terze parti [direttamente nell'hub virtuale](https://docs.microsoft.com/azure/virtual-wan/about-nva-hub). Ciò consente ai clienti che desiderano connettere il proprio ramo CPE alla stessa appliance appliance virtuale di rete nell'hub virtuale, in modo che possano sfruttare le funzionalità di SD-WAN end-to-end proprietarie per la connessione ai carichi di lavoro di Azure. 
+
+Diversi partner WAN virtuali hanno lavorato per offrire un'esperienza che configuri automaticamente l'appliance virtuale di rete come parte del processo di distribuzione. Una volta eseguito il provisioning dell'appliance virtuale di sistema nell'hub virtuale, eventuali configurazioni aggiuntive eventualmente necessarie per l'appliance virtuale di sistema devono essere eseguite tramite il portale dei partner di appliance virtuale di gestione o l'applicazione di gestione. L'accesso diretto all'appliance virtuale di dispositivo non è disponibile. I appliance virtuali disponibili per essere distribuiti direttamente nell'hub WAN virtuale di Azure sono progettati specificamente per l'uso nell'hub virtuale. Per i partner che supportano l'appliance virtuale di rete nell'hub VWAN e le relative guide per la distribuzione, vedere l'articolo relativo ai [partner WAN virtuali](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings) .
+
+L'apparecchiatura CPE SD-WAN continua a essere il punto in cui vengono implementate e applicate l'ottimizzazione del traffico e la selezione del percorso.
+In questo modello, l'ottimizzazione del traffico proprietaria del fornitore basata sulle caratteristiche del traffico in tempo reale è supportata perché la connettività alla rete WAN virtuale è tramite l'appliance di rete WAN SD nell'hub.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Modello di interconnessione indiretta
 
-![Modello di interconnessione indiretta](./media/sd-wan-connectivity-architecture/indirect.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/indirect.png" alt-text="Modello di interconnessione diretta":::
 
 In questo modello di architettura, i dispositivi CPE dei rami SD-WAN sono connessi indirettamente agli hub di rete WAN virtuale. Come illustrato nella figura, un dispositivo CPE virtuale SD-WAN viene distribuito in una rete virtuale aziendale. Il dispositivo CPE virtuale è a sua volta connesso a uno o più hub di rete WAN virtuale tramite IPsec e funge da gateway SD-WAN verso Azure. I rami che devono accedere ai carichi di lavoro in Azure potranno farlo tramite il gateway v-CPE.
 
@@ -51,7 +63,7 @@ Poiché la connettività ad Azure avviene tramite il gateway v-CPE (appliance vi
   
 ## <a name="managed-hybrid-wan-model"></a><a name="hybrid"></a>Modello di rete WAN ibrido gestito
 
-![Modello di rete WAN ibrido gestito](./media/sd-wan-connectivity-architecture/hybrid.png)
+:::image type="content" source="./media/sd-wan-connectivity-architecture/hybrid.png" alt-text="Modello di interconnessione diretta":::
 
 In questo modello di architettura, le aziende possono sfruttare un servizio SD-WAN gestito offerto da un partner provider di servizi gestiti (MSP). Questo modello è simile ai modelli diretti o indiretti descritti in precedenza. In questo caso, tuttavia, la progettazione, l'orchestrazione e le operazioni della rete SD-WAN vengono fornite dal provider SD-WAN.
 

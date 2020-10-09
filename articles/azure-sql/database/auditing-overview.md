@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396247"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828043"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,6 +106,7 @@ Per configurare la scrittura dei log per un account di archiviazione, selezionar
 #### <a name="remarks"></a>Osservazioni
 
 - I log di controllo vengono scritti per **aggiungere BLOB** in un archivio BLOB di Azure nella sottoscrizione di Azure
+- I log di controllo sono in formato XEL e possono essere aperti usando [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 - Per configurare un archivio di log non modificabile per gli eventi di controllo a livello di server o di database, seguire le [istruzioni fornite da archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Assicurarsi di aver selezionato **Consenti aggiunte aggiuntive** quando si configura l'archiviazione BLOB non modificabile.
 - È possibile scrivere i log di controllo in un account di archiviazione di Azure dietro un VNet o un firewall. Per istruzioni specifiche, vedere [la pagina relativa al controllo di scrittura in un account di archiviazione dietro VNet e firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](threat-detection-overview.md).

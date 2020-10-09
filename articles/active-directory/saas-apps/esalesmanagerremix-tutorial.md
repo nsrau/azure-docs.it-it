@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555390"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826742"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrare Azure Active Directory con E Sales Manager Remix
 
@@ -56,11 +56,11 @@ Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali s
 ## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Aggiungere E Sales Manager Remix dalla raccolta
 Per configurare l'integrazione di Azure AD con E Sales Manager Remix, aggiungere E Sales Manager Remix dalla raccolta al proprio elenco di app SaaS gestite eseguendo queste operazioni:
 
-1. Nel riquadro sinistro della [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**. 
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro. 
 
     ![Pulsante Azure Active Directory][1]
 
-1. Selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
 
     ![Finestra "Applicazioni aziendali"][2]
     
@@ -121,7 +121,7 @@ Abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure e configurar
 
 1. In **Configurazione di E Sales Manager Remix** selezionare **Configura E Sales Manager Remix**.
 
-    ![Configurazione di E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Screenshot che mostra la sezione "E Sales Manager Remix Configuration" con "Configure E Sales Manager Remix" selezionato.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     Viene visualizzata la finestra **Configura accesso**.
 

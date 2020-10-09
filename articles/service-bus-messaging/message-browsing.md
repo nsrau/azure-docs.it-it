@@ -3,12 +3,12 @@ title: Bus di servizio di Azure-esplorazione messaggi
 description: Esplora e visualizza messaggi del bus di servizio consente a un client del bus di servizio di Azure di enumerare tutti i messaggi che si trovano in una coda o una sottoscrizione.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341244"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827448"
 ---
 # <a name="message-browsing"></a>Esplorazione dei messaggi
 
@@ -30,7 +30,7 @@ Se viene chiamato ripetutamente, il metodo Peek enumera tutti i messaggi present
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) recupera più messaggi e li restituisce come enumerazione. Se non sono presenti messaggi, l'oggetto enumerazione è vuoto, non Null.
 
-È inoltre possibile eseguire il seeding di un overload del metodo con un valore [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) da cui iniziare e poi chiamare l'overload del metodo senza parametri per continuare l'enumerazione. **PeekBatch** funziona in modo analogo, ma recupera contemporaneamente un set di messaggi.
+È anche possibile usare un overload del metodo con un [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) da cui iniziare, quindi chiamare l'overload del metodo senza parametri per enumerare ulteriormente. **PeekBatch** funziona in modo analogo, ma recupera contemporaneamente un set di messaggi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

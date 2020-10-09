@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 61c5917c1e4cb9dbf96e90af9a30777ea7c2e66c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594110"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825662"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Esaminare le richieste pull negli ambienti di pre-produzione in App Web statiche di Azure (anteprima)
 
@@ -20,7 +20,7 @@ Questo articolo illustra come usare gli ambienti di pre-produzione per esaminare
 
 Un ambiente di pre-produzione (staging) è una versione di staging completamente funzionale dell'applicazione che include modifiche non disponibili nell'ambiente di produzione.
 
-App Web statiche di Azure genera un flusso di lavoro di GitHub Actions nel repository. Quando viene creata una richiesta pull per un ramo che il flusso di lavoro controlla, viene creato l'ambiente di pre-produzione. L'ambiente di pre-produzione installa l'app per poterla esaminare prima di eseguire il push nell'ambiente di produzione.
+App Web statiche di Azure genera un flusso di lavoro di GitHub Actions nel repository. Quando viene creata una richiesta pull rispetto a un ramo che il flusso di lavoro controlla, viene compilato l'ambiente di pre-produzione. L'ambiente di pre-produzione installa l'app per poterla esaminare prima di eseguire il push nell'ambiente di produzione.
 
 Più ambienti di pre-produzione possono coesistere nello stesso momento con App Web statiche di Azure. Ogni volta che si crea una richiesta pull nel ramo controllato, una versione di staging con le modifiche viene distribuita in un ambiente di pre-produzione distinto.
 
@@ -51,11 +51,11 @@ Per iniziare, apportare una modifica nel repository. È possibile eseguire quest
 
 1. Passare alla cartella _app_ e modificare il contenuto di testo. Ad esempio, è possibile modificare un titolo o un paragrafo. Dopo aver trovato il file da modificare, fare clic su **Edit** (Modifica) per apportare la modifica.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Pulsante di modifica file nell'interfaccia di GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Creare un nuovo ramo usando l'interfaccia di GitHub":::
 
 1. Dopo avere apportato le modifiche, fare clic su **Commit changes** (Commit delle modifiche) per eseguire il commit delle modifiche nel ramo.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Pulsante di commit delle modifiche nell'interfaccia di GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Creare un nuovo ramo usando l'interfaccia di GitHub":::
 
 ## <a name="create-a-pull-request"></a>Creare una richiesta pull
 
@@ -63,13 +63,13 @@ Successivamente, creare una richiesta pull da questa modifica.
 
 1. Aprire la scheda **Pull request** (Richiesta pull) del progetto in GitHub:
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Scheda Richiesta pull in un repository GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Creare un nuovo ramo usando l'interfaccia di GitHub":::
 
 1. Fare clic sul pulsante **Compare & pull request** (Confronta e richiesta pull) del ramo.
 
 1. Facoltativamente, è possibile specificare alcuni dettagli sulle modifiche, quindi fare clic su **Create pull request** (Crea richiesta pull).
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Creazione della richiesta pull in GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Creare un nuovo ramo usando l'interfaccia di GitHub":::
 
 Se necessario, è possibile assegnare revisori e aggiungere commenti per discutere le modifiche.
 
@@ -82,7 +82,7 @@ Dopo la creazione della richiesta pull, il flusso di lavoro di distribuzione di 
 
 Quando il flusso di lavoro ha completato la compilazione e la distribuzione dell'app, il bot GitHub aggiunge alla richiesta pull un commento che contiene l'URL dell'ambiente di pre-produzione. È possibile fare clic su questo collegamento per visualizzare le modifiche preparate per il commit.
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Commento alla richiesta pull con l'URL di pre-produzione":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Creare un nuovo ramo usando l'interfaccia di GitHub":::
 
 Fare clic sull'URL generato per visualizzare le modifiche.
 
@@ -96,7 +96,7 @@ Una volta approvate le modifiche, è possibile pubblicare le modifiche nell'ambi
 
 Fare clic su **Merge pull request** (Esegui merge della richiesta pull):
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Pulsante di esecuzione merge della richiesta pull nell'interfaccia di GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Creare un nuovo ramo usando l'interfaccia di GitHub":::
 
 Il merge copia le modifiche apportate al ramo monitorato, ovvero il ramo di "produzione". Quindi, il flusso di lavoro di distribuzione viene avviato nel ramo monitorato e le modifiche diventano attive dopo la ricompilazione dell'applicazione.
 

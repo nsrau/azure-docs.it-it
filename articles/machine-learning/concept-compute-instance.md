@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 88cb54a7a9e20e643d9a19f57dc83d3f1ea8004d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761210"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826897"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Un'istanza di calcolo è una workstation basata su cloud completamente gestita, 
 
 |Vantaggi principali|Descrizione|
 |----|----|
-|Produttività|È possibile compilare e distribuire modelli usando notebook integrati e gli strumenti seguenti in Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (anteprima)<br/>L'istanza di calcolo è completamente integrata con Azure Machine Learning area di lavoro e studio. È possibile condividere notebook e dati con altri data scientist nell'area di lavoro. È anche possibile configurare VS Code lo sviluppo remoto tramite [SSH](how-to-set-up-vs-code-remote.md) |
+|Produttività|È possibile compilare e distribuire modelli usando notebook integrati e gli strumenti seguenti in Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (anteprima)<br/>L'istanza di calcolo è completamente integrata con Azure Machine Learning area di lavoro e studio. È possibile condividere notebook e dati con altri data scientist nell'area di lavoro.<br/> È anche possibile usare [vs code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) con le istanze di calcolo.
 |Gestione e sicurezza|Riduzione del footprint per la sicurezza e aggiunta di conformità ai requisiti di sicurezza aziendali. Le istanze di calcolo offrono criteri di gestione affidabili e configurazioni di rete sicure, ad esempio:<br/><br/>-Provisioning automatico da modelli di Gestione risorse o SDK Azure Machine Learning<br/>- [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview)<br/>- [Supporto della rete virtuale](how-to-enable-virtual-network.md#compute-instance)<br/>- Criteri SSH per abilitare/disabilitare l'accesso SSH<br/>TLS 1,2 abilitato |
 |Preconfigurato &nbsp; per &nbsp; ml|Risparmio di tempo nelle attività di configurazione con pacchetti AML preconfigurati e aggiornati, framework di Deep Learning e driver GPU.|
 |Personalizzazione completa|Ampio supporto per i tipi di macchine virtuali di Azure, tra cui GPU e personalizzazione di basso livello persistente, come l'installazione di pacchetti e driver, che semplifica gli scenari avanzati. |
@@ -47,9 +47,11 @@ Un'istanza di calcolo è una workstation basata su cloud completamente gestita, 
 
 L'istanza di calcolo di Azure Machine Learning consente di creare, eseguire il training e distribuire modelli in un'esperienza di notebook completamente integrata nell'area di lavoro.
 
+È possibile eseguire notebook Jupyter in [vs code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) usando l'istanza di calcolo come server remoto senza necessità di SSH. È anche possibile abilitare l'integrazione VS Code tramite l' [estensione SSH remota](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+
 È possibile [installare i pacchetti](how-to-create-manage-compute-instance.md#install-packages) e [aggiungere i kernel](how-to-create-manage-compute-instance.md#add-new-kernels) all'istanza di calcolo.  
 
-Questi strumenti e ambienti sono già installati nell'istanza di calcolo: 
+Gli strumenti e gli ambienti seguenti sono già installati nell'istanza di calcolo: 
 
 |Strumenti generali e ambienti|Dettagli|
 |----|:----:|
@@ -143,7 +145,7 @@ I core dedicati per area per la quota della famiglia di VM e la quota di area to
 ### <a name="create-on-behalf-of-preview"></a>Crea per conto di (anteprima)
 
 In qualità di amministratore, è possibile creare un'istanza di calcolo per conto di un data scientist a cui assegnare l'istanza:
-* [Azure Resource Manager modello](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
+* [Azure Resource Manager modello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Per informazioni dettagliate su come trovare TenantID e ObjectID necessari in questo modello, vedere [trovare ID oggetto Identity per la configurazione dell'autenticazione](../healthcare-apis/find-identity-object-ids.md).  È anche possibile trovare questi valori nel portale Azure Active Directory.
 * API REST
 
 Per i data scientist per cui si crea l'istanza di calcolo sono necessarie le autorizzazioni RBAC seguenti: 

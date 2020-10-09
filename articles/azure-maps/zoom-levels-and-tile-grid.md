@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ced524080df87468116a538d9b7c8e91fb178a41
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035876"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825306"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Livelli di zoom e griglia riquadri
 
@@ -28,7 +28,7 @@ Per ottimizzare le prestazioni del recupero e della visualizzazione della mappa,
 
 Per il rendering del mondo il livello di zoom 1 usa quattro riquadri, ovvero un quadrato 2 x 2
 
-:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="layout affiancato della mappa 2x2":::
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="Tessera mappa mondiale":::
 
 Ogni livello di zoom aggiuntivo divide in quad i riquadri del precedente, creando una griglia<sup>di 2</sup>zoom<sup>x 2 zoom.</sup> Il livello di zoom 22 è una griglia di 2<sup>22</sup> x 2<sup>22</sup> ovvero 4.194.304 x 4.194.304 riquadri (per un totale di 17.592.186.044.416 riquadri).
 
@@ -76,7 +76,7 @@ var mapHeight = mapWidth;
 
 Poiché la larghezza e l'altezza della mappa sono diverse a ogni livello di zoom, quindi sono le coordinate dei pixel. Il pixel nell'angolo superiore sinistro della mappa presenta sempre le coordinate dei pixel (0,0). Il pixel nell'angolo inferiore destro della mappa presenta le coordinate dei pixel *(width-1, Height-1)* o fa riferimento alle equazioni nella sezione precedente, *(tileSize \* 2<sup>Zoom</sup>-1, tileSize \* 2<sup>Zoom</sup>-1)*. Ad esempio, quando si usano i riquadri quadrati 512 al livello 2, le coordinate dei pixel sono comprese tra (0, 0) e (2047, 2047), come indicato di seguito:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mappa che mostra le dimensioni del pixel":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Tessera mappa mondiale":::
 
 Data la latitudine e la longitudine in gradi e il livello di dettaglio, le coordinate XY del pixel vengono calcolate come segue:
 
@@ -100,9 +100,9 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Ogni riquadro è costituito da coordinate XY comprese tra (0, 0) in alto a sinistra e *(2<sup>Zoom</sup>-1, 2<sup>Zoom</sup>-1)* in basso a destra. Ad esempio, con il livello di zoom 2, le coordinate dei riquadri variano da (0,0) a (7, 7) come indicato di seguito:
+Ogni riquadro è costituito da coordinate XY comprese tra (0, 0) in alto a sinistra e *(2<sup>Zoom</sup>-1, 2<sup>Zoom</sup>-1)* in basso a destra. Ad esempio, al livello di zoom 3, le coordinate dei riquadri variano da (0,0) a (7, 7) come indicato di seguito:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mappa delle coordinate dei riquadri":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Tessera mappa mondiale":::
 
 Data una coppia di coordinate XY del pixel, è possibile determinare facilmente le coordinate XY del riquadro che contengono il pixel:
 
@@ -116,13 +116,13 @@ I riquadri vengono chiamati dal livello di zoom. Le coordinate x e y corrispondo
 
 Quando si determina il livello di zoom da usare, tenere presente che ogni posizione si trova in una posizione fissa nel relativo riquadro. Di conseguenza, il numero di riquadri necessari per visualizzare una determinata estensione del territorio dipende dalla posizione specifica della griglia di zoom sulla mappa mondiale. Ad esempio, se sono presenti due punti distanti 900 metri l'uno dall'altro, *potrebbe* essere necessario usare solo tre riquadri per visualizzare il percorso tra i due punti con un livello di zoom 17. Se tuttavia il punto occidentale si trova sulla destra del relativo riquadro e il punto orientale si trova sulla sinistra del relativo riquadro, potrebbero essere necessari quattro riquadri:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Scala di zoom di esempio":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Tessera mappa mondiale":::
 
 Dopo aver definito il livello di zoom, sarà possibile calcolare i valore x e y. Il riquadro superiore sinistro in ogni griglia di zoom è x = 0, y = 0; il riquadro inferiore destro è x = 2<sup>Zoom-1</sup>, y = 2<sup>Zoom-1</sup>.
 
 Di seguito è illustrata la griglia di zoom per il livello di zoom 1:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Griglia di zoom per il livello di zoom 1":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Tessera mappa mondiale":::
 
 ## <a name="quadkey-indices"></a>Indici quadkey
 
@@ -136,14 +136,14 @@ Per convertire le coordinate del riquadro in un oggetto `quadkey` , i bit delle 
 ```
 tileX = 3 = 011 (base 2)
 
-tileY = 5 = 1012 (base 2)
+tileY = 5 = 101 (base 2)
 
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`hanno diverse proprietà interessanti. In primo luogo, la lunghezza di un `quadkey` valore (il numero di cifre) è uguale al livello di zoom del riquadro corrispondente. In secondo luogo, l'oggetto `quadkey` di qualsiasi riquadro inizia con la proprietà `quadkey` del riquadro padre (il riquadro che lo contiene al livello precedente). Come illustrato nell'esempio seguente, il riquadro 2 è l'elemento padre dei riquadri da 20 a 23:
+`Qquadkeys` hanno diverse proprietà interessanti. In primo luogo, la lunghezza di un `quadkey` valore (il numero di cifre) è uguale al livello di zoom del riquadro corrispondente. In secondo luogo, l'oggetto `quadkey` di qualsiasi riquadro inizia con la proprietà `quadkey` del riquadro padre (il riquadro che lo contiene al livello precedente). Come illustrato nell'esempio seguente, il riquadro 2 è l'elemento padre dei riquadri da 20 a 23:
 
-:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Piramide del riquadro quadkey":::
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Tessera mappa mondiale":::
 
 Infine, `quadkeys` fornire una chiave di indice unidimensionale che in genere conserva la prossimità dei riquadri nello spazio XY. In altre parole, due riquadri con coordinate XY vicine hanno in genere un aspetto `quadkeys` relativamente simile. Questa operazione è importante per l'ottimizzazione delle prestazioni del database, perché i riquadri adiacenti sono spesso richiesti in gruppi ed è consigliabile mantenerli negli stessi blocchi del disco, in modo da ridurre al minimo il numero di letture del disco.
 

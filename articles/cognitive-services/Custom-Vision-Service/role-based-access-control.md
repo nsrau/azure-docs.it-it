@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fc536b3b0c7af113919f274fc4bdd5fad63cbd06
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057216"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826934"
 ---
 # <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Utilizzando il controllo degli accessi in base al ruolo, è possibile assegnare diversi livelli di autorizzazioni ai membri del team per i progetti Visione personalizzata Per ulteriori informazioni su RBAC, vedere la [documentazione relativa a RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/).
+Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure, un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Utilizzando il controllo degli accessi in base al ruolo, è possibile assegnare diversi livelli di autorizzazioni ai membri del team per i progetti Visione personalizzata Per ulteriori informazioni su RBAC, vedere la [documentazione relativa a RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Aggiungere un'assegnazione di ruolo alla risorsa Visione personalizzata
 
@@ -43,8 +43,8 @@ Usare la tabella seguente per determinare le esigenze di accesso per le risorse 
 
 |Ruolo  |Autorizzazioni  |
 |---------|---------|
-|`Cognitive Service Custom Vision Contributor`     | Accesso completo ai progetti, inclusa la possibilità di creare, modificare o eliminare un progetto.        |
-|`Cognitive Service Custom Vision Trainer`     | Accesso completo ad eccezione della possibilità di creare o eliminare un progetto. I trainer possono visualizzare e modificare i progetti, eseguire il training, pubblicare, annullare la pubblicazione o esportare i modelli.        |
-|`Cognitive Service Custom Vision Labeler`     | Possibilità di caricare, modificare o eliminare immagini di training e creare, aggiungere, rimuovere o eliminare tag. Gli etichettatori possono visualizzare i progetti ma non possono aggiornare nient'altro che i tag e le immagini di training.         |
-|`Cognitive Service Custom Vision Deployment`     | Possibilità di pubblicare, annullare la pubblicazione o esportare i modelli. I deployer possono visualizzare i progetti ma non possono aggiornare un progetto, le immagini di training o i tag.        |
-|`Cognitive Service Custom Vision Reader`     | Possibilità di visualizzare i progetti. I lettori non possono apportare modifiche.        |
+|`Cognitive Services Custom Vision Contributor`     | Accesso completo ai progetti, inclusa la possibilità di creare, modificare o eliminare un progetto.        |
+|`Cognitive Services Custom Vision Trainer`     | Accesso completo ad eccezione della possibilità di creare o eliminare un progetto. I trainer possono visualizzare e modificare i progetti, eseguire il training, pubblicare, annullare la pubblicazione o esportare i modelli.        |
+|`Cognitive Services Custom Vision Labeler`     | Possibilità di caricare, modificare o eliminare immagini di training e creare, aggiungere, rimuovere o eliminare tag. Gli etichettatori possono visualizzare i progetti ma non possono aggiornare nient'altro che i tag e le immagini di training.         |
+|`Cognitive Services Custom Vision Deployment`     | Possibilità di pubblicare, annullare la pubblicazione o esportare i modelli. I deployer possono visualizzare i progetti ma non possono aggiornare un progetto, le immagini di training o i tag.        |
+|`Cognitive Services Custom Vision Reader`     | Possibilità di visualizzare i progetti. I lettori non possono apportare modifiche.        |

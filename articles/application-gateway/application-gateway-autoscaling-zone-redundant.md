@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8c989e426faa77025a84515fe0a19424cb6bfa89
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649737"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826633"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -21,7 +21,7 @@ Il gateway applicazione è disponibile in uno SKU Standard_v2. Il Web Applicatio
 
 Il nuovo SKU v2 include i miglioramenti seguenti:
 
-- **Ridimensionamento automatico**: le distribuzioni del gateway applicazione o WAF nello SKU con ridimensionamento automatico possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Lo SKU offre una reale elasticità. In Standard_v2 e WAF_v2 SKU, il gateway applicazione può operare sia in modalità di capacità fissa (ridimensionamento automatico disabilitato) che di ridimensionamento automatico abilitato. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. La modalità di scalabilità automatica è vantaggiosa nelle applicazioni con traffico delle applicazioni soggetto a varianze.
+- **Ridimensionamento automatico**: le distribuzioni del gateway applicazione o WAF con lo SKU di scalabilità automatica possono aumentare o ridurre le prestazioni in base alla modifica dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Lo SKU offre una reale elasticità. In Standard_v2 e WAF_v2 SKU, il gateway applicazione può operare sia in modalità di capacità fissa (ridimensionamento automatico disabilitato) che di ridimensionamento automatico abilitato. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. La modalità di scalabilità automatica è vantaggiosa nelle applicazioni con traffico delle applicazioni soggetto a varianze.
 - **Ridondanza della zona**: una distribuzione del gateway applicazione o WAF può estendersi a più zone di disponibilità, eliminando la necessità di effettuare il provisioning di istanze del gateway applicazione separate in ogni zona con un'utilità di Gestione traffico. È possibile scegliere una o più zone in cui distribuire le istanze del gateway applicazione, aumentando così la resilienza rispetto agli errori di zona. Il pool di back-end per le applicazioni può analogamente essere distribuito tra zone di disponibilità.
 
   La ridondanza della zona è disponibile solo dove sono disponibili zone di Azure. In altre aree sono supportate tutte le altre funzionalità. Per altre informazioni, vedere [Aree e zone di disponibilità](../availability-zones/az-overview.md)
@@ -68,7 +68,7 @@ La creazione di una nuova istanza, tuttavia, può richiedere sei o sette minuti.
 
 La tabella seguente confronta le funzionalità disponibili con ogni SKU.
 
-| Feature                                           | SKU v1   | SKU v2   |
+| Funzionalità                                           | SKU v1   | SKU v2   |
 | ------------------------------------------------- | -------- | -------- |
 | Scalabilità automatica                                       |          | &#x2713; |
 | Ridondanza della zona                                   |          | &#x2713; |

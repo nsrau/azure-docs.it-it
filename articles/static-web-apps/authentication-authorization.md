@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4c72a80b164e8ca1dd649503dcb968efd92be797
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e95cd313d341844eabf4f5c5feae8a8ca3dc9c2e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297070"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826549"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticazione e autorizzazione per App Web statiche di Azure (anteprima)
 
@@ -107,7 +107,7 @@ Quando si rimuove un utente, tenere presente quanto segue:
 
 Quando si concede il consenso a un'applicazione come utente finale, l'applicazione può accedere all'indirizzo di posta elettronica o al nome utente a seconda del provider di identità. Una volta fornite queste informazioni, il proprietario dell'applicazione decide come gestire le informazioni personali.
 
-Gli utenti finali devono contattare gli amministratori delle singole app Web per revocare tali informazioni dai relativi sistemi.
+Gli utenti finali devono contattare gli amministratori di singole app Web per revocare tali informazioni dai rispettivi sistemi.
 
 Per rimuovere le informazioni personali dalla piattaforma App Web statiche di Azure e impedire alla piattaforma di fornire queste informazioni in caso di richieste future, inviare una richiesta usando l'URL:
 

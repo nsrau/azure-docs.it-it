@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: c47d573dab3e72a956f6f0b9d09a1dafadf0225c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029546"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827773"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reimpostare la password aziendale o dell'istituto di istruzione tramite l'informazione di sicurezza
 
@@ -69,7 +69,7 @@ Se risulta impossibile accedere all'account Azure Active Directory (Azure AD), l
 
     3. Digitare e confermare la nuova password e quindi selezionare **Fine**.
 
-- **Reimpostare la password usando un numero di telefono.** Viene inviato un SMS al numero di telefono configurato in precedenza nelle informazioni di sicurezza. Se l'amministratore ha attivato l'esperienza per le informazioni di sicurezza, è possibile trovare altre informazioni sulla configurazione di un numero di telefono nell'articolo [Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica (anteprima)](security-info-setup-phone-number.md). Se non si usano ancora le informazioni di sicurezza, è possibile trovare altre informazioni sulla configurazione di un numero di telefono nell'articolo [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
+- **Reimpostare la password usando un numero di telefono.** Inserisce una chiamata vocale automatizzata al numero di telefono precedentemente configurato in info di sicurezza. Se l'amministratore ha attivato l'esperienza per le informazioni di sicurezza, è possibile trovare altre informazioni sulla configurazione di un numero di telefono nell'articolo [Configurare le informazioni di sicurezza per l'uso di una chiamata telefonica (anteprima)](security-info-setup-phone-number.md). Se non si usano ancora le informazioni di sicurezza, è possibile trovare altre informazioni sulla configurazione di un numero di telefono nell'articolo [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
 
     1. Selezionare **Chiama telefono cellulare**, digitare il numero di telefono e quindi selezionare **Chiama**.
 

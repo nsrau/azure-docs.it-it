@@ -5,15 +5,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: c0b8f395dde1d94c4c1efa32a2f78707d1456d88
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817789"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827802"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usare macchine virtuali spot in Azure
 
@@ -67,8 +67,22 @@ Sono attualmente supportati i [tipi di offerta](https://azure.microsoft.com/supp
 
 I prezzi per le macchine virtuali spot variano in base all'area e allo SKU. Per altre informazioni, vedere i prezzi delle macchine virtuali per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
+È anche possibile eseguire query sulle informazioni sui prezzi usando l' [API prezzi al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) per eseguire una query per informazioni sui prezzi spot. `meterName`E `skuName` conterranno entrambi `Spot` .
 
 Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari statunitensi (USD), usando al massimo 5 cifre decimali. Ad esempio, il valore `0.98765`sarebbe un prezzo massimo di 0,98765 USD all'ora. Se si imposta il prezzo massimo su `-1`, la macchina virtuale non verrà eliminata in base al prezzo. Il prezzo della macchina virtuale corrisponderà al prezzo corrente per spot o al prezzo di una macchina virtuale standard, a seconda di quale sia il più basso, purché siano disponibili capacità e quota.
+
+## <a name="pricing-and-eviction-history"></a>Cronologia dei prezzi e della rimozione
+
+È possibile visualizzare i prezzi cronologici e le tariffe di eliminazione per dimensioni in un'area del portale. Selezionare **Visualizza cronologia prezzi e confrontare i prezzi nelle aree vicine** per visualizzare una tabella o un grafico dei prezzi per una dimensione specifica.  I prezzi e le tariffe di rimozione nelle immagini seguenti sono solo esempi. 
+
+**Grafico**:
+
+:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot delle opzioni relative alle aree con la differenza di prezzi e frequenze di eliminazione come grafico.":::
+
+**Tabella**:
+
+:::image type="content" source="./media/spot-table.png" alt-text="Screenshot delle opzioni relative alle aree con la differenza di prezzi e frequenze di eliminazione come grafico.":::
+
 
 
 ##  <a name="frequently-asked-questions"></a>Domande frequenti
@@ -98,7 +112,7 @@ Con i prezzi variabili è possibile impostare un prezzo massimo, in dollari stat
 **R:** È possibile pubblicare e contrassegnare la domanda con `azure-spot` in [Domande e risposte](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Usare l' [interfaccia](./linux/spot-cli.md)della riga di comando, il [portale](./windows/spot-portal.md), il [modello ARM](./linux/spot-template.md)o [PowerShell](./windows/spot-powershell.md) per distribuire le VM spot.
+Usare l' [interfaccia](./linux/spot-cli.md)della riga di comando, il [portale](spot-portal.md), il [modello ARM](./linux/spot-template.md)o [PowerShell](./windows/spot-powershell.md) per distribuire le VM spot.
 
 È anche possibile distribuire un [set di scalabilità con le istanze di VM spot](../virtual-machine-scale-sets/use-spot.md).
 

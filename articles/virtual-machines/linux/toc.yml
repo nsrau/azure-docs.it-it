@@ -293,7 +293,7 @@
             - name: Flessibilità delle dimensioni istanza di VM
               href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: VM Spot
-          displayName: 'pre-empt, preempt'
+          displayName: 'pre-empt, preempt, spot'
           href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Macchine virtuali di Azure senza disco temporaneo
           href: ../azure-vms-no-temp-disk.md
@@ -343,7 +343,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -400,7 +400,7 @@
             - name: CLI
               href: spot-cli.md
             - name: Portale
-              href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+              href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Modello ARM
               displayName: Azure Resource Manager
               href: spot-template.md
@@ -947,7 +947,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architettura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705538"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825969"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -91,7 +91,7 @@ Se il dispositivo è sotto il controllo di Intune o di qualsiasi altra soluzione
 
 Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi, ad esempio Autopilot. Una volta eliminati, non è possibile effettuare nuovamente il provisioning di questi dispositivi. Per impostazione predefinita, il nuovo cmdlet `Get-AzureADDevice` esclude i dispositivi gestiti dal sistema. 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD ibridi
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
 
 I dispositivi aggiunti ad Azure AD ibrido devono seguire i criteri per la gestione dei dispositivi non aggiornati in locale. 
 
@@ -163,9 +163,9 @@ Quando sono configurate, le chiavi BitLocker per i dispositivi Windows 10 vengon
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Perché è necessario preoccuparsi dei dispositivi Windows Autopilot?
 
 Quando si elimina un dispositivo Azure AD associato a un oggetto di Windows Autopilot, possono verificarsi i tre scenari seguenti se il dispositivo verrà reimpiegato in futuro:
-- Con le distribuzioni basate sugli utenti di Windows Autopilot senza usare il guanto bianco, viene creato un nuovo dispositivo Azure AD, che però non verrà contrassegnato con ZTDID.
+- Con le distribuzioni basate sugli utenti di Windows Autopilot senza usare il pre-provisioning, viene creato un nuovo dispositivo Azure AD, che però non verrà contrassegnato con ZTDID.
 - Con le distribuzioni in modalità self-Deploying di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo associato Azure AD.  (Si tratta di un meccanismo di sicurezza per assicurarsi che nessun dispositivo "imposto" provi a partecipare Azure AD senza credenziali). L'errore indicherà una mancata corrispondenza ZTDID.
-- Con le distribuzioni del guanto bianco di Windows Autopilot, non riusciranno perché non è possibile trovare un dispositivo Azure AD associato. (In background, le distribuzioni di guanti bianchi usano lo stesso processo di distribuzione automatica, quindi applicano gli stessi meccanismi di sicurezza).
+- Con le distribuzioni di pre-provisioning di Windows Autopilot, avranno esito negativo perché non è possibile trovare un dispositivo Azure AD associato. (Dietro le quinte, le distribuzioni di pre-provisioning usano lo stesso processo di distribuzione in modalità self-Deploying, quindi applicano gli stessi meccanismi di sicurezza).
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Come si riconoscono tutti i tipi di dispositivi aggiunti?
 

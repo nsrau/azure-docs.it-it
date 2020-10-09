@@ -3,14 +3,14 @@ title: Distribuisci su host dedicato
 description: Usare un host dedicato per ottenere un vero isolamento a livello di host per i carichi di lavoro di istanze di contenitore di Azure
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
-ms.openlocfilehash: e9d7e2a706f65b5f2948a24400aa63ba39350661
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+author: macolso
+ms.author: macolso
+ms.openlocfilehash: 967d2da61ffdfa9d1723bcab589deb2277d4041e
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259648"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825610"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Eseguire la distribuzione in host dedicati
 
@@ -31,8 +31,8 @@ Lo SKU dedicato è adatto per i carichi di lavoro del contenitore che richiedono
 A partire dall'API versione 2019-12-01, è presente una `sku` proprietà nella sezione delle proprietà del gruppo di contenitori di un modello di distribuzione, che è necessario per una distribuzione di ACI. Attualmente, è possibile usare questa proprietà come parte di un modello di distribuzione Azure Resource Manager per ACI. Per altre informazioni sulla distribuzione di risorse ACI con un modello [, vedere l'esercitazione: distribuire un gruppo multicontenitore usando un modello di gestione risorse](./container-instances-multi-container-group.md). 
 
 La `sku` proprietà può avere uno dei valori seguenti:
-* `Standard`-la scelta di distribuzione ACI standard, che garantisce comunque la sicurezza a livello di hypervisor 
-* `Dedicated`-usato per l'isolamento a livello di carico di lavoro con host fisici dedicati per il gruppo di contenitori
+* `Standard` -la scelta di distribuzione ACI standard, che garantisce comunque la sicurezza a livello di hypervisor 
+* `Dedicated` -usato per l'isolamento a livello di carico di lavoro con host fisici dedicati per il gruppo di contenitori
 
 ## <a name="modify-your-json-deployment-template"></a>Modificare il modello di distribuzione JSON
 

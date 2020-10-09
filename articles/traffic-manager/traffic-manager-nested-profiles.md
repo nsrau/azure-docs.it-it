@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
-ms.openlocfilehash: 2159d4d2c71d54d94d9c07eea3dc341383d3237a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d96cd9b3c83357c2591edf4bbb09a82b897c6a24
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392902"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826033"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profili nidificati di Gestione traffico
 
@@ -97,7 +97,7 @@ Le impostazioni di monitoraggio in un profilo di Gestione traffico si applicano 
 
 ## <a name="faqs"></a>Domande frequenti
 
-* [Come si configurano i profili nidificati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [Come si configurano i profili nidificati?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-nested-profiles)
 
 * [Quanti livelli di nidificazione supporta Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 

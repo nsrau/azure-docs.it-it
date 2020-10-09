@@ -1,18 +1,18 @@
 ---
 title: Definizioni predefinite dei criteri per Azure Machine Learning
 description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per Azure Machine Learning. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 09/16/2020
+ms.date: 10/07/2020
 author: j-martens
 ms.author: jmartens
 ms.topic: reference
 ms.service: machine-learning
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 04878a7fecf99bd1215d83a4da1e2e3c4c62f713
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 05af0bea2525d0540162423605e15387f352aaa6
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980994"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825230"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Definizioni dei criteri predefiniti di criteri di Azure per Azure Machine Learning
 

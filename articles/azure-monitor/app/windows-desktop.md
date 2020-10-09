@@ -3,12 +3,13 @@ title: Monitoraggio dell'utilizzo e delle prestazioni per le applicazioni deskto
 description: Analizzare l'uso e le prestazioni dell'applicazione desktop di Windows con Application Insights.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 17613fc6cea24643c2b88182e7e56a1d216b2da8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 1aa1e8a9e7ccbbc90a961ebf47224f59f8a9e9fe
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323418"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827878"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitoraggio dell'utilizzo e delle prestazioni nelle applicazioni desktop di Windows classiche
 
@@ -20,7 +21,7 @@ Tutte le applicazioni ospitate in locale, in Azure e in altri cloud possono sfru
 3. In Visual Studio, modificare i pacchetti NuGet del progetto dell'app e aggiungere Microsoft.ApplicationInsights.WindowsServer. In alternativa, scegliere Microsoft. ApplicationInsights se si vuole solo l'API di base, senza i moduli standard della raccolta dei dati di telemetria.
 4. Impostare la chiave di strumentazione nel codice:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *nome della chiave* `";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*chiave*`";`
    
     o in ApplicationInsights.config, se è installato uno dei pacchetti di telemetria standard:
    
@@ -53,10 +54,8 @@ using Microsoft.ApplicationInsights;
             ...
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        protected override void OnFormClosing(System.Windows.Forms.FormClosingEventArgs e)
         {
-            e.Cancel = true;
-
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
@@ -64,9 +63,10 @@ using Microsoft.ApplicationInsights;
                 // Allow time for flushing:
                 System.Threading.Thread.Sleep(1000);
             }
-            base.OnClosing(e);
+            base.OnFormClosing(e);
         }
-
+        
+        ...
 ```
 
 ## <a name="override-storage-of-computer-name"></a>Sostituisci archiviazione del nome del computer

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 10/07/2020
+ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462514"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825493"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
 
@@ -50,7 +50,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici e al
 
 <sup>1</sup> I servizi Basic creati prima di dicembre 2017 hanno limiti inferiori (5 anziché 15) per gli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
 
-<sup>2</sup> La presenza di un numero molto elevato di elementi nelle raccolte complesse per documento attualmente causa un utilizzo elevato dell'archiviazione. Questo è un problema noto Nel frattempo, un limite di 3000 rappresenta un limite superiore sicuro per tutti i livelli di servizio. Questo limite viene applicato solo per le operazioni di indicizzazione che usano la prima versione dell'API disponibile a livello generale (GA) che supporta i campi di tipo complesso (`2019-05-06`) e le versioni successive. Per non causare interruzioni per i client che potrebbero usare versioni dell'API di anteprima precedenti (che supportano campi di tipo complesso), questo limite non verrà applicato per le operazioni di indicizzazione che usano queste versioni dell'API di anteprima. Si noti che le versioni dell'API di anteprima non sono destinate all'uso negli scenari di produzione. Per i clienti è consigliabile passare alla versione dell'API disponibile a livello generale più recente.
+<sup>2</sup> esiste un limite superiore per gli elementi perché un numero elevato di tali elementi causa un elevato utilizzo dello spazio di archiviazione. Un elemento di una raccolta complessa viene definito come membro di tale raccolta. Si supponga, ad esempio, che un documento di un [Hotel con una raccolta di chat](search-howto-complex-data-types.md#indexing-complex-types)room, ogni stanza della raccolta room sia considerata un elemento. Durante l'indicizzazione, il motore di indicizzazione può elaborare in modo sicuro un massimo di 3000 elementi nell'intero documento. [Questo limite](search-api-migration.md#upgrade-to-2019-05-06) è stato introdotto in `api-version=2019-05-06` e si applica solo a raccolte complesse, non a raccolte di stringhe o a campi complessi.
 
 <a name="document-limits"></a>
 

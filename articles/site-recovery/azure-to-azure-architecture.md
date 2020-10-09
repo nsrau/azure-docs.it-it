@@ -8,17 +8,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322088"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825428"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
 
-Questo articolo descrive l'architettura, i componenti e i processi usati per la distribuzione di una soluzione di ripristino di emergenza per le macchine virtuali di Azure tramite il servizio [Azure Site Recovery](site-recovery-overview.md). Dopo la configurazione del ripristino di emergenza, le macchine virtuali di Azure vengono replicate continuamente in un'area di destinazione diversa. In caso di guasto, è possibile effettuare il failover delle macchine virtuali nell'area secondaria e accedervi da lì. Una volta ripristinato il normale funzionamento, si può eseguire il failback e continuare a lavorare nella posizione primaria.
+Questo articolo descrive l'architettura, i componenti e i processi usati per la distribuzione di una soluzione di ripristino di emergenza per le macchine virtuali di Azure tramite il servizio [Azure Site Recovery](site-recovery-overview.md). Con il ripristino di emergenza configurato, le macchine virtuali di Azure vengono replicate continuamente in un'area di destinazione diversa. In caso di guasto, è possibile effettuare il failover delle macchine virtuali nell'area secondaria e accedervi da lì. Una volta ripristinato il normale funzionamento, si può eseguire il failback e continuare a lavorare nella posizione primaria.
 
 
 

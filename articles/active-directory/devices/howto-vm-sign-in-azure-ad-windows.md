@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287101"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826663"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -191,7 +191,7 @@ az role assignment create \
 
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere gli articoli seguenti:
 
-- [Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando](../../role-based-access-control/role-assignments-cli.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md)
 - [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -236,7 +236,7 @@ Per completare la Azure AD processo join, è necessario che l'estensione AADLogi
 
    > [!NOTE]
    > Se l'estensione viene riavviata dopo l'errore iniziale, il log con l'errore di distribuzione verrà salvato come CommandExecution_YYYYMMDDHHMMSSSSS. log. "
-1. Aprire un prompt dei comandi nella macchina virtuale e verificare che le query eseguite sull'endpoint del servizio metadati dell'istanza (IMDS) in esecuzione nell'host di Azure restituiscono:
+1. Aprire un prompt dei comandi di PowerShell nella macchina virtuale e verificare che le query eseguite sull'endpoint del servizio metadati dell'istanza (IMDS) in esecuzione nell'host di Azure restituiscono:
 
    | Comando da eseguire | Output previsto |
    | --- | --- |

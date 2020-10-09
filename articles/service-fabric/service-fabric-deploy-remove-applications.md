@@ -3,12 +3,12 @@ title: Distribuzione di Service Fabric di Azure con PowerShell
 description: Informazioni sulla rimozione e la distribuzione di applicazioni in Azure Service Fabric e su come eseguire queste azioni in PowerShell.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3a6f5411c30087e15d1164cd02d4e6eb66566388
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 8bc4557c5d0d59330c7e91a4b3fdce83cfbf334c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611453"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827429"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Distribuire e rimuovere applicazioni con PowerShell
 
@@ -100,7 +100,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 Se il pacchetto dell'applicazione è di grandi dimensioni e/o dispone di molti file, è possibile [comprimerlo](service-fabric-package-apps.md#compress-a-package). La compressione riduce le dimensioni e il numero di file.
-L'effetto collaterale è che la registrazione e l'annullamento della registrazione del tipo di applicazione sono più veloci. Il tempo di caricamento potrebbe attualmente risultare più lento, specialmente se si include il tempo per comprimere il pacchetto. 
+Questo comporta la registrazione e l'annullamento della registrazione più veloci del tipo di applicazione. Il tempo di caricamento potrebbe attualmente risultare più lento, specialmente se si include il tempo per comprimere il pacchetto. 
 
 Per comprimere un pacchetto, usare il medesimo comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). La compressione può avere luogo separatamente dal caricamento, tramite il flag `SkipCopy`, oppure contemporaneamente. L'applicazione della compressione a un pacchetto compresso è no-op.
 Per decomprimere un pacchetto compresso, usare il medesimo comando [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) con lo switch `UncompressPackage`.
@@ -223,7 +223,7 @@ Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApp
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
 
-È possibile creare un'istanza di un'applicazione da qualsiasi versione del tipo di applicazione registrata mediante il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps). Il nome di ogni applicazione deve iniziare con lo schema *"fabric:"* e deve essere univoco per ogni istanza dell'applicazione. Vengono creati anche i servizi predefiniti specificati nel manifesto dell'applicazione del tipo di applicazione di destinazione.
+È possibile creare un'istanza di un'applicazione da qualsiasi versione del tipo di applicazione registrata correttamente usando il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) . Il nome di ogni applicazione deve iniziare con lo schema *"Fabric:"* e deve essere univoco per ogni istanza dell'applicazione. Vengono creati anche i servizi predefiniti specificati nel manifesto dell'applicazione del tipo di applicazione di destinazione.
 
 ```powershell
 New-ServiceFabricApplication fabric:/MyApp MyApplicationType 1.0.0

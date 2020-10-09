@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f239122f7178dbc244c8dc23f3f7e7647f7330da
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91539079"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827454"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati per un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
@@ -92,7 +92,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 
     Durante il processo di backup viene visualizzato un messaggio di stato.
 
-Dopo avere configurato l'account di archiviazione e il contenitore è possibile avviare un backup manuale in qualsiasi momento.
+Dopo avere configurato l'account di archiviazione e il contenitore è possibile avviare un backup manuale in qualsiasi momento. I backup manuali vengono conservati per un periodo illimitato.
 
 <a name="automatedbackups"></a>
 

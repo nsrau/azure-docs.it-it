@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 165a2c6221c8d3c14f71134deef962d0859bb438
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9a06dea64ffb348477308979fa07c0e2ce822b0c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816712"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825410"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Distribuire macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -64,8 +64,25 @@ az vm list \
    --output table
 ```
 
+## <a name="simulate-an-eviction"></a>Simulare un'eliminazione
+
+È possibile [simulare un'eliminazione](/rest/api/compute/virtualmachines/simulateeviction) di una macchina virtuale spot, per testare il modo in cui l'applicazione effettuerà il ristagno a una rimozione improvvisa. 
+
+Sostituire quanto segue con le informazioni: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 **Passaggi successivi**
 
-È anche possibile creare una VM spot usando [Azure PowerShell](../windows/spot-powershell.md), il [portale](../windows/spot-portal.md)o un [modello](spot-template.md).
+È anche possibile creare una VM spot usando [Azure PowerShell](../windows/spot-powershell.md), il [portale](../spot-portal.md)o un [modello](spot-template.md).
+
+Eseguire query sulle informazioni sui prezzi correnti usando l' [API prezzi di vendita al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) per informazioni sui prezzi spot. `meterName`E `skuName` conterranno entrambi `Spot` .
 
 Se si verifica un errore, vedere [codici di errore](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
