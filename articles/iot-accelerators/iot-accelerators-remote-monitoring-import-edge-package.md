@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "61442940"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importare un pacchetto IoT Edge nell'acceleratore della soluzione di monitoraggio remoto
@@ -33,7 +33,7 @@ Usare il portale di Azure per esportare il manifesto di distribuzione dall'ambie
 
 1. Fare clic sulla distribuzione contenente la configurazione di distribuzione da usare. Nella pagina **Dettagli della distribuzione** viene visualizzato: ![IoT Edge deployment details](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png) (Dettagli della distribuzione di IoT Edge)
 
-1. Fare clic su **scarica IOT Edge manifesto**: ![ Scarica manifesto di distribuzione](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. Fare clic su **scarica IOT Edge manifesto**:  ![ Scarica manifesto di distribuzione](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
 
 1. Salvare il file JSON come un file locale denominato **deploymentmanifest.json**.
 

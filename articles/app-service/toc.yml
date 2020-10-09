@@ -91,7 +91,7 @@
       href: operating-system-functionality.md
     - name: Procedura consigliate per la distribuzione
       href: deploy-best-practices.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Consigli
           href: security-recommendations.md

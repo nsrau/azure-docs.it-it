@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "66390129"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Come usare la classificazione per visualizzare i risultati dell'API Ricerca Web Bing  
@@ -30,7 +30,7 @@ All'interno di ogni gruppo (principale o barra laterale) la matrice [Items](http
 
 L'ID è più semplice da usare perché è necessario solo che l'ID di classificazione corrisponda all'ID di un riscontro o a uno dei risultati. Se un oggetto riscontro include un campo `id`, tutti i risultati del riscontro vengono visualizzati insieme. Ad esempio, se l'oggetto `News` include il campo `id`, tutti gli articoli di notizie vengono visualizzati insieme. Se l'oggetto `News` non include il campo `id`, ogni articolo di notizie conterrà un campo `id` e la risposta di classificazione combinerà gli articoli di notizie con i risultati degli altri riscontri.  
 
-L'uso di `answerType` e `resultIndex` è un po' più complesso. Usare `answerType` per identificare il riscontro contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati del riscontro e ottenere il risultato da visualizzare. Il `answerType` valore è il nome del campo nell'oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) . Se si suppone che tutti i risultati della risposta vengano visualizzati insieme, l'elemento di risposta di rango non `resultIndex` include il campo.  
+L'uso di `answerType` e `resultIndex` è un po' più complesso. Usare `answerType` per identificare il riscontro contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati del riscontro e ottenere il risultato da visualizzare. Il `answerType` valore è il nome del campo nell'oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) . Se si suppone che tutti i risultati della risposta vengano visualizzati insieme, l'elemento di risposta di rango non include il `resultIndex` campo.  
 
 ## <a name="ranking-response-example"></a>Esempio di risposta di classificazione
 

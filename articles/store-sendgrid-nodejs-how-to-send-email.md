@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60931705"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Come inviare messaggi di posta elettronica usando SendGrid da Node.js
@@ -213,7 +213,7 @@ A questo punto, dopo aver appreso le nozioni di base del servizio di posta elett
 
 * Repository del modulo SendGrid per Node.js: [sendgrid-nodejs][sendgrid-nodejs]
 * Documentazione dell'API SendGrid: <https://sendgrid.com/docs>
-* Offerta speciale SendGrid per i clienti di Azure:[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* Offerta speciale SendGrid per i clienti di Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
