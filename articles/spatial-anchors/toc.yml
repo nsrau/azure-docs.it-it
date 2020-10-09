@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Ancoraggi nello spazio
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare app Unity

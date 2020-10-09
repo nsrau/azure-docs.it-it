@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 462db76b06e5071571ae475d420a627e57dad92e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70067763"
 ---
 # <a name="filter-response-content"></a>Filtrare il contenuto della risposta
 
 Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come filtrare elementi dati dal payload della risposta in base al prodotto associato alla richiesta. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Policy
 
 Incollare il codice nel blocco **outbound**.
 

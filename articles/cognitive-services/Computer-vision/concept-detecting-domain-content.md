@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68946330"
 ---
 # <a name="detect-domain-specific-content"></a>Rilevare contenuti specifici di dominio
@@ -26,7 +26,7 @@ Oltre all'assegnazione di tag e alla classificazione di primo livello, Visione a
 
 ### <a name="scoped-analysis"></a>Analisi con ambito
 
-È possibile analizzare un'immagine usando solo il modello specifico di dominio scelto chiamando l'API [Models/\<modello\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200).
+È possibile analizzare un'immagine usando solo il modello specifico di dominio scelto chiamando l'API [models/ \<model\> /Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) .
 
 Di seguito è riportata una risposta JSON di esempio restituita dall'API **models/celebrities/analyze** per l'immagine specificata:
 
@@ -100,7 +100,7 @@ La risposta JSON seguente mostra come includere l'analisi specifica di dominio c
 
 Visione artificiale supporta attualmente i modelli specifici di dominio seguenti:
 
-| Name | Descrizione |
+| Nome | Descrizione |
 |------|-------------|
 | celebrities | Riconoscimento di personaggi famosi, supportato per le immagini classificate nella categoria `people_` |
 | landmarks | Riconoscimento di luoghi di interesse, supportato per le immagini classificate nella categoria `outdoor_` o `building_` |

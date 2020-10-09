@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68727837"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Minacce di Microsoft Threat Modeling Tool
@@ -38,12 +38,12 @@ Threat Modeling Tool consente di rispondere a domande specifiche, ad esempio que
 
 Per aiutare l'utente a formulare questo tipo di domande indirizzate, Microsoft usa il modello STRIDE, che classifica i diversi tipi di minacce e semplifica le conversazioni di protezione globale.
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 | -------- | ----------- |
 | **Spoofing** | Implica l'accesso in modo illegale e l'uso delle informazioni di autenticazione di un altro utente, ad esempio nome utente e password |
 | **Manomissione** | Comporta la modifica non autorizzata dei dati. Alcuni esempi sono le modifiche non autorizzate apportate ai dati persistenti, ad esempio quelli contenuti in un database, e la modifica dei dati trasmessi tra due computer in una rete aperta, ad esempio Internet |
 | **Ripudio** | Associato agli utenti che negano l'esecuzione di un'azione senza che altri possano provare il contrario, ad esempio, un utente esegue un'operazione non valida in un sistema in cui non è presente la possibilità di tenere traccia delle operazioni non consentite. Il non ripudio si riferisce alla capacità di un sistema di far fronte a rischi di ripudio. Ad esempio, un utente che acquista un articolo potrebbe dover firmare al momento della ricezione. Il fornitore può quindi usare la firma della ricevuta come prova che l'utente ha ricevuto il pacco |
-| **Divulgazione di informazioni** | Comporta l'esposizione di informazioni a individui che non hanno il permesso di accedere al sistema, ad esempio, la capacità degli utenti di leggere un file al quale non hanno ricevuto il permesso di accesso o la capacità di un intruso di leggere dati in transito tra due computer |
+| **Diffusione di informazioni** | Comporta l'esposizione di informazioni a individui che non hanno il permesso di accedere al sistema, ad esempio, la capacità degli utenti di leggere un file al quale non hanno ricevuto il permesso di accesso o la capacità di un intruso di leggere dati in transito tra due computer |
 | **Denial of Service** | Gli attacchi Denial of service (DoS) negano il servizio agli utenti validi, per esempio rendendo un server Web temporaneamente non disponibile o inutilizzabile. È necessario proteggersi da determinati tipi di minacce DoS semplicemente per migliorare l'affidabilità e la disponibilità del sistema |
 | **Elevazione dei privilegi** | Un utente senza privilegi acquisisce accesso privilegiato e ha pertanto un accesso sufficiente per compromettere o distruggere l'intero sistema. L'elevazione dei pericoli di privilegio include quelle situazioni in cui un utente malintenzionato ha violato tutte le difese di sistema e diventa parte del sistema affidabile, effettivamente una situazione pericolosa |
 

@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Video Indexer
       href: video-indexer-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Introduzione
@@ -13,7 +13,7 @@
       href: invite-users.md
 - name: Esercitazioni
   items:
-    - name: Connettersi ad Azure
+    - name: Connettiti ad Azure
       href: connect-to-azure.md
     - name: Usare l'API Video Indexer
       href: video-indexer-use-apis.md

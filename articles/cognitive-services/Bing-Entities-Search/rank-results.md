@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68423911"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Uso della classificazione per visualizzare i risultati della ricerca di entità  
@@ -29,7 +29,7 @@ All'interno di ogni gruppo, la matrice [Items](https://docs.microsoft.com/rest/a
 |`answerType` e `resultIndex` | `answerType` identifica la risposta (Entity o Place) e `resultIndex` identifica un risultato all'interno di tale risposta (ad esempio, un'entità). L'indice è in base 0.|
 |`value`    | `value` Contiene un ID che corrisponde all'ID di una risposta o di un risultato all'interno della risposta. L'ID è incluso nel riscontro o nei risultati, ma non in entrambi. |
   
-L'uso di `answerType` e `resultIndex` è un processo in due passaggi. Innanzitutto, usare `answerType` per identificare la risposta contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati della risposta e ottenere il risultato da visualizzare. Il `answerType` valore è il nome del campo nell'oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) . Se si suppone che tutti i risultati della risposta vengano visualizzati insieme, l'elemento di risposta di rango non `resultIndex` include il campo.
+L'uso di `answerType` e `resultIndex` è un processo in due passaggi. Innanzitutto, usare `answerType` per identificare la risposta contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati della risposta e ottenere il risultato da visualizzare. Il `answerType` valore è il nome del campo nell'oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) . Se si suppone che tutti i risultati della risposta vengano visualizzati insieme, l'elemento di risposta di rango non include il `resultIndex` campo.
 
 Per usare l'ID è necessario che l'ID di classificazione corrisponda all'ID di una risposta o a uno dei risultati. Se un oggetto riscontro include un campo `id`, tutti i risultati del riscontro vengono visualizzati insieme. Ad esempio, se l'oggetto `Entities` include il campo `id`, gli articoli di tutte le entità vengono visualizzati insieme. Se l'oggetto `Entities` non include il campo `id`, ogni entità conterrà un campo `id` e la risposta di classificazione combinerà le entità con i risultati di Places.  
   

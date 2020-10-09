@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: ffd4ab463080001dbab5b0ed9ece69c4b5f91382
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81272084"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Log di query lente nel database di Azure per MariaDB
@@ -59,7 +59,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Timestamp in cui il log è stato registrato in formato UTC. |
+| `TimeGenerated` UTC | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -70,7 +70,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome del server |
-| `start_time_t`UTC | Ora di inizio della query |
+| `start_time_t` UTC | Ora di inizio della query |
 | `query_time_s` | Tempo totale di esecuzione della query |
 | `lock_time_s` | Tempo totale in cui la query è rimasta bloccata |
 | `user_host_s` | Username |
