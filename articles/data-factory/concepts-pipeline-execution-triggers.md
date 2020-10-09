@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83997010"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
@@ -283,10 +283,10 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 | Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 | --- | --- | --- | --- | --- | --- |
-| **startTime** | string | Sì | nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **ricorrenza** | object | Sì | nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | Sì | Nessuno | Date-ore ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **ricorrenza** | object | Sì | Nessuno | Oggetto recurrence | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervallo** | d'acquisto | No | 1 | Da 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sì | nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **pianificazione** | object | No | nessuno | Oggetto schedule | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Proprietà startTime
@@ -316,7 +316,7 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 
 | Elemento JSON | Descrizione | Valori validi |
 | --- | --- | --- |
-| **minutes** | Minuti dell'ora in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi |
+| **minuti** | Minuti dell'ora in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi |
 | **ore** | Ore del giorno in cui verrà eseguito il trigger. |- Numero intero<br />- Matrice di numeri interi |
 | **Giorni feriali** | Giorni della settimana in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza settimanale.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matrice di valori relativi ai giorni (la dimensione massima della matrice è 7)<br /><br />I valori Day non fanno distinzione tra maiuscole e minuscole |
 | **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Matrice di oggetti **monthlyOccurrence**: `{ "day": day, "occurrence": occurrence }`<br />- L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.<br />- L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo. |
@@ -377,10 +377,10 @@ La tabella seguente contiene un confronto del trigger di finestra a cascata e de
 
 | Item | Trigger di finestra a cascata | Trigger di pianificazione |
 | --- | --- | --- |
-| **Scenari di recupero delle informazioni** | Supportata. Si possono pianificare esecuzioni della pipeline per finestre nel passato. | Non supportato. Le esecuzioni della pipeline possono essere eseguite solo in periodi di tempo compresi tra il momento corrente e il futuro. |
+| **Scenari di recupero delle informazioni** | Supportata. Si possono pianificare esecuzioni della pipeline per finestre nel passato. | Non supportata. Le esecuzioni della pipeline possono essere eseguite solo in periodi di tempo compresi tra il momento corrente e il futuro. |
 | **Affidabilità** | 100% di affidabilità. Le esecuzioni della pipeline possono essere pianificate per tutte le finestre da una data di inizio specificata senza intervalli. | Meno affidabile. |
-| **Funzionalità di ripetizione dei tentativi** | Supportata. Le esecuzioni non riuscite delle pipeline hanno un criterio di ripetizione predefinito pari a 0 oppure un criterio specificato dall'utente nella definizione di un trigger. Esegue automaticamente nuovi tentativi quando l'esecuzione della pipeline non riesce a causa di limiti di concorrenza/server/limitazione (ovvero codici di stato 400: errore utente, 429: numero eccessivo di richieste e 500: errore interno del server). | Non supportato. |
-| **Concorrenza** | Supportata. Gli utenti possono impostare in modo esplicito i limiti di concorrenza per il trigger. Consente un numero di esecuzioni di pipeline simultanee attivate compreso tra 1 e 50. | Non supportato. |
+| **Funzionalità di ripetizione dei tentativi** | Supportata. Le esecuzioni non riuscite delle pipeline hanno un criterio di ripetizione predefinito pari a 0 oppure un criterio specificato dall'utente nella definizione di un trigger. Esegue automaticamente nuovi tentativi quando l'esecuzione della pipeline non riesce a causa di limiti di concorrenza/server/limitazione (ovvero codici di stato 400: errore utente, 429: numero eccessivo di richieste e 500: errore interno del server). | Non supportata. |
+| **Concorrenza** | Supportata. Gli utenti possono impostare in modo esplicito i limiti di concorrenza per il trigger. Consente un numero di esecuzioni di pipeline simultanee attivate compreso tra 1 e 50. | Non supportata. |
 | **Variabili di sistema** | Insieme a @trigger (). ScheduledTime e @trigger (). StartTime, supporta anche l'utilizzo delle variabili di sistema **WindowStart** e **WindowEnd** . Gli utenti possono accedere a `triggerOutputs().windowStartTime` e a `triggerOutputs().windowEndTime` come variabile di sistema del trigger nella definizione del trigger. I valori vengono usati rispettivamente come ora di inizio della finestra e ora di fine della finestra. Ad esempio, per un trigger di finestra a cascata che viene eseguito ogni ora, per la finestra compresa tra la 01:00 e le 02:00, la definizione è `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Supporta solo @trigger le variabili default (). ScheduledTime e @trigger (). StartTime. |
 | **Relazione tra pipeline e trigger** | Supporta una relazione uno a uno. Può essere attivata una sola pipeline. | Supporta relazioni molti a molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline. |
 

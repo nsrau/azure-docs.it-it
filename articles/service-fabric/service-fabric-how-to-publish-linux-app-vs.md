@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 5/20/2019
 ms.author: pepogors
 ms.openlocfilehash: c30eedb6782e4172d677f16e27441f28c78cdd89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75614350"
 ---
 # <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>Usare Visual Studio per creare e pubblicare applicazioni .NET Core destinate a un cluster Linux Service Fabric remoto
@@ -26,7 +26,7 @@ Con gli strumenti di Visual Studio è possibile sviluppare e pubblicare Service 
 ![Crea applicazione]
 4. Assegnare un nome all'applicazione e fare clic su **OK**.
 5. Nella pagina **nuovo servizio Service Fabric** selezionare il tipo di servizio che si desidera creare nella **sezione .NET Core**.
-![Creazione del servizio]
+![Crea-servizio]
 
 ## <a name="deploy-to-a-remote-linux-cluster"></a>Eseguire la distribuzione in un cluster Linux remoto
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sull'applicazione e selezionare **Compila**.
@@ -59,7 +59,7 @@ Con gli strumenti di Visual Studio è possibile sviluppare e pubblicare Service 
 
 <!--Image references-->
 [Crea applicazione]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-application-remote-linux.png
-[Creazione del servizio]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
+[Crea-servizio]:./media/service-fabric-how-to-vs-remote-linux-cluster/create-service-remote-linux.png
 [compilazione-applicazione]:./media/service-fabric-how-to-vs-remote-linux-cluster/build-application-remote-linux.png
 [Edit-csproj]:./media/service-fabric-how-to-vs-remote-linux-cluster/edit-csproj-remote-linux.png
 [pubblica-applicazione]:./media/service-fabric-how-to-vs-remote-linux-cluster/publish-remote-linux.png

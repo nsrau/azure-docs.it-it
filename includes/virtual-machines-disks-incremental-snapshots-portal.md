@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 04/02/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: de0cf260207747f4acb02a377819a13de8b8ba22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80628404"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
@@ -35,11 +35,11 @@ ms.locfileid: "80628404"
 1. Selezionare il gruppo di risorse che si vuole usare e immettere un nome.
 1. Selezionare **incrementale** e selezionare **Verifica + crea**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Screenshot. Creare un pannello snapshot, inserire il nome e selezionare incrementale, quindi creare lo snapshot.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/incremental-snapshot-create-snapshot-blade.png" alt-text="Screenshot. Il pannello del disco con * * + create snapshot * * evidenziato, in quanto è necessario selezionarlo.":::
 
 1. Selezionare **Crea**
 
-    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Screenshot. Pagina convalida dello snapshot, confermare le selezioni, quindi creare lo snapshot.":::
+    :::image type="content" source="media/virtual-machines-disks-incremental-snapshots-portal/create-incremental-snapshot-validation.png" alt-text="Screenshot. Il pannello del disco con * * + create snapshot * * evidenziato, in quanto è necessario selezionarlo.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67180606"
 ---
 Se si verificano problemi relativi ai dispositivi, è possibile creare un pacchetto per il supporto dai registri di sistema. Supporto tecnico Microsoft utilizza questo pacchetto per risolvere i problemi. Per creare un pacchetto per il supporto, attenersi alla procedura seguente:
@@ -31,11 +31,11 @@ Se si verificano problemi relativi ai dispositivi, è possibile creare un pacche
 
     I parametri utilizzati sono i seguenti:
 
-    - `-Path`-Specificare la rete o il percorso locale in cui copiare il pacchetto di supporto. (obbligatorio)
-    - `-Credential`-Specificare le credenziali per accedere al percorso protetto.
-    - `-Zip`-Specificare per generare un file zip.
-    - `-Include`-Specificare per includere i componenti da includere nel pacchetto per il supporto. Se non specificato, `Default` viene utilizzato.
-    - `-IncludeArchived`-Specificare per includere i log archiviati nel pacchetto per il supporto.
-    - `-IncludePeriodicStats`-Specificare per includere i log stat periodici nel pacchetto per il supporto.
+    - `-Path` -Specificare la rete o il percorso locale in cui copiare il pacchetto di supporto. (obbligatorio)
+    - `-Credential` -Specificare le credenziali per accedere al percorso protetto.
+    - `-Zip` -Specificare per generare un file zip.
+    - `-Include` -Specificare per includere i componenti da includere nel pacchetto per il supporto. Se non specificato, `Default` viene utilizzato.
+    - `-IncludeArchived` -Specificare per includere i log archiviati nel pacchetto per il supporto.
+    - `-IncludePeriodicStats` -Specificare per includere i log stat periodici nel pacchetto per il supporto.
 
     

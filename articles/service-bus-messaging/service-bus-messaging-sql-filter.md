@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni dettagliate sulla grammatica 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341602"
 ---
 # <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
@@ -47,9 +47,9 @@ Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/micros
   
 ```  
   
-## <a name="arguments"></a>Arguments  
+## <a name="arguments"></a>Argomenti  
   
--   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del sistema in cui `<property_name>` è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica l'ambito dell'utente in cui `<property_name>` è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
+-   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del sistema in cui `<property_name>` è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente in cui `<property_name>` è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
   
 ## <a name="remarks"></a>Osservazioni
 
@@ -67,7 +67,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
   
 ```  
   
-### <a name="arguments"></a>Arguments  
+### <a name="arguments"></a>Argomenti  
 
  `<regular_identifier>` è una stringa rappresentata dall'espressione regolare seguente:  
   
@@ -132,7 +132,7 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
       <integer_constant> | <decimal_constant> | <approximate_number_constant> | <boolean_constant> | NULL  
 ```  
   
-### <a name="arguments"></a>Arguments  
+### <a name="arguments"></a>Argomenti  
   
 -   `<integer_constant>` è una stringa di numeri non racchiusi tra virgolette e non contenenti separatori decimali. I valori sono archiviati internamente come `System.Int64` e seguono lo stesso intervallo.  
   

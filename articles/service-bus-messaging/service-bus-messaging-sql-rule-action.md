@@ -4,10 +4,10 @@ description: Questo articolo fornisce un riferimento per la sintassi di SQLRuleA
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 61fa6e046b4d4a0ba91bf8608c846755026d07ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85341572"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Riferimento alla sintassi di SQLRuleAction per il bus di servizio di Azure
@@ -52,7 +52,7 @@ Questo articolo offre informazioni dettagliate sulla grammatica delle azioni reg
     [<scope> .] <property_name>
 ``` 
   
-## <a name="arguments"></a>Arguments  
+## <a name="arguments"></a>Argomenti  
   
 -   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il valore `sys` indica l'ambito del sistema. In questo caso, `<property_name>` sarà il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente. In questo caso, `<property_name>` sarà una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
   
@@ -72,7 +72,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
   
 ```  
   
-### <a name="arguments"></a>Arguments  
+### <a name="arguments"></a>Argomenti  
  `<regular_identifier>` è una stringa rappresentata dall'espressione regolare seguente:  
   
 ```  
@@ -136,7 +136,7 @@ Il tentativo di accedere a una proprietà di sistema inesistente costituisce un 
       <integer_constant> | <decimal_constant> | <approximate_number_constant> | <boolean_constant> | NULL  
 ```  
   
-### <a name="arguments"></a>Arguments  
+### <a name="arguments"></a>Argomenti  
   
 -   `<integer_constant>` è una stringa di numeri non racchiusi tra virgolette e non contenenti separatori decimali. I valori sono archiviati internamente come `System.Int64` e seguono lo stesso intervallo.  
   

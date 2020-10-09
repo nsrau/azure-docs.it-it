@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67179956"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
@@ -81,7 +81,7 @@ Il modello definisce i valori interi consentiti per questo parametro (da 0 a 6 p
 
 I valori corrispondono alle dimensioni della cache seguenti:
 
-| valore | Basic e standard<br>Dimensioni cache | Premium<br>Dimensioni cache |
+| Valore | Basic e standard<br>Dimensioni cache | Premium<br>Dimensioni cache |
 | :---: | :------------------------------: | :-------------------: |
 | 0     | 250 MB (impostazione predefinita)                 | n/d                   |
 | 1     | 1 GB                             | 6 GB (impostazione predefinita)        |

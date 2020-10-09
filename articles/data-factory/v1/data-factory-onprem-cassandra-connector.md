@@ -13,10 +13,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80991502"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Spostare dati da un database Cassandra locale mediante Azure Data Factory
@@ -82,7 +82,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **CassandraTable** presenta le proprietà seguenti
 
-| Proprietà | Descrizione | Necessario |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | keyspace |Nome del keyspace o schema nel database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
 | tableName |Nome della tabella in un database Cassandra. |Sì, se **query** per **CassandraSource** non è definito. |
@@ -299,7 +299,7 @@ Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo a
 ### <a name="example"></a>Esempio
 Ad esempio, "ExampleTable" è una tabella di un database Cassandra contenente una colonna chiave primaria integer denominata "pk_int", una colonna testo denominata value, una colonna elenco, una colonna mappa e una colonna set (denominata "StringSet").
 
-| pk_int | valore | Elenco | Mappa | StringSet |
+| pk_int | Valore | Elenco | Mappa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valore di esempio 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valore di esempio 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -308,7 +308,7 @@ Il driver genera più tabelle virtuali per rappresentare questa singola tabella.
 
 La prima tabella virtuale è la tabella di base denominata "ExampleTable", illustrata nella tabella di seguito. La tabella di base contiene gli stessi dati della tabella di database originale, tranne le raccolte, che vengono omesse da questa tabella ed espanse in altre tabelle virtuali.
 
-| pk_int | valore |
+| pk_int | Valore |
 | --- | --- |
 | 1 |"valore di esempio 1" |
 | 3 |"valore di esempio 3" |
@@ -337,7 +337,7 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |Una |
-| 1 |b |
+| 1 |B |
 | 1 |C |
 | 3 |Una |
 | 3 |E |

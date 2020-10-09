@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
 ms.openlocfilehash: 83548063a796401792bd19e7ec27be36a0efa4e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80549197"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servizi e tecnologie per la sicurezza disponibili in Azure
@@ -80,7 +80,7 @@ L'elenco verrà modificato e accresciuto nel corso del tempo, parallelamente ad 
 | [Azure &nbsp; site &nbsp; Recovery](/azure/site-recovery/site-recovery-overview)|Servizio online che replica i carichi di lavoro in esecuzione su computer fisici e macchine virtuali da un sito primario in una località secondaria per rendere possibile il ripristino dei servizi dopo un guasto. |
 
 ## <a name="networking"></a>Rete
-|Service|Descrizione|
+|Servizio|Descrizione|
 |------|--------|
 | [&nbsp;Gruppi di sicurezza di rete &nbsp;](/azure/virtual-network/virtual-networks-nsg)| Funzionalità di controllo di accesso basata sulla rete che usa una tupla a 5 elementi per prendere decisioni in merito alla concessione o alla negazione dell'accesso.  |
 | [Gateway VPN di Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Dispositivo di rete usato come endpoint VPN per consentire l'accesso cross-premise alle reti virtuali di Azure.  |

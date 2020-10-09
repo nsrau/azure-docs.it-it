@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
 ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80982855"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Lavorare in remoto usando i servizi di rete di Azure
@@ -64,7 +64,7 @@ I servizi di Azure seguenti consentono ai dipendenti di accedere alle risorse di
 
 - **Soluzione basata su VPN di Azure**: per i dipendenti remoti connessi ad Azure tramite la VPN P2S o S2S, è possibile abilitare l'accesso alle reti locali configurando la VPN S2S tra le reti locali e il gateway VPN di Azure. Per ulteriori informazioni, vedere [la pagina relativa alla creazione di una connessione da sito a sito][S2S].
 
-- **ExpressRoute**: uso del peering privato di ExpressRoute è possibile abilitare la connettività privata tra le distribuzioni di Azure e l'infrastruttura locale o l'infrastruttura in una struttura di condivisione percorso. ExpressRoute, tramite il peering Microsoft, consente anche l'accesso agli endpoint pubblici in Microsoft dalla rete locale. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. Offrono connettività sicura, affidabilità, velocità effettiva superiore, con latenze inferiori e coerenti rispetto alle connessioni Internet tipiche. Per altre informazioni, vedere [Panoramica di ExpressRoute][ExR]. Sfruttando il provider di rete esistente che fa già parte dell' [ecosistema di partner ExpressRoute][ExR-eco] , è possibile ridurre il tempo necessario per ottenere connessioni con larghezza di banda elevata a Microsoft.  Con [ExpressRoute Direct][ExR-D] è possibile connettere direttamente la rete locale al backbone Microsoft. ExpressRoute Direct offre due diverse opzioni di frequenza di riga di doppio 10 Gbps o 100 Gbps. 
+- **ExpressRoute**: uso del peering privato di ExpressRoute è possibile abilitare la connettività privata tra le distribuzioni di Azure e l'infrastruttura locale o l'infrastruttura in una struttura di condivisione percorso. ExpressRoute, tramite il peering Microsoft, consente anche l'accesso agli endpoint pubblici in Microsoft dalla rete locale. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. Offrono connettività sicura, affidabilità, velocità effettiva superiore, con latenze inferiori e coerenti rispetto alle connessioni Internet tipiche. Per altre informazioni, vedere la [panoramica di ExpressRoute][ExR]. Sfruttando il provider di rete esistente che fa già parte dell' [ecosistema di partner ExpressRoute][ExR-eco] , è possibile ridurre il tempo necessario per ottenere connessioni con larghezza di banda elevata a Microsoft.  Con [ExpressRoute Direct][ExR-D] è possibile connettere direttamente la rete locale al backbone Microsoft. ExpressRoute Direct offre due diverse opzioni di frequenza di riga di doppio 10 Gbps o 100 Gbps. 
 
 - **Rete WAN virtuale**di Azure: la rete WAN virtuale di Azure consente l'interoperabilità senza problemi tra le connessioni VPN e i circuiti ExpressRoute. Come accennato in precedenza, la rete WAN virtuale di Azure supporta anche le connessioni any-to-any tra le risorse in posizioni globali locali diverse, in diverse reti virtuali di hub e spoke
 

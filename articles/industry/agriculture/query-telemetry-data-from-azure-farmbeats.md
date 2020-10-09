@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80349813"
 ---
 # <a name="query-ingested-telemetry-data"></a>Eseguire query sui dati di telemetria inseriti
@@ -42,7 +42,7 @@ Seguire i passaggi per eseguire una query sui dati di telemetria del sensore ins
 > [!NOTE]
 > **ID** e **sensorModelId** dell'oggetto sensore interessato.
 
-2. Eseguire un'operazione GET/{ID} sull'API/SensorModel per **sensorModelId** come indicato nel passaggio 1. Il "modello di sensore" include tutti i metadati e i dettagli relativi ai dati di telemetria inseriti dal sensore. Ad esempio, la **misura del sensore** all'interno dell'oggetto modello di **sensore** include informazioni dettagliate sulle misure che inviano il sensore e sui tipi e le unità. Ad esempio:
+2. Eseguire un'operazione GET/{ID} sull'API/SensorModel per **sensorModelId** come indicato nel passaggio 1. Il "modello di sensore" include tutti i metadati e i dettagli relativi ai dati di telemetria inseriti dal sensore. Ad esempio, la **misura del sensore** all'interno dell'oggetto modello di **sensore** include informazioni dettagliate sulle misure che inviano il sensore e sui tipi e le unità. Ad esempio,
 
   ```json
   {

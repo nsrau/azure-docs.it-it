@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80653627"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Raccolta dati utente in Microsoft Azure Multi-Factor Authentication
@@ -43,7 +43,7 @@ Tentativi di autenticazione (utilizzati per la segnalazione e la risoluzione dei
 - Modalità app per dispositivi mobili (Standard, PIN)
 - Modalità token mobili (Standard, PIN)
 - Tipo di autenticazione
-- Nome dell'applicazione
+- Nome applicazione
 - Prefisso internazionale per chiamata primario
 - Numero di telefono per chiamata primario
 - Interno chiamata primario

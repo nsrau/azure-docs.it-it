@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80348371"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Panoramica sullo sviluppo di servizi blockchain di Azure
@@ -41,7 +41,7 @@ Per altre informazioni, vedere [Guida introduttiva: usare Geth per connettersi a
 
 ## <a name="ethereum-quorum-private-transactions"></a>Transazioni private quorum Ethereum
 
-Il quorum è un protocollo di Ledger distribuito basato su Ethereum con transazioni con la privacy dei contratti e nuovi meccanismi di consenso. I miglioramenti principali rispetto a go-Ethereum includono:
+Il quorum è un protocollo di Ledger distribuito basato su Ethereum con transazioni con la privacy dei contratti e nuovi meccanismi di consenso. I miglioramenti apportati alla chiave Go-Ethereum includono:
 
 * **Privacy** : il quorum supporta le transazioni private e i contratti privati attraverso la separazione dello stato pubblico e privato e USA scambi di messaggi crittografati peer-to-peer per il trasferimento diretto dei dati privati ai partecipanti di rete.
 * **Meccanismi di consenso alternativi** : i consensi di prova di lavoro o di prova di scommessa non sono necessari per una rete con autorizzazioni. Il quorum offre diversi meccanismi di consenso, progettati per catene di Consorzio, ad esempio ZATTERa e IBFT.Il servizio Azure blockchain usa il meccanismo di consenso IBFT.
