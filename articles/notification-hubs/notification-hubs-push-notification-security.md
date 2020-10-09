@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
 ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76263762"
 ---
 # <a name="notification-hubs-security"></a>Sicurezza di hub di notifica
@@ -51,7 +51,7 @@ Analogamente ad altre entità, le operazioni dell'hub di notifica sono consentit
 | Attestazione   | Descrizione                                          | Operazioni consentite |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Attesa  | Creare o aggiornare, leggere ed eliminare singole registrazioni | Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Elimina registrazione |
-| Send    | Inviare messaggi all'hub di notifica                | Send message |
+| Invia    | Inviare messaggi all'hub di notifica                | Send message |
 | Gestione  | CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Crea/aggiorna/leggi/Elimina Hub<br><br>Leggere le registrazioni per tag |
 
 Hub di notifica accetta i token SAS generati con chiavi condivise configurate direttamente nell'hub.
@@ -68,7 +68,7 @@ Per creare una nuova attestazione di sicurezza o per visualizzare le chiavi SAS 
 2. Selezionare **Tutte le risorse**.
 3. Selezionare il nome dell'hub di notifica per il quale si vuole creare l'attestazione o visualizzare la chiave SAS.
 4. Nel menu a sinistra selezionare **criteri di accesso**.
-5. Selezionare **nuovo criterio** per creare una nuova attestazione di sicurezza. Assegnare un nome al criterio e selezionare le autorizzazioni che si desidera concedere. Selezionare **OK**.
+5. Selezionare **nuovo criterio** per creare una nuova attestazione di sicurezza. Assegnare un nome al criterio e selezionare le autorizzazioni che si desidera concedere. Quindi scegliere **OK**.
 6. La stringa di connessione completa (inclusa la nuova chiave SAS) viene visualizzata nella finestra criteri di accesso. È possibile copiare questa stringa negli Appunti per un uso successivo.
 
 Per estrarre la chiave SAS da un criterio specifico, selezionare il pulsante **copia** accanto ai criteri che contengono la chiave SAS desiderata. Incollare questo valore in un percorso temporaneo, quindi copiare la parte della chiave SAS della stringa di connessione. Questo esempio usa uno spazio dei nomi di hub di notifica denominato **mytestnamespace1**e un criterio denominato **policy2**. La chiave SAS è il valore vicino alla fine della stringa, specificata da **SharedAccessKey**:

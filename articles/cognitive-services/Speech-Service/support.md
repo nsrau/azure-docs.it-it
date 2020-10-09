@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
 ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76169519"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
@@ -101,7 +101,7 @@ Versione dell'SDK usata.
 
 Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo. In questo canale, membri della community e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi.
 
-Se non si riesce a trovare una risposta al problema tramite la ricerca, inviare una nuova domanda a stack overflow usando i tag [ \[Microsoft\]\[-\]cognitive Speech](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+Se non si riesce a trovare una risposta al problema tramite la ricerca, inviare una nuova domanda a Stack Overflow usando i tag [ \[ Microsoft-cognitive \] \[ Speech \] ](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
 
 > [!TIP]
 > I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  

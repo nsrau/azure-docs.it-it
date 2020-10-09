@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75895226"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Hive tramite Azure HDInsight
@@ -41,7 +41,7 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 
 Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel nuovo cluster siano uguali ai percorsi di dati nel cluster precedente. Se i percorsi dei dati sono diversi, è possibile modificare manualmente il `alltables.sql` file generato in modo da riflettere le modifiche.
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre letture
 
 - [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -69,7 +69,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
    /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre letture
 
 - [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -95,7 +95,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
    hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre letture
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties) (Proprietà di configurazione di Hive)
 
@@ -132,7 +132,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
     - **TaskConcurrencyAnalyzer**: stampare i dettagli relativi alla concorrenza delle attività in un grafo aciclico diretto
     - **VertexLevelCriticalPathAnalyzer**: trovare il percorso critico a livello di vertice in un grafo aciclico diretto
 
-### <a name="additional-reading"></a>Informazioni aggiuntive
+### <a name="additional-reading"></a>Altre letture
 
 - [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -157,7 +157,7 @@ Esistono due modi per raccogliere i dati di un grafo aciclico diretto di Tez:
   3. Selezionare il grafo aciclico diretto da visualizzare.
   4. Selezionare **Download data** (Scarica dati).
 
-### <a name="additional-reading"></a><a name="additional-reading-end"></a>Letture aggiuntive
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>Altre letture
 
 [Connettersi a un cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 

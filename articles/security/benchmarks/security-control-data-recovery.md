@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408577"
 ---
 # <a name="security-control-data-recovery"></a>Controllo di sicurezza: ripristino dei dati
@@ -32,7 +32,7 @@ Abilitare backup di Azure e configurare l'origine di backup (VM di Azure, SQL Se
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 9.2 | 10.2 | Customer |
+| 9.2 | 10,2 | Customer |
 
 Abilitare backup di Azure e VM di destinazione, nonché i periodi di conservazione e frequenza desiderati. Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
@@ -56,19 +56,19 @@ Verificare la possibilità di eseguire periodicamente il ripristino dei dati del
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 9.4 | 10,4 | Customer |
+| 9,4 | 10.4 | Customer |
 
 Per il backup in locale, la crittografia dei dati inattivi viene eseguita con l'uso della passphrase immessa durante il backup in Azure. Per le macchine virtuali di Azure, i dati inattivi sono crittografati usando la crittografia del servizio di archiviazione. Usare il controllo degli accessi in base al ruolo per proteggere i backup e le chiavi gestite dal cliente.  
 
-Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.  Se si usa archiviazione di Azure per archiviare i backup, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB. 
+Abilitare Soft-Delete ed eliminare la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.  Se si usa archiviazione di Azure per archiviare i backup, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB. 
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-- [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Come abilitare Soft-Delete ed eliminare la protezione in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 - [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il controllo di sicurezza successivo: [risposta agli eventi imprevisti](security-control-incident-response.md)
+- Vedere il controllo di sicurezza successivo:  [risposta agli eventi imprevisti](security-control-incident-response.md)

@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 993793d21e6253188dfc199d8701cbe117503517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408426"
 ---
 # <a name="security-control-incident-response"></a>Controllo di sicurezza: risposta agli eventi imprevisti
@@ -36,7 +36,7 @@ Creare una guida alla risposta agli eventi imprevisti per la propria organizzazi
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 10.2 | 19,8 | Customer |
+| 10,2 | 19,8 | Customer |
 
 Il Centro sicurezza assegna una gravità a ogni avviso per facilitare la priorità degli avvisi che devono essere analizzati per primi. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso. 
 
@@ -60,7 +60,7 @@ Eseguire esercitazioni per testare le funzionalità di risposta agli eventi impr
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 10,4 | 19,5 | Customer |
+| 10.4 | 19,5 | Customer |
 
 Le informazioni di contatto per gli eventi imprevisti di sicurezza verranno utilizzate da Microsoft per contattare l'utente se Microsoft Security Response Center (MSRC) rileva che è stato eseguito l'accesso ai dati da parte di utenti non autorizzati o non autorizzati. Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
 

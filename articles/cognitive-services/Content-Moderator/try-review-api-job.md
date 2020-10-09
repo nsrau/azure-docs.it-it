@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72935962"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Definire e usare processi di moderazione (REST)
@@ -45,13 +45,13 @@ Immettere i valori seguenti per costruire la chiamata REST:
 
 ### <a name="fill-in-the-request-body"></a>Compilare il corpo della richiesta
 
-Il corpo della chiamata REST contiene un campo, **ContentValue**. Incollare il contenuto di testo non elaborato se si sta moderando il testo oppure immettere un'immagine o un URL video se si sta moderando l'immagine o il video. È possibile usare l'URL dell'immagine di esempio seguente:[https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
+Il corpo della chiamata REST contiene un campo, **ContentValue**. Incollare il contenuto di testo non elaborato se si sta moderando il testo oppure immettere un'immagine o un URL video se si sta moderando l'immagine o il video. È possibile usare l'URL dell'immagine di esempio seguente: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
 ![Parametri di query, intestazioni e casella Corpo della richiesta della console di creazione del processo](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>Inviare la richiesta
 
-Selezionare **Invia**. Se l'operazione ha esito positivo, lo stato `200 OK`della **risposta** è e nella casella **contenuto risposta** viene visualizzato un ID per il processo. Copiare questo ID da usare nei passaggi seguenti.
+Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato un ID per il processo. Copiare questo ID da usare nei passaggi seguenti.
 
 ![La casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione) visualizza l'ID revisione](images/test-drive-job-3.PNG)
 
@@ -61,7 +61,7 @@ Per ottenere lo stato e i dettagli di un processo in esecuzione o completato, pa
 
 ![Processo-Ottieni selezione area](images/test-drive-region.png)
 
-Immettere i parametri di chiamata REST come nella sezione precedente. Per questo passaggio, **JobID** è la stringa ID univoca ricevuta al momento della creazione del processo. Selezionare **Invia**. Se l'operazione ha esito positivo, lo stato `200 OK`della **risposta** è e nella casella **contenuto risposta** viene visualizzato il processo in formato JSON, come indicato di seguito:
+Immettere i parametri di chiamata REST come nella sezione precedente. Per questo passaggio, **JobID** è la stringa ID univoca ricevuta al momento della creazione del processo. Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato il processo in formato JSON, come indicato di seguito:
 
 ```json
 {  
@@ -115,7 +115,7 @@ Immettere i parametri di chiamata REST come nella sezione precedente. Per questo
 
 ### <a name="examine-the-new-reviews"></a>Esaminare le nuove verifiche
 
-Se il processo di contenuto ha comportato la creazione di una revisione, è possibile visualizzarla nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). Selezionare **Verifica** > il**video** del**testo**/dell'**immagine**/(a seconda del contenuto usato). Il contenuto dovrebbe essere visualizzato, pronto per la revisione umana. Quando un moderatore umano esamina i tag e i dati di stima assegnati automaticamente e invia una decisione di moderazione finale, l'API Jobs Invia tutte queste informazioni all'endpoint dell'endpoint di callback designato.
+Se il processo di contenuto ha comportato la creazione di una revisione, è possibile visualizzarla nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). Selezionare **Verifica**  >  **Image** / **Text** / il**video** del testo dell'immagine (a seconda del contenuto usato). Il contenuto dovrebbe essere visualizzato, pronto per la revisione umana. Quando un moderatore umano esamina i tag e i dati di stima assegnati automaticamente e invia una decisione di moderazione finale, l'API Jobs Invia tutte queste informazioni all'endpoint dell'endpoint di callback designato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

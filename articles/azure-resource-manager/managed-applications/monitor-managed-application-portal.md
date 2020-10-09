@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651748"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorare un'istanza distribuita di un'applicazione gestita
@@ -22,7 +22,7 @@ Dopo aver distribuito un'applicazione gestita alla sottoscrizione di Azure, è p
 
    ![Selezionare l'applicazione gestita](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. Selezionare **integrità risorse**.
+1. Selezionare **Integrità risorsa**.
 
    ![Selezionare l'integrità risorse](./media/monitor-managed-application-portal/select-resource-health.png)
 

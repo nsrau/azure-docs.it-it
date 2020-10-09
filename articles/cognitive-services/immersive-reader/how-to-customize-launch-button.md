@@ -1,5 +1,5 @@
 ---
-title: Personalizzare il pulsante Lettore immersivo
+title: Personalizzare il pulsante dello strumento di lettura immersiva
 titleSuffix: Azure Cognitive Services
 description: In questo articolo viene illustrato come personalizzare il pulsante che avvia il lettore immersivo.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 6461cc60a237cf834226b07db5e1ea6fbbea7a92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75946210"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Come personalizzare il pulsante Lettore immersivo
@@ -31,7 +31,7 @@ Immersion Reader SDK fornisce lo stile predefinito per il pulsante che avvia il 
 
 ## <a name="customize-the-button-style"></a>Personalizzare lo stile del pulsante
 
-Utilizzare l' `data-button-style` attributo per impostare lo stile del pulsante. I valori `icon`consentiti `text`sono, `iconAndText`e. Il valore predefinito è `icon`.
+Utilizzare l' `data-button-style` attributo per impostare lo stile del pulsante. I valori consentiti sono `icon` , `text` e `iconAndText` . Il valore predefinito è `icon`.
 
 ### <a name="icon-button"></a>Pulsante icona
 
@@ -73,7 +73,7 @@ Configurare la lingua e il testo alternativo per il pulsante usando l' `data-loc
 
 ## <a name="customize-the-size-of-the-icon"></a>Personalizzare le dimensioni dell'icona
 
-La dimensione dell'icona del lettore immersivo può essere configurata `data-icon-px-size` usando l'attributo. Questo consente di impostare le dimensioni dell'icona in pixel. La dimensione predefinita è 20px.
+La dimensione dell'icona del lettore immersivo può essere configurata usando l' `data-icon-px-size` attributo. Questo consente di impostare le dimensioni dell'icona in pixel. La dimensione predefinita è 20px.
 
 ```html
 <div class='immersive-reader-button' data-icon-px-size='50'></div>
