@@ -9,10 +9,10 @@ ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: d80786bbdfc4f53254dc98d79ac3badcf5dd3b24
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86111660"
 ---
 Sono disponibili diversi modelli in base a specifici scenari di onboarding. Scegliere l'opzione più indicata e assicurarsi di modificare il file dei parametri in base all'ambiente. Per altre informazioni su come usare questi file nella distribuzione, vedere [Eseguire l'onboarding dei clienti in Azure Lighthouse](../articles/lighthouse/how-to/onboard-customer.md).

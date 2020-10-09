@@ -2,7 +2,7 @@
   items:
     - name: Panoramica
       items:
-        - name: Operazioni preliminari
+        - name: Introduzione
           href: overview.md
         - name: Carichi di lavoro
           href: partner-workloads.md
