@@ -9,10 +9,10 @@ ms.date: 03/30/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: be8aae6308e712449402b002576974743bc125ef
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80986728"
 ---
 Questi esempi illustrano come usare Monitoraggio di Azure per creare avvisi per le sottoscrizioni di cui è stato eseguito l'onboarding per la gestione risorse delegate di Azure.

@@ -220,9 +220,9 @@
     - name: Azure IoT SDK
       items:
         - name: IoT SDK per servizi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: IoT SDK per dispositivi
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Monitoraggio remoto
       items:
         - name: Guida di riferimento per gli sviluppatori (.NET)
@@ -239,7 +239,7 @@
           href: iot-accelerators-faq-rm-v2.md
     - name: IoT industriale
       items:
-        - name: GitHub repository (Repository GitHub)
+        - name: Repository GitHub
           href: 'https://github.com/Azure/azure-iot-connected-factory'
         - name: Domande frequenti su Connected Factory
           href: iot-accelerators-faq-cf.md
@@ -247,7 +247,7 @@
       items:
         - name: Guida di riferimento per gli sviluppatori
           href: 'https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide'
-        - name: GitHub repository (Repository GitHub)
+        - name: Repository GitHub
           href: 'https://github.com/Azure/device-simulation-dotnet'
     - name: Repository GitHub sulla manutenzione predittiva
       href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
