@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2e44a4861e2522b766aab9c7151d76c471dd2d8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76314539"
 ---
 # <a name="apply-sql-transformation"></a>Applicare la trasformazione SQL
 
-Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo di Azure Machine Learning Designer.
 
 Con il modulo Apply SQL Transformation è possibile:
   
@@ -53,7 +53,7 @@ Anche se supporta gran parte dello standard ANSI SQL, SQLite non include molte f
   
 - SQLite usa la tipizzazione dinamica dei valori anziché assegnare un tipo a una colonna, come avviene nella maggior parte dei sistemi di database relazionali. È scarsamente tipizzato e consente la conversione implicita del tipo.  
   
-- `LEFT OUTER JOIN`viene implementato, ma non `RIGHT OUTER JOIN` o `FULL OUTER JOIN` .  
+- `LEFT OUTER JOIN` viene implementato, ma non `RIGHT OUTER JOIN` o `FULL OUTER JOIN` .  
 
 - È possibile usare istruzioni `RENAME TABLE` e `ADD COLUMN` con il comando `ALTER TABLE`, ma altre clausole non sono supportate, tra cui `DROP COLUMN`, `ALTER COLUMN` e `ADD CONSTRAINT`.  
   

@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730746"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicare con l'hub Internet delle cose usando il protocollo AMQP
@@ -29,7 +29,7 @@ Per connettersi a un hub Internet delle cose usando AMQP, un client può usare l
 
 Per il client del servizio sono necessarie le informazioni seguenti:
 
-| Informazioni | valore |
+| Informazioni | Valore |
 |-------------|--------------|
 | Nome host dell'hub Internet | `<iot-hub-name>.azure-devices.net` |
 | Nome della chiave | `service` |
@@ -225,7 +225,7 @@ Per connettersi a un hub Internet delle cose usando AMQP, un dispositivo può us
 
 Per il client del dispositivo sono necessarie le informazioni seguenti:
 
-| Informazioni | valore |
+| Informazioni | Valore |
 |-------------|--------------|
 | Nome host dell'hub Internet | `<iot-hub-name>.azure-devices.net` |
 | Chiave di accesso | Chiave primaria o secondaria associata al dispositivo |

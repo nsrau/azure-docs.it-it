@@ -4,10 +4,10 @@ description: Questo articolo spiega in che modo un utente del lab o un insegnant
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 8d0c8a3ad8ba92e606f19480bdb36483f377fa04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85443503"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Visualizzare le informazioni di supporto (utente lab in Azure Lab Services)

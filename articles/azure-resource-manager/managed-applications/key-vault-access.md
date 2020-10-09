@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81458284"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segreto di accesso di Key Vault quando si distribuiscono le Applicazioni gestite di Azure
@@ -40,7 +40,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
    ![Selezionare il controllo di accesso](./media/key-vault-access/access-control.png)
 
-1. Selezionare **Aggiungi assegnazione ruolo**.
+1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 
    ![Selezionare Aggiungi](./media/key-vault-access/add-access-control.png)
 

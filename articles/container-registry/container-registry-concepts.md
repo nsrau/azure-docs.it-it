@@ -4,10 +4,10 @@ description: Introduzione ai concetti chiave di registri contenitori di Azure, r
 ms.topic: article
 ms.date: 06/16/2020
 ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85390449"
 ---
 # <a name="about-registries-repositories-and-images"></a>Informazioni sui registri, i repository e le immagini
@@ -57,7 +57,7 @@ I nomi dei repository possono includere solo caratteri alfanumerici minuscoli, p
 
 Per le regole di denominazione complete del repository, vedere la [specifica Open Container Initiative Distribution](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
-## <a name="image"></a>Image
+## <a name="image"></a>Immagine
 
 Un'immagine del contenitore o un altro artefatto all'interno di un registro è associato a uno o più tag, ha uno o più livelli ed è identificato da un manifesto. Comprendere in che modo questi componenti sono correlati tra loro possono aiutare a gestire il registro di sistema in modo efficace.
 
@@ -79,7 +79,7 @@ La condivisione dei livelli ne ottimizza anche la distribuzione ai nodi, in quan
 
 Per garantire l'isolamento e la protezione da potenziali manipolazioni dei livelli, i livelli non vengono condivisi tra i registri.
 
-### <a name="manifest"></a>Manifesto
+### <a name="manifest"></a>manifesto
 
 Ogni immagine del contenitore o artefatto di cui è stato eseguito il push in un registro contenitori è associato a un *manifesto*. generato dal registro quando l'immagine viene inserita. Il manifesto identifica in modo univoco l'immagine e ne specifica i livelli. È possibile elencare i manifesti per un repository con il comando dell'interfaccia della riga di comando di Azure [az acr repository show-manifests][az-acr-repository-show-manifests]:
 

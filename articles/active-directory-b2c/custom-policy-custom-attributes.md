@@ -12,10 +12,10 @@ ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389327"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: abilitare gli attributi personalizzati in un criterio del profilo personalizzato
@@ -50,14 +50,14 @@ I termini *proprietà di estensione*, *attributo personalizzato* e *attestazione
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. Selezionare **registrazioni app**, quindi selezionare **tutte le applicazioni**.
-1. Selezionare l' `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` applicazione.
+1. Selezionare l'applicazione `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
 1. Copiare negli Appunti e salvare gli identificatori seguenti:
     * **ID applicazione**. Esempio: `11111111-1111-1111-1111-111111111111`.
     * **ID oggetto**. Esempio: `22222222-2222-2222-2222-222222222222`.
 
 ## <a name="modify-your-custom-policy"></a>Modificare i criteri personalizzati
 
-Per abilitare gli attributi personalizzati nei criteri, fornire l'ID **applicazione** e l' **ID oggetto** applicazione nei metadati del profilo tecnico comuni di AAD. Il profilo tecnico *comune di AAD* si trova nel profilo tecnico di base [Azure Active Directory](active-directory-technical-profile.md) e fornisce il supporto per la gestione Azure ad utenti. Altri profili tecnici Azure AD includono AAD-Common per sfruttare la configurazione. Eseguire l'override del profilo tecnico comune di AAD nel file di estensione.
+Per abilitare gli attributi personalizzati nei criteri, fornire l'ID **applicazione** e l' **ID oggetto** applicazione nei metadati del profilo tecnico AAD-Common. Il profilo tecnico *comune di AAD* si trova nel profilo tecnico di base [Azure Active Directory](active-directory-technical-profile.md) e fornisce il supporto per la gestione Azure ad utenti. Altri profili tecnici Azure AD includono i AAD-Common per sfruttare la configurazione. Eseguire l'override del profilo tecnico AAD-Common nel file di estensione.
 
 1. Aprire il file di estensioni dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Trovare l'elemento ClaimsProviders. Aggiungere un nuovo ClaimsProvider all'elemento ClaimsProviders.

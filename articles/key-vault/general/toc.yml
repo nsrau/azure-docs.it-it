@@ -106,6 +106,8 @@
       items:
         - name: Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
           href: developers-guide.md
+        - name: Usare Azure Resource Manager per distribuire Key Vault
+          href: vault-create-template.md
         - name: Salvare i segreti delle app Web
           href: vs-secure-secret-appsettings.md
         - name: Autenticazione da servizio a servizio con .NET

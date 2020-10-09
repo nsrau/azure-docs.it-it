@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81534466"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
@@ -79,9 +79,9 @@ Utilizzando MSAL nel codice, è possibile specificare i destinatari utilizzando 
   - GUID (ID dell'istanza di Azure AD), per le applicazioni a tenant singolo
   - Un nome di dominio associato all'istanza di Azure AD (anche per le applicazioni a tenant singolo)
 - Uno di questi segnaposto come ID tenant al posto dell'enumerazione del pubblico Azure AD autorità:
-    - `organizations`per un'applicazione multi-tenant
-    - `consumers`per accedere agli utenti solo con gli account personali
-    - `common`per accedere agli utenti con account aziendali o dell'Istituto di istruzione o con account Microsoft personali
+    - `organizations` per un'applicazione multi-tenant
+    - `consumers` per accedere agli utenti solo con gli account personali
+    - `common` per accedere agli utenti con account aziendali o dell'Istituto di istruzione o con account Microsoft personali
 
 MSAL genererà un'eccezione significativa se si specificano i destinatari dell'autorità Azure AD e l'ID tenant.
 
@@ -122,8 +122,8 @@ Se sei uno sviluppatore di app client pubbliche che usa MSAL:
 
 È possibile eseguire l'override dell'URI di Reindirizzamento usando la `RedirectUri` Proprietà (ad esempio, se si usano i broker). Di seguito sono riportati alcuni esempi di URI di reindirizzamento per lo scenario:
 
-- `RedirectUriOnAndroid`= "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.client.Sample";
-- `RedirectUriOnIos`= $ "msauth. {Bundle. ID}://auth ";
+- `RedirectUriOnAndroid` = "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.client.Sample";
+- `RedirectUriOnIos` = $ "msauth. {Bundle. ID}://auth ";
 
 Per altri dettagli su iOS, vedere [eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da adal.NET a MSAL.NET](msal-net-migration-ios-broker.md) e [sfruttare Service Broker in iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 Per altri dettagli su Android, vedere [autenticazione negoziata in Android](brokered-auth.md).
