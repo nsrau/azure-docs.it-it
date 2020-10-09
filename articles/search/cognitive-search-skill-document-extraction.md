@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
 ms.openlocfilehash: f209be383e445e3b0c011e0bfb4266a191a8d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85080874"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Abilità cognitiva di estrazione documenti
@@ -38,7 +38,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Impostare su `default` per l'estrazione dei documenti da file che non sono testo puro o JSON. Impostare su `text` per migliorare le prestazioni in file di testo normale. Impostare su `json` per estrarre il contenuto strutturato dai file JSON. Se `parsingMode` non è definito in modo esplicito, verrà impostato su `default` . |
 | `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Impostare su `contentAndMetadata` per estrarre tutti i metadati e il contenuto testuale da ogni file. Impostare su `allMetadata` per estrarre solo i [metadati specifici del tipo di contenuto](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) , ad esempio i metadati univoci solo per i file con estensione png. Se `dataToExtract` non è definito in modo esplicito, verrà impostato su `contentAndMetadata` . |
-| `configuration` | Vedere di seguito. | Dizionario di parametri facoltativi che regolano il modo in cui viene eseguita l'estrazione del documento. Vedere la tabella seguente per le descrizioni delle proprietà di configurazione supportate. |
+| `configuration` | Vedere qui di seguito. | Dizionario di parametri facoltativi che regolano il modo in cui viene eseguita l'estrazione del documento. Vedere la tabella seguente per le descrizioni delle proprietà di configurazione supportate. |
 
 | Parametro di configurazione   | Valori consentiti | Descrizione |
 |-------------------------|----------------|-------------|

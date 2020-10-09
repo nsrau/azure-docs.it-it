@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 635bddef1a98d6ed2b112662d8c9c44fe65e9e32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76906099"
 ---
 # <a name="sfctl-events"></a>eventi sfctl
@@ -17,7 +17,7 @@ Recuperare gli eventi dall'archivio eventi, se il servizio EventStore è già in
 
 Il servizio di sistema EventStore può essere aggiunto tramite un aggiornamento della configurazione a qualsiasi cluster SFRP che esegue >= 6,4. Verificare l'URL \: https \: //docs.Microsoft.com/Azure/Service-Fabric/Service-Fabric-Diagnostics-eventstore seguente.
 
-## <a name="commands"></a>Comandi
+## <a name="commands"></a>Comandi:
 
 |Comando|Descrizione|
 | --- | --- |
@@ -38,9 +38,9 @@ Ottiene tutti gli eventi correlati alle applicazioni.
 
 La risposta è un elenco di oggetti ApplicationEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --End-time-UTC [obbligatorio] | L'ora di fine di una query di ricerca in formato ISO UTC aaaa-MM-GGThh \: mm \: SSZ. |
 | --Start-Time-UTC [obbligatorio] | Ora di inizio di una query di ricerca in formato ISO UTC aaaa-MM-GGThh \: mm \: SSZ. |
@@ -51,7 +51,7 @@ La risposta è un elenco di oggetti ApplicationEvent.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -64,9 +64,9 @@ Ottiene tutti gli eventi correlati ai nodi.
 
 La risposta è un elenco di oggetti NodeEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --End-time-UTC [obbligatorio] | L'ora di fine di una query di ricerca in formato ISO UTC aaaa-MM-GGThh \: mm \: SSZ. |
 | --Start-Time-UTC [obbligatorio] | Ora di inizio di una query di ricerca in formato ISO UTC aaaa-MM-GGThh \: mm \: SSZ. |
@@ -77,7 +77,7 @@ La risposta è un elenco di oggetti NodeEvent.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -90,7 +90,7 @@ Ottiene tutti gli eventi correlati alle partizioni.
 
 La risposta è un elenco di oggetti PartitionEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -116,7 +116,7 @@ Ottiene tutti gli eventi correlati ai servizi.
 
 La risposta è un elenco di oggetti ServiceEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -142,7 +142,7 @@ Ottiene gli eventi correlati all'applicazione.
 
 La risposta è un elenco di oggetti ApplicationEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -169,7 +169,7 @@ Ottiene tutti gli eventi correlati al cluster.
 
 La risposta è un elenco di oggetti ClusterEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -195,7 +195,7 @@ Ottiene gli eventi correlati al nodo.
 
 La risposta è un elenco di oggetti NodeEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -222,7 +222,7 @@ Ottiene tutti gli eventi correlati alle repliche per una partizione.
 
 La risposta è un elenco di oggetti ReplicaEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -249,7 +249,7 @@ Ottiene gli eventi correlati alla partizione.
 
 La risposta è un elenco di oggetti PartitionEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -276,7 +276,7 @@ Ottiene gli eventi correlati alla replica di partizione.
 
 La risposta è un elenco di oggetti ReplicaEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
@@ -304,7 +304,7 @@ Ottiene un evento correlato al servizio.
 
 La risposta è un elenco di oggetti ServiceEvent.
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |

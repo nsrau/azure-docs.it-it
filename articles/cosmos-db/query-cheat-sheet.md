@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117982"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Fogli informativi sulle query per Azure Cosmos DB
@@ -28,7 +28,7 @@ Scaricare i [fogli informativi sulle query per Azure Cosmos DB in formato A4](ht
 ## <a name="oversized-cheat-sheets"></a>Fogli informativi formato A4+
 Scaricare i [fogli informativi sulle query per Azure Cosmos DB in formato A3](https://go.microsoft.com/fwlink/?linkid=870413) se si intende stamparli usando un plotter o una stampante su larga scala in formato A3 (11,7" x 16,5").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Fogli informativi sulle query per Azure Cosmos DB in formato A3, con funzioni e query relative alle API SQL, JavaScript, MongoDB, Gremlin e Tabella" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Fogli informativi sulle query per Azure Cosmos DB in formato A4, con funzioni e query relative alle API SQL, JavaScript, MongoDB, Gremlin e Tabella" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla scrittura di query, vedere gli articoli seguenti:

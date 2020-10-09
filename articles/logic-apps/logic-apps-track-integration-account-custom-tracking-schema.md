@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76903061"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Creare schemi di rilevamento personalizzati che monitorano i flussi di lavoro end-to-end nella logica di Azure A
@@ -53,7 +53,7 @@ App per la logica di Azure include il rilevamento incorporato che è possibile a
 
 | Proprietà | Obbligatoria | Type | Descrizione |
 |----------|----------|------|-------------|
-| sourceType | Sì | string | Tipo di origine dell'esecuzione con questi valori consentiti: `Microsoft.Logic/workflows` ,`custom` |
+| sourceType | Sì | string | Tipo di origine dell'esecuzione con questi valori consentiti: `Microsoft.Logic/workflows` , `custom` |
 | source | Sì | String o JToken | Se il tipo di origine è `Microsoft.Logic/workflows` , le informazioni sull'origine devono seguire questo schema. Se il tipo di origine è `custom` , lo schema è JToken. |
 | systemId | Sì | string | ID di sistema dell'app per la logica |
 | runId | Sì | string | ID esecuzione App per la logica |
@@ -65,7 +65,7 @@ App per la logica di Azure include il rilevamento incorporato che è possibile a
 | clientRequestId | No | string | Il client può popolare questa proprietà per correlare i messaggi |
 | eventLevel | Sì | string | Livello dell'evento |
 | eventTime | Sì | Datetime | Ora dell'evento in formato UTC: *aaaa-mm-ggThh: mm: SS. 00000Z* |
-| recordType | Sì | string | Tipo di record di rilevamento con questo valore consentito:`custom` |
+| recordType | Sì | string | Tipo di record di rilevamento con questo valore consentito: `custom` |
 | record | Sì | JToken | Tipo di record personalizzato con solo formato JToken |
 |||||
 

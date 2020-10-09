@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: 5b2df194761ebc167e67498a985960a4fce35f19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76905296"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-azure-logic-apps"></a>Creare schemi per tenere traccia dei messaggi X12 in app per la logica di Azure
@@ -64,7 +64,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | receiverQualifier | Sì | string | Ricevi qualificatore partner |
 | receiverIdentifier | Sì | string | Ricevi identificatore partner |
 | agreementName | No | string | Nome del contratto X12 in base al quale vengono risolti i messaggi |
-| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o`send` |
+| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o `send` |
 | interchangeControlNumber | No | string | Numero di controllo interscambio |
 | functionalGroupControlNumber | No | string | Numero di controllo funzionale |
 | transactionSetControlNumber | No | string | Numero di controllo set transazioni |
@@ -120,7 +120,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | receiverQualifier | Sì | string | Ricevi qualificatore partner |
 | receiverIdentifier | Sì | string | Ricevi identificatore partner |
 | agreementName | No | string | Nome del contratto X12 in base al quale vengono risolti i messaggi |
-| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o`send` |
+| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o `send` |
 | interchangeControlNumber | No | string | Numero di controllo interscambio del riconoscimento funzionale. Il valore viene popolato solo per il lato di trasmissione in cui viene ricevuto il riconoscimento funzionale per i messaggi inviati al partner. |
 | functionalGroupControlNumber | No | string | Numero di controllo del gruppo funzionale del riconoscimento funzionale. Il valore viene popolato solo per il lato di trasmissione in cui viene ricevuto il riconoscimento funzionale per i messaggi inviati al partner |
 | isaSegment | No | string | Segmento ISA del messaggio. Il valore viene popolato solo per il lato di trasmissione in cui viene ricevuto il riconoscimento funzionale per i messaggi inviati al partner |
@@ -130,8 +130,8 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | respondingtransactionSetControlNumber | No | string | Numero di controllo del set di transazioni di risposta |
 | respondingTransactionSetId | No | string | ID del set di transazioni di risposta, che esegue il mapping a AK201 nel riconoscimento |
 | statusCode | Sì | Boolean | Codice di stato di riconoscimento set transazioni |
-| segmentsCount | Sì | Enumerazione | Codice di stato di riconoscimento con questi valori consentiti: `Accepted` , `Rejected` e`AcceptedWithErrors` |
-| processingStatus | Sì | Enumerazione | Stato di elaborazione del riconoscimento con questi valori consentiti: `Received` , `Generated` e`Sent` |
+| segmentsCount | Sì | Enumerazione | Codice di stato di riconoscimento con questi valori consentiti: `Accepted` , `Rejected` e `AcceptedWithErrors` |
+| processingStatus | Sì | Enumerazione | Stato di elaborazione del riconoscimento con questi valori consentiti: `Received` , `Generated` e `Sent` |
 | CorrelationMessageId | No | string | ID del messaggio di correlazione, ovvero una combinazione di {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber} |
 | isMessageFailed | Sì | Boolean | Indica se il messaggio X12 ha avuto esito negativo |
 | ak2Segment | No | string | Riconoscimento per un set di transazioni all'interno del gruppo funzionale ricevuto |
@@ -178,7 +178,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | receiverQualifier | Sì | string | Ricevi qualificatore partner |
 | receiverIdentifier | Sì | string | Ricevi identificatore partner |
 | agreementName | No | string | Nome del contratto X12 in base al quale vengono risolti i messaggi |
-| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o`send` |
+| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o `send` |
 | interchangeControlNumber | No | string | Numero di controllo interscambio |
 | isaSegment | No | string | Segmento ISA del messaggio |
 | isTechnicalAcknowledgmentExpected | Boolean | Indica se il riconoscimento tecnico è configurato nel contratto X12  |
@@ -229,13 +229,13 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | receiverQualifier | Sì | string | Ricevi qualificatore partner |
 | receiverIdentifier | Sì | string | Ricevi identificatore partner |
 | agreementName | No | string | Nome del contratto X12 in base al quale vengono risolti i messaggi |
-| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o`send` |
+| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o `send` |
 | interchangeControlNumber | No | string | Numero di controllo interscambio del riconoscimento tecnico ricevuto dai partner |
 | isaSegment | No | string | Segmento ISA per il riconoscimento tecnico ricevuto dai partner |
 | respondingInterchangeControlNumber | No | string | Numero di controllo interscambio per il riconoscimento tecnico ricevuto dai partner |
 | isMessageFailed | Sì | Boolean | Indica se il messaggio X12 ha avuto esito negativo |
-| statusCode | Sì | Enumerazione | Codice di stato di riconoscimento interscambio con questi valori consentiti: `Accepted` , `Rejected` e`AcceptedWithErrors` |
-| processingStatus | Sì | Enumerazione | Stato di riconoscimento con i valori consentiti seguenti: `Received` , `Generated` e`Sent` |
+| statusCode | Sì | Enumerazione | Codice di stato di riconoscimento interscambio con questi valori consentiti: `Accepted` , `Rejected` e `AcceptedWithErrors` |
+| processingStatus | Sì | Enumerazione | Stato di riconoscimento con i valori consentiti seguenti: `Received` , `Generated` e `Sent` |
 | ta102 | No | string | Data interscambio |
 | ta103 | No | string | Ora interscambio |
 | ta105 | No | string | Codice nota interscambio |
@@ -338,7 +338,7 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | receiverQualifier | Sì | string | Ricevi qualificatore partner |
 | receiverIdentifier | Sì | string | Ricevi identificatore partner |
 | agreementName | No | string | Nome del contratto X12 in base al quale vengono risolti i messaggi |
-| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o`send` |
+| direction | Sì | Enumerazione | Direzione del flusso dei messaggi, che può essere `receive` o `send` |
 | interchangeControlNumber | No | string | Numero di controllo interscambio, che viene popolato per il lato di invio quando viene ricevuto un riconoscimento tecnico dai partner |
 | functionalGroupControlNumber | No | string | Numero di controllo del gruppo funzionale del riconoscimento tecnico, che viene popolato per il lato di invio quando viene ricevuto un riconoscimento tecnico dai partner |
 | isaSegment | No | string | Uguale al numero di controllo interscambio, ma popolato solo in casi specifici |
@@ -346,8 +346,8 @@ Per monitorare più facilmente il completamento delle operazioni, gli errori e l
 | respondingfunctionalGroupControlNumber | No | string | Numero di controllo del gruppo funzionale originale |
 | respondingFunctionalGroupId | No | string | Esegue il mapping a AK101 nell'ID del gruppo funzionale di riconoscimento |
 | isMessageFailed | Boolean | Indica se il messaggio X12 ha avuto esito negativo |
-| statusCode | Sì | Enumerazione | Codice di stato di riconoscimento con questi valori consentiti: `Accepted` , `Rejected` e`AcceptedWithErrors` |
-| processingStatus | Sì | Enumerazione | Stato di elaborazione del riconoscimento con questi valori consentiti: `Received` , `Generated` e`Sent` |
+| statusCode | Sì | Enumerazione | Codice di stato di riconoscimento con questi valori consentiti: `Accepted` , `Rejected` e `AcceptedWithErrors` |
+| processingStatus | Sì | Enumerazione | Stato di elaborazione del riconoscimento con questi valori consentiti: `Received` , `Generated` e `Sent` |
 | ak903 | No | string | Numero di set di transazioni ricevuti |
 | ak904 | No | string | Numero di set di transazioni accettati nel gruppo funzionale identificato |
 | ak9Segment | No | string | Indica se il gruppo funzionale identificato nel segmento AK1 è accettato o rifiutato e perché |

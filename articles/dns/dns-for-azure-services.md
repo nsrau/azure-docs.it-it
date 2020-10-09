@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: rohink
 ms.openlocfilehash: fa2c1ced6405c967ca33562d6215b304b8507e5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76937245"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Funzionamento del servizio DNS di Azure con altri servizi di Azure
@@ -31,7 +31,7 @@ Il servizio DNS di Azure è un servizio ospitato di risoluzione nomi e di gestio
 
 Nella tabella seguente vengono illustrati i tipi di record supportati che è possibile usare per i vari servizi di Azure. Come si può vedere nella tabella, il servizio DNS di Azure supporta soltanto i record DNS per le risorse di rete con connessione Internet. Il servizio DNS di Azure non può essere usato per la risoluzione nomi degli indirizzi interni e privati.
 
-| Servizio di Azure | interfaccia di rete | Descrizione |
+| Servizio di Azure | Interfaccia di rete | Descrizione |
 | --- | --- | --- |
 | Gateway applicazione di Azure |[IP pubblico front-end](dns-custom-domain.md#public-ip-address) |È possibile creare un record DNS A o CNAME. |
 | Azure Load Balancer |[IP pubblico front-end](dns-custom-domain.md#public-ip-address) |È possibile creare un record DNS A o CNAME. Al servizio di bilanciamento del carico può essere assegnato dinamicamente un indirizzo IP pubblico IPv6. Creare un record CNAME per un indirizzo IPv6. |

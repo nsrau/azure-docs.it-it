@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85118951"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Schemi progettuali dei feed di modifiche in Azure Cosmos DB
@@ -38,7 +38,7 @@ Il feed di modifiche di Azure Cosmos DB può semplificare gli scenari in cui è 
 Il feed di modifiche di Azure Cosmos DB può essere usato per l'elaborazione del flusso in tempo reale per IoT o l'elaborazione analitica in tempo reale nei dati operativi.
 Ad esempio, è possibile ricevere e archiviare i dati degli eventi da dispositivi, sensori, infrastrutture e applicazioni ed elaborare gli eventi in tempo reale usando [Spark](../hdinsight/spark/apache-spark-overview.md). L'immagine seguente mostra come implementare un'architettura lambda usando Azure Cosmos DB tramite il feed di modifiche:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Pipeline lambda basate su Azure Cosmos DB per l'inserimento e le query" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Uso del feed delle modifiche di Azure Cosmos DB per agevolare le analisi in tempo reale e gli scenari di calcolo guidati dagli eventi" border="false":::
 
 In molti casi, le implementazioni dell'elaborazione del flusso ricevono innanzitutto un volume elevato di dati in ingresso in una coda di messaggi temporanea, ad esempio l'hub eventi di Azure o Apache Kafka. Il feed di modifiche è un'ottima alternativa grazie alla capacità di Azure Cosmos DB di supportare una frequenza elevata prolungata di inserimento di dati con latenza di lettura e scrittura ridotta garantita. I vantaggi del feed di modifiche di Azure Cosmos DB in una coda di messaggi sono i seguenti:
 

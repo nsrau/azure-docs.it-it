@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: 1b6fcf38f9f69976e6ed8d64040cfbcf44f090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85124052"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la crittografia e la sicurezza dei dati di Azure
@@ -37,7 +37,7 @@ Per facilitare la protezione dei dati nel cloud, tenere conto dei possibili stat
 
 La protezione delle chiavi è essenziale per proteggere i dati nel cloud.
 
-[Azure Key Vault](/azure/key-vault/key-vault-overview) aiuta a proteggere le chiavi crittografiche e i segreti usati dalle applicazioni e dai servizi cloud. L'insieme di credenziali chiave semplifica il processo di gestione delle chiavi e consente di mantenere il controllo delle chiavi che accedono ai dati e li crittografano. Gli sviluppatori possono creare chiavi per lo sviluppo e il test in pochi minuti ed eseguirne facilmente la migrazione alle chiavi di produzione. Gli amministratori della sicurezza possono concedere (e revocare) le autorizzazioni per chiavi, in base alle esigenze.
+[Azure Key Vault](/azure/key-vault/key-vault-overview) consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Questo servizio semplifica il processo di gestione delle chiavi e consente di mantenere il controllo delle chiavi che accedono ai dati e ne eseguono la crittografia. Gli sviluppatori possono creare chiavi per lo sviluppo e il test in pochi minuti ed eseguirne facilmente la migrazione in chiavi di produzione. Gli amministratori della sicurezza possono concedere (e revocare) le autorizzazioni relative alle chiavi, in base alle esigenze.
 
 Key Vault consente di creare più contenitori sicuri denominati insiemi di credenziali. Questi insiemi di credenziali sono supportati da moduli di protezione hardware. Gli insiemi di credenziali consentono di ridurre le probabilità di perdita accidentale di informazioni di sicurezza centralizzando l'archiviazione dei segreti delle applicazioni. Gli insiemi di credenziali delle chiavi controllano e registrano anche l'accesso a tutti gli elementi archiviati al loro interno. Azure Key Vault può gestire la richiesta e il rinnovo dei certificati TLS (Transport Layer Security). Fornisce funzionalità che creano una solida soluzione per la gestione del ciclo di vita dei certificati.
 
@@ -46,18 +46,18 @@ Azure Key Vault è progettato per supportare chiavi e segreti delle applicazioni
 Di seguito vengono indicate le procedure consigliate per l'uso di Key Vault.
 
 **Procedura consigliata**: concedere l'accesso a utenti, gruppi e applicazioni in un ambito specifico.   
-**Dettagli**: usare i ruoli predefiniti per il controllo degli accessi in base al ruolo. Ad esempio, per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, si assegna all'utente un ruolo predefinito [Collaboratore di Key Vault](/azure/role-based-access-control/built-in-roles) in un ambito specifico. In questo caso, l'ambito può essere una sottoscrizione, un gruppo di risorse o semplicemente uno specifico insieme di credenziali delle chiavi. Se i ruoli predefiniti non soddisfano specifiche esigenze, è possibile [definire ruoli personalizzati](/azure/role-based-access-control/custom-roles).
+**Dettagli**: usare i ruoli predefiniti per il controllo degli accessi in base al ruolo. Ad esempio, per concedere l'accesso a un utente per gestire gli insiemi di credenziali delle chiavi, è necessario assegnare il ruolo predefinito [Key Vault collaboratore](/azure/role-based-access-control/built-in-roles) a questo utente in un ambito specifico. In questo caso, l'ambito può essere una sottoscrizione, un gruppo di risorse o semplicemente uno specifico insieme di credenziali delle chiavi. Se i ruoli predefiniti non soddisfano le proprie esigenze, è possibile [definire ruoli personalizzati](/azure/role-based-access-control/custom-roles).
 
 **Procedura consigliata**: controllare ciò a cui gli utenti hanno accesso.   
 **Dettagli**: l'accesso a un insieme di credenziali delle chiavi è controllato tramite due interfacce separate: piano di gestione e piano dati. I controlli di accesso al piano di gestione e al piano dati funzionano in maniera indipendente.
 
-Usare il controllo degli accessi in base al ruolo per verificare ciò a cui gli utenti hanno accesso. Se ad esempio si vuole consentire a un'applicazione l'uso delle chiavi di un insieme di credenziali delle chiavi, è sufficiente concedere autorizzazioni di accesso al piano dati usando criteri di accesso all'insieme di credenziali delle chiavi. Per questa applicazione non sono necessarie autorizzazioni di accesso al piano di gestione. Al contrario, se si vuole che un utente sia in grado di leggere i tag e le proprietà dell'insieme di credenziali, senza avere accesso a chiavi, segreti o certificati, è possibile concedere l'accesso "read" usando il controllo degli accessi in base al ruolo e non sono necessarie autorizzazioni di accesso al piano dati.
+Usare il controllo degli accessi in base al ruolo per verificare ciò a cui gli utenti hanno accesso. Se ad esempio si vuole consentire a un'applicazione l'uso delle chiavi di un insieme di credenziali delle chiavi, è sufficiente concedere autorizzazioni di accesso al piano dati usando criteri di accesso all'insieme di credenziali delle chiavi. Per questa applicazione non sono necessarie autorizzazioni di accesso al piano di gestione. Se, al contrario, si vuole che un utente sia in grado di leggere i tag e le proprietà dell'insieme di credenziali, senza avere accesso a chiavi, segreti o certificati, è possibile concedere l'accesso in lettura usando il controllo degli accessi in base al ruolo e non sono necessarie autorizzazioni di accesso al piano dati.
 
 **Procedura consigliata**: archiviare i certificati nell'insieme di credenziali delle chiavi. I certificati sono preziosi. Se finiscono nelle mani sbagliate, la sicurezza dell'applicazione o dei dati può essere compromessa.   
-**Dettagli**: Azure Resource Manager può distribuire in modo sicuro i certificati archiviati in Azure Key Vault quando vengono distribuite le macchine virtuali. Impostando criteri di accesso appropriati per l'insieme di credenziali delle chiavi, è possibile anche controllare chi ottiene accesso al certificato. Un altro vantaggio è rappresentato dal fatto che è possibile gestire tutti i certificati da un unico punto in Azure Key Vault. Per altre informazioni, vedere il blog relativo alla [distribuzione di certificati nelle macchine virtuali dall'insieme di credenziali delle chiavi gestito dal cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).
+**Dettagli**: Azure Resource Manager può distribuire in modo sicuro i certificati archiviati in Azure Key Vault quando vengono distribuite le macchine virtuali. Impostando criteri di accesso appropriati per l'insieme di credenziali delle chiavi, è possibile anche controllare chi ottiene l'accesso al certificato. Un altro vantaggio è dato dalla possibilità di gestire tutti i certificati da un unico punto in Azure Key Vault. Per altre informazioni, vedere il blog relativo alla [distribuzione di certificati nelle macchine virtuali dall'insieme di credenziali delle chiavi gestito dal cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).
 
 **Procedura consigliata**: assicurarsi che sia possibile ripristinare un'eliminazione di insiemi di credenziali delle chiavi o di oggetti al loro interno.   
-**Dettagli**: l'eliminazione di insiemi di credenziali delle chiavi o di oggetti al loro interno può essere un'attività accidentale o intenzionale. Abilitare le funzionalità di eliminazione temporanea e di protezione dall'eliminazione nell'insieme di credenziali delle chiavi, in particolare per le chiavi usate per crittografare i dati inattivi. Poiché l'eliminazione di queste chiavi equivarrebbe a perdere i dati, se necessario, è possibile recuperare gli insiemi di credenziali e gli oggetti al loro interno eliminati. Esercitarsi a svolgere operazioni di ripristino degli insiemi di credenziali delle chiavi a intervalli regolari.
+**Dettagli**: l'eliminazione di insiemi di credenziali delle chiavi o di oggetti al loro interno può essere un'attività accidentale o intenzionale. Abilitare le funzionalità di eliminazione temporanea e di protezione dall'eliminazione nell'insieme di credenziali delle chiavi, in particolare per le chiavi usate per crittografare i dati inattivi. Poiché l'eliminazione di queste chiavi equivarrebbe a una perdita dei dati, è possibile recuperare, se necessario, gli insiemi di credenziali e gli oggetti al loro interno eliminati. Esercitarsi a svolgere operazioni di ripristino degli insiemi di credenziali delle chiavi a intervalli regolari.
 
 > [!NOTE]
 > Se un utente dispone di autorizzazioni di collaboratore (controllo degli accessi in base al ruolo) per un piano di gestione dell'insieme di credenziali delle chiavi, può concedere a se stesso l'accesso al piano dati impostando i criteri di accesso per l'insieme di credenziali delle chiavi. È consigliabile controllare rigorosamente gli utenti che dispongono dei diritti di accesso di collaboratore all'insieme di credenziali delle chiavi per avere la sicurezza che solo le persone autorizzate possano accedere e gestire insiemi di credenziali delle chiavi, chiavi, segreti e certificati.
@@ -81,12 +81,12 @@ Poiché la maggior parte degli attacchi prende di mira l'utente finale, l'endpoi
 
 ## <a name="protect-data-at-rest"></a>Proteggere i dati inattivi
 
-[La crittografia dei dati inattivi](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) è un passaggio obbligatorio per assicurare la privacy, la conformità e la sovranità dei dati.
+La [crittografia dei dati](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) inattivi è un passaggio obbligatorio verso la privacy dei dati, la conformità e la sovranità dei dati.
 
 **Procedura consigliata**: applicare la crittografia dischi per migliorare la protezione dei dati.   
 **Dettagli**: usare la [Crittografia dischi di Azure](/azure/security/azure-security-disk-encryption-overview). Consente agli amministratori IT di crittografare i dischi delle macchine virtuali IaaS Windows e Linux. Crittografia dischi combina la funzionalità standard di settore BitLocker di Windows e la funzionalità dm-crypt di Linux per fornire la crittografia del volume per i dischi del sistema operativo e dei dati.
 
-Archiviazione di Azure e Database SQL di Azure applicano la crittografia dei dati inattivi per impostazione predefinita e molti servizi offrono la crittografia come opzione. È possibile usare Azure Key Vault per mantenere il controllo delle chiavi che accedono e ai dati e li crittografano. Per altre informazioni, vedere [Supporto per il modello di crittografia dei provider di risorse di Azure](encryption-atrest.md#azure-resource-providers-encryption-model-support).
+Archiviazione di Azure e Database SQL di Azure applicano la crittografia dei dati inattivi per impostazione predefinita e molti servizi offrono la crittografia come opzione. È possibile usare Azure Key Vault per mantenere il controllo delle chiavi che accedono ai dati e ne eseguono crittografia. [Per altre informazioni, vedere supporto del modello di crittografia per i provider di risorse di Azure](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
 **Procedura consigliata**: usare la crittografia per ridurre i rischi correlati all'accesso non autorizzato ai dati.   
 **Dettagli**: crittografare le unità prima di scrivere dati sensibili.
@@ -95,9 +95,9 @@ Le organizzazioni che non applicano la crittografia dei dati sono più esposte a
 
 ## <a name="protect-data-in-transit"></a>Proteggere i dati in transito
 
-La protezione dei dati in transito deve essere una parte essenziale della strategia di protezione dati. Poiché i dati transitano in modo bidirezionale tra molte posizioni, in generale è consigliabile usare sempre i protocolli SSL/TLS per lo scambio di dati tra posizioni diverse. In alcuni casi è consigliabile isolare l'intero canale di comunicazione tra l'infrastruttura locale e cloud tramite una VPN.
+La protezione dei dati in transito deve essere una parte essenziale della strategia di protezione dei dati. Poiché i dati si spostano avanti indietro tra più posizioni, in genere è consigliabile usare sempre i protocolli SSL/TLS per scambiare dati tra posizioni diverse. In alcune circostanze, potrebbe essere necessario isolare l'intero canale di comunicazione tra l'infrastruttura locale e quella cloud usando una VPN.
 
-Per lo spostamento dei dati tra l'infrastruttura locale e Azure, è opportuno considerare le misure di protezione appropriate, ad esempio HTTPS o VPN. Per inviare traffico crittografato tra una rete virtuale di Azure e una posizione locale tramite Internet, usare [Gateway VPN di Azure](../../vpn-gateway/index.yml).
+Per lo spostamento dei dati tra l'infrastruttura locale e Azure, è opportuno considerare le misure di protezione appropriate, ad esempio HTTPS o VPN. Quando si invia il traffico crittografato tra una rete virtuale di Azure e una posizione locale tramite la rete Internet pubblica, usare il [gateway VPN di Azure](../../vpn-gateway/index.yml).
 
 Di seguito sono indicate le procedure consigliate specifiche per l'uso di Gateway VPN di Azure, HTTPS e SSL/TLS.
 
@@ -113,7 +113,7 @@ Di seguito sono indicate le procedure consigliate specifiche per l'uso di Gatewa
 **Procedura consigliata**: interagire con Archiviazione di Azure tramite il portale di Azure.   
 **Dettagli**: tutte le transazioni avvengono via HTTPS. È anche possibile usare l' [API REST di archiviazione](https://msdn.microsoft.com/library/azure/dd179355.aspx) su HTTPS per interagire con [archiviazione di Azure](https://azure.microsoft.com/services/storage/).
 
-Le organizzazioni che non riescono a proteggere i dati in transito sono più vulnerabili agli [attacchi man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) e hijack della sessione. Questi attacchi possono essere il primo passo per ottenere l'accesso ai dati riservati.
+Le organizzazioni che non riescono a proteggere i dati in transito sono più vulnerabili agli [attacchi man-in-the-Middle](https://technet.microsoft.com/library/gg195821.aspx), all' [intercettazione](https://technet.microsoft.com/library/gg195641.aspx)e al Hijack della sessione. Questi attacchi possono essere il primo passo per ottenere l'accesso ai dati riservati.
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>Proteggere la posta elettronica, i documenti e i dati sensibili
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85131968"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Log delle risorse per il servizio Azure SignalR
@@ -66,7 +66,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 
 Le stringhe JSON di log di archiviazione includono elementi elencati nelle tabelle seguenti:
 
-**Format**
+**Formato**
 
 Nome | Descrizione
 ------- | -------
@@ -84,7 +84,7 @@ properties | Proprietà dettagliate correlate a questo evento del log. Per ulter
 Nome | Descrizione
 ------- | -------
 type | Tipo di evento del log. Attualmente, vengono fornite informazioni sulla connettività al servizio Azure SignalR. `ConnectivityLogs`È disponibile solo il tipo
-collection | Raccolta dell'evento log. I valori consentiti sono: `Connection` `Authorization` e`Throttling`
+collection | Raccolta dell'evento log. I valori consentiti sono: `Connection` `Authorization` e `Throttling`
 connectionId | Identità della connessione
 transportType | Tipo di trasporto della connessione. I valori consentiti sono: `Websockets` \| `ServerSentEvents` \|`LongPolling`
 connectionType | Tipo di connessione. I valori consentiti sono: `Server` \| `Client`. `Server`: connessione dal lato server; `Client`: connessione dal lato client
@@ -131,7 +131,7 @@ Le colonne del log di archiviazione includono gli elementi elencati nella tabell
 Nome | Descrizione
 ------- | ------- 
 TimeGenerated | Ora evento log
-Raccolta | Raccolta dell'evento log. I valori consentiti sono: `Connection` `Authorization` e`Throttling`
+Raccolta | Raccolta dell'evento log. I valori consentiti sono: `Connection` `Authorization` e `Throttling`
 OperationName | Nome dell'operazione dell'evento
 Location | Località del servizio Azure SignalR
 Level | Livello evento log
@@ -184,7 +184,7 @@ Se viene restituito 401 non autorizzato per le richieste client, controllare i l
 
 Se non è possibile stabilire connessioni client SignalR al servizio Azure SignalR, controllare i log delle risorse. Se si verifica `Connection count reaches limit` un log delle risorse, si stabiliscono troppe connessioni al servizio SignalR, che raggiungono il limite del numero di connessioni. Prendere in considerazione la scalabilità verticale del servizio SignalR. Se si verifica `Message count reaches limit` nel log delle risorse, significa che si usa il livello gratuito e si usa la quota dei messaggi. Se si desidera inviare più messaggi, provare a modificare il servizio SignalR nel livello standard per inviare messaggi aggiuntivi. Per altre informazioni, vedere [prezzi del servizio Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-### <a name="get-help"></a>Ottieni supporto
+### <a name="get-help"></a>Ottenere aiuto
 
 Si consiglia di eseguire prima la risoluzione dei problemi. La maggior parte dei problemi è causata da problemi di rete o del server dell'app. Seguire la [Guida alla risoluzione dei problemi con il log delle risorse](#troubleshooting-with-resource-logs) e la guida alla risoluzione dei [problemi di base](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) per individuare la causa principale.
 Se il problema persiste, è consigliabile aprire un problema in GitHub o creare un ticket nel portale di Azure.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73889246"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
@@ -154,7 +154,7 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
 1. Impostare l'ora personalizzata per tornare indietro di alcune ore e selezionare i dati dal momento in cui il dispositivo ha iniziato a eseguire lo streaming.
 
-1. Fare clic su **Avvia**.
+1. Fare clic su **Start** (Avvia).
 
     ![Selezionare la data personalizzata](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 

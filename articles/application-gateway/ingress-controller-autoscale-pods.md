@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85125464"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Ridimensionare automaticamente i pod AKS usando le metriche del gateway applicazione (beta)
 
 Man mano che aumenta il traffico in ingresso, diventa fondamentale scalare le applicazioni in base alla domanda.
 
-Nell'esercitazione seguente viene illustrato come è possibile usare la metrica del gateway applicazione `AvgRequestCountPerHealthyHost` per aumentare le prestazioni dell'applicazione. `AvgRequestCountPerHealthyHost`misura le richieste medie inviate a un pool back-end specifico e una combinazione di impostazioni HTTP back-end.
+Nell'esercitazione seguente viene illustrato come è possibile usare la metrica del gateway applicazione `AvgRequestCountPerHealthyHost` per aumentare le prestazioni dell'applicazione. `AvgRequestCountPerHealthyHost` misura le richieste medie inviate a un pool back-end specifico e una combinazione di impostazioni HTTP back-end.
 
 Verranno usati i due componenti seguenti:
 
-* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter)-Si userà la metrica Adapter per esporre le metriche del gateway applicazione tramite il server della metrica. Azure Kubernetes Metric Adapter è un progetto open source in Azure, simile al controller di ingresso del gateway applicazione. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler)-Si userà HPA per usare le metriche del gateway applicazione e come destinazione una distribuzione per la scalabilità.
+* [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) -Si userà la metrica Adapter per esporre le metriche del gateway applicazione tramite il server della metrica. Azure Kubernetes Metric Adapter è un progetto open source in Azure, simile al controller di ingresso del gateway applicazione. 
+* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) -Si userà HPA per usare le metriche del gateway applicazione e come destinazione una distribuzione per la scalabilità.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Impostazione della scheda metrica di Azure Kubernetes
 
