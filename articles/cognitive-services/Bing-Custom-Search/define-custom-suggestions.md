@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
 ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74072799"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurare l'esperienza di Suggerimenti automatici personalizzati
@@ -36,7 +36,7 @@ Per abilitare i suggerimenti di Bing, spostare il dispositivo di scorrimento **S
 
 ## <a name="add-your-own-suggestions"></a>Aggiungere suggerimenti personalizzati
 
-Per aggiungere suggerimenti personalizzati per le stringhe di query, inserirli nell'elenco in **User-defined suggestions** (Suggerimenti definiti dall'utente). Dopo aver aggiunto un suggerimento nell'elenco, premere il tasto INVIO oppure fare clic **+** sull'icona. È possibile specificare il suggerimento in qualsiasi lingua. È possibile aggiungere un massimo di 5.000 suggerimenti per le stringhe di query.
+Per aggiungere suggerimenti personalizzati per le stringhe di query, inserirli nell'elenco in **User-defined suggestions** (Suggerimenti definiti dall'utente). Dopo aver aggiunto un suggerimento nell'elenco, premere il tasto INVIO oppure fare clic sull' **+** icona. È possibile specificare il suggerimento in qualsiasi lingua. È possibile aggiungere un massimo di 5.000 suggerimenti per le stringhe di query.
 
 ## <a name="upload-suggestions"></a>Caricare suggerimenti
 
@@ -48,7 +48,7 @@ Per rimuovere un suggerimento per una stringa di query, fare clic sull'icona di 
 
 ## <a name="block-suggestions"></a>Bloccare i suggerimenti
 
-Se si includono i suggerimenti di Bing, è possibile aggiungere un elenco di stringhe di query di ricerca che non si vuole vengano restituite da Bing. Per aggiungere le stringhe di query bloccate, fare clic su **Show blocked suggestions** (Mostra suggerimenti bloccati). Aggiungere la stringa di query all'elenco e premere il tasto INVIO oppure fare clic **+** sull'icona. È possibile aggiungere un massimo di 50 stringhe di query bloccate.
+Se si includono i suggerimenti di Bing, è possibile aggiungere un elenco di stringhe di query di ricerca che non si vuole vengano restituite da Bing. Per aggiungere le stringhe di query bloccate, fare clic su **Show blocked suggestions** (Mostra suggerimenti bloccati). Aggiungere la stringa di query all'elenco e premere il tasto INVIO oppure fare clic sull' **+** icona. È possibile aggiungere un massimo di 50 stringhe di query bloccate.
 
 
 

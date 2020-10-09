@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77593901"
 ---
 # <a name="istio"></a>Istio
@@ -60,7 +60,7 @@ Gli obiettivi di progettazione seguenti [guidano][design-goals] il progetto Isti
 - **Uniformità dei criteri** : coerenza nella definizione dei criteri in diverse risorse.
 
 
-### <a name="capabilities"></a>Funzionalità
+### <a name="capabilities"></a>Capabilities
 
 In Istio è disponibile il set di funzionalità seguente:
 

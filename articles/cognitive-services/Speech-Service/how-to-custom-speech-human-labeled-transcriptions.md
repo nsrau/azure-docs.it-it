@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74806063"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Come creare trascrizioni con etichetta umana
@@ -27,7 +27,7 @@ Per migliorare il riconoscimento è necessario un ampio esempio di dati di trasc
 
 Le trascrizioni con etichetta umana per l'audio in lingua inglese devono essere fornite come testo normale, usando solo caratteri ASCII. Evitare l'uso di caratteri di punteggiatura Latino-1 o Unicode. Questi caratteri vengono spesso aggiunti inavvertitamente quando si copia il testo da un'applicazione di elaborazione di testo o si eliminano dati dalle pagine Web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione ASCII appropriata.
 
-Di seguito sono disponibili alcuni esempi:
+Ecco alcuni esempi:
 
 | Caratteri da evitare | Sostituzione | Note |
 | ------------------- | ------------ | ----- |
@@ -76,13 +76,13 @@ Di seguito sono riportati alcuni esempi di normalizzazione eseguita automaticame
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| Costa \$3,14                        | it costs three fourteen           |
+| Costa \$ 3,14                        | it costs three fourteen           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>Cinese mandarino (zh-CN)
 
 Le trascrizioni con etichetta umana per l'audio cinese mandarino devono essere codificate in UTF-8 con un marcatore dell'ordine dei byte. Evitare l'uso di caratteri di punteggiatura a mezza larghezza. Questi caratteri possono essere inclusi inavvertitamente quando si preparano i dati in un programma di elaborazione di testi o si eliminano dati dalle pagine Web. Se questi caratteri sono presenti, assicurarsi di aggiornarli con la sostituzione a larghezza completa appropriata.
 
-Di seguito sono disponibili alcuni esempi:
+Ecco alcuni esempi:
 
 | Caratteri da evitare | Sostituzione   | Note |
 | ------------------- | -------------- | ----- |

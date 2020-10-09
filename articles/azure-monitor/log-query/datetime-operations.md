@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77655379"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Uso dei valori di data e ora nelle query di log di Monitoraggio di Azure
@@ -127,7 +127,7 @@ Event
 
 Questa query genera i risultati seguenti:
 
-|timestamp|count_|
+| timestamp|count_|
 |--|--|
 |2018-07-28T00:00:00.000|7.136|
 |2018-07-29T00:00:00.000|12.315|
@@ -146,7 +146,7 @@ Event
 
 ## <a name="related-functions"></a>Funzioni correlate
 
-| Category | Funzione |
+| Categoria | Funzione |
 |:---|:---|
 | Convertire tipi di dati | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | Arrotondare il valore alle dimensioni del contenitore | [bin](/azure/kusto/query/binfunction) |

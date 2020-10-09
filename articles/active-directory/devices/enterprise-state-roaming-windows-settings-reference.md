@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85252968"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
@@ -26,7 +26,7 @@ Di seguito è riportato un elenco delle impostazioni di cui verrà eseguito il r
 
 La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account supportati dal framework di sincronizzazione, backup e ripristino in Windows 10.
 
-| Tipo di account e operazione | Desktop | Dispositivi mobili |
+| Tipo di account e operazione | Desktop | Mobile |
 | --- | --- | --- |
 | Azure Active Directory: sincronizzazione |Sì |No |
 | Azure Active Directory: backup e ripristino |No |No |
@@ -69,13 +69,13 @@ Nella tabella seguente, le altre voci della colonna gruppo di impostazioni fanno
 La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle impostazioni e alle app che possono essere disabilitate soltanto tramite la sincronizzazione dall'interno dell'app stessa o disabilitando la sincronizzazione per l'intero dispositivo con la gestione dei dispositivi mobili (software MDM) o le impostazioni dei Criteri di gruppo.
 Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non appartengono a un gruppo.
 
-| Impostazioni | Desktop | Dispositivi mobili | Gruppo |
+| Impostazioni | Desktop | Mobile | Gruppo |
 | --- | --- | --- | --- |
 | **Account**: immagine dell'account |sync |X |Tema |
 | **Account**: altre impostazioni account |X |X | |
-| **Advanced Mobile Broadband**: nome di rete per la condivisione della connessione Internet (Abilita l'individuazione automatica degli hotspot Wi-Fi per dispositivi mobili tramite Bluetooth) |X |X |Password |
+| **Advanced Mobile Broadband**: nome di rete per la condivisione della connessione Internet (Abilita l'individuazione automatica di hotspot Wi-Fi per dispositivi mobili tramite Bluetooth) |X |X |Password |
 | **Dati app**: singole app possono sincronizzare i dati |backup sincronizzazione |backup sincronizzazione |internal |
-| **Elenco app**: elenco delle app installate |X |backup |Altro |
+| **Elenco app**: elenco delle app installate |X |backup |Altri |
 | **Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
 | **Prompt dei comandi**: impostazioni dei valori predefiniti del prompt dei comandi |sync |X |internal |
 | **Credenziali**: Casella di sicurezza delle credenziali |sync |sync |password |

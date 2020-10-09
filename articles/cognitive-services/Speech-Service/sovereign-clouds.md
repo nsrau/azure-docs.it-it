@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
 ms.openlocfilehash: b41967033b00144ca5bd52ce23cf8aabcea6749e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78228084"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>Servizi vocali con Cloud sovrani
@@ -23,11 +23,11 @@ ms.locfileid: "78228084"
 
 Solo i governi federali, statali, locali e tribali degli Stati Uniti e i rispettivi partner hanno accesso a questa istanza dedicata con operazioni controllate da cittadini statunitensi selezionati.
 - Aree: US Gov Virginia
-- SR in SpeechSDK:*config. FromHost ("WSS://Virginia.STT.Speech.Azure.US", "\<chiave\>");*
-- TTS in SpeechSDK: *config. FromHost ("https[]()://Virginia.TTS.Speech.Azure.US", "\<your-key\>");*
-- Token di autenticazione: https[]()://Virginia.API.cognitive.Microsoft.US/STS/V1.0/IssueToken
+- SR in SpeechSDK:*config. FromHost ("WSS://Virginia.STT.Speech.Azure.US", " \<your-key\> ");*
+- TTS in SpeechSDK: *config. FromHost ("https []() ://Virginia.TTS.Speech.Azure.US", " \<your-key\> ");*
+- Token di autenticazione: https []() ://Virginia.API.cognitive.Microsoft.US/STS/V1.0/IssueToken
 - Portale di Azure: https://portal.azure.us  
-- Portale di Riconoscimento vocale personalizzato:https://virginia.cris.azure.us/Home/CustomSpeech
+- Portale di Riconoscimento vocale personalizzato: https://virginia.cris.azure.us/Home/CustomSpeech
 - SKU disponibili: S0
 - Funzionalità supportate:
   - Riconoscimento vocale
@@ -52,11 +52,11 @@ Solo i governi federali, statali, locali e tribali degli Stati Uniti e i rispett
 
 Situato in Cina, un data center di Azure con accesso diretto a Cina Mobile, China Telecom, Cina Unicom e altre principali reti backbone di Carrier, per gli utenti cinesi per offrire un'esperienza di accesso alla rete locale ad alta velocità e stabile.
 - Aree: Cina orientale 2 (Shanghai)
-- SR in SpeechSDK: *config. FromHost ("WSS://chinaeast2.STT.Speech.Azure.cn", "\<chiave\>");*
-- TTS in SpeechSDK: *config. FromHost ("https[]()://chinaeast2.TTS.Speech.Azure.cn", "\<your-key\>");*
-- Token di autenticazione: https[]()://chinaeast2.API.cognitive.Azure.CN/STS/V1.0/IssueToken
+- SR in SpeechSDK: *config. FromHost ("WSS://chinaeast2.STT.Speech.Azure.cn", " \<your-key\> ");*
+- TTS in SpeechSDK:  *config. FromHost ("https []() ://chinaeast2.TTS.Speech.Azure.cn", " \<your-key\> ");*
+- Token di autenticazione: https []() ://chinaeast2.API.cognitive.Azure.CN/STS/V1.0/IssueToken
 - Portale di Azure: https://portal.azure.cn
-- Portale di Riconoscimento vocale personalizzato:https://speech.azure.cn/CustomSpeech
+- Portale di Riconoscimento vocale personalizzato: https://speech.azure.cn/CustomSpeech
 - SKU disponibili: S0
 - Funzionalità supportate:
   - Riconoscimento vocale

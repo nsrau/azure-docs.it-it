@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74703145"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Richiamare i programmi MapReduce da Data factory
@@ -183,7 +183,7 @@ La pipeline in questo esempio contiene una sola attività che è di tipo: HDInsi
 
 | Proprietà | Note |
 |:--- |:--- |
-| tipo |Il tipo deve essere impostato su **HDInsightMapReduce**. |
+| type |Il tipo deve essere impostato su **HDInsightMapReduce**. |
 | className |Il nome della classe è: **wordcount** |
 | jarFilePath |Percorso del file jar contenente la classe. Se si copia e incolla il codice seguente, non dimenticare di modificare il nome del cluster. |
 | jarLinkedService |Servizio collegato di Archiviazione di Azure che contiene il file jar. Questo servizio collegato fa riferimento allo spazio di archiviazione associato al cluster HDInsight. |

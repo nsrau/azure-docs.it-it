@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025028"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Manutenzione e aggiornamenti di CloudSimple
@@ -39,8 +39,8 @@ CloudSimple monitora inoltre costantemente gli errori seguenti:
 * Porte NIC fisiche
 * Server
 * Fan
-* Potenza
-* Switch
+* Alimentazione
+* Commutatori
 * Porte switch
 
 Se si verifica un errore in un disco o in un nodo, viene aggiunto automaticamente un nuovo nodo al cluster VMware interessato per ripristinare immediatamente l'integrità.

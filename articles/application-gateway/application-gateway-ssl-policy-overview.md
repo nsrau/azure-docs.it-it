@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 16c6dd28d47573c2ad5b0d5a331b0dc48e7aacef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85253631"
 ---
 # <a name="application-gateway-tls-policy-overview"></a>Panoramica dei criteri TLS del gateway applicazione
@@ -26,7 +26,7 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |---|---|
 |Nome     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
@@ -35,7 +35,7 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |   ---      |  ---       |
 |Nome     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
@@ -44,7 +44,7 @@ Il gateway applicazione offre tre criteri di sicurezza predefiniti. È possibile
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |---|---|
 |Nome     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |

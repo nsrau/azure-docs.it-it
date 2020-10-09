@@ -4,10 +4,10 @@ description: Panoramica dell'esempio di progetto Payment Card Industry Data Secu
 ms.date: 08/19/2020
 ms.topic: sample
 ms.openlocfilehash: 8835e3371c6df2b113143b615dd31b1c69261bc9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88649177"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Panoramica dell'esempio di progetto PCI-DSS v3.2.1

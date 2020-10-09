@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 20e64e5225987a8045e406a0e8fcae098c580c61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77913379"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>Procedura per la risoluzione dei problemi relativi a scenari di errori di allocazione specifici nel modello di distribuzione classica
@@ -42,7 +42,7 @@ Il diagramma seguente illustra la tassonomia degli scenari di allocazione (blocc
 ![Tassonomia di allocazione bloccata](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
 ## <a name="resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Ridimensionare una VM o aggiungere VM o istanze dei ruoli a un servizio cloud esistente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 Upgrade_VMSizeNotSupported o GeneralError
 
@@ -57,7 +57,7 @@ Se l'errore è Upgrade_VMSizeNotSupported*, provare con dimensioni della VM dive
 Se l'errore è GeneralError\*, è probabile che il tipo di risorsa (ad esempio, le dimensioni specifiche della VM) sia supportato dal cluster, che al momento non dispone di risorse disponibili. Analogamente allo scenario riportato sopra, aggiungere la risorsa di calcolo desiderata tramite la creazione di un nuovo servizio cloud (notare che il nuovo servizio cloud deve usare un indirizzo VIP diverso) e usare una rete virtuale dell'area per connettere i servizi cloud.
 
 ## <a name="restart-partially-stopped-deallocated-vms"></a>Riavviare VM arrestate (deallocate) parzialmente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 GeneralError*
 
@@ -73,7 +73,7 @@ Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (dea
 * Se il servizio cloud esistente non usa una rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud, quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## <a name="restart-fully-stopped-deallocated-vms"></a>Riavviare VM arrestate (deallocate) completamente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 GeneralError*
 
@@ -86,7 +86,7 @@ La deallocazione completa significa che sono state arrestate (deallocate) tutte 
 Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (deallocate) originali, mantenendo però i dischi associati, quindi eliminare il servizio cloud corrispondente. Le risorse di calcolo associate sono già state rilasciate al momento dell'arresto (deallocazione) delle VM. Creare un nuovo servizio cloud per riaggiungere le VM.
 
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Distribuzioni di gestione temporanea o di produzione (solo Platform-as-a-Service)
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 New_General* o New_VMSizeNotSupported\*
 
@@ -99,7 +99,7 @@ Le distribuzione di gestione temporanea e di produzione di un servizio cloud son
 Eliminare la prima distribuzione e il servizio cloud originale, quindi ridistribuire il servizio cloud. Questa azione potrebbe inserire la prima distribuzione in un cluster con risorse disponibili sufficienti per entrambe le distribuzioni o in un cluster che supporta le dimensioni della VM richieste.
 
 ## <a name="affinity-group-vmservice-proximity"></a>Gruppo di affinità (prossimità di VM o servizio)
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 New_General* o New_VMSizeNotSupported\*
 
@@ -112,7 +112,7 @@ Qualsiasi risorsa di calcolo assegnata a un gruppo di affinità è associata a u
 Se un gruppo di affinità non è necessario, non usare un gruppo di affinità o raggruppare le risorse di calcolo in più gruppi di affinità.
 
 ## <a name="affinity-group-based-virtual-network"></a>Rete virtuale basata su gruppi di affinità
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 New_General* o New_VMSizeNotSupported\*
 

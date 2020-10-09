@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74184262"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Domande frequenti su Azure Internet Analyzer (anteprima)
@@ -44,17 +44,17 @@ No, Azure Internet Analyzer può essere usato gratuitamente in anteprima. Durant
 Internet Analyzer è progettato per fornire informazioni dettagliate sulle prestazioni di rete in base alla popolazione degli utenti. Per prendere le migliori decisioni in merito alle prestazioni per gli utenti, Internet Analyzer confronta le prestazioni di due endpoint Internet usando la popolazione di utenti distinti. L'analizzatore Internet può rispondere a numerose domande e di seguito vengono riportate alcune delle più comuni:
 
 * Qual è l'impatto sulle prestazioni della migrazione cloud? 
-    * *Test suggerito: personalizzato (l'infrastruttura locale corrente) rispetto ad Azure (qualsiasi endpoint preconfigurato)*
+    * *Test suggerito: Confronto tra personalizzato (infrastruttura locale corrente) e Azure (qualsiasi endpoint preconfigurato)*
 * Quali sono le differenze tra ospitare i dati nella rete perimetrale rispetto al data center? 
-    *  *Test suggerito: Azure e Azure front door, Azure e la rete CDN di Azure di Microsoft*
+    *  *Test suggerito: Confronto tra Azure e Frontdoor di Azure, Azure e Rete CDN di Azure di Microsoft*
 * Quali sono i vantaggi in termini di prestazioni di Frontdoor di Azure?
-    *  *Test suggerito: personalizzato/Azure/rete CDN rispetto a Azure front door*
+    *  *Test suggerito: Confronto tra personalizzato/Azure/Rete CDN e Frontdoor di Azure*
 * Quali sono i vantaggi in termini di prestazioni di Rete CDN di Azure di Microsoft? 
-    *  *Test suggerito: Custom/Azure/AFD rispetto alla rete CDN di Azure di Microsoft*
+    *  *Test suggerito: Confronto tra personalizzato/Azure/Frontdoor di Azure e Rete CDN di Azure di Microsoft*
 * Come funziona la rete CDN di Azure di Microsoft? 
-    *  *Test suggerito: personalizzato (altro endpoint della rete CDN) rispetto alla rete CDN di Azure di Microsoft*
+    *  *Test suggerito: Confronto tra personalizzato (altro endpoint rete CDN) e Rete CDN di Azure di Microsoft*
 * Qual è il cloud migliore per la tipologia di utenti finali in ogni area? 
-    *  *Test suggerito: personalizzato (altro servizio cloud) rispetto ad Azure (qualsiasi endpoint preconfigurato)*
+    *  *Test suggerito: Confronto tra personalizzato (altro servizio cloud) e Azure (qualsiasi endpoint preconfigurato)*
 
 ## <a name="which-tests-can-i-run-in-preview"></a>Quali test è possibile eseguire in anteprima?
 

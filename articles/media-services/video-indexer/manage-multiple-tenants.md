@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76990505"
 ---
 # <a name="manage-multiple-tenants"></a>Gestire più tenant
@@ -79,4 +79,4 @@ Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](video-indexer-overview.md)
+[Overview](video-indexer-overview.md)

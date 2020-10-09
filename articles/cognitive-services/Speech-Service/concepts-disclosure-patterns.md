@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776623"
 ---
 # <a name="disclosure-design-patterns"></a>Schemi progettuali per le informative
@@ -62,7 +62,7 @@ Prima dell'inizio dell'esperienza vocale, l'assistente digitale è stato complet
 *La voce sintetica viene introdotta durante l'onboarding di un nuovo utente.*
 
 Consigli
-- Descrivere che la voce è artificiale, ad esempio &quot;digitale&quot;
+- Descrivere che la voce è artificiale, ad esempio &quot; digitale &quot;
 - Descrivere le operazioni che l'agente è in grado di eseguire
 - Specificare in modo esplicito le origini della&#39;vocale
 - Offrire un punto di ingresso per ulteriori informazioni sulla voce sintetica
@@ -141,7 +141,7 @@ Consigli
 - Indirizzare gli elementi padre come destinatari primari per la divulgazione
 - Incoraggiare i genitori a comunicare la divulgazione ai propri figli
 - Fornire punti di ingresso per ulteriori informazioni sulla voce sintetizzata
-- Controllare l'esperienza chiedendo ai genitori una semplice &quot;domanda&quot; di salvaguardia per mostrare che hanno letto la divulgazione
+- Controllare l'esperienza chiedendo ai genitori una semplice &quot; &quot; domanda di salvaguardia per mostrare che hanno letto la divulgazione
 
 ### <a name="providing-opportunities-to-learn-more-about-how-the-voice-was-made"></a>Possibilità di ottenere ulteriori informazioni su come è stata creata la voce
 
@@ -193,13 +193,13 @@ Quando le conversazioni rientrino in percorsi imprevisti, è consigliabile crear
 ![Gestione di percorsi imprevisti](media/responsible-ai/disclosure-patterns/conversational-transparency-1.png)<br/>
 
 <br/>
-Le domande non attività &quot;o&quot; personali indirizzate all'agente sono il momento giusto per ricordare agli utenti la natura sintetica dell'agente e per inserirli in modo appropriato o per reindirizzarli a una persona reale.
+Le &quot; domande non attività o personali &quot; indirizzate all'agente sono il momento giusto per ricordare agli utenti la natura sintetica dell'agente e per inserirli in modo appropriato o per reindirizzarli a una persona reale.
 
 ![Gestione delle domande sulle attività](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
 ## <a name="when-to-disclose"></a>Quando divulgare
 
-Sono disponibili molte opportunità per la divulgazione durante il percorso utente. Progettazione per il primo utilizzo, secondo utilizzo, ennesimo utilizzo..., ma anche momenti di &quot;errore&quot; per evidenziare la trasparenza, ad esempio quando il sistema commette un errore o quando l'utente individua una limitazione delle funzionalità dell'agente&#39;.
+Sono disponibili molte opportunità per la divulgazione durante il percorso utente. Progettazione per il primo utilizzo, secondo utilizzo, ennesimo utilizzo..., ma anche momenti di &quot; errore &quot; per evidenziare la trasparenza, ad esempio quando il sistema commette un errore o quando l'utente individua una limitazione delle funzionalità dell'agente&#39;.
 
 ![Opportunità di divulgazione in un percorso utente](media/responsible-ai/disclosure-patterns/touchpoints.png)<br/>
 

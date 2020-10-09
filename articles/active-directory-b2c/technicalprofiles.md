@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203147"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
@@ -120,7 +120,7 @@ L'elemento **Metadata** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Item | 0:n | I metadati che riguardano il profilo tecnico. Ogni tipo di profilo tecnico dispone di un diverso set di elementi di metadati. Per altre informazioni, vedere la sezione dedicata ai tipi di profilo tecnico. |
+| Elemento | 0:n | I metadati che riguardano il profilo tecnico. Ogni tipo di profilo tecnico dispone di un diverso set di elementi di metadati. Per altre informazioni, vedere la sezione dedicata ai tipi di profilo tecnico. |
 
 ### <a name="item"></a>Item
 
@@ -128,7 +128,7 @@ L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Chiave | Sì | La chiave dei metadati. Per l'elenco degli elementi di metadati, vedere ogni tipo di profilo tecnico. |
+| Chiave | Sì | Chiave dei metadati. Per l'elenco degli elementi di metadati, vedere ogni tipo di profilo tecnico. |
 
 ## <a name="cryptographickeys"></a>CryptographicKeys
 
@@ -199,7 +199,7 @@ L'elemento **DisplayClaim** contiene gli attributi seguenti:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | No | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DisplayControlReferenceId | No | Identificatore di un [controllo di visualizzazione](display-controls.md) già definito nella sezione ClaimsSchema del file di criteri o del file di criteri padre. |
-| Necessario | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
+| Obbligatoria | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
 
 Per **DisplayClaim** è necessario specificare `ClaimTypeReferenceId` o `DisplayControlReferenceId` .
 

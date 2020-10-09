@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77252228"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatizzare l'installazione del servizio Mobility
@@ -364,7 +364,7 @@ cd /tmp
 1. In **specificare i requisiti per il programma standard**eseguire le attività seguenti:
 
    - Per i computer Windows, selezionare **questo programma può essere eseguito solo su piattaforme specifiche**. Selezionare quindi i [sistemi operativi Windows supportati](vmware-physical-azure-support-matrix.md#replicated-machines) e selezionare **Avanti**.
-   - Per i computer Linux, selezionare **questo programma può essere eseguito su qualsiasi piattaforma**. Selezionare quindi **Avanti**.
+   - Per i computer Linux, selezionare **questo programma può essere eseguito su qualsiasi piattaforma**. Fare quindi clic su **Avanti**.
 
 1. Completare la procedura guidata.
 
