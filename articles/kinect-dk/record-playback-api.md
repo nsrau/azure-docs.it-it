@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, Sensor, SDK, profondità, RGB, record, riproduzione, Matroska, MKV
 ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276658"
 ---
 # <a name="the-azure-kinect-playback-api"></a>API di riproduzione Kinect di Azure
@@ -134,13 +134,13 @@ Di seguito è riportato un elenco di tutti i tag predefiniti che possono essere 
 
 Se un tag non esiste, si presuppone che abbia il valore predefinito.
 
-| Nome del tag                     | Valore predefinito      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html)Campo | Note     |
+| Nome del tag                     | Valore predefinito      | [`k4a_record_configuration_t`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/structk4a__record__configuration__t.html) Campo | Note     |
 |------------------------------|--------------------|--------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `K4A_COLOR_MODE`             | OFF              | `color_format` / `color_resolution`  | Valori possibili: "OFF", "MJPG_1080P", "NV12_720P", "YUY2_720P" e così via                                      |
 | `K4A_DEPTH_MODE`             | OFF              | `depth_mode` / `depth_track_enabled` | Valori possibili: "OFF," NFOV_UNBINNED "," PASSIVE_IR "e così via                                                |
 | `K4A_IR_MODE`                | OFF              | `depth_mode` / `ir_track_enabled`    | Valori possibili: "OFF", "ACTIVE", "PASSIVe"                                                                    |
 | `K4A_IMU_MODE`               | OFF              | `imu_track_enabled`                  | Valori possibili: "ON", "OFF"                                                                                   |
-| `K4A_CALIBRATION_FILE`       | "calibration.jssu" | N/D                                  | Vedere[`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
+| `K4A_CALIBRATION_FILE`       | "calibration.jssu" | N/D                                  | Vedere [`k4a_device_get_raw_calibration()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8c4e46642cee3115aeb0b33e2b43b24f.html#ga8c4e46642cee3115aeb0b33e2b43b24f) |
 | `K4A_DEPTH_DELAY_NS`         | "0"                | `depth_delay_off_color_usec`         | Valore archiviato in nanosecondi, l'API fornisce microsecondi.                                                        |
 | `K4A_WIRED_SYNC_MODE`        | STANDALONE       | `wired_sync_mode`                    | Valori possibili: "STANDALONE", "MASTER", "subordinata"                                                         |
 | `K4A_SUBORDINATE_DELAY_NS`   | "0"                | `subordinate_delay_off_master_usec`  | Valore archiviato in nanosecondi, l'API fornisce microsecondi.                                                        |

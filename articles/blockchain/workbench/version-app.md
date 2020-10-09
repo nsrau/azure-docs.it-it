@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: brendal
 ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85209879"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versione dell'applicazione Anteprima di Azure blockchain Workbench
@@ -27,7 +27,7 @@ ms.locfileid: "85209879"
 Per aggiungere una nuova versione, caricare i nuovi file di configurazione e del contratto intelligente in Blockchain Workbench.
 
 1. In un Web browser passare all'indirizzo Web di Blockchain Workbench. Ad esempio, `https://{workbench URL}.azurewebsites.net/` Per informazioni su come trovare l'indirizzo Web di Blockchain Workbench, vedere [URL Web di Blockchain Workbench](deploy.md#blockchain-workbench-web-url)
-2. Accedere come amministratore di [blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
+2. Eseguire l'accesso come [amministratore di Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 3. Selezionare l'applicazione blockchain che si vuole aggiornare con un'altra versione.
 4. Selezionare **Aggiungi versione**. Viene visualizzato il riquadro **Aggiungi versione**.
 5. Scegliere i nuovi file di configurazione del contratto della versione e di codice del contratto da caricare. Il file di configurazione viene convalidato automaticamente. Correggere eventuali errori di convalida prima di distribuire l'applicazione.

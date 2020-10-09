@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202960"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
@@ -96,7 +96,7 @@ L'elemento **InputParameters** contiene l'elemento seguente:
 | --------- | ----------- |----------- |
 | ID | Sì | Un identificatore che rappresenta un riferimento a un parametro del metodo di trasformazione delle attestazioni. Ogni metodo di trasformazione delle attestazioni ha i propri valori. Vedere la tabella delle trasformazioni delle attestazioni per un elenco completo dei valori disponibili. |
 | DataType | Sì | Il tipo di dati del parametro, ad esempio String, Boolean, Int o DateTime in base all'enumerazione DataType nello schema XML dei criteri personalizzati. Questo tipo viene usato per eseguire operazioni aritmetiche in modo corretto. Ogni trasformazione delle attestazioni ha i propri valori. Vedere i [riferimenti delle trasformazioni di attestazioni](#claims-transformations-reference) per un elenco completo dei valori disponibili. |
-| valore | Sì | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
+| Valore | Sì | Un valore che viene passato letteralmente alla trasformazione. Alcuni valori sono arbitrari, altri vengono selezionati dal metodo di trasformazione delle attestazioni. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -160,7 +160,7 @@ Ad esempio, è possibile archiviare l'ultima versione delle condizioni d'uso acc
 Per esempi di trasformazioni delle attestazioni, vedere le pagine seguenti:
 
 - [Boolean](boolean-transformations.md)
-- [Date](date-transformations.md)
+- [Data](date-transformations.md)
 - [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Numero di telefono](phone-number-claims-transformations.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 keywords: Kinect, Azure, Sensor, SDK, sistema di coordinate, calibrazione, progetto, Unproject, trasformazione, RGB-d, punto cloud
 ms.openlocfilehash: df7f2aa13c0e9c0241494e96e720b30f3ff1d8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276649"
 ---
 # <a name="use-azure-kinect-sensor-sdk-image-transformations"></a>Usare le trasformazioni delle immagini di Azure Kinect Sensor SDK
@@ -72,7 +72,7 @@ https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7
 
 #### <a name="parameters"></a>Parametri
 
-I parametri di input sono l'handle di trasformazione, un'immagine di profondità e un'immagine a colori. Le risoluzioni delle immagini di profondità e colore devono corrispondere alla depth_mode e color_resolution specificate al momento della creazione dell'handle di trasformazione. L'output è un'immagine di colore trasformata che deve essere allocata dall'utente tramite la chiamata di [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). La risoluzione dell'immagine dei colori trasformata deve corrispondere alla depth_resolution specificata al momento della creazione dell'handle di trasformazione. L'immagine di output archivia quattro valori a 8 bit che rappresentano BGRA per ogni pixel. Quindi, lo stride dell'immagine è ```width * 4 * sizeof(uint8_t)``` . L'ordine dei dati è con interfoliazione pixel, ovvero, valore blu-pixel 0, valore verde-pixel 0, valore rosso-pixel 0, valore alfa-pixel 0, valore blu-pixel 1 e così via.
+I parametri di input sono l'handle di trasformazione, un'immagine di profondità e un'immagine a colori. Le risoluzioni delle immagini di profondità e colore devono corrispondere alla depth_mode e color_resolution specificate al momento della creazione dell'handle di trasformazione. L'output è un'immagine di colore trasformata che deve essere allocata dall'utente tramite la chiamata di [k4a_image_create ()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga859554581bb97a620ff8e92a893e71ef.html#ga859554581bb97a620ff8e92a893e71ef). La risoluzione dell'immagine dei colori trasformata deve corrispondere alla depth_resolution specificata al momento della creazione dell'handle di trasformazione. L'immagine di output archivia i valori a 4 8 bit che rappresentano BGRA per ogni pixel. Quindi, lo stride dell'immagine è ```width * 4 * sizeof(uint8_t)``` . L'ordine dei dati è con interfoliazione pixel, ovvero, valore blu-pixel 0, valore verde-pixel 0, valore rosso-pixel 0, valore alfa-pixel 0, valore blu-pixel 1 e così via.
 
 ### <a name="k4a_transformation_depth_image_to_point_cloud"></a>k4a_transformation_depth_image_to_point_cloud
 

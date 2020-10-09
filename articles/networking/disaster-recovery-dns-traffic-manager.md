@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74483526"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Ripristino di emergenza con DNS di Azure e Gestione traffico
@@ -140,7 +140,7 @@ I passaggi da eseguire per configurare il failover con Gestione traffico di Azur
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Passaggio 1: Creare un nuovo profilo di Gestione traffico di Azure
 Creare un nuovo profilo di Gestione traffico di Azure denominato contoso123 e selezionare Priorità come Metodo di routing. Se si ha già un gruppo di risorse da associare al profilo, è possibile selezionarlo, altrimenti crearne uno nuovo.
 
-![Crea profilo di gestione traffico](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+![Creare un profilo di Gestione traffico](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
 *Figura-creare un profilo di gestione traffico*
 
@@ -165,7 +165,7 @@ Se il valore di retry è impostato su 1 e la durata TTL su 10 secondi, il tempo 
 
 ### <a name="how-automatic-failover-works-using-traffic-manager"></a>Modalità di funzionamento del failover con Gestione traffico
 
-Durante un'emergenza, l'endpoint primario viene sottoposto a sondaggio tramite probe, lo stato diventa **danneggiato** e il sito di ripristino di emergenza rimane **Online**. Per impostazione predefinita, tutto il traffico viene inviato all'endpoint primario (o con priorità più elevata). Se l'endpoint primario risulta danneggiato, Gestione traffico indirizza il traffico verso il secondo endpoint purché rimanga integro. In Gestione traffico si ha la possibilità di configurare più endpoint da usare come endpoint di failover aggiuntivi o come servizi di bilanciamento del carico per la condivisione del carico tra endpoint.
+Durante un'emergenza, l'endpoint primario viene sottoposto a sondaggio tramite probe, lo stato diventa **danneggiato** e il sito di ripristino di emergenza rimane **Online**. Per impostazione predefinita, tutto il traffico viene inviato all'endpoint primario (con priorità più elevata). Se l'endpoint primario risulta danneggiato, Gestione traffico indirizza il traffico verso il secondo endpoint purché rimanga integro. In Gestione traffico si ha la possibilità di configurare più endpoint da usare come endpoint di failover aggiuntivi o come servizi di bilanciamento del carico per la condivisione del carico tra endpoint.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md).

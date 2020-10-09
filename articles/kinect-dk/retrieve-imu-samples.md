@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: Kinect, Azure, configure, depth, color, RBG, camera, Sensor, SDK, IMU, Motion Sensor, Motion, giroscopio, giroscopio, accelerometro, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276688"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Recuperare gli esempi di IMU Kinect di Azure
@@ -63,7 +63,7 @@ Poiché è presente una coda interna di esempi di IMU, è possibile usare il mod
 3. Recuperare tutti gli esempi di IMU in coda.
 4. Ripetere l'attesa alla successiva acquisizione.
 
-Per recuperare tutti gli esempi di IMU attualmente in coda, è possibile chiamare [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) con un valore `timeout_in_ms` pari a 0 in un ciclo fino a quando la funzione non restituisce `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT`indica che non sono presenti campioni in coda e che nessuno è arrivato nel timeout specificato.
+Per recuperare tutti gli esempi di IMU attualmente in coda, è possibile chiamare [`k4a_device_get_imu_sample()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga8e5913b3bb94a453c7143bbd6e399a0e.html#ga8e5913b3bb94a453c7143bbd6e399a0e) con un valore `timeout_in_ms` pari a 0 in un ciclo fino a quando la funzione non restituisce `K4A_WAIT_RESULT_TIMEOUT` . `K4A_WAIT_RESULT_TIMEOUT` indica che non sono presenti campioni in coda e che nessuno è arrivato nel timeout specificato.
 
 ## <a name="usage-example"></a>Esempio di utilizzo
 

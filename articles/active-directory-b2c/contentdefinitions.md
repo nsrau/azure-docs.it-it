@@ -12,10 +12,10 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202858"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -83,7 +83,7 @@ L'elemento **DataUri** viene usato per specificare l'identificatore della pagina
 | ----- | ----------- |
 | `globalexception` | Viene visualizzata una pagina di errore quando viene rilevata un'eccezione o un errore. |
 | `providerselection`, `idpselection` | Elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso.  |
-| `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" collegamento. |
+| `unifiedssp` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. Questo valore fornisce anche la funzionalità "mantieni l'accesso" e "Password dimenticata?" la creazione. |
 | `unifiedssd` | Viene visualizzato un modulo per eseguire l'accesso con un account locale basato su un indirizzo di posta elettronica o un nome utente. |
 | `multifactor` | Vengono verificati numeri di telefono usando SMS o chiamata vocale durante la procedura di iscrizione o di accesso. |
 | `selfasserted` | Visualizza un modulo per la raccolta di dati da un utente. Ad esempio, consente agli utenti di creare o aggiornare il proprio profilo. |
@@ -133,13 +133,13 @@ L'elemento **Metadata** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Item | 0:n | Metadati che fanno riferimento alla definizione del contenuto. |
+| Elemento | 0:n | Metadati che fanno riferimento alla definizione del contenuto. |
 
 L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Chiave | Sì | La chiave dei metadati.  |
+| Chiave | Sì | Chiave dei metadati.  |
 
 #### <a name="metadata-keys"></a>Chiavi di metadati
 
