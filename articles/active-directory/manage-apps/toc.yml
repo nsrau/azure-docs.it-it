@@ -110,18 +110,26 @@
   items:
     - name: Assegnare utenti e gestire l'accesso alle app
       items:
-        - name: Configurare il consenso utente
-          href: configure-user-consent.md
-        - name: Gestire e valutare le richieste di consenso
-          href: manage-consent-requests.md
-        - name: Concedere il consenso amministratore a livello di tenant
-          href: grant-admin-consent.md
-        - name: Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
-          href: configure-admin-consent-workflow.md
+        - name: Consenso e autorizzazioni
+          items:
+            - name: Configurare il consenso utente
+              href: configure-user-consent.md
+            - name: Configurare il consenso del proprietario del gruppo
+              href: configure-user-consent-groups.md
+            - name: Configurare le classificazioni delle autorizzazioni
+              href: configure-permission-classifications.md
+            - name: Gestire i criteri di consenso delle app
+              href: manage-app-consent-policies.md
+            - name: Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
+              href: configure-admin-consent-workflow.md
+            - name: Gestire e valutare le richieste di consenso
+              href: manage-consent-requests.md
+            - name: Concedere il consenso amministratore a livello di tenant
+              href: grant-admin-consent.md
+            - name: Rivedere le autorizzazioni concesse alle app
+              href: manage-application-permissions.md
         - name: Gestire l'assegnazione di utenti per un'app
           href: assign-user-or-group-access-portal.md
-        - name: Rivedere le autorizzazioni concesse alle app
-          href: manage-application-permissions.md
         - name: Creare raccolte in App personali
           href: access-panel-collections.md
         - name: Usare l'accesso alle app self-service

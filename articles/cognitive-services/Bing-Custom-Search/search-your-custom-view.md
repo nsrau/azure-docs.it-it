@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76983113"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chiamare l'istanza di Ricerca personalizzata Bing dal portale
@@ -42,7 +42,7 @@ Facendo clic su **Parametri aggiuntivi** vengono visualizzati i parametri seguen
 
 |Parametro  |Descrizione  |
 |---------|---------|
-|Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI. Si noti che Bing Custom Ricerca video supporta solo due valori `moderate` : `strict`e.        |
+|Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI. Si noti che Bing Custom Ricerca video supporta solo due valori: `moderate` e `strict` .        |
 |Lingua dell'interfaccia utente    | La lingua utilizzata per le stringhe dell'interfaccia utente. Ad esempio, se si abilitano immagini e video nell'Hosted UI, le schede**Image** e **Video** usano la lingua specificata.        |
 |Conteggio     | Il numero di risultati della ricerca da restituire nella risposta. Disponibile solo per gli endpoint Web, Image e Video.         |
 |Offset    | Il numero di risultati della ricerca da ignorare prima di restituire i risultati. Disponibile solo per gli endpoint Web, Image e Video.        |

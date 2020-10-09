@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74776386"
 ---
 # <a name="disclosure-design-guidelines"></a>Linee guida sulla progettazione di informative
@@ -56,7 +56,7 @@ Considerando il vasto corpo delle linee guida di progettazione per le esperienze
 3. [**Quando divulgare**](concepts-disclosure-patterns.md#when-to-disclose): momenti ottimali di divulgazione durante il percorso utente
 
 ## <a name="disclosure-assessment"></a>Valutazione della divulgazione
-Si prendano in considerazione gli utenti&#39; aspettative su un'interazione e sul contesto in cui si verificheranno la voce. Se il contesto rende chiaro che una voce sintetica sta &quot;parlando,&quot; la divulgazione può essere minima, momentanea o anche non necessaria. I tipi principali di contesto che influiscono sulla divulgazione includono il tipo di persona, il tipo di scenario e il livello di esposizione. Consente inoltre di prendere in considerazione chi potrebbe essere in ascolto.
+Si prendano in considerazione gli utenti&#39; aspettative su un'interazione e sul contesto in cui si verificheranno la voce. Se il contesto rende chiaro che una voce sintetica sta &quot; parlando, la &quot; divulgazione può essere minima, momentanea o anche non necessaria. I tipi principali di contesto che influiscono sulla divulgazione includono il tipo di persona, il tipo di scenario e il livello di esposizione. Consente inoltre di prendere in considerazione chi potrebbe essere in ascolto.
 
 ### <a name="understand-context"></a>Informazioni sul contesto
 

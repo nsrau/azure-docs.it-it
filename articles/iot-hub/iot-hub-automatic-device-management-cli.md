@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024966"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestione automatica di dispositivi e moduli con l'interfaccia della riga di comando di Azure
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Gestione automatica di dispositivi IoT e moduli con l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 

@@ -10,10 +10,10 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81767022"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
@@ -74,7 +74,7 @@ I tipi di dati seguenti sono supportati nei modelli creati con la libreria **ser
 | int8\_t |Integer a 8 bit |
 | int16\_t |intero a 16 bit |
 | int32\_t |Intero a 32 bit |
-| int64\_t |Intero a 64 bit |
+| int64\_t |Integer a 64 bit |
 | bool |boolean |
 | ascii\_char\_ptr |Stringa ASCII |
 | EDM\_DATE\_TIME\_OFFSET |Offset data/ora |

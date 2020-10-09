@@ -10,10 +10,10 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78399100"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Azure Machine Learning di monitoraggio
@@ -62,7 +62,7 @@ Per altre informazioni sul filtro e la suddivisione, vedere [funzionalità avanz
 
 La tabella seguente elenca le regole di avviso delle metriche comuni e consigliate per Azure Machine Learning:
 
-| Tipo di avviso | Condizione | Description |
+| Tipo di avviso | Condizione | Descrizione |
 |:---|:---|:---|
 | Model Deploy Failed (Distribuzione di modelli non riuscita) | Tipo di aggregazione: totale, operatore: maggiore di, valore soglia: 0 | Quando una o più distribuzioni di modelli non sono riuscite |
 | Quota Utilization Percentage (Percentuale di utilizzo quota) | Tipo di aggregazione: media, operatore: maggiore di, valore soglia: 90| Quando la percentuale di utilizzo della quota è superiore al 90% |
@@ -85,7 +85,7 @@ Per altre informazioni sulla creazione di un'impostazione di diagnostica, vedere
 
 Per Azure Machine Learning è possibile configurare i log seguenti:
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 |:---|:---|
 | AmlComputeClusterEvent | Eventi da Azure Machine Learning cluster di elaborazione. |
 | AmlComputeClusterNodeEvent | Eventi dai nodi all'interno di un cluster di calcolo Azure Machine Learning. |

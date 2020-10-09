@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74666376"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema e aggregazione dei dati in Analisi del traffico
@@ -151,7 +151,7 @@ Di seguito sono elencati i campi dello schema e gli elementi che indicano
 | DeniedInFlows_d |  | Conteggio dei flussi in ingresso che sono stati negati. (In ingresso per l'interfaccia di rete in cui è stato acquisito il flusso) |
 | AllowedOutFlows_d | | Conteggio dei flussi in uscita consentiti (in uscita dall'interfaccia di rete in cui è stato acquisito il flusso) |
 | DeniedOutFlows_d  | | Conteggio dei flussi in uscita negati (in uscita dall'interfaccia di rete in cui è stato acquisito il flusso) |
-| FlowCount_d | Operazione deprecata. Flussi totali che corrispondono alla stessa tupla con quattro elementi. Nel caso dei tipi di flusso ExternalPublic e AzurePublic, il conteggio includerà anche i flussi da diversi indirizzi IP pubblico.
+| FlowCount_d | Deprecato. Flussi totali che corrispondono alla stessa tupla con quattro elementi. Nel caso dei tipi di flusso ExternalPublic e AzurePublic, il conteggio includerà anche i flussi da diversi indirizzi IP pubblico.
 | InboundPackets_d | Pacchetti ricevuti come acquisiti nell'interfaccia di rete in cui è stata applicata la regola NSG | Questa operazione viene popolata solo per la versione 2 dello schema del log del flusso di NSG |
 | OutboundPackets_d  | Pacchetti inviati come acquisiti nell'interfaccia di rete in cui è stata applicata la regola NSG | Questa operazione viene popolata solo per la versione 2 dello schema del log del flusso di NSG |
 | InboundBytes_d |  Byte ricevuti come acquisiti nell'interfaccia di rete in cui è stata applicata la regola NSG | Questa operazione viene popolata solo per la versione 2 dello schema del log del flusso di NSG |

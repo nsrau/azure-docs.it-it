@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74326730"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Invio e uso di query e risposte dell'API di ricerca di attività locali Bing

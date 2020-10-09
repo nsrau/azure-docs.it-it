@@ -4,10 +4,10 @@ description: Questo articolo esamina l'esperienza di distribuzione di un'applica
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82195868"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio

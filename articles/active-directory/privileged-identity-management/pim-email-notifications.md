@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82232309"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
@@ -31,10 +31,10 @@ Privileged Identity Management (PIM) consente di stabilire quando si verificano 
 
 I messaggi di posta elettronica inviati da Privileged Identity Management per Azure AD e i ruoli delle risorse di Azure hanno l'indirizzo di posta elettronica del mittente seguente:
 
-- Indirizzo di posta elettronica: **Azure-noreply \@ Microsoft.com**
+- Indirizzo di posta elettronica:  **Azure-noreply \@ Microsoft.com**
 - Nome visualizzato: Microsoft Azure
 
-Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
+Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ecco un esempio:
 
 - PIM: Alain Caronte è stato assegnato in modo permanente al ruolo di lettore di backup
 
@@ -68,7 +68,7 @@ Un messaggio di posta elettronica di riepilogo settimanale Privileged Identity M
 
 Il messaggio di posta elettronica include quattro sezioni:
 
-| Riquadro | Descrizione |
+| Tile | Descrizione |
 | --- | --- |
 | **Users activated** (Utenti attivati) | Numero di volte in cui gli utenti hanno attivato il proprio ruolo idoneo all'interno dell'organizzazione. |
 | **Users made permanent** (Utenti resi permanenti) | Numero di volte per cui un utente con un'assegnazione idonea viene reso permanente. |

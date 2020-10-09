@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74951480"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
@@ -39,7 +39,7 @@ Il computer che distribuisce la sessione Cloud Shell è temporaneo e viene ricic
 
 Cloud Shell supporta le versioni più recenti di Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozilla Firefox e Apple Safari. Safari in modalità privata non è supportato.
 
-### <a name="copy-and-paste"></a>Copiare e incollare
+### <a name="copy-and-paste"></a>Funzionalità Copia e Incolla
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
@@ -47,7 +47,7 @@ Cloud Shell supporta le versioni più recenti di Microsoft Edge, Microsoft Inter
 
 Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra bash o PowerShell tramite il menu causa il riavvio Cloud Shell, che termina le sessioni esistenti. In alternativa, è possibile eseguire bash all'interno di PowerShell digitando `bash` ed è possibile eseguire PowerShell all'interno di bash digitando `pwsh` .
 
-### <a name="usage-limits"></a>Limiti di consumo
+### <a name="usage-limits"></a>Limiti di utilizzo
 
 Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiva in esecuzione prolungata viene quindi interrotta senza preavviso.
 

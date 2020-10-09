@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ac681bb13ccea49c7a2f566a6fcdb6adb8cec5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81683735"
 ---
 # <a name="understand-the-device-model-schema"></a>Informazioni sullo schema del modello dei dispositivi
@@ -82,7 +82,7 @@ La tabella seguente descrive le voci dello schema di primo livello:
 
 Le sezioni seguenti descrivono le altre sezioni nello schema JSON:
 
-## <a name="simulation"></a>Di simulazione
+## <a name="simulation"></a>Simulazione
 
 Nella sezione `Simulation` viene definito lo stato interno del dispositivo simulato. Gli eventuali valori di telemetria inviati dal dispositivo devono far parte di questo stato del dispositivo.
 

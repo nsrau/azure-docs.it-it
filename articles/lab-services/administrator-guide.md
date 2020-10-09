@@ -4,10 +4,10 @@ description: Questa guida è rivolta agli amministratori che creano e gestiscono
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444149"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
@@ -117,7 +117,7 @@ Quando si inizia a usare Azure Lab Services, è consigliabile stabilire delle co
 | Resource group | Contiene uno o più account lab e una o più raccolte di immagini condivise | \<organization short name\>-\<environment\>-RG<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente della risorsa, ad esempio Pilot o Production</li><li>**Rg** indica il tipo di risorsa: gruppo di risorse.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | Account lab | Contiene uno o più lab. | \<organization short name\>-\<environment\>-la<ul><li>**Nome breve organizzazione** identifica il nome dell'organizzazione supportata dal gruppo di risorse</li><li>**Ambiente** identifica l'ambiente della risorsa, ad esempio Pilot o Production</li><li>**Rg** indica il tipo di risorsa: account lab.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | Lab per le classi | Contiene una o più VM. |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nome classe** identifica il nome del corso in classe supportato dal lab.</li><li>**Intervallo di tempo** identifica l'intervallo di tempo in cui il corso in classe viene offerto.</li>**Identificatore docente** identifica il docente proprietario del lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Raccolta di immagini condivise | Contiene una o più versioni di immagini di VM | \<organization short name\>gallery | contosouniversitylabsgallery |
+| Raccolta di immagini condivise | Contiene una o più versioni di immagini di VM | \<organization short name\>raccolta | contosouniversitylabsgallery |
 
 Per altre informazioni sulla denominazione di altre risorse di Azure, vedere [Convenzioni di denominazione per le risorse di Azure](/azure/architecture/best-practices/naming-conventions).
 

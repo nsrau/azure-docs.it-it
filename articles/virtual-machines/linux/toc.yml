@@ -343,7 +343,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json

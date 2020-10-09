@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 02e13ce81ed2f11c0bb69015a4864c4a1ad55593
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81430968"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorare e gestire la creazione di certificati
@@ -86,7 +86,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 ### <a name="request"></a>Richiesta
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OPPURE
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -121,7 +121,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OPPURE
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -153,7 +153,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OPPURE
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -192,7 +192,7 @@ Un oggetto in sospeso può essere eliminato o sovrascritto da un'operazione di c
 ### <a name="request"></a>Richiesta
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OPPURE
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -296,7 +296,7 @@ Un annullamento può solo essere richiesto. Una richiesta può essere annullata 
 ### <a name="request"></a>Richiesta
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OPPURE
+OR
 
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -336,7 +336,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ### <a name="request"></a>Richiesta
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-OPPURE
+OR
 
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 

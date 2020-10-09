@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
 ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82127765"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selezionare un dominio per un progetto di Visione personalizzata
@@ -27,7 +27,7 @@ Dal pannello impostazioni per il progetto di Visione personalizzata, è possibil
 |---|---|
 |__Generico__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico.|
 |__Food__|Ottimizzato per fotografie di piatti come nel menù di un ristorante. Se si vogliono classificare fotografie di singoli frutti o verdure, usare il dominio Food (Cibo).|
-|__Luoghi__|Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Il dominio offre i migliori risultati quando il luogo di interesse è chiaramente visibile nella fotografia. Il dominio è efficace anche se il luogo è leggermente nascosto da utenti posti davanti.|
+|__Punti di riferimento__|Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Il dominio offre i migliori risultati quando il luogo di interesse è chiaramente visibile nella fotografia. Il dominio è efficace anche se il luogo è leggermente nascosto da utenti posti davanti.|
 |__Retail__|Ottimizzato per le immagini che si trovano in un catalogo di vendita o in un sito Web di vendita. Se si vogliono classificare con alta precisione vestiti, pantaloni e magliette o camicie, usare questo dominio.|
 |__Domini compatti__| Ottimizzato per i vincoli di classificazione in tempo reale nei dispositivi perimetrali.|
 
@@ -35,14 +35,14 @@ Dal pannello impostazioni per il progetto di Visione personalizzata, è possibil
 
 |Dominio|Scopo|
 |---|---|
-|__Generalee__| Ottimizzato per un'ampia gamma di attività di rilevamento oggetti. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico.|
+|__Generale__| Ottimizzato per un'ampia gamma di attività di rilevamento oggetti. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico.|
 |__Logo__|Ottimizzato per il rilevamento di logo dei marchi nelle immagini.|
-|__Prodotti su scaffali__|Ottimizzato per il rilevamento e la classificazione dei prodotti negli scaffali.|
+|__Prodotti sugli scaffali__|Ottimizzato per il rilevamento e la classificazione dei prodotti sugli scaffali.|
 |__Domini compatti__| Ottimizzato per i vincoli del rilevamento di oggetti in tempo reale nei dispositivi perimetrali.|
 
 ## <a name="compact-domains"></a>Domini compatti
 
-I modelli generati da domini compatti possono essere esportati per l'esecuzione in locale. Le prestazioni del modello variano in base al dominio selezionato. Nella tabella seguente vengono segnalate le dimensioni e il tempo di inferenza del modello su Intel Desktop CPU \[e\]NVIDIA GPU 1. 
+I modelli generati da domini compatti possono essere esportati per l'esecuzione in locale. Le prestazioni del modello variano in base al dominio selezionato. Nella tabella seguente vengono segnalate le dimensioni e il tempo di inferenza del modello su Intel Desktop CPU e NVidia GPU \[ 1 \] . 
 
 > [!NOTE]
 > Questi numeri non includono la pre-elaborazione e il tempo di postelaborazione.
@@ -70,4 +70,4 @@ Quando si seleziona _Vision ai Dev Kit_ , i domini _generici_, i _punti di rifer
 >[!IMPORTANT]
 >Non vi è alcuna garanzia che i modelli esportati forniscano esattamente lo stesso risultato dell'API di stima nel cloud. Una lieve differenza nella piattaforma in esecuzione o l'implementazione della pre-elaborazione può causare una differenza maggiore negli output del modello. Per informazioni dettagliate sulla logica di pre-elaborazione, vedere [questo documento](quickstarts/image-classification.md).
 
-\[1\] Intel Xeon E5-2690 CPU e NVIDIA Tesla M60
+\[1 \] Intel Xeon E5-2690 CPU e NVIDIA Tesla M60

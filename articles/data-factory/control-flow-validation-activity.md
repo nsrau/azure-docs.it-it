@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 764b41d1823e8edce134c5099e066486f4f08acc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417930"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Attività di convalida in Azure Data Factory
@@ -63,7 +63,7 @@ ms.locfileid: "81417930"
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività' Validation ' | string | Sì |
-type | Deve essere impostato su **Validation**. | string | Sì |
+type | Deve essere impostato su  **Validation**. | string | Sì |
 dataset | L'attività bloccherà l'esecuzione fino a quando non viene convalidato il riferimento al set di dati esistente e soddisfa i criteri specificati oppure è stato raggiunto il timeout. Il set di dati fornito deve supportare la proprietà "MinimumSize" o "ChildItems". | Riferimento a DataSet | Sì |
 timeout | Specifica il timeout per l'attività da eseguire. Se non viene specificato alcun valore, il valore predefinito è 7 giorni ("7.00:00:00"). Il formato è d. hh: mm: SS | string | No |
 sleep | Ritardo in secondi tra i tentativi di convalida. Se non viene specificato alcun valore, il valore predefinito è 10 secondi. | Integer | No |

@@ -4,10 +4,10 @@ description: Descrive la sintassi JSON dichiarativa per i modelli Azure Resource
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82203829"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Sintassi ed espressioni nei modelli di Azure Resource Manager

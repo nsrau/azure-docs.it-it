@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81680715"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
@@ -185,7 +185,7 @@ Nella sezione precedente si configura l'hub delle cose per indirizzare i messagg
 
       ![Creare una connessione del bus di servizio per l'app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Selezionare i criteri del bus di servizio (RootManageSharedAccessKey). Quindi selezionare **Crea**.
+   1. Selezionare i criteri del bus di servizio (RootManageSharedAccessKey). Quindi selezionare  **Crea**.
 
       ![Creare una connessione del bus di servizio per l'app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
