@@ -2,18 +2,18 @@
 title: includere il file
 description: includere file
 services: data-factory
-author: linda33wj
+author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 01/08/2020
-ms.author: jingwang
+ms.date: 10/06/2020
+ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: bfb42e0ba81eef145932db072c8a80a2f8e00932
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a5ea95e0ea958c495e28eaa1fee72e34362157a1
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425174"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859353"
 ---
 Azure Data Factory è un servizio multi-tenant che prevede i limiti predefiniti seguenti per fare in modo che le sottoscrizioni dei clienti siano protette da carichi di lavoro reciproci. Per aumentare i limiti fino al valore massimo consentito per la sottoscrizione, contattare il supporto tecnico.
 
@@ -21,14 +21,14 @@ Azure Data Factory è un servizio multi-tenant che prevede i limiti predefiniti 
 
 | Risorsa | Limite predefinito | Limite massimo |
 | -------- | ------------- | ------------- |
-| Data factory in una sottoscrizione di Azure | 800 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Data factory in una sottoscrizione di Azure | 800 | 800 |
 | Numero totale di entità, ad esempio pipeline, set di dati, trigger, servizi collegati, endpoint privati e runtime di integrazione, all'interno di una data factory | 5\.000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Totale di core CPU per istanze di Azure-SSIS Integration Runtime in un'unica sottoscrizione | 256 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Esecuzioni di pipeline simultanee per ogni data factory condivisa tra tutte le pipeline nella factory | 10,000  | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Esecuzioni attività esterne simultanee per sottoscrizione per ogni [area Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Le attività esterne vengono gestite nel runtime di integrazione, ma vengono eseguite in servizi collegati, tra cui Databricks, stored procedure, HDInsights, Web e altri.</small> | 3000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Esecuzioni attività di pipeline simultanee per sottoscrizione per ogni [area Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Le attività della pipeline vengono eseguite nel runtime di integrazione, tra cui Lookup, GetMetadata e Delete. </small>| 1000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Esecuzioni di pipeline simultanee per ogni data factory condivisa tra tutte le pipeline nella factory | 10,000  | 10,000 |
+| Esecuzioni attività esterne simultanee per sottoscrizione per ogni [area Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Le attività esterne vengono gestite nel runtime di integrazione, ma vengono eseguite in servizi collegati, tra cui Databricks, stored procedure, HDInsights, Web e altri.</small> | 3,000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Esecuzioni attività di pipeline simultanee per sottoscrizione per ogni [area Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Le attività della pipeline vengono eseguite nel runtime di integrazione, tra cui Lookup, GetMetadata e Delete. </small>| 1\.000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Operazioni di creazione simultanee per sottoscrizione per ogni [area Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Sono incluse le operazioni di test connessione, esplorazione dell'elenco cartelle e dell'elenco tabelle ed anteprima dei dati. | 200 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Consumo di unità di integrazione dei dati simultanee<sup>1</sup> per sottoscrizione per ogni [are di Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Gruppo di aree 1<sup>2</sup>: 6000<br>Gruppo di aree 2<sup>2</sup>: 3000<br>Gruppo di aree 3<sup>2</sup>: 1500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Consumo di unità di integrazione dei dati simultanee<sup>1</sup> per sottoscrizione per ogni [are di Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Gruppo di aree 1<sup>2</sup>: 6000<br>Gruppo di aree 2<sup>2</sup>: 3,000<br>Gruppo di aree 3<sup>2</sup>: 1.500 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero massimo di attività per pipeline, che include le attività interne per i contenitori | 40 | 40 |
 | Numero massimo di runtime di integrazione collegati che possono essere creati su un singolo runtime di integrazione self-hosted | 100 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero massimo di parametri per pipeline | 50 | 50 |
@@ -41,14 +41,13 @@ Azure Data Factory è un servizio multi-tenant che prevede i limiti predefiniti 
 | Byte per oggetto per gli oggetti pipeline<sup>3</sup> | 200 kB | 200 kB |
 | Byte per oggetto per oggetti set di dati e servizio collegato<sup>3</sup> | 100 kB | 2\.000 KB |
 | Unità di integrazione dati<sup>1</sup> per esecuzione attività di copia | 256 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Chiamate API in scrittura | 1\.200/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Chiamate API in lettura | 12.500/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Monitoraggio delle query al minuto | 1\.000 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Operazioni CRUD di entità al minuto | 50 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Chiamate API in scrittura | 1\.200/ora | 1\.200/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. |
+| Chiamate API in lettura | 12.500/ora | 12.500/ora<br/><br/> Questo limite è imposto da Azure Resource Manager, non da Azure Data Factory. |
+| Monitoraggio delle query al minuto | 1\.000 | 1\.000 |
 | Tempo massimo per la sessione di debug del flusso di dati | 8 ore | 8 ore |
 | Numero di flussi di dati simultanei per runtime di integrazione | 50 | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Numero di sessioni di debug del flusso di dati simultanee per utente per ogni factory | 3 | 3 |
-| Limite TTL di Azure IR per Flusso di dati | 4 ore | [Contattare il supporto tecnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Limite TTL di Azure IR per Flusso di dati | 4 ore |  4 ore |
 
 <sup>1</sup> L'unità di integrazione dei dati viene usata in un'operazione di copia da cloud a cloud. Per altre informazioni, vedere [Unità di integrazione dei dati (versione 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Per informazioni sulla fatturazione, vedere [Prezzi di Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
