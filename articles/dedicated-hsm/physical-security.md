@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70881036"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Sicurezza fisica di HSM dedicato di Azure
@@ -57,6 +57,6 @@ Prima di eseguire il provisioning di dispositivi o di iniziare la progettazione 
 
 * [Disponibilità elevata](high-availability.md)
 * [Rete](networking.md)
-* [Facilità di supporto](supportability.md)
+* [Supporto](supportability.md)
 * [Monitoring](monitoring.md)
 * [Architettura di distribuzione](deployment-architecture.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: damaerte
 ms.openlocfilehash: 3435d958049012750e775e2a17f43f463a0cc358
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70860314"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Uso della finestra Azure Cloud Shell
@@ -66,7 +66,7 @@ Fare clic sull'icona anteprima Web nella parte superiore sinistra della finestra
 ![Anteprima Web](media/using-the-shell-window/preview.png)  
 <br>
 ![Configurare la porta](media/using-the-shell-window/preview-configure.png)  
-Fare clic sull'icona anteprima Web in alto a sinistra nella finestra e selezionare "porta di anteprima". per visualizzare l'anteprima di una porta aperta in una nuova scheda. fare clic sull'icona anteprima Web in alto a sinistra nella finestra e selezionare "Chiudi porta...". per chiudere la porta aperta.  
+Fare clic sull'icona anteprima Web in alto a sinistra nella finestra e selezionare "porta di anteprima". per visualizzare l'anteprima di una porta aperta in una nuova scheda. Fare clic sull'icona anteprima Web in alto a sinistra nella finestra e selezionare "Chiudi porta...". per chiudere la porta aperta.  
 ![Anteprima/Chiudi porta](media/using-the-shell-window/preview-options.png)
 
 ## <a name="minimize--maximize-cloud-shell-window"></a>Ridurre e ingrandire la finestra Cloud Shell
@@ -74,7 +74,7 @@ Fare clic sull'icona di riduzione nella parte superiore destra della finestra pe
 Fare clic sull'icona di ingrandimento per aprire la finestra alla grandezza massima. Per ripristinare la dimensioni precedenti, fare clic su Ripristina.  
 ![Ridurre o ingrandire la finestra](media/using-the-shell-window/minmax.png)
 
-## <a name="copy-and-paste"></a>Copiare e incollare
+## <a name="copy-and-paste"></a>Funzionalità Copia e Incolla
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ## <a name="resize-cloud-shell-window"></a>Ridimensionare la finestra Cloud Shell

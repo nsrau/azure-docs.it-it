@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67721629"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedure consigliate per l'uso dell'API del rilevamento anomalie
@@ -93,9 +93,9 @@ L'API rilevatore di anomalie funziona meglio in una serie temporale distribuita 
 
 Se si è certi che i dati delle serie temporali hanno un modello stagionale (uno che si verifica a intervalli regolari), è possibile migliorare l'accuratezza e il tempo di risposta dell'API. 
 
-Se si `period` specifica un oggetto quando si costruisce la richiesta JSON, è possibile ridurre la latenza di rilevamento anomalie fino al 50%. `period` È un numero intero che specifica approssimativamente il numero di punti dati che la serie temporale impiega per ripetere un modello. Ad esempio, una serie temporale con un punto dati al giorno `period` avrà come `7`e una serie temporale con un punto all'ora (con lo stesso modello settimanale) avrebbe un `period` di. `7*24` Se non si è certi dei modelli di dati, non è necessario specificare questo parametro.
+Se si specifica un oggetto `period` quando si costruisce la richiesta JSON, è possibile ridurre la latenza di rilevamento anomalie fino al 50%. `period`È un numero intero che specifica approssimativamente il numero di punti dati che la serie temporale impiega per ripetere un modello. Ad esempio, una serie temporale con un punto dati al giorno avrà `period` come `7` e una serie temporale con un punto all'ora (con lo stesso modello settimanale) avrebbe un `period` di  `7*24` . Se non si è certi dei modelli di dati, non è necessario specificare questo parametro.
 
-Per ottenere risultati ottimali, `period`fornire un punto dati di 4, più uno aggiuntivo. Ad esempio, i dati orari con un modello settimanale, come descritto in precedenza, devono fornire 673 punti dati nel corpo`7 * 24 * 4 + 1`della richiesta ().
+Per ottenere risultati ottimali, fornire `period` un punto dati di 4, più uno aggiuntivo. Ad esempio, i dati orari con un modello settimanale, come descritto in precedenza, devono fornire 673 punti dati nel corpo della richiesta ( `7 * 24 * 4 + 1` ).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Campionamento dei dati per il monitoraggio in tempo reale
 
@@ -104,4 +104,4 @@ Se i dati di streaming vengono campionati a breve (ad esempio secondi o minuti),
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Guida introduttiva: rilevare le anomalie nei dati delle serie temporali usando l'API REST del rilevamento anomalie](../quickstarts/detect-data-anomalies-csharp.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](../quickstarts/detect-data-anomalies-csharp.md)

@@ -9,10 +9,10 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77368311"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Creare e usare le regole personalizzate del Web Application Firewall v2 sul gateway applicazione
@@ -28,7 +28,7 @@ Questo articolo illustra alcune regole personalizzate di esempio che è possibil
 
 ## <a name="example-1"></a>Esempio 1
 
-Si sa che esiste un bot denominato *evilbot* che si vuole bloccare dalla ricerca per indicizzazione del sito Web. In questo caso, si bloccherà in *evilbot* dell'agente utente nelle intestazioni della richiesta.
+Si sa che esiste un bot denominato *evilbot* che si vuole bloccare dalla ricerca per indicizzazione del sito Web. In questo caso, si bloccherà in User-Agent *evilbot* nelle intestazioni della richiesta.
 
 Logica: p
 
@@ -225,11 +225,11 @@ Ecco il codice JSON corrispondente:
   }
 ```
 
-Regola CRS corrispondente:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+Regola CRS corrispondente: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-4"></a>Esempio 4
 
-Per questo esempio, si vuole bloccare il *Evilbot*dell'agente utente e il traffico nell'intervallo 192.168.5.0/24. A tale scopo, è possibile creare due condizioni di corrispondenza separate e inserirle entrambe nella stessa regola. In questo modo si garantisce che se si verifica una corrispondenza tra *evilbot* nell'intestazione dell'agente utente **e** gli indirizzi IP dell'intervallo 192.168.5.0/24, la richiesta viene bloccata.
+Per questo esempio, si desidera bloccare User-Agent *evilbot*e il traffico nell'intervallo 192.168.5.0/24. A tale scopo, è possibile creare due condizioni di corrispondenza separate e inserirle entrambe nella stessa regola. In questo modo si garantisce che se si verifica la corrispondenza di *evilbot* nell'intestazione User-Agent **e** negli indirizzi IP dall'intervallo 192.168.5.0/24, la richiesta viene bloccata.
 
 Logica: p **e** q
 

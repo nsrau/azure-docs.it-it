@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71827905"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Abilitare la registrazione diagnostica per servizi cognitivi di Azure
@@ -43,7 +43,7 @@ Per iniziare, abilitare la registrazione diagnostica usando il portale di Azure.
 4. Immettere un nome per l'impostazione. Selezionare quindi **archivia in un account di archiviazione** e **Invia a log Analytics**.
 5. Quando viene richiesto di configurare, selezionare l'account di archiviazione e l'area di lavoro OMS che si vuole usare per archiviare i log di diagnostica. **Nota**: se non si ha un account di archiviazione o un'area di lavoro OMS, seguire le istruzioni per crearne uno.
 6. Selezionare **Audit**, **RequestResponse**e **AllMetrics**. Impostare quindi il periodo di conservazione per i dati del log di diagnostica. Se un criterio di conservazione è impostato su zero, gli eventi per tale categoria di log vengono archiviati per un periodo illimitato.
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 Potrebbero essere necessarie fino a due ore prima che i dati di registrazione siano disponibili per eseguire query e analizzare. Quindi, non c'è da preoccuparsi se non vengono visualizzati immediatamente.
 
@@ -115,7 +115,7 @@ by bin(TimeGenerated, 10s), OperationName
 
 * Per informazioni su come abilitare la registrazione e le metriche e le categorie di log supportate dai vari servizi di Azure, vedere la [Panoramica delle metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) in Microsoft Azure e panoramica degli articoli relativi ai [log di diagnostica di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) .
 * Per informazioni sugli hub eventi, leggere gli articoli seguenti:
-  * [Che cos'è l'hub di eventi di Azure?](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
+  * [Che cos'è Hub eventi di Azure?](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
   * [Introduzione all'Hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-csharp-ephcs-getstarted)
 * Leggere [Scaricare le metriche e i log di diagnostica da Archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs).
 * Leggere [informazioni sulle ricerche nei log nei log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new).
