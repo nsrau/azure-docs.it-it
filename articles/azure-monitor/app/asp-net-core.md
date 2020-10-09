@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: eae6117f82f3bb138edb6cea23a2c052e19fb0cf
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803592"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839011"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -121,7 +121,7 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>Segreti utente e altri provider di configurazione
 
-Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio, `services.AddApplicationInsightsTelemetry(Configuration);`
+Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio: `services.AddApplicationInsightsTelemetry(Configuration);`.
 A partire da Microsoft. ApplicationInsights. AspNetCore versione [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` la chiamata a leggerà automaticamente la chiave di strumentazione dall' `Microsoft.Extensions.Configuration.IConfiguration` applicazione. Non è necessario fornire esplicitamente `IConfiguration` .
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione
@@ -134,7 +134,7 @@ Eseguire l'applicazione e creare richieste. I dati di telemetria dovrebbero ora 
 
 ### <a name="ilogger-logs"></a>Log ILogger
 
-I log emessi tramite un livello `ILogger` di gravità `Warning` o maggiore vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
+I log emessi con `ILogger` gravità `Warning` e versioni successive vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
 
 ### <a name="dependencies"></a>Dependencies
 
@@ -397,7 +397,7 @@ Inoltre, se si usano le istruzioni basate su Visual Studio da [qui](#enable-appl
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Come è possibile tenere traccia dei dati di telemetria che non vengono raccolti automaticamente?
 
-Ottenere un'istanza di `TelemetryClient` usando l'inserimento del costruttore e chiamare il `TrackXXX()` metodo richiesto. Non è consigliabile creare nuove `TelemetryClient` istanze in un'applicazione ASP.NET Core. Un'istanza singleton di `TelemetryClient` è già registrata nel `DependencyInjection` contenitore, che condivide `TelemetryConfiguration` con il resto dei dati di telemetria. La creazione di una nuova `TelemetryClient` istanza è consigliata solo se è necessaria una configurazione separata dal resto dei dati di telemetria.
+Ottenere un'istanza di `TelemetryClient` usando l'inserimento del costruttore e chiamare il `TrackXXX()` metodo richiesto. Non è consigliabile creare nuove `TelemetryClient` `TelemetryConfiguration` istanze di o in un'applicazione ASP.NET Core. Un'istanza singleton di `TelemetryClient` è già registrata nel `DependencyInjection` contenitore, che condivide `TelemetryConfiguration` con il resto dei dati di telemetria. La creazione di una nuova `TelemetryClient` istanza è consigliata solo se è necessaria una configurazione separata dal resto dei dati di telemetria.
 
 L'esempio seguente illustra come tenere traccia dei dati di telemetria aggiuntivi da un controller.
 
@@ -423,6 +423,40 @@ public class HomeController : Controller
 ```
 
 Per altre informazioni sulla creazione di report di dati personalizzati in Application Insights, vedere informazioni di riferimento sulle API per le [metriche personalizzate Application Insights](./api-custom-events-metrics.md). Un approccio simile può essere usato per inviare metriche personalizzate a Application Insights usando l' [API getmetric](./get-metric.md).
+
+### <a name="how-do-i-customize-ilogger-logs-collection"></a>Ricerca per categorie personalizzare la raccolta dei log ILogger?
+
+Per impostazione predefinita, vengono acquisiti automaticamente solo i log con gravità `Warning` e versioni successive. Per modificare questo comportamento, sostituire in modo esplicito la configurazione di registrazione per il provider, `ApplicationInsights` come illustrato di seguito.
+La configurazione seguente consente a ApplicationInsights di acquisire tutti i log di gravità `Information` e superiori.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+È importante sottolineare che il provider ApplicationInsights non può acquisire i `Information` log. Il motivo è che SDK aggiunge un filtro di registrazione predefinito, indicando `ApplicationInsights` di acquisire solo `Warning` e versioni successive. Per questo motivo, è richiesto un override esplicito per ApplicationInsights.
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    }
+  }
+}
+```
+
+Scopri di più sulla [configurazione di ILogger](ilogger.md#control-logging-level).
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>Alcuni modelli di Visual Studio hanno usato il metodo di estensione UseApplicationInsights () in IWebHostBuilder per abilitare Application Insights. Questo utilizzo è ancora valido?
 
@@ -477,7 +511,7 @@ Questo SDK richiede `HttpContext` e pertanto non funziona in alcuna applicazione
 
 ## <a name="open-source-sdk"></a>SDK open source
 
-* [Leggere e contribuire al codice](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Leggere e contribuire al codice](https://github.com/microsoft/ApplicationInsights-dotnet).
 
 Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla versione](./release-notes.md).
 

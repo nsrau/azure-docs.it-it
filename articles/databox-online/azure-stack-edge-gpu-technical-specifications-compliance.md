@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899034"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839946"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specifiche tecniche e conformità per Azure Stack Edge Pro con GPU 
 
@@ -79,20 +79,20 @@ Per un elenco completo dei cavi, dei commutatori e dei ricetrasmettitori support
 
 ## <a name="storage-specifications"></a>Specifiche di archiviazione
 
-I dispositivi Pro Azure Stack Edge hanno cinque SSD 2,5 "NVMe DC P4610", ognuno con una capacità di 1,6 TB. L'unità di avvio è un'unità SSD SATA da 240 GB. La capacità totale utilizzabile per il dispositivo è circa 8,28 TB. La tabella seguente elenca la capacità di archiviazione del dispositivo.
+I dispositivi Pro Azure Stack Edge hanno cinque SSD 2,5 "NVMe DC P4610", ognuno con una capacità di 1,6 TB. L'unità di avvio è un'unità SSD SATA da 240 GB. La capacità totale utilizzabile per il dispositivo è circa 4,19 TB. La tabella seguente elenca la capacità di archiviazione del dispositivo.
 
 |     Specifiche                          |     valore             |
 |--------------------------------------------|-----------------------|
-|    Unità SSD (Solid-State) SATA di avvio      |    1                  |
 |    Numero di unità SSD NVMe                     |    5                  |
-|    Capacità SSD di avvio                       |    240 GB             |
 |    Capacità SSD NVMe singola                |    1,6 TB             |
-|    Capacità totale                          |    8,28 TB            |
-|    Capacità utilizzabile totale*                  |    ~ 7,95 TB          |
+|    Unità SSD (Solid-State) SATA di avvio      |    1                  |
+|    Capacità SSD di avvio                       |    240 GB             |
+|    Capacità totale                          |    8 TB             |
+|    Capacità utilizzabile totale*                  |    ~ 4,19 TB          |
 |    Controller SAS                          |    HBA330 12 Gbps     |
 
 
-**Parte dello spazio è riservato per uso interno.*
+**Dopo la resilienza di parità e riservando spazio per uso interno.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: c4a78168f2759f9d7bb9e50165b8cf03c71ecab5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845938"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839912"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configurare RBAC di Azure per FHIR 
 
@@ -31,11 +31,11 @@ L' **autorità** deve essere impostata sul tenant di Azure Active Directory asso
 
 Per concedere a utenti, entità servizio o gruppi l'accesso al piano dati FHIR, fare clic su **controllo di accesso (IAM)**, quindi fare clic su **assegnazioni di ruolo** e su **+ Aggiungi**:
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Aggiungere l'assegnazione di ruolo di Azure":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Confermare la modalità RBAC di Azure":::
 
 Nella selezione del **ruolo** cercare uno dei ruoli predefiniti per il piano dati FHIR:
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Ruoli dati FHIR predefiniti":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Confermare la modalità RBAC di Azure":::
 
 È possibile scegliere tra:
 
@@ -54,7 +54,7 @@ L'API di Azure per FHIR memorizza nella cache le decisioni per un massimo di 5 m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come assegnare i ruoli di Azure per il piano dati FHIR. Ulteriori informazioni sulle impostazioni aggiuntive per l'API di Azure per FHIR:
+In questo articolo si è appreso come assegnare i ruoli di Azure per il piano dati FHIR. Per informazioni sulle impostazioni aggiuntive per l'API di Azure per FHIR:
  
 >[!div class="nextstepaction"]
->[Impostazioni aggiuntive API di Azure per FHIR](azure-api-for-fhir-additional-settings.md)
+>[Impostazioni aggiuntive per l'API di Azure per FHIR](azure-api-for-fhir-additional-settings.md)

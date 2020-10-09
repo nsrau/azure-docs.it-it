@@ -1,16 +1,14 @@
 ---
 title: Diagnostica Reliable Services con stato di Azure Service Fabric
 description: Funzionalità di diagnostica per i servizi Reliable Services con stato in Azure Service Fabric
-author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
-ms.author: dekapur
-ms.openlocfilehash: 92fd8dbd1afbd2bdcabbaebbd5dc056d912ae118
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5a3831dd4f8d5402980fac3daf8c35d9884c852d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253117"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840762"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -20,8 +18,8 @@ Il nome EventSource per la classe StatefulServiceBase dei servizi Reliable con s
 
 Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e la [libreria TraceEvent di Microsoft](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Events
-| Nome evento | ID evento | Livello | Descrizione dell'evento |
+## <a name="events"></a>Eventi
+| Nome evento | ID evento | Level | Descrizione evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emesso quando l'attività RunAsync del servizio viene avviata |
 | StatefulRunAsyncCancellation |2 |Informativo |Emesso quando l'attività RunAsync del servizio viene annullata |
@@ -41,7 +39,7 @@ L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richie
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Services definisce le categorie di contatori delle prestazioni seguenti:
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 | --- | --- |
 | Replicatore transazionale di Service Fabric |Contatori specifici di Replicatore transazionale di Service Fabric di Azure |
 | Service Fabric TStore |Contatori specifici di Azure Service Fabric TStore |
@@ -89,7 +87,7 @@ Di seguito è riportato un esempio di un nome di istanza per un contatore appart
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione in formato stringa dell'ID della partizione di Service Fabric, `131652217797162571` è l'ID della replica, `142652217797162571` è l'ID del provider di stato e `1337` è il differenziatore dell'istanza del contatore delle prestazioni. `urn:MyReliableDictionary/dataStore`nome del provider di stato che archivia i dati per la raccolta denominata `urn:MyReliableDictionary` .
+Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione in formato stringa dell'ID della partizione di Service Fabric, `131652217797162571` è l'ID della replica, `142652217797162571` è l'ID del provider di stato e `1337` è il differenziatore dell'istanza del contatore delle prestazioni. `urn:MyReliableDictionary/dataStore` nome del provider di stato che archivia i dati per la raccolta denominata `urn:MyReliableDictionary` .
 
 ### <a name="transactional-replicator-performance-counters"></a>Contatori delle prestazioni di Replicatore transazionale
 

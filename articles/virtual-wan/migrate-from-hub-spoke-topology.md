@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: e6078ffcaaf98702bf809dfeb435cdaa0f9b5701
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777191"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839640"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Eseguire la migrazione alla rete WAN virtuale di Azure
 
@@ -110,10 +110,6 @@ Distribuire un hub WAN virtuale in ogni area. Configurare l'hub WAN virtuale con
 
 Connettere l'hub WAN virtuale ai circuiti ExpressRoute esistenti e configurare le VPN da sito a sito tramite Internet per qualsiasi ramo remoto.
 
-> [!NOTE]
-> I circuiti ExpressRoute devono essere aggiornati al tipo di SKU Premium per connetterli all'hub della rete WAN virtuale.
->
-
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="Hub e spoke":::
 **Figura 3: migrazione da Hub e spoke a una rete virtuale gestita dal cliente**
 
@@ -190,7 +186,7 @@ Il percorso 2 Mostra il flusso di traffico dal quartier generale europeo conness
 
 Il traffico viene instradato come segue:
 
-* La sede centrale europea è connessa tramite il circuito ExpressRoute Premium all'hub WAN virtuale dell'Europa occidentale.
+* La sede centrale europea è connessa tramite il circuito ExpressRoute all'hub WAN virtuale dell'Europa occidentale.
 
 * La connettività globale da hub a hub della rete WAN virtuale garantisce il transito del traffico verso la rete virtuale connessa nell'area remota.
 

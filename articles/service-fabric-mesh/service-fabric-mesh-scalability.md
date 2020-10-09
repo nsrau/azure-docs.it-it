@@ -1,16 +1,16 @@
 ---
 title: Scalabilità delle app mesh di Azure Service Fabric
 description: Uno dei vantaggi della distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi, manualmente o con i criteri di scalabilità automatica.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67b4b27a5d1faab3e6c156704d67a30b220ac54c
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712242"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840184"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Applicazioni Service Fabric Mesh per il ridimensionamento
 

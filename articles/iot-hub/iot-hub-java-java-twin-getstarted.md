@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c439f1a5aaa03774652dc815364c45633096f6de
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327600"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838688"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introduzione ai dispositivi gemelli (Java)
 
@@ -380,7 +380,7 @@ A questo punto è possibile eseguire le app console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![App del servizio hub IoT Java per aggiornare i valori dei tag ed eseguire query di dispositivo](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Screenshot che mostra l'output del comando per eseguire l'app del servizio di query Aggiungi tag.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     È possibile visualizzare i tag **plant** e **region** aggiunti al dispositivo gemello. Solo la prima query restituisce il dispositivo, non la seconda.
 
@@ -390,7 +390,7 @@ A questo punto è possibile eseguire le app console.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Il client del dispositivo aggiunge la proprietà segnalata **connectivityType**](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![Il client del dispositivo aggiunge la proprietà segnalata del tipo di connettività](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. Al prompt dei comandi nella cartella **add-tags-query** eseguire il comando seguente per eseguire l'app del servizio **add-tags-query** una seconda volta:
 

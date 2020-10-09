@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/27/2020
-ms.openlocfilehash: b92b6930193b77d0fb50ad707001a6fca0401970
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 06d70012756694dca1fad8fa90db0293bb106bf9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91404766"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828144"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -56,7 +56,9 @@ Azure Data Factory può accedere a più di [90 connettori nativi](connector-over
 
 ## <a name="sink-settings"></a>Impostazioni sink
 
-Una volta aggiunto un sink, configurare tramite la scheda **sink** . Qui è possibile selezionare o creare il set di dati in cui il sink scrive. Di seguito è riportato un video che illustra una serie di opzioni di sink diverse per i tipi di file delimitati da testo:
+Una volta aggiunto un sink, configurare tramite la scheda **sink** . Qui è possibile selezionare o creare il set di dati in cui il sink scrive. I valori di sviluppo per i parametri del set di dati possono essere configurati nelle [impostazioni di debug](concepts-data-flow-debug-mode.md) (richiede l'accensione della modalità di debug).
+
+Di seguito è riportato un video che illustra una serie di opzioni di sink diverse per i tipi di file delimitati da testo:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 

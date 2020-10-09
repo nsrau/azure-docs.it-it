@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 6203c230f7ca27b1d4b48e9f56a7f46cd5a5ce78
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825314"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839691"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Come configurare la replica geografica per cache di Azure per Redis
 
@@ -73,7 +73,7 @@ Dopo aver configurato la replica geografica, si applicano le restrizioni seguent
 
     È anche possibile visualizzare lo stato del collegamento nel pannello **Panoramica** per le cache primaria e secondaria.
 
-    ![Stato della cache](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Screenshot che illustra come visualizzare lo stato del collegamento per le cache primarie e secondarie.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Dopo aver completato il processo di replica, **Link status** (Stato collegamento) visualizza **Riuscito**.
 

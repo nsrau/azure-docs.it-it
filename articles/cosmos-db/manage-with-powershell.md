@@ -1,22 +1,22 @@
 ---
-title: Creare e gestire Azure Cosmos DB tramite PowerShell
-description: Usare Azure PowerShell per gestire gli account, i database, i contenitori e le unità elaborate di Azure Cosmos.
+title: Gestire Azure Cosmos DB risorse API Core (SQL) usando PowerShell
+description: Gestire Azure Cosmos DB risorse API Core (SQL) usando PowerShell.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 77c91d96beb2722b7fce54be8a1db32d66be6196
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 652c546c5a38543e89f7a3b5ab8bc036c8d80911
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767539"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840881"
 ---
-# <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gestire le risorse dell'API SQL di Azure Cosmos DB tramite PowerShell
+# <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Gestire Azure Cosmos DB risorse API Core (SQL) con PowerShell
 
-La guida seguente descrive come usare PowerShell per creare script e automatizzare la gestione delle risorse di Azure Cosmos DB, come account, database, contenitori e unità elaborate.
+La guida seguente illustra come usare PowerShell per creare script e automatizzare la gestione di risorse API Azure Cosmos DB Core (SQL), tra cui l'account Cosmos, il database, il contenitore e la velocità effettiva.
 
 > [!NOTE]
 > Negli esempi di questo articolo vengono usati i cmdlet di gestione di [Az.CosmosDB](/powershell/module/az.cosmosdb). Per informazioni sulle ultime modifiche, vedere la pagina di informazioni di riferimento dell'API [Az.CosmosDB](/powershell/module/az.cosmosdb).
@@ -169,6 +169,7 @@ Update-AzCosmosDBAccountRegion `
 Write-Host "Update-AzCosmosDBAccountRegion returns before the region update is complete."
 Write-Host "Check account in Azure portal or using Get-AzCosmosDBAccount for region status."
 ```
+
 ### <a name="enable-multiple-write-regions-for-an-azure-cosmos-account"></a><a id="multi-region-writes"></a> Abilitare più aree di scrittura per un account Azure Cosmos
 
 ```azurepowershell-interactive
@@ -352,6 +353,7 @@ Le sezioni seguenti illustrano come gestire il database Azure Cosmos DB:
 * [Creare un database Azure Cosmos DB](#create-db)
 * [Creare un database Azure Cosmos DB con unità elaborate condivise](#create-db-ru)
 * [Ottenere le unità elaborate di un database Azure Cosmos DB](#get-db-ru)
+* [Eseguire la migrazione della velocità effettiva del database alla scalabilità automatica](#migrate-db-ru)
 * [Elencare tutti i database Azure Cosmos DB in un account](#list-db)
 * [Ottenere un singolo database Azure Cosmos DB](#get-db)
 * [Eliminare un database Azure Cosmos DB](#delete-db)
@@ -397,6 +399,20 @@ Get-AzCosmosDBSqlDatabaseThroughput `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName
+```
+
+## <a name="migrate-database-throughput-to-autoscale"></a><a id="migrate-db-ru"></a>Eseguire la migrazione della velocità effettiva del database alla scalabilità automatica
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+
+Invoke-AzCosmosDBSqlDatabaseThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -Name $databaseName `
+    -ThroughputType Autoscale
 ```
 
 ### <a name="get-all-azure-cosmos-db-databases-in-an-account"></a><a id="list-db"></a>Ottenere tutti i database Azure Cosmos DB in un account
@@ -480,6 +496,7 @@ Le sezioni seguenti illustrano come gestire il contenitore Azure Cosmos DB:
 * [Creare un contenitore Azure Cosmos DB con scalabilità automatica](#create-container-autoscale)
 * [Creare un contenitore Azure Cosmos DB con una chiave di partizione di grandi dimensioni](#create-container-big-pk)
 * [Ottenere le unità elaborate di un contenitore Azure Cosmos DB](#get-container-ru)
+* [Eseguire la migrazione della velocità effettiva del contenitore alla scalabilità automatica](#migrate-container-ru)
 * [Creare un contenitore Azure Cosmos DB con indicizzazione personalizzata](#create-container-custom-index)
 * [Creare un contenitore Azure Cosmos DB con indicizzazione disattivata](#create-container-no-index)
 * [Creare un contenitore Azure Cosmos DB con chiave univoca e TTL](#create-container-unique-key-ttl)
@@ -565,6 +582,22 @@ Get-AzCosmosDBSqlContainerThroughput `
     -AccountName $accountName `
     -DatabaseName $databaseName `
     -Name $containerName
+```
+
+### <a name="migrate-container-throughput-to-autoscale"></a><a id="migrate-container-ru"></a>Eseguire la migrazione della velocità effettiva del contenitore alla scalabilità automatica
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "myDatabase"
+$containerName = "myContainer"
+
+Invoke-AzCosmosDBSqlContainerThroughputMigration `
+    -ResourceGroupName $resourceGroupName `
+    -AccountName $accountName `
+    -DatabaseName $databaseName `
+    -Name $containerName `
+    -ThroughputType Autoscale
 ```
 
 ### <a name="create-an-azure-cosmos-db-container-with-custom-index-policy"></a><a id="create-container-custom-index"></a>Creare un contenitore Azure Cosmos DB con un criterio di indicizzazione personalizzato

@@ -1,17 +1,15 @@
 ---
 title: Panoramica dei cluster di Azure e Service Fabric autonomo
 description: È possibile creare cluster di Service Fabric in qualsiasi macchina virtuale o computer con Windows Server o Linux. È quindi possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente in cui è presente un set di computer Windows Server o Linux interconnessi, in locale, in Microsoft Azure o con qualsiasi provider di cloud.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.author: dekapur
 ms.custom: sfrev
-ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313d75bb6398bbe614c6f56b494079548c99954
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751152"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842598"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Creare cluster di Service Fabric in Azure e autonomi in Windows Server e Linux
 
@@ -28,7 +26,7 @@ Per semplificare e rendere più affidabili le operazioni e la gestione del clust
 * **Cluster di Service Fabric come risorsa di Azure:** un cluster di Service Fabric è una risorsa di Azure, quindi è possibile modellarla in modo analogo alle altre risorse in Azure.
 * **Integrazione con l'infrastruttura di Azure** Service Fabric si coordina con l'infrastruttura di Azure per il sistema operativo, la rete e altri aggiornamenti, in modo da migliorare la disponibilità e l'affidabilità delle applicazioni.  
 * **Diagnostica:** In Azure viene fornita l'integrazione con diagnostica di Azure e i log di monitoraggio di Azure.
-* **Ridimensionamento automatico:** per i cluster in Azure è disponibile la funzionalità predefinita di ridimensionamento automatico, grazie a set di ridimensionamento delle macchine virtuali. In locale e in altri ambienti cloud è necessario sviluppare una funzionalità di ridimensionamento automatico specifica oppure ridimensionare manualmente usando le API esposte da Service Fabric per il ridimensionamento dei cluster.
+* **Ridimensionamento automatico:** Per i cluster in Azure, viene fornita la funzionalità incorporata di scalabilità automatica tramite set di scalabilità di macchine virtuali. In locale e in altri ambienti cloud è necessario creare una funzionalità di scalabilità automatica personalizzata o ridimensionare manualmente usando le API che Service Fabric espone per la scalabilità dei cluster.
 
 ## <a name="benefits-of-standalone-clusters"></a>Vantaggi dei cluster autonomi
 

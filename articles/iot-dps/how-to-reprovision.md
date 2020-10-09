@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974905"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839793"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 
@@ -43,9 +43,9 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
     * **Latenza più bassa**: questo criterio assegna i dispositivi all'hub IoT collegato che genererà le comunicazioni di latenza più basse tra il dispositivo e l'hub IoT. Questa opzione consente al dispositivo di comunicare con l'hub IoT più vicino in base alla posizione. 
     
-    * **Distribuzione ponderata uniforme**: questo criterio distribuisce i dispositivi tra gli hub IoT collegati in base al peso di allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. È l'impostazione predefinita. 
+    * **Distribuzione ponderata uniforme**: questo criterio distribuisce i dispositivi tra gli hub IoT collegati in base al peso di allocazione assegnato a ogni hub IoT collegato. Questo criterio consente di bilanciare il carico dei dispositivi in un gruppo di hub collegati in base ai pesi di allocazione assegnati a tali hub. Se si effettua il provisioning dei dispositivi in un solo hub IoT, è consigliabile utilizzare questa impostazione. Questa è l'impostazione predefinita. 
     
-    * **Configurazione statica**: questo criterio richiede che l'hub IoT sia elencato nella voce di registrazione affinché venga effettuato il provisioning del dispositivo. Questo criterio consente di designare un singolo hub IoT specifico a cui assegnare i dispositivi.
+    * **Configurazione statica**: per questo criterio è necessario che l'hub di tutti gli elementi desiderati sia elencato nella voce di registrazione per il provisioning di un dispositivo. Questo criterio consente di designare un singolo hub IoT specifico a cui assegnare i dispositivi.
 
 4. Alla voce **Seleziona gli hub IoT a cui questo gruppo può essere assegnato**, selezionare gli hub IoT collegati da includere con i criteri di allocazione. Facoltativamente, aggiungere un nuovo hub IoT collegato usando il pulsante **Collega un nuovo hub IoT**.
 
@@ -75,7 +75,7 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
 4. Fare clic su **Salva** per rieffettuare il provisioning del dispositivo in base alle modifiche apportate.
 
-    ![Selezionare i criteri di allocazione della registrazione](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Screenshot che evidenzia le modifiche apportate e il pulsante Salva.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

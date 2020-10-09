@@ -1,23 +1,23 @@
 ---
-title: includere il file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4ea97e2dbee87f7ab129c4295276c9024c0212c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e40f421c0fa45d772cd333dac51fe2bdf2779f48
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80116907"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829016"
 ---
 Una nuova funzionalità del client VPN di Windows 10, Always On, è la possibilità di mantenere una connessione VPN. Con Always On, il profilo VPN attivo può connettersi automaticamente e rimanere connesso in base ai trigger, ad esempio l'accesso utente, la modifica dello stato della rete o lo schermo del dispositivo attivo.
 
-È possibile usare i gateway con Windows 10 Always On per stabilire tunnel utente persistenti e tunnel di dispositivo in Azure. Questo articolo consente di configurare un tunnel utente Always On VPN.
+È possibile usare i gateway con Windows 10 Always On per stabilire tunnel utente persistenti e tunnel di dispositivo in Azure.
 
 Always On connessioni VPN includono uno dei due tipi di tunnel:
 

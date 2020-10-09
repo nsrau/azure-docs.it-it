@@ -1,25 +1,25 @@
 ---
-title: Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
-description: Usare l'interfaccia della riga di comando di Azure per gestire l'account, il database e i contenitori di Azure Cosmos DB.
+title: Gestire Azure Cosmos DB risorse API Core (SQL) con l'interfaccia della riga di comando di Azure
+description: Gestire Azure Cosmos DB risorse API Core (SQL) usando l'interfaccia della riga di comando di Azure.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: c8726801e8becd6533ae5fec099d6c535b63261a
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: dce041a46f173216844322b5a8985acbdfb86f26
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767555"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840592"
 ---
-# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gestire le risorse di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
+# <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Gestire risorse API di Azure Cosmos Core (SQL) con l'interfaccia della riga di comando di Azure
 
 La guida seguente illustra i comandi comuni per automatizzare la gestione degli account, dei database e dei contenitori di Azure Cosmos DB usando l'interfaccia della riga di comando di Azure. Per tutti i comandi dell'interfaccia della riga di comando di Azure Cosmos DB sono disponibili pagine di riferimento in [Informazioni di riferimento sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/cosmosdb). Altri esempi sono disponibili in [Esempi dell'interfaccia della riga di comando di Azure Cosmos DB](cli-samples.md), incluse le procedure per creare e gestire gli account, i database e i contenitori di Cosmos DB per MongoDB, Gremlin, Cassandra e API Tabella.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.9.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.12.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
 > Non è possibile rinominare Azure Cosmos DB risorse perché questo viola il modo in cui Azure Resource Manager funziona con gli URI delle risorse.
@@ -214,8 +214,9 @@ Le sezioni seguenti illustrano come gestire il database Azure Cosmos DB:
 
 * [Creare un database](#create-a-database)
 * [Creazione di un database con velocità effettiva condivisa](#create-a-database-with-shared-throughput)
+* [Migrare un database alla velocità effettiva di scalabilità automatica](#migrate-a-database-to-autoscale-throughput)
 * [Modificare la velocità effettiva del database](#change-database-throughput)
-* [Gestire i blocchi in un database](#manage-lock-on-a-database)
+* [Impedisci l'eliminazione di un database](#prevent-a-database-from-being-deleted)
 
 ### <a name="create-a-database"></a>Creazione di un database
 
@@ -249,6 +250,29 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
+### <a name="migrate-a-database-to-autoscale-throughput"></a>Migrare un database alla velocità effettiva di scalabilità automatica
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql database throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql database throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -n $databaseName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
 ### <a name="change-database-throughput"></a>Modificare la velocità effettiva del database
 
 Aumentare la velocità effettiva di un database Cosmos di 1000 ur/sec.
@@ -275,14 +299,14 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-database"></a>Gestire il blocco su un database
+### <a name="prevent-a-database-from-being-deleted"></a>Impedisci l'eliminazione di un database
 
-Inserire un blocco Delete su un database. Per altre informazioni su come abilitare questa operazione, vedere [Impedisci modifiche da SDK](role-based-access-control.md#prevent-sdk-changes).
+Inserire un blocco di eliminazione delle risorse di Azure in un database per impedirne l'eliminazione. Questa funzionalità richiede che il blocco dell'account Cosmos venga modificato dagli SDK del piano dati. Per altre informazioni, vedere [prevenzione delle modifiche dagli SDK](role-based-access-control.md#prevent-sdk-changes). I blocchi di risorse di Azure possono anche impedire la modifica di una risorsa specificando un `ReadOnly` tipo di blocco. Per un database Cosmos, può essere usato per impedire la modifica della velocità effettiva.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
+accountName='mycosmosaccount'
+databaseName='database1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -315,7 +339,8 @@ Le sezioni seguenti illustrano come gestire il contenitore Azure Cosmos DB:
 * [Creare un contenitore con TTL abilitato](#create-a-container-with-ttl)
 * [Creare un contenitore con un criterio di indicizzazione personalizzato](#create-a-container-with-a-custom-index-policy)
 * [Modificare la velocità effettiva del contenitore](#change-container-throughput)
-* [Gestire i blocchi in un contenitore](#manage-lock-on-a-container)
+* [Migrare un contenitore per la velocità effettiva di scalabilità automatica](#migrate-a-container-to-autoscale-throughput)
+* [Impedisci l'eliminazione di un contenitore](#prevent-a-container-from-being-deleted)
 
 ### <a name="create-a-container"></a>Creare un contenitore
 
@@ -454,15 +479,41 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-### <a name="manage-lock-on-a-container"></a>Gestire il blocco su un contenitore
+### <a name="migrate-a-container-to-autoscale-throughput"></a>Migrare un contenitore per la velocità effettiva di scalabilità automatica
 
-Inserire un blocco Delete su un contenitore. Per altre informazioni su come abilitare questa operazione, vedere [Impedisci modifiche da SDK](role-based-access-control.md#prevent-sdk-changes).
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+
+# Migrate to autoscale throughput
+az cosmosdb sql container throughput migrate \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    -t 'autoscale'
+
+# Read the new autoscale max throughput
+az cosmosdb sql container throughput show \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --query resource.autoscaleSettings.maxThroughput \
+    -o tsv
+```
+
+### <a name="prevent-a-container-from-being-deleted"></a>Impedisci l'eliminazione di un contenitore
+
+Inserire un blocco di eliminazione delle risorse di Azure in un contenitore per impedirne l'eliminazione. Questa funzionalità richiede che il blocco dell'account Cosmos venga modificato dagli SDK del piano dati. Per altre informazioni, vedere [prevenzione delle modifiche dagli SDK](role-based-access-control.md#prevent-sdk-changes). I blocchi di risorse di Azure possono anche impedire la modifica di una risorsa specificando un `ReadOnly` tipo di blocco. Per un contenitore Cosmos, questo può essere usato per impedire che la velocità effettiva o qualsiasi altra proprietà venga modificata.
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='my-cosmos-account'
-databaseName='myDatabase'
-containerName='myContainer'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
 
 lockType='CanNotDelete' # CanNotDelete or ReadOnly
 databaseParent="databaseAccounts/$accountName"
@@ -491,6 +542,6 @@ az lock delete --ids $lockid
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere:
 
-- [Installare l'interfaccia da riga di comando di Azure](/cli/azure/install-azure-cli)
-- [Riferimenti per l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/cosmosdb)
-- [Esempi dell'interfaccia della riga di comando di Azure Cosmos DB](cli-samples.md)
+* [Installare l'interfaccia da riga di comando di Azure](/cli/azure/install-azure-cli)
+* [Riferimenti per l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Esempi dell'interfaccia della riga di comando di Azure Cosmos DB](cli-samples.md)

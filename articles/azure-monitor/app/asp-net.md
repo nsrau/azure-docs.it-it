@@ -4,12 +4,12 @@ description: Configurare gli strumenti di analisi delle prestazioni, della dispo
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 5f52f1febcc69723dae76e31d17b5a9a7e8c67bb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 861a9f53c2f149268e06005053206a7411e842f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91616755"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838943"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configurare Application Insights per il sito Web ASP.NET
 
@@ -349,6 +349,12 @@ Per aggiungere il monitoraggio lato client, aprire il `_Layout.cshtml` file e se
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Si è verificato un problema noto nella versione corrente di Visual Studio 2019 che quando l'archiviazione della chiave di strumentazione in un segreto utente è interruppe per le app basate su .NET Framework e la chiave deve essere hardcoded nel file applicationinsights.config per aggirare questo bug. Questo articolo è progettato per evitare il problema completamente, non usando i segreti utente.  
+
+## <a name="open-source-sdk"></a>SDK open source
+
+* [Leggere e contribuire al codice](https://github.com/microsoft/ApplicationInsights-dotnet).
+
+Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla versione](./release-notes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

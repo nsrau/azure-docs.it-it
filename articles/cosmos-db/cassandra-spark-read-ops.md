@@ -10,12 +10,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4ecb7758ee5f58345fccc2c490cee4d23043a20c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68a64ad1ddb955ccebdcddca996959f1bb5f932b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85257415"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840957"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Leggere i dati dalle tabelle di API Apache Cassandra di Azure Cosmos DB con Spark
 
@@ -86,17 +86,10 @@ readBooksDF.show
 È possibile eseguire il push dei predicati nel database per consentire query Spark ottimizzate in modo ottimale. Un predicato è una condizione per una query che restituisce true o false, in genere situato nella clausola WHERE. Un predicato push filtra i dati nella query del database, riducendo il numero di voci recuperate dal database e migliorando le prestazioni di esecuzione delle query. Per impostazione predefinita, l'API del set di dati Spark eseguirà automaticamente il push delle clausole WHERE valide nel database. 
 
 ```scala
-val readBooksDF = spark
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
-  .load
-  .select("book_name","book_author", "book_pub_year")
-  .filter("book_pub_year > 1891")
-//.filter("book_name IN ('A sign of four','A study in scarlet')")
-//.filter("book_name='A sign of four' OR book_name='A study in scarlet'")
-//.filter("book_author='Arthur Conan Doyle' AND book_pub_year=1890")
-//.filter("book_pub_year=1903")  
+val df = spark.read.cassandraFormat("books", "books_ks").load
+df.explain
+val dfWithPushdown = df.filter(df("book_pub_year") > 1891)
+dfWithPushdown.explain
 
 readBooksDF.printSchema
 readBooksDF.explain
@@ -145,7 +138,7 @@ select * from books_vw where book_pub_year > 1891
 Di seguito sono indicati altri articoli sull'uso dell'API Cassandra di Azure Cosmos DB da Spark:
  
  * [Operazioni di upsert](cassandra-spark-upsert-ops.md)
- * [Operazioni di eliminazione](cassandra-spark-delete-ops.md)
+ * [Operazioni Delete](cassandra-spark-delete-ops.md)
  * [Operazioni di aggregazione](cassandra-spark-aggregation-ops.md)
  * [Operazioni di copia di tabelle](cassandra-spark-table-copy-ops.md)
 

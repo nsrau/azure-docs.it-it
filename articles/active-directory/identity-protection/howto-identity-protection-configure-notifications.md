@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950392"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839348"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
 
@@ -44,8 +44,8 @@ Per evitare un sovraccarico dei messaggi di posta elettronica, l'utente ricever�
 Gli amministratori possono impostare:
 
 - **Il livello di rischio utente che attiva la generazione di questo messaggio di posta elettronica** : per impostazione predefinita, il livello di rischio è impostato sul rischio "elevato".
-- **I destinatari di questo messaggio di posta elettronica**: per impostazione predefinita, i destinatari includono tutti gli amministratori globali. Gli amministratori globali possono anche aggiungere come destinatari altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza.
-   - Facoltativamente, è possibile **aggiungere altri messaggi di posta elettronica per ricevere notifiche di avviso** . questa funzionalità è un'anteprima e gli utenti definiti devono disporre delle autorizzazioni appropriate per visualizzare i report collegati nel portale di Azure.
+- **I destinatari di questo messaggio di posta elettronica** : gli utenti nei ruoli amministratore globale, amministratore della sicurezza o ruolo di lettura per la sicurezza vengono aggiunti automaticamente a questo elenco. Si tenta di inviare messaggi di posta elettronica ai primi 20 membri di ogni ruolo. Se un utente è registrato in PIM per elevare a uno di questi ruoli su richiesta, riceverà **solo i messaggi di posta elettronica se vengono elevati al momento dell'invio del messaggio di posta elettronica**.
+   - Facoltativamente, è possibile **aggiungere un messaggio di posta elettronica personalizzato qui** gli utenti definiti devono disporre delle autorizzazioni appropriate per visualizzare i report collegati nel portale di Azure.
 
 Configurare gli utenti a rischio di posta elettronica nel **portale di Azure** in **Azure Active Directory**  >  **sicurezza**  >  di**Identity Protection**  >  **utenti a rischio di avvisi rilevati**.
 
@@ -60,7 +60,7 @@ Sono inclusi:
 
 ![Messaggio di posta elettronica di riepilogo settimanale](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Per impostazione predefinita, i destinatari includono tutti gli amministratori globali. Gli amministratori globali possono anche aggiungere come destinatari altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza.
+Gli utenti con ruoli di amministratore globale, amministratore della sicurezza o di Reader di sicurezza vengono aggiunti automaticamente a questo elenco. Si tenta di inviare messaggi di posta elettronica ai primi 20 membri di ogni ruolo. Se un utente è registrato in PIM per elevare a uno di questi ruoli su richiesta, riceverà **solo i messaggi di posta elettronica se sono elevati al momento dell'invio del messaggio di posta elettronica**
 
 ### <a name="configure-weekly-digest-email"></a>Configurare la posta elettronica del digest settimanale
 

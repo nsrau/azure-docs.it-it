@@ -1,16 +1,16 @@
 ---
 title: Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh
 description: Aggiungere Service Fabric supporto dell'orchestrazione del contenitore mesh ai progetti ASP.NET e console che usano la versione completa di .NET Framework.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75462040"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840065"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Distribuire un'app .NET esistente in un contenitore per Service Fabric Mesh
 
@@ -23,7 +23,7 @@ In Visual Studio 2017 è possibile aggiungere il supporto della containerizzazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito prima di](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) iniziare.
+* Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 * Assicurarsi di aver [configurato l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md). A questo scopo occorre aver installato il runtime di Service Fabric, l'SDK, Docker e Visual Studio 2017 e aver creato un cluster locale.
 

@@ -6,24 +6,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/11/2019
-ms.openlocfilehash: e1da26d9067427734d407451bdb53e51ba1e6243
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 10/07/2020
+ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609166"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842581"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servizi a disponibilità elevata supportati da Azure HDInsight
 
- Per offrire livelli ottimali di disponibilità per i componenti di analisi, HDInsight è stato sviluppato con un'architettura univoca per garantire la disponibilità elevata dei servizi critici. Alcuni componenti di questa architettura sono stati sviluppati da Microsoft per fornire il failover automatico. Altri componenti sono componenti Apache standard distribuiti per supportare servizi specifici. Questo articolo illustra l'architettura del modello di servizio a disponibilità elevata in HDInsight, il modo in cui HDInsight supporta il failover per i servizi a disponibilità elevata e le procedure consigliate per il ripristino da altre interruzioni del servizio.
+Per offrire livelli ottimali di disponibilità per i componenti di analisi, HDInsight è stato sviluppato con un'architettura univoca per garantire la disponibilità elevata dei servizi critici. Alcuni componenti di questa architettura sono stati sviluppati da Microsoft per fornire il failover automatico. Altri componenti sono componenti Apache standard distribuiti per supportare servizi specifici. Questo articolo illustra l'architettura del modello di servizio a disponibilità elevata in HDInsight, il modo in cui HDInsight supporta il failover per i servizi a disponibilità elevata e le procedure consigliate per il ripristino da altre interruzioni del servizio.
  
 > [!NOTE]
 > Comunicazione senza distorsione
 >
 > Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
 >
-
 
 ## <a name="high-availability-infrastructure"></a>Infrastruttura a disponibilità elevata
 
@@ -43,7 +42,7 @@ Questa infrastruttura è costituita da diversi componenti software e servizi, al
 
 ![infrastruttura a disponibilità elevata](./media/hdinsight-high-availability-components/high-availability-architecture.png)
 
-Sono disponibili anche altri servizi a disponibilità elevata, supportati dai componenti di affidabilità open source di Apache. Questi componenti sono presenti anche nei cluster HDInsight:
+Sono disponibili anche altri servizi a disponibilità elevata, supportati da componenti di affidabilità Apache open source. Questi componenti sono presenti anche nei cluster HDInsight:
 
 - Hadoop file System (HDFS) NameNode
 - ResourceManager YARN
@@ -55,9 +54,9 @@ Nelle sezioni seguenti vengono fornite informazioni più dettagliate sul funzion
 
 Microsoft fornisce supporto per i quattro servizi Apache nella tabella seguente nei cluster HDInsight. Per distinguerli dai servizi a disponibilità elevata supportati dai componenti di Apache, sono denominati servizi a disponibilità elevata *HDInsight*.
 
-| Servizio | Nodi del cluster | Tipi di cluster | Scopo |
+| Service | Nodi del cluster | Tipi di cluster | Scopo |
 |---|---|---|---|
-| Server Apache Ambari| Nodo head attivo | Tutti | Monitora e gestisce il cluster.|
+| Server Apache Ambari| Nodo head attivo | All | Monitora e gestisce il cluster.|
 | Server Sequenza temporale applicazione per Apache YARN | Nodo head attivo | Tutti tranne Kafka | Mantiene le informazioni di debug sui processi YARN in esecuzione nel cluster.|
 | Server di cronologia processo per Hadoop MapReduce | Nodo head attivo | Tutti tranne Kafka | Mantiene i dati di debug per i processi MapReduce.|
 | Apache Livy | Nodo head attivo | Spark | Consente una facile interazione con un cluster Spark su un'interfaccia REST |
@@ -100,7 +99,7 @@ Master-ha-Service viene eseguito solo sul nodo head attivo, arresta i servizi a 
 
 ![Processo di failover](./media/hdinsight-high-availability-components/failover-steps.png)
 
-Un Health Monitor viene eseguito in ogni nodo head insieme al controller di failover master per inviare notifiche heartbeat al quorum Zookeeper. In questo scenario, nodo head viene considerato come servizio a disponibilità elevata. Il monitoraggio dell'integrità verifica se ogni servizio a disponibilità elevata è integro e se è pronto per partecipare all'elezione della leadership. In caso affermativo, il nodo head parteciperà alle elezioni. In caso contrario, l'elezione verrà chiusa fino a quando non diventa nuovamente pronta.
+Un Health Monitor viene eseguito in ogni nodo head insieme al controller di failover master per inviare notifiche di heartbeat al quorum di Zookeeper. In questo scenario, nodo head viene considerato come servizio a disponibilità elevata. Il monitoraggio dell'integrità verifica se ogni servizio a disponibilità elevata è integro e se è pronto per partecipare all'elezione della leadership. In caso affermativo, il nodo head parteciperà alle elezioni. In caso contrario, l'elezione verrà chiusa fino a quando non diventa nuovamente pronta.
 
 Se il nodo head di standby raggiunge sempre la leadership e diventa attivo (ad esempio in caso di errore con il nodo attivo precedente), il controller di failover Master avvierà tutti i servizi a disponibilità elevata di HDInsight. Il controller di failover Master arresterà anche questi servizi negli altri nodo head.
 

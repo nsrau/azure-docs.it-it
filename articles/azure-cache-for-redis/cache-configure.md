@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460170"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840252"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -53,7 +53,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Importa dati](#importexport)
     * [Esporta dati](#importexport)
     * [Reboot](#reboot)
-* [Monitoraggio](#monitoring)
+* [Monitoring](#monitoring)
     * [Metriche Redis](#redis-metrics)
     * [Regole di avviso](#alert-rules)
     * [Diagnostica](#diagnostics)
@@ -169,11 +169,11 @@ Per altre informazioni, vedere [Notifiche di Keyspace Redis](https://redis.io/to
 ## <a name="azure-cache-for-redis-advisor"></a>Redis Cache Advisor
 Il pannello **Redis Cache Advisor** visualizza le raccomandazioni per la cache. Durante il normale funzionamento non viene visualizzata nessuna raccomandazione.
 
-![Consigli](./media/cache-configure/redis-cache-no-recommendations.png)
+![Screenshot che mostra dove vengono visualizzate le indicazioni.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 Se durante l'uso della cache si verifica una determinata condizione, ad esempio uso della memoria, larghezza di banda di rete o carico del server elevato, nel pannello **Cache Redis** viene visualizzato un avviso.
 
-![Consigli](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Screenshot che mostra dove vengono visualizzati gli avvisi nella sezione cache di Azure per Redis.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Per altre informazioni, vedere il pannello **Raccomandazioni** .
 
@@ -188,7 +188,7 @@ Ogni piano tariffario presenta diversi limiti di connessioni client, memoria e l
 | Uso della larghezza di banda di rete |[Prestazioni della cache - Larghezza di banda disponibile](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Client connessi |[Configurazione predefinita del server Redis - maxclients](#maxclients) |
 | Carico del server |[Grafici di utilizzo - Carico server Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilizzo memoria |[Prestazioni della cache - Dimensioni](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Utilizzo della memoria |[Prestazioni della cache - Dimensioni](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
 Per aggiornare la cache, fare clic su **Aggiorna ora** per modificare il piano tariffario e [ridimensionare](#scale) la cache. Per ulteriori informazioni sulla scelta di un piano tariffario, vedere [scelta del livello corretto](cache-overview.md#choosing-the-right-tier)
 
@@ -314,7 +314,7 @@ Il pannello **Riavvia** consente di riavviare i nodi della cache. La funzionalit
 
 Se si dispone di una cache Premium con clustering abilitato, è possibile selezionare le partizioni della cache da riavviare.
 
-![Riavvio](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Screenshot che mostra dove selezionare le partizioni della cache da riavviare.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Per riavviare uno o più nodi della cache, selezionare i nodi desiderati e fare clic su **Reboot**(Riavvia). Se si dispone di una cache Premium con clustering abilitato, selezionare le partizioni per riavviare il computer e quindi fare clic su **Reboot**(Riavvia). Dopo alcuni minuti, i nodi selezionati si riavviano e vengono ripristinati online pochi minuti dopo.
 
@@ -474,11 +474,11 @@ Per ulteriori informazioni sui comandi di redis, vedere [https://redis.io/comman
 
 Per accedere alla Console Redis, fare clic su **Console** dal pannello **Cache Redis**.
 
-![Console Redis](./media/cache-configure/redis-console-menu.png)
+![Schermata che evidenzia il pulsante della console.](./media/cache-configure/redis-console-menu.png)
 
 Per eseguire i comandi con l'istanza della cache, digitare il comando desiderato nella console.
 
-![Console Redis](./media/cache-configure/redis-console.png)
+![Screenshot thas Mostra la console Redis con il comando di input e i risultati.](./media/cache-configure/redis-console.png)
 
 
 ### <a name="using-the-redis-console-with-a-premium-clustered-cache"></a>Uso della console Redis con una cache cluster Premium

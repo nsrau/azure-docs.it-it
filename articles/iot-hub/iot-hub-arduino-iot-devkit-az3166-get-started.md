@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c057944e2c6c511eee20007cc01e2222b38cce1b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319219"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91839555"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -176,7 +176,7 @@ Seguire questa procedura per preparare l'ambiente di sviluppo per il DevKit:
 
 4. Cercare [Azure IoT Tools](https://aka.ms/azure-iot-tools) nel marketplace delle estensioni e installare l'estensione.
 
-    ![Installare Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+    ![Screenshot che Mostra gli strumenti di Azure Internet nel Marketplace di estensione.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
     In alternativa, copiare e incollare l'URL in una finestra del browser: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
@@ -362,7 +362,7 @@ L'applicazione di esempio viene eseguita correttamente quando vengono visualizza
 
 1. Nel riquadro **OUTPUT** è possibile visualizzare i messaggi da dispositivo a cloud in ingresso nell'hub IoT.
 
-    ![Messaggio da dispositivo a cloud](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+    ![Screenshot che mostra i messaggi D2C in ingresso nell'hub Internet.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="review-the-code"></a>Esaminare il codice
 

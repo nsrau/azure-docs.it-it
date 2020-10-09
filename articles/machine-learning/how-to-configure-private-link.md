@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 1a34f8ec42969cded5921d377b1fa62276a30cc7
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91630390"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828124"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
@@ -82,4 +82,6 @@ Per informazioni sulle macchine virtuali di Azure, vedere la [documentazione rel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla protezione dell'area di lavoro Azure Machine Learning, vedere l'articolo [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md) .
+* Per altre informazioni sulla protezione dell'area di lavoro Azure Machine Learning, vedere l'articolo [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md) .
+
+* Se si prevede di usare una soluzione DNS personalizzata nella rete virtuale, vedere [come usare un'area di lavoro con un server DNS personalizzato](how-to-custom-dns.md).

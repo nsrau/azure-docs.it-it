@@ -9,26 +9,28 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: ca23bb49a3592dcc139bcc04875f3867018e158d
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91707736"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841952"
 ---
-#  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
+# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning?
 
-Una **destinazione di calcolo** è una risorsa o un ambiente di calcolo designato in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso può essere il computer locale o una risorsa di calcolo basata sul cloud. L'uso di destinazioni di calcolo semplifica la modifica dell'ambiente di calcolo in un secondo momento senza dover modificare il codice.  
+Una *destinazione di calcolo* è una risorsa o un ambiente di calcolo designato in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso potrebbe essere il computer locale o una risorsa di calcolo basata sul cloud. L'uso di destinazioni di calcolo semplifica la modifica dell'ambiente di calcolo in un secondo momento senza dover modificare il codice.
 
 In un ciclo di vita di sviluppo di modelli tipico, è possibile:
-1. Inizia sviluppando e sperimentando una piccola quantità di dati. In questa fase è consigliabile usare l'ambiente locale (computer locale o macchina virtuale basata sul cloud) come destinazione di calcolo. 
-2. Scalabilità verticale a dati più grandi oppure Esegui il training distribuito usando una di queste [destinazioni di calcolo](#train)per il training.  
-3. Quando il modello è pronto, è possibile distribuirlo in un ambiente di hosting Web o in un dispositivo tutto con una di queste [destinazioni di calcolo della distribuzione](#deploy).
+
+1. Inizia sviluppando e sperimentando una piccola quantità di dati. In questa fase, usare l'ambiente locale, ad esempio un computer locale o una macchina virtuale (VM) basata sul cloud, come destinazione di calcolo.
+1. Ridimensionare fino a dati più grandi o eseguire il training distribuito usando una di queste [destinazioni di calcolo di training](#train).
+1. Quando il modello è pronto, è possibile distribuirlo in un ambiente di hosting Web o in un dispositivo tutto con una di queste [destinazioni di calcolo della distribuzione](#deploy).
 
 Le risorse di calcolo usate per le destinazioni di calcolo sono collegate a un' [area di lavoro](concept-workspace.md). Le risorse di calcolo diverse dal computer locale sono condivise dagli utenti dell'area di lavoro.
 
 ## <a name="training-compute-targets"></a><a name="train"></a> Training delle destinazioni di calcolo
-Azure Machine Learning offre un supporto variabile per le diverse destinazioni di calcolo. Un tipico ciclo di vita di sviluppo modello inizia con lo sviluppo e la sperimentazione su una piccola quantità di dati. In questa fase è consigliabile usare un ambiente locale, ad esempio il computer locale o una macchina virtuale basata sul cloud. Quando il training viene eseguito su set di dati più grandi, o quando si esegue il training distribuito, è consigliabile usare l'ambiente di calcolo di Azure Machine Learning per creare un cluster a uno o più nodi che viene ridimensionato automaticamente ogni volta che viene inviata un'esecuzione. È possibile collegare la propria risorsa di calcolo, anche se il supporto per i diversi scenari può variare, come indicato di seguito:
+
+Azure Machine Learning offre un supporto variabile per le diverse destinazioni di calcolo. Un ciclo di vita di sviluppo di modelli tipico inizia con lo sviluppo o la sperimentazione su una piccola quantità di dati. In questa fase usare un ambiente locale come il computer locale o una macchina virtuale basata sul cloud. Quando si aumenta il training su set di impostazioni più grandi o si esegue un training distribuito, usare Azure Machine Learning calcolo per creare un cluster a nodo singolo o a più nodi che esegue la scalabilità automatica ogni volta che si invia un'esecuzione. È anche possibile aggiungere la propria risorsa di calcolo, sebbene il supporto per scenari diversi possa variare.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -42,33 +44,34 @@ Per ospitare la distribuzione del modello, è possibile usare le risorse di calc
 
 Quando si esegue l'inferenza, Azure Machine Learning crea un contenitore Docker che ospita il modello e le risorse associate necessarie per usarlo. Questo contenitore viene quindi utilizzato in uno degli scenari di distribuzione seguenti:
 
-* Come __servizio Web__ utilizzato per l'inferenza in tempo reale. Le distribuzioni di servizi Web usano una delle seguenti destinazioni di calcolo:
+* Come *servizio Web* utilizzato per l'inferenza in tempo reale. Le distribuzioni di servizi Web usano una delle seguenti destinazioni di calcolo:
 
     * [Computer locale](how-to-attach-compute-targets.md#local)
     * [Istanza di calcolo di Azure Machine Learning](how-to-create-manage-compute-instance.md)
     * [Istanze di Azure Container](how-to-attach-compute-targets.md#aci)
     * [Servizio Azure Kubernetes](how-to-create-attach-kubernetes.md)
-    * Funzioni di Azure (anteprima). La distribuzione in funzioni di Azure si basa solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando funzioni di Azure. Per altre informazioni, vedere [distribuire un modello di Machine Learning in funzioni di Azure (anteprima)](how-to-deploy-functions.md).
+    * Funzioni di Azure (anteprima). La distribuzione in funzioni si basa solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando le funzioni. Per altre informazioni, vedere [distribuire un modello di Machine Learning in funzioni di Azure (anteprima)](how-to-deploy-functions.md).
 
-* Come endpoint di __inferenza batch__ usato per elaborare periodicamente batch di dati. L'inferenza di batch USA [Azure Machine Learning cluster di elaborazione](how-to-create-attach-compute-cluster.md).
+* Come endpoint di _inferenza batch_ usato per elaborare periodicamente i batch di dati. Le inferenze batch usano [Azure Machine Learning cluster di elaborazione](how-to-create-attach-compute-cluster.md).
 
-* In un __dispositivo__ Internet (anteprima). La distribuzione in un dispositivo Internet è basata solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando Azure IoT Edge. Per altre informazioni, vedere [deploy As a IOT Edge Module (Preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* In un _dispositivo_ Internet (anteprima). La distribuzione in un dispositivo Internet è basata solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando Azure IoT Edge. Per altre informazioni, vedere [deploy As a IOT Edge Module (Preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Informazioni su [dove e come distribuire il modello in una destinazione di calcolo](how-to-deploy-and-where.md).
 
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Calcolo Azure Machine Learning (gestito)
 
-Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning i cluster di calcolo e le [istanze di calcolo](concept-compute-instance.md) sono gli unici calcoli gestiti. 
+Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning i cluster di calcolo e le [istanze di calcolo](concept-compute-instance.md) sono gli unici calcoli gestiti.
 
 È possibile creare Azure Machine Learning istanze di calcolo o cluster di calcolo da:
-* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
-* SDK Python e interfaccia della riga di comando:
-    * [Istanza di calcolo](how-to-create-manage-compute-instance.md)
-    * [Cluster di calcolo](how-to-create-attach-compute-cluster.md)
-* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (anteprima)
-* Gestione risorse modello. Per un modello di esempio, vedere [creare Azure Machine Learning modello di calcolo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
-* [Estensione di machine learning per l'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md#resource-management).  
+
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md).
+* Python SDK e l'interfaccia della riga di comando:
+    * [Istanza di calcolo](how-to-create-manage-compute-instance.md).
+    * [Cluster di elaborazione](how-to-create-attach-compute-cluster.md).
+* [SDK R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (anteprima).
+* Un modello di Azure Resource Manager. Per un modello di esempio, vedere [creare un cluster di calcolo Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
+* Un' [estensione di machine learning per l'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md#resource-management).
 
 Quando vengono create, queste risorse di calcolo fanno automaticamente parte dell'area di lavoro, a differenza di altri tipi di destinazioni di calcolo.
 
@@ -82,45 +85,47 @@ Quando vengono create, queste risorse di calcolo fanno automaticamente parte del
 
 
 > [!NOTE]
-> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](how-to-create-manage-compute-instance.md#manage) quando non viene usata per evitare costi aggiuntivi. 
+> Quando un *cluster* di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso. Un' *istanza* di calcolo è sempre attiva e non esegue la scalabilità automatica. È necessario [arrestare l'istanza di calcolo](how-to-create-manage-compute-instance.md#manage) quando non viene usata per evitare costi aggiuntivi.
 
 ### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
 
-Quando si selezionano le dimensioni di un nodo per una risorsa di calcolo gestita in Azure Machine Learning, è possibile scegliere tra le dimensioni di VM selezionate disponibili in Azure. Azure offre una gamma di dimensioni per Linux e Windows per carichi di lavoro diversi. Vedere qui per altre informazioni sui diversi [tipi di VM e dimensioni](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Quando si selezionano le dimensioni di un nodo per una risorsa di calcolo gestita in Azure Machine Learning, è possibile scegliere tra le dimensioni di VM selezionate disponibili in Azure. Azure offre una gamma di dimensioni per Linux e Windows per carichi di lavoro diversi. Per altre informazioni, vedere [tipi e dimensioni delle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 Esistono alcune eccezioni e limitazioni nella scelta delle dimensioni delle macchine virtuali:
-* Alcune serie di macchine virtuali non sono supportate in Azure Machine Learning.
-* Alcune serie di macchine virtuali sono limitate. Per usare una serie con restrizioni, contattare il supporto tecnico e richiedere un aumento della quota per la serie. Per informazioni su come contattare il supporto tecnico, vedere [Opzioni di supporto di Azure](https://azure.microsoft.com/support/options/)
 
-Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle serie supportate. 
+* Alcune serie di macchine virtuali non sono supportate in Azure Machine Learning.
+* Alcune serie di macchine virtuali sono limitate. Per usare una serie con restrizioni, contattare il supporto tecnico e richiedere un aumento della quota per la serie. Per informazioni su come contattare il supporto tecnico, vedere [Opzioni di supporto di Azure](https://azure.microsoft.com/support/options/).
+
+Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle serie supportate.
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | Nessuno |
-| Dv2 | Nessuno |  
-| Dv3 | Nessuno|
-| DSv2 | Nessuno | 
-| DSv3 | Nessuno|
-| FSv2 | Nessuno | 
-| HBv2 | Richiede approvazione |  
-| Servizio di elaborazione host | Richiede approvazione |  
-| M | Richiede approvazione |
-| NC | Nessuno |    
-| NCsv2 | Richiede approvazione |
-| NCsv3 | Richiede approvazione |  
-| NDs | Richiede approvazione |
-| NDv2 | Richiede approvazione |
-| NV | Nessuno |
-| NVv3 | Richiede approvazione | 
+| D | No. |
+| Dv2 | No. |  
+| Dv3 | No.|
+| DSv2 | No. | 
+| DSv3 | No.|
+| FSv2 | No. | 
+| HBv2 | Richiede l'approvazione. |  
+| Servizio di elaborazione host | Richiede l'approvazione. |  
+| M | Richiede l'approvazione. |
+| NC | No. |    
+| NCsv2 | Richiede l'approvazione. |
+| NCsv3 | Richiede l'approvazione. |  
+| NDs | Richiede l'approvazione. |
+| NDv2 | Richiede l'approvazione. |
+| NV | No. |
+| NVv3 | Richiede l'approvazione. | 
 
 
-Mentre Azure Machine Learning supporta queste serie di macchine virtuali, potrebbero non essere disponibili in tutte le aree di Azure. È possibile verificare con le serie di VM disponibili qui: [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+Mentre Azure Machine Learning supporta queste serie di macchine virtuali, potrebbero non essere disponibili in tutte le aree di Azure. Per verificare se sono disponibili serie di macchine virtuali, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ### <a name="compute-isolation"></a>Isolamento del calcolo
 
-Azure Machine Learning calcolo offre dimensioni di macchine virtuali isolate a un tipo di hardware specifico e dedicate a un singolo cliente. Le dimensioni delle macchine virtuali isolate sono ideali per i carichi di lavoro che richiedono un elevato livello di isolamento rispetto ai carichi di lavoro di altri clienti per motivi che includono requisiti di conformità e normativi. L'utilizzo di dimensioni con piano Isolato garantisce che la macchina virtuale sia l'unica in esecuzione nella specifica istanza del server.
+Azure Machine Learning calcolo offre dimensioni di VM isolate a un tipo di hardware specifico e dedicate a un singolo cliente. Le dimensioni delle VM isolate sono ideali per i carichi di lavoro che richiedono un elevato livello di isolamento rispetto ai carichi di lavoro di altri clienti per motivi che includono requisiti di conformità e normativi. L'uso di una dimensione isolata garantisce che la macchina virtuale sia l'unica in esecuzione nell'istanza del server specifica.
 
-Le offerte di macchine virtuali con piano Isolato correnti includono:
+Le offerte di VM isolate correnti includono:
+
 * Standard_M128ms
 * Standard_F72s_v2
 * Standard_NC24s_v3
@@ -128,11 +133,11 @@ Le offerte di macchine virtuali con piano Isolato correnti includono:
 
 *Con supporto di RDMA
 
-Vedere qui per altre informazioni sull' [isolamento nel cloud pubblico di Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Per altre informazioni sull'isolamento, vedere [isolamento nel cloud pubblico di Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
 
 ## <a name="unmanaged-compute"></a>Calcolo non gestito
 
-Una destinazione di calcolo *non gestita non* è gestita da Azure Machine Learning. Questo tipo di destinazione di calcolo viene creato all'esterno Azure Machine Learning, quindi collegato all'area di lavoro. Le risorse di calcolo non gestite possono richiedere passaggi aggiuntivi per la manutenzione o per migliorare le prestazioni dei carichi di lavoro di machine learning.
+Una destinazione di calcolo *non gestita non* è gestita da Azure Machine Learning. Questo tipo di destinazione di calcolo viene creato all'esterno Azure Machine Learning e quindi collegato all'area di lavoro. Le risorse di calcolo non gestite possono richiedere passaggi aggiuntivi per la manutenzione o per migliorare le prestazioni dei carichi di lavoro di machine learning.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

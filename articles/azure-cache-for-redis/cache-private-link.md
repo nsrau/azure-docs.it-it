@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 4ab754cacc85bc9e7c7b850270df37290ad399b6
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650162"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91838654"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
 Questo articolo illustra come creare una rete virtuale e una cache di Azure per l'istanza di redis con un endpoint privato usando il portale di Azure. Si apprenderà anche come aggiungere un endpoint privato a una cache di Azure esistente per l'istanza di Redis.
@@ -22,9 +22,8 @@ L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamen
 * Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> Questa funzionalità è attualmente disponibile in anteprima pubblica per aree limitate. Se non si ha la possibilità di creare un endpoint privato, [contattare](mailto:azurecache@microsoft.com)Microsoft. Per usare gli endpoint privati, è necessario creare la cache di Azure per l'istanza di redis dopo il 28 luglio 2020.
+> Per usare gli endpoint privati, è necessario creare la cache di Azure per l'istanza di redis dopo il 28 luglio 2020.
 >
-> Aree con accesso in anteprima pubblica attualmente: Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Norvegia orientale, Norvegia occidentale, Europa settentrionale, Europa occidentale, Asia orientale, Asia sudorientale, Giappone orientale, Giappone occidentale, Svizzera settentrionale, Svizzera occidentale, India centrale, India occidentale Regno Unito occidentale Regno Unito meridionale Emirati Arabi Uniti centrali , Sudafrica settentrionale, Francia meridionale, Francia centrale, Canada orientale, Canada centrale, Germania settentrionale, Germania centro-occidentale, Australia centrale, India occidentale, India meridionale, Australia orientale, Brasile sudorientale, Brasile meridionale e Brasile meridionale.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Creare un endpoint privato con una nuova cache di Azure per l'istanza di redis 
