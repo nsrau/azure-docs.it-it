@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6ccc2911312a74825b885f5f492e67774354316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304221"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858128"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -274,7 +274,7 @@ Questo ruolo era precedentemente chiamato "Amministratore password" nel [portale
 
 ### <a name="hybrid-identity-administrator"></a>[Amministratore delle identità ibride](#hybrid-identity-administrator-permissions)
 
-Gli utenti con questo ruolo possono abilitare, configurare e gestire i servizi e le impostazioni relative all'abilitazione dell'identità ibrida in Azure AD. Questo ruolo concede la possibilità di configurare Azure AD per uno dei tre metodi di autenticazione supportati, ovvero la sincronizzazione dell'hash delle password (PHS), l'autenticazione pass-through (PTA) o la federazione (AD FS o provider di federazione di terze parti), e di distribuire l'infrastruttura locale correlata per abilitarli. L'infrastruttura locale include gli agenti di provisioning e PTA. Questo ruolo concede la possibilità di abilitare l'accesso Single Sign-On facile (S-SSO) per consentire l'autenticazione semplice nei dispositivi non Windows 10 o nei computer non Windows Server 2016. Inoltre, questo ruolo concede la possibilità di visualizzare i log di accesso e accedere ai dati di integrità e analisi per il monitoraggio e la risoluzione dei problemi. 
+Gli utenti con questo ruolo possono creare, gestire e distribuire il programma di configurazione del provisioning da AD a Azure AD usando il provisioning cloud, nonché gestire le impostazioni di Federazione. Gli utenti possono inoltre risolvere i problemi e monitorare i log utilizzando questo ruolo.  
 
 ### <a name="insights-administrator"></a>[Amministratore di Insights](#insights-administrator-permissions)
 Gli utenti con questo ruolo possono accedere al set completo di funzionalità amministrative nell' [applicazione M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Questo ruolo è in grado di leggere le informazioni della directory, monitorare l'integrità dei servizi, i ticket di supporto file e accedere agli aspetti delle impostazioni di amministrazione di Insights.
@@ -1216,9 +1216,6 @@ Abilitare, distribuire, configurare, gestire, monitorare e risolvere i problemi 
 | microsoft.directory/cloudProvisioning/allProperties/allTasks | Leggere e configurare tutte le proprietà del servizio di provisioning cloud di Azure AD. |
 | microsoft.directory/federatedAuthentication/allProperties/allTasks | Gestire tutti gli aspetti di Active Directory Federated Services (AD FS) o di un provider di federazione di terze parti in Azure AD. |
 | microsoft.directory/organization/dirSync/update | Aggiornare la proprietà organization.dirSync in Azure Active Directory. |
-| microsoft.directory/passwordHashSync/allProperties/allTasks | Gestire tutti gli aspetti della sincronizzazione dell'hash delle password in Azure AD. |
-| microsoft.directory/passThroughAuthentication/allProperties/allTasks | Gestire tutti gli aspetti dell'autenticazione pass-through in Azure AD. |
-| microsoft.directory/seamlessSSO/allProperties/allTasks | Gestire tutti gli aspetti dell'accesso Single Sign-On facile (SSO) in Azure AD. |
 | microsoft.directory/servicePrincipals/audience/update | Aggiornare la proprietà servicePrincipals.audience in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/authentication/update | Aggiornare la proprietà servicePrincipals.authentication in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/basic/update | Aggiornare le proprietà di base su servicePrincipals in Azure Active Directory. |

@@ -2,15 +2,15 @@
 title: Risolvere i problemi relativi a Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo mostra come risolvere i problemi relativi alla Gestione aggiornamenti di Automazione di Azure.
 services: automation
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 9f832b45b3aca11fb96a56643f2cce0228adf8ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713497"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858405"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -57,27 +57,25 @@ Gli aggiornamenti precedenti vengono visualizzati come mancanti per un account d
 
 ### <a name="cause"></a>Causa
 
-Gli aggiornamenti sostituiti non vengono indicati correttamente come rifiutati, in modo da essere considerati non disponibili.
+Gli aggiornamenti sostituiti non vengono rifiutati in Windows Server Update Services (WSUS), in modo che possano essere considerati non applicabili.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
-Quando un aggiornamento sostituito diventa non disponibile al 100%, è necessario modificare lo stato di approvazione di tale aggiornamento in `Declined`. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
+Quando un aggiornamento sostituito diventa il 100% non applicabile, è necessario modificare lo stato di approvazione di tale aggiornamento `Declined` in WSUS. Per modificare lo stato di approvazione di tutti gli aggiornamenti:
 
 1. Selezionare **Gestione aggiornamenti** nell'account di Automazione per visualizzare lo stato del computer. Vedere [Visualizzare la valutazione degli aggiornamenti](../update-management/update-mgmt-view-update-assessments.md).
 
 2. Controllare l'aggiornamento sostituito per assicurarsi che sia non disponibile al 100%.
 
-3. Contrassegnare l'aggiornamento come rifiutato, a meno che non si abbiano domande sull'aggiornamento.
+3. Nel server WSUS a cui si riferiscono i computer, [rifiutare l'aggiornamento](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Selezionare **Computer** e nella colonna **Conformità** forzare la ripetizione dell'analisi per la conformità. Vedere [gestire gli aggiornamenti per le macchine virtuali](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Ripetere i passaggi precedenti per gli altri aggiornamenti sostituiti.
 
-6. Eseguire la pulizia guidata per eliminare i file dagli aggiornamenti rifiutati. 
+6. Per Windows Server Update Services (WSUS), pulire tutti gli aggiornamenti sostituiti per aggiornare l'infrastruttura utilizzando la [Pulitura guidata del server](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard)WSUS.
 
-7. Per Windows Server Update Services (WSUS), eliminare manualmente tutti gli aggiornamenti sostituiti per aggiornare l'infrastruttura.
-
-8. Ripetere questa procedura regolarmente per correggere il problema di visualizzazione e ridurre al minimo la quantità di spazio su disco usata per la gestione aggiornamenti.
+7. Ripetere questa procedura regolarmente per correggere il problema di visualizzazione e ridurre al minimo la quantità di spazio su disco usata per la gestione aggiornamenti.
 
 ## <a name="scenario-machines-dont-show-up-in-the-portal-under-update-management"></a><a name="nologs"></a>Scenario: i computer non vengono visualizzati nel portale in Gestione aggiornamenti
 

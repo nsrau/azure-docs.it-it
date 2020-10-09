@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e91fd0d94d6f6d87b5e554e27bf9c2a2ba6ccabd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333019"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858473"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agente di sincronizzazione dati per sincronizzazione dati SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,11 +24,11 @@ ms.locfileid: "91333019"
 Sincronizzare i dati con SQL Server database installando e configurando l'agente di sincronizzazione dati per sincronizzazione dati SQL in Azure. Per altre informazioni sulla sincronizzazione dei dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
-> Al momento sincronizzazione dati SQL **non** supporta istanza gestita SQL di Azure.
+> Al momento, la sincronizzazione dati SQL **non** supporta Istanza gestita di SQL di Azure.
 
-## <a name="download-and-install"></a>Download e installazione
+## <a name="download-and-install"></a>Scaricare e installare
 
-Per scaricare l'agente di sincronizzazione dati, passare a [sincronizzazione dati SQL Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+Per scaricare l'agente di sincronizzazione dati, passare a [sincronizzazione dati SQL Agent](https://www.microsoft.com/download/details.aspx?id=27693). Per aggiornare l'agente di sincronizzazione dati, installare l'agente nella stessa posizione dell'agente precedente, che sostituirà quello originale.
 
 ### <a name="install-silently"></a>Installazione invisibile all'utente
 
@@ -148,7 +148,7 @@ Si scopre che l'agente è in esecuzione in un computer che ospita SQL Server. Qu
 - **Risoluzione**. Aggiornare la password dell'agente alla password del server corrente:
 
   1. Individuare il servizio agente client di sincronizzazione dati SQL.  
-    a. Selezionare **Inizio**.  
+    a. Selezionare **Start**.  
     b. Immettere **services.msc** nella casella di ricerca.  
     c. Nei risultati della ricerca fare clic su **Servizi**.  
     d. Nella finestra **Servizi** scorrere fino alla voce **SQL Data Sync Agent** (Agente di sincronizzazione dati SQL).  
