@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: d110630ad3291473aee395259d1aaa623a935f5f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825477"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842836"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -42,7 +42,7 @@ Per ulteriori informazioni sull'autenticazione per Key Vault, vedere [eseguire l
 
 ## <a name="key-vault-authentication-options"></a>Opzioni di autenticazione Key Vault
 
-Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Tutti i chiamanti in entrambi i piani devono essere registrati in questo tenant ed eseguire l'autenticazione per accedere all'insieme di credenziali delle chiavi. In entrambi i casi, le applicazioni possono accedere a un insieme di credenziali delle chiavi in due modi:
+Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Tutti i chiamanti in entrambi i piani devono essere registrati in questo tenant ed eseguire l'autenticazione per accedere all'insieme di credenziali delle chiavi. In entrambi i casi, le applicazioni possono accedere a Key Vault in tre modi:
 
 - **Solo applicazione**: l'applicazione rappresenta un'entità servizio o un'identità gestita. Questa identità è lo scenario più comune per le applicazioni che devono periodicamente accedere a certificati, chiavi o segreti dall'insieme di credenziali delle chiavi. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare l'oggetto dell'applicazione nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
 - **Solo utente**: l'utente accede all'insieme di credenziali delle chiavi da qualsiasi applicazione registrata nel tenant. Azure PowerShell e il portale di Azure sono esempi di questo tipo di accesso. Per il corretto funzionamento di questo scenario, `objectId` è necessario specificare il parametro dell'utente nei criteri di accesso `applicationId` e _non_ deve essere specificato o deve essere `null` .
@@ -71,7 +71,7 @@ La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 
 Nel piano di gestione si usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) per autorizzare le operazioni che possono essere eseguite da un chiamante. Nel modello di controllo degli accessi in base al ruolo di Azure ogni sottoscrizione di Azure ha un'istanza di Azure AD. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager.
 
-Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. Si concede l'accesso a un livello di ambito specifico assegnando i ruoli di Azure appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
+Creare un insieme di credenziali delle chiavi in un gruppo di risorse e gestire l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. Si concede l'accesso a un livello di ambito specifico assegnando i ruoli di Azure appropriati. Per concedere l'accesso a un utente per gestire gli insiemi di credenziali delle chiavi, assegnare un ruolo di [collaboratore Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) predefinito all'utente in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
 
 - **Sottoscrizione**: un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
 - **Gruppo di risorse**: un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
@@ -184,11 +184,11 @@ Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli
 
 | Ruolo | Autorizzazioni del piano di gestione | Autorizzazioni del piano dati-criteri di accesso all'insieme di credenziali | Autorizzazioni del piano dati-RBAC di Azure (anteprima)  |
 | --- | --- | --- | --- |
-| Team responsabile della sicurezza | Collaboratore di Key Vault | Certificati: tutte le operazioni <br> Chiavi: tutte le operazioni <br> Segreti: tutte le operazioni | Amministratore Key Vault (anteprima) |
+| Team responsabile della sicurezza | [Collaboratore di Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | Certificati: tutte le operazioni <br> Chiavi: tutte le operazioni <br> Segreti: tutte le operazioni | [Amministratore Key Vault (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota**: Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno | nessuno |
-| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | Lettore di Key Vault (anteprima) |
-| Account di archiviazione di Azure | Nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | Crittografia del servizio di crittografia Key Vault |
-| Applicazione | nessuno | Segreti: Get, List <br> Certificati: Get, List | Lettore di Key Vault (anteprima), utente segreto Key Vault (anteprima) |
+| Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota**: Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Lettore Key Vault (anteprima)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Account di archiviazione di Azure | Nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | [Crittografia del servizio di crittografia Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Applicazione | nessuno | Segreti: Get, List <br> Certificati: Get, List | [Lettore di Key Vault (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [utente segreto Key Vault (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità app Web del servizio app Azure), gli sviluppatori e gli operatori necessitano dell'accesso deploy. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.
 
@@ -199,7 +199,11 @@ Questo esempio illustra uno scenario semplice. Gli scenari reali possono essere 
 
 ## <a name="resources"></a>Risorse
 
-* [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+[Informazioni su Azure Key Vault](overview.md) 
+ [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
+ [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 
+ [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
+ di Azure [Collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

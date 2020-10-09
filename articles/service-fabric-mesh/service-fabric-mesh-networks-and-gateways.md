@@ -1,17 +1,17 @@
 ---
 title: Introduzione alla rete Service Fabric di Azure
 description: Informazioni su reti, gateway e routing del traffico intelligente in Azure Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75459128"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842700"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introduzione alla rete nelle applicazioni Azure Service Fabric Mesh
 Questo articolo descrive i diversi tipi di servizi di bilanciamento del carico, come i gateway connettono la rete ad altre reti tramite le applicazioni e come viene eseguito il routing del traffico tra i servizi delle applicazioni.

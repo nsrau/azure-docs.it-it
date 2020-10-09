@@ -1,19 +1,20 @@
 ---
 title: Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo
 description: Informazioni su come aggiungere o rimuovere nodi in un cluster di Azure Service Fabric su una macchina fisica o virtuale che esegue Windows Server in locale o nel cloud.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: 9fa8b0970d198f9801c7661b9555db17cdf67b3c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e5f32274d2263bc5bf1bbec8f1626d519f8ca3f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258721"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842921"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Aggiungere o rimuovere nodi in un cluster di Service Fabric autonomo eseguito in Windows Server
-Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Server](service-fabric-cluster-creation-for-windows-server.md) le esigenze aziendali possono cambiare e richiedere l'aggiunta o la rimozione di più nodi nel cluster. Questo articolo riporta i passaggi dettagliati per ottenere questo risultato. Si noti che la funzionalità di aggiunta o rimozione di nodi non è supportata nei cluster di sviluppo locali.
+Dopo aver [creato il cluster di Service Fabric autonomo in computer Windows Server](service-fabric-cluster-creation-for-windows-server.md), è possibile che le esigenze di (business) cambino ed è necessario aggiungere o rimuovere nodi nel cluster, come descritto in questo articolo.
+
+> [!NOTE]
+> La funzionalità di aggiunta e rimozione di nodi non è supportata nei cluster di sviluppo locali.
 
 ## <a name="add-nodes-to-your-cluster"></a>Aggiungere nodi al cluster
 
@@ -29,7 +30,7 @@ Dopo [avere creato il cluster autonomo di Service Fabric in computer Windows Ser
 
 5. Eseguire PowerShell con privilegi elevati e passare al percorso del pacchetto decompresso.
 
-6. Eseguire lo script *AddNode.ps1* con i parametri che descrivono il nuovo nodo da aggiungere. Nell'esempio seguente viene aggiunto un nuovo nodo denominato VM5, con il tipo Nodetype0 e e l'indirizzo IP 182.17.34.52, in UD1 e FD:/DC1/R0. `ExistingClusterConnectionEndPoint`è un endpoint di connessione per un nodo già presente nel cluster esistente, che può corrispondere all'indirizzo IP di *qualsiasi* nodo del cluster. 
+6. Eseguire lo script *AddNode.ps1* con i parametri che descrivono il nuovo nodo da aggiungere. Nell'esempio seguente viene aggiunto un nuovo nodo denominato VM5, con il tipo Nodetype0 e e l'indirizzo IP 182.17.34.52, in UD1 e FD:/DC1/R0. `ExistingClusterConnectionEndPoint` è un endpoint di connessione per un nodo già presente nel cluster esistente, che può corrispondere all'indirizzo IP di *qualsiasi* nodo del cluster. 
 
    Non sicuro (prototipazione):
 
@@ -95,7 +96,7 @@ Per aggiungere un nuovo tipo di nodo modificare la configurazione, includere il 
 È possibile rimuovere un nodo da un cluster mediante un aggiornamento della configurazione, con le operazioni seguenti:
 
 1. Eseguire [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) per ottenere il file di configurazione più recente e quindi *remove* per rimuovere il nodo dalla sezione "Nodes".
-Aggiungere il parametro "NodesToBeRemoved" alla sezione "Setup" inclusa nella sezione "FabricSettings". "value" deve essere un elenco separato da virgole contenente i nomi dei nodi da rimuovere.
+Aggiungere il parametro "NodesToBeRemoved" alla sezione "Setup" inclusa nella sezione "FabricSettings". Il "valore" deve essere un elenco delimitato da virgole di nomi di nodi che devono essere rimossi.
 
     ```
          "fabricSettings": [

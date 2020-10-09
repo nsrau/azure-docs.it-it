@@ -1,16 +1,14 @@
 ---
 title: Configurare il cluster autonomo di Azure Service Fabric
 description: Informazioni su come configurare un cluster di Azure Service Fabric autonomo o locale.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: dekapur
-ms.openlocfilehash: e8a1fdfb23b6e0aee9b9bdd04f70c554824f4c35
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246572"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843159"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
 Questo articolo descrive le impostazioni di configurazione di un cluster autonomo di Azure Service Fabric definibili nel file *ClusterConfig.json*. Questo file verrà usato per specificare informazioni sui nodi del cluster, le configurazioni di sicurezza, nonché la topologia di rete in termini di domini di errore e di aggiornamento.  Dopo la modifica o l'aggiunta di impostazioni di configurazione, è possibile [creare un cluster autonomo](service-fabric-cluster-creation-for-windows-server.md) oppure [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -101,7 +99,7 @@ La variabile metadata descrive la diagnostica del cluster e può essere impostat
 }
 ```
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 La sezione security è necessaria per la protezione di un cluster di Service Fabric autonomo. Il frammento seguente mostra una parte di questa sezione:
 
 ```json
@@ -199,7 +197,7 @@ Tutte le funzionalità del componente aggiuntivo disponibili possono essere visu
 Per abilitare il supporto dei contenitori sia per i contenitori di Windows Server che per i contenitori di Hyper-V per i cluster autonomi, deve essere attivata la funzionalità aggiuntiva DnsService.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver configurato unClusterConfig.jscompleto per il file *in* base alla configurazione del cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
+Dopo aver configurato unClusterConfig.jscompleto per il file * in* base alla configurazione del cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
 
 Se si dispone di un cluster autonomo distribuito, è anche possibile [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 

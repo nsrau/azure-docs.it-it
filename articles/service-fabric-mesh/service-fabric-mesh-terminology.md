@@ -1,16 +1,16 @@
 ---
 title: Terminologia per Azure Service Fabric mesh
 description: Questo articolo illustra in dettaglio la terminologia usata da Azure Service Fabric mesh per comprendere meglio i termini usati nella documentazione.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: fcd17c64ac41056420a22e328d13862e52bd99bd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d82df6ee598664c2b85cfa82395ac66f3865cf7f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246725"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843007"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia di Service Fabric Mesh
 
@@ -68,7 +68,7 @@ I diversi ambienti offrono vari livello di supporto per framework e modelli di d
 
 | Tipo di applicazione | Descritto da | Azure Service Fabric Mesh | Cluster di Azure Service Fabric (qualsiasi sistema operativo)| Cluster locale | Cluster autonomo |
 |---|---|---|---|---|---|
-| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportate | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
+| Applicazioni Service Fabric Mesh | Modello di risorse (YAML e JSON) | Supportato |Non supportato | Windows: supportato; Linux e Mac: non supportati | Windows: non supportato |
 |Applicazioni native di Service Fabric | Modello applicativo nativo (XML) | Non supportato| Supportato|Supportato|Windows: supportato|
 
 La tabella seguente descrive i diversi modelli applicativi e gli strumenti disponibili per tali modelli rispetto a Service Fabric.

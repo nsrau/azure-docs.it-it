@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1b7b5e209329bd5dc4c95f81f61fecf48fb74e40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362111"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843125"
 ---
 # <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
@@ -79,7 +79,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
     In **Simple editor** (Editor semplice) immettere `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Azione di chiamata a endpoint Web in caso di esito positivo](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Screenshot che mostra la schermata in seguito alla riuscita-azione da eseguire.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 - Risposta in caso di esito positivo\
 Salvare, eseguire il training e testare
    > [!div class="mx-imgBorder"]
-   > ![Azione di chiamata a endpoint Web in caso di esito positivo](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Screenshot che mostra l'esito positivo della risposta.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - Risposta in caso di esito negativo\
 Rimuovere uno dei parametri di query, salvare, ripetere il training e testare
    > [!div class="mx-imgBorder"]

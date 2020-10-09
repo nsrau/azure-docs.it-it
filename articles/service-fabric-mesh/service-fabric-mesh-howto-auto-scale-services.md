@@ -1,17 +1,17 @@
 ---
 title: Ridimensionare automaticamente un'app in esecuzione in Azure Service Fabric mesh
 description: Informazioni su come configurare i criteri di scalabilità automatica per i servizi di un'applicazione di Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75461969"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843057"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Creare criteri di scalabilità automatica per un'applicazione di Service Fabric Mesh
 Uno dei principali vantaggi derivanti dalla distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi. Questa operazione deve essere usata per la gestione di diverse quantità di carico nei servizi o per migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di scalabilità automatica.

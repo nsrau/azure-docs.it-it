@@ -4,19 +4,19 @@ description: Elenco di servizi che supportano le identità gestite per le risors
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/09/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 207b4a926e77ff55faad388b6eeaeb221ec252a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006781"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843176"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -252,6 +252,12 @@ Fare riferimento all'elenco seguente per configurare l'identità gestita per le 
 
 Per altre informazioni, vedere [come abilitare l'identità gestita assegnata dal sistema per l'applicazione Azure Spring cloud](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
 
+### <a name="azure-stack-edge"></a>Azure Stack Edge
+
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
+| --- | --- | --- | --- | --- |
+| Assegnata dal sistema | Disponibile nell'area in cui è disponibile il servizio Azure Stack Edge | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Set di scalabilità delle macchine virtuali di Azure
 

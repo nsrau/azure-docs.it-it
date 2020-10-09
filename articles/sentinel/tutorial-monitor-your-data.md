@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3f59fea9f6d96f6e259a47c75bcfb0fd0be76d34
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826553"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843074"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Esercitazione: Visualizzare e monitorare i dati
 
@@ -62,7 +62,7 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
 ## <a name="create-new-workbook"></a>Creare una nuova cartella di lavoro
 
 1. Per creare una nuova cartella di lavoro, passare a **Cartelle di lavoro** e quindi selezionare **Aggiungi la cartella di lavoro**.
-  ![Passare a Cartelle di lavoro](./media/tutorial-monitor-data/create-workbook.png)
+  ![Screenshot che mostra la schermata nuova cartella di lavoro.](./media/tutorial-monitor-data/create-workbook.png)
 
 1. Per modificare la cartella di lavoro, selezionare **Modifica** e quindi aggiungere testo, query e parametri, se necessari. Per altre informazioni su come personalizzare la cartella di lavoro, vedere [Creare report interattivi con Cartelle di lavoro di Monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md). 
 
@@ -72,7 +72,7 @@ Questa esercitazione consente di visualizzare i dati in Azure Sentinel.
 
 1. Se si vuole consentire ad altri utenti dell'organizzazione di usare la cartella di lavoro, in **Salva in** selezionare **Report condivisi**. Se si vuole che la cartella di lavoro non sia disponibile per altri utenti, selezionare **Report personali**.
 
-1. Per passare da una cartella di lavoro all'altra nell'area di lavoro, è possibile selezionare **Apri** ![Passare a un'altra cartella di lavoro](./media/tutorial-monitor-data/switch.png)nel riquadro superiore di qualsiasi cartella di lavoro. Nella finestra visualizzata a destra cambiare la cartella di lavoro attiva.
+1. Per passare da una cartella di lavoro all'altra nell'area di lavoro, è possibile selezionare **Apri** ![ icona per aprire una cartella di lavoro. ](./media/tutorial-monitor-data/switch.png) nel riquadro superiore di qualsiasi cartella di lavoro. Nella finestra visualizzata a destra cambiare la cartella di lavoro attiva.
 
    ![Passare a un'altra cartella di lavoro](./media/tutorial-monitor-data/switch-workbooks.png)
 

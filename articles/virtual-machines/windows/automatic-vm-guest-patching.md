@@ -7,14 +7,14 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669070"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842870"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Anteprima: applicazione automatica di patch per guest VM per macchine virtuali Windows in Azure
+# <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Anteprima: applicazione automatica delle patch guest alle macchine virtuali Windows in Azure
 
 L'abilitazione dell'applicazione automatica delle patch Guest per le macchine virtuali Windows consente di semplificare la gestione degli aggiornamenti con l'applicazione di patch alle macchine virtuali in modo sicuro e automatico per garantire la conformità
 
@@ -162,7 +162,7 @@ Una volta registrata la funzionalità per la sottoscrizione, completare il proce
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
 ```
-## <a name="enable-automatic-vm-guest-patching"></a>Abilitare l'applicazione automatica delle patch per guest VM
+## <a name="enable-automatic-vm-guest-patching"></a>Abilitare l'applicazione automatica di patch guest alle macchine virtuali
 Per abilitare l'applicazione automatica delle patch Guest per macchine virtuali, assicurarsi che la proprietà *osProfile. windowsConfiguration. enableAutomaticUpdates* sia impostata su *true* nella definizione del modello di macchina virtuale. Questa proprietà può essere impostata solo quando si crea la macchina virtuale.
 
 ### <a name="rest-api"></a>API REST
@@ -251,8 +251,10 @@ I risultati dell'installazione della patch per la macchina virtuale possono esse
 ## <a name="on-demand-patch-assessment"></a>Valutazione patch su richiesta
 Se l'applicazione automatica delle patch Guest per la VM è già abilitata per la macchina virtuale, viene eseguita una valutazione periodica delle patch sulla macchina virtuale durante le ore di minore traffico della macchina virtuale. Questo processo è automatico e i risultati della valutazione più recente possono essere esaminati tramite la visualizzazione dell'istanza della macchina virtuale, come descritto in precedenza in questo documento. È anche possibile attivare una valutazione delle patch su richiesta per la macchina virtuale in qualsiasi momento. La valutazione della patch può richiedere alcuni minuti per il completamento e lo stato dell'ultima valutazione viene aggiornato nella visualizzazione dell'istanza della macchina virtuale.
 
+Per abilitare la funzionalità di anteprima, è necessario un unico consenso esplicito per la funzionalità *InGuestPatchVMPreview* per sottoscrizione. L'anteprima delle funzionalità per la valutazione delle patch su richiesta può essere abilitata seguendo il [processo di abilitazione dell'anteprima](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) descritto in precedenza per l'applicazione automatica delle patch Guest per macchine virtuali.
+
 > [!NOTE]
->La valutazione patch su richiesta non attiva automaticamente la patch installata. Le patch valutate e applicabili per la macchina virtuale verranno installate solo durante le ore non di punta della macchina virtuale, in seguito al processo di applicazione delle patch prima della disponibilità descritto in precedenza in questo documento.
+>La valutazione patch su richiesta non attiva automaticamente l'installazione della patch. Le patch valutate e applicabili per la macchina virtuale verranno installate solo durante le ore non di punta della macchina virtuale, in seguito al processo di applicazione delle patch prima della disponibilità descritto in precedenza in questo documento.
 
 ### <a name="rest-api"></a>API REST
 ```

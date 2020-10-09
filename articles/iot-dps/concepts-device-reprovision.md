@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2bf369b784cddf307abc59d2b8766fc8a87e0985
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975347"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842853"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Concetti di reprovisioning di un dispositivo hub IoT
 
@@ -32,7 +32,7 @@ Il supporto di reprovisioning all'interno del Device Provisioning Service rispon
 
 I dati relativi allo stato del dispositivo sono costituiti dalle funzionalità del dispositivo [gemello](../iot-hub/iot-hub-devguide-device-twins.md) e del dispositivo. Questi dati vengono archiviati nell'istanza del servizio Device Provisioning e nell'hub IoT al quale un dispositivo viene assegnato.
 
-![Provisioning con il servizio Device Provisioning](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Diagramma che illustra il funzionamento del provisioning con il servizio Device provisioning.](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 Quando un dispositivo viene inizialmente sottoposto a provisioning con un'istanza del servizio Device Provisioning, vengono eseguiti i passaggi seguenti:
 
@@ -52,13 +52,13 @@ In genere (in base allo scenario), un dispositivo invia una richiesta a un'istan
 
 * **Rieseguire il provisioning e la migrazione dei dati**: questo criterio è il valore predefinito per le nuove voci di registrazione. Questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta (1). A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Le informazioni sullo stato dei dispositivi aggiornati da tale hub IoT iniziale verranno migrate sul nuovo hub IoT (2). Durante la migrazione, lo stato del dispositivo verrà indicato come **assegnato**.
 
-    ![Provisioning con il servizio Device Provisioning](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Diagramma che mostra che un criterio esegue un'azione quando i dispositivi associati alla voce di registrazione inviano una nuova richiesta.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **Rieseguire il provisioning e ripristinare la configurazione iniziale**: Questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning (1). A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT (2). Durante la migrazione, lo stato del dispositivo verrà indicato come **assegnato**.
 
     Questo criterio viene spesso usato per il ripristino senza modificare l'hub IoT.
 
-    ![Provisioning con il servizio Device Provisioning](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Diagramma che illustra il modo in cui un criterio esegue un'azione quando i dispositivi associati alla voce di registrazione inviano una nuova richiesta di provisioning.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **Mai rieseguire il provisioning**: il dispositivo non viene mai riassegnato a un hub diverso. Questo criterio viene fornito per gestire la compatibilità con le versioni precedenti.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566336"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843108"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
@@ -119,11 +119,11 @@ Una volta risolto un evento imprevisto specifico, ad esempio quando l'indagine h
 - Falso positivo: dati non corretti
 - Non determinato
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot che evidenzia le classificazioni disponibili nell'elenco Seleziona classificazione.":::
 
 Dopo aver scelto la classificazione appropriata, aggiungere un testo descrittivo nel campo del **Commento** . Questa operazione sarà utile nel caso in cui sia necessario riferire a questo evento imprevisto. Al termine, fare clic su **applica** per chiudere l'evento imprevisto.
 
-:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Screenshot che evidenzia le classificazioni disponibili nell'elenco Seleziona classificazione.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come iniziare a esaminare gli eventi imprevisti usando Sentinel di Azure. Continuare con l'esercitazione su [come rispondere alle minacce usando i PlayBook automatici](tutorial-respond-threats-playbook.md).

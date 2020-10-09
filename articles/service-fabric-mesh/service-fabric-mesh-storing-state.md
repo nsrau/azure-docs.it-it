@@ -1,16 +1,16 @@
 ---
 title: Opzioni di archiviazione dello stato in Azure Service Fabric mesh
 description: Informazioni sull'archiviazione affidabile dello stato nelle applicazioni mesh Service Fabric eseguite su Azure Service Fabric Mesh.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b8440a168d6d268cd27e1208ff54616a3b1e193a
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984135"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843210"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestione dello stato con Service Fabric
 

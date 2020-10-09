@@ -1,17 +1,17 @@
 ---
 title: Usare un volume basato su File di Azure in un'app Service Fabric mesh
 description: Informazioni sull'archiviazione dello stato in un'applicazione di Azure Service Fabric Mesh attraverso il montaggio di un volume basato su File di Azure all'interno di un servizio che usa l'interfaccia della riga di comando di Azure.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 54edc242260479a8f48cc4aae91845041fc2d376
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01cee3dc3f6b67aba1e6f8455ed7b538a44fc6f7
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260100"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91842788"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montare un volume basato su File di Azure in un'applicazione di Service Fabric Mesh 
 
@@ -21,7 +21,7 @@ Per montare un volume in un servizio, creare una risorsa di volume nell'applicaz
 
 ## <a name="prerequisites"></a>Prerequisiti
 > [!NOTE]
-> **Problemi noti relativi alla distribuzione nel computer di sviluppo RS5 di Windows:** È presente un bug aperto con il cmdlet di PowerShell New-SmbGlobalMapping nei computer Windows RS5 che impedisce il montaggio di volumi Azurefile. Di seguito è riportato un errore di esempio che si verifica quando viene montato il volume basato su AzureFile nel computer di sviluppo locale.
+> **Problemi noti relativi alla distribuzione nel computer di sviluppo RS5 di Windows:** È presente un bug aperto con il cmdlet di PowerShell New-SmbGlobalMapping nei computer RS5 Windows che impedisce il montaggio di volumi Azurefile. Di seguito è riportato un errore di esempio che si verifica quando viene montato il volume basato su AzureFile nel computer di sviluppo locale.
 ```
 Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
 There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)

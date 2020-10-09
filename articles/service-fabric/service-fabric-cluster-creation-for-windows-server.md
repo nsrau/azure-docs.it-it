@@ -1,16 +1,14 @@
 ---
 title: Creare un cluster autonomo di Azure Service Fabric
 description: Creare un cluster di Azure Service Fabric su qualsiasi macchina (fisica o virtuale) che esegue Windows Server, sia locale che nel cloud.
-author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.author: dekapur
-ms.openlocfilehash: 6fa27008ea22e1a2bd9a83ce3888370cf2213935
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458077"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843193"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
 Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server. I cluster di Service Fabric tradizionali in Azure sono disponibili come servizio gestito, mentre i cluster di Service Fabric autonomi sono self-service. Per altre informazioni sulle differenze, vedere [Confronto tra Azure e i cluster autonomi di Service Fabric](./service-fabric-deploy-anywhere.md).
