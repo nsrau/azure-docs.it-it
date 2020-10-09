@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 22168974ab8b285413b4fa6e947c05f65a73ae12
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80874347"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>Sintesi vocale (grafico secondario: grafici/textToSpeech)
@@ -32,7 +32,7 @@ Per eseguire l'override del grafico "Umbrella", aggiungere il prefisso `textToSp
 | `image.pullSecrets` | I segreti dell'immagine per il pull dell'immagine Docker **di sintesi vocale** . | |
 | `image.pullByHash`| Indica se viene eseguito il pull dell'immagine Docker in base all'hash. Se `true` , `image.hash` è obbligatorio. | `false` |
 | `image.hash`| Hash dell'immagine Docker **di sintesi vocale** . Utilizzato solo quando `image.pullByHash: true` .  | |
-| `image.args.eula` (obbligatorio) | Indica che la licenza è stata accettata. L'unico valore valido è`accept` | |
+| `image.args.eula` (obbligatorio) | Indica che la licenza è stata accettata. L'unico valore valido è `accept` | |
 | `image.args.billing` (obbligatorio) | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina di panoramica del discorso del portale di Azure. | |
 | `image.args.apikey` (obbligatorio) | Si usa per rilevare le informazioni di fatturazione. ||
 | `service.type` | Tipo di servizio Kubernetes del servizio di sintesi **vocale** . Vedere le [istruzioni sui tipi di servizio Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) per altri dettagli e verificare il supporto del provider di servizi cloud. | `LoadBalancer` |

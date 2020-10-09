@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80681649"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usare l'archiviazione BLOB di Azure per la conversione dei modelli
@@ -27,7 +27,7 @@ Il servizio di [conversione del modello](model-conversion.md) richiede l'accesso
 
 La creazione dell'account di archiviazione e dei contenitori BLOB può essere eseguita con uno degli strumenti seguenti:
 
-- [Azure portal](https://portal.azure.com)
+- [Portale di Azure](https://portal.azure.com)
 - [riga di comando AZ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDK (C#, Python...)

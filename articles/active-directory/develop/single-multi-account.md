@@ -13,10 +13,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881351"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>App client pubbliche con account singolo e multipli
@@ -25,7 +25,7 @@ Questo articolo consente di comprendere i tipi usati nelle app client pubbliche 
 
 La libreria di autenticazione Azure Active Directory (ADAL) modella il server.  Microsoft Authentication Library (MSAL) modella invece l'applicazione client.  La maggior parte delle app Android sono considerate client pubblici. Un client pubblico è un'app che non è in grado di gestire in modo sicuro un segreto.  
 
-MSAL specializza la superficie API di `PublicClientApplication` per semplificare e chiarire l'esperienza di sviluppo per le app che consentono l'uso di un solo account per volta. `PublicClientApplication`è sottoclassato da `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication` .  Nel diagramma seguente viene illustrata la relazione tra queste classi.
+MSAL specializza la superficie API di `PublicClientApplication` per semplificare e chiarire l'esperienza di sviluppo per le app che consentono l'uso di un solo account per volta. `PublicClientApplication` è sottoclassato da `SingleAccountPublicClientApplication` e `MultipleAccountPublicClientApplication` .  Nel diagramma seguente viene illustrata la relazione tra queste classi.
 
 ![Diagramma classi UML SingleAccountPublicClientApplication](./media/single-multi-account/single-and-multiple-account.png)
 
@@ -35,14 +35,14 @@ La `SingleAccountPublicClientApplication` classe consente di creare un'app basat
 
 - MSAL tiene traccia dell'account attualmente connesso.
   - Se l'app usa un broker (impostazione predefinita durante la registrazione dell'app portale di Azure) e viene installato in un dispositivo in cui è presente un broker, MSAL verificherà che l'account sia ancora disponibile sul dispositivo.
-- `signIn`consente di accedere a un account in modo esplicito e separatamente dagli ambiti richiesti.
-- `acquireTokenSilent`non richiede un parametro dell'account.  Se si specifica un account e l'account fornito non corrisponde all'account corrente rilevato da MSAL, `MsalClientException` viene generata un'eccezione.
-- `acquireToken`non consente all'utente di cambiare account. Se l'utente tenta di passare a un account diverso, viene generata un'eccezione.
-- `getCurrentAccount`Restituisce un oggetto risultato che fornisce gli elementi seguenti:
+- `signIn` consente di accedere a un account in modo esplicito e separatamente dagli ambiti richiesti.
+- `acquireTokenSilent` non richiede un parametro dell'account.  Se si specifica un account e l'account fornito non corrisponde all'account corrente rilevato da MSAL, `MsalClientException` viene generata un'eccezione.
+- `acquireToken` non consente all'utente di cambiare account. Se l'utente tenta di passare a un account diverso, viene generata un'eccezione.
+- `getCurrentAccount` Restituisce un oggetto risultato che fornisce gli elementi seguenti:
   - Valore booleano che indica se l'account è stato modificato. Un account può essere modificato come risultato della rimozione dal dispositivo, ad esempio.
   - Account precedente. Questa operazione è utile se è necessario eseguire la pulizia dei dati locali quando l'account viene rimosso dal dispositivo o quando viene eseguito l'accesso a un nuovo account.
   - Delle.
-- `signOut`Rimuove tutti i token associati al client dal dispositivo.  
+- `signOut` Rimuove tutti i token associati al client dal dispositivo.  
 
 Quando nel dispositivo è installato un broker di autenticazione Android, ad esempio Microsoft Authenticator o Portale aziendale Intune, e l'app è configurata per l'uso del broker, `signOut` non rimuove l'account dal dispositivo.
 

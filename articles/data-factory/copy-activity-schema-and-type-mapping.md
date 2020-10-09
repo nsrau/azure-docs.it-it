@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
 ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85249653"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapping dei tipi di dati nell'attività di copia
@@ -39,7 +39,7 @@ Se l'origine è un file di testo senza riga di intestazione, il [mapping esplici
 2. Applica il mapping definito.
 3. Scrive i dati nel sink.
 
-Altre informazioni su:
+Sono disponibili altre informazioni su:
 
 - [Da origine tabulare a sink tabulare](#tabular-source-to-tabular-sink)
 - [Da origine gerarchica a sink tabulare](#hierarchical-source-to-tabular-sink)
@@ -311,9 +311,9 @@ Le proprietà seguenti sono supportate nell'attività di copia per la conversion
 | -------------------------------- | ------------------------------------------------------------ | -------- |
 | typeConversion                   | Abilitare la nuova esperienza di conversione del tipo di dati. <br>Il valore predefinito è false a causa della compatibilità con le versioni precedenti.<br><br>Per le nuove attività di copia create tramite l'interfaccia utente di creazione Data Factory dalla fine del 2020 giugno, questa conversione del tipo di dati è abilitata per impostazione predefinita per un'esperienza ottimale ed è possibile visualizzare le seguenti impostazioni di conversione dei tipi nell'attività di copia-scheda mapping > per gli scenari applicabili. <br>Per creare una pipeline a livello di codice, è necessario impostare in modo esplicito la `typeConversion` proprietà su true per abilitarla.<br>Per le attività di copia esistenti create prima del rilascio di questa funzionalità, non verranno visualizzate le opzioni di conversione dei tipi nell'interfaccia utente di creazione Data Factory per la compatibilità con le versioni precedenti. | No       |
 | typeConversionSettings           | Gruppo di impostazioni di conversione dei tipi. Applicare quando `typeConversion` è impostato su `true` . Le proprietà seguenti sono tutte sottoposte a questo gruppo. | No       |
-| *In`typeConversionSettings`* |                                                              |          |
+| *In `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Consente il troncamento dei dati durante la conversione dei dati di origine in sink con tipo diverso durante la copia, ad esempio da Decimal a Integer, da DatetimeOffset a DateTime. <br>Il valore predefinito è true. | No       |
-| treatBooleanAsNumber             | Considera i valori booleani come numeri, ad esempio true come 1.<br>Il valore predefinito è False. | No       |
+| treatBooleanAsNumber             | Considera i valori booleani come numeri, ad esempio true come 1.<br>Il valore predefinito è false. | No       |
 | dateTimeFormat                   | Stringa di formato quando si esegue la conversione tra date senza offset di fuso orario e stringhe, ad esempio `yyyy-MM-dd HH:mm:ss.fff` .  Per informazioni dettagliate, fare riferimento alle [stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) . | No       |
 | dateTimeOffsetFormat             | Stringa di formato quando si esegue la conversione tra le date con la differenza di fuso orario e le stringhe, ad esempio `yyyy-MM-dd HH:mm:ss.fff zzz` .  Per informazioni dettagliate, fare riferimento alle [stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) . | No       |
 | timeSpanFormat                   | Stringa di formato durante la conversione tra i periodi di tempo e le stringhe, ad esempio `dd\.hh\:mm` . Per informazioni dettagliate, vedere [stringhe di formato TimeSpan personalizzate](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) . | No       |

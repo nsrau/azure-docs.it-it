@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80879209"
 ---
 # <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuire il contenitore Language Understanding (LUIS) in istanze di contenitore di Azure
@@ -33,7 +33,7 @@ Il contenitore LUIS richiede un `.gz` file di modello di cui è stato eseguito i
 
 ### <a name="export-and-upload-packaged-luis-app"></a>Esportare e caricare l'app LUIS in pacchetto
 
-Per caricare il modello LUIS (app in pacchetto) nella condivisione file di Azure, è necessario <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">prima <span class="docon docon-navigate-external x-hidden-focus"> </span>esportarlo dal portale Luis </a>. Dalla portale di Azure passare alla pagina **Panoramica** della risorsa account di archiviazione e selezionare **condivisioni file**. Selezionare il nome della condivisione file creata di recente, quindi selezionare il pulsante **carica** .
+Per caricare il modello LUIS (app in pacchetto) nella condivisione file di Azure, è necessario <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">prima <span class="docon docon-navigate-external x-hidden-focus"></span> esportarlo dal portale Luis </a>. Dalla portale di Azure passare alla pagina **Panoramica** della risorsa account di archiviazione e selezionare **condivisioni file**. Selezionare il nome della condivisione file creata di recente, quindi selezionare il pulsante **carica** .
 
 > [!div class="mx-imgBorder"]
 > ![Carica nella condivisione file](media/luis-how-to-deploy-to-aci/upload-file-share.png)

@@ -4,10 +4,10 @@ description: Questo articolo include una tabella che descrive la configurazione 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 97640debe81041ff7e2b082c6a9ac606d6088664
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85314274"
 ---
 # <a name="azure-relay-port-settings"></a>Impostazioni delle porte di inoltro di Azure
@@ -20,7 +20,7 @@ Connessioni ibride Usa WebSocket sulla porta 443 con TLS come meccanismo di tras
 
 ## <a name="wcf-relays"></a>Inoltri WCF
   
-|Associazione|Sicurezza trasporto|Porta|  
+|Binding|Protezione del trasporto|Porta|  
 |-------------|------------------------|----------|  
 |[Classe BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (client)|Sì|HTTPS| 
 |" |No|HTTP|  
@@ -41,5 +41,5 @@ Connessioni ibride Usa WebSocket sulla porta 443 con TLS come meccanismo di tras
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
-* [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md)
+* [Che cos'è Inoltro di Azure?](relay-what-is-it.md)
 * [Domande frequenti sul servizio di inoltro](relay-faq.md)

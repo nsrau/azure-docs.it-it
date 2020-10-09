@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: ea564eb69f102d8e548bf8ae9a626598fa264cd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882880"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>App desktop che chiama le API Web: passa all'ambiente di produzione
@@ -35,8 +35,8 @@ Non è possibile ottenere un token per più risorse contemporaneamente con l'end
 
 È possibile, ad esempio, che siano presenti due risorse con due ambiti:
 
-- `https://mytenant.onmicrosoft.com/customerapi`con gli ambiti `customer.read` e`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`con gli ambiti `vendor.read` e`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` con gli ambiti `customer.read` e `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` con gli ambiti `vendor.read` e `vendor.write`
 
 In questo esempio, usare il `.WithAdditionalPromptToConsent` modificatore con il `extraScopesToConsent` parametro.
 

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85318910"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: esempi
@@ -32,7 +32,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 | [Esempi JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Questo esempio fornisce esempi JSON relativi a scenari comuni. |
 | [Esempio relativo all'unità di download dei dati HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Questo esempio mostra il download di dati da un endpoint HTTP nell'archiviazione BLOB di Azure mediante un'attività .NET personalizzata. |
 | [Esempio di attività .NET di passaggio tra AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Questo esempio consente di creare un'attività .NET personalizzata non vincolata alle versioni assembly usate dal servizio di avvio di Azure Data Factory (ad esempio WindowsAzure.Storage versione 4.3.0, Newtonsoft.Json versione 6.0.x e così via). |
-| [Esegui script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Questo esempio include l'attività personalizzata di Data Factory che può essere usata per richiamare RScript.exe. Questo esempio funziona soltanto con il cluster HDInsight dell'utente (non con quello su richiesta) in cui è già installato R. |
+| [Eseguire lo script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Questo esempio include l'attività personalizzata di Data Factory che può essere usata per richiamare RScript.exe. Questo esempio funziona soltanto con il cluster HDInsight dell'utente (non con quello su richiesta) in cui è già installato R. |
 | [Richiamare processi Spark in cluster Hadoop di HDInsight](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Questo esempio illustra come usare l'attività MapReduce per richiamare un programma Spark. Il programma Spark si limita a copiare i dati da un contenitore BLOB di Azure a un altro. |
 | [Analisi Twitter mediante un'attività batch di Azure Machine Learning per l'assegnazione dei punteggi](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Questo esempio illustra come usare AzureMLBatchScoringActivity per richiamare un modello di Azure Machine Learning che esegue analisi del sentiment Twitter, assegnazione dei punteggi, stime e così via. |
 | [Analisi Twitter mediante un'attività personalizzata](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Questo esempio illustra come usare un'attività .NET personalizzata per richiamare un modello di Azure Machine Learning che esegue analisi del sentiment Twitter, assegnazione dei punteggi, stime e così via. |
@@ -43,7 +43,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 | [File di input di esempio U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/U-SQL%20Sample%20Input%20File) |Si tratta di un file di esempio usato da un'attività di U-SQL. |
 | [Eliminare il file BLOB](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | In questo esempio viene illustrato un file C# che può essere usato come parte di un'attività .net personalizzata ADF per eliminare i file dal percorso BLOB di Azure di origine dopo averli copiati.|
 
-## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 È possibile trovare i seguenti modelli di Azure Resource Manager per Data Factory in GitHub.
 
 | Modello | Descrizione |
@@ -98,7 +98,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
     ![Finestra di dialogo Modelli di Data Factory](./media/data-factory-samples/vs-data-factory-templates-dialog.png)
 4. Nella finestra di dialogo **Data Factory Configuration** (Configurazione di Data Factory) fare clic su **Avanti** nella pagina **Data Factory Basics** (Informazioni di base di Data Factory).
 5. Nella pagina **Configure data factory** (Configura data factory), procedere come segue:
-   1. Selezionare **Create new data factory** (Crea nuova data factory). In alternativa, selezionare **Use existing data factory**(Usa data factory esistente).
+   1. Selezionare **Crea nuovo data factory**. In alternativa, selezionare **Use existing data factory**(Usa data factory esistente).
    2. Immettere un **nome** per il data factory.
    3. Selezionare la **sottoscrizione di Azure** in cui creare la data factory.
    4. Selezionare il **gruppo di risorse** per la data factory.
@@ -113,7 +113,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 12. Verrà visualizzata la finestra di dialogo seguente:
 
     ![Finestra di dialogo Pubblica](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
-13. Nella pagina **configura Data Factory** seguire questa procedura:
+13. Nella pagina **Configure data factory** (Configura data factory), procedere come segue:
 
     1. Confermare l'opzione **Use existing data factory** (Usa data factory esistente).
     2. Selezionare la stessa **data factory** del modello precedente.

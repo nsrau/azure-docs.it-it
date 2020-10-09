@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 25389348476552298ddb947ccb59acb8b3d5bc57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881249"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedura: configurare l'accesso SSO in macOS e iOS
@@ -97,8 +97,8 @@ Quando i diritti sono configurati correttamente, verrà visualizzato un `entitle
 #### <a name="add-a-new-keychain-group"></a>Aggiungere un nuovo gruppo di Keychain
 
 Aggiungere un nuovo gruppo di Keychain alle **funzionalità**del progetto. Il gruppo Keychain deve essere:
-* `com.microsoft.adalcache`in iOS 
-* `com.microsoft.identity.universalstorage`in macOS.
+* `com.microsoft.adalcache` in iOS 
+* `com.microsoft.identity.universalstorage` in macOS.
 
 ![esempio di Keychain](media/single-sign-on-macos-ios/keychain-example.png)
 

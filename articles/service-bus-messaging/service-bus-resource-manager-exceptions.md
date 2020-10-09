@@ -4,10 +4,10 @@ description: Elenco di eccezioni del bus di servizio emerse da Azure Resource Ma
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a0b0338da0f002c7b667748ffd2bf5a40c91c580
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85336974"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Eccezioni Gestione risorse del bus di servizio
@@ -48,7 +48,7 @@ Analogamente a HTTP, "codice errore 429" indica "numero eccessivo di richieste".
 | 429 | 40900 | Sottocodice = 40900. Conflitto. Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. | Questa condizione può essere raggiunta quando vengono effettuate più richieste per eseguire le operazioni sulla stessa entità (coda, argomento, sottoscrizione o regola) nello stesso momento. | Attendere alcuni secondi e riprovare |
 | 429 | 40901 | Richiesta nell'entità *' nome entità'* in conflitto con un'altra richiesta | È in corso un'altra operazione in conflitto sulla stessa risorsa/entità | Attendere il completamento dell'operazione precedente prima di riprovare |
 | 429 | 40901 | È in corso un'altra richiesta di aggiornamento per l'entità *"nome entità"*. | È in corso un'altra operazione in conflitto sulla stessa risorsa/entità | Attendere il completamento dell'operazione precedente prima di riprovare |
-| 429 | Nessuno | Si è verificato un conflitto di risorse. È possibile che sia in corso un'altra operazione in conflitto. Se si tenta di eseguire un'operazione non riuscita, la pulitura in background è ancora in sospeso. Riprovare più tardi. | Questa condizione può essere raggiunta quando si verifica un'operazione in sospeso sulla stessa entità. | Attendere il completamento dell'operazione precedente prima di riprovare. |
+| 429 | Nessuno | Si è verificato un conflitto di risorse. È possibile che sia in corso un'altra operazione in conflitto. Se si tenta di eseguire un'operazione non riuscita, la pulitura in background è ancora in sospeso. Riprovare in un secondo tempo. | Questa condizione può essere raggiunta quando si verifica un'operazione in sospeso sulla stessa entità. | Attendere il completamento dell'operazione precedente prima di riprovare. |
 
 
 ## <a name="error-code-not-found"></a>Codice errore: non trovato

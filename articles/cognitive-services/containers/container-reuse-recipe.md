@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 7380ff58d033a68565de7e419ff318f7bdec121d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80875079"
 ---
 # <a name="create-containers-for-reuse"></a>Creare contenitori per il riutilizzo
@@ -29,7 +29,7 @@ Tutti gli `docker run` esempi in questo documento presuppongono una console di W
 
 * Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
 * Se si utilizza un sistema operativo diverso da Windows o una console diversa dalla console di Windows, utilizzare la console/terminale, la sintassi di cartella per i montaggi e il carattere di continuazione di riga corretti per la console e il sistema.  Poiché il contenitore di servizi cognitivi è un sistema operativo Linux, il montaggio di destinazione usa una sintassi di cartella di tipo Linux.
-* `docker run`gli esempi usano la directory dall' `c:` unità per evitare eventuali conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker.
+* `docker run` gli esempi usano la directory dall' `c:` unità per evitare eventuali conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker.
 
 ## <a name="store-no-configuration-settings-in-image"></a>Archivia nessuna impostazione di configurazione nell'immagine
 

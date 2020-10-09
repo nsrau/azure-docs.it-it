@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni su come usare Kafka MirrorMak
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85320191"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Usare Kafka MirrorMaker con Hub eventi per Apache Kafka
@@ -114,7 +114,7 @@ Per verificare che gli eventi raggiungano l'hub eventi, vedere statistiche in in
 Con MirrorMaker in esecuzione, tutti gli eventi inviati al cluster Kafka di origine vengono ricevuti sia dal cluster Kafka che dall'hub eventi con mirroring. Usando MirrorMaker e un endpoint Kafka di Hub eventi, è possibile migrare una pipeline Kafka esistente al servizio Hub eventi di Azure gestito senza modificare il cluster esistente o interrompere eventuali flussi di dati in corso.
 
 ## <a name="samples"></a>Esempi
-Vedere gli esempi seguenti su GitHub:
+Vedere gli esempi seguenti in GitHub:
 
 - [Codice di esempio per questa esercitazione su GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
 - [Kafka MirrorMaker di hub eventi di Azure in esecuzione in un'istanza di contenitore di Azure](https://github.com/djrosanova/EventHubsMirrorMaker)

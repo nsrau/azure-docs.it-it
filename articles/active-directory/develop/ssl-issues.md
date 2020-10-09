@@ -13,10 +13,10 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: 1507231c3ab395319d5ce95ec06dbb592c324aa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80881078"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-tlsssl-issues"></a>Procedura: risolvere i problemi relativi a MSAL per iOS e macOS TLS/SSL
@@ -41,7 +41,7 @@ I certificati che usano hash SHA-1 hanno vulnerabilità note. La maggior parte d
 
 ## <a name="captive-portals"></a>Portali Captive
 
-Un portale captive presenta una pagina Web a un utente quando accede per la prima volta a una rete Wi-Fi e non è ancora autorizzato ad accedere alla rete. Intercetta il traffico Internet fino a quando l'utente non soddisfa i requisiti del portale. Errori di rete perché l'utente non è in grado di connettersi alle risorse di rete finché l'utente non si connette tramite il portale.
+Un portale captive presenta una pagina Web a un utente quando accede per la prima volta a una rete di Wi-Fi e non ha ancora concesso l'accesso alla rete. Intercetta il traffico Internet fino a quando l'utente non soddisfa i requisiti del portale. Errori di rete perché l'utente non è in grado di connettersi alle risorse di rete finché l'utente non si connette tramite il portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

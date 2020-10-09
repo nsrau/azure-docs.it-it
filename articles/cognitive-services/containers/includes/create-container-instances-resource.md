@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 09957461fd92114d1181a570550ee1a189edd8ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80876433"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Creare una risorsa dell'istanza di contenitore di Azure
@@ -22,7 +22,7 @@ ms.locfileid: "80876433"
 
 2. Nella scheda informazioni di **base** immettere i dettagli seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |--|--|
     |Subscription|Selezionare la propria sottoscrizione.|
     |Resource group|Selezionare il gruppo di risorse disponibile o crearne uno nuovo, ad esempio `cognitive-services` .|
@@ -35,13 +35,13 @@ ms.locfileid: "80876433"
 
 3. Nella scheda **rete** immettere i dettagli seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |--|--|
     |Porte|Impostare la porta TCP su `5000` . Espone il contenitore sulla porta 5000.|
 
 4. Nella scheda **Avanzate** immettere le **variabili di ambiente** necessarie per le impostazioni di fatturazione del contenitore della risorsa istanza di contenitore di Azure:
 
-    | Chiave | valore |
+    | Chiave | Valore |
     |--|--|
     |`apikey`|Copiato dalla pagina **chiavi** della risorsa. Si tratta di una stringa di caratteri alfanumerici 32 senza spazi o trattini `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
     |`billing`|Copiato dalla pagina **Panoramica** della risorsa.|

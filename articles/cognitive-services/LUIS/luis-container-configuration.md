@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 48a9856c58a815eabcc0b105efcd548e66ddd552
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80874212"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori Docker di Language Understanding 
 
-L'ambiente di runtime del contenitore **Language Understanding** (Luis) viene configurato `docker run` usando gli argomenti del comando. LUIS ha diverse impostazioni necessarie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le [impostazioni di montaggio](#mount-settings) di input e le impostazioni di fatturazione. 
+L'ambiente di runtime del contenitore **Language Understanding** (Luis) viene configurato usando gli `docker run` argomenti del comando. LUIS ha diverse impostazioni necessarie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le [impostazioni di montaggio](#mount-settings) di input e le impostazioni di fatturazione. 
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
@@ -33,12 +33,12 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 |Sì|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
 |Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No|[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
-|No|[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
-|No|[Registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|No|[Proxy http](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
+|No|[Logging](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
 |Sì|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
-> Le [`ApiKey`](#apikey-setting)impostazioni [`Billing`](#billing-setting), e [`Eula`](#eula-setting) vengono utilizzate insieme ed è necessario fornire valori validi per tutti e tre gli elementi; in caso contrario, il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](luis-container-howto.md#billing) (Fatturazione).
+> Le [`ApiKey`](#apikey-setting) [`Billing`](#billing-setting) Impostazioni, e [`Eula`](#eula-setting) vengono usate insieme ed è necessario fornire valori validi per tutti e tre gli elementi; in caso contrario, il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](luis-container-howto.md#billing) (Fatturazione).
 
 ## <a name="apikey-setting"></a>Impostazione ApiKey
 
@@ -61,12 +61,12 @@ L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa _Servizi c
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: Panoramica di **Servizi cognitivi** , con etichetta`Endpoint`
+* Portale di Azure: Panoramica di **Servizi cognitivi** , con etichetta `Endpoint`
 * Portale LUIS: pagina **chiavi e Impostazioni endpoint** , come parte dell'URI dell'endpoint.
 
-| Obbligatoria | Name | Tipo di dati | Descrizione |
+| Obbligatoria | Nome | Tipo di dati | Descrizione |
 |----------|------|-----------|-------------|
-| Sì      | `Billing` | stringa | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](luis-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
+| Sì      | `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](luis-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -94,10 +94,10 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 La tabella seguente descrive le impostazioni supportate.
 
-|Obbligatoria| Name | Tipo di dati | Descrizione |
+|Obbligatoria| Nome | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
 |Sì| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
-|No| `Output` | Stringa | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
@@ -105,20 +105,20 @@ Gli esempi seguenti usano le impostazioni di configurazione per illustrare come 
 
 * Questi esempi usano la directory dall' `C:` unità per evitare conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. 
 * Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori Docker.
-* Se si utilizza un sistema operativo diverso, utilizzare la console/terminale, la sintassi di cartella per i montaggi e il carattere di continuazione di riga corretti per il sistema. In questi esempi si presuppone una console di Windows con un `^`carattere di continuazione di riga. Poiché il contenitore è un sistema operativo Linux, il montaggio di destinazione usa una sintassi di cartella di tipo Linux.
+* Se si utilizza un sistema operativo diverso, utilizzare la console/terminale, la sintassi di cartella per i montaggi e il carattere di continuazione di riga corretti per il sistema. In questi esempi si presuppone una console di Windows con un carattere di continuazione di riga `^` . Poiché il contenitore è un sistema operativo Linux, il montaggio di destinazione usa una sintassi di cartella di tipo Linux.
 
 Sostituire {_nome_argomento_} con i propri valori:
 
 | Segnaposto | Valore | Formato o esempio |
 |-------------|-------|---|
-| **{API_KEY}** | Chiave dell'endpoint della `LUIS` risorsa nella pagina chiavi di `LUIS` Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{API_KEY}** | Chiave dell'endpoint della `LUIS` risorsa nella `LUIS` pagina chiavi di Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `LUIS` pagina Panoramica di Azure.| Vedere [raccolta di parametri obbligatori](luis-container-howto.md#gathering-required-parameters) per esempi espliciti. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia. Per altre informazioni, vedere[Fatturazione](luis-container-howto.md#billing).
-> Il valore ApiKey è la **chiave** della pagina chiavi ed endpoint nel portale Luis ed è disponibile anche nella pagina chiavi di risorsa di `Cognitive Services` Azure. 
+> Il valore ApiKey è la **chiave** della pagina chiavi ed endpoint nel portale Luis ed è disponibile anche nella `Cognitive Services` pagina chiavi di risorsa di Azure. 
 
 ### <a name="basic-example"></a>Esempio di base
 
@@ -151,7 +151,7 @@ InstrumentationKey={INSTRUMENTATION_KEY}
 
 ### <a name="logging-example"></a>Esempio di registrazione 
 
-Il seguente comando imposta il livello di registrazione `Logging:Console:LogLevel`,, per configurare il livello di [`Information`](https://msdn.microsoft.com)registrazione su. 
+Il seguente comando imposta il livello di registrazione, `Logging:Console:LogLevel` , per configurare il livello di registrazione su [`Information`](https://msdn.microsoft.com) . 
 
 ```console
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 ^
@@ -168,4 +168,4 @@ Logging:Console:LogLevel:Default=Information
 
 * Vedere [Come installare ed eseguire i contenitori](luis-container-howto.md)
 * Per risolvere i problemi correlati alle funzionalità di LUIS, vedere [Risoluzione dei problemi](troubleshooting.md).
-* Usare più [contenitori di servizi cognitivi](../cognitive-services-container-support.md)
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

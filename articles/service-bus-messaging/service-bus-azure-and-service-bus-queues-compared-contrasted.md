@@ -4,10 +4,10 @@ description: Analizza i punti in comune e le differenze tra i due tipi di code o
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85337649"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
@@ -48,7 +48,7 @@ Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso de
 * Si vuole usare il protocollo di messaggistica basato sugli standard AMQP 1.0. Per altre informazioni su AMQP, vedere [Panoramica di AMQP per il bus di servizio](service-bus-amqp-overview.md).
 * È possibile prevedere un'eventuale migrazione dalla comunicazione punto a punto basata sulla coda a un modello di scambio dei messaggi mediante il quale viene garantita un'integrazione continua di destinatari aggiuntivi (sottoscrittori), mediante ognuno dei quali vengono ricevute copie separate di alcuni o di tutti i messaggi inviati alla coda. Quest'ultima viene definita funzionalità di pubblicazione/sottoscrizione a livello nativo fornita dal bus di servizio.
 * La soluzione di messaggistica deve garantire il recapito "At-Most-Once" senza che sia necessario sviluppare i componenti aggiuntivi dell'infrastruttura.
-* Si desidera essere in grado di pubblicare e usare batch di messaggi.
+* Si vuole poter pubblicare e usare batch di messaggi.
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>Confronto tra code di archiviazione e code del bus di servizio
 Le tabelle nelle sezioni seguenti forniscono un raggruppamento logico delle funzionalità relative alle code e offrono la possibilità di un confronto immediato delle funzionalità disponibili sia nelle code di archiviazione di Azure sia in quelle del bus di servizio.
@@ -61,7 +61,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 | Garanzia di ordinamento |**No** <br/><br>Per altre informazioni, vedere la prima nota della sezione "Informazioni aggiuntive".</br> |**Sì - First-In-First-Out (FIFO)**<br/><br>(tramite l'uso di sessioni di messaggistica) |
 | Garanzia di recapito |**At-Least-Once** |**At-least-once** (usando la modalità di ricezione PeekLock-impostazione predefinita) <br/><br/>**At-most-once** (usando la modalità di ricezione ReceiveAndDelete) <br/> <br/> Altre informazioni sulle diverse [modalità di ricezione](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Supporto per l'operazione atomica |**No** |**Sì**<br/><br/> |
-| Comportamento di ricezione |**Non-blocking**<br/><br/>(viene completata immediatamente se non vengono trovati altri messaggi) |**Blocking with/without timeout**<br/><br/>(offre disponibilità di polling prolungato o la ["Tecnica Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(solo tramite l'uso di interfaccia API gestita di .NET) |
+| Comportamento di ricezione |**Non bloccante**<br/><br/>(viene completata immediatamente se non vengono trovati altri messaggi) |**Blocking with/without timeout**<br/><br/>(offre disponibilità di polling prolungato o la ["Tecnica Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non bloccante**<br/><br/>(solo tramite l'uso di interfaccia API gestita di .NET) |
 | API di tipo push |**No** |**Sì**<br/><br/>API .NET per sessioni [QueueClient. OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e [MessageSessionHandler. OnMessage](/dotnet/api/microsoft.servicebus.messaging.messagesessionhandler.onmessage#Microsoft_ServiceBus_Messaging_MessageSessionHandler_OnMessage_Microsoft_ServiceBus_Messaging_MessageSession_Microsoft_ServiceBus_Messaging_BrokeredMessage__) . |
 | Modalità di ricezione |**Visualizzazione e lease** |**Visualizzazione e blocco**<br/><br/>**Ricezione ed eliminazione** |
 | Modalità di accesso esclusivo |**Basato sul lease** |**Basato sul blocco** |
@@ -70,7 +70,7 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 | Ricezione in batch |**Sì**<br/><br/>(specifica esplicitamente il numero di messaggi durante il recupero dei messaggi, fino a un massimo di 32 messaggi). |**Sì**<br/><br/>(abilita implicitamente una proprietà di prelettura o esplicitamente tramite l'uso di transazioni). |
 | Invio in batch |**No** |**Sì**<br/><br/>(tramite l'uso di transazioni o invio in batch sul lato client). |
 
-### <a name="additional-information"></a>Informazioni aggiuntive
+### <a name="additional-information"></a>Altre informazioni
 * In genere i messaggi nelle code di archiviazione sono ordinati in base al principio FIFO (First-In-First-Out), ma in alcuni casi possono risultare non in ordine, ad esempio quando la durata del timeout di visibilità di un messaggio scade a seguito dell'arresto anomalo di un'applicazione client durante l'elaborazione. Quando il timeout di visibilità scade, il messaggio risulta nuovamente visibile nella coda in modo che un altro utente possa rimuoverlo. A questo punto, il messaggio reso nuovamente visibile può essere posizionato nella coda (per poter essere rimosso di nuovo) dopo un messaggio originariamente accodato dopo quest'ultimo.
 * Il modello FIFO garantito nelle code del bus di servizio richiede l'uso di sessioni di messaggistica. Se l'applicazione termina di funzionare in maniera anomala durante l'elaborazione di un messaggio ricevuto nella modalità **Visualizzazione e blocco**, la prossima volta che un ricevitore di code accetta una sessione di messaggistica, l'applicazione verrà avviata con il messaggio non recapitato dopo la scadenza della relativa durata (TTL).
 * Le code di archiviazione sono progettate per supportare scenari di accodamento standard, ad esempio il disaccoppiamento di componenti dell'applicazione per aumentare la scalabilità e la tolleranza di errore, il livellamento del carico e la creazione di flussi di lavoro di elaborazione.
@@ -106,7 +106,7 @@ Questa sezione confronta le funzionalità avanzate fornite dalle code di archivi
 | Esplorazione di gruppi di messaggi |**No** |**Sì** |
 | Recupero delle sessioni di messaggistica per ID |**No** |**Sì** |
 
-### <a name="additional-information"></a>Informazioni aggiuntive
+### <a name="additional-information"></a>Altre informazioni
 * Entrambe le tecnologie di accodamento consentono di pianificare il recapito di un messaggio in un momento successivo.
 * La funzionalità di inoltro automatico consente a migliaia di code di inoltrare automaticamente i propri messaggi a una singola coda dalla quale l'applicazione ricevente preleva il messaggio. Questo meccanismo consente di ottenere un valore elevato di sicurezza, di controllare il flusso e di isolare le aree di archiviazione tra i server di pubblicazione dei messaggi.
 * Le code di archiviazione offrono supporto per l'aggiornamento del contenuto del messaggio. Questa funzionalità consente di rendere permanenti le informazioni sullo stato e gli aggiornamenti sull'avanzamento incrementale all'interno del messaggio, in modo che sia possibile elaborare quest'ultimo dall'ultimo checkpoint noto anziché dall'inizio. Con le code del bus di servizio è possibile abilitare lo stesso scenario mediante sessioni di messaggistica Le sessioni consentono di salvare e recuperare lo stato di elaborazione dell'applicazione tramite [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState).
@@ -127,7 +127,7 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | Numero massimo di code |**Illimitato** |**10,000**<br/><br/>(per spazio dei nomi del servizio) |
 | Numero massimo di client concorrenti |**Illimitato** |**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP) |
 
-### <a name="additional-information"></a>Informazioni aggiuntive
+### <a name="additional-information"></a>Altre informazioni
 * Bus di servizio impone l'applicazione dei limiti di dimensione della coda. Le dimensioni massime della coda vengono specificate al momento della creazione della coda stessa e possono avere un valore compreso tra 1 e 80 GB. Se viene raggiunto il valore delle dimensioni della coda impostato al momento della creazione, i successivi messaggi in arrivo verranno rifiutati e il codice chiamante riceverà un'eccezione. Per altre informazioni sulle quote nel bus di servizio, vedere [Quote del bus di servizio](service-bus-quotas.md).
 * Il partizionamento non è supportato nel [livello Premium](service-bus-premium-messaging.md). Nel livello Standard è possibile creare code del bus di servizio in dimensioni di 1, 2, 3, 4 o 5 GB (il valore predefinito è 1 GB). Nel livello Standard, con il partizionamento abilitato (ovvero l'impostazione predefinita), il bus di servizio crea 16 partizioni per ogni GB specificato. Di conseguenza, se si crea una coda di 5 GB di dimensioni, con 16 partizioni la dimensione massima della coda diventa (5 * 16) = 80 GB. È possibile vedere le dimensioni massime della coda o dell'argomento partizionato esaminando la voce corrispondente nel [portale di Azure][Azure portal].
 * Per le code di archiviazione, se il contenuto del messaggio non è XML, deve avere la codifica **Base64**. Se per il messaggio non è stata usata la codifica **Base64**, il payload dell'utente può essere fino a 48 KB, anziché 64.
@@ -152,7 +152,7 @@ Questa sezione confronta le funzionalità di gestione fornite dalle code di arch
 | Funzione di recupero della lunghezza della coda |**Sì**<br/><br/>(valore indicativo se i messaggi scadono dopo il TTL senza essere eliminati). |**Sì**<br/><br/>(Valore esatto e temporizzato). |
 | Funzione di visualizzazione |**Sì** |**Sì** |
 
-### <a name="additional-information"></a>Informazioni aggiuntive
+### <a name="additional-information"></a>Altre informazioni
 * Le code di archiviazione forniscono supporto per gli attributi arbitrari applicabili alla descrizione della coda, sotto forma di coppie nome-valore.
 * Entrambe le tecnologie di coda consentono di visualizzare un messaggio senza doverlo bloccare. Questa funzionalità può essere utile quando si implementa uno strumento di esplorazione delle code.
 * Le API gestite .NET di messaggistica negoziata del bus di servizio usano le connessioni TCP full-duplex per ottenere migliori livelli di prestazioni rispetto a REST su HTTP e supportano il protocollo standard AMQP 1.0.
@@ -168,7 +168,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 | Modello di protezione |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
 | Federazione del provider di identità |**No** |**Sì** |
 
-### <a name="additional-information"></a>Informazioni aggiuntive
+### <a name="additional-information"></a>Altre informazioni
 * Ogni richiesta a entrambe le tecnologie di accodamento deve essere autenticata. Le code pubbliche con accesso anonimo non sono supportate. L'uso di [SAS](service-bus-sas.md) consente di ovviare a questo inconveniente tramite la pubblicazione di una firma SAS di sola scrittura, di sola lettura o anche di accesso completo.
 * Lo schema di autenticazione offerto dalle code di archiviazione prevede l'uso di una chiave simmetrica, ovvero un codice HMAC (Hash Message Authentication Code) basato su hash calcolato dall'algoritmo SHA-256 e codificato come stringa **Base64**. Per altre informazioni sul relativo protocollo, vedere [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure). Le code del bus di servizio supportano un modello simile mediante l'uso di chiavi simmetriche. Per altre informazioni, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](service-bus-sas.md).
 

@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, download aggiornamento, più recente, disponibile, installazione, corpo, monitoraggio
 ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85276779"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Scaricare Azure Kinect Body Tracking SDK
@@ -26,7 +26,7 @@ Questo documento contiene i collegamenti per installare ogni versione di Azure K
 
 ## <a name="windows-download-links"></a>Collegamenti per il download di Windows
 
-Versione       | Scarica
+Versione       | Download
 --------------|----------
 1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1) MSI
 1.0.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100848) [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.0) MSI
@@ -109,9 +109,9 @@ Se il comando riesce, l'SDK è pronto per l'uso.
 
 * [Modifica di rilievo] È stato eseguito il downgrade della dipendenza SDK a CUDA 10,0 (da CUDA 10,1). Il runtime di ONNX supporta ufficialmente fino a CUDA 10,0.
 * [Modifica di rilievo] Passaggio al runtime di ONNX anziché al runtime di Tensorflow. Riduce il primo tempo di avvio del frame e l'utilizzo della memoria. Consente inoltre di ridurre le dimensioni binarie dell'SDK.
-* [Modifica API] Rinominato `k4abt_tracker_queue_capture()` in`k4abt_tracker_enqueue_capture()`
+* [Modifica API] Rinominato `k4abt_tracker_queue_capture()` in `k4abt_tracker_enqueue_capture()`
 * [Modifica API] Si è `k4abt_frame_get_body()` suddiviso in due funzioni separate: `k4abt_frame_get_body_skeleton()` e `k4abt_frame_get_body_id()` . A questo punto è possibile eseguire una query sull'ID corpo senza copiare sempre l'intera struttura di scheletro.
-* [Modifica API] Aggiunta `k4abt_frame_get_timestamp_usec()` funzione per semplificare la procedura che consente agli utenti di eseguire query sul timestamp del frame del corpo.
+* [Modifica API] Aggiunta  `k4abt_frame_get_timestamp_usec()` funzione per semplificare la procedura che consente agli utenti di eseguire query sul timestamp del frame del corpo.
 * Miglioramento dell'accuratezza dell'algoritmo di rilevamento del corpo e affidabilità del rilevamento
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76986037"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Genomica di Microsoft: Domande comuni
@@ -25,7 +25,7 @@ Questo articolo elenca le domande più importanti degli utenti su Genomica di Mi
 Nel file di config.txt del servizio genomica di Microsoft specificare il process_name a `gatk4` . Si noti che verranno addebitate tariffe di fatturazione regolari.
 
 ## <a name="how-do-i-enable-output-compression"></a>Ricerca per categorie abilitare la compressione dell'output?
-È possibile comprimere l'output VCF o gvcf usando un argomento facoltativo per la compressione di output. Equivale a eseguire `-bgzip` seguito da nell' `-tabix` output di VCF o gvcf per produrre `.gz` i file (output bgzip) e `.tbi` (output tabix). `bgzip`comprime il file VCF o gvcf e `tabix` Crea un indice per il file compresso. L'argomento è un valore booleano, che è impostato su per `false` impostazione predefinita per l'output di VCF e su per `true` impostazione predefinita per l'output di gcvf. Per utilizzare nella riga di comando, specificare `-bz` o `--bgzip-output` come `true` (eseguire bgzip e tabix) o `false` . Per usare questo argomento nel file di config.txt, aggiungere `bgzip_output: true` o `bgzip_output: false` al file.
+È possibile comprimere l'output VCF o gvcf usando un argomento facoltativo per la compressione di output. Equivale a eseguire `-bgzip` seguito da nell' `-tabix` output di VCF o gvcf per produrre `.gz` i file (output bgzip) e `.tbi` (output tabix). `bgzip` comprime il file VCF o gvcf e `tabix` Crea un indice per il file compresso. L'argomento è un valore booleano, che è impostato su per `false` impostazione predefinita per l'output di VCF e su per `true` impostazione predefinita per l'output di gcvf. Per usarlo nella riga di comando, specificare `-bz` o `--bgzip-output` come `true` (eseguire bgzip e tabix) oppure `false`. Per usare questo argomento nel file config.txt, aggiungere `bgzip_output: true` o `bgzip_output: false` al file.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Qual è il contratto di servizio per Genomica di Microsoft?
 È garantita la disponibilità del servizio Genomica di Microsoft per il 99,9% del tempo a ricevere le richieste di API del flusso di lavoro. Per altre informazioni, vedere [Contratto di servizio](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).

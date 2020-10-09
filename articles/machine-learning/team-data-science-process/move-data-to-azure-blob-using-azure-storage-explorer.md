@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bfc63c6f5aca92fb7fda9e3ecf63ce4c332b12ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76720912"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Spostamento dei dati da e verso l'archiviazione BLOB di Azure usando Storage Explorer di Azure
@@ -40,7 +40,7 @@ In questo documento si presuppone di avere una sottoscrizione di Azure, un accou
 
 <a id="explorer"></a>
 
-## <a name="use-azure-storage-explorer"></a>Utilizzo di Esplora archivi Azure
+## <a name="use-azure-storage-explorer"></a>Usare Azure Storage Explorer
 I passaggi seguenti documentano come caricare e scaricare i dati utilizzando Esplora archivi Azure. 
 
 1. Avviare Esplora archivi di Microsoft Azure.

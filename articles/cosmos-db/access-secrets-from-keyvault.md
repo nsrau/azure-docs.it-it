@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262668"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteggere le chiavi di Azure Cosmos con Azure Key Vault 
@@ -70,11 +70,11 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 
 5. Una volta distribuita l'applicazione, dal portale di Azure passare all'app Web distribuita e attivare l'**Identità del servizio gestita** dell'applicazione.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Identità del servizio gestita":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Creare un segreto":::
 
 Se si esegue ora l'applicazione, verrà visualizzato l'errore seguente poiché non è stata concessa alcuna autorizzazione per l'applicazione in Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="App distribuita senza accesso":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Creare un segreto":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registrare l'applicazione e concedere le autorizzazioni per leggere l'insieme di credenziali delle chiavi
 
@@ -84,11 +84,11 @@ In questa sezione viene registrata l'applicazione con Azure Active Directory e v
 
 2. Aprire **Criteri di accesso**, selezionare **+Aggiungi nuovo** trovare l'app Web distribuita, selezionare le autorizzazioni e selezionare **OK**.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Aggiungere un criterio di accesso":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Creare un segreto":::
 
 A questo punto, se si esegue l'applicazione, è possibile leggere il segreto da Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Applicazione distribuita con il segreto":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Creare un segreto":::
  
 Analogamente, è possibile aggiungere un utente per l'accesso all'insieme di credenziali delle chiavi. È necessario aggiungersi manualmente all'insieme di credenziali delle chiavi selezionando **Criteri di accesso** e quindi fornire tutte le autorizzazioni necessarie per eseguire l'applicazione da Visual studio. Quando questa applicazione è in esecuzione sul desktop, assume l'identità dell'utente.
 

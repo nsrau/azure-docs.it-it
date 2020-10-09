@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80811091"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
@@ -46,7 +46,7 @@ Azure richiede che le macchine virtuali siano connesse a una rete virtuale di Az
 
 Altre informazioni:
 
-* [Panoramica di rete virtuale](../../virtual-network/virtual-networks-overview.md)
+* [Panoramica della rete virtuale](../../virtual-network/virtual-networks-overview.md)
 
 ## <a name="network-access-control"></a>Controllo di accesso alla rete
 
@@ -132,7 +132,7 @@ Ad esempio, i requisiti di sicurezza possono includere:
 
 ## <a name="azure-firewall"></a>Firewall di Azure
 
-Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo come servizio con disponibilità elevata incorporata e scalabilità del cloud senza restrizioni. Alcune funzionalità includono:
+Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall completo con stato distribuito come servizio con disponibilità elevata incorporata e scalabilità cloud illimitata. Alcune funzionalità includono:
 
 * Disponibilità elevata
 * Scalabilità del cloud
@@ -283,7 +283,7 @@ Per la risoluzione dei nomi interna sono disponibili due opzioni:
 
 Altre informazioni:
 
-* [Panoramica di rete virtuale](../../virtual-network/virtual-networks-overview.md)
+* [Panoramica della rete virtuale](../../virtual-network/virtual-networks-overview.md)
 * [Gestire i server DNS usati da una rete virtuale](../../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 Per la risoluzione dei nomi esterna sono disponibili due opzioni:

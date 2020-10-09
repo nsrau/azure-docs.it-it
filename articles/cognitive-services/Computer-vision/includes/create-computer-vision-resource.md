@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2647c604bebc2885f5c8516eb997792b65751e88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80876087"
 ---
 ## <a name="create-an-computer-vision-resource"></a>Creare una risorsa Visione artificiale
 
-1. Accedi al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Fare clic su [crea **visione artificiale** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) risorsa.
 1. Immettere tutte le impostazioni richieste:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |--|--|
     |Nome|Il nome desiderato (2-64 caratteri)|
     |Subscription|Selezionare la sottoscrizione appropriata|
@@ -30,4 +30,4 @@ ms.locfileid: "80876087"
     |Gruppo di risorse|Selezionare un gruppo di risorse disponibile|
 
 1. Fare clic su **Crea** e attendere che venga creata la risorsa. Una volta creata, passare alla relativa pagina.
-1. Per informazioni `{ENDPOINT_URI}` dettagliate `{API_KEY}`, vedere [raccolta di parametri](../computer-vision-how-to-install-containers.md#gathering-required-parameters) configurati e.
+1. `{ENDPOINT_URI}` `{API_KEY}` Per informazioni dettagliate, vedere [raccolta di parametri](../computer-vision-how-to-install-containers.md#gathering-required-parameters) configurati e.

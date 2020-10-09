@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80878392"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
@@ -38,7 +38,7 @@ L'API REST di Utilità di pianificazione di Microsoft Azure espone e utilizza le
 
 A livelli elevati, l'API REST di Utilità di pianificazione di Microsoft Azure espone queste operazioni per la gestione delle entità.
 
-### <a name="job-management"></a>Gestione dei processi
+### <a name="job-management"></a>Gestione processi
 
 Supporta le operazioni per la creazione e modifica di processi. Tutti i processi devono appartenere a una raccolta di processi già esistente e che non viene creata implicitamente. Per altre informazioni, vedere l'articolo relativo all'[API REST di Utilità di pianificazione di Microsoft Azure - Processi](https://docs.microsoft.com/rest/api/scheduler/jobs). Ecco l'indirizzo URI per queste operazioni:
 
@@ -82,7 +82,7 @@ A un livello elevato, un processo di Utilità di pianificazione di Microsoft Azu
 
 Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiva di esecuzione pianificata del processo. La definizione di codice del processo è un oggetto in formato JavaScript Object Notation (JSON), con questi elementi:
 
-| Elemento | Obbligatoria | Description | 
+| Elemento | Obbligatoria | Descrizione | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | No | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**azione**](#action) | Sì | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
@@ -252,7 +252,7 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 | **intervallo** | No | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
 | **pianificazione** | No | Varia | I dettagli per le pianificazioni più complesse e avanzate. Vedere **hours**, **minutes**, **weekDays**, **months**, e **monthDays** | 
 | **ore** | No | Da 1 a 24 | Una matrice con l'ora segna quando eseguire il processo | 
-| **minutes** | No | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
+| **minuti** | No | da 0 a 59 | Una matrice con i minuti segna quando eseguire il processo | 
 | **months** | No | Da 1 a 12 | Una matrice con i mesi segna quando eseguire il processo | 
 | **monthDays** | No | Varia | Una matrice con i giorni segna quando eseguire il processo | 
 | **Giorni feriali** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matrice con i giorni della settimana segna quando eseguire il processo | 

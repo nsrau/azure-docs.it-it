@@ -12,10 +12,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: eeba01a609a1a21ed564c0b9cb78a28a4ad5c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80882319"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Applicazione a pagina singola: acquisire un token per chiamare un'API
@@ -24,8 +24,8 @@ Il modello per l'acquisizione di token per le API con MSAL.js consiste nel tenta
 
 Le richieste di token invisibile al Azure AD potrebbero non riuscire per motivi quali una sessione di Azure AD scaduta o una modifica della password. In tal caso, è possibile richiamare uno dei metodi interattivi (che richiederanno all'utente) di acquisire i token:
 
-* [Finestra popup](#acquire-a-token-with-a-pop-up-window), tramite`acquireTokenPopup`
-* [Reindirizzamento](#acquire-a-token-with-a-redirect)tramite`acquireTokenRedirect`
+* [Finestra popup](#acquire-a-token-with-a-pop-up-window), tramite `acquireTokenPopup`
+* [Reindirizzamento](#acquire-a-token-with-a-redirect)tramite `acquireTokenRedirect`
 
 ## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Scegliere tra un'esperienza popup o un reindirizzamento
 
@@ -70,7 +70,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 
 Il wrapper angolare MSAL fornisce l'intercettore HTTP, che acquisisce automaticamente i token di accesso in modo invisibile all'utente e li associa alle richieste HTTP alle API.
 
-È possibile specificare gli ambiti per le API nell' `protectedResourceMap` opzione di configurazione. `MsalInterceptor`questi ambiti verranno richiesti durante l'acquisizione automatica dei token.
+È possibile specificare gli ambiti per le API nell' `protectedResourceMap` opzione di configurazione. `MsalInterceptor` questi ambiti verranno richiesti durante l'acquisizione automatica dei token.
 
 ```javascript
 // app.module.ts

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024875"
 ---
 # <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>Che cos'è la soluzione VMware di Azure di CloudSimple
@@ -37,7 +37,7 @@ La **soluzione VMware di Azure di CloudSimple** è un servizio completamente ges
 ## <a name="benefits"></a>Vantaggi
 
 * **Continuità operativa**. CloudSimple offre accesso nativo alle piattaforme VMware. L'architettura di CloudSimple è compatibile con la esistente:
-    * Applicazioni
+    * APPLICAZIONI
     * Operazioni
     * Sicurezza
     * Backup
