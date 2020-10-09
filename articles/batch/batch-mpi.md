@@ -2,14 +2,14 @@
 title: Usare attività a istanze multiple per eseguire applicazioni MPI
 description: Informazioni su come eseguire applicazioni MPI (Message Passing Interface) usando il tipo di attività a istanze multiple in Azure Batch.
 ms.topic: how-to
-ms.date: 03/13/2019
+ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: fd39af127d975f085bbd55fe2a21f925b5aae8e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6207fc5295de28d4caf956b74e14f97f1113120c
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926372"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850626"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Usare le attività a istanze multiple per eseguire applicazioni MPI (Message Passing Interface) in Batch
 
@@ -39,7 +39,7 @@ Quando si invia a un processo un'attività con impostazioni per istanze multiple
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Requisiti delle attività a istanze multiple
-Per le attività a istanze multiple è necessario un pool in cui sia **abilitata la comunicazione tra i nodi** e **disabilitata l'esecuzione di attività simultanee**. Per disabilitare l'esecuzione di attività simultanee, impostare la proprietà [CloudPool.MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool) su 1.
+Per le attività a istanze multiple è necessario un pool in cui sia **abilitata la comunicazione tra i nodi** e **disabilitata l'esecuzione di attività simultanee**. Per disabilitare l'esecuzione simultanea di attività, impostare la proprietà [CloudPool. TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) su 1.
 
 > [!NOTE]
 > Batch [limita](batch-quota-limit.md#pool-size-limits) le dimensioni di un pool per cui è abilitata la comunicazione tra i nodi.
@@ -58,11 +58,11 @@ CloudPool myCloudPool =
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
 myCloudPool.InterComputeNodeCommunicationEnabled = true;
-myCloudPool.MaxTasksPerComputeNode = 1;
+myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> Se si prova a eseguire un'attività a istanze multiple in un pool con la comunicazione tra i nodi disabilitata o con un valore *maxTasksPerNode* maggiore di 1, l'attività non viene pianificata e rimane nello stato "attivo" per un periodo illimitato. 
+> Se si tenta di eseguire un'attività a istanze diverse in un pool con la comunicazione tra nodi disabilitata o con un valore *taskSlotsPerNode* maggiore di 1, l'attività non viene mai pianificata, ma rimane indefinitamente nello stato "attivo".
 
 
 ### <a name="use-a-starttask-to-install-mpi"></a>Utilizzare uno StartTask per installare MPI
@@ -99,7 +99,7 @@ Cercare le dimensioni specificate come "Co supporto di RDMA" nei seguenti artico
   * [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> Per sfruttare i RDMA in [nodi di calcolo Linux](batch-linux-nodes.md), è necessario utilizzare **Intel MPI** sui nodi. 
+> Per sfruttare i RDMA in [nodi di calcolo Linux](batch-linux-nodes.md), è necessario utilizzare **Intel MPI** sui nodi.
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Creare un'attività a istanze multiple con Batch .NET

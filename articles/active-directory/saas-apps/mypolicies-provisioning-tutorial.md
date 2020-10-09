@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: a6db1866c42dbb90d6ea0f288aceed4672424fe0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321978"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850497"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Esercitazione: configurare i criteri per il provisioning utenti automatico
 
@@ -118,7 +118,7 @@ Esempio: `<demo0-qa>` . mypolicies.com.
 
 9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti ai criteri**.
 
-    ![Mapping utente criteri](media/mypolicies-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Screenshot della sezione mapping. In nome sincronizzare Azure Active Directory utenti a customappsso è visibile." border="false":::
 
 10. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a criteri di base nella sezione **mapping attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in criteri per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: fae6c9f76f5c502d3a31c76330bd5b348d523e37
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 71dc05e3949c2675be6255723530693304e1aa3e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360600"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850082"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Esercitazione: Configurare MediusFlow per il provisioning utenti automatico
 
@@ -62,7 +62,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 1.  Accedere alla [console di amministrazione di MediusFlow](https://office365.cloudapp.mediusflow.com/) fornendo l'ID tenant.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/1-auth.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 2. Verificare la connessione con MediusFlow.
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Salvare la configurazione.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/4-save-config.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 5. Selezionare il provisioning utenti e fare clic su **OK**.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 6. Fare clic su **Generate Secret Key** (Genera chiave privata). Copiare e salvare il valore che verrà immesso nel campo **Token segreto** nella scheda **Provisioning** dell'applicazione MediusFLow nel portale di Azure.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/6-create-secret-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 7. Fare clic su **OK**.
 
-    ![Authenticate](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 8. Per fare in modo che gli utenti importati con un set predefinito di ruoli, aziende e altre configurazioni generali in MediusFlow, è necessario configurarlo per primo. Per iniziare, aggiungere la configurazione facendo clic su **Add new configuration** (Aggiungi nuova configurazione).
 
-    ![Configurazione utenti](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 9. Usare le impostazioni seguenti per gli utenti. In questa visualizzazione è possibile impostare l'attributo predefinito. Se le impostazioni standard sono corrette, è sufficiente immettere un nome aziendale valido. Poiché queste impostazioni di configurazione vengono recuperate da Mediusflow, devono essere configurate per prime. Per altre informazioni, vedere la sezione **Prerequisiti** di questo articolo.
 
-    ![Configurazione utenti](./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 10. Fare clic sul pulsante **Salva** per salvare la configurazione utente.
 
-    ![Configurazione utenti](./media/mediusflow-provisioning-tutorial/10-done-1.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 11. Per ottenere il collegamento del provisioning utenti, fare clic su **Copy SCIM Link** (Copia collegamento SCIM). Copiare e salvare questo valore che verrà immesso nel campo **URL tenant** nella scheda **Provisioning** dell'applicazione MediusFLow nel portale di Azure.
  
-    ![Configurazione utenti](./media/mediusflow-provisioning-tutorial/11-get-scim-link.png)
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere MediusFlow dalla raccolta di applicazioni di Azure AD
 

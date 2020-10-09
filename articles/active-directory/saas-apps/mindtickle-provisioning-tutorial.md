@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: e5145aee31b4f82b34f9256257cf6c2951ca24da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 145793d7e451e7db9598118fb3adbd49d1d9c650
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256450"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850677"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Esercitazione: configurare MindTickle per il provisioning utenti automatico
 
@@ -115,11 +115,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a MindTickle**.
 
-    ![Mapping utente MindTickle](media/mindtickle-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/mindtickle-provisioning-tutorial/usermapping.png" alt-text="Screenshot della sezione mapping. In nome sincronizzare Azure Active Directory utenti a MindTickle è visibile." border="false":::
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a MindTickle nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in MindTickle per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping utente MindTickle](media/mindtickle-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Screenshot della sezione mapping. In nome sincronizzare Azure Active Directory utenti a MindTickle è visibile." border="false":::
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

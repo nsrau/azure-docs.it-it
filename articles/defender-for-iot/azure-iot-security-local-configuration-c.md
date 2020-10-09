@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cc6886b5341d8bc8a82288ad8a2a699381a953c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46b3009a7a57f726457a767afe501bfb28a06606
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937784"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843363"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Informazioni sul file LocalConfiguration.json - Agente C
 
@@ -40,7 +40,7 @@ Le modifiche apportate al file di configurazione vengono applicate quando l'agen
 | ConnectionTimeout | Stringa ISO8601 | Si è verificato il timeout del periodo di tempo prima della connessione a IoThub |
 | Authentication | JsonObject | Configurazione dell'autenticazione. Questo oggetto contiene tutte le informazioni necessarie per l'autenticazione in IoTHub |
 | Identità | "DPS", "SecurityModule", "Device" | Identità di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, SecurityModule se l'autenticazione viene eseguita tramite il dispositivo o le credenziali del modulo di sicurezza se viene eseguita l'autenticazione con le credenziali del dispositivo |
-| AuthenticationMethod | "SasToken", "SelfSignedCertificate" | il segreto utente per l'autenticazione: scegliere SasToken se il segreto di utilizzo è una chiave simmetrica, scegliere certificato autofirmato se il segreto è un certificato autofirmato  |
+| AuthenticationMethod | "SasToken", "SelfSignedCertificate" | il segreto utente per l'autenticazione-scegliere SasToken se il segreto di utilizzo è una chiave simmetrica, scegliere un certificato autofirmato se il segreto è un certificato autofirmato  |
 | FilePath | Percorso del file (stringa) | Percorso del file che contiene il segreto di autenticazione |
 | HostName | string | Nome host dell'hub Azure. in genere <My-Hub>. azure-devices.net |
 | DeviceId | string | ID del dispositivo, come registrato nell'hub Azure. |

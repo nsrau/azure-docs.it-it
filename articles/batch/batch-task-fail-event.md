@@ -2,13 +2,13 @@
 title: Evento di attività non riuscita di Azure Batch
 description: Riferimento per l'evento di fallimento dell'attività batch. Questo evento verrà generato in aggiunta a un evento di completamento attività e può essere usato per rilevare quando un'attività non è riuscita.
 ms.topic: reference
-ms.date: 08/15/2019
-ms.openlocfilehash: fbd0e5f2397fffce654d64a0e95a115b861db680
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/08/2020
+ms.openlocfilehash: e13692b45ff5a049d0b724525ad6565d2b894a3d
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965162"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850813"
 ---
 # <a name="task-fail-event"></a>Evento di attività non riuscita
 
@@ -23,6 +23,7 @@ ms.locfileid: "85965162"
     "id": "myTask",
     "taskType": "User",
     "systemTaskVersion": 0,
+    "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
         "nodeId": "tvm-257509324_1-20160908t162728z"
@@ -49,6 +50,7 @@ ms.locfileid: "85965162"
 |`id`|string|ID dell'attività.|
 |`taskType`|string|Tipo dell'attività. Il valore può essere "JobManager" per indicare che si tratta di un'attività del gestore di processi oppure 'User' per indicare che non si tratta di un'attività del gestore di processi. Questo evento non viene generato per le attività di preparazione del processo, le attività di rilascio del processo o le attività di avvio.|
 |`systemTaskVersion`|Int32|Contatore dei tentativi interni di esecuzione di un'attività. Il servizio Batch può ritentare internamente l'esecuzione di un'attività in funzione di problemi transitori. Questi problemi possono includere errori interni di pianificazione o tentativi di ripristino a seguito di nodi di calcolo in uno stato non valido.|
+|`requiredSlots`|Int32|Slot necessari per eseguire l'attività.|
 |[`nodeInfo`](#nodeInfo)|Tipo complesso|Contiene informazioni sul nodo di calcolo in cui è stata eseguita l'attività.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complesso|Specifica che l'attività è un'attività con istanze multiple che richiede più nodi di calcolo.  Per informazioni dettagliate, vedere [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task).|
 |[`constraints`](#constraints)|Tipo complesso|Vincoli di esecuzione che si applicano a questa attività.|

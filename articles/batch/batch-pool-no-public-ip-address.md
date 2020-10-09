@@ -3,15 +3,15 @@ title: Creare un pool di Azure Batch senza indirizzi IP pubblici
 description: Informazioni su come creare un pool senza indirizzi IP pubblici
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 3106ceef8bc45d70401265f61bacb17cb0dc7262
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743659"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850932"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creare un pool di Azure Batch senza indirizzi IP pubblici
 
@@ -34,10 +34,7 @@ Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi
 - **Una rete virtuale di Azure**. Se si sta creando il pool in una [rete virtuale](batch-virtual-network.md), attenersi ai requisiti e alle configurazioni seguenti. Per preparare una rete virtuale con una o più subnet, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o altri metodi.
   - La rete virtuale deve essere nella stessa sottoscrizione e area dell'account Batch usato per creare il pool.
   - La subnet specificata per il pool deve disporre di indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali usate come destinazione per il pool; questo valore corrisponde alla somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non dispone di sufficienti indirizzi IP non assegnati, il pool alloca parzialmente i nodi di calcolo e si verifica un errore di ridimensionamento.
-  - È necessario disabilitare il servizio di collegamento privato e i criteri di rete dell'endpoint. Questa operazione può essere eseguita usando l'interfaccia della riga di comando di Azure:
-    ```azurecli
-    az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies
-    ```
+  - È necessario disabilitare il servizio di collegamento privato e i criteri di rete dell'endpoint. Questa operazione può essere eseguita usando l'interfaccia della riga di comando di Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Per ogni 100 di nodi dedicati o con priorità bassa, batch alloca un servizio di collegamento privato e un servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per i pool di grandi dimensioni, potrebbe essere necessario [richiedere un aumento della quota](batch-quota-limit.md#increase-a-quota) per una o più di queste risorse. Inoltre, non deve essere applicato alcun blocco di risorsa a qualsiasi risorsa creata da batch, perché ciò impedisce la pulizia delle risorse in seguito ad azioni avviate dall'utente, ad esempio l'eliminazione di un pool o il ridimensionamento a zero.
@@ -50,7 +47,7 @@ Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi
 
 ## <a name="create-a-pool-without-public-ip-addresses-in-the-azure-portal"></a>Creare un pool senza indirizzi IP pubblici nel portale di Azure
 
-1. Passare all'account Batch nel portale di Azure. 
+1. Passare all'account Batch nel portale di Azure.
 1. Nella finestra **Impostazioni** a sinistra selezionare **pool**.
 1. Nella finestra **pool** selezionare **Aggiungi**.
 1. Nella finestra **Aggiungi pool** selezionare l'opzione desiderata nell'elenco a discesa **Tipo di immagine**.
@@ -95,7 +92,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "resizeTimeout": "PT15M",
      "targetDedicatedNodes": 5,
      "targetLowPriorityNodes": 0,
-     "maxTasksPerNode": 3,
+     "taskSlotsPerNode": 3,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },

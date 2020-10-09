@@ -13,44 +13,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 4b47646e2f051a8fbfefbc36aa879bb80e9eca68
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439032"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851060"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
-Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza di Azure.
+Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza.
 
 ## <a name="availability"></a>Disponibilità
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
-|Ruoli e autorizzazioni necessari:|Autorizzazioni di scrittura per il gruppi del computer|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
+|Autorizzazioni e ruoli obbligatori:|Autorizzazioni di scrittura per i gruppi di sicurezza di rete del computer|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Che cos'è la protezione avanzata della rete adattiva?
-L'applicazione dei [gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) per filtrare il traffico da e verso le risorse migliora il comportamento di sicurezza della rete. Tuttavia, è comunque possibile che si verifichino alcuni casi in cui il traffico effettivo che scorre attraverso NSG è un subset delle regole NSG definite. In questi casi, migliorare ulteriormente il comportamento di sicurezza può essere effettuato grazie alla protezione avanzata delle regole NSG, in base ai modelli di traffico effettivi.
+L'applicazione dei [gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) per filtrare il traffico da e verso le risorse migliora il comportamento di sicurezza della rete. In alcuni casi, tuttavia, è comunque possibile che il traffico effettivo che attraversa il gruppo di sicurezza di rete corrisponda a un subset delle regole del gruppo di sicurezza di rete definite. In questi casi è possibile migliorare ancora il comportamento di sicurezza applicando la protezione avanzata alle regole del gruppo di sicurezza di rete, in base ai criteri effettivi del traffico.
 
-La protezione avanzata della rete adattiva fornisce consigli per rafforzare ulteriormente le regole NSG. Usa un algoritmo di Machine Learning che determina il traffico effettivo, la configurazione attendibile nota, l'Intelligence per le minacce e altri indicatori di compromissione, quindi fornisce consigli per consentire il traffico solo da tuple IP/porte specifiche.
+La protezione avanzata della rete adattiva fornisce consigli per rafforzare ulteriormente le regole NSG. Usa un algoritmo di Machine Learning che prende in considerazione il traffico effettivo, la configurazione attendibile nota, l'intelligence sulle minacce e altri indicatori di compromissione e quindi fornisce raccomandazioni per consentire il traffico solo da tuple di IP/porta specifiche.
 
-Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.20.30.10/24 sulla porta 22. La raccomandazione per la protezione avanzata della rete adattiva, basata sull'analisi, consiste nel limitare l'intervallo e consentire il traffico da 140.23.30.10/29, ovvero un intervallo di indirizzi IP più restrittivo e negare tutto il traffico a tale porta.
+Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.20.30.10/24 sulla porta 22. In base all'analisi del traffico, la protezione avanzata della rete adattiva potrebbe consigliare di limitare l'intervallo per consentire il traffico da 140.23.30.10/29 e di negare tutto il traffico a tale porta.
 
->[!TIP]
+>[!Note]
 > Le raccomandazioni per la protezione avanzata della rete adattiva sono supportate solo sulle seguenti porte specifiche (per UDP e TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379 , 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
 
-![Visualizzazione protezione avanzata della rete](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+## <a name="view-and-manage-hardening-alerts-and-rules"></a>Visualizzare e gestire gli avvisi e le regole di protezione avanzata
 
+1. Dal menu del Centro sicurezza aprire il dashboard di **Azure Defender** e selezionare il riquadro protezione avanzata della rete adattiva (1) o l'elemento pannello Insights correlato alla protezione avanzata della rete adattiva (2). 
 
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/traffic-hardening.png" alt-text="Accesso agli strumenti di protezione avanzata della rete adattiva" lightbox="./media/security-center-adaptive-network-hardening/traffic-hardening.png":::
 
+    > [!TIP]
+    > Il pannello Insights Mostra la percentuale delle VM attualmente protette con la protezione avanzata della rete adattiva. 
 
-## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualizzare gli avvisi e le regole di protezione avanzata della rete adattiva
-
-1. Nel centro **sicurezza selezionare rete**  ->  **Adaptive Network hardening**. Le VM di rete sono elencate in tre schede separate:
+1. La pagina dei dettagli per le raccomandazioni per la **protezione avanzata della rete adattiva dovrebbe essere applicata alle indicazioni relative alle macchine virtuali con connessione Internet** con le VM di rete raggruppate in tre schede:
    * **Risorse non integre**: VM che attualmente presentano raccomandazioni e avvisi attivati eseguendo l'algoritmo di protezione avanzata della rete adattiva. 
    * **Risorse integre**: VM senza avvisi e raccomandazioni.
    * **Risorse non analizzate**: le macchine virtuali in cui non è possibile eseguire l'algoritmo di protezione avanzata della rete adattiva a causa di uno dei motivi seguenti:
@@ -58,33 +60,28 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
       * **I dati disponibili non sono sufficienti**: per generare raccomandazioni accurate per la protezione avanzata del traffico, il Centro sicurezza richiede almeno 30 giorni di dati sul traffico.
       * La **macchina virtuale non è protetta da Azure Defender**: solo le macchine virtuali protette con [Azure Defender per i server](defender-for-servers-introduction.md) sono idonee per questa funzionalità.
 
-     ![risorse non integre](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Accesso agli strumenti di protezione avanzata della rete adattiva":::
 
-2. Dalla scheda **risorse non integre** selezionare una macchina virtuale per visualizzare gli avvisi e le regole di protezione avanzata consigliate da applicare.
+1. Dalla scheda **risorse non integre** selezionare una macchina virtuale per visualizzare gli avvisi e le regole di protezione avanzata consigliate da applicare.
 
-    ![protezione avanzata degli avvisi](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
+    - Nella scheda **regole** sono elencate le regole che la protezione avanzata della rete adattiva consiglia di aggiungere
+    - Nella scheda **avvisi** sono elencati gli avvisi generati a causa del traffico, che si propagano alla risorsa, che non rientra nell'intervallo IP consentito nelle regole consigliate.
 
+1. Facoltativamente, modificare le regole:
 
-## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Esaminare e applicare le regole consigliate per la protezione avanzata della rete adattiva
-
-1. Dalla scheda **risorse non integre** selezionare una macchina virtuale. Sono elencati gli avvisi e le regole di protezione avanzata consigliate.
-
-     ![Regole di protezione avanzata](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
-
-   > [!NOTE]
-   > Nella scheda **regole** sono elencate le regole che la protezione avanzata della rete adattiva consiglia di aggiungere. Nella scheda **avvisi** sono elencati gli avvisi generati a causa del traffico, che si propagano alla risorsa, che non rientra nell'intervallo IP consentito nelle regole consigliate.
-
-2. Se si desidera modificare alcuni parametri di una regola, è possibile modificarli, come illustrato in [modificare una regola](#modify-rule).
-   > [!NOTE]
-   > È anche possibile [eliminare](#delete-rule) o [aggiungere](#add-rule) una regola.
+    - [Modificare una regola](#modify-rule)
+    - [Eliminare una regola](#delete-rule) 
+    - [Aggiungere una regola](#add-rule)
 
 3. Selezionare le regole che si desidera applicare al NSG, quindi fare clic su **applica**.
 
+    > [!TIP]
+    > Se gli intervalli di indirizzi IP di origine consentiti vengono visualizzati come ' none ', significa che la regola consigliata è una regola di *negazione* . in caso contrario, si tratta di una regola di *autorizzazione* .
+
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Accesso agli strumenti di protezione avanzata della rete adattiva":::
+
       > [!NOTE]
       > Le regole imposte vengono aggiunte a NSG (s) che proteggono la macchina virtuale. Una macchina virtuale può essere protetta da un NSG associato alla scheda di interfaccia di rete o alla subnet in cui risiede la macchina virtuale o a entrambe.
-
-    ![Imponi regole](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
-
 
 ### <a name="modify-a-rule"></a>Modificare una regola <a name ="modify-rule"> </a>
 

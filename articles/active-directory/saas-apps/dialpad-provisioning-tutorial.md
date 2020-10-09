@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: dee9ca2879d456270cfed667b8a02a6e5c4f100b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328055"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848960"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Esercitazione: configurare il dispositivo per il provisioning utenti automatico
 
@@ -54,13 +54,13 @@ Prima di configurare il provisioning utenti automatico con Azure AD, è necessar
 
 1. Accedere alla console di [Amministrazione](https://dialpadbeta.com/login) di e selezionare **impostazioni di amministrazione**. Assicurarsi che l' **azienda** sia selezionata nell'elenco a discesa. Passare a **autenticazione > chiavi API**.
 
-    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Screenshot della console di amministrazione Dialpad, con l'icona delle impostazioni, la società, l'autenticazione e le chiavi di P I, evidenziate e l'azienda selezionato." border="false":::
 
 2. Per generare una nuova chiave, fare clic su **Aggiungi una chiave** e configurare le proprietà del token segreto.
 
-    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Screenshot della console di amministrazione Dialpad, con l'icona delle impostazioni, la società, l'autenticazione e le chiavi di P I, evidenziate e l'azienda selezionato." border="false":::
 
-    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot della console di amministrazione Dialpad, con l'icona delle impostazioni, la società, l'autenticazione e le chiavi di P I, evidenziate e l'azienda selezionato." border="false":::
 
 3. Fare clic sul pulsante **fare clic per visualizzare il valore** per la chiave API creata di recente e copiare il valore visualizzato. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Dialpad nel portale di Azure. 
 
@@ -89,19 +89,19 @@ Per configurare il provisioning utenti automatico con Azure AD, è necessario ag
 
 5. Passare all' **URL** evidenziato di seguito in un browser separato. 
 
-    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Screenshot della console di amministrazione Dialpad, con l'icona delle impostazioni, la società, l'autenticazione e le chiavi di P I, evidenziate e l'azienda selezionato." border="false":::
 
 6. Nell'angolo in alto a destra selezionare **accedi > usare il tastierino online**.
 
-    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Screenshot della console di amministrazione Dialpad, con l'icona delle impostazioni, la società, l'autenticazione e le chiavi di P I, evidenziate e l'azienda selezionato." border="false":::
 
 7. Come dipassd è un'app OpenIDConnect, scegliere di eseguire l'accesso a realpad usando l'account Microsoft Work.
 
-    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Screenshot della console di amministrazione Dialpad, con l'icona delle impostazioni, la società, l'autenticazione e le chiavi di P I, evidenziate e l'azienda selezionato." border="false":::
 
 8. Una volta completata l'autenticazione, accettare la richiesta di consenso per la pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati al proprio account.
 
-    ![Aggiunta SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Screenshot della console di amministrazione Dialpad, con l'icona delle impostazioni, la società, l'autenticazione e le chiavi di P I, evidenziate e l'azienda selezionato." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configurare il provisioning utenti automatico in Dialpad
 

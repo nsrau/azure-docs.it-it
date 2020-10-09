@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331162"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850422"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Esercitazione: configurare un alimento per il provisioning utenti automatico
 
@@ -55,7 +55,7 @@ Prima di configurare gli utenti per il provisioning utenti automatico usando Azu
 
 1. Accedere a [foodee](https://www.food.ee/login/), quindi selezionare l'ID tenant.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Screenshot del menu principale del portale aziendale di Foodi. Un segnaposto ID tenant è visibile nel menu." border="false":::
 
 1. In **Enterprise Portal**selezionare **Single Sign-on**.
 
@@ -63,7 +63,7 @@ Prima di configurare gli utenti per il provisioning utenti automatico usando Azu
 
 1. Copiare il valore nella casella **token API** per usarlo in seguito. Immetterlo nella casella del **token Secret** nella scheda **provisioning** dell'applicazione Foods nella portale di Azure.
 
-    ![Foodee](media/Foodee-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot del menu principale del portale aziendale di Foodi. Un segnaposto ID tenant è visibile nel menu." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Aggiungere un alimento dalla raccolta
 
@@ -71,7 +71,7 @@ Per configurare gli utenti per il provisioning utenti automatico usando Azure AD
 
 Per aggiungere un alimento dalla raccolta di applicazioni di Azure AD, seguire questa procedura:
 
-1. Nel riquadro sinistro della [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro sinistro.
 
     ![Comando Azure Active Directory](common/select-azuread.png)
 
@@ -130,20 +130,20 @@ Configurare il provisioning utenti automatico per i buongustai in Azure AD esegu
 
 1. In **mapping**selezionare **Sincronizza Azure Active Directory utenti al cibo**.
 
-    ![Mapping utenti del cibo](media/Foodee-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot del menu principale del portale aziendale di Foodi. Un segnaposto ID tenant è visibile nel menu." border="false":::
 
 1. In **mapping degli attributi**esaminare gli attributi utente che vengono sincronizzati dal Azure ad al cibo. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli *account utente* in foodee per le operazioni di aggiornamento. 
 
-    ![Mapping utenti del cibo](media/Foodee-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot del menu principale del portale aziendale di Foodi. Un segnaposto ID tenant è visibile nel menu." border="false":::
 
 1. Per eseguire il commit delle modifiche, selezionare **Salva**.
 1. In **mapping**selezionare **Sincronizza Azure Active Directory gruppi al cibo**.
 
-    ![Mapping utenti del cibo](media/Foodee-provisioning-tutorial/groupmapping.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot del menu principale del portale aziendale di Foodi. Un segnaposto ID tenant è visibile nel menu." border="false":::
 
 1. In **mapping degli attributi**esaminare gli attributi utente che vengono sincronizzati dal Azure ad al cibo. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli *account di gruppo* in foodee per le operazioni di aggiornamento.
 
-    ![Mapping utenti del cibo](media/Foodee-provisioning-tutorial/groupattribute.png)
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Screenshot del menu principale del portale aziendale di Foodi. Un segnaposto ID tenant è visibile nel menu." border="false":::
 
 1. Per eseguire il commit delle modifiche, selezionare **Salva**.
 1. Configurare i filtri di ambito. Per informazioni, vedere le istruzioni nell'esercitazione relativa al [filtro di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

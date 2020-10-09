@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0af8df35bc2cc323e5165b973c889a0ab10f4cbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304903"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850506"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Esercitazione: configurare iPass SmartConnect per il provisioning utenti automatico
 
@@ -114,11 +114,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a iPass SmartConnect**.
 
-    ![Mapping utenti SmartConnect di iPass](media/ipass-smartconnect-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Screenshot della sezione mapping. In nome sincronizzare Azure Active Directory utenti a iPass SmartConnect è visibile." border="false":::
 
 9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a iPass SmartConnect nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in iPass SmartConnect per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping utenti SmartConnect di iPass](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Screenshot della sezione mapping. In nome sincronizzare Azure Active Directory utenti a iPass SmartConnect è visibile." border="false":::
 
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146539"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849490"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -109,7 +109,7 @@ Le attività possono essere inviate singolarmente o in raccolte. Inviare le atti
 
 ### <a name="set-max-tasks-per-node-appropriately"></a>Impostare il numero massimo di attività per nodo nel modo appropriato
 
-Batch supporta la sovrasottoscrizione di attività nei nodi, ossia l'esecuzione di un numero di attività maggiore del numero di core di un nodo. È responsabilità dell'utente assicurarsi che il numero di attività sia adeguato per i nodi del pool. È ad esempio possibile che si verifichi una riduzione delle prestazioni se si provano a pianificare otto attività, ognuna delle quali utilizza il 25% della CPU in un nodo (in un pool con `maxTasksPerNode = 8`).
+Batch supporta la sovrasottoscrizione di attività nei nodi, ossia l'esecuzione di un numero di attività maggiore del numero di core di un nodo. È responsabilità dell'utente assicurarsi che il numero di attività sia adeguato per i nodi del pool. È ad esempio possibile che si verifichi una riduzione delle prestazioni se si provano a pianificare otto attività, ognuna delle quali utilizza il 25% della CPU in un nodo (in un pool con `taskSlotsPerNode = 8`).
 
 ### <a name="design-for-retries-and-re-execution"></a>Progettare per la ripetizione di tentativi e di esecuzioni
 
@@ -217,6 +217,6 @@ Azure Batch Crea e gestisce una serie di utenti e gruppi nella VM, che non dovra
 
 ### <a name="file-cleanup"></a>Pulizia dei file
 
-Batch prova attivamente a pulire la directory di lavoro in cui vengono eseguite le attività, al termine del periodo di conservazione. La pulizia di tutti i file scritti al di fuori di questa directory è [responsabilità dell'utente](#manage-task-lifetime), per evitare di riempire spazio su disco. 
+Batch prova attivamente a pulire la directory di lavoro in cui vengono eseguite le attività, al termine del periodo di conservazione. La pulizia di tutti i file scritti al di fuori di questa directory è [responsabilità dell'utente](#manage-task-lifetime), per evitare di riempire spazio su disco.
 
 La pulizia automatizzata per la directory di lavoro verrà bloccata se si esegue un servizio in Windows dalla directory di lavoro startTask, perché la cartella è ancora in uso. Questo comporterà una riduzione delle prestazioni. Per risolvere il problema, specificare per tale servizio una directory diversa non gestita da Batch.

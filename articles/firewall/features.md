@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 7429be4430b2b520fb2a66b6b2c0dd138af8e501
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408508"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850592"
 ---
 # <a name="azure-firewall-features"></a>Funzionalità di Firewall di Azure
 
@@ -101,7 +101,11 @@ Questo supporta gli scenari seguenti:
 
 ## <a name="azure-monitor-logging"></a>Registrazione di Monitoraggio di Azure
 
-Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure. Per altre informazioni, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).
+Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure. Per gli esempi di log di monitoraggio di Azure, vedere [log di monitoraggio di Azure per il firewall di Azure](log-analytics-samples.md).
+
+Per altre informazioni, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md). 
+
+La cartella di lavoro del firewall di Azure offre un'area di disegno flessibile per l'analisi dei dati del firewall È possibile usarlo per creare report visivi avanzati all'interno del portale di Azure. Per altre informazioni, vedere [monitorare i log con la cartella di lavoro del firewall di Azure](firewall-workbook.md).
 
 ## <a name="forced-tunneling"></a>Tunneling forzato
 

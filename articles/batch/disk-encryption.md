@@ -3,15 +3,15 @@ title: Creare un pool con la crittografia disco abilitata
 description: Informazioni su come usare la configurazione della crittografia del disco per crittografare i nodi con una chiave gestita dalla piattaforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b0f7f9963ee0edd3986f7ec808a8a4060d857f8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267046"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849263"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Creare un pool con la crittografia disco abilitata
 
@@ -21,7 +21,7 @@ Questo articolo illustra come creare un pool di batch con la crittografia del di
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Perché usare un pool con la configurazione della crittografia del disco?
 
-Con un pool di batch, è possibile accedere e archiviare i dati nel sistema operativo e nei dischi temporanei del nodo di calcolo. La crittografia del disco sul lato server con una chiave gestita dalla piattaforma proteggerà questi dati con un sovraccarico e una convenienza ridotti.  
+Con un pool di batch, è possibile accedere e archiviare i dati nel sistema operativo e nei dischi temporanei del nodo di calcolo. La crittografia del disco sul lato server con una chiave gestita dalla piattaforma proteggerà questi dati con un sovraccarico e una convenienza ridotti.
 
 Batch applicherà una di queste tecnologie di crittografia del disco nei nodi di calcolo, in base alla configurazione del pool e al supporto tecnico regionale.
 
@@ -35,8 +35,8 @@ Batch applicherà una di queste tecnologie di crittografia del disco nei nodi di
 > Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Non sarà possibile specificare quale metodo di crittografia verrà applicato ai nodi nel pool. Al contrario, si forniscono i dischi di destinazione che si vuole crittografare sui rispettivi nodi e batch può scegliere il metodo di crittografia appropriato, assicurando che i dischi specificati siano crittografati nel nodo di calcolo.
- 
-## <a name="azure-portal"></a>Portale di Azure 
+
+## <a name="azure-portal"></a>Portale di Azure
 
 Quando si crea un pool di batch nella portale di Azure, selezionare **TemporaryDisk** o **OsAndTemporaryDisk** in **Configurazione crittografia dischi**.
 
@@ -44,7 +44,7 @@ Quando si crea un pool di batch nella portale di Azure, selezionare **TemporaryD
 
 Dopo aver creato il pool, è possibile visualizzare le destinazioni di configurazione della crittografia del disco nella sezione **Proprietà** del pool.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot che mostra le destinazioni di configurazione della crittografia del disco nel portale di Azure.":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot dell'opzione di configurazione della crittografia del disco nel portale di Azure.":::
 
 ## <a name="examples"></a>Esempi
 
@@ -87,7 +87,7 @@ Corpo della richiesta:
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,
     "targetLowPriorityNodes": 0,
-    "maxTasksPerNode": 3,
+    "taskSlotsPerNode": 3,
     "enableAutoScale": false,
     "enableInterNodeCommunication": false
 }

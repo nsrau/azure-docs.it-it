@@ -3,16 +3,14 @@ title: Creare cluster in Windows Server e Linux
 description: I cluster Service Fabric vengono eseguiti in Windows Server e Linux. È possibile distribuire e ospitare Service Fabric applicazioni ovunque sia possibile eseguire Windows Server o Linux.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
-ms.openlocfilehash: 2c0cc1ddc58347933b498b015c562c3822e8a688
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978697"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843312"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -98,7 +96,7 @@ Per altre informazioni, vedere [Aggiornamento di un cluster di Azure Service Fab
 
 | Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
-| Windows Server 2012 R2 | Tutte le versioni |
+| R2 per Windows Server 2012 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |

@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/07/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9f0983bdb5e8763d13eeab8ea21bef7fb9ef47f
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: cedb6d162829d63aaac1a36b35abee1faeae3f1b
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803331"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843397"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ L'ereditarietà ACL è già disponibile per i nuovi elementi figlio creati in un
 
 Vedere la sezione **configurare il progetto** di questo articolo per visualizzare le linee guida per l'installazione di PowerShell, .NET SDK e Python SDK.
 
-## <a name="set-up-your-project"></a>Impostare il progetto
+## <a name="set-up-your-project"></a>Configurare il progetto
 
 Installare le librerie necessarie.
 
@@ -303,14 +303,19 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 
 ```
 
+> [!NOTE]
+> Se si vuole impostare una voce ACL **predefinita** , usare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Impostare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient. SetAccessControlRecursiveAsync** . Passare questo metodo a un [elenco](/dotnet/api/system.collections.generic.list-1) di [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Ogni [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) definisce una voce ACL.
+Impostare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient. SetAccessControlRecursiveAsync** . Passare questo metodo a un [elenco](/dotnet/api/system.collections.generic.list-1) di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Ogni [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) definisce una voce ACL. 
 
-In questo esempio viene impostato l'ACL di una directory denominata `my-parent-directory` . Queste voci forniscono le autorizzazioni di lettura, scrittura ed esecuzione dell'utente proprietario, fornisce al gruppo proprietario solo le autorizzazioni di lettura ed esecuzione e offre a tutti gli altri utenti l'accesso. L'ultima voce ACL in questo esempio fornisce a un utente specifico l'ID oggetto "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "autorizzazioni di lettura ed esecuzione.
+Se si vuole impostare una voce ACL **predefinita** , è possibile impostare la proprietà [PathAccessControlItem. DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) su **true**. 
+
+In questo esempio viene impostato l'ACL di una directory denominata `my-parent-directory` . Questo metodo accetta un parametro booleano denominato `isDefaultScope` che specifica se impostare l'ACL predefinito. Tale parametro viene utilizzato nel costruttore di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Le voci dell'ACL forniscono le autorizzazioni di lettura, scrittura ed esecuzione da parte dell'utente proprietario, assegna al gruppo proprietario solo le autorizzazioni di lettura ed esecuzione e offre a tutti gli utenti nessun accesso. L'ultima voce ACL in questo esempio fornisce a un utente specifico l'ID oggetto "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "autorizzazioni di lettura ed esecuzione.
 
 ```cs
-public async void SetACLRecursively(DataLakeServiceClient serviceClient)
+public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
 {
     DataLakeDirectoryClient directoryClient =
         serviceClient.GetFileSystemClient("my-container").
@@ -322,18 +327,18 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
         new PathAccessControlItem(AccessControlType.User, 
             RolePermissions.Read | 
             RolePermissions.Write | 
-            RolePermissions.Execute),
+            RolePermissions.Execute, isDefaultScope),
                     
         new PathAccessControlItem(AccessControlType.Group, 
             RolePermissions.Read | 
-            RolePermissions.Execute),
+            RolePermissions.Execute, isDefaultScope),
                     
         new PathAccessControlItem(AccessControlType.Other, 
-            RolePermissions.None),
+            RolePermissions.None, isDefaultScope),
 
         new PathAccessControlItem(AccessControlType.User, 
             RolePermissions.Read | 
-            RolePermissions.Execute, 
+            RolePermissions.Execute, isDefaultScope,
             entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
     };
 
@@ -347,17 +352,26 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 Impostare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient.set_access_control_recursive** .
 
-In questo esempio viene impostato l'ACL di una directory denominata `my-parent-directory` . Queste voci forniscono le autorizzazioni di lettura, scrittura ed esecuzione dell'utente proprietario, fornisce al gruppo proprietario solo le autorizzazioni di lettura ed esecuzione e offre a tutti gli altri utenti l'accesso. L'ultima voce ACL in questo esempio fornisce a un utente specifico l'ID oggetto "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "autorizzazioni di lettura ed esecuzione.
+Se si desidera impostare una voce ACL **predefinita** , aggiungere la stringa `default:` all'inizio di ogni stringa di voce ACL. 
+
+In questo esempio viene impostato l'ACL di una directory denominata `my-parent-directory` . 
+
+Questo metodo accetta un parametro booleano denominato `is_default_scope` che specifica se impostare l'ACL predefinito. Se il parametro è `True` , l'elenco di voci ACL è preceduto dalla stringa `default:` . 
+
+Le voci dell'ACL forniscono le autorizzazioni di lettura, scrittura ed esecuzione da parte dell'utente proprietario, assegna al gruppo proprietario solo le autorizzazioni di lettura ed esecuzione e offre a tutti gli utenti nessun accesso. L'ultima voce ACL in questo esempio fornisce a un utente specifico l'ID oggetto "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "autorizzazioni di lettura ed esecuzione. Queste voci forniscono le autorizzazioni di lettura, scrittura ed esecuzione dell'utente proprietario, fornisce al gruppo proprietario solo le autorizzazioni di lettura ed esecuzione e offre a tutti gli altri utenti l'accesso. L'ultima voce ACL in questo esempio fornisce a un utente specifico l'ID oggetto "" xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx "autorizzazioni di lettura ed esecuzione.
 
 ```python
-def set_permission_recursively():
+def set_permission_recursively(is_default_scope):
     
     try:
         file_system_client = service_client.get_file_system_client(file_system="my-container")
 
         directory_client = file_system_client.get_directory_client("my-parent-directory")
               
-        acl = 'user::rwx,group::rwx,other::rwx,user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x'
+        acl = 'user::rwx,group::rwx,other::rwx,user:4a9028cf-f779-4032-b09d-970ebe3db258:r--'   
+
+        if is_default_scope:
+           acl = 'default:user::rwx,default:group::rwx,default:other::rwx,default:user:4a9028cf-f779-4032-b09d-970ebe3db258:r--'
 
         directory_client.set_access_control_recursive(acl=acl)
         
@@ -392,14 +406,19 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 
 ```
 
+> [!NOTE]
+> Se si desidera aggiornare una voce ACL **predefinita** , utilizzare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
+
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Aggiornare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient. UpdateAccessControlRecursiveAsync** . 
+Aggiornare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient. UpdateAccessControlRecursiveAsync** .  Passare questo metodo a un [elenco](/dotnet/api/system.collections.generic.list-1) di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Ogni [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) definisce una voce ACL. 
 
-Questo esempio aggiorna una voce ACL con autorizzazione di scrittura. 
+Se si desidera aggiornare una voce ACL **predefinita** , è possibile impostare la proprietà [PathAccessControlItem. DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) su **true**. 
+
+Questo esempio aggiorna una voce ACL con autorizzazione di scrittura. Questo metodo accetta un parametro booleano denominato `isDefaultScope` che specifica se aggiornare l'ACL predefinito. Tale parametro viene utilizzato nel costruttore di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
 ```cs
-public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
+public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, bool isDefaultScope)
 {
     DataLakeDirectoryClient directoryClient =
         serviceClient.GetFileSystemClient("my-container").
@@ -411,7 +430,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
         new PathAccessControlItem(AccessControlType.User, 
             RolePermissions.Read |
             RolePermissions.Write | 
-            RolePermissions.Execute, 
+            RolePermissions.Execute, isDefaultScope, 
             entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
     };
 
@@ -423,19 +442,24 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Aggiornare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient.update_access_control_recursive** . 
+Aggiornare un ACL in modo ricorsivo chiamando il metodo **DataLakeDirectoryClient.update_access_control_recursive** . Se si desidera aggiornare una voce ACL **predefinita** , aggiungere la stringa `default:` all'inizio di ogni stringa di voce ACL. 
 
-Questo esempio aggiorna una voce ACL con autorizzazione di scrittura. 
+Questo esempio aggiorna una voce ACL con autorizzazione di scrittura.
+
+In questo esempio viene impostato l'ACL di una directory denominata `my-parent-directory` . Questo metodo accetta un parametro booleano denominato `is_default_scope` che specifica se aggiornare l'ACL predefinito. Se il parametro è `True` , la voce ACL aggiornata è preceduta dalla stringa `default:` .  
 
 ```python
-def update_permission_recursively():
+def update_permission_recursively(is_default_scope):
     
     try:
         file_system_client = service_client.get_file_system_client(file_system="my-container")
 
         directory_client = file_system_client.get_directory_client("my-parent-directory")
-              
-        acl = 'user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:rwx'
+
+        acl = 'user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:rwx'   
+
+        if is_default_scope:
+           acl = 'default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:rwx'
 
         directory_client.update_access_control_recursive(acl=acl)
 
@@ -453,7 +477,7 @@ def update_permission_recursively():
 
 È possibile rimuovere una o più voci ACL in modo ricorsivo. Per rimuovere una voce ACL, creare un nuovo oggetto ACL per la voce ACL da rimuovere, quindi utilizzare l'oggetto in Rimuovi operazione ACL. Non ottenere l'ACL esistente, fornire solo le voci ACL da rimuovere. 
 
-Questa sezione contiene esempi su come rimuovere un ACL.
+Questa sezione contiene esempi su come rimuovere un ACL. 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -470,14 +494,19 @@ $acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
 Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
 ```
 
+> [!NOTE]
+> Se si vuole rimuovere una voce ACL **predefinita** , usare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
+
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Rimuovere le voci ACL chiamando il metodo **DataLakeDirectoryClient. RemoveAccessControlRecursiveAsync** . 
+Rimuovere le voci ACL chiamando il metodo **DataLakeDirectoryClient. RemoveAccessControlRecursiveAsync** . Passare questo metodo a un [elenco](/dotnet/api/system.collections.generic.list-1) di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Ogni [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) definisce una voce ACL. 
 
-In questo esempio viene rimossa una voce ACL dall'ACL della directory denominata `my-parent-directory` . 
+Se si vuole rimuovere una voce ACL **predefinita** , è possibile impostare la proprietà [PathAccessControlItem. DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) su **true**. 
+
+In questo esempio viene rimossa una voce ACL dall'ACL della directory denominata `my-parent-directory` . Questo metodo accetta un parametro booleano denominato `isDefaultScope` che specifica se rimuovere la voce dall'ACL predefinito. Tale parametro viene utilizzato nel costruttore di [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
 ```cs
-public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
+public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isDefaultScope)
 {
     DataLakeDirectoryClient directoryClient =
         serviceClient.GetFileSystemClient("my-container").
@@ -486,7 +515,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
     List<RemovePathAccessControlItem> accessControlListForRemoval = 
         new List<RemovePathAccessControlItem>()
         {
-            new RemovePathAccessControlItem(AccessControlType.User, 
+            new RemovePathAccessControlItem(AccessControlType.User, isDefaultScope,
             entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
         };
 
@@ -498,12 +527,12 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-Rimuovere le voci ACL chiamando il metodo **DataLakeDirectoryClient.remove_access_control_recursive** . 
+Rimuovere le voci ACL chiamando il metodo **DataLakeDirectoryClient.remove_access_control_recursive** . Se si desidera rimuovere una voce ACL **predefinita** , aggiungere la stringa `default:` all'inizio della stringa di immissione dell'ACL. 
 
-In questo esempio viene rimossa una voce ACL dall'ACL della directory denominata `my-parent-directory` . 
+In questo esempio viene rimossa una voce ACL dall'ACL della directory denominata `my-parent-directory` . Questo metodo accetta un parametro booleano denominato `is_default_scope` che specifica se rimuovere la voce dall'ACL predefinito. Se il parametro è `True` , la voce ACL aggiornata è preceduta dalla stringa `default:` . 
 
 ```python
-def remove_permission_recursively():
+def remove_permission_recursively(is_default_scope):
     
     try:
         file_system_client = service_client.get_file_system_client(file_system="my-container")
@@ -511,6 +540,9 @@ def remove_permission_recursively():
         directory_client = file_system_client.get_directory_client("my-parent-directory")
               
         acl = 'user:4a9028cf-f779-4032-b09d-970ebe3db258'
+
+        if is_default_scope:
+           acl = 'default:user:4a9028cf-f779-4032-b09d-970ebe3db258'
 
         directory_client.remove_access_control_recursive(acl=acl)
 

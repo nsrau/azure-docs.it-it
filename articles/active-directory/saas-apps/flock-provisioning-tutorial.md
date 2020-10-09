@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: bb6ad9aae5f92f03ea5bfacc028973e4c4a6dbea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91312575"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850879"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Esercitazione: configurare Flock per il provisioning utenti automatico
 
@@ -54,15 +54,15 @@ Prima di configurare Flock per il provisioning utenti automatico con Azure AD, s
 
 1. Accedere a [Flock](https://web.flock.com/?). Fare clic **sull'icona Impostazioni**  >  **Gestisci il team**.
 
-    ![Flock](media/flock-provisioning-tutorial/icon.png)
+    :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Screenshot del sito Web di Flock. L'icona delle impostazioni è evidenziata e il menu di scelta rapida è visibile. In quel menu è evidenziata la gestione del team." border="false":::
 
 2. Selezionare **autenticazione e provisioning**.
 
-    ![Flock](media/Flock-provisioning-tutorial/auth.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Screenshot del sito Web di Flock. L'icona delle impostazioni è evidenziata e il menu di scelta rapida è visibile. In quel menu è evidenziata la gestione del team." border="false":::
 
 3. Copiare il **token dell'API**. Questi valori verranno immessi nel campo **token segreto** nella scheda provisioning dell'applicazione Flock nell'portale di Azure.
 
-    ![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Screenshot del sito Web di Flock. L'icona delle impostazioni è evidenziata e il menu di scelta rapida è visibile. In quel menu è evidenziata la gestione del team." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Aggiungere Flock dalla raccolta

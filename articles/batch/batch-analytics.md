@@ -2,16 +2,17 @@
 title: Azure Batch Analytics
 description: Gli argomenti di Batch Analytics includono informazioni di riferimento per gli eventi e gli avvisi disponibili per le risorse del servizio Batch.
 ms.topic: reference
-ms.date: 04/20/2017
-ms.openlocfilehash: 9d0e5c90c7bade82d76c7dbdfd4276e9671c961c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 10/08/2020
+ms.openlocfilehash: 0d55ecd7f10e267a9cb469dffcdf26c131c8ce41
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958107"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849512"
 ---
 # <a name="batch-analytics"></a>Batch Analytics
-Gli argomenti di Batch Analytics includono informazioni di riferimento per gli eventi e gli avvisi disponibili per le risorse del servizio Batch.
+
+Negli argomenti di questa sezione sono contenute informazioni di riferimento per gli eventi e gli avvisi disponibili per le risorse del servizio batch.
 
 Per altre informazioni sull'abilitazione e sull'uso di log di diagnostica di Batch, vedere [Registrazione diagnostica di Azure Batch](./batch-diagnostics.md).
 
@@ -19,12 +20,15 @@ Per altre informazioni sull'abilitazione e sull'uso di log di diagnostica di Bat
 
 Il servizio Azure Batch produce i seguenti eventi di registro di diagnostica nel corso della durata di determinate risorse Batch.
 
-**Eventi del log del servizio**
-* [Creazione di pool](batch-pool-create-event.md)
-* [Avvio dell'eliminazione di pool](batch-pool-delete-start-event.md)
-* [Completamento dell'eliminazione di pool](batch-pool-delete-complete-event.md)
-* [Avvio del ridimensionamento di pool](batch-pool-resize-start-event.md)
-* [Completamento del ridimensionamento di pool](batch-pool-resize-complete-event.md)
-* [Avvio dell'attività](batch-task-start-event.md)
-* [Attività completata](batch-task-complete-event.md)
-* [Errore dell'attività](batch-task-fail-event.md)
+### <a name="service-log-events"></a>Eventi del log del servizio
+
+- [Creazione di pool](batch-pool-create-event.md)
+- [Avvio dell'eliminazione di pool](batch-pool-delete-start-event.md)
+- [Completamento dell'eliminazione di pool](batch-pool-delete-complete-event.md)
+- [Avvio del ridimensionamento di pool](batch-pool-resize-start-event.md)
+- [Completamento del ridimensionamento di pool](batch-pool-resize-complete-event.md)
+- [Scalabilità automatica del pool](batch-pool-autoscale-event.md)
+- [Avvio dell'attività](batch-task-start-event.md)
+- [Attività completata](batch-task-complete-event.md)
+- [Errore dell'attività](batch-task-fail-event.md)
+- [Pianificazione attività non riuscita](batch-task-schedule-fail-event.md)

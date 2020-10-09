@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni su come aggiungere un endpoin
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552986"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843380"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Consentire l'accesso allo spazio dei nomi del bus di servizio di Azure da reti virtuali specifiche
 
@@ -54,6 +54,10 @@ Le *regole di rete virtuale* rappresentano una funzionalità di sicurezza del fi
 L'associazione di uno spazio dei nomi del bus di servizio a una rete virtuale è un processo in due passaggi. Per prima cosa è necessario creare un **endpoint di servizio di rete virtuale** in una subnet di rete virtuale e abilitarlo per **Microsoft. ServiceBus** come illustrato nella [Panoramica dell'endpoint di servizio][vnet-sep]. Dopo aver aggiunto l'endpoint del servizio, è necessario associare lo spazio dei nomi del bus di servizio all'endpoint con una **regola di rete virtuale**.
 
 La regola di rete virtuale è un'associazione tra lo spazio dei nomi del bus di servizio e una subnet della rete virtuale. Fino a quando esiste la regola, a tutti i carichi di lavoro associati alla subnet viene concesso l'accesso allo spazio dei nomi del bus di servizio. Il bus di servizio non stabilisce mai direttamente connessioni in uscita e non deve ottenere l'accesso, quindi non ottiene mai l'accesso alla subnet abilitando questa regola.
+
+> [!NOTE]
+> Tenere presente che un endpoint del servizio di rete fornisce le applicazioni in esecuzione nella rete virtuale che accedono allo spazio dei nomi del bus di servizio. La rete virtuale controlla la raggiungibilità dell'endpoint, ma non le operazioni che possono essere eseguite sulle entità del bus di servizio (code, argomenti o sottoscrizioni). Utilizzare Azure Active Directory (Azure AD) per autorizzare le operazioni che possono essere eseguite dalle applicazioni sullo spazio dei nomi e sulle relative entità. Per altre informazioni, vedere [autenticare e autorizzare un'applicazione con Azure ad per accedere alle entità del bus di servizio](authenticate-application.md).
+
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
 Questa sezione illustra come usare portale di Azure per aggiungere un endpoint del servizio rete virtuale. Per limitare l'accesso, è necessario integrare l'endpoint del servizio rete virtuale per questo spazio dei nomi di hub eventi.

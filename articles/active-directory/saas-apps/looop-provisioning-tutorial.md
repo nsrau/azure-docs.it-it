@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b81a0fc81478fb50c356a92371ece2e79ff417ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333563"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850694"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Esercitazione: configurare looop per il provisioning utenti automatico
 
@@ -55,11 +55,11 @@ Prima di configurare looop per il provisioning utenti automatico con Azure AD, s
 
 1. Accedere alla console di [amministrazione di looop](https://app.looop.co/#/login) e selezionare **account**. In **Impostazioni account** selezionare **autenticazione**.
 
-    ![Looop aggiungere SCIM](media/looop-provisioning-tutorial/admin.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Screenshot della console di amministrazione di looop. La scheda account è evidenziata e aperta. In Impostazioni account viene evidenziata l'autenticazione di." border="false":::
 
 2. Per generare un nuovo token, fare clic su **Reimposta token** in **integrazione scim**.
 
-    ![Looop aggiungere SCIM](media/looop-provisioning-tutorial/resettoken.png)
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot della console di amministrazione di looop. La scheda account è evidenziata e aperta. In Impostazioni account viene evidenziata l'autenticazione di." border="false":::
 
 3. Copiare l' **endpoint scim** e il **token**. Questi valori verranno immessi nei campi **URL tenant** e **token segreto** nella scheda provisioning dell'applicazione looop nel portale di Azure. 
 

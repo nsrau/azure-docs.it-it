@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 570481eab44c64db3ec3f513281badd124a2bbdc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825493"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91843431"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
 
@@ -50,7 +50,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici e al
 
 <sup>1</sup> I servizi Basic creati prima di dicembre 2017 hanno limiti inferiori (5 anziché 15) per gli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
 
-<sup>2</sup> esiste un limite superiore per gli elementi perché un numero elevato di tali elementi causa un elevato utilizzo dello spazio di archiviazione. Un elemento di una raccolta complessa viene definito come membro di tale raccolta. Si supponga, ad esempio, che un documento di un [Hotel con una raccolta di chat](search-howto-complex-data-types.md#indexing-complex-types)room, ogni stanza della raccolta room sia considerata un elemento. Durante l'indicizzazione, il motore di indicizzazione può elaborare in modo sicuro un massimo di 3000 elementi nell'intero documento. [Questo limite](search-api-migration.md#upgrade-to-2019-05-06) è stato introdotto in `api-version=2019-05-06` e si applica solo a raccolte complesse, non a raccolte di stringhe o a campi complessi.
+<sup>2</sup> esiste un limite superiore per gli elementi perché la presenza di un numero elevato di tali elementi aumenta significativamente lo spazio di archiviazione necessario per l'indice. Un elemento di una raccolta complessa viene definito come membro di tale raccolta. Si supponga, ad esempio, che un documento di un [Hotel con una raccolta di chat](search-howto-complex-data-types.md#indexing-complex-types)room, ogni stanza della raccolta room sia considerata un elemento. Durante l'indicizzazione, il motore di indicizzazione può elaborare in modo sicuro un massimo di 3000 elementi nell'intero documento. [Questo limite](search-api-migration.md#upgrade-to-2019-05-06) è stato introdotto in `api-version=2019-05-06` e si applica solo a raccolte complesse, non a raccolte di stringhe o a campi complessi.
 
 <a name="document-limits"></a>
 
@@ -108,8 +108,8 @@ Sono previsti tempi di esecuzione massimi per garantire il bilanciamento e la st
 
 | Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Supporto dell'indicizzatore di endpoint privato | No | Sì | Sì | Sì | Sì | No | Sì | Sì |
-| Supporto degli endpoint privati per gli indicizzatori con un insieme di competenze<sup>1</sup> | No | No | No | Sì | Sì | No | Sì | Sì |
+| Supporto dell'indicizzatore di endpoint privato | No | sì | sì | sì | sì | No | sì | sì |
+| Supporto degli endpoint privati per gli indicizzatori con un insieme di competenze<sup>1</sup> | No | No | No | sì | sì | No | sì | sì |
 | Numero massimo di endpoint privati | N/D | 10 o 30 | 100 | 400 | 400 | N/D | 20 | 20 |
 | Numero massimo di tipi di risorse distinti<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
 

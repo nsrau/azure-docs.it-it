@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322037"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850900"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Esercitazione: configurare Figma per il provisioning utenti automatico
 
@@ -53,23 +53,23 @@ Prima di configurare Figma per il provisioning utenti automatico con Azure AD, s
 
 1. Accedere a [Figma Admin Console](https://www.Figma.com/). Fare clic sull'icona a forma di ingranaggio accanto al tenant.
 
-    ![FigmaFigma-Employee-provisioning](media/Figma-provisioning-tutorial/image0.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
 
 2. Passare a **generale > aggiornare le impostazioni di accesso**.
 
-    ![FigmaFigma-Employee-provisioning](media/Figma-provisioning-tutorial/figma03.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
 
 3. Copiare l' **ID tenant**. Questo valore verrà usato per costruire l'URL dell'endpoint SCIM da immettere nel campo **URL tenant** nella scheda provisioning dell'applicazione Figma nel portale di Azure.
 
-    ![Figma creare token](media/Figma-provisioning-tutorial/figma-tenantid.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
 
 4. Scorrere verso il basso e fare clic su **genera token API**.
 
-    ![Figma creare token](media/Figma-provisioning-tutorial/token.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
 
 5. Copiare il valore del  **token dell'API** . Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Figma nel portale di Azure. 
 
-    ![Figma creare token](media/Figma-provisioning-tutorial/figma04.png)
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Aggiungere Figma dalla raccolta
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 4b318057254688ba3060c825a7926b1c40de437c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305016"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850880"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Esercitazione: configurare infor CloudSuite per il provisioning utenti automatico
 
@@ -68,11 +68,11 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
     
     ![Password CloudSuite infor](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-    ![ID CloudSuite infor](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Screenshot della console di amministrazione di infor CloudSuite che mostra una riga di tabella evidenziata. Tale riga contiene un identificatore utente, le password e un timestamp." border="false":::
 
 5. Per generare la bearer token, copiare l' **identificatore utente** e la **password scim**. Incollarli nel blocco note + + separati da due punti. Per codificare il valore della stringa, passare a plug-in **> strumenti MIME > codifica Basic64**. 
 
-    ![ID CloudSuite infor](media/infor-cloudsuite-provisioning-tutorial/token.png)
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot della console di amministrazione di infor CloudSuite che mostra una riga di tabella evidenziata. Tale riga contiene un identificatore utente, le password e un timestamp." border="false":::
 
 3.  Copiare il bearer token. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione infor CloudSuite nel portale di Azure.
 

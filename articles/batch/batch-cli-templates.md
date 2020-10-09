@@ -2,14 +2,14 @@
 title: Eseguire i processi end-to-end usando i modelli
 description: Con i soli comandi dell'interfaccia della riga di comando, è possibile creare un pool, caricare dati di input, creare processi e attività associate e scaricare i dati di output risultanti.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494928"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848722"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch
 
@@ -65,7 +65,7 @@ I modelli di Azure Batch sono simili ai modelli di Azure Resource Manager per qu
 -   **Parameters**
 
     -   I valori delle proprietà possono essere specificati in una sezione del corpo, in modo che quando il modello viene usato sia necessario fornire solo i valori dei parametri. È ad esempio possibile inserire la definizione completa di un pool nel corpo e definire un solo parametro per `poolId`. Per creare un pool deve quindi essere specificata solo una stringa di ID del pool.
-        
+
     -   Il corpo del modello può essere creato da un utente che conosce Batch e le applicazioni che devono essere eseguite da Batch. Quando il modello viene usato, è necessario fornire solo i valori per i parametri definiti dall'autore. Un utente senza conoscenza approfondita di Batch e/o delle applicazioni può quindi usare i modelli.
 
 -   **Variabili**
@@ -121,7 +121,7 @@ Di seguito è riportato un esempio di un modello che crea un pool di macchine vi
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -209,7 +209,7 @@ Di seguito è riportato un esempio di un modello che crea un processo per esegui
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -271,7 +271,7 @@ Un gruppo di file equivale a un contenitore creato nell'account di archiviazione
 L'estensione dell'interfaccia della riga di comando di Batch fornisce comandi che consentono di caricare i file da un client a un gruppo di file specificato e di scaricare i file dal gruppo di file specificato a un client.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 632330d7c94e145124e202be9050e4e1beeb12b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265460"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850660"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Esercitazione: configurare LucidChart per il provisioning utenti automatico
 
@@ -45,15 +45,15 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e LucidChart](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-lucidchart-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare LucidChart per supportare il provisioning con Azure AD
+## <a name="step-2-configure-lucidchart-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare LucidChart per supportare il provisioning con Azure AD
 
 1. Accedere a [LucidChart Admin Console](https://www.lucidchart.com). Passare a **Team > integrazione dell'app**.
 
-      ![Scim LucidChart](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Screenshot della console di amministrazione di LucidChart. Il menu Team è evidenziato e aperto. In amministratore l'integrazione dell'app è evidenziata." border="false":::
 
 2. Passare a **scim**.
 
-      ![Scim LucidChart](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Screenshot della console di amministrazione di LucidChart. Il menu Team è evidenziato e aperto. In amministratore l'integrazione dell'app è evidenziata." border="false":::
 
 3. Scorrere verso il basso per visualizzare il **token di porta** e l' **URL di base LucidChart**. Copiare e salvare il **token di porta**. Questo valore verrà immesso nel campo **token segreto** * nella scheda provisioning dell'applicazione LucidChart nel portale di Azure. 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 1274679bdd9892e2dc39f3c5e94d8d8d486928b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329194"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91849342"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Esercitazione: configurare BitaBIZ per il provisioning utenti automatico
 
@@ -54,11 +54,11 @@ Prima di configurare BitaBIZ per il provisioning utenti automatico con Azure AD,
 
 1. Accedere a [BitaBIZ Admin Console](https://www.bitabiz.com/login?lang=en). Fare clic su **SETUP ADMIN** (CONFIGURA AMMINISTRATORE).
 
-    ![Console di amministrazione di BitaBIZ](media/bitabiz-provisioning-tutorial/setup-admin.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/setup-admin.png" alt-text="Screenshot della console di amministrazione di BitaBIZ, con l'amministratore del programma di installazione evidenziato." border="false":::
 
 2.  Passare all' **integrazione**.
 
-    ![Console di amministrazione di BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Screenshot della console di amministrazione di BitaBIZ, con l'amministratore del programma di installazione evidenziato." border="false":::
 
 2.  Passare a **Microsoft Azure ad provisioning**.  Selezionare **abilitato** nel provisioning utenti automatico. Copiare i valori per l' **URL dell'endpoint di provisioning di SCIM** e il token di  **porta**. Questi valori verranno immessi nei campi URL tenant e token segreto nella scheda provisioning dell'applicazione BitaBIZ nel portale di Azure.
 

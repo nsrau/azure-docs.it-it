@@ -2,22 +2,22 @@
 title: Metriche, avvisi e log di diagnostica
 description: Registrare e analizzare gli eventi di registrazione diagnostica per le risorse dell'account Azure Batch, come pool e attività.
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: abf9ef53d3f2e3ffeffabfe9b7c77dc5c5debec3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145087"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91848688"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
- 
+
 Questo articolo descrive come monitorare un account Batch tramite le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-platform-metrics.md) e [log di diagnostica](../azure-monitor/platform/platform-logs-overview.md) per le risorse nell'account Batch. È possibile raccogliere e utilizzare i dati in svariati modi per monitorare l'account Batch e diagnosticare i problemi. È anche possibile configurare [avvisi sulle metriche](../azure-monitor/platform/alerts-overview.md) per ricevere notifiche quando una metrica raggiunge un valore specificato.
 
 ## <a name="batch-metrics"></a>Metriche di Batch
 
-Le metriche sono dati di telemetria di Azure (detti anche contatori delle prestazioni) che vengono emessi dalle risorse di Azure e utilizzati dal servizio monitoraggio di Azure. Esempi di metriche in un account batch sono gli eventi di creazione del pool, il numero di nodi con priorità bassa e gli eventi di completamento dell'attività.
+Le metriche sono dati di telemetria di Azure (detti anche contatori delle prestazioni) che vengono emessi dalle risorse di Azure e utilizzati dal servizio monitoraggio di Azure. Esempi di metriche in un account batch sono gli eventi di creazione del pool, il numero di nodi Low-Priority e gli eventi di completamento dell'attività.
 
 Vedere l'[elenco delle metriche di Batch supportate](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -34,7 +34,7 @@ Nella portale di Azure, nella pagina **Panoramica** dell'account verranno visual
 Per visualizzare tutte le metriche dell'account batch nel portale di Azure:
 
 1. Nella portale di Azure selezionare tutti i **Servizi**  >  **account batch**e quindi selezionare il nome dell'account batch.
-2. In **monitoraggio**selezionare **metriche**.
+2. In **Monitoraggio** selezionare **Metrica**.
 3. Selezionare **Aggiungi metrica** , quindi scegliere una metrica dall'elenco a discesa.
 4. Selezionare un'opzione di **aggregazione** per la metrica. Per le metriche basate su conteggi (ad esempio "conteggio dei core dedicati" o "numero di nodi con priorità bassa"), usare l'aggregazione **media** . Per le metriche basate su eventi, ad esempio "eventi di completamento ridimensionamento pool", usare l'aggregazione **count**.
 
@@ -57,7 +57,7 @@ Le metriche emesse negli ultimi 3 minuti potrebbero ancora essere aggregate, qui
 
 Non è consigliabile eseguire avvisi che vengono attivati in un singolo punto dati, in quanto le metriche sono soggette al recapito non ordinato, alla perdita di dati e/o alla duplicazione. Quando si creano gli avvisi, è possibile utilizzare le soglie per tenere conto di tali incoerenze.
 
-Ad esempio, è possibile configurare un avviso sulle metriche quando il numero di core per priorità bassa diminuisce a un determinato livello, per consentire la regolazione della composizione dei pool. Per ottenere risultati ottimali, impostare un periodo di 10 o più minuti, in cui gli avvisi vengono attivati se il numero medio di core a bassa priorità scende al di sotto del valore di soglia per l'intero periodo. Questo consente più tempo per l'aggregazione delle metriche, in modo da ottenere risultati più accurati. 
+Ad esempio, è possibile configurare un avviso sulle metriche quando il numero di core per priorità bassa diminuisce a un determinato livello, per consentire la regolazione della composizione dei pool. Per ottenere risultati ottimali, impostare un periodo di 10 o più minuti, in cui gli avvisi vengono attivati se il numero medio di core a bassa priorità scende al di sotto del valore di soglia per l'intero periodo. Questo consente più tempo per l'aggregazione delle metriche, in modo da ottenere risultati più accurati.
 
 Per configurare un avviso per la metrica nel portale di Azure:
 
@@ -87,11 +87,11 @@ Uno scenario comune consiste nel selezionare un account di archiviazione di Azur
 
 In alternativa, è possibile:
 
-- Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-about.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
+- Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-about.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale.
 - Inviare i log di diagnostica ai [log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) dove è possibile analizzarli o esportarli per l'analisi in Power BI o Excel.
 
 > [!NOTE]
-> Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure. 
+> Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure.
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Abilitare la raccolta dei log di diagnostica di Batch
 
@@ -155,7 +155,7 @@ I registri dei servizi di Azure Batch, se raccolti, contengono gli eventi genera
     },
     "resizeTimeout": "300000",
     "targetDedicatedComputeNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
     "enableInterNodeCommunication": false,
@@ -170,9 +170,11 @@ Gli eventi del log del servizio generati dal servizio batch includono quanto seg
 - [Completamento dell'eliminazione di pool](batch-pool-delete-complete-event.md)
 - [Avvio del ridimensionamento di pool](batch-pool-resize-start-event.md)
 - [Completamento del ridimensionamento di pool](batch-pool-resize-complete-event.md)
+- [Scalabilità automatica del pool](batch-pool-autoscale-event.md)
 - [Avvio dell'attività](batch-task-start-event.md)
 - [Attività completata](batch-task-complete-event.md)
 - [Errore dell'attività](batch-task-fail-event.md)
+- [Pianificazione attività non riuscita](batch-task-schedule-fail-event.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
