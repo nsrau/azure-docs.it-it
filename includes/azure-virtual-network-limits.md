@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: b963cc459094e823499e962736550dcea2345ba2
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854071"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859586"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alla rete - Azure Resource Manager
 I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
@@ -75,7 +75,6 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorse di back-end per Load Balancer<sup>1<sup> | 150                   |
 | Porte a disponibilità elevata                 | 1 per front-end interno       |
 | Regole in uscita per Load Balancer        | 600                           |
-| [Timeout di inattività TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minuti/30 minuti          |
 
 <sup>1</sup>Il limite è fino a 150 risorse, in qualsiasi combinazione di risorse macchine virtuali autonome, risorse set di disponibilità e gruppi di selezione host per set di scalabilità di macchine virtuali.
 
@@ -88,7 +87,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Regole per scheda di interfaccia di rete (per tutti gli indirizzi IP in una scheda di interfaccia di rete) | 300                          |
 | Configurazioni IP front-end              | 200                          |
 | Dimensioni del pool back-end                       | 300 configurazioni IP, singolo set di disponibilità |
-| Set di disponibilità per Load Balancer     | 150                          |
+| Set di disponibilità per Load Balancer     | 1                            |
 
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo alle risorse di rete gestite tramite il modello di distribuzione **classico** per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
