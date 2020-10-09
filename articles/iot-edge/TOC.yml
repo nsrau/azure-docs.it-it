@@ -93,7 +93,7 @@
       href: offline-capabilities.md
     - name: Dispositivo IoT Edge come gateway
       href: iot-edge-as-gateway.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza in Azure IoT Edge
           href: security.md

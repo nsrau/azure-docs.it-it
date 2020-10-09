@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60499886"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
@@ -39,7 +39,7 @@ Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi impleme
 |Risposta     | Una categoria di risultati restituiti in una risposta. Una risposta dell'API Ricerca Web Bing può ad esempio includere riscontri delle categorie pagine Web, immagini, video e notizie. |
 |Risposta     | Tutti i riscontri e i dati associati ricevuti in risposta a una singola chiamata a un'API di ricerca. |
 |Risultato    | Un'informazione contenuta in un riscontro. Ad esempio, il set di dati collegato a un singolo articolo di notizie rappresenta un risultato in un riscontro relativo a notizie. |
-|API di ricerca    | L'insieme delle API di ricerca Bing, che include Ricerca personalizzata, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva, Ricerca aziende locali e Ricerca Web. |
+|API per la ricerca    | L'insieme delle API di ricerca Bing, che include Ricerca personalizzata, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva, Ricerca aziende locali e Ricerca Web. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrizioni delle API Controllo ortografico Bing e Suggerimenti automatici Bing
 
@@ -97,7 +97,7 @@ Non:
     - Filtrate o limitate principalmente (o esclusivamente) in base a risultati con immagini, notizie e/o video o oggetti visivi.
 
 ### <a name="notices-and-branding"></a>Informative e marchio 
-Eseguire queste operazioni:
+Cosa fare
 
 - Includere in posizione prominente un collegamento ipertestuale funzionante all'[informativa sulla privacy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Etichettare il collegamento ipertestuale **Microsoft Privacy Statement**.
 

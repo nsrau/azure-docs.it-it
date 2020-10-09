@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79279494"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872001"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configurare i gateway VPN nella rete CloudSimple
 
@@ -103,7 +103,7 @@ Un gateway VPN da punto a sito consente di definire un criterio di aggiunta auto
 
     * Le opzioni **Aggiungi automaticamente** impostano i criteri globali per il gateway. Le impostazioni si applicano al gateway corrente. È possibile eseguire l'override delle impostazioni nell'area **Select** .
     * Selezionare **Aggiungi gestione VLAN/subnet di cloud privati**. 
-    * Per aggiungere tutte le VLAN e le subnet definite dall'utente, fare clic su **Aggiungi VLAN/subnet definite dall'utente**.
+    * Per aggiungere tutte le VLAN e le subnet definite dall'utente, fare clic su  **Aggiungi VLAN/subnet definite dall'utente**.
     * Le impostazioni di **selezione** eseguono l'override delle impostazioni globali in **Aggiungi automaticamente**.
 
 7. Fare clic su **Avanti** per esaminare le impostazioni. Fare clic su modifica icone per apportare le modifiche.

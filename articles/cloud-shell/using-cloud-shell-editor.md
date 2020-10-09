@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "60199207"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Uso dell'editor di Azure Cloud Shell
 
-Azure Cloud Shell include un editor di file integrato, creato in base allo strumento open source [Monaco Editor](https://github.com/Microsoft/monaco-editor). L'editor di Cloud Shell supporta funzionalità quali l'evidenziazione del linguaggio, il riquadro comandi e uno strumento di esplorazione dei file.
+Azure Cloud Shell include un editor di file integrato, creato in base allo strumento open source [Monaco Editor](https://github.com/Microsoft/monaco-editor). L'editor Cloud Shell supporta funzionalità quali l'evidenziazione del linguaggio, il riquadro comandi e uno strumento per l'esplorazione dei file.
 
 ![Editor di Cloud Shell](media/using-cloud-shell-editor/open-editor.png)
 
 ## <a name="opening-the-editor"></a>Apertura dell'editor
 
-Per eseguire semplici operazioni di creazione e modifica, avviare l'editor eseguendo `code .` nel terminale di Cloud Shell. Questa azione apre l'editor con la directory di lavoro attiva impostata nel terminale.
+Per la creazione e la modifica di file semplici, avviare l'editor eseguendo `code .` nel terminale di Cloud Shell. Questa azione consente di aprire l'editor con la directory di lavoro attiva impostata nel terminale.
 
-Per aprire direttamente un file per la modifica rapida, eseguire `code <filename>` per aprire l'editor senza lo strumento di esplorazione dei file.
+Per aprire direttamente un file per la modifica rapida, eseguire `code <filename>` per aprire l'editor senza lo strumento per l'esplorazione dei file.
 
 Per aprire l'editor tramite un pulsante dell'interfaccia utente, fare clic sull'icona dell'editor `{}` nella barra degli strumenti. L'editor verrà aperto e nello strumento di esplorazione dei file sarà attiva per impostazione predefinita la directory `/home/<user>`.
 

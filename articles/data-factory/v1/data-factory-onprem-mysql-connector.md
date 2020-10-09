@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79281288"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872103"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Spostare i dati da MySQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -81,7 +81,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che comprende il set di dati MySQL) presenta le proprietà seguenti.
 
-| Proprietà | Descrizione | Necessario |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database MySQL a cui fa riferimento il servizio collegato. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -316,7 +316,7 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | int unsigned |Int64 |
 | INT |Int32 |
 | integer unsigned |Int64 |
-| integer |Int32 |
+| numero intero |Int32 |
 | long varbinary |Byte[] |
 | long varchar |string |
 | longblob |Byte[] |
@@ -332,13 +332,13 @@ Quando si spostano i dati in MySQL vengono usati i mapping seguenti dal tipo MyS
 | SMALLINT |Int16 |
 | text |string |
 | time |TimeSpan |
-| timestamp |Datetime |
+|  timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | TINYINT |Int16 |
 | tinytext |string |
 | varchar |string |
-| year |Int |
+| anno |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

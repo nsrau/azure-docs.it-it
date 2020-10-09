@@ -6,6 +6,6 @@
       tocHref: /azure/azure-arc/
       topicHref: /azure/azure-arc/index
       items:
-        - name: Data
+        - name: Dati
           tocHref: /sql/azdata/
           topicHref: /azure/azure-arc

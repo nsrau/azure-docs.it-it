@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221150"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91872052"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisioni, flussi di lavoro e processi di moderazione dei contenuti
 
@@ -35,7 +35,7 @@ Un flusso di lavoro è un filtro personalizzato basato sul cloud per il contenut
 
 ### <a name="view-workflows"></a>Visualizza flussi di lavoro
 
-Per visualizzare i flussi di lavoro esistenti, passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **Impostazioni** > **flussi di lavoro**.
+Per visualizzare i flussi di lavoro esistenti, passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **Impostazioni**  >  **flussi di lavoro**.
 
 ![Flusso di lavoro predefinito](images/default-workflow-listed.PNG)
 

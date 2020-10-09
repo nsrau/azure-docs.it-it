@@ -28,7 +28,7 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Risoluzione dei problemi
       href: Troubleshooting.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
