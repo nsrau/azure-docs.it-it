@@ -3,12 +3,12 @@ title: Eseguire azioni con backup Center
 description: Questo articolo illustra come eseguire azioni con backup Center
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 81c81f0e9d955e0a5243485baaedff4e6f0fc10d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997718"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854427"
 ---
 # <a name="perform-actions-using-backup-center"></a>Eseguire azioni con backup Center
 
@@ -70,7 +70,7 @@ A seconda del tipo di origine dati che si desidera ripristinare, seguire le istr
 ### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Se si sta ripristinando un database di Azure per il server PostgreSQL
 
 1. Passare al centro di backup e selezionare **Ripristina** nella parte superiore della scheda **Overview (panoramica** ).
-2. Selezionare il tipo di origine dati di cui si vuole eseguire il backup (in questo caso il database di Azure per il server PostgreSQL).
+2. Selezionare il tipo di origine dati che si vuole ripristinare (in questo caso il database di Azure per il server PostgreSQL).
 
     ![Selezionare l'origine dati per il ripristino del server database di Azure per PostgreSQL](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323816"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851221"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Esercitazione: configurare Dynamic Signal per il provisioning utenti automatico
 
@@ -100,11 +100,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 6. Nella console di amministrazione di Dynamic Signal passare a **admin > Advanced > API**.
 
-    ![Provisioning di Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Screenshot della console di amministrazione di Dynamic Signal. Advanced viene evidenziato nel menu admin. Il menu avanzate è visibile anche con un P evidenziato." border="false":::
 
     Copiare l' **URL dell'API scim** nell' **URL del tenant**. Fare clic su **genera nuovo token** per generare un **token di porta** e copiare il valore in **token segreto**.
 
-    ![Provisioning di Dynamic Signal](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Screenshot della console di amministrazione di Dynamic Signal. Advanced viene evidenziato nel menu admin. Il menu avanzate è visibile anche con un P evidenziato." border="false":::
 
 7. Quando si popolano i campi indicati nel passaggio 5, fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Dynamic Signal. Se la connessione non riesce, verificare che l'account Dynamic Signal disponga di autorizzazioni di amministratore e riprovare.
 

@@ -4,7 +4,7 @@ description: Altre informazioni su Defender per il servizio di sicurezza Interne
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 19fa5b2949888993954f3075d1e10c9e8f126e2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/08/2020
+ms.author: v-ekrieg
+ms.openlocfilehash: 13c16407481d4fa6f7d468a73051cc4945e6314e
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939555"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851234"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Informazioni sul file di configurazione locale (agente C#)
 
 Defender for Internet Security Agent usa le configurazioni di un file di configurazione locale.
 
-L'agente di sicurezza legge il file di configurazione una volta all'avvio dell'agente. Le configurazioni disponibili nel file di configurazione locale contengono sia la configurazione dell'autenticazione che altre configurazioni correlate agli agenti.
+L'agente di sicurezza legge il file di configurazione una volta all'avvio dell'esecuzione dell'agente. Le configurazioni disponibili nel file di configurazione locale contengono sia la configurazione di autenticazione che altre configurazioni correlate agli agenti.
 
 L'agente di sicurezza C# usa più file di configurazione:
 
@@ -57,7 +57,7 @@ Per Windows:
 | highPriorityQueueSizePercentage | 0 < numero < 1 | Parte della cache totale dedicata per i messaggi con priorità alta. |
 | logLevel | "Off", "Fatal", "Error", "Warning", "Information", "debug"  | I messaggi di log uguali e superiori a questa gravità vengono registrati nella console di debug (syslog in Linux). |
 | fileLogLevel |  "Off", "Fatal", "Error", "Warning", "Information", "debug"| I messaggi di log uguali e superiori a questa gravità vengono registrati nel file (syslog in Linux). |
-| diagnosticVerbosityLevel | "None", "some", "All", | Livello di dettaglio degli eventi di diagnostica. None: gli eventi di diagnostica non vengono inviati, vengono inviati solo alcuni eventi di diagnostica con priorità elevata, tutti i log vengono inviati anche come eventi di diagnostica. |
+| diagnosticVerbosityLevel | "None", "some", "All", | Livello di dettaglio degli eventi di diagnostica. None: gli eventi di diagnostica non vengono inviati. Vengono inviati solo alcuni eventi di diagnostica con priorità alta. All-tutti i log vengono inviati anche come eventi di diagnostica. |
 | logFilePath | Percorso del file | Se fileLogLevel > off, i log vengono scritti in questo file. |
 | defaultEventPriority | "High", "low", "off" | Priorità evento predefinita. |
 
@@ -85,10 +85,11 @@ Per Windows:
 | Nome configurazione | Valori possibili | Dettagli |
 |:-----------|:---------------|:--------|
 | moduleName | string | Nome dell'identità del modulo di sicurezza. Questo nome deve corrispondere al nome dell'identità del modulo nel dispositivo. |
-| deviceId | string | ID del dispositivo, registrato nell'hub Azure. || schedulerInterval | Stringa TimeSpan | Intervallo di pianificazione interno. |
+| deviceId | string | ID del dispositivo, registrato nell'hub Azure. |
+| schedulerInterval | Stringa TimeSpan | Intervallo di pianificazione interno. |
 | gatewayHostname | string | Nome host dell'hub Azure. In genere <My-Hub>. azure-devices.net |
 | filePath | stringa-percorso del file | Percorso del file che contiene il segreto di autenticazione.|
-| tipo | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere il *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
+| type | "SelfSignedCertificate" | Il segreto utente per l'autenticazione. Scegliere dise il segreto utente è una chiave simmetrica, scegliere *certificato autofirmato* *se il* segreto è un certificato autofirmato. |
 | identity | "DPS", "Module", "Device" | Identity di autenticazione: DPS se l'autenticazione viene eseguita tramite DPS, modulo se l'autenticazione viene eseguita usando le credenziali del modulo o il dispositivo se l'autenticazione viene eseguita usando le credenziali del dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se il certificato è archiviato in un file, archiviare se il certificato si trova in un archivio certificati. |
 | idScope | string | Ambito ID di DPS |

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321736"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851102"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
@@ -197,7 +197,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, verificare i criteri seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                  |                                                                            Criteri                                                                            |                           Valore                            |
+    |                 Obiettivo                  |                                                                            Policy                                                                            |                           Valore                            |
     | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
     | RDP è abilitato                        | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto    |
     | Criteri di gruppo NLA                      | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedere l'autenticazione utente per l'accesso remoto usando NLA |
@@ -241,7 +241,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, controllare i criteri di Azure AD seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                 |                                                                         Criteri                                                                          |                  Valore                  |
+    |                 Obiettivo                 |                                                                         Policy                                                                          |                  Valore                  |
     | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
     | Abilitare i profili di Windows Firewall | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Proteggi tutte le connessioni di rete         |
     | Abilitare RDP                           | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni per Desktop remoto in ingresso |
@@ -421,6 +421,7 @@ In particolare, Sysprep richiede che le unità vengano decrittografate completam
 
 1. Accedere alla VM Windows.
 1. Eseguire una sessione di PowerShell come amministratore.
+1. Eliminare la directory Panther (C:\Windows\Panther).
 1. Passare alla directory `%windir%\system32\sysprep` . Quindi eseguire `sysprep.exe`.
 1. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Accedi alla configurazione guidata**e verificare che la casella di controllo **generalizza** sia selezionata.
 
@@ -432,7 +433,7 @@ In particolare, Sysprep richiede che le unità vengano decrittografate completam
 A questo punto il disco rigido virtuale è pronto per essere caricato. Per altre informazioni su come creare una macchina virtuale da un disco generalizzato, vedere [caricare un disco rigido virtuale generalizzato e usarlo per creare una nuova macchina virtuale in Azure](sa-upload-generalized.md).
 
 >[!NOTE]
-> Un file di *unattend.xml* personalizzato non è supportato. Anche se la proprietà **additionalUnattendContent** è supportata, questo fornisce solo un supporto limitato per l'aggiunta di opzioni [Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) al file *unattend.xml* usato dall'agente di provisioning di Azure. È possibile usare, ad esempio, [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) per aggiungere FirstLogonCommands e LogonCommands. Per altre informazioni, vedere [esempio di AdditionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Un file di *unattend.xml* personalizzato non è supportato. Anche se la proprietà **additionalUnattendContent** è supportata, questo fornisce solo un supporto limitato per l'aggiunta di opzioni [Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) al file *unattend.xml* usato dall'agente di provisioning di Azure. È possibile usare, ad esempio, [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) per aggiungere FirstLogonCommands e LogonCommands. Per altre informazioni, vedere [esempio di AdditionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Convertire il disco virtuale in un disco rigido virtuale a dimensione fissa
 

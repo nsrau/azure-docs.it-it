@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462565"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91855634"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Apache Hadoop in HDInsight
 
-HDInsight fornisce un Hadoop distribuito file system (HDFS) tramite archiviazione di Azure e Azure Data Lake Storage. Questa risorsa di archiviazione include Gen1 e Gen2. Archiviazione di Azure e Data Lake Storage Gen1 e Gen2 sono progettati come estensioni HDFS. Consentono il set completo di componenti nell'ambiente Hadoop per operare direttamente sui dati gestiti. Archiviazione di Azure, Data Lake Storage Gen1 e Gen2 sono file System distinti. I sistemi sono ottimizzati per l'archiviazione di dati e calcoli su tali dati. Per informazioni sui vantaggi derivanti dall'uso di archiviazione di Azure, vedere [usare archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Vedere anche [usare Data Lake storage Gen1 con HDInsight](hdinsight-hadoop-use-data-lake-store.md)e [usare Data Lake storage Gen2 con HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+HDInsight fornisce un Hadoop distribuito file system (HDFS) tramite archiviazione di Azure e Azure Data Lake Storage. Questa risorsa di archiviazione include Gen1 e Gen2. Archiviazione di Azure e Data Lake Storage Gen1 e Gen2 sono progettati come estensioni HDFS. Consentono il set completo di componenti nell'ambiente Hadoop per operare direttamente sui dati gestiti. Archiviazione di Azure, Data Lake Storage Gen1 e Gen2 sono file System distinti. I sistemi sono ottimizzati per l'archiviazione di dati e calcoli su tali dati. Per informazioni sui vantaggi derivanti dall'uso di archiviazione di Azure, vedere [usare archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md). Vedere anche [usare Data Lake storage Gen1 con HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)e [usare Data Lake storage Gen2 con HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -26,7 +26,7 @@ Prima di iniziare, tenere presenti i requisiti seguenti:
 * Disporre di un cluster HDInsight di Azure. Per istruzioni, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Conoscenza degli articoli seguenti:
     * [Usare archiviazione di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md)
-    * [Usare Data Lake Store con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    * [Usare Data Lake Store con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen1.md)
     * [Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Caricare i dati in Archiviazione di Azure
@@ -58,7 +58,7 @@ Dopo essersi connessi, è possibile usare la sintassi seguente per caricare un f
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Ad esempio, usare `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Ad esempio: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Poiché il file system predefinito per HDInsight è in archiviazione di Azure,/example/data/data.txt è in realtà in archiviazione di Azure. È inoltre possibile fare riferimento al file come segue:
 

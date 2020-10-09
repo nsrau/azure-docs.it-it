@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319946"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91851272"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Esercitazione: configurare la directory federata per il provisioning utenti automatico
 
@@ -53,24 +53,24 @@ Prima di configurare la directory federata per il provisioning utenti automatico
 
 1. Accedere alla console di [amministrazione della directory federata](https://federated.directory/of)
 
-    ![Esercitazione sulla directory federata](media/federated-directory-provisioning-tutorial/companyname.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
 
 2. Passare a **directory > directory utente** e selezionare il tenant. 
 
-    ![Directory federata](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
 
 3.  Per generare un bearer token permanente, passare a **chiavi Directory > Crea nuova chiave.** 
 
-    ![Directory federata](media/federated-directory-provisioning-tutorial/federated01.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
 
 4. Creare una chiave di directory. 
 
-    ![Directory federata](media/federated-directory-provisioning-tutorial/federated02.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
     
 
 5. Copiare il valore del **token di accesso**. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione directory federata nell'portale di Azure. 
 
-    ![Directory federata](media/federated-directory-provisioning-tutorial/federated03.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Aggiungere la directory federata dalla raccolta
 
@@ -96,15 +96,15 @@ Per configurare la directory federata per il provisioning utenti automatico con 
 
 5. Passare all' **URL** evidenziato di seguito in un browser separato. 
 
-    ![Directory federata](media/federated-directory-provisioning-tutorial/loginpage1.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
 
 6. Fare clic su **Accedi**.
 
-    ![Directory federata](media/federated-directory-provisioning-tutorial/federated04.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
 
 7.  Poiché la directory federata è un'app OpenIDConnect, scegliere di accedere alla directory federata con l'account Microsoft Work.
     
-    ![Directory federata](media/federated-directory-provisioning-tutorial/loginpage3.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
  
 8. Una volta completata l'autenticazione, accettare la richiesta di consenso per la pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati all'account della directory federata.
 
@@ -146,12 +146,12 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti alla directory federata**.
 
-    ![Esercitazione sulla directory federata](media/federated-directory-provisioning-tutorial/user-mappings.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
     
     
 11. Esaminare gli attributi utente che vengono sincronizzati da Azure AD alla directory federata nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente nella directory federata per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Esercitazione sulla directory federata](media/federated-directory-provisioning-tutorial/user-attributes.png)
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
     
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

@@ -4,17 +4,17 @@ description: Usare funzionalità quali l'analisi dell'archiviazione, la registra
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/02/2020
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a63af55161c2e60724fd35987f9dcbf05b12df2e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667912"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854558"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,8 +23,6 @@ ms.locfileid: "91667912"
 La diagnosi e la risoluzione dei problemi in un'applicazione distribuita ospitata in un ambiente cloud possono essere più complesse rispetto agli ambienti tradizionali. Le applicazioni possono essere distribuite in un'infrastruttura PaaS o IaaS, in locale, su un dispositivo mobile o in una combinazione di questi tipi di ambienti. In genere, il traffico in rete dell'applicazione può passare su reti pubbliche e private e l'applicazione può usare più tecnologie di archiviazione, ad esempio tabelle, BLOB, code o file di Microsoft Azure oltre ad altri archivi di dati come i database relazionali e di documenti.
 
 Per gestire in modo efficace queste applicazioni, è necessario monitorarle attivamente e capire in che modo diagnosticare e risolvere i problemi correlati a tutti gli aspetti delle applicazioni e delle tecnologie dipendenti. L'utente dei servizi di archiviazione di Azure deve monitorare continuamente i servizi di archiviazione usati dall'applicazione per riscontrare eventuali cambiamenti inattesi nel comportamento, ad esempio tempi di risposta insolitamente lenti, e deve usare la registrazione per raccogliere dati più dettagliati e analizzare i problemi più in profondità. Le informazioni di diagnostica ottenute dal monitoraggio e dalla registrazione consentiranno di determinare la causa principale del problema riscontrato dall'applicazione. Sarà quindi possibile identificare il problema e determinare le misure appropriate per risolverlo. L'Archiviazione di Azure è uno dei principali servizi di Azure ed è un componente importante della maggior parte delle soluzioni distribuite dai client nell'infrastruttura Azure. Include funzionalità che consentono di semplificare le attività di monitoraggio, diagnostica e risoluzione dei problemi di archiviazione nelle applicazioni basate su cloud.
-
-Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazioni di Archiviazione di Azure, vedere la pagina relativa alla [risoluzione dei problemi end-to-end usando Metriche e Registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi](../storage-e2e-troubleshooting.md).
 
 * [Introduzione]
   * [Organizzazione di questa guida]
@@ -68,7 +66,6 @@ Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazio
 * [Appendici]
   * [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS]
   * [Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]
-  * [Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete]
   * [Appendice 4: Uso di Excel per la visualizzazione di metriche e dati di log]
   * [Appendice 5: Monitoraggio con Application Insights per Azure DevOps]
 
@@ -92,7 +89,7 @@ La sezione "[Traccia end-to-end]" descrive come si possono correlare le informaz
 
 La sezione "[Guida alla risoluzione dei problemi]" fornisce indicazioni utili per identificare alcuni dei problemi relativi all'archiviazione che si riscontrano più di frequente.
 
-La sezione "[Appendici]" include informazioni sull'utilizzo di altri strumenti quali Wireshark e Netmon per l'analisi dei dati dei pacchetti di rete, Fiddler per l'analisi dei messaggi HTTP/HTTPS e Microsoft Message Analyzer per la correlazione dei dati di log.
+Le "[appendici]" includono informazioni sull'uso di altri strumenti, ad esempio Wireshark e Netmon, per l'analisi dei dati dei pacchetti di rete e Fiddler per l'analisi dei messaggi HTTP/HTTPS.
 
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Monitoraggio del servizio di archiviazione
 Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le metriche di archiviazione di Azure corrispondono ai contatori di Windows Performance Monitor. Metriche di archiviazione comprende un set completo di metriche (contatori nella terminologia di Performance Monitor di Windows), tra cui la disponibilità del servizio, il numero totale di richieste al servizio e la percentuale di richieste eseguite correttamente. Per l'elenco completo delle metriche disponibili, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx). È possibile specificare se si vuole che il servizio di archiviazione raccolga e aggreghi le metriche ogni ora o ogni minuto. Per altre informazioni sulle modalità di abilitazione delle metriche e sul monitoraggio degli account di archiviazione, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](https://go.microsoft.com/fwlink/?LinkId=510865).
@@ -221,10 +218,9 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 
 * [Fiddler](https://www.telerik.com/fiddler) è un proxy di debug Web gratuito che consente di esaminare le intestazioni e i dati di payload dei messaggi HTTP e HTTPS di richiesta e risposta. Per altre informazioni, vedere [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS](#appendix-1).
 * [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) e [Wireshark](https://www.wireshark.org/) sono strumenti gratuiti per l'analisi dei protocolli di rete che consentono di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete. Per altre informazioni su Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete](#appendix-2)".
-* Microsoft Message Analyzer è uno strumento di Microsoft che sostituisce Netmon e che, oltre ad acquisire i dati dei pacchetti di rete, consente di visualizzare e analizzare i dati di log acquisiti da altri strumenti. Per altre informazioni, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete](#appendix-3)".
 * Per eseguire un test di base delle connessioni per verificare che il computer client sia in grado di connettersi al servizio di archiviazione Azure in rete, non è possibile utilizzare il normale strumento **ping** sul client. [Tuttavia, è possibile usare lo strumento **tcping**](https://www.elifulkerson.com/projects/tcping.php) per verificare la connettività.
 
-In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione e da Storage Client Library saranno sufficienti per diagnosticare un problema, ma in alcune situazione può essere necessario disporre di informazioni più dettagliate rispetto a quelle fornite da questi strumenti. Ad esempio, l'utilizzo di Fiddler per visualizzare i messaggi HTTP e HTTPS consente di visualizzare i dati di intestazione e di payload inviati e ricevuti dai servizi di archiviazione e quindi di esaminare il modo in cui un'applicazione client ritenti le operazioni di archiviazione. Gli strumenti di analisi dei protocolli, come Wireshark, funzionano a livello di pacchetto e consentono di visualizzare i dati TCP, quindi di risolvere i problemi dovuti alla perdita di pacchetti e a errori di connessione. Message Analyzer è in grado di funzionare sia sul livello HTTP che sul livello TCP.
+In molti casi, i dati di log provenienti dalla registrazione dell'archiviazione e da Storage Client Library saranno sufficienti per diagnosticare un problema, ma in alcune situazione può essere necessario disporre di informazioni più dettagliate rispetto a quelle fornite da questi strumenti. Ad esempio, l'utilizzo di Fiddler per visualizzare i messaggi HTTP e HTTPS consente di visualizzare i dati di intestazione e di payload inviati e ricevuti dai servizi di archiviazione e quindi di esaminare il modo in cui un'applicazione client ritenti le operazioni di archiviazione. Gli strumenti di analisi dei protocolli, come Wireshark, funzionano a livello di pacchetto e consentono di visualizzare i dati TCP, quindi di risolvere i problemi dovuti alla perdita di pacchetti e a errori di connessione. 
 
 ## <a name="end-to-end-tracing"></a><a name="end-to-end-tracing"></a>Traccia end-to-end
 La funzionalità di traccia end-to-end basata sull'utilizzo di una varietà di file di log è una tecnica utile per l'analisi dei potenziali problemi. È possibile usare le informazioni su data e ora estratte dai dati delle metriche come indicazione del punto da cui deve partire la ricerca nei file di log dei dettagli necessari per la risoluzione del problema.
@@ -385,11 +381,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 Controllare i file di log lato client per vedere quante richieste vengono inviate dall'applicazione client e verificare se sono presenti colli di bottiglia delle prestazioni generali di .NET, tra cui CPU, garbage collection, uso della rete o memoria. Come punto di partenza per la risoluzione dei problemi nelle applicazioni client .NET, vedere [Debug, traccia e profilatura](https://msdn.microsoft.com/library/7fe0dd2y).
 
 #### <a name="investigating-network-latency-issues"></a>Analisi dei problemi di latenza di rete
-In genere la latenza end-to-end elevata causata dalla rete è dovuta a condizioni temporanee. Per l'analisi dei problemi transitori e persistenti della rete, ad esempio le interruzioni della trasmissione dei pacchetti, sono disponibili strumenti come Wireshark o Microsoft Message Analyzer.
+In genere la latenza end-to-end elevata causata dalla rete è dovuta a condizioni temporanee. È possibile esaminare i problemi di rete temporanei e permanenti, ad esempio i pacchetti eliminati, usando strumenti come Wireshark.
 
 Per altre informazioni sull'uso di Wireshark per risolvere i problemi di rete, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]".
-
-Per altre informazioni sull'uso di Microsoft Message Analyzer per risolvere i problemi di rete, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete]".
 
 ### <a name="metrics-show-low-averagee2elatency-and-low-averageserverlatency-but-the-client-is-experiencing-high-latency"></a><a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Le metriche indicano un valore AverageE2ELatency basso e un valore AverageServerLatency basso, ma il client riscontra una latenza elevata
 In questo scenario, la causa più probabile è un ritardo nelle richieste di archiviazione che arrivano al servizio di archiviazione. È necessario verificare perché le richieste del client non riescono a passare attraverso il servizio BLOB.
@@ -402,11 +396,9 @@ Verificare anche se il client sta effettuando più tentativi e in tal caso appur
 * Esaminare i log del client. I log dettagliati indicheranno che si è verificato un nuovo tentativo.
 * Eseguire il debug del codice e controllare le proprietà dell'oggetto **OperationContext** associato alla richiesta. Se si ritenta l'operazione, la proprietà **RequestResults** includerà più ID richiesta server univoci. È inoltre possibile controllare l'ora di inizio e fine di ogni richiesta. Per altre informazioni, vedere l'esempio di codice nella sezione [ID richiesta server].
 
-Se non si riscontrano problemi nel client, occorre verificare la presenza di potenziali problemi della rete, ad esempio la perdita di pacchetti. Per esaminare i possibili problemi della rete, sono disponibili strumenti come Wireshark o Microsoft Message Analyzer.
+Se non si riscontrano problemi nel client, occorre verificare la presenza di potenziali problemi della rete, ad esempio la perdita di pacchetti. Per analizzare i problemi di rete, è possibile usare strumenti come Wireshark.
 
 Per altre informazioni sull'uso di Wireshark per risolvere i problemi di rete, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]".
-
-Per altre informazioni sull'uso di Microsoft Message Analyzer per risolvere i problemi di rete, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete]".
 
 ### <a name="metrics-show-high-averageserverlatency"></a><a name="metrics-show-high-AverageServerLatency"></a>Le metriche indicano un valore AverageServerLatency alto
 Nel caso in cui il valore **AverageServerLatency** sia elevato per le richieste di download di BLOB, è necessario utilizzare il file di log della registrazione dell'archiviazione per verificare se esistono richieste ripetute per lo stesso oggetto BLOB (o insieme di oggetti BLOB). Per le richieste di caricamento di BLOB, è necessario verificare le dimensioni dei blocchi usate dal client (ad esempio, i blocchi inferiori a 64 KB possono causare sovraccarichi a meno che anche le letture non vengano eseguite su blocchi inferiori a 64 KB) e se più client stanno caricando blocchi nello stesso BLOB parallelo. Verificare anche le metriche al minuto per i picchi del numero di richieste che determinano il superamento degli obiettivi di scalabilità al secondo: vedere anche "[Le metriche indicano un aumento di PercentTimeoutError]".
@@ -476,7 +468,7 @@ I timeout del server indicano un problema con il servizio di archiviazione che d
 ### <a name="metrics-show-an-increase-in-percentnetworkerror"></a><a name="metrics-show-an-increase-in-PercentNetworkError"></a>Le metriche indicano un aumento di PercentNetworkError
 Le metriche indicano un aumento di **PercentNetworkError** per uno dei servizi di archiviazione. La metrica **PercentNetworkError** è un'aggregazione delle metriche seguenti: **NetworkError**, **AnonymousNetworkError** e **SASNetworkError**. L'errore si verifica se il servizio di archiviazione rileva un errore della rete quando il client esegue una richiesta di archiviazione.
 
-La causa più comune dell'errore è la disconnessione del client prima della scadenza del timeout nel servizio di archiviazione. Esaminare il codice nel client per capire perché e quando il client si disconnette dal servizio di archiviazione. Per esaminare i problemi di connessione dal client, è possibile utilizzare anche Wireshark, Microsoft Message Analyzer o Tcping. Questi strumenti sono descritti nelle [Appendici].
+La causa più comune dell'errore è la disconnessione del client prima della scadenza del timeout nel servizio di archiviazione. Esaminare il codice nel client per capire perché e quando il client si disconnette dal servizio di archiviazione. È anche possibile usare Wireshark o Tcping per analizzare i problemi di connettività di rete dal client. Questi strumenti sono descritti nelle [Appendici].
 
 ### <a name="the-client-is-receiving-http-403-forbidden-messages"></a><a name="the-client-is-receiving-403-messages"></a>Il client sta ricevendo messaggi HTTP 403 (Accesso negato)
 Se l'applicazione client genera errori HTTP 403 (Accesso negato), probabilmente il client sta utilizzando una firma di accesso condiviso (SAS, Shared Access Signature) scaduta per inviare una richiesta di archiviazione (benché esistano altre cause possibili, come sfasamento di orario, chiavi non valide e intestazioni vuote). Se la causa è una chiave SAS scaduta, non si vedrà alcuna voce nei dati di log della registrazione dell'archiviazione lato server. La tabella che segue mostra un esempio del file di log lato client generato da Storage Client Library in cui è illustrato il problema in corso:
@@ -719,13 +711,11 @@ Se le sezioni precedenti non includono il problema riscontrato con un servizio d
 
 * Controllare le metriche per verificare se sono presenti variazioni del normale comportamento di base. Dalle metriche è possibile determinare se il problema è transitorio o permanente e quali operazioni di archiviazione sono interessate dal problema.
 * Utilizzare le informazioni delle metriche per cercare nei dati dei log lato server informazioni più dettagliate su eventuali errori riscontrati. Queste informazioni possono essere utili per diagnosticare e risolvere il problema.
-* Se le informazioni dei log lato server non sono sufficienti per risolvere efficacemente il problema, utilizzare i log lato client di Storage Client Library per esaminare il comportamento dell'applicazione client e strumenti come Fiddler, Wireshark e Microsoft Message Analyzer per esaminare la rete.
+* Se le informazioni nei log sul lato server non sono sufficienti per risolvere il problema, è possibile usare i log lato client di storage client library per esaminare il comportamento dell'applicazione client e strumenti come Fiddler, Wireshark per esaminare la rete.
 
 Per altre informazioni sull'uso di Fiddler, vedere "[Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS]".
 
 Per altre informazioni sull'uso di Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]".
-
-Per altre informazioni sull'uso di Microsoft Message Analyzer, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete]".
 
 ## <a name="appendices"></a><a name="appendices"></a>Appendici
 Le appendici descrivono alcuni strumenti che possono risultare utili per la diagnosi e la risoluzione dei problemi del servizio di archiviazione Azure (e di altri servizi). Tali strumenti non fanno parte del servizio di archiviazione Azure e alcuni sono prodotti di terze parti. Quindi, gli strumenti descritti nelle appendici non sono coperti da eventuali contratti di assistenza stipulati per Microsoft Azure o il servizio di archiviazione Azure ed è necessario che l'utente, come parte del proprio processo di valutazione, esamini le opzioni di licenza e di assistenza disponibili presso i fornitori degli strumenti.
@@ -776,40 +766,6 @@ WireShark evidenzia tutti gli errori presenti nella finestra **packetlist** . È
 > Per ulteriori informazioni sull'uso di Wireshark, vedere la [guida dell'utente di Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
 >
 >
-
-### <a name="appendix-3-using-microsoft-message-analyzer-to-capture-network-traffic"></a><a name="appendix-3"></a>Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete
-Microsoft Message Analyzer può essere usato per l'acquisizione del traffico HTTP e HTTPS in modo analogo a Fiddler e per l'acquisizione del traffico di rete in modo analogo a Wireshark.
-
-#### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configurazione di una sessione di traccia Web tramite Microsoft Message Analyzer
-Per configurare una sessione di traccia Web per il traffico HTTP e HTTPS tramite Microsoft Message Analyzer, eseguire l'applicazione Microsoft Message Analyzer e nel menu **File** fare clic su **Capture/Trace**. Nell'elenco degli scenari di traccia disponibili, selezionare **Web Proxy**. Quindi, nel riquadro **Trace Scenario Configuration**, nella casella di testo **HostnameFilter** aggiungere i nomi degli endpoint di archiviazione individuati nel [portale di Azure](https://portal.azure.com). Ad esempio, se il nome dell'account di archiviazione Azure è **contosodata**, aggiungere quanto segue alla casella di testo **HostnameFilter**:
-
-```
-contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-```
-
-> [!NOTE]
-> I nomi host sono separati da uno spazio.
->
->
-
-Quando si è pronti a iniziare a raccogliere i dati di traccia, fare clic sul pulsante **Start With** .
-
-Per altre informazioni sulla traccia di **Web Proxy** di Microsoft Message Analyzer, vedere [Microsoft-PEF-WebProxy Provider](https://technet.microsoft.com/library/jj674814.aspx).
-
-La traccia **Web Proxy** integrata in Microsoft Message Analyzer è basata su Fiddler; è in grado di acquisire il traffico HTTPS lato client e di visualizzare i messaggi HTTPS non crittografati. **Web Proxy** funziona mediante la configurazione di un proxy locale per tutto il traffico HTTP e HTTPS che fornisce l'accesso ai messaggi non crittografati.
-
-#### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnosi dei problemi di rete con Microsoft Message Analyzer
-Oltre a usare la traccia **Web Proxy** di Microsoft Message Analyzer per acquisire i dettagli del traffico HTTP/HTTP tra l'applicazione client e il servizio di archiviazione, è anche possibile usare la traccia **Local Link Layer** integrata per acquisire le informazioni sui pacchetti di rete. Ciò consente di acquisire dati simili a quelli acquisiti con Wireshark e di diagnosticare eventuali problemi della rete, ad esempio i pacchetti interrotti.
-
-La schermata seguente illustra un esempio della traccia **Local Link Layer** con alcuni messaggi **informativi** nella colonna **DiagnosisTypes**. Facendo clic su un'icona nella colonna **DiagnosisTypes** verranno visualizzati i dettagli del messaggio. In questo esempio, il messaggio ritrasmesso dal server #305 perché non ha ricevuto un riconoscimento dal client:
-
-![Screenshot che mostra un esempio di traccia del livello di collegamento locale con alcuni messaggi informativi nella colonna DiagnosisTypes][9]
-
-Quando si crea la sessione di traccia in Microsoft Message Analyzer, è possibile specificare dei filtri per ridurre la quantità di disturbi nella traccia. Nella pagina **Capture / Trace** in cui si definisce la traccia, fare clic sul collegamento **Configure** accanto a **Microsoft-Windows-NDIS-PacketCapture**. La schermata che segue mostra una configurazione in cui il traffico TCP viene filtrato per gli indirizzi IP di tre servizi di archiviazione:
-
-![Screenshot che mostra una configurazione che filtra il traffico TCP per gli indirizzi IP di tre servizi di archiviazione.][10]
-
-Per altre informazioni sulla traccia di Local Link Layer di Microsoft Message Analyzer, vedere [Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Appendice 4: Uso di Excel per la visualizzazione di metriche e dati di log
 Molti strumenti consentono di scaricare i dati di Metriche di archiviazione dalle tabelle di archiviazione di Azure in un formato delimitato che semplifica il caricamento dei dati in Excel per la visualizzazione e l'analisi. I dati della registrazione dell'archiviazione provenienti dai BLOB di Azure sono già in un formato delimitato che può essere caricato in Excel. Tuttavia, sarà necessario aggiungere le intestazioni di colonna appropriate in base alle informazioni disponibili in [Formato del log di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343259.aspx) e [Schema di tabella della metrica di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -897,7 +853,6 @@ Per altre informazioni sull'analisi in Archiviazione di Azure, vedere queste ris
 [Appendici]: #appendices
 [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS]: #appendix-1
 [Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete]: #appendix-2
-[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete]: #appendix-3
 [Appendice 4: Uso di Excel per la visualizzazione di metriche e dati di log]: #appendix-4
 [Appendice 5: Monitoraggio con Application Insights per Azure DevOps]: #appendix-5
 
