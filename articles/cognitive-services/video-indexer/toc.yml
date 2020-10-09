@@ -32,7 +32,7 @@
       href: ../../media-services/video-indexer/video-indexer-create-new.md
     - name: Incorporare widget nell'applicazione
       href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: API Video Indexer
       href: 'https://api-portal.videoindexer.ai/'

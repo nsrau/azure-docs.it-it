@@ -2,6 +2,6 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Modulo di protezione hardware dedicato
+    - name: HSM dedicato
       tocHref: /azure/
       topicHref: /azure/dedicated-hsm/index

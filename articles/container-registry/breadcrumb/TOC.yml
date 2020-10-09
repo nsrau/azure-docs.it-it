@@ -2,12 +2,12 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Registro Container
+    - name: Registro contenitori
       tocHref: /azure/security-center/
       topicHref: /azure/container-registry/index
-    - name: Registro Container
+    - name: Registro contenitori
       tocHref: /azure/aks/
       topicHref: /azure/container-registry/index
-    - name: Registro Container
+    - name: Registro contenitori
       tocHref: /azure/event-grid/
       topicHref: /azure/container-registry/index
