@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85298549"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entità servizio con il servizio Azure Kubernetes
@@ -135,7 +135,7 @@ Quando si usano entità di servizio Azure Kubernetes e di Azure AD, ricordare le
 - Per impostazione predefinita, le credenziali dell'entità servizio sono valide per un anno. È possibile [aggiornare o ruotare le credenziali dell'entità servizio][update-credentials] in qualsiasi momento.
 - Ogni entità servizio è associata a un'applicazione Azure AD. L'entità servizio per un cluster Kubernetes può essere associata a qualsiasi nome di applicazione Azure AD valido (ad esempio, *https://www.contoso.org/example* ). L'URL per l'applicazione non deve essere necessariamente un endpoint reale.
 - Quando si specifica l'**ID client** dell'entità servizio, usare il valore di `appId`.
-- Nelle VM del nodo agente nel cluster Kubernetes le credenziali dell'entità servizio vengono archiviate nel file`/etc/kubernetes/azure.json`
+- Nelle VM del nodo agente nel cluster Kubernetes le credenziali dell'entità servizio vengono archiviate nel file `/etc/kubernetes/azure.json`
 - Quando si usa il comando [az servizio Azure Kubernetes create][az-aks-create] per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/aksServicePrincipal.json` nel computer utilizzato per eseguire il comando.
 - Se non si passa in modo specifico un'entità servizio nei comandi aggiuntivi dell'interfaccia della riga di comando di AKS, viene usata l'entità servizio predefinita presente in `~/.azure/aksServicePrincipal.json` .  
 - Facoltativamente, è anche possibile rimuovere il aksServicePrincipal.jsnel file e AKS creerà una nuova entità servizio.

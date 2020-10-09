@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/16/2019
 ms.author: terrylan
 ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72518369"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilità condivisa nel cloud
@@ -31,11 +31,11 @@ In un Data Center locale si è proprietari dell'intero stack. Quando si passa al
 
 ![Aree di responsabilità](./media/shared-responsibility/shared-responsibility.png)
 
-Per tutti i tipi di distribuzione cloud, l'utente è proprietario di dati e identità. È responsabilità dell'utente proteggere tali dati e identità, nonché le risorse locali e i componenti cloud da lui gestiti. Questi ultimi fattori possono variare in base al tipo di servizio.
+Per tutti i tipi di distribuzione cloud, il cliente ha la proprietà di dati e identità. È responsabilità dell'utente proteggere tali dati e identità, nonché le risorse locali e i componenti cloud da lui gestiti. Questi ultimi fattori possono variare in base al tipo di servizio.
 
 Indipendentemente dal tipo di distribuzione, le responsabilità seguenti vengono sempre conservate dall'utente:
 
-- Data
+- Dati
 - Endpoint
 - Account
 - Gestione degli accessi

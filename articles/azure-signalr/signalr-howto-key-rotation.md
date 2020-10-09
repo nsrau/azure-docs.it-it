@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67565737"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Come ruotare la chiave di accesso per il Servizio Azure SignalR
@@ -23,7 +23,7 @@ Per motivi di sicurezza e per garantire la conformità, è consigliabile ruotare
 
 ## <a name="regenerate-access-keys"></a>Per rigenerare le chiavi di accesso
 
-1. Andare al [portale di Azure](https://portal.azure.com/) e accedere con le proprie credenziali.
+1. Passare alla [portale di Azure](https://portal.azure.com/)e accedere con le proprie credenziali.
 
 1. Individuare la sezione **Chiavi** dell'istanza del Servizio Azure SignalR con le chiavi da rigenerare.
 

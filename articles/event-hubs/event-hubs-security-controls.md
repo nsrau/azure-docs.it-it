@@ -4,10 +4,10 @@ description: Questo articolo fornisce un elenco di controllo dei controlli di si
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: da20778f1e24372e445d635e675df6484905f195
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85315396"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Controlli di sicurezza per hub eventi di Azure

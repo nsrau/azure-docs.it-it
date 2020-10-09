@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75864282"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Attività per il responsabile del team per un team del processo di Data Science per i team
@@ -91,7 +91,7 @@ Per creare un progetto separato per il team:
    
 1. Nella finestra di dialogo **Crea progetto** immettere il nome del team, ad esempio *Team*, in **nome progetto**, quindi selezionare **Avanzate**. 
    
-1. In **controllo della versione**selezionare **git**e in **processo elemento di lavoro**selezionare **agile**. Quindi selezionare **Crea** 
+1. In **controllo della versione**selezionare **git**e in **processo elemento di lavoro**selezionare **agile**. Selezionare quindi **Crea**. 
    
    ![Crea progetto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    

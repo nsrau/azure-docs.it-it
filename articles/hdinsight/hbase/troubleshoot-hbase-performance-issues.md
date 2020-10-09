@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887156"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Risolvere i problemi di prestazioni di Apache HBase in Azure HDInsight
@@ -110,7 +110,7 @@ Di seguito sono riportati alcuni degli altri parametri specifici che sono stati 
 
 Di seguito sono riportati i parametri aggiuntivi da considerare per l'ottimizzazione:
 
-- `Hbase.rs.cacheblocksonwrite`: per impostazione predefinita, in HDI questa impostazione è impostata su **true**.
+- `Hbase.rs.cacheblocksonwrite` : per impostazione predefinita, in HDI questa impostazione è impostata su **true**.
 
 - Impostazioni che consentono di rinviare la compattazione secondaria per un momento successivo.
 

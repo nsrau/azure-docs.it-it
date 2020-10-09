@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: aahi
 ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71840231"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedura: usare l'API del rilevatore di anomalie nei dati delle serie temporali  
@@ -47,7 +47,7 @@ Inviando nuovi punti dati durante la generazione, è possibile monitorare i dati
 
 ## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>Regolazione dei limiti di rilevamento di anomalie inferiori e superiori
 
-Per impostazione predefinita, i limiti superiore e inferiore per il rilevamento delle anomalie vengono calcolati usando `expectedValue`, `upperMargin`e `lowerMargin`. Se sono necessari limiti diversi, è consigliabile applicare un `marginScale` a `upperMargin` o `lowerMargin`. I limiti verranno calcolati come segue:
+Per impostazione predefinita, i limiti superiore e inferiore per il rilevamento delle anomalie vengono calcolati usando `expectedValue` , `upperMargin` e `lowerMargin` . Se sono necessari limiti diversi, è consigliabile applicare un `marginScale` a `upperMargin` o `lowerMargin` . I limiti verranno calcolati come segue:
 
 |Limite  |Calcolo  |
 |---------|---------|
@@ -71,4 +71,4 @@ Gli esempi seguenti mostrano un risultato dell'API del rilevamento delle anomali
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Guida introduttiva: rilevare le anomalie nei dati delle serie temporali usando l'API REST del rilevamento anomalie](../quickstarts/detect-data-anomalies-csharp.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie](../quickstarts/detect-data-anomalies-csharp.md)

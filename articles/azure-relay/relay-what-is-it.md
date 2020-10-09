@@ -1,16 +1,16 @@
 ---
-title: Che cos'è il servizio di inoltro di Azure? | Microsoft Docs
+title: Che cos'è Inoltro di Azure? | Microsoft Docs
 description: Questo articolo offre una panoramica del servizio Inoltro di Azure, che consente di sviluppare applicazioni cloud che utilizzano servizi locali in esecuzione nella rete aziendale senza aprire una connessione firewall o apportare modifiche di notevole impatto all'infrastruttura di rete.
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 0c9a67bcad47ad2e7284bcf6e70914d2ffb06a8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85322639"
 ---
-# <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
+# <a name="what-is-azure-relay"></a>Che cos'è Inoltro di Azure?
 Il servizio Inoltro di Azure consente di esporre in modo sicuro nel cloud pubblico i servizi in esecuzione che vengono eseguiti nella rete aziendale. È possibile eseguire questa operazione senza aprire una porta nel firewall o apportare modifiche di notevole impatto all'infrastruttura di rete aziendale. 
 
 Il servizio di inoltro supporta gli scenari seguenti tra servizi locali e applicazioni in esecuzione nel cloud o in un altro ambiente locale. 

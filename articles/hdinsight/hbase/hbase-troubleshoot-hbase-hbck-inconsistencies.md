@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887326"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scenario: il `hbase hbck` comando restituisce incoerenze in Azure HDInsight
 
 Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Problema: l'area non è in`hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Problema: l'area non è in `hbase:meta`
 
 Region xxx in HDFS, ma non elencato in `hbase:meta` o distribuito in un server di area.
 
@@ -81,7 +81,7 @@ In questo scenario è necessario unire regiona e RegionC e ottenere l'area con l
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Problema: non è possibile caricare`.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Problema: non è possibile caricare `.regioninfo`
 
 Non è possibile caricare `.regioninfo` per l'area `/hbase/data/default/tablex/regiony` .
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
 ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72968733"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identificare e trascrivere automaticamente il contenuto multilingue (anteprima)
@@ -23,7 +23,7 @@ Video Indexer supporta l'identificazione e la trascrizione automatica della ling
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-portal"></a>Scelta dell'identificazione multilingue per l'indicizzazione con il portale
 
-È possibile scegliere il **rilevamento multilingua** durante il caricamento e l'indicizzazione del video. In alternativa, è possibile scegliere il **rilevamento multilingua** durante la reindicizzazione del video. Nei passaggi seguenti viene descritto come reindicizzare:
+È possibile scegliere il **rilevamento multilingua** durante il caricamento e l'indicizzazione del video. In alternativa, è possibile scegliere il **rilevamento multilingua**  durante la reindicizzazione del video. Nei passaggi seguenti viene descritto come reindicizzare:
 
 1. Passare al sito Web di [Video Indexer](https://vi.microsoft.com/) ed eseguire l'accesso.
 1. Passare alla pagina **libreria** e passare il puntatore del mouse sul nome del video che si vuole reindicizzare. 

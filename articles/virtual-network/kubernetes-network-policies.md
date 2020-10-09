@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73159688"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Panoramica dei criteri di rete di Azure Kubernetes
@@ -32,7 +32,7 @@ I criteri di rete consentono la micro-segmentazione per i pod, così come i grup
 I criteri di rete di Azure operano in combinazione con l'interfaccia di rete dei contenitori (CNI, Container Network Interface) di Azure che rende disponibile l'integrazione della rete virtuale per i contenitori. Sono supportati solo per i nodi Linux al momento. Le implementazioni configurano le regole per le tabelle IP Linux in base ai criteri definiti per applicare il filtro del traffico.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Pianificazione della sicurezza per il cluster Kubernetes
-Quando si implementa la sicurezza per il cluster, usare i gruppi di sicurezza di rete (gruppi) per filtrare il traffico nord-sud, ovvero il traffico in ingresso e in uscita dalla subnet del cluster e usare i criteri di rete Kubernetes per il traffico East-West, ovvero il traffico tra i Pod nel cluster.
+Quando si implementa la sicurezza per il cluster, usare i gruppi di sicurezza di rete (gruppi) per filtrare il traffico North-South, ovvero il traffico in ingresso e in uscita dalla subnet del cluster e usare i criteri di rete Kubernetes per il traffico East-West, ovvero il traffico tra i Pod nel cluster.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Uso dei criteri di rete di Azure Kubernetes
 È possibile usare criteri di rete di Azure nei modi seguenti per implementare la micro-segmentazione per i pod.

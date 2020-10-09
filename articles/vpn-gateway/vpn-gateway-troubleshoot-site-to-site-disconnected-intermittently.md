@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75862561"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Risoluzione dei problemi: disconnessioni VPN da sito a sito di Azure intermittenti
@@ -27,7 +27,7 @@ Può verificarsi un problema a causa del quale una connessione VPN da sito a sit
 
 Controllare il tipo di gateway di rete virtuale di Azure:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare a [portale di Azure](https://portal.azure.com).
 2. Per le informazioni sul tipo, controllare la pagina **Panoramica** del gateway di rete virtuale.
     
     ![Panoramica del gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)

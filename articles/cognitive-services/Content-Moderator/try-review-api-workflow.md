@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72754174"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definire e usare flussi di lavoro di moderazione (REST)
@@ -43,7 +43,7 @@ Immettere i valori per **Team**, **WorkflowName**e **OCP-gestione API-Subscripti
 
 ### <a name="enter-a-workflow-definition"></a>Immettere una definizione del flusso di lavoro
 
-1. Modificare la casella del **corpo della richiesta** per immettere la richiesta JSON con i dettagli per la **Descrizione** e `Text`il **tipo** ( `Image` o).
+1. Modificare la casella del **corpo della richiesta** per immettere la richiesta JSON con i dettagli per la **Descrizione** e il **tipo** ( `Image` o `Text` ).
 2. Per **espressione**copiare l'espressione JSON del flusso di lavoro predefinita. La stringa JSON finale dovrebbe essere simile alla seguente:
 
 ```json
@@ -80,11 +80,11 @@ Immettere i valori per **Team**, **WorkflowName**e **OCP-gestione API-Subscripti
 
 ### <a name="submit-your-request"></a>Inviare la richiesta
   
-Selezionare **Invia**. Se l'operazione viene completata correttamente, lo **stato della risposta** è `200 OK` e la casella **Response content** (Contenuto della risposta) visualizza `true`.
+Selezionare **Send** (Invia). Se l'operazione viene completata correttamente, lo **stato della risposta** è `200 OK` e la casella **Response content** (Contenuto della risposta) visualizza `true`.
 
 ### <a name="examine-the-new-workflow"></a>Esaminare il nuovo flusso di lavoro
 
-Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)selezionare **Impostazioni** > **flussi di lavoro**. Il nuovo flusso di lavoro dovrebbe essere visualizzato nell'elenco.
+Nello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)selezionare **Impostazioni**  >  **flussi di lavoro**. Il nuovo flusso di lavoro dovrebbe essere visualizzato nell'elenco.
 
 ![Esaminare l'elenco di strumenti dei flussi di lavoro](images/workflow-console-new-workflow.PNG)
 
@@ -102,7 +102,7 @@ Immettere i parametri di chiamata REST come nella sezione precedente. Verificare
 
 ![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
 
-Selezionare **Invia**. Se l'operazione ha esito positivo, lo stato `200 OK`della **risposta** è e nella casella **contenuto risposta** viene visualizzato il flusso di lavoro in formato JSON, come indicato di seguito:
+Selezionare **Send** (Invia). Se l'operazione ha esito positivo, lo **stato della risposta** è `200 OK` e nella casella **contenuto risposta** viene visualizzato il flusso di lavoro in formato JSON, come indicato di seguito:
 
 ```json
 {

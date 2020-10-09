@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262889"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importare notebook da un repository GitHub in Azure Cosmos DB
@@ -29,15 +29,17 @@ Dopo aver [abilitato il supporto dei notebook](enable-notebooks.md) per gli acco
 
 1. Viene visualizzata una scheda in cui è possibile scegliere di connettersi solo a **repository pubblici** o a **repository pubblici e privati**.  Dopo aver scelto l'opzione appropriata, selezionare il pulsante di **autorizzazione dell'accesso**. L'autorizzazione è necessaria per consentire ad Azure Cosmos DB di accedere ai repository nell'account GitHub in uso.
 
-   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Autorizzare Azure Cosmos DB ad accedere ai repository GitHub":::
+   :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Autorizzare Azure Cosmos DB ad accedere ai repository GitHub&quot;:::
 
-1. Si verrà reindirizzati alla pagina Web "github.com" in cui è possibile confermare l'autorizzazione. Selezionare il pulsante **Autorizza AzureCosmosDBNotebooks** e, quando richiesto, immettere la password dell'account GitHub.
+1. Si verrà reindirizzati alla pagina Web &quot;github.com" in cui è possibile confermare l'autorizzazione. Selezionare il pulsante **Autorizza AzureCosmosDBNotebooks** e, quando richiesto, immettere la password dell'account GitHub.
 
 1. Se l'autorizzazione viene concessa, si torna all'account Azure Cosmos, in cui è possibile visualizzare tutti i repository pubblici/privati importati dall'account GitHub. È possibile selezionare un repository dall'elenco visualizzato oppure aggiungere direttamente un repository attraverso il relativo URL.
 
 1. Dopo aver selezionato il repository necessario, la voce corrispondente viene spostata dalla sezione **Unpinned repos** (Repository rimossi) alla sezione **Pinned repos** (Repository aggiunti). Se necessario, è possibile anche scegliere un ramo specifico del repository da cui importare i notebook.
 
-   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Scegliere un repository e un ramo":::
+   :::image type="content" source="./media/import-github-notebooks/choose-repo-branch.png" alt-text="Autorizzare Azure Cosmos DB ad accedere ai repository GitHub&quot;:::
+
+1. Si verrà reindirizzati alla pagina Web &quot;github.com":::
 
 1. Selezionare **OK** per completare l'operazione di importazione. Tutti i notebook disponibili nel ramo selezionato del repository vengono importati nell'account Azure Cosmos.
 
@@ -53,7 +55,9 @@ Dopo aver modificato un notebook esistente, selezionare **Salva**. Verrà visual
 
 Nel tradizionale flusso di GitHub, dopo aver eseguito il commit delle modifiche, se ne esegue il push in un computer remoto. In questo caso, tuttavia, con l'opzione di commit si esegue "la gestione temporanea, il commit e il push" degli aggiornamenti in GitHub.
 
-:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Modificare i notebook ed eseguire il commit delle modifiche in GitHub":::
+:::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Autorizzare Azure Cosmos DB ad accedere ai repository GitHub&quot;:::
+
+1. Si verrà reindirizzati alla pagina Web &quot;github.com":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

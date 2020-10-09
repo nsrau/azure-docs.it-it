@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85307828"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Aggiungere modelli di generazione della lingua per le risposte vocali
@@ -66,7 +66,7 @@ Modificare il comando **TurnOnOff** per aggiungere un nuovo parametro con la con
 | ------------------ | --------------------- | 
 | Nome               | `SubjectContext`         | 
 | È globale          | unchecked             | 
-| Necessario           | unchecked               | 
+| Obbligatoria           | unchecked               | 
 | Type               | string                |
 | Valore predefinito      | `all` |
 | Configurazione      | Accetta valori di input predefiniti dal catalogo interno | 
@@ -97,7 +97,7 @@ Eseguire il **Training** e il **test** dell'applicazione come indicato di seguit
 * Input: disattiva le luci dello spazio
 * Output: OK, spegnimento delle luci dello spazio
 
-## <a name="use-custom-voice"></a>USA voce personalizzata
+## <a name="use-custom-voice"></a>Usare la voce personalizzata
 
 Un altro modo per personalizzare le risposte ai comandi personalizzati consiste nel selezionare una voce di output personalizzata. Usare la procedura seguente per passare la voce predefinita a una voce personalizzata.
 

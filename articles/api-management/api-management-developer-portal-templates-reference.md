@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73176799"
 ---
 # <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori
@@ -30,7 +30,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Modelli del portale per sviluppatori  
+##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a> Modelli del portale per sviluppatori  
   
 -   [API](api-management-api-templates.md)  
     -   [Elenco delle API](api-management-api-templates.md#APIList)  
@@ -66,5 +66,5 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
 
 + [Informazioni di riferimento sul modello](api-management-developer-portal-templates-reference.md)  
 + [Informazioni di riferimento sul modello di dati](api-management-template-data-model-reference.md)  
-+ [Controlli di pagina](api-management-page-controls.md)  
++ [Controlli pagina](api-management-page-controls.md)  
 + [Risorse del modello](api-management-template-resources.md)

@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85260492"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connettersi all'API Cassandra di Azure Cosmos DB da Spark
@@ -69,7 +69,7 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-C
 L'articolo seguente descrive il provisioning di cluster Azure Databricks, la configurazione del cluster per la connessione all'API Cassandra di Azure Cosmos DB e vari notebook di esempio che illustrano le operazioni DDL, le operazioni DML e altro.<BR>
 [Accedere all'API Cassandra di Azure Cosmos DB da Azure Databricks](cassandra-spark-databricks.md)<BR>
   
-### <a name="2--azure-hdinsight-spark"></a>2. Azure HDInsight-Spark
+### <a name="2--azure-hdinsight-spark"></a>2. HDInsight-Spark di Azure
 L'articolo seguente descrive il servizio HDinsight-Spark, il provisioning, la configurazione del cluster per la connessione all'API Cassandra di Azure Cosmos DB e vari notebook di esempio che illustrano le operazioni DDL, le operazioni DML e altro.<BR>
 [Accedere all'API Cassandra di Azure Cosmos DB da Spark in YARN con HDInsight](cassandra-spark-hdinsight.md)
  
@@ -121,6 +121,6 @@ Gli articoli seguenti illustrano l'integrazione di Spark con l'API Cassandra di 
 * [Operazioni di creazione e inserimento](cassandra-spark-create-ops.md)
 * [Operazioni di lettura](cassandra-spark-read-ops.md)
 * [Operazioni di upsert](cassandra-spark-upsert-ops.md)
-* [Operazioni di eliminazione](cassandra-spark-delete-ops.md)
+* [Operazioni Delete](cassandra-spark-delete-ops.md)
 * [Operazioni di aggregazione](cassandra-spark-aggregation-ops.md)
 * [Operazioni di copia di tabelle](cassandra-spark-table-copy-ops.md)

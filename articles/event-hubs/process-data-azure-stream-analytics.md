@@ -4,10 +4,10 @@ description: Questo articolo illustra come elaborare i dati dall'hub eventi di A
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85312899"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Elaborare i dati dall'hub eventi usando analisi di flusso di Azure 
@@ -44,7 +44,7 @@ Ecco i vantaggi principali di hub eventi di Azure e l'integrazione di analisi di
     - È possibile visualizzare in anteprima i dati in ingresso nel formato tabella o in formato non elaborato. 
     - Se i dati visualizzati non sono aggiornati, selezionare **Aggiorna** per visualizzare gli eventi più recenti. 
 
-        Di seguito è riportato un esempio di dati nel **formato tabella**: ![ Risultati in formato tabella](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Di seguito è riportato un esempio di dati nel **formato tabella**:   ![ Risultati in formato tabella](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Di seguito è riportato un esempio di dati in **formato non elaborato**: 
 

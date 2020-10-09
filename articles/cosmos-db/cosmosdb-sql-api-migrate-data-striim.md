@@ -8,10 +8,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 5ce805fb302264a0c3907c006983f9d939a2908e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85262073"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrare i dati in Azure Cosmos DB account API SQL tramite StriIm
@@ -36,11 +36,11 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
 1. Immettere quindi le proprietà di configurazione dell'istanza di StriIm. L'ambiente StriIm viene distribuito in una macchina virtuale. Dal riquadro **nozioni di base** immettere il **nome utente della macchina**virtuale e la password della **VM** . questa password viene usata per SSH nella macchina virtuale. Selezionare la **sottoscrizione**, il **gruppo di risorse**e **i dettagli della località** in cui si vuole distribuire StriIm. Al termine, selezionare **OK**.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configurare le impostazioni di base per StriIm":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Nel riquadro **Impostazioni cluster StriIm** scegliere il tipo di distribuzione di StriIm e le dimensioni della macchina virtuale.
 
-   |Impostazione | valore | Descrizione |
+   |Impostazione | Valore | Descrizione |
    | ---| ---| ---|
    |Tipo di distribuzione StriIm |Autonoma | StriIm può essere eseguito in un tipo di distribuzione **autonomo** o **cluster** . La modalità autonoma distribuirà il server StriIm in una singola macchina virtuale ed è possibile selezionare le dimensioni delle VM a seconda del volume di dati. La modalità cluster distribuirà il server StriIm in due o più macchine virtuali con le dimensioni selezionate. Gli ambienti cluster con più di 2 nodi offrono disponibilità elevata e failover automatici.</br></br> In questa esercitazione è possibile selezionare l'opzione autonoma. Usare la macchina virtuale di dimensioni predefinite "Standard_F4s".  | 
    | Nome del cluster StriIm|    <Striim_cluster_Name>|  Nome del cluster StriIm.|
@@ -50,7 +50,7 @@ Questo articolo illustra come usare StriIm per eseguire la migrazione dei dati d
 
 1. Nel riquadro **impostazioni di accesso StriIm** configurare l' **indirizzo IP pubblico** (scegliere i valori predefiniti), il **nome di dominio per StriIm**, la **password amministratore** che si vuole usare per accedere all'interfaccia utente di StriIm. Configurare una VNET e una subnet (scegliere i valori predefiniti). Dopo aver compilato i dettagli, fare clic su **OK** per continuare.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Impostazioni di accesso StriIm":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Azure convaliderà la distribuzione e assicurerà che tutti gli elementi siano soddisfacenti. il completamento della convalida richiede alcuni minuti. Al termine della convalida, fare clic su **OK**.
   
@@ -70,7 +70,7 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
 1. Passare al riquadro **Esplora dati** nell'account Azure Cosmos. Selezionare **nuovo contenitore** per creare un nuovo contenitore. Si supponga di migrare i *prodotti* e *ordinare* i dati dal database Oracle al Azure Cosmos DB. Creare un nuovo database denominato **StriimDemo** con un contenitore denominato **Orders**. Eseguire il provisioning del contenitore con **1000 ur** (questo esempio usa 1000 ur, ma è necessario usare la velocità effettiva stimata per il carico di lavoro) e **/order_id** come chiave di partizione. Questi valori variano a seconda dei dati di origine. 
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png" alt-text="Creare un account API SQL":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 ## <a name="configure-oracle-to-azure-cosmos-db-data-flow"></a>Configurare Oracle per Azure Cosmos DB flusso di dati
 
@@ -78,11 +78,11 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
 1. Passare all'istanza di StriIm distribuita nel portale di Azure. Selezionare il pulsante **Connetti** nella barra dei menu superiore e nella scheda **SSH** copiare l'URL in **login usando il campo account locale VM** .
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Ottenere l'URL SSH":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Aprire una nuova finestra del terminale ed eseguire il comando SSH copiato dal portale di Azure. Questo articolo usa il terminale in MacOS. è possibile seguire le istruzioni simili usando PuTTy o un altro client SSH in un computer Windows. Quando richiesto, digitare **Yes (sì** ) per continuare e immettere la **password** impostata per la macchina virtuale nel passaggio precedente.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Connettersi alla VM StriIm":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-vm-connect.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. A questo punto, aprire una nuova scheda terminale per copiare il file **ojdbc8. jar** scaricato in precedenza. Usare il comando SCP seguente per copiare il file jar dal computer locale alla cartella tmp dell'istanza di StriIm in esecuzione in Azure:
 
@@ -91,7 +91,7 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
    scp ojdbc8.jar striimdemo@striimdemo.westus.cloudapp.azure.com:/tmp
    ```
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="Copiare il file jar dal computer del percorso a StriIm":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-jar-file.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Tornare quindi alla finestra in cui è stato effettuato SSH per l'istanza di StriIm e accedere come sudo. Spostare il file **ojdbc8. jar** dalla directory **tmp** alla directory **lib** dell'istanza di StriIm con i comandi seguenti:
 
@@ -102,7 +102,7 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
    chmod +x ojdbc8.jar
    ```
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Spostare il file jar nella cartella lib":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/move-jar-file.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 
 1. Dalla stessa finestra del terminale riavviare il server StriIm eseguendo i comandi seguenti:
@@ -122,39 +122,37 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
 1. Tornare quindi ad Azure e copiare l'indirizzo IP pubblico della VM StriIm. 
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Copiare l'indirizzo IP della macchina virtuale StriIm":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Per passare all'interfaccia utente Web di StriIm, aprire una nuova scheda in un browser e copiare l'indirizzo IP pubblico seguito da: 9080. Accedere usando il nome utente **amministratore** , insieme alla password di amministratore specificata nella portale di Azure.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Accedere a StriIm":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. A questo punto si arriverà alla home page di StriIm. Sono disponibili tre diversi riquadri: **Dashboard**, **app**e **SourcePreview**. Il riquadro dashboard consente di spostare i dati in tempo reale e visualizzarli. Il riquadro app contiene le pipeline di dati di streaming o i flussi di dati. Nella parte destra della pagina è SourcePreview, in cui è possibile visualizzare in anteprima i dati prima di trasferirli.
 
 1. Selezionare il riquadro **app** per il momento. Sono disponibili diverse app di esempio che è possibile usare per acquisire familiarità con StriIm. Tuttavia, in questo articolo verranno creati dei propri. Selezionare il pulsante **Aggiungi app** nell'angolo superiore destro.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Aggiungere l'app StriIm":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Esistono diversi modi per creare applicazioni StriIm. Selezionare **inizia con modello** per iniziare con un modello esistente.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-with-template.png" alt-text="Avviare l'app con il modello":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-with-template.png" alt-text="Trova l'elemento StriIm Marketplace" e selezionare **destinazione: Azure Cosmos DB** e quindi selezionare **Oracle CDC per Azure Cosmos DB**.
 
-1. Nel campo **Cerca modelli** Digitare "Cosmos" e selezionare **destinazione: Azure Cosmos DB** e quindi selezionare **Oracle CDC per Azure Cosmos DB**.
-
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Selezionare Oracle CDC per Cosmos DB":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Nella pagina successiva assegnare un nome all'applicazione. È possibile specificare un nome, ad esempio **oraToCosmosDB** , e quindi selezionare **Save (Salva**).
 
 1. Immettere quindi la configurazione di origine dell'istanza di Oracle di origine. Immettere un valore per il **nome dell'origine**. Il nome di origine è semplicemente una convenzione di denominazione per l'applicazione StriIm, è possibile usare un elemento come **src_onPremOracle**. Immettere i valori per Rest dell' **URL**dei parametri di origine, **username**, **password**, scegliere **LogMiner** come Reader per leggere i dati da Oracle. Selezionare **Avanti** per continuare.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Configurare i parametri di origine":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. StriIm controllerà l'ambiente e assicurerà che possa connettersi all'istanza di Oracle di origine, disporre dei privilegi corretti e che CDC è stato configurato correttamente. Una volta convalidati tutti i valori, fare clic su **Avanti**.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/validate-source-parameters.png" alt-text="Convalida parametri di origine":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/validate-source-parameters.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Selezionare le tabelle del database Oracle di cui si desidera eseguire la migrazione. Ad esempio, è possibile scegliere la tabella Orders e fare clic su **Next**. 
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/select-source-tables.png" alt-text="Selezionare le tabelle di origine":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/select-source-tables.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Dopo aver selezionato la tabella di origine, è possibile eseguire operazioni più complesse, ad esempio il mapping e il filtro. In questo caso, si creerà solo una replica della tabella di origine in Azure Cosmos DB. Quindi, selezionare **Avanti** per configurare la destinazione
 
@@ -168,30 +166,30 @@ In questa sezione si configurerà l'account dell'API di Azure Cosmos DB SQL come
 
    Selezionare **Save (Salva** ) e **Next (avanti**).
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-target-parameters.png" alt-text="Configurare i parametri di destinazione":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-target-parameters.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 
 1. Si arriverà quindi alla finestra di progettazione di Flow, in cui è possibile trascinare e rilasciare i connettori di box per creare le applicazioni di streaming. A questo punto non si apporteranno modifiche al flusso. quindi, procedere e distribuire l'applicazione selezionando il pulsante **Distribuisci app** .
  
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/deploy-app.png" alt-text="Distribuire l'app":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/deploy-app.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Nella finestra distribuzione è possibile specificare se si desidera eseguire determinate parti dell'applicazione in parti specifiche della topologia di distribuzione. Poiché è in esecuzione una semplice topologia di distribuzione tramite Azure, verrà usata l'opzione predefinita.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/deploy-using-default-option.png" alt-text="Usare l'opzione predefinita":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/deploy-using-default-option.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Dopo la distribuzione, è possibile visualizzare in anteprima il flusso per visualizzare il flusso di dati. Selezionare l'icona dell' **onda** e il bulbo oculare accanto. Selezionare il pulsante **distribuito** nella barra dei menu superiore e selezionare **Avvia app**.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-app.png" alt-text="Avviare l'app":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-app.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Utilizzando un lettore **CDC (Change Data Capture)** , StriIm rileverà solo le nuove modifiche apportate al database. Se è presente un flusso di dati nelle tabelle di origine, verrà visualizzato. Tuttavia, poiché si tratta di una tabella demo, l'origine non è connessa ad alcuna applicazione. Se si utilizza un generatore di dati di esempio, è possibile inserire una catena di eventi nel database Oracle.
 
 1. Il flusso di dati verrà visualizzato attraverso la piattaforma StriIm. StriIm preleva anche tutti i metadati associati alla tabella, che risulta utile per monitorare i dati e assicurarsi che i dati siano presenti nella destinazione corretta.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-cdc-pipeline.png" alt-text="Configurare la pipeline CDC":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-cdc-pipeline.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 1. Infine, accedere ad Azure e passare all'account Azure Cosmos. Aggiornare il Esplora dati. è possibile vedere che i dati sono arrivati.  
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/portal-validate-results.png" alt-text="Convalidare i dati migrati in Azure":::
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/portal-validate-results.png" alt-text="Trova l'elemento StriIm Marketplace":::
 
 Con la soluzione StriIm in Azure è possibile eseguire la migrazione continua dei dati in Azure Cosmos DB da diverse origini, ad esempio Oracle, Cassandra, MongoDB e altre ancora, per Azure Cosmos DB. Per altre informazioni, visitare il [sito Web StriIm](https://www.striim.com/), [scaricare una versione di valutazione gratuita di 30 giorni di StriIm](https://go2.striim.com/download-free-trial)e per eventuali problemi durante la configurazione del percorso di migrazione con StriIm, inviare una [richiesta di supporto.](https://go2.striim.com/request-support-striim)
 
