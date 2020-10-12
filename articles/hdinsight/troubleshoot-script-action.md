@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: e8585779a263f4ff5dbdd998bbf065c6a4e1acdf
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079260"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Risolvere i problemi relativi alle azioni script in Azure HDInsight
@@ -47,11 +47,11 @@ Se la creazione del cluster non riesce a causa di un errore nello script, i log 
 
     In questa directory i log sono organizzati per **nodi head**, **nodi di lavoro** e **nodi Zookeeper**. Vedere gli esempi seguenti:
 
-    * **Nodo head**:`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Nodo head**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nodo**del ruolo di lavoro:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Nodo**del ruolo di lavoro: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nodo Zookeeper**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nodo Zookeeper**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Tutti i file **stdout** e **stderr** dell'host corrispondente vengono caricati nell'account di archiviazione. Per ogni azione script esiste un file **output-\*.txt** e un file **errors-\*.txt**. Il file **output-*.txt** contiene informazioni relative all'URI dello script che è stato eseguito nell'host. Il testo seguente è un esempio di queste informazioni:
 

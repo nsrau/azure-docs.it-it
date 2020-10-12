@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86254504"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurare le metriche e i log locali per il gateway self-hosted di gestione API di Azure
@@ -153,7 +153,7 @@ Ora che sono stati distribuiti sia statsd che Prometeo, è possibile aggiornare 
 | ------------- | ------------- | ------------- |
 | telemetria. metrica. locale  | `none` | Abilita la registrazione tramite statistiche. Il valore può `none` essere `statsd` . |
 | telemetria. metrica. local. Statistics. endpoint  | n/d | Specifica l'endpoint Statistics. |
-| telemetria. metrica. local. Statistics. campionamento  | n/d | Specifica la frequenza di campionamento della metrica. Il valore può essere compreso tra 0 e 1. e.g.`0.5`|
+| telemetria. metrica. local. Statistics. campionamento  | n/d | Specifica la frequenza di campionamento della metrica. Il valore può essere compreso tra 0 e 1. e.g. `0.5`|
 | telemetria. metrica. local. Statistics. Tag-Format  | n/d | Formato per l' [assegnazione di tag](https://github.com/prometheus/statsd_exporter#tagging-extensions)all'utilità di esportazione statistica. Il valore può essere `none` ,, `librato` `dogStatsD` , `influxDB` . |
 
 Ecco una configurazione di esempio:
@@ -210,12 +210,12 @@ Il gateway self-hosted supporta inoltre diversi protocolli, tra cui `localsyslog
 
 | Campo  | Predefinito | Descrizione |
 | ------------- | ------------- | ------------- |
-| telemetria. logs. STD  | `text` | Abilita la registrazione nei flussi standard. Il valore può essere `none` , `text` ,`json` |
-| telemetria. logs. local  | `none` | Abilita la registrazione locale. Il valore può essere `none` ,, `auto` `localsyslog` , `rfc5424` ,`journal`  |
+| telemetria. logs. STD  | `text` | Abilita la registrazione nei flussi standard. Il valore può essere `none` , `text` , `json` |
+| telemetria. logs. local  | `none` | Abilita la registrazione locale. Il valore può essere `none` ,, `auto` `localsyslog` , `rfc5424` , `journal`  |
 | telemetria. logs. local. localsyslog. endpoint  | n/d | Specifica l'endpoint localsyslog.  |
-| telemetria. logs. local. localsyslog. Facility  | n/d | Specifica il [codice della funzionalità](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. e.g.`7` 
+| telemetria. logs. local. localsyslog. Facility  | n/d | Specifica il [codice della funzionalità](https://en.wikipedia.org/wiki/Syslog#Facility)localsyslog. e.g. `7` 
 | telemetria. logs. local. rfc5424. endpoint  | n/d | Specifica l'endpoint rfc5424.  |
-| telemetria. logs. local. rfc5424. Facility  | n/d | Specifica il codice della funzionalità per ogni [rfc5424](https://tools.ietf.org/html/rfc5424). e.g.`7`  |
+| telemetria. logs. local. rfc5424. Facility  | n/d | Specifica il codice della funzionalità per ogni [rfc5424](https://tools.ietf.org/html/rfc5424). e.g. `7`  |
 | telemetria. logs. local. Journal. endpoint  | n/d | Specifica l'endpoint Journal.  |
 
 Ecco una configurazione di esempio della registrazione locale:

@@ -14,15 +14,15 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84690779"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Single Sign-On con MSAL.js
 
-Single Sign-on (SSO) consente agli utenti di immettere le credenziali una sola volta per accedere e stabilire una sessione che può essere riutilizzata tra più applicazioni senza che sia necessario eseguire di nuovo l'autenticazione. In questo modo si offre un'esperienza uniforme all'utente e si riducono le richieste ripetute per le credenziali.
+Single Sign-On (SSO) consente agli utenti di immettere le proprie credenziali una volta per accedere e stabilire una sessione che può essere riutilizzata tra più applicazioni senza che sia necessario eseguire di nuovo l'autenticazione. In questo modo si offre un'esperienza uniforme all'utente e si riducono le richieste ripetute per le credenziali.
 
 Azure AD fornisce funzionalità SSO alle applicazioni impostando un cookie di sessione quando l'utente esegue l'autenticazione per la prima volta. La libreria MSAL.js consente alle applicazioni di sfruttare questo in diversi modi.
 

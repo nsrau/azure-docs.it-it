@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: iot-fundamentals
 author: robinsh
@@ -9,10 +9,10 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050496"
 ---
 L'Internet of Things (IoT) pone numerose difficoltà in termini di sicurezza, privacy e conformità per le aziende di tutto il mondo. A differenza delle tecnologie informatiche tradizionali in cui questi problemi riguardano il software e la relativa implementazione, l'IoT riguarda le sfide poste dalla convergenza tra il mondo fisico e quello informatico. Per proteggere le soluzioni IoT, è necessario garantire il provisioning sicuro dei dispositivi, la connettività protetta tra questi dispositivi e il cloud e la protezione dei dati nel cloud durante l'elaborazione e l'archiviazione. A sfavore di queste funzionalità, tuttavia, giocano fattori quali dispositivi con risorse limitate, la distribuzione geografica delle implementazioni e un numero elevato di dispositivi all'interno di un'unica soluzione.
@@ -97,7 +97,7 @@ L'Internet of Things inizia dagli elementi più importanti per le aziende. L'IoT
 
 Solution Accelerator include misure di sicurezza per impostazione predefinita e consente il monitoraggio sicuro delle risorse per aumentare l'efficienza, migliorare le prestazioni operative per consentirne l'innovazione e usare l'analisi avanzata dei dati per trasformare le aziende. Grazie all'approccio a più livelli verso la sicurezza, numerose funzionalità di sicurezza e modelli di progettazione, Solution Accelerator consente di distribuire un'infrastruttura che può essere considerata attendibile per trasformare qualsiasi azienda.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="additional-information"></a>Altre informazioni
 
 Ciascun Solution Accelerator crea istanze dei servizi di Azure, ad esempio:
 

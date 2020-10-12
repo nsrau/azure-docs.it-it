@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni sull'autenticazione di un'app
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064826"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure
@@ -153,7 +153,7 @@ Quando si esegue l'applicazione console, viene richiesto di selezionare uno scen
 - Per altre informazioni su RBAC di Azure, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md)?
 - Per informazioni su come assegnare e gestire le assegnazioni di ruolo di Azure con Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST, vedere questi articoli:
     - [Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando](../role-based-access-control/role-assignments-cli.md)
+    - [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
     - [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](../role-based-access-control/role-assignments-rest.md)
     - [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando modelli di Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 

@@ -4,10 +4,10 @@ description: Informazioni sul supporto per la valutazione del server fisico con 
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: dffa95fe717f8588f56b9dee60ede8bbf44aceb9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660349"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione del server fisico 
@@ -34,7 +34,7 @@ Per valutare i server fisici, creare un progetto Azure Migrate e aggiungere lo s
 | **Supporto**                | **Dettagli**               
 | :-------------------       | :------------------- |
 | **Distribuzione del server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
-| **Autorizzazioni**           | **Windows:** Usare un account di dominio per i computer aggiunti al dominio e un account locale per i computer che non sono aggiunti al dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. <br/> In alternativa, assicurarsi che le funzionalità richieste siano impostate usando i comandi seguenti. <br/> setcap CAP_DAC_READ_SEARCH + Pei/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + Pei/sbin/fdisk (se/usr/sbin/fdisk non è presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + PEI"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + Pei/usr/sbin/dmidecode <br/> chmod a + r/sys/class/DMI/ID/product_uuid
+| **Autorizzazioni**           | **Windows:** Usare un account di dominio per i computer aggiunti al dominio e un account locale per i computer che non sono aggiunti al dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users. <br/><br/> **Linux:** È necessario un account radice nei server Linux che si desidera individuare. <br/> In alternativa, assicurarsi che le funzionalità richieste siano impostate usando i comandi seguenti. <br/> setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk non è presente) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + PEI"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + Pei/usr/sbin/dmidecode <br/> chmod a + r/sys/class/DMI/ID/product_uuid
 | **Sistema operativo** | Tutti i sistemi operativi Windows e Linux possono essere valutati per la migrazione. |
 
 

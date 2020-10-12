@@ -4,10 +4,10 @@ description: Il monitoraggio di Azure per i contenitori raccoglie le metriche e 
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254891"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
@@ -18,7 +18,7 @@ Monitoraggio di Azure per i contenitori raccoglie le metriche delle prestazioni,
 
 Nella tabella seguente vengono forniti i dettagli dei record raccolti da monitoraggio di Azure per i contenitori. 
 
-| Data | Origine dati | Tipo di dati | Campi |
+| Dati | Origine dati | Tipo di dati | Campi |
 |------|-------------|-----------|--------|
 | Inventario contenitori | Kubelet | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Log contenitori | Docker | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |

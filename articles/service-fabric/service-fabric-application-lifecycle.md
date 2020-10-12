@@ -4,10 +4,10 @@ description: Vengono descritte le operazioni di sviluppo, distribuzione, test, a
 ms.topic: conceptual
 ms.date: 1/19/2018
 ms.openlocfilehash: 6a36c97c6f1be96dcb8353e886f2159929e8e794
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248311"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo di vita dell'applicazione Service Fabric
@@ -31,7 +31,7 @@ I ruoli del modello di servizio sono i seguenti:
 
 Per gli esempi, vedere gli articoli relativi all'[introduzione ai modelli di programmazione Reliable Actors](service-fabric-reliable-actors-get-started.md) e all'[introduzione ai modelli di programmazione Reliable Services](service-fabric-reliable-services-quick-start.md).
 
-## <a name="deploy"></a>Distribuisci
+## <a name="deploy"></a>Distribuire
 1. Un *amministratore di applicazioni* personalizza il tipo di applicazione in un'applicazione specifica da distribuire in un cluster di Service Fabric specificando i parametri appropriati dell'elemento **ApplicationType** nel manifesto dell'applicazione.
 2. Un *operatore* carica il pacchetto dell'applicazione nell'archivio immagini cluster usando il metodo [** CopyApplicationPackage**](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient) o il cmdlet [**Copy-ServiceFabricApplicationPackage**](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps). Il pacchetto applicazione contiene il manifesto dell'applicazione e la raccolta di pacchetti servizio. Service Fabric distribuisce le applicazioni dal relativo pacchetto archiviato nell’archivio immagini, che può essere un archivio BLOB di Azure o un servizio di sistema di Service Fabric.
 3. L'*operatore* esegue quindi il provisioning del tipo di applicazione nel cluster di destinazione dal pacchetto dell'applicazione caricato mediante il metodo [**ProvisionApplicationAsync**](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), il cmdlet [**Register-ServiceFabricApplicationType**](/powershell/module/servicefabric/register-servicefabricapplicationtype) o l'operazione [**provisioning di un'applicazione** REST](/rest/api/servicefabric/provision-an-application).

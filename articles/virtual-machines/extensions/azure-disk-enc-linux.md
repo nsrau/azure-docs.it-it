@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
 ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80066911"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
@@ -146,7 +146,7 @@ Utilizzo di `AADClientCertificate`:
 | apiVersion | 2019-07-01 | Data |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1,1, 0,1 | INT |
+| typeHandlerVersion | 1,1, 0,1 | int |
 | (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (schema 0,1) AADClientSecret | password | string |
 | (schema 0,1) AADClientCertificate | thumbprint | string |

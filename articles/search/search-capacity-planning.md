@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660293"
 ---
 # <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Modificare la capacità di un servizio ricerca cognitiva di Azure
@@ -36,7 +36,7 @@ La capacità è espressa *in unità di ricerca* che possono essere allocate in c
 
 Il diagramma seguente illustra la relazione tra le repliche, le partizioni, le partizioni e le unità di ricerca. Viene illustrato un esempio di come un singolo indice viene esteso in quattro unità di ricerca in un servizio con due repliche e due partizioni. Ognuna delle quattro unità di ricerca archivia solo la metà delle partizioni dell'indice. Le unità di ricerca nella colonna a sinistra archiviano la prima metà delle partizioni, che comprendono la prima partizione, mentre quelle nella colonna destra archiviano la seconda metà delle partizioni, che comprende la seconda partizione. Poiché sono presenti due repliche, sono presenti due copie di ogni partizione dell'indice. Le unità di ricerca nella parte superiore archiviano una copia, che comprende la prima replica, mentre quelle nella riga inferiore archiviano un'altra copia, che comprende la seconda replica.
 
-:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Gli indici di ricerca sono partizionati tra le partizioni.":::
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Gli indici di ricerca sono partizionati tra le partizioni.&quot;:::
 
 Il diagramma precedente è solo un esempio. Sono possibili molte combinazioni di partizioni e repliche, fino a un massimo di 36 unità di ricerca totali.
 
@@ -44,7 +44,7 @@ In ricerca cognitiva, la gestione delle partizioni è un dettaglio di implementa
 
 + Anomalie di classificazione: i punteggi di ricerca vengono calcolati a livello di partizione prima e quindi aggregati in un unico set di risultati. A seconda delle caratteristiche del contenuto della partizione, le corrispondenze di una partizione possono essere classificate in un livello superiore rispetto alle corrispondenze in un altro. Se si notano classificazioni non intuitive nei risultati della ricerca, è molto probabile che si verifichino gli effetti del partizionamento orizzontale, soprattutto se gli indici sono di dimensioni ridotte. È possibile evitare queste anomalie di rango scegliendo di [calcolare i punteggi a livello globale nell'intero indice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), ma in questo modo si ridurrà una riduzione delle prestazioni.
 
-+ Anomalie di completamento automatico: le query con completamento automatico, in cui vengono eseguite corrispondenze sui primi caratteri di un termine parzialmente immesso, accettano un parametro fuzzy che perdona le piccole deviazioni nell'ortografia. Per il completamento automatico, la corrispondenza fuzzy è vincolata a termini all'interno della partizione corrente. Se, ad esempio, una partizione contiene "Microsoft" e viene immesso un termine parziale di "micor", il motore di ricerca corrisponderà a "Microsoft" nella partizione, ma non in altre partizioni che contengono le parti rimanenti dell'indice.
++ Anomalie di completamento automatico: le query con completamento automatico, in cui vengono eseguite corrispondenze sui primi caratteri di un termine parzialmente immesso, accettano un parametro fuzzy che perdona le piccole deviazioni nell'ortografia. Per il completamento automatico, la corrispondenza fuzzy è vincolata a termini all'interno della partizione corrente. Se, ad esempio, una partizione contiene &quot;Microsoft&quot; e viene immesso un termine parziale di &quot;micor&quot;, il motore di ricerca corrisponderà a &quot;Microsoft" nella partizione, ma non in altre partizioni che contengono le parti rimanenti dell'indice.
 
 ## <a name="when-to-add-nodes"></a>Quando aggiungere nodi
 

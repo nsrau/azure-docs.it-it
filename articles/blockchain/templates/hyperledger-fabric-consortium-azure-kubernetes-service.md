@@ -5,10 +5,10 @@ ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651567"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
@@ -359,7 +359,7 @@ Ad esempio:
 ```
 
 La `<collectionConfigJSONFilePath>` parte è il percorso del file JSON che contiene le raccolte definite per la creazione di un'istanza di dati privati chaincode. È possibile trovare il file JSON di configurazione di una raccolta di esempio relativo alla directory *azhlfTool* nel percorso seguente: `./samples/chaincode/src/private_marbles/collections_config.json` .
-Passare `<transientArgs>` come JSON valido in formato stringa. Escape per i caratteri speciali. Ad esempio: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+Passare `<transientArgs>` come JSON valido in formato stringa. Escape per i caratteri speciali. ad esempio `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Eseguire il comando una sola volta da una qualsiasi organizzazione peer nel canale. Dopo che la transazione è stata inviata correttamente all'ordinatore, l'ordinatore distribuisce questa transazione a tutte le organizzazioni peer nel canale. Viene quindi creata un'istanza di Chaincode in tutti i nodi peer di tutte le organizzazioni peer nel canale.  

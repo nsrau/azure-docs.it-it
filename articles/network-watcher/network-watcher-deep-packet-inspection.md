@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 2a4debda712636e577639b84845dda6b9b4228a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84725056"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Ispezione dei pacchetti con Azure Network Watcher
@@ -41,7 +41,7 @@ In questo scenario viene illustrato come visualizzare il tempo di round trip (RT
 
 Quando viene stabilita una connessione TCP, i primi tre pacchetti inviati nella connessione seguono un modello chiamato in genere handshake a tre livelli. Esaminando i primi due pacchetti inviati in questo handshake, una richiesta iniziale dal client e una risposta dal server, è possibile calcolare la latenza quando questa connessione viene stabilita. Questa latenza è chiamata tempo di round trip. Per altre informazioni sul protocollo TCP e l'handshake a tre livelli, vedere la risorsa seguente. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Avviare WireShark
 
@@ -75,7 +75,7 @@ In un'istanza di una macchina virtuale distribuita in Azure potrebbero essere in
 
 In questo esempio viene esaminata un'acquisizione di pacchetti già eseguita per trovare protocolli indesiderati che potrebbero indicare una comunicazione non autorizzata da un'applicazione in esecuzione nel computer.
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Utilizzando la stessa acquisizione nello scenario precedente, fare **Statistics**clic su  >  **gerarchia protocollo** statistiche
 
@@ -91,7 +91,7 @@ Come si può osservare nell'acquisizione della schermata seguente, parte del tra
 
 Conoscere i tipi di traffico, gli endpoint e le porte attraverso cui avviene la comunicazione è importante quando si monitorano o si risolvono i problemi delle applicazioni e delle risorse nella rete. Utilizzando un file di acquisizione di pacchetti già usato, è possibile conoscere rapidamente le destinazioni principali con cui comunica la VM e le porte utilizzate.
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Usando la stessa acquisizione nello scenario precedente, fare clic su **Statistics**  >  **IPv4 Statistics**  >  **destinations and Ports**
 

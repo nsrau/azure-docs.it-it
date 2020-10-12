@@ -13,10 +13,10 @@ ms.date: 07/13/2020
 ms.author: iainfou
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283147"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito Azure Active Directory Domain Services
@@ -77,7 +77,7 @@ Al termine, salvare e chiudere il file *host* usando il `:wq` comando dell'edito
 
 ## <a name="install-required-packages"></a>Installare i pacchetti necessari
 
-La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio usando`apt-get`
+La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio usando `apt-get`
 
 Durante l'installazione di Kerberos, il pacchetto *krb5-User* richiede il nome dell'area di autenticazione in tutti i caratteri maiuscoli. Ad esempio, se il nome del dominio gestito è *aaddscontoso.com*, immettere *AADDSCONTOSO.com* come area di autenticazione. L'installazione scrive le `[realm]` `[domain_realm]` sezioni e nel file di configurazione */etc/krb5.conf* . Assicurarsi di specificare l'area di autenticazione in MAIUSCOLo:
 

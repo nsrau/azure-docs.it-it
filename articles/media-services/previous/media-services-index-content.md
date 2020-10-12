@@ -17,10 +17,10 @@ ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256447"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
@@ -246,7 +246,7 @@ Vengono generati gli stessi output dei processi completati. È possibile fare ri
 ### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Set di impostazioni di attività per Azure Media Indexer
 L'elaborazione in Azure Media Indexer può essere personalizzata fornendo un set di impostazioni facoltativo insieme all'attività.  La tabella seguente descrive il formato di questo file xml di configurazione.
 
-| Nome | Richiedi | Description |
+| Nome | Richiedi | Descrizione |
 | --- | --- | --- |
 | **input** |false |File di asset che si desidera indicizzare.</p><p>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>È possibile specificare il nome di file nell'attributo **name** o **list** dell'elemento **input** (come illustrato di seguito). Se non si specifica il file di asset da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.</p><p>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>`<input name="TestFile.wmv">`<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). Per eseguire questa operazione:<br/><br/><ol class="ordered"><li><p>Creare un file di testo (file manifesto) con estensione .lst. </p></li><li><p>Aggiungere un elenco di tutti i nomi file di asset nell'asset di input a questo file manifesto. </p></li><li><p>Aggiungere (caricare) il file manifesto nella risorsa.  </p></li><li><p>Specificare il nome del file manifesto nell'attributo dell'elenco di input.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con codice di errore 2006. |
 | **metadati** |false |Metadati per uno o più file di asset specificati usati per l'adattamento al vocabolario.  Utili per preparare l'indicizzatore per riconoscere le parole di vocabolario non standard, ad esempio i nomi propri.<br/>`<metadata key="..." value="..."/>` <br/><br/>È possibile assegnare i **valori** delle **chiavi** predefinite. Attualmente sono supportate le chiavi seguenti:<br/><br/>"title" e "description", usate per l'adattamento al vocabolario per perfezionare il modello linguistico del processo e migliorare la precisione del riconoscimento vocale.  I valori alimentano le ricerche per trovare documenti di testo pertinenti a livello di contesto, usando i contenuti per ampliare il dizionario interno per tutta la durata dell'attività di indicizzazione.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |

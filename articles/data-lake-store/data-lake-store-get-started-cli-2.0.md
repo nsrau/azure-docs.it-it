@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85985790"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Introduzione all'uso di Azure Data Lake Storage Gen1 con l'interfaccia della riga di comando di Azure

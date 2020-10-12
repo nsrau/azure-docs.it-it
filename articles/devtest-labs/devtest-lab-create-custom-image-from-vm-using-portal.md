@@ -4,10 +4,10 @@ description: Informazioni su come creare un'immagine personalizzata in Azure Dev
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ad45ed6eb7f97e14ec0ca0bb89efb2967c90fc16
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87277028"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Creare un'immagine personalizzata da una macchina virtuale
@@ -33,13 +33,13 @@ ms.locfileid: "87277028"
     :::image type="content" source="./media/devtest-lab-create-template/create-custom-image.png" alt-text="Voce di menu Crea immagine personalizzata":::
 1. Nel riquadro **Immagine personalizzata** immettere un nome e una descrizione per l'immagine personalizzata. Queste informazioni vengono visualizzate nell'elenco delle immagini di base quando si crea una VM. L'immagine personalizzata includerà il disco del sistema operativo e tutti i dischi dati collegati alla macchina virtuale.
 
-    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Pagina Crea immagine personalizzata":::
+    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Voce di menu Crea immagine personalizzata":::
 1. Indicare se è stato eseguito sysprep nella macchina virtuale. Se non è stato eseguito sysprep nella macchina virtuale, specificare se si vuole che sysprep venga eseguito nella macchina virtuale quando viene creata l'immagine personalizzata.
 1. Selezionare **OK** al termine per creare l'immagine personalizzata.
 
     Dopo alcuni minuti, l'immagine personalizzata viene creata e archiviata nell'account di archiviazione del lab. Quando un utente del lab vuole creare una nuova macchina virtuale, l'immagine è disponibile nell'elenco delle immagini di base.
 
-    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="immagine personalizzata disponibile nell'elenco delle immagini di base":::
+    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="Voce di menu Crea immagine personalizzata":::
 
 ## <a name="related-blog-posts"></a>Post di blog correlati
 

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 6400cfe7e524dcc16e08c2bba7dfba4a62d00b2e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232560"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errori B2B e soluzioni per le App per la logica di Azure
@@ -39,7 +39,7 @@ Questo articolo consente di risolvere gli errori che si possono verificare negli
 
 **Descrizione errore**: intestazioni AS2 non valide. Una delle intestazioni "AS2-To" o "AS2-From" è vuota.
 
-**Azione dell'utente**: è stato ricevuto un messaggio AS2 che non contiene le intestazioni AS2-From o AS2-To o both. Controllare le intestazioni AS2-From e AS2-To del messaggio AS2 e correggerle in base alla configurazione dell'accordo.
+**Azione dell'utente**: è stato ricevuto un messaggio AS2 che non contiene il AS2-From o AS2-To o entrambe le intestazioni. Controllare le intestazioni AS2-From e AS2-To del messaggio AS2 e correggerle in base alla configurazione dell'accordo.
 
 ### <a name="missing-as2-message-body-and-headers"></a>Corpo e intestazioni del messaggio AS2 mancanti    
 

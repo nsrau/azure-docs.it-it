@@ -8,10 +8,10 @@ ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322632"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
@@ -34,12 +34,12 @@ Le metriche sono abilitate per impostazione predefinita. È possibile visualizza
     
 3. È possibile scegliere di inviare i dati di metrica a un endpoint di hub eventi o a un account di archiviazione di Azure selezionando **impostazioni di diagnostica** dal menu, quindi **Aggiungi impostazione di diagnostica**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle impostazioni di diagnostica e il pulsante per aggiungere":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
     Per altre informazioni su questo processo, vedere [*risoluzione dei problemi: configurare la diagnostica*](troubleshoot-diagnostics.md).
 
 4. È possibile scegliere di configurare gli avvisi per i dati di metrica selezionando **avvisi** dal menu, quindi **+ nuova regola di avviso**.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot che mostra la pagina e il pulsante avvisi per aggiungere":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
     Per ulteriori informazioni su questo processo, vedere [*Troubleshooting: set up Alerts*](troubleshoot-alerts.md).
 

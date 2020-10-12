@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527004"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
@@ -101,7 +101,7 @@ Nella tabella seguente vengono illustrati i casi d'uso da implementare durante i
 | **Sicurezza** | L'accesso al metodo di autenticazione appropriato viene controllato tramite le assegnazioni di utenti e gruppi. <br> Solo gli utenti autorizzati possono usare l'accesso senza password. |
 | **Prestazioni** | Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate <br> Il tempo di accesso viene misurato per facilitarne l'uso. |
 | **Esperienza utente** | Gli utenti sono consapevoli della compatibilità con i dispositivi mobili. <br> Gli utenti possono configurare l'accesso senza password dell'app Authenticator. |
-| **Supporto** | Gli utenti sono consapevoli di come trovare il supporto per i problemi di accesso senza password. |
+| **Supporto tecnico** | Gli utenti sono consapevoli di come trovare il supporto per i problemi di accesso senza password. |
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
@@ -118,7 +118,7 @@ Le comunicazioni agli utenti finali devono includere le seguenti informazioni:
 - [Registrazione nell'app Microsoft Authenticator](howto-authentication-passwordless-phone.md)
 - [Accesso con il telefono](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft fornisce [modelli di comunicazione](https://aka.ms/mfatemplates)di autenticazione a più fattori, [modelli di comunicazione](https://www.microsoft.com/download/details.aspx?id=56768)self-service per la reimpostazione della password (SSPR) e documentazione per l' [utente finale](../user-help/security-info-setup-signin.md) per facilitare la stesura delle comunicazioni. È possibile indirizzare gli utenti a [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) in modo che eseguano la registrazione direttamente selezionando i collegamenti alle **informazioni di sicurezza** nella pagina.
+Microsoft fornisce [modelli di comunicazione](https://aka.ms/mfatemplates)di autenticazione a più fattori, Self-Service [modelli di comunicazione](https://www.microsoft.com/download/details.aspx?id=56768)per la reimpostazione della password (SSPR) e la [documentazione dell'utente finale](../user-help/security-info-setup-signin.md) per facilitare la stesura delle comunicazioni. È possibile indirizzare gli utenti a [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) in modo che eseguano la registrazione direttamente selezionando i collegamenti alle **informazioni di sicurezza** nella pagina.
 
 ### <a name="plan-to-pilot"></a>Pianificare il progetto pilota
 
@@ -292,7 +292,7 @@ Seguire i passaggi allineati al metodo scelto di seguito.
 
 ### <a name="required-administrative-roles"></a>Ruoli amministrativi richiesti
 
-| Ruolo Azure AD | Descrizione |
+| Ruolo Azure AD | Description |
 | --- | --- |
 | Amministratore globale|Ruolo con privilegi minimi in grado di implementare un'esperienza di registrazione combinata. |
 | Amministratore dell'autenticazione | Ruolo con privilegi minimi in grado di implementare e gestire i metodi di autenticazione. |

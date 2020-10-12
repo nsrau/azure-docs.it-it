@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: cognitive-services
 manager: nitinme
@@ -8,10 +8,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87133856"
 ---
 Servizi cognitivi offre due servizi di elaborazione del linguaggio naturale, [Language Understanding](../luis/what-is-luis.md) e [QnA Maker](../qnamaker/overview/overview.md), ciascuno con uno scopo diverso. Comprendere quando utilizzare ogni servizio e il modo in cui si complimentano tra loro.
@@ -30,10 +30,10 @@ Per selezionare il servizio corretto, è necessario comprendere il testo dell'ut
 
 Se la chat bot riceve il testo `How do I get to the Human Resources building on the Seattle North campus?` , usare il grafico seguente per comprendere il funzionamento di ogni servizio con il testo.
 
-|Service|L'applicazione client determina|
+|Servizio|L'applicazione client determina|
 |--|--|
 |LUIS|**Determina l'intenzione dell'utente** del testo. il servizio non restituisce la risposta alla domanda. Questo testo, ad esempio, viene classificato come corrispondente allo `FindLocation` scopo.<br>|
-|QnA Maker|**Restituisce la risposta alla domanda** da una Knowledge base personalizzata. Questo testo, ad esempio, viene determinato come una domanda con la risposta del testo statico di `Get on the #9 bus and get off at Franklin street` .|
+|QnA Maker|**Restituisce la risposta alla domanda** da una Knowledge base personalizzata. Questo testo, ad esempio, viene determinato come una domanda con la risposta del testo statico di  `Get on the #9 bus and get off at Franklin street` .|
 |||
 
 > [!div class="mx-imgBorder"]
