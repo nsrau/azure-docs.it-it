@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539398"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in monitoraggio di Azure
@@ -77,12 +77,12 @@ Nell'intestazione viene visualizzato un singolo numero che mostra il conteggio d
 | Query |Query da eseguire per l'elenco. Vengono visualizzate le prime due proprietà per i primi dieci record nei risultati. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Le barre vengono create automaticamente in base al valore relativo della colonna numerica.<br><br>Usare il comando `Sort` nella query per ordinare i record nell'elenco. Per eseguire la query e restituire tutti i record, è possibile selezionare **Visualizza tutto**. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Color |Colore delle barre o dei grafici sparkline. |
+| Colore |Colore delle barre o dei grafici sparkline. |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -107,13 +107,13 @@ L'intestazione contiene due numeri che visualizzano un conteggio di record da qu
 | Query |Query da eseguire per l'elenco. Vengono visualizzate le prime due proprietà per i primi dieci record nei risultati. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Le barre vengono create automaticamente in base al valore relativo della colonna numerica.<br><br>Usare il comando `Sort` nella query per ordinare i record nell'elenco. Per eseguire la query e restituire tutti i record, è possibile selezionare **Visualizza tutto**. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Color |Colore delle barre o dei grafici sparkline. |
+| Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -143,18 +143,18 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Colore 1<br>Colore 2<br>Colore 3 |Selezionare il colore per ognuno dei valori visualizzati nel grafico ad anello. |
 | **Opzioni aggiuntive** |**> Mappa colori avanzata** |
 | Valore campo |Digitare il nome di un campo da visualizzare con un colore diverso, se incluso nell'anello. |
-| Color |Selezionare il colore da assegnare al campo univoco. |
+| Colore |Selezionare il colore da assegnare al campo univoco. |
 | **Elenco** | |
 | Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Color |Colore delle barre o dei grafici sparkline. |
+| Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -174,19 +174,19 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Primo grafico<br>Secondo grafico** | |
 | Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |
-| Color |Colore da usare per le colonne della serie. |
+| Colore |Colore da usare per le colonne della serie. |
 | Query |Query da eseguire per la prima serie. Il numero di record in ogni intervallo di tempo viene rappresentato dalle colonne del grafico. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Somma: somma dei valori di tutti i record.</li><li>Media: media dei valori di tutti i record.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Primo esempio: valore del primo intervallo incluso nel grafico.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li></ul> |
 | **Elenco** | |
 | Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Color |Colore delle barre o dei grafici sparkline. |
+| Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -200,12 +200,12 @@ L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visu
 | **Generale** | |
 | Titolo gruppo |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
-| Color |Colore di sfondo dell'intestazione. |
+| Colore |Colore di sfondo dell'intestazione. |
 | **Intestazione** | |
 | Immagine |File di immagine che viene visualizzato nell'intestazione. |
-| Label |Testo che viene visualizzato nell'intestazione. |
+| Etichetta |Testo che viene visualizzato nell'intestazione. |
 | **Intestazione** |**&gt; Collegamento** |
-| Label |Testo del collegamento. |
+| Etichetta |Testo del collegamento. |
 | URL |URL del collegamento. |
 | **Elementi informazioni** | |
 | Titolo |Testo che viene visualizzato per il titolo di ogni elemento. |
@@ -241,13 +241,13 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Color |Colore delle barre o dei grafici sparkline. |
+| Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -277,13 +277,13 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Color |Colore delle barre o dei grafici sparkline. |
+| Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | Nome |Testo che viene visualizzato nella parte superiore della prima colonna. |
-| valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
+| Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
@@ -354,7 +354,7 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Abilitare le soglie |Selezionare questo collegamento per visualizzare un'icona colorata a sinistra di ogni valore. L'icona indica l'integrità del valore in relazione alle soglie specificate. |
 | Nome |Nome del valore di soglia. |
 | Soglia |Valore per la soglia. Il colore di integrità di ogni elemento dell'elenco è impostato sul colore del valore di soglia massimo superato dal valore dell'elemento. Se nessun valore di soglia viene superato, viene usato un colore predefinito. |
-| Color |Colore che indica il valore di soglia. |
+| Colore |Colore che indica il valore di soglia. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [query di log](../log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.

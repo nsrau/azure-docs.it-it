@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986254"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
@@ -239,7 +239,7 @@ Il dashboard di esempio offre diverse visualizzazioni dei log dei flussi.
 
 Usando la barra per le query nella parte superiore è possibile filtrare il dashboard in base a qualsiasi parametro dei flussi, come ID sottoscrizione, gruppi di risorse, regola o qualsiasi altra variabile a cui si è interessati. Per altre informazioni su query e filtri di Kibana, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Combinando i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, si è ottenuto uno strumento personalizzabile ed efficace per visualizzare il traffico di rete. Questi dashboard consentono di ottenere e condividere rapidamente informazioni significative sul traffico di rete, nonché di applicare filtri e ricercare potenziali anomalie. Usando Kibana, è possibile personalizzare i dashboard e creare visualizzazioni specifiche per soddisfare qualsiasi esigenza in termini di sicurezza, controllo e conformità.
 

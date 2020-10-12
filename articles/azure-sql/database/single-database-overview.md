@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
 ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343320"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Che cos'è un database singolo nel database SQL di Azure?
@@ -36,7 +36,7 @@ Un database singolo può essere spostato all'interno o all'esterno di un [pool e
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 
-Usare gli strumenti di [monitoraggio delle prestazioni](performance-guidance.md) e di [avviso](alerts-insights-configure-portal.md)predefiniti, combinati con le valutazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Inoltre, il database SQL può [emettere metriche e log delle risorse](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) per semplificare il monitoraggio.
+Usare gli strumenti di [monitoraggio delle prestazioni](performance-guidance.md) e di [avviso](alerts-insights-configure-portal.md)predefiniti, combinati con le valutazioni delle prestazioni. Usando questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione delle prestazioni in base alle esigenze correnti o previste relative alle prestazioni. Inoltre, Database SQL può [generare log di metriche e di risorse](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) per semplificare il monitoraggio.
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
@@ -52,10 +52,10 @@ Per altre informazioni, vedere [Risoluzione delle differenze di Transact-SQL dur
 
 ## <a name="security"></a>Sicurezza
 
-Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
+Il database SQL offre una gamma di funzionalità di [sicurezza e conformità incorporate](security-overview.md) che consentono all'applicazione di soddisfare i diversi requisiti di sicurezza e conformità.
 
 > [!IMPORTANT]
-> Il database SQL di Azure è stato certificato per diversi standard di conformità. Per ulteriori informazioni, vedere il [Centro protezione Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
+> Il database SQL di Azure è stato certificato per diversi standard di conformità. Per altre informazioni, visitare il [Centro protezione di Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), dove è possibile trovare l'elenco più aggiornato di certificazioni di conformità del database SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

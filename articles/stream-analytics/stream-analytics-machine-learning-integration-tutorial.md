@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 26a1208131f1d9d3df7dccd8e27bda37992f043f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88236675"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Analisi dei sentimenti con analisi di flusso e Azure Machine Learning Studio di Azure (versione classica)
@@ -51,7 +51,7 @@ In questo passaggio si carica un file CSV nel contenitore di archiviazione.
    |---------|---------|
    |Subscription|Scegliere la propria sottoscrizione.|
    |Resource group|Scegliere il gruppo di risorse.|
-   |Nome dell'account di archiviazione|Immettere un nome per l'account di archiviazione. Il nome deve essere univoco in Azure.|
+   |Nome account di archiviazione|Immettere un nome per l'account di archiviazione. Il nome deve essere univoco in Azure.|
    |Location|Scegliere un paese. Tutte le risorse devono usare la stessa località.|
    |Tipo di account|BlobStorage|
 

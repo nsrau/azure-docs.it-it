@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505013"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
@@ -36,7 +36,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure portal](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
+|[Portale di Azure](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
 ![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
@@ -152,7 +152,7 @@ Ad esempio:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-### <a name="getting-stuck-in-safe-mode"></a>Rimanere bloccati in modalità provvisoria
+### <a name="getting-stuck-in-safe-mode"></a>Blocco in modalità provvisoria
 
 Quando si ridimensiona un cluster, HDInsight usa le interfacce di gestione Apache Ambari per rimuovere prima le autorizzazioni dei nodi di lavoro aggiuntivi. I nodi replicano i blocchi HDFS in altri nodi del ruolo di lavoro online. Successivamente, HDInsight ridimensiona il cluster in modo sicuro. HDFS passa alla modalità provvisoria durante l'operazione di ridimensionamento. Al termine del ridimensionamento, HDFS dovrebbe uscire. In alcuni casi, tuttavia, HDFS viene bloccato in modalità sicura durante un'operazione di ridimensionamento a causa del blocco di file in fase di replica.
 

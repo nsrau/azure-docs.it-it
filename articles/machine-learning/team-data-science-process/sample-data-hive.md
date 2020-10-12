@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026050"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dati di esempio nelle tabelle Hive di Azure HDInsight
@@ -31,7 +31,7 @@ Se il set di dati da analizzare è grande, è in genere opportuno sottocampionar
 Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Come inviare query Hive
-Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop.  Accedere al nodo head del cluster Hadoop, aprire la console della riga di comando di Hadoop e inviare le query hive da questa posizione. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](move-hive-tables.md#submit).
+Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop.  Accedere al nodo head del cluster Hadoop, aprire la console di Command-Line di Hadoop e inviare le query hive da questa posizione. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](move-hive-tables.md#submit).
 
 ## <a name="uniform-random-sampling"></a><a name="uniform"></a> Campionamento casuale uniforme
 Nel campionamento casuale uniforme tutte le righe del set di dati hanno la stessa possibilità di essere sottoposte a campionamento. Questo metodo può essere implementato aggiungendo un ulteriore campo casuale () al set di dati relativo alla query "select" interna e a quella "select" esterna che condizionano il campo casuale.

@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 414487d460d897eff787b11915db560706b29eb4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171755"
 ---
 # <a name="rest-api"></a>API REST
@@ -22,8 +22,8 @@ Questo articolo descrive le API REST di griglia di eventi di Azure in IoT Edge
 ### <a name="base-url"></a>URL di base
 Griglia di eventi in IoT Edge dispone delle API seguenti esposte su HTTP (porta 5888) e HTTPS (porta 4438).
 
-* URL di base per HTTP:http://eventgridmodule:5888
-* URL di base per HTTPS:https://eventgridmodule:4438
+* URL di base per HTTP: http://eventgridmodule:5888
+* URL di base per HTTPS: https://eventgridmodule:4438
 
 ### <a name="request-query-string"></a>Stringa di query della richiesta
 Per tutte le richieste API è necessario il parametro della stringa di query seguente:
@@ -72,7 +72,7 @@ Tutte le API restituiscono un errore con il payload seguente:
 
 ### <a name="put-topic-create--update"></a>Inserisci argomento (creazione/aggiornamento)
 
-**Richiesta**:``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Richiesta**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Payload**:
 
@@ -105,7 +105,7 @@ Tutte le API restituiscono un errore con il payload seguente:
 
 ### <a name="get-topic"></a>Ottieni argomento
 
-**Richiesta**:``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Richiesta**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Risposta**: http 200
 
@@ -125,7 +125,7 @@ Tutte le API restituiscono un errore con il payload seguente:
 
 ### <a name="get-all-topics"></a>Ottenere tutti gli argomenti
 
-**Richiesta**:``` GET /topics?api-version=2019-01-01-preview ```
+**Richiesta**: ``` GET /topics?api-version=2019-01-01-preview ```
 
 **Risposta**: http 200
 
@@ -157,7 +157,7 @@ Tutte le API restituiscono un errore con il payload seguente:
 
 ### <a name="delete-topic"></a>Elimina argomento
 
-**Richiesta**:``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Richiesta**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
 **Risposta**: http 200, payload vuoto
 
@@ -166,7 +166,7 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;` . Gli esempi JSON per
 
 ### <a name="put-event-subscription-create--update"></a>Inserisci sottoscrizione evento (creazione/aggiornamento)
 
-**Richiesta**:``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Richiesta**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Payload**:
 ```json
@@ -371,7 +371,7 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;` . Gli esempi JSON per
 
 ### <a name="get-event-subscription"></a>Ottieni sottoscrizione evento
 
-**Richiesta**:``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Richiesta**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Risposta**: http 200
 
@@ -476,7 +476,7 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;` . Gli esempi JSON per
 
 ### <a name="get-event-subscriptions"></a>Ottenere le sottoscrizioni di eventi
 
-**Richiesta**:``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**Richiesta**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
 **Risposta**: http 200
 
@@ -494,7 +494,7 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;` . Gli esempi JSON per
 
 ### <a name="delete-event-subscription"></a>Elimina sottoscrizione evento
 
-**Richiesta**:``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Richiesta**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
 **Risposta**: http 200, nessun payload
 
@@ -503,7 +503,7 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;` . Gli esempi JSON per
 
 ### <a name="send-batch-of-events-in-event-grid-schema"></a>Inviare un batch di eventi (nello schema di griglia di eventi)
 
-**Richiesta**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Richiesta**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -525,18 +525,18 @@ Gli esempi in questa sezione usano `EndpointType=Webhook;` . Gli esempi JSON per
 
 
 **Descrizioni dei campi di payload**
-- ```Id```è obbligatorio. Può essere qualsiasi valore stringa popolato dal chiamante. Griglia di eventi non esegue alcun rilevamento dei duplicati né applica alcuna semantica in questo campo.
-- ```Topic```è facoltativo, ma se specificato deve corrispondere all'topic_name dall'URL della richiesta
-- ```Subject```è obbligatorio, può essere qualsiasi valore stringa
-- ```EventType```è obbligatorio, può essere qualsiasi valore stringa
-- ```EventTime```è obbligatorio, non viene convalidato, ma deve essere un valore DateTime appropriato.
+- ```Id``` è obbligatorio. Può essere qualsiasi valore stringa popolato dal chiamante. Griglia di eventi non esegue alcun rilevamento dei duplicati né applica alcuna semantica in questo campo.
+- ```Topic``` è facoltativo, ma se specificato deve corrispondere all'topic_name dall'URL della richiesta
+- ```Subject``` è obbligatorio, può essere qualsiasi valore stringa
+- ```EventType``` è obbligatorio, può essere qualsiasi valore stringa
+- ```EventTime``` è obbligatorio, non viene convalidato, ma deve essere un valore DateTime appropriato.
 - ```DataVersion``` è obbligatorio
-- ```MetadataVersion```è facoltativo, se specificato, deve essere una stringa con il valore```"1"```
-- ```Data```è facoltativo e può essere qualsiasi token JSON (Number, String, Boolean, array, Object)
+- ```MetadataVersion``` è facoltativo, se specificato, deve essere una stringa con il valore ```"1"```
+- ```Data``` è facoltativo e può essere qualsiasi token JSON (Number, String, Boolean, array, Object)
 
 ### <a name="send-batch-of-events-in-custom-schema"></a>Invio di un batch di eventi (in uno schema personalizzato)
 
-**Richiesta**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Richiesta**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -754,7 +754,7 @@ Per pubblicare in un argomento del bus di servizio, impostare `endpointType` su 
 
 ## <a name="set-up-storage-queues-as-a-destination"></a>Configurare le code di archiviazione come destinazione
 
-Per pubblicare in una coda di archiviazione, impostare `endpointType` su `storageQueue` e specificare:
+Per pubblicare in una coda di archiviazione, impostare  `endpointType` su `storageQueue` e specificare:
 
 * QueueName: nome della coda di archiviazione in cui si sta eseguendo la pubblicazione.
 * connectionString: stringa di connessione per l'account di archiviazione in cui si trova la coda di archiviazione.

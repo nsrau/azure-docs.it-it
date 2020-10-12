@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91402923"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controllo di sicurezza V2: sicurezza degli endpoint
@@ -60,7 +60,7 @@ Microsoft antimalware per servizi cloud di Azure è l'anti-malware predefinito p
 
 - [Come configurare Microsoft antimalware per servizi cloud e macchine virtuali](../fundamentals/antimalware.md)
 
-- [Soluzioni di protezione endpoint supportate](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
+- [Soluzioni di Endpoint Protection supportate](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows#supported-endpoint-protection-solutions-)
 
 **Responsabilità**: Customer
 

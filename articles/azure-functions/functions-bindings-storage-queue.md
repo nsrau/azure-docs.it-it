@@ -7,17 +7,17 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87055796"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Trigger e associazioni di archiviazione code di Azure per la Panoramica di funzioni di Azure
 
 Funzioni di Azure può essere eseguito quando vengono creati nuovi messaggi di archiviazione code di Azure e possono scrivere messaggi di Accodamento all'interno di una funzione.
 
-| Operazione | Tipo |
+| Azione | Type |
 |---------|---------|
 | Eseguire una funzione come modifiche ai dati di archiviazione di Accodamento | [Trigger](./functions-bindings-storage-queue-trigger.md) |
 | Scrivi messaggi di archiviazione code |[Binding di output](./functions-bindings-storage-queue-output.md) |
@@ -28,7 +28,7 @@ Funzioni di Azure può essere eseguito quando vengono creati nuovi messaggi di a
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Commenti 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) è consigliata per l'uso con Visual Studio Code. |

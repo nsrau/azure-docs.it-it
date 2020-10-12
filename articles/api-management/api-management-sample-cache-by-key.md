@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: cf9901b4e49460dd2fb91dceaf239571058c5284
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88213313"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Memorizzazione nella cache personalizzata in Gestione API di Azure
 Il servizio Gestione API di Azure prevede il supporto incorporato per la [memorizzazione nella cache delle risposte HTTP](api-management-howto-cache.md) usando l'URL della risorsa come chiave. La chiave può essere modificata dalle intestazioni della richiesta usando le proprietà `vary-by` . Questa operazione è utile per la memorizzazione nella cache di intere risposte HTTP (note anche come rappresentazioni), ma a volte è utile memorizzare solo una parte di una rappresentazione. I nuovi criteri [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) e [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) consentono di archiviare e recuperare singoli dati arbitrari all'interno di definizioni dei criteri. Questa possibilità migliora anche il criterio [send-request](./api-management-advanced-policies.md#SendRequest) introdotto in precedenza, dal momento che ora è possibile memorizzare nella cache le risposte provenienti da servizi esterni.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 Il servizio Gestione API usa una cache di dati condivisa per tenant. In questo modo, man mano che aumenta il numero di unità, è sempre possibile accedere agli stessi dati memorizzati nella cache. Quando si adotta una distribuzione in più aree, tuttavia, sono presenti cache indipendenti all'interno di ogni area. È importante non considerare la cache come un archivio dati e l'unica fonte di alcune informazioni. Così facendo, se successivamente si decide di usare la distribuzione in più aree, i clienti con utenti che viaggiano posso perdere l'accesso ai dati memorizzati nella cache.
 
 ## <a name="fragment-caching"></a>Memorizzazione di frammenti

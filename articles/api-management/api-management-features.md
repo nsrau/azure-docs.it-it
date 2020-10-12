@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905143"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Confronto basato sulle funzionalità dei livelli di Gestione API di Azure
@@ -26,7 +26,7 @@ Ogni [piano tariffario](https://aka.ms/apimpricing) di Gestione API offre un set
 > [!IMPORTANT]
 > Si noti che il livello Developer è per i casi d'uso e le valutazioni non di produzione. Non offre contratti di contratto.
 
-| Feature                                                                                      | Consumo | Sviluppatore | Basic | Standard | Premium |
+| Funzionalità                                                                                      | Consumo | Sviluppatore | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Integrazione di Azure AD<sup>1</sup>                                                             | No          | Sì       | No    | Sì      | Sì     |
 | Supporto della Rete virtuale di Microsoft Azure (VNet)                                                               | No          | Sì       | No    | No       | Sì     |

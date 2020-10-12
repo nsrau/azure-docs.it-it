@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89299032"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrare i manifesti usando Dynamic Packager
@@ -139,7 +139,7 @@ Per combinare i filtri, impostare i nomi dei filtri sull'URL del manifesto o del
 
 Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
-## <a name="considerations-and-limitations"></a>Considerazioni e limitazioni
+## <a name="considerations-and-limitations"></a>Considerazioni e limiti
 
 - I valori per **forceEndTimestamp**, **presentationWindowDuration**e **liveBackoffDuration** non devono essere impostati per un filtro VOD. Sono usati solo per gli scenari di filtro Live.
 - Un manifesto dinamico opera nei limiti del GOP (fotogrammi chiave), quindi l'operazione di taglio ha una precisione GOP.
