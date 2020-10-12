@@ -12,10 +12,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 8a73336ba0a324c65ee0de764d81a8e69ab6079c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87843267"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguaggi supportati dalla macchina virtuali per data science 
@@ -72,7 +72,7 @@ Il Data Science Virtual Machine (DSVM) è dotato di diversi linguaggi e strument
 | ------------- | ------------- |
 | Versioni del linguaggio supportate | Python 2,7 e 3,5 |
 | Edizioni DSVM supportate      | Linux   |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | `conda`Vengono creati due ambienti globali: <br /> * `root`l'ambiente disponibile in `/anaconda/` è Python 2,7. <br/> * `py35`l'ambiente disponibile in `/anaconda/envs/py35` è Python 3,5.       |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | `conda`Vengono creati due ambienti globali: <br /> * `root` l'ambiente disponibile in `/anaconda/` è Python 2,7. <br/> * `py35` l'ambiente disponibile in `/anaconda/envs/py35` è Python 3,5.       |
 | Collegamenti agli esempi      | Sono inclusi i notebook di Jupyter di esempio per Python.     |
 | Strumenti correlati in DSVM      | PySpark, R, Julia      |
 

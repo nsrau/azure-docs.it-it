@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323775"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
@@ -102,7 +102,7 @@ Questa sezione indica che il progetto richiede i componenti **hbase-client** e *
 
 | Versione del cluster HDInsight | Versione di Apache HBase da usare |
 | --- | --- |
-| 3.6 | 1.1.2 |
+| 3,6 | 1.1.2 |
 | 4.0 | 2.0.0 |
 
 Per altre informazioni sulle versioni e sui componenti di HDInsight, vedere [Quali sono i diversi componenti di Apache Hadoop disponibili in HDInsight?](../hdinsight-component-versioning.md).
@@ -175,7 +175,7 @@ Usare il comando seguente per copiare la configurazione di HBase dal cluster HBa
 scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 ```
 
-## <a name="create-the-application"></a>Creare l'applicazione
+## <a name="create-the-application"></a>Creazione dell'applicazione
 
 ### <a name="implement-a-createtable-class"></a>Implementare una classe CreateTable
 

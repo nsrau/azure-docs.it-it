@@ -9,10 +9,10 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297046"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizzare Visual Studio 2019 per sviluppare ed eseguire il debug di moduli per Azure IoT Edge
@@ -232,7 +232,7 @@ Nell'articolo della guida introduttiva usato per configurare il dispositivo IoT 
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-1. Per monitorare il messaggio D2C per uno specifico dispositivo Edge-Edge, selezionarlo nell'hub Internet in **Cloud Explorer** e quindi fare clic su **Avvia monitoraggio endpoint di evento predefinito** nella finestra **azione** .
+1. Per monitorare il messaggio D2C per uno specifico dispositivo di IoT-Edge, selezionarlo nell'hub di Internet delle cose in **Cloud Explorer** e quindi fare clic su **Avvia monitoraggio endpoint evento predefinito** nella finestra **azione** .
 
 1. Per arrestare il monitoraggio dei dati, selezionare **Interrompi monitoraggio endpoint evento predefinito** nella finestra **azione** .
 

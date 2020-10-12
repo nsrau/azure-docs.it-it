@@ -4,10 +4,10 @@ description: Questo articolo elenca i passaggi che consentono di distribuire ana
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937715"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Distribuire Analisi video live in Azure Stack Edge
@@ -58,11 +58,11 @@ Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di cal
     |Nome|Immettere un nome per la risorsa hub IoT.|
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Introduzione a Azure Stack Edge":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
 1. Selezionare **Crea**. La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza calcolo** nel riquadro **Configura calcolo**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Creazione di risorse dell'hub Internet":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
 
     > [!NOTE]
     > Se la finestra di dialogo Configura calcolo viene chiusa prima che l'hub Internet sia associato alla risorsa Azure Stack Edge, l'hub Internet viene creato, ma non viene visualizzato nella configurazione di calcolo. Ricaricare la pagina dopo alcuni minuti e visualizzarne la visualizzazione.
@@ -72,7 +72,7 @@ Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di cal
     Una volta completate tutte le informazioni, verrà visualizzata la scheda Configura bordo di calcolo simile alla seguente:
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Configurare la scheda di calcolo Edge ":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
  
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Abilitare i prerequisiti di calcolo nell'interfaccia utente locale di Azure Stack Edge
 
@@ -89,7 +89,7 @@ Prima di continuare, verificare che:
         * Selezionare Applica. questa operazione dovrebbe richiedere circa 2 minuti.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Prerequisiti di calcolo nell'interfaccia utente locale di Azure Stack Edge":::
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge":::
 
         * Se DNS non è configurato per l'API Kubernetes e la risorsa Azure Stack Edge, è possibile aggiornare il file host della finestra.
         
@@ -185,7 +185,7 @@ Questi passaggi illustrano la creazione di un utente del gateway e la configuraz
     1. Fare clic su **Crea**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Condivisione locale":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
     
 1. Creare una condivisione remota per l'archiviazione di sincronizzazione file.
 
@@ -203,36 +203,7 @@ Questi passaggi illustrano la creazione di un utente del gateway e la configuraz
     1. Fare clic su **Crea**.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Condivisione remota":::
-    
-    > [!TIP]
-    > Utilizzando il client Windows connesso al Azure Stack Edge, connettersi alle condivisioni SMB attenendosi alla procedura descritta [in questo documento](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
-    
-1. Aggiornare le opzioni di creazione del contenitore del modulo Edge di analisi video in tempo reale (vedere il punto 4 in [aggiungere il documento moduli](deploy-iot-edge-device.md#add-modules)) per usare i montaggi del volume.
-
-   ```json
-    // Original (Bind Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Binds": [
-                "/var/lib/azuremediaservices:/var/lib/azuremediaservices",
-                "/var/media:/var/media"
-            ]
-        }
-    }
-    // Updated (Volume Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Mounts": [
-            {
-                "Target": "/var/lib/azuremediaservices",
-                "Source": "lva",
-                "Type": "volume"
-            },
-            {
-                "Target": "/var/media",
-                "Source": "media",
-                "Type": "volume"
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
             }]
         }
     }
@@ -248,7 +219,7 @@ Per verificare che il modulo sia in esecuzione, eseguire queste operazioni:
 1. Selezionare il riquadro moduli. Verrà visualizzato il pannello Moduli. Nell'elenco dei moduli identificare il modulo che è stato distribuito. Lo stato di runtime del modulo aggiunto sarà in esecuzione.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Modulo personalizzato":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Configurare l'estensione Azure IoT Tools
 

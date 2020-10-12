@@ -1,6 +1,6 @@
 ---
 title: includere file
-description: Includere file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441183"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
@@ -27,14 +27,14 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 |Regioni  |Opzioni di ridondanza  |
 |---------|---------|
 |Brasile meridionale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
-|India centrale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
+|Central India     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Asia orientale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Germania centro-occidentale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Corea centrale     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Stati Uniti centro-meridionali    |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |US Gov Arizona     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |US Gov Virginia     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
-|Stati Uniti occidentali     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)        |
+|Stati Uniti Occidentali     |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)        |
 |Australia centrale    |Solo macchine virtuali singole (i set di disponibilità e i set di scalabilità di macchine virtuali non sono supportati)|
 |Australia orientale     |Tre zone di disponibilità         |
 |Asia sud-orientale    |Tre zone di disponibilità        |
@@ -47,7 +47,7 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
 |Europa settentrionale    |Tre zone di disponibilità        |
 |Regno Unito meridionale    |Tre zone di disponibilità        |
 |Europa occidentale    | Tre zone di disponibilità|
-|Stati Uniti occidentali 2    |Tre zone di disponibilità|
+|West US 2    |Tre zone di disponibilità|
 
 \* Contattare il supporto tecnico di Azure per ottenere l'accesso ai zone di disponibilità per questa area.
 

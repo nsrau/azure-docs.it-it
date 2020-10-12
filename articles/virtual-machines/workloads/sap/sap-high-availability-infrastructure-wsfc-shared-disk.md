@@ -17,10 +17,10 @@ ms.date: 08/25/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8f389581d8fbeb912507b303c46109dd08fcab8d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88871517"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
@@ -261,7 +261,7 @@ Azure Load Balancer possibile chiudere le connessioni, se le connessioni sono in
 - KeepAliveTime
 - KeepAliveInterval
 
-| Path| Nome variabile | Tipo di variabile  | Valore | Documentazione |
+| Percorso| Nome variabile | Tipo di variabile  | Valore | Documentazione |
 | --- | --- | --- |---| ---|
 | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveTime |REG_DWORD (decimale) |120000 |[KeepAliveTime](https://technet.microsoft.com/library/cc957549.aspx) |
 | HKLM\System\CurrentControlSet\Services\Tcpip\Parameters |KeepAliveInterval |REG_DWORD (decimale) |120000 |[KeepAliveInterval](https://technet.microsoft.com/library/cc957548.aspx) |

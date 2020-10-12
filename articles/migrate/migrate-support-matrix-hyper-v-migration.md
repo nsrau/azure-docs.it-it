@@ -4,10 +4,10 @@ description: Informazioni sul supporto per la migrazione di Hyper-V con Azure Mi
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442299"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice di supporto per la migrazione di Hyper-V
@@ -86,7 +86,7 @@ time.nist.gov | Verifica la sincronizzazione dell'ora tra il sistema e l'ora glo
 
 Tutte le macchine virtuali locali replicate in Azure devono soddisfare i requisiti della macchina virtuale di Azure riepilogati in questa tabella.
 
-**Componente** | **Requisiti** | **Dettagli**
+**Componente** | **Requirements** | **Dettagli**
 --- | --- | ---
 Dimensioni disco del sistema operativo | Fino a 2.048 GB. | Il controllo ha esito negativo se non supportato.
 Conteggio dischi del sistema operativo | 1 | Il controllo ha esito negativo se non supportato.

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
 ms.openlocfilehash: beb683eef2691aad46c84da1010184182d452257
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619679"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>Eseguire query di reporting ad hoc su più database (database SQL di Azure)

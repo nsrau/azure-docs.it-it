@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
 ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327324"
 ---
 # <a name="app-schema-definition"></a>Definizione dello schema dell'app
@@ -65,7 +65,7 @@ Quando si importa ed Esporta l'app, scegliere `.json` o `.lu` .
 }
 ```
 
-| element                  | Comment                              |
+| element                  | Commento                              |
 |--------------------------|--------------------------------------|
 | "gerarchie": [],     | Deprecato, usare le [entità di Machine Learning](luis-concept-entity-types.md).   |
 | "compositi": [],        | Deprecato, usare le [entità di Machine Learning](luis-concept-entity-types.md). Riferimento all' [entità composita](reference-entity-composite.md) . |

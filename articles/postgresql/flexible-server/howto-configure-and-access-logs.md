@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 0b7b09696cbbe12a57d066e452b4c8ea7a7b8f27
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938845"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurare e accedere ai log nel database di Azure per PostgreSQL-server flessibile
@@ -36,7 +36,7 @@ Per abilitare i log delle risorse usando il portale di Azure:
 4. Selezionare l'endpoint preferito (account di archiviazione, Hub eventi, log Analytics). 
 
 5. Selezionare il tipo di log **PostgreSQLLogs**.
-   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Scegliere i log PostgreSQL":::
+   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Pulsante Aggiungi impostazioni di diagnostica":::
 
 7. Salvare l’impostazione.
 

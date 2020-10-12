@@ -13,10 +13,10 @@ ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777072"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Risolvere gli errori di connessione temporanei nel database SQL e in SQL Istanza gestita
@@ -276,7 +276,7 @@ Enterprise Library 6 (EntLib60) offre classi .NET gestite per semplificare la re
 
 Ecco alcune istruzioni Transact-SQL SELECT che eseguono query nei log degli errori e alla ricerca di altre informazioni.
 
-| Query di un log | Descrizione |
+| Query di un log | Description |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La visualizzazione [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) offre informazioni sui singoli eventi, inclusi quelli che possono causare errori temporanei o di connettività.<br/><br/>In teoria, è possibile correlare i valori **start_time** o **end_time** con le informazioni relative al momento in cui si sono verificati problemi nel programma client.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La visualizzazione [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) offre conteggi aggregati di tipi di eventi per la diagnostica aggiuntiva.<br/><br/>È necessario connettersi al database *master* per eseguire questa query. |

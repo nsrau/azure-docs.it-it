@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
 ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409766"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
@@ -51,9 +51,9 @@ Di seguito sono riportate le procedure consigliate per le proprietà negli ogget
 | Vertice | label | string | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
 | Vertice | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni vertice. |
 | Vertice | chiave di partizione | Stringa, booleano, intero, binario | Questa proprietà consente di definire dove verranno archiviati il vertice e i relativi archi in uscita. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). |
-| Microsoft Edge | ID | string | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
-| Microsoft Edge | label | string | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
-| Microsoft Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
+| Edge | ID | string | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
+| Edge | label | string | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
+| Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
 
 > [!NOTE]
 > Con gli archi non è richiesto un valore per la chiave di partizione, perché il relativo valore viene assegnato automaticamente in base al vertice di origine. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md).
@@ -105,7 +105,7 @@ L'uso di etichette di relazione descrittive consente di migliorare l'efficienza 
 * Usare termini non generici per etichettare una relazione.
 * Associare l'etichetta del vertice di origine per l'etichetta del vertice di destinazione con il nome della relazione.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Esempi di assegnazione di etichette alle relazioni." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modello di entità con vertici per le proprietà." border="false":::
 
 Più specifica è l'etichetta che il traverser userà per filtrare gli archi, meglio è. Questa decisione può avere un impatto significativo anche sul costo della query. Per valutare il costo della query in qualsiasi momento, è possibile [usare il passaggio executionProfile](graph-execution-profile.md).
 

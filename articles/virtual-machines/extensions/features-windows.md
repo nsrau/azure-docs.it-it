@@ -16,10 +16,10 @@ ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829085"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
@@ -148,7 +148,7 @@ L'esempio seguente illustra l'installazione dell'estensione Microsoft Antimalwar
 
 ![Installare un'estensione antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
 Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente è tratto da un modello di Gestione risorse distribuisce un set di macchine virtuali con carico bilanciato e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
@@ -254,7 +254,7 @@ Lo spostamento della proprietà del **comando da eseguire** nella configurazione
 
 In una VM IaaS di Azure che usa le estensioni, nella console dei certificati, è possibile che vengano visualizzati i certificati con l'oggetto **_Generatore di certificati CRP di Windows Azure_**. In una macchina virtuale RDFE classica, questi certificati hanno il nome soggetto **_Gestione servizi di Microsoft Azure per le estensioni_**.
 
-Questi certificati proteggono la comunicazione tra la macchina virtuale e il relativo host durante il trasferimento delle impostazioni protette (password e altre credenziali) utilizzate dalle estensioni. I certificati vengono compilati dal controller di infrastruttura di Azure e passati all'agente di macchine virtuali. Se si arresta e si avvia la VM ogni giorno, un nuovo certificato potrebbe essere creato dal controller di infrastruttura. Il certificato viene archiviato nell'archivio dei certificati personali del computer. Questi certificati possono essere eliminati. Se necessario, l'agente di macchine virtuali crea nuovamente i certificati.
+Questi certificati proteggono la comunicazione tra la macchina virtuale e il relativo host durante il trasferimento delle impostazioni protette, vale a dire password e altre credenziali, usate nelle estensioni. I certificati vengono compilati dal controller di infrastruttura di Azure e passati all'agente di macchine virtuali. Se si arresta e si avvia la macchina virtuale ogni giorno, potrebbe essere creato un nuovo certificato dal controller di infrastruttura. Il certificato viene archiviato nell'archivio dei certificati personali del computer. Questi certificati possono essere eliminati. Se necessario, l'agente di macchine virtuali crea nuovamente i certificati.
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Aggiornamento di agenti ed estensioni
 

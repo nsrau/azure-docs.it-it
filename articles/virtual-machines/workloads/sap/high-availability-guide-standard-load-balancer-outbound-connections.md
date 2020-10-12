@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
 ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836123"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP
@@ -224,7 +224,7 @@ Per consentire a Pacemaker di comunicare con l'API di gestione di Azure, seguire
 
 Se il traffico in uscita viene indirizzato tramite un firewall di terze parti:
 
-- Se si usa l'agente di recinzione di Azure, assicurarsi che la configurazione del firewall consenta la connettività in uscita all'API di gestione di Azure: `https://management.azure.com` e`https://login.microsoftonline.com`   
+- Se si usa l'agente di recinzione di Azure, assicurarsi che la configurazione del firewall consenta la connettività in uscita all'API di gestione di Azure: `https://management.azure.com` e `https://login.microsoftonline.com`   
 - Se si usa l'infrastruttura di aggiornamento cloud pubblico di SUSE per l'applicazione di aggiornamenti e patch, vedere l' [infrastruttura di aggiornamento del cloud pubblico di azure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
 ## <a name="next-steps"></a>Passaggi successivi
