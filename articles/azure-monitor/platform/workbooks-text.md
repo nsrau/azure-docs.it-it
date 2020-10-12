@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81687336"
 ---
 # <a name="workbook-text-parameters"></a>Parametri di testo cartella di lavoro
@@ -27,10 +27,10 @@ Un uso comune delle caselle di testo è come variabili interne usate da altri co
 2. Scegliere _Aggiungi parametri_ dai collegamenti all'interno della cartella di lavoro.
 3. Fare clic sul pulsante _Aggiungi parametro_ blu.
 4. Nel riquadro nuovo parametro visualizzato immettere:
-    1. Nome parametro:`SlowRequestThreshold`
-    2. Tipo di parametro:`Text`
-    3. Obbligatorio:`checked`
-    4. Ottenere il valore predefinito dalla query:`unchecked`
+    1. Nome parametro: `SlowRequestThreshold`
+    2. Tipo di parametro: `Text`
+    3. Obbligatorio: `checked`
+    4. Ottenere il valore predefinito dalla query: `unchecked`
 5. Scegliere ' Salva ' dalla barra degli strumenti per creare il parametro.
 
     ![Immagine che mostra la creazione di un parametro di testo](./media/workbooks-text/text-create.png)
@@ -67,10 +67,10 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 2. Scegliere _Aggiungi parametri_ dai collegamenti all'interno della cartella di lavoro.
 3. Fare clic sul pulsante _Aggiungi parametro_ blu.
 4. Nel riquadro nuovo parametro visualizzato immettere:
-    1. Nome parametro:`SlowRequestThreshold`
-    2. Tipo di parametro:`Text`
-    3. Obbligatorio:`checked`
-    4. Ottenere il valore predefinito dalla query:`checked`
+    1. Nome parametro: `SlowRequestThreshold`
+    2. Tipo di parametro: `Text`
+    3. Obbligatorio: `checked`
+    4. Ottenere il valore predefinito dalla query: `checked`
 5. Nella casella KQL aggiungere il frammento di codice seguente:
     ```kusto
     requests

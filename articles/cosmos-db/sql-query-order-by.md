@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84484334"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clausola ORDER BY in Azure Cosmos DB
@@ -45,9 +45,9 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Specifica che i valori nella colonna specificata devono essere ordinati in ordine crescente o decrescente. `ASC`Ordina dal valore più basso a quello più alto. `DESC`Ordina dal valore più alto a quello più basso. `ASC`ordinamento predefinito. I valori Null vengono considerati i valori in assoluto più piccoli.  
+   Specifica che i valori nella colonna specificata devono essere ordinati in ordine crescente o decrescente. `ASC` Ordina dal valore più basso a quello più alto. `DESC` Ordina dal valore più alto a quello più basso. `ASC` ordinamento predefinito. I valori Null vengono considerati i valori in assoluto più piccoli.  
   
-## <a name="remarks"></a>Osservazioni  
+## <a name="remarks"></a>Commenti  
   
    `ORDER BY`Per la clausola è necessario che i criteri di indicizzazione includano un indice per i campi da ordinare. Il runtime di query di Azure Cosmos DB supporta l'ordinamento in base a un nome di proprietà e non alle proprietà calcolate. Azure Cosmos DB supporta più `ORDER BY` Proprietà. Per eseguire una query con più proprietà ORDER BY, è necessario definire un [indice composto](index-policy.md#composite-indexes) sui campi da ordinare.
 

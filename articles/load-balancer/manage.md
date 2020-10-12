@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/8/2020
 ms.author: allensu
 ms.openlocfilehash: e1080aea12e70f4312fbee07b063d5a5cfbd1201
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89596281"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Impostazioni del portale di Azure Load Balancer
@@ -35,7 +35,7 @@ Nella scheda **nozioni di base** della pagina creare il portale del servizio di 
 | Impostazione |  Dettagli |
 | ---------- | ---------- |
 | Subscription  | Selezionare la propria sottoscrizione. Questa selezione è la sottoscrizione in cui si vuole distribuire il servizio di bilanciamento del carico. |
-| Gruppo di risorse | Selezionare **Crea nuovo** e digitare il nome del gruppo di risorse nella casella di testo. Se è stato creato un gruppo di risorse esistente, selezionarlo. |
+| Resource group | Selezionare **Crea nuovo** e digitare il nome del gruppo di risorse nella casella di testo. Se è stato creato un gruppo di risorse esistente, selezionarlo. |
 | Nome | Questa impostazione è il nome del Azure Load Balancer. |
 | Region | Selezionare un'area di Azure in cui si vuole distribuire il servizio di bilanciamento del carico. |
 | Type | Il servizio di bilanciamento del carico ha due tipi: </br> **Interno (privato)** </br> **Pubblico (esterno)**.</br> Un servizio di bilanciamento del carico interno (ILB) instrada il traffico ai membri del pool back-end tramite un indirizzo IP privato.</br> Un servizio di bilanciamento del carico pubblico indirizza le richieste provenienti dai client tramite Internet al pool back-end.</br> Altre informazioni sui [tipi](components.md#frontend-ip-configuration-)di servizio di bilanciamento del carico.|
@@ -63,7 +63,7 @@ Se si seleziona **interno** nel tipo, verranno visualizzate le informazioni segu
 | Assegnazione indirizzi IP | Le opzioni disponibili sono **statiche** o **dinamiche**. </br> Static garantisce che l'indirizzo IP non cambi. Un indirizzo IP dinamico potrebbe cambiare. |
 | Zona di disponibilità | Le opzioni disponibili sono: </br> **Con ridondanza della zona** </br> **Zona 1** </br> **Zona 2** </br> **Zona 3** </br> Per creare un servizio di bilanciamento del carico a disponibilità elevata e resiliente agli errori della zona di disponibilità, selezionare un indirizzo IP con **ridondanza della zona** . |
 
-:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Creare un servizio di bilanciamento del carico interno." border="true":::
+:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Creare un servizio di bilanciamento del carico pubblico." border="true":::
 
 ## <a name="frontend-ip-configuration"></a>Configurazione dell'indirizzo IP front-end
 
@@ -80,7 +80,7 @@ Se si vuole aggiungere una configurazione IP front-end al servizio di bilanciame
 | Tipo IP | Il tipo IP determina se un singolo indirizzo IP è associato al front-end o a un intervallo di indirizzi IP usando un prefisso IP. </br> Un [prefisso IP pubblico](../virtual-network/public-ip-address-prefix.md) assiste quando è necessario connettersi ripetutamente allo stesso endpoint. Il prefisso garantisce che siano disponibili porte sufficienti per supportare i problemi della porta SNAT. |
 | Indirizzo IP pubblico (o prefisso se è stato selezionato il prefisso precedente) | Selezionare o creare un nuovo indirizzo IP pubblico (o prefisso) per il front-end del servizio di bilanciamento del carico. |
 
-:::image type="content" source="./media/manage/frontend.png" alt-text="Crea la pagina di configurazione IP front-end." border="true":::
+:::image type="content" source="./media/manage/frontend.png" alt-text="Creare un servizio di bilanciamento del carico pubblico." border="true":::
 
 ## <a name="backend-pools"></a>Pool back-end
 
@@ -96,7 +96,7 @@ Per aggiungere un pool back-end al servizio di bilanciamento del carico, passare
 
 È possibile aggiungere macchine virtuali o set di scalabilità di macchine virtuali al pool back-end della Azure Load Balancer. Creare prima le macchine virtuali o i set di scalabilità di macchine virtuali. Successivamente, aggiungerli al servizio di bilanciamento del carico nel portale.
 
-:::image type="content" source="./media/manage/backend.png" alt-text="Pagina Crea pool back-end." border="true":::
+:::image type="content" source="./media/manage/backend.png" alt-text="Creare un servizio di bilanciamento del carico pubblico." border="true":::
 
 ## <a name="health-probes"></a>Probe di integrità
 
@@ -112,7 +112,7 @@ Se si vuole aggiungere un probe di integrità al servizio di bilanciamento del c
 | Interval | Numero di secondi tra i tentativi di probe. </br> L'intervallo determinerà la frequenza con cui il probe di integrità tenterà di raggiungere l'istanza back-end. </br> Se si seleziona 5, il secondo tentativo di probe verrà effettuato dopo 5 secondi e così via. |
 | Soglia non integra | Il numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.</br> Se si seleziona 2, nessun nuovo flusso verrà impostato su questa istanza back-end dopo due errori consecutivi. |
 
-:::image type="content" source="./media/manage/health-probe.png" alt-text="Aggiungere un probe di integrità." border="true":::
+:::image type="content" source="./media/manage/health-probe.png" alt-text="Creare un servizio di bilanciamento del carico pubblico." border="true":::
 
 ## <a name="load-balancing-rules"></a>Regole di bilanciamento del carico
 
@@ -136,7 +136,7 @@ Se si vuole aggiungere una regola del servizio di bilanciamento del carico al se
 | IP mobile | L'indirizzo IP mobile è la terminologia di Azure per una parte di ciò che è noto come **Direct Server Return (DSR)**. </br> La configurazione DSR è costituita da due parti: <br> 1. topologia flusso </br> 2. Schema di mapping degli indirizzi IP a livello di piattaforma. </br></br> Azure Load Balancer funziona sempre in una topologia del flusso DSR se l'indirizzo IP mobile è abilitato o meno. </br> Questa operazione significa che la parte in uscita di un flusso viene sempre riscritta correttamente in modo che fluisca direttamente nell'origine. </br> Senza IP mobile, Azure espone uno schema di mapping degli indirizzi IP con bilanciamento del carico tradizionale, ovvero l'IP delle istanze di VM. </br> L'abilitazione dell'indirizzo IP mobile cambia il mapping degli indirizzi IP all'IP front-end del servizio di bilanciamento del carico per consentire una maggiore flessibilità. </br> Per ulteriori informazioni, vedere la pagina relativa a più Front- [end per Azure Load Balancer](load-balancer-multivip-overview.md).|
 | Crea regole in uscita implicite | Selezionare **No**. </br> Impostazione predefinita: **disableOutboundSnat = false**  </br> In questo caso l'uscita avviene tramite lo stesso IP front-end. </br></br> **disableOutboundSnat = true** </br>In questo caso, le regole in uscita sono necessarie per l'uscita. |
 
-:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Aggiungere una regola di bilanciamento del carico." border="true":::
+:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Creare un servizio di bilanciamento del carico pubblico." border="true":::
 
 ## <a name="inbound-nat-rules"></a>Regole NAT in ingresso
 
@@ -163,7 +163,7 @@ Se si vuole aggiungere una regola NAT in ingresso al servizio di bilanciamento d
 | Macchina virtuale di destinazione | Parte della macchina virtuale del pool back-end a cui si vuole associare questa regola. |
 | Mapping delle porte | Questa impostazione può essere predefinita o personalizzata in base alle preferenze dell'applicazione. |
 
-:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Aggiungere una regola NAT in ingresso." border="true":::
+:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Creare un servizio di bilanciamento del carico pubblico." border="true":::
 
 ## <a name="outbound-rules"></a>Regole in uscita
 
@@ -193,7 +193,7 @@ Se si vuole aggiungere una regola in uscita al servizio di bilanciamento del car
 | Scegli per | Selezionare **Porte per istanza** |
 | Porte per istanza | Immettere **10.000**. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Aggiungere una regola in uscita in ingresso." border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Creare un servizio di bilanciamento del carico pubblico." border="true":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

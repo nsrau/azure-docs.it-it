@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79475825"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regole personalizzate per il Web Application Firewall con sportello anteriore di Azure
@@ -42,7 +42,7 @@ Il Web Application Firewall (WAF) di Azure con sportello anteriore consente di c
     - Cookie
   - **Operatore**
     - Any: viene spesso usato per definire l'azione predefinita se non sono presenti regole corrispondenti. Any è un operatore match all.
-    - Uguale
+    - Uguale a
     - Contiene
     - LessThan: vincolo size
     - GreaterThan: vincolo size
@@ -69,7 +69,7 @@ Il Web Application Firewall (WAF) di Azure con sportello anteriore consente di c
   - **Transform [facoltativo]:** Elenco di stringhe con i nomi delle trasformazioni da eseguire prima che venga tentata la corrispondenza. Queste possono essere le trasformazioni seguenti:
      - Maiuscolo 
      - Lettere minuscole
-     - Trim
+     - Taglio
      - RemoveNulls
      - UrlDecode
      - UrlEncode

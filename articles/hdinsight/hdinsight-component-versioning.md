@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
 ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394330"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componenti e versioni di Apache disponibili per Azure HDInsight
@@ -89,7 +89,7 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 | HDInsight 3,6 Spark             | 2.2               | Ritirato il 30 giugno 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Ritirato il 30 giugno 2020          |                             |
 | HDInsight 3,6 Kafka             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |
-| HDInsight 3,6 Kafka             | 1,0               | Ritirato il 30 giugno 2020.         |                             |
+| HDInsight 3,6 Kafka             | 1.0               | Ritirato il 30 giugno 2020.         |                             |
 | HDInsight 3,6 HBase             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |
 | HDInsight 3,6-query interattiva | 2.1               | 31 dicembre 2020                      | 30 giugno 2021               |
 | HDInsight 3,6 Storm             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |

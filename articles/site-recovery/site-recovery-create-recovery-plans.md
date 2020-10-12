@@ -4,10 +4,10 @@ description: Informazioni su come creare e personalizzare piani per il ripristin
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 0dcde98e8dcaef12896c18c25429f0ba7b1b27d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485330"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creare e personalizzare piani di ripristino
@@ -63,9 +63,9 @@ Questo articolo descrive come creare e personalizzare un piano di ripristino per
     **Scenario** | **Failover** | **Failback**
     --- | --- | --- 
     Da Azure ad Azure  | Runbook | Runbook
-    Da VMware ad Azure | Runbook | ND 
+    Da VMware ad Azure | Runbook | N/D 
     Da Hyper-V con VMM ad Azure | Runbook | Script
-    Da sito Hyper-V ad Azure | Runbook | ND
+    Da sito Hyper-V ad Azure | Runbook | N/D
     Da VMM a VMM secondario | Script | Script
 
 1. Nel piano di ripristino fare clic sul passaggio a cui deve essere aggiunta l'azione e specificare quando deve verificarsi l'azione:

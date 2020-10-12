@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 09/26/2019
 ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465644"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrare Azure NetApp Files con il servizio Azure Kubernetes
@@ -36,7 +36,7 @@ Quando si utilizza Azure NetApp Files, si applicano le limitazioni seguenti:
 ## <a name="configure-azure-netapp-files"></a>Configurare Azure NetApp Files
 
 > [!IMPORTANT]
-> Prima di poter registrare il provider di risorse *Microsoft. NetApp* , è necessario completare il [modulo di invio Azure NetApp files Waiting][anf-waitlist] per la sottoscrizione. Non è possibile registrare la risorsa fino a quando non si riceve il messaggio di posta elettronica di conferma ufficiale dal team Azure NetApp Files.
+> Prima di poter registrare il provider di risorse  *Microsoft. NetApp* , è necessario completare il [modulo di invio Azure NetApp files Waiting][anf-waitlist] per la sottoscrizione. Non è possibile registrare la risorsa fino a quando non si riceve il messaggio di posta elettronica di conferma ufficiale dal team Azure NetApp Files.
 
 Registrare il provider di risorse *Microsoft. NetApp* :
 

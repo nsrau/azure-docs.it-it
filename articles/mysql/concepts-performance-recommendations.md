@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84485225"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Raccomandazioni per le prestazioni in Database di Azure per MySQL
@@ -35,7 +35,7 @@ Selezionare **Analizza** e scegliere un database per avviare l'analisi. A second
 
 Nella finestra **Raccomandazioni** viene visualizzato un elenco di raccomandazioni (se individuate) e l'ID di query da cui è stata generata ogni raccomandazione. Con l'ID di query è possibile usare la vista [mysql.query_store](concepts-query-store.md#mysqlquery_store) per altre informazioni sulla query.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nuova pagina Raccomandazioni per le prestazioni":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Pagina di destinazione Elementi consigliati per le prestazioni":::
 
 Le raccomandazioni non vengono applicate automaticamente. Per applicare una raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Non dimenticare di eseguire le operazioni di test e monitoraggio per valutare la raccomandazione.
 

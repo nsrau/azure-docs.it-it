@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 titleSuffix: Azure
 description: includere file
 services: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: dbaa0b5fc87cb5393b323b8a9b7a38b72efe9518
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81680792"
 ---
 Il cmdlet di PowerShell **Get-AzPeeringLocation** restituisce un elenco di percorsi di peering con il parametro obbligatorio `Kind` , che verrà usato nei passaggi successivi.
@@ -23,7 +23,7 @@ Get-AzPeeringLocation -Kind Direct
 
 Le località di peering dirette contengono i campi seguenti:
 * PeeringLocation 
-* Country
+* Paese
 * PeeringDBFacilityId
 * PeeringDBFacilityLink
 * BandwidthOffers

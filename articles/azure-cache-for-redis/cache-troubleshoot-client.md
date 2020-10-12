@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008968"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Risolvere i problemi relativi al lato client di cache di Azure per Redis
@@ -30,7 +30,7 @@ Il numero eccessivo di richieste di memoria nel computer client causa problemi d
 Per rilevare le richieste di memoria nel client:
 
 - Monitorare l'utilizzo della memoria nel computer per assicurarsi che non superi la memoria disponibile.
-- Monitorare il `Page Faults/Sec` contatore delle prestazioni del client. Durante il normale funzionamento, la maggior parte dei sistemi presenta alcuni errori di pagina. I picchi di errori di pagina corrispondenti ai timeout della richiesta possono indicare un numero eccessivo di richieste di memoria.
+- Monitorare il `Page Faults/Sec` contatore delle prestazioni del client. Durante il normale funzionamento, la maggior parte dei sistemi presenta alcuni errori di pagina. I picchi di errori di pagina corrispondenti ai timeout della richiesta possono indicare un utilizzo elevato di memoria.
 
 Un elevato numero di richieste di memoria nel client può essere mitigato in diversi modi:
 
@@ -41,7 +41,7 @@ Un elevato numero di richieste di memoria nel client può essere mitigato in div
 
 I burst di traffico combinati con impostazioni `ThreadPool` insufficienti possono causare ritardi nell'elaborazione dei dati già inviati dal server Redis, ma non ancora utilizzati sul lato client.
 
-Monitorare il modo `ThreadPool` in cui le statistiche cambiano nel tempo usando [un esempio `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). È possibile usare `TimeoutException` i messaggi di stackexchange. Redis come riportato di seguito per approfondire l'analisi:
+Monitorare il modo `ThreadPool` in cui le statistiche cambiano nel tempo usando [un esempio `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). È possibile usare  `TimeoutException` i messaggi di stackexchange. Redis come riportato di seguito per approfondire l'analisi:
 
 ```output
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
