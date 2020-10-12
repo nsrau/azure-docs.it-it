@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
 ms.openlocfilehash: 87277c0c61f6d63e453386724dd472d2663e3148
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87045205"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Inviare metriche del sistema operativo guest al database di metriche di monitoraggio di Azure per una macchina virtuale Windows (classico)
@@ -26,7 +26,7 @@ L'archiviazione in questo percorso consente di accedere alle stesse azioni esegu
 
 Il processo illustrato in questo articolo funziona solo sulle macchine virtuali classiche con il sistema operativo Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 - È necessario essere un [amministratore del servizio o un coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
 

@@ -17,17 +17,17 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015331"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
 Questo articolo include risposte alle domande frequenti sulla creazione di report in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Creazione di report in Azure Active Directory](overview-reports.md). 
 
-## <a name="getting-started"></a>Introduzione 
+## <a name="getting-started"></a>Guida introduttiva 
 
 **D: attualmente si utilizzano le `https://graph.windows.net/<tenant-name>/reports/` API endpoint per eseguire il pull Azure ad i report di controllo e di utilizzo delle applicazioni integrati nei sistemi di report a livello di codice. Che cosa devo passare a?**
 

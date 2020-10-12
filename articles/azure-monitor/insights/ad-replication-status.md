@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318080"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
@@ -41,7 +41,7 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
 
 1. Verificare che il computer sia membro del dominio da monitorare con la soluzione Stato replica di Active Directory.
 2. [Connettere il computer Windows a Monitoraggio di Azure](../platform/om-agents.md) oppure [connetterlo usando l'ambiente Operations Manager esistente a Monitoraggio di Azure](../platform/om-agents.md), se non è già connesso.
-3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE gruppi \System\currentcontrolset\services\healthservice\parameters\management \<ManagementGroupName> \Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
+3. Nel computer impostare la chiave del Registro di sistema seguente:<br>Chiave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName> \Solutions\ADReplication**<br>Valore: **IsTarget**<br>Dati valore: **true**
 
    > [!NOTE]
    > Queste modifiche diventano effettive solo dopo il riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
@@ -130,7 +130,7 @@ R: le informazioni vengono aggiornate ogni cinque giorni.
 
 **D: non si desidera aggiungere controller di dominio all'area di lavoro Log Analytics. È ancora possibile usare la soluzione Stato replica di AD?**
 
-A: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
+R: Sì. È possibile impostare il valore di una chiave del Registro di sistema per abilitarla. Vedere [Abilitare controller non di dominio](#enable-non-domain-controller).
 
 **D: come si chiama il processo che esegue la raccolta dati?**
  R: AdvisorAssessment.exe

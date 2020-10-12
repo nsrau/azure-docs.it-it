@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704948"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticare problemi di filtro del traffico di rete di una macchina virtuale
@@ -168,14 +168,14 @@ Se vengono visualizzate regole duplicate nell'output, il motivo è che un gruppo
 
 Indipendentemente dall'uso del [portale di Azure](#diagnose-using-azure-portal), di [PowerShell](#diagnose-using-powershell), o dell'[interfaccia della riga di comando di Azure](#diagnose-using-azure-cli) per diagnosticare il problema presentato nello [scenario](#scenario) di questo articolo, la soluzione consiste nel creare una regola di sicurezza di rete con le proprietà seguenti:
 
-| Proprietà                | valore                                                                              |
+| Proprietà                | Valore                                                                              |
 |---------                |---------                                                                           |
 | Source (Sorgente)                  | Qualsiasi                                                                                |
 | Intervalli di porte di origine      | Qualsiasi                                                                                |
 | Destination             | L'indirizzo IP della VM, un intervallo di indirizzi IP o tutti gli indirizzi nella subnet. |
 | Intervalli di porte di destinazione | 80                                                                                 |
 | Protocollo                | TCP                                                                                |
-| Azione                  | Allow                                                                              |
+| Azione                  | Consenti                                                                              |
 | Priorità                | 100                                                                                |
 | Nome                    | Allow-HTTP-All                                                                     |
 

@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.openlocfilehash: 3df6cb1afe8a6249eadbbd3f61619e66be2d2478
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "83402500"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Guida introduttiva: Crea una cache di livello Enterprise (anteprima)
@@ -44,7 +44,7 @@ Prima di iniziare, è necessaria una sottoscrizione di Azure. Se non se ne ha un
    | ------------ |  ------- | -------------------------------------------------- |
    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
    | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
-   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<Nome DNS>.<Azure region>.redisenterprise.cache.azure.net*. | 
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.<Azure region>.redisenterprise.cache.azure.net*. | 
    | **Posizione** | Nell'elenco a discesa selezionare una località. | I livelli Enterprise sono disponibili nelle aree Stati Uniti occidentali, Stati Uniti orientali 2 ed Europa occidentale. |
    | **Livello cache** | Nell'elenco a discesa selezionare il livello *Enterprise DRAM* o *Enterprise SSD* e le dimensioni. |  Il livello determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. |
    

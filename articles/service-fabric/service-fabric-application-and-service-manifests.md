@@ -4,10 +4,10 @@ description: Viene descritto come vengono usati i manifesti per descrivere appli
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248221"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
@@ -63,7 +63,7 @@ Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e l
 
 L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. **SetupEntryPoint** è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric (in genere l'account *LocalSystem* ) prima di qualsiasi altro punto di ingresso.  La presenza di un punto di ingresso di configurazione separato consente di evitare di dover eseguire l'host del servizio con privilegi elevati per lunghi periodi di tempo. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Se il processo termina o si arresta in modo anomalo, il processo risultante viene monitorato e riavviato (iniziando di nuovo con **SetupEntryPoint**).  
 
-Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. ad esempio:
+Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file eseguibile prima dell'avvio del servizio o l'esecuzione di un'operazione con privilegi elevati. Ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.

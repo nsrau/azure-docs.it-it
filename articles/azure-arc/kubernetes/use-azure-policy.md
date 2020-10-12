@@ -9,17 +9,17 @@ ms.author: mlearned
 description: Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
 ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050043"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Usare Criteri di Azure per applicare le configurazioni del cluster su larga scala (anteprima)
 
 ## <a name="overview"></a>Panoramica
 
-Usare i criteri di Azure per applicare che a ogni `Microsoft.Kubernetes/connectedclusters` risorsa o risorsa abilitata per git-Ops `Microsoft.ContainerService/managedClusters` è stata applicata una specifica `Microsoft.KubernetesConfiguration/sourceControlConfigurations` applicazione. Per usare Criteri di Azure, selezionare una definizione dei criteri esistente e creare un'assegnazione di criteri. Quando si crea l'assegnazione dei criteri, si imposta l'ambito per l'assegnazione: si tratterà di un gruppo di risorse o una sottoscrizione di Azure. È anche possibile impostare i parametri per la `sourceControlConfiguration` da creare. Una volta creata l'assegnazione, il motore dei criteri identificherà tutte le risorse `connectedCluster` o `managedCluster` che si trovano all'interno dell'ambito e applicherà `sourceControlConfiguration` a ciascuna di esse.
+Usare i criteri di Azure per applicare che a ogni risorsa `Microsoft.Kubernetes/connectedclusters` o Git-Ops risorsa abilitata `Microsoft.ContainerService/managedClusters` è stato `Microsoft.KubernetesConfiguration/sourceControlConfigurations` applicato specifico. Per usare Criteri di Azure, selezionare una definizione dei criteri esistente e creare un'assegnazione di criteri. Quando si crea l'assegnazione dei criteri, si imposta l'ambito per l'assegnazione: si tratterà di un gruppo di risorse o una sottoscrizione di Azure. È anche possibile impostare i parametri per la `sourceControlConfiguration` da creare. Una volta creata l'assegnazione, il motore dei criteri identificherà tutte le risorse `connectedCluster` o `managedCluster` che si trovano all'interno dell'ambito e applicherà `sourceControlConfiguration` a ciascuna di esse.
 
 Se si usano più repository Git come origini di verità per ogni cluster (ad esempio, un repository per l'operatore IT centrale/cluster e altri repository per i team di applicazioni), è possibile abilitare questa impostazione usando più assegnazioni di criteri, con ciascuna assegnazione di criteri che sarà configurata per l'uso di un repository Git diverso.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 975efa9fdaff9175317794d8b6df7afbfc73cba8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83585684"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuire un contenitore di rilevatori di anomalie in istanze di contenitore di Azure
@@ -32,5 +32,5 @@ Informazioni su come distribuire il contenitore [Rilevamento anomalie](../anomal
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Esaminare [installare ed eseguire i contenitori](../anomaly-detector-container-configuration.md) per il pull dell'immagine del contenitore ed eseguire il contenitore
-* Esaminare [configurare i contenitori](../anomaly-detector-container-configuration.md) per le impostazioni di configurazione
+* Rivedere [Configurare i contenitori](../anomaly-detector-container-configuration.md) per informazioni sulle impostazioni di configurazione.
 * [Altre informazioni sul servizio API del rilevatore di anomalie](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

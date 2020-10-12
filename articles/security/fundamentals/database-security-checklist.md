@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: ad8f15f7d1cf69824bfb9298d7ccf097e4893ea8
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542977"
 ---
 # <a name="azure-database-security-checklist"></a>Elenco di controllo per la sicurezza del database di Azure
 
 Per contribuire al miglioramento della sicurezza, il database di Azure include una serie di controlli di sicurezza predefiniti che è possibile usare per limite e controllare l'accesso.
 
-incluse le seguenti:
+Tra queste sono incluse:
 
 -    Un firewall che consente di creare [regole del firewall](../../azure-sql/database/firewall-configure.md) limitando la connettività tramite un indirizzo IP,
 -    Regola del firewall a livello di server accessibile nel portale di Azure
@@ -44,7 +44,7 @@ Il cloud computing richiede nuovi paradigmi di sicurezza che sono diversi per mo
 Si consiglia di leggere l'articolo [Azure Database Security Best Practices](database-best-practices.md) (Best practice di sicurezza per il database di Azure) prima di esaminare questo elenco di controllo. Si sarà in grado di sfruttare al meglio questo elenco di controllo dopo aver compreso le procedure consigliate. È quindi possibile usare questo elenco di controllo per assicurarsi di aver risolto i problemi importanti della sicurezza del database di Azure.
 
 
-|Categoria dell'elenco di controllo| Description|
+|Categoria dell'elenco di controllo| Descrizione|
 | ------------ | -------- |
 |**Proteggere i dati**||
 | <br> Crittografia in movimento/transito| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), per la crittografia dei dati durante lo spostamento dei dati nelle reti.</li><li>Il database richiede una comunicazione sicura da client basati sul protocollo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) in TLS (Transport Layer Security).</li></ul> |

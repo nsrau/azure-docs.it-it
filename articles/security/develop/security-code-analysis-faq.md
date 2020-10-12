@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543045"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
@@ -158,7 +158,7 @@ Esempi di regole di eliminazione valide:
 
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
 
- - [Azure Key Vault](../../key-vault/index.yml)
+ - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Azure AD identità del servizio gestita (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)

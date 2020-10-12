@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
 ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482174"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Trigger e associazioni di Azure Cosmos DB per funzioni di Azure 2. x e una panoramica superiore
@@ -20,7 +20,7 @@ ms.locfileid: "85482174"
 
 Questo set di articoli illustra come usare le associazioni di [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) in funzioni di Azure 2. x e versioni successive. Funzioni di Azure supporta i trigger e le associazioni di input e output per Azure Cosmos DB.
 
-| Action | Type |
+| Azione | Type |
 |---------|---------|
 | Esegue una funzione quando viene creato o modificato un documento di Azure Cosmos DB | [Trigger](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Leggi un documento Azure Cosmos DB | [Binding di input](./functions-bindings-cosmosdb-v2-input.md) |
@@ -41,7 +41,7 @@ Questo set di articoli illustra come usare le associazioni di [Azure Cosmos DB](
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Commenti 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure] è consigliata per l'uso con Visual Studio Code. |

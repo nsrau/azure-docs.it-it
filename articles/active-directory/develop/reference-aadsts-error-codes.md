@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115102"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure AD
@@ -188,7 +188,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist: l'utente o l'amministratore non ha acconsentito all'uso dell'applicazione con ID X. Inviare una richiesta di autorizzazione interattiva per questo utente e questa risorsa. |
 | AADSTS65004 | UserDeclinedConsent: l'utente ha rifiutato il consenso per l'accesso all'app. Chiedere all'utente di riprovare ad accedere e fornire il consenso per l'app.|
-| AADSTS65005 | MisconfiguredApplication: l'elenco di accesso alle risorse necessarie per l'applicazione non contiene app individuabili dalla risorsa, l'app client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o di risorsa non trovata. Se l'app supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la risoluzione elencata per SAML usando il collegamento seguente:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | MisconfiguredApplication: l'elenco di accesso alle risorse necessarie per l'applicazione non contiene app individuabili dalla risorsa, l'app client ha richiesto l'accesso a una risorsa non specificata nell'elenco di accesso alle risorse necessarie oppure il servizio Graph ha restituito una risposta di richiesta non valida o di risorsa non trovata. Se l'app supporta SAML, potrebbe essere stata configurata con l'identificatore errato (entità). Provare la risoluzione elencata per SAML usando il collegamento seguente: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS650052 | L'app deve accedere a un servizio `(\"{name}\")` che l'organizzazione `\"{organization}\"` non ha sottoscritto o abilitato. Contattare l'amministratore IT per verificare la configurazione delle sottoscrizioni del servizio. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant: autenticazione non riuscita. Il token di aggiornamento non è valido. Errore dovuto ai motivi seguenti:<ul><li>L'intestazione di associazione di token è vuota</li><li>L'hash di associazione di token non corrisponde</li></ul> |
@@ -315,7 +315,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS700022 | InvalidMultipleResourcesScope: il valore specificato per l'ambito del parametro di input non è valido perché contiene più di una risorsa. |
 | AADSTS700023 | InvalidResourcelessScope: il valore specificato per l'ambito del parametro di input non è valido quando è necessario un token di accesso. |
 | AADSTS7000215 | Viene fornito un segreto client non valido. Errore dello sviluppatore: l'app sta provando a eseguire l'accesso senza i parametri di autenticazione necessari o corretti.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided: le chiavi segrete del client specificate sono scadute. Visitare la portale di Azure per creare nuove chiavi per l'app o prendere in considerazione l'uso delle credenziali del certificato per una maggiore sicurezza:[https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided: le chiavi segrete del client specificate sono scadute. Visitare la portale di Azure per creare nuove chiavi per l'app o prendere in considerazione l'uso delle credenziali del certificato per una maggiore sicurezza: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | Il codice di autorizzazione fornito da InvalidGrantRedeemAgainstWrongTenant è progettato per essere usato con altri tenant, quindi rifiutato. Il codice di autorizzazione di OAuth2 deve essere riscattato rispetto allo stesso tenant per cui è stato acquisito (/Common o/{tenant-ID} in base alle esigenze) |
 | AADSTS1000000 | UserNotBoundError: l'API di associazione richiede che l'utente di Azure AD esegua l'autenticazione anche con un provider di identità esterno e questa autenticazione non è stata ancora eseguita. |
 | AADSTS1000002 | BindCompleteInterruptError: l'associazione è stata completata correttamente, ma l'utente deve essere informato. |

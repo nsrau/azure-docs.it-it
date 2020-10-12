@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
 ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530477"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
@@ -65,7 +65,7 @@ Microsoft e Red Hat condividono un team di supporto integrato con percorso condi
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition è disponibile e, in caso affermativo, qual è il costo?
 
-VMware HCX Enterprise Edition (EE) è disponibile con la soluzione VMware di Azure come funzione/servizio in *Anteprima* . Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Una volta che il servizio VMware HCX EE passa a GA, si riceverà un avviso di 30 giorni per il passaggio della fatturazione. È anche possibile disattivare o rifiutare esplicitamente il servizio.
+VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Durante l'anteprima, VMware HCX EE per la soluzione Azure VMware è una funzione/un servizio gratuito ed è soggetto alle condizioni del servizio. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. Sarà anche possibile disattivare/rifiutare esplicitamente il servizio.
 
 ## <a name="compute-network-storage-and-backup"></a>Calcolo, rete, archiviazione e backup
 
@@ -214,7 +214,7 @@ Sarà necessario un account Azure in una sottoscrizione di Azure.
 * È necessario un [Enterprise Agreement di Azure (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) con Microsoft.
 * Sarà necessario un account Azure in una sottoscrizione di Azure.
 
-Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviare un ticket di supporto per l'allocazione dei nodi. Una volta ricevuta la richiesta, il team di supporto richiede fino a cinque giorni lavorativi per confermare la richiesta e allocare i nodi. Se si dispone di un cloud privato della soluzione VMware di Azure esistente e si vogliono allocare più nodi, si procederà nello stesso processo.
+Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo.
 
 
 1. Nella portale di Azure in Guida e **supporto tecnico**creare una **[nuova richiesta di supporto](https://rc.portal.azure.com/#create/Microsoft.Support)** e fornire le informazioni seguenti per il ticket:

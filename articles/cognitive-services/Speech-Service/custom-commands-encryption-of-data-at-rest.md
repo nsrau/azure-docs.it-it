@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
 ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294309"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per i comandi personalizzati
@@ -25,7 +25,7 @@ I comandi personalizzati crittografano automaticamente i dati quando vengono sal
 > Il servizio comandi personalizzati non abilita automaticamente la crittografia per le risorse LUIS associate all'applicazione. Se necessario, è necessario abilitare la crittografia per la risorsa LUIS da [qui](./../LUIS/luis-encryption-of-data-at-rest.md).
 
 ## <a name="about-cognitive-services-encryption"></a>Informazioni sulla crittografia di servizi cognitivi
-I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare i vantaggi della crittografia.
+I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare la crittografia.
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 
@@ -33,17 +33,17 @@ Quando si usano comandi personalizzati, il servizio di riconoscimento vocale arc
 * JSON di configurazione dietro l'applicazione comandi personalizzati
 * Chiave di stima e creazione di LUIS
 
-Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gestite da Microsoft. Tuttavia, è anche possibile gestire la sottoscrizione con le proprie chiavi di crittografia. Le chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
+Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. Tuttavia, è anche possibile gestire la sottoscrizione con le proprie chiavi di crittografia. Le chiavi gestite dal cliente, note anche come Bring Your Own Key (BYOK), offrono maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
 
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente sono solo risorse disponibili create dopo il 27 giugno 2020. Per usare CMK con servizi vocali, è necessario creare una nuova risorsa di riconoscimento vocale. Dopo aver creato la risorsa, è possibile usare Azure Key Vault per configurare l'identità gestita.
 
-Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare il modulo di richiesta della chiave gestita dal cliente. Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvate per l'uso di CMK con servizi vocali, è necessario creare una nuova risorsa vocale dalla portale di Azure.
+Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare Customer-Managed modulo della richiesta di chiave. Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvate per l'uso di CMK con servizi vocali, è necessario creare una nuova risorsa vocale dalla portale di Azure.
    > [!NOTE]
    > **Le chiavi gestite dal cliente (CMK) sono supportate solo per i comandi personalizzati.**
    >
-   >  **Riconoscimento vocale personalizzato e la voce personalizzata supportano ancora solo BYOS (Bring your own Storage).**  [Altre informazioni](speech-encryption-of-data-at-rest.md)
+   >  **Riconoscimento vocale personalizzato e la voce personalizzata supportano ancora solo BYOS (Bring your own Storage).**  [Scopri di più](speech-encryption-of-data-at-rest.md)
    >
    > Se si usa la risorsa vocale specificata per accedere a questi servizi, è necessario soddisfare le esigenze di conformità configurando in modo esplicito BYOS.
 
@@ -118,7 +118,7 @@ Per specificare una chiave da un insieme di credenziali delle chiavi, assicurars
 
 ## <a name="update-the-key-version"></a>Aggiornare la versione della chiave
 
-Quando si crea una nuova versione di una chiave, aggiornare la risorsa vocale per usare la nuova versione. A tale scopo, seguire questa procedura:
+Quando si crea una nuova versione di una chiave, aggiornare la risorsa vocale per usare la nuova versione. Seguire questa procedura:
 
 1. Passare alla risorsa vocale e visualizzare le impostazioni di **crittografia** .
 1. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
@@ -151,7 +151,7 @@ Quando si disabilitano le chiavi gestite dal cliente, la risorsa vocale viene qu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Modulo di richiesta della chiave gestita dal cliente](https://aka.ms/cogsvc-cmk)
+* [Modulo di richiesta della chiave di Customer-Managed vocale](https://aka.ms/cogsvc-cmk)
 * [Altre informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Che cosa sono le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 

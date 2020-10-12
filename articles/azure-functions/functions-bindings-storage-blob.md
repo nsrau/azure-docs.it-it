@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87055969"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Panoramica dei binding dell'archiviazione BLOB di Azure per funzioni di Azure
 
 Funzioni di Azure si integra con [archiviazione di Azure](../storage/index.yml) tramite [trigger e associazioni](./functions-triggers-bindings.md). L'integrazione con archiviazione BLOB consente di compilare funzioni che reagiscono alle modifiche nei dati BLOB, nonché i valori di lettura e scrittura.
 
-| Operazione | Tipo |
+| Azione | Type |
 |---------|---------|
 | Eseguire una funzione come modifiche ai dati di archiviazione BLOB | [Trigger](./functions-bindings-storage-blob-trigger.md) |
 | Leggere dati di archiviazione BLOB in una funzione | [Binding di input](./functions-bindings-storage-blob-input.md) |
@@ -28,7 +28,7 @@ Funzioni di Azure si integra con [archiviazione di Azure](../storage/index.yml) 
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Commenti 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) è consigliata per l'uso con Visual Studio Code. |

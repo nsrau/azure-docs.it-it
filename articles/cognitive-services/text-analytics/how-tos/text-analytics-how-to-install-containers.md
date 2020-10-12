@@ -13,10 +13,10 @@ ms.date: 09/28/2020
 ms.author: aahi
 keywords: locale, Docker, contenitore, analisi dei sentimenti, elaborazione del linguaggio naturale
 ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91461496"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
@@ -159,7 +159,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](../
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori di Analisi del testo. In sintesi:
 
@@ -178,5 +178,5 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare [configurare i contenitori](../text-analytics-resource-container-config.md) per le impostazioni di configurazione
+* Rivedere [Configurare i contenitori](../text-analytics-resource-container-config.md) per informazioni sulle impostazioni di configurazione.
 * Fare riferimento alle [domande frequenti](../text-analytics-resource-faq.md) per risolvere i problemi correlati alla funzionalità.

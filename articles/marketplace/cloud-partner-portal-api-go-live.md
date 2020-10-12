@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: d612b796f85c9eaab1600c55cde7e79acb49f352
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292937"
 ---
 # <a name="go-live"></a>Go Live
@@ -28,8 +28,8 @@ Questa API avvia il processo che consente di inviare un'app alla produzione. Que
 
 |  **Nome**      |   **Descrizione**                                                           | **Tipo di dati** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificatore dell'autore dell'offerta da recuperare, ad esempio `contoso`       |  Stringa       |
-| offerId        | Identificatore dell'offerta da recuperare                                   |  Stringa       |
+| publisherId    | Identificatore dell'autore dell'offerta da recuperare, ad esempio `contoso`       |  string       |
+| offerId        | Identificatore dell'offerta da recuperare                                   |  string       |
 | api-version    | Versione più recente dell'API                                                   |  Data         |
 |  |  |  |
 

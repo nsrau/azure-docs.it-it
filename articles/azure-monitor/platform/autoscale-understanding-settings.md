@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317468"
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
@@ -91,7 +91,7 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 | Impostazione | name | Nome dell'impostazione di scalabilità automatica. |
 | Impostazione | posizione | Posizione dell'impostazione di scalabilità automatica. Questa posizione può essere diversa dalla posizione della risorsa da ridimensionare. |
 | properties | targetResourceUri | ID della risorsa da ridimensionare. È consentita una sola impostazione di scalabilità automatica per risorsa. |
-| properties | Profili | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
+| properties | profiles | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
 | profile | name | Nome del profilo. È possibile scegliere qualsiasi nome che semplifichi l'identificazione del profilo. |
 | profile | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
 | profile | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |

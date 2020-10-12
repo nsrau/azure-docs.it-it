@@ -14,10 +14,10 @@ ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
 ms.openlocfilehash: 9a28677063c6f6dd7bb7bcf6746dbc541308891f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87305908"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure
@@ -176,7 +176,7 @@ Di seguito è riportata la procedura generica per eseguire l'applicazione. Per i
 2. Modificare **startup.cmd** per decomprimere il file WAR TwilioCloud.
 3. Compilare l'applicazione per l'emulatore di calcolo.
 4. Avviare la distribuzione nell'emulatore di calcolo.
-5. Aprire un browser ed eseguire `http://localhost:8080/TwilioCloud/callform.jsp`.
+5. Aprire un browser ed eseguire `http://localhost:8080/TwilioCloud/callform.jsp` .
 6. Immettere i valori nel modulo, fare clic su **Make this call**e quindi visualizzare i risultati in makecall.jsp.
 
 Quando si è pronti a distribuire l'applicazione in Azure, ricompilare per la distribuzione nel cloud, distribuire in Azure ed eseguire http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp nel browser, sostituendo *your_hosted_name* con il proprio valore.
