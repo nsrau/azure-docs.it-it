@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 182e04625f829304168bfdefe000bb8797646c75
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926893"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage usando Azure Data Factory
@@ -50,7 +50,7 @@ In particolare, il connettore Teradata supporta:
 
 Se si usa Integration Runtime self-hosted, si noti che fornisce un driver Teradata predefinito a partire dalla versione 3,18. Non è necessario installare manualmente alcun driver. Il driver richiede "Visual C++ Redistributable 2012 Update 4" nel computer del runtime di integrazione self-hosted. Se non è ancora installato, scaricarlo da [qui](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -173,7 +173,7 @@ Per copiare dati da Teradata, sono supportate le proprietà seguenti:
 
 > [!NOTE]
 >
-> `RelationalTable`il set di dati di tipo è ancora supportato. Tuttavia, è consigliabile usare il nuovo set di dati.
+> `RelationalTable` il set di dati di tipo è ancora supportato. Tuttavia, è consigliabile usare il nuovo set di dati.
 
 **Payload precedente:**
 
@@ -208,13 +208,13 @@ Per copiare dati da Teradata, nella sezione **origine** dell'attività di copia 
 | query | Usare la query SQL personalizzata per leggere i dati. Un esempio è `"SELECT * FROM MyTable"`.<br>Quando si Abilita il caricamento partizionato, è necessario associare tutti i parametri di partizione predefiniti corrispondenti nella query. Per esempi, vedere la sezione [copia parallela da Teradata](#parallel-copy-from-teradata) . | No (se è specificata una tabella nel set di dati) |
 | partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per caricare dati da Teradata. <br>Consenti valori: **None** (impostazione predefinita), **hash** e **DynamicRange**.<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per il caricamento simultaneo di dati da Teradata è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
 | partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati. <br>Si applica quando l'opzione di partizione non è `None`. | No |
-| partitionColumnName | Specificare il nome della colonna di origine che verrà utilizzata dalla partizione di intervallo o dalla partizione hash per la copia parallela. Se non specificato, l'indice primario della tabella viene rilevato automaticamente e utilizzato come colonna di partizione. <br>Applicare quando l'opzione di partizione è `Hash` o `DynamicRange` . Se si utilizza una query per recuperare i dati di origine, hook `?AdfHashPartitionCondition` o `?AdfRangePartitionColumnName` nella clausola WHERE. Vedere l'esempio nella sezione [copia parallela da Teradata](#parallel-copy-from-teradata) . | No |
+| partitionColumnName | Specificare il nome della colonna di origine che verrà utilizzata dalla partizione di intervallo o dalla partizione hash per la copia parallela. Se non specificato, l'indice primario della tabella viene rilevato automaticamente e utilizzato come colonna di partizione. <br>Applicare quando l'opzione di partizione è `Hash` o `DynamicRange` . Se si utilizza una query per recuperare i dati di origine, hook `?AdfHashPartitionCondition` o  `?AdfRangePartitionColumnName` nella clausola WHERE. Vedere l'esempio nella sezione [copia parallela da Teradata](#parallel-copy-from-teradata) . | No |
 | partitionUpperBound | Valore massimo della colonna di partizione da cui copiare i dati. <br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si usa una query per recuperare i dati di origine, associare `?AdfRangePartitionUpbound` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Teradata](#parallel-copy-from-teradata) . | No |
 | partitionLowerBound | Valore minimo della colonna di partizione da cui copiare i dati. <br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si usa una query per recuperare i dati di origine, associare `?AdfRangePartitionLowbound` nella clausola WHERE. Per un esempio, vedere la sezione [copia parallela da Teradata](#parallel-copy-from-teradata) . | No |
 
 > [!NOTE]
 >
-> `RelationalSource`il tipo di origine della copia è ancora supportato, ma non supporta il nuovo carico parallelo incorporato da Teradata (opzioni di partizione). Tuttavia, è consigliabile usare il nuovo set di dati.
+> `RelationalSource` il tipo di origine della copia è ancora supportato, ma non supporta il nuovo carico parallelo incorporato da Teradata (opzioni di partizione). Tuttavia, è consigliabile usare il nuovo set di dati.
 
 **Esempio: copiare i dati usando una query di base senza partizione**
 
@@ -322,7 +322,7 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | Interval Second |Non supportata. Applica cast esplicito nella query di origine. |
 | Interval Year |Non supportata. Applica cast esplicito nella query di origine. |
 | Interval Year To Month |Non supportata. Applica cast esplicito nella query di origine. |
-| Number |Double |
+| Numero |Double |
 | Periodo (Data) |Non supportata. Applica cast esplicito nella query di origine. |
 | Periodo (ora) |Non supportata. Applica cast esplicito nella query di origine. |
 | Periodo (ora con fuso orario) |Non supportata. Applica cast esplicito nella query di origine. |

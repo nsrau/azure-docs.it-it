@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: bb987bb2a028ae17bb0dfcdd2f75b8fee5a6c288
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926468"
 ---
 # <a name="azure-operational-security-checklist"></a>Elenco di controllo per la sicurezza operativa di Azure
@@ -48,7 +48,7 @@ Questo elenco di controllo ha lo scopo di aiutare la aziende a valutare diverse 
 | [<br>Operazioni per sviluppatori (DevOps)](https://docs.microsoft.com/azure/architecture/checklist/dev-ops)|<ul><li>L'[Infrastruttura come Codice (IaC)](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) è una procedura consigliata che consente l'automazione e la convalida della creazione e dell'eliminazione di reti e macchine virtuali per facilitare la distribuzione sicura e l'applicazione stabile delle piattaforme di hosting.</li><li>[Integrazione continua e distribuzione](/visualstudio/containers/overview#continuous-delivery-and-continuous-integration-cicd) favoriscono l'unione in corso e il test del codice, consentendo di individuare tempestivamente i difetti. </li><li>[Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) gestisce le distribuzioni automatizzate in ogni fase della pipeline.</li><li>[Monitoraggio delle prestazioni delle app](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) per le applicazioni in esecuzione, inclusi gli ambienti di produzione per l'integrità delle applicazioni e l'utilizzo da parte delle organizzazioni per aiutare le organizzazioni a formare un'ipotesi e a verificare rapidamente</li><li>Usando [il test di carico e scalabilità automatica](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) è possibile trovare i problemi di prestazione nell'app per migliorare la qualità della distribuzione e assicurarsi che l'app sia sempre aggiornata o disponibile per soddisfare le esigenze aziendali.</li></ul> |
 
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Molte organizzazioni hanno distribuito e gestito con esito positivo le applicazioni cloud in Azure. Gli elenchi di controllo forniti evidenziano diversi elenchi di controllo essenziali che consentono di aumentare la probabilità di successo di distribuzioni e operazioni prive di frustrazione. Si consigliano vivamente queste considerazioni operative e strategiche per le distribuzioni di applicazioni nuove ed esistenti in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi

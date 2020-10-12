@@ -4,10 +4,10 @@ description: Questo articolo illustra come automatizzare l'aggiunta di un utente
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483823"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizzare l'aggiunta di un utente del Lab in un Lab in Azure DevTest Labs
@@ -15,7 +15,7 @@ Azure DevTest Labs consente di creare rapidamente ambienti di sviluppo e test Se
 
 Per aggiungere un utente a un Lab, è necessario aggiungere l'utente al ruolo **utente DevTest Labs** per il Lab. Questo articolo illustra come automatizzare l'aggiunta di un utente a un Lab usando uno dei modi seguenti:
 
-- Modelli di Gestione risorse di Azure
+- Modelli di Azure Resource Manager
 - Cmdlet di Azure PowerShell 
 - Interfaccia della riga di comando di Azure.
 

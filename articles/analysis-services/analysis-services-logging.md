@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83701482"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
@@ -90,7 +90,7 @@ La categoria Metriche registra le stesse [metriche del server](analysis-services
 
 3. Fare clic su **Salva**.
 
-    Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
+    Se viene visualizzato un errore che indica che non è stato possibile aggiornare la diagnostica per \<workspace name> . La sottoscrizione \<subscription id> non è registrata per l'uso di Microsoft. Insights. " seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 
     Se in seguito si vuole modificare la modalità di salvataggio dei log delle risorse, è possibile tornare in questa pagina e modificare le impostazioni.
 

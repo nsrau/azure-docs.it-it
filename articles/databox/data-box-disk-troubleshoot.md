@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925543"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Usare i log per risolvere i problemi di convalida in Azure Data Box Disk
@@ -21,7 +21,7 @@ Questo articolo si applica a Microsoft Azure Data Box Disk. Questo articolo desc
 
 ## <a name="validation-tool-log-files"></a>File di log dello strumento di convalida
 
-Quando si convalidano i dati sui dischi utilizzando lo [strumento di convalida](data-box-disk-deploy-copy-data.md#validate-data), viene generata un' *error.xml* per registrare eventuali errori. Il file di log si trova nella `Drive:\DataBoxDiskImport\logs` cartella dell'unità. Quando si esegue la convalida, viene fornito un collegamento al log degli errori di.
+Quando si convalidano i dati sui dischi utilizzando lo [strumento di convalida](data-box-disk-deploy-copy-data.md#validate-data), viene generata un' *error.xml* per registrare eventuali errori. Il file di log si trova nella  `Drive:\DataBoxDiskImport\logs` cartella dell'unità. Quando si esegue la convalida, viene fornito un collegamento al log degli errori di.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 

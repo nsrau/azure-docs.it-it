@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195913"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Spostare i dati da e verso SQL Server usando Azure Data Factory
@@ -402,7 +402,7 @@ L'esempio copia i dati di una serie temporale da un archivio BLOB di Azure a una
   }
 }
 ```
-**Set di dati di input del BLOB di Azure**
+**Set di dati di input BLOB di Azure**
 
 I dati vengono prelevati da un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, e giorno dell'ora di inizio e il nome del file usa la parte dell'ora di inizio relativa all'ora. L'impostazione di "external" su "true" comunica al servizio Data Factory che il set di dati è esterno a Data Factory e non è prodotto da un'attività al suo interno.
 
@@ -553,7 +553,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 
     Per informazioni dettagliate e modalità alternative di abilitazione del protocollo TCP/IP, vedere [Abilitare o disabilitare un protocollo di rete del server](https://msdn.microsoft.com/library/ms191294.aspx).
 3. Nella stessa finestra fare doppio clic su **TCP/IP** per aprire la finestra **Proprietà TCP/IP**.
-4. Passare alla scheda **indirizzi IP** . scorrere verso il basso fino a visualizzare la sezione **IPAll** . Prendere nota della **porta TCP**(il valore predefinito è **1433**).
+4. Passare alla scheda **indirizzi IP** . Scorrere verso il basso fino a visualizzare la sezione **IPAll** . Prendere nota della **porta TCP**(il valore predefinito è **1433**).
 5. Creare una **regola per Windows Firewall** nel computer per consentire il traffico in ingresso attraverso questa porta.
 6. **Verificare la connessione**: per connettersi al server SQL con un nome completo, usare SQL Server Management Studio da un computer diverso. Ad esempio: "\<machine\>\<domain\>.corp\<company\>.com,1433."
 
@@ -679,7 +679,7 @@ Il mapping è uguale al mapping del tipo di dati di SQL Server per ADO.NET.
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

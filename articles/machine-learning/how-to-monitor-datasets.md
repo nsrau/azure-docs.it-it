@@ -12,10 +12,10 @@ ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 8f54ece9a932ed4cc0adc29747e1c58ee22646c8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333869"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rileva Drift dei dati (anteprima) nei set di dati
@@ -145,7 +145,7 @@ Nelle impostazioni **dello schema** specificare la colonna timestamp da una colo
 
 Se i dati sono partizionati in base alla data, come in questo caso, è anche possibile specificare il partition_timestamp.  In questo modo è possibile elaborare più efficacemente le date.
 
-:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Timestamp partizione":::
+:::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Imposta il timestamp":::
 
 
 ## <a name="create-dataset-monitors"></a>Crea monitoraggi DataSet
@@ -213,7 +213,7 @@ Per un esempio completo di configurazione di un `timeseries` set di dati e un ri
 
 1. Fare clic sul pulsante **+ Crea monitoraggio** e continuare la procedura guidata facendo clic su **Avanti**.  
 
-:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Creazione guidata monitoraggio":::
+:::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Imposta il timestamp":::
 
 * **Selezionare set di dati di destinazione**.  Il set di dati di destinazione è un set di dati tabulare con la colonna timestamp specificata, che verrà analizzata per la deriva dei dati. Il set di dati di destinazione deve avere funzionalità in comune con il set di dati di base e deve essere un `timeseries` set di dati a cui vengono aggiunti nuovi dati. I dati cronologici nel set di dati di destinazione possono essere analizzati oppure è possibile monitorare nuovi dati.
 
@@ -240,7 +240,7 @@ Questa sezione illustra i risultati del monitoraggio di un set di dati, disponib
 
 Inizia con le informazioni di primo livello sulla grandezza della deviazione dei dati e su un'evidenziazione delle funzionalità da approfondire.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Panoramica della deviazione":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Imposta il timestamp":::
 
 
 | Metrica | Descrizione | 
@@ -253,7 +253,7 @@ Inizia con le informazioni di primo livello sulla grandezza della deviazione dei
 
 Vedere come il set di dati differisce dal set di dati di destinazione nel periodo di tempo specificato.  Più vicino al 100%, maggiore è la differenza tra i due set di impostazioni.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Tendenza Magnitude Drift":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Imposta il timestamp":::
 
 ### <a name="drift-magnitude-by-features"></a>Drift Magnitude by features
 
@@ -263,7 +263,7 @@ Anche il set di dati di destinazione viene profilato nel tempo. La distanza stat
 
 In Azure Machine Learning Studio fare clic su una barra nel grafico per visualizzare i dettagli del livello di funzionalità per tale data. Per impostazione predefinita, viene visualizzata la distribuzione del set di dati di base e la distribuzione dell'esecuzione più recente della stessa funzionalità.
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Drift Magnitude by features":::
+:::image type="content" source="media/how-to-monitor-datasets/drift-by-feature.gif" alt-text="Imposta il timestamp":::
 
 Queste metriche possono anche essere recuperate in Python SDK tramite il `get_metrics()` metodo su un `DataDriftDetector` oggetto.
 
@@ -271,7 +271,7 @@ Queste metriche possono anche essere recuperate in Python SDK tramite il `get_me
 
 Infine, scorrere verso il basso per visualizzare i dettagli di ogni singola funzionalità.  Utilizzare gli elenchi a discesa sopra il grafico per selezionare la funzionalità e selezionare la metrica che si desidera visualizzare.
 
-:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Grafico delle funzionalità numeriche e confronto":::
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Imposta il timestamp":::
 
 Le metriche nel grafico dipendono dal tipo di funzionalità.
 
@@ -293,7 +293,7 @@ Le metriche nel grafico dipendono dal tipo di funzionalità.
 
 In questo grafico selezionare una singola data per confrontare la distribuzione delle funzionalità tra la destinazione e questa data per la funzionalità visualizzata. Per le funzionalità numeriche, vengono visualizzate due distribuzioni di probabilità.  Se la funzionalità è numerica, viene visualizzato un grafico a barre.
 
-:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Selezionare una data da confrontare con la destinazione":::
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Imposta il timestamp":::
 
 ## <a name="metrics-alerts-and-events"></a>Metriche, avvisi ed eventi
 

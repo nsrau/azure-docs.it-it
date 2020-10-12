@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
 ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87384855"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
@@ -34,7 +34,7 @@ Tutti i dati nell'area di lavoro Log Analytics vengono archiviati come record co
 ## <a name="create-a-request"></a>Creare una richiesta
 Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che include i dati da inviare in formato JSON (JavaScript Object Notation).  Le tre tabelle successive indicano gli attributi necessari per ogni richiesta. Ogni attributo viene descritto con maggiori dettagli più avanti nell'articolo.
 
-### <a name="request-uri"></a>URI della richiesta
+### <a name="request-uri"></a>URI richiesta
 | Attributo | Proprietà |
 |:--- |:--- |
 | Metodo |POST |
@@ -134,10 +134,10 @@ Per identificare il tipo di dati di una proprietà, Monitoraggio di Azure aggiun
 
 | Tipo di dati proprietà | Suffisso |
 |:--- |:--- |
-| Stringa |_s |
+| string |_s |
 | Boolean |_b |
 | Double |_d |
-| Data/Ora |_t |
+| Data/ora |_t |
 | GUID (archiviato come stringa) |_g |
 
 > [!NOTE]

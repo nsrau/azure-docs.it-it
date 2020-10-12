@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 6f8ec56cc5747921ee786bd4c069070ff865f9fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507926"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.1 nell'array virtuale StorSimple
@@ -103,7 +103,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
-2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Apply**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-11/update2m.png)
 

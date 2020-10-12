@@ -4,10 +4,10 @@ description: Usare server di Backup di Azure per eseguire il backup dello stato 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86538701"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Eseguire il backup dello stato del sistema e il ripristino in bare metal usando server di Backup di Azure
@@ -15,7 +15,7 @@ ms.locfileid: "86538701"
 Il server di Backup di Azure esegue il backup dello stato del sistema e offre la protezione del ripristino bare metal.
 
 * **Backup dello stato del sistema**: esegue il backup dei file del sistema operativo. Questo backup consente di eseguire il ripristino all'avvio di un computer, ma i file di sistema e il registro di sistema andranno persi. Un backup dello stato del sistema include gli elementi seguenti:
-  * Membro di dominio: file di avvio, database di registrazione della classe COM+, registro
+  * Membro del dominio: file di avvio, database di registrazione della classe COM+, Registro di sistema
   * Controller di dominio: file di avvio di Windows Server Active Directory (NTDS), database di registrazione della classe COM+, registro, volume di sistema (SYSVOL)
   * Computer che esegue servizi cluster: metadati del server di cluster
   * Computer che esegue servizi certificati: dati del certificato
@@ -25,21 +25,21 @@ Nella tabella seguente sono riepilogati gli elementi di cui è possibile eseguir
 
 |Backup|Problema|Ripristino dal backup del server di Backup di Azure|Ripristino dal backup dello stato del sistema|Ripristino bare metal|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Dati dei file**<br /><br />Backup dei dati regolare<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di file persi|S|N|N|
-|**Dati dei file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
-|**Dati dei file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati intatti)|N|N|S|
-|**Dati dei file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (volumi di dati persi)|S|N|S<br /><br />BMR, seguito da un ripristino regolare dei dati dei file di cui è stato eseguito il backup|
-|**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sito, elenchi, elementi elenco, documenti persi|S|N|N|
-|**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
-|**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />Ripristino bare metal/backup dello stato del sistema|Ripristino di emergenza|N|N|N|
-|Windows Server 2012 R2 Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Macchine virtuali perse|S|N|N|
-|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Sistema operativo perso o danneggiato|N|S|S|
-|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Host Hyper-V perso (macchine virtuali intatte)|N|N|S|
-|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />Ripristino bare metal/backup dello stato del sistema di host|Host Hyper-V perso (macchine virtuali perse)|N|N|S<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Dati di app persi|S|N|N|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Sistema operativo perso o danneggiato|N|S|S|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (database/log delle transazioni intatti)|N|N|S|
-|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />Ripristino bare metal/backup dello stato del sistema|Server perso (database/log delle transazioni persi)|N|N|S<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
+|**Dati di file**<br /><br />Backup dei dati normale<br /><br />BMR/Backup dello stato del sistema|Perdita dei dati dei file|S|N|N|
+|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />BMR/Backup dello stato del sistema|Perdita o danneggiamento del sistema operativo|N|S|S|
+|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />BMR/Backup dello stato del sistema|Server perso (volumi di dati intatti)|N|N|S|
+|**Dati di file**<br /><br />Backup del server di Backup di Azure dei dati di file<br /><br />BMR/Backup dello stato del sistema|Perdita di un server (volumi dati persi)|S|N|S<br /><br />BMR, seguito da un ripristino regolare dei dati dei file di cui è stato eseguito il backup|
+|**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />BMR/Backup dello stato del sistema|Sito, elenchi, elementi elenco, documenti persi|S|N|N|
+|**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />BMR/Backup dello stato del sistema|Perdita o danneggiamento del sistema operativo|N|S|S|
+|**Dati di SharePoint**<br /><br />Backup del server di Backup di Azure dei dati della farm<br /><br />BMR/Backup dello stato del sistema|Ripristino di emergenza|N|N|N|
+|Windows Server 2012 R2 Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />BMR/Backup dello stato del sistema dell’host|Perdita di macchina virtuale|S|N|N|
+|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />BMR/Backup dello stato del sistema dell’host|Perdita o danneggiamento del sistema operativo|N|S|S|
+|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />BMR/Backup dello stato del sistema dell’host|Perdita di un host Hyper-V (macchine virtuali intatte)|N|N|S|
+|Hyper-V<br /><br />Backup del server di Backup di Azure dell'host o guest Hyper-V<br /><br />BMR/Backup dello stato del sistema dell’host|Perdita di un host Hyper-V (macchine virtuali perse)|N|N|S<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />BMR/Backup dello stato del sistema|Perdita di dati delle app|S|N|N|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />BMR/Backup dello stato del sistema|Perdita o danneggiamento del sistema operativo|N|S|S|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />BMR/Backup dello stato del sistema|Perdita di un server (database e log delle transazioni intatti)|N|N|S|
+|SQL Server/Exchange<br /><br />Backup dell'app del server di Backup di Azure<br /><br />BMR/Backup dello stato del sistema|Perdita di un server (database e log delle transazioni persi)|N|N|S<br /><br />Ripristino bare metal, seguito da ripristino regolare del server di Backup di Azure|
 
 ## <a name="how-system-state-backup-works"></a>Funzionamento del backup dello stato del sistema
 
@@ -73,7 +73,7 @@ Al termine del backup, il file viene trasferito nel computer del server di backu
 
 * Il ripristino bare metal non è supportato per i computer con Windows Server 2003 o che eseguono un sistema operativo client.
 
-* Non è possibile proteggere il ripristino bare metal e lo stato del sistema per lo stesso computer in diversi gruppi protezione dati.
+* Non è possibile proteggere BMR e lo stato del sistema per lo stesso computer in gruppi protezione dati diversi.
 
 * Un computer server di Backup non può proteggere sé stesso per il ripristino bare metal.
 
@@ -83,13 +83,13 @@ Al termine del backup, il file viene trasferito nel computer del server di backu
 
 * Per la protezione BMR, diversamente dalla protezione dello stato del sistema, il server di backup non ha requisiti di spazio nel computer protetto. Windows Server Backup trasferisce direttamente i backup nel computer del server di Backup. Il processo di trasferimento del backup non viene visualizzato nella vista **Processi** del server di Backup.
 
-* Il server di Backup riserva 30 GB di spazio nel volume di replica per il ripristino bare metal. È possibile modificare l'assegnazione di spazio nella pagina **allocazione dischi** della procedura guidata modifica gruppo protezione dati. In alternativa, è possibile usare i cmdlet di PowerShell Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation. Nel volume del punto di ripristino, la protezione del ripristino bare metal richiede circa 6 GB per una conservazione di cinque giorni.
+* Il server di Backup riserva 30 GB di spazio nel volume di replica per il ripristino bare metal. È possibile modificare l'assegnazione di spazio nella pagina **allocazione dischi** della procedura guidata modifica gruppo protezione dati. In alternativa, è possibile usare il Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation cmdlet di PowerShell. Nel volume del punto di ripristino, la protezione del ripristino bare metal richiede circa 6 GB per una conservazione di cinque giorni.
   * Non è possibile ridurre le dimensioni del volume di replica a meno di 15 GB.
   * Il server di backup non calcola le dimensioni dell'origine dati del ripristino bare metal. Presume 30 GB per tutti i server. Modificare il valore in base alle dimensioni dei backup bare metal previsti nell'ambiente in uso. È possibile calcolare approssimativamente le dimensioni di un backup BMR come somma dello spazio utilizzato in tutti i volumi critici. Volumi critici = volume di avvio + volume di sistema + volume che ospita i dati dello stato del sistema, ad esempio Active Directory.
 
-* Se si passa dalla protezione dello stato del sistema alla protezione BMR, la protezione BMR richiede meno spazio sul *volume del punto di ripristino*. Tuttavia, lo spazio aggiuntivo nel volume non viene recuperato. È possibile ridurre manualmente le dimensioni del volume nella pagina **modifica allocazione dischi** della procedura guidata modifica gruppo protezione dati. In alternativa, è possibile usare i cmdlet di PowerShell Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation.
+* Se si passa dalla protezione dello stato del sistema alla protezione BMR, la protezione BMR richiede meno spazio sul *volume del punto di ripristino*. Tuttavia, lo spazio aggiuntivo nel volume non viene recuperato. È possibile ridurre manualmente le dimensioni del volume nella pagina **modifica allocazione dischi** della procedura guidata modifica gruppo protezione dati. In alternativa, è possibile usare il Get-DatasourceDiskAllocation e Set-DatasourceDiskAllocation cmdlet di PowerShell.
 
-    Se si passa dalla protezione dello stato del sistema alla protezione BMR, la protezione BMR richiede più spazio sul *volume di replica*. Il volume viene esteso automaticamente. Se si desidera modificare le allocazioni dello spazio predefinite, utilizzare il cmdlet di PowerShell Modify-DiskAllocation.
+    Se si passa dalla protezione dello stato del sistema alla protezione BMR, la protezione BMR richiede più spazio sul *volume di replica*. Il volume viene esteso automaticamente. Se si desidera modificare le allocazioni dello spazio predefinite, utilizzare il cmdlet Modify-DiskAllocation PowerShell.
 
 * Se si passa dalla protezione BMR alla protezione dello stato del sistema, è necessario più spazio sul volume del punto di ripristino. È possibile che il server di Backup tenti di aumentare automaticamente il volume. Se lo spazio disponibile nel pool di archiviazione non è sufficiente, si verificherà un errore.
 
@@ -121,11 +121,11 @@ Per eseguire il backup dello stato del sistema e bare metal:
 
     Per prima cosa il backup a breve termine è sempre su disco, con l'opzione di eseguire il backup dal disco in Azure usando backup di Azure (a breve o a lungo termine). Un'alternativa al backup a lungo termine nel cloud consiste nella configurazione del backup a lungo termine su un dispositivo a nastro o una libreria di nastri autonoma connessa al server di Backup.
 
-1. Nella pagina **selezione obiettivi a breve termine** scegliere come eseguire il backup dell'archiviazione a breve termine su disco:
+1. Nella pagina **Seleziona obiettivi Short-Term** scegliere come eseguire il backup nell'archiviazione a breve termine su disco:
     * In periodo di **mantenimento**dati scegliere per quanto tempo mantenere i dati su disco.
     * Per **frequenza di sincronizzazione**scegliere con quale frequenza eseguire un backup incrementale su disco. Se non si vuole impostare un intervallo di backup, è possibile selezionare **immediatamente prima di un punto di ripristino**. Il server di backup eseguirà un backup completo rapido appena prima di ogni punto di ripristino pianificato.
 
-1. Se si desidera archiviare i dati su nastro per l'archiviazione a lungo termine, nella pagina **Specifica obiettivi a lungo termine** scegliere per quanto tempo conservare i dati del nastro (da 1 a 99 anni).
+1. Se si desidera archiviare i dati su nastro per l'archiviazione a lungo termine, nella pagina **impostazione obiettivi Long-Term** scegliere per quanto tempo conservare i dati del nastro (da 1 a 99 anni).
     1. Per **frequenza di backup**, scegliere la frequenza di esecuzione del backup su nastro. La frequenza è basata sull'intervallo di mantenimento dati selezionato:
         * Quando il periodo di mantenimento dati è compreso tra 1 e 99 anni, è possibile eseguire il backup giornaliero, settimanale, bisettimanale, mensile, trimestrale, semestrale o annuale.
         * Quando il periodo di mantenimento dati è compreso tra 1 e 11 mesi, è possibile eseguire il backup giornaliero, settimanale, bisettimanale o mensile.
@@ -137,7 +137,7 @@ Per eseguire il backup dello stato del sistema e bare metal:
 
     * Il valore **Dimensioni totali dei dati** è la dimensione dei dati di cui eseguire il backup.
     * Il valore **Spazio su disco per il provisioning nel server di Backup di Azure** è lo spazio consigliato dal server di Backup per il gruppo protezione dati. Il server di backup usa queste impostazioni per scegliere il volume di backup ideale. È possibile modificare le opzioni del volume di backup nei **Dettagli di allocazione dei dischi**.
-    * Per i carichi di lavoro, nel menu a discesa selezionare l'archiviazione preferita. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Lo spazio sottoposto a provisioning è la quantità di spazio di archiviazione che il server di backup suggerisce di aggiungere al volume per garantire backup uniformi.
+    * Per i carichi di lavoro, nel menu a discesa selezionare l'archiviazione preferita. Le modifiche cambiano i valori di **Totale spazio di archiviazione** e **Free Storage** (Spazio di archiviazione disponibile) nel riquadro **Spazio di archiviazione su disco disponibile**. Lo spazio sottoposto a provisioning è la quantità di spazio di archiviazione che il server di backup suggerisce di aggiungere al volume per garantire backup uniformi.
 
 1. Nella pagina **scelta del metodo** per la creazione della replica selezionare la modalità di gestione della replica iniziale dei dati completi.
 
@@ -151,7 +151,7 @@ Per eseguire il backup dello stato del sistema e bare metal:
 
 1. Nella pagina **specificare la pianificazione dei backup online** selezionare la frequenza con cui eseguire il backup incrementale in Azure.
 
-    È possibile pianificare l'esecuzione di backup ogni giorno, settimana, mese e anno. È anche possibile selezionare la data e l'ora in cui devono essere eseguiti i backup. È possibile eseguire i backup fino a due volte al giorno. Ogni volta che viene eseguito un backup, viene creato un punto di ripristino dei dati in Azure dalla copia dei dati di backup archiviati nel disco del server di backup.
+    È possibile pianificare l'esecuzione di backup ogni giorno, settimana, mese e anno. È anche possibile selezionare la data e l'ora in cui devono essere eseguiti i backup. I backup possono essere eseguiti fino a due volte al giorno. Ogni volta che viene eseguito un backup, viene creato un punto di ripristino dei dati in Azure dalla copia dei dati di backup archiviati nel disco del server di backup.
 
 1. Nella pagina **specificare i criteri di conservazione online** selezionare la modalità di conservazione dei punti di ripristino creati dai backup giornalieri, settimanali, mensili e annuali in Azure.
 
@@ -161,11 +161,11 @@ Per eseguire il backup dello stato del sistema e bare metal:
 
 1. Nella pagina **Riepilogo** esaminare le impostazioni. Dopo aver selezionato **Crea gruppo**, viene eseguita la replica iniziale dei dati. Al termine della replica dei dati, nella pagina **stato** lo stato del gruppo protezione dati sarà **OK**. I backup vengono eseguiti in base alle impostazioni del gruppo protezione dati.
 
-## <a name="recover-system-state-or-bmr"></a>Ripristino dello stato del sistema o bare metal
+## <a name="recover-system-state-or-bmr"></a>Ripristinare lo stato del sistema o BMR
 
-È possibile eseguire il ripristino dello stato del sistema o bare metal in un percorso di rete. Se è stato eseguito il backup di BMR, utilizzare ambiente ripristino Windows (WinRE) per avviare il sistema e connetterlo alla rete. Usare quindi Windows Server Backup dal percorso di rete. Se è stato eseguito il backup dello stato del sistema, è sufficiente usare Windows Server Backup per eseguire il ripristino dal percorso di rete.
+È possibile eseguire un ripristino bare metal o dello stato del sistema in un percorso di rete. Se è stato eseguito il backup di BMR, utilizzare ambiente ripristino Windows (WinRE) per avviare il sistema e connetterlo alla rete. Usare quindi Windows Server Backup dal percorso di rete. Se è stato eseguito il backup dello stato del sistema, è sufficiente usare Windows Server Backup per eseguire il ripristino dal percorso di rete.
 
-### <a name="restore-bmr"></a>Ripristino bare metal
+### <a name="restore-bmr"></a>Eseguire un ripristino bare metal
 
 Per eseguire il ripristino nel computer del server di backup:
 
@@ -173,7 +173,7 @@ Per eseguire il ripristino nel computer del server di backup:
 
 1. I punti di ripristino disponibili sono indicati in grassetto nel calendario. Selezionare la data e l'ora del punto di ripristino da utilizzare.
 
-1. Nella pagina **Selezione tipo di ripristino** selezionare **copia in una cartella di rete**.
+1. Nella pagina  **Selezione tipo di ripristino** selezionare **copia in una cartella di rete**.
 
 1. Nella pagina **specifica destinazione** selezionare la destinazione per i dati copiati.
 
@@ -201,15 +201,15 @@ Per ripristinare il sistema:
 
 1. Nella prima pagina verificare le impostazioni relative alla lingua e alle impostazioni locali. Nella pagina **Installa** selezionare **Ripristina il computer**.
 
-1. Nella pagina **Opzioni ripristino di sistema** selezionare **Ripristinare il computer utilizzando un'immagine del sistema creata in precedenza**.
+1. Nella pagina **Opzioni ripristino di sistema** selezionare **Ripristina il computer utilizzando un'immagine del sistema creata in precedenza**.
 
-1. Nella pagina **Selezionare un backup dell'immagine del sistema** selezionare **Seziona un'immagine del sistema** > **Avanzate** > **Cerca immagine del sistema in rete**. Se viene visualizzato un avviso, selezionare **Sì**. Passare al percorso della condivisione, immettere le credenziali e quindi selezionare il punto di ripristino. Il sistema esegue l'analisi dei backup specifici disponibili nel punto di ripristino. Selezionare il punto di ripristino da utilizzare.
+1. Nella pagina **selezionare un backup dell'immagine del sistema** selezionare **selezionare un'immagine**  >  del sistema ricerca**avanzata**  >  **per un'immagine del sistema in rete**. Se viene visualizzato un avviso, selezionare **Sì**. Passare al percorso della condivisione, immettere le credenziali e quindi selezionare il punto di ripristino. Il sistema esegue l'analisi dei backup specifici disponibili nel punto di ripristino. Selezionare il punto di ripristino da utilizzare.
 
 1. Nella pagina **scegliere la modalità di ripristino del backup** selezionare **Formatta e partiziona i dischi**. Nella pagina successiva verificare le impostazioni.
 
 1. Per iniziare il ripristino selezionare **Fine**. È necessario un riavvio.
 
-### <a name="restore-system-state"></a>Ripristino dello stato del sistema
+### <a name="restore-system-state"></a>Ripristinare lo stato del sistema
 
 Per eseguire il ripristino nel server di backup:
 
@@ -257,6 +257,6 @@ Per eseguire Windows Server Backup:
 
     ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
-1. Confermare che si desidera avviare il ripristino. È possibile visualizzare il processo nella finestra del prompt dei comandi. Viene creato un registro di ripristino.
+1. Confermare che si desidera avviare il ripristino. È possibile visualizzare il processo nella finestra del prompt dei comandi. Viene creato un log di ripristino.
 
 1. Dopo il ripristino, riavviare il server.

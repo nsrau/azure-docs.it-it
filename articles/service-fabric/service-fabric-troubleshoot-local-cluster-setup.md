@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 76ca0bb7b81b3896538f08ff2ef52ed1ac6b363f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091607"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Risolvere i problemi di configurazione del cluster di sviluppo locale
@@ -28,7 +28,7 @@ At line:1 char:1 + .\DevClusterSetup.ps1
 + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
 ```
 
-#### <a name="solution"></a>Solution
+#### <a name="solution"></a>Soluzione
 Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di PowerShell come amministratore. Ora è possibile eseguire lo script correttamente.
 
 ## <a name="cluster-connection-failures"></a>Errori di connessione del cluster
@@ -37,7 +37,7 @@ Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di Power
 #### <a name="problem"></a>Problema
 Quando ci si connette al cluster in PowerShell, viene visualizzato l'errore TypeInitializationException per System.Fabric.Common.AppTrace.
 
-#### <a name="solution"></a>Solution
+#### <a name="solution"></a>Soluzione
 La variabile di percorso non è stata impostata correttamente durante l'installazione. Disconnettersi da Windows e accedere nuovamente. Il percorso risulterà aggiornato.
 
 ### <a name="cluster-connection-fails-with-object-is-closed"></a>La connessione del cluster ha esito negativo con il messaggio "L’oggetto è chiuso"
@@ -53,14 +53,14 @@ At line:1 char:1
 + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
 ```
 
-#### <a name="solution"></a>Solution
+#### <a name="solution"></a>Soluzione
 Chiudere la finestra di PowerShell corrente e aprire una nuova finestra di PowerShell come amministratore.
 
 ### <a name="fabric-connection-denied-exception"></a>Eccezione di connessione a Fabric negata
 #### <a name="problem"></a>Problema
 Durante il debug da Visual Studio, si verifica un errore FabricConnectionDeniedException.
 
-#### <a name="solution"></a>Solution
+#### <a name="solution"></a>Soluzione
 Questo errore si verifica in genere quando si cerca di avviare un processo host servizio manualmente.
 
 Assicurarsi di non disporre di progetti di servizio impostati come progetti di avvio nella soluzione. Solo i progetti di applicazione di Infrastruttura di servizi devono essere impostati come progetti di avvio.

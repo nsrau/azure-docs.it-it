@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212583"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Binding del trigger del servizio SignalR per funzioni di Azure
@@ -193,8 +193,8 @@ InvocationContext contiene tutto il contenuto del messaggio inviato dal servizio
 |Argomenti| Disponibile per la categoria *messaggi* . Contiene *argomenti* nel [messaggio di chiamata](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
 |Errore| Disponibile per l'evento *disconnesso* . Può essere vuoto se la connessione è chiusa senza errori o contiene i messaggi di errore.|
 |Hub| Nome dell'hub a cui appartiene il messaggio.|
-|Categoria| Categoria del messaggio.|
-|Event| Evento del messaggio.|
+|Category| Categoria del messaggio.|
+|Evento| Evento del messaggio.|
 |ConnectionId| ID connessione del client che invia il messaggio.|
 |UserId| Identità utente del client che invia il messaggio.|
 |Headers| Intestazioni della richiesta.|
@@ -213,7 +213,7 @@ await connection.invoke("broadcast", message1, message2);
 
 È possibile accedere a questi due argomenti dal parametro, oltre a assegnare il tipo di parametro tramite `ParameterNames` .
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Per l'associazione di parametri, l'ordine è importante. Se si utilizza `ParameterNames` , l'ordine in `ParameterNames` corrisponde all'ordine degli argomenti richiamati nel client. Se si usa l'attributo `[SignalRParameter]` in C#, l'ordine degli argomenti nei metodi della funzione di Azure corrisponde all'ordine degli argomenti nei client.
 

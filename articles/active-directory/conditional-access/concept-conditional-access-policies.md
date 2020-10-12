@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88948386"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
@@ -93,7 +93,7 @@ Gli amministratori possono scegliere di richiedere uno dei controlli precedenti 
 - Richiedi tutti i controlli selezionati (controllo e controllo)
 - Richiedi uno dei controlli selezionati (controllo o controllo)
 
-### <a name="session"></a>sessione
+### <a name="session"></a>Sessione
 
 I [controlli della sessione](concept-conditional-access-session.md) possono limitare l'esperienza 
 
