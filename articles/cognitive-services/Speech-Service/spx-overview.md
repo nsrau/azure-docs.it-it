@@ -12,10 +12,10 @@ ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6b852186834fba858e8a049a8230b38f3d69164d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067427"
 ---
 # <a name="what-is-the-speech-cli"></a>Che cos'è l'interfaccia della riga di comando per Voce?
@@ -42,11 +42,11 @@ Usare l'SDK di riconoscimento vocale nei casi seguenti:
 
 * Eseguire sulle risorse di calcolo di Azure: inviare i comandi dell'interfaccia della riga di comando per l'esecuzione in una risorsa di calcolo remota di Azure usando `spx webjob` .
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 Per iniziare a usare l'interfaccia della riga di comando vocale, vedere l' [articolo Nozioni di base](spx-basics.md). Questo articolo illustra come eseguire alcuni comandi di base e Mostra anche comandi leggermente più avanzati per l'esecuzione di operazioni batch per sintesi vocale e sintesi vocale. Dopo aver letto l'articolo Nozioni di base, è necessario avere una conoscenza della sintassi per iniziare a scrivere alcuni comandi personalizzati o automatizzare semplici operazioni del servizio di sintesi vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Nozioni di base sull'interfaccia della riga di comando per Voce](spx-basics.md)
+- [Nozioni fondamentali sull'interfaccia vocale](spx-basics.md)
 - Se il caso d'uso è più complesso, [ottenere l'SDK di riconoscimento vocale](speech-sdk.md)

@@ -10,10 +10,10 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.openlocfilehash: d5fb2539d79c31de5a5e0196a7a4814c02a84602
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87544595"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Come creare un pacchetto di un modello registrato con Docker
@@ -163,7 +163,7 @@ docker kill mycontainer
 * [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
-* [Aggiornare il servizio Web](how-to-deploy-update-web-service.md)
+* [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

@@ -9,10 +9,10 @@ ms.date: 07/30/2020
 ms.author: jife
 ms.custom: include file
 ms.openlocfilehash: 7c11ace5983ee906ebb12ebb2c60f4567f40e430
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87515302"
 ---
 Condivisione dati di Azure consente alle organizzazioni di condividere i dati in modo semplice e sicuro con clienti e partner.

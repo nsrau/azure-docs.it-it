@@ -9,10 +9,10 @@ ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91373130"
 ---
 # <a name="azure-dedicated-hosts"></a>Host dedicati di Azure
@@ -172,7 +172,7 @@ Le dimensioni e i tipi di hardware variano in base all'area. Per ulteriori infor
 
 Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue una query sull'host, verranno restituiti gli Stati seguenti:
 
-| Stato di integrità   | Descrizione       |
+| Stato di integrità   | Description       |
 |----------|----------------|
 | Host disponibile     | Nessun problema noto con l'host.   |
 | Host sottoposto a indagine  | Si sono verificati problemi con l'host che si sta cercando. Si tratta di uno stato di transizione necessario per consentire ad Azure di provare e identificare l'ambito e la causa radice del problema identificato. Le macchine virtuali in esecuzione nell'host potrebbero essere interessate. |

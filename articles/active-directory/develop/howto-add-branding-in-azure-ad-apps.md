@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706201"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
@@ -67,7 +67,7 @@ Dopo aver acconsentito all'app, gli amministratori possono scegliere di aggiunge
 
 ![Pulsante che mostra il logo Microsoft e il testo "Aggiungi alla mia organizzazione"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Esempio:
+È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Ad esempio:
 
 > *Se si usa già Microsoft 365 o un altro servizio aziendale di Microsoft, è possibile concedere <your_app_name> l'accesso ai dati dell'organizzazione. Ciò consentirà agli utenti di accedere <your_app_name> con gli account di lavoro esistenti.*
 

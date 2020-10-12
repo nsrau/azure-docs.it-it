@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: sideeksh
 ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007792"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Abilitare il ripristino di emergenza delle VM di Azure tra le zone di disponibilità
@@ -67,16 +67,16 @@ Come indicato in precedenza, il ripristino di emergenza da zona a zona riduce la
 
 Prima di distribuire il ripristino di emergenza da zona a zona per le macchine virtuali, è importante assicurarsi che altre funzionalità abilitate nella VM siano interoperabili con il ripristino di emergenza da zona a zona.
 
-|Feature  | Informativa sul supporto  |
+|Funzionalità  | Informativa sul supporto  |
 |---------|---------|
-|Macchine virtuali classiche   |     Non supportate    |
-|VM ARM    |    Funzionalità supportata    |
-|Crittografia dischi di Azure V1 (doppio passaggio, con Azure Active Directory (Azure AD))     |     Funzionalità supportata   |
-|Crittografia dischi di Azure V2 (Single Pass, senza Azure AD)    |    Funzionalità supportata    |
-|Dischi non gestiti    |    Non supportate    |
-|Dischi gestiti    |    Funzionalità supportata    |
-|Chiavi gestite dal cliente    |    Funzionalità supportata    |
-|Gruppi di selezione host di prossimità    |    Funzionalità supportata    |
+|Macchine virtuali classiche   |     Non supportato    |
+|VM ARM    |    Supportato    |
+|Crittografia dischi di Azure V1 (doppio passaggio, con Azure Active Directory (Azure AD))     |     Supportato   |
+|Crittografia dischi di Azure V2 (Single Pass, senza Azure AD)    |    Supportato    |
+|Dischi non gestiti    |    Non supportato    |
+|Dischi gestiti    |    Supportato    |
+|Chiavi gestite dal cliente    |    Supportato    |
+|Gruppi di selezione host di prossimità    |    Supportato    |
 |Interoperabilità di backup    |    Il backup e il ripristino a livello di file sono supportati. Backup e ripristino a livello di disco e VM e non supportati.    |
 |Aggiunta/rimozione a caldo    |    È possibile aggiungere dischi dopo aver abilitato la replica da zona a zona. La rimozione dei dischi dopo l'abilitazione della replica da zona a zona non è supportata.    | 
 

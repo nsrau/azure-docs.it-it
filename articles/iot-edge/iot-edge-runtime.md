@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
 ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89016955"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
@@ -92,7 +92,7 @@ Ogni elemento nel manifesto di distribuzione contiene informazioni specifiche su
   * Download in corso
   * In esecuzione
   * Unhealthy
-  * Non riuscito
+  * Operazione non riuscita
   * Arrestato
 
 * **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. I valori possibili sono:

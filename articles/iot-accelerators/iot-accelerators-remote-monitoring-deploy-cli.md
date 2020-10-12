@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80258295"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
@@ -77,7 +77,7 @@ Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 | 1     | [Applicazione Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting dell'applicazione web front-end |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestione della sicurezza e delle identità utente |
 | 1     | [Mappe di Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizzazione della posizione degli asset |
-| 1     | [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
 | 1     | [Servizio Device Provisioning di Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning dei dispositivi su larga scala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
 
@@ -98,7 +98,7 @@ Una distribuzione standard crea i servizi seguenti nella sottoscrizione di Azure
 | 1     | [Servizio app](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway applicazione su TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestione della sicurezza e delle identità utente |
 | 1     | [Mappe di Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizzazione della posizione degli asset |
-| 1     | [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
 | 1     | [Servizio Device Provisioning di Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning dei dispositivi su larga scala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
 

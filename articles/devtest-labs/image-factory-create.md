@@ -4,10 +4,10 @@ description: Questo articolo illustra come configurare una factory di immagini p
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482072"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Creare una factory di immagini personalizzata in Azure DevTest Labs
@@ -18,7 +18,7 @@ Una factory di immagini è una soluzione di configurazione come codice che compi
 
 L'acceleratore significativo per ottenere un desktop dello sviluppatore in uno stato pronto in DevTest Labs USA immagini personalizzate. Il lato negativo delle immagini personalizzate è che esistono altri elementi da mantenere nel Lab. Ad esempio, le versioni di valutazione dei prodotti scadono nel tempo (o) gli aggiornamenti della sicurezza appena rilasciati non vengono applicati, che ci impone di aggiornare periodicamente l'immagine personalizzata. Con una factory di immagini è presente una definizione dell'immagine archiviata nel controllo del codice sorgente e un processo automatizzato per produrre immagini personalizzate in base alla definizione.
 
-La soluzione consente la velocità di creazione di macchine virtuali da immagini personalizzate eliminando al tempo stesso costi di manutenzione aggiuntivi. Con questa soluzione è possibile creare automaticamente immagini personalizzate, distribuirle ad altri DevTest Labs e ritirare le immagini precedenti. Il video seguente illustra la factory di immagini e il modo in cui viene implementato con DevTest Labs.  Tutti gli script di Azure PowerShell sono disponibili gratuitamente e si trovano qui: [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory) .
+La soluzione consente la velocità di creazione di macchine virtuali da immagini personalizzate eliminando al tempo stesso costi di manutenzione aggiuntivi. Con questa soluzione è possibile creare automaticamente immagini personalizzate, distribuirle ad altri DevTest Labs e ritirare le immagini precedenti. Il video seguente illustra la factory di immagini e il modo in cui viene implementato con DevTest Labs.  Tutti gli script di Azure PowerShell sono disponibili gratuitamente e si trovano qui:  [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory) .
 
 <br/>
 

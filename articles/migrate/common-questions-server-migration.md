@@ -4,10 +4,10 @@ description: Risposte alle domande comuni sull'uso della migrazione del server A
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275541"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrazione di Azure Migrate server: domande comuni
@@ -135,7 +135,7 @@ Per un metodo di replica basato su agenti, Deployment Planner può aiutare a pro
 
 Il AppNamePrefix da usare in NetQosPolicy è "GatewayWindowsService.exe". È possibile creare un criterio nell'appliance Azure Migrate per limitare il traffico di replica dall'appliance creando un criterio come quello seguente:
 
-New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService.exe"-ThrottleRateActionBitsPerSecond 1 MB
+Nome New-NetQosPolicy "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService.exe"-ThrottleRateActionBitsPerSecond 1 MB
 
 ## <a name="how-is-the-data-transmitted-from-on-prem-environment-to-azure-is-it-encrypted-before-transmission"></a>In che modo i dati vengono trasmessi da un ambiente locale ad Azure? Crittografato prima della trasmissione?
 

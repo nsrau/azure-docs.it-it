@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.openlocfilehash: 7f0a8fcb841399eb910f5f043cc75ddad037ee30
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88606849"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Pianificare e gestire i costi per Azure Cosmos DB
@@ -71,7 +71,7 @@ Quando si inizia a usare Azure Cosmos DB risorse da portale di Azure, è possibi
 1. Creare un nuovo contenitore, ad esempio un contenitore Graph.
 1. Immettere la velocità effettiva necessaria per il carico di lavoro, ad esempio 400 ur/sec. Dopo aver inserito il valore di velocità effettiva, è possibile visualizzare la stima dei prezzi come illustrato nello screenshot seguente:
 
-   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Stima dei costi in portale di Azure":::
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Stima dei costi nel calcolatore di capacità Azure Cosmos DB":::
 
 ## <a name="use-budgets-and-cost-alerts"></a>Usare budget e avvisi relativi ai costi
 
@@ -93,7 +93,7 @@ Quando si usa l'analisi dei costi, è possibile visualizzare i costi Azure Cosmo
 
 1. Per limitare i costi per un singolo servizio, ad esempio Azure Cosmos DB, selezionare **Aggiungi filtro** e quindi selezionare **nome servizio**. Quindi, scegliere **Azure Cosmos DB** dall'elenco. Ecco un esempio che mostra i costi solo per Azure Cosmos DB:
  
-   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Monitorare i costi con il riquadro analisi costi":::
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Stima dei costi nel calcolatore di capacità Azure Cosmos DB":::
 
 Nell'esempio precedente viene visualizzato il costo corrente per Azure Cosmos DB per il mese di febbraio. I grafici contengono anche Azure Cosmos DB costi in base alla località e al gruppo di risorse.
 

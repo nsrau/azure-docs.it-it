@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122299"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
@@ -35,7 +35,7 @@ Questo articolo descrive come configurare e gestire le app per le funzioni.
 
 È possibile passare a tutti gli elementi necessari per gestire l'app per le funzioni dalla pagina Panoramica, in particolare le **[impostazioni dell'applicazione](#settings)** e le **[funzionalità della piattaforma](#platform-features)**.
 
-## <a name="application-settings"></a><a name="settings"></a>Impostazioni dell'applicazione
+## <a name="application-settings"></a><a name="settings"></a>Impostazioni applicazione
 
 La scheda **Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni. Queste impostazioni vengono archiviate crittografate ed è necessario selezionare **Mostra valori** per visualizzare i valori nel portale. È anche possibile accedere alle impostazioni dell'applicazione usando l'interfaccia della riga di comando di Azure.
 
@@ -83,7 +83,7 @@ Il resto di questo articolo è incentrato sulle funzionalità del servizio app s
 + [Strumenti avanzati (Kudu)](#kudu)
 + [Opzioni di distribuzione](#deployment)
 + [CORS](#cors)
-+ [Autenticazione](#auth)
++ [autenticazione](#auth)
 
 Per altre informazioni su come usare le impostazioni del servizio app, vedere [Configurare le impostazioni di del servizio app di Azure](../app-service/configure-common.md).
 

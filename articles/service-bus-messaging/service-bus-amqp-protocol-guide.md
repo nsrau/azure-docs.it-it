@@ -4,10 +4,10 @@ description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 ne
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88064537"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
@@ -73,7 +73,7 @@ Le connessioni, le sessioni e i canali sono temporanei. In caso di interruzione 
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisiti delle porte in uscita AMQP
 
-I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 siano aperte nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se la funzionalità [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) è abilitata. `EnableLinkRedirect`è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, contribuendo così a migliorare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end sull'intervallo di porte 104XX, come illustrato nella figura seguente. 
+I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 siano aperte nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se la funzionalità [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) è abilitata. `EnableLinkRedirect` è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, contribuendo così a migliorare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end sull'intervallo di porte 104XX, come illustrato nella figura seguente. 
 
 ![Elenco di porte di destinazione][4]
 
@@ -182,7 +182,7 @@ Le frecce della seguente tabella visualizzano la direzione del flusso performati
 | --> transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nessuna azione |
 | Nessuna azione |<-- disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={informazioni errore}<br/>)<br/>) |
 
-#### <a name="receive"></a>Ricevere
+#### <a name="receive"></a>Receive
 
 | Client | Bus di servizio |
 | --- | --- |
@@ -208,21 +208,21 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 #### <a name="header"></a>header
 
-| Nome campo | Uso | Nome API |
+| Nome campo | Utilizzo | Nome API |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Durata di questo messaggio |[timeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Durata di questo messaggio |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="properties"></a>properties
 
-| Nome campo | Uso | Nome API |
+| Nome campo | Utilizzo | Nome API |
 | --- | --- | --- |
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
-| in |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Etichetta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -238,7 +238,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 
 Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno parte delle proprietà del messaggio AMQP e vengono trasmesse come `MessageAnnotations` sul messaggio.
 
-| Mappatura della chiave di annotazione | Uso | Nome API |
+| Mappatura della chiave di annotazione | Utilizzo | Nome API |
 | --- | --- | --- |
 | x-opt-scheduled-enqueue-time | Dichiara in quale momento dovrà essere visualizzato il messaggio nell'entità |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-partition-key | Chiave definite dall'applicazione che stabilisce in quale partizione dovrà essere recapitato il messaggio. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
@@ -264,7 +264,7 @@ Ogni connessione deve avviare il proprio collegamento di controllo per poter ini
 
 Per avviare attività transazionali. il controller deve ricevere un `txn-id` dal coordinatore. Ciò avviene mediante l'invio di un messaggio di tipo `declare`. Se la dichiarazione ha esito positivo, il coordinatore risponde con un risultato di disposizione che esegue l'oggetto assegnato `txn-id`.
 
-| Client (controller) | Direction | Bus di servizio (coordinatore) |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | attach(<br/>name={nome collegamento},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={nome collegamento},<br/>... ,<br/>target=Coordinator()<br/>) |
@@ -277,7 +277,7 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 > Nota: esito negativo=vero intende l’esecuzione di rollback di una transazione ed esito negativo=falso fa riferimento all’esecuzione del commit.
 
-| Client (controller) | Direction | Bus di servizio (coordinatore) |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
@@ -289,7 +289,7 @@ Il controller conclude l'attività transazionale inviando un `discharge` messagg
 
 Tutte le operazioni transazionali vengono eseguite con lo stato di recapito transazionale `transactional-state` che contiene transazione-ID. Nel caso di invio di messaggi, lo stato transazionale viene portato dal frame di trasferimento del messaggio. 
 
-| Client (controller) | Direction | Bus di servizio (coordinatore) |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
@@ -300,7 +300,7 @@ Tutte le operazioni transazionali vengono eseguite con lo stato di recapito tran
 
 L’eliminazione del messaggio include operazioni come `Complete` / `Abandon` / `DeadLetter` / `Defer`. Per eseguire queste operazioni all'interno di una transazione, trasmettere `transactional-state` con la disposizione.
 
-| Client (controller) | Direction | Bus di servizio (coordinatore) |
+| Client (controller) | Direzione | Bus di servizio (coordinatore) |
 | :--- | :---: | :--- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ ValoreAmqp (Dichiara())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID transazione}<br/>))|
@@ -359,10 +359,10 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 
 | Chiave | Facoltativo | Tipo valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| operazione |No |string |**put-token** |
+| operation |No |string |**put-token** |
 | type |No |string |Tipo di token inserito. |
 | name |No |string |"Destinatari" a cui è applicabile il token. |
-| expiration |Sì |timestamp |Ora di scadenza del token. |
+| expiration |Sì | timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
 
@@ -399,7 +399,7 @@ Con questa funzionalità, si crea un mittente e si stabilisce il collegamento a 
 
 > Nota: l'autenticazione server deve essere eseguita sia per *Entità tramite* e *Entità di destinazione* prima di stabilire il collegamento.
 
-| Client | Direction | Bus di servizio |
+| Client | Direzione | Bus di servizio |
 | :--- | :---: | :--- |
 | attach(<br/>name={nome collegamento},<br/>role=sender,<br/>source={ID collegamento client},<br/>target =**{via-entità}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )]** ) | ------> | |
 | | <------ | attach(<br/>name={nome collegamento},<br/>role=receiver,<br/>source={ID collegamento client},<br/>target={tramite entità},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{entità destinazione} )] ) |

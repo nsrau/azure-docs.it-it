@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 8c3993d8208a9a9e2ab54be44d88de0b20a2e586
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084716"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel per il notebook di Jupyter nei cluster Apache Spark in Azure HDInsight
@@ -52,7 +52,7 @@ Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato
 
 Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyter nei cluster HDInsight Spark.
 
-- **Contesti predefiniti**. Con **PySpark**, **PySpark3**o i kernel **Spark** , non è necessario impostare i contesti Spark o hive in modo esplicito prima di iniziare a lavorare con le applicazioni. Questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
+- **Contesti predefiniti**. Con  **PySpark**, **PySpark3**o i kernel **Spark** , non è necessario impostare i contesti Spark o hive in modo esplicito prima di iniziare a lavorare con le applicazioni. Questi contesti sono disponibili per impostazione predefinita. Questi contesti sono:
 
   - **sc** : per il contesto Spark
   - **sqlContext** : per il contesto Hive
@@ -78,7 +78,7 @@ Ecco alcuni vantaggi associati all'uso dei nuovi kernel con il notebook di Jupyt
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Esegue una query Hive su sqlContext. Se viene passato il parametro `-o` , il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati [Pandas](https://pandas.pydata.org/) . |
    | locali |`%%local`<br>`a=1` |Tutto il codice presente nelle righe successive viene eseguito localmente. Il codice deve essere un codice python2 valido indipendentemente dal kernel che si sta usando. Quindi, anche se si selezionano kernel **PySpark3** o **Spark** durante la creazione del notebook, se si usa il `%%local` Magic in una cella, tale cella deve avere solo codice python2 valido. |
    | log |`%%logs` |Visualizza i log per la sessione Livy corrente. |
-   | eliminare |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata per il kernel stesso. |
+   | Elimina |`%%delete -f -s <session number>` |Elimina una sessione specifica dell'endpoint Livy corrente. Non è possibile eliminare la sessione avviata per il kernel stesso. |
    | cleanup |`%%cleanup -f` |Elimina tutte le sessioni per l'endpoint Livy corrente, inclusa quella del notebook. Il flag di forzatura -f è obbligatorio. |
 
    > [!NOTE]  

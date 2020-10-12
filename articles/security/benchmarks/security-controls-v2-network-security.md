@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329432"
 ---
 # <a name="security-control-v2-network-security"></a>Controllo di sicurezza V2: sicurezza di rete
@@ -116,7 +116,7 @@ Proteggi le risorse di Azure da attacchi provenienti da reti esterne, tra cui at
 -   Proteggi le tue risorse da attacchi DDoS abilitando la protezione standard DDoS nelle tue reti virtuali di Azure. 
 -   Usare il Centro sicurezza di Azure per rilevare i rischi di configurazione errata correlati. 
 
-- [Documentazione del firewall di Azure](/azure/firewall/)
+- [Documentazione di Azure firewall](/azure/firewall/)
 
 - [Come distribuire Azure WAF](../../web-application-firewall/overview.md)
 
@@ -126,7 +126,7 @@ Proteggi le risorse di Azure da attacchi provenienti da reti esterne, tra cui at
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-nessuno
+Nessuno
 
 ## <a name="ns-5-deploy-intrusion-detectionintrusion-prevention-systems-idsips"></a>NS-5: distribuire sistemi di rilevamento intrusione/prevenzione intrusioni (IDS/IP)
 

@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
 ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887654"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
@@ -70,7 +70,7 @@ Di seguito sono elencati alcuni parametri che è necessario misurare nell'istanz
 
 - [Monitorare l'utilizzo della CPU nell'istanza di SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registrare l'utilizzo medio e massimo della CPU.
 - [Monitorare l'utilizzo della memoria nell'istanza di SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) e determinare la quantità di memoria utilizzata da componenti diversi, ad esempio pool di buffer, cache dei piani, pool di archivio colonne, [OLTP in memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)e così via. Inoltre, è necessario trovare i valori medi e massimi del contatore delle prestazioni della memoria permanenza presunta delle pagine.
-- Monitorare l'utilizzo di i/o su disco nell'istanza di SQL Server di origine utilizzando [sys. dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) vista o i [contatori delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- Monitorare l'utilizzo di i/o su disco nell'istanza di SQL Server di origine utilizzando [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) visualizzazione o [contatori delle prestazioni](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitorare il carico di lavoro e le prestazioni delle query o l'istanza di SQL Server esaminando viste a gestione dinamica o Query Store se si esegue la migrazione da una versione di SQL Server 2016 +. Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro per confrontarle con le query in esecuzione nell'istanza gestita.
 
 > [!Note]
@@ -139,7 +139,7 @@ La tabella seguente contiene altre informazioni sul metodo che è possibile usar
 
 > [!IMPORTANT]
 >
-> - Quando si esegue la migrazione di un database protetto da [Transparent Data Encryption](../database/transparent-data-encryption-tde-overview.md) a un'istanza gestita usando l'opzione di ripristino nativo, è necessario eseguire la migrazione del certificato corrispondente dalla macchina virtuale locale o di Azure SQL Server prima del ripristino del database. Per la procedura dettagliata, vedere [eseguire la migrazione di un certificato Transparent Data Encryption a un'istanza gestita](tde-certificate-migrate.md).
+> - Quando si esegue la migrazione di un database protetto da [Transparent Data Encryption](../database/transparent-data-encryption-tde-overview.md) a un'istanza gestita usando l'opzione di ripristino nativo, è necessario eseguire la migrazione del certificato corrispondente dalla macchina virtuale locale o di Azure SQL Server prima del ripristino del database. Per i dettagli, vedere [Eseguire la migrazione del certificato TDE a un'istanza gestita](tde-certificate-migrate.md).
 > - Il ripristino di database di sistema non è supportato. Per eseguire la migrazione degli oggetti a livello di istanza (archiviati nei database master o msdb), è consigliabile creare uno script per eseguire lo script e gli script T-SQL nell'istanza di destinazione.
 
 Per una guida di avvio rapido che descrive come eseguire il ripristino del backup di un database in un'istanza gestita con credenziali di firma di accesso condiviso, vedere l'articolo su come [eseguire il ripristino da un backup in un'istanza gestita](restore-sample-database-quickstart.md).
