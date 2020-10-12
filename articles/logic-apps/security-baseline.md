@@ -8,10 +8,10 @@ ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296091"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Baseline della sicurezza di Azure per app per la logica
@@ -1190,13 +1190,13 @@ Testare il ripristino delle chiavi gestite dal cliente sottoposte a backup. Si n
 
 Proteggi le chiavi gestite dal cliente. Si noti che questo vale solo per le app per la logica eseguite in Integration Service Environments (ISE).
 
-Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
+Abilitare Soft-Delete ed eliminare la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
 - [Altre informazioni sulla continuità aziendale e il ripristino di emergenza per app per la logica di Azure](business-continuity-disaster-recovery-guidance.md)
 
 - [Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi per gli ambienti di Integration Services (ISEs) in app per la logica di Azure](customer-managed-keys-integration-service-environment.md)
 
-- [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Come abilitare Soft-Delete ed eliminare la protezione in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

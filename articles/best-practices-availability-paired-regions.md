@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
 ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84194326"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
@@ -49,7 +49,7 @@ No. I clienti possono sfruttare i servizi di Azure per progettare un servizio re
 
 | Area geografica | Coppia di aree A | Coppia locale B  |
 |:--- |:--- |:--- |
-| Asia Pacifico |Asia orientale (Hong Kong) | Asia sudorientale (Singapore) |
+| Asia-Pacific |Asia orientale (Hong Kong) | Asia sudorientale (Singapore) |
 | Australia |Australia orientale |Australia sud-orientale |
 | Australia |Australia centrale |Australia centrale 2 |
 | Brasile |Brasile meridionale |Stati Uniti centro-meridionali |
@@ -66,7 +66,7 @@ No. I clienti possono sfruttare i servizi di Azure per progettare un servizio re
 | America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
-| America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
+| America del Nord |West US 2 |Stati Uniti centro-occidentali |
 | Norvegia | Norvegia orientale | Norvegia occidentale |
 | Sud Africa | Sudafrica settentrionale |Sudafrica occidentale |
 | Svizzera | Svizzera settentrionale |Svizzera occidentale |
@@ -104,7 +104,7 @@ Come indicato nella figura 2.
 
 5. **Isolamento fisico** : quando possibile, Azure preferisce almeno 300 chilometri di separazione tra i Data Center di una coppia di aree, anche se ciò non è pratico o possibile in tutte le aree geografiche. La separazione dei data center fisici riduce la possibilità che calamità naturali, agitazioni sociali, interruzioni dell'alimentazione o interruzioni della rete fisica interessino entrambe le aree contemporaneamente. L'isolamento è soggetto ai vincoli presenti all'interno dell'area geografica (dimensioni dell'area geografica, disponibilità dell'infrastruttura di rete/alimentazione, normative e così via).  
 
-6. **Replica fornita dalla piattaforma** : alcuni servizi, ad esempio l'archiviazione con ridondanza geografica, offrono la replica automatica nell'area abbinata.
+6. **Replica fornita dalla piattaforma** : alcuni servizi, ad esempio Geo-Redundant archiviazione, offrono la replica automatica nell'area abbinata.
 
 7. **Ordine di ripristino dell'area** : nel caso di un'interruzione prolungata, il ripristino di un'area viene assegnato in ordine di priorità a ogni coppia. Per le applicazioni distribuite in aree abbinate viene garantito che una delle aree sarà ripristinata con priorità. Se un'applicazione viene distribuita in aree non abbinate, il ripristino potrebbe essere ritardato: nel peggiore dei casi le aree scelte potrebbero essere le ultime due a essere ripristinate.
 

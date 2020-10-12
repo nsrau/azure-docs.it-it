@@ -4,10 +4,10 @@ description: Risposte alle domande più comuni sul servizio Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.openlocfilehash: 95fd2ea9ecf5e4bcdf3fb2291e4cf7bf5b111c5f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87847466"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: domande comuni
@@ -19,7 +19,7 @@ Questo articolo risponde alle domande più comuni su Azure Migrate. Per eventual
 
 ## <a name="what-is-azure-migrate"></a>Che cos'è Azure Migrate?
 
-Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud pubblico e privato in Azure. L'hub fornisce strumenti Azure Migrate per la valutazione e la migrazione e offerte ISV di terze parti. [Altre informazioni](migrate-services-overview.md).
+Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud pubblico e privato in Azure. L'hub fornisce strumenti Azure Migrate per la valutazione e la migrazione e offerte ISV di terze parti. [Altre informazioni](migrate-services-overview.md)
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Che cosa è possibile fare con Azure Migrate?
 

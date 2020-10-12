@@ -14,10 +14,10 @@ ms.custom:
 - fasttrack-edit
 - iot
 ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462037"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
@@ -206,7 +206,7 @@ Per modificare la percentuale di messaggi da tracciare dal cloud, è necessario 
 
 1. Per **Velocità di campionamento** scegliere un valore compreso tra 0% e 100%.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 1. Attendere alcuni secondi e selezionare **Aggiorna**. In caso di riconoscimento da parte del dispositivo, verrà visualizzata un'icona di sincronizzazione con un segno di spunta.
 

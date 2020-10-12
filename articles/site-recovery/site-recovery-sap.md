@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86133704"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
@@ -117,7 +117,7 @@ Per avviare la replica di tutte le macchine virtuali dell'applicazione SAP al da
 
 * Per informazioni sulla protezione del livello di database in esecuzione in SQL Server, vedere la pagina relativa [alla protezione di SQL Server](site-recovery-sql.md).
 
-## <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
+## <a name="networking-configuration"></a>Configurazione della rete
 
 Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **Impostazioni calcolo e rete**  >  **scheda di interfaccia di rete**.
 
@@ -138,7 +138,7 @@ Per il corretto funzionamento delle applicazioni, potrebbe essere necessario ese
 
 È possibile distribuire gli script di Site Recovery più usati nell'account di automazione di Azure selezionando **Distribuisci in Azure**. Quando si usa uno script pubblicato, seguire le istruzioni nello script.
 
-[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Distribuisci in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Aggiungere uno script di pre-azione al gruppo 1 per eseguire il failover del gruppo di disponibilità SQL Server. Usare lo script ASR-SQL-FailoverAG pubblicato negli script di esempio. Seguire le istruzioni nello script e apportare le modifiche necessarie nello script in modo appropriato.
 1. Aggiungere uno script post-azione per il collegamento di un servizio di bilanciamento del carico alle macchine virtuali di cui è stato eseguito il failover del livello Web (gruppo 1). Usare lo script ASR-AddSingleLoadBalancer pubblicato negli script di esempio. Seguire le istruzioni nello script e apportare le modifiche necessarie nello script in base alle esigenze.

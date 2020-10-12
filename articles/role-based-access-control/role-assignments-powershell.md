@@ -15,15 +15,15 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86146650"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Questo articolo descrive come assegnare i ruoli usando Azure PowerShell.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -56,7 +56,7 @@ Get-AzADGroup -SearchString <group_name_in_quotes>
 (Get-AzADGroup -DisplayName <group_name_in_quotes>).id
 ```
 
-### <a name="application"></a>Applicazioni
+### <a name="application"></a>Applicazione
 
 Per ottenere l'ID oggetto per un'entità servizio Azure AD (identità usata da un'applicazione), è possibile usare [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). Per un'entità servizio usare l'ID oggetto, **non** l'ID applicazione.
 

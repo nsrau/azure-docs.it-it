@@ -10,10 +10,10 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971022"
 ---
 - Ogni identità gestita viene conteggiata rispetto al limite di quota degli oggetti di un tenant di Azure AD, come descritto in [Restrizioni e limiti del servizio Azure AD](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).

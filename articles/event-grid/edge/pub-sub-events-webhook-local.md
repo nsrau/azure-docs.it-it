@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171449"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Esercitazione: pubblicare, sottoscrivere gli eventi in locale
@@ -54,7 +54,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
 1. Specificare il nome, l'immagine e le opzioni di creazione del contenitore del contenitore:
 
    * **Nome**: eventgridmodule
-   * **URI immagine**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **URI immagine**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opzioni di creazione del contenitore**:
 
    [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
@@ -95,7 +95,7 @@ Questa sezione illustra come distribuire un altro modulo Internet che funge da g
 1. Fornire il nome, l'immagine e le opzioni di creazione del contenitore:
 
    * **Nome**: Sottoscrittore
-   * **URI immagine**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **URI immagine**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **Opzioni di creazione del contenitore**: nessuna
 1. Fare clic su **Save** (Salva).
 1. Fare clic su **Avanti** per passare alla sezione Route

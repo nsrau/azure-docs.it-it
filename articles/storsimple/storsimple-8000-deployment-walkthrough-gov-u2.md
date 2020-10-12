@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556034"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuire un dispositivo StorSimple locale nel portale di Azure per enti pubblici
@@ -46,7 +46,7 @@ Eseguire questi passaggi obbligatori per configurare il dispositivo StorSimple e
 | --- | --- |
 | **Prerequisiti** |Questi elementi dovranno essere completati in preparazione per la prossima distribuzione. |
 | [Elenco di controllo configurazione della distribuzione](#deployment-configuration-checklist) |Utilizzare questo elenco di controllo per raccogliere e registrare informazioni prima e durante la distribuzione. |
-| [Prerequisiti di distribuzione](#deployment-prerequisites) |Confermano che l'ambiente è pronto per la distribuzione. |
+| [Prerequisiti per la distribuzione](#deployment-prerequisites) |Confermano che l'ambiente è pronto per la distribuzione. |
 |  | |
 | **DISTRIBUZIONE STEP-BY-STEP** |Questi passaggi sono necessari per distribuire il dispositivo StorSimple nell'ambiente di produzione. |
 | [Passaggio 1: creare un nuovo servizio](#step-1-create-a-new-service) |Impostare Gestione cloud e archiviazione per il dispositivo StorSimple. *Ignorare questo passaggio se si dispone di un servizio esistente per altri dispositivi StorSimple*. |

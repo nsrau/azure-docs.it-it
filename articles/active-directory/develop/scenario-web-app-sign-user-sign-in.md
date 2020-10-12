@@ -12,10 +12,10 @@ ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87845086"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
@@ -108,7 +108,7 @@ def index():
 
 ---
 
-### <a name="signin-action-of-the-controller"></a>`SignIn`azione del controller
+### <a name="signin-action-of-the-controller"></a>`SignIn` azione del controller
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -221,7 +221,7 @@ Per altre informazioni, vedere la sezione [inviare una richiesta](v2-protocols-o
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `https://localhost:44321/signout-oidc` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `https://localhost:44321/signout-oidc` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [ registrare l'app webapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -325,7 +325,7 @@ Nella Guida introduttiva di Python, il pulsante di disconnessione è disponibile
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`SignOut`azione del controller
+### <a name="signout-action-of-the-controller"></a>`SignOut` azione del controller
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 

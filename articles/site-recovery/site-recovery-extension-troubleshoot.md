@@ -6,13 +6,13 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184619"
 ---
-# <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi dell'estensione VM di Azure
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Risolvere i problemi relativi all'estensione della macchina virtuale di Azure
 
 Questo articolo illustra i passaggi per la risoluzione dei problemi che consentono di risolvere Azure Site Recovery errori correlati all'agente di macchine virtuali e all'estensione.
 

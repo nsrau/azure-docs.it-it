@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85560826"
 ---
 # <a name="shaper-cognitive-skill"></a>Competenza cognitiva Shaper
@@ -251,5 +251,5 @@ In questo caso, lo **shaper** crea un tipo complesso. Questa struttura esiste in
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Come usare i tipi complessi](search-howto-complex-data-types.md)
-+ [Knowledge store](knowledge-store-concept-intro.md)
++ [Archivio conoscenze](knowledge-store-concept-intro.md)
 + [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)

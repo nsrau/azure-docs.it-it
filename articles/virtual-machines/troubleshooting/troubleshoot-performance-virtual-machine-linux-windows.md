@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526657"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Risolvere i problemi relativi alle prestazioni delle macchine virtuali di Azure in Linux o Windows
@@ -210,7 +210,7 @@ Con le nuove offerte di disco in archiviazione standard, i limiti di IOPS e velo
 
 * [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](../windows/disk-scalability-targets.md).
 
-#### <a name="references"></a>Bibliografia
+#### <a name="references"></a>Riferimenti
 
 * [Obiettivi di scalabilità e prestazioni per gli account di archiviazione BLOB di pagine Premium](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 

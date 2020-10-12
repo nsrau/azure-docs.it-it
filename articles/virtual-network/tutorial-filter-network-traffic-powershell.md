@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: c0b0d366518b786b33048d2d2f182abd787856ad
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075104"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrare il traffico di rete con un gruppo di sicurezza di rete usando PowerShell
@@ -292,7 +292,7 @@ Get-AzPublicIpAddress `
 
 Per verificare che sia possibile accedere al server Web *myVmWeb* dall'esterno di Azure, aprire un browser Internet nel computer e passare a `http://<public-ip-address-from-previous-step>`. La connessione ha esito positivo, perché nella porta 80 è consentito il traffico in ingresso proveniente da Internet al gruppo di sicurezza dell'applicazione *myAsgWebServers* in cui si trova l'interfaccia di rete collegata alla VM *myVmWeb*.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli:
 

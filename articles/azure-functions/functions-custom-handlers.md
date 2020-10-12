@@ -6,10 +6,10 @@ ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
 ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294595"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Gestori personalizzati di funzioni di Azure (anteprima)
@@ -578,7 +578,7 @@ Le app del gestore personalizzate sono un processo server Web, pertanto può ess
 
 I gestori personalizzati vengono eseguiti nello stesso ambiente di una tipica app funzioni di Azure. Testare il gestore per assicurarsi che l'ambiente contenga tutte le dipendenze necessarie per l'esecuzione. Per le app che richiedono dipendenze aggiuntive, potrebbe essere necessario eseguirle usando un' [immagine del contenitore personalizzata](functions-create-function-linux-custom-image.md) ospitata nel [piano Premium](functions-premium-plan.md)di funzioni di Azure.
 
-### <a name="get-support"></a>Supporto
+### <a name="get-support"></a>Ottenere supporto
 
 Se è necessaria assistenza per un'app per le funzioni con gestori personalizzati, è possibile inviare una richiesta tramite i normali canali di supporto. Tuttavia, a causa dell'ampia gamma di linguaggi possibili utilizzati per creare app per gestori personalizzati, il supporto non è illimitato.
 

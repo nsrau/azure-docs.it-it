@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
 ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462429"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Procedura: eseguire un'applicazione con Fortanix enclave Manager 
@@ -28,7 +28,7 @@ Fortanix è un fornitore di software di terze parti con prodotti e servizi basat
 
 
 
-Questa esercitazione illustra come convertire l'immagine dell'applicazione in un'immagine riservata protetta da calcolo. Questo ambiente USA il software [Fortanix](https://www.fortanix.com/) , basato sulle macchine virtuali abilitate per Intel SGX serie DCsv2 di Azure. Questa soluzione orchestra i criteri di sicurezza critici, ad esempio la verifica dell'identità e il controllo dell'accesso ai dati.
+Questa esercitazione illustra come convertire l'immagine dell'applicazione in un'immagine riservata protetta da calcolo. Questo ambiente USA il software [Fortanix](https://www.fortanix.com/) , basato sulle macchine virtuali abilitate per la DCsv2-Series Intel SGX di Azure. Questa soluzione orchestra i criteri di sicurezza critici, ad esempio la verifica dell'identità e il controllo dell'accesso ai dati.
 
  Per il supporto specifico di Fortanix, partecipare alla [community di Fortanix Slack](https://fortanix.com/community/) e usare il canale #enclavemanager.
 
@@ -117,10 +117,10 @@ La creazione di un agente del nodo Fortanix distribuirà una macchina virtuale, 
      ![Cerca nel Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
 1. Selezionare **Get it Now (Ottieni ora**), inserire le informazioni, se necessario, e selezionare **continue (continua**). Si verrà reindirizzati al portale di Azure. 
 1. Selezionare **Crea** per accedere alla pagina di distribuzione di Fortanix Confidential computing node Agent.
-1. In questa pagina si immetteranno le informazioni per distribuire una macchina virtuale. In particolare, questa VM è una macchina virtuale abilitata per DCsv2 Intel SGX di Azure con il software dell'agente del nodo Fortanix installato. L'agente node consentirà all'immagine convertita di essere eseguita in modo sicuro sui nodi Intel SGX in Azure.  Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui si vuole distribuire la macchina virtuale e le risorse associate. 
+1. In questa pagina si immetteranno le informazioni per distribuire una macchina virtuale. In particolare, questa VM è un DCsv2-Series macchina virtuale abilitata per Intel SGX da Azure con il software dell'agente del nodo Fortanix installato. L'agente node consentirà all'immagine convertita di essere eseguita in modo sicuro sui nodi Intel SGX in Azure.  Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui si vuole distribuire la macchina virtuale e le risorse associate. 
  
     > [!NOTE]
-    > Esistono vincoli per la distribuzione di macchine virtuali serie DCsv2 in Azure. Potrebbe essere necessario richiedere una quota per i core aggiuntivi. Per altre informazioni, vedere [soluzioni di elaborazione riservate nelle VM di Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) . 
+    > Esistono vincoli per la distribuzione di DCsv2-Series macchine virtuali in Azure. Potrebbe essere necessario richiedere una quota per i core aggiuntivi. Per altre informazioni, vedere [soluzioni di elaborazione riservate nelle VM di Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) . 
 
 1. Selezionare un'area disponibile.
 1. Immettere un nome per la macchina virtuale nel campo **nome nodo** . 
@@ -166,7 +166,7 @@ Selezionare il gruppo di risorse per la macchina virtuale, quindi fare clic su *
 
 Per eliminare l'account di Fortanix enclave Manager creato, passare alla [pagina accounts](https://em.fortanix.com/accounts) (gestione enclave). Passare il puntatore del mouse sull'account che si desidera eliminare. Selezionare i punti neri verticali nell'angolo superiore destro e selezionare **Elimina account**.
 
-  ![eliminare](media/how-to-fortanix-enclave-manager/delete-account.png)
+  ![Elimina](media/how-to-fortanix-enclave-manager/delete-account.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

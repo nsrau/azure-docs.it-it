@@ -4,10 +4,10 @@ description: Informazioni su come creare la prima funzione di Azure in Linux usa
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 53edee15d9c9dfa66e57bb1eb03b1d8f66aa1ee2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970726"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
@@ -44,7 +44,7 @@ Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le f
     |**Versione**| Numero di versione | Scegliere la versione del runtime installato.  |
     |**Area**| Area preferita | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Pagina Informazioni di base":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Creare un'app per le funzioni nel portale di Azure":::
 
 1. Selezionare **Avanti: Hosting**. Nella pagina **Hosting** immettere le impostazioni seguenti.
 
@@ -54,7 +54,7 @@ Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le f
     |**Sistema operativo**| **Linux** | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. |
     | **[Piano](../azure-functions/functions-scale.md)** | **Consumo (serverless)** | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Nel **piano a consumo** predefinito le risorse vengono aggiunte dinamicamente in base alle esigenze delle funzioni. In questo hosting [serverless](https://azure.microsoft.com/overview/serverless-computing/) si paga solo per il periodo in cui le funzioni sono in esecuzione. In caso di esecuzione in un piano di servizio app, è necessario gestire il [ridimensionamento dell'app per le funzioni](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Pagina Hosting":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Creare un'app per le funzioni nel portale di Azure":::
 
 1. Selezionare **Avanti: Monitoraggio**. Nella pagina **Monitoraggio** immettere le impostazioni seguenti.
 
@@ -62,7 +62,7 @@ Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le f
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Sì** (impostazione predefinita) | Crea una risorsa di Application Insights con lo stesso *nome di app* nell'area più vicina supportata. Espandendo questa impostazione o selezionando **Crea nuovo**, è possibile cambiare il nome Application Insights oppure scegliere una regione diversa in un'[area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) in cui archiviare i dati. |
 
-   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Pagina di monitoraggio":::
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Creare un'app per le funzioni nel portale di Azure":::
 
 1. Selezionare **Rivedi e crea** per rivedere le selezioni effettuate per la configurazione dell'app.
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192804"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Storm in HDInsight e Azure Data Lake Storage Gen1
@@ -89,7 +89,7 @@ Nelle topologie intensive I/O, è consigliabile che ogni thread bolt scriva in u
 
 In Storm lo spout trattiene la tupla fino a quando non viene esplicitamente riconosciuta dal bolt. Se una tupla è stata letta dal bolt, ma non è ancora stata riconosciuta, lo spout potrebbe non essere permanente nel back-end di Data Lake Storage Gen1. Dopo l'acknowledgment di una tupla, la persistenza dello spout può essere garantita dal bolt e lo spout può quindi eliminare i dati di origine da qualsiasi origine vengano letti.  
 
-Per prestazioni ottimali in Data Lake Storage Gen1, 4 MB del buffer del bolt devono essere disponibili per i dati delle tuple. Quindi scrivere nel back-end di Data Lake Storage Gen1 come una scrittura di 4 MB. Dopo aver scritto correttamente i dati nell'archivio, chiamando hflush(), il bolt può riconoscere i dati nello spout. Il bolt di esempio qui fornito si comporta in questo modo. È accettabile anche trattenere un numero maggiore di tuple prima che venga chiamato hflush() e le tuple vengano riconosciute. In questo modo, tuttavia, aumenta il numero di tuple in esecuzione che lo spout deve contenere e quindi aumenta la quantità di memoria necessaria per JVM.
+Per prestazioni ottimali in Data Lake Storage Gen1, 4 MB del buffer del bolt devono essere disponibili per i dati delle tuple. Scrivere quindi nel back-end Data Lake Storage Gen1 come 1 4 MB di scrittura. Dopo aver scritto correttamente i dati nell'archivio, chiamando hflush(), il bolt può riconoscere i dati nello spout. Il bolt di esempio qui fornito si comporta in questo modo. È accettabile anche trattenere un numero maggiore di tuple prima che venga chiamato hflush() e le tuple vengano riconosciute. In questo modo, tuttavia, aumenta il numero di tuple in esecuzione che lo spout deve contenere e quindi aumenta la quantità di memoria necessaria per JVM.
 
 > [!NOTE]
 > Per altre cause non strettamente correlate alle prestazioni, è possibile che le applicazioni presentino un requisito di frequenza più elevata per l'acknowledgment delle tuple (in caso di dimensioni dei dati inferiori a 4 MB). Questo potrebbe tuttavia influire sulla velocità effettiva di I/O nel back-end di archiviazione. Considerare con attenzione questo compromesso in relazione alle prestazioni di I/O del bolt.

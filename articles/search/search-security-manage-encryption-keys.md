@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
 ms.openlocfilehash: 2dc7458dd905ff84455927c81b4ea93765d4f5cb
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928820"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva
@@ -30,7 +30,7 @@ Non è necessario che tutte le chiavi si trovino nello stesso insieme di credenz
 
 Per i servizi creati dopo il 1 ° agosto 2020 e in aree specifiche, l'ambito della crittografia CMK include dischi temporanei che raggiungono la [crittografia completa](search-security-overview.md#double-encryption), attualmente disponibile nelle aree geografiche seguenti: 
 
-+ Stati Uniti occidentali 2
++ West US 2
 + Stati Uniti orientali
 + Stati Uniti centro-meridionali
 + US Gov Virginia

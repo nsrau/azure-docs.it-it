@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: eccd6b33353e071a66225279f1f1c150d4bdaafc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143859"
 ---
 # <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Eseguire la migrazione dei criteri del Web Application Firewall usando Azure PowerShell
@@ -27,7 +27,7 @@ Per eseguire lo script di migrazione, attenersi alla procedura seguente:
 1. Aprire la finestra di cloud Shell seguente o aprirne una dall'interno del portale.
 2. Copiare lo script nella finestra cloud Shell ed eseguirlo.
 3. Lo script richiede l'ID sottoscrizione, il nome del gruppo di risorse, il nome del gateway applicazione a cui è associata la configurazione WAF e il nome del nuovo criterio WAF da creare. Dopo aver immesso questi input, lo script viene eseguito e crea il nuovo criterio WAF
-4. Associare il nuovo criterio WAF al gateway applicazione. Passare al criterio WAF nel portale e selezionare la scheda **gateway applicazione associati** . Selezionare **associa un gateway applicazione** e quindi selezionare il gateway applicazione a cui associare il criterio WAF.
+4. Associare il nuovo criterio WAF al gateway applicazione. Passare al criterio WAF nel portale e selezionare la scheda **gateway applicazione associato** . Selezionare **associa un gateway applicazione** e quindi selezionare il gateway applicazione a cui associare il criterio WAF.
 
 > [!NOTE]
 > Lo script non completa una migrazione se sussistono le condizioni seguenti:

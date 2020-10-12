@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.custom: devx-track-java
 ms.openlocfilehash: 28ddc4f0e47d853df6b026cf2495d710bebfa980
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87368932"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creare la prima applicazione Java Reliable Actors di Service Fabric in Linux
@@ -49,7 +49,7 @@ Per iniziare a usare Reliable Actors, è sufficiente comprendere solo alcuni con
 *  I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
 * Non sono supportate interfacce generiche.
 
-## <a name="create-the-application"></a>Creare l'applicazione
+## <a name="create-the-application"></a>Creazione dell'applicazione
 Un'applicazione di Service Fabric contiene uno o più servizi, ognuno dei quali contribuisce alle funzionalità dell'applicazione con un ruolo specifico. Il generatore installato nell'ultima sezione semplifica la creazione del primo servizio e l'aggiunta di altri servizi in un secondo momento.  È anche possibile creare, compilare e distribuire applicazioni Java di Service Fabric usando un plug-in per Eclipse. Vedere [Creare e distribuire la prima applicazione Java usando Eclipse](service-fabric-get-started-eclipse.md). Per questa guida introduttiva, usare Yeoman per creare un'applicazione con un unico servizio per archiviare e ottenere un valore del contatore.
 
 1. In un terminale digitare ``yo azuresfjava``.

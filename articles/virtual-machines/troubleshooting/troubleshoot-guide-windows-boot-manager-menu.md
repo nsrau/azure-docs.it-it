@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86526540"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Impossibile avviare la macchina virtuale Windows a causa di Windows Boot Manager
@@ -82,7 +82,7 @@ Se si ha accesso alla console seriale, è possibile ottenere tempi di avvio più
 
 ### <a name="configure-for-faster-boot-time-on-a-repair-vm"></a>Configurare per tempi di avvio più rapidi in una macchina virtuale di ripristino
 
-1. Aprire un prompt dei comandi con privilegi elevati.
+1. Apri una finestra del prompt dei comandi con privilegi elevati.
 2. Immettere quanto segue per abilitare DisplayBootMenu:
 
    Usare questo comando per le **macchine virtuali di prima generazione**:

@@ -10,10 +10,10 @@ ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: media-services
 ms.openlocfilehash: 3532032f8fd3ac6e673d3913fd13f7f83ae7759e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295360"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificatori di streaming live locali verificati
@@ -116,7 +116,7 @@ Per la riproduzione di contenuti, devono essere presenti flussi audio e video. L
 > [!IMPORTANT]
 > Controllare la condizione fisica del computer (CPU/memoria/ecc.) come il caricamento di frammenti nel cloud implica operazioni di CPU e i/o. Se si modificano le impostazioni del codificatore, è necessario reimpostare l'evento Channels/Live per rendere effettive le modifiche.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Streaming live con Servizi multimediali v3](live-streaming-overview.md)
 

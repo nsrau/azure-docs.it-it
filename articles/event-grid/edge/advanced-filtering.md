@@ -8,18 +8,18 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 64b8956c47cbdbf31bb8253dac0c1e1f12833bf7
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171772"
 ---
 # <a name="advanced-filtering"></a>Filtro avanzato
 Griglia di eventi consente di specificare i filtri per qualsiasi proprietà nel payload JSON. Questi filtri sono modellati come set di `AND` condizioni, con ogni condizione esterna con condizioni interne facoltative `OR` . Per ogni `AND` condizione specificare i valori seguenti:
 
-* `OperatorType`: Tipo di confronto.
-* `Key`: Percorso JSON della proprietà su cui applicare il filtro.
-* `Value`: Valore di riferimento sul quale viene eseguito il filtro (o) `Values` , ovvero il set di valori di riferimento rispetto al quale viene eseguito il filtro.
+* `OperatorType` : Tipo di confronto.
+* `Key` : Percorso JSON della proprietà su cui applicare il filtro.
+* `Value` : Valore di riferimento sul quale viene eseguito il filtro (o) `Values` , ovvero il set di valori di riferimento rispetto al quale viene eseguito il filtro.
 
 ## <a name="json-syntax"></a>Sintassi JSON
 
@@ -55,7 +55,7 @@ Per gli operatori che supportano più valori, ad esempio `NumberIn` , `NumberNot
 > [!CAUTION]
 > Gli operatori NOT `NumberNotIn` e si `StringNotIn` comportano come condizioni e per ogni valore specificato nel `Values` campo.
 >
-> In caso contrario, si renderà il filtro un filtro Accept-all e si eliminerà lo scopo del filtraggio.
+> Se non si esegue questa operazione, il filtro Accept-All filtro e ne dedurrà lo scopo.
 
 ## <a name="floating-point-rounding-behavior"></a>Comportamento di arrotondamento a virgola mobile
 
@@ -77,7 +77,7 @@ Per gli eventi nello schema di griglia di eventi:
 
 * ID
 * Argomento
-* Oggetto
+* Subject
 * EventType
 * DataVersion
 * Data. Prop1

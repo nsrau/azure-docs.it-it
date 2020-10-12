@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: iot-fundamentals
 author: robinsh
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76748970"
 ---
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
@@ -81,7 +81,7 @@ La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante 
 
 ## <a name="securing-the-cloud"></a>Proteggere il cloud
 
-L'hub IoT di Azure consente la definizione dei [criteri di controllo di accesso](../articles/iot-hub/iot-hub-devguide-security.md) per ogni chiave di sicurezza, usando il set di autorizzazioni seguente per concedere l'accesso agli endpoint dell'hub IoT. Le autorizzazioni limitano l'accesso a un hub IoT in base alla funzionalità.
+L'hub IoT di Azure consente la definizione dei [criteri di controllo di accesso](../articles/iot-hub/iot-hub-devguide-security.md) per ogni chiave di sicurezza, usando il set di autorizzazioni seguente per concedere l'accesso agli endpoint dell'hub IoT. Le autorizzazioni limitano l'accesso a un hub IoT in base alle funzionalità.
 
 * **RegistryRead**. Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [registro delle identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 

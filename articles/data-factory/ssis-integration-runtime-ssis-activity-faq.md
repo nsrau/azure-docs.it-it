@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
 ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84118103"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
@@ -76,8 +76,8 @@ Questo errore indica che il disco locale viene utilizzato nel nodo del runtime d
     * Se si usa file di Azure:
       * Il percorso del file deve iniziare con \\ \\ \<storage account name\> . file.Core.Windows.NET\\\<file share path\>
       * Il dominio deve essere "Azure"
-      * Il nome utente deve essere\<storage account name\>
-      * La password deve essere\<storage access key\>
+      * Il nome utente deve essere \<storage account name\>
+      * La password deve essere \<storage access key\>
     * Se si usa un file locale, verificare se VNet, le credenziali di accesso al pacchetto e le autorizzazioni sono configurate correttamente in modo che il runtime di integrazione SSIS di Azure possa accedere alla condivisione file locale
 
 ### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Messaggio di errore: "nome file"... " specificato nella connessione non valido "
@@ -136,36 +136,36 @@ Una causa potenziale è che il Transport Layer Security (TLS) non è abilitato n
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Messaggio di errore: "Richiedi attività di gestione temporanea con GUID operazione... errore da errore: Impossibile inviare l'operazione di gestione temporanea con messaggio di errore: Microsoft. SqlServer. IntegrationServices. AisAgentCore. AisAgentException: non è stato possibile caricare il proxy di dati. "
 
-Verificare che il runtime di integrazione SSIS di Azure sia configurato con il runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md).
+Verificare che il runtime di integrazione Azure-SSIS sia configurato con Self-Hosted runtime di integrazione. Per informazioni più dettagliate, vedere [configurare Self-Hosted IR come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md).
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>Messaggio di errore: "stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode: 2010, ErrorMessage: Integration Runtime self-hosted... offline "
 
-Verificare che il runtime di integrazione self-hosted sia installato e avviato. Altre informazioni sono disponibili in [creare e configurare un runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md)
+Verificare che il Self-Hosted runtime di integrazione sia installato e avviato. Altre informazioni sono disponibili in [creare e configurare un runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md)
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Messaggio di errore: "errore attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita., output: {" OperationErrorMessages ":" errore: provider OLE DB richiesto... non è registrato. Se il driver a 64 bit non è installato, eseguire il pacchetto in modalità a 32 bit... "
 
-Verificare che il provider corrispondente usato dai connettori OLE DB nel pacchetto sia installato correttamente nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
+Verificare che il provider corrispondente usato dai connettori OLE DB nel pacchetto sia installato correttamente nel computer Self-Hosted runtime di integrazione. Per informazioni più dettagliate, vedere [configurare Self-Hosted IR come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Messaggio di errore: "errore attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita., output: {" OperationErrorMessages ":" errore: System. IO. FileLoadException: Impossibile caricare il file o l'assembly ' Microsoft. WindowsAzure. storage, Version =..., Culture = neutral, PublicKeyToken = 31bf3856ad364e35' o una delle relative dipendenze. La definizione del manifesto dell'assembly individuato non corrisponde al riferimento all'assembly. ..."
 
-Una delle possibili cause è che il runtime di integrazione self-hosted non è installato o aggiornato in modo corretto. Suggerire di scaricare e reinstallare il runtime di integrazione self-hosted più recente. Altre informazioni sono disponibili in [creare e configurare un runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md#installation-best-practices)
+Una delle possibili cause è che il runtime di integrazione Self-Hosted non è installato o non è stato aggiornato correttamente. Suggerire di scaricare e reinstallare il runtime di integrazione self-hosted più recente. Altre informazioni sono disponibili in [creare e configurare un runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md#installation-best-practices)
 
 ### <a name="error-message-a-connection-is-required-when-requesting-metadata-if-you-are-working-offline-uncheck-work-offline-on-the-ssis-menu-to-enable-the-connection"></a>Messaggio di errore: "è necessaria una connessione per la richiesta di metadati. Se si lavora offline, deselezionare offline dal menu SSIS per abilitare la connessione ".
 
 * Possibile causa e azione consigliata:
-  * Se è presente anche un messaggio di avviso "il componente non supporta l'utilizzo di gestione connessione con l'impostazione del valore ConnectByProxy true" nel log di esecuzione, ciò significa che una gestione connessione viene utilizzata su un componente che non ha ancora supportato "ConnectByProxy". I componenti supportati sono disponibili in configurare il runtime di integrazione [self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
+  * Se è presente anche un messaggio di avviso "il componente non supporta l'utilizzo di gestione connessione con l'impostazione del valore ConnectByProxy true" nel log di esecuzione, ciò significa che una gestione connessione viene utilizzata su un componente che non ha ancora supportato "ConnectByProxy". I componenti supportati sono disponibili in [configurare Self-Hosted IR come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
   * Il log di esecuzione è disponibile nel [report di SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) o nella cartella dei log specificata nell'attività di esecuzione del pacchetto SSIS.
   * vNet può essere usato anche per accedere ai dati locali come alternativa. Altre informazioni sono disponibili in [aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Messaggio di errore: "stato attività di gestione temporanea: non riuscito. Errore dell'attività di gestione temporanea: ErrorCode: 2906, ErrorMessage: esecuzione del pacchetto non riuscita. output: {"OperationErrorMessages": "codice di uscita di SSIS Executor:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
 
-Assicurarsi che Visual C++ Runtime sia installato nel computer del runtime di integrazione self-hosted. Per informazioni più dettagliate, vedere [configurare il runtime di integrazione self-hosted come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
+Verificare che Visual C++ Runtime sia installato nel computer Self-Hosted runtime di integrazione. Per informazioni più dettagliate, vedere [configurare Self-Hosted IR come proxy per Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Sono state attivate più esecuzioni di pacchetti in modo imprevisto
 
 * Possibile causa e azione consigliata:
   * L'attività di ricerca stored procedure ADF viene utilizzata per attivare l'esecuzione del pacchetto SSIS. Il comando t-SQL può raggiungere un problema temporaneo e attivare la riesecuzione che provocherebbe più esecuzioni di pacchetti.
-  * Usare invece l'attività ExecuteSSISPackage per garantire che l'esecuzione del pacchetto non venga rieseguita a meno che l'utente non riscontri il numero di tentativi I dettagli sono disponibili all'indirizzo[https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Usare invece l'attività ExecuteSSISPackage per garantire che l'esecuzione del pacchetto non venga rieseguita a meno che l'utente non riscontri il numero di tentativi I dettagli sono disponibili all'indirizzo [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
   * Affinare il comando t-SQL per poter eseguire di nuovo verificando che un'esecuzione sia già stata attivata
 
 ### <a name="package-execution-takes-too-long"></a>L'esecuzione del pacchetto richiede troppo tempo
