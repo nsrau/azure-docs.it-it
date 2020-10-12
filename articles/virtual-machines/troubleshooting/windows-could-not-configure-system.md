@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di Windows non è stato possibile completare la configurazione del sistema
+title: Risolvere il problema che impedisce a Windows di completare la configurazione del sistema
 titlesuffix: Azure Virtual Machines
 description: Questo articolo illustra la procedura per risolvere i problemi in cui il processo Sysprep impedisce l'avvio di una macchina virtuale di Azure.
 services: virtual-machines-windows, azure-resource-manager
@@ -16,13 +16,13 @@ ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
 ms.openlocfilehash: 9c170607d6300c4921285e85ac78db5a8a18ad9b
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90078810"
 ---
-# <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Risolvere i problemi di Windows non è stato possibile completare la configurazione del sistema
+# <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Risolvere il problema che impedisce a Windows di completare la configurazione del sistema
 
 Questo articolo illustra la procedura per risolvere i problemi in cui il processo Sysprep impedisce l'avvio di una macchina virtuale (VM) di Azure.
 

@@ -11,10 +11,10 @@ ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: aa4bcee7a2eaf5e6ec11b9066ed6eca6b33bdba1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91284126"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Risoluzione dei problemi di connettività e di altri errori con il database SQL di Azure e Azure SQL Istanza gestita
@@ -185,7 +185,7 @@ Per risolvere questo problema, provare con uno dei metodi seguenti:
   > [!NOTE]
   > Si tratta di un approccio minimalista che potrebbe non risolvere il problema.
 
-1. Eseguire la query SQL seguente per controllare la vista [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per visualizzare tutte le richieste di blocco:
+1. Eseguire la query SQL seguente per controllare la visualizzazione [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per visualizzare tutte le richieste di blocco:
 
    ```sql
    SELECT * FROM dm_exec_requests
@@ -250,7 +250,7 @@ I passaggi seguenti possono essere utili per aggirare il problema o fornire opzi
 
 Se si verifica ripetutamente questo errore, provare a risolvere il problema attenendosi alla procedura seguente:
 
-1. Controllare la vista sys. dm_exec_requests per visualizzare tutte le sessioni aperte con un valore elevato per la colonna total_elapsed_time. Eseguire questo controllo eseguendo lo script SQL seguente:
+1. Controllare la visualizzazione sys.dm_exec_requests per visualizzare tutte le sessioni aperte con un valore elevato per la colonna total_elapsed_time. Eseguire questo controllo eseguendo lo script SQL seguente:
 
    ```sql
    SELECT * FROM dm_exec_requests

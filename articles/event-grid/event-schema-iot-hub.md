@@ -4,10 +4,10 @@ description: Questo articolo illustra le proprietà e lo schema per gli eventi d
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113650"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Hub Azure Internet come origine di griglia di eventi
@@ -25,7 +25,7 @@ L'hub IoT genera i tipi di eventi seguenti:
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. | 
 | Microsoft.Devices.DeviceConnected | Pubblicato quando un dispositivo è connesso a un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. | 
-| Microsoft. Devices. DeviceTelemetry | Pubblicato quando un messaggio di telemetria viene inviato a un hub Internet. |
+| Microsoft.Devices.DeviceTelemetry | Pubblicato quando un messaggio di telemetria viene inviato a un hub Internet. |
 
 Tutti gli eventi dispositivo tranne gli eventi di telemetria del dispositivo sono disponibili a livello generale in tutte le aree supportate da griglia di eventi. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](../azure-government/documentation-government-welcome.md), [Azure Cina 21ViaNet](/azure/china/china-welcome)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
 
@@ -140,20 +140,20 @@ Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Q
 
 Tutti gli eventi contengono gli stessi dati di livello principale: 
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | id | string | Identificatore univoco dell'evento. |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | data | object | Dati dell'evento dell'hub IoT.  |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Per tutti gli eventi dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | hubName | string | Nome dell'hub IoT in cui il dispositivo è stato creato o eliminato. |
 | deviceId | string | Identificatore univoco del dispositivo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
@@ -162,7 +162,7 @@ Il contenuto dell'oggetto dati è diverso per ogni autore di eventi.
 
 Per gli eventi **Device Connected** e **Device Disconnected** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | moduleId | string | Identificatore univoco del modulo. Questo è un campo di output solo per i dispositivi di modulo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Informazioni sugli eventi dello stato di connessione del dispositivo
@@ -170,7 +170,7 @@ Per gli eventi **Device Connected** e **Device Disconnected** dell'hub IoT, l'og
 
 Per l'evento dell'hub Internet per la **telemetria del dispositivo** , l'oggetto dati contiene il messaggio da dispositivo a cloud nel [formato dei messaggi dell'hub](../iot-hub/iot-hub-devguide-messages-construct.md) Internet e presenta le proprietà seguenti:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | Corpo | string | Contenuto del messaggio dal dispositivo. |
 | properties | string | Le proprietà dell'applicazione sono stringhe definite dall'utente che è possibile aggiungere al messaggio. Questi campi sono facoltativi. |
@@ -178,7 +178,7 @@ Per l'evento dell'hub Internet per la **telemetria del dispositivo** , l'oggetto
 
 Per gli eventi **Device Created** e **Device Deleted** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | twin | object | Informazioni sul dispositivo gemello, ovvero la rappresentazione cloud dei metadati del dispositivo dell'applicazione. | 
 | deviceID | string | Identificatore univoco del dispositivo gemello. | 
@@ -188,12 +188,12 @@ Per gli eventi **Device Created** e **Device Deleted** dell'hub IoT, l'oggetto d
 | statusUpdateTime | string | Timestamp ISO8601 dell'ultimo aggiornamento di stato del dispositivo gemello. |
 | connectionState | string | Indica se il dispositivo è connesso o disconnesso. | 
 | lastActivityTime | string | Timestamp ISO8601 dell'ultima attività. | 
-| cloudToDeviceMessageCount | integer | Conteggio dei messaggi da cloud a dispositivo inviati al dispositivo. | 
+| cloudToDeviceMessageCount | numero intero | Conteggio dei messaggi da cloud a dispositivo inviati al dispositivo. | 
 | authenticationType | string | Tipo di autenticazione usato per questo dispositivo: `SAS`, `SelfSigned` o `CertificateAuthority`. |
 | x509Thumbprint | string | L'identificazione personale è un valore univoco per il certificato x509, usato in genere per trovare un certificato specifico in un archivio certificati. L'identificazione personale viene generata in modo dinamico mediante l'algoritmo SHA1 e non esiste fisicamente nel certificato. | 
 | primaryThumbprint | string | Identificazione personale primaria per il certificato x509. |
 | secondaryThumbprint | string | Identificazione personale secondaria per il certificato x509. | 
-| version | integer | Valore intero che viene incrementato di un'unità a ogni aggiornamento del dispositivo gemello. |
+| version | numero intero | Valore intero che viene incrementato di un'unità a ogni aggiornamento del dispositivo gemello. |
 | desired | object | Parte delle proprietà che può essere scritta solo dal back-end dell'applicazione e letta dal dispositivo. | 
 | reported | object | Parte delle proprietà che può essere scritta solo dal dispositivo e letta dal back-end dell'applicazione. |
 | lastUpdated | string | Timestamp ISO8601 dell'ultimo aggiornamento delle proprietà del dispositivo gemello. | 

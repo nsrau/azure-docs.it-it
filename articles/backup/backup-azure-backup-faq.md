@@ -4,17 +4,17 @@ description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azu
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986423"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
 
-## <a name="recovery-services-vault"></a>Insieme di credenziali di Servizi di ripristino
+## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Esistono limiti al numero degli insiemi di credenziali che è possibile creare in ogni sottoscrizione di Azure?
 
@@ -120,7 +120,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 **Origine dati** | **Dettagli**
 --- | ---
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
-Database di SQL Server |Dimensioni delle dimensioni del singolo database di cui viene eseguito il backup.
+Database SQL Server |Dimensioni delle dimensioni del singolo database di cui viene eseguito il backup.
 SharePoint | Somma dei database di contenuto e configurazione in una farm di SharePoint di cui viene eseguito il backup.
 Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.

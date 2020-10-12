@@ -4,10 +4,10 @@ description: Esercitazione dettagliata che illustra come connettere una funzione
 ms.topic: article
 ms.date: 4/23/2020
 ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387524"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Esercitazione: Integrare Funzioni con una rete virtuale di Azure
@@ -74,7 +74,7 @@ Successivamente, creare una macchina virtuale preconfigurata che esegue WordPres
     | ------------ | ---------------- | ---------------- |
     | **Nome** | myResourceGroup-vnet | Si può usare il nome predefinito generato per la rete virtuale. |
     | **Intervallo di indirizzi** | 10.10.0.0/16 | Usare un singolo intervallo di indirizzi per la rete virtuale. |
-    | **Nome della subnet** | Esercitazione-NET | Nome della subnet. |
+    | **Nome della subnet** | Tutorial-Net | Nome della subnet. |
     | **Intervallo di indirizzi** (subnet) | 10.10.1.0/24   | Le dimensioni della subnet definiscono il numero di interfacce che è possibile aggiungere alla subnet. Questa subnet viene usata dal sito WordPress.  Una `/24` subnet fornisce 254 indirizzi host. |
 
 1. Selezionare **OK** per creare la rete virtuale.
@@ -105,7 +105,7 @@ Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtual
 
 1. Nella pagina **integrazione rete virtuale** selezionare **Aggiungi VNET**.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Aggiungere l'anteprima dell'integrazione VNet":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Scegliere la rete nell'app per le funzioni":::
 
 1. In **stato funzionalità di rete**usare le impostazioni nella tabella sotto l'immagine:
 
@@ -115,7 +115,7 @@ Con un sito WordPress in esecuzione in una macchina virtuale in una rete virtual
     | ------------ | ---------------- | ---------------- |
     | **Rete virtuale** | MyResourceGroup-VNET | Questa rete virtuale è quella creata in precedenza. |
     | **Subnet** | Crea nuova subnet | Creare una subnet nella rete virtuale da usare per l'app per le funzioni. L'integrazione di VNet deve essere configurata per l'uso di una subnet vuota. Non è importante che le funzioni usino una subnet diversa da quella della macchina virtuale. La rete virtuale instrada automaticamente il traffico tra le due subnet. |
-    | **Nome della subnet** | Funzione-NET | Nome della nuova subnet. |
+    | **Nome della subnet** | Function-Net | Nome della nuova subnet. |
     | **Blocco di indirizzi della rete virtuale** | 10.10.0.0/16 | Scegliere lo stesso blocco di indirizzi usato dal sito WordPress. È necessario definire un solo blocco di indirizzi. |
     | **Intervallo di indirizzi** | 10.10.2.0/24   | Le dimensioni della subnet limitano il numero totale di istanze per le quali l'app per le funzioni del piano Premium può essere scalata. Questo esempio usa una `/24` subnet con 254 indirizzi host disponibili. Questa subnet viene sottoposta a provisioning eccessivo, ma facile da calcolare. |
 
@@ -127,9 +127,9 @@ L'app per le funzioni può ora accedere alla rete virtuale in cui è in esecuzio
 
 Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per le funzioni per inviare le richieste alla macchina virtuale in esecuzione nella rete virtuale.
 
-1. Nell'app per le funzioni selezionare **proxy** dal menu a sinistra e quindi selezionare **Aggiungi**. Usare le impostazioni proxy nella tabella sotto l'immagine:
+1. Nell'app per le funzioni selezionare  **proxy** dal menu a sinistra e quindi selezionare **Aggiungi**. Usare le impostazioni proxy nella tabella sotto l'immagine:
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definire le impostazioni del proxy":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Scegliere la rete nell'app per le funzioni":::
 
     | Impostazione  | Valore consigliato  | Descrizione      |
     | -------- | ---------------- | ---------------- |
@@ -139,7 +139,7 @@ Con l'integrazione di VNet abilitata, è possibile creare un proxy nell'app per 
 
 1. Selezionare **Crea** per aggiungere il proxy all'app per le funzioni.
 
-## <a name="try-it-out"></a>Provare questa operazione
+## <a name="try-it-out"></a>Provare il servizio
 
 1. Nel browser provare ad accedere all'URL usato come **URL back-end**. Come previsto, si verifica il timeout della richiesta. Si verifica un timeout perché il sito WordPress è connesso solo alla rete virtuale e non a Internet.
 

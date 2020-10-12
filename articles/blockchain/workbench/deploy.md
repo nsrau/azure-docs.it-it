@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87077021"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Distribuire l'anteprima di Azure blockchain Workbench
@@ -67,8 +67,8 @@ Dopo avere completato i passaggi preliminari necessari, è possibile distribuire
     | Password | Password usata per la connessione alle macchine virtuali. |
     | SSH | Usare una chiave pubblica RSA in formato a una riga che inizi con **ssh-rsa** oppure usare il formato PEM a più righe. È possibile generare le chiavi SSH tramite `ssh-keygen` in Linux e OS X oppure usando PuTTYGen in Windows. Per altre informazioni sulle chiavi SSH, vedere [Come usare SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Database e password blockchain | Specificare la password da usare per accedere al database creato nell'ambito della distribuzione. La password deve soddisfare tre dei quattro requisiti seguenti: la lunghezza deve essere compresa tra 12 & 72 caratteri, 1 carattere minuscolo, 1 carattere maiuscolo, 1 numero e 1 carattere speciale che non è un simbolo di cancelletto (#), percentuale (%), virgola (,), stella (*), virgolette () \` , virgolette doppie;) |
-    | Area di distribuzione | Specificare dove distribuire le risorse di Blockchain Workbench. Per la disponibilità ottimale, questo deve corrispondere all'impostazione del percorso dell' **area** . Non tutte le aree sono disponibili durante la fase di anteprima. Le funzionalità potrebbero non essere disponibili in alcune aree. Azure blockchain Data Manager è disponibile nelle aree di Azure seguenti: Stati Uniti orientali ed Europa occidentale.|
-    | Sottoscrizione | Specificare la sottoscrizione di Azure che si vuole usare per la distribuzione. |
+    | Area di distribuzione | Specificare dove distribuire le risorse di Blockchain Workbench. Per la disponibilità ottimale, questo deve corrispondere all'impostazione del percorso dell' **area** . Non tutte le aree sono disponibili durante la fase di anteprima. Alcune funzionalità potrebbero non essere disponibili in alcune aree. Azure Blockchain Data Manager è disponibile nelle aree di Azure seguenti: ovvero Stati Uniti orientali ed Europa occidentale.|
+    | Subscription | Specificare la sottoscrizione di Azure che si vuole usare per la distribuzione. |
     | Gruppi di risorse | Creare un nuovo gruppo di risorse selezionando **Crea nuovo** e quindi specificare un nome di gruppo di risorse univoco. |
     | Location | Specificare l'area in cui si vuole distribuire il framework. |
 

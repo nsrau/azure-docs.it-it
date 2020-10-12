@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006297"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
@@ -33,7 +33,7 @@ Questo articolo illustra come eseguire l'installazione iniziale, registrare il f
 
 Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti. Le informazioni in questo articolo si applicano solo alla distribuzione dell'array virtuale StorSimple. Per la distribuzione di dispositivi StorSimple serie 8000, vedere [Distribuire un dispositivo StorSimple serie 8000 con Aggiornamento 2](storsimple-deployment-walkthrough-u2.md).
 
-## <a name="setup-prerequisites"></a>Prerequisiti di installazione
+## <a name="setup-prerequisites"></a>Setup prerequisites
 Prima di configurare e installare l'array virtuale StorSimple, si deve:
 
 * Eseguire il provisioning di un array virtuale e connettersi come illustrato nell'articolo relativo al [provisioning dell'array virtuale StorSimple in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o al [provisioning dell'array virtuale StorSimple in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
@@ -124,7 +124,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/) per completare l'installazione richiesta del dispositivo.
 
 #### <a name="to-configure-the-device-as-file-server"></a>Per configurare il dispositivo come file server
-1. Passare al servizio StorSimple Device Manager, quindi passare a **gestione > dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Pronto per la configurazione**.
+1. Passare al servizio StorSimple Device Manager, quindi passare a  **gestione > dispositivi**. Nel pannello **Dispositivi** selezionare il dispositivo appena creato. Il dispositivo viene visualizzato come **Pronto per la configurazione**.
    
    ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Fare clic sul dispositivo e verrà visualizzato un messaggio di intestazione che indica che il dispositivo è pronto per la configurazione.
@@ -155,7 +155,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
    
         ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
-5. Dopo aver creato correttamente la credenziale dell'account di archiviazione, il pannello **Configura** verrà aggiornato per visualizzare le credenziali dell'account di archiviazione specificato. Fare clic su **Configura**.
+5. Dopo aver creato correttamente la credenziale dell'account di archiviazione, il pannello **Configura** verrà aggiornato per visualizzare le credenziali dell'account di archiviazione specificato. Fare clic su **Configure**.
    
    ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    

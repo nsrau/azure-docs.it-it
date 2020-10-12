@@ -7,10 +7,10 @@ ms.author: marwolff
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335132"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Supporto della mappa di origine per le applicazioni JavaScript
@@ -24,7 +24,7 @@ Application Insights supporta il caricamento delle mappe di origine nel contenit
 
 Se si ha già un account di archiviazione o un contenitore BLOB esistente, è possibile ignorare questo passaggio.
 
-1. [Creare un nuovo account di archiviazione][create storage account]
+1. [Creare un nuovo account di archiviazione.][create storage account]
 2. [Creare un contenitore BLOB][create blob container] nell'account di archiviazione. Assicurarsi di impostare il "livello di accesso pubblico" su per `Private` assicurarsi che le mappe di origine non siano accessibili pubblicamente.
 
 > [!div class="mx-imgBorder"]

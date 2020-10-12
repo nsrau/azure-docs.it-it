@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: dd4a02ffdc062ed1940d35ca64e02a5e0a88a248
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333325"
 ---
 # <a name="read-and-write-spatial-data"></a>Leggere e scrivere dati spaziali
@@ -29,7 +29,7 @@ Nella tabella seguente sono elencati i formati di file spaziali supportati per l
 | KML               | ✓  |  ✓  |
 | KMZ               | ✓  |  ✓  |
 | CSV spaziale       | ✓  |  ✓  |
-| Testo noto   | ✓  |  ✓  |
+| Testo Well-Known   | ✓  |  ✓  |
 
 Queste sezioni successive descrivono tutti i diversi strumenti per la lettura e la scrittura dei dati spaziali usando il modulo di i/o spaziale.
 
@@ -123,26 +123,26 @@ atlas.io.read(data, {
 );
 ```
 
-## <a name="read-and-write-well-known-text-wkt"></a>Lettura e scrittura di testo ben noto (WKT)
+## <a name="read-and-write-well-known-text-wkt"></a>Leggere e scrivere Well-Known testo (WKT)
 
 [Well-known text](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) (WKT) è uno standard Open Geospatial Consortium (OGC) per la rappresentazione di geometrie spaziali come testo. Molti sistemi geospaziali supportano WKT, ad esempio Azure SQL e Azure PostgreSQL, usando il plug-in PostGIS. Come la maggior parte degli standard OGC, le coordinate vengono formattate come "Latitudine Longitudine" per essere allineate con la convenzione "x y". Ad esempio, è possibile scrivere un punto alla Longitudine-110 e la latitudine 45 `POINT(-110 45)` usando il formato WKT.
 
 Il testo noto può essere letto utilizzando la `atlas.io.ogc.WKT.read` funzione e scritto utilizzando la `atlas.io.ogc.WKT.write` funzione.
 
-## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Esempi di lettura e scrittura di testo ben noto (WKT)
+## <a name="examples-of-reading-and-writing-well-known-text-wkt"></a>Esempi di lettura e scrittura Well-Known testo (WKT)
 
 Nel codice seguente viene illustrato come leggere la stringa di testo Nota `POINT(-122.34009 47.60995)` ed eseguirne il rendering sulla mappa utilizzando un livello Bubble.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Leggi testo noto' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere il <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>testo noto</a> di Pen Read di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Leggi Well-Known testo' src='//codepen.io/azuremaps/embed/XWbabLd/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere la pagina relativa alla <a href='https://codepen.io/azuremaps/pen/XWbabLd/'>lettura Well-Known testo</a> di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Nel codice seguente viene illustrata la lettura e la scrittura di testo ben noto.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Leggere e scrivere testo ben noto' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere la pagina relativa alla <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>lettura e scrittura di testi noti</a> da Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Leggere e scrivere Well-Known testo' src='//codepen.io/azuremaps/embed/JjdyYav/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere il testo della penna <a href='https://codepen.io/azuremaps/pen/JjdyYav/'>lettura e scrittura Well-Known</a> da mappe di Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="read-and-write-gml"></a>Leggi e Scrivi GML

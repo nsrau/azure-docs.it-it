@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934753"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API di stima
@@ -43,12 +43,12 @@ Una volta pubblicato il modello, è possibile recuperare le informazioni richies
 
 ![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il pulsante URL di stima.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il valore dell'URL di stima per l'utilizzo di un file di immagine e il valore della chiave di stima.](./media/use-prediction-api/prediction-api-info.png)
+![La scheda prestazioni viene visualizzata con un rettangolo rosso che circonda il valore dell'URL di stima per l'utilizzo di un file di immagine e il valore Prediction-Key.](./media/use-prediction-api/prediction-api-info.png)
 
 
 In questa guida verrà usata un'immagine locale, quindi copiare l'URL in **se si dispone** di un file di immagine in un percorso temporaneo. Copiare anche il valore della __chiave di stima__ corrispondente.
 
-## <a name="create-the-application"></a>Creare l'applicazione
+## <a name="create-the-application"></a>Creazione dell'applicazione
 
 1. In Visual Studio creare una nuova applicazione console C#.
 

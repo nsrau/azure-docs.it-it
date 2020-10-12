@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
 ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500250"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Aggiornare Load Balancer interno di Azure-nessuna connessione in uscita necessaria
@@ -58,7 +58,7 @@ Sono disponibili due opzioni a seconda della configurazione e delle preferenze d
 
 Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az` . Se non vengono visualizzati i moduli AZ installati, è possibile usare il `Install-Script` metodo.
 
-### <a name="install-using-the-install-script-method"></a>Eseguire l'installazione usando il metodo Install-script
+### <a name="install-using-the-install-script-method"></a>Eseguire l'installazione usando il metodo Install-Script
 
 Per usare questa opzione, non è necessario che nel computer siano installati i moduli AZ di Azure. Se sono installati, il comando seguente visualizza un errore. È possibile disinstallare i moduli di Azure AZ oppure usare l'altra opzione per scaricare lo script manualmente ed eseguirlo.
   

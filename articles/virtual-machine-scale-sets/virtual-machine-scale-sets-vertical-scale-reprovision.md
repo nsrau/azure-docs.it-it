@@ -10,10 +10,10 @@ ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87029281"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
@@ -39,7 +39,7 @@ Il ridimensionamento verticale, ovvero l'aumento o la riduzione delle prestazion
 > [!NOTE]
 > A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Inoltre, l'aumento o la diminuzione delle dimensioni della macchina virtuale vincolata non sono supportate. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
 > 
-> | Ridimensionamento del membro della coppia di dimensioni VM | Membro |
+> | Ridimensionamento del membro della coppia di dimensioni VM | Member |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |
