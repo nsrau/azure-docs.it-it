@@ -4,10 +4,10 @@ description: Il server di Backup di Microsoft Azure offre funzionalità avanzate
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332764"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novità di Backup di Microsoft Azure Server (MAB)
@@ -88,7 +88,7 @@ Con Modern Backup Storage (MBS) in MABS V2, è stata annunciata l'archiviazione 
 
 Nelle aziende, MABS viene gestito da un team di amministratori. Sebbene esistano linee guida sull'archiviazione che devono essere seguite per l'esecuzione dei backup, specificare un volume non corretto come archivio di backup di MABS può causare la perdita di dati di importanza critica. Con MAB V3, è possibile impedire tali scenari configurando tali volumi come quelli non disponibili per l'archiviazione con [questi cmdlet di PowerShell](./backup-mabs-add-storage.md).
 
-### <a name="custom-size-allocation"></a>Allocazione dimensioni personalizzate
+### <a name="custom-size-allocation"></a>Allocazione di dimensioni personalizzate
 
 Modern Backup Storage (MBS) utilizza l'archiviazione in modo mirato, in base a specifiche esigenze. A tale scopo, MAB calcola le dimensioni dei dati di cui viene eseguito il backup quando è configurato per la protezione. Se, tuttavia, molti file e cartelle vengono sottoposti a backup contemporaneamente, come nel caso di un file server, il calcolo delle dimensioni può richiedere molto tempo. Con MAB V3, è possibile configurare MAB in modo da accettare le dimensioni del volume come predefinite, anziché calcolare le dimensioni di ogni file, risparmiando tempo.
 

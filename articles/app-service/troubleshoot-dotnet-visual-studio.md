@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983007"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
@@ -74,11 +74,11 @@ In genere, un progetto Web viene distribuito con il flag `customErrors` impostat
 
 **Si è verificato un errore:**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Screenshot che mostra un esempio di errore generico che si verifica in un Web browser.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
 **Il sito Web non è in grado di visualizzare la pagina**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Screenshot che mostra un sito Web non è in grado di visualizzare l'errore di pagina in un Web browser.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
 Spesso, il modo più semplice per trovare la causa dell'errore consiste nell'abilitare i messaggi di errore dettagliati, come illustrato nella prima schermata precedente. In questo caso, è necessario apportare una modifica nel file Web.config distribuito. Che richiede una modifica nel file Web. config distribuito. È possibile modificare il file *Web.config* nel progetto e quindi ridistribuire il progetto oppure creare una [trasformazione Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e distribuire una build di debug. Tuttavia è disponibile un metodo più rapido, ossia visualizzare e modificare direttamente i file in **Esplora soluzioni** nell'app remota usando la funzionalità di *vista remota*.
 
@@ -139,7 +139,7 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
 1. In **Esplora server** fare clic con il pulsante destro del mouse sull'app, quindi fare clic su **Collega debugger**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Screenshot della finestra di Esplora server che mostra un'app selezionata, quindi fare clic su Connetti debugger.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
     Il browser si aprirà automaticamente nella home page con Azure in esecuzione. Può essere necessario attendere circa 20 secondi durante la configurazione del server per il debug. Questo ritardo si verifica solo alla prima esecuzione in modalità debug in un'app in un periodo di 48 ore. Quando si avvia il debug di nuovo nello stesso periodo, non c'è un ritardo.
 
@@ -192,7 +192,7 @@ Il debug remoto funziona solo con processi Web continui. Processi Web pianificat
 
 8. Fare clic su **Collega debugger**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Screenshot del Esplora server che mostra ContosoAdsWebJob selezionato nel menu a discesa e Connetti debugger selezionato.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
     Il browser si aprirà automaticamente nella home page con Azure in esecuzione. Può essere necessario attendere circa 20 secondi durante la configurazione del server per il debug. Questo ritardo si verifica solo alla prima esecuzione in modalità debug in un'app in un periodo di 48 ore. Quando si avvia il debug di nuovo nello stesso periodo, non c'è un ritardo.
 
@@ -340,11 +340,11 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 1. Nella barra degli indirizzi della finestra del browser aggiungere *Trace. axd* all'URL, quindi premere INVIO (l'URL è simile a `http://localhost:53370/trace.axd` ).
 1. Nella pagina **Application Trace** fare clic su **View Details** nella prima riga (non la riga BrowserLink).
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Screenshot della pagina di traccia dell'applicazione in un Web browser che mostra i dettagli della visualizzazione selezionati nella prima riga.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
     Verrà visualizzata la pagina **Dettagli richiesta** e nella sezione **Informazioni analisi** sarà riportato l'output delle istruzioni trace aggiunte al metodo `Index`.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Screenshot della pagina dei dettagli della richiesta in un Web browser che mostra un messaggio evidenziato nella sezione delle informazioni di traccia.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
     Per impostazione predefinita, `trace.axd` è disponibile solo in locale. Se si vuole renderlo disponibile da un'app remota, è possibile aggiungere `localOnly="false"` all'elemento `trace` nel file *Web.config*, come illustrato nell'esempio seguente:
 
@@ -361,11 +361,11 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
     Dopo la pubblicazione dell'aggiornamento, verrà aperta una finestra del browser nella home page, a meno che non sia stata deselezionata l'opzione **URL di destinazione** nella scheda **Connessione**.
 3. In **Esplora server** fare clic con il pulsante destro del mouse sull'app e selezionare **Visualizza log in streaming**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Screenshot del Esplora server dopo aver fatto clic con il pulsante destro del mouse sull'app, con visualizzare i log in streaming selezionati in una nuova finestra.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
     Nella finestra **Output** è indicato che si è connessi al servizio di streaming di log e viene aggiunta una riga di notifica dopo ogni minuto trascorso senza un log da visualizzare.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Screenshot della finestra di output che mostra un esempio di connessione a un servizio di streaming di log con righe di notifica.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
 4. Nella finestra del browser in cui è visualizzata la home page dell'applicazione fare clic su **Contact**.
 
@@ -394,7 +394,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
 ### <a name="output-window-features"></a>Funzionalità della finestra Output
 La scheda **Log di Microsoft Azure** della finestra **Output** contiene diversi pulsanti e una casella di testo:
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Screenshot che mostra i pulsanti e la casella di testo della scheda log Microsoft Azure nella finestra output.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
 Questi controlli consentono di eseguire le funzioni seguenti:
 
@@ -458,15 +458,15 @@ Tutti i log che è possibile monitorare nella finestra **Output** possono anche 
 
 1. Nella finestra **Output** fare clic su **Scarica i log in streaming**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Screenshot della finestra di output che mostra il pulsante Scarica log in streaming evidenziato.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
     Si aprirà Esplora file alla cartella *Download* con il file scaricato selezionato.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Screenshot della cartella Downloads in Esplora file con un file scaricato selezionato.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
 2. Estrarre il file *ZIP*. Verrà visualizzata la struttura di cartella seguente:
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Screenshot della struttura di cartelle di file zip dopo l'estrazione del file.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Screenshot che mostra un errore del server nell'applicazione '/' in un Web browser.":::
 
    * I log di traccia dell'applicazione sono contenuti in file con estensione *txt* nella cartella *LogFiles\Application*.
    * I log del server Web sono contenuti in file con estensione *log* nella cartella *LogFiles\http\RawLogs*. Per visualizzare e manipolare questi file, è possibile utilizzare uno strumento come [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) .

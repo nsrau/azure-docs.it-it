@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545861"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler One per il provisioning utenti automatico
@@ -106,7 +106,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![ZScaler One Configure SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Selezionare **Abilita provisioning basato su SCIM** per ottenere le impostazioni nell' **URL di base** e nel **token di porta**. Quindi salvare le impostazioni. Copiare l'impostazione dell' **URL di base** in **url tenant** nel portale di Azure. Copiare l'impostazione del **token di porta** per il **token segreto** nell'portale di Azure.
+    b. Selezionare **Abilita provisioning SCIM-Based** per ottenere le impostazioni nell' **URL di base** e nel **token di porta**. Quindi salvare le impostazioni. Copiare l'impostazione dell' **URL di base** in **url tenant** nel portale di Azure. Copiare l'impostazione del **token di porta** per il **token segreto** nell'portale di Azure.
 
 7. Dopo aver compilato le caselle visualizzate nel passaggio 5, selezionare **Test connessione** per assicurarsi che Azure ad possa connettersi a zScaler One. Se la connessione non riesce, verificare che il zScaler un account disponga delle autorizzazioni di amministratore e riprovare.
 

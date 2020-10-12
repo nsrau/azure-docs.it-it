@@ -9,10 +9,10 @@ ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815471"
 ---
 Per configurare le chiavi gestite dal cliente per i dischi, è necessario creare le risorse in un ordine particolare, se si esegue questa operazione per la prima volta. Prima di tutto, è necessario creare e configurare un Azure Key Vault.
@@ -65,7 +65,7 @@ Per configurare le chiavi gestite dal cliente per i dischi, è necessario creare
 1. Selezionare **fare clic per selezionare una chiave**.
 1. Selezionare l'insieme di credenziali delle chiavi e la chiave creati in precedenza, nonché la versione.
 1. Fare clic su **Seleziona**.
-1. Selezionare **Verifica + crea** e quindi **Crea**.
+1. Selezionare **Rivedi e crea** e quindi **Crea**.
 
     ![Screenshot del pannello di creazione della crittografia del disco. Visualizzazione di sottoscrizione, gruppo di risorse, nome del set di crittografia del disco, area e Key Vault + selettore di chiave.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 183273e6f93bbfda8ed4e5fe913192994a0b6ce2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833386"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup di SAP HANA di Azure a livello di file
@@ -43,7 +43,7 @@ Per una maggiore sicurezza, usare un account di archiviazione con replica geogra
 
 ## <a name="azure-blobxfer-utility-details"></a>Dettagli sull'utilità di blobxfer di Azure
 
-Per archiviare le directory e i file in archiviazione di Azure, è possibile usare PowerShell, l'interfaccia della riga di comando o sviluppare uno strumento usando uno degli [SDK di Azure](https://azure.microsoft.com/downloads/). Per la copia dei dati in archiviazione di Azure è disponibile anche un'utilità pronta per l'uso, AzCopy. (vedere [trasferire dati con l'utilità della riga di comando AzCopy](../../../storage/common/storage-use-azcopy-v10.md)).
+Per archiviare le directory e i file in archiviazione di Azure, è possibile usare PowerShell, l'interfaccia della riga di comando o sviluppare uno strumento usando uno degli [SDK di Azure](https://azure.microsoft.com/downloads/). Per la copia dei dati in archiviazione di Azure è disponibile anche un'utilità pronta per l'uso, AzCopy. (vedere [trasferire dati con l'utilità AzCopy Command-Line](../../../storage/common/storage-use-azcopy-v10.md)).
 
 Perciò, Blobxfer è stato pertanto usato per la copia dei file di backup di SAP HANA. Si tratta di una risorsa open source, usata da molti clienti negli ambienti di produzione e disponibile su [GitHub](https://github.com/Azure/blobxfer). Questo strumento consente di copiare i dati direttamente nell'archiviazione BLOB di Azure o nella condivisione file di Azure. Offre inoltre una gamma di funzionalità utili, ad esempio hash MD5 o parallelismo automatico quando si copia una directory con più file.
 

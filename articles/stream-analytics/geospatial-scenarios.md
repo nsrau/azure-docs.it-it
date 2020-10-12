@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/02/2019
 ms.openlocfilehash: 9792641da4b3aebad047179e2c02dad757027801
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045264"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Scenari di geoschermatura e aggregazione geospaziale con analisi di flusso di Azure
@@ -70,7 +70,7 @@ Il dispositivo "C" si trova all'interno dell'edificio con ID 2, che non è conse
 
 ### <a name="site-with-multiple-allowed-devices"></a>Sito con più dispositivi consentiti
 
-Se un sito consente più dispositivi, è possibile definire una matrice di ID dispositivo in `AllowedDeviceID` ed è possibile usare una funzione definita dall'utente nella `WHERE` clausola per verificare se l'ID del dispositivo di flusso corrisponde a qualsiasi ID dispositivo in tale elenco. Per altre informazioni, vedere l'esercitazione relativa a [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) per i processi cloud e l'esercitazione per la funzione [definita dall'utente di C#](stream-analytics-edge-csharp-udf.md) per i processi Edge.
+Se un sito consente più dispositivi, è possibile definire una matrice di ID dispositivo in `AllowedDeviceID` ed è possibile usare una funzione User-Defined nella `WHERE` clausola per verificare se l'ID del dispositivo di flusso corrisponde a qualsiasi ID dispositivo in tale elenco. Per altre informazioni, vedere l'esercitazione relativa a [JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) per i processi cloud e l'esercitazione per la funzione [definita dall'utente di C#](stream-analytics-edge-csharp-udf.md) per i processi Edge.
 
 ## <a name="geospatial-aggregation"></a>Aggregazione geospaziale
 

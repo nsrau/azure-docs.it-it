@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fff569c586548d84ed55018764363ad7f05e526d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257088"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -47,7 +47,7 @@ Avvierà una chiamata all'API OnDataLossAsync della partizione.  Questa API dete
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --data-loss-mode [obbligatorio] | Questa enumerazione viene passata all'API StartDataLoss per indicare il tipo di perdita di dati da eseguire. |
 | --operation-id   [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
@@ -57,7 +57,7 @@ Avvierà una chiamata all'API OnDataLossAsync della partizione.  Questa API dete
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -72,7 +72,7 @@ Indica lo stato di avanzamento di un'operazione di perdita di dati avviata con S
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --operation-id [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --partition-id [Obbligatorio] | L'identità della partizione. |

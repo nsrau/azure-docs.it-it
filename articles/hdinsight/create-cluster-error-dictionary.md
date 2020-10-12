@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
 ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816457"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: errori di creazione del cluster
@@ -34,7 +34,7 @@ Questo articolo descrive le soluzioni per gli errori che si possono incontrare d
 
 Il servizio HDInsight non è in grado di accedere all'URL dell'azione script fornito come parte della richiesta di creazione del cluster. Il servizio riceve il messaggio di errore precedente quando tenta di accedere all'azione di script.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 - Per un URL HTTP o HTTPS, verificare l'URL tentando di accedervi da una finestra del browser in incognito.
 - Per un URL WASB, assicurarsi che lo script esista nell'account di archiviazione fornito nella richiesta. Assicurarsi anche che la chiave di archiviazione per questo account di archiviazione sia corretta.
@@ -50,7 +50,7 @@ Il servizio HDInsight non è in grado di accedere all'URL dell'azione script for
 
 Il servizio HDInsight non è in grado di accedere all'URL dell'azione script fornito come parte della richiesta di creazione del cluster. Il servizio riceve il messaggio di errore precedente quando tenta di accedere all'azione di script.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Aggiungere l'account Azure Data Lake Storage generazione 1 corrispondente al cluster. Aggiungere inoltre l'entità servizio che accede all'account Data Lake Storage generazione 1 al cluster.
 
@@ -64,7 +64,7 @@ Aggiungere l'account Azure Data Lake Storage generazione 1 corrispondente al clu
 
 La dimensione della macchina virtuale specificata non è consentita per il ruolo. Questo errore può verificarsi perché il valore delle dimensioni della macchina virtuale non funziona come previsto o non è adatto per il ruolo del computer.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Il messaggio di errore elenca i valori validi per le dimensioni della macchina virtuale. Selezionare uno di questi valori e riprovare la richiesta di creazione del cluster.
 
@@ -80,7 +80,7 @@ Il messaggio di errore elenca i valori validi per le dimensioni della macchina v
 
 Il valore **VirtualNetworkId** specificato durante la creazione del cluster non è nel formato corretto.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Verificare che i valori di **VirtualNetworkId** e subnet siano nel formato corretto. Per ottenere il valore di **VirtualNetworkId** :
 
@@ -104,7 +104,7 @@ Di seguito è riportato un esempio di ID rete virtuale:
 
 Lo script personalizzato fornito durante la richiesta create cluster viene eseguito dopo che il cluster è stato distribuito correttamente. Questo codice di errore indica che si è verificato un errore durante l'esecuzione dello script personalizzato denominato \<SCRIPT_NAME\> .
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Poiché lo script è lo script personalizzato, è consigliabile risolvere il problema ed eseguire nuovamente lo script, se necessario. Per risolvere gli errori di script, esaminare i log nella cartella/var/lib/Ambari-Agent/*. In alternativa, aprire la pagina **operazioni** nell'interfaccia utente di Ambariri, quindi selezionare l'operazione **run_customscriptaction** per visualizzare i dettagli dell'errore.
 
@@ -120,7 +120,7 @@ Poiché lo script è lo script personalizzato, è consigliabile risolvere il pro
 
 Il Metastore personalizzato è incompatibile con la versione selezionata del cluster HDInsight. Attualmente, i cluster HDInsight 4,0 supportano solo Metastore versione 3,0 e versioni successive, mentre i cluster HDInsight 3,6 non supportano il Metastore versione 3,0 e versioni successive.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Usare solo le versioni del Metastore supportate dalla versione del cluster HDInsight. Se non si specifica un Metastore personalizzato, HDInsight crea internamente un Metastore e quindi lo elimina dopo l'eliminazione del cluster.
 
@@ -136,7 +136,7 @@ Usare solo le versioni del Metastore supportate dalla versione del cluster HDIns
 
 Una regola del firewall nel gruppo di sicurezza di rete (NSG) blocca la comunicazione del cluster con i servizi critici di gestione e integrità di Azure.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
@@ -157,9 +157,9 @@ Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico
 
 Non sono state fornite le autorizzazioni necessarie per gestire l'identità. L'identità gestita assegnata dall'utente non ha il ruolo Collaboratore archiviazione BLOB nell'account di archiviazione Azure Data Lake Storage Gen2.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 1. Passare all'account di archiviazione.
 1. Controllare il **controllo di accesso (IAM)**.
 1. Verificare che all'utente sia assegnato il ruolo di collaboratore dei dati BLOB di archiviazione o il ruolo di proprietario dei dati BLOB di archiviazione.
@@ -178,7 +178,7 @@ Per altre informazioni, vedere [configurare le autorizzazioni per l'identità ge
 
 Se i gruppi di sicurezza di rete o le route definite dall'utente (UDR) controllano il traffico in ingresso verso il cluster HDInsight, assicurarsi che il cluster sia in grado di comunicare con i servizi di gestione e integrità di Azure critici.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico di rete, eseguire le azioni seguenti prima di installare HDInsight:
 
@@ -198,7 +198,7 @@ Se si prevede di usare i gruppi di sicurezza di rete per controllare il traffico
 
 In genere, questo errore viene generato quando si verifica un problema temporaneo o un'interruzione di Azure.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Controllare la pagina di [stato di Azure](https://status.azure.com) per eventuali interruzioni di Azure che potrebbero influire sulla distribuzione del cluster. Se non ci sono interruzioni, riprovare la distribuzione del cluster.
 
@@ -214,7 +214,7 @@ Impossibile connettersi all'endpoint di gestione cluster. Riprovare più tardi.
 
 Il servizio HDInsight non è in grado di connettersi al cluster durante il tentativo di creare il cluster
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Se si usano i gruppi di sicurezza di rete VNet (gruppi) e le route definite dall'utente (UDR) personalizzati, verificare che il cluster sia in grado di comunicare con HDInsight Management Services. Per altre informazioni, vedere [indirizzi IP di gestione di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
 
@@ -232,7 +232,7 @@ I criteri seguenti influiscano generalmente sulla creazione del cluster:
 * Criteri che impediscono la creazione di account di archiviazione.
 * Criteri che impediscono l'eliminazione di risorse di rete, ad esempio indirizzi IP o bilanciamenti del carico.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Eliminare o disabilitare l'assegnazione dei criteri di Azure basata sulla sottoscrizione durante la creazione del cluster HDInsight.
 

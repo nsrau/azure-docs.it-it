@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 8363011187a4c2ef77681ece4bb8b1de73ec7a63
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87801490"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium-preview"></a>Usare l'API del servizio messaggi Java 2,0 con il bus di servizio Premium di Azure (anteprima)
@@ -47,7 +47,7 @@ Una volta importate le dipendenze, le applicazioni Java possono essere scritte i
 
 Per connettersi al bus di servizio di Azure con client JMS, è necessaria la **stringa di connessione** disponibile nei ' criteri di accesso condiviso ' nel [portale di Azure](https://portal.azure.com) in **stringa di connessione primaria**.
 
-1. Creare un'istanza di`ServiceBusJmsConnectionFactorySettings`
+1. Creare un'istanza di `ServiceBusJmsConnectionFactorySettings`
 
     ```java
     ServiceBusJmsConnectionFactorySettings connFactorySettings = new ServiceBusJmsConnectionFactorySettings();
@@ -60,7 +60,7 @@ Per connettersi al bus di servizio di Azure con client JMS, è necessaria la **s
     ConnectionFactory factory = new ServiceBusJmsConnectionFactory(ServiceBusConnectionString, connFactorySettings);
     ```
 
-3. Utilizzare `ConnectionFactory` per creare un oggetto `Connection` e quindi un oggetto`Session` 
+3. Utilizzare `ConnectionFactory` per creare un oggetto `Connection` e quindi un oggetto `Session` 
 
     ```java
     Connection connection = factory.createConnection();

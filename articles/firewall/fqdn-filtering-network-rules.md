@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.author: victorh
 ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854289"
 ---
 # <a name="use-fqdn-filtering-in-network-rules-preview"></a>Usare il filtro FQDN nelle regole di rete (anteprima)
@@ -25,7 +25,7 @@ Un nome di dominio completo (FQDN) rappresenta un nome di dominio di un host o d
 > [!NOTE]
 > Per impostazione predefinita, il filtro FQDN non supporta i caratteri jolly.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Dopo aver definito il server DNS necessario all'organizzazione (DNS di Azure o il proprio DNS personalizzato), il firewall di Azure converte il nome di dominio completo in un indirizzo IP in base al server DNS selezionato. Questa traduzione si verifica sia per l'elaborazione delle regole di rete sia per l'applicazione.
 

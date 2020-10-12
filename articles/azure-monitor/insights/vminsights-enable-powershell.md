@@ -1,5 +1,5 @@
 ---
-title: Abilitare Monitoraggio di Azure per le macchine virtuali tramite PowerShell
+title: Abilitare Monitoraggio di Azure per le macchine virtuali con PowerShell
 description: Viene descritto come abilitare Monitoraggio di Azure per le macchine virtuali per le macchine virtuali di Azure o i set di scalabilità di macchine virtuali usando Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: a2cdcab08bba76cb385666956b7663324f32c669
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87824580"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Abilitare Monitoraggio di Azure per le macchine virtuali tramite PowerShell
+# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con PowerShell
 Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali in macchine virtuali di Azure con PowerShell. Questa procedura può essere utilizzata per gli elementi seguenti:
 
 - Macchina virtuale di Azure

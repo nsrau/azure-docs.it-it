@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
 ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974405"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
@@ -99,7 +99,7 @@ Se non si ha un account di archiviazione di Azure esistente da esportare, seguir
     |-|-|
     |Standard|per utilizzo generico V2|
     |Standard|per utilizzo generico V1|
-    |Standard|Archiviazione - BLOB|
+    |Standard|Archiviazione BLOB|
     |Premium|Archiviazione BLOB in blocchi|
 
 1. Per creare un contenitore nell'account di archiviazione, passare all'account di archiviazione. In **Servizio BLOB** selezionare **Esplora BLOB**. Selezionare **+ Contenitore** in alto per creare un nuovo contenitore.
@@ -275,8 +275,8 @@ Nella tabella seguente vengono illustrate le differenze tra l' [esportazione dei
 | Funzionalità  | Esportazione dei dati legacy | Nuova esportazione dei dati |
 | :------------- | :---------- | :----------- |
 | Tipi di dati disponibili | Telemetria, dispositivi, modelli di dispositivo | Telemetria, modifiche delle proprietà |
-| Filtro | nessuno | Dipende dal tipo di dati esportato. Per la telemetria, filtra per telemetria, proprietà del messaggio, valori delle proprietà |
-| Arricchimenti | nessuno | Arricchire con una stringa personalizzata o un valore di proprietà nel dispositivo |
+| Filtro | Nessuno | Dipende dal tipo di dati esportato. Per la telemetria, filtra per telemetria, proprietà del messaggio, valori delle proprietà |
+| Arricchimenti | Nessuno | Arricchire con una stringa personalizzata o un valore di proprietà nel dispositivo |
 | Destinations | Hub eventi di Azure, code e argomenti del bus di servizio di Azure, archiviazione BLOB di Azure | Come per l'esportazione di dati legacy e i webhook|
 | Versioni applicazione supportate | V2, V3 | Solo V3 |
 | Limiti rilevanti | 5 esportazioni per app, 1 destinazione per esportazione | 10 esportazioni-connessioni di destinazione per app |
