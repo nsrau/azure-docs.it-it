@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718816"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Eseguire il backup e il ripristino dei modelli di riconoscimento moduli
@@ -82,7 +82,7 @@ Il corpo della richiesta deve avere il formato seguente. È necessario immettere
 > [!NOTE]
 > L'API di copia supporta in modo trasparente la funzionalità [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) . Questa operazione non richiede alcun trattamento speciale, ma si noti che se si esegue la copia tra una risorsa non crittografata e una risorsa crittografata, è necessario includere l'intestazione della richiesta `x-ms-forms-copy-degrade: true` . Se questa intestazione non è inclusa, l'operazione di copia avrà esito negativo e restituirà un oggetto `DataProtectionTransformServiceError` .
 
-Si otterrà una `202\Accepted` risposta con un'intestazione Operation-location. Questo valore è l'URL che verrà usato per tenere traccia dello stato di avanzamento dell'operazione. Copiarlo in un percorso temporaneo per il passaggio successivo.
+Si otterrà una `202\Accepted` risposta con un'intestazione Operation-Location. Questo valore è l'URL che verrà usato per tenere traccia dello stato di avanzamento dell'operazione. Copiarlo in un percorso temporaneo per il passaggio successivo.
 
 ```
 HTTP/1.1 202 Accepted
@@ -91,7 +91,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Errori comuni
 
-|Errore|Risoluzione|
+|Errore|Soluzione|
 |:--|:--|
 | 400/richiesta non valida con `"code:" "1002"` | Indica un errore di convalida o una richiesta di copia non formattata correttamente. I problemi comuni includono: a) payload non valido o modificato `copyAuthorization` . b) valore scaduto per il `expirationDateTimeTicks` token (il `copyAuhtorization` payload è valido per 24 ore). c) non valido o non supportato `targetResourceRegion` . d) stringa non valida o con formato non valido `targetResourceId` .
 |
@@ -115,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Errori comuni
 
-|Errore|Risoluzione|
+|Errore|Soluzione|
 |:--|:--|
 |"Errors": [{"code": "AuthorizationError",<br>"message": "errore di autorizzazione a causa di <br>attestazioni di autorizzazione mancanti o non valide. "}]   | Si verifica quando il `copyAuthorization` payload o il contenuto viene modificato rispetto a quello restituito dall' `copyAuthorization` API. Verificare che il payload corrisponda esattamente al contenuto restituito dalla `copyAuthorization` chiamata precedente.|
 |"Errors": [{"code": "AuthorizationError",<br>"messaggio": "Impossibile recuperare l'autorizzazione <br>metadati. Se il problema persiste, usare un'altra <br>modello di destinazione in cui eseguire la copia. "}] | Indica che il `copyAuthorization` payload viene riutilizzato con una richiesta di copia. Una richiesta di copia che ha esito positivo non consentirà altre richieste che utilizzano lo stesso `copyAuthorization` payload. Se si genera un errore separato, ad esempio quelli indicati di seguito, e successivamente si ritenta la copia con lo stesso payload di autorizzazione, viene generato questo errore. La risoluzione consiste nel generare un nuovo `copyAuthorization` payload, quindi eseguire nuovamente la richiesta di copia.|

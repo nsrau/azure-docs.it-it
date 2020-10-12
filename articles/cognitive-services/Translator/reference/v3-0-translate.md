@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
 ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566603"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: Traduci
@@ -43,7 +43,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>su</td>
+    <td>to</td>
     <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
 </table>
@@ -106,12 +106,12 @@ Le intestazioni della richiesta includono:
   <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
-    <td>Intestazione/e di autenticazione</td>
+    <td>Intestazioni di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore accettato è <code>application/json; charset=UTF-8</code> .</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore accettato è <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -367,7 +367,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
   <th>Azione</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
+    <td>Comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
     <strong>Traduzione di esempio (italiano)</strong>: è un cretino.
     </td>
@@ -551,4 +551,4 @@ Il risultato è:
 ]
 ```
 
-Questa funzionalità funziona allo stesso modo con `textType=text` o con `textType=html`. È consigliabile usarla solo in casi limitati. Il modo più appropriato e di gran lunga migliore per personalizzare una traduzione è quello di usare Custom Translator. Custom Translator fa un ampio uso delle probabilità statistiche e di contesto. Se si ha la possibilità di creare dati di training che mostrano l'azienda o una frase nel contesto, si otterranno certamente risultati migliori. [Altre informazioni su Custom Translator](../customization.md).
+Questa funzionalità funziona allo stesso modo con `textType=text` o con `textType=html`. È consigliabile usarla solo in casi limitati. Il modo più appropriato e di gran lunga migliore per personalizzare una traduzione è quello di usare Custom Translator. Custom Translator fa un ampio uso delle probabilità statistiche e di contesto. Se si ha la possibilità di creare dati di training che mostrano l'azienda o una frase nel contesto, si otterranno certamente risultati migliori. [Altre informazioni sul convertitore personalizzato](../customization.md).

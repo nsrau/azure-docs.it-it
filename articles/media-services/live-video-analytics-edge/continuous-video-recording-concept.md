@@ -4,10 +4,10 @@ description: La registrazione video continua (CVR) si riferisce al processo di r
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566696"
 ---
 # <a name="continuous-video-recording"></a>Registrazione continua di video  
@@ -53,7 +53,7 @@ La proprietà segmentLength garantisce che il modulo Edge caricherà il video al
 > [!NOTE]
 > Vedere l'articolo relativo alle registrazioni per la [riproduzione](playback-recordings-how-to.md) per l'effetto di segmentLength sulla riproduzione.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Registrazione di video basata su eventi](event-based-video-recording-concept.md)
 * [Riproduzione del contenuto registrato](video-playback-concept.md)

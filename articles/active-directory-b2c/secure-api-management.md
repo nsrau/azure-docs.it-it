@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87482839"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Proteggere un'API di Gestione API di Azure con Azure AD B2C
@@ -60,7 +60,7 @@ Per registrare un'applicazione nel tenant di Azure AD B2C, è possibile usare la
 Successivamente, ottenere l'URL di configurazione well-known di uno dei flussi utente di Azure AD B2C. È anche necessario l'URI dell'endpoint dell'autorità emittente di token da supportare in Gestione API di Azure.
 
 1. Passare al tenant di Azure AD B2C nel [portale di Azure](https://portal.azure.com).
-1. In **criteri**selezionare **flussi utente**.
+1. In **Criteri** selezionare **Flussi utente**.
 1. Selezionare un criterio esistente, ad esempio *B2C_1_signupsignin1*, e quindi **Esegui il flusso utente**.
 1. Registrare l'URL nel collegamento ipertestuale visualizzato sotto l'intestazione **Esegui il flusso utente** nella parte superiore della pagina. Questo URL costituisce l'endpoint di individuazione well-known di OpenID Connect per il flusso utente e verrà usato nella prossima sezione per la configurazione del criterio in ingresso in Gestione API di Azure.
 
@@ -126,7 +126,7 @@ Per chiamare l'API sono necessari un token di accesso emesso da Azure AD B2C e u
 È prima necessario un token emesso da Azure AD B2C da usare nell'intestazione `Authorization` in Postman. È possibile ottenerne uno con la funzionalità **Esegui adesso** del flusso utente di iscrizione/accesso creato come prerequisito.
 
 1. Passare al tenant di Azure AD B2C nel [portale di Azure](https://portal.azure.com).
-1. In **criteri**selezionare **flussi utente**.
+1. In **Criteri** selezionare **Flussi utente**.
 1. Selezionare un flusso utente di iscrizione/accesso esistente, ad esempio *B2C_1_signupsignin1*.
 1. Per **Applicazione** selezionare *webapp1*.
 1. Per **URL di risposta** scegliere `https://jwt.ms`.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88244313"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Come iscriversi a Translator
@@ -57,7 +57,7 @@ Microsoft Translator elabora in genere le prime due richieste senza verificare l
 
 ## <a name="customization"></a>Personalizzazione
 
-Usare Custom Translator (Traduttore personalizzato) per personalizzare le traduzioni e creare un sistema di traduzioni adattato al proprio stile e alla propria terminologia, partendo da sistemi di traduzione automatica neurali di Microsoft Translator generici. [Altre informazioni](customization.md)
+Usare Custom Translator (Traduttore personalizzato) per personalizzare le traduzioni e creare un sistema di traduzioni adattato al proprio stile e alla propria terminologia, partendo da sistemi di traduzione automatica neurali di Microsoft Translator generici. [Scopri di più](customization.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

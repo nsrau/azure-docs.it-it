@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996842"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitoraggio delle operazioni di gestione Istanza gestita di Azure SQL
@@ -43,7 +43,7 @@ Sono disponibili diversi modi per monitorare le operazioni di gestione di istanz
 
 Nella tabella seguente vengono confrontate le opzioni di monitoraggio delle operazioni di gestione: 
 
-| Opzione | Conservazione | Supporta l'annullamento | Crea | Aggiornamento | Eliminare | Annulla | Passaggi |
+| Opzione | Conservazione | Supporta l'annullamento | Crea | Aggiornamento | Delete | Annulla | Passaggi |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Distribuzioni di gruppi di risorse | Infinito<sup>1</sup> | No<sup>2</sup> | Visible | Visible | Non visibile | Visible | Non visibile |
 | Log attività | 90 giorni | No | Visible | Visible | Visible | Visible |  Non visibile |
@@ -114,8 +114,8 @@ Per una spiegazione dettagliata dei comandi, vedere [AZ SQL mi op](https://docs.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come creare la prima istanza gestita, vedere [Guida introduttiva](instance-create-quickstart.md).
+- Per informazioni su come creare la prima istanza gestita, vedere [Guida di avvio rapido](instance-create-quickstart.md).
 - Per un elenco di funzionalità e confronto, vedere [funzionalità comuni di SQL](../database/features-comparison.md).
-- Per ulteriori informazioni sulla configurazione di VNet, vedere la pagina relativa alla [configurazione di SQL istanza gestita VNet](connectivity-architecture-overview.md).
-- Per una guida introduttiva per la creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [creare un'istanza gestita](instance-create-quickstart.md).
-- Per un'esercitazione sull'uso del servizio migrazione del database di Azure per la migrazione, vedere la pagina relativa alla [migrazione istanza gestita SQL con il servizio migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).
+- Per altre informazioni sulla configurazione della rete virtuale, vedere [Configurazione di una rete virtuale per Istanza gestita di SQL](connectivity-architecture-overview.md).
+- Per una guida di avvio rapido sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](instance-create-quickstart.md).
+- Per un'esercitazione sull'uso del Servizio Migrazione del database di Azure, vedere [Migrazione a Istanza gestita di SQL con il Servizio Migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).

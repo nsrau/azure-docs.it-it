@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087437"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid"></a>Monitoraggio di Key Vault con Griglia di eventi di Azure
@@ -46,5 +46,5 @@ Per le applicazioni che gestiscono gli eventi di Key Vault è consigliabile segu
 - [Panoramica di Griglia di eventi di Azure](../../event-grid/overview.md)
 - Procedura: [indirizzare eventi di Key Vault ai Runbook di automazione](event-grid-tutorial.md).
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](event-grid-logicapps.md)
-- [Schema di eventi di griglia di eventi di Azure per Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Panoramica di Automazione di Azure](../../automation/index.yml)

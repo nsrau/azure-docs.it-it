@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: cd7496690ec88fbe4297386c32d1b8a2c3234577
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540762"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalizzare il feed per gli utenti di desktop virtuali Windows (classico)
@@ -37,7 +37,7 @@ Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato per personalizzare il nome visualizzato.](../media/get-rdsremoteapp.png)
+> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con nome e FriendlyName evidenziato per personalizzare il nome visualizzato.](../media/get-rdsremoteapp.png)
 
 Per assegnare un nome descrittivo a un RemoteApp, eseguire il cmdlet PowerShell seguente:
 
@@ -46,7 +46,7 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot del cmdlet di PowerShell set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato per personalizzare il nome visualizzato.](../media/set-rdsremoteapp.png)
+> ![Screenshot del cmdlet di PowerShell Set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato per personalizzare il nome visualizzato.](../media/set-rdsremoteapp.png)
 
 ## <a name="customize-the-display-name-for-a-remote-desktop"></a>Personalizzare il nome visualizzato per un Desktop remoto
 
@@ -59,7 +59,7 @@ Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/get-rdsremotedesktop.png)
+> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con nome e FriendlyName evidenziato.](../media/get-rdsremotedesktop.png)
 
 Per assegnare un nome descrittivo alla risorsa Desktop remoto, eseguire il cmdlet PowerShell seguente:
 
@@ -68,7 +68,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot del cmdlet di PowerShell set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato.](../media/set-rdsremotedesktop.png)
+> ![Screenshot del cmdlet di PowerShell Set-RDSRemoteApp con nome e nuovo FriendlyName evidenziato.](../media/set-rdsremotedesktop.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

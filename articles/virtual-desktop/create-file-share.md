@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91287322"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creare un contenitore di profili con File di Azure e servizi di dominio Active Directory
@@ -88,7 +88,7 @@ Per configurare le autorizzazioni a livello di condivisione, assegnare a ogni ut
 
 Per assegnare le autorizzazioni di controllo degli accessi in base al ruolo (RBAC):
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 
 2. Aprire l'account di archiviazione creato in [configurare un account di archiviazione](#set-up-a-storage-account).
 
@@ -117,7 +117,7 @@ Per iniziare, è necessario sapere due elementi dal portale di Azure:
 
 Ecco come ottenere il percorso UNC:
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 
 2. Aprire l'account di archiviazione creato in [configurare un account di archiviazione](#set-up-a-storage-account).
 
@@ -131,13 +131,13 @@ Ecco come ottenere il percorso UNC:
     - Sostituire la barra `/` con una barra rovesciata `\` .
     - Aggiungere il nome della condivisione file creata in [creare una condivisione file di Azure](#create-an-azure-file-share) alla fine dell'UNC.
 
-        Ad esempio: `\\customdomain.file.core.windows.net\<fileshare-name>`
+        ad esempio `\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>Ottenere la chiave dell'account di archiviazione
 
 Per ottenere la chiave dell'account di archiviazione:
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 
 2. Aprire l'account di archiviazione creato in [configurare un account di archiviazione](#set-up-a-storage-account).
 
@@ -222,7 +222,7 @@ Per verificare le autorizzazioni per la sessione:
 
 1. Avviare una sessione nel desktop virtuale di Windows.
 
-2. Aprire il portale di Azure.
+2. Aprire il Portale di Azure.
 
 3. Aprire l'account di archiviazione creato in [configurare un account di archiviazione](#set-up-a-storage-account).
 

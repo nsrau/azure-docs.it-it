@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87128557"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Aggiungere un livello mappa dal Open Geospatial Consortium (OGC)
@@ -23,7 +23,7 @@ Le sezioni seguenti descrivono le funzionalità del servizio della mappa Web sup
 
 **Servizio mappa Web (WMS)**
 
-- Versioni supportate: `1.0.0` , `1.1.0` , `1.1.1` e`1.3.0`
+- Versioni supportate: `1.0.0` , `1.1.0` , `1.1.1` e `1.3.0`
 - Il servizio deve supportare il `EPSG:3857` sistema di proiezione o gestire le proiezioni.
 - GetFeatureInfo richiede il supporto o la gestione delle proiezioni da parte del servizio `EPSG:4326` . 
 - Operazioni supportate:
@@ -36,9 +36,9 @@ Le sezioni seguenti descrivono le funzionalità del servizio della mappa Web sup
 
 **Servizio tessera della mappa Web (WMTS)**
 
-- Versioni supportate:`1.0.0`
+- Versioni supportate: `1.0.0`
 - I riquadri devono essere quadrati, ad esempio `TileWidth == TileHeight` .
-- CRS supportato: `EPSG:3857` o`GoogleMapsCompatible` 
+- CRS supportato: `EPSG:3857` o `GoogleMapsCompatible` 
 - L'identificatore TileMatrix deve essere un valore intero corrispondente a un livello di zoom sulla mappa. In una mappa di Azure, il livello di zoom è un valore compreso tra `"0"` e `"22"` . Pertanto, `"0"` è supportato, ma `"00"` non è supportato.
 - Operazioni supportate:
 
