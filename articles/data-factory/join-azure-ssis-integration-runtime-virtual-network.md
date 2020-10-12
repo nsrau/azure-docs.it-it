@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187813"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
@@ -105,7 +105,7 @@ Questo diagramma mostra le connessioni necessarie per il Azure-SSIS IR:
 
 ![Runtime di integrazione Azure-SSIS](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
-### <a name="set-up-permissions"></a><a name="perms"></a>Configurare le autorizzazioni
+### <a name="set-up-permissions"></a><a name="perms"></a> Configurare le autorizzazioni
 
 L'utente che crea il Azure-SSIS IR deve disporre delle autorizzazioni seguenti:
 
@@ -117,7 +117,7 @@ L'utente che crea il Azure-SSIS IR deve disporre delle autorizzazioni seguenti:
 
 - Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale classica, è consigliabile usare il ruolo predefinito Collaboratore Macchina virtuale classica. In caso contrario, è necessario definire un ruolo personalizzato che include l'autorizzazione per accedere alla rete virtuale.
 
-### <a name="select-the-subnet"></a><a name="subnet"></a>Selezionare la subnet
+### <a name="select-the-subnet"></a><a name="subnet"></a> Selezionare la subnet
 
 Quando si sceglie una subnet: 
 
@@ -141,7 +141,7 @@ Se si vuole portare gli indirizzi IP pubblici statici per Azure-SSIS IR durante 
 
 - Tali utenti e la rete virtuale devono trovarsi nella stessa sottoscrizione e nella stessa area.
 
-### <a name="set-up-the-dns-server"></a><a name="dns_server"></a>Configurare il server DNS 
+### <a name="set-up-the-dns-server"></a><a name="dns_server"></a> Configurare il server DNS 
 Se è necessario usare il proprio server DNS in una rete virtuale unita dall'Azure-SSIS IR per risolvere il nome host privato, assicurarsi che sia in grado di risolvere anche i nomi host di Azure globali, ad esempio un BLOB di archiviazione di Azure denominato `<your storage account>.blob.core.windows.net` . 
 
 Di seguito è riportato un approccio consigliato: 
@@ -153,7 +153,7 @@ Per altre informazioni, vedere [Risoluzione dei nomi con l'uso del proprio serve
 > [!NOTE]
 > Usare un nome di dominio completo (FQDN) per il nome host privato, ad esempio usare `<your_private_server>.contoso.com` anziché `<your_private_server>` , perché Azure-SSIS IR non aggiungerà automaticamente il proprio suffisso DNS.
 
-### <a name="set-up-an-nsg"></a><a name="nsg"></a>Configurare un NSG
+### <a name="set-up-an-nsg"></a><a name="nsg"></a> Configurare un NSG
 Se è necessario implementare un NSG per la subnet usata dal Azure-SSIS IR, consentire il traffico in ingresso e in uscita attraverso le porte seguenti: 
 
 -   **Requisito in ingresso di Azure-SSIS IR**
@@ -175,7 +175,7 @@ Se è necessario implementare un NSG per la subnet usata dal Azure-SSIS IR, cons
 | In uscita | TCP | VirtualNetwork | * | Archiviazione | 445 | (Facoltativo) Questa regola è necessaria solo quando si vuole eseguire un pacchetto SSIS archiviato in File di Azure. |
 ||||||||
 
-### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a>Usare Azure ExpressRoute o UDR
+### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Usare Azure ExpressRoute o UDR
 Se si vuole ispezionare il traffico in uscita da Azure-SSIS IR, è possibile instradare il traffico avviato da Azure-SSIS IR all'appliance del firewall locale tramite il tunneling forzato di [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) (annunciando una route BGP, 0.0.0.0/0, alla rete virtuale) o a appliance virtuale di rete come firewall o [firewall di Azure](https://docs.microsoft.com/azure/firewall/) tramite [UdR](../virtual-network/virtual-networks-udr-overview.md). 
 
 ![Scenario di appliance virtuale di Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
@@ -236,7 +236,7 @@ Per consentire al dispositivo firewall di consentire il traffico in uscita, è n
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure Public      | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.clouddatahub.net</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*.blob.core.windows.net</li><li>\*. table.core.windows.net</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*.azurecr.io</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
     | Azure Government  | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.datamovement.azure.us</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*. table.core.usgovcloudapi.net</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*. azurecr.us</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*. servicebus.usgovcloudapi.net</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
-    | 21Vianet per Azure Cina     | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
+    | Azure Cina 21Vianet     | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
 
     Per quanto riguarda i nomi di dominio completi di archiviazione di Azure, Azure Container Registry e hub eventi, è anche possibile scegliere di abilitare gli endpoint di servizio seguenti per la rete virtuale in modo che il traffico di rete verso questi endpoint passi attraverso la rete backbone di Azure invece di essere instradato al dispositivo firewall:
     -  Microsoft.Storage
@@ -279,7 +279,7 @@ Se non è necessaria la possibilità di controllare il traffico in uscita di Azu
 > [!NOTE]
 > Specificare la route con il tipo di hop successivo **Internet** non significa che tutto il traffico passerà su Internet. Fino a quando l'indirizzo di destinazione è per uno dei servizi di Azure, Azure instrada il traffico direttamente al servizio tramite la rete backbone di Azure, anziché indirizzare il traffico a Internet.
 
-### <a name="set-up-the-resource-group"></a><a name="resource-group"></a>Configurare il gruppo di risorse
+### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> Configurare il gruppo di risorse
 
 Il runtime di integrazione Azure-SSIS deve creare alcune risorse di rete nello stesso gruppo di risorse della rete virtuale. Tali risorse includono:
 - Un servizio di bilanciamento del carico di Azure, con nome * \<Guid> -azurebatch-cloudserviceloadbalancer*.
@@ -426,7 +426,7 @@ Dopo aver configurato la rete virtuale Azure Resource Manager o la rete virtuale
 
    ![Elenco di data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Selezionare il data factory con il Azure-SSIS IR nell'elenco. Verrà visualizzata la home page della data factory. Selezionare il riquadro **autore & monitoraggio** . Verrà visualizzata l'interfaccia utente di Data Factory in una scheda separata. 
+1. Selezionare il data factory con il Azure-SSIS IR nell'elenco. Verrà visualizzata la home page della data factory. Selezionare il riquadro **Crea e monitora**. Verrà visualizzata l'interfaccia utente di Data Factory in una scheda separata. 
 
    ![Home page di Data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

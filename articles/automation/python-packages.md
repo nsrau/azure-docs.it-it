@@ -7,10 +7,10 @@ ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
 ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987561"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gestire pacchetti Python 2 in Automazione di Azure
@@ -25,11 +25,11 @@ Nell'account di Automazione selezionare **Pacchetti Python 2** in **Risorse cond
 
 Nella pagina Aggiungi pacchetto Python 2 selezionare un pacchetto locale da caricare. Il pacchetto può essere un file con estensione **whl** o **tar.gz**. Dopo aver selezionato il pacchetto, fare clic su **OK** per caricarlo.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="Screenshot mostra la pagina Aggiungi pacchetto python 2 con un file tar. gz caricato selezionato.":::
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="Screenshot della pagina pacchetti Python 2 Mostra i pacchetti Python 2 nel menu a sinistra e aggiungere un pacchetto python 2 evidenziato.":::
 
 Dopo l'importazione, il pacchetto viene elencato nella pagina dei pacchetti Python 2 dell'account di Automazione. Se è necessario rimuovere un pacchetto, selezionarlo e fare clic su **Elimina**.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="Screenshot mostra la pagina dei pacchetti Python 2 dopo l'importazione di un pacchetto.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="Screenshot della pagina pacchetti Python 2 Mostra i pacchetti Python 2 nel menu a sinistra e aggiungere un pacchetto python 2 evidenziato.":::
 
 ## <a name="import-packages-with-dependencies"></a>Importare pacchetti con dipendenze
 
@@ -54,7 +54,7 @@ Una volta scaricati i pacchetti, è possibile importarli nell'account di Automaz
 * -a \<automationAccount\>
 * -m \<modulePackage\>
 
-:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Screenshot mostra la pagina di panoramica per import_py2package_from_pypi con il riquadro Avvia Runbook sul lato destro.":::
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="Screenshot della pagina pacchetti Python 2 Mostra i pacchetti Python 2 nel menu a sinistra e aggiungere un pacchetto python 2 evidenziato.":::
 
 Il runbook consente di specificare il pacchetto da scaricare. Ad esempio, l'uso del parametro `Azure` scarica tutti i moduli di Azure e tutte le dipendenze (circa 105).
 

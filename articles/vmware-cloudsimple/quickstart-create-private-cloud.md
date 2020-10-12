@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 487308aca3231650aee3fac5ae127006649e19b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073916"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guida introduttiva-configurare un ambiente cloud privato
@@ -64,7 +64,7 @@ Viene avviato il processo di provisioning del cloud privato.  Il provisioning de
 
 ## <a name="launch-cloudsimple-portal"></a>Avviare il portale di CloudSimple
 
-È possibile accedere al portale di CloudSimple da portale di Azure.  Il portale di CloudSimple verrà avviato con le credenziali di accesso di Azure tramite Single Sign-on (SSO).  Per accedere al portale di CloudSimple è necessario autorizzare l'applicazione di **autorizzazione del servizio CloudSimple** .  Per ulteriori informazioni sulla concessione di autorizzazioni, vedere il [consenso all'applicazione di autorizzazione del servizio CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
+È possibile accedere al portale di CloudSimple da portale di Azure.  Il portale di CloudSimple verrà avviato con le credenziali di accesso di Azure tramite Single Sign-On (SSO).  Per accedere al portale di CloudSimple è necessario autorizzare l'applicazione di **autorizzazione del servizio CloudSimple** .  Per ulteriori informazioni sulla concessione di autorizzazioni, vedere il [consenso all'applicazione di autorizzazione del servizio CloudSimple](access-cloudsimple-portal.md#consent-to-cloudsimple-service-authorization-application).
 
 1. Selezionare **Tutti i servizi**.
 2. Cercare i **Servizi CloudSimple**.
@@ -101,7 +101,7 @@ Una connessione VPN da punto a sito è il modo più semplice per connettersi al 
 
     * Le opzioni **Aggiungi automaticamente** impostano i criteri globali per questo gateway. Le impostazioni si applicano al gateway corrente. È possibile eseguire l'override delle impostazioni nell'area **Select** .
     * Selezionare **Aggiungi gestione VLAN/subnet di cloud privati**.
-    * Per aggiungere tutte le VLAN e le subnet definite dall'utente, fare clic su **Aggiungi VLAN/subnet definite dall'utente**.
+    * Per aggiungere tutte le VLAN e le subnet definite dall'utente, fare clic su  **Aggiungi VLAN/subnet definite dall'utente**.
     * Le impostazioni di **selezione** eseguono l'override delle impostazioni globali in **Aggiungi automaticamente**.
 
 7. Fare clic su **Avanti** per esaminare le impostazioni. Fare clic su modifica icone per apportare le modifiche.
@@ -159,7 +159,7 @@ CloudSimple fornisce un circuito ExpressRoute per il cloud privato. È possibile
     ![Avviare vSphere client](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selezionare il client vSphere preferito per accedere a vCenter e accedere con il nome utente e la password.  Le impostazioni predefinite sono:
-    * Nome utente:`CloudOwner@cloudsimple.local`
+    * Nome utente: `CloudOwner@cloudsimple.local`
     * Password: `CloudSimple123!`
 
 Le schermate di vCenter nelle procedure successive sono riportate nel client vSphere (HTML5).

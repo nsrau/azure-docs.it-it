@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900053"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi cognitivi di Azure
@@ -37,14 +37,14 @@ ms.locfileid: "90900053"
 
 **R:** Si vuole rendere disponibili più servizi cognitivi come offerte di contenitori. Contattare il gestore di account Microsoft locale per ottenere gli aggiornamenti su nuovi rilasci del contenitore e altri annunci di servizi cognitivi.
 
-**D: quale sarà il contratto di servizio (SLA) per i contenitori di servizi cognitivi?**
+**D: quali saranno i contratti di servizio per Service-Level i contenitori di servizi cognitivi?**
 
 **R:** I contenitori di servizi cognitivi non dispongono di un contratto di servizio.
 
 Le configurazioni dei contenitori di servizi cognitivi delle risorse sono controllate dai clienti, pertanto Microsoft non offrirà un contratto di servizio per la disponibilità generale. I clienti possono distribuire i contenitori in locale, quindi definiscono gli ambienti host.
 
 > [!IMPORTANT]
-> Per ulteriori informazioni sui contratti di servizio di servizi cognitivi, [visitare la pagina del contratto](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)di servizio.
+> Per altre informazioni su servizi cognitivi Service-Level contratti, [visita la pagina del contratto](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)di servizio.
 
 **D: questi contenitori sono disponibili nei cloud sovrani?**
 

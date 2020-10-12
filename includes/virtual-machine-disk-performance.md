@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 9f5a1010959658e75dcc809b2ee1d6d9222af056
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540011"
 ---
 Questo articolo consente di chiarire le prestazioni del disco e il relativo funzionamento con quando si combinano macchine virtuali di Azure e dischi di Azure. Viene inoltre descritto come è possibile diagnosticare i colli di bottiglia per l'IO del disco e le modifiche che è possibile apportare per ottimizzare le prestazioni.
