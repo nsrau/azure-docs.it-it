@@ -9,15 +9,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
 ms.openlocfilehash: 01c0b6610968c8eaa493a63aa9004d8ea4c36ca2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530767"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Moduli di PowerShell per Azure Machine Learning Studio (versione classica)
 
-**si applica a:** ![ Si applica a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Usando i moduli di PowerShell, è possibile gestire a livello di codice le risorse di studio (classiche) e gli asset, ad esempio aree di lavoro, set di impostazioni e servizi Web.

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 7f6c0f2a311590219fb59bfe1ec63831c03e8af2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314437"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
@@ -31,7 +31,7 @@ Questo argomento illustra come visualizzare e comprendere le raccomandazioni nel
 
 Le raccomandazioni sono azioni da eseguire per proteggere le risorse.
 
-Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Vengono quindi fornite indicazioni su come correggere tali vulnerabilità.
+Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare potenziali vulnerabilità di sicurezza. Fornisce quindi raccomandazioni su come correggere tali vulnerabilità.
 
 Ogni raccomandazione fornisce:
 
@@ -67,17 +67,17 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificar
         - **Risorse non integre** : risorse ancora interessate dal problema identificato.
         - **Risorse non applicabili** : risorse per le quali la raccomandazione non può fornire una risposta definitiva. La scheda non applicabile include anche i motivi di ogni risorsa. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Risorse non applicabili con motivi.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Pagina dei dettagli della raccomandazione.":::
 
 ## <a name="preview-recommendations"></a>Suggerimenti per l'anteprima
 
 Le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcoli del Punteggio sicuro.
 
-Dovrebbero comunque essere corretti, laddove possibile, in modo che, al termine del periodo di anteprima, contribuiscano al punteggio.
+È comunque necessario correggerle non appena possibile, in modo che possano contribuire al punteggio al termine del periodo di anteprima.
 
-Esempio di raccomandazione per l'anteprima:
+Esempio di una raccomandazione in anteprima:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Raccomandazione con il flag di anteprima":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Pagina dei dettagli della raccomandazione.":::
  
 ## <a name="next-steps"></a>Passaggi successivi
 

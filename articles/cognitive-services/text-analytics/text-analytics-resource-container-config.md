@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f6a1bc652125990a7daf3414895f34b95c544912
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590555"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurare i contenitori docker di Analisi del testo
@@ -47,7 +47,7 @@ L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa di _Analisi
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: Panoramica **analisi del testo** , con etichetta`Endpoint`
+* Portale di Azure: Panoramica **analisi del testo** , con etichetta `Endpoint`
 
 |Necessario| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
@@ -79,10 +79,10 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 |Facoltativo| Nome | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | String | I contenitori di Analisi del testo non la usano.|
+|Non consentito| `Input` | string | I contenitori di Analisi del testo non la usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [Come installare ed eseguire i contenitori](how-tos/text-analytics-how-to-install-containers.md)
-* Usare più [contenitori di servizi cognitivi](../cognitive-services-container-support.md)
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)

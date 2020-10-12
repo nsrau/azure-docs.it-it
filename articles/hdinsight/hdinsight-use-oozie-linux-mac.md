@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085940"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux
@@ -37,7 +37,7 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 
 * **Un database SQL di Azure**.  Vedere [creare un database nel database SQL di Azure nel portale di Azure](../sql-database/sql-database-get-started.md).  Questo articolo usa un database denominato **oozietest**.
 
-* Lo schema URI per l'archiviazione primaria dei cluster. `wasb://`per l'archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`. Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
+* Lo schema URI per l'archiviazione primaria dei cluster. `wasb://` per l'archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per Archiviazione di Azure, l'URI sarà `wasbs://`. Vedere anche l'articolo sul [trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Esempio di flusso di lavoro
 

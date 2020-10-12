@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/21/2020
 ms.openlocfilehash: 7cfb47ad4cad600f06aba2039f4b6a4b04722085
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332135"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
@@ -51,7 +51,7 @@ Per l'attività di copia, questo connettore del database SQL di Azure supporta l
 > Se si copiano dati tramite il runtime di integrazione di Azure, configurare una [regola del firewall a livello di server](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) in modo che i servizi di Azure possano accedere al server.
 > Se si copiano i dati usando un runtime di integrazione self-hosted, configurare il firewall in modo da consentire l'intervallo di indirizzi IP appropriato. Questo intervallo include l'IP del computer usato per connettersi al database SQL di Azure.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -711,9 +711,9 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
-| testo |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

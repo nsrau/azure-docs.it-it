@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: 8c9555bc208766d5275e392ee22889f5b618e216
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018306"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
@@ -96,7 +96,7 @@ Per autenticare il dispositivo X.509, è prima di tutto necessario firmare il di
 
 In seguito verrà illustrato come creare un'applicazione C# per simulare il dispositivo X.509 registrato per l'hub IoT. Verranno inviati valori di temperatura e umidità dal dispositivo simulato all'hub. In questa esercitazione verrà creata solo l'applicazione del dispositivo. Rimarrà come esercizio per i lettori la creazione dell'applicazione di servizio dell'hub IoT per inviare risposta agli eventi inviati da questo dispositivo simulato. L'applicazione C# presuppone che siano stati seguiti i passaggi descritti in [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-1. Aprire Visual Studio, selezionare **Crea nuovo progetto**, quindi scegliere il modello di progetto **App Console (.NET Framework)** . Selezionare **Next** (Avanti).
+1. Aprire Visual Studio, selezionare **Crea nuovo progetto**, quindi scegliere il modello di progetto **App Console (.NET Framework)** . Selezionare **Avanti**.
 
 1. In **Configura il nuovo progetto**assegnare al progetto il nome *SimulateX509Device*e quindi selezionare **Crea**.
 

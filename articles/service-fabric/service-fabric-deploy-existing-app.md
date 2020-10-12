@@ -4,10 +4,10 @@ description: Informazioni su come creare il pacchetto di un'applicazione esisten
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259259"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
@@ -178,7 +178,7 @@ Nell'esempio precedente SetupEntryPoint esegue un file batch denominato `LaunchC
 
 L'elemento `EntryPoint` nel manifesto del servizio consente di specificare la modalità di avvio del servizio.
 
-L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio. Facoltativamente, è possibile aggiungere l'attributo `IsExternalExecutable="true"` a `ExeHost` per indicare che il programma è un eseguibile esterno di fuori del pacchetto di codice. Ad esempio, `<ExeHost IsExternalExecutable="true">`
+L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio. Facoltativamente, è possibile aggiungere l'attributo `IsExternalExecutable="true"` a `ExeHost` per indicare che il programma è un eseguibile esterno di fuori del pacchetto di codice. Ad esempio: `<ExeHost IsExternalExecutable="true">`.
 
 * `Program` specifica il nome dell'eseguibile che deve avviare il servizio.
 * `Arguments` specifica gli argomenti da passare al file eseguibile. Può essere un elenco di parametri con argomenti.

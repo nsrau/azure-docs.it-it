@@ -13,10 +13,10 @@ ms.workload: tbd
 ms.date: 8/17/2020
 ms.author: yohaddad
 ms.openlocfilehash: d79fd60f4fe3786cfe3106329904d9d262078411
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90024214"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
@@ -299,7 +299,7 @@ Versione .NET Framework installata: 3.5, 4.5
 ## <a name="msrc-patch-updates"></a>Patch di aggiornamento MSRC
 L'elenco di patch incluse con il rilascio del sistema operativo guest di ogni mese è disponibile [qui][patches].
 
-## <a name="sdk-support"></a>SDK supportati
+## <a name="sdk-support"></a>Supporto SDK
 Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l'SDK più recente supportato.
 
 | Famiglia del sistema operativo guest | Versioni SDK compatibili |

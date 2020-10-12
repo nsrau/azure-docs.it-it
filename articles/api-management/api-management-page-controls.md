@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: b826c986a0af26bb79fb0823e4e8626f0165d460
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250023"
 ---
 # <a name="azure-api-management-page-controls"></a>Controlli pagina in Gestione API di Azure
@@ -88,7 +88,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
 -   [Accedi](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a><a name="paging-control"></a>paging-controllo  
+##  <a name="paging-control"></a><a name="paging-control"></a> paging-controllo  
  Il controllo `paging-control` offre funzionalità di paging nelle pagine del portale per sviluppatore che presentano un elenco di elementi.  
   
  ![controllo paging](./media/api-management-page-controls/APIM-paging-control.png "Controllo paging gestione API")  
@@ -111,7 +111,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
 -   [Elenco dei prodotti](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a><a name="providers"></a>provider  
+##  <a name="providers"></a><a name="providers"></a> provider  
  Il controllo `providers` permette di selezionare i provider di autenticazione nella pagina di accesso del portale per sviluppatori.  
   
  ![controllo provider](./media/api-management-page-controls/APIM-providers-control.png "Controllo provider gestione API")  
@@ -151,7 +151,7 @@ Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il port
   
 -   [Elenco dei prodotti](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a><a name="sign-up"></a>Sign  
+##  <a name="sign-up"></a><a name="sign-up"></a> Sign  
  Il controllo `sign-up` permette di raccogliere le informazioni di profilo degli utenti nella pagina di iscrizione del portale per sviluppatori.  
   
  ![controllo&#45;di accesso](./media/api-management-page-controls/APIM-sign-up-control.png "Controllo di iscrizione gestione API")  

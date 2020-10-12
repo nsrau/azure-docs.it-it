@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f59eb3296c27e64eb6a4644b2f455e3704381f49
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260837"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
@@ -25,7 +25,7 @@ Consente di avviare, arrestare e creare report nel servizio di test chaos.
 | --- | --- |
 | eventi | Recupera il segmento successivo degli eventi di Chaos in base al token di continuazione o all'intervallo di tempo. |
 | get | Ottiene lo stato di Chaos. |
-| start | Avvia Chaos nel cluster. |
+| Avvio | Avvia Chaos nel cluster. |
 | stop | Arresta Chaos se è in esecuzione nel cluster e imposta lo stato della pianificazione di Chaos come arrestata. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl chaos events
@@ -35,7 +35,7 @@ Per ottenere il segmento successivo degli eventi di Chaos, è possibile specific
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |
 | --end-time-utc | Ora di file di Windows che rappresenta l'ora di fine dell'intervallo di tempo per cui verrà generato un report di Chaos. Per informazioni dettagliate, vedere [Metodo DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
@@ -45,7 +45,7 @@ Per ottenere il segmento successivo degli eventi di Chaos, è possibile specific
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -60,13 +60,13 @@ Ottiene lo stato di Chaos che indica se Chaos è in esecuzione o meno, i paramet
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

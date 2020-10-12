@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 2c91a59e57613934c946e3cd56089b330893a51a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260347"
 ---
 # <a name="sfctl-mesh-secret"></a>sfctl mesh secret
@@ -19,7 +19,7 @@ Consente di ottenere ed eliminare le risorse di tipo segreto mesh.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminazione | Elimina la risorsa di tipo segreto. |
+| Elimina | Elimina la risorsa di tipo segreto. |
 | list | Elenca tutte le risorse di tipo segreto. |
 | show | Ottiene la risorsa di tipo segreto con il nome specificato. |
 
@@ -30,13 +30,13 @@ Elimina la risorsa di tipo segreto specificata e tutti i relativi valori denomin
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della risorsa di segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -51,7 +51,7 @@ Ottiene le informazioni su tutte le risorse di tipo segreto in un determinato gr
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -66,13 +66,13 @@ Ottiene le informazioni sulla risorsa di tipo segreto con il nome specificato. L
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della risorsa di segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

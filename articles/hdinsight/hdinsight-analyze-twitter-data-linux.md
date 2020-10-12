@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086722"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Apache Hive e Apache Hadoop in HDInsight
@@ -34,11 +34,11 @@ Twitter consente di recuperare i dati relativi ad ogni tweet come documento JSON
 
 3. Compilare i campi **Name**, **Description**, **Website**. Per il campo **Website** è possibile creare un URL fittizio. Nella tabella seguente vengono mostrati alcuni valori di esempio da usare:
 
-   | Campo | valore |
+   | Campo | Valore |
    |--- |--- |
    | Nome |MyHDInsightApp |
    | Descrizione |MyHDInsightApp |
-   | Website |`https://www.myhdinsightapp.com` |
+   | Sito Web |`https://www.myhdinsightapp.com` |
 
 4. Selezionare **Sì, accetto**, quindi selezionare **crea l'applicazione Twitter**.
 

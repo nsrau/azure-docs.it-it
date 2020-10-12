@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
 ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047494"
 ---
 # <a name="animated-character-detection-preview"></a>Rilevamento di caratteri animati (anteprima)
@@ -208,7 +208,7 @@ Vedere i caratteri animati nel file JSON generato.
 
 ## <a name="limitations"></a>Limitazioni
 
-* Attualmente, la funzionalità di identificazione dell'animazione non è supportata nell'area Asia orientale.
+* Attualmente, la funzionalità di identificazione dell'animazione non è supportata in East-Asia area.
 * I caratteri che sembrano essere piccoli o lontani nel video potrebbero non essere identificati correttamente se la qualità del video è insufficiente.
 * Si consiglia di usare un modello per set di caratteri animati, ad esempio per una serie animata.
 
