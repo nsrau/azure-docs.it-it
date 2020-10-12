@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: fc048f3da3156f5e17cfa32479b834b7320a60a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84753775"
 ---
 # <a name="azure-virtual-wan-and-supporting-remote-work"></a>Rete WAN virtuale di Azure e supporto per lavoro remoto
@@ -49,7 +49,7 @@ Sono disponibili due opzioni:
 
 La rete WAN virtuale di base fornisce solo VPN da sito a sito. Per consentire agli utenti remoti di connettersi, sarà necessario aggiornare la rete WAN virtuale alla rete WAN virtuale standard. Per i passaggi necessari per aggiornare una rete WAN virtuale, vedere [aggiornare una rete WAN virtuale da Basic a standard](upgrade-virtual-wan.md)
 
-## <a name="additional-information"></a><a name="other considerations"></a>Informazioni aggiuntive
+## <a name="additional-information"></a><a name="other considerations"></a>Altre informazioni
 
 La rete WAN virtuale supporta un hub per area/località. Per informazioni sulle località, vedere l'articolo [Partner e località della rete WAN virtuale](virtual-wan-locations-partners.md). Ogni hub supporta fino a 10.000 connessioni utente remote, 1.000 Branch Connection, quattro circuiti ExpressRoute e fino a 500 connessioni di rete virtuale. Quando si aumentano le prestazioni degli utenti remoti, in caso di domande, non esitare a richiedere assistenza inviando un messaggio di posta elettronica a azurevirtualwan@microsoft.com . Se è necessario il supporto tecnico, assicurarsi di aprire un ticket di supporto dal portale di Azure e la guida sarà in corso.
 

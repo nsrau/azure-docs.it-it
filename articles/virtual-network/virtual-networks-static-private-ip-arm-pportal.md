@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707855"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Configurare un indirizzo IP privato per una macchina virtuale usando il portale di Azure
@@ -43,7 +43,7 @@ Quando si crea una macchina virtuale in modalità di distribuzione Gestione riso
 
 Per creare una VM denominata *DNS01* nella subnet *frontend* di una rete virtuale denominata *TestVNet*, seguire questa procedura:
 
-1. Scegliere **Crea una risorsa**dal menu [portale di Azure](https://portal.azure.com) .
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**.
 
     ![Creare una risorsa, portale di Azure](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
 2. Selezionare **calcolo**  >  **macchina virtuale**.

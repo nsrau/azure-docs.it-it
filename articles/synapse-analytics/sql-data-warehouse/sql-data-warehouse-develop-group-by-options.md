@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 260bd7cc6402a7cb4ed17d004d0f61b7462c51d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213449"
 ---
 # <a name="group-by-options-in-synapse-sql-pool"></a>Opzioni Group by nel pool SQL sinapsi
@@ -52,7 +52,7 @@ GROUP BY ROLLUP (
 Quando si usa ROLLUP, sono necessarie le aggregazioni seguenti per l'esempio precedente:
 
 * Paese e area geografica
-* Country
+* Paese
 * Grand Total
 
 Per sostituire ROLLUP e restituire gli stessi risultati, è possibile usare UNION ALL e specificare in modo esplicito le aggregazioni necessarie:

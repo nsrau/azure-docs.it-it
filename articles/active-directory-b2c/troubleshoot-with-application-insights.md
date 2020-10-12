@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116082"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Raccogliere i log di Azure Active Directory B2C con Application Insights
@@ -58,8 +58,8 @@ Se non ne è già presente uno, creare un'istanza di Application Insights nella 
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"`indica a ApplicationInsights di accelerare i dati di telemetria attraverso la pipeline di elaborazione. Ideale per lo sviluppo, ma vincolato a volumi elevati.
-    * `ClientEnabled="true"`Invia lo script del lato client di ApplicationInsights per tenere traccia degli errori sul lato client e sulla visualizzazione pagina. È possibile visualizzarli nella tabella **browserTimings** nel portale di Application Insights. Impostando `ClientEnabled= "true"` , si aggiungono Application Insights allo script di pagina e si ottengono i tempi di caricamento delle pagine e le chiamate AJAX, i conteggi, i dettagli delle eccezioni del browser e degli errori Ajax, nonché i conteggi degli utenti e delle sessioni. Questo campo è **facoltativo**e è impostato su per `false` impostazione predefinita.
+    * `DeveloperMode="true"` indica a ApplicationInsights di accelerare i dati di telemetria attraverso la pipeline di elaborazione. Ideale per lo sviluppo, ma vincolato a volumi elevati.
+    * `ClientEnabled="true"` Invia lo script del lato client di ApplicationInsights per tenere traccia degli errori sul lato client e sulla visualizzazione pagina. È possibile visualizzarli nella tabella **browserTimings** nel portale di Application Insights. Impostando `ClientEnabled= "true"` , si aggiungono Application Insights allo script di pagina e si ottengono i tempi di caricamento delle pagine e le chiamate AJAX, i conteggi, i dettagli delle eccezioni del browser e degli errori Ajax, nonché i conteggi degli utenti e delle sessioni. Questo campo è **facoltativo**e è impostato su per `false` impostazione predefinita.
     * `ServerEnabled="true"` invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights.
 
     Ad esempio:

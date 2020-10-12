@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
 ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321408"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Senza server è un livello di calcolo per i database singoli nel database SQL di Azure che ridimensiona automaticamente le risorse di calcolo in base alla domanda del carico di lavoro e alle fatture per la quantità di calcolo usata al secondo. Il livello di calcolo senza server inoltre sospende automaticamente i database durante i periodi di inattività quando viene addebitata solo l'archiviazione e riprende automaticamente i database quando l'attività restituisce.
+Senza server è un livello di calcolo per i database singoli nel database SQL di Azure che ridimensiona automaticamente le risorse di calcolo in base alla domanda del carico di lavoro e alle fatture per la quantità di calcolo usata al secondo. Il livello di calcolo serverless inoltre sospende automaticamente i database durante i periodi di inattività, in cui viene addebitata solo l'archiviazione, e li riprende automaticamente quando necessario.
 
 ## <a name="serverless-compute-tier"></a>Livello di elaborazione serverless
 
@@ -130,7 +130,7 @@ La ripresa automatica viene attivata se si verifica una delle condizioni seguent
 
 |Funzionalità|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Login|
+|Autenticazione e autorizzazione|Accedi|
 |Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|
@@ -252,7 +252,7 @@ La procedura per spostare un database serverless in un livello di calcolo con pr
 
 Per modificare il valore massimo o minimo per Vcore e il ritardo di sospensione, viene eseguita usando il comando [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) in PowerShell usando gli `MaxVcore` `MinVcore` argomenti, e `AutoPauseDelayInMinutes` .
 
-### <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+### <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 
 Per modificare il vcore massimo o minimo e il ritardo di sospensione, è necessario usare il comando [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) nell'interfaccia della riga di comando di Azure usando gli `capacity` `min-capacity` argomenti, e `auto-pause-delay` .
 
@@ -367,5 +367,5 @@ Il livello di calcolo senza server è disponibile in tutto il mondo, ad eccezion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, vedere [Guida introduttiva: creare un database singolo nel database SQL di Azure usando il portale di Azure](single-database-create-quickstart.md).
+- Per iniziare, vedere [Avvio rapido: Creare un database singolo nel database SQL di Azure usando il portale di Azure](single-database-create-quickstart.md).
 - Per i limiti delle risorse, vedere [Limiti delle risorse del livello di calcolo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

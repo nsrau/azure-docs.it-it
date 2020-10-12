@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287264"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge
@@ -81,7 +81,7 @@ Il nome di questa impostazione è `deviceToCloudUploadProperties` . Se si usa il
 | ----- | ----- | ---- |
 | uploadOn | true, false | Impostare su per `false` impostazione predefinita. Se si desidera attivare la funzionalità, impostare questo campo su `true` . <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Consente di scegliere l'ordine in cui i dati vengono copiati in Azure. Impostare su per `OldestFirst` impostazione predefinita. L'ordine è determinato dall'ora dell'Ultima modifica del BLOB. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`è una stringa di connessione che consente di specificare l'account di archiviazione in cui si desidera caricare i dati. Specificare `Azure Storage Account Name` , `Azure Storage Account Key` , `End point suffix` . Aggiungi EndpointSuffix appropriati di Azure in cui verranno caricati i dati, che variano in base a Global Azure, Government Azure e Microsoft Azure Stack. <br><br> È possibile scegliere di specificare la stringa di connessione SAS di archiviazione di Azure qui. Tuttavia, è necessario aggiornare questa proprietà quando scade. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` è una stringa di connessione che consente di specificare l'account di archiviazione in cui si desidera caricare i dati. Specificare `Azure Storage Account Name` , `Azure Storage Account Key` , `End point suffix` . Aggiungi EndpointSuffix appropriati di Azure in cui verranno caricati i dati, che variano in base a Global Azure, Government Azure e Microsoft Azure Stack. <br><br> È possibile scegliere di specificare la stringa di connessione SAS di archiviazione di Azure qui. Tuttavia, è necessario aggiornare questa proprietà quando scade. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Consente di specificare i nomi dei contenitori che si vuole caricare in Azure. Questo modulo consente di specificare i nomi dei contenitori di origine e di destinazione. Se non si specifica il nome del contenitore di destinazione, il nome del contenitore verrà assegnato automaticamente come `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . È possibile creare stringhe di modello per il nome del contenitore di destinazione, vedere la colonna valori possibili. <br>*% h-> nome dell'hub Internet (3-50 caratteri). <br>*% d-> IoT Edge ID dispositivo (da 1 a 129 caratteri). <br>*% m-> nome del modulo (da 1 a 64 caratteri). <br>*% c-> nome del contenitore di origine (da 3 a 63 caratteri). <br><br>Le dimensioni massime del nome del contenitore sono di 63 caratteri, assegnando automaticamente il nome del contenitore di destinazione se la dimensione del contenitore supera i 63 caratteri, ogni sezione (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) verrà tagliata in 15 caratteri. <br><br> Variabile di ambiente: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | Impostare su per `false` impostazione predefinita. Quando è impostato su `true` , i dati verranno eliminati automaticamente al termine del caricamento nell'archiviazione cloud. <br><br> **Attenzione**: se si usano i BLOB di Accodamento, questa impostazione eliminerà i BLOB di Accodamento dalla risorsa di archiviazione locale dopo il completamento del caricamento e le successive operazioni di blocco per tali BLOB avranno esito negativo. Usare questa impostazione con cautela. non abilitare questa opzione se l'applicazione esegue operazioni di Accodamento non frequenti o non supporta operazioni di Accodamento continue<br><br> Variabile di ambiente: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` . |
 
@@ -187,7 +187,7 @@ Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Le versioni precedenti alla versione 2.1 di Python SDK hanno un problema noto in cui il modulo non restituisce la data e l'ora di creazione del BLOB. A causa di questo problema, alcuni metodi come i BLOB di elenco non funzionano. Come soluzione alternativa, impostare in modo esplicito la versione dell'API nel client BLOB su "2017-04-17". Esempio: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Esempio di Accodamento BLOB](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)
@@ -201,7 +201,7 @@ Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge
 
 1. Connettersi ad archiviazione di Azure usando una stringa di connessione
 
-1. Specificare la stringa di connessione:`DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+1. Specificare la stringa di connessione: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
 1. Eseguire i passaggi per la connessione.
 
@@ -298,7 +298,7 @@ Di seguito sono riportate le [Note sulla versione nell'hub Docker](https://hub.d
 
 Il feedback è importante per rendere questo modulo e le sue funzionalità utili e facili da usare. Condividi i tuoi commenti e facci scoprire come possiamo migliorare.
 
-Puoi contattarci all'indirizzoabsiotfeedback@microsoft.com
+Puoi contattarci all'indirizzo absiotfeedback@microsoft.com
 
 ## <a name="next-steps"></a>Passaggi successivi
 

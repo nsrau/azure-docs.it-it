@@ -8,13 +8,13 @@ author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
 ms.openlocfilehash: e8d952c76fa71cb57d2edd7c9aa361c7249e0622
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105133"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Co-selling di codici paese e area geografica
+# <a name="co-sell-country-and-region-codes"></a>Codici di paese e area per il co-selling
 
 Usare questi codici di paese/area geografica di due lettere quando si [forniscono informazioni di contatto nella pagina di co-selling dell'offerta](commercial-marketplace-co-sell.md).
 
@@ -236,7 +236,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Spagna                               | ES        |
 | Sri Lanka                           | LK        |
 | Sant'Elena, Ascensione, Tristan da Cunha | SH     |
-| Sudan                               | SD        |
+| Sudan                               | DS        |
 | Suriname                            | SR        |
 | Svalbard                            | SJ        |
 | Svezia                              | SE        |
@@ -249,7 +249,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Timor Leste                         | TL        |
 | Togo                                | TG        |
 | Tokelau                             | TK        |
-| Tonga                               | A        |
+| Tonga                               | TO        |
 | Trinidad e Tobago                 | TT        |
 | Tunisia                             | TN        |
 | Turchia                              | TR        |

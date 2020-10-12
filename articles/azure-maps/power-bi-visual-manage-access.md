@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 2f7372d522c02eb86f1cc6470cefa9cb299605a7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261852"
 ---
 # <a name="manage-the-azure-maps-visual-within-your-organization"></a>Gestire l'oggetto visivo Maps di Azure all'interno dell'organizzazione
@@ -22,7 +22,7 @@ Power BI consente ai progettisti e agli amministratori tenant di gestire l'uso d
 
 ### <a name="designer-options"></a>Opzioni per i progettisti
 
-In Power bi desktop, le finestre di progettazione possono disabilitare l'oggetto visivo mappe di Azure nella **File** scheda sicurezza. Selezionare le &gt; **Opzioni e le impostazioni** del file e quindi selezionare **Opzioni** &gt; **Anteprima funzionalità**. Se disabilitato, Azure Maps non viene caricato per impostazione predefinita.  
+In Power BI Desktop, le finestre di progettazione possono disabilitare l'oggetto visivo mappe di Azure nella scheda sicurezza. Selezionare **File** &gt; **le opzioni e le impostazioni** del file, quindi selezionare **Opzioni** &gt; **Anteprima funzionalità**. Se disabilitato, Azure Maps non viene caricato per impostazione predefinita.  
   
 ![Pannello opzioni di Power BI che mostra le opzioni delle funzionalità di anteprima per l'oggetto visivo mappe di Azure](media/power-bi-visual/preview-options-panel.png)
 

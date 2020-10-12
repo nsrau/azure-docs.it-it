@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119896"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)
@@ -42,8 +42,8 @@ Quando l'applicazione deve richiedere un token di accesso con autorizzazioni spe
 
 Alcuni valori di ambito di esempio per risorse diverse:
 
-- API Microsoft Graph:`https://graph.microsoft.com/User.Read`
-- API Web personalizzata:`api://11111111-1111-1111-1111-111111111111/api.read`
+- API Microsoft Graph: `https://graph.microsoft.com/User.Read`
+- API Web personalizzata: `api://11111111-1111-1111-1111-111111111111/api.read`
 
 Il formato del valore dell'ambito varia a seconda della risorsa (API) che riceve il token di accesso e dei `aud` valori di attestazione accettati.
 

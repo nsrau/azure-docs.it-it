@@ -5,10 +5,10 @@ ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181681"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
@@ -110,7 +110,7 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 
-| Operazione | Dettagli errore | Risoluzione |
+| Operazione | Dettagli errore | Soluzione |
 | --- | --- | --- |
 | Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore viene visualizzato quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al di sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, un approccio consigliato consiste nell'aggiornare l'agente di backup, server di Backup di Azure e/o DPM UR per sfruttare tutti gli aggiornamenti della sicurezza. |
 | Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata:**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |

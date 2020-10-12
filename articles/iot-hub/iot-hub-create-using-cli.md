@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087848"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure
@@ -72,14 +72,14 @@ Il comando precedente crea un hub IoT nel piano tariffario S1 che viene fatturat
 
 È possibile usare l'interfaccia della riga di comando di Azure per [eliminare una singola risorsa](https://docs.microsoft.com/cli/azure/resource), ad esempio un hub IoT, o eliminare un gruppo di risorse e tutte le risorse correlate, inclusi gli hub IoT.
 
-Per [eliminare un hub IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete), eseguire questo comando:
+Per [eliminare un hub](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete)Internet delle cose, eseguire il comando seguente:
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-Per [eliminare un gruppo di risorse](https://docs.microsoft.com/cli/azure/group#az-group-delete) e tutte le risorse correlate, eseguire questo comando:
+Per [eliminare un gruppo di risorse](https://docs.microsoft.com/cli/azure/group#az-group-delete) e tutte le relative risorse, eseguire il comando seguente:
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

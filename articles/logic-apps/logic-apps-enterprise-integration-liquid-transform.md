@@ -9,10 +9,10 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88716674"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Trasformare JSON e XML usando i modelli Liquid come mappe in app per la logica di Azure
@@ -89,7 +89,7 @@ Questo articolo illustra come completare queste attività:
    | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | `JsonToJsonTemplate` | Nome per la mappa, ovvero "JsonToJsonTemplate" in questo esempio |
-   | **Tipo di mapping** | **liquid** | Tipo di mappa. Per la trasformazione da JSON a JSON, è necessario selezionare **Liquid**. |
+   | **Tipo di mappa** | **liquid** | Tipo di mappa. Per la trasformazione da JSON a JSON, è necessario selezionare **Liquid**. |
    | **Mappa** | `SimpleJsonToJsonTemplate.liquid` | File di mappa o di modello Liquid esistente da usare per la trasformazione, ovvero "SimpleJsonToJsonTemplate.liquid" in questo esempio. Per trovare questo file, è possibile usare la selezione file. Per i limiti delle dimensioni della mappa, vedere [limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    |||
 

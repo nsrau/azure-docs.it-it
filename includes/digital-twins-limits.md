@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
 ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89304099"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
@@ -22,8 +22,8 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Gemelli digitali | Numero di gemelli in un'istanza di dispositivi gemelli digitali di Azure | 200.000 | Sì |
 | Gemelli digitali | Numero di relazioni in ingresso per un singolo gemello | 5\.000 | No |
 | Gemelli digitali | Numero di relazioni in uscita da un singolo gemello | 5\.000 | No |
-| Routing. | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
-| Routing. | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
+| Routing | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
+| Routing | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
 | Modelli | Numero di modelli all'interno di una singola istanza di Azure Digital Twins | 10,000 | Sì |
 | Modelli | Numero di modelli che possono essere caricati in una singola chiamata API | 250 | No |
 | Modelli | Numero di elementi restituiti in una singola pagina | 100 | No |

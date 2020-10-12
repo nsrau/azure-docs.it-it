@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285316"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Aumentare e ridurre il gruppo di server di database di Azure per PostgreSQL usando l'interfaccia della riga di comando (azdata o kubectl)
@@ -183,7 +183,7 @@ Per ridurre il numero di server, è necessario eseguire lo stesso comando, ma im
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scalabilità orizzontale del gruppo di server di scalabilità orizzontale per database di Azure per PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
+- [Aumentare le istanze in Database di Azure per il gruppo di server PostgreSQL Hyperscale](scale-out-postgresql-hyperscale-server-group.md)
 - [Concetti relativi alla configurazione dell'archiviazione e all'archiviazione Kubernetes](storage-configuration.md)
 - [Espansione di attestazioni di volume permanenti](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modello di risorsa Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

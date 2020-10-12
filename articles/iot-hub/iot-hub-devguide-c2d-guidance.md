@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 10206aced4f38f4d157f46703aac2d28ec863274
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319151"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Indicazioni sulle comunicazioni da cloud a dispositivo
@@ -38,8 +38,8 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da cloud a 
 | ---------- | -------------- | ------------------------- | ------------------------ |
 | Scenario | Comandi che richiedono una conferma immediata, ad esempio l'accensione di una ventola. | Comandi a esecuzione prolungata che consentono di impostare uno stato specifico per il dispositivo, ad esempio per impostare l'intervallo di invio dei dati di telemetria su 30 minuti. | Notifiche unidirezionali verso l'app per dispositivo. |
 | Flusso di dati | Bidirezionale. L'app per dispositivo può rispondere immediatamente al metodo. Il back-end della soluzione riceve il risultato insieme alla richiesta. | Unidirezionale. L'app per dispositivo riceve una notifica quando la proprietà viene modificata. | Unidirezionale. L'app per dispositivo riceve il messaggio.
-| Durabilità | I dispositivi disconnessi non vengono contattati. Il back-end della soluzione riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT](iot-hub-devguide-query-language.md). | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
-| Targets | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi](iot-hub-devguide-jobs.md). | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi](iot-hub-devguide-jobs.md). | Singolo dispositivo in base a **deviceId**. |
+| Durata | I dispositivi disconnessi non vengono contattati. Il back-end della soluzione riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT](iot-hub-devguide-query-language.md). | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
+| Server di destinazione | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi](iot-hub-devguide-jobs.md). | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi](iot-hub-devguide-jobs.md). | Singolo dispositivo in base a **deviceId**. |
 | Dimensione | La dimensione massima del payload del metodo diretto è 128 KB. | Le dimensioni massime delle proprietà desiderate sono pari a 32 KB. | Fino a 64 KB per i messaggi. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). | Media. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT](iot-hub-devguide-quotas-throttling.md). |
 | Protocollo | Disponibile tramite MQTT o AMQP. | Disponibile tramite MQTT o AMQP. | Disponibile in tutti i protocolli. Il dispositivo deve eseguire il polling quando usa HTTPS. |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 3b047489f9cfa3623c11e324cf58114b707c10b7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567869"
 ---
 # <a name="azure-network-architecture"></a>Architettura di rete di Azure
@@ -61,7 +61,7 @@ I componenti di rete precedenti sono progettati per fornire la massima disponibi
 ## <a name="datacenter-network-resiliency"></a>Resilienza della rete del Data Center
 Di seguito viene illustrato il principio di progettazione della resilienza mediante la rete del Data Center.
 
-La rete del Data Center è una versione modificata di una [rete Clos](https://en.wikipedia.org/wiki/Clos_network), che fornisce una larghezza di banda bidimensionale elevata per il traffico in scala cloud. La rete viene costruita usando un numero elevato di dispositivi di base per ridurre l'effetto causato da singoli guasti hardware. Questi dispositivi sono posizionati in modo strategico in posizioni fisiche diverse con un dominio di alimentazione e raffreddamento separato per ridurre l'impatto di un evento dell'ambiente.  Sul piano di controllo tutti i dispositivi di rete sono in esecuzione come modalità di routing di livello 3 OSI, che elimina il problema cronologico del ciclo di traffico. Tutti i percorsi tra livelli diversi sono attivi per offrire ridondanza elevata e larghezza di banda usando il routing ECMP (Equal-cost multipath).
+La rete del Data Center è una versione modificata di una [rete Clos](https://en.wikipedia.org/wiki/Clos_network), che fornisce una larghezza di banda bidimensionale elevata per il traffico in scala cloud. La rete viene costruita usando un numero elevato di dispositivi di base per ridurre l'effetto causato da singoli guasti hardware. Questi dispositivi sono posizionati in modo strategico in posizioni fisiche diverse con un dominio di alimentazione e raffreddamento separato per ridurre l'impatto di un evento dell'ambiente.  Sul piano di controllo tutti i dispositivi di rete sono in esecuzione come modalità di routing di livello 3 OSI, che elimina il problema cronologico del ciclo di traffico. Tutti i percorsi tra livelli diversi sono attivi per offrire ridondanza e larghezza di banda elevate usando Equal-Cost il routing a percorsi multipli (ECMP).
 
 Il diagramma seguente illustra che la rete del Data Center è costruita con diversi livelli di dispositivi di rete. Le barre del diagramma rappresentano gruppi di dispositivi di rete che forniscono ridondanza e connettività a larghezza di banda elevata.
 

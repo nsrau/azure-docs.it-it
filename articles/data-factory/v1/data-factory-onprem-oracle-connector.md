@@ -13,10 +13,10 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084291"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
@@ -150,7 +150,7 @@ Le sezioni di un file JSON del set di dati, tra cui struttura, disponibilità e 
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sul percorso dei dati nell'archivio dati. La sezione **typeProperties** per il set di dati di tipo **OracleTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Necessario |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nel database Oracle a cui fa riferimento il servizio collegato. |No (se è specificato **oracleReaderQuery** o **OracleSource**) |
 
@@ -622,7 +622,7 @@ Quando si spostano dati da Oracle, vengono usati i mapping seguenti dal tipo di 
 | timestamp |Datetime |
 | TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
 | TIMESTAMP WITH TIME ZONE |Datetime |
-| UNSIGNED INTEGER |Number |
+| UNSIGNED INTEGER |Numero |
 | VARCHAR2 |string |
 | XML |string |
 

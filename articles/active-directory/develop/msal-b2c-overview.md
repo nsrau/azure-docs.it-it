@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119791"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utilizzare Microsoft Authentication Library per JavaScript per utilizzare Azure AD B2C
@@ -67,7 +67,7 @@ const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can u
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
 ```
 
-Per altre informazioni, vedere questo [esempio di API webNode.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+Per altre informazioni, vedere questo [ esempio di API webNode.js B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
 ## <a name="javascript-spa"></a>JavaScript SPA
 
@@ -201,7 +201,7 @@ Quando un utente seleziona **password dimenticata**, l'applicazione genera un er
 
     Dopo aver reimpostato la password, l'utente torna all'applicazione per accedere di nuovo.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Schermate del flusso di reimpostazione della password visualizzate da Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Schermata di accesso visualizzata da Azure AD B2C" border="false":::
 
     Per ulteriori informazioni sui codici di errore e sulla gestione delle eccezioni, vedere [codici di errore e di eccezione MSAL](msal-handling-exceptions.md).
 
@@ -209,6 +209,6 @@ Quando un utente seleziona **password dimenticata**, l'applicazione genera un er
 
 Altre informazioni su questi Azure AD B2C concetti:
 
-- [Flussi utente](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Flussi degli utenti](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md)
 - [Personalizzazione dell'esperienza utente](../../active-directory-b2c/custom-policy-configure-user-input.md)
