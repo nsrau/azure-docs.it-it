@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: bcc6f41d7cc08764266ffb6705d1b8937d355199
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109723"
 ---
 # <a name="customize-an-assessment"></a>Personalizzare una valutazione
@@ -27,15 +27,15 @@ Le valutazioni create con server assessment sono uno snapshot temporizzato dei d
 
 **Tipo di valutazione** | **Dettagli**
 --- | --- 
-**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md)locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md)e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione. (concepts-assessment-calculation.md)
-**Soluzione Azure VMware (AVS)** | Valutazioni per la migrazione dei server locali alla [soluzione VMware di Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione ad Azure VMware Solution (AVS) con questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
+**Macchina virtuale di Azure** | Valutazioni per la migrazione dei server locali in macchine virtuali di Azure. <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali, le [VM Hyper-V](how-to-set-up-appliance-hyper-v.md) e i [server fisici](how-to-set-up-appliance-physical.md) per la migrazione ad Azure usando questo tipo di valutazione.(concepts-assessment-calculation.md)
+**Soluzione Azure VMware** | Valutazioni per la migrazione dei server locali nella [soluzione Azure VMware](../azure-vmware/introduction.md). <br/><br/> È possibile valutare le [macchine virtuali VMware](how-to-set-up-appliance-vmware.md) locali per la migrazione alla soluzione Azure VMware usando questo tipo di valutazione. [Altre informazioni](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Una valutazione delle VM di Azure in server Assessment offre due opzioni di criteri di ridimensionamento:
 
-**Criteri di ridimensionamento** | **Dettagli** | **Dati**
+**Criteri di dimensionamento** | **Dettagli** | **Dati**
 --- | --- | ---
-**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni basate sui dati sulle prestazioni raccolti | **Azure VM Assessment**: la raccomandazione sulle dimensioni delle macchine virtuali è basata sui dati di utilizzo della CPU e della memoria.<br/><br/> L'indicazione del tipo di disco (disco rigido/SSD standard o dischi gestiti Premium) si basa sui IOPS e la velocità effettiva dei dischi locali.<br/><br/> **Valutazione della soluzione VMware di Azure (AVS)**: la raccomandazione dei nodi AVS si basa sui dati di utilizzo della CPU e della memoria.
-**Così come sono in locale** | Valutazioni che non utilizzano dati sulle prestazioni per apportare raccomandazioni. | **Valutazione delle VM di Azure**: le indicazioni sulle dimensioni delle VM sono basate sulle dimensioni della macchina virtuale locale<br/><br> Il tipo di disco consigliato è basato su quello selezionato nell'impostazione del tipo di archiviazione per la valutazione.<br/><br/> **Valutazione della soluzione VMware di Azure (AVS)**: la raccomandazione dei nodi AVS si basa sulle dimensioni della macchina virtuale locale.
+**Basata sulle prestazioni** | Valutazioni che fanno raccomandazioni in base ai dati sulle prestazioni raccolti | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sui dati relativi all'utilizzo di CPU e memoria.<br/><br/> La raccomandazione sul tipo di disco (HDD/SSD standard o dischi gestiti Premium) è basata sulle operazioni di I/O al secondo e sulla velocità effettiva dei dischi locali.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sui dati relativi all'utilizzo di CPU e memoria.
+**Come in locale** | Valutazioni che non usano i dati sulle prestazioni per fare raccomandazioni. | **Valutazione delle macchine virtuali di Azure**: la raccomandazione sulle dimensioni della VM è basata sulle dimensioni delle VM locali<br/><br> Il tipo di disco consigliato è basato sull'opzione selezionata nell'impostazione del tipo di archiviazione per la valutazione.<br/><br/> **Valutazione della soluzione Azure VMware**: la raccomandazione sui nodi della soluzione Azure VMware è basata sulle dimensioni delle VM locali.
 
 
 ## <a name="how-is-an-assessment-done"></a>Come viene eseguita una valutazione?

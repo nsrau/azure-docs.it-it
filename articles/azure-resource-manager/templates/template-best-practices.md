@@ -4,10 +4,10 @@ description: Descrive gli approcci consigliati per la creazione di modelli di Az
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87809256"
 ---
 # <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
@@ -28,7 +28,7 @@ Esistono anche i limiti seguenti:
 
 È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Gruppo di risorse
+## <a name="resource-group"></a>Resource group
 
 Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
@@ -44,7 +44,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Usare la notazione Camel per i nomi dei parametri.
 
-* Usare i parametri per le impostazioni che variano in base all'ambiente, ad esempio lo SKU, la dimensione o la capacità.
+* Usare i parametri per impostazioni che variano in base all'ambiente, ad esempio SKU, dimensioni o capacità.
 
 * Usare i parametri per i nomi di risorse da specificare per facilitare l'identificazione.
 
@@ -136,7 +136,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Per le risorse che non sono disponibili in tutte le posizioni, usare un parametro distinto oppure specificare un valore letterale per location.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 
 Le informazioni seguenti possono essere utili quando si usano le [variabili](template-variables.md):
 

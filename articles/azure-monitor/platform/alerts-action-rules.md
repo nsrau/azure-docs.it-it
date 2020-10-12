@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983137"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
@@ -54,7 +54,7 @@ A questo punto verrà visualizzata la pagina flusso per la creazione di regole d
 
 ![Nuovo flusso di creazione della regola azione](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Ambito
+### <a name="scope"></a>Scope
 
 Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o risorsa di destinazione). È anche possibile selezionare una combinazione di ambiti all'interno di una singola sottoscrizione.
 

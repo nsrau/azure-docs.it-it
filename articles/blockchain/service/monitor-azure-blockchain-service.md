@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 7300a5dcfb0150e6182636dcb71bacfa68c787db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076911"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitorare il servizio Azure blockchain tramite monitoraggio di Azure  
@@ -36,7 +36,7 @@ Quando si crea un'impostazione di diagnostica, è necessario specificare le cate
 
 **Log del proxy blockchain** : selezionare la categoria se si vuole monitorare i log proxy di ngnix. Tutti i dettagli relativi alla transazione del cliente sono disponibili a scopo di controllo e debug.  
 
-**Blockchain log applicazioni** : selezionare la categoria per ottenere i log dell'applicazione blockchain ospitata dal servizio gestito. Per un membro del quorum ABS, ad esempio, questi log sono i log del quorum stesso.  
+**Blockchain log applicazioni** : selezionare la categoria per ottenere i log dell'applicazione blockchain ospitata dal servizio gestito. Per un membro ABS-Quorum, ad esempio, questi log sono i log del quorum stesso.  
 
 **Richieste metrica**: selezionare l'opzione per raccogliere i dati delle metriche da Azure Cosmos DB alle destinazioni nell'impostazione di diagnostica, che viene raccolta automaticamente in metriche di Azure. Raccogliere i dati delle metriche con i log delle risorse per analizzare entrambi i tipi di dati e inviare i dati delle metriche all'esterno di monitoraggio di Azure.
 
@@ -85,7 +85,7 @@ La tabella seguente elenca le proprietà dei log del proxy di Azure blockchain q
 | resourceID  | Risorsa del servizio Azure blockchain per cui sono abilitati i log.  |
 | category  |Per il servizio Azure blockchain, i valori possibili sono **Proxylogs** e **Applicationlogs**. |
 | operationName  | Il nome dell'operazione rappresentata da questo evento.   |
-| Livello di registrazione  | Per impostazione predefinita, il servizio Azure blockchain Abilita il livello di log **informativo** .   |
+| Livello di log  | Per impostazione predefinita, il servizio Azure blockchain Abilita il livello di log **informativo** .   |
 | NodeLocation  | Area di Azure in cui viene distribuito il membro blockchain.  |
 | BlockchainNodeName  | Nome del nodo del membro del servizio blockchain di Azure in cui viene eseguita l'operazione.   |
 | EthMethod  | Il metodo, che viene chiamato dal protocollo blockchain sottostante, in quorum, potrebbe essere eth_sendTransactions, eth_getBlockByNumber e così via.  |
@@ -111,7 +111,7 @@ La tabella seguente elenca le proprietà dei log applicazioni di Azure blockchai
 | resourceID  | Risorsa del servizio Azure blockchain per cui sono abilitati i log.|
 | category  |Per il servizio Azure blockchain, il valore possibili sono **Proxylogs** e **Applicationlogs**.  |
 | operationName  | Il nome dell'operazione rappresentata da questo evento.   |
-| Livello di registrazione  | Per impostazione predefinita, il servizio Azure blockchain Abilita il livello di log **informativo** .   |
+| Livello di log  | Per impostazione predefinita, il servizio Azure blockchain Abilita il livello di log **informativo** .   |
 | NodeLocation  | Area di Azure in cui viene distribuito il membro blockchain.  |
 | BlockchainNodeName  | Nome del nodo del membro del servizio blockchain di Azure in cui viene eseguita l'operazione.   |
 | BlockchainMessage    | Questo campo conterrà il registro applicazioni di blockchain che rappresenta i log normali dei dati. Per il quorum ABS, i log del quorum sono disponibili. Contiene informazioni sul tipo di voce di log, ovvero informazioni, errori, avvisi e una stringa che fornisce ulteriori informazioni sull'azione eseguita.   |
@@ -134,8 +134,8 @@ La tabella seguente specifica l'elenco di metriche blockchain raccolte per la ri
 | Nome metrica | Unità  |  Tipo di aggregazione| Descrizione   |
 |---|---|---|---|
 | Pending Transactions (Transazioni in sospeso)   | Conteggio  |  Media | Numero di transazioni in attesa di essere estratte.   |
-| Processed Blocks (Blocchi elaborati)   | Conteggio  | Somma  |  Numero di blocchi elaborati in ogni intervallo di tempo. Attualmente, le dimensioni del blocco sono pari a 5 secondi, quindi in un minuto ogni nodo elabora 12 blocchi e 60 blocchi in 5 minuti.   |
-|Processed Transactions (Transazioni elaborate)    | Conteggio  | Somma  | Numero di transazioni elaborate in un blocco.    |
+| Processed Blocks (Blocchi elaborati)   | Conteggio  | SUM  |  Numero di blocchi elaborati in ogni intervallo di tempo. Attualmente, le dimensioni del blocco sono pari a 5 secondi, quindi in un minuto ogni nodo elabora 12 blocchi e 60 blocchi in 5 minuti.   |
+|Processed Transactions (Transazioni elaborate)    | Conteggio  | SUM  | Numero di transazioni elaborate in un blocco.    |
 |Queued Transactions (Transazioni in coda)    |  Conteggio | Media  | Numero di transazioni che non possono essere estratte immediatamente. Il motivo è che sono arrivati fuori dall'ordine e il futuro è in attesa dell'arrivo di una transazione precedente. In alternativa, può trattarsi di due transazioni con lo stesso numero usato una sola volta (nonce) e lo stesso valore del gas, di conseguenza il secondo non può essere estratto.   |
 
 ### <a name="connection-metrics"></a>Metriche di connessione  
@@ -145,10 +145,10 @@ La tabella seguente elenca le diverse metriche di connessione raccolte per la ri
 
 | Nome metrica | Unità  |  Tipo di aggregazione| Descrizione |
 |---|---|---|---|
-| Accepted Connections (Connessioni accettate)   | Conteggio  |  Somma | Numero totale di connessioni client accettate.   |
+| Accepted Connections (Connessioni accettate)   | Conteggio  |  SUM | Numero totale di connessioni client accettate.   |
 | Connessioni attive  | Conteggio  | Media  |  Numero corrente di connessioni client attive, incluse le connessioni in attesa.    |
-|Handled Connections (Connessioni gestite)    | Conteggio  | Somma  | Numero totale di connessioni gestite. In genere, il valore del parametro è identico a quello delle connessioni accettate, a meno che non sia stato raggiunto un limite di risorse.     |
-|Handled Requests (Richieste gestite)     |  Conteggio | Somma  | Numero totale di richieste client.  |
+|Handled Connections (Connessioni gestite)    | Conteggio  | SUM  | Numero totale di connessioni gestite. In genere, il valore del parametro è identico a quello delle connessioni accettate, a meno che non sia stato raggiunto un limite di risorse.     |
+|Handled Requests (Richieste gestite)     |  Conteggio | SUM  | Numero totale di richieste client.  |
 
 
 ### <a name="performance-metrics"></a>Metriche delle prestazioni
@@ -159,10 +159,10 @@ La tabella seguente elenca le metriche delle prestazioni raccolte per ognuno dei
 | Nome metrica | Unità  |  Tipo di aggregazione| Descrizione   |
 |---|---|---|---|
 | Percentuale di utilizzo CPU   | Percentuale  |  Max | Percentuale di utilizzo della CPU.     |
-| IO Read Bytes (Byte operazioni di I/O in lettura)   | Kilobyte   | Somma  |  Somma dei byte di i/o letti in tutti i nodi della risorsa membro blockchain.      |
-|IO Write Bytes (Byte operazioni di I/O in scrittura)     | Kilobyte   | Somma  | La somma di i/o scrive byte in tutti i nodi della risorsa membro blockchain.     |
+| IO Read Bytes (Byte operazioni di I/O in lettura)   | Kilobyte   | SUM  |  Somma dei byte di i/o letti in tutti i nodi della risorsa membro blockchain.      |
+|IO Write Bytes (Byte operazioni di I/O in scrittura)     | Kilobyte   | SUM  | La somma di i/o scrive byte in tutti i nodi della risorsa membro blockchain.     |
 |Limite memoria       |  Gigabyte   | Media    | Memoria massima disponibile per il processo blockchain per nodo. |
-|Utilizzo della memoria     | Gigabyte  |  Media | Quantità di memoria utilizzata in media per tutti i nodi.  |
+|Utilizzo memoria     | Gigabyte  |  Media | Quantità di memoria utilizzata in media per tutti i nodi.  |
 | Memory Usage Percentage (Percentuale di utilizzo memoria)     | Percentuale   | Media  |  Percentuale della memoria utilizzata in media per tutti i nodi.       |
 |Utilizzo dello spazio di archiviazione      | Gigabyte   | Media  | GB di spazio di archiviazione utilizzato in media per tutti i nodi.       |
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441052"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen1 per i requisiti di Big Data
@@ -41,7 +41,7 @@ Si tratta di set di dati di piccole dimensioni usati per la creazione del protot
 | origine dati | Inserire usando |
 | --- | --- |
 | Computer locale |<ul> <li>[Azure portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usare Strumenti di Data Lake per Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| BLOB del servizio di archiviazione di Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp in esecuzione nel cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| BLOB di Archiviazione di Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp in esecuzione nel cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Dati di streaming
 Rappresenta i dati che possono essere generati da varie origini, ad esempio applicazioni, dispositivi, sensori e così via. Questi dati possono essere inseriti in Data Lake Storage Gen1 da un'ampia gamma di strumenti. Questi strumenti in genere acquisiscono ed elaborano i dati dei singoli eventi in tempo reale e quindi scrivono gli eventi in batch in Data Lake Storage Gen1 affinché possano essere elaborati ulteriormente.

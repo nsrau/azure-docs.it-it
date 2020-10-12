@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Descrive i processi che alimentano Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori
 ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90981276"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Funzionamento di Azure Dev Spaces

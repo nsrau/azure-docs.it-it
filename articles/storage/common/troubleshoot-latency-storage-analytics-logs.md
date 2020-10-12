@@ -11,10 +11,10 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075955"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Risolvere i problemi di latenza usando i log di Analisi archiviazione
@@ -87,17 +87,17 @@ I passaggi seguenti illustrano come identificare e risolvere i problemi di laten
 
    La latenza end-to-end viene calcolata usando l'equazione seguente:
 
-   * Latenza end-to-end = latenza server + latenza client
+   * Latenza end-to-end = Server-Latency + latenza client
 
    Calcolare la latenza del client usando la voce di log:
 
-   * Latenza client = latenza end-to-end-latenza server
+   * Latenza client = latenza end-to-end-Server-Latency
 
         Esempio: 8453 – 391 = 8062ms
 
    La tabella seguente fornisce informazioni sui risultati di OperationType e RequestStatus a latenza elevata:
 
-   | Tipo BLOB |RequestStatus =<br>Operazione completata|RequestStatus =<br>FIRMA NetworkError|Raccomandazione|
+   | Tipo BLOB |RequestStatus =<br>Operazione completata|RequestStatus =<br>FIRMA NetworkError|Recommendation|
    |---|---|---|---|
    |GetBlob|Sì|No|[**Operazione GetBlob:** RequestStatus = operazione riuscita](#getblob-operation-requeststatus--success)|
    |GetBlob|No|Sì|[**Operazione GetBlob:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
@@ -111,10 +111,10 @@ I passaggi seguenti illustrano come identificare e risolvere i problemi di laten
 Controllare i valori seguenti come indicato nel passaggio 5 della sezione "procedure consigliate":
 
 * Latenza end-to-end
-* Latenza server
-* Latenza client
+* Server-Latency
+* Client-Latency
 
-In un' **operazione GetBlob** con **RequestStatus = Success**, se viene impiegato il **tempo massimo** per la **latenza del client**, questo indica che archiviazione di Azure dedica un volume elevato di tempo alla scrittura dei dati nel client. Questo ritardo indica un problema sul lato client.
+In un' **operazione GetBlob** con **RequestStatus = Success**, se viene impiegato il **tempo massimo** per la **latenza del client**, questo indica che archiviazione di Azure dedica un volume elevato di tempo alla scrittura dei dati nel client. Questo ritardo indica un problema Client-Side.
 
 **Consiglio:**
 
@@ -126,8 +126,8 @@ In un' **operazione GetBlob** con **RequestStatus = Success**, se viene impiegat
 Controllare i valori seguenti come indicato nel passaggio 5 della sezione "procedure consigliate":
 
 * Latenza end-to-end
-* Latenza server
-* Latenza client
+* Server-Latency
+* Client-Latency
 
 In un' **operazione GetBlob** con **REQUESTSTATUS = (SAS) NetworkError**, se viene impiegato il **tempo massimo** per la **latenza del client**, il problema più comune è che il client si disconnette prima della scadenza del timeout nel servizio di archiviazione.
 
@@ -141,10 +141,10 @@ In un' **operazione GetBlob** con **REQUESTSTATUS = (SAS) NetworkError**, se vie
 Controllare i valori seguenti come indicato nel passaggio 5 della sezione "procedure consigliate":
 
 * Latenza end-to-end
-* Latenza server
-* Latenza client
+* Server-Latency
+* Client-Latency
 
-In un' **operazione Put** con **RequestStatus = Success**, se viene impiegato il **tempo massimo** per la **latenza del client**, questo indica che il client impiega più tempo per inviare i dati all'archiviazione di Azure. Questo ritardo indica un problema sul lato client.
+In un' **operazione Put** con **RequestStatus = Success**, se viene impiegato il **tempo massimo** per la **latenza del client**, questo indica che il client impiega più tempo per inviare i dati all'archiviazione di Azure. Questo ritardo indica un problema Client-Side.
 
 **Consiglio:**
 
@@ -156,8 +156,8 @@ In un' **operazione Put** con **RequestStatus = Success**, se viene impiegato il
 Controllare i valori seguenti come indicato nel passaggio 5 della sezione "procedure consigliate":
 
 * Latenza end-to-end
-* Latenza server
-* Latenza client
+* Server-Latency
+* Client-Latency
 
 In un' **operazione PutBlob** con **REQUESTSTATUS = (SAS) NetworkError**, se il **tempo massimo** viene impiegato per la **latenza del client**, il problema più comune è che il client si disconnette prima della scadenza di un timeout nel servizio di archiviazione.
 

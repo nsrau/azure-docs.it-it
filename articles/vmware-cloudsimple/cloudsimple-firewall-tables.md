@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140871"
 ---
 # <a name="firewall-tables-overview"></a>Panoramica delle tabelle del firewall
@@ -56,9 +56,9 @@ In ogni tabella del firewall vengono create le regole predefinite seguenti.
 |Priorità|Nome|Rilevamento dello stato|Direzione|Tipo di traffico|Protocollo|Source (Sorgente)|Porta di origine|Destination|Porta di destinazione|Azione|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|Consenti-tutti-a-Internet|Con stato|In uscita|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
-|65001|Deny-All-da-Internet|Con stato|In ingresso|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Nega|
+|65001|Deny-All-da-Internet|Con stato|In entrata|IP pubblico o traffico Internet|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Nega|
 |65002|Consenti-tutti-a-Intranet|Senza stato|In uscita|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
-|65003|Consenti tutto da Intranet|Senza stato|In ingresso|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
+|65003|Consenti tutto da Intranet|Senza stato|In entrata|Traffico interno o VPN del cloud privato|Tutti|Qualsiasi|Qualsiasi|Qualsiasi|Qualsiasi|Allow|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

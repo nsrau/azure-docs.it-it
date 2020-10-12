@@ -4,10 +4,10 @@ description: Descrive le proprietà fornite per Container Registry eventi con gr
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: d216fe88ee6aaad33fbbe3b93b8c4f8a6e952a71
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113718"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Azure Container Registry come origine griglia di eventi
@@ -152,43 +152,43 @@ Lo schema per un evento eliminato del grafico è simile allo schema per un event
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | id | string | L'ID evento. |
-| timestamp | string | L'ora in cui si è verificato l'evento. |
+|  timestamp | string | L'ora in cui si è verificato l'evento. |
 | action | string | L'azione che comprende l'evento specificato. |
 | target | object | L'URL di destinazione dell'evento. |
 | richiesta | object | La richiesta che ha generato l'evento. |
 
 Di seguito sono elencate le proprietà dell'oggetto di destinazione:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | mediaType | string | Tipo MIME dell'oggetto di riferimento. |
-| size | integer | Numero di byte del contenuto. Uguale al campo Length. |
+| size | numero intero | Numero di byte del contenuto. Uguale al campo Length. |
 | digest | string | Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2. |
-| length | integer | Numero di byte del contenuto. Uguale al campo Size. |
+| length | numero intero | Numero di byte del contenuto. Uguale al campo Size. |
 | repository | string | Nome del repository. |
-| tag | string | Nome tag. |
+| tag | string | Nome del tag. |
 | name | string | Nome del grafico. |
 | version | string | Versione del grafico. |
 
 Di seguito sono elencate le proprietà dell'oggetto della richiesta:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | id | string | ID della richiesta che ha avviato l'evento. |
 | indirizzo | string | L'IP o nome host e possibilmente la porta della connessione client che ha avviato l'evento. Questo valore è il RemoteAddr. dalla richiesta http standard. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983262"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
@@ -23,12 +23,12 @@ Azure Key Vault fornisce due tipi di contenitori per archiviare e gestire i segr
 
 |Tipo di contenitore|Tipi di oggetto supportati|Endpoint del piano dati|
 |--|--|--|
-| **Insiemi di credenziali**|<ul><li>Chiavi protette tramite software</li><li>Chiavi protette dal modulo di protezione hardware (con SKU Premium)</li><li>Certificati</li><li>Chiavi dell'account di archiviazione</li></ul> | https://{Vault-Name}. Vault. Azure. NET
-|**Modulo di protezione hardware gestito** |<ul><li>Chiavi protette dal modulo di protezione hardware</li></ul> | https:///{HSM-Name}. managedhsm. Azure. NET
+| **Insiemi di credenziali**|<ul><li>Chiavi protette tramite software</li><li>Chiavi protette dal modulo di protezione hardware (con SKU Premium)</li><li>Certificati</li><li>Chiavi dell'account di archiviazione</li></ul> | https://{nome-insiemecredenziali}.vault.azure.net
+|**Modulo di protezione hardware gestito** |<ul><li>Chiavi protette dal modulo di protezione hardware</li></ul> | https://{nome-hsm}.managedhsm.azure.net
 
 Ecco i suffissi URL usati per accedere a ogni tipo di oggetto
 
-|Tipo oggetto|Suffisso dell'URL dell'API|
+|Tipo oggetto|Suffisso URL|
 |--|--|
 |Chiavi protette tramite software| /keys |
 |Chiavi protette dal modulo di protezione hardware| /keys |

@@ -4,10 +4,10 @@ description: Questo articolo descrive come usare la portale di Azure per visuali
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86114884"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
@@ -43,53 +43,53 @@ Se è stato pubblicato un argomento personalizzato, è possibile visualizzare le
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 3. Selezionare l'argomento personalizzato dall'elenco di argomenti. 
 
-    :::image type="content" source="./media/monitor-event-delivery/select-custom-topic.png" alt-text="Selezionare l'argomento personalizzato":::
+    :::image type="content" source="./media/monitor-event-delivery/select-custom-topic.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 4. Visualizzare le metriche per l'argomento dell'evento personalizzato nella pagina dell' **argomento di griglia di eventi** . Nell'immagine seguente la sezione **Essentials** che mostra il gruppo di risorse, la sottoscrizione e così via è ridotta a icona. 
 
-    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Visualizzare le metriche degli eventi":::
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 È possibile creare grafici con metriche supportate usando la scheda **metriche** della pagina dell'argomento di **griglia di eventi** .
 
-:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Argomento-pagina metrica":::
+:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md)
 
 Vedere, ad esempio, il grafico delle metriche per la metrica **eventi pubblicati** .
 
-:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Metrica eventi pubblicati":::
+:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 
 ## <a name="view-subscription-metrics"></a>Visualizzare le metriche delle sottoscrizioni
 1. Passare alla pagina dell' **argomento griglia di eventi** attenendosi alla procedura descritta nella sezione precedente. 
 2. Selezionare la sottoscrizione nel riquadro inferiore, come illustrato nell'esempio seguente. 
 
-    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Selezionare la sottoscrizione di eventi":::    
+    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::    
 
     È anche possibile cercare le **sottoscrizioni di griglia di eventi** nella barra di ricerca del portale di Azure, selezionare **tipo di argomento**, **sottoscrizione**e **località** per visualizzare una sottoscrizione di eventi. 
 
-    :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Pagina Seleziona sottoscrizione eventi dalla pagina sottoscrizioni di griglia di eventi":::        
+    :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::        
 
     Per gli argomenti personalizzati, selezionare **argomenti griglia di eventi** come **tipo di argomento**. Per gli argomenti di sistema, selezionare il tipo di risorsa di Azure, ad esempio **account di archiviazione (BLOB, GPv2)**. 
 3. Vedere le metriche per la sottoscrizione nel home page per la sottoscrizione in un grafico. È possibile visualizzare **le metriche generali**, **errori**, **latenza**e messaggi non **recapitabili** per le ultime 1 ora, 6 ore, 12 ore, 1 giorno, 7 giorni o 30 giorni. 
 
-    :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Metriche sulla sottoscrizione home page":::    
+    :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::    
 
 ## <a name="view-system-topic-metrics"></a>Visualizza le metriche degli argomenti di sistema
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nella barra di ricerca in questo argomento, digitare **argomenti di sistema griglia di eventi**, quindi selezionare **argomenti del sistema di griglia di eventi** nell'elenco a discesa. 
 
-    :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Cercare e selezionare gli argomenti di sistema di griglia di eventi":::
+    :::image type="content" source="./media/monitor-event-delivery/search-system-topics.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 3. Selezionare l'argomento di sistema dall'elenco di argomenti. 
 
-    :::image type="content" source="./media/monitor-event-delivery/select-system-topic.png" alt-text="Selezionare l'argomento di sistema":::
+    :::image type="content" source="./media/monitor-event-delivery/select-system-topic.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 4. Visualizzare le metriche per l'argomento di sistema nella pagina di **argomento del sistema di griglia di eventi** . Nell'immagine seguente la sezione **Essentials** che mostra il gruppo di risorse, la sottoscrizione e così via è ridotta a icona. 
 
-    :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Visualizzare le metriche degli argomenti di sistema nella pagina Panoramica":::
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 È possibile creare grafici con metriche supportate usando la scheda **metriche** della pagina dell'argomento di **griglia di eventi** .
 
-:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Argomento sistema-pagina metrica":::
+:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Cercare e selezionare argomenti di Griglia di eventi":::
 
 Per altre informazioni sulle metriche, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md)
 
