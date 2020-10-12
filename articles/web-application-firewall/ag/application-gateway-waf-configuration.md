@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84752480"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti ed elenchi di esclusione delle dimensioni delle richieste del Web Application Firewall
@@ -24,7 +24,7 @@ Il firewall applicazione Web del gateway applicazione Azure (WAF) fornisce la pr
 
 Gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password. Tali attributi sono soggetti a contenere caratteri speciali che possono attivare un falso positivo dalle regole di WAF. Una volta che un attributo è stato aggiunto all'elenco di esclusione WAF, non viene preso in considerazione da nessuna regola WAF configurata e attiva. Gli elenchi di esclusione hanno ambito globale.
 
-Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in base al nome. I valori del campo scelto non vengono valutati rispetto alle regole WAF, ma i relativi nomi sono ancora (vedere l'esempio 1 riportato di seguito, il valore dell'intestazione User-Agent è escluso dalla valutazione WAF). Gli elenchi di esclusione rimuovono l'ispezione del valore del campo.
+Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in base al nome. I valori del campo scelto non vengono valutati in base alle regole di WAF, ma i rispettivi nomi sono ancora (vedere l'esempio 1 riportato di seguito, il valore dell'intestazione User-Agent è escluso dalla valutazione WAF). Gli elenchi di esclusione rimuovono l'ispezione del valore del campo.
 
 * Intestazioni richiesta
 * Cookie della richiesta

@@ -13,10 +13,10 @@ ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437871"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
@@ -136,7 +136,7 @@ Il flusso di [concessione implicita OAuth 2](v2-oauth2-implicit-grant-flow.md) c
 
 Molte applicazioni Web moderne sono compilate come applicazioni a pagina singola (SPA) sul lato client scritte in JavaScript o in un Framework SPA, ad esempio angolare, Vue.js e React.js. Queste applicazioni vengono eseguite in un browser Web e presentano caratteristiche di autenticazione diverse rispetto alle applicazioni Web tradizionali sul lato server. Microsoft Identity Platform consente alle applicazioni a pagina singola di eseguire l'accesso degli utenti e ottenere token per l'accesso a servizi back-end o API Web usando il flusso di concessione implicito. Il flusso implicito consente all'applicazione di ottenere token ID per rappresentare l'utente autenticato e token di accesso necessari per chiamare le API protette.
 
-Questo flusso di autenticazione non include scenari di applicazioni che usano framework JavaScript multipiattaforma come Electron o React-native perché richiedono ulteriori funzionalità per l'interazione con le piattaforme native.
+Questo flusso di autenticazione non include scenari di applicazioni che usano framework JavaScript multipiattaforma come Electron o React-Native perché richiedono ulteriori funzionalità per l'interazione con le piattaforme native.
 
 I token emessi tramite la modalità flusso implicito hanno una **limitazione di lunghezza** perché vengono restituiti al browser in base all'URL, dove `response_mode` è `query` o `fragment` . Alcuni browser limitano la lunghezza dell'URL nella barra del browser e hanno esito negativo quando è troppo lungo. Quindi, questi token di flusso impliciti non contengono `groups` né `wids` attestazioni.
 

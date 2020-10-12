@@ -12,10 +12,10 @@ ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
 ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974152"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Servizio metadati dell'istanza di Azure (IMDS)
@@ -687,7 +687,7 @@ Nonce è una stringa facoltativa di 10 cifre. Se non specificata, IMDS restituis
 Il BLOB di firma è una versione [pkcs7](https://aka.ms/pkcs7) firmata del documento. Contiene il certificato usato per la firma insieme ad alcuni dettagli specifici della VM. Per le macchine virtuali ARM sono inclusi vmId, SKU, nonce, subscriptionId, timeStamp per la creazione e la scadenza del documento e le informazioni del piano sull'immagine. Le informazioni sul piano vengono popolate solo per le immagini di Azure Marketplace. Per le macchine virtuali classiche (non ARM), è garantito il popolamento solo del vmId. Il certificato può essere estratto dalla risposta e usato per verificare che la risposta sia valida e provenga da Azure.
 Il documento contiene i campi seguenti:
 
-Data | Descrizione
+Dati | Descrizione
 -----|------------
 nonce | Stringa che può essere fornita facoltativamente con la richiesta. Se non è stato specificato alcun parametro, viene usato il timestamp UTC corrente
 piano | Il [piano immagine di Azure Marketplace](/rest/api/compute/virtualmachines/createorupdate#plan). Contiene l'ID del piano (nome), l'immagine del prodotto o l'offerta (prodotto) e l'ID editore (editore).

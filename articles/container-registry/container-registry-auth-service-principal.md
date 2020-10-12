@@ -4,10 +4,10 @@ description: Consentire l'accesso alle immagini del registro contenitori privato
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259146"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticazione al Registro Azure Container con entità servizio
@@ -28,7 +28,7 @@ Ad esempio, configurare l'applicazione Web in modo che usi un'entità servizio c
 
 ## <a name="when-to-use-a-service-principal"></a>Quando usare un'entità servizio
 
-Usare un'entità servizio per fornire accesso al registro negli **scenari headless**, ovvero per qualsiasi applicazione, servizio o script che deve eseguire le operazioni di push o pull delle immagini del contenitore in modo automatico. ad esempio:
+Usare un'entità servizio per fornire accesso al registro negli **scenari headless**, ovvero per qualsiasi applicazione, servizio o script che deve eseguire le operazioni di push o pull delle immagini del contenitore in modo automatico. Ad esempio:
 
   * *Pull*: distribuire i contenitori da un registro ai sistemi di orchestrazione, tra cui KUBERNETES, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [istanze di contenitore di Azure](container-registry-auth-aci.md), [servizio app](../app-service/index.yml), [batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml)e altri.
 

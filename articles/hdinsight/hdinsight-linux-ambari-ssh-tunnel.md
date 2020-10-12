@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
 ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075553"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Usare il tunneling SSH per accedere all'interfaccia utente Web di Apache Ambari, JobHistory, NameNode, Apache oozie e altre interfacce utente
@@ -105,7 +105,7 @@ Al termine del comando, il traffico inviato alla porta 9876 nel computer locale 
     |---|---|
     |Porta di origine|La porta sul client che si desidera inviare. Ad esempio, **9876**.|
     |Destination|Indirizzo SSH per il cluster HDInsight. Ad esempio, **mycluster-ssh.azurehdinsight.net**.|
-    |Dinamico|Abilita il routing proxy per i CALZINi dinamici.|
+    |Dynamic|Abilita il routing proxy per i CALZINi dinamici.|
 
     ![Opzioni di tunneling della configurazione PuTTy](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 

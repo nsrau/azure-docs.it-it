@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260191"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
@@ -139,7 +139,7 @@ System.Hosting genera un avviso se le capacità del nodo definite nel manifesto 
 ## <a name="application-system-health-reports"></a>Report sull'integrità del sistema di applicazioni
 System.CM, che rappresenta il servizio Cluster Manager, è l'autorità che gestisce le informazioni su un applicazione.
 
-### <a name="state"></a>Stato
+### <a name="state"></a>State
 System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Informa l'archivio integrità quando l'applicazione viene eliminata, in modo che possa essere rimossa dall'archivio.
 
 * **SourceId**: System.CM
@@ -172,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Report sull'integrità del sistema di servizi
 System.FM, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sui servizi.
 
-### <a name="state"></a>Stato
+### <a name="state"></a>State
 System.FM restituisce OK quando il servizio viene creato. Elimina l'entità dall'archivio integrità quando il servizio viene eliminato.
 
 * **SourceId**: System.FM
@@ -214,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Report sull'integrità del sistema di partizioni
 System.FM, che rappresenta il servizio Gestione failover, è l'autorità che gestisce le informazioni sulle partizioni del servizio.
 
-### <a name="state"></a>Stato
+### <a name="state"></a>State
 System.FM restituisce OK quando la partizione viene creata ed è integra. Elimina l'entità dall'archivio integrità quando la partizione viene eliminata.
 
 Se il numero di repliche della partizione è inferiore al minimo, viene segnalata una condizione di errore. Se il numero di repliche della partizione non è inferiore al minimo, ma è al di sotto del numero di repliche di destinazione, viene segnalata una condizione di avviso. Se la partizione è in una condizione di perdita del quorum, System.FM segnala un errore.
@@ -391,7 +391,7 @@ In un caso come quello dell'esempio, sono necessari ulteriori approfondimenti. V
 ## <a name="replica-system-health-reports"></a>Report sull'integrità del sistema di repliche
 **System.RA**, che rappresenta il componente agente di riconfigurazione, è l'autorità per lo stato della replica.
 
-### <a name="state"></a>Stato
+### <a name="state"></a>State
 System.RA restituisce OK quando viene creata la replica.
 
 * **SourceId**: System.RA
@@ -647,7 +647,7 @@ La proprietà e il testo indicano quale API è rimasta bloccata. I passaggi succ
 
 - **IStatefulServiceReplica. ChangeRole (P)**: il caso più comune è che il servizio non ha restituito un'attività da `RunAsync` .
 
-Altre chiamate API che possono rimanere bloccate si trovano nell'interfaccia **IReplicator** . ad esempio:
+Altre chiamate API che possono rimanere bloccate si trovano nell'interfaccia **IReplicator** . Ad esempio:
 
 - **IReplicator.CatchupReplicaSet**: questo avviso indica una di due situazioni. Le repliche attive sono insufficienti. Per appurare se questo è il caso, esaminare lo stato delle repliche nella partizione o il rapporto di stato di System.FM per una riconfigurazione bloccata. oppure le repliche non riconoscono le operazioni. È possibile usare il cmdlet `Get-ServiceFabricDeployedReplicaDetail` di PowerShell per determinare lo stato di tutte le repliche. Il problema è relativo alle repliche il cui valore `LastAppliedReplicationSequenceNumber` è successivo al valore `CommittedSequenceNumber` della replica primaria.
 
@@ -738,7 +738,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>Report sull'integrità del sistema DeployedApplication
 **System.Hosting** è l'autorità per le entità distribuite.
 
-### <a name="activation"></a>Attivazione
+### <a name="activation"></a>Activation
 System.Hosting restituisce OK quando un'applicazione viene attivata correttamente nel nodo. In caso contrario, restituisce un errore.
 
 * **SourceId**: System.Hosting

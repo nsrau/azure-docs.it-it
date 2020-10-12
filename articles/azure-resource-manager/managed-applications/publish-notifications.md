@@ -6,10 +6,10 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 3632a34678c7a0f0e6fa93e5ce8000b07bb413a6
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054526"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applicazioni gestite di Azure con notifiche
@@ -74,7 +74,7 @@ PUT | Operazione riuscita | Il provisioning completo dell'applicazione gestita �
 PUT | Operazione non riuscita | Errore di inserimento del provisioning dell'istanza dell'applicazione in qualsiasi momento.
 PATCH | Operazione riuscita | Dopo una PATCH corretta nell'istanza dell'applicazione gestita per aggiornare i tag, i criteri di accesso JIT o l'identità gestita.
 DELETE | Deleting | Non appena l'utente avvia un'eliminazione di un'istanza dell'app gestita.
-DELETE | Deleted | Dopo l'eliminazione completa e corretta dell'applicazione gestita.
+DELETE | Eliminata | Dopo l'eliminazione completa e corretta dell'applicazione gestita.
 DELETE | Operazione non riuscita | Dopo qualsiasi errore durante il processo di deprovisioning che blocca l'eliminazione.
 ## <a name="notification-schema"></a>Schema di notifica
 Quando si avvia l'endpoint del webhook per gestire le notifiche, è necessario analizzare il payload per ottenere proprietà importanti e quindi agire sulla notifica. Il catalogo di servizi e le notifiche delle applicazioni gestite di Azure Marketplace forniscono molte delle stesse proprietà. Nella tabella riportata di seguito vengono descritte due differenze minime.

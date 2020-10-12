@@ -4,10 +4,10 @@ description: Informazioni su come crittografare i dati dell'applicazione in arch
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 62bb1e51bada155b98fe46740662b86b753d44fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90978489"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Crittografia dei componenti inattivi con chiavi gestite dal cliente
@@ -20,7 +20,7 @@ Per crittografare i dati dell'applicazione dell'app Web inattivi sono necessari 
 
 ## <a name="set-up-encryption-at-rest"></a>Configurare la crittografia inattiva
 
-### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
+### <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
 Prima di tutto, [creare un account di archiviazione di Azure](../storage/common/storage-account-create.md) e [crittografarlo con chiavi gestite dal cliente](../storage/common/encryption-customer-managed-keys.md). Una volta creato l'account di archiviazione, usare il [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file del pacchetto.
 

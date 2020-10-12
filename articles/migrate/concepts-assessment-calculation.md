@@ -4,10 +4,10 @@ description: Informazioni sulle valutazioni in Azure Migrate server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275524"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione del server (migrazione alle macchine virtuali di Azure)
@@ -121,9 +121,9 @@ Ecco cosa è incluso in una valutazione di VM di Azure in server assessment:
 **Criteri di dimensionamento** | Usato per dimensionare correttamente la macchina virtuale di Azure.<br/><br/> Usare il ridimensionamento o il dimensionamento in base alle prestazioni.
 **Cronologia delle prestazioni** | Utilizzato con il dimensionamento basato sulle prestazioni. Cronologia prestazioni specifica la durata utilizzata per la valutazione dei dati sulle prestazioni.
 **Utilizzo percentile** | Utilizzato con il dimensionamento basato sulle prestazioni. L'utilizzo percentile specifica il valore percentile dell'esempio di prestazioni utilizzato per rightsizing.
-**Serie VM** | Serie di VM di Azure che si vuole considerare per rightsizing. Se, ad esempio, non si dispone di un ambiente di produzione che richiede macchine virtuali serie A in Azure, è possibile escludere una serie A dall'elenco di serie.
+**Serie VM** | Serie di VM di Azure che si vuole considerare per rightsizing. Se, ad esempio, non si ha un ambiente di produzione in cui sono richieste le macchine virtuali della serie A in Azure, si può escludere la serie A dall'elenco delle serie.
 **Fattore di comfort** | Buffer utilizzato durante la valutazione. Viene applicato ai dati della CPU, della RAM, del disco e della rete per le macchine virtuali. In questo modo vengono rilevati problemi come l'utilizzo stagionale, la cronologia delle prestazioni brevi e probabilmente aumenti nell'utilizzo futuro.<br/><br/> Ad esempio, una macchina virtuale con 10 core con utilizzo del 20% normalmente produce una macchina virtuale a due core. Con un fattore di comfort di 2,0, il risultato è una macchina virtuale a quattro core.
-**Offerta** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) in cui si è iscritti. Server Assessment stima il costo per l'offerta.
+**Offerta** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) in cui si è iscritti. Valutazione server stima il costo di tale offerta.
 **Valuta** | Valuta di fatturazione per l'account.
 **Sconto (%)** | Tutti gli sconti specifici della sottoscrizione ricevuti dall'offerta di Azure. L'impostazione predefinita è 0%.
 **Tempo di attività macchina virtuale** | Durata in giorni al mese e ore al giorno per le macchine virtuali di Azure che non vengono eseguite in modo continuo. Le stime dei costi sono basate su tale durata.<br/><br/> I valori predefiniti sono 31 giorni al mese e 24 ore al giorno.

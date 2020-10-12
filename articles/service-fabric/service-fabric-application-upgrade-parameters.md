@@ -4,10 +4,10 @@ description: Vengono descritti i parametri relativi all'aggiornamento di un'appl
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247966"
 ---
 # <a name="application-upgrade-parameters"></a>Parametri di aggiornamento di un'applicazione
@@ -52,7 +52,7 @@ I criteri di valutazione dell'integrità sono facoltativi. Se all'avvio di un ag
 > | --- | --- | --- |
 > | ApplicationParameter |PS, VS| Specifica le sostituzioni per i parametri dell'applicazione.<br>I parametri delle applicazioni di PowerShell vengono specificati come coppie nome/valore di tabella hash. Ad esempio, @{"VotingData_MinReplicaSetSize" = "3". "VotingData_PartitionCount" = "1"}.<br>I parametri dell'applicazione di Visual Studio possono essere specificati nella finestra di dialogo Pubblica applicazione di Service Fabric nel campo **File di parametri dell'applicazione**.
 > | Confirm |PS| I valori consentiti sono **true** e **false**. Richiede la conferma dell'utente prima di eseguire il cmdlet. |
-> | ConsiderWarningAsError |PS, VS |I valori consentiti sono **true** e **false**. Il valore predefinito è **false**. Considerare gli eventi di avviso relativi all'integrità dell'applicazione come errori quando si valuta l'integrità dell'applicazione durante l'aggiornamento. Per impostazione predefinita, Service Fabric non valuta eventi di avviso relativi all'integrità come errori, quindi l'aggiornamento può continuare anche se vengono generati questi eventi. |
+> | ConsiderWarningAsError |PS, VS |I valori consentiti sono **true** e **false**. Il valore predefinito è **False**. Considerare gli eventi di avviso relativi all'integrità dell'applicazione come errori quando si valuta l'integrità dell'applicazione durante l'aggiornamento. Per impostazione predefinita, Service Fabric non valuta eventi di avviso relativi all'integrità come errori, quindi l'aggiornamento può continuare anche se vengono generati questi eventi. |
 > | DefaultServiceTypeHealthPolicy | PS, VS |Specifica i criteri di integrità per il tipo di servizio predefinito da usare per l'aggiornamento monitorato nei formati, MaxPercentUnhealthyPartitionsPerService, MaxPercentUnhealthyReplicasPerPartition, MaxPercentUnhealthyServices. Ad esempio, 5,10,15 indica i valori seguenti: MaxPercentUnhealthyPartitionsPerService = 5, MaxPercentUnhealthyReplicasPerPartition = 10, MaxPercentUnhealthyServices = 15. |
 > | Force | PS, VS | I valori consentiti sono **true** e **false**. Indica che il processo di aggiornamento ignora il messaggio di avviso e forza l'aggiornamento anche quando il numero di versione non è stato modificato. Ciò è utile per il test locale ma non è consigliato per l'uso in un ambiente di produzione perché è necessario rimuovere la distribuzione esistente che causa tempi di inattività e perdita potenziale di dati. |
 > | ForceRestart |PS, VS |Se si aggiorna un pacchetto di configurazione o di dati senza aggiornare il codice del servizio, il servizio viene riavviato solo se la proprietà ForceRestart è impostata su **True**. Quando l'aggiornamento è completo, Service Fabric notifica al servizio che è disponibile un nuovo pacchetto di configurazione o di dati. Il servizio è responsabile dell'applicazione delle modifiche. Se necessario, il servizio può riavviarsi. |
@@ -101,7 +101,7 @@ service-health-policy | Mappa con codifica JSON con criteri di integrità del ti
 timeout | Specifica il periodo di timeout in secondi per l'operazione. Predefinito: 60. |
 upgrade-domain-timeout | Tempo necessario per il completamento di ogni dominio di aggiornamento prima dell'esecuzione di *FailureAction* . Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. Il valore predefinito è mai (Infinito) ed è consigliabile personalizzarlo in base all'applicazione. Impostazione predefinita: P10675199DT02H48M05.4775807S. |
 upgrade-timeout | Tempo necessario per il completamento di ogni dominio di aggiornamento prima dell'esecuzione di *FailureAction* . Viene prima interpretato come stringa che rappresenta una durata ISO 8601. Se l'esito è negativo, viene interpretato come numero che rappresenta il numero totale di millisecondi. Il valore predefinito è mai (Infinito) ed è consigliabile personalizzarlo in base all'applicazione. Impostazione predefinita: P10675199DT02H48M05.4775807S.|
-warning-as-error | I valori consentiti sono **true** e **false**. Il valore predefinito è **false**. Può essere passato come flag. Considerare gli eventi di avviso relativi all'integrità dell'applicazione come errori quando si valuta l'integrità dell'applicazione durante l'aggiornamento. Per impostazione predefinita, Service Fabric non valuta eventi di avviso relativi all'integrità come errori, quindi l'aggiornamento può continuare anche se vengono generati questi eventi. |
+warning-as-error | I valori consentiti sono **true** e **false**. Il valore predefinito è **False**. Può essere passato come flag. Considerare gli eventi di avviso relativi all'integrità dell'applicazione come errori quando si valuta l'integrità dell'applicazione durante l'aggiornamento. Per impostazione predefinita, Service Fabric non valuta eventi di avviso relativi all'integrità come errori, quindi l'aggiornamento può continuare anche se vengono generati questi eventi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.

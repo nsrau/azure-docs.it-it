@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: event-grid
 author: spelluru
@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050473"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Distribuisci modulo di IoT Edge griglia di eventi
@@ -46,7 +46,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
 [!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **Nome**: eventgridmodule
-   * **URI immagine**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **URI immagine**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Opzioni di creazione del contenitore**:
 
 ```json

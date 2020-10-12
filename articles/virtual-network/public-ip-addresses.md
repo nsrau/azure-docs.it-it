@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329262"
 ---
 # <a name="public-ip-addresses"></a>Indirizzi IP pubblici
@@ -176,7 +176,7 @@ Il [firewall di Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2f
 
 La tabella seguente illustra la proprietà tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di primo livello e ai possibili metodi di allocazione.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Static |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | Statico |
 | --- | --- | --- | --- |
 | Macchina virtuale |Interfaccia di rete |Sì |Sì |
 | Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
