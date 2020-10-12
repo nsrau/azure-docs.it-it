@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
 ms.openlocfilehash: 208793d3ba8c3463abe892b368beb41d4b79f214
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617452"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informazioni di riferimento sul contenuto del Istanza gestita SQL di Azure
@@ -67,7 +67,7 @@ In questo articolo è possibile trovare un riferimento al contenuto per diverse 
 - [Usare Query Store per monitorare le prestazioni](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Risolvere i problemi delle prestazioni con Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Usare il log di diagnostica Intelligent Insights](../database/intelligent-insights-use-diagnostics-log.md)
-- [Monitorare lo spazio di OLTP in memoria](../in-memory-oltp-monitor-space.md)
+- [Monitorare In-Memory spazio OLTP](../in-memory-oltp-monitor-space.md)
 
 ### <a name="extended-events"></a>Eventi estesi
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081849"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associazioni per Funzioni permanenti (Funzioni di Azure)
@@ -32,7 +32,7 @@ Quando si scrivono funzioni dell'agente di orchestrazione in linguaggi di script
 }
 ```
 
-* `orchestration`nome dell'orchestrazione che i client devono utilizzare quando desiderano avviare nuove istanze di questa funzione dell'agente di orchestrazione. La proprietà è facoltativa. Se non specificato, viene usato il nome della funzione.
+* `orchestration` nome dell'orchestrazione che i client devono utilizzare quando desiderano avviare nuove istanze di questa funzione dell'agente di orchestrazione. Questa proprietà è facoltativa. Se non specificato, viene usato il nome della funzione.
 
 Internamente questa associazione di trigger esegue il polling di una serie di code nell'account di archiviazione predefinito per l'app per le funzioni. Tali code sono dettagli di implementazione interna dell'estensione, motivo per cui non sono configurate in modo esplicito nelle proprietà dell'associazione.
 
@@ -139,7 +139,7 @@ Se si usa VS Code o il portale di Azure per lo sviluppo, il trigger di attività
 }
 ```
 
-* `activity` è il nome dell'attività. Questo valore è il nome usato dalle funzioni dell'agente di orchestrazione per richiamare questa funzione di attività. La proprietà è facoltativa. Se non specificato, viene usato il nome della funzione.
+* `activity` è il nome dell'attività. Questo valore è il nome usato dalle funzioni dell'agente di orchestrazione per richiamare questa funzione di attività. Questa proprietà è facoltativa. Se non specificato, viene usato il nome della funzione.
 
 Internamente questa associazione di trigger esegue il polling di una coda nell'account di archiviazione predefinito per l'app per le funzioni. Tale coda è un dettaglio di implementazione interna dell'estensione, motivo per cui non è configurata in modo esplicito nelle proprietà dell'associazione.
 
