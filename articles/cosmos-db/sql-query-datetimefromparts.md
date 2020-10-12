@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: aec567c642f8eb3cb421ef5a119fe58f3a5fe05a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262062"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
@@ -26,31 +26,31 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 ## <a name="arguments"></a>Argomenti
   
-*numberYear* Valore intero per l'anno nel formato`YYYY`
+*numberYear* Valore intero per l'anno nel formato `YYYY`
 
 *numberMonth*  
-   Valore intero per il mese nel formato`MM`
+   Valore intero per il mese nel formato `MM`
 
 *numberDay*  
-   Valore intero per il giorno nel formato`DD`
+   Valore intero per il giorno nel formato `DD`
 
-*numberHour* (facoltativo) valore intero per l'ora nel formato`hh`
+*numberHour* (facoltativo) valore intero per l'ora nel formato `hh`
 
-*numberMinute* (facoltativo) valore intero per il minuto nel formato`mm`
+*numberMinute* (facoltativo) valore intero per il minuto nel formato `mm`
 
-*numberSecond* (facoltativo) valore intero per il secondo nel formato`ss`
+*numberSecond* (facoltativo) valore intero per il secondo nel formato `ss`
 
-*numberOfFractionsOfSecond* (facoltativo) valore intero per il frazionario di un secondo nel formato`.fffffff`
+*numberOfFractionsOfSecond* (facoltativo) valore intero per il frazionario di un secondo nel formato `.fffffff`
 
 ## <a name="return-types"></a>Tipi restituiti
 
 Restituisce un valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
   
-  |Format|Descrizione|
+  |Formato|Descrizione|
   |-|-|
   |AAAA|anno a quattro cifre|
   |MM|mese a due cifre (01 = gennaio e così via)|
-  |DD|giorno del mese a due cifre (da 01 a 31)|
+  |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
   |MM|minuti a due cifre (da 00 a 59)|
@@ -66,7 +66,7 @@ Se gli Integer specificati creeranno un valore DateTime non valido, DateTimeFrom
 
 Se non si specifica un argomento facoltativo, il valore sarà 0.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Di seguito è riportato un esempio che include solo gli argomenti obbligatori per costruire un valore DateTime:
 

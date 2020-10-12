@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
 ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88261889"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Stati e ciclo di vita di macchine virtuali
@@ -424,7 +424,7 @@ Azure Resource Explorer offre una semplice interfaccia utente per visualizzare l
 
 Gli stati di provisioning sono visibili nelle proprietà della macchina virtuale e nella visualizzazione dell'istanza. Gli stati di alimentazione sono disponibili nella visualizzazione dell'istanza di macchina virtuale.
 
-Per recuperare lo stato di alimentazione di tutte le macchine virtuali nella sottoscrizione, usare [macchine virtuali-elenca tutte le API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) con il parametro **statusOnly** impostato su *true*.
+Per recuperare lo stato di alimentazione di tutte le macchine virtuali nella sottoscrizione, usare l'[API Macchine virtuali - Elenca tutte](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) con il parametro **statusOnly** impostato su *true*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

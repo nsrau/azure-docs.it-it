@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88948131"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Rollover della chiave di firma nella piattaforma di identità Microsoft
@@ -284,7 +284,7 @@ Seguire questa procedura per verificare che la logica di rollover della chiave f
           </keys>
    ```
 2. Nell' **\<add thumbprint="">** impostazione, modificare il valore di identificazione personale sostituendo qualsiasi carattere con uno diverso. Salvare il file **Web.config**.
-3. Compilare l'applicazione ed eseguirla. Se è possibile completare il processo di accesso, l'applicazione aggiorna in modo corretto la chiave scaricando le informazioni necessarie dal documento di metadati della federazione della directory. Se si verificano problemi di accesso, assicurarsi che le modifiche nell'applicazione siano corrette leggendo l'articolo [aggiungere l'accesso all'applicazione Web usando la piattaforma di identità Microsoft](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) oppure scaricare ed esaminare l'esempio di codice seguente: [applicazione cloud multi-tenant per Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Compilare l'applicazione ed eseguirla. Se è possibile completare il processo di accesso, l'applicazione aggiorna in modo corretto la chiave scaricando le informazioni necessarie dal documento di metadati della federazione della directory. Se si verificano problemi di accesso, assicurarsi che le modifiche nell'applicazione siano corrette leggendo l'articolo [aggiungere Sign-On all'applicazione Web tramite la piattaforma di identità Microsoft](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) oppure scaricare ed esaminare l'esempio di codice seguente: [applicazione cloud multi-tenant per Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2008 o 2010 o con Windows Identity Foundation (WIF) v1.0 per .NET 3.5
 Se è stata compilata un'applicazione in WIF v1.0 non esistono meccanismi per aggiornare automaticamente la configurazione dell'applicazione per l'uso di una nuova chiave.

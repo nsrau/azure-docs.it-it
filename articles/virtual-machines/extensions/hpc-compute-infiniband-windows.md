@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097837"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Estensione driver InfiniBand per Windows
@@ -36,7 +36,7 @@ Questa estensione supporta le distribuzioni dei sistemi operativi seguenti, in b
 | Windows 10 | Core |
 | Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
+| R2 per Windows Server 2012 | Core |
 | Windows Server 2012 | Core |
 
 ### <a name="internet-connectivity"></a>Connettività Internet

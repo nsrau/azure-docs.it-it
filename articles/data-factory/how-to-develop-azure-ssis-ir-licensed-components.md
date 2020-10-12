@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
 ms.openlocfilehash: 77eedbfc65b54ce128e1adbd93375bc624ef38cd
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187617"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installare componenti personalizzati a pagamento o concessi in licenza per il runtime di integrazione Azure-SSIS
@@ -32,7 +32,7 @@ La natura del runtime di integrazione Azure-SSIS comporta varie sfide che rendon
 
 -   È anche possibile aumentare o ridurre il numero di istanze del runtime di integrazione Azure-SSIS, in modo che il numero di nodi possa aumentare o ridursi in qualsiasi momento.
 
-## <a name="the-solution"></a>La soluzione
+## <a name="the-solution"></a>Soluzione
 
 Viste le limitazioni dei metodi tradizionali di gestione delle licenze descritte nella sezione precedente, il runtime di integrazione Azure-SSIS fornisce una nuova soluzione. Questa soluzione usa le variabili di ambiente Windows e le variabili di sistema SSIS per l'associazione delle licenze e la convalida dei componenti di terze parti. I fornitori di software indipendenti possono usare queste variabili per ottenere informazioni univoche e permanenti per un runtime di integrazione Azure-SSIS, ad esempio ID del cluster e numero di nodi del cluster. Con queste informazioni, i fornitori di software indipendenti possono associare la licenza per i propri componenti a un runtime di integrazione Azure-SSIS *come cluster*. Questa associazione usa un ID che resta invariato quando i clienti avviano o arrestano il runtime di integrazione Azure-SSIS, aumentano o riducono il numero di istanze, aumentano o riducono le prestazioni o modificano in qualsiasi modo la configurazione.
 

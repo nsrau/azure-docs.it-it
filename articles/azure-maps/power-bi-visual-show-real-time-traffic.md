@@ -10,13 +10,13 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: fe9e86f3c1d155a1f0b29f500de3954e360b4aa7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261855"
 ---
-# <a name="show-real-time-traffic"></a>Mostra traffico in tempo reale
+# <a name="show-real-time-traffic"></a>Visualizzare il traffico in tempo reale
 
 La funzionalità livello di traffico sovrappone i dati sul traffico in tempo reale sopra la mappa. Per abilitare questa funzionalità, spostare il dispositivo di scorrimento **livello di traffico** nel riquadro **formato** in posizione **on** . In questo modo i dati del flusso di traffico vengono sovrapposti come strade codificate a colori.
 
@@ -28,7 +28,7 @@ Nella sezione **livello di traffico** sono disponibili le impostazioni seguenti.
 | Impostazione         | Descrizione    |
 |-----------------|----------------|
 | Mostra eventi imprevisti  | Specifica se gli eventi imprevisti del traffico, ad esempio le chiusure stradali e la costruzione, devono essere visualizzati sulla mappa. |
-| Controllo del traffico | Aggiunge un pulsante alla mappa che consente ai lettori del report di attivare o disattivare il livello di traffico.  |
+| Controllo traffico | Aggiunge un pulsante alla mappa che consente ai lettori del report di attivare o disattivare il livello di traffico.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
