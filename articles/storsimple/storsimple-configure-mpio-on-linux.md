@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294714"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
@@ -423,7 +423,7 @@ dm-3 devnode blacklisted, unmonitored
 Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei problemi per percorsi multipli](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Elenco di comandi utili
-| Type | Comando | Descrizione |
+| Type | Comando | Description |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Avviare il servizio iSCSI |
 | &nbsp; |`service iscsid stop` |Arrestare il servizio iSCSI |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135352"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Risolvere gli errori di individuazione server vCenter
@@ -20,7 +20,7 @@ Questo articolo consente di risolvere i problemi che si verificano a causa di er
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Valori non numerici nella proprietà maxSnapShots
 
-Nelle versioni precedenti alla 9,20, vCenter si disconnette quando recupera un valore non numerico per la proprietà della proprietà `snapshot.maxSnapShots` in una macchina virtuale.
+Nelle versioni precedenti alla 9,20, vCenter si disconnette quando recupera un valore non numerico per la proprietà della proprietà  `snapshot.maxSnapShots` in una macchina virtuale.
 
 Questo problema è identificato dall'ID errore 95126.
 

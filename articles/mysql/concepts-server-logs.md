@@ -7,13 +7,13 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/13/2020
 ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81271982"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente nel database di Azure per MySQL
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente in Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
 
 Per altre informazioni sul log delle query lente MySQL, vedere la [sezione relativa ai log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manuale di riferimento per MySQL.
@@ -59,7 +59,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 |---|---|
 | `TenantId` | ID del tenant. |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Timestamp in cui il log è stato registrato in formato UTC. |
+| `TimeGenerated` UTC | Timestamp in cui il log è stato registrato in formato UTC. |
 | `Type` | Tipo di log. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
 | `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
@@ -70,7 +70,7 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nome del server |
-| `start_time_t`UTC | Ora di inizio della query |
+| `start_time_t` UTC | Ora di inizio della query |
 | `query_time_s` | Tempo totale in secondi impiegato per l'esecuzione della query |
 | `lock_time_s` | Tempo totale in secondi per cui la query è stata bloccata |
 | `user_host_s` | Username |

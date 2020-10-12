@@ -12,10 +12,10 @@ ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d4c538a9292698fecc8b44c055ab201748e292c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202994"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di convalida in un criterio personalizzato di Azure Active Directory B2C
@@ -76,8 +76,8 @@ L'elemento **Precondition** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
-| Action | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. |
+| Valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, mentre un altro elemento Value contiene il valore da controllare.|
+| Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore di **Action** è `SkipThisValidationTechnicalProfile`. Specifica che il profilo tecnico convalida associato non deve essere eseguito. |
 
 ### <a name="example"></a>Esempio
 

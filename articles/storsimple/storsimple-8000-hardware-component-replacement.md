@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564283"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
@@ -34,7 +34,7 @@ Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti
 
 Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in queste esercitazioni. Prestare particolare attenzione a queste icone di sicurezza quando si eseguono i passaggi per rimuovere e sostituire i componenti del dispositivo.
 
-| Icona | Text | Informazioni aggiuntive |
+| Icona | Testo | Altre informazioni |
 |:--- |:--- |:--- |
 | ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
 | ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |

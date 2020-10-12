@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932543"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
@@ -101,7 +101,7 @@ L'applicazione è stata eseguita interamente nel computer locale, senza connessi
 
 Nella sezione seguente la soluzione sarà configurata per usare le risorse cloud di Azure per code, BLOB e per il database dell'applicazione in caso di esecuzione nel cloud. Se si vuole, è possibile continuare l'esecuzione locale usando tuttavia le risorse di archiviazione e database del cloud. È sufficiente impostare le stringhe di connessione, come sarà illustrato in seguito.
 
-## <a name="deploy-the-application-to-azure"></a>Distribuire l'applicazione in Azure
+## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
 Per eseguire l'applicazione nel cloud, eseguire i passaggi seguenti:
 
 * Creare un servizio cloud di Azure.
@@ -131,7 +131,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 
     ![Nuovo servizio cloud](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### <a name="create-a-database-in-azure-sql-database"></a>Creare un database nel database SQL di Azure
+### <a name="create-a-database-in-azure-sql-database"></a>Creare un database in Database SQL di Azure
 Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa > Database > Database SQL**.

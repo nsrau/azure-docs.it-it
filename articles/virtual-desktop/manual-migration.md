@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90039047"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Eseguire la migrazione manuale da desktop virtuale di Windows (versione classica)
@@ -35,7 +35,7 @@ Nonostante il problema, la migrazione dalla versione classica è ancora importan
 - Gestire il desktop virtuale di Windows tramite il portale di Azure.
 - Assegnare i gruppi di utenti Azure Active Directory (AD) ai gruppi di applicazioni.
 - Utilizzare la funzionalità Log Analytics migliorata per risolvere i problemi relativi alla distribuzione.
-- Usare i controlli degli accessi in base al ruolo nativi di Azure per gestire l'accesso amministrativo.
+- Usare i controlli di accesso Role-Based nativi di Azure per gestire l'accesso amministrativo.
 
 ## <a name="when-should-i-migrate"></a>Quando è necessario eseguire la migrazione?
 
@@ -59,7 +59,7 @@ Ecco gli elementi necessari per avviare il processo di migrazione:
 - Una sottoscrizione di Azure in cui verranno creati nuovi oggetti servizio di Azure.
 - Assicurarsi di essere assegnati ai ruoli seguenti:
     
-    - Collaboratore
+    - Autore di contributi
     - Amministratore accessi utente
     
     Il ruolo Collaboratore consente di creare oggetti di Azure nella sottoscrizione e il ruolo amministratore accesso utenti consente di assegnare gli utenti ai gruppi di applicazioni.

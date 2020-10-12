@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: allensu
 ms.openlocfilehash: b8050b973027ac91ede0ba98f4d1c76831da9828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81259928"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condizioni di corrispondenza nel motore delle regole standard per la rete CDN di Azure
 
 Nel [motore delle regole standard](cdn-standard-rules-engine.md) per la rete per la distribuzione di contenuti di Azure (rete CDN di Azure), una regola è costituita da una o più condizioni di corrispondenza e da un'azione. Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza che è possibile usare nel motore delle regole standard per la rete CDN di Azure.
 
-La prima parte di una regola è una condizione di corrispondenza o un set di condizioni di corrispondenza. Nel motore delle regole standard per la rete CDN di Azure ogni regola può avere fino a quattro condizioni di corrispondenza. Una condizione di corrispondenza identifica tipi specifici di richieste per le quali vengono eseguite le azioni definite. Se si utilizzano più condizioni di corrispondenza, le condizioni di corrispondenza vengono raggruppate utilizzando la logica e.
+La prima parte di una regola è costituita da una o più condizioni di corrispondenza. Nel motore delle regole standard per la rete CDN di Azure ogni regola può avere fino a quattro condizioni di corrispondenza. Una condizione di corrispondenza identifica specifici tipi di richieste per cui verranno eseguite le azioni definite. Se si usano più condizioni di corrispondenza, verranno raggruppate insieme tramite la logica AND.
 
 Ad esempio, è possibile usare una condizione di corrispondenza per:
 
-- Filtrare le richieste in base a un indirizzo IP specifico, un paese o un'area geografica.
+- Filtrare le richieste in base a un indirizzo IP, un paese o un'area specifica.
 - Filtrare le richieste in base alle informazioni dell'intestazione.
-- Filtrare le richieste da dispositivi mobili o desktop.
+- Filtrare le richieste provenienti da dispositivi mobili o desktop.
 
 ## <a name="match-conditions"></a>Condizioni di corrispondenza
 
@@ -38,7 +38,7 @@ Identifica le richieste effettuate da un dispositivo mobile o desktop.
 
 Operatore | Valori supportati
 ---------|----------------
-Uguale a, non uguale a | Dispositivi mobili, desktop
+Uguale a, diverso da | Mobile, Desktop
 
 ### <a name="http-version"></a>Versione HTTP
 
@@ -48,7 +48,7 @@ Identifica le richieste in base alla versione HTTP della richiesta.
 
 Operatore | Valori supportati
 ---------|----------------
-Uguale a, non uguale a | 2,0, 1,1, 1,0, 0,9, tutti
+Uguale a, diverso da | 2,0, 1,1, 1,0, 0,9, tutti
 
 ### <a name="request-cookies"></a>Cookie della richiesta
 
@@ -56,9 +56,9 @@ Identifica le richieste in base alle informazioni sui cookie nella richiesta in 
 
 #### <a name="required-fields"></a>Required fields
 
-Nome del cookie | Operatore | Valore cookie | Trasformazione case
+Nome del cookie | Operatore | Valore cookie | Trasformazione maiuscole/minuscole
 ------------|----------|--------------|---------------
-string | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+string | [Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 #### <a name="key-information"></a>Informazioni chiave
 
@@ -69,25 +69,25 @@ string | [Elenco operatori standard](#standard-operator-list) | Stringa, int | N
 - I valori dei cookie possono sfruttare i valori jolly.
 - Se non è stato specificato un valore con caratteri jolly, solo una corrispondenza esatta soddisfa questa condizione di corrispondenza. Ad esempio, "value" corrisponderà a "value" ma non a "value1". 
 
-### <a name="post-argument"></a>Argomento post
+### <a name="post-argument"></a>Argomento richiesta POST
 
-Identifica le richieste in base agli argomenti definiti per il metodo di richiesta POST usato nella richiesta. 
+Identifica le richieste in base agli argomenti definiti per il metodo di richiesta POST usato. 
 
 #### <a name="required-fields"></a>Required fields
 
-Nome dell'argomento | Operatore | Valore dell'argomento | Trasformazione case
+Nome dell'argomento | Operatore | Valore dell'argomento | Trasformazione maiuscole/minuscole
 --------------|----------|----------------|---------------
-string | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+string | [Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 ### <a name="query-string"></a>Stringa di query
 
-Identifica le richieste che contengono un parametro della stringa di query specifico. Questo parametro è impostato su un valore che corrisponde a un modello specifico. I parametri della stringa di query, ad esempio **parameter = value**, nell'URL della richiesta determinano se questa condizione è soddisfatta. Questa condizione di corrispondenza identifica un parametro della stringa di query in base al nome e accetta uno o più valori per il valore del parametro.
+Identifica le richieste che contengono un parametro di stringa di query specificato. Questo parametro è impostato su un valore che corrisponde a un modello specifico. I parametri di stringa di query, ad esempio **parametro=valore**, nell'URL della richiesta determinano se questa condizione viene soddisfatta. Questa condizione di corrispondenza identifica un parametro della stringa di query in base al nome e accetta uno o più valori per il valore del parametro.
 
 #### <a name="required-fields"></a>Required fields
 
-Operatore | Stringa di query | Trasformazione case
+Operatore | Stringa di query | Trasformazione maiuscole/minuscole
 ---------|--------------|---------------
-[Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+[Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 ### <a name="remote-address"></a>Indirizzo remoto
 
@@ -99,40 +99,40 @@ Operatore | Valori supportati
 ---------|-----------------
 Qualsiasi | N/D
 Corrispondenza geografica | Codice paese
-Corrispondenza IP | Indirizzo IP (separato da spazi)
+Corrispondenza IP | Indirizzo IP (delimitato da spazi)
 Nessun | N/D
 Non corrispondenza geografica | Codice paese
-Non corrispondenza IP | Indirizzo IP (separato da spazi)
+Non corrispondenza IP | Indirizzo IP (delimitato da spazi)
 
 #### <a name="key-information"></a>Informazioni chiave
 
 - Usare la notazione CIDR.
-- Per specificare più indirizzi IP e blocchi di indirizzi IP, usare uno spazio singolo tra i valori:
-  - **Esempio IPv4**: *1.2.3.4 10.20.30.40* corrisponde alle richieste provenienti dall'indirizzo 1.2.3.4 o 10.20.30.40.
-  - **Esempio IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corrisponde a tutte le richieste che arrivano dall'indirizzo 1:2:3:4:5:6:7:8 o 10:20:30:40:50:60:70:80.
+- Per specificare più indirizzi IP e blocchi di indirizzi IP, usare un singolo spazio tra i valori:
+  - **Esempio di indirizzo IPv4**: *1.2.3.4 10.20.30.40* corrisponde alle richieste provenienti dall'indirizzo 1.2.3.4 o 10.20.30.40.
+  - **Esempio di indirizzo IPv6**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* corrisponde alle richieste provenienti dall'indirizzo 1:2:3:4:5:6:7:8 o 10:20:30:40:50:60:70:80.
 - La sintassi per un blocco di indirizzi IP è l'indirizzo IP di base seguito da una barra e dalle dimensioni del prefisso. Ad esempio:
-  - **Esempio IPv4**: *5.5.5.64/26* corrisponde alle richieste provenienti dagli indirizzi 5.5.5.64 tramite 5.5.5.127.
-  - **Esempio IPv6**: *1:2:3:/48* corrisponde a tutte le richieste che arrivano dagli indirizzi da 1:2:3:0:0:0:0:0 a 1:2: 3: ffff: ffff: ffff: ffff: FFFF.
+  - **Esempio di indirizzo IPv4**: *5.5.5.64/26* corrisponde alle richieste provenienti dagli indirizzi compresi tra 5.5.5.64 e 5.5.5.127.
+  - **Esempio di indirizzo IPv6**: *1:2:3:/48* corrisponde alle richieste provenienti dagli indirizzi compresi tra 1:2:3:0:0:0:0:0 e 1:2:3:ffff:ffff:ffff:ffff:ffff.
 
 ### <a name="request-body"></a>Corpo della richiesta
 
-Identifica le richieste in base a testo specifico visualizzato nel corpo della richiesta.
+Identifica le richieste in base a testo specifico visualizzato nel relativo corpo.
 
 #### <a name="required-fields"></a>Required fields
 
-Operatore | Corpo della richiesta | Trasformazione case
+Operatore | Corpo della richiesta | Trasformazione maiuscole/minuscole
 ---------|--------------|---------------
-[Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+[Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 ### <a name="request-header"></a>Intestazione della richiesta
 
-Identifica le richieste che usano un'intestazione specifica nella richiesta.
+Identifica le richieste che usano un'intestazione specifica.
 
 #### <a name="required-fields"></a>Required fields
 
-Nome intestazione | Operatore | Valore intestazione | Trasformazione case
+Nome intestazione | Operatore | Valore intestazione | Trasformazione maiuscole/minuscole
 ------------|----------|--------------|---------------
-string | [Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+string | [Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 ### <a name="request-method"></a>Metodo richiesta
 
@@ -142,21 +142,21 @@ Identifica le richieste che usano il metodo di richiesta specificato.
 
 Operatore | Valori supportati
 ---------|----------------
-Uguale a, non uguale a | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
+Uguale a, diverso da | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
 #### <a name="key-information"></a>Informazioni chiave
 
 - Solo il metodo di richiesta GET può generare contenuto memorizzato nella cache nella rete CDN di Azure. Tutti gli altri metodi di richiesta vengono elaborati tramite la rete. 
 
-### <a name="request-protocol"></a>Protocollo di richiesta
+### <a name="request-protocol"></a>Protocollo richiesta
 
-Identifica le richieste che utilizzano il protocollo specificato utilizzato.
+Identifica le richieste che usano il protocollo specificato.
 
 #### <a name="required-fields"></a>Required fields
 
 Operatore | Valori supportati
 ---------|----------------
-Uguale a, non uguale a | HTTP, HTTPS
+Uguale a, diverso da | HTTP, HTTPS
 
 ### <a name="request-url"></a>URL richiesta
 
@@ -164,27 +164,27 @@ Identifica le richieste che corrispondono all'URL specificato.
 
 #### <a name="required-fields"></a>Required fields
 
-Operatore | URL richiesta | Trasformazione case
+Operatore | URL richiesta | Trasformazione maiuscole/minuscole
 ---------|-------------|---------------
-[Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+[Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 #### <a name="key-information"></a>Informazioni chiave
 
-- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio: * https://www . \<yourdomain\> . com*.
+- Quando si usa questa condizione della regola, assicurarsi di includere le informazioni sul protocollo. Ad esempio: *https://www.\<yourdomain\>.com*.
 
 ### <a name="url-file-extension"></a>Estensione di file URL
 
-Identifica le richieste che includono l'estensione di file specificata nel nome file nell'URL richiedente.
+Identifica le richieste che includono l'estensione del nome file specificata nell'URL richiedente.
 
 #### <a name="required-fields"></a>Required fields
 
-Operatore | Estensione | Trasformazione case
+Operatore | Estensione | Trasformazione maiuscole/minuscole
 ---------|-----------|---------------
-[Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+[Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 #### <a name="key-information"></a>Informazioni chiave
 
-- Per l'estensione, non includere un punto principale; usare, ad esempio, *HTML* anziché *HTML.*
+- Per l'estensione, non includere un punto iniziale. Ad esempio, usare *html* invece di *.html*.
 
 ### <a name="url-file-name"></a>Nome file URL
 
@@ -192,9 +192,9 @@ Identifica le richieste che includono il nome file specificato nell'URL richiede
 
 #### <a name="required-fields"></a>Required fields
 
-Operatore | Nome file | Trasformazione case
+Operatore | Nome file | Trasformazione maiuscole/minuscole
 ---------|-----------|---------------
-[Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+[Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 #### <a name="key-information"></a>Informazioni chiave
 
@@ -206,9 +206,9 @@ Identifica le richieste che includono il percorso specificato nell'URL richieden
 
 #### <a name="required-fields"></a>Required fields
 
-Operatore | valore | Trasformazione case
+Operatore | valore | Trasformazione maiuscole/minuscole
 ---------|-------|---------------
-[Elenco operatori standard](#standard-operator-list) | Stringa, int | Nessuna trasformazione, maiuscola e minuscola
+[Elenco di operatori standard](#standard-operator-list) | String, Int | Nessuna trasformazione, maiuscola e minuscola
 
 #### <a name="key-information"></a>Informazioni chiave
 
@@ -216,7 +216,7 @@ Operatore | valore | Trasformazione case
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Riferimento per le condizioni di corrispondenza del motore regole
 
-### <a name="standard-operator-list"></a>Elenco operatori standard
+### <a name="standard-operator-list"></a>Elenco di operatori standard
 
 Per le regole che accettano valori dall'elenco di operatori standard, gli operatori seguenti sono validi:
 
@@ -229,16 +229,16 @@ Per le regole che accettano valori dall'elenco di operatori standard, gli operat
 - Minore o uguale a
 - Maggiore di
 - Maggiore o uguale a
-- Nessun
+- Nessuno
 - Non contiene
 - Non inizia con 
 - Non termina con 
-- Non minore di
-- Non minore o uguale a
-- Non maggiore di
-- Non maggiore o uguale a
+- Non è minore di
+- Non è minore o uguale a
+- Non è maggiore di
+- Non è maggiore o uguale a
 
-Per gli operatori numerici come *minore di* e *maggiore o uguale*a, il confronto utilizzato è basato sulla lunghezza. In questo caso, il valore della condizione di corrispondenza deve essere un numero intero uguale alla lunghezza che si desidera confrontare. 
+Per gli operatori numerici, ad esempio *minore di* e *maggiore o uguale a*, il confronto si basa sulla lunghezza. In questo caso, il valore della condizione di corrispondenza deve essere un numero intero uguale alla lunghezza da confrontare. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

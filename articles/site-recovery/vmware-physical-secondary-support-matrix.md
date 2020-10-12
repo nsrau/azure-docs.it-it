@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: c6f0f48df32db0beb9c0a57982d9bc87b26538d8
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135147"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
@@ -66,7 +66,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 
 ## <a name="network-configuration---hostguest-vm"></a>Configurazione di rete - Macchine virtuali host/guest
 
-**Configuration** | **Supportato**  
+**Configuration** | **Supporto**  
 --- | --- 
 Host - Gruppo NIC | Sì 
 Host - VLAN | Sì 
@@ -83,7 +83,7 @@ VM guest - Più NIC | Sì
 
 ### <a name="host-storage"></a>Archiviazione su host
 
-**Archiviazione (host)** | **Supportato** 
+**Archiviazione (host)** | **Supporto** 
 --- | --- 
 NFS | Sì 
 SMB 3.0 | N/D 
@@ -92,7 +92,7 @@ Percorsi multipli (MPIO) | Sì
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
-**Configuration** | **Supportato** 
+**Configuration** | **Supporto** 
 --- | --- 
 VMDK | Sì 
 VHD/VHDX | N/D 
@@ -112,7 +112,7 @@ Percorsi multipli (MPIO) | N/D
 
 ## <a name="vaults"></a>Insiemi di credenziali
 
-**Azione** | **Supportato** 
+**Azione** | **Supporto** 
 --- | --- 
 Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
 Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
@@ -121,7 +121,7 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 Il servizio Mobility coordina la replica fra server VMware locali/server fisici e sito secondario. Quando si configura la replica, accertarsi di disporre dell'ultima versione del servizio Mobility e di altri componenti.
 
-| **Update** | **Dettagli** |
+| **Aggiornamento** | **Dettagli** |
 | --- | --- |
 |Aggiornamenti di Scout | Gli aggiornamenti di Scout sono cumulativi. <br/><br/> [Informazioni introduttive e su come scaricare](vmware-physical-secondary-disaster-recovery.md#updates) gli aggiornamenti più recenti di Scout |
 |Aggiornamenti dei componenti | Gli aggiornamenti di Scout includono gli aggiornamenti di tutti i componenti, tra cui server RX, server di configurazione, server di destinazione di elaborazione e master, server vContinuum e server di origine che si vuole proteggere.<br/><br/> [Altre informazioni](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)|

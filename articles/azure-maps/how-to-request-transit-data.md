@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 3ded5f6186d8ccdae0f42ecb9942c70e09f2dd9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310884"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Richiedere i dati di transito pubblici usando il servizio Mobility di Azure Maps
@@ -32,13 +32,13 @@ In questo articolo si apprenderà come:
 1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
-Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), ma è possibile scegliere un ambiente di sviluppo API diverso.
+Questa esercitazione usa l'applicazione [Postman](https://www.postman.com/), tuttavia è possibile scegliere un ambiente di sviluppo API diverso.
 
 ## <a name="get-a-metro-area-id"></a>Ottenere un ID area metro
 
 Per richiedere informazioni dettagliate sulle agenzie di transito e sui tipi di transito supportati per una particolare area metropolitana, è necessario disporre `metroId` di tale area. L' [API Get Metro Area](https://aka.ms/AzureMapsMobilityMetro) consente di richiedere le aree metropolitane, in cui è disponibile il servizio Mobility di Azure maps. La risposta include i dettagli, ad esempio `metroId` , `metroName` e la rappresentazione della geometria dell'area metro in formato GeoJSON.
 
-Facciamo una richiesta per ottenere l'area metropolitana per l'ID area della metro Seattle-Tacoma. Per richiedere l'ID per un'area metropolitana, completare i passaggi seguenti:
+Eseguire una richiesta per ottenere l'area metro per l'ID area metro Seattle-Tacoma. Per richiedere l'ID per un'area metropolitana, completare i passaggi seguenti:
 
 1. Aprire l'app postazione e creare una raccolta per archiviare le richieste. Nella parte superiore dell'app Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta).  Assegnare un nome alla raccolta e selezionare **Create** (Crea).
 

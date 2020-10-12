@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67673389"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione di Azure

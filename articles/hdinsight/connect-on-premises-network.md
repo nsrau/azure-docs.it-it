@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 3ab706b9cdf3c071fd5d3ceca732cff6b660db6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086558"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
@@ -73,12 +73,12 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Nella scheda __Informazioni di base__ immettere le informazioni seguenti:  
   
-    | Campo | Valore |
+    | Campo | valore |
     | --- | --- |
-    |Sottoscrizione |Selezionare la sottoscrizione appropriata.|
-    |Gruppo di risorse |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
+    |Subscription |Selezionare la sottoscrizione appropriata.|
+    |Resource group |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|
     |Nome macchina virtuale | Immettere un nome descrittivo che identifica la macchina virtuale. In questo esempio viene usato **DNSProxy**.|
-    |Area | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
+    |Region | Selezionare la stessa area della rete virtuale creata in precedenza.  Non tutte le dimensioni di macchina virtuale sono disponibili in tutte le aree.  |
     |Opzioni di disponibilità |  Selezionare il livello di disponibilità desiderato.  Azure offre una gamma di opzioni per la gestione della disponibilità e della resilienza delle applicazioni.  Progettando una soluzione per l'uso di macchine virtuali replicate in zone di disponibilità o set di disponibilità è possibile proteggere le app e i dati da eventuali interruzioni del data center ed eventi di manutenzione. Im questo esempio viene usata l'opzione **La ridondanza dell'infrastruttura non è richiesta**. |
     |Immagine | Uscire da **Ubuntu Server 18,04 LTS**. |
     |Tipo di autenticazione | __Password__ o __chiave pubblica SSH__: il metodo di autenticazione per l'account SSH. Si consiglia di usare le chiavi pubbliche, perché sono più sicure. In questo esempio viene utilizzata la **password**.  Per altre informazioni, vedere il documento [Creare e usare chiavi SSH per VM Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
@@ -92,7 +92,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 4. Nella scheda **Rete** immettere le informazioni seguenti:
 
-    | Campo | Valore |
+    | Campo | valore |
     | --- | --- |
     |Rete virtuale | Selezionare la rete virtuale creata in precedenza.|
     |Subnet | Selezionare la subnet predefinita per la rete virtuale creata in precedenza. __Non__ selezionare la subnet usata dal gateway VPN.|

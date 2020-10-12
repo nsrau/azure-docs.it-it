@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202221"
 ---
 # <a name="general-claims-transformations"></a>Trasformazioni delle attestazioni generali
@@ -49,7 +49,7 @@ Usare questa trasformazione delle attestazioni per copiare un valore da un'attes
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **attestazione**:bob@contoso.com
+    - **attestazione**: bob@contoso.com
 - Attestazioni di output:
     - **outputClaim**: bob@contoso.com
 
@@ -78,7 +78,7 @@ Usare questa trasformazione delle attestazioni per verificare se un'attestazione
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **attestazione**:someone@contoso.com
+  - **attestazione**: someone@contoso.com
 - Attestazioni di output:
   - **outputClaim**: true
 
@@ -111,7 +111,7 @@ Eseguire l'hash del testo normale specificato usando il salt e un segreto. L'alg
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **testo normale**:MyPass@word1
+  - **testo normale**: MyPass@word1
   - **salt**: 487624568
   - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Attestazioni di output:

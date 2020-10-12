@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373403"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creare una macchina virtuale Linux che usa l'autenticazione SSH con l'API REST
@@ -54,9 +54,9 @@ Per informazioni generali sul lavoro con le operazioni con API REST, vedere [Com
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-| Nome                       | Obbligatorio | Type                                                                                | Description  |
+| Nome                       | Obbligatoria | Type                                                                                | Descrizione  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| posizione                   | True     | Stringa                                                                              | Percorso della risorsa. |
+| posizione                   | True     | string                                                                              | Percorso della risorsa. |
 | name                       |          | string                                                                              | Nome della macchina virtuale. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Specifica le impostazioni hardware per la macchina virtuale. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Specifica le impostazioni di archiviazione per i dischi della macchina virtuale. |
@@ -128,7 +128,7 @@ Per un elenco completo delle definizioni disponibili nel corpo della richiesta, 
 
 Esistono due risposte che indicano l'esito positivo dell'operazione di creazione o aggiornamento di una macchina virtuale:
 
-| Nome        | Type                                                                              | Description |
+| Nome        | Type                                                                              | Descrizione |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 - OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creato | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Data di creazione     |

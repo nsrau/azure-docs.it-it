@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 629de079f7cc7d95d10f8ff951a47b8b8fc62dad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77474157"
 ---
 Gli errori generati in funzioni di Azure possono provenire da una qualsiasi delle origini seguenti:
@@ -20,7 +20,7 @@ Gli errori generati in funzioni di Azure possono provenire da una qualsiasi dell
 
 Per evitare la perdita di dati o messaggi mancanti, è importante seguire le procedure di gestione degli errori. Le procedure consigliate per la gestione degli errori includono le azioni seguenti:
 
-- [Abilitare Application Insights](../articles/azure-functions/functions-monitoring.md)
+- [Abilita Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Usa la gestione degli errori strutturata](#use-structured-error-handling)
 - [Progettazione per idempotenza](../articles/azure-functions/functions-idempotent.md)
 - [Implementare i criteri di ripetizione dei tentativi](../articles/azure-functions/functions-reliable-event-processing.md) (laddove appropriato)

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372519"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
@@ -70,7 +70,7 @@ Nel codice:
     config.setTrackingIsDisabled(true);
 ```
 
-**O**
+**Or**
 
 Aggiornare ApplicationInsights.xml (nella cartella resources del progetto). Aggiungere la riga seguente sotto il nodo radice:
 
@@ -126,7 +126,7 @@ azure.application-insights.logger.level=trace
 
 ### <a name="java-agent"></a>Agente Java
 
-Per abilitare la registrazione dell'agente JVM, aggiornare il [file diAI-Agent.xml](java-agent.md):
+Per abilitare la registrazione dell'agente JVM, aggiornare il [ file diAI-Agent.xml](java-agent.md):
 
 ```xml
 <AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
@@ -188,7 +188,7 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 * [Scrivere codice per tenere traccia dell'utilizzo dell'app][track]
 * [Acquisire i log di diagnostica][javalogs]
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Ottieni supporto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Registrare un problema su GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 

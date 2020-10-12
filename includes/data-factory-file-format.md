@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 29be95a53004070753ca742cd8d76ca9d8384ea0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "70166731"
 ---
 ## <a name="specifying-formats"></a>Specifica dei formati
@@ -30,7 +30,7 @@ Per analizzare i file di testo o scrivere i dati in formato testo, impostare la 
 | escapeChar |carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire "$" come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No |
 | quoteChar |carattere usato per inserire un valore stringa tra virgolette. I delimitatori di riga e colonna all'interno delle virgolette sono considerati come parte del valore della stringa. Questa proprietà è applicabile ai set di dati di input e di output.<br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
 | nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\n" e "null"** in lettura e **"\n"** in scrittura. |No |
-| encodingName |specifica il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](/dotnet/api/system.text.encoding). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
+| encodingName |specifica il nome della codifica. |Un nome di codifica valido. vedere [Proprietà Encoding. EncodingName](/dotnet/api/system.text.encoding). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
 | firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True<br/>**False (impostazione predefinita)** |No |
 | skipLineCount |Indica il numero di righe da ignorare durante la lettura di dati da file di input. Se vengono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e quindi le informazioni dell'intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
 | treatEmptyAsNull |specifica se considerare una stringa null o vuota come valore null durante la lettura dei dati da un file di input. |**True (impostazione predefinita)**<br/>False |No |
@@ -73,7 +73,7 @@ Per **importare/esportare i file JSON senza modifiche in/da Azure Cosmos DB**, v
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `format` `type` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No |

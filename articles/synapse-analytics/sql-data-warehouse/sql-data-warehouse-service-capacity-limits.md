@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204983"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure sinapsi Analytics (precedentemente SQL DW)
@@ -24,7 +24,7 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 
 ## <a name="workload-management"></a>Gestione dei carichi di lavoro
 
-| Category | Descrizione | Massimo |
+| Categoria | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Numero massimo di DWU per una singola unità del pool SQL (data warehouse) | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota DTU di 54.000, che consente fino a DW5000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e selezionando *quota* come tipo di richiesta.  Per calcolare le esigenze di DTU, moltiplicare il 7,5 per il totale DWU necessario oppure moltiplicare 9,5 per il totale DWU necessario. Ad esempio:<br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW5000c x 9,5 = 47.500 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
@@ -36,7 +36,7 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 
 ## <a name="database-objects"></a>Oggetti di database
 
-| Category | Descrizione | Massimo |
+| Categoria | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Database |Dimensioni massime | Prima generazione: 240 TB compressi su disco. Questo spazio è indipendente dallo spazio di tempdb o del log ed è dedicato alle tabelle permanenti.  La compressione stimata per columnstore cluster è 5X.  Questa compressione consente al database di crescere fino a circa 1 PB quando tutte le tabelle sono columnstore cluster (tipo di tabella predefinito). <br/><br/> Gen2: archiviazione illimitata per le tabelle columnstore.  La parte rowstore del database è ancora limitata a 240 TB compressi sul disco. |
 | Tabella |Dimensioni massime |Dimensioni illimitate per le tabelle columnstore. <br>60 TB per le tabelle rowstore compresse su disco. |
@@ -54,19 +54,19 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | Statistiche |Colonne per oggetto statistiche. |32 |
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
-| Visualizza |Colonne per ogni vista |1\.024 |
+| Visualizzazione |Colonne per ogni vista |1\.024 |
 ||||
 
 ## <a name="loads"></a>Carichi
 
-| Category | Descrizione | Massimo |
+| Categoria | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Operazioni di caricamento di PolyBase |MB per riga |1<br/><br/>La polibase carica righe di dimensioni inferiori a 1 MB. Il caricamento di tipi di dati LOB in tabelle con un indice columnstore cluster (CCI) non è supportato.<br/><br/> |
 ||||
 
 ## <a name="queries"></a>Query
 
-| Category | Descrizione | Massimo |
+| Categoria | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Query |Query in coda nelle tabelle utente |1000 |
 | Query |Query simultanee nelle viste di sistema |100 |
@@ -79,7 +79,7 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | SELECT |Byte per le colonne GROUP BY. |8060<br/><br/>Le colonne presenti nella clausola GROUP BY possono avere un massimo di 8060 byte. |
 | SELECT |Byte per le colonne ORDER BY |8060 byte<br/><br/>Le colonne presenti nella clausola ORDER BY possono avere un massimo di 8060 byte. |
 | Identificatori per istruzione |Numero di identificatori di riferimento |65.535<br/><br/> Il numero di identificatori che possono essere contenuti in una singola espressione di una query è limitato. Il superamento di questo numero genera un errore 8632 di SQL Server. Per altre informazioni, vedere [Errore interno: è stato raggiunto un limite di servizi di espressione](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Valori letterali stringa | Numero di valori letterali stringa in un'istruzione | 20.000 <br/><br/>Il numero di costanti stringa in una singola espressione di una query è limitato. Il superamento di questo numero genera un errore 8632 di SQL Server.|
+| Valori letterali di stringa | Numero di valori letterali stringa in un'istruzione | 20.000 <br/><br/>Il numero di costanti stringa in una singola espressione di una query è limitato. Il superamento di questo numero genera un errore 8632 di SQL Server.|
 ||||
 
 ## <a name="metadata"></a>Metadati

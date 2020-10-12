@@ -10,10 +10,10 @@ ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069660"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gestisci chiavi di accesso all'account di archiviazione
@@ -32,7 +32,7 @@ Microsoft consiglia di utilizzare Azure Key Vault per gestire le chiavi di acces
 
 Per visualizzare e copiare le chiavi di accesso o la stringa di connessione dell'account di archiviazione dal portale di Azure:
 
-1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
+1. Passare all'account di archiviazione nell' [portale di Azure](https://portal.azure.com).
 1. In **Impostazioni** selezionare **Chiavi di accesso**. Verranno visualizzate le chiavi di accesso dell'account, con la stringa di connessione completa per ogni chiave.
 1. Individuare il valore della **chiave** in **Key1**e fare clic sul pulsante **Copy (copia** ) per copiare la chiave dell'account.
 1. In alternativa, è possibile copiare l'intera stringa di connessione. Trovare il valore **Stringa di connessione** in **key1** e fare clic sul pulsante **Copia** per copiare la stringa di connessione.
@@ -89,7 +89,7 @@ Vengono assegnate due chiavi di accesso che è quindi possibile ruotare. La pres
 Per ruotare le chiavi di accesso dell'account di archiviazione nel portale di Azure:
 
 1. Aggiornare le stringhe di connessione nel codice dell'applicazione per fare riferimento alla chiave di accesso secondaria per l'account di archiviazione.
-1. Passare all'account di archiviazione nel [portale di Azure](https://portal.azure.com).
+1. Passare all'account di archiviazione nell' [portale di Azure](https://portal.azure.com).
 1. In **Impostazioni** selezionare **Chiavi di accesso**.
 1. Per rigenerare la chiave di accesso primaria per l'account di archiviazione, selezionare il pulsante **Rigenera** accanto alla chiave di accesso primaria.
 1. Aggiornare le stringhe di connessione nel codice in modo che facciano riferimento alla nuova chiave di accesso primaria.

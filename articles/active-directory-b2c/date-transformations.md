@@ -11,10 +11,10 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85202552"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
@@ -33,7 +33,7 @@ Verifica che un'attestazione di data e ora (tipo di dati stringa) sia successiva
 | InputClaim | rightOperand | string | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
 | InputParameter | AssertIfEqualTo | boolean | Specifica se questa asserzione debba passare se l'operando sinistro è uguale all'operando destro. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifica se questa asserzione debba passare se l'operando destro è assente. |
-| InputParameter | TreatAsEqualIfWithinMillseconds | INT | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
+| InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
 
 La trasformazione dell'asserzione **AssertDateTimeIsGreaterThan** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [ profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **DateTimeGreaterThan** controllano il messaggio di errore che il profilo tecnico presenta all'utente. I messaggi di errore possono essere [localizzati](localization-string-ids.md#claims-transformations-error-messages).
 
@@ -173,7 +173,7 @@ Determinare se un valore dateTime è successivo, precedente o uguale a un altro.
 | InputClaim | firstDateTime | dateTime | Il primo valore dateTime da confrontare per verificare se è precedente o successivo al secondo valore dateTime. I valori Null generano un'eccezione. |
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
 | InputParameter | operator | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
-| InputParameter | timeSpanInSeconds | INT | Aggiungere l'intervallo di tempo al primo valore datetime. |
+| InputParameter | timeSpanInSeconds | int | Aggiungere l'intervallo di tempo al primo valore datetime. |
 | OutputClaim | result | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione di attestazione per determinare se due valori ClaimType sono uguali oppure se uno è successivo o precedente all'altro. Ad esempio, è possibile archiviare l'ultima volta che un utente ha accettato le condizioni d'uso. Dopo 3 mesi, è possibile chiedere all'utente di accedere nuovamente alle condizioni d'uso.

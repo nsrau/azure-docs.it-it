@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90884420"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Condivisione della tabella nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
@@ -47,7 +47,7 @@ CREATE TABLE page (
 
 A questo punto è necessario rispondere alle query che potrebbero essere emesse da un dashboard per i clienti. Una query di esempio è "restituisce il numero di visite nell'ultima settimana per tutte le pagine che iniziano con"/Blog "nel tenant sei".
 
-Se i dati erano nell'opzione di distribuzione a server singolo, è possibile esprimere facilmente la query usando il set completo di operazioni relazionali offerte da SQL:
+Se i dati si trovavano nell'opzione Single-Server distribuzione, è possibile esprimere facilmente la query usando il set completo di operazioni relazionali offerte da SQL:
 
 ```sql
 SELECT page_id, count(event_id)
@@ -96,7 +96,7 @@ Successivamente, i risultati dei due passaggi devono essere combinati dall'appli
 
 L'esecuzione delle query deve consultare i dati nelle partizioni sparse tra i nodi.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Query inefficienti":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Partizioni":::
 
 In questo caso, la distribuzione dei dati crea svantaggi sostanziali:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 A causa del filtro e del join in tenant_id, l'iperscalabilità (CITUS) sa che è possibile rispondere all'intera query usando il set di partizioni con percorso condiviso che contengono i dati per quel particolare tenant. Un singolo nodo PostgreSQL può rispondere alla query in un singolo passaggio.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Query migliore":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Partizioni":::
 
 In alcuni casi, è necessario modificare le query e gli schemi di tabella in modo da includere l'ID tenant in vincoli univoci e condizioni di join. Questa modifica è in genere semplice.
 

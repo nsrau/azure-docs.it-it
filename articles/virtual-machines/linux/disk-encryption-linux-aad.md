@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372672"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Abilitare crittografia dischi di Azure con Azure AD nelle macchine virtuali Linux (versione precedente)
@@ -41,7 +41,7 @@ Eseguire uno [snapshot](snapshot-copy-managed-disk.md), eseguire un backup o ent
 In questo scenario è possibile abilitare la crittografia usando il modello di Azure Resource Manager, i cmdlet di PowerShell o i comandi dell'interfaccia della riga di comando di Azure. 
 
 >[!IMPORTANT]
- >È obbligatorio eseguire uno snapshot o eseguire il backup di un'istanza di macchina virtuale basata su disco gestito all'esterno di e prima di abilitare crittografia dischi di Azure. È possibile creare uno snapshot del disco gestito dalla portale di Azure oppure è possibile usare [backup di Azure](../../backup/backup-azure-vms-encryption.md). I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Dopo aver eseguito un backup, usare il cmdlet Set-AzVMDiskEncryptionExtension per crittografare i dischi gestiti specificando il parametro-skipVmBackup. Il comando set-AzVMDiskEncryptionExtension ha esito negativo rispetto alle VM basate su disco gestite fino a quando non viene eseguito un backup e questo parametro viene specificato. 
+ >È obbligatorio eseguire uno snapshot o eseguire il backup di un'istanza di macchina virtuale basata su disco gestito all'esterno di e prima di abilitare crittografia dischi di Azure. È possibile creare uno snapshot del disco gestito dalla portale di Azure oppure è possibile usare [backup di Azure](../../backup/backup-azure-vms-encryption.md). I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Dopo aver eseguito un backup, usare il cmdlet Set-AzVMDiskEncryptionExtension per crittografare i dischi gestiti specificando il parametro-skipVmBackup. Il comando Set-AzVMDiskEncryptionExtension non riesce a fronte di macchine virtuali basate su disco gestite fino a quando non viene eseguito un backup e si specifica questo parametro. 
 >
 >La crittografia o la disabilitazione della crittografia potrebbe causare il riavvio della macchina virtuale. 
 >
@@ -227,7 +227,7 @@ Usare il cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/
         echo "/dev/disk/azure/scsi1/lun0 /mnt/mountpoint ext4 defaults,nofail 1 2" >> /etc/fstab
         ```
 
-    4. Eseguire il cmdlet di PowerShell set-AzVMDiskEncryptionExtension con-EncryptFormatAll per crittografare questi dischi.
+    4. Eseguire il cmdlet Set-AzVMDiskEncryptionExtension PowerShell con-EncryptFormatAll per crittografare questi dischi.
 
        ```azurepowershell-interactive
         Set-AzVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
@@ -246,7 +246,7 @@ Usare le istruzioni nell'appendice per la preparazione delle immagini pre-critto
 * [Preparare un disco rigido virtuale Linux pre-crittografato](disk-encryption-sample-scripts.md)
 
 >[!IMPORTANT]
- >È obbligatorio eseguire uno snapshot o eseguire il backup di un'istanza di macchina virtuale basata su disco gestito all'esterno di e prima di abilitare crittografia dischi di Azure. È possibile creare uno snapshot del disco gestito dal portale oppure è possibile usare [backup di Azure](../../backup/backup-azure-vms-encryption.md). I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Dopo aver eseguito un backup, usare il cmdlet Set-AzVMDiskEncryptionExtension per crittografare i dischi gestiti specificando il parametro-skipVmBackup. Il comando set-AzVMDiskEncryptionExtension ha esito negativo rispetto alle VM basate su disco gestite fino a quando non viene eseguito un backup e questo parametro viene specificato. 
+ >È obbligatorio eseguire uno snapshot o eseguire il backup di un'istanza di macchina virtuale basata su disco gestito all'esterno di e prima di abilitare crittografia dischi di Azure. È possibile creare uno snapshot del disco gestito dal portale oppure è possibile usare [backup di Azure](../../backup/backup-azure-vms-encryption.md). I backup garantiscono la disponibilità di un'opzione di ripristino nel caso si verifichi un errore imprevisto durante la crittografia. Dopo aver eseguito un backup, usare il cmdlet Set-AzVMDiskEncryptionExtension per crittografare i dischi gestiti specificando il parametro-skipVmBackup. Il comando Set-AzVMDiskEncryptionExtension non riesce a fronte di macchine virtuali basate su disco gestite fino a quando non viene eseguito un backup e si specifica questo parametro. 
 >
 >La crittografia o la disabilitazione della crittografia potrebbe causare il riavvio della macchina virtuale.
 

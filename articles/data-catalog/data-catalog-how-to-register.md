@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: b8c6c6e33577fe3d49d8f0c7a94a941827f5cf68
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86523435"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registrare le origini dati in Azure Data Catalog
@@ -74,7 +74,7 @@ La registrazione di un'origine dati la rende individuabile in Data Catalog quand
 
 La nuova registrazione di un'origine dati già registrata esegue un'operazione di unione "upsert": gli oggetti esistenti vengono aggiornati e i nuovi oggetti vengono creati. Tutti i metadati forniti dagli utenti tramite il portale di Data Catalog vengono mantenuti.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La registrazione dell'origine dati in Data Catalog, poiché copia i metadati strutturali e descrittivi da un'origine dati al servizio catalogo, rende più facile trovare e comprendere i dati. Dopo avere registrato l'origine dati, è possibile annotarla, gestirla e trovarla usando il portale di Data Catalog.
 
 ## <a name="next-steps"></a>Passaggi successivi

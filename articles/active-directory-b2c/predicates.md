@@ -12,10 +12,10 @@ ms.date: 03/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b01f1edd4305c09a874b177e4bca373991c9162e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85203810"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates e PredicateValidations
@@ -73,10 +73,10 @@ L'elemento **Parameter** contiene gli attributi seguenti:
 
 Il metodo IsLengthRange controlla se la lunghezza di un valore di attestazione di stringa rientra nell'intervallo dei parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Numero massimo di caratteri che è possibile immettere. |
-| Minimo | Sì | Numero minimo di caratteri che devono essere immessi. |
+| Minima | Sì | Numero minimo di caratteri che devono essere immessi. |
 
 
 Nell'esempio seguente viene illustrato un metodo IsLengthRange con i parametri `Minimum` e `Maximum` che specificano l'intervallo di lunghezza della stringa:
@@ -94,7 +94,7 @@ Nell'esempio seguente viene illustrato un metodo IsLengthRange con i parametri `
 
 Il metodo MatchesRegex controlla se un valore di attestazione stringa corrisponde a un'espressione regolare. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | RegularExpression | Sì | Criterio di espressione regolare di cui trovare la corrispondenza. |
 
@@ -112,9 +112,9 @@ L'esempio seguente mostra un metodo `MatchesRegex` con il parametro `RegularExpr
 
 Il metodo IncludesCharacters controlla se un valore di attestazione stringa contiene un set di caratteri. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
-| CharacterSet | Sì | Set di caratteri che è possibile immettere. Ad esempio, caratteri minuscoli, `a-z` caratteri maiuscoli `A-Z` , cifre `0-9` o un elenco di simboli, ad esempio `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
+| CharacterSet | Sì | Set di caratteri che è possibile immettere. Ad esempio, caratteri minuscoli,  `a-z` caratteri maiuscoli `A-Z` , cifre `0-9` o un elenco di simboli, ad esempio `@#$%^&amp;*\-_+=[]{}|\\:',?/~"();!` . |
 
 L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `CharacterSet` che specifica il set di caratteri:
 
@@ -130,10 +130,10 @@ L'esempio seguente mostra un metodo `IncludesCharacters` con il parametro `Chara
 
 Il metodo IsDateRange controlla se un valore di attestazione data è compreso tra un intervallo di parametri minimo e massimo specificati. L'elemento predicato supporta i parametri seguenti:
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | Descrizione |
 | ------- | ----------- | ----------- |
 | Massimo | Sì | Data massima consentita per l'immissione. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` . |
-| Minimo | Sì | Data minima che è possibile immettere. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` .|
+| Minima | Sì | Data minima che è possibile immettere. Il formato della data segue la `yyyy-mm-dd` convenzione o `Today` .|
 
 L'esempio seguente mostra un metodo `IsDateRange` con i parametri `Minimum` e `Maximum` che specificano l'intervallo di date con un formato `yyyy-mm-dd` e `Today`.
 

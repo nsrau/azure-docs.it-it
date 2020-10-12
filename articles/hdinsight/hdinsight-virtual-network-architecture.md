@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81390215"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di HDInsight
@@ -40,7 +40,7 @@ Questi FQDN saranno nel formato `<node-type-prefix><instance-number>-<abbreviate
 
 Il `<node-type-prefix>` sarà *HN* per nodi head, per *i* nodi del ruolo di lavoro e *Zn* per i nodi Zookeeper.
 
-Se è necessario solo il nome host, usare solo la prima parte del nome di dominio completo:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
+Se è necessario solo il nome host, usare solo la prima parte del nome di dominio completo: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## <a name="basic-virtual-network-resources"></a>Risorse di rete virtuale di base
 

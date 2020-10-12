@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 04/14/2020
 ms.author: victorh
 ms.openlocfilehash: c0f802f5113e38e811c110ee913099e76fa7be0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81383819"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Regole personalizzate per il Web Application Firewall V2 in applicazione Azure gateway
@@ -145,7 +145,7 @@ Nega la condizione corrente.
 Elenco di stringhe con i nomi delle trasformazioni da eseguire prima che venga tentata la corrispondenza. Queste possono essere le trasformazioni seguenti:
 
 - Lettere minuscole
-- Trim
+- Taglio
 - UrlDecode
 - UrlEncode 
 - RemoveNulls
