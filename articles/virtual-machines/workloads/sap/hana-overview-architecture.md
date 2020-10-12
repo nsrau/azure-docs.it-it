@@ -14,10 +14,10 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1575ee02a520fd39a1c659eadaeda5822207539
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171134"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA in Azure (istanze Large)
@@ -56,7 +56,7 @@ I vari documenti della guida per HANA (istanza di grandi dimensioni) trattano le
 - [SAP HANA (istanze large) risoluzione dei problemi e monitoraggio in Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Configurazione della disponibilità elevata in SUSE con STONITH](./ha-setup-with-stonith.md)
 - [Backup e ripristino del sistema operativo per SKU di tipo II di indicatori di revisione 3](./os-backup-type-ii-skus.md)
-- [Salva in SAP HANA in istanze Large con una prenotazione di Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
+- [Risparmiare su SAP HANA in istanze Large con una prenotazione di Azure](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md)
 
 **Passaggi successivi**
 - Consultare [Conoscere i termini](hana-know-terms.md)

@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132722"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Linee guida per l'implementazione responsabile di Personalizza esperienze
@@ -119,7 +119,7 @@ Di seguito sono illustrate le aree della progettazione per implementazioni respo
 
 ![Valori per l'intelligenza artificiale da The Future Computed](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
-### <a name="accountability"></a>Affidabilità
+### <a name="accountability"></a>Responsabilità
 *Le persone che progettano e distribuiscono sistemi di intelligenza artificiale devono rendere conto del funzionamento dei sistemi*.
 
 * Creare linee guida interne su come implementare Personalizza esperienze, quindi documentarle e comunicarle al team, ai dirigenti e ai fornitori.
@@ -128,20 +128,20 @@ Di seguito sono illustrate le aree della progettazione per implementazioni respo
 * Archiviare le informazioni e gli asset usati per il funzionamento di Personalizza esperienze, come modelli, criteri di apprendimento e altri dati, per poter riprodurre i risultati.
 
 ### <a name="transparency"></a>Trasparenza
-*I sistemi di intelligenza artificiale devono essere riconoscibili*. Con Personalizza esperienze:
+I *sistemi di intelligenza artificiale dovrebbero essere comprensibili*. Con Personalizza esperienze:
 
 * *Offrire agli utenti informazioni sul modo in cui il contenuto è stato personalizzato.* È ad esempio possibile visualizzare agli utenti un pulsante con l'etichetta `Why These Suggestions?` che mostra le principali caratteristiche dell'utente e le azioni che hanno svolto un ruolo nei risultati di Personalizza esperienze.
 * Assicurarsi di specificare nelle condizioni per l'utilizzo che si useranno le informazioni e il comportamento degli utenti per personalizzare l'esperienza.
 
 ### <a name="fairness"></a>Equità
-*I sistemi di intelligenza artificiale devono trattare tutte le persone con equità*.
+*I sistemi di intelligenza artificiale dovrebbero trattare equamente tutti gli utenti*.
 
 * Non usare Personalizza esperienze per casi d'uso con risultati a lungo termine, consequenziali o associati a danni reali.
 * Non usare caratteristiche non appropriate per la personalizzazione del contenuto o che potrebbero contribuire a diffondere pregiudizi indesiderati. Ad esempio, a chiunque abbia circostanze finanziarie simili dovrebbero essere visualizzati gli stessi consigli personalizzati di prodotti finanziari.
 * Comprendere i pregiudizi che potrebbero risiedere in caratteristiche originate da editor, da strumenti algoritmici o dagli utenti stessi.
 
 ### <a name="reliability-and-safety"></a>Affidabilità e sicurezza
-*I sistemi di intelligenza artificiale devono essere eseguiti in modo affidabile e sicuro*. Per Personalizza esperienze:
+I *sistemi di intelligenza artificiale dovrebbero funzionare in modo affidabile e sicuro*. Per Personalizza esperienze:
 
 * *Non includere in Personalizza esperienze azioni che non devono essere scelte*. Ad esempio, i filmati inappropriati dovrebbero essere esclusi tramite filtro dalle azioni da personalizzare se si crea un consiglio per un utente anonimo o minorenne.
 * *Gestire il modello di Personalizza esperienze come un asset aziendale*.  Valutare con quale frequenza è opportuno eseguire il salvataggio e il backup del modello e dei criteri di apprendimento alla base del ciclo di Personalizza esperienze e gestirli in ogni caso come un importante asset aziendale. La riproduzione dei risultati precedenti è importante a scopo di controllo e di misurazione dei miglioramenti.
@@ -150,7 +150,7 @@ Di seguito sono illustrate le aree della progettazione per implementazioni respo
 * *Stabilire un processo per rilevare eventuali manipolazioni dannose e intervenire*. Esistono attori che sfruttano la capacità dei sistemi di Machine Learning e di intelligenza artificiale di apprendere dall'ambiente per indirizzare il risultato verso i propri obiettivi. Se l'uso di Personalizza esperienze può influenzare scelte importanti, assicurarsi di avere mezzi appropriati per rilevare e mitigare queste classi di attacchi, includendo la revisione umana in determinate circostanze.
 
 ### <a name="security-and-privacy"></a>Sicurezza e privacy
-*I sistemi di intelligenza artificiale devono essere sicuri e rispettare la privacy*. Quando si usa Personalizza esperienze:
+I *sistemi di intelligenza artificiale devono essere protetti e rispettare la privacy*. Quando si usa Personalizza esperienze:
 
 * *Informare gli utenti fin dall'inizio sui dati raccolti e su come vengono usati e ottenerne in anticipo il consenso*, in base alle normative locali e di settore.
 * *Includere controlli utente per la protezione della privacy.* Per le applicazioni che archiviano informazioni personali, valutare la possibilità di includere un pulsante facile da trovare per funzioni come le seguenti:

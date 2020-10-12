@@ -10,10 +10,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7537d4c19d6e196aeaa30f8c542e7b3e4e8702c1
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88505967"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite l'interfaccia della riga di comando di Azure
@@ -165,7 +165,7 @@ Ottenere tutte le reti virtuali nella sottoscrizione con il comando seguente.
 azure network vnet list
 ```
 
-L'output sarà simile al seguente:
+Verrà visualizzato un risultato simile al seguente:
 
 ![Schermata della riga di comando con evidenziato l'intero nome della rete virtuale.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 

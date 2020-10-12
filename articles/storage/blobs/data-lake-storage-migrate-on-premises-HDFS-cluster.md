@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032561"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Eseguire la migrazione da un archivio HDFS locale ad archiviazione di Azure con Azure Data Box
@@ -161,7 +161,7 @@ Seguire questa procedura per copiare i dati tramite le API REST di archiviazione
 
 Seguire questa procedura per preparare e spedire il dispositivo Data Box a Microsoft.
 
-1. Per prima cosa, [prepara per la spedizione nel data box o data box Heavy](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+1. Per prima cosa,  [prepara per la spedizione nel data box o data box Heavy](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
 
 2. Al termine della preparazione del dispositivo, scaricare i file DBA. Questi file DBA o manifesto vengono usati in un secondo momento per verificare i dati caricati in Azure.
 
