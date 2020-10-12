@@ -14,10 +14,10 @@ ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 88e576231e0231a105cd9ec303f63307b5eaff89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051616"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione e sottoscrizioni
@@ -72,7 +72,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
     - **Località**: *Stati Uniti orientali*
 
 14. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetB*. Fare clic su **myVnetB** quando viene visualizzato nei risultati della ricerca. Viene visualizzato un pannello per la rete virtuale **myVnetB**.
-15. Nel pannello **myVnetB** visualizzato fare clic su **Proprietà** nell'elenco verticale di opzioni sul lato sinistro del pannello. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente:`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. Nel pannello **myVnetB** visualizzato fare clic su **Proprietà** nell'elenco verticale di opzioni sul lato sinistro del pannello. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Completare i passaggi da 5 a 9 per myVnetB immettendo **UserA** nel passaggio 8.
 17. Disconnettersi dal portale come UserB e accedere come UserA.
 18. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetA*. Fare clic su **myVnetA** quando viene visualizzato nei risultati della ricerca. Viene visualizzato un pannello per la rete virtuale **myVnet**.

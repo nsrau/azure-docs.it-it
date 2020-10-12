@@ -13,10 +13,10 @@ ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 61a9057a9bc65f6ee9ed68a84eac40ea6e0c7c61
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89074186"
 ---
 # <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurare il front-end IPv6 nell'esempio di script di rete virtuale con Load Balancer Standard (anteprima)

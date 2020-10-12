@@ -4,10 +4,10 @@ description: Questo articolo fornisce le configurazioni Apache Kafka consigliate
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: f9a03d1d3433461a575b32cd69893408a8b0ef97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097668"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurazioni consigliate per i client di Apache Kafka
@@ -60,8 +60,8 @@ Proprietà | Valori consigliati | Intervallo consentito | Note
 Proprietà | Valori consigliati | Intervallo consentito | Note
 ---|---:|-----:|---
 `retries` | > 0 | | Il valore predefinito è 2. È consigliabile usare questo valore. 
-`request.timeout.ms` | 30000.. 60000 | > 20000| Per impostazione predefinita, il valore predefinito è pari a almeno 20.000 ms.  `librdkafka`il valore predefinito è 5000, che può risultare problematico. *Mentre le richieste con valori di timeout inferiori sono accettate, il comportamento del client non è garantito.*
-`partitioner` | `consistent_random` | Vedere la documentazione di librdkafka | `consistent_random`è il valore predefinito e migliore.  Le chiavi vuote e null sono gestite idealmente nella maggior parte dei casi.
+`request.timeout.ms` | 30000.. 60000 | > 20000| Per impostazione predefinita, il valore predefinito è pari a almeno 20.000 ms.  `librdkafka` il valore predefinito è 5000, che può risultare problematico. *Mentre le richieste con valori di timeout inferiori sono accettate, il comportamento del client non è garantito.*
+`partitioner` | `consistent_random` | Vedere la documentazione di librdkafka | `consistent_random` è il valore predefinito e migliore.  Le chiavi vuote e null sono gestite idealmente nella maggior parte dei casi.
 `enable.idempotence` | false | | Idempotenza attualmente non supportato.
 `compression.codec` | `none` || La compressione non è attualmente supportata.
 
@@ -77,7 +77,7 @@ Proprietà | Valori consigliati | Intervallo consentito | Note
 
 Controllare la tabella seguente di scenari comuni di errore correlati alla configurazione.
 
-Sintomi | Problema | Solution
+Sintomi | Problema | Soluzione
 ----|---|-----
 Errori di commit offset a causa del ribilanciamento | Il consumer è in attesa troppo a lungo tra le chiamate al polling () e il servizio sta avviando il consumo fuori dal gruppo. | Sono disponibili diverse opzioni: <ul><li>aumenta il timeout della sessione</li><li>Riduci dimensioni batch messaggi per velocizzare l'elaborazione</li><li>migliorare la parallelizzazione di elaborazione per evitare il blocco di consumer. polling ()</li></ul> L'applicazione di una combinazione dei tre è probabilmente più saggia.
 Eccezioni di rete con velocità effettiva elevata | Si sta usando Java client + default max. Request. size?  Le richieste potrebbero essere troppo grandi. | Vedere le configurazioni Java precedenti.

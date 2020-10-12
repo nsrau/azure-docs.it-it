@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
 ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88236574"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
@@ -41,7 +41,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 |**Istanza gestita di database SQL di Azure** | *Istanza gestita* di database SQL di Azure| Azure SQL Istanza gestita è il proprio prodotto all'interno della famiglia SQL di Azure, anziché semplicemente un'opzione di distribuzione nel database SQL di Azure. | 
 |**Database SQL di Azure**|Database *singolo* database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico. |
 |**Database SQL di Azure**|*Pool elastico* del database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico.  |
-|**Database SQL di Azure** |Database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
+|**Database SQL di Azure** |database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
 | **SQL di Azure**| N/D | Questo si riferisce alla famiglia di prodotti SQL Server motore di database disponibili in Azure: database SQL di Azure, Azure SQL Istanza gestita e SQL Server in macchine virtuali di Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funzionalità disponibili in anteprima pubblica

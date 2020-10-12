@@ -7,10 +7,10 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.openlocfilehash: 7515e0a39d1cf0da74d2a23457443e96716b4275
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335953"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Anteprima: creare una nuova versione dell'immagine di macchina virtuale da una versione di immagine esistente usando Generatore immagini di Azure in Windows

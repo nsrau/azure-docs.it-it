@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846643"
 ---
 # <a name="list-of-service-fabric-events"></a>Elenco degli eventi di Service Fabric 
@@ -33,11 +33,11 @@ Altre informazioni sugli aggiornamenti dei cluster sono disponibili [qui](servic
 
 | EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Aggiornamento | È stato avviato un aggiornamento del cluster | CM | Informativo |
-| 29628 | ClusterUpgradeCompleted | Aggiornamento | È stato completato un aggiornamento del cluster | CM | Informativo | 
-| 29629 | ClusterUpgradeRollbackStarted | Aggiornamento | È stato avviato il ripristino dello stato precedente all'aggiornamento del cluster  | CM | Avviso | 
-| 29630 | ClusterUpgradeRollbackCompleted | Aggiornamento | È stato completato il ripristino dello stato precedente all'aggiornamento del cluster | CM | Avviso | 
-| 29631 | ClusterUpgradeDomainCompleted | Aggiornamento | Un dominio di aggiornamento ha completato l'aggiornamento durante un aggiornamento del cluster | CM | Informativo | 
+| 29627 | ClusterUpgradeStarted | Aggiornamento | È stato avviato un aggiornamento del cluster | Gestione certificati | Informativo |
+| 29628 | ClusterUpgradeCompleted | Aggiornamento | È stato completato un aggiornamento del cluster | Gestione certificati | Informativo | 
+| 29629 | ClusterUpgradeRollbackStarted | Aggiornamento | È stato avviato il ripristino dello stato precedente all'aggiornamento del cluster  | Gestione certificati | Avviso | 
+| 29630 | ClusterUpgradeRollbackCompleted | Aggiornamento | È stato completato il ripristino dello stato precedente all'aggiornamento del cluster | Gestione certificati | Avviso | 
+| 29631 | ClusterUpgradeDomainCompleted | Aggiornamento | Un dominio di aggiornamento ha completato l'aggiornamento durante un aggiornamento del cluster | Gestione certificati | Informativo | 
 
 ## <a name="node-events"></a>Eventi dei nodi
 
@@ -62,8 +62,8 @@ Altre informazioni sugli aggiornamenti dei cluster sono disponibili [qui](servic
 
 | EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | --- | --- | --- | --- | 
-| 29620 | ApplicationCreated | LifeCycle | È stata creata una nuova applicazione | CM | Informativo | 
-| 29625 | ApplicationDeleted | LifeCycle | Un'applicazione esistente è stata eliminata | CM | Informativo | 
+| 29620 | ApplicationCreated | LifeCycle | È stata creata una nuova applicazione | Gestione certificati | Informativo | 
+| 29625 | ApplicationDeleted | LifeCycle | Un'applicazione esistente è stata eliminata | Gestione certificati | Informativo | 
 | 23083 | ApplicationProcessExited | LifeCycle | Un processo all'interno di un'applicazione è stato terminato | Hosting | Informativo | 
 
 **Eventi di aggiornamento delle applicazioni**
@@ -72,11 +72,11 @@ Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui]
 
 | EventId | Nome | Category | Descrizione |Origine (attività) | Level | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Aggiornamento | È stato avviato un aggiornamento dell'applicazione | CM | Informativo | 
-| 29622 | ApplicationUpgradeCompleted | Aggiornamento | È stato completato un aggiornamento dell'applicazione | CM | Informativo | 
-| 29623 | ApplicationUpgradeRollbackStarted | Aggiornamento | È stato avviato il ripristino dello stato precedente all'aggiornamento dell'applicazione |CM | Avviso | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Aggiornamento | È stato completato il ripristino dello stato precedente all'aggiornamento dell'applicazione | CM | Avviso | 
-| 29626 | ApplicationUpgradeDomainCompleted | Aggiornamento | Un dominio di aggiornamento ha completato l'aggiornamento durante un aggiornamento dell'applicazione | CM | Informativo | 
+| 29621 | ApplicationUpgradeStarted | Aggiornamento | È stato avviato un aggiornamento dell'applicazione | Gestione certificati | Informativo | 
+| 29622 | ApplicationUpgradeCompleted | Aggiornamento | È stato completato un aggiornamento dell'applicazione | Gestione certificati | Informativo | 
+| 29623 | ApplicationUpgradeRollbackStarted | Aggiornamento | È stato avviato il ripristino dello stato precedente all'aggiornamento dell'applicazione |Gestione certificati | Avviso | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Aggiornamento | È stato completato il ripristino dello stato precedente all'aggiornamento dell'applicazione | Gestione certificati | Avviso | 
+| 29626 | ApplicationUpgradeDomainCompleted | Aggiornamento | Un dominio di aggiornamento ha completato l'aggiornamento durante un aggiornamento dell'applicazione | Gestione certificati | Informativo | 
 
 ## <a name="service-events"></a>Eventi dei servizi
 
@@ -114,7 +114,7 @@ Altre informazioni sugli aggiornamenti delle applicazioni sono disponibili [qui]
 | 63648 | ReliableConcurrentQueueOpened | LifeCycle | Coda simultanea affidabile aperta | Coda reliableconcurrentqueue | Informativo |
 | 63649 | ReliableConcurrentQueueClosed | LifeCycle | Coda simultanea affidabile chiusa | Coda reliableconcurrentqueue | Informativo |
 | 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | Il checkpoint della coda simultanea affidabile è stato recuperato | Coda reliableconcurrentqueue | Informativo |
-| 61687 | TStoreError | Operazioni non riuscite | La raccolta Reliable Collection ha ricevuto un errore imprevisto | TStore | Errore |
+| 61687 | TStoreError | Errore | La raccolta Reliable Collection ha ricevuto un errore imprevisto | TStore | Errore |
 | 63831 | PrimaryFullCopyInitiated | LifeCycle | La replica primaria ha avviato una copia completa | TReplicator | Informativo |
 | 63832 | PrimaryPartialCopyInitiated | LifeCycle | La replica primaria ha avviato una copia parziale | TReplicator | Informativo |
 | 16831 | BuildIdleReplicaStarted | LifeCycle | La replica primaria ha iniziato a compilare la replica inattiva | Replica | Informativo |
@@ -255,20 +255,20 @@ Di seguito è riportato un elenco completo degli eventi disponibili in Service F
 | 25624 | NodeClosed | FabricNode | Informativo |
 | 25625 | NodeAborting | FabricNode | Informativo |
 | 25626 | NodeAborted | FabricNode | Informativo |
-| 29627 | ClusterUpgradeStart | CM | Informativo |
-| 29628 | ClusterUpgradeComplete | CM | Informativo |
-| 29629 | ClusterUpgradeRollback | CM | Informativo |
-| 29630 | ClusterUpgradeRollbackComplete | CM | Informativo |
-| 29631 | ClusterUpgradeDomainComplete | CM | Informativo |
+| 29627 | ClusterUpgradeStart | Gestione certificati | Informativo |
+| 29628 | ClusterUpgradeComplete | Gestione certificati | Informativo |
+| 29629 | ClusterUpgradeRollback | Gestione certificati | Informativo |
+| 29630 | ClusterUpgradeRollbackComplete | Gestione certificati | Informativo |
+| 29631 | ClusterUpgradeDomainComplete | Gestione certificati | Informativo |
 | 23074 | ContainerActivated | Hosting | Informativo |
 | 23075 | ContainerDeactivated | Hosting | Informativo |
-| 29620 | ApplicationCreated | CM | Informativo |
-| 29621 | ApplicationUpgradeStart | CM | Informativo |
-| 29622 | ApplicationUpgradeComplete | CM | Informativo |
-| 29623 | ApplicationUpgradeRollback | CM | Informativo |
-| 29624 | ApplicationUpgradeRollbackComplete | CM | Informativo |
-| 29625 | ApplicationDeleted | CM | Informativo |
-| 29626 | ApplicationUpgradeDomainComplete | CM | Informativo |
+| 29620 | ApplicationCreated | Gestione certificati | Informativo |
+| 29621 | ApplicationUpgradeStart | Gestione certificati | Informativo |
+| 29622 | ApplicationUpgradeComplete | Gestione certificati | Informativo |
+| 29623 | ApplicationUpgradeRollback | Gestione certificati | Informativo |
+| 29624 | ApplicationUpgradeRollbackComplete | Gestione certificati | Informativo |
+| 29625 | ApplicationDeleted | Gestione certificati | Informativo |
+| 29626 | ApplicationUpgradeDomainComplete | Gestione certificati | Informativo |
 | 18566 | ServiceCreated | FM | Informativo |
 | 18567 | ServiceDeleted | FM | Informativo |
 

@@ -4,10 +4,10 @@ description: Ricevere notifiche personalizzate sugli eventi di integrità del se
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091539"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Inviare avvisi di integrità dei servizi di Azure con PagerDuty usando i webhook
@@ -27,7 +27,7 @@ Questo articolo illustra come configurare le notifiche di integrità dei servizi
 
     a. **Integration Type** (Tipo di integrazione): Microsoft Azure
 
-    b. **Nome integrazione**:\<Name\>
+    b. **Nome integrazione**: \<Name\>
 
     ![Le impostazioni di integrazione in PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 

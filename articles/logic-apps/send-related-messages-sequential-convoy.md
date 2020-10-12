@@ -7,10 +7,10 @@ ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87048661"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Inviare messaggi correlati in ordine usando una serie di istruzioni sequenziali in app per la logica di Azure con il bus di servizio di Azure
@@ -193,7 +193,7 @@ Per specificare i valori per il trigger e le azioni del modello di **recapito co
   > [!NOTE]
   > Inizialmente, l'intervallo di polling è impostato su tre minuti, in modo che l'app per la logica non venga eseguita più frequentemente di quanto previsto e provochi costi di fatturazione imprevisti. Idealmente, impostare l'intervallo e la frequenza su 30 secondi in modo che l'app per la logica venga attivata immediatamente quando arriva un messaggio.
 
-  | Proprietà | Obbligatorio per questo scenario | Valore | Description |
+  | Proprietà | Obbligatorio per questo scenario | Valore | Descrizione |
   |----------|----------------------------|-------|-------------|
   | **Nome coda** | Sì | <*nome coda*> | Nome della coda del bus di servizio creata in precedenza. Questo esempio USA "Fabrikam-Service-Bus-Queue". |
   | **Tipo di coda** | Sì | **Principale** | Coda del bus di servizio principale |

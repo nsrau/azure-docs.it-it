@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090213"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
@@ -49,7 +49,7 @@ git checkout <working branch name>
 
 Dopo il passaggio al ramo di lavoro, è possibile iniziare a sviluppare elementi di codice o di documentazione per completare l'elemento di lavoro. `git checkout master`L'esecuzione consente di tornare al `master` ramo.
 
-È consigliabile creare un ramo git per ogni elemento di lavoro della storia utente. Quindi, per ogni elemento di lavoro attività, è possibile creare un ramo in base al ramo della storia utente. Organizzare i rami in una gerarchia che corrisponde alla relazione storia utente-attività quando più persone lavorano su storie utente diverse per lo stesso progetto o su attività diverse per la stessa storia utente. È possibile ridurre al minimo i conflitti facendo in modo che ogni membro del team lavori su un ramo diverso oppure su codice o altri artefatti diversi quando si condivide un ramo. 
+È consigliabile creare un ramo git per ogni elemento di lavoro della storia utente. Quindi, per ogni elemento di lavoro attività, è possibile creare un ramo in base al ramo della storia utente. Organizzare i rami in una gerarchia che corrisponde alla relazione utente Story-Task quando si dispone di più persone che lavorano su storie utente diverse per lo stesso progetto o per attività diverse per la stessa storia utente. È possibile ridurre al minimo i conflitti facendo in modo che ogni membro del team lavori su un ramo diverso oppure su codice o altri artefatti diversi quando si condivide un ramo. 
 
 Il diagramma seguente illustra la strategia di creazione di rami consigliata per TDSP. Potrebbero non essere necessari tutti i rami, come illustrato di seguito, in particolare quando solo una o due persone lavorano su un progetto o solo una persona lavora per tutte le attività di una storia utente. Tuttavia, la separazione del ramo di sviluppo dal ramo primario è sempre una procedura consigliata e può aiutare a impedire che il ramo di rilascio venga interrotto dalle attività di sviluppo. Per una descrizione completa del modello di ramo git, vedere [un modello di branching git riuscito](https://nvie.com/posts/a-successful-git-branching-model/).
 

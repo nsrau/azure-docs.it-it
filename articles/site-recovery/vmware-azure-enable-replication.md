@@ -7,10 +7,10 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129926"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
@@ -73,16 +73,16 @@ Per abilitare la replica, attenersi alla seguente procedura:
 
    Selezionare **Configura ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutte le macchine virtuali selezionate per la protezione. Selezionare **Configura in seguito** per selezionare la rete di Azure per ogni macchina virtuale. Se non è disponibile una rete, sarà necessario crearla. Per creare una rete usando Azure Resource Manager, selezionare **Crea nuovo**. Selezionare una subnet, se applicabile, quindi fare clic su **OK**.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Abilita finestra destinazione replica":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="Abilita finestra di origine della replica":::
 
-1. Per le **macchine virtuali**  >  **selezionare macchine virtuali**, selezionare ogni macchina virtuale da replicare. È possibile selezionare solo le macchine virtuali per cui è possibile abilitare la replica. Selezionare **OK**. Se non è possibile visualizzare o selezionare una macchina virtuale specifica, vedere il [computer di origine non è elencato nella portale di Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) per risolvere il problema.
+1. Per le **macchine virtuali**  >  **selezionare macchine virtuali**, selezionare ogni macchina virtuale da replicare. È possibile selezionare solo le macchine virtuali per cui è possibile abilitare la replica. Quindi scegliere **OK**. Se non è possibile visualizzare o selezionare una macchina virtuale specifica, vedere il [computer di origine non è elencato nella portale di Azure](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) per risolvere il problema.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Abilitare la replica selezionare le macchine virtuali finestra":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="Abilita finestra di origine della replica":::
 
 1. Per **Proprietà**  >  **Configura proprietà**selezionare l'account usato dal server di elaborazione per installare automaticamente il servizio Mobility Site Recovery nella macchina virtuale. Scegliere anche il tipo di disco gestito di destinazione da usare per la replica in base ai modelli di varianza dei dati.
-1. Per impostazione predefinita, vengono replicati tutti i dischi di una macchina virtuale di origine. Per escludere i dischi dalla replica, deselezionare la casella di controllo **Includi** per eventuali dischi che non si vuole replicare. Selezionare **OK**. È possibile impostare proprietà aggiuntive in un secondo momento. [Altre informazioni](vmware-azure-exclude-disk.md) sull'esclusione di dischi.
+1. Per impostazione predefinita, vengono replicati tutti i dischi di una macchina virtuale di origine. Per escludere i dischi dalla replica, deselezionare la casella di controllo **Includi** per eventuali dischi che non si vuole replicare. Quindi scegliere **OK**. È possibile impostare proprietà aggiuntive in un secondo momento. [Altre informazioni](vmware-azure-exclude-disk.md) sull'esclusione di dischi.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Abilita la finestra di dialogo Configura proprietà della replica":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="Abilita finestra di origine della replica":::
 
 1. In **impostazioni di replica**  >  **configurare le impostazioni di replica**, verificare che siano selezionati i criteri di replica corretti. È possibile modificare le impostazioni dei criteri di replica in **Impostazioni**criteri di  >  **replica**criteri  >  _nome_  >  **Modifica impostazioni**. Le modifiche applicate a un criterio sono valide anche per la replica e le nuove macchine virtuali.
 1. Se si desidera raccogliere le macchine virtuali in un gruppo di replica, abilitare la coerenza tra più **VM**. Specificare un nome per il gruppo e quindi fare clic su **OK**.
@@ -91,7 +91,7 @@ Per abilitare la replica, attenersi alla seguente procedura:
    > - Le macchine virtuali in un gruppo di replica vengono replicate insieme e hanno condiviso punti di ripristino coerenti con l'arresto anomalo del sistema e coerenti con l'app quando eseguono il failover.
    > - Raggruppare le macchine virtuali e i server fisici in modo da rispecchiare i carichi di lavoro. L'abilitazione della coerenza su più macchine virtuali può avere un impatto sulle prestazioni del carico di lavoro. Eseguire questa operazione solo se le macchine virtuali eseguono lo stesso carico di lavoro ed è necessaria la coerenza.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Abilita finestra di replica":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Abilita finestra di origine della replica":::
 
 1. Selezionare **Abilita replica**. È possibile tenere traccia dello stato di avanzamento del processo di **Abilitazione della protezione** in **Impostazioni**  >  **processi**  >  **Site Recovery processi**. Dopo l'esecuzione del processo **finalizza protezione** , la macchina virtuale è pronta per il failover.
 
@@ -103,7 +103,7 @@ Verificare quindi le proprietà della macchina virtuale di origine. Tenere prese
 1. In **Proprietà** sono disponibili le informazioni su replica e failover per la VM.
 1. In **calcolo e rete**  >  **proprietà di calcolo**è possibile modificare più proprietà della macchina virtuale.
 
-   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Finestra delle proprietà calcolo e rete":::
+   :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Abilita finestra di origine della replica":::
 
    - **Nome della macchina virtuale di Azure**: modificare il nome in modo da soddisfare i requisiti di Azure, se necessario.
    - **Dimensioni macchina virtuale di destinazione o tipo di macchina virtuale**: le dimensioni predefinite della macchina virtuale vengono scelte in base ai parametri che includono il numero di dischi, il numero di nic, il numero di core CPU, la memoria e le dimensioni del ruolo VM disponibili nell'area di Azure di destinazione Azure Site Recovery seleziona la prima dimensione di macchina virtuale disponibile che soddisfa tutti i criteri. È possibile selezionare una diversa dimensione della macchina virtuale in base alle esigenze in qualsiasi momento prima del failover. Anche le dimensioni del disco della macchina virtuale sono basate sulle dimensioni del disco di origine e possono essere modificate solo dopo il failover. Per altre informazioni sulle dimensioni dei dischi e sulle tariffe di IOPS, vedere [obiettivi di scalabilità e prestazioni per i dischi delle VM in Windows](../virtual-machines/windows/disk-scalability-targets.md).

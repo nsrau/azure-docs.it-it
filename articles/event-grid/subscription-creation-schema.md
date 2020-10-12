@@ -4,15 +4,15 @@ description: Questo articolo descrive le proprietà per la sottoscrizione di un 
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 21016627e545cc4935b4ac213df675e894c12d95
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119073"
 ---
 # <a name="event-grid-subscription-schema"></a>Schema di sottoscrizione per Griglia di eventi
 
-Per creare una sottoscrizione di Griglia di eventi, si invia una richiesta all'operazione di sottoscrizione Crea evento. Utilizzare il seguente formato:
+Per creare una sottoscrizione di Griglia di eventi, si invia una richiesta all'operazione di sottoscrizione Crea evento. Usare il formato seguente:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
@@ -28,21 +28,21 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
  
 ## <a name="event-subscription-properties"></a>Proprietà delle sottoscrizioni eventi
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | destination | object | Oggetto che definisce l'endpoint. |
 | filter | object | Campo facoltativo per il filtro dei tipi di eventi. |
 
 ### <a name="destination-object"></a>oggetto destination
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | endpointType | string | Tipo di endpoint per la sottoscrizione (webhook/HTTP, hub eventi o coda). | 
 | endpointUrl | string | URL di destinazione per gli eventi della sottoscrizione di eventi. | 
 
 ### <a name="filter-object"></a>oggetto filter
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | Corrisponde se il tipo di evento nel messaggio di evento è una corrispondenza esatta a uno di questi nomi di tipo di evento. Genera un errore se il nome dell'evento non corrisponde ad alcuno dei nomi di tipo di evento registrati per l'origine evento. Il valore predefinito corrisponde a tutti i tipi di evento. |
 | subjectBeginsWith | string | Filtro di corrispondenza del prefisso per il campo dell'oggetto nel messaggio dell'evento. La stringa predefinita o una stringa vuota corrisponde sempre. | 

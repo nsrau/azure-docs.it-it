@@ -13,10 +13,10 @@ ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051341"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
@@ -120,7 +120,7 @@ Per recuperare le autorità di certificazione attendibili definite nella directo
     Get-AzureADTrustedCertificateAuthority
 ```
 
-### <a name="add"></a>Aggiunta
+### <a name="add"></a>Add
 
 Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) e l'attributo **crlDistributionPoint** per un valore corretto:
 

@@ -14,10 +14,10 @@ ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 648de447a08e593af28d11a3be206a2cfee80902
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790093"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Elencare le assegnazioni di Azure Deny usando Azure PowerShell
@@ -31,7 +31,7 @@ Le [assegnazioni di rifiuto di Azure](deny-assignments.md) impediscono agli uten
 
 Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 
-- `Microsoft.Authorization/denyAssignments/read`autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti di Azure](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read` autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti di Azure](built-in-roles.md)
 - [PowerShell in Azure cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-deny-assignments"></a>Visualizzare le assegnazioni di rifiuto

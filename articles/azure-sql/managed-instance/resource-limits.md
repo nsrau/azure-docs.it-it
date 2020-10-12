@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ms.openlocfilehash: 71392b652f305f085e8eddbfe75e0585a756bc4a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618115"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del Istanza gestita SQL di Azure
@@ -90,7 +90,7 @@ SQL Istanza gestita dispone di due livelli di servizio: [per utilizzo generico](
 Di seguito sono riportate alcune considerazioni aggiuntive: 
 
 - Per calcolare le **dimensioni dello spazio di archiviazione delle istanze attualmente disponibile** è sufficiente fare la differenza tra le dimensioni dell'istanza riservata e lo spazio di archiviazione usato.
-- Le dimensioni dei file di dati e di log nei database utente e di sistema sono incluse nelle dimensioni di archiviazione dell'istanza rispetto al limite massimo di dimensioni di archiviazione. Utilizzare la vista di sistema [sys. master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) per determinare lo spazio totale utilizzato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
+- Le dimensioni dei file di dati e di log nei database utente e di sistema sono incluse nelle dimensioni di archiviazione dell'istanza rispetto al limite massimo di dimensioni di archiviazione. Utilizzare la vista di sistema [sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) per determinare lo spazio totale utilizzato dai database. I log degli errori non vengono salvati in modo permanente e non sono inclusi nella dimensione. I backup non sono inclusi nella dimensione di archiviazione.
 - La velocità effettiva e gli IOPS nel livello di per utilizzo generico dipendono anche dalle [dimensioni del file](#file-io-characteristics-in-general-purpose-tier) non esplicitamente limitate da SQL istanza gestita.
   È possibile creare un'altra replica leggibile in un'area di Azure diversa usando i [gruppi di failover automatico](../database/auto-failover-group-configure.md)
 - Il numero massimo di IOPS dell'istanza dipende dal layout del file e dalla distribuzione del carico di lavoro. Se, ad esempio, si creano 7 file da 1 TB, ciascuno con 5000 IOPS, e 7 piccoli file (inferiori a 128 GB), ciascuno con 500 IOPS, è possibile ottenere 38.500 IOPS per istanza (7 x 5000 + 7 x 500), se il carico di lavoro può usare tutti i file. Si noti che alcuni IOPS vengono usati anche per i backup automatici.

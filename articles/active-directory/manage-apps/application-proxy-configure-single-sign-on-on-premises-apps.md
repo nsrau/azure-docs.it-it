@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387269"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Single Sign-On SAML per le applicazioni locali con il proxy di applicazione
@@ -72,7 +72,7 @@ Prima di poter fornire l'accesso SSO per le applicazioni locali, è necessario a
 
 1. Con l'applicazione ancora aperta nella portale di Azure selezionare **Single Sign-on**. 
 
-2. Nella pagina **Configura accesso Single Sign-on con SAML** passare all'intestazione di **configurazione SAML di base** e selezionare l'icona di **modifica** (matita). Verificare che l' **URL esterno** configurato nel proxy di applicazione sia popolato nei campi **identificatore**, **URL di risposta**e URL di **disconnessione** . Questi URL sono necessari per il corretto funzionamento del proxy di applicazione. 
+2. Nella pagina **Configura singolo Sign-On con SAML** passare all'intestazione di **configurazione SAML di base** e selezionare l'icona di **modifica** (matita). Verificare che l' **URL esterno** configurato nel proxy di applicazione sia popolato nei campi **identificatore**, **URL di risposta**e URL di **disconnessione** . Questi URL sono necessari per il corretto funzionamento del proxy di applicazione. 
 
 3. Modificare l' **URL di risposta** configurato in precedenza in modo che il dominio sia raggiungibile su Internet tramite il proxy di applicazione. Ad esempio, se l' **URL esterno** è `https://contosotravel-f128.msappproxy.net` e l' **URL di risposta** originale è `https://contosotravel.com/acs` , sarà necessario aggiornare l'URL di **risposta** originale a `https://contosotravel-f128.msappproxy.net/acs` .
 

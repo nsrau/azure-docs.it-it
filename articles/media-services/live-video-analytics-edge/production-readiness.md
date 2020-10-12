@@ -4,10 +4,10 @@ description: Questo articolo fornisce indicazioni su come configurare e distribu
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87071933"
 ---
 # <a name="production-readiness-and-best-practices"></a>Idoneità e procedure consigliate per la produzione
@@ -152,7 +152,7 @@ La macchina virtuale Linux usata come dispositivo perimetrale può smettere di r
 1. `sudo apt-get autoremove1`
 
     L'opzione di rimozione automatica rimuove i pacchetti che sono stati installati automaticamente perché è necessario un altro pacchetto, ma, con gli altri pacchetti rimossi, non sono più necessari.
-1. `sudo docker image ls`: Fornisce un elenco di immagini Docker nel sistema perimetrale
+1. `sudo docker image ls` : Fornisce un elenco di immagini Docker nel sistema perimetrale
 1. `sudo docker system prune `
 
     Docker usa un approccio conservativo per pulire gli oggetti non usati (spesso definiti "Garbage Collection"), ad esempio immagini, contenitori, volumi e reti. questi oggetti in genere non vengono rimossi, a meno che non si chieda esplicitamente a Docker di eseguire questa operazione. Questo può causare l'uso di spazio su disco aggiuntivo in docker. Per ogni tipo di oggetto, Docker fornisce un comando di eliminazione. Inoltre, è possibile usare l'eliminazione del sistema Docker per pulire contemporaneamente più tipi di oggetti. Per altre informazioni, vedere l'articolo relativo alla [potatura degli oggetti Docker inutilizzati](https://docs.docker.com/config/pruning/).

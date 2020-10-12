@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 5806266955eafab8c3c8c99695ff82736de92e9b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187065"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Risoluzione dei problemi di distribuzione del dispositivo StorSimple
@@ -139,7 +139,7 @@ Per registrare il dispositivo, utilizzare il servizio Gestione dispositivi StorS
 | 9 |Avviso: impossibile attivare il dispositivo. Le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. |Se la registrazione ha esito negativo, le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple
-StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. Queste includono:
+StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. Tra queste sono incluse:
 
 * Pacchetti di supporto e log del dispositivo.
 * Cmdlet progettati appositamente per la risoluzione dei problemi.

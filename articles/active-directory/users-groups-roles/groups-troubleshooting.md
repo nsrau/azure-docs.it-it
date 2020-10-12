@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84727688"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Risolvere i problemi relativi ai gruppi
@@ -76,5 +76,5 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestione dell'accesso alle risorse con gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Informazioni su Azure Active Directory](../fundamentals/active-directory-whatis.md)
+* [Che cos'è Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

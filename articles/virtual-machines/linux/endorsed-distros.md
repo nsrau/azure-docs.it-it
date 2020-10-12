@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
 ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279434"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuzioni di Linux approvate in Azure
@@ -50,14 +50,14 @@ Azure richiede che gli autori delle distribuzioni di Linux approvate aggiornino 
 
 ## <a name="azure-tuned-kernels"></a>Kernel ottimizzati per Azure
 
-Azure collabora a stretto contatto con varie distribuzioni di Linux approvate per ottimizzare le immagini pubblicate in Azure Marketplace. Un aspetto di questa collaborazione è lo sviluppo di kernel Linux "ottimizzati" ottimizzati per la piattaforma Azure e distribuiti come componenti completamente supportati della distribuzione Linux. I kernel ottimizzati per Azure incorporano nuove funzionalità e miglioramenti delle prestazioni e a una cadenza più rapida (in genere trimestrale) rispetto ai kernel predefiniti o generici disponibili nella distribuzione.
+Azure collabora a stretto contatto con varie distribuzioni di Linux approvate per ottimizzare le immagini pubblicate in Azure Marketplace. Un aspetto di questa collaborazione è lo sviluppo di kernel Linux "ottimizzati" ottimizzati per la piattaforma Azure e distribuiti come componenti completamente supportati della distribuzione Linux. I kernel Azure-Tuned incorporano nuove funzionalità e miglioramenti delle prestazioni e a una cadenza più veloce (in genere trimestrale) rispetto ai kernel predefiniti o generici disponibili nella distribuzione.
 
-Nella maggior parte dei casi, questi kernel sono preinstallati nelle immagini predefinite in Azure Marketplace, in modo che i clienti possano ottenere immediatamente il vantaggio di questi kernel ottimizzati. Altre informazioni su questi kernel ottimizzati per Azure sono disponibili nei collegamenti seguenti:
+Nella maggior parte dei casi, questi kernel sono preinstallati nelle immagini predefinite in Azure Marketplace, in modo che i clienti possano ottenere immediatamente il vantaggio di questi kernel ottimizzati. Altre informazioni su questi Azure-Tuned kernel sono disponibili nei collegamenti seguenti:
 
-- [Kernel di CentOS ottimizzato per Azure-disponibile tramite la virtualizzazione CentOS SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned kernel-disponibile tramite la virtualizzazione CentOS SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Kernel del cloud Debian-disponibile con l'immagine "backports" di Debian 10 e Debian 9 in Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
-- [Kernel ottimizzato per SLES Azure](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
-- [Kernel di Ubuntu ottimizzato per Azure](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Kernel SLES Azure-Tuned](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+- [Kernel Ubuntu Azure-Tuned](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
 ## <a name="partners"></a>Partner
 

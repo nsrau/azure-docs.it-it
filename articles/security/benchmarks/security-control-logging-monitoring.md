@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 82114164d70eae71678e70ff2bdb7ea44a54d4cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87076307"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controllo di sicurezza: registrazione e monitoraggio
@@ -120,7 +120,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 2,8 | 8.6 | Customer |
+| 2.8 | 8.6 | Customer |
 
 Abilitare la raccolta di eventi antimalware per le macchine virtuali e i servizi cloud di Azure.
 
@@ -134,7 +134,7 @@ Abilitare la raccolta di eventi antimalware per le macchine virtuali e i servizi
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 2.9 | 8.7 | Customer |
+| 2,9 | 8.7 | Customer |
 
 Implementare una soluzione di terze parti da Azure Marketplace per la soluzione di registrazione DNS in base alle esigenze dell'organizzazione.  
 
@@ -142,7 +142,7 @@ Implementare una soluzione di terze parti da Azure Marketplace per la soluzione 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 2,10 | 8.8 | Customer |
+| 2.10 | 8.8 | Customer |
 
 Usare Microsoft Monitoring Agent in tutte le macchine virtuali Windows di Azure supportate per registrare l'evento di creazione del processo e il campo CommandLine.   Per le macchine virtuali Linux di Azure supportate, è possibile configurare manualmente la registrazione della console in base ai singoli nodi e usare syslog per archiviare i dati.  Usare anche l'area di lavoro Log Analytics di monitoraggio di Azure per esaminare i log ed eseguire query sui dati registrati dalle macchine virtuali di Azure. 
 
