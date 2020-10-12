@@ -4,10 +4,10 @@ description: Con backup di Azure è possibile inviare dati fuori rete usando il 
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890094"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (versioni precedenti)
@@ -100,7 +100,7 @@ Prima di avviare il flusso di lavoro di backup offline, verificare che siano sod
 Attenersi alla procedura seguente per caricare manualmente il certificato di backup offline in un'applicazione Azure Active Directory creata in precedenza per il backup offline.
 
 1. Accedere al portale di Azure.
-1. Passare a **Azure Active Directory**  >  **registrazioni app**.
+1. Passare a **Azure Active Directory** > **Registrazioni per l'app**.
 1. Nella scheda **applicazioni di proprietà** individuare un'applicazione con il formato nome visualizzato `AzureOfflineBackup _<Azure User Id` .
 
     ![Scheda Individua applicazione in applicazioni di proprietà](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
@@ -115,7 +115,7 @@ Attenersi alla procedura seguente per caricare manualmente il certificato di bac
     ![Caricare il certificato](./media/offline-backup-dpm-mabs-previous-versions/upload-certificate.png)
 
 1. Nel server aprire il registro di sistema immettendo **Regedit** nella finestra Esegui.
-1. Passare alla voce del registro di sistema *computer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*.
+1. Passare alla voce del registro di sistema *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
 1. Fare clic con il pulsante destro del mouse su **CloudBackupProvider**e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
@@ -124,7 +124,7 @@ Attenersi alla procedura seguente per caricare manualmente il certificato di bac
     >* In PowerShell connesso ad Azure eseguire il comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"`.
     >* Passare al percorso del registro di sistema `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
-1. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 7. Selezionare **OK**.
+1. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 7. Quindi scegliere **OK**.
 1. Per ottenere il valore dell'identificazione personale, fare doppio clic sul certificato. Selezionare la scheda **Dettagli** e scorrere verso il basso fino a visualizzare il campo identificazione personale. Selezionare **identificazione personale**e copiare il valore.
 
     ![Copia valore dal campo identificazione personale](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad7fc7d9d02cd9a9a6fe74534a7c674fe0ac778d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613672"
+ms.locfileid: "91893255"
 ---
 # <a name="pbr-materials"></a>Materiali PBR
 
@@ -40,6 +40,8 @@ Queste proprietà sono comuni a tutti i materiali:
 * **useVertexColor:** Se la mesh contiene :::no-loc text="vertex"::: colori e questa opzione è abilitata, il colore dei mesh :::no-loc text="vertex"::: viene moltiplicato in *albedoColor* e *albedoMap*. Per impostazione predefinita, *useVertexColor* è disabilitato.
 
 * **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per l'illuminazione dei materiali PBR viene anche calcolato correttamente per i back-face. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [ :::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
+
+* **TransparencyWritesDepth:** Se il flag TransparencyWritesDepth è impostato sul materiale e il materiale è trasparente, gli oggetti che usano questo materiale contribuiranno anche al buffer di profondità finale. Vedere il flag del materiale PBR *trasparente* nella sezione successiva. L'abilitazione di questa funzionalità è consigliata se il caso d'uso necessita di una riproiezione più plausibile della [fase ritardata](late-stage-reprojection.md) di scene completamente trasparenti. Per le scene miste/trasparenti miste, questa impostazione può presentare un comportamento di riproiezione non plausibile o elementi di riproiezione. Per questo motivo, l'impostazione predefinita e consigliata per il caso d'uso generale è disabilitare questo flag. I valori di profondità scritti sono ricavati dal livello di profondità per pixel dell'oggetto più vicino alla fotocamera.
 
 ## <a name="pbr-material-properties"></a>Proprietà del materiale PBR
 

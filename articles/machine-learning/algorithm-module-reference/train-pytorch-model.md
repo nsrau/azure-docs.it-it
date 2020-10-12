@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439098"
 ---
 # <a name="train-pytorch-model"></a>Train Pytorch Model
@@ -58,7 +58,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 ## <a name="technical-notes"></a>Note tecniche
 ###  <a name="expected-inputs"></a>Input previsti  
 
-| Nome               | Tipo                    | Descrizione                              |
+| Nome               | Type                    | Description                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Untrained model    | UntrainedModelDirectory | Modello non sottoposto a training, richiede pytorch         |
 | Dataset di training   | ImageDirectory          | Dataset di training                         |
@@ -66,7 +66,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 ###  <a name="module-parameters"></a>Parametri del modulo  
 
-| Nome          | Range            | Type    | Predefinito | Descrizione                              |
+| Nome          | Intervallo            | Type    | Predefinito | Descrizione                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Periodi        | >0               | Integer | 5       | Seleziona la colonna contenente l'etichetta o la colonna del risultato |
 | Dimensioni dei batch    | >0               | Integer | 16      | Numero di istanze di cui eseguire il training in un batch   |
@@ -76,7 +76,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 ###  <a name="outputs"></a>Output  
 
-| Nome          | Tipo           | Descrizione   |
+| Nome          | Type           | Description   |
 | ------------- | -------------- | ------------- |
 | Trained model | ModelDirectory | Trained model |
 

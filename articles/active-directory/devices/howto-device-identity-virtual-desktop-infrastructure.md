@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90089667"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
@@ -46,7 +46,7 @@ In questo articolo vengono illustrate le linee guida di Microsoft per gli ammini
 
 Prima di configurare le identità del dispositivo in Azure AD per l'ambiente VDI, acquisire familiarità con gli scenari supportati. La tabella seguente illustra gli scenari di provisioning supportati. Il provisioning in questo contesto implica che un amministratore può configurare le identità dei dispositivi su larga scala senza richiedere alcuna interazione con l'utente finale.
 
-| Tipo di identità del dispositivo | Infrastruttura delle identità | Dispositivi Windows | Versione della piattaforma VDI | Funzionalità supportata |
+| Tipo di identità del dispositivo | Infrastruttura delle identità | Dispositivi Windows | Versione della piattaforma VDI | Supportato |
 | --- | --- | --- | --- | --- |
 | Aggiunta a Azure AD ibrido | Federato<sup>3</sup> | Windows Current e Windows legacy-Level | Persistente | Sì |
 |   |   | Windows corrente | Non persistente | Sì<sup>5</sup> |

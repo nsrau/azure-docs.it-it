@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
 ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843176"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
@@ -222,7 +222,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per le App per la l
 
 Vedere l'elenco seguente per configurare l'identità gestita per i criteri di Azure (nelle aree in cui sono disponibili):
 
-- [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [Portale di Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [Interfaccia della riga di comando di Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 - [Modelli di Gestione risorse di Azure](/azure/templates/microsoft.authorization/policyassignments)
