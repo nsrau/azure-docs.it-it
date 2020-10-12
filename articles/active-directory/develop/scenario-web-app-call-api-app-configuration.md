@@ -13,10 +13,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403195"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>App Web che chiama le API Web: Configurazione del codice
@@ -175,7 +175,7 @@ Per chiamare un'API Web diversa da Microsoft Graph, *Microsoft. Identity. Web* f
    }
    ```
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 Come per le API Web, è possibile scegliere diverse implementazioni della cache dei token. Per informazioni dettagliate, vedere la pagina relativa alla [serializzazione della cache del token Microsoft. Identity. Web](https://aka.ms/ms-id-web/token-cache-serialization) in GitHub.
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962027"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
@@ -130,7 +130,7 @@ L'app dipende da due diverse risorse. Ciò significa che Azure Resource Manager 
 
 ![Mostra le dipendenze dell'app nel piano di servizio app e nell'istanza di SQL Server.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Impostazioni delle app
+##### <a name="app-settings"></a>Impostazioni dell'app
 Le impostazioni dell'app vengono definite anche come risorsa annidata.
 
 ![Mostra le impostazioni dell'app definite come una risorsa annidata nel codice JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
@@ -252,7 +252,7 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 ## <a name="more-resources"></a>Altre risorse
 * [Linguaggio del modello di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
-* [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/templates/template-functions.md)
+* [Funzioni del modello di Azure Resource Manager](../azure-resource-manager/templates/template-functions.md)
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/templates/deploy-powershell.md)
 * [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/management/manage-resources-powershell.md)
 * [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/templates/common-deployment-errors.md)

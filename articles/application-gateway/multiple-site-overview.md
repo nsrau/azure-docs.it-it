@@ -8,17 +8,17 @@ ms.date: 07/20/2020
 ms.author: surmb
 ms.topic: conceptual
 ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474326"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
-L'hosting di più siti consente di configurare più di un'applicazione Web sulla stessa porta di un gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre listener multisito e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo. 
+L'hosting di più siti consente di configurare più di un'applicazione Web sulla stessa porta di un gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a più di 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre listener multisito e si configurerà ogni listener per la rispettiva impostazione della porta e del protocollo. 
 
-È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a 5 nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener](#wildcard-host-names-in-listener-preview).
+È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a cinque nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener](#wildcard-host-names-in-listener-preview).
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Gateway applicazione multisito":::
 
@@ -35,7 +35,7 @@ Il gateway applicazione consente il routing basato su host mediante listener HTT
 
 Utilizzando un carattere jolly nel nome host, è possibile associare più nomi host in un singolo listener. Ad esempio, `*.contoso.com` può corrispondere a `ecom.contoso.com` , così `b2b.contoso.com` come `customer1.b2b.contoso.com` e così via. Utilizzando una matrice di nomi host, è possibile configurare più di un nome host per un listener per indirizzare le richieste a un pool back-end. Un listener può ad esempio contenere, `contoso.com, fabrikam.com` che accetterà le richieste per entrambi i nomi host.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Listener con caratteri jolly":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Gateway applicazione multisito":::
 
 >[!NOTE]
 > Questa funzionalità è disponibile in anteprima ed è disponibile solo per Standard_v2 e WAF_v2 SKU del gateway applicazione. Per ulteriori informazioni sulle anteprime, vedere [le condizioni per l'utilizzo qui](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -44,22 +44,22 @@ Utilizzando un carattere jolly nel nome host, è possibile associare più nomi h
 >Questa funzionalità è attualmente disponibile solo tramite [Azure PowerShell](tutorial-multiple-sites-powershell.md) e l'interfaccia della riga di comando di [Azure](tutorial-multiple-sites-cli.md). Il supporto del portale sarà presto disponibile.
 > Si noti che poiché il supporto del portale non è completamente disponibile, se si usa solo il parametro HostNames, il listener sarà visualizzato come listener di base nel portale e nella colonna nome host della visualizzazione elenco listener non verranno visualizzati i nomi host configurati. Per tutte le modifiche apportate a un listener con caratteri jolly, assicurarsi di usare Azure PowerShell o CLI fino a quando non è supportato nel portale.
 
-In [Azure PowerShell](tutorial-multiple-sites-powershell.md), è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio, usare `-HostNames "*.contoso.com,*.fabrikam.com"`
+In [Azure PowerShell](tutorial-multiple-sites-powershell.md), è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio: `-HostNames "*.contoso.com,*.fabrikam.com"`
 
-Nell' [interfaccia](tutorial-multiple-sites-cli.md)della riga di comando di Azure è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio, usare `--host-names "*.contoso.com,*.fabrikam.com"`
+Nell' [interfaccia](tutorial-multiple-sites-cli.md)della riga di comando di Azure è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole e usare caratteri jolly. Ad esempio: `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ### <a name="allowed-characters-in-the-host-names-field"></a>Caratteri consentiti nel campo nomi host:
 
-* `(A-Z,a-z,0-9)`-caratteri alfanumerici
-* `-`-trattino o meno
-* `.`-periodo come delimitatore
-*   `*`-può corrispondere a più caratteri nell'intervallo consentito
-*   `?`-può corrispondere a un singolo carattere nell'intervallo consentito
+* `(A-Z,a-z,0-9)` -caratteri alfanumerici
+* `-` -trattino o meno
+* `.` -periodo come delimitatore
+*   `*` -può corrispondere a più caratteri nell'intervallo consentito
+*   `?` -può corrispondere a un singolo carattere nell'intervallo consentito
 
 ### <a name="conditions-for-using-wildcard-characters-and-multiple-host-names-in-a-listener"></a>Condizioni per l'utilizzo di caratteri jolly e più nomi host in un listener:
 
 *   È possibile menzionare fino a 5 nomi host in un singolo listener
-*   L'asterisco `*` può essere indicato una sola volta in un componente di un nome di stile del dominio o di un nome host. Ad esempio, Component1 *. Component2*. Component3. `(*.contoso-*.com)`è valido.
+*   L'asterisco `*` può essere indicato una sola volta in un componente di un nome di stile del dominio o di un nome host. Ad esempio, Component1 *. Component2*. Component3. `(*.contoso-*.com)` è valido.
 *   In un nome host possono essere presenti solo due asterischi `*` . Ad esempio, `*.contoso.*` è valido e `*.contoso.*.*.com` non è valido.
 *   Il nome host può contenere un massimo di 4 caratteri jolly. Ad esempio, `????.contoso.com` , `w??.contoso*.edu.*` sono validi, ma `????.contoso.*` non sono validi.
 *   L'utilizzo di un asterisco e di un `*` punto interrogativo `?` insieme in un componente di un nome host ( `*?` o `?*` o `**` ) non è valido. Ad esempio, `*?.contoso.com` e `**.contoso.com` non sono validi.

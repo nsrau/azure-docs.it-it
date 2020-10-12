@@ -4,10 +4,10 @@ description: Informazioni su come analizzare le tendenze cronologiche e ottenere
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 5964f285089feea721a0b452efed884e905b89cc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994974"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Ottenere informazioni dettagliate con backup Center
@@ -28,7 +28,7 @@ Per analizzare le tendenze cronologiche e ottenere informazioni più approfondit
 
 - Per un elenco dettagliato degli scenari supportati e non supportati, vedere la [matrice di supporto](backup-center-support-matrix.md) .
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 ### <a name="configure-your-vaults-to-send-data-to-a-log-analytics-workspace"></a>Configurare gli insiemi di credenziali per l'invio di dati a un'area di lavoro Log Analytics
 

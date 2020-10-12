@@ -14,10 +14,10 @@ ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88006605"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurare e ottimizzare le macchine virtuali
@@ -118,6 +118,6 @@ Facoltativamente, il WALinuxAgent può essere disabilitato come passaggio di pre
 
 - Altre informazioni sull' [Abilitazione di InfiniBand](enable-infiniband.md) sulle VM serie [H](../../sizes-hpc.md) e serie [N](../../sizes-gpu.md) abilitate per InfiniBand.
 - Altre informazioni sull'installazione di varie [librerie MPI supportate](setup-mpi.md) e sulla relativa configurazione ottimale nelle macchine virtuali.
-- Per informazioni sulla configurazione ottimale dei carichi di lavoro per prestazioni e scalabilità, vedere Panoramica della [serie HB](hb-series-overview.md) e [Panoramica sulle serie HC](hc-series-overview.md) .
-- Per informazioni sugli annunci più recenti e su alcuni esempi e risultati HPC, vedere i [Blog della community tecnica di calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Per una visualizzazione architettonica di livello superiore dell'esecuzione di carichi di lavoro HPC, vedere [High Performance Computing (HPC) in Azure](/azure/architecture/topics/high-performance-computing/).
+- Esaminare la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md) per informazioni su come configurare in modo ottimale i carichi di lavoro ai fini delle prestazioni e della scalabilità.
+- Leggere gli ultimi annunci e alcuni esempi HPC e risultati nei [blog della community tecnica di Calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).

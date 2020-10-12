@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87448340"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
@@ -48,7 +48,7 @@ L'archiviazione non modificabile supporta le funzionalità seguenti:
 
 - **Supporto**per la registrazione di controllo: ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log delle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, poiché potrebbero essere richiesti per scopi legali o di altro tipo.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Quando si applica un criterio di conservazione basato sul tempo o un periodo di attesa legale a un contenitore, tutti i BLOB esistenti vengono spostati in uno stato non modificabile di un WORM in meno di 30 secondi. Tutti i nuovi BLOB caricati nel contenitore protetto da criteri si sposteranno anche in uno stato non modificabile. Quando tutti i BLOB sono in uno stato non modificabile, i criteri non modificabili vengono confermati e non sono consentite operazioni di sovrascrittura o eliminazione nel contenitore non modificabile.
 
@@ -108,7 +108,7 @@ La tabella seguente illustra i tipi di operazioni di archiviazione BLOB disabili
 |---------|---------|---------|---------|
 |L'intervallo di conservazione effettivo nel BLOB non è ancora scaduto e/o è impostato un blocco a fini giudiziari     |Non modificabile: protetto da eliminazione e scrittura         | Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, eliminare il contenitore, eliminare il BLOB, impostare i metadati dei BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale e il blocco<sup>2</sup>         |Eliminazione del contenitore negata; Eliminazione dell'account di archiviazione negata         |
 |L'intervallo di conservazione effettivo sul BLOB è scaduto e non è impostata alcuna esenzione legale    |Solo protetto da scrittura (le operazioni di eliminazione sono consentite)         |Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, impostare i metadati del BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale, il blocco<sup>2</sup>         |L'eliminazione del contenitore è stata negata se nel contenitore protetto esiste almeno un BLOB; Eliminazione dell'account di archiviazione negata solo per i criteri basati sul tempo *bloccati*         |
-|Nessun criterio WORM applicato (nessuna conservazione basata sul tempo e nessun tag di tenuta legale)     |Modificabile         |Nessuna         |Nessuna         |
+|Nessun criterio WORM applicato (nessuna conservazione basata sul tempo e nessun tag di tenuta legale)     |Modificabile         |nessuno         |nessuno         |
 
 <sup>1</sup> il servizio BLOB consente a queste operazioni di creare un nuovo BLOB una sola volta. Non sono consentite tutte le operazioni di sovrascrittura successive in un percorso BLOB esistente in un contenitore non modificabile.
 

@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: diviso
 ms.custom: include file
 ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88704527"
 ---
 Di seguito vengono riepilogati i limiti delle chiavi in Azure Time Series Insights Gen1.

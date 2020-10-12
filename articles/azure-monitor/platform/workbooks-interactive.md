@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: mbullwin
 ms.openlocfilehash: 33da3cd8a72bb4d93011c348db65c5b4d9e687ed
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87461464"
 ---
 # <a name="interactive-workbooks"></a>Cartelle di lavoro interattive
@@ -45,12 +45,12 @@ Ad esempio, un utente può avere una griglia che mostra un elenco di richieste e
     | order by AllRequests desc
     ```
 
-5. `Run query`per visualizzare i risultati
+5. `Run query` per visualizzare i risultati
 6. Selezionare l'icona _delle impostazioni avanzate_ nel piè di pagina della query (l'icona ha l'aspetto di un ingranaggio). Verrà visualizzato il riquadro Impostazioni avanzate.
 7. Controllare l'impostazione: `When an item is selected, export a parameter` .
 8. Sotto l'impostazione selezionata selezionare *Aggiungi parametro* e compilarlo con le informazioni riportate di seguito.
-    1. Campo da esportare:`Request`
-    2. Nome parametro:`SelectedRequest`
+    1. Campo da esportare: `Request`
+    2. Nome parametro: `SelectedRequest`
     3. Valore predefinito: `All requests`
 9. Selezionare Salva
 
@@ -64,7 +64,7 @@ Ad esempio, un utente può avere una griglia che mostra un elenco di richieste e
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-13. `Run query`per visualizzare i risultati.
+13. `Run query` per visualizzare i risultati.
 14. Modificare la _visualizzazione_ in `Area chart` .
 15. Scegliere una riga da selezionare nella prima griglia. Si noti che il grafico ad area seguente Filtra la richiesta selezionata.
 
@@ -99,10 +99,10 @@ Le cartelle di lavoro consentono agli autori di aggiungere interattività tramit
     | order by Count desc
     ```
 
-5. `Run query`per visualizzare i risultati
+5. `Run query` per visualizzare i risultati
 6. Selezionare _Impostazioni colonna_ per aprire il riquadro Impostazioni.
 7. Nella sezione _Columns_ impostare:
-    1. _Esempio_ -renderer della colonna: `Link` , visualizzazione da aprire: `Cell Details` , etichetta collegamento:`Sample`
+    1. _Esempio_ -renderer della colonna: `Link` , visualizzazione da aprire: `Cell Details` , etichetta collegamento: `Sample`
     2. Renderer della colonna _count_ : `Bar` , tavolozza dei colori: `Blue` , valore minimo:`0`
     3. Renderer della colonna _Request_ :`Automatic`
     4. Selezionare _Salva e Chiudi_ per applicare le modifiche
@@ -118,8 +118,8 @@ Le cartelle di lavoro consentono agli autori di aggiungere interattività tramit
 | Azione di collegamento | Azione su clic |
 |:------------- |:-------------|
 | `Generic Details` | Mostra i valori di riga in una scheda di contesto della griglia delle proprietà |
-| `Cell Details` | Mostra il valore della cella in una scheda di contesto della griglia delle proprietà. utile quando la cella contiene un tipo dinamico con informazioni, ad esempio JSON con proprietà della richiesta come la posizione, l'istanza del ruolo e così via. |
-| `Cell Details` | Mostra il valore della cella in una scheda di contesto della griglia delle proprietà. utile quando la cella contiene un tipo dinamico con informazioni, ad esempio JSON con proprietà della richiesta come la posizione, l'istanza del ruolo e così via. |
+| `Cell Details` | Mostra il valore della cella in una scheda del contesto della griglia delle proprietà. Utile quando la cella contiene un tipo dinamico con informazioni, ad esempio JSON con proprietà della richiesta come la posizione, l'istanza del ruolo e così via. |
+| `Cell Details` | Mostra il valore della cella in una scheda del contesto della griglia delle proprietà. Utile quando la cella contiene un tipo dinamico con informazioni, ad esempio JSON con proprietà della richiesta come la posizione, l'istanza del ruolo e così via. |
 | `Custom Event Details` | Apre i dettagli della ricerca di Application Insights con l'ID evento personalizzato ( `itemId` ) nella cella |
 | `* Details` | Simile ai dettagli dell'evento personalizzato, ad eccezione delle dipendenze, delle eccezioni, delle visualizzazioni di pagina, delle richieste e delle tracce. |
 | `Custom Event User Flows` | Apre il Application Insights Flussi utente esperienza trasformata tramite pivot per il nome dell'evento personalizzato nella cella |
@@ -137,30 +137,30 @@ La cartella di lavoro consente agli utenti di far apparire o scomparire determin
 1. Per configurare due controlli interattivi, attenersi alla procedura descritta nella sezione [impostazione dell'interattività nella riga della griglia](#setting-up-interactivity-on-grid-row-click) .
 2. Aggiungere un nuovo parametro nella parte superiore:
     1. Nome: `ShowDetails`
-    2. Tipo di parametro:`Drop down`
-    3. Obbligatorio:`checked`
-    4. Ottenere i dati da:`JSON`
-    5. Input JSON:`["Yes", "No"]`
+    2. Tipo di parametro: `Drop down`
+    3. Obbligatorio: `checked`
+    4. Ottenere i dati da: `JSON`
+    5. Input JSON: `["Yes", "No"]`
     6. Salva per eseguire il commit delle modifiche.
 
     ![Dopo aver selezionato il pulsante Aggiungi parametro, viene visualizzato il riquadro Modifica parametro.](./media/workbooks-interactive/edit-parameter.png)
 
-3. Impostare il valore del parametro su`Yes`
+3. Impostare il valore del parametro su `Yes`
 
     ![Sopra il pulsante modifica completato è l'elenco a discesa che consente di impostare il valore del parametro](./media/workbooks-interactive/set-parameter.png)
 
 4. Nel controllo query con il grafico ad area selezionare l'icona _Impostazioni avanzate_ (icona a forma di ingranaggio)
-5. Controllare l'impostazione`Make this item conditionally visible`
-    1. Questo elemento è visibile se il `ShowDetails` valore `equals` del parametro`Yes`
+5. Controllare l'impostazione `Make this item conditionally visible`
+    1. Questo elemento è visibile se il `ShowDetails` valore `equals` del parametro `Yes`
 6. Selezionare _modifica completato_ per confermare le modifiche.
 7. Selezionare _modifica eseguita_ sulla barra degli strumenti della cartella di lavoro per attivare la modalità di lettura.
 8. Impostare il valore del parametro `ShowDetails` su `No` . Si noti che il grafico seguente scompare.
 
-L'immagine seguente mostra il caso visibile in cui `ShowDetails` è`Yes`
+L'immagine seguente mostra il caso visibile in cui `ShowDetails` è `Yes`
 
 ![Screenshot che mostra la visibilità condizionale in cui il grafico è visibile](./media/workbooks-interactive/interactivity-conditional-visibility-visible.png)
 
-L'immagine seguente mostra il caso nascosto in cui `ShowDetails` è`No`
+L'immagine seguente mostra il caso nascosto in cui `ShowDetails` è `No`
 
 ![Screenshot che mostra la visibilità condizionale in cui il grafico è nascosto](./media/workbooks-interactive/interactivity-conditional-visibility-invisible.png)
 

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90086403"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedure consigliate per il servizio Route di Azure Maps
@@ -21,7 +21,7 @@ ms.locfileid: "90086403"
 
 > [!div class="checklist"]
 > * Scegliere tra le API Route directions e l'API routing Matrix
-> * Richiedi tempi di viaggio stimati e cronologici, in base ai dati di traffico in tempo reale e cronologici
+> * Richiedere tempi di viaggio stimati e cronologici, in base ai dati di traffico in tempo reale e storici
 > * Dettagli della route della richiesta, come ora e distanza, per l'intera Route e per ogni parte della route
 > * Richiedere la route per un veicolo commerciale, ad esempio un camion
 > * Richiedere informazioni sul traffico lungo una route, ad esempio confetture e informazioni sui pedaggi
@@ -60,7 +60,7 @@ Di seguito è riportato un confronto per illustrare alcune funzionalità delle d
 
 | API Maps di Azure | Numero massimo di query nella richiesta | Evitare le aree | Routing di camion e veicoli elettrici | Waypoint e ottimizzazione del commesso viaggiatore | Punti di supporto |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Ottenere le direzioni della route | 1 | | X | X | |
+| Get Route Directions | 1 | | X | X | |
 | Direzioni post Route | 1 | X | X | X | X |
 | Batch istruzioni post Route | 700 | | X | X | |
 | Post Route Matrix | 700 | | X | | |
@@ -205,7 +205,7 @@ Questa opzione può essere usata per colorare le sezioni durante il rendering de
 
 ![Sezioni colorate visualizzate sulla mappa](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
-## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcolare e ottimizzare una route con più interruzioni
+## <a name="calculate-and-optimize-a-multi-stop-route"></a>Calcolare e ottimizzare un percorso con più fermate
 
 Azure Maps fornisce attualmente due forme di ottimizzazione delle route:
 
@@ -282,7 +282,7 @@ Azure Maps Web SDK fornisce un [modulo del servizio](https://docs.microsoft.com/
 Per ulteriori informazioni, vedere:
 
 > [!div class="nextstepaction"]
-> [Servizio Route di Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Servizio di pianificazione percorso di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
 > [Come usare il modulo del servizio](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)

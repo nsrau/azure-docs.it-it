@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 0991992a6138d263dfb4d200c9555a8d53366d70
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90994927"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault
@@ -33,7 +33,7 @@ Questo articolo illustra come configurare la crittografia con chiavi gestite dal
 
 Per usare le chiavi gestite dal cliente con la crittografia di archiviazione di Azure, è necessario che sia abilitata l'eliminazione temporanea che la protezione per l'insieme di credenziali delle chiavi. L'eliminazione temporanea è abilitata per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi e non può essere disabilitato. È possibile abilitare la protezione ripulitura quando si crea l'insieme di credenziali delle chiavi o dopo che è stato creato.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per informazioni su come creare un insieme di credenziali delle chiavi con il portale di Azure, vedere [Guida introduttiva: creare un insieme di credenziali delle chiavi usando il portale di Azure](../../key-vault/general/quick-create-portal.md). Quando si crea l'insieme di credenziali delle chiavi, selezionare **Abilita Ripulisci protezione**, come illustrato nella figura seguente.
 
@@ -131,7 +131,7 @@ Successivamente, aggiungere una chiave nell'insieme di credenziali delle chiavi.
 
 La crittografia di archiviazione di Azure supporta chiavi RSA e RSA-HSM di dimensioni 2048, 3072 e 4096. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per informazioni su come aggiungere una chiave con il portale di Azure, vedere [Guida introduttiva: impostare e recuperare una chiave da Azure Key Vault tramite il portale di Azure](../../key-vault/keys/quick-create-portal.md).
 
@@ -170,7 +170,7 @@ Quando si configura la crittografia con chiavi gestite dal cliente, è possibile
 
 Archiviazione di Azure può aggiornare automaticamente la chiave gestita dal cliente usata per la crittografia per usare la versione più recente della chiave. Quando la chiave gestita dal cliente viene ruotata in Azure Key Vault, archiviazione di Azure inizierà automaticamente a usare la versione più recente della chiave per la crittografia.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per configurare le chiavi gestite dal cliente con l'aggiornamento automatico della versione della chiave nella portale di Azure, attenersi alla procedura seguente:
 
@@ -190,7 +190,7 @@ Per configurare le chiavi gestite dal cliente con l'aggiornamento automatico del
 
 Dopo aver specificato la chiave, il portale di Azure indica che l'aggiornamento automatico della versione della chiave è abilitato e visualizza la versione della chiave attualmente in uso per la crittografia.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot che illustra l'aggiornamento automatico della versione della chiave abilitata":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot che illustra come abilitare la ripulitura della protezione durante la creazione di un insieme di credenziali delle chiavi":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -236,7 +236,7 @@ az storage account update
 
 Se si preferisce aggiornare manualmente la versione della chiave, specificare in modo esplicito la versione nel momento in cui si configura la crittografia con chiavi gestite dal cliente. In questo caso, archiviazione di Azure non aggiornerà automaticamente la versione della chiave quando viene creata una nuova versione nell'insieme di credenziali delle chiavi. Per usare una nuova versione della chiave, è necessario aggiornare manualmente la versione usata per la crittografia di archiviazione di Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per configurare le chiavi gestite dal cliente con aggiornamento manuale della versione della chiave nella portale di Azure, specificare l'URI della chiave, inclusa la versione. Per specificare una chiave come URI, attenersi alla procedura seguente:
 
@@ -304,7 +304,7 @@ Quando si aggiorna manualmente la versione della chiave, è necessario aggiornar
 
 È possibile modificare la chiave usata per la crittografia di archiviazione di Azure in qualsiasi momento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per modificare la chiave con il portale di Azure, attenersi alla procedura seguente:
 
@@ -326,7 +326,7 @@ Per modificare la chiave con l'interfaccia della riga di comando di Azure, chiam
 
 Quando si revoca una chiave gestita dal cliente, viene rimossa l'associazione tra l'account di archiviazione e l'insieme di credenziali delle chiavi.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per revocare le chiavi gestite dal cliente con la portale di Azure, disabilitare la chiave come descritto in [disabilitare le chiavi gestite dal cliente](#disable-customer-managed-keys).
 
@@ -355,7 +355,7 @@ az keyvault delete-policy \
 
 Quando si disabilitano le chiavi gestite dal cliente, l'account di archiviazione viene nuovamente crittografato con le chiavi gestite da Microsoft.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per disabilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
 ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404724"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet in Azure Data Factory
@@ -99,7 +99,7 @@ Per eseguire il mapping dei flussi di dati, è possibile leggere e scrivere in f
 
 La tabella seguente elenca le proprietà supportate da un'origine parquet. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `parquet` | sì | `parquet` | format |
 | Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
@@ -129,7 +129,7 @@ source(allowSchemaDrift: true,
 
 La tabella seguente elenca le proprietà supportate da un sink parquet. È possibile modificare queste proprietà nella scheda **Impostazioni** .
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `parquet` | sì | `parquet` | format |
 | Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
