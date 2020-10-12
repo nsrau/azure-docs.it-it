@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
 ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84322091"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selezione trasformazione nel flusso di dati di mapping
@@ -72,7 +72,7 @@ Se la proiezione definita dispone di una gerarchia, è possibile utilizzare il m
 
 ![mapping basato su regole](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
 
-L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa `a` . `a`contiene due sottocolonne `b` e `c` . Lo schema di output includerà due colonne `b` e `c` la condizione ' name As ' sarà `$$` .
+L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa `a` . `a` contiene due sottocolonne `b` e `c` . Lo schema di output includerà due colonne `b` e `c` la condizione ' name As ' sarà `$$` .
 
 ### <a name="parameterization"></a>Parametrizzazione
 

@@ -4,10 +4,10 @@ description: Informazioni su come configurare una raccolta di immagini condivise
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88271040"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Configurare una raccolta immagini condivisa in Azure DevTest Labs
@@ -42,7 +42,7 @@ Se si dispone di un numero elevato di immagini gestite da mantenere e si desider
     ![Menu raccolte immagini condivise](./media/configure-shared-image-gallery/shared-image-galleries-menu.png)
 1. Alleghi una raccolta di immagini condivise esistente al Lab facendo clic sul pulsante **Connetti** e selezionando la raccolta nell'elenco a discesa.
 
-    ![Attach](./media/configure-shared-image-gallery/attach-options.png)
+    ![Allega](./media/configure-shared-image-gallery/attach-options.png)
 1. Dopo che la raccolta immagini è stata collegata, selezionarla per passare alla raccolta collegata. Configurare la raccolta per **abilitare o disabilitare** le immagini condivise per la creazione di macchine virtuali. Selezionare una raccolta di immagini dall'elenco per configurarla. 
 
     Per impostazione predefinita, **Consenti l'uso di tutte le immagini come basi della macchina virtuale** è impostato su **Sì**. Ciò significa che tutte le immagini disponibili nella raccolta di immagini condivise collegate saranno disponibili per un utente del Lab quando si crea una nuova macchina virtuale Lab. Se è necessario limitare l'accesso a determinate immagini, modificare **Consenti l'uso di tutte le immagini come basi della macchina virtuale** e selezionare le immagini che si desidera consentire durante la **creazione di macchine**virtuali, quindi selezionare il pulsante **Salva** .

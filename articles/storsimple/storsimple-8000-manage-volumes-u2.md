@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86204462"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
@@ -57,8 +57,8 @@ Fare riferimento alla tabella seguente per conoscere la capacità massima di cui
 | 8100 |64 TB |8 TB |
 | 8600 |64 TB |20 TB |
 | **Dispositivi virtuali** | | |
-| 8010 |30 TB |N/A |
-| 8020 |64 TB |N/A |
+| 8010 |30 TB |N/D |
+| 8020 |64 TB |N/D |
 
 ## <a name="the-volumes-blade"></a>Il pannello Volumi
 

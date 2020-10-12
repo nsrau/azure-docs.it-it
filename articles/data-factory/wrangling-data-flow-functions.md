@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921551"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funzioni di trasformazione nell'attività del flusso di dati
@@ -68,15 +68,15 @@ Le funzioni M seguenti aggiungono o trasformano colonne: [Table. AddColumn](http
 ----------------------
 * Power Query genererà un join annidato (Table. NestedJoin; gli utenti possono anche scrivere manualmente [Table. AddJoinColumn](https://docs.microsoft.com/powerquery-m/table-addjoincolumn)).
     Gli utenti devono quindi espandere la colonna join annidata in un join non annidato (Table. ExpandTableColumn, non supportato in nessun altro contesto).
-* La tabella della funzione M [. join](https://docs.microsoft.com/powerquery-m/table-join) può essere scritta direttamente per evitare la necessità di un passaggio di espansione aggiuntivo, ma l'utente deve assicurarsi che non siano presenti nomi di colonna duplicati tra le tabelle unite in join
-* Tipi di join supportati: [inner](https://docs.microsoft.com/powerquery-m/joinkind-inner), [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter), [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter), [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
-* Sia [value. Equals](https://docs.microsoft.com/powerquery-m/value-equals) che [value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) sono supportati come operatori di confronto per l'uguaglianza delle chiavi
+* La tabella della funzione M   [. join](https://docs.microsoft.com/powerquery-m/table-join) può essere scritta direttamente per evitare la necessità di un passaggio di espansione aggiuntivo, ma l'utente deve assicurarsi che non siano presenti nomi di colonna duplicati tra le tabelle unite in join
+* Tipi di join supportati:   [inner](https://docs.microsoft.com/powerquery-m/joinkind-inner),   [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter),   [RightOuter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter),   [FullOuter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
+* Sia   [value. Equals](https://docs.microsoft.com/powerquery-m/value-equals) che   [value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) sono supportati come operatori di confronto per l'uguaglianza delle chiavi
 
 ## <a name="group-by"></a>Group by
 
 Utilizzare [Table. Group](https://docs.microsoft.com/powerquery-m/table-group) per aggregare i valori.
 * Deve essere usato con una funzione di aggregazione
-* Funzioni di aggregazione supportate: [Table. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [List. Sum](https://docs.microsoft.com/powerquery-m/list-sum), [List. Count](https://docs.microsoft.com/powerquery-m/list-count), [List. Average](https://docs.microsoft.com/powerquery-m/list-average), [List. min](https://docs.microsoft.com/powerquery-m/list-min), [List. max](https://docs.microsoft.com/powerquery-m/list-max), [List. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), [List. First](https://docs.microsoft.com/powerquery-m/list-first), List. [Last](https://docs.microsoft.com/powerquery-m/list-last)
+* Funzioni di aggregazione supportate:   [Table. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount),   [List. Sum](https://docs.microsoft.com/powerquery-m/list-sum),   [List. Count](https://docs.microsoft.com/powerquery-m/list-count),   [List. Average](https://docs.microsoft.com/powerquery-m/list-average),   [List. min](https://docs.microsoft.com/powerquery-m/list-min),   [List. max](https://docs.microsoft.com/powerquery-m/list-max),   [List. StandardDeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation),   [List. First](https://docs.microsoft.com/powerquery-m/list-first), List.   [Last](https://docs.microsoft.com/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Ordinamento
 
@@ -90,7 +90,7 @@ Mantieni e Rimuovi top, Mantieni intervallo (funzioni M corrispondenti, solo con
 
 | Funzione | Stato |
 | -- | -- |
-| Table.PromoteHeaders | Non supportato. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
+| Table.PromoteHeaders | Non supportata. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
 | Table.CombineColumns | Si tratta di uno scenario comune che non è supportato direttamente, ma è possibile ottenerlo aggiungendo una nuova colonna che concatena due colonne specificate.  Ad esempio, Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | Questa operazione è supportata nella maggior parte dei casi. Gli scenari seguenti non sono supportati: trasformazione di una stringa in un tipo di valuta, trasformazione di una stringa in un tipo time, trasformazione di una stringa in un tipo di percentuale. |
 | Table.NestedJoin | La semplice operazione di join comporterà un errore di convalida. Per il corretto funzionamento, le colonne devono essere espanse. |

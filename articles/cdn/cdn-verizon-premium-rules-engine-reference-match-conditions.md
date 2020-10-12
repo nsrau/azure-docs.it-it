@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84323315"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure da Verizon Premium
@@ -73,7 +73,7 @@ Queste condizioni di corrispondenza sono progettate per identificare le richiest
 
 **[Torna all'inizio](#top)**
 
-### <a name="location"></a><a name="location"></a>Location
+### <a name="location"></a><a name="location"></a>Percorso
 
 Queste condizioni di corrispondenza sono progettate per identificare le richieste in base alla posizione del richiedente.
 
@@ -118,7 +118,7 @@ Queste condizioni di corrispondenza sono progettate per identificare le richiest
 | [CNAME perimetrale](https://docs.vdms.com/cdn/Content/HRE/M/Edge-CNAME.htm) | Identifica le richieste che fanno riferimento a un CNAME periferico specifico. |
 | Dominio di riferimento | Identifica una richiesta se è stato fatto riferimento a un nome host che corrisponde a un oggetto: <br> **-** Valore specifico (valore[letterale del dominio di riferimento](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Literal.htm)) <br> **-** Modello specifico ([carattere jolly del dominio di riferimento](https://docs.vdms.com/cdn/Content/HRE/M/Referring-Domain-Wildcard.htm)) |
 | Intestazione della richiesta | Identifica una richiesta se contiene un'intestazione che corrisponde a un oggetto: <br> **-** Valore specifico (valore[letterale intestazione richiesta](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Literal.htm)) <br> **-** Espressione regolare ([Regex intestazione della richiesta](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Regex.htm)) <br> **-** Modello specifico ([carattere jolly dell'intestazione della richiesta](https://docs.vdms.com/cdn/Content/HRE/M/Request-Header-Wildcard.htm)) |
-| [Metodo richiesta](https://docs.vdms.com/cdn/Content/HRE/M/Request-Method.htm) | Identifica le richieste in base al relativo metodo HTTP. |
+| [Metodo di richiesta](https://docs.vdms.com/cdn/Content/HRE/M/Request-Method.htm) | Identifica le richieste in base al relativo metodo HTTP. |
 | [Schema richiesta](https://docs.vdms.com/cdn/Content/HRE/M/Request-Scheme.htm) | Identifica le richieste in base al relativo protocollo HTTP. |
 
 **[Torna all'inizio](#top)**

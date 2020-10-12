@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78403239"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
@@ -19,7 +19,7 @@ Al termine dei passaggi descritti in questo articolo, gli eventi inviati dal reg
 
 ![Rendering nel Web browser dell'applicazione Web di esempio con tre eventi ricevuti][sample-app-01]
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito][azure-account].
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -4,10 +4,10 @@ description: Questo articolo illustra come spostare un cluster dedicato di hub e
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 94be44ee8f9442a3a65e899d7a58524b2570f194
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89380833"
 ---
 # <a name="move-an-azure-event-hubs-dedicated-cluster-to-another-region"></a>Spostare un cluster dedicato di hub eventi di Azure in un'altra area
@@ -50,7 +50,7 @@ Distribuire il modello per creare un cluster dedicato di hub eventi nell'area di
     4. Nella sezione **Impostazioni** seguire questa procedura:    
         1. Immettere il nome del nuovo **cluster**. 
 
-            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Distribuisci modello di Gestione risorse":::
+            :::image type="content" source="./media/move-cluster-across-regions/deploy-template.png" alt-text="Scarica Gestione risorse modello":::
     5. Selezionare **Rivedi e crea** nella parte inferiore della pagina. 
     1. Nella pagina **Verifica e crea** verificare le impostazioni e quindi selezionare **Crea**.  
 

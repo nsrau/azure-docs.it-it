@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
 ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207158"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Risolvere problemi comuni o problemi con il controller di ingresso
@@ -95,7 +95,7 @@ Ottiene l'elenco dei in ingresso: `kubectl get ingress` . È prevista la creazio
 
 ![Baccelli](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
-Uno dei pod sarà AGIC. `kubectl get pods`mostrerà un elenco di Pod, uno dei quali inizierà con "ingresso-Azure". Ottenere tutti i log di tale Pod con `kubectl logs <name-of-ingress-controller-pod>` per verificare che la distribuzione sia stata completata correttamente. Una distribuzione riuscita avrebbe aggiunto le righe seguenti al log:
+Uno dei pod sarà AGIC. `kubectl get pods` mostrerà un elenco di Pod, uno dei quali inizierà con "ingresso-Azure". Ottenere tutti i log di tale Pod con `kubectl logs <name-of-ingress-controller-pod>` per verificare che la distribuzione sia stata completata correttamente. Una distribuzione riuscita avrebbe aggiunto le righe seguenti al log:
 ```
 I0927 22:34:51.281437       1 process.go:156] Applied Application Gateway config in 20.461335266s
 I0927 22:34:51.281585       1 process.go:165] cache: Updated with latest applied config.
@@ -118,7 +118,7 @@ Il gateway applicazione avrà la seguente configurazione applicata:
 Infine, è possibile usare il `cURL` comando dall'interno [cloud Shell](https://shell.azure.com/) per stabilire una connessione HTTP all'app appena distribuita:
 
 1. Usare `kubectl get ingress` per ottenere l'indirizzo IP pubblico del gateway applicazione
-2. Usare `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
+2. Utilizzare `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`.
 
 ![Baccelli](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
@@ -142,7 +142,7 @@ Per il corretto funzionamento di AGIC è necessario quanto segue:
      ```
 
   2. Uno o più **Servizi**, che fanno riferimento ai pod sopra indicati tramite le `selector` etichette corrispondenti.
-     Verificare questa operazione da [cloud Shell](https://shell.azure.com/) con`kubectl get services -o wide`
+     Verificare questa operazione da [cloud Shell](https://shell.azure.com/) con `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
 
@@ -199,9 +199,9 @@ Per il corretto funzionamento di AGIC è necessario quanto segue:
 
 
 * Se il Pod AGIC non è integro (la `STATUS` colonna del comando precedente non è `Running` ):
-  - ottenere i log per comprendere perché:`kubectl logs <pod-name>`
-  - per l'istanza precedente del Pod:`kubectl logs <pod-name> --previous`
-  - descrivere il pod per ottenere più contesto:`kubectl describe pod <pod-name>`
+  - ottenere i log per comprendere perché: `kubectl logs <pod-name>`
+  - per l'istanza precedente del Pod: `kubectl logs <pod-name> --previous`
+  - descrivere il pod per ottenere più contesto: `kubectl describe pod <pod-name>`
 
 
 * Si dispone di un [servizio](https://kubernetes.io/docs/concepts/services-networking/service/) Kubernetes e di risorse in [ingresso](https://kubernetes.io/docs/concepts/services-networking/ingress/) ?
@@ -224,7 +224,7 @@ Per il corretto funzionamento di AGIC è necessario quanto segue:
 
 
 * AGIC genera eventi Kubernetes per determinati errori critici. È possibile visualizzare i seguenti:
-  - nel terminale tramite`kubectl get events --sort-by=.metadata.creationTimestamp`
+  - nel terminale tramite `kubectl get events --sort-by=.metadata.creationTimestamp`
   - nel browser usando l' [interfaccia utente Web di Kubernetesri (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
@@ -245,7 +245,7 @@ La community di Kubernetes ha stabilito 9 livelli di registrazione per lo strume
 
 I livelli di dettaglio sono regolabili tramite la `verbosityLevel` variabile nel file [Helm-config. YAML](#sample-helm-config-file) . Aumentare il livello di dettaglio a `5` per ottenere la configurazione JSON inviata a [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
   - aggiungere `verbosityLevel: 5` su una riga in [Helm-config. YAML](#sample-helm-config-file) e reinstallare
-  - ottenere i log con`kubectl logs <pod-name>`
+  - ottenere i log con `kubectl logs <pod-name>`
 
 ### <a name="sample-helm-config-file"></a>File di configurazione Helm di esempio
 ```yaml

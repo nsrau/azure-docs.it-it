@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75397461"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Usare le stringhe nelle query di log di Monitoraggio di Azure
@@ -95,7 +95,7 @@ countof(text, search [, kind])
 - `search`: stringa di testo normale o espressione regolare di cui trovare la corrispondenza nel testo.
 - `kind` - _normale_  |  _Regex_ (impostazione predefinita: Normal).
 
-### <a name="returns"></a>Restituisce
+### <a name="returns"></a>Risultati restituiti
 
 Il numero di volte in cui la stringa di ricerca può essere trovata nel contenitore. Le corrispondenze con stringhe di testo normale possono sovrapporsi, mentre quelle con espressioni regolari no.
 
@@ -137,7 +137,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text`: stringa da cercare.
 - `typeLiteral`: valore letterale di tipo facoltativo, ad esempio typeof(long). Se specificato, la sottostringa estratta viene convertita nel tipo.
 
-### <a name="returns"></a>Restituisce
+### <a name="returns"></a>Risultati restituiti
 La sottostringa corrispondente nel gruppo Capture indicato da captureGroup, facoltativamente convertita in typeLiteral.
 Se non ci sono corrispondenze o la conversione del tipo non riesce, restituisce null.
 
@@ -243,7 +243,7 @@ replace(regex, rewrite, input_text)
 - `rewrite`: espressione regolare che sostituisce un'eventuale corrispondenza in base a un'espressione regolare. Usare \0 per fare riferimento all'intera corrispondenza, \1 per il primo gruppo Capture, \2 e così via per i gruppi Capture successivi.
 - `input_text`: stringa di input in cui cercare.
 
-### <a name="returns"></a>Restituisce
+### <a name="returns"></a>Risultati restituiti
 Il testo dopo la sostituzione di tutte le corrispondenze dell'espressione regolare con le valutazioni di rewrite. Le corrispondenze non si sovrappongono.
 
 ### <a name="examples"></a>Esempi
@@ -262,7 +262,7 @@ Attività                                        |valore sostituito
 4663 - È stato effettuato un tentativo di accedere a un oggetto  |Activity ID 4663: È stato effettuato un tentativo di accedere a un oggetto.
 
 
-## <a name="split"></a>split
+## <a name="split"></a>Split
 
 Suddivide una determinata stringa in base a un delimitatore specificato e restituisce una matrice di sottostringhe risultanti.
 

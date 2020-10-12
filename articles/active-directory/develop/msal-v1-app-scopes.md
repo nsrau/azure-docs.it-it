@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536183"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ambiti per un'API Web che accettano i token v 1.0
@@ -64,7 +64,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 La logica usata da Azure AD è la seguente:
 
 - Per l'endpoint ADAL (Azure AD v 1.0) con un token di accesso v 1.0 (l'unico possibile), AUD = Resource
-- Per l'endpoint MSAL (Microsoft Identity Platform (v 2.0)) che richiede un token di accesso per una risorsa che accetta i token v 2.0,`aud=resource.AppId`
+- Per l'endpoint MSAL (Microsoft Identity Platform (v 2.0)) che richiede un token di accesso per una risorsa che accetta i token v 2.0, `aud=resource.AppId`
 - Per MSAL (endpoint v 2.0) che richiede un token di accesso per una risorsa che accetta un token di accesso v 1.0 (ovvero il caso precedente), Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa. Se, pertanto, https: \/ /database.Windows.NET prevede un pubblico di "https: \/ /database.Windows.NET/", è necessario richiedere un ambito di "https: \/ /database.Windows.NET//.default". Vedere anche il problema [di GitHub #747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ambiti per richiedere l'accesso a tutte le autorizzazioni di un'applicazione v1.0

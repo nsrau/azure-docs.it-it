@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
 ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88719700"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Inserire le impostazioni nella configurazione dell'app con Azure Pipelines
@@ -87,7 +87,7 @@ I parametri seguenti vengono usati dall'attività push di configurazione dell'ap
 - **Label**: stringa aggiunta a ogni valore chiave come etichetta all'interno dell'archivio di configurazione dell'app.
 - **Tipo di contenuto**: stringa aggiunta a ogni valore chiave come tipo di contenuto all'interno dell'archivio di configurazione dell'app.
 - **Tags**: un oggetto JSON nel formato `{"tag1":"val1", "tag2":"val2"}` , che definisce i tag aggiunti a ogni chiave-valore inserito nell'archivio di configurazione dell'app.
-- **Elimina tutti gli altri valori chiave nell'archivio con il prefisso e l'etichetta specificati: il**valore predefinito è **deselezionato**.
+- **Elimina tutte le altre Key-Values nell'archivio con il prefisso e l'etichetta specificati: il**valore predefinito è **deselezionato**.
   - **Checked**: rimuove tutti i valori di chiave nell'archivio di configurazione dell'app che corrispondono sia al prefisso specificato che all'etichetta prima di eseguire il push di nuovi valori di chiave dal file di configurazione.
   - **Deselezionato**: inserisce tutti i valori chiave dal file di configurazione nell'archivio di configurazione dell'app e lascia intatto tutto il resto nell'archivio di configurazione dell'app.
 

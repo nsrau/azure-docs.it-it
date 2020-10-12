@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
 ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903190"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Abilitare Azure Arc in un cluster Kubernetes nel dispositivo GPU Pro Azure Stack Edge
@@ -92,7 +92,7 @@ Prima di abilitare Azure Arc sul cluster Kubernetes, è necessario abilitare e r
 
     Per informazioni su come accedere a `az cli` , [avviare Cloud Shell in portale di Azure](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
 
-    Ecco un esempio. 
+    Di seguito è riportato un esempio. 
     
     ```azurecli
     PS /home/user> az ad sp create-for-rbac --skip-assignment --name "https://azure-arc-for-ase-k8s"
@@ -112,7 +112,7 @@ Prima di abilitare Azure Arc sul cluster Kubernetes, è necessario abilitare e r
 
     `az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee <appId-from-service-principal> --scope /subscriptions/<SubscriptionID>/resourceGroups/<Resource-group-name>`
 
-    Ecco un esempio.
+    Di seguito è riportato un esempio.
     
     ```azurecli
     PS /home/user> az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b --scope /subscriptions/062c67a6-019b-40af-a775-c4dc1abe56ed/resourceGroups/myaserg1

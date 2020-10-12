@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145341"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Spostare gli argomenti personalizzati di griglia di eventi di Azure in un'altra area
@@ -38,22 +38,10 @@ Per iniziare, esportare un modello di Gestione risorse per l'argomento personali
     :::image type="content" source="./media/move-custom-topics-across-regions/search-topics.png" alt-text="Cercare e selezionare gli argomenti di griglia di eventi":::
 3. Selezionare l' **argomento** che si vuole esportare in un modello di gestione risorse. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Selezionare l'argomento personalizzato":::   
+    :::image type="content" source="./media/move-custom-topics-across-regions/select-custom-topic.png" alt-text="Cercare e selezionare gli argomenti di griglia di eventi":::   
 4. Nella pagina **argomento della griglia di eventi** selezionare **Esporta modello** in **Impostazioni** nel menu a sinistra e quindi fare clic su **Scarica** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Esporta modello-download >":::   
-
-    > [!IMPORTANT]
-    > Solo l'argomento viene esportato nel modello. Le sottoscrizioni per l'argomento non vengono esportate. È quindi necessario creare sottoscrizioni per l'argomento dopo lo spostamento dell'argomento nell'area di destinazione. 
-5. Individuare il file con **estensione zip** scaricato dal portale e decomprimere il file in una cartella di propria scelta. Questo file zip contiene i file JSON del modello e dei parametri. 
-1. Aprire il **template.js** in un editor di propria scelta. 
-8. Aggiornamento `location` per la risorsa dell' **argomento** nell'area o nella località di destinazione. Per ottenere i codici di località, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Il codice per un'area è il nome dell'area senza spazi, ad esempio, `West US` è uguale a `westus` .
-
-    ```json
-    "type": "Microsoft.EventGrid/topics",
-    "apiVersion": "2020-06-01",
-    "name": "[parameters('topics_mytopic0130_name')]",
-    "location": "westus"
+    :::image type="content" source="./media/move-custom-topics-across-regions/export-template-download.png" alt-text="Cercare e selezionare gli argomenti di griglia di eventi"
     ```
 1. **Salvare** il modello. 
 
@@ -74,14 +62,14 @@ Distribuire il modello per creare un argomento personalizzato nell'area di desti
     1. Per **nome argomento**immettere un nuovo nome per l'argomento. 
     1. Selezionare **Rivedi e crea** nella parte inferiore della pagina. 
     
-        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Distribuzione personalizzata":::
+        :::image type="content" source="./media/move-custom-topics-across-regions/deploy-template.png" alt-text="Cercare e selezionare gli argomenti di griglia di eventi":::
     1. Nella pagina **Verifica e crea** verificare le impostazioni e selezionare **Crea**. 
 
 ## <a name="verify"></a>Verifica
 
 1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**. 
 
-    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Vai alla risorsa":::
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Cercare e selezionare gli argomenti di griglia di eventi":::
 1. Verificare che venga visualizzata la pagina dell' **argomento griglia di eventi** per l'argomento personalizzato.   
 1. Seguire la procedura descritta in [indirizzare gli eventi personalizzati a un endpoint Web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) per inviare eventi all'argomento. Verificare che venga richiamato il gestore eventi del webhook. 
 

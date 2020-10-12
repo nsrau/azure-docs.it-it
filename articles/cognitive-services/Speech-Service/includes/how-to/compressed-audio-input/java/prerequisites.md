@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81422360"
 ---
 La gestione dell'audio compresso viene implementata con [GStreamer](https://gstreamer.freedesktop.org). Per motivi di licenza i binari GStreamer non vengono compilati e collegati con l'SDK di riconoscimento vocale. Sarà invece necessario usare i file binari predefiniti per Android. Per scaricare le librerie predefinite, vedere [installazione per lo sviluppo per Android](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` è obbligatorio. Assicurarsi che i plug-in `libgstreamer_android.so`GStreamer siano collegati.
+`libgstreamer_android.so` è obbligatorio. Assicurarsi che i plug-in GStreamer siano collegati `libgstreamer_android.so` .
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -21,7 +21,7 @@ GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
     opus wavparse alaw mulaw flac
 ```
 
-Di seguito `Android.mk` viene `Application.mk` fornito un esempio e un file. Per creare l' `gstreamer` oggetto condiviso, attenersi alla procedura`libgstreamer_android.so`seguente:.
+Di seguito viene fornito un esempio `Android.mk` e un `Application.mk` file. Per creare l'oggetto condiviso, attenersi alla procedura seguente `gstreamer` : `libgstreamer_android.so` .
 
 ```makefile
 # Android.mk
@@ -108,4 +108,4 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-Una volta compilato l'oggetto`libgstreamer_android.so`condiviso (), lo sviluppatore dell'applicazione deve inserire l'oggetto condiviso nell'app Android, in modo che possa essere caricato da Speech SDK.
+Una volta compilato l'oggetto condiviso ( `libgstreamer_android.so` ), lo sviluppatore dell'applicazione deve inserire l'oggetto condiviso nell'app Android, in modo che possa essere caricato da Speech SDK.
