@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403637"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
@@ -63,7 +63,7 @@ Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azu
    
 + In **Contenitore di archiviazione** occorre specificare l'account di archiviazione e il contenitore oppure una stringa di connessione che si risolve nel contenitore. È possibile ottenere le stringhe di connessione nella pagina del portale del servizio BLOB.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definizione dell'origine dati BLOB" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Comando Importa dati nel portale" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorare la pagina "arricchisci contenuto" della procedura guidata
 
@@ -81,7 +81,7 @@ Per ulteriori informazioni, vedere la descrizione degli [attributi degli indici]
 
 Dedicare qualche momento alla revisione delle selezioni. Con l'esecuzione della procedura guidata vengono create strutture dei dati fisiche e non è possibile eliminare questi campi senza eliminare e ricreare tutti gli oggetti.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definizione di indice BLOB" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Comando Importa dati nel portale" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - Creare l'indicizzatore
 
@@ -89,7 +89,7 @@ Nella sua specifica completa, la procedura guidata crea tre oggetti distinti nel
 
 Se non si ha familiarità con gli indicizzatori, un *indicizzatore* è una risorsa in Azure ricerca cognitiva che esegue la ricerca per indicizzazione di un'origine dati esterna per il contenuto ricercabile. L'output della procedura guidata **Importa dati** è un indicizzatore che esegue la ricerca per indicizzazione dell'origine dati JSON, estrae contenuto ricercabile e lo importa in un indice in ricerca cognitiva di Azure.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definizione di indicizzatore BLOB" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Comando Importa dati nel portale" border="false":::
 
 Fare clic su **OK** per eseguire la procedura guidata e creare tutti gli oggetti. L'indicizzazione inizia immediatamente.
 
@@ -291,7 +291,7 @@ La creazione dell'indicizzatore in Azure ricerca cognitiva attiva l'importazione
 
 I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indicizzatore JSON determina il modo in cui il contenuto BLOB JSON viene analizzato e strutturato in un indice ricerca cognitiva di Azure:
 
-| parsingMode | Descrizione |
+| parsingMode | Description |
 |-------------|-------------|
 | `json`  | Indicizzare ogni BLOB come un singolo documento. Questo è il valore predefinito. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in Azure ricerca cognitiva. |

@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
 ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322603"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemi comuni con la verifica a due fattori e l'account aziendale o dell'istituto di istruzione
@@ -109,7 +109,7 @@ Passaggi facoltativi:
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Si verificano problemi durante l'accesso al dispositivo mobile mentre si è in viaggio
 
-Mentre ci si trova è in una località internazionale, potrebbe risultare più difficile usare un metodo di verifica correlato ai dispositivi mobili, ad esempio l'invio di SMS. È anche possibile che il dispositivo mobile possa comportare addebiti per il roaming. Per questa situazione, è consigliabile usare l'app Microsoft Authenticator, con l'opzione per connettersi a un area sensibile Wi-Fi. Per altre informazioni su come configurare l'app Microsoft Authenticator sul dispositivo mobile, vedere l'articolo [scaricare e installare l'app Microsoft Authenticator](user-help-auth-app-download-install.md) .
+Mentre ci si trova è in una località internazionale, potrebbe risultare più difficile usare un metodo di verifica correlato ai dispositivi mobili, ad esempio l'invio di SMS. È anche possibile che il dispositivo mobile possa comportare addebiti per il roaming. Per questa situazione, è consigliabile usare l'app Microsoft Authenticator, con l'opzione per connettersi a una Wi-Fi area sensibile. Per altre informazioni su come configurare l'app Microsoft Authenticator sul dispositivo mobile, vedere l'articolo [scaricare e installare l'app Microsoft Authenticator](user-help-auth-app-download-install.md) .
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Le password per le app non funzionano
 

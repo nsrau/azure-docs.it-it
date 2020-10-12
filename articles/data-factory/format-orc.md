@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91404723"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC in Azure Data Factory
@@ -105,7 +105,7 @@ La tabella seguente elenca le proprietà supportate da un'origine ORC. È possib
 
 Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `orc` | sì | `orc` | format |
 | Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
@@ -133,7 +133,7 @@ La tabella seguente elenca le proprietà supportate da un sink ORC. È possibile
 
 Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Formato | Il formato deve essere `orc` | sì | `orc` | format |
 | Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |

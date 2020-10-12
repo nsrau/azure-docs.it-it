@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5bcb63a325ca6bbf464faf9c5f9934879ccf9a3
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949661"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurare il server Azure Multi-Factor Authentication per lavorare con AD FS 2.0
@@ -45,10 +45,10 @@ Per proteggere AD FS 2.0 con un proxy, installare il server Azure Multi-Factor A
 
    ![Finestra di autenticazione IIS del server multi-factor authentication](./media/howto-mfaserver-adfs-2/setup1.png)
 
-4. Per rilevare automaticamente le variabili di nome utente, password e dominio, immettere l'URL di accesso, ad esempio, nella finestra di `https://sso.contoso.com/adfs/ls` dialogo Configura automaticamente sito Web basato su form e fare clic su **OK**.
+4. Per rilevare automaticamente le variabili di nome utente, password e dominio, immettere l'URL di accesso, ad esempio, nella finestra di `https://sso.contoso.com/adfs/ls` dialogo Configura automaticamente sito web Form-Based e fare clic su **OK**.
 5. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
 6. Se le variabili di pagina non possono essere rilevate automaticamente, fare clic su **Specifica manualmente...** pulsante nella finestra di dialogo Configura automaticamente sito Web.
-7. Nella finestra di dialogo Aggiungi sito Web basato su form immettere l'URL della pagina di accesso AD FS nel campo URL di invio (ad esempio `https://sso.contoso.com/adfs/ls` ) e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
+7. Nella finestra di dialogo Aggiungi Form-Based sito Web immettere l'URL della pagina di accesso AD FS nel campo URL di invio (ad esempio `https://sso.contoso.com/adfs/ls` ) e immettere un nome di applicazione (facoltativo). Il nome dell'applicazione viene visualizzato nei report di Azure multi-Factor Authentication e potrebbe essere visualizzato all'interno di messaggi di autenticazione dell'App Mobile o SMS.
 8. Impostare il formato della richiesta su **POST o GET**.
 9. Immettere la variabile di nome utente (ctl00$ ContentPlaceHolder1$ UsernameTextBox) e la variabile Password (ctl00$ ContentPlaceHolder1$ PasswordTextBox). Se la pagina di accesso basata su form viene visualizzata una casella di testo di dominio, immettere anche la variabile di dominio. Per individuare i nomi delle caselle di input nella pagina di accesso, passare alla pagina di accesso in un Web browser, fare clic con il pulsante destro del mouse nella pagina e quindi scegliere **Visualizza origine**.
 10. Se tutti gli utenti sono già stati o verranno importati nel server e saranno soggetti alla verifica in due passaggi, selezionare la casella di controllo **Richiedi corrispondenza utente di Multi-Factor Authentication**. Se un numero significativo di utenti non è ancora stato importato nel server e/o non sarà soggetto alla verifica in due passaggi, lasciare deselezionata la casella.
@@ -61,9 +61,9 @@ Per proteggere AD FS 2.0 con un proxy, installare il server Azure Multi-Factor A
     - Memorizzare nella cache le autenticazioni riuscite per il sito Web tramite cookie
     - Selezionare la modalità di autenticazione delle credenziali primarie
 
-12. Poiché il server proxy AD FS non è destinato a essere aggiunto al dominio, è possibile usare LDAP per connettersi al controller di dominio per l'importazione utente e la preautenticazione. Nella finestra di dialogo sito Web avanzato basato su form fare clic sulla scheda **autenticazione primaria** e selezionare **binding LDAP** per il tipo di autenticazione di pre-autenticazione.
+12. Poiché il server proxy AD FS non è destinato a essere aggiunto al dominio, è possibile usare LDAP per connettersi al controller di dominio per l'importazione utente e la preautenticazione. Nella finestra di dialogo sito Web avanzato Form-Based fare clic sulla scheda **autenticazione primaria** e selezionare **binding LDAP** per il tipo di autenticazione di pre-autenticazione.
 13. Al termine, fare clic su **OK** per tornare alla finestra di dialogo Aggiungi sito Web basato su form.
-14. Scegliere **OK** per chiudere la finestra di dialogo.
+14. Fare clic su **OK** per chiudere la finestra di dialogo.
 15. Dopo aver rilevato o immesso le variabili di pagina e URL, i dati del sito Web vengono visualizzati nel pannello Basata su form.
 16. Fare clic sulla scheda **modulo nativo** e selezionare il server, il sito Web in cui viene eseguito il proxy di ad FS (ad esempio "sito Web predefinito") o l'applicazione proxy ad FS (ad esempio "ls" in "ADFS") per abilitare il plug-in di IIS al livello desiderato.
 17. Scegliere la casella **Abilita autenticazione IIS** nella parte superiore della schermata.

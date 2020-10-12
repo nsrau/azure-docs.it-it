@@ -10,10 +10,10 @@ ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322552"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creazione di immagini generalizzate senza un agente di provisioning
