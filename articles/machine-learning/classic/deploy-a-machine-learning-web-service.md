@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91342959"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
@@ -27,7 +27,7 @@ I servizi Web di Machine Learning Studio (classico) forniscono un'interfaccia tr
 
 Azure Machine Learning Studio (versione classica) dispone di due tipi di servizi Web:
 
-* Servizio di richiesta-risposta (RRS): servizio A bassa latenza e scalabilità elevata che assegna un punteggio a un singolo record di dati.
+* Servizio Request-Response (RRS): servizio A bassa latenza e scalabilità elevata che assegna un punteggio a un singolo record di dati.
 * Servizio esecuzione batch (BES): un servizio asincrono che assegna un punteggio a un batch di record di dati.
 
 L'input per BES è simile all'input di dati usato da RRS. La differenza principale è che BES legge un blocco di record da diverse origini, ad esempio un archivio BLOB di Azure, un archivio tabelle di Azure, un database SQL di Azure, HDInsight (query Hive) e origini HTTP.

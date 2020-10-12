@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/1/2020
 ms.openlocfilehash: 8dc70eaeb9e2c2f5d4cdfef37619e4b04217782e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964516"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-configuration-options"></a>Opzioni di configurazione di database di Azure per PostgreSQL – iperscalabilità (CITUS)
@@ -26,7 +26,7 @@ ms.locfileid: "85964516"
 | Memoria per vCore, GiB | 8                     | 4                     |
 | Dimensioni di archiviazione, TiB     | 0,5, 1,2             | 0,5, 1,2             |
 | Tipo di archiviazione          | Utilizzo generico (SSD) | Utilizzo generico (SSD) |
-| IOPS                  | Fino a 3 IOPS/GiB      | Fino a 3 IOPS/GiB      |
+| Operazioni di I/O al secondo                  | Fino a 3 IOPS/GiB      | Fino a 3 IOPS/GiB      |
 
 La quantità totale di RAM in un singolo nodo di iperscala (CITUS) si basa sul numero selezionato di vcore.
 
@@ -79,7 +79,7 @@ I gruppi di server iperscalare (CITUS) sono disponibili nelle aree di Azure segu
     * Stati Uniti orientali
     * Stati Uniti orientali 2
     * Stati Uniti centro-settentrionali
-    * Stati Uniti occidentali 2
+    * West US 2
 * Asia Pacifico:
     * Australia orientale
     * Giappone orientale

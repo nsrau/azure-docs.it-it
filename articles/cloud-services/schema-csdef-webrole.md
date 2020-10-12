@@ -14,10 +14,10 @@ caps.latest.revision: 60
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79535681"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schema WebRole di definizione di Servizi cloud di Azure
@@ -128,7 +128,7 @@ Il file di definizione del servizio include questi elementi, descritti in dettag
 
 [Runtime](#Runtime)
 
-[Ambiente](#Environment)
+[Environment](#Environment)
 
 [Variabile](#Variable)
 
@@ -146,7 +146,7 @@ Il file di definizione del servizio include questi elementi, descritti in dettag
 
 [Associazioni](#Bindings)
 
-[Associazione](#Binding)
+[Binding](#Binding)
 
 [Avvio](#Startup)
 
@@ -158,7 +158,7 @@ Il file di definizione del servizio include questi elementi, descritti in dettag
 
 [SourceDirectory](#SourceDirectory)
 
-##  <a name="webrole"></a><a name="WebRole"></a>WebRole  
+##  <a name="webrole"></a><a name="WebRole"></a> WebRole  
 L'elemento `WebRole` descrive un ruolo che viene personalizzato per la programmazione di applicazioni Web, supportata da IIS 7 e ASP.NET. Un servizio può contenere zero o più ruoli Web.
 
 La tabella seguente descrive gli attributi dell'elemento `WebRole`.
@@ -169,7 +169,7 @@ La tabella seguente descrive gli attributi dell'elemento `WebRole`.
 |enableNativeCodeExecution|boolean|Facoltativa. Il valore predefinito è `true`. L'esecuzione del codice nativo e l'attendibilità totale sono abilitate per impostazione predefinita. Impostare questo attributo su `false` per disabilitare l'esecuzione del codice nativo per il ruolo Web e usare invece l'attendibilità parziale di Azure.|  
 |vmsize|string|Facoltativa. Impostare questo valore per modificare le dimensioni della macchina virtuale assegnata al ruolo. Il valore predefinito è `Small`. Per altre informazioni, vedere [Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).|  
 
-##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a>ConfigurationSettings  
+##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a> ConfigurationSettings  
 L'elemento `ConfigurationSettings` descrive la raccolta delle impostazioni di configurazione per un ruolo Web. Questo è l'elemento padre dell'elemento `Setting`.
 
 ##  <a name="setting"></a>Impostazione di <a name="Setting"></a>  
@@ -183,10 +183,10 @@ La tabella seguente descrive gli attributi dell'elemento `Setting`.
 
 Le impostazioni di configurazione per un ruolo sono coppie di nome e valore dichiarate nel file di definizione del servizio e impostate nel file di configurazione del servizio.
 
-##  <a name="localresources"></a><a name="LocalResources"></a>LocalResources  
+##  <a name="localresources"></a><a name="LocalResources"></a> LocalResources  
 L'elemento `LocalResources` descrive la raccolta delle risorse di archiviazione locali per un ruolo Web. Questo è l'elemento padre dell'elemento `LocalStorage`.
 
-##  <a name="localstorage"></a><a name="LocalStorage"></a>LocalStorage  
+##  <a name="localstorage"></a><a name="LocalStorage"></a> LocalStorage  
 L'elemento `LocalStorage` identifica una risorsa di archiviazione locale che fornisce lo spazio del file system per il servizio in fase di esecuzione. Un ruolo può definire zero o più risorse di archiviazione locali.
 
 > [!NOTE]
@@ -198,11 +198,11 @@ La tabella seguente descrive gli attributi dell'elemento `LocalStorage`.
 | --------- | ---- | ----------- |  
 |name|string|Obbligatorio. Nome univoco per l'archivio locale.|  
 |cleanOnRoleRecycle|boolean|Facoltativa. Indica se l'archivio locale deve essere pulito quando il ruolo viene riavviato. Il valore predefinito è `true`.|  
-|sizeInMb|INT|Facoltativa. Quantità desiderata di spazio di archiviazione da allocare per l'archivio locale, in MB. Se non specificato, lo spazio di archiviazione predefinito allocato è 100 MB. La quantità minima di spazio di archiviazione che può essere allocato è 1 MB.<br /><br /> Le dimensioni massime delle risorse locali dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).|  
+|sizeInMb|int|Facoltativa. Quantità desiderata di spazio di archiviazione da allocare per l'archivio locale, in MB. Se non specificato, lo spazio di archiviazione predefinito allocato è 100 MB. La quantità minima di spazio di archiviazione che può essere allocato è 1 MB.<br /><br /> Le dimensioni massime delle risorse locali dipendono dalle dimensioni della macchina virtuale. Per altre informazioni, vedere [Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).|  
   
 Il nome della directory allocata alla risorsa di archiviazione locale corrisponde al valore specificato per l'attributo name.
 
-##  <a name="endpoints"></a><a name="Endpoints"></a> Endpoint  
+##  <a name="endpoints"></a><a name="Endpoints"></a> Endpoints  
 L'elemento `Endpoints` descrive la raccolta degli endpoint di input (esterni), interni e di input dell'istanza per un ruolo. Questo è l'elemento padre degli elementi `InputEndpoint`, `InternalEndpoint` e `InstanceInputEndpoint`.
 
 Gli endpoint di input e interni vengono allocati separatamente. Un servizio può avere un totale di 25 endpoint di input, interni e di input dell'istanza che possono essere allocati nei 25 ruoli consentiti in un servizio. Con 5 ruoli, ad esempio, è possibile allocare 5 endpoint di input per ruolo, 25 endpoint di input a un singolo ruolo oppure 1 endpoint di input a ognuno dei 25 ruoli.
@@ -223,11 +223,11 @@ La tabella seguente descrive gli attributi dell'elemento `InputEndpoint`.
 |protocol|string|Obbligatorio. Protocollo di trasporto per l'endpoint esterno. Per un ruolo Web, i possibili valori sono `HTTP`, `HTTPS`, `UDP` o `TCP`.|  
 |port|INT|Obbligatorio. Porta per l'endpoint esterno. È possibile specificare qualsiasi numero di porta scelto, ma i numeri di porta specificati per ogni ruolo nel servizio devono essere univoci.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
 |certificato|string|Obbligatorio per un endpoint HTTPS. Nome di un certificato definito da un elemento `Certificate`.|  
-|localPort|INT|Facoltativa. Specifica una porta usata per le connessioni interne nell'endpoint. L'attributo `localPort` esegue il mapping della porta esterna nell'endpoint a una porta interna in un ruolo. È utile negli scenari in cui un ruolo deve comunicare con un componente interno su una porta diversa da quella esposta esternamente.<br /><br /> Se non specificato, il valore di `localPort` è lo stesso dell'attributo `port`. Impostare il valore di `localPort` su "*" per assegnare automaticamente una porta non allocata individuabile usando l'API di runtime.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `localPort` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|  
+|localPort|int|Facoltativa. Specifica una porta usata per le connessioni interne nell'endpoint. L'attributo `localPort` esegue il mapping della porta esterna nell'endpoint a una porta interna in un ruolo. È utile negli scenari in cui un ruolo deve comunicare con un componente interno su una porta diversa da quella esposta esternamente.<br /><br /> Se non specificato, il valore di `localPort` è lo stesso dell'attributo `port`. Impostare il valore di `localPort` su "*" per assegnare automaticamente una porta non allocata individuabile usando l'API di runtime.<br /><br /> I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).<br /><br /> L'attributo `localPort` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.|  
 |ignoreRoleInstanceStatus|boolean|Facoltativa. Quando il valore di questo attributo è impostato su `true`, lo stato di un servizio viene ignorato e l'endpoint non verrà rimosso dal servizio di bilanciamento del carico. Impostare questo valore su `true` è utile per il eseguire il debug delle istanze occupate di un servizio. Il valore predefinito è `false`. **Nota:**  Un endpoint può comunque ricevere traffico anche quando lo stato del ruolo non è pronto.|  
 |loadBalancerProbe|string|Facoltativa. Nome del probe di bilanciamento del carico associato all'endpoint di input. Per altre informazioni, vedere [Schema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|  
 
-##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a>InternalEndpoint  
+##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a> InternalEndpoint  
 L'elemento `InternalEndpoint` descrive un endpoint interno per un ruolo Web. Un endpoint interno è disponibile solo per le altre istanze del ruolo in esecuzione nel servizio. Non è disponibile per i client esterni al servizio. I ruoli Web che non includono l'elemento `Sites` possono avere un solo endpoint interno HTTP, UDP o TCP.
 
 La tabella seguente descrive gli attributi dell'elemento `InternalEndpoint`.
@@ -248,15 +248,15 @@ La tabella seguente descrive gli attributi dell'elemento `InstanceInputEndpoint`
 | Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |name|string|Obbligatorio. Nome univoco per l'endpoint.|  
-|localPort|INT|Obbligatorio. Specifica la porta interna su cui tutte le istanze del ruolo saranno in ascolto per ricevere il traffico in ingresso inoltrato dal servizio di bilanciamento del carico. I possibili valori sono compresi tra 1 e 65535 inclusi.|  
+|localPort|int|Obbligatorio. Specifica la porta interna su cui tutte le istanze del ruolo saranno in ascolto per ricevere il traffico in ingresso inoltrato dal servizio di bilanciamento del carico. I possibili valori sono compresi tra 1 e 65535 inclusi.|  
 |protocol|string|Obbligatorio. Protocollo di trasporto per l'endpoint interno. I possibili valori sono `udp` o `tcp`. Usare `tcp` per il traffico basato su http/https.|  
   
-##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a>AllocatePublicPortFrom  
+##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom  
 L'elemento `AllocatePublicPortFrom` descrive l'intervallo di porte pubbliche che può essere usato dai clienti esterni per accedere a ogni endpoint di input dell'istanza. Il numero di porta pubblica (indirizzo VIP) viene allocato da questo intervallo e assegnato a ogni singolo endpoint di istanza del ruolo durante la distribuzione e l'aggiornamento del tenant. Questo è l'elemento padre dell'elemento `FixedPortRange`.
 
 L'elemento `AllocatePublicPortFrom` è disponibile solo se si usa Azure SDK versione 1.7 o successiva.
 
-##  <a name="fixedport"></a><a name="FixedPort"></a>FixedPort  
+##  <a name="fixedport"></a><a name="FixedPort"></a> FixedPort  
 L'elemento `FixedPort` specifica la porta per l'endpoint interno, che abilita le connessioni con bilanciamento del carico sull'endpoint.
 
 L'elemento `FixedPort` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -279,13 +279,13 @@ La tabella seguente descrive gli attributi dell'elemento `FixedPortRange`.
 
 | Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
-|min|INT|Obbligatorio. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
+|Min|int|Obbligatorio. Numero di porta minimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
 |max|string|Obbligatorio. Numero di porta massimo nell'intervallo. I possibili valori sono compresi tra 1 e 65535 inclusi (Azure SDK versione 1.7 o successiva).|  
 
 ##  <a name="certificates"></a><a name="Certificates"></a> Certificati  
 L'elemento `Certificates` descrive la raccolta dei certificati per un ruolo Web. Questo è l'elemento padre dell'elemento `Certificate`. A un ruolo può essere associato un numero qualsiasi di certificati. Per altre informazioni sull'uso dell'elemento certificates, vedere [Modificare il file di definizione del servizio con un certificato](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
 
-##  <a name="certificate"></a><a name="Certificate"></a>Certificato  
+##  <a name="certificate"></a><a name="Certificate"></a> Certificato  
 L'elemento `Certificate` descrive un certificato associato a un ruolo Web.
 
 La tabella seguente descrive gli attributi dell'elemento `Certificate`.
@@ -297,12 +297,12 @@ La tabella seguente descrive gli attributi dell'elemento `Certificate`.
 |storeName|string|Obbligatorio. Nome dell'archivio certificati in cui si trova questo certificato sul computer locale. I possibili valori includono i nomi di archivio predefiniti `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook` o i nomi di archivio personalizzati. Se viene specificato un nome di archivio personalizzato, l'archivio viene creato automaticamente.|  
 |permissionLevel|string|Facoltativa. Specifica le autorizzazioni di accesso concesse ai processi di ruolo. Per consentire solo ai processi con privilegi elevati di accedere alla chiave privata, specificare l'autorizzazione `elevated`. L'autorizzazione `limitedOrElevated` consente a tutti i processi di ruolo di accedere alla chiave privata. I possibili valori sono `limitedOrElevated` o `elevated`. Il valore predefinito è `limitedOrElevated`.|  
 
-##  <a name="imports"></a><a name="Imports"></a>Importazioni  
+##  <a name="imports"></a><a name="Imports"></a> Importazioni  
 L'elemento `Imports` descrive una raccolta dei moduli di importazione per un ruolo Web, che aggiungono componenti al sistema operativo guest. Questo è l'elemento padre dell'elemento `Import`. Questo elemento è facoltativo e un ruolo può avere un solo blocco di importazioni. 
 
 L'elemento `Imports` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
 
-##  <a name="import"></a><a name="Import"></a>Importare  
+##  <a name="import"></a><a name="Import"></a> Importare  
 L'elemento `Import` specifica un modulo da aggiungere al sistema operativo guest.
 
 L'elemento `Import` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -313,7 +313,7 @@ La tabella seguente descrive gli attributi dell'elemento `Import`.
 | --------- | ---- | ----------- |  
 |moduleName|string|Obbligatorio. Nome del modulo da importare. I moduli di importazione validi sono:<br /><br /> -   RemoteAccess<br />-   RemoteForwarder<br />-   Diagnostics<br /><br /> I moduli RemoteAccess e RemoteForwarder consentono di configurare l'istanza del ruolo per le connessioni desktop remote. Per altre informazioni, vedere [Abilitare una connessione Desktop remoto](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Il modulo Diagnostics consente di raccogliere dati di diagnostica per un'istanza del ruolo.|  
 
-##  <a name="runtime"></a><a name="Runtime"></a>Runtime  
+##  <a name="runtime"></a><a name="Runtime"></a> Runtime  
 L'elemento `Runtime` descrive una raccolta di impostazioni di variabile di ambiente per un ruolo Web, che controllano l'ambiente di runtime del processo host di Azure. Questo è l'elemento padre dell'elemento `Environment`. Questo elemento è facoltativo e un ruolo può avere un solo blocco di runtime.
 
 L'elemento `Runtime` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -324,10 +324,10 @@ La tabella seguente descrive gli attributi dell'elemento `Runtime`:
 | --------- | ---- | ----------- |  
 |executionContext|string|Facoltativa. Specifica il contesto in cui viene avviato il processo del ruolo. Il contesto predefinito è `limited`.<br /><br /> -   `limited`: il processo viene avviato senza privilegi di amministratore.<br />-   `elevated`: il processo viene avviato con privilegi di amministratore.|  
 
-##  <a name="environment"></a><a name="Environment"></a>Ambiente  
+##  <a name="environment"></a><a name="Environment"></a> Ambiente  
 L'elemento `Environment` descrive una raccolta delle impostazioni di variabile di ambiente per un ruolo Web. Questo è l'elemento padre dell'elemento `Variable`. Un ruolo può avere un numero qualsiasi di variabili di ambiente impostate.
 
-##  <a name="variable"></a><a name="Variable"></a>Variabile  
+##  <a name="variable"></a><a name="Variable"></a> Variabile  
 L'elemento `Variable` specifica una variabile di ambiente da impostare nel sistema operativo guest.
 
 L'elemento `Variable` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -348,7 +348,7 @@ La tabella seguente descrive gli attributi dell'elemento `RoleInstanceValue`.
 | --------- | ---- | ----------- |  
 |xpath|string|Facoltativa. Percorso delle impostazioni di distribuzione per l'istanza. Per altre informazioni, vedere [Variabili di configurazione con XPath](cloud-services-role-config-xpath.md).<br /><br /> È necessario includere un attributo value o un elemento `RoleInstanceValue`.|  
 
-##  <a name="entrypoint"></a><a name="EntryPoint"></a>EntryPoint  
+##  <a name="entrypoint"></a><a name="EntryPoint"></a> EntryPoint  
 L'elemento `EntryPoint` specifica il punto di ingresso per un ruolo. Questo è l'elemento padre degli elementi `NetFxEntryPoint`. Questi elementi consentono di specificare un'applicazione diversa da quella predefinita WaWorkerHost.exe, che deve fungere da punto di ingresso di un ruolo.
 
 L'elemento `EntryPoint` è disponibile solo se si usa Azure SDK versione 1.5 o successiva.
@@ -366,12 +366,12 @@ La tabella seguente descrive gli attributi dell'elemento `NetFxEntryPoint`.
 |assemblyName|string|Obbligatorio. Percorso e nome file dell'assembly contenente il punto di ingresso. Il percorso è relativo alla cartella ** \\ %ROLEROOT%\Approot** (non specificare ** \\ %ROLEROOT%\Approot** in `commandLine` , si presuppone). **%ROLEROOT%** è una variabile di ambiente gestita da Azure e rappresenta la posizione della cartella radice per il ruolo. La cartella ** \\ %ROLEROOT%\Approot** rappresenta la cartella dell'applicazione per il ruolo.<br /><br /> Per i ruoli HWC il percorso è sempre relativo alla cartella ** \\ %ROLEROOT%\Approot\bin** .<br /><br /> Per i ruoli Web completi di IIS e IIS Express, se non è possibile trovare l'assembly rispetto alla cartella ** \\ %ROLEROOT%\Approot** , viene eseguita la ricerca di ** \\ %ROLEROOT%\Approot\bin** .<br /><br /> Questo comportamento di fallback per IIS completo non è una procedura consigliata e potrebbe essere rimosso nelle versioni future.|  
 |targetFrameworkVersion|string|Obbligatorio. Versione di .NET Framework in cui è stato compilato l'assembly, Ad esempio: `targetFrameworkVersion="v4.0"`.|  
 
-##  <a name="sites"></a><a name="Sites"></a>Siti  
+##  <a name="sites"></a><a name="Sites"></a> Siti  
 L'elemento `Sites` descrive una raccolta dei siti Web e delle applicazioni Web ospitati in un ruolo Web. Questo è l'elemento padre dell'elemento `Site`. Se non si specifica un elemento `Sites`, il ruolo Web viene ospitato come ruolo Web legacy ed è possibile avere un solo sito Web ospitato nel ruolo Web. Questo elemento è facoltativo e un ruolo può avere un solo blocco di siti.
 
 L'elemento `Sites` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
 
-##  <a name="site"></a><a name="Site"></a>Sito  
+##  <a name="site"></a><a name="Site"></a> Sito  
 L'elemento `Site` specifica un sito Web o un'applicazione Web che fa parte del ruolo Web.
 
 L'elemento `Site` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -395,7 +395,7 @@ La tabella seguente descrive gli attributi dell'elemento `VirtualApplication`.
 |name|string|Obbligatorio. Specifica un nome per identificare l'applicazione virtuale.|  
 |physicalDirectory|string|Obbligatorio. Specifica il percorso nel computer di sviluppo che contiene l'applicazione virtuale. Nell'emulatore di calcolo IIS è configurato per recuperare il contenuto da questa posizione. Quando si esegue la distribuzione in Azure, i contenuti della directory fisica vengono inseriti nel pacchetto con il resto del servizio. Quando il pacchetto servizio viene distribuito in Azure, IIS viene configurato con la posizione dei contenuti decompressi.|  
 
-##  <a name="virtualdirectory"></a><a name="VirtualDirectory"></a>VirtualDirectory  
+##  <a name="virtualdirectory"></a><a name="VirtualDirectory"></a> VirtualDirectory  
 L'elemento `VirtualDirectory` specifica un nome di directory (detto anche percorso) specificato in IIS ed esegue il mapping a una directory fisica su un server locale o remoto.
 
 L'elemento `VirtualDirectory` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -405,14 +405,14 @@ La tabella seguente descrive gli attributi dell'elemento `VirtualDirectory`.
 | Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
 |name|string|Obbligatorio. Specifica un nome per identificare la directory virtuale.|  
-|Valore|physicalDirectory|Obbligatorio. Specifica il percorso nel computer di sviluppo che include i contenuti del sito Web o della directory virtuale. Nell'emulatore di calcolo IIS è configurato per recuperare il contenuto da questa posizione. Quando si esegue la distribuzione in Azure, i contenuti della directory fisica vengono inseriti nel pacchetto con il resto del servizio. Quando il pacchetto servizio viene distribuito in Azure, IIS viene configurato con la posizione dei contenuti decompressi.|  
+|value|physicalDirectory|Obbligatorio. Specifica il percorso nel computer di sviluppo che include i contenuti del sito Web o della directory virtuale. Nell'emulatore di calcolo IIS è configurato per recuperare il contenuto da questa posizione. Quando si esegue la distribuzione in Azure, i contenuti della directory fisica vengono inseriti nel pacchetto con il resto del servizio. Quando il pacchetto servizio viene distribuito in Azure, IIS viene configurato con la posizione dei contenuti decompressi.|  
 
-##  <a name="bindings"></a><a name="Bindings"></a>Associazioni  
+##  <a name="bindings"></a><a name="Bindings"></a> Associazioni  
 L'elemento `Bindings` descrive una raccolta di associazioni per un sito Web. Si tratta dell'elemento padre dell'elemento `Binding`. L'elemento è obbligatorio per ogni elemento `Site`. Per altre informazioni sulla configurazione degli endpoint, vedere [Abilitare la comunicazione delle istanze del ruolo](cloud-services-enable-communication-role-instances.md).
 
 L'elemento `Bindings` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
 
-##  <a name="binding"></a><a name="Binding"></a>Associazione  
+##  <a name="binding"></a><a name="Binding"></a> Associazione  
 L'elemento `Binding` specifica le informazioni di configurazione necessarie per la comunicazione tra le richieste e un sito Web o un'applicazione Web.
 
 L'elemento `Binding` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -423,16 +423,16 @@ L'elemento `Binding` è disponibile solo se si usa Azure SDK versione 1.3 o succ
 |endpointName|string|Obbligatorio. Specifica il nome dell'endpoint con cui eseguire l'associazione.|  
 |hostHeader|string|Facoltativa. Specifica un nome host che consente di ospitare più siti, con nomi host diversi, in un'unica combinazione di indirizzo IP/ numero di porta.|  
 
-##  <a name="startup"></a><a name="Startup"></a>Avvio  
+##  <a name="startup"></a><a name="Startup"></a> Avvio  
 L'elemento `Startup` descrive una raccolta di attività eseguite quando il ruolo viene avviato. Questo può essere l'elemento padre dell'elemento `Variable`. Per altre informazioni sull'uso delle attività di avvio del ruolo, vedere [Come configurare attività di avvio](cloud-services-startup-tasks.md). Questo elemento è facoltativo e un ruolo può avere un solo blocco di avvio.
 
 La tabella seguente descrive l'attributo dell'elemento `Startup`.
 
 | Attributo | Type | Descrizione |  
 | --------- | ---- | ----------- |  
-|priority|INT|Solo per uso interno.|  
+|priority|int|Solo per uso interno.|  
 
-##  <a name="task"></a><a name="Task"></a>Attività  
+##  <a name="task"></a><a name="Task"></a> Attività  
 L'elemento `Task` specifica l'attività di avvio eseguita quando il ruolo viene avviato. Le attività di avvio possono essere usate per eseguire attività che preparano il ruolo a eseguire tali componenti software di installazione o altre applicazioni. Le attività vengono eseguite nell'ordine in cui sono visualizzate nel blocco dell'elemento `Startup`.
 
 L'elemento `Task` è disponibile solo se si usa Azure SDK versione 1.3 o successiva.
@@ -445,7 +445,7 @@ La tabella seguente descrive gli attributi dell'elemento `Task`.
 |executionContext|string|Specifica il contesto in cui viene eseguito lo script.<br /><br /> -   `limited` [impostazione predefinita]: viene eseguito con gli stessi privilegi del ruolo che ospita il processo.<br />-   `elevated`: viene eseguito con privilegi di amministratore.|  
 |taskType|string|Specifica il comportamento di esecuzione del comando.<br /><br /> -   `simple` [impostazione predefinita]: il sistema attende la fine dell'attività prima che vengano avviate altre attività.<br />-   `background`: il sistema non attende la fine dell'attività.<br />-   `foreground`: simile a background, ma il ruolo viene riavviato solo dopo la fine di tutte le attività in primo piano.|  
 
-##  <a name="contents"></a><a name="Contents"></a>Contenuto  
+##  <a name="contents"></a><a name="Contents"></a> Contenuto  
 L'elemento `Contents` descrive la raccolta dei contenuti per un ruolo Web. Questo è l'elemento padre dell'elemento `Content`.
 
 L'elemento `Contents` è disponibile solo se si usa Azure SDK versione 1.5 o successiva.
@@ -463,7 +463,7 @@ La tabella seguente descrive gli attributi dell'elemento `Content`.
 
 Questo è l'elemento padre dell'elemento `SourceDirectory`.
 
-##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a>SourceDirectory  
+##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a> SourceDirectory  
 L'elemento `SourceDirectory` definisce la directory locale da cui il contenuto viene copiato. Usare questo elemento per specificare i contenuti locali da copiare nella macchina virtuale di Azure.
 
 L'elemento `SourceDirectory` è disponibile solo se si usa Azure SDK versione 1.5 o successiva.

@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.openlocfilehash: 79b5f4492d05880e263f8d489a64ba0cc218d355
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86223398"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Informazioni sugli stati di integrità e risoluzione dei domini sospesi in Azure Active Directory Domain Services
@@ -34,14 +34,14 @@ Un dominio gestito può trovarsi in uno degli Stati seguenti:
 
 * [Running](#running-state)
 * [Richiede attenzione](#needs-attention-state)
-* [Suspended](#suspended-state)
+* [Sospeso](#suspended-state)
 * [Eliminata](#deleted-state)
 
 ## <a name="running-state"></a>Stato di esecuzione
 
 Un dominio gestito configurato correttamente e senza problemi è nello stato in *esecuzione* . Si tratta dello stato desiderato per un dominio gestito.
 
-### <a name="what-to-expect"></a>Cosa aspettarsi
+### <a name="what-to-expect"></a>Risultati previsti
 
 * La piattaforma Azure può monitorare regolarmente l'integrità del dominio gestito.
 * I controller di dominio per il dominio gestito vengono corretti e aggiornati regolarmente.
@@ -58,7 +58,7 @@ Un esempio di avviso è costituito da un gruppo di sicurezza di rete restrittivo
 
 Per ulteriori informazioni, vedere [come risolvere i problemi relativi agli avvisi per un dominio gestito][resolve-alerts].
 
-### <a name="what-to-expect"></a>Cosa aspettarsi
+### <a name="what-to-expect"></a>Risultati previsti
 
 Quando un dominio gestito è nello stato *richiesta attenzione* , la piattaforma Azure potrebbe non essere in grado di monitorare, applicare patch, aggiornare o eseguire il backup dei dati a intervalli regolari. In alcuni casi, come una configurazione di rete non valida, è possibile che i controller di dominio per il dominio gestito non siano raggiungibili.
 
@@ -79,7 +79,7 @@ Un dominio gestito entra nello stato **suspended** per uno dei seguenti motivi:
 
 I domini gestiti vengono sospesi quando la piattaforma Azure non è in grado di gestire, monitorare, applicare patch o eseguire il backup del dominio. Un dominio gestito rimane in stato *sospeso* per 15 giorni. Per mantenere l'accesso al dominio gestito, risolvere immediatamente gli avvisi critici.
 
-### <a name="what-to-expect"></a>Cosa aspettarsi
+### <a name="what-to-expect"></a>Risultati previsti
 
 Quando un dominio gestito si trova nello stato *suspended* , si verifica il comportamento seguente:
 
@@ -110,7 +110,7 @@ Dopo aver risolto gli avvisi quando il dominio gestito si trova nello stato *sus
 
 Se un dominio gestito rimane in stato *sospeso* per 15 giorni, viene eliminato. Questo processo è irreversibile.
 
-### <a name="what-to-expect"></a>Cosa aspettarsi
+### <a name="what-to-expect"></a>Risultati previsti
 
 Quando un dominio gestito entra nello stato *eliminato* , viene visualizzato il comportamento seguente:
 

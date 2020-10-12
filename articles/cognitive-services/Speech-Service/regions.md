@@ -12,10 +12,10 @@ ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749302"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
@@ -59,7 +59,7 @@ Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono 
 | America del Nord | Stati Uniti orientali 2        | `eastus2`            |
 | America del Nord | Stati Uniti centro-meridionali | `southcentralus`     |
 | America del Nord | Stati Uniti centro-occidentali  | `westcentralus`      |
-| America del Nord | Stati Uniti occidentali          | `westus`             |
+| America del Nord | Stati Uniti Occidentali          | `westus`             |
 | America del Nord | West US 2        | `westus2`            |
 | America del Sud | Brasile meridionale     | `brazilsouth`        |
 

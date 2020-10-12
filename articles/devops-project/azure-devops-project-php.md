@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare una pipeline CI/CD per PHP con Azure DevOps Starter'
+title: 'Avvio rapido: Creare una pipeline CI/CD per PHP con Azure DevOps Starter'
 description: DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -14,15 +14,15 @@ ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82233789"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Creare una pipeline CI/CD per PHP con Azure DevOps Starter
 
-Azure DevOps Starter presenta un'esperienza semplificata che consente di creare risorse di Azure e di configurare una pipeline di integrazione continua e recapito continuo (CD) per l'app PHP in Azure Pipelines.  
+Azure DevOps Starter offre un'esperienza semplificata per la creazione di risorse di Azure e la configurazione di una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app PHP in Azure Pipelines.  
 
 Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -52,19 +52,19 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
     
     1. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'applicazione, quindi selezionare **Fine**.  
     
-    Dopo alcuni minuti, il dashboard iniziale di DevOps viene visualizzato nella portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.  
+    Dopo alcuni minuti, il dashboard di DevOps Starter viene visualizzato nel portale di Azure. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.  
         
 2. Selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
 
     ![Visualizzazione dashboard](_img/azure-devops-project-php/dashboardnopreview.png) 
     
-   DevOps Starter ha configurato automaticamente un trigger di compilazione e rilascio CI.  A questo punto, si è pronti per collaborare con un team a un'app PHP con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
+   DevOps Starter configura automaticamente un trigger di compilazione e di versione di integrazione continua.  A questo punto, si è pronti per collaborare con un team a un'app PHP con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD
 
  DevOps Starter crea un repository GIT in Azure Repos o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'applicazione, seguire questa procedura:
 
-1. Nella parte sinistra del dashboard di DevOps Starter selezionare il collegamento per il ramo master. Questo collegamento apre una visualizzazione del repository Git appena creato.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo master. Questo collegamento apre una visualizzazione del repository Git appena creato.
 
 1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra nel browser. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo master.
 
@@ -78,11 +78,11 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 ## <a name="examine-the-cicd-pipeline"></a>Esaminare la pipeline CI/CD
 
- DevOps Starter configura automaticamente una pipeline di integrazione continua/recapito continuo completa in Azure Pipelines. Esplorare e personalizzare la pipeline in base alle esigenze. Per acquisire familiarità con le pipeline di compilazione e di versione eseguire questa procedura:
+ DevOps Starter configura automaticamente una pipeline CI/CD completa in Azure Pipelines. Esplorare e personalizzare la pipeline in base alle esigenze. Per acquisire familiarità con le pipeline di compilazione e di versione eseguire questa procedura:
 
 1. Selezionare **Pipeline di compilazione** nel dashboard di DevOps Starter. Questo collegamento apre una scheda del browser e la pipeline di compilazione per il nuovo progetto.
 
-1. Puntare al campo **stato** , quindi selezionare i **puntini** di sospensione (...). In un menu vengono visualizzate diverse opzioni, ad esempio l'accodamento di una nuova compilazione, la sospensione di una compilazione e la modifica della pipeline di compilazione.
+1. Puntare al campo **Stato** e quindi selezionare i **puntini di sospensione** (...). Un menu mostra diverse opzioni, ad esempio accodare una nuova compilazione, sospendere una compilazione e modificare la pipeline di compilazione.
 
 1. Selezionare **Modifica**.
 
@@ -90,11 +90,11 @@ Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una grat
 
 1. Nella parte superiore della pipeline di compilazione selezionare il nome della pipeline di compilazione.
 
-1. Modificare il nome della pipeline di compilazione con un nome più descrittivo, selezionare, **salvare & coda**, quindi selezionare **Salva**.
+1. Modificare il nome della pipeline di compilazione scegliendo un testo più descrittivo, selezionare **Salva e accoda**, quindi selezionare **Salva**.
 
 1. Sotto il nome della pipeline di compilazione selezionare **Cronologia**.  Il riquadro **Cronologia** mostra un log di controllo delle modifiche recenti per la compilazione. Azure Pipelines tiene traccia di tutte le modifiche apportate alla pipeline di compilazione e consente di confrontare le versioni.
 
-1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger CI e ogni commit nel repository avvia una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+1. Selezionare **Trigger**. DevOps Starter crea automaticamente un trigger di integrazione continua e ogni commit nel repository avvia una nuova compilazione. Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 1. Selezionare **Conservazione**. A seconda dello scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 

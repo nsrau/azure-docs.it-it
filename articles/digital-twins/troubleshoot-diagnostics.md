@@ -8,10 +8,10 @@ ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723929"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: registrazione diagnostica
@@ -49,7 +49,7 @@ Ecco come abilitare le impostazioni di diagnostica per l'istanza di Azure Digita
     
 4. Salvare le nuove impostazioni. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot che mostra la pagina delle impostazioni di diagnostica in cui l'utente ha compilato il nome di un'impostazione di diagnostica ed eseguito alcune selezioni della casella di controllo per i dettagli della categoria e la destinazione. Il pulsante Salva è evidenziato.":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot che mostra la pagina delle impostazioni di diagnostica e il pulsante per aggiungere":::
 
 Le nuove impostazioni diventano effettive in circa 10 minuti. Successivamente, i log vengono visualizzati nella destinazione configurata di nuovo nella pagina **impostazioni di diagnostica** per l'istanza. 
 
@@ -70,7 +70,7 @@ Ogni categoria di log è costituita da operazioni di scrittura, lettura, elimina
 | --- | --- |
 | Scrittura | PUT e PATCH |
 | Lettura | GET |
-| Delete | DELETE |
+| Elimina | DELETE |
 | Azione | POST |
 
 Ecco un elenco completo delle operazioni e delle [chiamate API REST di Azure Digital gemelle](https://docs.microsoft.com/rest/api/azure-digitaltwins/) corrispondenti registrate in ogni categoria. 
@@ -106,7 +106,7 @@ Questo schema del registro è coerente per `ADTDigitalTwinsOperation` , `ADTMode
 
 Di seguito sono riportate le descrizioni dei campi e delle proprietà per i log API.
 
-| Nome campo | Tipo di dati | Descrizione |
+| Nome del campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceID` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |
@@ -192,7 +192,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
 
 Si tratta dello schema per i `ADTEventRoutesOperation` log. Sono inclusi i dettagli relativi alle eccezioni e le operazioni API relative agli endpoint in uscita connessi a un'istanza di dispositivi gemelli digitali di Azure.
 
-|Nome campo | Tipo di dati | Descrizione |
+|Nome del campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceId` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |

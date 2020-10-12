@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: b470fa72518f805c10403931280bdec96bda0fbe
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226540"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Baseline della sicurezza di Azure per il gateway applicazione Azure
@@ -983,7 +983,7 @@ Configurare le impostazioni di diagnostica per le distribuzioni di applicazione 
 
 **Linee guida**: applicazione Azure gateway non archivia i dati dei clienti. Tuttavia, se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-Azure DevOps Services sfrutta molte delle funzionalità di archiviazione di Azure per garantire la disponibilità dei dati in caso di errori hardware, interruzioni del servizio o situazioni di emergenza. Inoltre, il team di Azure DevOps segue le procedure per proteggere i dati da eliminazioni accidentali o dannose.
+Azure DevOps Services sfrutta molte funzionalità di archiviazione di Azure per garantire la disponibilità dei dati in caso di errori hardware, interruzioni del servizio o situazioni di emergenza nell'area. Per di più, il team di Azure DevOps segue le procedure per proteggere i dati da eliminazioni accidentali o dannose.
 
 * [Informazioni sulla disponibilità dei dati in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 

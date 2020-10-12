@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
 ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009655"
 ---
 È possibile che l'organizzazione richieda azioni aggiuntive da proprietari/amministratori delle sottoscrizioni per configurare correttamente la registrazione di un'app (e quindi per completare la configurazione di un'istanza di Azure Digital Twins utilizzabile). I passaggi necessari possono variare a seconda delle impostazioni specifiche dell'organizzazione.
@@ -20,7 +20,7 @@ Di seguito sono riportate alcune possibili attività comuni che un proprietario 
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Visualizzazione del portale del pulsante ' concedi il consenso dell'amministratore ' in autorizzazioni API":::
   - Se il consenso è stato concesso correttamente, la voce per i dispositivi gemelli digitali di Azure dovrebbe visualizzare un valore di *stato* _concesso per **(la società)** _
    
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Visualizzazione del portale del consenso dell'amministratore concesso per la società in autorizzazioni API":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Visualizzazione del portale del pulsante ' concedi il consenso dell'amministratore ' in autorizzazioni API":::
 * Attivare l'accesso client pubblico
 * Impostare URL di risposta specifici per l'accesso Web e desktop
 * Consenti i flussi di autenticazione OAuth2 impliciti

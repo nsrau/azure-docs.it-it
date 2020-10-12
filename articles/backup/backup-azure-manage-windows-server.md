@@ -4,10 +4,10 @@ description: Questo articolo illustra come usare il dashboard di panoramica dell
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: 74351d781287d863db8be0fc7d20517e0479106c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89002131"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorare e gestire insiemi di credenziali di Servizi di ripristino
@@ -216,7 +216,7 @@ Per modificare i filtri:
 
 2. Scegliere le impostazioni del filtro e selezionare **fine**. L'elenco filtrato viene aggiornato in base alle nuove impostazioni.
 
-#### <a name="item-type"></a>Tipo elemento
+#### <a name="item-type"></a>Tipo di elemento
 
 Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne esistono quattro tipi. Vedere l'elenco seguente. È possibile visualizzare tutti i tipi di elemento o un tipo di elemento. Non è possibile selezionare due o tre tipi di elemento. I tipi di elemento disponibili sono:
 
@@ -245,7 +245,7 @@ Il tipo di elemento è il tipo di gestione di backup dell'istanza protetta. Ne e
 * Tutti gli stati
 * Completi
 * In corso
-* Non riuscito
+* Operazione non riuscita
 * Cancellati
 * Completato con avvisi
 

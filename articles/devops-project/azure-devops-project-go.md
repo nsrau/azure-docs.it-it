@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare una pipeline CI/CD per il linguaggio di programmazione Go usando Azure DevOps Starter'
+title: 'Avvio rapido: Creare una pipeline CI/CD per il linguaggio di programmazione Go usando Azure DevOps Starter'
 description: DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app Web nel linguaggio di programmazione Go in un servizio di Azure.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -14,15 +14,15 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 02304758ef89ff7c94d1c3d8f98f6931ab7fd8dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "82233126"
 ---
-# <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Creare una pipeline CI/CD per go usando Azure DevOps Starter
+# <a name="create-a-cicd-pipeline-for-go-using-azure-devops-starter"></a>Creare una pipeline CI/CD per Go con Azure DevOps Starter
 
-Configurare l'integrazione continua (CI) e il recapito continuo (CD) per l'app go usando Azure DevOps Starter. DevOps Starter semplifica la configurazione iniziale di una pipeline di compilazione e rilascio di Azure DevOps.
+Configurare l'integrazione continua (CI, Continuous Integration) e il recapito continuo (CD, Continuous Delivery) per l'app Go con Azure DevOps Starter. DevOps Starter semplifica la configurazione iniziale di una pipeline di compilazione e di versione di Azure DevOps.
 
 Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -50,7 +50,7 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
 1. Immettere un nome per il progetto Azure DevOps. 
 
-1. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'app, quindi selezionare **Fine**. Dopo alcuni minuti, il dashboard iniziale di DevOps viene visualizzato nella portale di Azure. Viene configurata un'app di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'app viene distribuita in Azure. 
+1. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'app, quindi selezionare **Fine**. Dopo alcuni minuti, il dashboard di DevOps Starter viene visualizzato nel portale di Azure. Viene configurata un'app di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'app viene distribuita in Azure. 
 
     Il dashboard fornisce visibilità su repository di codice, pipeline CI/CD e l'app in Azure. A destra, selezionare **Sfoglia** per visualizzare l'app in esecuzione.
 
@@ -58,9 +58,9 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
 ## <a name="commit-your-code-changes-and-execute-the-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline CI/CD
 
-DevOps Starter crea un repository git in Azure Repos o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'app, seguire questa procedura:
+DevOps Starter crea un repository Git in Azure Repos o in GitHub. Per visualizzare il repository e apportare modifiche al codice nell'app, seguire questa procedura:
 
-1. All'avvio di DevOps, a sinistra, selezionare il collegamento per il ramo master. Il collegamento apre una visualizzazione del repository Git appena creato.
+1. Sul lato sinistro della finestra di DevOps Starter selezionare il collegamento per il ramo master. Il collegamento apre una visualizzazione del repository Git appena creato.
 
 1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo master.
 

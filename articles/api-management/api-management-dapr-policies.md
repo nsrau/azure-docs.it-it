@@ -7,10 +7,10 @@ ms.date: 9/13/2020
 ms.topic: article
 ms.service: api-management
 ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91343028"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Criteri di integrazione Dapr di gestione API
@@ -37,7 +37,7 @@ template:
 ```
 
 
-## <a name="distributed-application-runtime-dapr-integration-policies"></a>Criteri di integrazione di Dapr (Distributed Application Runtime)
+## <a name="distributed-application-runtime-dapr-integration-policies"></a>Criteri di integrazione Dapr (Distributed Apps Runtime)
 
 -  [Inviare una richiesta a un servizio](api-management-dapr-policies.md#invoke): usa il runtime Dapr per individuare e comunicare in modo affidabile con un microservizio Dapr. Per ulteriori informazioni sulla chiamata del servizio in Dapr, vedere la descrizione nel file [Leggimi](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation) .
 -  [Invia messaggio a pub/argomento secondario](api-management-dapr-policies.md#pubsub): usa il runtime Dapr per pubblicare un messaggio in un argomento di pubblicazione/sottoscrizione. Per ulteriori informazioni sulla messaggistica di pubblicazione/sottoscrizione in Dapr, vedere la descrizione nel file [Leggimi](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md) .
@@ -95,7 +95,7 @@ Nell'esempio seguente viene illustrato come richiamare il metodo denominato "bac
 | dapr-App-ID      | Nome del microservizio di destinazione. Esegue il mapping al parametro [AppID](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) in Dapr.| Sì | N/D |
 | dapr-metodo      | Nome del metodo o URL da richiamare nel microservizio di destinazione. Esegue il mapping al parametro del [nome di metodo](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) in Dapr.| Sì | N/D |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -165,7 +165,7 @@ La sezione "backend" è vuota e la richiesta non viene trasmessa al back-end.
 | template | Motore di creazione del modello da utilizzare per trasformare il contenuto del messaggio. "Liquid" è l'unico valore supportato. | No | nessuno |
 | content-type | Tipo di contenuto del messaggio. "application/json" è l'unico valore supportato. | No | nessuno |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
@@ -236,7 +236,7 @@ La sezione "backend" è vuota e la richiesta non viene trasmessa al back-end.
 |---------------------|--------------|----------|
 | Invoke-dapr-binding | Elemento radice | Sì      |
 | metadata            | Associazione di metadati specifici sotto forma di coppie chiave/valore. Esegue il mapping alla proprietà [dei metadati](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) in Dapr. | No |
-| data            | Contenuto del messaggio. Esegue il mapping alla proprietà [dei dati](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) in Dapr. | No |
+| Data            | Contenuto del messaggio. Esegue il mapping alla proprietà [dei dati](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) in Dapr. | No |
 
 
 ### <a name="attributes"></a>Attributi
@@ -251,7 +251,7 @@ La sezione "backend" è vuota e la richiesta non viene trasmessa al back-end.
 | template | Motore di creazione del modello da utilizzare per trasformare il contenuto del messaggio. "Liquid" è l'unico valore supportato. | No | nessuno |
 | content-type | Tipo di contenuto del messaggio. "application/json" è l'unico valore supportato. | No | nessuno |
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 

@@ -4,10 +4,10 @@ description: Documentazione di riferimento per il file host.json di Funzioni di 
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321850"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
@@ -186,7 +186,7 @@ Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sul
 |Proprietà | Predefinito | Descrizione |
 | --------- | --------- | --------- | 
 | agentEndpoint | Null | Endpoint utilizzato per la connessione al servizio Application Insights Snapshot Debugger. Se null, viene utilizzato un endpoint predefinito. |
-| captureSnapshotMemoryWeight | 0,5 | Il peso assegnato alle dimensioni della memoria del processo corrente quando viene verificato se è disponibile memoria sufficiente per creare uno snapshot. Il valore previsto è maggiore di 0, frazione corretta (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0.5 | Il peso assegnato alle dimensioni della memoria del processo corrente quando viene verificato se è disponibile memoria sufficiente per creare uno snapshot. Il valore previsto è maggiore di 0, frazione corretta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Limite al numero di richieste non riuscite per richiedere snapshot prima che il processore di telemetria sia disabilitato.|
 | handleUntrackedExceptions | true | Abilita o Disabilita il rilevamento di eccezioni non rilevate da Application Insights telemetria. |
 | isEnabled | true | Abilita o Disabilita la raccolta di snapshot | 

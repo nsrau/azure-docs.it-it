@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009563"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delega accesso a Privileged Identity Management
@@ -46,7 +46,7 @@ Assicurarsi che almeno due utenti abbiano sempre il ruolo di amministratore dei 
 
     ![Amministratore dei ruoli con privilegi - Membri](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Selezionare **Aggiungi membro** per aprire il riquadro **Aggiungi membri gestiti** .
+1. Selezionare **Aggiungi membro**  per aprire il riquadro **Aggiungi membri gestiti** .
 
 1. Selezionare **Seleziona membri** per aprire il riquadro **Seleziona membri** .
 

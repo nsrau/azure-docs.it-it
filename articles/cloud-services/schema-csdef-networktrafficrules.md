@@ -14,10 +14,10 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79534729"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schema NetworkTrafficRules di definizione di Servizi cloud di Azure
@@ -64,7 +64,7 @@ Elemento AllowAllTraffic
 
 [Elemento FromRole](#FromRole)
 
-##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>Elemento NetworkTrafficRules
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a> Elemento NetworkTrafficRules
 L'elemento `NetworkTrafficRules` specifica quali ruoli possono comunicare con quali endpoint in un altro ruolo. Un servizio può contenere una definizione `NetworkTrafficRules`.
 
 ##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
@@ -73,7 +73,7 @@ L'elemento `OnlyAllowTrafficTo` descrive una raccolta di endpoint di destinazion
 ##  <a name="destinations-element"></a><a name="Destinations"></a> Elemento Destinations
 L'elemento `Destinations` descrive una raccolta di RoleEndpoints con i quali è possibile comunicare.
 
-##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>Elemento RoleEndpoint
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a> Elemento RoleEndpoint
 L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le comunicazioni tra i due. È possibile specificare più elementi `RoleEndpoint` se sono presenti più di un endpoint nel ruolo.
 
 | Attributo      | Type     | Descrizione |
@@ -84,14 +84,14 @@ L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le com
 ## <a name="allowalltraffic-element"></a>Elemento AllowAllTraffic
 L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comunicare con gli endpoint definiti nel nodo `Destinations`.
 
-##  <a name="whensource-element"></a><a name="WhenSource"></a>Elemento WhenSource
+##  <a name="whensource-element"></a><a name="WhenSource"></a> Elemento WhenSource
 L'elemento `WhenSource` descrive una raccolta di ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`.
 
 | Attributo | Type     | Descrizione |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obbligatorio. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
   
-##  <a name="fromrole-element"></a><a name="FromRole"></a>Elemento FromRole
+##  <a name="fromrole-element"></a><a name="FromRole"></a> Elemento FromRole
 L'elemento `FromRole` specifica i ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`. È possibile specificare più elementi `FromRole` se sono presenti più ruoli in grado di comunicare con gli endpoint.
 
 | Attributo  | Type     | Descrizione |

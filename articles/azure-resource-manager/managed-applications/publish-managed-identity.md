@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82508131"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Applicazione gestita di Azure con identità gestita
@@ -126,7 +126,7 @@ CreateUIDefinition supporta un [controllo di identità gestito](./microsoft-mana
 
 ![Identità gestita CreateUIDefinition](./media/publish-managed-identity/msi-cuid.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
+### <a name="using-azure-resource-manager-templates"></a>Uso di modelli di Azure Resource Manager
 
 > [!NOTE]
 > I modelli di applicazione gestita del Marketplace vengono generati automaticamente per i clienti che passano attraverso il portale di Azure creare un'esperienza.
