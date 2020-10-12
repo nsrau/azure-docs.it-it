@@ -8,15 +8,15 @@ ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 7c4c832819f61d208d0722823d0a74354960f182
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904258"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quote e piani di servizio per Azure Spring cloud
 
-**Questo articolo si applica a:** ✔️ Java ✔️ C #
+**Questo articolo si applica a:** ✔️ Java ✔️ C#
 
 Tutti i servizi di Azure impostano i limiti e le quote predefiniti per le risorse e le funzionalità.   Azure Spring cloud offre due piani tariffari: Basic e standard. In questo articolo vengono illustrati i limiti dettagliati per entrambi i livelli.
 

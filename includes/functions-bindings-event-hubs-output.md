@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: 78836ca4e51875be4237267b3bb9256cc4541fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81791663"
 ---
-È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi. Per scrivervi eventi, è necessario disporre dell'autorizzazione Send verso un Hub eventi.
+È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi. Per scrivere eventi in un hub eventi, è necessario disporre dell'autorizzazione di invio.
 
-Prima di provare a implementare un'associazione di output, assicurarsi che i riferimenti ai pacchetti necessari siano presenti.
+Assicurarsi che i riferimenti ai pacchetti richiesti siano disponibili prima di provare a implementare un'associazione di output.
 
 <a id="example" name="example"></a>
 
@@ -31,7 +31,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-L'esempio seguente mostra come usare l'interfaccia `IAsyncCollector` per inviare un batch di messaggi. Questo scenario è comune quando si elaborano i messaggi provenienti da un hub eventi e si invia il risultato a un altro hub eventi.
+L'esempio seguente mostra come usare l'interfaccia `IAsyncCollector` per inviare un batch di messaggi. Questo scenario è comune quando si elaborano messaggi provenienti da un hub eventi e si invia il risultato a un altro hub eventi.
 
 ```csharp
 [FunctionName("EH2EH")]
@@ -55,7 +55,7 @@ public static async Task Run(
 
 L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione script C#](../articles/azure-functions/functions-reference-csharp.md) che usa l'associazione. La funzione scrive un messaggio in un Hub eventi.
 
-Gli esempi seguenti illustrano il data binding di Hub eventi nel file *function.json*. Il primo esempio è per functions 2. x e versioni successive e il secondo è per functions 1. x. 
+Gli esempi seguenti illustrano il data binding di Hub eventi nel file *function.json*. Il primo esempio è relativo a Funzioni 2.x e versioni successive, mentre il secondo si riferisce a Funzioni 1.x. 
 
 ```json
 {
@@ -107,7 +107,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione JavaScript](../articles/azure-functions/functions-reference-node.md) che usa l'associazione. La funzione scrive un messaggio in un Hub eventi.
 
-Gli esempi seguenti illustrano il data binding di Hub eventi nel file *function.json*. Il primo esempio è per functions 2. x e versioni successive e il secondo è per functions 1. x. 
+Gli esempi seguenti illustrano il data binding di Hub eventi nel file *function.json*. Il primo esempio è relativo a Funzioni 2.x e versioni successive, mentre il secondo si riferisce a Funzioni 1.x. 
 
 ```json
 {
@@ -235,7 +235,7 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Nella [libreria di runtime di funzioni Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)usare l'annotazione [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) nei parametri il cui valore verrebbe pubblicato nell'hub eventi. Il parametro deve essere di tipo `OutputBinding<T>` , dove `T` è un POJO o qualsiasi tipo Java nativo.
+Nella [libreria di runtime di funzioni Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) usare l'annotazione [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) per i parametri il cui valore potrebbe essere pubblicato in Hub eventi. Il parametro deve essere di tipo `OutputBinding<T>`, dove `T` corrisponde a un POJO o a qualsiasi tipo Java nativo.
 
 ---
 
@@ -249,8 +249,8 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
 |**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta l'evento. |
 |**path** |**EventHubName** | Solo Funzioni 1.x. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
-|**eventHubName** |**EventHubName** | Funzioni 2. x e versioni successive. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
-|**connection** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **informazioni di connessione** per lo *spazio dei nomi*, non sull'hub eventi stesso. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.|
+|**eventHubName** |**EventHubName** | Funzioni 2.x e versioni successive. Nome di Hub eventi. Quando il nome dell'hub eventi è presente anche nella stringa di connessione, tale valore sostituisce questa proprietà in fase di runtime. |
+|**connection** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -270,24 +270,24 @@ Accedere all'evento di output usando `context.bindings.<name>` dove `<name>` è 
 
 # <a name="python"></a>[Python](#tab/python)
 
-Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una funzione:
+Sono disponibili due opzioni per la restituzione dell'output di un messaggio dell'hub eventi da una funzione:
 
-- **Valore restituito**: impostare la `name` Proprietà in *function.jssu* `$return` . Con questa configurazione, il valore restituito della funzione viene reso permanente come messaggio dell'hub eventi.
+- **Valore restituito**: impostare la proprietà `name` in *function.json* su `$return`. Con questa configurazione, il valore restituito della funzione viene salvato in modo permanente come messaggio dell'hub eventi.
 
-- **Imperativo**: passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) . Il valore passato a `set` viene reso permanente come messaggio dell'hub eventi.
+- **Imperativo**: passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). Il valore passato a `set` viene salvato in modo permanente come messaggi dell'hub eventi.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una funzione tramite l'annotazione [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) :
+Sono disponibili due opzioni per la restituzione dell'output di un messaggio dell'hub eventi da una funzione tramite l'annotazione [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput):
 
-- **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene reso persistente come messaggio dell'hub eventi.
+- **Valore restituito**: quando si applica l'annotazione alla funzione stessa, il valore restituito della funzione viene salvato in modo permanente come messaggio dell'hub eventi.
 
-- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico del tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding) , dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore al `setValue` metodo rende permanente il valore come messaggio dell'hub eventi.
+- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico di tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione un valore passato al metodo `setValue` viene salvato in modo permanente come messaggio dell'hub eventi.
 
 ---
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimento |
+| Binding | Informazioni di riferimento |
 |---|---|
 | Hub eventi | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) (Guida operativa) |

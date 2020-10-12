@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498838"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatori in Azure Cosmos DB
@@ -54,8 +54,8 @@ Restituisce `true` quando una delle condizioni è `true` .
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
 | **True** |True |True |True |
-| **False** |Vero |Falso |Non definito |
-| **Non definito** |Vero |Non definito |Non definito |
+| **False** |True |False |Non definito |
+| **Non definito** |True |Non definito |Non definito |
 
 **Operatore AND**
 
@@ -63,9 +63,9 @@ Restituisce `true` quando entrambe le espressioni sono `true` .
 
 |  | **True** | **False** | **Non definito** |
 | --- | --- | --- | --- |
-| **True** |Vero |Falso |Non definito |
-| **False** |Falso |Falso |Falso |
-| **Non definito** |Non definito |Falso |Non definito |
+| **True** |True |False |Non definito |
+| **False** |False |False |False |
+| **Non definito** |Non definito |False |Non definito |
 
 **Operatore NOT**
 
@@ -73,8 +73,8 @@ Inverte il valore di qualsiasi espressione booleana.
 
 |  | **NOT** |
 | --- | --- |
-| **True** |Falso |
-| **False** |Vero |
+| **True** |False |
+| **False** |True |
 | **Non definito** |Non definito |
 
 **Ordine di precedenza degli operatori**
@@ -84,12 +84,12 @@ Gli operatori logici `OR` , `AND` e `NOT` hanno il livello di precedenza riporta
 | **Operatore** | **Priorità** |
 | --- | --- |
 | **NOT** |1 |
-| **E** |2 |
+| **AND** |2 |
 | **OR** |3 |
 
 ## <a name="-operator"></a>* (operatore)
 
-L'operatore speciale * proietta l'intero elemento così com'è. Quando usato, deve essere l'unico campo proiettato. Una query come `SELECT * FROM Families f` è valida, ma `SELECT VALUE * FROM Families f` e `SELECT *, f.id FROM Families f` non sono validi.
+L'operatore speciale * proietta l'intero elemento così com'è. Quando usato, deve essere l'unico campo proiettato. Una query come `SELECT * FROM Families f` è valida, ma `SELECT VALUE * FROM Families f` e  `SELECT *, f.id FROM Families f` non sono validi.
 
 ## <a name="-and--operators"></a>? e? operatori
 

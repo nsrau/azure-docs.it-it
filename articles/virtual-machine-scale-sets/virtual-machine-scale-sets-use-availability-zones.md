@@ -10,10 +10,10 @@ ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89611919"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
@@ -62,7 +62,7 @@ Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le 
 
 Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-region.md). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 
-- [Azure portal](#use-the-azure-portal)
+- [Portale di Azure](#use-the-azure-portal)
 - Interfaccia della riga di comando di Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
 ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84668101"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Che cos'è il controller di ingresso del gateway applicazione?
@@ -36,16 +36,16 @@ AGIC viene configurato tramite la [risorsa di ingresso](https://kubernetes.io/do
   - Supporto per siti Web pubblici, privati e ibridi
   - web application firewall integrata
 
-## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Differenza tra la distribuzione Helm e il componente aggiuntivo AKS
+## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Differenza tra la distribuzione Helm e la Add-On AKS
 Esistono due modi per distribuire AGIC per il cluster AKS. Il primo modo consiste nell'usare Helm; il secondo avviene tramite AKS come componente aggiuntivo. Il vantaggio principale della distribuzione di AGIC come componente aggiuntivo AKS è che è molto più semplice rispetto alla distribuzione tramite Helm. Per una nuova configurazione, è possibile distribuire un nuovo gateway applicazione e un nuovo cluster AKS con AGIC abilitato come componente aggiuntivo in una sola riga nell'interfaccia della riga di comando di Azure. Il componente aggiuntivo è anche un servizio completamente gestito, che offre vantaggi aggiuntivi come gli aggiornamenti automatici e un maggiore supporto. AGIC distribuito tramite Helm non è supportato da AKS, tuttavia il AGIC distribuito come componente aggiuntivo AKS è supportato da AKS. 
 
 Il componente aggiuntivo AGIC è ancora distribuito come Pod nel cluster AKS del cliente. Tuttavia, esistono alcune differenze tra la versione della distribuzione Helm e la versione del componente aggiuntivo di AGIC. Di seguito è riportato un elenco delle differenze tra le due versioni: 
   - Non è possibile modificare i valori di distribuzione Helm nel componente aggiuntivo AKS:
-    - `verbosityLevel`verrà impostato su 5 per impostazione predefinita
-    - `usePrivateIp`verrà impostato su false per impostazione predefinita. Questa operazione può essere sovrascritta dall' [annotazione use-Private-IP](ingress-controller-annotations.md#use-private-ip)
-    - `shared`non è supportato nel componente aggiuntivo 
-    - `reconcilePeriodSeconds`non è supportato nel componente aggiuntivo
-    - `armAuth.type`non è supportato nel componente aggiuntivo
+    - `verbosityLevel` verrà impostato su 5 per impostazione predefinita
+    - `usePrivateIp` verrà impostato su false per impostazione predefinita. Questa operazione può essere sovrascritta dall' [annotazione use-Private-IP](ingress-controller-annotations.md#use-private-ip)
+    - `shared` non è supportato nel componente aggiuntivo 
+    - `reconcilePeriodSeconds` non è supportato nel componente aggiuntivo
+    - `armAuth.type` non è supportato nel componente aggiuntivo
   - AGIC distribuito tramite Helm supporta ProhibitedTargets, che significa che AGIC può configurare il gateway applicazione in modo specifico per i cluster AKS senza influire su altri backend esistenti. Il componente aggiuntivo AGIC attualmente non supporta questa operazione. 
   - Poiché il componente aggiuntivo AGIC è un servizio gestito, i clienti verranno aggiornati automaticamente alla versione più recente del componente aggiuntivo AGIC, a differenza di AGIC distribuiti tramite Helm dove il cliente deve aggiornare manualmente AGIC. 
 
@@ -73,8 +73,8 @@ Le tabelle seguenti ordinano gli scenari attualmente supportati con la versione 
 |**2 + AGICs**|È necessario usare la funzionalità Shared ProhibitedTarget |N/D |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Installazione del [**componente aggiuntivo di AKS**](tutorial-ingress-controller-add-on-new.md): istruzioni sull'installazione del componente aggiuntivo AGIC, AKS e del gateway applicazione in un'infrastruttura Slate vuota.
-- [**Distribuzione del componente aggiuntivo Brownfield di AKS**](tutorial-ingress-controller-add-on-existing.md): installare il componente aggiuntivo AGIC in un cluster AKS con un gateway applicazione esistente.
+- [**Aks Add-On la distribuzione Greenfield**](tutorial-ingress-controller-add-on-new.md): istruzioni sull'installazione del componente aggiuntivo AGIC, AKS e del gateway applicazione in un'infrastruttura Slate vuota.
+- [**Aks Add-On distribuzione Brownfield**](tutorial-ingress-controller-add-on-existing.md): installare il componente aggiuntivo AGIC in un cluster AKS con un gateway applicazione esistente.
 - [**Distribuzione Helm Greenfield**](ingress-controller-install-new.md): installare AGIC tramite Helm, il nuovo cluster AKS e il nuovo gateway applicazione nell'infrastruttura Slate vuota.
 - [**Distribuzione di Helm Brownfield**](ingress-controller-install-existing.md): distribuire AGIC tramite Helm in un cluster AKS esistente e un gateway applicazione.
 

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79477664"
 ---
 # <a name="convert-to-indicator-values"></a>Eseguire la conversione in valori di indicatori
@@ -98,7 +98,7 @@ Questa sezione contiene informazioni dettagliate sull'implementazione, suggerime
 
 -   solo le colonne contrassegnate come categoriche possono essere convertite in colonne indicatore Se viene visualizzato l'errore seguente, è probabile che una delle colonne selezionate non sia categorica:  
 
-     Errore 0056: la colonna con nome \<column name> non è in una categoria consentita.  
+     Errore 0056: la colonna con nome  \<column name> non è in una categoria consentita.  
 
      Per impostazione predefinita, la maggior parte delle colonne stringa viene gestita come funzionalità di stringa, pertanto è necessario contrassegnarle in modo esplicito come categorico usando [Modifica metadati](edit-metadata.md).  
 

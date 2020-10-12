@@ -12,10 +12,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e07be01a0fb6d74b4dcef5cbc6ec129f95fd2e7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387933"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Twitter tramite Azure Active Directory B2C
@@ -25,7 +25,7 @@ ms.locfileid: "85387933"
 Per usare Twitter come provider di identità in Azure AD B2C, è necessario creare un'applicazione Twitter. Se non si ha già un account Twitter, è possibile iscriversi all'indirizzo [https://twitter.com/signup](https://twitter.com/signup) .
 
 1. Accedere al [sito Web di sviluppatori Twitter](https://developer.twitter.com/en/apps) con le credenziali dell'account Twitter.
-1. Selezionare **Crea un'app**.
+1. Selezionare  **Crea un'app**.
 1. Immettere un ** Nome app** e una **Descrizione applicazione**.
 1. In **URL del sito Web**, immettere `https://your-tenant.b2clogin.com`. Sostituire `your-tenant` con il nome del tenant. Ad esempio: `https://contosob2c.b2clogin.com`.
 1. Per **URL callback** immettere `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Sostituire `your-tenant` con il nome del nome tenant e `your-user-flow-Id` con l'identificatore del flusso utente. Ad esempio: `b2c_1A_signup_signin_twitter`. È necessario usare tutte le lettere minuscole quando si immette il nome del tenant e l'ID del flusso utente anche se sono definiti con lettere maiuscole in Azure AD B2C.

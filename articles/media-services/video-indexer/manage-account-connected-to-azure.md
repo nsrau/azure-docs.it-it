@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/16/2019
 ms.author: juliako
 ms.openlocfilehash: 5b9ec1c04dd90af9d9380a1f4d30386c8f9cc3ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79499659"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gestire un account di Video Indexer connesso ad Azure
@@ -56,12 +56,12 @@ Nella finestra di dialogo **Aggiorna connessione a servizi multimediali di Azure
 
 |Impostazione|Descrizione|
 |---|---|
-|ID della sottoscrizione di Azure|L'ID sottoscrizione può essere recuperato dal portale di Azure. Fare clic su **tutti i servizi** nel riquadro a sinistra e cercare "sottoscrizioni". Selezionare **Sottoscrizioni** e scegliere l'ID desiderato dall'elenco delle sottoscrizioni.|
+|ID sottoscrizione di Azure|L'ID sottoscrizione può essere recuperato dal portale di Azure. Fare clic su **tutti i servizi** nel riquadro a sinistra e cercare "sottoscrizioni". Selezionare **Sottoscrizioni** e scegliere l'ID desiderato dall'elenco delle sottoscrizioni.|
 |Nome del gruppo di risorse di Servizi multimediali di Azure|Nome del gruppo di risorse in cui è stato creato l'account di Servizi multimediali.|
 |ID applicazione|L'ID dell'applicazione Azure AD (con le autorizzazioni per l'account di servizi multimediali specificato) creato per questo account di Video Indexer. <br/><br/>Per ottenere l'ID app, passare a portale di Azure. Nell'account di servizi multimediali scegliere l'account e passare ad **accesso all'API**. Selezionare **Connetti all'API servizi multimediali con l'entità servizio**  ->  **app Azure ad**. Copiare i parametri pertinenti.|
 |Chiave applicazione|Chiave dell'applicazione Azure AD associata all'account di servizi multimediali specificato in precedenza. <br/><br/>Per ottenere la chiave dell'app, passare a portale di Azure. Nell'account di servizi multimediali scegliere l'account e passare ad **accesso all'API**. Selezionare **Connetti all'API servizi multimediali con l'entità servizio**  ->  **Gestisci**  ->  **certificati applicazione & segreti**. Copiare i parametri pertinenti.|
 
-## <a name="autoscale-reserved-units"></a>Unità riservate di scalabilità automatica
+## <a name="autoscale-reserved-units"></a>Dimensionare in modo automatico le unità riservate
 
 La pagina **Impostazioni** consente di impostare la scalabilità automatica di media reserved Unit (UR). Se l'opzione è **Attiva**, è possibile allocare il numero massimo di unità riservate (UR) e assicurarsi che Video Indexer arresti/avvii le UR automaticamente. Con questa opzione non vengono addebitati costi aggiuntivi per il tempo di inattività, ma non è possibile attendere che i processi di indicizzazione vengano completati molto tempo quando il carico di indicizzazione è elevato.
 
@@ -81,7 +81,7 @@ Se l'account richiede delle rettifiche, vengono visualizzati gli errori e gli av
 
     Assicurarsi che l'account dei Servizi multimediali sottostante abbia l'**Endpoint di streaming** predefinito in stato avviato. In caso contrario, non sarà possibile guardare i video di questo account di servizi multimediali o in Video Indexer.
 
-* Media reserved unit
+* Media Reserved Units
 
     È necessario allocare le Unità riservate multimediali nella risorsa dei Servizi multimediali per poter indicizzare i video. Per ottimizzare le prestazioni di indicizzazione, si consiglia di allocare almeno 10 unità riservate S3. Per le informazioni sui prezzi, vedere la sezione delle domande frequenti nella pagina dei [prezzi dei Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 

@@ -11,10 +11,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389191"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Abilitare "Mantieni l'accesso (KMSI)" in Active Directory B2C di Azure
@@ -90,9 +90,9 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** : indica il modo in cui la sessione viene estesa in base al tempo specificato in `SessionExpiryInSeconds` e `KeepAliveInDays` . Il `Rolling` valore (impostazione predefinita) indica che la sessione viene estesa ogni volta che l'utente esegue l'autenticazione. Il `Absolute` valore indica che l'utente è obbligato a eseguire nuovamente l'autenticazione dopo il periodo di tempo specificato.
+    - **SessionExpiryType** : indica il modo in cui la sessione viene estesa in base al tempo specificato in `SessionExpiryInSeconds` e  `KeepAliveInDays` . Il `Rolling` valore (impostazione predefinita) indica che la sessione viene estesa ogni volta che l'utente esegue l'autenticazione. Il `Absolute` valore indica che l'utente è obbligato a eseguire nuovamente l'autenticazione dopo il periodo di tempo specificato.
 
-    - **SessionExpiryInSeconds** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* non è abilitata o se un utente non seleziona *Mantieni l'accesso*. La sessione scade dopo che `SessionExpiryInSeconds` è trascorso o il browser è chiuso.
+    - **SessionExpiryInSeconds**  : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* non è abilitata o se un utente non seleziona *Mantieni l'accesso*. La sessione scade dopo che `SessionExpiryInSeconds` è trascorso o il browser è chiuso.
 
     - **KeepAliveInDays** : la durata dei cookie di sessione quando l'opzione *Mantieni l'accesso* è abilitata e l'utente seleziona *Mantieni l'accesso*.  Il valore di ha la `KeepAliveInDays` precedenza sul `SessionExpiryInSeconds` valore e determina l'ora di scadenza della sessione. Se un utente chiude il browser e lo riapre in un secondo momento, potrà comunque accedere automaticamente, purché sia entro il periodo di KeepAliveInDays.
 

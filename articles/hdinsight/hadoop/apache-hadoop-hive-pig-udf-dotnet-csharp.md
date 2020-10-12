@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89000618"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con Apache Hive e Apache Pig in Apache Hadoop in HDInsight
@@ -56,7 +56,7 @@ Per creare un progetto C# per una funzione definita dall'utente Apache Hive:
 
 2. Selezionare **Crea un nuovo progetto**.
 
-3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Quindi selezionare **Avanti**.
+3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Fare quindi clic su **Avanti**.
 
 4. Nella finestra **Configura nuovo progetto** , immettere il nome di un **progetto** *HiveCSharp*e individuare o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
 
@@ -123,7 +123,7 @@ Per creare un progetto C# per una funzione definita dall'utente Apache Hive:
 
 2. Nella finestra **iniziale** selezionare **Crea un nuovo progetto**.
 
-3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Quindi selezionare **Avanti**.
+3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Fare quindi clic su **Avanti**.
 
 4. Nella finestra **Configura nuovo progetto** immettere il nome di un **progetto** *PigUDF*e passare a o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
 

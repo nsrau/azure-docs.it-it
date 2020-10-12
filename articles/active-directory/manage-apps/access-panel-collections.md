@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85956237"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creare le raccolte nel portale App personali
@@ -57,15 +57,15 @@ Per creare una raccolta, è necessario disporre di una licenza Azure AD Premium 
 
    ![Pagina nuova raccolta](media/acces-panel-collections/new-collection.png)
 
-5. Selezionare la scheda **applicazioni** . Selezionare **+ Aggiungi applicazione**, quindi nella pagina **Aggiungi applicazioni** selezionare tutte le applicazioni che si desidera aggiungere alla raccolta oppure utilizzare la casella di **ricerca** per trovare le applicazioni.
+5. Selezionare la scheda **applicazioni** . Selezionare **+ Aggiungi applicazione**, quindi nella pagina **Aggiungi applicazioni** Selezionare tutte le applicazioni che si desidera aggiungere alla raccolta oppure utilizzare la casella di **ricerca** per trovare le applicazioni.
 
    ![Aggiungere un'applicazione alla raccolta](media/acces-panel-collections/add-applications.png)
 
 6. Al termine dell'aggiunta di applicazioni, selezionare **Aggiungi**. Verrà visualizzato l'elenco delle applicazioni selezionate. È possibile utilizzare le frecce su per modificare l'ordine delle applicazioni nell'elenco. Per spostare un'applicazione verso il basso o per eliminarla dalla raccolta, selezionare il menu **altro** (**...**).
 
-7. Selezionare la scheda **proprietari** . Selezionare **+ Aggiungi utenti e gruppi**, quindi nella pagina **Aggiungi utenti e gruppi** selezionare gli utenti o i gruppi a cui si vuole assegnare la proprietà. Al termine della selezione di utenti e gruppi, scegliere **Seleziona**.
+7. Selezionare la scheda **proprietari** . Selezionare **+ Aggiungi utenti e gruppi**, quindi nella pagina **Aggiungi utenti e gruppi** Selezionare gli utenti o i gruppi a cui si vuole assegnare la proprietà. Al termine della selezione di utenti e gruppi, scegliere **Seleziona**.
 
-9. Selezionare la scheda **utenti e gruppi** . Selezionare **+ Aggiungi utenti e gruppi**, quindi nella pagina **Aggiungi utenti e gruppi** selezionare gli utenti o i gruppi a cui si vuole assegnare la raccolta. In alternativa, utilizzare la casella di **ricerca** per trovare utenti o gruppi. Al termine della selezione di utenti e gruppi, scegliere **Seleziona**.
+9. Selezionare la scheda **utenti e gruppi** . Selezionare **+ Aggiungi utenti e gruppi**, quindi nella pagina **Aggiungi utenti e gruppi** Selezionare gli utenti o i gruppi a cui si vuole assegnare la raccolta. In alternativa, utilizzare la casella di **ricerca** per trovare utenti o gruppi. Al termine della selezione di utenti e gruppi, scegliere **Seleziona**.
 
    ![Aggiungere utenti e gruppi](media/acces-panel-collections/add-users-and-groups.png)
 

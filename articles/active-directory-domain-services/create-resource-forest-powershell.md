@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
 ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723164"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Creare una foresta di risorse Azure Active Directory Domain Services e un trust tra foreste in uscita per un dominio locale usando Azure PowerShell
@@ -106,7 +106,7 @@ Per creare una foresta di risorse di dominio gestito, usare lo `New-AzureAaddsFo
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | ID sottoscrizione usato per la fatturazione Azure AD DS. Per ottenere l'elenco delle sottoscrizioni, è possibile usare il cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
     | Gruppo di risorse               | *-aaddsResourceGroupName* | Nome del gruppo di risorse per il dominio gestito e le risorse associate. |
-    | Percorso                     | *-aaddsLocation*          | Area di Azure in cui ospitare il dominio gestito. Per le aree disponibili, vedere [aree supportate per Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Location                     | *-aaddsLocation*          | Area di Azure in cui ospitare il dominio gestito. Per le aree disponibili, vedere [aree supportate per Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Amministratore di Azure AD DS    | *-aaddsAdminUser*         | Nome dell'entità utente del primo amministratore di dominio gestito. Questo account deve essere un account utente cloud esistente nel Azure Active Directory. L'utente e l'utente che esegue lo script vengono aggiunti al gruppo di *amministratori di AAD DC* . |
     | Nome di dominio Azure AD DS      | *-aaddsDomainName*        | FQDN del dominio gestito, in base alle indicazioni precedenti su come scegliere il nome di una foresta. |
 

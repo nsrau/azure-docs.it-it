@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85957179"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Associazioni di griglia di eventi di Azure per funzioni di Azure
@@ -23,7 +23,7 @@ I *gestori* di eventi ricevono ed elaborano gli eventi. Funzioni di Azure è uno
 
 Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di griglia di eventi. vedere [ricevere eventi in un endpoint HTTP](../event-grid/receive-events.md). Attualmente, non è possibile usare un trigger di griglia di eventi per un'app funzioni di Azure quando l'evento viene recapitato nello [schema CloudEvents](../event-grid/cloudevents-schema.md#azure-functions). È necessario usare invece un trigger HTTP.
 
-| Action | Type |
+| Azione | Type |
 |---------|---------|
 | Eseguire una funzione quando viene inviato un evento di griglia di eventi | [Trigger](./functions-bindings-event-grid-trigger.md) |
 | Invia un evento di griglia di eventi |[Binding di output](./functions-bindings-event-grid-output.md) |
@@ -36,7 +36,7 @@ Per impostazione predefinita, il codice in questo riferimento è la sintassi di 
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Commenti 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 2. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) è consigliata per l'uso con Visual Studio Code. |

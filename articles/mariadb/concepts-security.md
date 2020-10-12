@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 8f41fe1005e96b428337bc73b9d468962a079596
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79527827"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Protezione in Database di Azure per MariaDB
@@ -43,7 +43,7 @@ Gli endpoint di servizio della rete virtuale estendono la connettività della re
 Quando si crea il database di Azure per il server MariaDB, si forniscono le credenziali per un utente amministratore. Questo amministratore può essere usato per creare altri utenti MariaDB.
 
 
-## <a name="threat-protection"></a>Threat Protection
+## <a name="threat-protection"></a>Protezione dalle minacce
 
 È possibile optare per [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) che rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei server.
 

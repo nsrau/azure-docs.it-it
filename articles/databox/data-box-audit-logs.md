@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86209684"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Log di controllo per il Azure Data Box e Azure Data Box Heavy
@@ -42,7 +42,7 @@ Ognuno di questi log è illustrato nella sezione seguente.
 
 Gli ID evento registro di sistema seguenti vengono raccolti come log di controllo del sistema nel Data Box:
 
-|Nome del provider di eventi     |ID evento raccolto   |Descrizione dell'evento   |
+|Nome del provider di eventi     |ID evento raccolto   |Descrizione evento   |
 |-------------------|----------|----------------|
 |Microsoft-Windows-kernel-generale|12  |Ora UTC in cui il sistema operativo è stato riavviato.   |
 |                                |13  |Ora UTC in cui il sistema operativo è stato arrestato. |
@@ -55,7 +55,7 @@ Gli ID evento registro di sistema seguenti vengono raccolti come log di controll
 
 Gli ID degli eventi del registro di sicurezza seguenti vengono raccolti come log di controllo della sicurezza nel Data Box:
 
-|Nome del provider di eventi                   |ID evento raccolto    |Descrizione dell'evento       |
+|Nome del provider di eventi                   |ID evento raccolto    |Descrizione evento       |
 |--------------------------------------|------------|----------|
 |Microsoft-Windows-sicurezza-controllo   |4624        |Accesso riuscito. |
 |                                      |4625        |Accesso a un account non riuscito. Nome utente sconosciuto o password errata. |

@@ -12,10 +12,10 @@ ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394738"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
@@ -72,7 +72,7 @@ Assicurarsi di passare alla pagina Criteri di Azure nella portale di Azure ed es
 
 ### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Passaggi aggiuntivi se è stato spostato Key Vault in una sottoscrizione in un nuovo tenant
 
-Se l'insieme di credenziali delle chiavi è stato spostato in una sottoscrizione di un nuovo tenant, è necessario aggiornare manualmente l'ID tenant e rimuovere i criteri di accesso precedenti. Ecco le esercitazioni per questi passaggi in PowerShell e nell'interfaccia della riga di comando di Azure. Se si usa PowerShell, potrebbe essere necessario eseguire il comando Clear-AzContext descritto di seguito per consentire di visualizzare le risorse al di fuori dell'ambito selezionato corrente. 
+Se l'insieme di credenziali delle chiavi è stato spostato in una sottoscrizione di un nuovo tenant, è necessario aggiornare manualmente l'ID tenant e rimuovere i criteri di accesso precedenti. Ecco le esercitazioni per questi passaggi in PowerShell e nell'interfaccia della riga di comando di Azure. Se si usa PowerShell, potrebbe essere necessario eseguire il comando Clear-AzContext riportato di seguito per consentire all'utente di visualizzare le risorse al di fuori dell'ambito selezionato corrente. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

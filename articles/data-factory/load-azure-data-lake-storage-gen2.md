@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: 8f8cfef5ed98682a1d03f7d36caa2008f4ff03b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660386"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Caricare dati in Azure Data Lake Storage Gen2 con Azure Data Factory
@@ -97,7 +97,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 8. Nella pagina **New Linked Service (Azure Data Lake storage Gen2)** seguire questa procedura:
 
    1. Selezionare l'account per Data Lake Storage Gen2 dall'elenco a discesa dei nomi di account di archiviazione.
-   2. Selezionare **Crea** per creare la connessione. Selezionare quindi **Avanti**.   
+   2. Selezionare **Crea** per creare la connessione. Fare quindi clic su **Avanti**.   
 
         ![Specificare un account di Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 
@@ -107,7 +107,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
 10. Nella pagina **Impostazioni** selezionare **Avanti** per usare le impostazioni predefinite.
 
-    ![Pagina Impostazioni](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
+    ![Pagina delle impostazioni](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
 
 11. Nella pagina **Riepilogo** verificare le impostazioni e fare clic su **Avanti**.
 

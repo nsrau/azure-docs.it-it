@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87004282"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento Microsoft.Common.FileUpload dell'interfaccia utente
@@ -78,13 +78,13 @@ Se options.multiple è true e options.uploadMode è url, l'output include un ele
 
 Durante il test di CreateUiDefinition, alcuni browser, ad esempio Google Chrome, troncano gli URL generati dall'elemento Microsoft.Common.FileUpload nella console del browser. Potrebbe essere necessario fare clic con il pulsante destro del mouse sui singoli collegamenti per copiare gli URL completi.
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - `constraints.accept` specifica i tipi di file visualizzati nella finestra di dialogo del browser relativa ai file. Per informazioni sui valori consentiti, vedere la [specifica HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept). Il valore predefinito è **null**.
 - Se la proprietà `options.multiple` è impostata su **true**, l'utente è autorizzato a selezionare più di un file nella finestra di dialogo del browser relativa ai file. Il valore predefinito è **false**.
 - Questo elemento supporta il caricamento dei file in due modalità in base al valore di `options.uploadMode`. Se il valore **file** è specificato, l'output include i contenuti del file sotto forma di BLOB. Se il valore **url** è specificato, il file viene caricato in una posizione temporanea e l'output contiene l'URL del BLOB. I BLOB temporanei verranno eliminati dopo 24 ore. Il valore predefinito è **file**.
 - Un file caricato è protetto. L'URL di output include un [token di firma di accesso condiviso](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) per l'accesso ai file durante la distribuzione.
-- Il valore di `options.openMode` determina la modalità di lettura del file. Se si prevede che il file sia in testo normale, specificare **text**. In caso contrario, specificare **binary**. Il valore predefinito è **text**.
+- Il valore di `options.openMode` determina la modalità di lettura del file. Se si prevede che il file sia in testo normale, specificare **text**. In caso contrario, specificare **binary**. Il valore predefinito è **testo**.
 - Se la proprietà `options.uploadMode` è impostata su **file** e `options.openMode` su **binary**, l'output avrà una codifica Base64.
 - `options.encoding` specifica la codifica da usare per la lettura del file. Il valore predefinito è **UTF-8** e viene usato solo quando la proprietà `options.openMode` è impostata su **text**.
 

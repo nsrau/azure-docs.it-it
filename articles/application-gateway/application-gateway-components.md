@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
 ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723317"
 ---
 # <a name="application-gateway-components"></a>Componenti del gateway applicazione
@@ -77,7 +77,7 @@ Esistono due tipi di listener:
 
 Dopo aver creato un listener, associarlo a una regola di routing delle richieste. Questa regola determina il modo in cui la richiesta ricevuta sul listener deve essere indirizzata al back-end. La regola di routing delle richieste contiene anche il pool back-end a cui indirizzare e l'impostazione HTTP in cui vengono citate la porta back-end, il protocollo e così via.
 
-## <a name="request-routing-rules"></a>Regole di routing richieste
+## <a name="request-routing-rules"></a>Richiedere regole di routing
 
 Una regola di routing delle richieste è un componente chiave di un gateway applicazione perché determina come instradare il traffico sul listener. La regola associa il listener, il pool di server back-end e le impostazioni HTTP back-end.
 

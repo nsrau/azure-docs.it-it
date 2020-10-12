@@ -9,10 +9,10 @@ ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
 ms.openlocfilehash: d8552391e8e8c389a44174595305b8f28224a833
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81732545"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (iOS)
@@ -100,7 +100,7 @@ Oltre a installare i pod necessari per il progetto, il comando di installazione 
 
 5. Salvare le modifiche. 
 
-6. Eseguire il progetto nell'emulatore di dispositivo con il pulsante **Compila ed Esegui** o la combinazione di tasti **comando + r**.
+6. Eseguire il progetto nell'emulatore di dispositivo con il pulsante **Compila ed esegui** o la combinazione di tasti **Comando + R**.
 
    ![Eseguire il progetto](media/iot-hub-ios-swift-c2d/run-sample.png)
 
@@ -152,7 +152,7 @@ Oltre a installare i pod necessari per il progetto, il comando di installazione 
 
    ![Modificare il dispositivo emulatore](media/iot-hub-ios-swift-c2d/change-device.png)
 
-7. Eseguire il progetto nell'emulatore di dispositivo con il pulsante **Compila ed esegui** o la combinazione di tasti **Comando + R**.
+7. Eseguire il progetto nell'emulatore di dispositivo con il pulsante **Compila ed Esegui** o la combinazione di tasti **comando + r**.
 
    ![Eseguire il progetto](media/iot-hub-ios-swift-c2d/run-app.png)
 

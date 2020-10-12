@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090636"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostica delle prestazioni per le macchine virtuali di Azure
@@ -97,10 +97,10 @@ I seguenti scenari di analisi sono disponibili sul portale di Azure. Selezionare
     Include tutti i controlli nell'analisi rapida delle prestazioni e consente di monitorare il consumo elevato di risorse. Usare questa versione per risolvere i problemi generali relativi alle prestazioni, ad esempio un utilizzo elevato della CPU, della memoria e dello spazio su disco. Questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. Altre informazioni su [Windows](https://aka.ms/perfinsights/vmslow) o [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
 * **Analisi avanzata delle prestazioni**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/advanced)
+    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/advanced)
 
 * **Analisi file di Azure**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/azurefiles)
+    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
 >[ `*` ] Questi scenari di analisi sono supportati solo in Windows.
