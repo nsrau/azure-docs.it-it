@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91344233"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
@@ -28,7 +28,7 @@ Questo sito include diverse risorse che è possibile usare per sviluppare soluzi
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
 
-Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Sono inclusi:
+Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Tra queste sono incluse:
 
 * **Esperimenti** : la raccolta contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio (classico). da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 * **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.

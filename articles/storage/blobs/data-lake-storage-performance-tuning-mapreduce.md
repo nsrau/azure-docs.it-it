@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88030521"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: MapReduce, HDInsight & Azure Data Lake Storage Gen2
@@ -65,7 +65,7 @@ Se si usa un cluster vuoto, la memoria può corrispondere alla memoria totale di
 
 I contenitori YARN indicano la quantità di concorrenza disponibile per il processo.  Prendere il valore della memoria totale di YARN e dividerlo per mapreduce.map.memory.  
 
-\#dei contenitori YARN = Total YARN Memory/MapReduce. map. memory
+\# dei contenitori YARN = Total YARN Memory/MapReduce. map. memory
 
 **Passaggio 5: configurare mapreduce.job.maps/mapreduce.job.reduces**
 
@@ -93,7 +93,7 @@ La memoria totale del cluster è di 8 nodi * 96 GB di memoria YARN per D14 = 768
 
 **Passaggio 4: calcolare il numero dei contenitori YARN**
 
-\#dei contenitori YARN = 768GB della memoria disponibile/3 GB di memoria = 256
+\# dei contenitori YARN = 768GB della memoria disponibile/3 GB di memoria = 256
 
 **Passaggio 5: configurare mapreduce.job.maps/mapreduce.job.reduces**
 

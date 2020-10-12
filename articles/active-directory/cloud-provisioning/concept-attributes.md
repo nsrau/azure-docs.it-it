@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1fff90777c63820b54a1cb37156021c894de19c8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226931"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Informazioni sullo schema di Azure AD
@@ -68,7 +68,7 @@ La tabella seguente elenca gli attributi comuni e il modo in cui sono sincronizz
 
 ## <a name="view-the-schema"></a>Visualizzare lo schema
 > [!WARNING]
-> La configurazione del provisioning cloud crea un'entità servizio. L'entità servizio è visibile nel portale di Azure. Non modificare i mapping degli attributi usando l'esperienza dell'entità servizio nel portale di Azure.  Questa caratteristica non è supportata.
+> La configurazione del provisioning cloud crea un'entità servizio. L'entità servizio è visibile nel portale di Azure. Non modificare i mapping degli attributi usando l'esperienza dell'entità servizio nel portale di Azure.  Questo non è supportato.
 
 Per visualizzare lo schema e verificarlo, attenersi alla seguente procedura.
 

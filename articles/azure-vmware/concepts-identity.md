@@ -4,10 +4,10 @@ description: Informazioni sui concetti di identità e accesso della soluzione VM
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88750580"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure
@@ -24,7 +24,7 @@ I privilegi CloudAdmin e CloudGlobalAdmin sono illustrati nella tabella seguente
 
 |  Set di privilegi           | CloudAdmin | CloudGlobalAdmin | Commento |
 | :---                     |    :---:   |       :---:      |   :--:  |
-|  Avvisi                  | Un utente di CloudAdmin dispone di tutti i privilegi di allarme per gli avvisi nel ResourcePool di calcolo e nelle VM.     |          --        |  -- |
+|  Avvisi                  | Un utente CloudAdmin dispone di tutti i privilegi di allarme per gli avvisi nel Compute-ResourcePool e nelle macchine virtuali.     |          --        |  -- |
 |  Distribuzione automatica             |  --  |        --        |  Microsoft esegue la gestione degli host.  |
 |  Certificati            |  --  |        --       |  Microsoft esegue la gestione dei certificati.  |
 |  Raccolta contenuto         | Un utente CloudAdmin dispone dei privilegi necessari per creare e usare i file in una raccolta contenuto.    |         Abilitato con SSO.         |  Microsoft distribuirà i file nella raccolta contenuto agli host ESXi.  |

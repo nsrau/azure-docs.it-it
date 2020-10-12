@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003542"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
@@ -76,7 +76,7 @@ La progettazione del software dell'agente del controller di dominio Azure AD pas
 
 Una frequenza di aggiornamento ragionevole per i criteri password in una distribuzione di grandi dimensioni è in genere di giorni, non di ore o meno. Quindi, le brevi interruzioni dei server proxy non influiscono in modo significativo Azure AD la protezione delle password.
 
-## <a name="deployment-requirements"></a>Requisiti di distribuzione
+## <a name="deployment-requirements"></a>Requisiti per la distribuzione
 
 Per informazioni sulle licenze, vedere [Azure ad requisiti di licenza](concept-password-ban-bad.md#license-requirements)per la protezione delle password.
 

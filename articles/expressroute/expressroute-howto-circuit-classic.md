@@ -9,16 +9,16 @@ ms.date: 11/05/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: be45d49d3f445810c7ac6a38e3e12abe178a4bed
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89396285"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificare un circuito ExpressRoute mediante PowerShell (versione classica)
 
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 > * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
 ms.openlocfilehash: b07033f96402edc24edd51de57661603e57472bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91344820"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Errore di arresto di Windows-processo del sistema di stato 0xC000021A terminato
@@ -37,7 +37,7 @@ Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual
 
 Errore 0xC000021A indica **STATUS_SYSTEM_PROCESS_TERMINATED**.
 
-Questo errore si verifica quando un processo critico, ad esempio WinLogon (winlogon.exe) o il sottosistema di runtime del server client (csrss.exe) ha esito negativo. Quando il kernel rileva che uno di questi servizi è stato arrestato, genera l'errore **Stop 0xC000021A** . Questo errore può avere diverse cause, tra cui:
+Questo errore si verifica quando un processo critico, ad esempio WinLogon (winlogon.exe) o il server client Run-Time sottosistema (csrss.exe) ha esito negativo. Quando il kernel rileva che uno di questi servizi è stato arrestato, genera l'errore **Stop 0xC000021A** . Questo errore può avere diverse cause, tra cui:
 
 - Sono stati installati file di sistema non corrispondenti.
 - L'installazione di un Service Pack o di un aggiornamento KB non è riuscita.

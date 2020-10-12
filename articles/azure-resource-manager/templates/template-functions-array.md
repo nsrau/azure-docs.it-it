@@ -4,10 +4,10 @@ description: Descrive le funzioni da utilizzare in un modello di Azure Resource 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677849"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funzioni di matrice per i modelli ARM
@@ -40,7 +40,7 @@ Converte il valore in matrice.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sì |int, stringa, matrice o oggetto |Valore da convertire in matrice. |
 
@@ -105,7 +105,7 @@ Combina più matrici e restituisce la matrice concatenata oppure combina più va
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |La prima matrice o stringa per la concatenazione. |
 | argomenti aggiuntivi |No |stringa o matrice |Matrici o stringhe aggiuntive in ordine sequenziale per la concatenazione. |
@@ -195,7 +195,7 @@ Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
 | itemToFind |Sì |stringa o numero intero |Valore da trovare. |
@@ -276,7 +276,7 @@ Crea una matrice dai parametri.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |Stringa, numero intero, matrice o oggetto |Primo valore della matrice. |
 | argomenti aggiuntivi |No |Stringa, numero intero, matrice o oggetto |Altri valori della matrice. |
@@ -343,7 +343,7 @@ Determina se una matrice, un oggetto o una stringa sono vuoti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sì |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
 
@@ -408,7 +408,7 @@ Restituisce il primo elemento della matrice o il primo carattere della stringa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
@@ -460,7 +460,7 @@ Restituisce una matrice o un oggetto singoli con gli elementi comuni dei paramet
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice o oggetto |Primo valore da usare per cercare elementi comuni. |
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per cercare elementi comuni. |
@@ -526,7 +526,7 @@ Restituisce l'ultimo elemento della matrice o l'ultimo carattere della stringa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
@@ -578,7 +578,7 @@ Restituisce il numero di elementi in una matrice, i caratteri di una stringa o l
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
@@ -665,7 +665,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -716,7 +716,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -767,7 +767,7 @@ Crea una matrice di numeri interi da un numero intero iniziale, contenente un da
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | startIndex |Sì |INT |Primo numero intero nella matrice. La somma di startIndex e count non deve essere maggiore di 2147483647. |
 | count |Sì |INT |Numero di valori interi della matrice. Deve essere un numero intero non negativo fino a 10000. |
@@ -818,7 +818,7 @@ Restituisce una matrice con tutti gli elementi dopo il numero specificato nella 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
 | numberToSkip |Sì |INT |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
@@ -886,7 +886,7 @@ Restituisce una matrice con il numero specificato di elementi dall'inizio della 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
 | numberToTake |Sì |INT |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
@@ -954,7 +954,7 @@ Restituisce una matrice o un oggetto singoli con tutti gli elementi dei parametr
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice o oggetto |Primo valore da usare per l'aggiunta di elementi. |
 | arg2 |Sì |matrice o oggetto |Secondo valore da usare per l'aggiunta di elementi. |

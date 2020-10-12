@@ -8,10 +8,10 @@ ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500505"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Come creare e gestire Cache Redis di Azure mediante l'interfaccia della riga di comando classica di Azure
@@ -50,9 +50,9 @@ Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamen
 | Numero di partizioni |-r, --shard-count |Numero di partizioni da creare su una cache di cluster Premium con il clustering. |
 | Rete virtuale |-v, --virtual-network |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa ARM esatto della rete virtuale in cui distribuire Cache Redis di Azure. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo di chiave |-t, --key-type |Tipo di chiave per il rinnovo. Valori validi: [primario, secondario] |
-| StaticIP |-p,--static-IP\<static-ip\> |Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. |
+| StaticIP |-p,--static-IP \<static-ip\> |Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. |
 | Subnet |t, --subnet \<subnet\> |Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. |
-| VirtualNetwork |-v,--rete virtuale\<virtual-network\> |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa ARM esatto della rete virtuale in cui distribuire Cache Redis di Azure. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| VirtualNetwork |-v,--rete virtuale \<virtual-network\> |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa ARM esatto della rete virtuale in cui distribuire Cache Redis di Azure. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |L'identificatore della sottoscrizione. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Visualizzare tutti i comandi di Cache Redis di Azure

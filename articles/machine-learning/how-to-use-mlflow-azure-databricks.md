@@ -12,10 +12,10 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91344334"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Tenere traccia degli esperimenti Azure Databricks ML con MLflow e Azure Machine Learning (anteprima)
@@ -172,7 +172,7 @@ mlflow.sklearn.log_model(model, artifact_path = "model",
 
 Quando si è pronti per creare un endpoint per i modelli ML. È possibile distribuire come, 
 
-* Un Azure Machine Learning servizio Web di richiesta-risposta per il punteggio interattivo. Questa distribuzione consente di sfruttare e applicare le funzionalità di gestione del modello di Azure Machine Learning e di rilevamento della tendenza ai dati nei modelli di produzione. 
+* Un Azure Machine Learning Request-Response servizio Web per il punteggio interattivo. Questa distribuzione consente di sfruttare e applicare le funzionalità di gestione del modello di Azure Machine Learning e di rilevamento della tendenza ai dati nei modelli di produzione. 
 
 * Oggetti modello MLFlow, che possono essere usati nelle pipeline di streaming o batch come funzioni Python o funzioni definite dall'utente Pandas nell'area di lavoro Azure Databricks.
 

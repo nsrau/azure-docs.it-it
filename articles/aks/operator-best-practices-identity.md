@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010260"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'autenticazione e l'autorizzazione nel servizio Azure Kubernetes (AKS)
@@ -39,7 +39,7 @@ Con i cluster integrati con Azure AD in servizio Azure Kubernetes, vengono creat
 
 1. Lo sviluppatore viene autenticato con Azure AD.
 1. L'endpoint di emissione del token di Azure AD emette il token di accesso.
-1. Lo sviluppatore esegue un'azione utilizzando il token di Azure AD, ad esempio`kubectl create pod`
+1. Lo sviluppatore esegue un'azione utilizzando il token di Azure AD, ad esempio `kubectl create pod`
 1. Kubernetes convalida il token con Azure Active Directory e recupera le appartenenze al gruppo dello sviluppatore.
 1. Vengono applicati i criteri cluster e il controllo degli accessi in base al ruolo di Kubernetes.
 1. La richiesta dello sviluppatore ha esito positivo o negativo a seconda della precedente convalida dell'appartenenza al gruppo di Azure AD e dei criteri e del controllo degli accessi in base al ruolo di Kubernetes.

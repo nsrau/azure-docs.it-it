@@ -12,10 +12,10 @@ ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: cbcfddcd02a3998b3b35b01d386816735c59ae7e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526409"
 ---
 # <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
@@ -61,7 +61,7 @@ La [chiamata Read](https://westcentralus.dev.cognitive.microsoft.com/docs/servic
 
 Il secondo passaggio consiste nel chiamare [Get Read results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) Operation. Questa operazione accetta come input l'ID operazione creato dall'operazione di lettura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 1 a 2 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Tipo | Valori possibili |
+|Campo| Type | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione non è stata avviata. |
 | |  | Running: l'operazione è in corso di elaborazione. |

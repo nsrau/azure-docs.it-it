@@ -1,5 +1,5 @@
 ---
-title: Installare Log Analytics Agent nei computer Windows
+title: Installare l'agente di Log Analytics in computer Windows
 description: Questo articolo descrive come connettere i computer Windows ospitati in altri cloud o in locale a Monitoraggio di Azure con l'agente di Log Analytics per Windows.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
 ms.openlocfilehash: d283c2b2cdbbeb3ef4bc4e25f4288dfd95158552
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003372"
 ---
-# <a name="install-log-analytics-agent-on-windows-computers"></a>Installare Log Analytics Agent nei computer Windows
+# <a name="install-log-analytics-agent-on-windows-computers"></a>Installare l'agente di Log Analytics in computer Windows
 Questo articolo fornisce informazioni dettagliate sull'installazione dell'agente di Log Analytics nei computer Windows usando i metodi seguenti:
 
 * Installazione manuale utilizzando l' [installazione guidata](#install-agent-using-setup-wizard) o la [riga di comando](#install-agent-using-command-line).
@@ -202,7 +202,7 @@ Nei risultati della ricerca restituiti, devono venire visualizzati i record di h
 
 I dati dell'agente di Log Analytics vengono memorizzati nella cache del computer locale in *C:\Programmi\Microsoft Monitoring Agent\Agent\Health Service state* prima di essere inviati a monitoraggio di Azure. L'agente tenta di caricare ogni 20 secondi. Se ha esito negativo, attenderà una quantità di tempo esponenzialmente crescente fino a quando non avrà esito positivo. Attenderà 30 secondi prima del secondo tentativo, 60 secondi prima del successivo, 120 secondi e così via fino a un massimo di 8,5 ore tra i tentativi fino a quando non si riconnette correttamente. Questo tempo di attesa è leggermente casuale per evitare che tutti gli agenti tentino contemporaneamente la connessione. Quando viene raggiunto il buffer massimo, i dati meno recenti vengono eliminati.
 
-Le dimensioni predefinite della cache sono di 50 MB, ma possono essere configurate tra un minimo di 5 MB e un massimo di 1,5 GB. Viene archiviato nella chiave del registro di sistema *HKEY_LOCAL_MACHINE valore massimo della cache \system\currentcontrolset\services\healthservice\parameters\persistence*. Il valore rappresenta il numero di pagine, con 8 KB per pagina.
+Le dimensioni predefinite della cache sono di 50 MB, ma possono essere configurate tra un minimo di 5 MB e un massimo di 1,5 GB. Viene archiviato nella chiave del registro di sistema *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*. Il valore rappresenta il numero di pagine, con 8 KB per pagina.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

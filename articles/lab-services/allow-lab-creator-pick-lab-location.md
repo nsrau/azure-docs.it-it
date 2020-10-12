@@ -4,10 +4,10 @@ description: Questo articolo descrive come un amministratore dell'account Lab pu
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444200"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Consenti a Lab Creator di selezionare la posizione per il Lab in Azure Lab Services
@@ -57,7 +57,7 @@ Se un percorso è vincolato, non viene visualizzato nell'elenco per impostazione
 
 ![Mostra percorsi non disponibili](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>Costi
+## <a name="cost"></a>Cost
 In precedenza, i prezzi erano basati sulle dimensioni della macchina virtuale scelte per il Lab. Il prezzo è basato sulla combinazione del sistema operativo, le dimensioni e la posizione. 
 
 ## <a name="next-steps"></a>Passaggi successivi

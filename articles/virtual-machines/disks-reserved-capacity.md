@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752066"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Riduci i costi con la prenotazione di dischi di Azure
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Ridurre i costi con la prenotazione dischi di Azure
 
 Risparmia sull'utilizzo del archiviazione su disco di Azure con capacità riservata. Archiviazione su disco di Azure prenotazioni combinate con le istanze di macchina virtuale riservate di Azure consentono di ridurre i costi totali della macchina virtuale (VM). Lo sconto relativo alla prenotazione viene applicato automaticamente ai dischi corrispondenti nell'ambito della prenotazione selezionato. A causa di questa applicazione automatica, non è necessario assegnare una prenotazione a un disco gestito per ottenere gli sconti.
 
@@ -104,4 +104,4 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni sulle prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Informazioni su come viene applicato lo sconto per la prenotazione all'archiviazione su disco di Azure](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Informazioni sul modo in cui viene applicato lo sconto per la prenotazione archiviazione su disco di Azure](../cost-management-billing/reservations/understand-disk-reservations.md)

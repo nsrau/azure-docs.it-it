@@ -4,10 +4,10 @@ description: Come ottenere le informazioni necessarie dal cloud privato della so
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752230"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Ottenere assistenza per la distribuzione di soluzioni VMware di Azure o gli errori di provisioning
@@ -29,7 +29,7 @@ Copiare e salvare l'ID correlazione da includere nella richiesta di servizio. Pe
 
 Se l'errore si verifica nelle fasi di pre-convalida, prima della distribuzione di un cloud privato, non viene generato alcun ID di correlazione. In questo caso, è possibile fornire semplicemente le informazioni usate durante la creazione del cloud privato della soluzione VMware di Azure, tra cui:
 
-- Percorso
+- Location
 - Resource group
 - Nome risorsa
  
@@ -37,7 +37,7 @@ Se l'errore si verifica nelle fasi di pre-convalida, prima della distribuzione d
 
 I dettagli di eventuali errori possono essere utili anche per la risoluzione del problema. Dalla schermata precedente selezionare **fare clic qui per i dettagli** (evidenziato) e viene visualizzato un riepilogo degli errori, come illustrato nello screenshot seguente.
  
- :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Riepilogo degli errori.":::
+ :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Distribuzione del cloud privato non riuscita con ID correlazione.":::
 
 Anche in questo caso, copiare e salvare il riepilogo da includere in SR.
  
@@ -45,15 +45,15 @@ Anche in questo caso, copiare e salvare il riepilogo da includere in SR.
 
 È possibile recuperare le distribuzioni precedenti, incluse quelle non riuscite, eseguendo una ricerca nel log attività di distribuzione a cui si accede selezionando l'icona notifiche.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Notifiche aperte.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/open-notifications.png" alt-text="Distribuzione del cloud privato non riuscita con ID correlazione.":::
 
 In notifiche selezionare **altri eventi nel log attività**.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Collegamento: più eventi nel log attività.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Distribuzione del cloud privato non riuscita con ID correlazione.":::
 
 Cercare quindi il nome della risorsa o un'altra informazione univoca usata per la creazione della risorsa, per individuare la distribuzione non riuscita e il relativo ID di correlazione. Nell'esempio seguente vengono illustrati i risultati della ricerca in una risorsa cloud privata (PC03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Trova le distribuzioni non riuscite della soluzione VMware di Azure.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Distribuzione del cloud privato non riuscita con ID correlazione.":::
  
 Se si seleziona il nome dell'operazione di distribuzione non riuscita, viene visualizzata una finestra con i dettagli. Selezionare la scheda JSON e cercare correlationId. Copiare e includere in SR. 
  
@@ -63,7 +63,7 @@ Probabilmente si ha già un cloud privato e si verifica un errore quando si prov
 
 Quando si visualizza un cloud privato nel portale, selezionare **Connectivity > ExpressRoute** e copiare l' **ID ExpressRoute** negli Appunti.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copiare l'ID ExpressRoute negli Appunti."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Distribuzione del cloud privato non riuscita con ID correlazione."::: 
  
 Incollare l'ID ExpressRoute nel campo appropriato nella nuova richiesta di supporto. Per altre informazioni, vedere la sezione seguente [creare la richiesta di supporto](#create-your-support-request).
  
@@ -78,7 +78,7 @@ Di seguito sono riportate altre linee guida specifiche per la creazione di un SR
 
 1. Selezionare l'icona della **Guida** e quindi **+ nuova richiesta di supporto**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Raccogliere un ID ExpressRoute per la SR.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Distribuzione del cloud privato non riuscita con ID correlazione.":::
 
 2. Compilare tutti i campi obbligatori e nella scheda **nozioni di base** :
 

@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85959144"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurare un'identità comune in un Data Science Virtual Machine
@@ -55,7 +55,7 @@ Active Directory Domain Services semplifica la gestione delle identità, fornend
     
    1. Distribuire in modo sicuro la password generata al nuovo utente per poter accedere.
 
-1. Creare un'istanza di Azure Active Directory Domain Services. Seguire le istruzioni riportate in [abilitare Azure Active Directory Domain Services usando il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (la sezione "creare un'istanza e configurare le impostazioni di base"). È importante aggiornare le password utente esistenti in Active Directory in modo che le password in Azure Active Directory Domain Services siano sincronizzate. È anche importante aggiungere DNS a Azure AD DS, come descritto in "completare i campi nella finestra nozioni di base della portale di Azure per creare un'istanza di Azure AD DS" in questa sezione.
+1. Creare un'istanza di Azure Active Directory Domain Services. Seguire le istruzioni riportate in  [abilitare Azure Active Directory Domain Services usando il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (la sezione "creare un'istanza e configurare le impostazioni di base"). È importante aggiornare le password utente esistenti in Active Directory in modo che le password in Azure Active Directory Domain Services siano sincronizzate. È anche importante aggiungere DNS a Azure AD DS, come descritto in "completare i campi nella finestra nozioni di base della portale di Azure per creare un'istanza di Azure AD DS" in questa sezione.
 
 1. Creare una subnet DSVM separata nella rete virtuale creata nella sezione "creare e configurare la rete virtuale" del passaggio precedente.
 1. Creare una o più istanze di DSVM nella subnet DSVM.

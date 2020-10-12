@@ -4,10 +4,10 @@ description: Informazioni sulle funzioni che è possibile usare in un modello di
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677815"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funzioni di distribuzione per i modelli ARM
@@ -103,7 +103,7 @@ Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o
 }
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
 
@@ -158,7 +158,7 @@ L'esempio precedente restituisce l'oggetto seguente:
 }
 ```
 
-## <a name="environment"></a>environment
+## <a name="environment"></a>ambiente
 
 `environment()`
 
@@ -264,7 +264,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
@@ -272,7 +272,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 Il valore del parametro specificato.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
@@ -369,7 +369,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | variableName |Sì |string |Nome della variabile da restituire. |
 
@@ -377,7 +377,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 Il valore della variabile specificata.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Per semplificare il modello creando valori complessi una sola volta, si usano in genere le variabili. Nell'esempio seguente viene creato un nome univoco per un account di archiviazione.
 

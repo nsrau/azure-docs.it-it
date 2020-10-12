@@ -4,10 +4,10 @@ description: Informazioni sulle funzioni che è possibile usare in un modello di
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677390"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funzioni logiche per i modelli ARM
@@ -28,7 +28,7 @@ Verifica se tutti i valori dei parametri sono true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -80,7 +80,7 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
 
@@ -134,7 +134,7 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | condizione |Sì |boolean |Valore per verificare se è true o false. |
 | trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
@@ -144,7 +144,7 @@ Restituisce un valore in base a un condizione true o false.
 
 Restituisce il secondo parametro, quando il primo parametro è **True**. In caso contrario, restituisce il terzo parametro.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la funzione **if** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
 
@@ -239,7 +239,7 @@ Converte il valore booleano nel valore opposto.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Valore da convertire. |
 
@@ -304,7 +304,7 @@ L'output dell'esempio precedente è:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>o
+## <a name="or"></a>oppure
 
 `or(arg1, arg2, ...)`
 
@@ -312,7 +312,7 @@ Verifica se uno qualsiasi dei valori dei parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |

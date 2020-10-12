@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 02f5c570b7400266ac648eaa257fb76d26819a40
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003185"
 ---
 # <a name="coarse-relocalization"></a>Rilocalizzazione grossolana
@@ -125,7 +125,7 @@ Successivamente, è necessario decidere quali sensori si vuole usare per la rilo
 |-----------------|---------|----------|
 | **GPS**         | Disattivato | Attivato |
 | **Wi-Fi**        | On | On (facoltativo) |
-| **Beacon BLE** | On (facoltativo con avvertenze, vedere più avanti) | Disattivata |
+| **Beacon BLE** | On (facoltativo con avvertenze, vedere più avanti) | Off |
 
 ### <a name="enabling-gps"></a>Abilitazione di GPS
 

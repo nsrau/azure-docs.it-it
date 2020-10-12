@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
 ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252630"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi di ExpressRoute
@@ -60,19 +60,19 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 
 È possibile visualizzare le metriche in base al tipo di peering privato, pubblico e Microsoft in bit al secondo.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="metriche per peering":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="metriche del circuito":::
 
 ### <a name="bgp-availability---split-by-peer"></a>Disponibilità BGP-suddivisione per peer  
 
 È possibile visualizzare la disponibilità quasi in tempo reale di BGP tra peering e peer (router ExpressRoute primari e secondari). Questo dashboard mostra la sessione BGP primaria per il peering privato e la seconda sessione BGP per il peering privato. 
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="Disponibilità BGP per peer":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="metriche del circuito":::
 
 ### <a name="arp-availability---split-by-peering"></a>Disponibilità ARP-suddivisione per peering  
 
 È possibile visualizzare la disponibilità quasi in tempo reale di [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) tra peering e peer (router ExpressRoute primari e secondari). Questo dashboard mostra la sessione ARP per il peering privato in entrambi i peer, ma è stata completata per il peering Microsoft nei peering. L'aggregazione predefinita (media) è stata utilizzata in entrambi i peer.  
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="Disponibilità ARP per peer":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="metriche del circuito":::
 
 ## <a name="expressroute-direct-metrics"></a>Metriche dirette ExpressRoute
 
@@ -80,37 +80,37 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 
 È possibile visualizzare lo stato amministratore per ogni collegamento della coppia di porte dirette ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="Stato amministrazione diretta ER":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="metriche del circuito":::
 
 ### <a name="bits-in-per-second---split-by-link"></a>Bit in al secondo-divisione per collegamento
 
 È possibile visualizzare i bit in al secondo in entrambi i collegamenti della coppia di porte dirette ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="Bit diretti ER al secondo":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="metriche del circuito":::
 
 ### <a name="bits-out-per-second---split-by-link"></a>BITS in uscita al secondo-divisione per collegamento
 
 È anche possibile visualizzare i bit al secondo in entrambi i collegamenti della coppia di porte dirette ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="Bit diretti ER al secondo":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="metriche del circuito":::
 
 ### <a name="line-protocol---split-by-link"></a>Protocollo linea-divisione per collegamento
 
 È possibile visualizzare il protocollo della linea attraverso ogni collegamento della coppia di porte dirette ExpressRoute.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="Protocollo di linea ER Direct":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="metriche del circuito":::
 
 ### <a name="rx-light-level---split-by-link"></a>Livello chiaro RX-divisione per collegamento
 
 È possibile visualizzare il livello di luce RX (il livello di luce che la porta diretta di ExpressRoute sta **ricevendo**) per ogni porta. I livelli di luce RX integri in genere rientrano in un intervallo compreso tra-10 e 0 dBm
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="Livello chiaro RX linea ER":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="metriche del circuito":::
 
 ### <a name="tx-light-level---split-by-link"></a>Livello chiaro TX-divisione per collegamento
 
 È possibile visualizzare il livello di luce del TX (il livello di luce che la porta diretta ExpressRoute **trasmette**) per ogni porta. I livelli Light TX integri in genere rientrano in un intervallo compreso tra-10 e 0 dBm
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="Livello chiaro TX linea ER":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="metriche del circuito":::
 
 ## <a name="expressroute-virtual-network-gateway-metrics"></a>Metriche del gateway di rete virtuale ExpressRoute
 
@@ -118,42 +118,42 @@ Una volta selezionata la metrica, verrà applicata l'aggregazione predefinita. F
 
 È possibile visualizzare l'utilizzo della CPU delle istanze del gateway.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Suddivisione CPU":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="metriche del circuito":::
 
 ### <a name="packets-per-second---split-by-instance"></a>Pacchetti al secondo-divisione per istanza
 
 È possibile visualizzare i pacchetti al secondo attraversando il gateway.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Pacchetti al secondo-divisione":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="metriche del circuito":::
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Connessioni gateway di ExpressRoute in bit al secondo
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="connessioni gateway":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="metriche del circuito":::
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Avvisi per le connessioni gateway di ExpressRoute
 
 1. Per configurare gli avvisi, passare a **monitoraggio di Azure**e quindi selezionare **avvisi**.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="avvisi":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg" alt-text="metriche del circuito":::
 2. Fare clic su **+Seleziona destinazione** e selezionare la risorsa di connessione gateway di ExpressRoute.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="target":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg" alt-text="metriche del circuito":::
 3. Definire i dettagli dell'avviso.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="gruppo di azione":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg" alt-text="metriche del circuito":::
 4. Definire e aggiungere il gruppo di azioni.
 
-   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="Aggiungi gruppo di azione":::
+   :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/actiongroup.png" alt-text="metriche del circuito":::
 
 ## <a name="alerts-based-on-each-peering"></a>Avvisi basati su ciascun peering
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="ogni peering":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg" alt-text="metriche del circuito":::
 
 ## <a name="configure-alerts-for-activity-logs-on-circuits"></a>Configurare avvisi per i log attività sui circuiti
 
 In **Criteri di avviso** è possibile selezionare **Log attività** per il tipo di segnale e selezionare il segnale.
 
-:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="log attività":::
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="metriche del circuito":::
 
 ## <a name="additional-metrics-in-log-analytics"></a>Metrica aggiuntiva in Log Analytics
 

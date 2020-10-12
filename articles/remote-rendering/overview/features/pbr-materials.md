@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613672"
 ---
 # <a name="pbr-materials"></a>Materiali PBR
@@ -76,7 +76,7 @@ Il concetto di base del rendering fisico consiste nell'usare le proprietà *Base
 
 ## <a name="technical-details"></a>Dettagli tecnici
 
-Il rendering remoto di Azure usa il microfacet Cook-Torrance BRDF con GGX NDF, Schlick Fresnel e un termine di visibilità correlato di GGX Smith con un termine di diffusione di Lambert. Questo modello è attualmente lo standard di settore. Per informazioni più dettagliate, vedere questo articolo: [rendering basato su fisico-Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+Il rendering remoto di Azure usa il Cook-Torrance micro-facet BRDF con GGX NDF, Schlick Fresnel e un termine di visibilità correlato di GGX Smith con un termine di diffusione di Lambert. Questo modello è attualmente lo standard di settore. Per informazioni più dettagliate, vedere questo articolo: [rendering basato su fisico-Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Un'alternativa al modello di riattivazione della *rugosità del metallo* usato nel rendering remoto di Azure è il modello di *lucentezza PBR speculare* . Questo modello può rappresentare una gamma più ampia di materiali. Tuttavia, è più costoso e in genere non funziona correttamente per i casi in tempo reale.
 Non è sempre possibile eseguire la conversione da *speculare-lucentezza* a *metallo-rugosità* come le coppie valore *(diffusa, speculare)* che non possono essere convertite in *(baseColor, metality)*. La conversione nell'altra direzione è più semplice e precisa, dal momento che tutte le coppie *(baseColor, metality)* corrispondono a coppie ben definite *(diffuse, speculari)* .

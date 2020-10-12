@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80059965"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Creare un certificato radice autofirmato
@@ -30,7 +30,7 @@ Usare il cmdlet New-SelfSignedCertificate per creare un certificato radice autof
    ```
  3. Lasciare aperta la console di PowerShell se si desidera creare un certificato client subito dopo la creazione del certificato radice.
 
-## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generazione di un certificato client
+## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generare un certificato client
 
 Ogni computer client che si connette a una rete virtuale usando la soluzione Da punto a sito deve avere un certificato client installato. È possibile generare un certificato client da un certificato radice autofirmato, quindi esportare e installare il certificato client. Se il certificato client non è installato, l'autenticazione ha esito negativo. 
 

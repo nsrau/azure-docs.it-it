@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005906"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Errore di arresto di Windows - Memoria esaurita
@@ -143,7 +143,7 @@ Prima di eseguire qualsiasi passaggio, è necessario creare una copia della cart
    1. Passare a **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> Select**.
    1. Nelle chiavi elencate, prendere nota del valore di dati corrente. Se, ad esempio, questo valore è **1** o **0x00000001 (1)**, il set di controlli sarà ControlSet001.
 1. Controllare la posizione in cui è configurata la creazione del PageFile.
-   1. In HKEY_LOCAL_MACHINE \BROKENSYSTEM espandere la directory corrispondente al numero di controlli identificato nel passaggio 4, ad esempio **ControlSet001**.
+   1. In HKEY_LOCAL_MACHINE\BROKENSYSTEM espandere la directory corrispondente al numero di controlli identificato nel passaggio 4, ad esempio **ControlSet001**.
    1. Passare a **Control >> Session Manager >> gestione della memoria** e prendere nota del percorso della chiave **ExistingPageFiles** .
    1. Questa chiave deve trovarsi nella posizione predefinita di Azure dell'unità temporanea. Se non è presente e si trova in un disco rigido virtuale in un'altra posizione, ad esempio l'unità disco dati o l'unità del sistema operativo, sarà necessario eliminarla.
    1. Passare a tale percorso in Esplora file e quindi eliminare il file di **pagefile.sys** .

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80065198"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
@@ -42,7 +42,7 @@ Questo articolo consente di configurare una soluzione di disponibilità elevata 
 
 Usando il portale di Azure, è possibile monitorare lo stato di questi nodi, per poter decidere se aggiungere o rimuovere un nodo dal gateway logico. 
 
-## <a name="architecture"></a>Architettura 
+## <a name="architecture"></a>Architecture 
 Il diagramma seguente offre una panoramica dell'architettura della funzionalità di scalabilità e disponibilità del gateway di gestione dati: 
 
 ![Gateway di gestione dati: disponibilità elevata e scalabilità](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
@@ -187,7 +187,7 @@ Proprietà monitoraggio | Descrizione
 :------------------ | :---------- 
 Nome | Nome del gateway logico e nodi associati al gateway.  
 Stato | Stato del gateway logico e dei nodi del gateway. Esempio: online/offline/Limited/ecc. Per informazioni su questi Stati, vedere la sezione [stato del gateway](#gateway-status) . 
-Version | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
+Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Rete (in/out) | Utilizzo della rete da parte di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
@@ -206,7 +206,7 @@ Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
 Aggiornamento | È in corso l'aggiornamento automatico del nodo.
 Limitato | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali. 
-Inattivo | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
+Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi. 
 
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway. 

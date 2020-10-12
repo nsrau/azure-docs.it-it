@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 6c4e507df0f112934979d4e59778b667743cf623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005957"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Come reimpostare l'interfaccia di rete per la VM Windows di Azure 
@@ -40,7 +40,7 @@ Questo articolo illustra come reimpostare l'interfaccia di rete per la macchina 
     
 4.  Selezionare **Configurazioni IP**.
 5.  Selezionare l'indirizzo IP. 
-6.  Se l' **assegnazione dell'indirizzo IP privato** non è **statica**, impostarla su **static**.
+6.  Se l' **assegnazione dell'indirizzo IP privato**  non è  **statica**, impostarla su **static**.
 7.  Cambiare l'**Indirizzo IP** in un altro indirizzo IP disponibile nella subnet.
 8. La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
 9.  Provare a eseguire RDP al computer in uso. Se ha esito positivo, è possibile modificare l'indirizzo IP privato originale se si vuole. In caso contrario è possibile mantenerlo. 
@@ -82,7 +82,7 @@ Per reimpostare l'interfaccia di rete, seguire questi passaggi:
 2.  Selezionare **Macchine virtuali (classiche)**.
 3.  Selezionare la macchina virtuale.
 4.  Selezionare **Indirizzi IP**.
-5.  Se l' **assegnazione dell'indirizzo IP privato** non è **statica**, impostarla su **static**.
+5.  Se l' **assegnazione dell'indirizzo IP privato**  non è  **statica**, impostarla su **static**.
 6.  Cambiare l'**Indirizzo IP** in un altro indirizzo IP disponibile nella subnet.
 7.  Selezionare **Salva**.
 8.  La macchina virtuale verrà riavviata per inizializzare la nuova scheda NIC al sistema.
