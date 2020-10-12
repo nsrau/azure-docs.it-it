@@ -14,10 +14,10 @@ ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, n
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116394"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v2.0)?

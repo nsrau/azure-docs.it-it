@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9f0a3c3a96a73bd71a9b0c769a3ceff85ae428f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89017618"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introduzione all’archiviazione di accodamento di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
@@ -150,7 +150,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Utilizzare il modello Async-Await con le API comuni di accodamento di Azure.
-In questo esempio viene illustrato come utilizzare il modello Async-Await con API di accodamento di Azure comuni. Nell'esempio viene chiamata la versione asincrona di ognuno dei metodi specificati, che può essere rilevata dalla successiva correzione **asincrona** di ogni metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per altri dettagli sull'uso del modello async-await in .NET, vedere [Async e await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+In questo esempio viene illustrato come utilizzare il modello Async-Await con API di accodamento di Azure comuni. Nell'esempio viene chiamata la versione asincrona di ognuno dei metodi specificati, che può essere rilevata dalla successiva correzione **asincrona** di ogni metodo. Quando un metodo asincrono viene utilizzato, il modello async-await sospende l'esecuzione locale fino al completamento della chiamata. Questo comportamento consente al thread corrente di eseguire altre attività per evitare colli di bottiglia delle prestazioni e migliora la velocità di risposta complessiva dell'applicazione. Per altri dettagli sull'uso del modello di Async-Await in .NET, vedere [Async e await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
 // Create a message to put in the queue

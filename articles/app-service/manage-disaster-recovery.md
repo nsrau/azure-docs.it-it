@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073737"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Spostare un'app del servizio app in un'altra area
@@ -21,7 +21,7 @@ Le risorse del servizio app sono specifiche dell'area e non possono essere spost
 
 - No. Il [ripristino dallo snapshot](app-service-web-restore-snapshots.md) richiede in genere il livello **Premium** , ma in modalità di ripristino di emergenza viene abilitato automaticamente per l'app interessata, indipendentemente dal livello in cui si trova l'app interessata.
 
-## <a name="prepare"></a>Preparare
+## <a name="prepare"></a>Preparazione
 
 Identificare tutte le risorse del servizio app attualmente utilizzate dall'app interessata. Ad esempio:
 
@@ -78,7 +78,7 @@ Se si vuole solo ripristinare i file dall'app interessata senza ripristinarli, s
     Copiare tre valori di attributo: 
         
     - `publishUrl`: nome host FTP
-    - `userName`e `userPWD` : credenziali FTP
+    - `userName` e `userPWD` : credenziali FTP
 
 1. Usare il client FTP preferito, connettersi all'host FTP dell'app interessata usando il nome host e le credenziali.
 

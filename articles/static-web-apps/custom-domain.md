@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87563348"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurare un dominio personalizzato in App Web statiche di Azure (anteprima)
@@ -31,7 +31,7 @@ Per un'applicazione sono disponibili diversi tipi di configurazioni DNS.
 
 | Se si vuole                                 | Risultato                                                |
 | -----------------------------------------------| --------------------------------------------------- |
-| Supporto tecnico `www.example.com` o`blog.example.net`| [Esecuzione del mapping di un record CNAME](#map-a-cname-record)           |
+| Supporto tecnico `www.example.com` o `blog.example.net`| [Esecuzione del mapping di un record CNAME](#map-a-cname-record)           |
 | Supporto di `example.com`                          | [Configurare un dominio radice](#configure-a-root-domain) |
 | Fare in modo che tutti i sottodomini puntino a `www.example.com`      | [Eseguire il mapping di un carattere jolly](#map-a-wildcard-domain)            |
 

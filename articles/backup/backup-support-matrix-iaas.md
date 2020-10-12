@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
 ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332730"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
@@ -164,7 +164,7 @@ Dischi con l'acceleratore di scrittura abilitato | Non supportato.<br/><br/> Bac
 Backup e ripristino di macchine virtuali o dischi deduplicati | Backup di Azure non supporta la deduplicazione. Per altre informazioni, vedere questo [articolo](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -Backup di Azure non viene deduplicato tra le macchine virtuali nell'insieme di credenziali di servizi di ripristino <br/> <br/>  -Se sono presenti macchine virtuali in stato di deduplicazione durante il ripristino, i file non possono essere ripristinati perché l'insieme di credenziali non comprende il formato. Tuttavia, è possibile eseguire correttamente il ripristino completo della macchina virtuale.
 Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
-Archiviazione condivisa| Il backup di macchine virtuali con Volume condiviso cluster (CSV) o File server di scalabilità orizzontale non è supportato. È probabile che i writer Volume condiviso cluster generino un errore durante il backup. Al momento del ripristino, i dischi contenenti volumi Volume condiviso cluster potrebbero non essere disponibili.
+Archiviazione condivisa| Il backup di macchine virtuali con Volume condiviso cluster (CSV) o Scale-Out file server non è supportato. È probabile che i writer Volume condiviso cluster generino un errore durante il backup. Al momento del ripristino, i dischi contenenti volumi Volume condiviso cluster potrebbero non essere disponibili.
 [Dischi condivisi](../virtual-machines/disks-shared-enable.md) | Non supportato.
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali

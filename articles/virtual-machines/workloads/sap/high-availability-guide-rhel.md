@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 3ea8be2bbf3296f97ca0562a2d8e72bfe7a77d3b
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760482"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
@@ -73,7 +73,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index) (Amministrazione dei componenti aggiuntivi a disponibilità elevata)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index) (Riferimento dei componenti aggiuntivi a disponibilità elevata)
   * [Configurazione di ASCS/ERS per SAP Netweaver con risorse autonome in RHEL 7.5](https://access.redhat.com/articles/3569681)
-  * [Configurare SAP S/4HANA ASC/ERS con il server di Accodamento autonomo 2 (ENSA2) in pacemaker in RHEL](https://access.redhat.com/articles/3974941)
+  * [Configurare SAP S/4HANA ASC/ERS con il server di Accodamento autonomo 2 (ENSA2) in pacemaker in RHEL ](https://access.redhat.com/articles/3974941)
 * Documentazione di RHEL specifica per Azure:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341) (Criteri di supporto per cluster RHEL a disponibilità elevata - Macchine virtuali di Microsoft Azure come membri del cluster)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
@@ -545,7 +545,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
    SAP ha introdotto il supporto per il server di accodamento 2, inclusa la replica, a partire da SAP NW 7.52. A partire dalla piattaforma ABAP 1809, il server di accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di accodamento 2.
-   Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare l'agente risorse Resource-Agents-SAP-4.1.1 -12. el7. x86_64 o versione successiva e definire le risorse come segue:
+   Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare Resource Agent Resource-Agents-SAP-4.1.1-12.EL7.x86_64 o versione successiva e definire le risorse come segue:
 
 <pre><code>sudo pcs property set maintenance-mode=true
    

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316563"
 ---
 # <a name="extract-data-with-entities"></a>Estrarre dati con entità
@@ -32,7 +32,7 @@ Le entità devono essere etichettate in modo coerente in tutte le espressioni di
 
  È possibile definire entità personalizzate o usare entità predefinite per risparmiare tempo per i concetti comuni, ad esempio [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinale](luis-reference-prebuilt-ordinal.md), [e-mail](luis-reference-prebuilt-email.md)e [numero di telefono](luis-reference-prebuilt-phonenumber.md).
 
-|Espressione|Entità|Data|
+|Espressione|Entità|Dati|
 |--|--|--|
 |Buy 3 tickets to New York|Number predefinito<br>Destination|3<br>New York|
 

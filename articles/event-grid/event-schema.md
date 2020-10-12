@@ -4,10 +4,10 @@ description: Descrive le proprietà e lo schema presenti per tutti gli eventi.Gl
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105881"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
@@ -78,13 +78,13 @@ Tutti gli eventi contengono gli stessi dati di livello principale indicati di se
 | Proprietà | Type | Obbligatoria | Descrizione |
 | -------- | ---- | -------- | ----------- |
 | argomento | string | No, ma se incluso, deve corrispondere all'argomento della griglia di eventi Azure Resource Manager ID esattamente. Se non è incluso, griglia di eventi viene timbrato sull'evento. | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Sì | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Sì | Identificatore univoco dell'evento. |
 | data | object | No | Dati dell'evento specifici del provider di risorse. |
-| dataVersion | string | No, ma verrà contrassegnato con un valore vuoto. | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Non obbligatorio, ma se incluso, deve corrispondere esattamente allo schema di griglia di eventi `metadataVersion` (attualmente, solo `1` ). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | No, ma verrà contrassegnato con un valore vuoto. | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | Non obbligatorio, ma se incluso, deve corrispondere esattamente allo schema di griglia di eventi `metadataVersion` (attualmente, solo `1` ). Se non è incluso, griglia di eventi viene timbrato sull'evento. | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'evento:
 

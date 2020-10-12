@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260330"
 ---
 # <a name="sfctl-property"></a>sfctl property
@@ -19,7 +19,7 @@ Consente di archiviare proprietà ed eseguire query su di esse con i nomi di Ser
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminazione | Elimina la proprietà di Service Fabric specificata. |
+| Elimina | Elimina la proprietà di Service Fabric specificata. |
 | get | Ottiene la proprietà di Service Fabric specificata. |
 | list | Ottiene informazioni su tutte le proprietà di Service Fabric con un determinato nome. |
 | put | Crea o aggiorna una proprietà di Service Fabric. |
@@ -31,7 +31,7 @@ Elimina la proprietà di Service Fabric specificata con un determinato nome. Pri
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name-id [Obbligatorio] | Nome di Service Fabric, senza lo schema URI "fabric\:". |
 | --property-name [Obbligatorio] | Specifica il nome della proprietà da ottenere. |
@@ -39,7 +39,7 @@ Elimina la proprietà di Service Fabric specificata con un determinato nome. Pri
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -54,7 +54,7 @@ Ottiene la proprietà di Service Fabric specificata con un determinato nome. Que
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name-id [Obbligatorio] | Nome di Service Fabric, senza lo schema URI "fabric\:". |
 | --property-name [Obbligatorio] | Specifica il nome della proprietà da ottenere. |
@@ -62,7 +62,7 @@ Ottiene la proprietà di Service Fabric specificata con un determinato nome. Que
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -77,7 +77,7 @@ Un nome di Service Fabric può avere una o più proprietà denominate che archiv
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name-id [Obbligatorio] | Nome di Service Fabric, senza lo schema URI "fabric\:". |
 | --continuation-token | Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL. |

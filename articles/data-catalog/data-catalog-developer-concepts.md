@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799248"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concetti per sviluppatori del Catalogo dati di Azure
@@ -74,7 +74,7 @@ L'esperienza utente può quindi scegliere come visualizzare la combinazione. Esi
 Come descritto nella sezione dei concetti chiave, il modello a oggetti del **Catalogo dati di Azure** include elementi che possono essere asset o annotazioni. Gli elementi dispongono di proprietà che possono essere obbligatorie o facoltative. Alcune proprietà si applicano a tutti gli elementi. Alcune proprietà si applicano a tutti gli asset. Alcune proprietà si applicano solo a tipi di asset specifici.
 
 ### <a name="system-properties"></a>Proprietà di sistema
-<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>ID</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>tipo</td><td>string</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>string</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
+<table><tr><td><b>Nome proprietà</b></td><td><b>Tipo di dati</b></td><td><b>Commenti</b></td></tr><tr><td> timestamp</td><td>Datetime</td><td>Data e ora dell'ultima modifica apportata all'elemento. Questo campo viene generato dal server quando viene inserito un elemento e ogni volta che viene aggiornato un elemento. Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>ID</td><td>Uri</td><td>URL assoluto dell'elemento (sola lettura). Si tratta dell'URI indirizzabile univoco per l'elemento.  Il valore di questa proprietà viene ignorato durante l'input di operazioni di pubblicazione.</td></tr><tr><td>type</td><td>string</td><td>Tipo di asset (sola lettura).</td></tr><tr><td>etag</td><td>string</td><td>Stringa che corrisponde alla versione dell'elemento che è possibile usare per il controllo della concorrenza ottimistica quando si eseguono operazioni che aggiornano gli elementi nel catalogo. È possibile usare "*" per cercare corrispondenze per qualsiasi valore.</td></tr></table>
 
 ### <a name="common-properties"></a>Proprietà comuni
 Queste proprietà si applicano a tutti i tipi di asset radice e a tutti i tipi di annotazione.
@@ -182,7 +182,7 @@ I tipi comuni possono essere usati come tipi per proprietà, ma non sono element
 
 <tr><td>Colonna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome della colonna o dell'attributo.</td></tr>
-<tr><td></td><td>tipo</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset.  È supportato un solo subset di tipi.</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>Tipo di dati della colonna o dell'attributo. I tipi consentiti dipendono dal sourceType dei dati dell'asset.  È supportato un solo subset di tipi.</td></tr>
 <tr><td></td><td>maxLength</td><td>INT</td><td>Lunghezza massima consentita per la colonna o l'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>precisione</td><td>byte</td><td>Precisione della colonna o dell'attributo. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Verifica se la colonna può avere un valore null o meno. Derivata dall'origine dati. Valida solo per alcuni tipi di origine.</td></tr>
@@ -190,7 +190,7 @@ I tipi comuni possono essere usati come tipi per proprietà, ma non sono element
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>Nome della colonna</td></tr>
-<tr><td></td><td>tipo </td><td>string</td><td>Il tipo della colonna</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>Il tipo della colonna</td></tr>
 <tr><td></td><td>min </td><td>string</td><td>Il valore minimo nel set di dati</td></tr>
 <tr><td></td><td>max </td><td>string</td><td>Il valore massimo nel set di dati</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>Il valore medio del set di dati</td></tr>
@@ -217,7 +217,7 @@ Il set di protocolli supportati può essere esteso a livello di codice. Vedere i
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>string</td><td>Nome della proprietà. Il nome della proprietà deve avere una lunghezza compresa tra 1 e 100 caratteri, iniziare con una lettera e può contenere solo lettere e numeri.</td></tr>
-<tr><td></td><td>tipo</td><td>string</td><td>Tipo della proprietà. Valori supportati: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
+<tr><td></td><td>type</td><td>string</td><td>Tipo della proprietà. Valori supportati: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Indica se deve essere ignorato il caso quando si usa il valore della proprietà. Può essere specificato solo per le proprietà di tipo "string". Il valore predefinito è false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indica se deve essere ignorato il caso per ogni segmento del percorso URL. Può essere specificato solo per le proprietà di tipo "url". Il valore predefinito è [false].</td></tr>
 

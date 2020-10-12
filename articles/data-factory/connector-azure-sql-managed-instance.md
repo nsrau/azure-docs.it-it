@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/21/2020
 ms.openlocfilehash: 3a9216c665cfdcdaf07980ace0399fd927885262
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332118"
 ---
 # <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiare dati da e verso Istanza gestita SQL di Azure usando Azure Data Factory
@@ -49,7 +49,7 @@ Per accedere all' [endpoint pubblico](../azure-sql/managed-instance/public-endpo
 
 Per accedere all'endpoint privato di SQL Istanza gestita, configurare un [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) in grado di accedere al database. Se si esegue il provisioning del runtime di integrazione self-hosted nella stessa rete virtuale dell'istanza gestita, verificare che il computer del runtime di integrazione si trovi in una subnet diversa da quella dell'istanza gestita. Se si effettua il provisioning del runtime di integrazione self-hosted in una rete virtuale diversa da quella dell'istanza gestita, è possibile usare un peering di rete virtuale o una rete virtuale per la connessione di rete virtuale. Per altre informazioni, vedere [Connettere l'applicazione a Istanza gestita di SQL di Azure](../azure-sql/managed-instance/connect-application-instance.md).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -668,9 +668,9 @@ Quando i dati vengono copiati in e da SQL Istanza gestita, i mapping seguenti ve
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
-| testo |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

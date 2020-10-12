@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
 ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087742"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creare cluster Apache HBase su HDInsight nella rete virtuale di Azure
@@ -43,7 +43,7 @@ In questa sezione viene creato un cluster Apache HBase basato su Linux con l'acc
 > * **Nome subnet**: Subnet1
 > * **Intervallo di indirizzi subnet**: 10.0.0.0/24
 >
-> `CLUSTERNAME`viene sostituito con il nome del cluster fornito quando si usa il modello.
+> `CLUSTERNAME` viene sostituito con il nome del cluster fornito quando si usa il modello.
 
 1. Selezionare l'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
@@ -55,7 +55,7 @@ In questa sezione viene creato un cluster Apache HBase basato su Linux con l'acc
 
 1. Completare il modello rimanente con le informazioni seguenti:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Subscription|selezionare una sottoscrizione di Azure usata per creare il cluster HDInsight, l'account di archiviazione dipendente e la rete virtuale di Azure.|
     Resource group|selezionare **Crea nuovo** e specificare un nuovo nome al gruppo di risorse.|

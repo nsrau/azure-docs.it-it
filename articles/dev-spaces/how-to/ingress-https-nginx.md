@@ -7,10 +7,10 @@ description: Informazioni su come configurare Azure Dev Spaces per l'uso di un c
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 ms.custom: devx-track-js
 ms.openlocfilehash: 23bad8d7def12f4454986fb005158c3a65acd33e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276265"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usare un controller di ingresso NGINX personalizzato e configurare HTTPS

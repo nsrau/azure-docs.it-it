@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274793"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
@@ -781,7 +781,7 @@ La replica è iniziata ed è possibile testarla inserendo nuovi record nelle tab
 
 ### <a name="view-job-status-and-troubleshooting"></a>Visualizzare lo stato del processo e le informazioni di risoluzione dei problemi
 
-#### <a name="view-reports"></a>Visualizzazione di report
+#### <a name="view-reports"></a>Visualizzare i report
 Per visualizzare i report in myVM1, eseguire questi comandi:
 
   ```bash

@@ -4,10 +4,10 @@ description: Questo articolo riepiloga il supporto di backup di Azure quando si 
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332679"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
@@ -67,7 +67,7 @@ E a questi indirizzi IP:
 
 L'accesso a tutti gli URL e gli indirizzi IP elencati in precedenza usa il protocollo HTTPS sulla porta 443.
 
-Quando si esegue il backup di file e cartelle da macchine virtuali di Azure usando l'agente MARS, è necessario configurare anche la rete virtuale di Azure per consentire l'accesso. Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di backup di Azure, è anche necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) simili per Azure ad (*AzureActiveDirectory*) e archiviazione di Azure (*archiviazione*). I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
+Quando si esegue il backup di file e cartelle da macchine virtuali di Azure usando l'agente MARS, è necessario configurare anche la rete virtuale di Azure per consentire l'accesso. Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) simili per Azure AD (*AzureActiveDirectory*) e Archiviazione di Azure (*Storage*). I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
 
 1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
 2. In **Impostazioni** selezionare **Regole di sicurezza in uscita**.
@@ -175,7 +175,7 @@ Windows 7| 1\.700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipi di file supportati per il backup
 
-**Tipo** | **Supporto**
+**Tipo** | **Supporto tecnico**
 --- | ---
 Crittografati<sup>*</sup>| Supportata.
 Compresso | Supportata.
@@ -195,12 +195,12 @@ Cartelle con Replica DFS abilitata | Non supportata.
 
 **Unità/volume** | **Supporto** | **Dettagli**
 --- | --- | ---
-Volumi di sola lettura| Non supportate | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
-Volumi offline| Non supportate |VSS funziona solo se il volume è online.
-Condivisione di rete| Non supportate |Il volume deve essere locale nel server.
-Volumi bloccati da BitLocker| Non supportate |Il volume deve essere sbloccato prima dell'avvio del backup.
-Identificazione del file System| Non supportate |È supportato solo NTFS.
-Supporti rimovibili| Non supportate |Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
+Volumi di sola lettura| Non supportato | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
+Volumi offline| Non supportato |VSS funziona solo se il volume è online.
+Condivisione di rete| Non supportato |Il volume deve essere locale nel server.
+Volumi bloccati da BitLocker| Non supportato |Il volume deve essere sbloccato prima dell'avvio del backup.
+Identificazione del file System| Non supportato |È supportato solo NTFS.
+Supporti rimovibili| Non supportato |Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
 Unità deduplicate | Supportato | Il servizio Backup di Azure converte i dati deduplicati in dati normali. Consente di ottimizzare, crittografare, archiviare e inviare i dati all'insieme di credenziali.
 
 ## <a name="support-for-initial-offline-backup"></a>Supporto per il backup offline iniziale
