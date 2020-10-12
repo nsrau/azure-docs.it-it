@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540711"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Distribuzione del sistema DBMS Oracle per macchine virtuali di Azure per carichi di lavoro SAP
@@ -380,7 +380,7 @@ La configurazione minima è la seguente:
 | \oracle\<SID>\origlogaB & mirrlogA | Disco Premium o ultra | nessuno | Non necessario |
 | \oracle\<SID>\sapdata1...n | Disco Premium o ultra | Sola lettura | Può essere usato per Premium |
 | \oracle\<SID>\oraarch | Standard | nessuno | Non necessario |
-| Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | | Non necessaria |
+| Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | | Non necessario |
 
 
 La selezione dei dischi per l'hosting dei log di ripristino online deve essere determinata dai requisiti di IOPS. È possibile archiviare tutti gli spazi di tabella sapdata1... n in un unico disco montato, purché le dimensioni, le operazioni di I/O al secondo e la velocità effettiva soddisfino i requisiti. 

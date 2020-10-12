@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87479847"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
@@ -56,7 +56,7 @@ Per verificare i ruoli assegnati a un utente per una sottoscrizione:
 
 2. Selezionare la sottoscrizione necessaria usando **Select-AzSubscription**. 
 
-3. Per elencare tutti i ruoli assegnati a un utente specifico, usare **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
+3. Per elencare tutti i ruoli assegnati a un utente specifico, usare  **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
 Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, consultare [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 

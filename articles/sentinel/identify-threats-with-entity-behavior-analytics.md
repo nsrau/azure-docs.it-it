@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997145"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificare le minacce avanzate con l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure
@@ -47,15 +47,13 @@ Ispirato dal paradigma di Gartner per le soluzioni offrono dati, Azure Sentinel 
 
 - **Analisi:** Usando diversi algoritmi di Machine Learning (ML), Sentinel di Azure identifica le attività anomale e presenta le evidenze in modo chiaro e conciso sotto forma di arricchimenti contestuali, alcuni esempi dei quali compaiono di seguito.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Approccio all'esterno dell'analisi del comportamento":::
-
-Azure Sentinel presenta elementi che consentono agli analisti della sicurezza di ottenere una chiara comprensione delle attività anomale nel contesto e in confronto con il profilo di base dell'utente. Le azioni eseguite da un utente (o un host o un indirizzo) vengono valutate in modo contestuale, dove un risultato "true" indica un'anomalia identificata:
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/behavior-analytics-top-down.png" alt-text="Architettura di analisi del comportamento delle entità" indica un'anomalia identificata:
 - in posizioni geografiche, dispositivi e ambienti.
 - negli orizzonti temporali e di frequenza (rispetto alla cronologia dell'utente).
 - rispetto al comportamento dei peer.
 - rispetto al comportamento dell'organizzazione.
 
-    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Contesto dell'entità":::
+    :::image type="content" source="media/identify-threats-with-entity-behavior-analytics/context.png" alt-text="Architettura di analisi del comportamento delle entità":::
 
 
 ### <a name="scoring"></a>Assegnazione dei punteggi
@@ -79,7 +77,7 @@ Le pagine entità sono costituite da tre parti:
 
 ### <a name="the-timeline"></a>Sequenza temporale
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Sequenza temporale pagine entità":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Architettura di analisi del comportamento delle entità":::
 
 La sequenza temporale è una parte importante del contributo della pagina di entità all'analisi del comportamento in Sentinel di Azure. Viene presentata una storia sugli eventi correlati a entità, che consente di comprendere l'attività dell'entità in un intervallo di tempo specifico.
 
@@ -107,7 +105,7 @@ Entity Insights è una query definita dai ricercatori della sicurezza Microsoft 
 
 Le pagine di entità sono progettate per essere parte di più scenari di utilizzo ed è possibile accedervi dalla gestione degli eventi imprevisti, dal grafico di analisi, dai segnalibri o direttamente dalla pagina di ricerca di entità in **analisi del comportamento delle entità** nel menu principale di Sentinel di Azure.
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Casi di utilizzo della pagina di entità":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Architettura di analisi del comportamento delle entità":::
 
 
 ## <a name="data-schema"></a>Schema dei dati
@@ -156,7 +154,7 @@ I metadati dei peer utente forniscono un contesto importante nei rilevamenti del
 
 Azure Sentinel calcola e classifica i peer di un utente, in base all'appartenenza al gruppo di sicurezza dell'utente Azure AD, alla lista di distribuzione e alla Cetera e archivia i peer classificati 1-20 nella tabella **UserPeerAnalytics** . Lo screenshot seguente mostra lo schema della tabella UserPeerAnalytics e Visualizza i principali peer di otto classificati dell'utente Kendall Collins. Per normalizzare la ponderazione per il calcolo del rango, Sentinel di Azure usa il termine algoritmo di frequenza dei documenti con frequenza *inversa* (TF-IDF), più piccolo è il gruppo. 
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Screenshot della tabella di metadati dei peer utente":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-peers-metadata.png" alt-text="Architettura di analisi del comportamento delle entità":::
 
 È possibile usare il [notebook di Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) disponibile nel repository GitHub di Azure Sentinel per visualizzare i metadati dei peer utente. Per istruzioni dettagliate su come usare il notebook, vedere l' [analisi guidata-notebook dei metadati di sicurezza utente](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 
@@ -166,7 +164,7 @@ L'analisi delle autorizzazioni consente di determinare il potenziale impatto del
 
 Azure Sentinel determina i diritti di accesso diretti e transitivi conservati da un determinato utente per le risorse di Azure, valutando le sottoscrizioni di Azure a cui l'utente può accedere direttamente o tramite gruppi o entità servizio. Queste informazioni, nonché l'elenco completo delle Azure AD appartenenza al gruppo di sicurezza dell'utente, vengono quindi archiviate nella tabella **UserAccessAnalytics** . La schermata seguente mostra una riga di esempio nella tabella UserAccessAnalytics, per l'utente Alex Johnson. L' **entità di origine** è l'account utente o dell'entità servizio e l'entità di **destinazione** è la risorsa a cui l'entità di origine ha accesso. I valori del **livello di accesso** e del **tipo di accesso** dipendono dal modello di controllo di accesso dell'entità di destinazione. Si noterà che Alex ha l'accesso collaboratore al tenant di *Contoso Hotels*della sottoscrizione di Azure. Il modello di controllo di accesso della sottoscrizione è RBAC.   
 
-:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screenshot della tabella di analisi dell'accesso utente":::
+:::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Architettura di analisi del comportamento delle entità":::
 
 È possibile usare il [notebook di Jupyter](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/BehaviorAnalytics/UserSecurityMetadata) (lo stesso notebook menzionato in precedenza) dal repository GitHub di Azure Sentinel per visualizzare i dati di analisi delle autorizzazioni. Per istruzioni dettagliate su come usare il notebook, vedere l' [analisi guidata-notebook dei metadati di sicurezza utente](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/BehaviorAnalytics/UserSecurityMetadata/Guided%20Analysis%20-%20User%20Security%20Metadata.ipynb) .
 

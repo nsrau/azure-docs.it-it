@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004307"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945164"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Supporto per lo trasferimento di risorse di Azure tra aree
 
@@ -696,7 +696,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | account | No | 
+> | account | No. [Altre informazioni](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 

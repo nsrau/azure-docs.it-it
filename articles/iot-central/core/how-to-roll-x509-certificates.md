@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 76e2b9542d20b5788a2875dec89d447ce38276a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88122063"
 ---
 # <a name="how-to-roll-x509-device-certificates-in-iot-central-application"></a>Come eseguire il Rolling dei certificati del dispositivo X. 509 nell'applicazione IoT Central
@@ -30,7 +30,7 @@ Il rinnovo dei certificati è una procedura consigliata per la sicurezza che con
 
 Per aggiornare una registrazione di gruppo in risposta a una violazione della sicurezza, è consigliabile usare l'approccio seguente che aggiorna immediatamente il certificato corrente:
 
-1. Passare ad **Amministrazione** nel riquadro sinistro e fare clic su **connessione dispositivo**.
+1. Passare ad **Amministrazione**  nel riquadro sinistro e fare clic su **connessione dispositivo**.
 
 2. Fare clic su **Gruppi di registrazioni** e quindi sul nome del gruppo nell'elenco.
 
@@ -52,7 +52,7 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
 Se si eseguono i certificati in sequenza per gestire le scadenze dei certificati, utilizzare l'approccio seguente per aggiornare immediatamente il certificato corrente:
 
-1. Passare ad **Amministrazione** nel riquadro sinistro e fare clic su **connessione dispositivo**. 
+1. Passare ad **Amministrazione**  nel riquadro sinistro e fare clic su **connessione dispositivo**. 
 
 2. Fare clic su **Gruppi di registrazioni** e quindi sul nome del gruppo nell'elenco.
 
@@ -82,7 +82,7 @@ Se si sta eseguendo il rollup dei certificati in risposta a una violazione della
 
     ![Gestire le registrazioni singole](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. Per l'aggiornamento del certificato, fare clic sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
+4. Per l'aggiornamento del certificato, fare clic sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
     Completare questi passaggi per i certificati primario e secondario, se entrambi sono compromessi
 
@@ -102,7 +102,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
     ![Gestire le registrazioni singole](./media/how-to-roll-x509-certificates/certificate-update.png)
 
-4. Per l'aggiornamento del certificato secondario, fare clic sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
+4. Per l'aggiornamento del certificato secondario, fare clic sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
 
 5. Successivamente, quando il certificato primario è scaduto, tornare al certificato primario e aggiornarlo.

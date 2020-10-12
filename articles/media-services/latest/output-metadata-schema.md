@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336412"
 ---
 # <a name="output-metadata"></a>Metadati di output
@@ -36,14 +36,14 @@ Questo articolo illustra gli elementi e i tipi dello schema JSON su cui si basan
 
 Raccolta di elementi AssetFile per il processo di codifica.  
 
-| Nome | Descrizione |
+| Nome | Description |
 | --- | --- |
 | **recenti** |Raccolta di file multimediali di input/origine elaborata per produrre questo AssetFile.<br />Esempio: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Ogni elemento AssetFile fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. <br />Vedere [VideoTracks](#videotracks). |
 | **AudioTrack**|Ogni elemento AssetFile fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. Questa è la raccolta di tutte queste tracce audio.<br /> Per ulteriori informazioni, vedere [AudioTracks](#audiotracks). |
-| **Nome**<br />Necessario |Il nome dell'asset di file multimediale. <br /><br />Esempio: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
-| **Dimensione**<br />Necessario |Dimensioni del file di asset in byte. <br /><br />Esempio: `"Size": 32414631`|
-| **Duration**<br />Necessario |Durata della riproduzione del contenuto. Per ulteriori informazioni, vedere il formato [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) . <br /><br />Esempio: `"Duration": "PT1M10.315S"`|
+| **Nome**<br />Obbligatoria |Il nome dell'asset di file multimediale. <br /><br />Esempio: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
+| **Dimensione**<br />Obbligatoria |Dimensioni del file di asset in byte. <br /><br />Esempio: `"Size": 32414631`|
+| **Duration**<br />Obbligatoria |Durata della riproduzione del contenuto. Per ulteriori informazioni, vedere il formato [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) . <br /><br />Esempio: `"Duration": "PT1M10.315S"`|
 
 ## <a name="videotracks"></a>VideoTracks 
 
@@ -51,17 +51,17 @@ Ogni elemento AssetFile fisico può contenere da zero a più tracce video con in
 
 | Nome | Description |
 | --- | --- |
-| **Id**<br /> Necessario |Indice in base zero della traccia video. **Nota:**  Questo **ID** non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 1`|
-| **FourCC**<br />Necessario | Codec video FourCC codice riportato da ffmpeg.  <br /><br />Esempio: `"FourCC": "avc1"`|
+| **Id**<br /> Obbligatoria |Indice in base zero della traccia video. **Nota:**  Questo **ID** non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 1`|
+| **FourCC**<br />Obbligatoria | Codec video FourCC codice riportato da ffmpeg.  <br /><br />Esempio: `"FourCC": "avc1"`|
 | **Profilo** |Profilo H264 (applicabile solo al codec H264).  <br /><br />Esempio: `"Profile": "High"` |
 | **Level** |Livello H264 (applicabile solo al codec H264).  <br /><br />Esempio: `"Level": "3.2"`|
-| **Larghezza**<br />Necessario |Larghezza del video codificata in pixel.  <br /><br />Esempio: `"Width": "1280"`|
-| **Altezza**<br />Necessario |Altezza del video codificata in pixel.  <br /><br />Esempio: `"Height": "720"`|
-| **DisplayAspectRatioNumerator**<br />Necessario|Numeratore delle proporzioni della visualizzazione video.  <br /><br />Esempio: `"DisplayAspectRatioNumerator": 16.0`|
-| **DisplayAspectRatioDenominator**<br />Necessario |Denominatore delle proporzioni della visualizzazione video.  <br /><br />Esempio: `"DisplayAspectRatioDenominator": 9.0`|
-| **Framerate**<br />Necessario |Frequenza dei frame misurata in formato .3F.  <br /><br />Esempio: `"Framerate": 29.970`|
-| **Bitrate**<br />Necessario |Velocità in bit video media in bit al secondo, calcolata da AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti.  <br /><br />Esempio: `"Bitrate": 3551567`|
-| **TargetBitrate**<br />Necessario |Velocità in bit media di destinazione per questa traccia video, come richiesto tramite il set di impostazioni di codifica, in bit al secondo. <br /><br />Esempio: `"TargetBitrate": 3520000` |
+| **Larghezza**<br />Obbligatoria |Larghezza del video codificata in pixel.  <br /><br />Esempio: `"Width": "1280"`|
+| **Altezza**<br />Obbligatoria |Altezza del video codificata in pixel.  <br /><br />Esempio: `"Height": "720"`|
+| **DisplayAspectRatioNumerator**<br />Obbligatoria|Numeratore delle proporzioni della visualizzazione video.  <br /><br />Esempio: `"DisplayAspectRatioNumerator": 16.0`|
+| **DisplayAspectRatioDenominator**<br />Obbligatoria |Denominatore delle proporzioni della visualizzazione video.  <br /><br />Esempio: `"DisplayAspectRatioDenominator": 9.0`|
+| **Framerate**<br />Obbligatoria |Frequenza dei frame misurata in formato .3F.  <br /><br />Esempio: `"Framerate": 29.970`|
+| **Bitrate**<br />Obbligatoria |Velocità in bit video media in bit al secondo, calcolata da AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti.  <br /><br />Esempio: `"Bitrate": 3551567`|
+| **TargetBitrate**<br />Obbligatoria |Velocità in bit media di destinazione per questa traccia video, come richiesto tramite il set di impostazioni di codifica, in bit al secondo. <br /><br />Esempio: `"TargetBitrate": 3520000` |
 
 ## <a name="audiotracks"></a>AudioTrack 
 
@@ -69,12 +69,12 @@ Ogni elemento AssetFile fisico può contenere da zero a più tracce audio con in
 
 | Nome  | Description |
 | --- | --- |
-| **Id**<br />Necessario  |Indice in base zero della traccia audio. **Nota:**  Questo non è necessariamente il TrackID usato in un file MP4.  <br /><br />Esempio: `"Id": 2`|
+| **Id**<br />Obbligatoria  |Indice in base zero della traccia audio. **Nota:**  Questo non è necessariamente il TrackID usato in un file MP4.  <br /><br />Esempio: `"Id": 2`|
 | **Codec**  |Stringa del codec della traccia audio.  <br /><br />Esempio: `"Codec": "aac"`|
 | **Lingua**|Esempio: `"Language": "eng"`|
-| **Canali**<br />Necessario|Numero dei canali audio.  <br /><br />Esempio: `"Channels": 2`|
-| **SamplingRate**<br />Necessario |Frequenza di campionamento dell'audio in campioni/sec o Hz.  <br /><br />Esempio: `"SamplingRate": 48000`|
-| **Bitrate**<br />Necessario |Velocità media in bit audio in bit al secondo, calcolata in base all'elemento AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti.  <br /><br />Esempio: `"Bitrate": 128041`|
+| **Canali**<br />Obbligatoria|Numero dei canali audio.  <br /><br />Esempio: `"Channels": 2`|
+| **SamplingRate**<br />Obbligatoria |Frequenza di campionamento dell'audio in campioni/sec o Hz.  <br /><br />Esempio: `"SamplingRate": 48000`|
+| **Bitrate**<br />Obbligatoria |Velocità media in bit audio in bit al secondo, calcolata in base all'elemento AssetFile. Conta solo il payload del flusso elementare e non include il sovraccarico dovuto alla creazione di pacchetti.  <br /><br />Esempio: `"Bitrate": 128041`|
 
 ## <a name="json-schema-example"></a>Esempio di schema JSON
 

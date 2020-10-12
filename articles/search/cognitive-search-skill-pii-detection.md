@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: acacf617d3f1d9ab891d08b32fc2dfb14deb64a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540524"
 ---
 # <a name="pii-detection-cognitive-skill"></a>Competenze cognitive per il rilevamento delle informazioni personali
@@ -57,7 +57,7 @@ I parametri fanno distinzione tra maiuscole e minuscole e sono tutti facoltativi
 
 | Nome output      | Descrizione                   |
 |---------------|-------------------------------|
-| `piiEntities` | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>testo (informazioni personali effettive estratte)</li> <li>tipo</li><li>Sottotipo</li><li>Score (valore più elevato significa che è più probabile che sia un'entità reale)</li><li>offset (nel testo di input)</li><li>length</li></ul> </br> [I tipi e i sottotipi possibili sono disponibili qui.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
+| `piiEntities` | Una matrice di tipi complessi, che contiene i campi seguenti: <ul><li>testo (informazioni personali effettive estratte)</li> <li>type</li><li>Sottotipo</li><li>Score (valore più elevato significa che è più probabile che sia un'entità reale)</li><li>offset (nel testo di input)</li><li>length</li></ul> </br> [I tipi e i sottotipi possibili sono disponibili qui.](../cognitive-services/text-analytics/named-entity-types.md?tabs=personal) |
 | `maskedText` | Se `maskingMode` è impostato su un valore diverso da `none` , questo output sarà il risultato della stringa della maschera eseguita sul testo di input, come descritto dall'oggetto selezionato `maskingMode` .  Se `maskingMode` è impostato su `none` , l'output non sarà presente. |
 
 ## <a name="sample-definition"></a>Definizione di esempio

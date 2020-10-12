@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 6628d693a8df3614097e23785ac234a451565ca3
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777106"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Panoramica del benchmark di sicurezza di Azure (v2)
@@ -22,13 +22,13 @@ Il benchmark di sicurezza di Azure (ASB) fornisce procedure consigliate e consig
 Questo benchmark è parte di una serie di indicazioni di sicurezza olistiche che includono anche:
 
 - **Framework di adozione del cloud** : linee guida sulla sicurezza, tra cui [strategie](/azure/cloud-adoption-framework/strategy/define-security-strategy), [ruoli e responsabilità](/azure/cloud-adoption-framework/organize/cloud-security), procedure consigliate per la [sicurezza di Azure Top 10](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)e [implementazione di riferimento](/azure/cloud-adoption-framework/ready/enterprise-scale/).
-- **Framework ben architettato di Azure** : informazioni aggiuntive sulla [protezione dei carichi di lavoro](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) in Azure.
+- **Azure Well-Architected Framework** : informazioni aggiuntive sulla [protezione dei carichi di lavoro](https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local) in Azure.
 - Procedure consigliate per la **sicurezza Microsoft** : [raccomandazioni](/security/compass/microsoft-security-compass-introduction) con esempi in Azure.
 
  Il benchmark di sicurezza di Azure è incentrato sulle aree di controllo incentrate sul cloud. Questi controlli sono coerenti con i benchmark di sicurezza noti, ad esempio quelli descritti da Center for Internet Security (CIS) Controls versione 7,1 e National Institute of Standards and Technology (NIST) SP800-53.
 I controlli seguenti sono inclusi nel benchmark di sicurezza di Azure:
 
-| Domini di controllo ASB | Descrizione 
+| Domini di controllo ASB | Description 
 |--|--|
 | [Sicurezza di rete &nbsp; &nbsp; (NS)](security-controls-v2-network-security.md) | La sicurezza di rete copre i controlli per proteggere e proteggere le reti di Azure, tra cui la protezione delle reti virtuali, la creazione di connessioni private, la prevenzione e la mitigazione degli attacchi esterni e la protezione del DNS. |
 | [&nbsp;Gestione delle identità &nbsp; (im)](security-controls-v2-identity-management.md) | Gestione delle identità copre i controlli per stabilire un'identità e controlli di accesso sicuri usando Azure Active Directory, tra cui l'uso di Single Sign-On, le autenticazioni complesse, le identità gestite (e i principi di servizio) per le applicazioni, l'accesso condizionale e il monitoraggio delle anomalie dell'account. |

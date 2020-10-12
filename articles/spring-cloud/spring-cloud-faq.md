@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888712"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945397"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -45,7 +45,7 @@ Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Unit
 Azure Spring cloud presenta le limitazioni note seguenti:
     
 * `spring.application.name` verrà eseguito l'override del nome dell'applicazione usato per creare ogni applicazione.
-* `server.port` il valore predefinito è la porta 1025. Se viene applicato un altro valore, ne verrà eseguito l'override in 1025.
+* `server.port` il valore predefinito è la porta 1025. Se viene applicato un altro valore, ne verrà eseguito l'override. Osservare anche questa impostazione e non specificare la porta del server nel codice.
 * I modelli portale di Azure e Azure Resource Manager non supportano il caricamento di pacchetti dell'applicazione. È possibile caricare i pacchetti dell'applicazione solo distribuendo l'applicazione tramite l'interfaccia della riga di comando di Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Quali sono i piani tariffari disponibili? 

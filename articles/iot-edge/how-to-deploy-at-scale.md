@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855385"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuisci moduli IoT Edge su larga scala usando il portale di Azure
@@ -115,7 +115,7 @@ Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura
 
 Dopo aver aggiunto un modulo a una distribuzione, è possibile selezionarne il nome per aprire la pagina **aggiorna IOT Edge modulo** . In questa pagina è possibile modificare le impostazioni del modulo, le variabili di ambiente, le opzioni di creazione e il modulo gemello. Se è stato aggiunto un modulo dal Marketplace, è possibile che alcuni di questi parametri siano già stati compilati.
 
-Se si sta creando una distribuzione a più livelli, è possibile che si stia configurando un modulo presente in altre distribuzioni destinate agli stessi dispositivi. Per aggiornare il modulo gemello senza sovrascrivere altre versioni, aprire la scheda **delle impostazioni del modulo gemello** . creare una nuova **proprietà del modulo gemello** con un nome univoco per una sottosezione nelle proprietà desiderate del modulo gemello, ad esempio `properties.desired.settings` . Se si definiscono proprietà solo nel `properties.desired` campo, le proprietà desiderate per il modulo definite in tutte le distribuzioni con priorità inferiore vengono sovrascritte.
+Se si sta creando una distribuzione a più livelli, è possibile che si stia configurando un modulo presente in altre distribuzioni destinate agli stessi dispositivi. Per aggiornare il modulo gemello senza sovrascrivere altre versioni, aprire la scheda **impostazioni del modulo gemello** . Creare una nuova **proprietà del modulo gemello** con un nome univoco per una sottosezione nelle proprietà desiderate del modulo gemello, ad esempio `properties.desired.settings` . Se si definiscono proprietà solo nel `properties.desired` campo, le proprietà desiderate per il modulo definite in tutte le distribuzioni con priorità inferiore vengono sovrascritte.
 
 ![Imposta la proprietà del modulo gemello per la distribuzione su più livelli](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -183,7 +183,7 @@ Quando si modifica una distribuzione, le modifiche vengono replicate immediatame
 
 1. Nell'hub Internet delle cose selezionare **IOT Edge** dal menu del riquadro sinistro.
 1. Selezionare la scheda **distribuzioni IOT Edge** , quindi selezionare la distribuzione che si desidera configurare.
-1. Selezionare la scheda **condizione di destinazione** . modificare la condizione di **destinazione** per individuare i dispositivi desiderati. È anche possibile modificare la **priorità**.  Selezionare **Salva**.
+1. Selezionare la scheda **condizione di destinazione** . Modificare la **condizione di destinazione** per individuare i dispositivi desiderati. È anche possibile modificare la **priorità**.  Selezionare **Salva**.
 
     Se si aggiorna la condizione di destinazione, vengono eseguiti gli aggiornamenti seguenti:
 
