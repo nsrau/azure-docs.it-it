@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055912"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Usare l'interfaccia utente di StorSimple Snapshot Manager per gestire i processi di backup e il catalogo di backup
@@ -107,14 +107,14 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 > 
 > 
 
-| Azione | Spostamento | Descrizione |
+| Azione | Navigazione | Descrizione |
 |:--- |:--- |:--- |
 | Authenticate |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Autentica** per immettere la password configurata per il dispositivo. |
 | Clone |Espandere **Catalogo backup**, espandere **Snapshot cloud**, fare clic su un backup con data e quindi selezionare un volume nel riquadro **Risultati**. |Fare clic su **Clona** per creare una copia di una snapshot cloud e archiviarla in una posizione designata. |
 | Configurare un dispositivo |Fare clic con il pulsante destro del mouse sul nodo **Dispositivi**. |Fare clic su **Configura un dispositivo** per configurare uno o più dispositivi per la connessione all'host di Windows. |
-| Crea criterio di backup |Eseguire una delle operazioni seguenti:<ul><li>Fare clic con il pulsante destro del mouse su **Criteri di backup**.</li><li>Fare clic o espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Fare clic o espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Crea criteri di backup** per configurare un backup pianificato per un gruppo di volumi. |
-| Crea gruppo di volumi |Eseguire una delle operazioni seguenti:<ul><li>Fare clic sul nodo **Volumi** e quindi fare clic con il pulsante destro del mouse su un volume nel riquadro **Risultati**.</li><li>Fare clic con il pulsante destro del mouse sul nodo **Gruppi di volumi**.</li></ul> |Fare clic su **Crea gruppo di volumi** per assegnare i volumi a un gruppo di volumi. |
-| Delete |Fare clic su un nodo o su un risultato; questa voce viene visualizzata in diversi menu **Azione** e riquadri **Azioni**. |Fare clic su **Elimina** per eliminare il nodo o il risultato selezionato. Quando viene visualizzata la finestra di dialogo di conferma, confermare o annullare l'eliminazione. |
+| Crea criterio di backup |Eseguire una di queste operazioni:<ul><li>Fare clic con il pulsante destro del mouse su **Criteri di backup**.</li><li>Fare clic o espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Fare clic o espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Crea criteri di backup** per configurare un backup pianificato per un gruppo di volumi. |
+| Crea gruppo di volumi |Eseguire una di queste operazioni:<ul><li>Fare clic sul nodo **Volumi** e quindi fare clic con il pulsante destro del mouse su un volume nel riquadro **Risultati**.</li><li>Fare clic con il pulsante destro del mouse sul nodo **Gruppi di volumi**.</li></ul> |Fare clic su **Crea gruppo di volumi** per assegnare i volumi a un gruppo di volumi. |
+| Elimina |Fare clic su un nodo o su un risultato; questa voce viene visualizzata in diversi menu **Azione** e riquadri **Azioni**. |Fare clic su **Elimina** per eliminare il nodo o il risultato selezionato. Quando viene visualizzata la finestra di dialogo di conferma, confermare o annullare l'eliminazione. |
 | Dettagli |Fare clic sul nodo **Dispositivi**, quindi fare clic con il pulsante destro del mouse su un dispositivo nel riquadro **Risultati**. |Fare clic su **Dettagli** per visualizzare i dettagli di configurazione per un dispositivo. |
 | Modifica |Fare clic su **Criteri di backup** e quindi fare clic con il pulsante destro del mouse su un criterio nel riquadro **Risultati**. |Fare clic su **Modifica** per cambiare la pianificazione del backup per un gruppo di volumi. |
 | Esporta elenco |Fare clic su un nodo o un risultato. Questo elemento viene visualizzato in tutti i menu **Azione** e nei riquadri **Azioni**. |Fare clic su **Esporta elenco** per salvare un elenco in file con valori delimitati da virgole (CSV), È quindi possibile importare questo file in un’applicazione foglio di calcolo per l'analisi. |
@@ -125,7 +125,7 @@ Nella tabella seguente vengono elencate in ordine alfabetico le azioni di StorSi
 | Aggiorna dispositivi |Fare clic con il pulsante destro del mouse sul nodo **Dispositivi**. |Fare clic su **Aggiorna dispositivi** per sincronizzare l'elenco dei dispositivi connessi con StorSimple Snapshot Manager. |
 | Ripetere la scansione dei volumi |Fare clic con il pulsante destro del mouse sul nodo **Volumi**. |Fare clic su **Ripeti analisi dei volumi** per aggiornare l'elenco di volumi visualizzati nel riquadro **Risultati**. |
 | Restore |Espandere **Catalogo di backup**, espandere un gruppo di volumi, espandere **Snapshot locali** o **Snapshot nel cloud** e quindi fare clic con il pulsante destro del mouse su un backup. |Fare clic su **Ripristina** per sostituire i dati del gruppo di volumi corrente con i dati del backup selezionato. |
-| Esegui backup |Eseguire una delle operazioni seguenti:<ul><li>Espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Esegui backup** per avviare immediatamente un processo di backup. |
+| Esegui backup |Eseguire una di queste operazioni:<ul><li>Espandere **Gruppi di volumi** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li><li>Espandere **Catalogo backup** e quindi fare clic con il pulsante destro del mouse su un gruppo di volumi.</li></ul> |Fare clic su **Esegui backup** per avviare immediatamente un processo di backup. |
 | Visualizza/Nascondi importazioni |Fare clic con il pulsante destro del mouse sul nodo principale nel riquadro **Ambito**, ovvero il nodo **StorSimple Snapshot Manager** negli esempi. |Fare clic su **Visualizza/Nascondi importazioni** per mostrare o nascondere i gruppi di volumi e i backup associati importati dal dashboard del servizio Gestione dispositivi StorSimple. |
 
 ### <a name="view-menu"></a>Menu Visualizza

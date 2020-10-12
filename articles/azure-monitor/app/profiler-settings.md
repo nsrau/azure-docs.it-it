@@ -7,16 +7,16 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499410"
 ---
 # <a name="configure-application-insights-profiler"></a>Configura Application Insights Profiler
 
 ## <a name="updated-profiler-agent"></a>Agente Profiler aggiornato
-Le funzionalità del trigger funzionano solo con la versione 2,6 o una versione successiva dell'agente del profiler. Se si esegue un servizio app Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL Kudu per il sito Web e si aggiunge \DiagnosticServices alla fine, come segue: `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Il Application Insights Profiler processo Web dovrebbe essere 2,6 o versione successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
+Le funzionalità del trigger funzionano solo con la versione 2,6 o una versione successiva dell'agente del profiler. Se si esegue un servizio app Azure, l'agente verrà aggiornato automaticamente. È possibile visualizzare la versione dell'agente in esecuzione se si passa all'URL Kudu per il sito Web e si aggiunge \DiagnosticServices alla fine, come segue:  `https://yourwebsite.scm.azurewebsites.net/diagnosticservices` . Il Application Insights Profiler processo Web dovrebbe essere 2,6 o versione successiva. È possibile forzare un aggiornamento riavviando l'app Web. 
 
 Se il profiler viene eseguito in una macchina virtuale o in un servizio cloud, è necessario che sia installata la versione 16.0.4 di Windows Diagnostica di Azure (WAD) o versione successiva. È possibile controllare la versione di WAD eseguendo l'accesso alla macchina virtuale e cercando la directory seguente: C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Il nome della directory è la versione di WAD installata. L'agente di macchine virtuali di Azure aggiornerà automaticamente WAD quando saranno disponibili nuove versioni.
 
@@ -32,7 +32,7 @@ Verrà visualizzata una pagina simile alla seguente:
 
 La pagina **configura Application Insights Profiler** presenta le seguenti funzionalità:
 
-| Funzionalità | Description |
+| Funzionalità | Descrizione |
 |-|-|
 Profilo ora | avvia sessioni di profilatura sessioni per tutte le app collegate a questa istanza di Application Insights.
 Trigger | Consente di configurare i trigger che provocano l'esecuzione del profiler. 
@@ -52,7 +52,7 @@ Facendo clic sul pulsante trigger sulla barra dei menu si apre la casella impost
 |-|-|
 Pulsante attiva/disattiva | On: Profiler può essere avviato da questo trigger. Disattivato: il profiler non verrà avviato da questo trigger.
 Soglia memoria | Quando questa percentuale di memoria è in uso, il Profiler verrà avviato.
-Durata | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
+Duration | Imposta il periodo di tempo durante il quale il profiler viene eseguito quando viene attivato.
 Cooldown | Imposta il tempo di attesa del profiler prima di verificare l'utilizzo della memoria o della CPU dopo che è stato attivato.
 
 ## <a name="recent-profiling-sessions"></a>Sessioni di profilatura recenti
@@ -68,7 +68,7 @@ Tracee | Numero di tracce associate a singole richieste.
 % CPU | Percentuale di CPU utilizzata durante l'esecuzione del profiler.
 Memoria | Percentuale di memoria utilizzata durante l'esecuzione del profiler.
 
-## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a>Usare i test delle prestazioni Web per generare il traffico all'applicazione
+## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a> Usare i test delle prestazioni Web per generare il traffico all'applicazione
 
 È possibile attivare il Profiler manualmente con un solo clic. Si supponga di eseguire un test delle prestazioni Web. Sono necessarie tracce per comprendere in che modo l'app Web è in esecuzione in condizioni di carico. Il controllo sul momento in cui le tracce vengono acquisite è fondamentale poiché l'utente conosce il momento in cui il test di carico viene eseguito, ma l'intervallo di campionamento casuale potrebbe non rilevarlo.
 

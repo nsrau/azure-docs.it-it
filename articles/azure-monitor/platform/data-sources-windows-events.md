@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87075246"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origini dei dati del registro eventi di Windows in Monitoraggio di Azure
@@ -50,12 +50,12 @@ I record degli eventi di Windows hanno un tipo di **evento** e hanno le propriet
 | EventLevelName |Gravità dell'evento in formato di testo. |
 | EventLog |Nome del registro eventi da cui è stato raccolto l'evento. |
 | ParameterXml |Valori dei parametri dell'evento in formato XML. |
-| ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è`AOI-<workspace ID>` |
+| ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è `AOI-<workspace ID>` |
 | RenderedDescription |Descrizione dell'evento con i valori dei parametri. |
 | Source (Sorgente) |Origine dell'evento. |
 | SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora in cui l'evento è stato creato in Windows. |
-| Nome utente |Nome utente dell'account che ha registrato l'evento. |
+| UserName |Nome utente dell'account che ha registrato l'evento. |
 
 ## <a name="log-queries-with-windows-events"></a>Query di log con Eventi Windows
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record di Eventi Windows.

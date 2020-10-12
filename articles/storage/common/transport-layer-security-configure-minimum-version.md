@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018578"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 I risultati mostrano il conteggio del numero di richieste effettuate con ogni versione di TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot che mostra i risultati della query di log Analytics per restituire la versione TLS":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Eseguire query sulle richieste registrate per indirizzo IP chiamante e intestazione agente utente
 
@@ -104,7 +104,7 @@ Per configurare la versione minima di TLS per un account di archiviazione esiste
 1. Selezionare l'impostazione di **configurazione** .
 1. In **versione minima di TLS**usare l'elenco a discesa per selezionare la versione minima di TLS necessaria per accedere ai dati nell'account di archiviazione, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot che illustra come configurare la versione minima di TLS nel portale di Azure":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -307,7 +307,7 @@ Per visualizzare il report di conformità nel portale di Azure, attenersi alla s
 1. Filtrare i risultati per il nome dell'assegnazione di criteri creata nel passaggio precedente. Il report Mostra il numero di risorse non conformi ai criteri.
 1. È possibile eseguire il drill-down del report per ulteriori dettagli, incluso un elenco di account di archiviazione non conformi.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot che mostra il report di conformità per i criteri di controllo per la versione minima di TLS":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Usare i criteri di Azure per applicare la versione minima di TLS
 
@@ -343,7 +343,7 @@ Dopo aver creato il criterio con l'effetto nega e averlo assegnato a un ambito, 
 
 La figura seguente mostra l'errore che si verifica se si prova a creare un account di archiviazione con la versione minima di TLS impostata su TLS 1,0 (impostazione predefinita per un nuovo account) quando un criterio con un effetto di negazione richiede che la versione minima di TLS sia impostata su TLS 1,2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot che mostra l'errore che si verifica quando si crea un account di archiviazione in violazione dei criteri":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
 ## <a name="network-considerations"></a>Considerazioni per la rete
 

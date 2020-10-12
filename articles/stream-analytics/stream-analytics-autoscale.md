@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/03/2020
 ms.openlocfilehash: 07cbb28b98fcbac1932424c1c72f388813ec2400
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037563"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Ridimensionare i processi di analisi di flusso con automazione di Azure
@@ -43,7 +43,7 @@ Aggiungere le variabili seguenti all'interno dell'account di automazione di Azur
 
 ### <a name="create-runbooks"></a>Creare runbook
 Il passaggio successivo consiste nel creare due manuali operativi di PowerShell. Uno per la scalabilità verticale e l'altro per le operazioni di ridimensionamento.
-1. Nell'account di automazione di Azure passare a **manuali operativi** in **automazione processi** e selezionare **Crea Runbook**.
+1. Nell'account di automazione di Azure passare a **manuali operativi** in **automazione processi**  e selezionare **Crea Runbook**.
 2. Denominare il primo *ScaleUpRunbook* runbook con il tipo impostato su PowerShell. Usare lo [script di PowerShell ScaleUpRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleUpRunbook.ps1) disponibile in GitHub. Salvarlo e pubblicarlo.
 3. Creare un altro Runbook denominato *ScaleDownRunbook* con il tipo PowerShell. Usare lo [script di PowerShell ScaleDownRunbook](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/ScaleDownRunbook.ps1) disponibile in GitHub. Salvarlo e pubblicarlo.
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
 ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797747"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
@@ -419,7 +419,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
    >[!IMPORTANT]
-   > La versione installata degli **agenti di recinzione** del pacchetto deve essere almeno **4.4.0** per trarre vantaggio dai tempi di failover più rapidi con l'agente di recinzione di Azure, se è necessario che i nodi del cluster siano limitati. Si consiglia di aggiornare il pacchetto, se è in esecuzione una versione precedente.  
+   > La versione installata degli **agenti di recinzione** del pacchetto deve essere almeno **4.4.0**  per trarre vantaggio dai tempi di failover più rapidi con l'agente di recinzione di Azure, se è necessario che i nodi del cluster siano limitati. Si consiglia di aggiornare il pacchetto, se è in esecuzione una versione precedente.  
 
 
 1. **[A]** installare Azure Python SDK 
