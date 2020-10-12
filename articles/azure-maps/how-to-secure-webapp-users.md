@@ -11,10 +11,10 @@ services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
 ms.openlocfilehash: 50194341d1d34da4b02558461f532ae64b941b16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319623"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Proteggere un'applicazione Web con l'accesso utente
@@ -100,7 +100,7 @@ var map = new atlas.Map("map", {
 
 Ulteriori informazioni sullo scenario dell'applicazione Web:
 > [!div class="nextstepaction"]
-> [Scenario: app Web che accede agli utenti](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
+> [Scenario: App Web per l'accesso degli utenti](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
 
 Trovare le metriche di utilizzo dell'API per l'account Azure Maps:
 > [!div class="nextstepaction"]

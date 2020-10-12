@@ -15,10 +15,10 @@ manager: mflasko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 07/20/2020
 ms.openlocfilehash: 901693c512ddfcf5d3c4dafaec71b1606b5dc5f1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077849"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività Esegui pacchetto SSIS in Azure Data Factory
@@ -251,7 +251,7 @@ Nella scheda **gestioni connessioni** dell'attività Esegui pacchetto SSIS compl
 
       Ad esempio, senza modificare il pacchetto originale in SSDT, è possibile convertire i flussi di dati da locale a locale in esecuzione in SQL Server in flussi di dati da locale a cloud in esecuzione nel runtime di integrazione SSIS in ADF eseguendo l'override dei valori delle proprietà **ConnectByProxy**, **ConnectionString**e **ConnectUsingManagedIdentity** nelle gestioni connessioni esistenti in fase di esecuzione.
       
-      Queste sostituzioni di runtime possono abilitare il runtime di integrazione self-hosted come proxy per il runtime di integrazione SSIS durante l'accesso ai dati in locale. vedere Configurazione dell' [autenticazione di AAD](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication) [come proxy per](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)il runtime di integrazione SSIS e connessione del database SQL di Azure/istanza gestita usando il driver MSOLEDBSQL più recente che abilita a sua volta l'autenticazione Azure Active Directory (AAD) con l'identità gestita di ADF.
+      Queste sostituzioni di run-time possono abilitare Self-Hosted IR (per il runtime di integrazione SSIS) come proxy per l'accesso ai dati in locale, vedere Configurazione dell' [autenticazione AAD](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication) [come proxy per](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)il runtime di integrazione SSIS e connessione del database SQL di Azure/istanza gestita con il driver MSOLEDBSQL più recente che abilita a sua volta l'autenticazione Azure Active Directory (AAD) con l'identità gestita di ADF.
 
       ![Impostare le proprietà da SSDT nella scheda Gestioni connessioni](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    

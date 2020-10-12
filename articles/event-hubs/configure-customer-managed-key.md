@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni su come configurare la propri
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537259"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
@@ -26,7 +26,7 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una vol
 Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando il portale di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> Per usare chiavi gestite dal cliente con hub eventi di Azure, è necessario che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono: **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
+> Per usare chiavi gestite dal cliente con hub eventi di Azure, è necessario che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono:  **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Abilitare chiavi gestite dal cliente
 Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
@@ -103,7 +103,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 | keyVault | Nome completo dell'insieme di credenziali delle chiavi. |
 | Key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
 | version | Versione della chiave usata. |
-| operazione | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
+| operation | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
 | codice | Codice associato all'operazione. Esempio: codice errore 404 indica che la chiave non è stata trovata. |
 | message | Qualsiasi messaggio di errore associato all'operazione |
 
@@ -223,9 +223,9 @@ Questa sezione illustra come creare uno spazio dei nomi di hub eventi di Azure c
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
-    > - `<EventHubsClusterName>`: Nome del cluster di hub eventi    
-    > - `<EventHubsNamespaceName>`: Nome dello spazio dei nomi di hub eventi
-    > - `<Location>`-Percorso dello spazio dei nomi di hub eventi
+    > - `<EventHubsClusterName>` : Nome del cluster di hub eventi    
+    > - `<EventHubsNamespaceName>` : Nome dello spazio dei nomi di hub eventi
+    > - `<Location>` -Percorso dello spazio dei nomi di hub eventi
 
     ```json
     {
@@ -360,11 +360,11 @@ In questo passaggio verrà aggiornato lo spazio dei nomi di hub eventi con le in
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
-    > - `<EventHubsClusterName>`: Nome del cluster di hub eventi.        
-    > - `<EventHubsNamespaceName>`: Nome dello spazio dei nomi di hub eventi
-    > - `<Location>`-Percorso dello spazio dei nomi di hub eventi
-    > - `<KeyVaultName>`: Nome dell'insieme di credenziali delle chiavi
-    > - `<KeyName>`: Nome della chiave nell'insieme di credenziali delle chiavi
+    > - `<EventHubsClusterName>` : Nome del cluster di hub eventi.        
+    > - `<EventHubsNamespaceName>` : Nome dello spazio dei nomi di hub eventi
+    > - `<Location>` -Percorso dello spazio dei nomi di hub eventi
+    > - `<KeyVaultName>` : Nome dell'insieme di credenziali delle chiavi
+    > - `<KeyName>` : Nome della chiave nell'insieme di credenziali delle chiavi
 
     ```json
     {
@@ -395,7 +395,7 @@ In questo passaggio verrà aggiornato lo spazio dei nomi di hub eventi con le in
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 Come procedura consigliata, abilitare sempre i log, come illustrato nella sezione precedente. Consente di tenere traccia delle attività quando è abilitata la crittografia BYOK. Consente inoltre di rientrare nell'ambito dei problemi.
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.

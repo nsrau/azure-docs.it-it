@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
 ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539483"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
@@ -34,7 +34,7 @@ Lo schema di avviso comune si manifesterà principalmente nelle notifiche di avv
 | Azione | Miglioramenti|
 |:---|:---|
 | SMS | Un modello SMS coerente per tutti i tipi di avviso. |
-| Posta elettronica | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
+| E-mail | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
 | Webhook/app per la logica/funzione di Azure/Runbook di automazione | Struttura JSON coerente per tutti i tipi di avviso, che consente di creare facilmente integrazioni tra i diversi tipi di avviso. |
 
 Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita degli avvisi sia nel portale di Azure che nel app per dispositivi mobili di Azure nel futuro immediato. 

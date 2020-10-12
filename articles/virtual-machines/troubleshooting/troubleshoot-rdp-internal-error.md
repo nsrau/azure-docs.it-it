@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90069765"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto
@@ -198,7 +198,7 @@ Il client RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, ciò può esser
 Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (**Esegui come amministratore**).
-2. Eseguire lo script seguente:
+2. Eseguire lo script riportato di seguito:
 
     In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 

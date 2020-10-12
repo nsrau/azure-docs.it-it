@@ -4,10 +4,10 @@ description: Questo articolo fornisce collegamenti ad articoli che descrivono co
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061734"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guida per gli sviluppatori Apache Kafka per hub eventi di Azure
@@ -26,7 +26,7 @@ Vedere le guide introduttive seguenti nel repository **Azure-Event-Hub-for-Kafka
 | ------------------------- | ----------- | 
 | [.NET](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/dotnet) | <p>Questa Guida introduttiva illustra come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti in C# con .NET Core 2,0.</p><p>Questo esempio si basa sul [client Apache Kafka .NET di Confluent](https://github.com/confluentinc/confluent-kafka-dotnet), modificato per l'uso con hub eventi per Kafka.</p> | 
 | [Java](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | Questa Guida introduttiva illustra come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti in Java. |
-| [Node.js](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node) | <p>Questa Guida introduttiva illustra come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti nel nodo.</p><p>In questo esempio viene utilizzata la libreria [node-rdkafka](https://github.com/Blizzard/node-rdkafka) . </p>| 
+| [Node.JS](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/node) | <p>Questa Guida introduttiva illustra come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti nel nodo.</p><p>In questo esempio viene utilizzata la libreria [node-rdkafka](https://github.com/Blizzard/node-rdkafka) . </p>| 
 | [Python](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/python) | <p>Questa Guida introduttiva illustra come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti in Python.</p><p>Questo esempio è basato sul [client Python Apache Kafka di Confluent](https://github.com/confluentinc/confluent-kafka-python), modificato per l'uso con hub eventi per Kafka.</p>|
 | [Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go) | <p>Questa Guida introduttiva illustra come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti in go.</p><p>Questo esempio si basa sul [client di Apache Kafka Golang di Confluent](https://github.com/confluentinc/confluent-kafka-go), modificato per l'uso con hub eventi per Kafka.</p>| 
 | [Sarama Kafka go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go-sarama-client) | Questa Guida introduttiva illustra come creare e connettersi a un endpoint Kafka di hub eventi usando un producer e un consumer di esempio scritti in go usando la libreria [client di sarama Kafka](https://github.com/Shopify/sarama) . |

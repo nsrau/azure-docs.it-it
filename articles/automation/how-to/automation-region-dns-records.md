@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117182"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Record DNS per le aree di Azure usate da automazione di Azure
@@ -56,7 +56,7 @@ Per supportare il [collegamento privato](../../private-link/private-link-overvie
 | --- | --- |
 | Stati Uniti centro-occidentali |`https://<accountId>.webhook.wcus.azure-automation.net`<br>`https://<accountId>.agentsvc.wcus.azure-automation.net`<br>`https://<accountId>.jrds.wcus.azure-automation.net` |
 | Stati Uniti occidentali |`https://<accountId>.webhook.wus.azure-automation.net`<br>`https://<accountId>.agentsvc.wus.azure-automation.net`<br>`https://<accountId>.jrds.wus.azure-automation.net` |
-| West US 2 |`https://<accountId>.webhook.wus2.azure-automation.net`<br>`https://<accountId>.agentsvc.wus2.azure-automation.net`<br>`https://<accountId>.jrds.wus2.azure-automation.net` |
+| Stati Uniti occidentali 2 |`https://<accountId>.webhook.wus2.azure-automation.net`<br>`https://<accountId>.agentsvc.wus2.azure-automation.net`<br>`https://<accountId>.jrds.wus2.azure-automation.net` |
 | Stati Uniti centrali |`https://<accountId>.webhook.cus.azure-automation.net`<br>`https://<accountId>.agentsvc.cus.azure-automation.net`<br>`https://<accountId>.jrds.cus.azure-automation.net` |
 | Stati Uniti centro-meridionali |`https://<accountId>.webhook.scus.azure-automation.net`<br>`https://<accountId>.agentsvc.scus.azure-automation.net`<br>`https://<accountId>.jrds.scus.azure-automation.net` |
 | Stati Uniti centro-settentrionali |`https://<accountId>.webhook.ncus.azure-automation.net`<br>`https://<accountId>.agentsvc.ncus.azure-automation.net`<br>`https://<accountId>.jrds.ncus.azure-automation.net` |
@@ -88,7 +88,7 @@ Sostituire `<accountId>` nel record DNS con GUID che rappresenta l'ID dell'accou
 
 ![Pagina chiave primaria dell'account di automazione](./media/automation-region-dns-records/automation-account-keys.png)
 
-Copiare il valore dopo *accounts/* dal campo **URL** -`https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
+Copiare il valore dopo *accounts/* dal campo **URL** - `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
 
 È consigliabile usare gli indirizzi elencati quando si definiscono [eccezioni](../automation-runbook-execution.md#exceptions). Per un elenco degli indirizzi IP dell'area anziché dei nomi delle aree, scaricare il file JSON dall'area download Microsoft per gli ambienti cloud seguenti:
 

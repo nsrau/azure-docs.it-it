@@ -14,10 +14,10 @@ ms.date: 08/06/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 210b2935cd2df81b0ff079c9a1c945fe770933f9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87926519"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurare l'interfaccia di passaggio dei messaggi per HPC
@@ -241,6 +241,6 @@ La sintassi precedente presuppone una home directory condivisa. in caso contrari
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni sulle macchine virtuali serie [H](../../sizes-hpc.md) e serie [N](../../sizes-gpu.md) [abilitate per InfiniBand](../../sizes-hpc.md#rdma-capable-instances)
-- Per informazioni sulla configurazione ottimale dei carichi di lavoro per prestazioni e scalabilità, vedere Panoramica della [serie HB](hb-series-overview.md) e [Panoramica sulle serie HC](hc-series-overview.md) .
-- Per informazioni sugli annunci più recenti e su alcuni esempi e risultati HPC, vedere i [Blog della community tecnica di calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Per una visualizzazione architettonica di livello superiore dell'esecuzione di carichi di lavoro HPC, vedere [High Performance Computing (HPC) in Azure](/azure/architecture/topics/high-performance-computing/).
+- Esaminare la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md) per informazioni su come configurare in modo ottimale i carichi di lavoro ai fini delle prestazioni e della scalabilità.
+- Leggere gli ultimi annunci e alcuni esempi HPC e risultati nei [blog della community tecnica di Calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).

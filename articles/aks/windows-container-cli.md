@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/16/2020
 ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421230"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creare un contenitore di Windows Server in un cluster di Azure Kubernetes Service (AKS) usando l'interfaccia della riga di comando di Azure
@@ -71,7 +71,7 @@ Per eseguire un cluster del servizio Azure Kubernetes che supporti i pool di nod
 
 * Il cluster è configurato con due nodi
 * I parametri *Windows-admin-password* e *Windows-admin-username* impostano le credenziali di amministratore per tutti i contenitori di Windows Server creati nel cluster e devono soddisfare i [requisiti delle password di Windows Server][windows-server-password].
-* Il pool di nodi USA`VirtualMachineScaleSets`
+* Il pool di nodi USA `VirtualMachineScaleSets`
 
 > [!NOTE]
 > Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.

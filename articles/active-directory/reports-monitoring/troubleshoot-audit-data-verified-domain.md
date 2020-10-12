@@ -16,10 +16,10 @@ ms.date: 07/22/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3c9ec3b1e96e47dbf46c6acb2c81147b614d069
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117430"
 ---
 # <a name="troubleshoot-audit-data-on-verified-domain-change"></a>Risoluzione dei problemi: controllare i dati sulla modifica del dominio verificato 
@@ -39,7 +39,7 @@ Si controllano i log di controllo Azure AD e si verificano più aggiornamenti ut
 
 #### <a name="what-does-userprincipalname-consistency-mean"></a>Cosa significa la coerenza UserPrincipalName? 
 
-Per gli utenti solo cloud, la coerenza indica che **userPrincipalName** è impostato su un suffisso di dominio verificato. Quando viene elaborato un **userPrincipalName** incoerente, **ProxyCalc** lo converte nel suffisso onmicrosoft.com predefinito, ad esempio:username@Contoso.onmicrosoft.com 
+Per gli utenti solo cloud, la coerenza indica che **userPrincipalName** è impostato su un suffisso di dominio verificato. Quando viene elaborato un **userPrincipalName** incoerente, **ProxyCalc** lo converte nel suffisso onmicrosoft.com predefinito, ad esempio: username@Contoso.onmicrosoft.com 
 
 Per gli utenti sincronizzati, la coerenza indica che **userPrincipalName** è impostato su un suffisso di dominio verificato e che corrisponde al valore **userPrincipalName** locale (ShadowUserPrincipalName). Quando viene elaborato un **userPrincipalName** incoerente, **ProxyCalc** ripristina lo stesso valore di **ShadowUserPrincipalName** o, nel caso in cui il suffisso di dominio sia stato rimosso dal tenant, lo convertirà nel suffisso di dominio *. onmicrosoft.com predefinito. 
 
@@ -47,7 +47,7 @@ Per gli utenti sincronizzati, la coerenza indica che **userPrincipalName** è im
 
 #### <a name="what-does-proxy-address-consistency-mean"></a>Cosa significa la coerenza degli indirizzi proxy? 
 
-Per gli utenti solo cloud, la coerenza indica che gli indirizzi proxy corrispondono a un suffisso di dominio verificato. Quando viene elaborato un indirizzo proxy incoerente, **ProxyCalc** lo converte nel suffisso di dominio *. onmicrosoft.com predefinito, ad esempio:SMTP:username@Contoso.onmicrosoft.com 
+Per gli utenti solo cloud, la coerenza indica che gli indirizzi proxy corrispondono a un suffisso di dominio verificato. Quando viene elaborato un indirizzo proxy incoerente, **ProxyCalc** lo converte nel suffisso di dominio *. onmicrosoft.com predefinito, ad esempio: SMTP:username@Contoso.onmicrosoft.com 
 
 Per gli utenti sincronizzati, la coerenza indica che gli indirizzi proxy corrispondono ai valori degli indirizzi proxy locali (es), ovvero ShadowProxyAddresses). Si prevede che **proxyAddresses** sia sincronizzato con **ShadowProxyAddresses**. Se per l'utente sincronizzato è stata assegnata una licenza di Exchange, è necessario che gli indirizzi proxy corrispondano ai valori degli indirizzi proxy locali e che corrispondano anche a un suffisso di dominio verificato. In questo scenario, **ProxyCalc** eliminerà l'indirizzo proxy incoerente con un suffisso di dominio non verificato e verrà rimosso dall'oggetto in Azure ad. Se il dominio non verificato viene verificato in un secondo momento, **ProxyCalc** ricalcolo e aggiunge l'indirizzo proxy da **ShadowProxyAddresses** all'oggetto in Azure ad.  
 

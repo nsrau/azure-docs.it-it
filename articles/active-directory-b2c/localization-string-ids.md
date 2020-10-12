@@ -11,10 +11,10 @@ ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87428127"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
@@ -239,10 +239,10 @@ Di seguito sono riportati gli ID dei messaggi di errore relativi al [profilo tec
 
 | ID | Valore predefinito |
 | -- | ------------- |
-|DefaultUserMessageIfRequestFailed | Non è stato possibile stabilire la connessione all'endpoint del servizio RESTful. URL del servizio RESTful:{0} |
-|UserMessageIfCircuitOpen | {0}URL del servizio RESTful:{1} |
-|UserMessageIfDnsResolutionFailed | Non è stato possibile risolvere il nome host dell'endpoint del servizio RESTful. URL del servizio RESTful:{0} |
-|UserMessageIfRequestTimeout | Non è stato possibile stabilire la connessione all'endpoint del servizio RESTful entro i secondi limite del timeout {0} . URL del servizio RESTful:{1} |
+|DefaultUserMessageIfRequestFailed | Non è stato possibile stabilire la connessione all'endpoint del servizio RESTful. URL del servizio RESTful: {0} |
+|UserMessageIfCircuitOpen | {0} URL del servizio RESTful: {1} |
+|UserMessageIfDnsResolutionFailed | Non è stato possibile risolvere il nome host dell'endpoint del servizio RESTful. URL del servizio RESTful: {0} |
+|UserMessageIfRequestTimeout | Non è stato possibile stabilire la connessione all'endpoint del servizio RESTful entro i secondi limite del timeout {0} . URL del servizio RESTful: {1} |
 
 
 ### <a name="example"></a>Esempio

@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: e47f82323919f4fec3f28ec2f7698d734ab72ac6
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490123"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
@@ -337,7 +337,7 @@ La sezione **policy** nella definizione del set di dati stabilisce i criteri o l
 | Nome criterio | Descrizione | Applicato a | Obbligatoria | Predefinito |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Verifica che i dati in un **BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |BLOB Azure |No |N/D |
-| minimumRows |Verifica che i dati nel **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>tabella di Azure</li></ul> |No |N/D |
+| minimumRows |Verifica che i dati nel **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>database SQL di Azure</li><li>tabella di Azure</li></ul> |No |N/D |
 
 **Esempio:**
 
@@ -929,7 +929,7 @@ Se si copiano dati in Azure Cosmos DB, impostare il **tipo di sink** dell'attivi
 
 Per altre informazioni, vedere l'articolo [Connettore Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-database"></a>Database SQL di Azure
+## <a name="azure-sql-database"></a>database SQL di Azure
 
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Database SQL di Azure, impostare il **tipo** di servizio collegato su **AzureSqlDatabase**e specificare le proprietà seguenti nella sezione **typeProperties**:
@@ -1398,7 +1398,7 @@ Per collegare un account di Archiviazione di Azure a una data factory tramite la
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type |La proprietà Type deve essere impostata su: **AzureStorage** |Sì |
+| type |La proprietà type deve essere impostata su: **AzureStorage** |Sì |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Sì |
 
 **Esempio:**
@@ -2005,7 +2005,7 @@ Se si copiano dati da un database Oracle, impostare il **tipo di origine** dell'
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `select * from MyTable` <br/><br/>Se non specificato, l'istruzione SQL eseguita: `select * from MyTable` |No (se **tableName** di **set di dati** è specificato) |
+| oracleReaderQuery |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. ad esempio `select * from MyTable` <br/><br/>Se non specificato, l'istruzione SQL eseguita: `select * from MyTable` |No (se **tableName** di **set di dati** è specificato) |
 
 #### <a name="example"></a>Esempio
 

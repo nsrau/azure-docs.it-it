@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927556"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Domande frequenti sui pool di nodi di Windows Server in AKS
@@ -58,7 +58,7 @@ I cluster AKS con pool di nodi di Windows devono usare il modello di rete Azure 
 
 A questo punto, la [conservazione dell'indirizzo IP di origine client][client-source-ip] non è supportata con i nodi di Windows.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>È possibile modificare il valore max. n. di pod per nodo?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>È possibile modificare il numero massimo di pod per nodo?
 
 Sì. Per le implicazioni e le opzioni disponibili, vedere [numero massimo di Pod][maximum-number-of-pods].
 

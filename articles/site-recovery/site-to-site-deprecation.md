@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: sharrai
 ms.openlocfilehash: 9ffe7a3158b1de6828350947dcf81ef41d08708d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421842"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Deprecazione del ripristino di emergenza tra siti gestiti dal cliente (con VMM) con Azure Site Recovery
@@ -51,7 +51,7 @@ Se si sceglie di usare l'opzione 1, seguire questa procedura:
 2. [Annullare la registrazione di tutti i server VMM](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) dalla configurazione della replica da sito a sito.
 
 3. [Preparare le risorse di Azure](tutorial-prepare-azure-for-hyperv.md) per abilitare la replica delle macchine virtuali.
-4. [Preparare i server Hyper-V in locale](hyper-v-prepare-on-premises-tutorial.md)
+4. [Preparare i server Hyper-V locali](hyper-v-prepare-on-premises-tutorial.md)
 5. [Configurare la replica per le macchine virtuali nel cloud VMM](hyper-v-vmm-azure-tutorial.md)
 6. Facoltativo ma consigliato: [eseguire un'esercitazione sul ripristino di](tutorial-dr-drill-azure.md) emergenza
 

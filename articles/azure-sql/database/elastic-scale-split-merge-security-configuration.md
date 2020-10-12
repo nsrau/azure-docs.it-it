@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829435"
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
@@ -59,8 +59,8 @@ Per crittografare la comunicazione e autenticare il server, è necessario un cer
 
 ### <a name="create-a-new-self-signed-certificate"></a>Creare un nuovo certificato autofirmato
 
-1. [Creare un certificato autofirmato](#create-a-self-signed-certificate)
-2. [Creare un file PFX per il certificato TLS/SSL autofirmato](#create-pfx-file-for-self-signed-tlsssl-certificate)
+1. [Creare un certificato di Self-Signed](#create-a-self-signed-certificate)
+2. [Creare un file PFX per Self-Signed certificato TLS/SSL](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Caricare il certificato TLS/SSL nel servizio cloud](#upload-tlsssl-certificate-to-cloud-service)
 4. [Aggiornare il certificato TLS/SSL nel file di configurazione del servizio](#update-tlsssl-certificate-in-service-configuration-file)
 5. [Importa autorità di certificazione TLS/SSL](#import-tlsssl-certification-authority)
@@ -105,7 +105,7 @@ L'accesso agli endpoint del servizio può essere limitato a intervalli specifici
 È necessario un certificato per crittografare le credenziali archiviate nell'archivio di metadati. Scegliere il più appropriato dei tre seguenti scenari ed eseguirne tutti i passaggi:
 
 ### <a name="use-a-new-self-signed-certificate"></a>Usare un nuovo certificato autofirmato
-1. [Creare un certificato autofirmato](#create-a-self-signed-certificate)
+1. [Creare un certificato di Self-Signed](#create-a-self-signed-certificate)
 2. [Creare un file PFX per il certificato di crittografia autofirmato](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Caricare il certificato di crittografia nel servizio cloud](#upload-encryption-certificate-to-cloud-service)
 4. [Aggiornare il certificato di crittografia nel file di configurazione del servizio](#update-encryption-certificate-in-service-configuration-file)
@@ -437,7 +437,7 @@ Aggiornare il valore di identificazione personale della seguente impostazione ne
 * Configurare i certificati client.
 
 ## <a name="find-certificate"></a>Trovare il certificato.
-Attenersi ai passaggi descritti di seguito.
+Seguire questa procedura:
 
 1. Eseguire mmc.exe.
 2. File -> Aggiungi/Rimuovi snap-in.

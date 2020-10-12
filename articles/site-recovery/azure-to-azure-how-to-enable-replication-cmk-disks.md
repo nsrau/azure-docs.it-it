@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: mayg
 ms.openlocfilehash: 2dc7bbd060d77b8f90d16e2a336edc1eb6dbf651
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86528996"
 ---
-# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicare i computer con i dischi abilitati per le chiavi gestite dal cliente (CMK)
+# <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicare i computer con i dischi abilitati per le chiavi gestite dal cliente
 
-Questo articolo descrive come replicare le VM di Azure con i dischi gestiti abilitati per le chiavi gestite dal cliente (CMK), da un'area di Azure a un'altra.
+Questo articolo descrive come replicare le VM di Azure con i dischi gestiti abilitati per le chiavi di Customer-Managed (CMK), da un'area di Azure a un'altra.
 
 ## <a name="prerequisite"></a>Prerequisito
 Prima di abilitare la replica per le macchine virtuali con dischi gestiti abilitati per CMK, è necessario creare i set di crittografia dei dischi nell'area di destinazione per la sottoscrizione di destinazione.
@@ -70,7 +70,7 @@ Per modificare le impostazioni di destinazione predefinite Site Recovery, attene
 ![Abilitare la replica per il computer con dischi abilitati per CMK](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
 
 >[!NOTE]
->Durante la replica iniziale, l'aggiornamento dello stato potrebbe richiedere del tempo, senza lo stato di avanzamento. Fare clic su **Aggiorna** per ottenere lo stato più recente.
+>Durante la replica iniziale, l'aggiornamento dello stato potrebbe richiedere del tempo, senza lo stato di avanzamento. Fare clic su **Aggiorna**  per ottenere lo stato più recente.
 
 ## <a name="faqs"></a>Domande frequenti
 

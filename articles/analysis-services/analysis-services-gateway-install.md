@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438960"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
@@ -27,7 +27,7 @@ Per altre informazioni sul funzionamento di Azure Analysis Services con il gatew
 * .NET Framework 4.5
 * versione a 64 bit di Windows 8/Windows Server 2012 R2 (o versioni successive)
 
-**Consigliabile**
+**Consigliato:**
 
 * 8 CPU core
 * 8 GB di memoria
@@ -44,7 +44,7 @@ Per altre informazioni sul funzionamento di Azure Analysis Services con il gatew
 * Accedere ad Azure con un account di Azure AD per lo stesso [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) della sottoscrizione in cui si sta registrando il gateway. Gli account Azure B2B (guest) non sono supportati per l'installazione e registrazione di un gateway.
 * Se le origini dati si trovano in un'istanza di Rete virtuale di Azure (VNet), è necessario configurare la proprietà del server [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 
-## <a name="download"></a>Scarica
+## <a name="download"></a>Download
 
  [Scaricare il gateway](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
@@ -151,7 +151,7 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-Questo è tutto. Se è necessario aprire le porte o risolvere eventuali problemi, vedere l'articolo su [Gateway dati locale](analysis-services-gateway.md).
+È tutto. Se è necessario aprire le porte o risolvere eventuali problemi, vedere l'articolo su [Gateway dati locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
