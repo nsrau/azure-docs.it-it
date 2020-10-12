@@ -13,10 +13,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689759"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Spostare i dati da un'origine tabella Web con Azure Data Factory
@@ -102,7 +102,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce
 |:--- |:--- |:--- |
 | type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
 | path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
-| indice |Indice della tabella nella risorsa. Per la procedura per ottenere l'indice di una tabella in una pagina HTML, vedere [ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
+| index |Indice della tabella nella risorsa. Per la procedura per ottenere l'indice di una tabella in una pagina HTML, vedere [ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 **Esempio:**
 

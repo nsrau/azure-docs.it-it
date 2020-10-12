@@ -8,10 +8,10 @@ ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400382"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Windows
@@ -969,7 +969,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione dei segreti per le applicazioni cloud.
 
-* [Come eseguire l'integrazione con le identità gestite da Azure](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+* [Come eseguire l'integrazione con Azure-Managed identità](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [Come creare una Key Vault](../../key-vault/secrets/quick-create-portal.md)
 

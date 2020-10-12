@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592509"
 ---
 # <a name="translator-30-dictionary-examples"></a>Translator 3,0: esempi di dizionario
@@ -43,12 +43,12 @@ Le intestazioni della richiesta includono:
 
 | Intestazioni  | Descrizione |
 | ------ | ----------- |
-| Intestazione/e di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
+| Intestazioni di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
 | Content-Type | **Intestazione della richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
 | Content-Length   | **Intestazione della richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta. |
 | X-ClientTraceId   | **Facoltativo**.<br/>GUID generato dal client che identifica in modo univoco la richiesta. È possibile omettere questa intestazione se nella stringa della query si include l'ID traccia usando un parametro di query denominato `ClientTraceId`. |
 
-## <a name="request-body"></a>Testo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un oggetto JSON con le proprietà seguenti:
 
@@ -94,7 +94,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
     > [!NOTE]
     > Se non ci sono esempi nel dizionario, la risposta è 200 (OK) ma l'elenco `examples` è vuoto.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Questo esempio illustra come ricercare esempi per la coppia formata dal termine inglese `fly` e la sua traduzione in spagnolo `volar`.
 

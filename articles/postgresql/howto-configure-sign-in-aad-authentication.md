@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 178c339f6f47569160a9a748794678c610f35734
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171633"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-postgresql"></a>Usare Azure Active Directory per l'autenticazione con PostgreSQL
@@ -54,7 +54,7 @@ Attualmente sono stati testati i client seguenti:
 
 Di seguito sono riportati i passaggi da seguire per l'autenticazione dell'utente o dell'applicazione con Azure AD:
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>Prerequisiti 
 
 È possibile seguire la procedura Azure Cloud Shell, una macchina virtuale di Azure o nel computer locale. Assicurarsi di aver [installato l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -137,7 +137,7 @@ psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgre
 
 Considerazioni importanti per la connessione:
 
-* `user@tenant.onmicrosoft.com`nome dell'utente o del gruppo Azure AD cui si sta tentando di connettersi
+* `user@tenant.onmicrosoft.com` nome dell'utente o del gruppo Azure AD cui si sta tentando di connettersi
 * Aggiungere sempre il nome del server dopo il nome dell'utente o del gruppo di Azure AD (ad esempio `@mydb` )
 * Assicurarsi di usare il modo esatto in cui è stato digitato il nome dell'utente o del gruppo di Azure AD
 * Azure AD nomi di utenti e gruppi fanno distinzione tra maiuscole e minuscole

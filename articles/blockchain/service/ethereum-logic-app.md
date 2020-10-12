@@ -5,10 +5,10 @@ ms.date: 08/31/2020
 ms.topic: how-to
 ms.reviewer: caleteet
 ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230535"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usare il connettore blockchain per Ethereum con App per la logica di Azure
@@ -82,7 +82,7 @@ Le azioni del connettore richiedono un trigger. È possibile usare un'azione del
     | Proprietà | Descrizione |
     |----------|-------------|
     | **Contract ABI (ABI contratto)** | L'interfaccia ABI (Application Binary Interface) del contratto definisce le interfacce del contratto intelligente. Per altre informazioni, vedere [Ottenere l'interfaccia ABI del contratto](#get-the-contract-abi). |
-    | **Contract bytecode** (Bytecode del contratto) | Il bytecode del contratto intelligente compilato. Per altre informazioni, vedere [Ottenere il bytecode del contratto](#get-the-contract-bytecode). |
+    | **Bytecode del contratto** | Il bytecode del contratto intelligente compilato. Per altre informazioni, vedere [Ottenere il bytecode del contratto](#get-the-contract-bytecode). |
     | **Smart contract address** (Indirizzo contratto intelligente) | L'indirizzo del contratto è l'indirizzo di destinazione del contratto intelligente nella blockchain Ethereum. Per altre informazioni, vedere [Ottenere l'indirizzo del contratto](#get-the-contract-address). |
     | **Smart contract function name** (Nome funzione contratto intelligente) | Selezionare il nome della funzione di contratto intelligente per l'azione. L'elenco viene popolato con i dettagli presenti nell'interfaccia ABI del contratto. |
 

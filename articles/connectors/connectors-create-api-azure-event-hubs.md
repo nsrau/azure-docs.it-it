@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88031432"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorare, ricevere e inviare eventi con Hub eventi di Azure e App per la logica di Azure
@@ -163,7 +163,7 @@ Dall'elenco delle azioni selezionare questa azione: **Invia evento-Hub eventi**
    Per immettere manualmente la stringa di connessione, selezionare **immettere manualmente le informazioni di connessione**. 
    Leggere [come trovare la stringa di connessione](#permissions-connection-string).
 
-2. Se del caso, selezionare i criteri di Hub eventi da usare. Scegliere **Crea**.
+2. Se del caso, selezionare i criteri di Hub eventi da usare. Scegliere **Create**.
 
    ![Creare una connessione a Hub eventi, parte 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 

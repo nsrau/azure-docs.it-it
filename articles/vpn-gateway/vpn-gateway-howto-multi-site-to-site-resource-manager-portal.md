@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401198"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classic)](vpn-gateway-multi-site.md) (PowerShell (classico))
 >
 > 

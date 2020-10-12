@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907846"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Modulo di allocazione Dirichlet latente
@@ -181,13 +181,13 @@ Una volta calcolati gli indici dei termini, una misura di somiglianza basata sul
 
 ###  <a name="module-parameters"></a>Parametri del modulo
 
-|Nome|Tipo|Range|Facoltativo|Predefinito|Descrizione|  
+|Nome|Type|Intervallo|Facoltativo|Predefinito|Descrizione|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
-|Target column(s)|Selezione colonne||Necessario|StringFeature|Nome o indice della colonna di destinazione.|  
-|Numero di argomenti da modellare|Integer|[1; 1000]|Necessario|5|Modellare la distribuzione dei documenti rispetto a N argomenti.|  
+|Target column(s)|Selezione colonne||Obbligatoria|StringFeature|Nome o indice della colonna di destinazione.|  
+|Numero di argomenti da modellare|Integer|[1; 1000]|Obbligatoria|5|Modellare la distribuzione dei documenti rispetto a N argomenti.|  
 |N-grams|Integer|[1; 10]|Obbligatoria|2|Ordine di N-grammi generati durante l'hashing.|  
-|Normalizzare|Boolean|true o false|Necessario|true|Normalizzare l'output in probabilità.  Il set di dati trasformato sarà P (argomento&#124;documento) e la matrice dell'argomento della funzionalità sarà P (argomento di Word&#124;).|  
-|Mostra tutte le opzioni|Boolean|true o false|Necessario|False|Presenta parametri aggiuntivi specifici per Scikit-learn online LDA.|  
+|Normalizzare|Boolean|true o false|Obbligatoria|true|Normalizzare l'output in probabilità.  Il set di dati trasformato sarà P (argomento&#124;documento) e la matrice dell'argomento della funzionalità sarà P (argomento di Word&#124;).|  
+|Mostra tutte le opzioni|Boolean|true o false|Obbligatoria|False|Presenta parametri aggiuntivi specifici per Scikit-learn online LDA.|  
 |Parametro Rho|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0,01|Argomento distribuzione precedente di Word.|  
 |Parametro Alpha|Float|[0.00001; 1.0]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|0,01|Argomento del documento distribuzione precedente.|  
 |Numero stimato di documenti|Integer|[1;int.MaxValue]|Si applica quando è selezionata la casella di controllo **Mostra tutte le opzioni**|1000|Numero stimato di documenti. Corrisponde al `total_samples` parametro.|  

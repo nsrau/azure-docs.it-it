@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88056517"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
@@ -125,7 +125,7 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**livello 1,1:** Il contenuto del messaggio contiene direttamente il flusso senza tag aggiuntivi. Ad esempio: `{ "SensorId":"1", "Temperature":64}`
+**livello 1,1:** Il contenuto del messaggio contiene direttamente il flusso senza tag aggiuntivi. ad esempio `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>Distinzione maiuscole/minuscole persistente nei nomi dei campi
 

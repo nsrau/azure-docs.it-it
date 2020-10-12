@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075571"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Monitorare le prestazioni del cluster in Azure HDInsight
@@ -84,7 +84,7 @@ Se l'archivio di backup del cluster è Azure Data Lake Storage (ADLS), la limita
 
 ## <a name="troubleshoot-sluggish-node-performance"></a>Risolvere i problemi relativi alle prestazioni del nodo lente
 
-In alcuni casi, la lentezza può verificarsi a causa di spazio su disco insufficiente sul cluster. Esaminare i passaggi seguenti:
+In alcuni casi la lentezza può verificarsi a causa di spazio su disco insufficiente sul cluster. Esaminare i passaggi seguenti:
 
 1. Usare il [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi a ogni nodo.
 
@@ -97,7 +97,7 @@ In alcuni casi, la lentezza può verificarsi a causa di spazio su disco insuffic
 
 1. Esaminare l'output e verificare la presenza di file di grandi dimensioni nella `mnt` cartella o in altre cartelle. In genere, le `usercache` `appcache` cartelle e (mnt/Resource/Hadoop/Yarn/local/usercache/hive/AppCache/) contengono file di grandi dimensioni.
 
-1. Se sono presenti file di grandi dimensioni, un processo corrente sta causando la crescita del file o un processo precedente non riuscito potrebbe aver contribuito a questo problema. Per verificare se questo comportamento è causato da un processo corrente, eseguire il comando seguente:
+1. Se sono presenti file di grandi dimensioni, un processo corrente sta causando la crescita del file o un processo precedente non riuscito potrebbe aver contribuito a questo problema. Per verificare se questo comportamento è causato da un processo corrente, eseguire questo comando: 
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/

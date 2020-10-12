@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4b61caecd67881eb08c82ea0c26522c63c3e8396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84712055"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 3 del dispositivo StorSimple serie 8000
@@ -48,7 +48,7 @@ Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento
 | 3 |Monitoraggio |Erano presenti svariati problemi relativi alle unità gerarchiche e al monitoraggio; nei grafici relativi ai dashboard dispositivo erano inoltre visualizzate informazioni errate sui volumi aggiunti in locale. Tali problemi sono stati risolti in questa versione. |Sì |No |
 | 4 |I/O a scrittura intensiva |Durante l'uso di StorSimple per carichi di lavoro con operazioni di scrittura intensiva, si presentava un bug insolito in cui il working set veniva suddiviso in livelli nel cloud. Tale bug è stato risolto in questa versione. |Sì |Sì |
 | 5 |Backup |In alcuni rari casi, nelle versioni precedenti del software, quando l'utente ha eseguito un backup di un clone remoto, si verificavano errori nel cloud e l'operazione avrebbe comportato un errore. In questa versione il problema è stato risolto e l'operazione è stata completata correttamente. |Sì |Sì |
-| 6 |Criterio di backup |In rari casi, nelle versioni precedenti del software, era presente un bug relativo all'eliminazione dei criteri di backup. Tale problema è stato corretto in questa versione. |Sì |Sì |
+| 6 |Criteri di backup |In rari casi, nelle versioni precedenti del software, era presente un bug relativo all'eliminazione dei criteri di backup. Tale problema è stato corretto in questa versione. |Sì |Sì |
 
 ## <a name="known-issues-in-update-3"></a>Problemi noti nell'aggiornamento 3
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.

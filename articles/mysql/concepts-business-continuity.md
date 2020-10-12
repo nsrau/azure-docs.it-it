@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: b21062256896ebfc9c11b031413538b39620d1e7
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613980"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendere la continuità aziendale nel database di Azure per MySQL
@@ -23,10 +23,10 @@ Database di Azure per MySQL offre funzionalità di continuità aziendale che inc
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Capacità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Funzionalità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
-| Ripristino geografico dai backup con replica geografica | Non supportate | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
+| Ripristino geografico dai backup con replica geografica | Non supportato | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
 
 > [!IMPORTANT]
 > **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli.

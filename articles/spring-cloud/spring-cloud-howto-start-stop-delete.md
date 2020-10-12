@@ -8,15 +8,15 @@ ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 479daa9a94247ada30c54a9c5df3471035765087
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90908276"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Avviare, arrestare ed eliminare l'applicazione Azure Spring cloud
 
-**Questo articolo si applica a:** ✔️ Java ✔️ C #
+**Questo articolo si applica a:** ✔️ Java ✔️ C#
 
 Questa guida illustra come modificare lo stato di un'applicazione nel cloud Spring di Azure usando l'interfaccia della riga di portale di Azure o l'interfaccia della riga di comando di Azure.
 

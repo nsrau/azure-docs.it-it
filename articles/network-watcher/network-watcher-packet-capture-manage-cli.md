@@ -13,23 +13,23 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: d72a981749af87e1b73625bdce2e0fd2d24fff0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84724920"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
+> - [Portale di Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Interfaccia della riga di comando di Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API REST di Azure](network-watcher-packet-capture-manage-rest.md)
 
 Il servizio di acquisizione di pacchetti di Network Watcher consente di creare sessioni di acquisizione per registrare il traffico da e verso una macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito solo il traffico desiderato. Il servizio di acquisizione di pacchetti consente di individuare eventuali anomalie di rete in modo proattivo e reattivo. Altri usi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora. La possibilità di attivare da remoto l'acquisizione di pacchetti evita di dover eseguire manualmente questa operazione sul computer desiderato, consentendo un notevole risparmio di tempo.
 
-Per eseguire la procedura descritta in questo articolo, è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (CLI di Azure)](/cli/azure/install-azure-cli).
+Per eseguire la procedura descritta in questo articolo, è necessario [installare l'interfaccia di Command-Line di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure)](/cli/azure/install-azure-cli).
 
 Questo articolo illustra le diverse attività di gestione attualmente disponibili per l'acquisizione di pacchetti.
 
@@ -50,7 +50,7 @@ Questo articolo presuppone che l'utente disponga delle risorse seguenti:
 
 ## <a name="install-vm-extension"></a>Installare un'estensione di macchina virtuale
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Eseguire il `az vm extension set` comando per installare l'agente di acquisizione pacchetti nella macchina virtuale guest.
 
@@ -108,7 +108,7 @@ L'esempio seguente riporta una possibile risposta all'esecuzione di `az vm exten
 
 Dopo aver completato i passaggi precedenti, l'agente di acquisizione di pacchetti è installato nella macchina virtuale.
 
-### <a name="step-1"></a>Step 1
+### <a name="step-1"></a>Passaggio 1
 
 Recuperare un account di archiviazione. L'account di archiviazione viene usato per archiviare il file di acquisizione di pacchetti.
 

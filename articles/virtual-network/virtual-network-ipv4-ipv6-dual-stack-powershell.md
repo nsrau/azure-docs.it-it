@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 6f51794c28c68b41bb715dcc23ae775151b6d93d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84703061"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell"></a>Distribuire un'applicazione IPv6 dual stack usando Load Balancer di base-PowerShell
@@ -84,7 +84,7 @@ In questa sezione vengono configurati due IP front-end (IPv4 e IPv6) e il pool d
 
 ### <a name="create-front-end-ip"></a>Creare l'IP front-end
 
-Creare un IP front-end con [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). Nell'esempio seguente vengono create le configurazioni IP front-end IPv4 e IPv6 denominate *dsLbFrontEnd_v4* e *dsLbFrontEnd_v6*:
+Creare un indirizzo IP front-end con [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). Nell'esempio seguente vengono create le configurazioni IP front-end IPv4 e IPv6 denominate *dsLbFrontEnd_v4* e *dsLbFrontEnd_v6*:
 
 ```azurepowershell-interactive
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `

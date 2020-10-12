@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
 ms.openlocfilehash: 8081c60833c3c02d55ae66ca695ba106dba01450
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294139"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
@@ -182,11 +182,11 @@ Nelle aree di lavoro e in Application Insights, viene chiamato non **visualizzar
 
 Vedere questo esempio di valutazione degli avvisi:
 
-| Tempo    | Valutazione della condizione del log | Risultato 
+| Ora    | Valutazione della condizione del log | Risultato 
 | ------- | ----------| ----------| ------- 
 | 00:05 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione.
-| 00:10 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
-| 00:15 | TRUE  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:10 | true  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
+| 00:15 | true  | Avvisi attivati e gruppi di azioni chiamati. Nuovo stato di avviso attivo.
 | 00:20 | false | L'avviso non viene attivato. Non è stata chiamata alcuna azione. Lo stato degli avvisi di precedente rimane attivo.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Prezzi e fatturazione per gli avvisi del log

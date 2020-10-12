@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
 ms.openlocfilehash: dce340db90c1528c46c1be0bc172751a04feaf31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294076"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creare e gestire regole di avviso in Log Analytics con l'API REST 
@@ -136,7 +136,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 ### <a name="alert-actions"></a>Azioni di avviso
 Una pianificazione deve avere una sola azione di avviso.  Le azioni di avviso includono una o più delle sezioni elencate nella tabella seguente.  Ciascuna è descritta in dettaglio di seguito.
 
-| Sezione | Descrizione | Uso |
+| Sezione | Descrizione | Utilizzo |
 |:--- |:--- |:--- |
 | Soglia |Criteri di esecuzione dell'azione.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |
 | Gravità |Etichetta usata per classificare l'avviso quando viene attivato.| Obbligatoria per ogni avviso, prima o dopo l'estensione ad Azure. |

@@ -4,10 +4,10 @@ description: Informazioni su come usare i servizi di piattaforma distribuita com
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478740"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Usare i servizi PaaS (Platform-as-a-Service) in Azure DevTest Labs
@@ -44,9 +44,9 @@ Sono disponibili alcune informazioni sul Lab personalizzate all'esterno del grup
 Negli [ambienti di connessione all'](connect-environment-lab-virtual-network.md) articolo relativo alla rete virtuale del Lab viene descritto come modificare il modello di gestione risorse per l'uso del `$(LabSubnetId)` token. Quando viene creato un ambiente, il `$(LabSubnetId)` token viene sostituito dal primo contrassegno di subnet in cui l'opzione **USA nella creazione della macchina virtuale** è impostata su **true**. Consente all'ambiente di usare le reti create in precedenza. Se si desidera utilizzare gli stessi modelli di Gestione risorse negli ambienti di test come gestione temporanea e produzione, utilizzare `$(LabSubnetId)` come valore predefinito in un parametro di modello di gestione risorse. 
 
 #### <a name="environment-storage-account"></a>Account di archiviazione dell'ambiente
-DevTest Labs supporta l'uso di [modelli di gestione risorse annidati](../azure-resource-manager/templates/linked-templates.md). L'articolo [[distribuire modelli annidati di Azure Resource Manager per ambienti di testing](deploy-nested-template-environments.md) illustra come usare i `_artifactsLocation` `_artifactsLocationSasToken` token e per creare un URI per un modello di gestione risorse nella stessa cartella di o in una cartella nidificata del modello principale. Per ulteriori informazioni su questi due token, vedere la sezione relativa agli **artefatti di distribuzione** di [Azure Resource Manager-Guida alle procedure consigliate](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs supporta l'uso di [modelli di gestione risorse annidati](../azure-resource-manager/templates/linked-templates.md). L'articolo [[distribuire modelli annidati di Azure Resource Manager per ambienti di testing](deploy-nested-template-environments.md) illustra come usare i  `_artifactsLocation` `_artifactsLocationSasToken` token e per creare un URI per un modello di gestione risorse nella stessa cartella di o in una cartella nidificata del modello principale. Per ulteriori informazioni su questi due token, vedere la sezione relativa agli **artefatti di distribuzione** di [Azure Resource Manager-Guida alle procedure consigliate](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
-## <a name="user-experience"></a>Esperienza utente
+## <a name="user-experience"></a>Esperienza dell'utente
 
 ## <a name="developer"></a>Sviluppatore
 Gli sviluppatori usano lo stesso flusso di lavoro per creare una macchina virtuale per creare un ambiente specifico. Selezionano l'ambiente e l'immagine del computer e immettono le informazioni necessarie necessarie per il modello. Ogni sviluppatore con un ambiente consente la distribuzione delle modifiche e il debug del ciclo interno migliorato. L'ambiente può essere creato in qualsiasi momento usando il modello più recente.  Questa funzionalità consente di eliminare e ricreare gli ambienti per ridurre il tempo di inattività dovuto alla creazione manuale del sistema o al ripristino dal test degli errori.  

@@ -4,10 +4,10 @@ description: Application Performance Monitoring per VM di Azure e set di scalabi
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 8b025c5196d65234a632bd1f939bc1116b72dce0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87024633"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Distribuire l'agente di Application Insights di monitoraggio di Azure in macchine virtuali di Azure e set di scalabilità di macchine virtuali di Azure

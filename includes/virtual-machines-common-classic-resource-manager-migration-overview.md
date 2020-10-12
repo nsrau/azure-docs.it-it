@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: tanmaygore
@@ -9,10 +9,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507626"
 ---
 L'articolo descrive come eseguire la migrazione di risorse di infrastruttura distribuita come servizio (IaaS) dai modelli di distribuzione classica ad Azure Resource Manager e illustra in modo dettagliato come collegare le risorse da due modelli di distribuzione che coesistono nella sottoscrizione con gateway da sito a sito di rete virtuale. Altre informazioni sulle [funzionalità e sui vantaggi Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 
@@ -107,7 +107,7 @@ Alcune funzioni e configurazioni non sono attualmente supportate; nella sezione 
 ### <a name="unsupported-features"></a>Funzionalità non supportate
 Le seguenti funzionalità non sono attualmente supportate. È possibile rimuovere facoltativamente queste impostazioni, eseguire la migrazione delle macchine virtuali e quindi riabilitare le impostazioni nel modello di distribuzione di Resource Manager.
 
-| Provider di risorse | Funzionalità | Raccomandazione |
+| Provider di risorse | Funzionalità | Recommendation |
 | --- | --- | --- |
 | Calcolo | Dischi di macchine virtuali non associati. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
 | Calcolo | Immagini di macchine virtuali. | La migrazione dei BLOB VHD dietro questi dischi verrà eseguita al momento della migrazione dell'account di archiviazione |
@@ -118,13 +118,13 @@ Le seguenti funzionalità non sono attualmente supportate. È possibile rimuover
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
 Le seguenti configurazioni non sono attualmente supportate.
 
-| Servizio | Configurazione | Raccomandazione |
+| Servizio | Configurazione | Recommendation |
 | --- | --- | --- |
-| Gestione risorse |Controllo degli accessi in base al ruolo (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
+| Gestione risorse |Controllo degli accessi Role-Based (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
 | Calcolo |Più subnet associate a una macchina virtuale |Aggiornare la configurazione delle subnet in modo che faccia riferimento solo a una subnet. Ciò potrebbe richiedere la rimozione di una scheda di interfaccia di rete secondaria (che fa riferimento a un'altra subnet) dalla macchina virtuale e quindi il suo ricollegamento al termine della migrazione. |
 | Calcolo |Macchine virtuali appartenenti a una rete virtuale, ma senza assegnazione esplicita di una subnet |È facoltativamente possibile eliminare la VM. |
 | Calcolo |Macchine virtuali con avvisi e criteri di ridimensionamento automatico |La migrazione viene eseguita e queste impostazioni vengono eliminate. È quindi consigliabile valutare l'ambiente prima di eseguire la migrazione. In alternativa, è possibile riconfigurare le impostazioni relative agli avvisi al termine della migrazione. |
-| Calcolo |Estensioni XML della VM (BGInfo 1.*, Visual Studio Debugger, Web Deploy e Remote Debugging) |Questa caratteristica non è supportata. È consigliabile rimuovere queste estensioni dalla macchina virtuale per continuare la migrazione oppure verranno rimosse automaticamente durante il processo di migrazione. |
+| Calcolo |Estensioni XML della VM (BGInfo 1.*, Visual Studio Debugger, Web Deploy e Remote Debugging) |Questo non è supportato. È consigliabile rimuovere queste estensioni dalla macchina virtuale per continuare la migrazione oppure verranno rimosse automaticamente durante il processo di migrazione. |
 | Calcolo |Diagnostica di avvio con archiviazione Premium |Disabilitare la funzionalità di diagnostica di avvio per le VM prima di proseguire con la migrazione. Sarà possibile riabilitare la diagnostica di avvio nello stack di Resource Manager al termine della migrazione. Inoltre, i BLOB in uso per le schermate e i log seriali devono essere eliminati in modo da non ricevere addebiti in relazione a essi. |
 | Calcolo | Servizi cloud che includono ruoli Web/di lavoro | Non supportato attualmente. |
 | Calcolo | Servizi cloud contenenti più di un set di disponibilità o set di disponibilità multipli. |Non supportato attualmente. Spostare le macchine virtuali nello stesso set di disponibilità prima della migrazione. |

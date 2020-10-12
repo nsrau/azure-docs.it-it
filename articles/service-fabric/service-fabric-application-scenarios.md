@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: sfrev
 ms.openlocfilehash: aaf8204158f720d8c69c98af758071cd91f6eff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248170"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scenari di applicazione di Service Fabric
@@ -23,7 +23,7 @@ Provare a usare la piattaforma Service Fabric per i tipi di applicazioni seguent
 
 * **Raccolta dati, elaborazione e**cose: Service Fabric gestisce una grande scala e ha bassa latenza nei servizi con stato. Consente di elaborare i dati in milioni di dispositivi in cui si trovano i dati per il dispositivo e il calcolo.
 
-    I clienti che hanno compilato servizi Internet con Service Fabric includono [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [costruzione PCL](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure), [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)e [sistemi mesh](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
+    I clienti che hanno compilato servizi Internet con Service Fabric includono [Honeywell](https://customers.microsoft.com/story/honeywell-builds-microservices-based-thermostats-on-azure), [costruzione PCL](https://customers.microsoft.com/story/pcl-construction-professional-services-azure), [Crestron](https://customers.microsoft.com/story/crestron-partner-professional-services-azure),  [BMW](https://customers.microsoft.com/story/bmw-enables-driver-mobility-via-azure-service-fabric/), [Schneider Electric](https://customers.microsoft.com/story/schneider-electric-powers-engergy-solutions-on-azure-service-fabric)e [sistemi mesh](https://customers.microsoft.com/story/mesh-systems-lights-up-the-market-with-iot-based-azure-solutions).
 
 * **Applicazioni interattive basate su giochi e sessioni**: Service Fabric è utile se l'applicazione richiede letture e scritture a bassa latenza, ad esempio in giochi online o messaggistica istantanea. Service Fabric consente di compilare queste applicazioni interattive con stato senza dover creare un archivio o una cache separata. Visitare le [soluzioni di gioco di Azure](https://azure.microsoft.com/solutions/gaming/) per indicazioni sulla progettazione sull' [uso di Service Fabric nei servizi di gioco](/gaming/azure/reference-architectures/multiplayer-synchronous-sf).
 

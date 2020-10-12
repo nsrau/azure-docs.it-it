@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 5/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 37fb724b83e80c1265755e6440f152143d419051
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87503073"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-powershell"></a>Riavviare il database di Azure per il server MariaDB con PowerShell
@@ -37,7 +37,7 @@ Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure us
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="restart-the-server"></a>Riavviare il server.
+## <a name="restart-the-server"></a>Riavviare il server
 
 Riavviare il server con il comando seguente:
 

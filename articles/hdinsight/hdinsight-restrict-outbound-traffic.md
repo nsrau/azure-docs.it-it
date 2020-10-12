@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87006518"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurare il traffico di rete in uscita per i cluster di Azure HDInsight tramite il firewall
@@ -97,7 +97,7 @@ Creare le regole di rete per configurare correttamente il cluster HDInsight.
 
     | Proprietà|  Valore|
     |---|---|
-    |Name (Nome)| FwNetRule|
+    |Nome| FwNetRule|
     |Priorità|200|
     |Azione|Allow|
 
