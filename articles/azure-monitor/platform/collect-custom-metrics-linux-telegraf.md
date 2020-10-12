@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207797"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Raccogliere metriche personalizzate per una VM Linux con l'agente InfluxData Telegraf
@@ -44,7 +44,7 @@ Creare una nuova VM Linux:
 1. Specificare un nome di macchina virtuale come **MyTelegrafVM**.  
 1. Lasciare il tipo di disco come **SSD**. Specificare quindi un **nome utente**, ad esempio **azureuser**. 
 1. In **tipo di autenticazione**selezionare **password**. Quindi immettere una password da usare in un secondo momento per la connessione SSH in questa macchina virtuale. 
-1. Scegliere di **creare un nuovo gruppo di risorse**. Specificare quindi un nome, ad esempio **myResourceGroup**. Scegliere la **località**. Selezionare **OK**. 
+1. Scegliere di **creare un nuovo gruppo di risorse**. Specificare quindi un nome, ad esempio **myResourceGroup**. Scegliere la **località**. Quindi scegliere **OK**. 
 
     ![Creare una VM Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
@@ -58,7 +58,7 @@ Creare una nuova VM Linux:
 
 1. La macchina virtuale viene aggiunta al dashboard del portale di Azure. Una volta completata la distribuzione verrà automaticamente aperto il riepilogo della macchina virtuale. 
 
-1. Nel riquadro VM passare alla scheda Identity ( **identità** ). Assicurarsi che la macchina virtuale disponga di un'identità assegnata dal sistema impostata **su on**. 
+1. Nel riquadro macchina virtuale passare alla scheda **identità** . Assicurarsi che la macchina virtuale disponga di un'identità assegnata dal sistema impostata **su on**. 
  
     ![Anteprima dell'identità della VM Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  

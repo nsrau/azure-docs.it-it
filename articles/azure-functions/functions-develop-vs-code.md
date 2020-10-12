@@ -1,17 +1,17 @@
 ---
-title: Sviluppare funzioni di Azure usando Visual Studio Code
+title: Sviluppare Funzioni di Azure con Visual Studio Code
 description: Informazioni su come sviluppare e testare funzioni di Azure usando l'estensione funzioni di Azure per Visual Studio Code.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206734"
 ---
-# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare funzioni di Azure usando Visual Studio Code
+# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Sviluppare Funzioni di Azure con Visual Studio Code
 
 L' [estensione funzioni di Azure per Visual Studio Code] consente di sviluppare in locale le funzioni e distribuirle in Azure. Se questa è la prima esperienza con Funzioni di Azure, è consigliabile leggere altre informazioni in [Introduzione a Funzioni di Azure](functions-overview.md).
 
@@ -187,11 +187,11 @@ Visual Studio Code consente di aggiungere binding al function.jsnel file attenen
 
 Di seguito sono riportate alcune richieste di esempio per definire una nuova associazione di output di archiviazione:
 
-| Prompt | Valore | Descrizione |
+| Prompt | Valore | Description |
 | -------- | ----- | ----------- |
 | **Selezionare la direzione di binding** | `out` | Il binding è un binding di output. |
 | **Seleziona binding con direzione** | `Azure Queue Storage` | Il binding è un binding della coda di archiviazione di Azure. |
-| **Nome usato per identificare questa associazione nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
+| **Il nome usato per identificare questo binding nel codice** | `msg` | Nome che identifica il parametro di binding a cui viene fatto riferimento nel codice. |
 | **La coda a cui verrà inviato il messaggio** | `outqueue` | Il nome della coda in cui scrive il binding. Se *queueName* non esiste, il binding lo crea al primo utilizzo. |
 | **Selezionare l'impostazione da "local.settings.json"** | `MyStorageConnection` | Nome di un'impostazione dell'applicazione che contiene la stringa di connessione per l'account di archiviazione. L' `AzureWebJobsStorage` impostazione contiene la stringa di connessione per l'account di archiviazione creato con l'app per le funzioni. |
 
@@ -251,7 +251,7 @@ La procedura seguente consente di pubblicare il progetto in una nuova app per le
 
 1. Dopo i prompt, fornire le seguenti informazioni:
 
-    | Prompt | Valore | Descrizione |
+    | Prompt | Valore | Description |
     | ------ | ----- | ----------- |
     | Selezionare l'app per le funzioni in Azure | Crea nuovo app per le funzioni in Azure | Al prompt successivo, digitare un nome univoco globale che identifichi la nuova app per le funzioni e quindi premere INVIO. I caratteri validi per un nome di app per le funzioni sono `a-z`, `0-9` e `-`. |
     | Selezionare un sistema operativo | Windows | L'app per le funzioni viene eseguita in Windows. |
@@ -410,7 +410,7 @@ Dopo aver completato questi passaggi, le chiamate effettuate agli strumenti di b
 
 L'estensione funzioni di Azure offre un'interfaccia grafica utile nell'area per interagire con le app per le funzioni in Azure. La stessa funzionalità è disponibile anche come comandi nel riquadro comandi (F1). Sono disponibili i comandi di funzioni di Azure seguenti:
 
-|Comando di funzioni di Azure  | Descrizione  |
+|Comando di funzioni di Azure  | Description  |
 |---------|---------|
 |**Aggiungi nuove impostazioni**  |  Crea una nuova impostazione dell'applicazione in Azure. Per altre informazioni, vedere [pubblicare le impostazioni dell'applicazione](#publish-application-settings). Potrebbe anche essere necessario [scaricare questa impostazione nelle impostazioni locali](#download-settings-from-azure). |
 | **Configurare l'origine della distribuzione** | Connette l'app per le funzioni in Azure a un repository git locale. Per altre informazioni, vedere [distribuzione continua per funzioni di Azure](functions-continuous-deployment.md). |

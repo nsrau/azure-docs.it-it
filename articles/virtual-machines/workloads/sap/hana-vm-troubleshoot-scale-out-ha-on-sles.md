@@ -1,5 +1,5 @@
 ---
-title: SAP HANA con scalabilità orizzontale HSR-pacemaker con SLES in macchine virtuali di Azure risoluzione dei problemi | Microsoft Docs
+title: SAP HANA la scalabilità orizzontale HSR-Pacemaker con SLES in macchine virtuali di Azure risoluzione dei problemi | Microsoft Docs
 description: Informazioni per verificare e risolvere i problemi relativi a una complessa configurazione di tipo scale-out a disponibilità elevata per SAP HANA, basata su SAP HANA System Replication (HSR) e Pacemaker, su SLES 12 SP3 in esecuzione su macchine virtuali di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088309"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi di impostazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 

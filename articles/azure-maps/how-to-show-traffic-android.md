@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272957"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostra i dati sul traffico sulla mappa usando le mappe di Azure Android SDK
@@ -57,7 +57,7 @@ Usare il frammento di codice seguente per impostare i dati del flusso di traffic
 | :-- | :-- |
 | TrafficFlow. NONE | Non Visualizza i dati sul traffico sulla mappa |
 | TrafficFlow. relativa | Mostra i dati sul traffico relativi alla velocità del flusso libero della strada |
-| TrafficFlow. RELATIVE_DELAY | Visualizza le aree più lente rispetto al ritardo medio previsto |
+| TrafficFlow.RELATIVE_DELAY | Visualizza le aree più lente rispetto al ritardo medio previsto |
 | TrafficFlow. ABSOLUTe | Mostra la velocità assoluta di tutti i veicoli in viaggio |
 
 ```java

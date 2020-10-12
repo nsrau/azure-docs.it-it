@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310986"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Cercare un percorso usando i servizi di ricerca di Azure Maps
@@ -95,7 +95,7 @@ In questo esempio verrà usata la ricerca fuzzy per cercare nell'intero mondo `p
 
 4. Il comportamento predefinito prevede la ricerca nell'intero mondo, restituendo potenzialmente risultati non necessari. Successivamente, si cercherà solo la Stati Uniti. Aggiungere la `countrySet` chiave alla sezione **params** e impostarne il valore su `US` . Impostando la `countrySet` chiave su `US` , i risultati vengono associati al Stati Uniti.
 
-    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Cerca pizza nella Stati Uniti":::
+    :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Cerca indirizzo":::
 
     I risultati sono ora limitati dall'indicativo paese e la query restituisce le pizzerie negli Stati Uniti.
 
@@ -103,7 +103,7 @@ In questo esempio verrà usata la ricerca fuzzy per cercare nell'intero mondo `p
 
     Nella sezione **params** aggiungere le coppie chiave/valore seguenti:
 
-     | Chiave | valore |
+     | Chiave | Valore |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -136,20 +136,20 @@ In questo esempio verranno eseguite ricerche inverse utilizzando alcuni dei para
   
 4. A questo punto, si aggiungeranno le coppie chiave/valore seguenti alla sezione **params** :
 
-    | Chiave | valore | Restituisce
+    | Chiave | Valore | Restituisce
     |-----|------------|------|
     | d'acquisto | 1 |La risposta può includere il lato della strada (sinistra/destra) e anche una posizione di offset per il numero.|
     | returnSpeedLimit | true | Restituisce il limite di velocità in corrispondenza dell'indirizzo.|
     | returnRoadUse | true | Restituisce i tipi di utilizzo delle strade in corrispondenza dell'indirizzo. Per tutti i possibili tipi di utilizzo stradali, vedere [tipi di utilizzo delle strade](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).|
     | returnMatchType | true| Restituisce il tipo di corrispondenza. Per tutti i valori possibili, vedere [Risultati della ricerca di indirizzi inversi](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult)
 
-   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Cerca in senso inverso.":::
+   :::image type="content" source="./media/how-to-search-for-address/search-reverse.png" alt-text="Cerca indirizzo":::
 
 5. Fare clic su **Send**ed esaminare il corpo della risposta.
 
 6. Successivamente, si aggiungerà la `entityType` chiave e si imposterà il relativo valore su `Municipality` . La `entityType` chiave sostituirà la `returnMatchType` chiave nel passaggio precedente. Sarà inoltre necessario rimuovere `returnSpeedLimit` e `returnRoadUse` poiché vengono richieste informazioni sul comune.  Per tutti i tipi di entità possibili, vedere [tipi di entità](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Cerca entityType inverso.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Cerca indirizzo":::
 
 7. Fare clic su **Send**. Confrontare i risultati con i risultati restituiti nel passaggio 5.  Poiché il tipo di entità richiesto è ora `municipality` , la risposta non include le informazioni sull'indirizzo via. Inoltre, l'oggetto restituito `geometryId` può essere usato per richiedere il poligono di limite tramite le mappe di Azure Get [API poligono di ricerca](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -168,7 +168,7 @@ In questo esempio, si cercherà una strada incrociata in base alle coordinate di
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
-    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Cerca tra le strade.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Cerca indirizzo":::
   
 3. Fare clic su **Send**ed esaminare il corpo della risposta. Si noterà che la risposta contiene un `crossStreet` valore di `Occidental Avenue South` .
 

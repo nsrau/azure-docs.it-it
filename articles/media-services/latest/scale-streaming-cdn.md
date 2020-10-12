@@ -1,7 +1,7 @@
 ---
 title: Flusso di contenuto con l'integrazione della rete CDN
 titleSuffix: Azure Media Services
-description: "Informazioni sul flusso di contenuto con l'integrazione della rete CDN, oltre che sulla prelettura e sull'origine: supporto della rete CDN-prelettura."
+description: Informazioni sul flusso di contenuto con l'integrazione della rete CDN, nonché la prelettura e la Origin-Assist della rete CDN.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291280"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Flusso di contenuto con l'integrazione della rete CDN
@@ -32,7 +32,7 @@ Il contenuto popolare verrà servito direttamente dalla cache della rete CDN, pu
 È anche necessario valutare il funzionamento del flusso adattivo. Ogni singolo frammento video viene memorizzato nella cache come entità propria. Si supponga, ad esempio, la prima volta che un determinato video viene guardato. Se il Visualizzatore Ignora solo pochi secondi qui e qui, solo i frammenti video associati a ciò che l'utente ha guardato vengono memorizzati nella cache nella rete CDN. Con il flusso adattivo, si hanno in genere da 5 a 7 bitrate del video diversi. Se una persona sta osservando una velocità in bit e un altro utente sta osservando una velocità in bit diversa, ognuno di essi viene memorizzato nella cache separatamente nella rete CDN. Anche se due persone stanno osservando la stessa velocità in bit, potrebbero trasmettere flussi su protocolli diversi. Ogni protocollo (HLS, MPEG-DASH, Smooth Streaming) viene memorizzato nella cache separatamente. In conclusione, ogni bitrate e ogni protocollo vengono memorizzati nella cache separatamente; inoltre, vengono memorizzati nella cache solo i frammenti video che sono stati richiesti.
 
 Ad eccezione dell'ambiente di test, è consigliabile abilitare la rete CDN per gli endpoint di streaming standard e Premium. Ogni tipo di endpoint di streaming ha un limite di velocità effettiva supportato diverso.
-È difficile eseguire un calcolo preciso per il numero massimo di flussi simultanei supportati da un endpoint di streaming, in quanto esistono diversi fattori da tenere in considerazione. Sono inclusi:
+È difficile eseguire un calcolo preciso per il numero massimo di flussi simultanei supportati da un endpoint di streaming, in quanto esistono diversi fattori da tenere in considerazione. Tra queste sono incluse:
 
 - Velocità in bit massime usate per lo streaming
 - Comportamento del pre-buffer e del cambio del lettore. I giocatori tentano di aumentare i segmenti da un'origine e usano la velocità di caricamento per calcolare il cambio a bitrate adattivo. Se un endpoint di streaming si avvicina alla saturazione, i tempi di risposta possono variare e i giocatori iniziano a passare a una qualità inferiore. Poiché questa operazione riduce il carico sui giocatori dell'endpoint di streaming, è possibile aumentare la qualità creando trigger di cambio indesiderati.
@@ -67,7 +67,7 @@ L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è impl
 
 È possibile determinare se è stata apportata una modifica DNS a un endpoint di streaming (il traffico viene indirizzato alla rete CDN di Azure) usando <https://www.digwebinterface.com> . Se nei risultati vengono visualizzati i nomi di dominio azureedge.net, il traffico viene ora puntato alla rete CDN.
 
-## <a name="origin-assist-cdn-prefetch"></a>Origine-supporto della rete CDN-prelettura
+## <a name="origin-assist-cdn-prefetch"></a>Origin-Assist CDN-Prefetch
 
 La memorizzazione nella cache della rete CDN è un processo reattivo. Se la rete CDN è in grado di stimare l'oggetto successivo che verrà richiesto, la rete CDN può richiedere e memorizzare nella cache l'oggetto successivo. Con questo processo, è possibile ottenere un riscontro nella cache per tutti (o la maggior parte) degli oggetti, migliorando le prestazioni.
 
@@ -125,11 +125,11 @@ La `Origin-Assist CDN-Prefetch` funzionalità supporta i protocolli di streaming
 
     No, la prelettura della rete CDN viene eseguita solo dopo una richiesta/risposta avviata dal client. Rete CDN: la prelettura non viene mai attivata da una prelettura, per evitare un ciclo di prelettura.
 
-* Origine-supporto della rete CDN-la funzionalità di prelettura è sempre attiva? Come è possibile attivare/disattivare?
+* Origin-Assist CDN-Prefetch funzionalità Always on? Come è possibile attivare/disattivare?
 
     Questa funzionalità è disattivata per impostazione predefinita. I clienti devono attivarla tramite l'API Akamai.
 
-* Per lo streaming live, cosa accadrebbe ad Origin-Assist se il segmento o il frammento successivo non è ancora disponibile?
+* Per lo streaming live, cosa accadrebbe Origin-Assist se il segmento o il frammento successivo non è ancora disponibile?
 
     In questo caso, l'origine di servizi multimediali non fornirà l' `CDN-Origin-Assist-Prefetch-Path` intestazione e la rete CDN-la prelettura non verrà eseguita.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087425"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Spostamento dei dati in un database SQL di Azure per Azure Machine Learning
@@ -43,13 +43,13 @@ Questa procedura descritta di seguito richiede di disporre di:
 
 È possibile adattare le procedure descritte di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server, seguire la procedura illustrata nell'argomento relativo all' [importazione bulk di dati in SQL Server database](sql-walkthrough.md#dbload).
 
-## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Trasferimento di dati da un'origine file flat a un database SQL di Azure
+## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> Trasferimento di dati da un'origine file flat a un database SQL di Azure
 I dati nei file flat (CSV o TSV formattati) possono essere spostati in un database SQL di Azure usando una query SQL BULK INSERT.
 
-### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Query SQL BULK INSERT
+### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> Query SQL BULK INSERT
 I passaggi per la procedura che usano la query BULK INSERT SQL sono simili alle direzioni per lo trasferimento dei dati da un'origine file flat a SQL Server in una macchina virtuale di Azure. Per altre informazioni, vedere [Inserimento di massa query SQL](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Trasferimento di dati da SQL Server a un database SQL di Azure
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> Trasferimento di dati da SQL Server a un database SQL di Azure
 Se i dati di origine vengono archiviati in SQL Server, è possibile trasferire i dati in un database SQL di Azure in diversi modi:
 
 1. [Esporta nel file flat](#export-flat-file)

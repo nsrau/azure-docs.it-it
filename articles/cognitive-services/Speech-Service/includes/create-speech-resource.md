@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: trbye
 ms.openlocfilehash: 8abd520a7bb80f1f9a2d8ebcbe46b90fe59a96ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81422275"
 ---
 ## <a name="create-a-speech-resource"></a>Creare una risorsa di sintesi vocale
@@ -21,7 +21,7 @@ ms.locfileid: "81422275"
 1. Fare clic su [Crea risorsa **vocale** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 1. Immettere tutte le impostazioni richieste:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |--|--|
     |Nome|Il nome desiderato (2-64 caratteri)|
     |Subscription|Selezionare la sottoscrizione appropriata|
@@ -34,5 +34,5 @@ ms.locfileid: "81422275"
 
     |Scheda risorsa nel portale|Impostazione|Valore|
     |--|--|--|
-    |**Panoramica**|Endpoint|Copiare l'endpoint. Ha un aspetto simile a`https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
-    |**Chiavi**|API key|Copiare 1 delle due chiavi. Si tratta di una stringa di caratteri alfanumerici 32 senza spazi o trattini `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Overview**|Endpoint|Copiare l'endpoint. Ha un aspetto simile a `https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
+    |**Chiavi**|Chiave API|Copiare 1 delle due chiavi. Si tratta di una stringa di caratteri alfanumerici 32 senza spazi o trattini `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|

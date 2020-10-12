@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135404"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
@@ -84,7 +84,7 @@ Seguire [queste linee guida](./vmware-azure-tutorial.md) per avviare la replica 
 
 * Per le linee guida sulla protezione del livello database in esecuzione in SQL Server, fare riferimento al documento [Proteggere SQL Server](site-recovery-sql.md).
 
-## <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
+## <a name="networking-configuration"></a>Configurazione della rete
 
 ### <a name="network-properties"></a>Proprietà della rete
 
@@ -102,7 +102,7 @@ Seguire [queste linee guida](./vmware-azure-tutorial.md) per avviare la replica 
 Per i siti con connessione Internet, [creare un profilo di Gestione traffico di tipo "Priorità"](../traffic-manager/quickstart-create-traffic-manager-profile.md) nella sottoscrizione di Azure. Configurare quindi il DNS e il profilo di Gestione traffico nel modo seguente.
 
 
-| **In cui** | **Origine** | **Destinazione**|
+| **Where** | **Origine** | **Destinazione**|
 | --- | --- | --- |
 | DNS pubblico | DNS pubblico per siti di SharePoint <br/><br/> Esempio: sharepoint.contoso.com | Gestione traffico <br/><br/> contososharepoint.trafficmanager.net |
 | DNS locale | sharepointonprem.contoso.com | IP pubblico nella farm locale |
@@ -136,7 +136,7 @@ Un piano di ripristino consente di definire la sequenza di failover di vari live
 
 È possibile distribuire gli script di Azure Site Recovery usate più comunemente nell'account di Automazione facendo clic sul pulsante "Distribuisci in Azure" di seguito. Quando si usa uno script pubblicato, assicurarsi di seguire le istruzioni nello script.
 
-[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Distribuisci in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Aggiungere uno script precedente all'azione a "Gruppo 1" per il gruppo di disponibilità SQL. Usare lo script "ASR-SQL-FailoverAG" pubblicato negli script di esempio. Assicurarsi di seguire le istruzioni nello script e apportare le modifiche necessarie nello script nel modo appropriato.
 

@@ -11,10 +11,10 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: e1a9d2722987464b1bb3c8b1489a2d1258a41d15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273084"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux che esegue SQL Server nel portale di Azure
@@ -32,7 +32,7 @@ In questa esercitazione di avvio rapido si usa il portale di Azure per creare un
 * [Modificare la password dell'amministratore di sistema](#password)
 * [Configurare connessioni remote](#remote)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
@@ -72,7 +72,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Digitare o selezionare quindi i valori seguenti:
    * **Area**: selezionare l'area di Azure appropriata.
    * **Opzioni di disponibilità**: scegliere l'opzione di ridondanza e disponibilità più appropriata per le app e i dati in uso.
-   * **Modifica dimensioni**: selezionare questa opzione per scegliere una dimensione di macchina e al termine scegliere **Seleziona**. Per altre informazioni sulle dimensioni delle macchine virtuali, vedere [dimensioni](../../../virtual-machines/sizes.md)delle macchine virtuali.
+   * **Modifica dimensioni**: selezionare questa opzione per scegliere una dimensione di macchina e al termine scegliere **Seleziona**. Per altre informazioni sulle dimensioni delle VM, vedere [Dimensioni delle macchine virtuali](../../../virtual-machines/sizes.md).
 
      ![Scegliere le dimensioni per la macchina virtuale](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524855"
 ---
 # <a name="move-an-app-service-resource-to-another-region"></a>Spostare una risorsa del servizio app in un'altra area
@@ -25,7 +25,7 @@ Per semplificare la copia dell'app, è possibile [clonare una singola app del se
 - Assicurarsi che l'area di destinazione supporti il servizio app e qualsiasi servizio correlato, di cui si desidera spostare le risorse.
 <!-- - Domain bindings, certificates, and managed identities can't replicated using the **Export template** method. You must create them manually. -->
 
-## <a name="prepare"></a>Preparare
+## <a name="prepare"></a>Preparazione
 
 Identificare tutte le risorse del servizio app attualmente in uso. Ad esempio:
 
@@ -41,7 +41,7 @@ Identificare tutte le risorse del servizio app attualmente in uso. Ad esempio:
 
 Alcune risorse, ad esempio i certificati importati o le connessioni ibride, contengono l'integrazione con altri servizi di Azure. Per informazioni su come spostare tali risorse tra le aree, vedere la documentazione relativa ai rispettivi servizi.
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 
 1. [Creare un backup dell'app di origine](manage-backup.md).
 1. [Creare un'app in un nuovo piano di servizio app nell'area di destinazione](app-service-plan-manage.md#create-an-app-service-plan).

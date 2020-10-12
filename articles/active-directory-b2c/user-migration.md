@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 60dff717fbd86fa83821575ac90c9dac36dbc4d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383972"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrare gli utenti a Azure AD B2C
@@ -38,7 +38,7 @@ Per informazioni sulla creazione di account utente a livello di codice, vedere [
 
 ## <a name="seamless-migration"></a>Migrazione senza problemi
 
-Usare il flusso di migrazione senza problemi se le password non crittografate nel vecchio provider di identità non sono accessibili. Ad esempio, quando:
+Usare il flusso di migrazione senza problemi se le password non crittografate nel vecchio provider di identità non sono accessibili. Ad esempio, nei casi seguenti:
 
 - La password viene archiviata in un formato crittografato unidirezionale, ad esempio con una funzione hash.
 - La password viene archiviata dal provider di identità legacy in modo che non sia possibile accedere a. Ad esempio, quando il provider di identità convalida le credenziali chiamando un servizio Web.

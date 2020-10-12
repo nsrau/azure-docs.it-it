@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273042"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creare il controller di dati di Azure Arc
@@ -33,7 +33,7 @@ Attualmente, l'elenco supportato dei servizi e delle distribuzioni di Kubernetes
 - OpenShift container Platform (OCP)
 - AWS Elastic Kubernetes Service (EKS)
 - Motore di Google Cloud Kubernetes (GKE)
-- Open Source, upstream Kubernetes in genere distribuito con kubeadm
+- Kubernetes upstream e open source in genere distribuito tramite kubeadm
 
 > [!IMPORTANT]
 > * La versione minima supportata di Kubernetes è la v 1.14.

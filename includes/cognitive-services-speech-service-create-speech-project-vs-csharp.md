@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71327035"
 ---
 Per creare un progetto di Visual Studio per lo sviluppo per Windows, è necessario creare il progetto, configurare l'ambiente di sviluppo per desktop .NET in Visual Studio, installare Speech SDK e selezionare l'architettura di destinazione.
@@ -25,7 +25,7 @@ Per iniziare, creare il progetto in Visual Studio e verificare che Visual Studio
 
 1. Nella finestra **Configura il nuovo progetto** immettere *helloworld* in **Nome progetto** scegliere o creare il percorso della directory in **Percorso** e quindi selezionare **Crea**.
 
-1. Dalla barra dei menu di Visual Studio scegliere **strumenti** > **Ottieni strumenti e funzionalità**, che consente di aprire programma di installazione di Visual Studio e visualizzare la finestra di dialogo **modifica** .
+1. Dalla barra dei menu di Visual Studio scegliere **strumenti**  >  **Ottieni strumenti e funzionalità**, che consente di aprire programma di installazione di Visual Studio e visualizzare la finestra di dialogo **modifica** .
 
 1. Assicurarsi che il carico di lavoro di **Sviluppo per desktop .NET** sia disponibile. Se il carico di lavoro non è stato installato, selezionare la casella di controllo accanto ad esso e quindi fare clic su **Modifica** per avviare l'installazione. Il download e l'installazione può richiedere alcuni minuti.
 
@@ -61,7 +61,7 @@ Il passaggio successivo prevede l'installazione del [pacchetto NuGet Speech SDK]
 
 A questo punto, per compilare ed eseguire l'applicazione console, creare una configurazione della piattaforma corrispondente all'architettura del computer.
 
-1. Dalla barra dei menu selezionare **Compila** > **Configuration Manager**. Verrà visualizzata finestra di dialogo **Gestione configurazione**.
+1. Dalla barra dei menu selezionare **Compila**  >  **Configuration Manager**. Verrà visualizzata finestra di dialogo **Gestione configurazione**.
 
    ![Finestra di dialogo Gestione configurazione](../articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

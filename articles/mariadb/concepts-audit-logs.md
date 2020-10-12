@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362425"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Log di controllo nel database di Azure per MariaDB
@@ -31,7 +31,7 @@ Altri parametri che è possibile modificare includono:
 - `audit_log_exclude_users`: MariaDB gli utenti da escludere dalla registrazione. Consente al massimo quattro utenti. La lunghezza massima del parametro è di 256 caratteri.
 
 > [!Note]
-> `audit_log_include_users`ha una priorità maggiore rispetto a `audit_log_exclude_users` . Se, ad esempio, `audit_log_include_users`  =  `demouser` e `audit_log_exclude_users`  =  `demouser` , l'utente verrà incluso nei log di controllo perché `audit_log_include_users` ha una priorità più elevata.
+> `audit_log_include_users` ha una priorità maggiore rispetto a `audit_log_exclude_users` . Se, ad esempio, `audit_log_include_users`  =  `demouser` e `audit_log_exclude_users`  =  `demouser` , l'utente verrà incluso nei log di controllo perché `audit_log_include_users` ha una priorità più elevata.
 
 | **Event** | **Descrizione** |
 |---|---|
@@ -52,7 +52,7 @@ I log di audit sono integrati con i log di diagnostica di Monitoraggio di Azure.
 
 Le sezioni seguenti descrivono gli elementi di output dei log di controllo di MariaDB in base al tipo di evento. A seconda del metodo di output, è possibile che i campi inclusi e il relativo ordine di visualizzazione siano differenti.
 
-### <a name="connection"></a>Connessione
+### <a name="connection"></a>Connessioni
 
 | **Proprietà** | **Descrizione** |
 |---|---|
@@ -102,7 +102,7 @@ Lo schema riportato di seguito si applica ai tipi di evento GENERAL, DML_SELECT,
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | Secondi di avvio della query nel timestamp UNIX |
-| `error_code_d` | Codice di errore se la query non è riuscita. `0`indica nessun errore |
+| `error_code_d` | Codice di errore se la query non è riuscita. `0` indica nessun errore |
 | `thread_id_d` | ID del thread che ha eseguito la query |
 | `host_s` | Vuoto |
 | `ip_s` | Indirizzo IP del client che si connette a MariaDB |

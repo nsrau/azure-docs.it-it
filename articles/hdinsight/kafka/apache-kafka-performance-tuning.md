@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75494917"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Ottimizzazione delle prestazioni per i cluster Apache Kafka HDInsight
@@ -50,7 +50,7 @@ La configurazione richiesta dal Producer `acks` determina il numero di riconosci
 
 Un Producer Kafka può essere configurato per comprimere i messaggi prima di inviarli ai broker. L' `compression.type` impostazione specifica il codec di compressione da usare. I codec di compressione supportati sono "gzip", "snapper" e "LZ4". La compressione è vantaggiosa e deve essere considerata se esiste una limitazione sulla capacità del disco.
 
-Tra i due codec di compressione di uso comune, `gzip` e `snappy` , `gzip` ha un rapporto di compressione più elevato, che comporta un minore utilizzo del disco al costo di un carico superiore della CPU. Il `snappy` codec offre una minore compressione con minore sovraccarico della CPU. È possibile decidere quale codec utilizzare in base alle limitazioni del disco broker o della CPU del Producer. `gzip`consente di comprimere i dati a una velocità cinque volte superiore a `snappy` .
+Tra i due codec di compressione di uso comune, `gzip` e `snappy` , `gzip` ha un rapporto di compressione più elevato, che comporta un minore utilizzo del disco al costo di un carico superiore della CPU. Il `snappy` codec offre una minore compressione con minore sovraccarico della CPU. È possibile decidere quale codec utilizzare in base alle limitazioni del disco broker o della CPU del Producer. `gzip` consente di comprimere i dati a una velocità cinque volte superiore a `snappy` .
 
 L'utilizzo della compressione dei dati aumenterà il numero di record che possono essere archiviati su un disco. Può anche aumentare il sovraccarico della CPU nei casi in cui non vi sia una corrispondenza tra i formati di compressione usati dal Producer e dal broker. Poiché i dati devono essere compressi prima dell'invio e quindi decompressi prima dell'elaborazione.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74873421"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB costanti di query SQL  
@@ -26,7 +26,7 @@ ms.locfileid: "74873421"
 |**Boolean**|Valori: **false**, **true**.|  
 |**Number**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
 |**Stringa**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
-|**Matrice**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  
+|**Di matrice**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  
 |**Object**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Sintassi
@@ -59,7 +59,7 @@ ms.locfileid: "74873421"
   
 ```  
   
-##  <a name="arguments"></a><a name="bk_arguments"></a>Argomenti
+##  <a name="arguments"></a><a name="bk_arguments"></a> Argomenti
   
 * `<undefined_constant>; Undefined`  
   

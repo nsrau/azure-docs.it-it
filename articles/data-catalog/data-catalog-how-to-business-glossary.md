@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: f91728435b885f3b4d9415bc81e18fdaaea0148f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537749"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Come configurare il glossario aziendale per l'assegnazione di tag regolamentata
@@ -76,7 +76,7 @@ Nel portale di Data Catalog i due tipi di tag sono visivamente distinti e presen
 
 È possibile cercare sia che i tag di glossario che i tag utente e applicarli come filtri in una ricerca.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Usando il glossario aziendale di Azure Data Catalog e la relativa assegnazione di tag regolamentata, è possibile identificare, gestire e trovare asset di dati in modo coerente. Il glossario aziendale può facilitare l'apprendimento del vocabolario aziendale ai membri dell'organizzazione. Il glossario aiuta anche a trovare i metadati significativi, semplificando così l'individuazione e la comprensione degli asset.
 

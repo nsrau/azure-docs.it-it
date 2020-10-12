@@ -4,10 +4,10 @@ description: Questo articolo illustra come eseguire il backup di un database SAP
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: 3e19701abe152e947e87ef624a003538ab7062a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271801"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
@@ -57,7 +57,7 @@ Gli endpoint privati consentono di connettersi in modo sicuro dai server all'int
 
 #### <a name="nsg-tags"></a>Tag NSG
 
-Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di backup di Azure, è anche necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/security-overview.md#service-tags) simili per Azure ad (*AzureActiveDirectory*) e archiviazione di Azure (*archiviazione*).  I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
+Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/security-overview.md#service-tags) simili per Azure AD (*AzureActiveDirectory*) e Archiviazione di Azure (*Storage*).  I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
 
 1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
 
