@@ -9,13 +9,13 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064123"
 ---
-# <a name="safely-manage-jar-dependencies"></a>Gestisci in modo sicuro le dipendenze jar
+# <a name="safely-manage-jar-dependencies"></a>Gestire in modo sicuro le dipendenze JAR
 
 I componenti installati nei cluster HDInsight hanno dipendenze da librerie di terze parti. In genere, questi componenti incorporati fanno riferimento a una versione specifica dei moduli comuni come guava. Quando si invia un'applicazione con le relative dipendenze, può verificarsi un conflitto tra versioni diverse dello stesso modulo. Se la versione del componente a cui si fa riferimento prima nel classpath, i componenti predefiniti possono generare eccezioni a causa dell'incompatibilità della versione. Tuttavia, se i componenti predefiniti inseriscono le rispettive dipendenze prima del classpath, l'applicazione potrebbe generare errori come `NoSuchMethod` .
 
@@ -27,7 +27,7 @@ L'ombreggiatura fornisce un modo per includere e rinominare le dipendenze. Conse
 ## <a name="how-to-shade-a-package"></a>Come ombreggiare un pacchetto?
 
 ### <a name="use-uber-jar"></a>Usare uber-jar
-Uber-jar è un singolo file jar che contiene il file jar dell'applicazione e le relative dipendenze. Le dipendenze in uber-jar non sono ombreggiate per impostazione predefinita. In alcuni casi, è possibile che si verifichi un conflitto di versione se altri componenti o applicazioni fanno riferimento a una versione diversa di tali librerie. Per evitare questo problema, è possibile compilare un file uber-jar con alcune o tutte le dipendenze ombreggiate.
+Uber-jar è un singolo file jar che contiene il file jar dell'applicazione e le relative dipendenze. Le dipendenze in uber-jar non sono ombreggiate per impostazione predefinita. In alcuni casi, è possibile che si verifichi un conflitto di versione se altri componenti o applicazioni fanno riferimento a una versione diversa di tali librerie. Per evitare questo problema, è possibile compilare un file di Uber-Jar con alcune o tutte le dipendenze ombreggiate.
 
 ### <a name="shade-package-using-maven"></a>Ombreggiatura di un pacchetto con Maven
 Maven può compilare applicazioni scritte sia in Java che in scala. Maven-Shade-plugin può aiutarti a creare con facilità un uber-jar ombreggiato.

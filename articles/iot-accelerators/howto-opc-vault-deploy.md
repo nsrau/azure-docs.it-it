@@ -9,16 +9,16 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282024"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilare e distribuire il servizio di gestione certificati dell'insieme di credenziali OPC
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 Questo articolo illustra come distribuire il servizio di gestione certificati dell'insieme di credenziali OPC in Azure.
 
@@ -97,7 +97,7 @@ Ecco come:
 2. Passare al gruppo di risorse in cui è stato distribuito il servizio.
 3. Scegliere **Elimina gruppo di risorse** e confermare.
 4. Dopo un breve periodo di tempo, tutti i componenti del servizio distribuiti vengono eliminati.
-5. Passare a **Azure Active Directory**  >  **registrazioni app**.
+5. Passare a **Azure Active Directory** > **Registrazioni per l'app**.
 6. Per ogni gruppo di risorse distribuito dovrebbero essere elencate tre registrazioni. Le registrazioni hanno i nomi seguenti: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Eliminare ogni registrazione separatamente.
 
 Tutti i componenti distribuiti verranno ora rimossi.

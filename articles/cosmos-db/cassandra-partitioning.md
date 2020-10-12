@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423321"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partizionamento in Azure Cosmos DB API Cassandra
@@ -58,7 +58,7 @@ In questa progettazione il campo è stato definito `id` come chiave primaria. La
 
 ## <a name="compound-primary-key"></a>Chiave primaria composta
 
-Apache Cassandra ha anche un concetto di `compound keys` . Un composto è `primary key` costituito da più di una colonna; la prima colonna è `partition key` , ed eventuali colonne aggiuntive sono `clustering keys` . Di seguito è riportata la sintassi per un oggetto `compound primary key` :
+Apache Cassandra ha anche un concetto di  `compound keys` . Un composto è `primary key` costituito da più di una colonna; la prima colonna è `partition key` , ed eventuali colonne aggiuntive sono `clustering keys` . Di seguito è riportata la sintassi per un oggetto `compound primary key` :
 
 ```shell
 PRIMARY KEY (partition_key_column_name, clustering_column_name [, ...])

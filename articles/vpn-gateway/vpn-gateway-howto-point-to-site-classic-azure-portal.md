@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84984794"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
@@ -21,7 +21,7 @@ ms.locfileid: "84984794"
 Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito. Si crea questa rete virtuale con il modello di distribuzione classica tramite il portale di Azure. Questa configurazione usa i certificati autofirmati o rilasciati da un'autorità di certificazione per autenticare il client di connessione. È anche possibile creare questa configurazione con un diverso modello o strumento di distribuzione usando le opzioni descritte negli articoli seguenti:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -81,7 +81,7 @@ Prima di iniziare, verificare di possedere una sottoscrizione di Azure. Se non s
 
 Se non si ha una rete virtuale, crearne una. Gli screenshot sono forniti come esempio. Assicurarsi di sostituire i valori con i propri. Per creare una rete virtuale usando il portale di Azure, seguire questa procedura:
 
-1. Nel menu del [portale di Azure](https://portal.azure.com) o dalla pagina **Home** selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuovo**.
+1. Nel menu del [portale di Azure](https://portal.azure.com) o nella **home page** selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuovo**.
 
 2. Nel campo **Cerca nel Marketplace** immettere *rete virtuale* e quindi selezionare **Rete virtuale** nell'elenco restituito. Verrà visualizzata la pagina **Rete virtuale**.
 
@@ -93,7 +93,7 @@ Se non si ha una rete virtuale, crearne una. Gli screenshot sono forniti come es
 
 5. Selezionare la **Sottoscrizione** da usare nell'elenco a discesa.
 
-6. Selezionare un **Gruppo di risorse** esistente. In alternativa, creare un nuovo gruppo di risorse selezionando **Crea nuovo** e specificando un nome. Se si crea un nuovo gruppo di risorse, denominare il gruppo in base ai valori di configurazione pianificati. Per ulteriori informazioni sui gruppi di risorse, vedere [Azure Resource Manager Overview](../azure-resource-manager/management/overview.md#resource-groups).
+6. Selezionare un **gruppo di risorse**esistente. In alternativa, creare un nuovo gruppo di risorse selezionando **Crea nuovo** e specificando un nome. Se si crea un nuovo gruppo di risorse, denominare il gruppo in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Selezionare una **Posizione** per la rete virtuale. Questa impostazione determina la posizione geografica delle risorse distribuite in questa rete virtuale.
 
@@ -146,7 +146,7 @@ Se usati, i certificati autofirmati devono essere creati con parametri specifici
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="generate-a-client-certificate"></a>Generazione di un certificato client
+### <a name="generate-a-client-certificate"></a>Generare un certificato client
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 

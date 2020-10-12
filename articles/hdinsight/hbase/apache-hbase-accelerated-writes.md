@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
 ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654855"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Scritture accelerate di Azure HDInsight per Apache HBase
@@ -32,7 +32,7 @@ Se un **RegionServer** si arresta in modo anomalo o non è più disponibile prim
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Funzionalità Scritture accelerate in Azure HDInsight per Apache HBase
 
-La funzionalità Scritture accelerate risolve il problema delle latenze di scrittura più elevate causate dall'uso di log write-ahead presenti nell'archiviazione cloud.  La funzionalità di scrittura accelerata per i cluster Apache HBase di HDInsight, collega i dischi Premium gestiti da unità SSD a ogni RegionServer (nodo del ruolo di lavoro). I log write-ahead vengono quindi scritti nel file System Hadoop (HDFS) montato su questi dischi gestiti Premium anziché sull'archiviazione cloud.  Managed disks Premium usa dischi a stato solido (SSD) e offre ottime prestazioni di I/O con tolleranza di errore.  A differenza dei dischi non gestiti, se un'unità di archiviazione diventa inattiva, non influirà sulle altre unità di archiviazione nello stesso set di disponibilità.  Di conseguenza, i dischi gestiti garantiscono una bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni sui dischi gestiti di Azure, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/managed-disks-overview.md).
+La funzionalità Scritture accelerate risolve il problema delle latenze di scrittura più elevate causate dall'uso di log write-ahead presenti nell'archiviazione cloud.  La funzionalità di scrittura accelerata per i cluster Apache HBase di HDInsight, collega i dischi Premium gestiti da unità SSD a ogni RegionServer (nodo del ruolo di lavoro). I log write-ahead vengono quindi scritti nel file System Hadoop (HDFS) montato su questi dischi gestiti Premium anziché sull'archiviazione cloud.  Managed disks Premium usa dischi Solid-State (SSD) e offre ottime prestazioni di I/O con tolleranza di errore.  A differenza dei dischi non gestiti, se un'unità di archiviazione diventa inattiva, non influirà sulle altre unità di archiviazione nello stesso set di disponibilità.  Di conseguenza, i dischi gestiti garantiscono una bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni sui dischi gestiti di Azure, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Come abilitare le Scritture accelerate per HBase in HDInsight
 

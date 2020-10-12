@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8132eb72b3e448d7ae830b29ccb7dc51528c1250
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87921402"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente Azure AD B2C con Microsoft Graph
@@ -62,9 +62,9 @@ Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono ar
 
 | Proprietà   | Type |Descrizione|
 |:---------------|:--------|:----------|
-|signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale: `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` , `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su `federated` .|
-|autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è `federated` ), il valore è il nome dell'autorità emittente, ad esempio`facebook.com`|
-|issuerAssignedId|string|Specifica l'identificatore univoco assegnato all'utente dall'emittente. La combinazione di **Issuer** e **issuerAssignedId** deve essere univoca all'interno del tenant. Per l'account locale, quando **signInType** è impostato su `emailAddress` o `userName` , rappresenta il nome di accesso per l'utente.<br>Quando **signInType** è impostato su: <ul><li>`emailAddress`(o inizia con `emailAddress` like `emailAddress1` ) **issuerAssignedId** deve essere un indirizzo di posta elettronica valido</li><li>`userName`(o qualsiasi altro valore), **issuerAssignedId** deve essere una [parte locale valida di un indirizzo di posta elettronica](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** rappresenta l'identificatore univoco dell'account federato</li></ul>|
+|signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale:  `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` ,  `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su  `federated` .|
+|autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è  `federated` ), il valore è il nome dell'autorità emittente, ad esempio `facebook.com`|
+|issuerAssignedId|string|Specifica l'identificatore univoco assegnato all'utente dall'emittente. La combinazione di **Issuer** e **issuerAssignedId** deve essere univoca all'interno del tenant. Per l'account locale, quando **signInType** è impostato su `emailAddress` o `userName` , rappresenta il nome di accesso per l'utente.<br>Quando **signInType** è impostato su: <ul><li>`emailAddress` (o inizia con `emailAddress` like `emailAddress1` ) **issuerAssignedId** deve essere un indirizzo di posta elettronica valido</li><li>`userName` (o qualsiasi altro valore), **issuerAssignedId** deve essere una [parte locale valida di un indirizzo di posta elettronica](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** rappresenta l'identificatore univoco dell'account federato</li></ul>|
 
 La seguente **Proprietà** identitys, con un'identità di account locale con un nome di accesso, un indirizzo di posta elettronica come accesso e con un'identità di social networking. 
 
