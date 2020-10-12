@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88590116"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Abilitare l'eliminazione temporanea in condivisioni file di Azure
@@ -68,13 +68,13 @@ Per ripristinare una condivisione file eliminata temporaneamente:
 
     Verranno visualizzate le condivisioni attualmente con stato **Eliminata**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Se la colonna Stato, ovvero la colonna accanto alla colonna Nome, è impostata su Eliminata, la condivisione file si trova in uno stato di eliminazione temporanea e verrà eliminata definitivamente dopo il periodo di conservazione specificato.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/undelete-file-share.png" alt-text="Screenshot del riquadro impostazioni di eliminazione temporanea dell'account di archiviazione. Evidenziando la sezione relativa alle condivisioni, abilitare l'opzione di attivazione, impostare un periodo di conservazione e salvarlo. Questa operazione consentirà l'eliminazione temporanea per tutte le condivisioni file nell'account di archiviazione.":::
 
 1. Selezionare la condivisione, quindi selezionare **Annulla eliminazione**: la condivisione verrà ripristinata.
 
     È possibile verificare che la condivisione è stata ripristinata perché lo stato passa ad **Attiva**.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Se la colonna Stato, ovvero la colonna accanto alla colonna Nome, è impostata su Attiva, la condivisione file è stata ripristinata.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/restored-file-share.png" alt-text="Screenshot del riquadro impostazioni di eliminazione temporanea dell'account di archiviazione. Evidenziando la sezione relativa alle condivisioni, abilitare l'opzione di attivazione, impostare un periodo di conservazione e salvarlo. Questa operazione consentirà l'eliminazione temporanea per tutte le condivisioni file nell'account di archiviazione.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -95,7 +95,7 @@ Per interrompere l'uso dell'eliminazione temporanea o eliminare definitivamente 
 1. In **Condivisioni file**, selezionare **Disabilitata** per **Eliminazione temporanea per le condivisioni file**.
 1. Selezionare **Salva** per confermare le impostazioni di conservazione dei dati.
 
-    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Se si disabilita l'eliminazione temporanea, sarà possibile eliminare immediatamente e definitivamente tutte le condivisioni file nell'account di archiviazione.":::
+    :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="Screenshot del riquadro impostazioni di eliminazione temporanea dell'account di archiviazione. Evidenziando la sezione relativa alle condivisioni, abilitare l'opzione di attivazione, impostare un periodo di conservazione e salvarlo. Questa operazione consentirà l'eliminazione temporanea per tutte le condivisioni file nell'account di archiviazione.":::
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

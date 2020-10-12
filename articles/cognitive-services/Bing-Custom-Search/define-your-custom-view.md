@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86183206"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
@@ -27,7 +27,7 @@ Quando si definiscono le sezioni Web, usare il comando seguente:
 
 | Nome della sezione | Descrizione                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio, `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
+| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
 | Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Pagina Web    | La sezione di una pagina Web può includere solo la pagina Web in una ricerca personalizzata. Facoltativamente, è possibile specificare se includere pagine secondarie.                                                                                                                                                                                  |
 
@@ -40,7 +40,7 @@ Quando si crea l'istanza di ricerca personalizzata, è possibile specificare le 
 
 Se si conoscono le sezioni da includere nell'istanza, aggiungerle all'elenco **Active** (Elementi attivi) dell'istanza. 
 
-Se non si è certi di quali sezioni includere, è possibile inviare le query di ricerca di Bing nel riquadro **Anteprima** e selezionare gli intervalli desiderati. A tale scopo, effettuare l'operazione seguente: 
+Se non si è certi di quali sezioni includere, è possibile inviare le query di ricerca di Bing nel riquadro **Anteprima** e selezionare gli intervalli desiderati. Per eseguire questa operazione: 
 
 1. selezionare "Bing" nell'elenco a discesa nel riquadro di anteprima e inserire una query di ricerca
 
@@ -114,7 +114,7 @@ Le operazioni di assegnazione della posizione più alta, di aumento della priori
 
 ## <a name="pin-slices-to-the-top-of-search-results"></a>Aggiungere le sezioni in cima ai risultati di ricerca
 
-Il portale consente inoltre di aggiungere URL alla parte superiore dei risultati della ricerca per termini di ricerca specifici, usando la scheda **bloccata** . Immettere un URL e una query per specificare la pagina Web che verrà visualizzata come risultato principale. Nota: è possibile aggiungere al massimo una pagina Web per ogni query di ricerca e solo le pagine Web indicizzate saranno visualizzate nelle ricerche. L'aggiunta di risultati non è disponibile per le ricerche di immagini o video.
+Il portale consente inoltre di aggiungere URL alla parte superiore dei risultati della ricerca per termini di ricerca specifici, usando la scheda **aggiuntiva** . Immettere un URL e una query per specificare la pagina Web che verrà visualizzata come risultato principale. Nota: è possibile aggiungere al massimo una pagina Web per ogni query di ricerca e solo le pagine Web indicizzate saranno visualizzate nelle ricerche. L'aggiunta di risultati non è disponibile per le ricerche di immagini o video.
 
 È possibile aggiungere una pagina Web in cima in due modi:
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: 2961ffb21a1f34ca677e0aede5170689f4e38dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84267977"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
@@ -231,7 +231,7 @@ Le specifiche tecniche delle apparecchiature come la data di fabbricazione, il n
 
 Come risultato delle operazioni di preparazione dei dati descritte finora, i dati saranno organizzati come illustrato di seguito. I dati di training, test e convalida devono avere questo schema logico (in questo esempio il tempo è espresso in unità di giorni).
 
-| ID asset | Tempo | \<Feature Columns> | Label |
+| ID asset | Ora | \<Feature Columns> | Etichetta |
 | ---- | ---- | --- | --- |
 | A123 |Giorno 1 | . . . | . |
 | A123 |Giorno 2 | . . . | . |
@@ -362,7 +362,7 @@ Molti problemi PdM implicano set di dati sbilanciati di questo tipo, in cui una 
 
 In caso di sbilanciamento delle classi nei dati, le prestazioni della maggior parte degli algoritmi di apprendimento standard vengono compromesse, perché il loro scopo è ridurre il tasso di errore complessivo. Per un set di dati con il 99% di esempi positivi e l'1% di esempi negativi, un modello potrebbe risultare con un'accuratezza del 99% assegnando un'etichetta negativa a tutte le istanze. Il modello tuttavia classificherà erroneamente tutti gli esempi positivi, pertanto, anche se l'accuratezza è elevata, l'algoritmo non è utile. Di conseguenza, le metriche di valutazione convenzionali, come l'_accuratezza complessiva sul tasso di errore_, non sono sufficienti per l'apprendimento sbilanciato. Quando è necessario gestire set di dati sbilanciati, vengono usate altre metriche per la valutazione del modello:
 - Precision
-- Richiamo
+- Recall
 - Punteggi F1
 - Costo ROC (Receiver Operating Characteristics) rettificato
 
@@ -384,7 +384,7 @@ In PdM, i guasti che costituiscono la classe di minoranza sono più interessanti
 
 Esistono diversi modi per raggiungere questo equilibrio. Per ridurre il problema della perdita ineguale, assegnare un costo elevato all'errata classificazione della classe di minoranza e provare a ridurre il costo complessivo. Algoritmi come le _macchine a vettori di supporto (SVM)_ adottano intrinsecamente questo metodo, consentendo di specificare il costo degli esempi positivi e negativi durante il training. Analogamente, i metodi di aumento di priorità, come gli _alberi delle decisioni con boosting_, in genere forniscono ottime prestazioni in caso di dati sbilanciati.
 
-## <a name="model-evaluation"></a>Valutazione del modello.
+## <a name="model-evaluation"></a>Valutazione del modello
 L'errata classificazione è un problema significativo per gli scenari PdM in cui il costo dei falsi allarmi per l'azienda è elevato. Ad esempio, la decisione di forzare a terra un aereo in base a una stima errata di un guasto del motore può compromettere le pianificazioni e i piani di viaggio. Portare offline una macchina da una catena di montaggio può portare a una perdita di ricavi. La valutazione del modello con le metriche delle prestazioni adatte sui nuovi dati di test è pertanto fondamentale.
 
 Le tipiche metriche delle prestazioni usate per valutare i modelli PdM sono descritte di seguito:
@@ -409,7 +409,7 @@ Il vantaggio della data science si realizza solo quando il modello sottoposto a 
 Il processo precedente è descritto in diversi modi nella letteratura accademica e di settore. Tuttavia, tutte le dichiarazioni seguenti hanno lo stesso significato:
 - _Assegnare un punteggio ai nuovi dati_ usando il modello
 - _Applicare il modello_ ai nuovi dati
-- _Operazionalizzare_ il modello
+- _Rendere operativo_ il modello
 - _Distribuire_ il modello
 - _Eseguire il modello_ sui nuovi dati
 

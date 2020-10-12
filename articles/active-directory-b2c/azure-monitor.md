@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: 3106e5a640ed66828558078e6986979ad7195450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85386216"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
@@ -200,7 +200,7 @@ Dopo aver distribuito il modello e aver atteso alcuni minuti per il completament
 1. **Disconnettersi** dal portale di Azure se si è connessi. Questa operazione e il passaggio seguente consentono di aggiornare le credenziali nella sessione del portale.
 1. Accedere al [portale di Azure](https://portal.azure.com) con l'account amministrativo Azure ad B2C.
 1. Nella barra degli strumenti del portale selezionare l'icona **Directory e sottoscrizione**.
-1. Selezionare la directory che contiene la sottoscrizione.
+1. Selezionare la directory contenente la sottoscrizione.
 
     ![Cambia directory](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
 1. Verificare di aver selezionato la directory e la sottoscrizione corrette. In questo esempio vengono selezionate tutte le directory e le sottoscrizioni.
@@ -217,7 +217,7 @@ Le impostazioni di diagnostica definiscono dove devono essere inviati i log e le
 
 Se non è già stato fatto, creare un'istanza del tipo di destinazione scelto nel gruppo di risorse specificato nel [modello di Azure Resource Manager](#create-an-azure-resource-manager-template).
 
-### <a name="create-diagnostic-settings"></a>Crea impostazioni di diagnostica
+### <a name="create-diagnostic-settings"></a>Creare impostazioni di diagnostica
 
 È ora possibile [creare le impostazioni di diagnostica](../active-directory/reports-monitoring/overview-monitoring.md) nel portale di Azure.
 

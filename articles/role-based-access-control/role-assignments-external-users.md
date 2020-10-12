@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85361905"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure
@@ -79,7 +79,7 @@ Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, a
 
 1. Fare clic su **Controllo di accesso (IAM)** .
 
-    Lo screenshot seguente mostra un esempio del pannello controllo di accesso (IAM) per un gruppo di risorse. Se si apportano modifiche al controllo di accesso, si applicano solo al gruppo di risorse.
+    Lo screenshot seguente mostra un esempio del pannello Controllo di accesso (IAM) per un gruppo di risorse. Se si apportano modifiche al controllo di accesso, si applicano solo al gruppo di risorse.
 
     ![Pannello Controllo di accesso (IAM) per un gruppo di risorse](./media/role-assignments-external-users/access-control-resource-group.png)
 
@@ -89,9 +89,9 @@ Nel controllo degli accessi in base al ruolo di Azure per concedere l'accesso, a
 
     Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione Aggiungi assegnazione di ruolo verrà disabilitata.
 
-    ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
+    ![Menu Aggiungi assegnazione di ruolo](./media/shared/add-role-assignment-menu.png)
 
-    Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
+    Viene visualizzato il riquadro Aggiungi assegnazione di ruolo.
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 
@@ -121,9 +121,9 @@ Se l'utente Guest non è ancora presente nella directory, è possibile invitare 
 
 1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo.
 
-    ![Menu Aggiungi assegnazione ruolo](./media/shared/add-role-assignment-menu.png)
+    ![Menu Aggiungi assegnazione di ruolo](./media/shared/add-role-assignment-menu.png)
 
-    Verrà aperto il riquadro Aggiungi assegnazione di ruolo.
+    Viene visualizzato il riquadro Aggiungi assegnazione di ruolo.
 
 1. Nell'elenco a discesa **Ruolo** selezionare un ruolo, ad esempio **Collaboratore Macchina virtuale**.
 

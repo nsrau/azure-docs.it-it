@@ -11,10 +11,10 @@ ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85387525"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Usare il portale di Azure per creare ed eliminare utenti consumer in Azure AD B2C
@@ -41,7 +41,7 @@ Questo articolo è incentrato sull'uso degli **account utente** nel portale di A
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
 1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
 1. In **Gestisci** selezionare **Utenti**.
-1. Selezionare **nuovo utente**.
+1. Selezionare **Nuovo utente**.
 1. Selezionare **crea Azure ad B2C utente**.
 1. Scegliere un **metodo di accesso** e immettere un indirizzo di **posta elettronica** o un **nome** utente per il nuovo utente. Il metodo di accesso selezionato qui deve corrispondere all'impostazione specificata per il provider di identità dell' *account locale* del tenant di Azure ad B2C (vedere **gestire**i  >  **provider di identità** nel tenant di Azure ad B2C).
 1. Immettere un **nome** per l'utente. Si tratta in genere del nome completo (dato e cognome) dell'utente.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310581"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Lingua e regioni supportate dall'API Ricerca personalizzata Bing
@@ -29,7 +29,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
-|Paese/area geografica|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -66,12 +66,12 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Taiwan|TW|
 |Turchia|TR|
 |Regno Unito|GB|
-|Stati Uniti|US|
+|Stati Uniti|Stati Uniti|
 
 
 ## <a name="markets"></a>Mercati
 
-|Paese/area geografica|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -103,7 +103,7 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|

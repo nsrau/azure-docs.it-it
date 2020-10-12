@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483627"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Offerte SaaS Azure AD e transazionali nel Marketplace commerciale
@@ -45,7 +45,7 @@ Le sezioni seguenti forniscono informazioni dettagliate sui requisiti per ogni p
 
 Questa figura illustra i quattro passaggi del processo per la gestione degli acquisti.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Vengono illustrati i quattro passaggi del processo per la gestione degli acquisti.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Vengono illustrati i passaggi per la gestione degli acquisti, le sottoscrizioni e il processo di gestione degli utenti facoltativi.":::
 
 Questa tabella fornisce informazioni dettagliate per i passaggi del processo di gestione degli acquisti.
 
@@ -61,7 +61,7 @@ Questa tabella fornisce informazioni dettagliate per i passaggi del processo di 
 
 Nella figura sono illustrati i due passaggi del processo per la gestione delle sottoscrizioni.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Vengono illustrati i due passaggi del processo per la gestione delle sottoscrizioni.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Vengono illustrati i passaggi per la gestione degli acquisti, le sottoscrizioni e il processo di gestione degli utenti facoltativi.":::
 
 In questa tabella vengono descritti i dettagli relativi ai passaggi del processo di gestione delle sottoscrizioni.
 
@@ -75,7 +75,7 @@ In questa tabella vengono descritti i dettagli relativi ai passaggi del processo
 
 Nella figura sono illustrati i tre passaggi del processo per la gestione degli utenti.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Vengono illustrati i tre passaggi facoltativi del processo per la gestione degli utenti.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Vengono illustrati i passaggi per la gestione degli acquisti, le sottoscrizioni e il processo di gestione degli utenti facoltativi.":::
 
 I passaggi da 7 a 9 sono i passaggi del processo di gestione degli utenti facoltativi. Forniscono vantaggi aggiuntivi per gli editori che supportano Azure AD Single Sign-On (SSO). In questa tabella vengono descritti i dettagli relativi ai passaggi del processo di gestione degli utenti.
 

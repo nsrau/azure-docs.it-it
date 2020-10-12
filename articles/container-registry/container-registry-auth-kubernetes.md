@@ -7,10 +7,10 @@ ms.author: karolz
 ms.reviewer: danlep
 ms.date: 05/28/2020
 ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84309816"
 ---
 # <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Eseguire il pull delle immagini da un registro contenitori di Azure a un cluster Kubernetes
@@ -47,7 +47,7 @@ kubectl create secret docker-registry <secret-name> \
 ```
 dove:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | :--- | :--- |
 | `secret-name` | Nome del segreto di pull dell'immagine, ad esempio *ACR-Secret* |
 | `namespace` | Spazio dei nomi Kubernetes in cui inserire il segreto <br/> Necessaria solo se si desidera inserire il segreto in uno spazio dei nomi diverso dallo spazio dei nomi predefinito |
@@ -74,7 +74,7 @@ spec:
     - name: acr-secret
 ```
 
-Nell'esempio precedente, `my-awesome-app:v1` è il nome dell'immagine da estrarre dal registro contenitori di Azure e `acr-secret` è il nome del segreto di pull creato per accedere al registro di sistema. Quando si distribuisce il Pod, Kubernetes esegue automaticamente il pull dell'immagine dal registro di sistema, se non è già presente nel cluster.
+Nell'esempio precedente, `my-awesome-app:v1` è il nome dell'immagine da estrarre dal registro contenitori di Azure e  `acr-secret` è il nome del segreto di pull creato per accedere al registro di sistema. Quando si distribuisce il Pod, Kubernetes esegue automaticamente il pull dell'immagine dal registro di sistema, se non è già presente nel cluster.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

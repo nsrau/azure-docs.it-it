@@ -12,10 +12,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86172027"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Risolvere i problemi di gestione di SSIS Integration Runtime in Azure Data Factory
@@ -78,7 +78,7 @@ Per altri problemi, controllare il messaggio di errore di eccezione SQL e risolv
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Questo tipo di messaggio di errore è simile al seguente: "nome oggetto non valido ' Catalog. catalog_properties '". In questa situazione, si dispone già di un database denominato SSISDB ma non è stato creato dal runtime di integrazione SSIS oppure il database è in uno stato non valido causato da errori nell'ultimo provisioning del runtime di integrazione SSIS. È possibile eliminare il database esistente con il nome SSISDB oppure è possibile configurare un nuovo database SQL o SQL Istanza gestita per il runtime di integrazione.
+Questo tipo di messaggio di errore è simile al seguente: "nome di oggetto non valido ' catalog.catalog_properties '". In questa situazione, si dispone già di un database denominato SSISDB ma non è stato creato dal runtime di integrazione SSIS oppure il database è in uno stato non valido causato da errori nell'ultimo provisioning del runtime di integrazione SSIS. È possibile eliminare il database esistente con il nome SSISDB oppure è possibile configurare un nuovo database SQL o SQL Istanza gestita per il runtime di integrazione.
 
 ## <a name="custom-setup-issues"></a>Problemi di installazione personalizzati
 
@@ -192,4 +192,4 @@ Azure-SSIS IR viene automaticamente aggiornato a intervalli regolari. I nuovi no
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
-Quando si vogliono importare indirizzi IP pubblici statici, è necessario fornire due indirizzi IP pubblici. Uno di essi verrà usato per creare i nodi IR immediatamente e ne verrà usato un altro durante l'aggiornamento del runtime di integrazione. Questo errore può verificarsi quando l'altro indirizzo IP pubblico non è utilizzabile durante l'aggiornamento. Per le possibili cause, fare riferimento a [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) .
+Quando si vogliono importare indirizzi IP pubblici statici, è necessario fornire due indirizzi IP pubblici. Uno di essi verrà usato per creare i nodi IR immediatamente e ne verrà usato un altro durante l'aggiornamento del runtime di integrazione. Questo errore può verificarsi quando l'altro indirizzo IP pubblico non è utilizzabile durante l'aggiornamento. Per le possibili cause, fare riferimento a  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) .

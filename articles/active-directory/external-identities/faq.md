@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274045"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
@@ -70,7 +70,7 @@ Sì. È possibile creare un criterio di accesso condizionale che impedisce a tut
 5. Nella casella di testo **nome** della **nuova** pagina immettere un nome per il criterio, ad esempio "impedisce ai guest di accedere al portale".
 6. In **Assegnazioni** selezionare **Utenti e gruppi**.
 7. Nella scheda **Includi** scegliere **Seleziona utenti e gruppi**, quindi selezionare **tutti gli utenti guest ed External (anteprima)**.
-9. Selezionare **Fine**.
+9. Selezionare **Operazione completata**.
 10. Nella sezione **assegnazioni** della **nuova** pagina selezionare **app Cloud o azioni**.
 11. Nella pagina **app o azioni cloud** scegliere **Seleziona app**, quindi scegliere **Seleziona**.
 12. Nella pagina **Seleziona** scegliere **Gestione di Microsoft Azure** e quindi scegliere **Seleziona**.
