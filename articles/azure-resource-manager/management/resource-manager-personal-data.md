@@ -4,10 +4,10 @@ description: Informazioni su come gestire i dati personali associati alle operaz
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.openlocfilehash: 22cfc1b6096980f3d10db404a1c4e02f2de355d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75485260"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Gestire i dati personali associati a Azure Resource Manager
@@ -30,7 +30,7 @@ Per elencare le **distribuzioni** nella cronologia, usare:
 
 Per eliminare le **distribuzioni** dalla cronologia, usare:
 
-* [Eliminazione](/rest/api/resources/deployments/delete)
+* [Elimina](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
 * [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete)
 
@@ -46,7 +46,7 @@ Per elencare i **gruppi di risorse**, usare:
 
 Per eliminare i **gruppi di risorse**, usare:
 
-* [Eliminazione](/rest/api/resources/resourcegroups/delete)
+* [Elimina](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
 * [az group delete](/cli/azure/group#az-group-delete)
 
@@ -62,7 +62,7 @@ Per elencare i **tag**, usare:
 
 Per eliminare i **tag**, usare:
 
-* [Eliminazione](/rest/api/resources/tags/delete)
+* [Elimina](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 

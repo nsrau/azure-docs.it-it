@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88190152"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
@@ -75,8 +75,8 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Elimina    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Crea    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |

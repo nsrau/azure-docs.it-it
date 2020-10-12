@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135812"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Escludere dischi dalla replica di PowerShell di macchine virtuali di Azure
@@ -24,7 +24,7 @@ Questo articolo descrive come escludere dischi quando si esegue la replica di VM
 Prima di iniziare:
 
 - Assicurarsi di aver compreso i [componenti e l'architettura di ripristino di emergenza](azure-to-azure-architecture.md).
-- Esaminare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
+- Verificare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
 - Assicurarsi di avere il modulo AzureRm di PowerShell "AZ". Per installare o aggiornare PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 - Assicurarsi di aver creato almeno una volta un insieme di credenziali di servizi di ripristino e le macchine virtuali protette. Se non sono state eseguite queste operazioni, seguire la procedura in [configurare il ripristino di emergenza per macchine virtuali di Azure con Azure PowerShell](azure-to-azure-powershell.md).
 - Per informazioni sull'aggiunta di dischi a una macchina virtuale di Azure abilitata per la replica, [vedere questo articolo](azure-to-azure-enable-replication-added-disk.md).

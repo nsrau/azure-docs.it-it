@@ -9,10 +9,10 @@ ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 661cfd5bb410a714bc42e0cd9676ac2ec08f8a45
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708896"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Risolvere i problemi delle condivisioni file NFS di Azure
@@ -90,7 +90,7 @@ Il diagramma seguente illustra la connettività usando gli endpoint pubblici.
     - Il peering di rete virtuale con reti virtuali ospitate nell'endpoint privato consente a NFS di condividere l'accesso ai client nelle reti virtuali con peering.
     - Gli endpoint privati possono essere usati con VPN ExpressRoute, da punto a sito e da sito a sito.
 
-:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagramma della connettività degli endpoint privati." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
+:::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg" alt-text="Diagramma della connettività degli endpoint pubblici." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-private-endpoints.jpg":::
 
 ### <a name="cause-2-secure-transfer-required-is-enabled"></a>Motivo 2: il trasferimento sicuro obbligatorio è abilitato
 
@@ -100,7 +100,7 @@ La crittografia doppia non è ancora supportata per le condivisioni NFS. Azure f
 
 Disabilitare il trasferimento sicuro necessario nel pannello di configurazione dell'account di archiviazione.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot del pannello di configurazione dell'account di archiviazione. è necessario disabilitare il trasferimento sicuro.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Diagramma della connettività degli endpoint pubblici.":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>Motivo 3: NFS-il pacchetto comune non è installato
 Prima di eseguire il comando di montaggio, installare il pacchetto eseguendo il comando specifico della distro riportato di seguito.

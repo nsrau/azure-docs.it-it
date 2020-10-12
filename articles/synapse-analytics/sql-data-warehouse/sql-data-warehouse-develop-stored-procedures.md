@@ -1,5 +1,5 @@
 ---
-title: Uso delle stored procedure
+title: Utilizzo di stored procedure
 description: Suggerimenti per lo sviluppo di soluzioni tramite l'implementazione di stored procedure nel pool SQL sinapsi.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,17 +11,17 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 87c7eaa57f9da87bd83f89953afc09632d42b1f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85213398"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Uso di stored procedure nel pool di SQL sinapsi
 
 Questo articolo fornisce suggerimenti per lo sviluppo di soluzioni di pool SQL mediante l'implementazione di stored procedure.
 
-## <a name="what-to-expect"></a>Cosa aspettarsi
+## <a name="what-to-expect"></a>Risultati previsti
 
 Il pool SQL supporta molte delle funzionalità T-SQL usate in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
 

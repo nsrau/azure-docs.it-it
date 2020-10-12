@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
 ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462378"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
@@ -293,7 +293,7 @@ Rimanere integro.
  - DialogServiceConnector supporta ora un parametro "ID bot" facoltativo in BotFrameworkConfig. Questo parametro consente l'uso di più bot per la comunicazione diretta con una sola risorsa di sintesi vocale di Azure. Senza il parametro specificato, verrà usato il bot predefinito, come determinato dalla pagina di configurazione del canale di riconoscimento vocale diretto.
  - DialogServiceConnector dispone ora di una proprietà SpeechActivityTemplate. Il contenuto di questa stringa JSON verrà usato da Direct Line Speech per pre-popolare un'ampia gamma di campi supportati in tutte le attività che raggiungono un bot Direct Line Speech, incluse le attività generate automaticamente in risposta a eventi come il riconoscimento vocale.
  - TTS ora usa la chiave di sottoscrizione per l'autenticazione, riducendo la latenza del primo byte del primo risultato di sintesi dopo la creazione di un sintetizzatore.
- - Modelli di riconoscimento vocale aggiornati per 19 impostazioni locali per una riduzione della frequenza degli errori di Word media pari al 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, PT-BR, zh-CN, ZH-HK, nb-NO, Fi-FL, ur-ur, pl-PL, ca-ES, ZH-TW, th-TH, PT-PT, TR-TR). I nuovi modelli introducono miglioramenti significativi in più domini, tra cui la dettatura, la trascrizione del Call-Center e gli scenari di indicizzazione video.
+ - Modelli di riconoscimento vocale aggiornati per 19 impostazioni locali per una riduzione della frequenza degli errori di Word media pari al 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, PT-BR, zh-CN, ZH-HK, nb-NO, Fi-FL, ur-ur, pl-PL, ca-ES, ZH-TW, th-TH, PT-PT, TR-TR). I nuovi modelli comportano miglioramenti significativi in più domini, tra cui la dettatura, Call-Center la trascrizione e gli scenari di indicizzazione video.
 
 **Correzioni di bug**
 

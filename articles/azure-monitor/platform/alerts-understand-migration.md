@@ -7,10 +7,10 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852396"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Informazioni sulle opzioni di migrazione per gli avvisi più recenti
@@ -171,16 +171,16 @@ Per Application Insights, le metriche equivalenti sono illustrate di seguito:
 | clientPerformance. receiveRequest. Value | browserTimings/receiveDuration| Moltiplica la soglia originale di 1000 come unità per la metrica classica sono in secondi e per una nuova sono in milliSecondi.  |
 | clientPerformance. sendRequest. Value | browserTimings/sendDuration| Moltiplica la soglia originale di 1000 come unità per la metrica classica sono in secondi e per una nuova sono in milliSecondi.  |
 | clientPerformance. Total. Value | browserTimings/totalDuration| Moltiplica la soglia originale di 1000 come unità per la metrica classica sono in secondi e per una nuova sono in milliSecondi.  |
-| performanceCounter. available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
-| performanceCounter. io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
-| performanceCounter. number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
-| performanceCounter. percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
-| performanceCounter. percentage_processor_time. Value | performanceCounters/processCpuPercentage| Il valore soglia deve essere modificato in modo appropriato perché la metrica originale è stata applicata a tutti i core e la nuova metrica viene normalizzata in un core. Lo strumento di migrazione non modifica le soglie.  |
-| performanceCounter. percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
-| performanceCounter. process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
-| performanceCounter. request_execution_time. Value | performanceCounters/requestExecutionTime|   |
-| performanceCounter. requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
-| performanceCounter. requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
+| performanceCounter.available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
+| performanceCounter.io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
+| performanceCounter.number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
+| performanceCounter.percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
+| performanceCounter.percentage_processor_time. Value | performanceCounters/processCpuPercentage| Il valore soglia deve essere modificato in modo appropriato perché la metrica originale è stata applicata a tutti i core e la nuova metrica viene normalizzata in un core. Lo strumento di migrazione non modifica le soglie.  |
+| performanceCounter.percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
+| performanceCounter.process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
+| performanceCounter.request_execution_time. Value | performanceCounters/requestExecutionTime|   |
+| performanceCounter.requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
+| performanceCounter.requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
 | Request. Duration | requests/duration| Moltiplica la soglia originale di 1000 come unità per la metrica classica sono in secondi e per una nuova sono in milliSecondi.  |
 | Request. rate | requests/rate|   |
 | requestFailed. Count | requests/failed| Usare `aggregationType` "count" invece di "sum".   |

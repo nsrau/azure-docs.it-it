@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4140a0b22f7ca8164d50cf60fe57c861f826eb4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132503"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali Hyper-V tramite PowerShell e Azure Resource Manager
@@ -34,7 +34,7 @@ Non è necessario essere un esperto di PowerShell per usare questo articolo, ma 
 
 Assicurarsi che siano rispettati i prerequisiti seguenti:
 
-- Account [Microsoft Azure](https://azure.microsoft.com/) . È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Inoltre, è possibile leggere le informazioni sui [prezzi di Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
+- Un account [Microsoft Azure](https://azure.microsoft.com/) . È possibile iniziare con una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/). Inoltre, è possibile leggere le informazioni sui [prezzi di Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Azure PowerShell. Per informazioni su questa versione e su come installarla, vedere [install Azure PowerShell](/powershell/azure/install-az-ps).
 
 Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti prerequisiti:
@@ -46,7 +46,7 @@ Inoltre, l'esempio specifico descritto in questo articolo presenta i seguenti pr
 
 1. Aprire una console di PowerShell ed eseguire questo comando per accedere all'account di Azure. Il cmdlet visualizza una pagina Web in cui vengono richieste le credenziali dell'account: `Connect-AzAccount` .
    - In alternativa, è possibile includere le credenziali dell'account come parametro nel `Connect-AzAccount` cmdlet, usando il parametro **Credential** .
-   - Se si è un partner CSP che lavora per conto di un tenant, specificare il cliente come tenant, usando il nome di dominio primario tenantID o tenant. Ad esempio: `Connect-AzAccount -Tenant "fabrikam.com"`
+   - Se si è un partner CSP che lavora per conto di un tenant, specificare il cliente come tenant, usando il nome di dominio primario tenantID o tenant. ad esempio `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
    ```azurepowershell

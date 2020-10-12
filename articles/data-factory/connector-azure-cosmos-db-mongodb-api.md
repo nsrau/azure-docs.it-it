@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: 9b23f46a418f2663531cc121f00b83d00d84e48d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415453"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Copiare dati da o verso l'API di Azure Cosmos DB per MongoDB usando Azure Data Factory
@@ -169,7 +169,7 @@ Nella sezione **sink** dell'attività di copia sono supportate le proprietà seg
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** del sink dell'attività di copia deve essere impostata su **CosmosDbMongoDbApiSink**. |Sì |
-| writeBehavior |Descrive come scrivere i dati in Azure Cosmos DB. Valori consentiti: **insert** e **upsert**.<br/><br/>Il comportamento di **Upsert** consiste nel sostituire il documento se esiste già un documento con lo stesso `_id` . in caso contrario, inserire il documento.<br /><br />**Nota**: data factory genera automaticamente un oggetto `_id` per un documento se `_id` non è specificato nel documento originale o in base al mapping delle colonne. È quindi necessario assicurarsi che il documento contenga un ID in modo che **upsert** funzioni come previsto. |No<br />(il valore predefinito è **insert**) |
+| writeBehavior |Descrive come scrivere i dati in Azure Cosmos DB. Valori consentiti: **insert** e **upsert**.<br/><br/>Il comportamento di **Upsert** consiste nel sostituire il documento se esiste già un documento con lo stesso `_id` . in caso contrario, inserire il documento.<br /><br />**Nota**: data factory genera automaticamente un oggetto `_id` per un documento se `_id` non è specificato nel documento originale o in base al mapping delle colonne. È quindi necessario assicurarsi che il documento contenga un ID in modo che **upsert** funzioni come previsto. |No<br />(il valore predefinito è **Insert**) |
 | writeBatchSize | La proprietà **writeBatchSize** controlla le dimensioni dei documenti da scrivere in ogni batch. È possibile provare ad aumentare il valore di **writeBatchSize** per migliorare le prestazioni e a ridurre il valore se le dimensioni dei documenti sono troppo grandi. |No<br />(il valore predefinito è **10.000**) |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout. Il valore consentito è TimeSpan. | No<br/>(il valore predefinito è **00:30:00** - 30 minuti) |
 

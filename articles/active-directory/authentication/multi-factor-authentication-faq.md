@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706269"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
@@ -182,7 +182,7 @@ Il recapito di messaggi SMS non è garantito perché sono presenti fattori non c
 
 Le app per la sicurezza di terze parti possono anche bloccare l'SMS o la telefonata del codice di verifica. Se si usa un'app di sicurezza di terze parti, provare a disabilitare la protezione, quindi richiedere l'invio di un altro codice di verifica dell'autenticazione a più fattori.
 
-Se gli utenti hanno spesso problemi con la ricezione affidabile di messaggi di testo, indicare loro di usare invece il metodo Microsoft Authenticator app o telefonata. Il Microsoft Authenticator può ricevere le notifiche sia sulle connessioni Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+Se gli utenti hanno spesso problemi con la ricezione affidabile di messaggi di testo, indicare loro di usare invece il metodo Microsoft Authenticator app o telefonata. Il Microsoft Authenticator può ricevere le notifiche sia su rete cellulare che su connessioni Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 ### <a name="can-i-change-the-amount-of-time-my-users-have-to-enter-the-verification-code-from-a-text-message-before-the-system-times-out"></a>È possibile cambiare il tempo che gli utenti hanno a disposizione per immettere il codice di verifica dall'SMS prima del timeout?
 

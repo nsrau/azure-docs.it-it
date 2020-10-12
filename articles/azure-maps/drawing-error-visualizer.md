@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524744"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizzatore errori di disegno di Mappe di Azure
@@ -82,11 +82,11 @@ Dopo aver avviato lo strumento del visualizzatore errori di disegno, verrà visu
 
 Il file _ConversionWarningsAndErrors.json_ è stato inserito nella radice della directory scaricata. Per caricare il file _ConversionWarningsAndErrors.json_, è possibile trascinarlo nella casella di trascinamento della selezione oppure fare clic sulla casella, individuare il file nella finestra di dialogo Esplora file e quindi caricarlo.
 
-:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App del visualizzatore errori di disegno - Caricamento dei dati con trascinamento della selezione":::
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="App del visualizzatore errori di disegno - Pagina iniziale":::
 
 Dopo aver caricato il file _ConversionWarningsAndErrors.json_, verrà visualizzato un elenco di errori e avvisi del pacchetto di disegno. Per ogni errore o avviso viene specificato il layer, il livello e un messaggio dettagliato. Per visualizzare informazioni dettagliate su un errore o un avviso, fare clic sul collegamento **Dettagli** . Al di sotto dell'elenco verrà visualizzata una sezione intratta. È ora possibile passare ai singoli errori per visualizzare altre informazioni su come risolverli.
 
-:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App del visualizzatore errori di disegno - Errori e avvisi":::
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="App del visualizzatore errori di disegno - Pagina iniziale":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558029"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usare identità gestite in gestione API di Azure
@@ -281,7 +281,7 @@ Per configurare un'identità gestita nel portale, creare prima di tutto un'istan
 3. Nella scheda **assegnato dall'utente** selezionare **Aggiungi**.
 4. Cercare l'identità creata in precedenza e selezionarla. Selezionare **Aggiungi**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Selezioni per l'abilitazione di un'identità gestita assegnata dall'utente" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Selezioni per l'abilitazione di un'identità gestita assegnata dal sistema" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

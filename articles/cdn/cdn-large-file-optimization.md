@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
 ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192633"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Ottimizzazione del download di file di grandi dimensioni mediante la rete CDN di Azure
@@ -110,7 +110,7 @@ L'ottimizzazione per file di grandi dimensioni usa tempi di scadenza della memor
 | Memorizzazione nella cache  | Distribuzione Web generica | Ottimizzazione per file di grandi dimensioni 
 --- | --- | --- 
 Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
-Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | nessuno | 1 secondo 
+Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuno | 1 secondo 
 
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine
 

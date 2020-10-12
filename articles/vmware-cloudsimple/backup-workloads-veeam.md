@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86525042"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Eseguire il backup di macchine virtuali del carico di lavoro nel cloud privato CloudSimple usando Veeam B&R
@@ -54,7 +54,7 @@ Per gli ambienti con meno di 30 TB per il backup, CloudSimple consiglia la confi
 
 * Server di backup Veeam e server proxy installati nella stessa macchina virtuale nel cloud privato.
 * Un repository di backup primario basato su Linux in Azure configurato come destinazione per i processi di backup.
-* `azcopy`usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
+* `azcopy` usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
 
 ![Scenari di distribuzione di base](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ Per gli ambienti con oltre 30 TB per il backup, CloudSimple consiglia la configu
 * Un server proxy per nodo nel cluster rete VSAN, come consigliato da Veeam.
 * Archivio di backup primario basato su Windows nel cloud privato per memorizzare nella cache cinque giorni di dati per ripristini rapidi.
 * Archivio di backup Linux in Azure come destinazione per i processi di copia di backup per un periodo di conservazione più lungo. Questo repository deve essere configurato come archivio di backup con scalabilità orizzontale.
-* `azcopy`usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
+* `azcopy` usato per copiare i dati dal repository di backup primario a un contenitore BLOB di Azure che viene replicato in un'altra area.
 
 ![Scenari di distribuzione di base](media/veeam-advanceddeployment.png)
 
@@ -260,7 +260,7 @@ Creare una regola del firewall usando per consentire al server di backup Veeam d
 
 Per annullare l'escalation dei privilegi, vedere [decrescenza dei privilegi](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
-## <a name="references"></a>Bibliografia
+## <a name="references"></a>Riferimenti
 
 ### <a name="cloudsimple-references"></a>Riferimenti a CloudSimple
 
@@ -277,7 +277,7 @@ Per annullare l'escalation dei privilegi, vedere [decrescenza dei privilegi](esc
 
 * [Porte usate](https://helpcenter.veeam.com/docs/backup/vsphere/used_ports.html?ver=95)
 * [Autorizzazioni necessarie](https://helpcenter.veeam.com/docs/backup/vsphere/required_permissions.html?ver=95)
-* [Requisiti di sistema](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95)
+* [System Requirements](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95)
 * [Installazione di Veeam Backup & replica](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95)
 * [Moduli e autorizzazioni richiesti per il supporto del repository e del repository di più sistemi operativi per Linux](https://www.veeam.com/kb2216)
 * [Veeam Backup & Replication V9-installazione e distribuzione-video](https://www.youtube.com/watch?v=b4BqC_WXARk)

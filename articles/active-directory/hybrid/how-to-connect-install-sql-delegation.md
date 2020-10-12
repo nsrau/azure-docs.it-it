@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85358668"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL
@@ -58,7 +58,7 @@ Per effettuare il provisioning del database fuori banda e installare Azure AD Co
 
 3. Inviare un messaggio di posta elettronica all'amministratore di Azure AD Connect che include l'istanza di SQL Server e il nome di istanza da usare durante l'installazione di Azure AD Connect.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="additional-information"></a>Altre informazioni
 Al termine del provisioning del database, l'amministratore di Azure AD Connect può installare e configurare la sincronizzazione locale in base alle necessità specifiche.
 
 Nel caso in cui l'amministratore SQL abbia ripristinato il database ADSync da un backup Azure AD Connect precedente, sarà necessario installare il nuovo server di Azure AD Connect usando un database esistente. Per ulteriori informazioni sull'installazione di Azure AD Connect con un database esistente, vedere [Install Azure ad Connect using an existing AdSync database](how-to-connect-install-existing-database.md).

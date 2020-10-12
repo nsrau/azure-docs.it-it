@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 43006456142728287ddf4adba1fbb9b45f5ccc89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85211970"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gestire e monitorare l'importanza del carico di lavoro in Azure sinapsi Analytics
@@ -24,7 +24,7 @@ Gestire e monitorare l'importanza del livello di richiesta SQL di sinapsi nella 
 
 ## <a name="monitor-importance"></a>Importanza del monitoraggio
 
-Monitorare l'importanza usando la nuova colonna importanza nella vista a gestione dinamica [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
+Monitorare l'importanza usando la nuova colonna importanza nella vista a gestione dinamica [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 La query di monitoraggio seguente mostra l'ora di invio e l'ora di inizio per le query. Esaminare l'ora di invio e l'ora di inizio insieme alla priorità per vedere come l'importanza ha influenzato la pianificazione.
 
 ```sql
@@ -39,7 +39,7 @@ Per approfondire le modalità di pianificazione delle query, utilizzare le viste
 
 ## <a name="manage-importance-with-catalog-views"></a>Gestire l'importanza con le viste del catalogo
 
-La vista del catalogo sys. workload_management_workload_classifiers contiene informazioni sui classificatori. Per escludere i classificatori definiti dal sistema che eseguono il mapping alle classi di risorse, eseguire il codice seguente:
+La vista del catalogo sys.workload_management_workload_classifiers contiene informazioni sui classificatori. Per escludere i classificatori definiti dal sistema che eseguono il mapping alle classi di risorse, eseguire il codice seguente:
 
 ```sql
 SELECT *
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-La vista del catalogo [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)contiene informazioni sui parametri utilizzati per la creazione del classificatore.  La query seguente mostra che ExecReportsClassifier è stato creato sul ```membername``` parametro per i valori con ExecutiveReports:
+La vista del catalogo, [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), contiene informazioni sui parametri utilizzati per la creazione del classificatore.  La query seguente mostra che ExecReportsClassifier è stato creato sul ```membername``` parametro per i valori con ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value

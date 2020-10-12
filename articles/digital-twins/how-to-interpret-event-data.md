@@ -8,10 +8,10 @@ ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88587634"
 ---
 # <a name="understand-event-data"></a>Informazioni sui dati degli eventi
@@ -103,7 +103,7 @@ Le notifiche del ciclo di vita vengono attivate nei casi seguenti:
 
 Di seguito sono riportati i campi nel corpo di una notifica del ciclo di vita.
 
-| Nome | valore |
+| Nome | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` è univoco per ogni evento distinto. |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET* |
@@ -189,7 +189,7 @@ Le **notifiche di modifica delle relazioni** vengono attivate quando viene creat
 
 Ecco i campi nel corpo di una notifica di modifica del bordo.
 
-| Nome    | valore |
+| Nome    | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'istanza di Azure Digital Twins, ad esempio *mydigitaltwins.westus2.azuredigitaltwins.NET* |
@@ -245,7 +245,7 @@ Quando si aggiorna un dispositivo gemello digitale, vengono attivate le notifich
 
 Ecco i campi nel corpo di una notifica di modifica del dispositivo gemello digitale.
 
-| Nome    | valore |
+| Nome    | Valore |
 | --- | --- |
 | `id` | Identificatore della notifica, ad esempio un UUID o un contatore gestito dal servizio. `source` + `id` univoco per ogni evento distinto |
 | `source` | Nome dell'hub Internet delle cose o dell'istanza di Azure Digital gemelli, ad esempio *MyHub.Azure-Devices.NET* o *mydigitaltwins.westus2.azuredigitaltwins.NET*

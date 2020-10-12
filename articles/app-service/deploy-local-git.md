@@ -7,10 +7,10 @@ ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77152993"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione git locale al servizio app Azure
@@ -152,7 +152,7 @@ Quando si usa Git per la pubblicazione in un'app del servizio app in Azure, è p
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Non è stato specificato un ramo durante `git push` o non è stato impostato il `push.default` valore in `.gitconfig` .|Eseguire `git push` nuovamente, specificando il ramo master: `git push azure master` .|
 |`src refspec [branchname] does not match any.`|Si è tentato di effettuare il push in un ramo diverso dal master nel computer remoto ' Azure '.|Eseguire `git push` nuovamente, specificando il ramo master: `git push azure master` .|
 |`RPC failed; result=22, HTTP code = 5xx.`|questo errore può verificarsi se si tenta di eseguire il push di un repository Git di grandi dimensioni tramite HTTPS.|Modificare la configurazione git nel computer locale per renderla `postBuffer` più grande. Ad esempio: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app di Node.js con un _package.jsin_ un file che specifica altri moduli necessari.|Esaminare i `npm ERR!` messaggi di errore prima di questo errore per maggiore contesto sull'errore. Di seguito sono riportate le cause note di questo errore e i `npm ERR!` messaggi corrispondenti:<br /><br />**package.jsnon valido nel file**:`npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />o <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|È stata distribuita un'app di Node.js con un _package.jsin_ un file che specifica altri moduli necessari.|Esaminare i `npm ERR!` messaggi di errore prima di questo errore per maggiore contesto sull'errore. Di seguito sono riportate le cause note di questo errore e i `npm ERR!` messaggi corrispondenti:<br /><br />**package.jsnon valido nel file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Il modulo nativo non dispone di una distribuzione binaria per Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />oppure <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
