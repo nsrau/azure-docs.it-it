@@ -1,5 +1,5 @@
 ---
-title: Chiavi gestite dal cliente per servizi cognitivi
+title: Chiavi Customer-Managed per servizi cognitivi
 titleSuffix: Cognitive Services
 description: Informazioni su come usare la portale di Azure per configurare le chiavi gestite dal cliente con Azure Key Vault. Le chiavi gestite dal cliente consentono di creare, ruotare, disabilitare e revocare i controlli di accesso.
 services: cognitive-services
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
 ms.openlocfilehash: 1369f30c4a3bcb0a391a5f2b2a63191590afd622
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84310700"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configurare chiavi gestite dal cliente con Azure Key Vault per servizi cognitivi
 
-Il processo per abilitare le chiavi gestite dal cliente con Azure Key Vault per servizi cognitivi varia a seconda del prodotto. Usare questi collegamenti per istruzioni specifiche del servizio:
+Il processo di abilitazione delle chiavi Customer-Managed con Azure Key Vault per servizi cognitivi varia in base al prodotto. Usare questi collegamenti per istruzioni specifiche del servizio:
 
 ## <a name="vision"></a>Visione
 
@@ -39,4 +39,4 @@ Il processo per abilitare le chiavi gestite dal cliente con Azure Key Vault per 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
-* [Modulo di richiesta chiave gestita dal cliente di servizi cognitivi](https://aka.ms/cogsvc-cmk)
+* [Modulo di richiesta chiave Customer-Managed di servizi cognitivi](https://aka.ms/cogsvc-cmk)

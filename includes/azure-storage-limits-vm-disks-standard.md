@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: 8fcd85a42deab2ea5f7d8587b276eca106f6dd97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67180135"
 ---
-**Dischi di macchina virtuale non gestiti standard: limiti per disco**
+**Dischi delle macchine virtuali non gestiti Standard: limiti per disco**
 
-| Livello VM | VM di livello Basic | VM di livello standard |
+| Livello della macchina virtuale | Macchina virtuale di livello Basic | Macchina virtuale di livello Standard |
 | --- | --- | --- |
-| Dimensioni disco |4.095 GB |4.095 GB |
-| Numero massimo di IOPS da 8 KB per disco persistente |300 |500 |
-| Numero massimo di dischi che eseguono il numero massimo di IOPS |66 |40 |
+| Dimensioni del disco |4\.095 GB |4\.095 GB |
+| Numero massimo di operazioni di I/O al secondo da 8 KB per disco persistente |300 |500 |
+| Numero massimo di dischi che eseguono il numero massimo di operazioni di I/O al secondo |66 |40 |
 

@@ -4,10 +4,10 @@ description: Informazioni di riferimento sul payload JSON per le richieste webho
 ms.topic: article
 ms.date: 03/05/2019
 ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74455966"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Informazioni di riferimento sui webhook per Registro Azure Container
@@ -41,7 +41,7 @@ Webhook attivato quando viene eseguito il push di un'immagine del contenitore in
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
 |`action`|string|Azione che ha attivato l'evento webhook.|
-|[destinazione](#target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
+|[target](#target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 |[request](#request)|Tipo complesso|Richiesta che ha generato l'evento del webhook.|
 
 ### <a name="target"></a><a name="target"></a>destinazione
@@ -105,7 +105,7 @@ Webhook attivato quando viene eseguito il push di un grafico Helm in un reposito
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
 |`action`|string|Azione che ha attivato l'evento webhook.|
-|[destinazione](#helm_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
+|[target](#helm_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 
 ### <a name="target"></a><a name="helm_target"></a>destinazione
 
@@ -155,10 +155,10 @@ Webhook attivato quando viene eliminato un repository o un manifesto di immagini
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
 |`action`|string|Azione che ha attivato l'evento webhook.|
-|[destinazione](#delete_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
+|[target](#delete_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 |[request](#delete_request)|Tipo complesso|Richiesta che ha generato l'evento del webhook.|
 
-### <a name="target"></a><a name="delete_target"></a>destinazione
+### <a name="target"></a><a name="delete_target"></a> destinazione
 
 |Elemento|Type|Descrizione|
 |------------------|----------|-----------|
@@ -166,7 +166,7 @@ Webhook attivato quando viene eliminato un repository o un manifesto di immagini
 |`digest`|string|Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2.|
 |`repository`|string|Nome del repository.|
 
-### <a name="request"></a><a name="delete_request"></a>richiesta
+### <a name="request"></a><a name="delete_request"></a> richiesta
 
 |Elemento|Type|Descrizione|
 |------------------|----------|-----------|
@@ -217,9 +217,9 @@ Webhook attivato quando viene eliminato un grafico Helm o un repository.
 |`id`|string|ID dell'evento del webhook.|
 |`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
 |`action`|string|Azione che ha attivato l'evento webhook.|
-|[destinazione](#chart_delete_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
+|[target](#chart_delete_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 
-### <a name="target"></a><a name="chart_delete_target"></a>destinazione
+### <a name="target"></a><a name="chart_delete_target"></a> destinazione
 
 |Elemento|Type|Descrizione|
 |------------------|----------|-----------|

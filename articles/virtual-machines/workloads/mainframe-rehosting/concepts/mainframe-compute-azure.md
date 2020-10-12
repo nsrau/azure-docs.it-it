@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86998936"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Spostare il calcolo mainframe in Azure
@@ -57,7 +57,7 @@ Le macchine virtuali di Azure forniscono la potenza di calcolo in una gamma di d
 
 Attualmente, l'intervallo di dimensioni delle macchine virtuali di Azure offre da 1 a 128 vCPU. I tipi di macchina virtuale (VM) sono ottimizzati per carichi di lavoro specifici. Ad esempio, l'elenco seguente mostra i tipi di VM (correnti al momento della stesura di questo articolo) e i relativi usi consigliati:
 
-| Dimensioni     | Tipo e descrizione                                                                 |
+| Dimensione     | Tipo e descrizione                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | Serie D | Utilizzo generico con 64 vCPU e velocità di clock fino a 3,5 GHz                           |
 | Serie E | Con ottimizzazione per la memoria fino a 64 vCPU                                                 |

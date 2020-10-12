@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
 ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86203463"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
@@ -66,8 +66,8 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     |Proprietà |Valore |
     |---|---|
-    |Sottoscrizione|Selezionare la sottoscrizione di Azure.|
-    |Gruppo di risorse|creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.|
+    |Subscription|Selezionare la sottoscrizione di Azure.|
+    |Resource group|creare un gruppo o selezionarne uno esistente. Questo gruppo contiene il cluster HDInsight.|
     |Nome account Cosmos DB|questo valore viene usato come nome dell'account Cosmos DB. Il nome può contenere solo lettere minuscole, numeri e il segno meno (-). Deve avere una lunghezza compresa tra 3 e 31 caratteri.|
     |Nome del cluster di base|questo valore viene usato come nome di base per i cluster Spark e Kafka. Ad esempio, se si immette **myhdi** viene creato un cluster Spark denominato __spark-myhdi__ e un cluster Kafka denominato **kafka-myhdi**.|
     |Versione cluster|versione del cluster HDInsight. In questo esempio è stato eseguito un test con HDInsight 3.6 e potrebbe non funzionare con altri tipi di cluster.|
@@ -78,7 +78,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     ![HDInsight valori di distribuzione personalizzati](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-1. Leggere i **termini e le condizioni**e quindi selezionare Accetto **i termini e le condizioni indicati in precedenza**.
+1. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 
 1. Infine selezionare **Acquisto**. Potrebbero occorrere fino a 45 minuti per creare i cluster, la rete virtuale e l'account Cosmos DB.
 

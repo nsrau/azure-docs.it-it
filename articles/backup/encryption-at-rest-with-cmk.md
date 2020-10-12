@@ -4,10 +4,10 @@ description: Informazioni su come backup di Azure consente di crittografare i da
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378288"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
@@ -31,7 +31,7 @@ Questo articolo illustra quanto segue:
 
 - Questa funzionalità **non supporta attualmente il backup con l'agente Mars**e potrebbe non essere possibile usare un insieme di credenziali crittografato con CMK per lo stesso. L'agente MARS usa una crittografia basata su passphrase utente. Questa funzionalità non supporta inoltre il backup di VM classiche.
 
-- Questa funzionalità non è correlata a [crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md), che usa la crittografia basata su Guest dei dischi di una macchina virtuale con BitLocker (per Windows) e dm-crypt (per Linux)
+- Questa funzionalità non è correlata a [crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md), che usa la crittografia basata su Guest dei dischi di una macchina virtuale con BitLocker (per Windows) e DM-Crypt (per Linux)
 
 - L'insieme di credenziali di servizi di ripristino può essere crittografato solo con chiavi archiviate in un Azure Key Vault, che si trova nella **stessa area**. Inoltre, le chiavi devono essere solo **chiavi RSA 2048** e devono essere in stato **abilitato** .
 
@@ -98,7 +98,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
 È anche possibile abilitare l'eliminazione temporanea e ripulire la protezione tramite PowerShell seguendo questa procedura:
 
-1. Accedere al proprio account Azure.
+1. Accedere all'account Azure personale.
 
     ```azurepowershell
     Login-AzAccount

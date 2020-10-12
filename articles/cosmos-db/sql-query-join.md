@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74871143"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Join in Azure Cosmos DB
@@ -224,7 +224,7 @@ Nell'estensione seguente dell'esempio precedente viene eseguito un doppio join. 
     }
 ```
 
-`AndersenFamily`ha un figlio con un solo animale, quindi il prodotto incrociato restituisce una riga (1 \* 1 \* 1) da questa famiglia. `WakefieldFamily`ha due figli, solo uno dei quali ha animali domestici, ma l'elemento figlio ha due animali domestici. Il prodotto incrociato per questa famiglia restituisce 1 \* 1 \* 2 = 2 righe.
+`AndersenFamily` ha un figlio con un solo animale, quindi il prodotto incrociato restituisce una riga (1 \* 1 \* 1) da questa famiglia. `WakefieldFamily` ha due figli, solo uno dei quali ha animali domestici, ma l'elemento figlio ha due animali domestici. Il prodotto incrociato per questa famiglia restituisce 1 \* 1 \* 2 = 2 righe.
 
 Nell'esempio seguente è presente un filtro aggiuntivo per `pet` , che esclude tutte le tuple in cui il nome dell'animale domestico non lo è `Shadow` . È possibile compilare tuple da matrici, filtrare in base a qualsiasi elemento della tupla e proiettare qualsiasi combinazione degli elementi.
 
@@ -256,4 +256,4 @@ I risultati sono:
 
 - [Introduzione](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Sottoquery](sql-query-subquery.md)
+- [Sottoquery:](sql-query-subquery.md)

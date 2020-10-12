@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
 ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086185"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Spostare gli argomenti del sistema di griglia di eventi di Azure in un'altra area
@@ -35,22 +35,7 @@ Per iniziare, esportare un modello di Gestione risorse per il gruppo di risorse 
     :::image type="content" source="./media/move-system-topics-across-regions/resource-group-page.png" alt-text="Pagina gruppo di risorse":::        
 3. Nel menu a sinistra selezionare **Esporta modello** in **Impostazioni**e quindi fare clic su **Scarica** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Account limite archiviazione-pagina Esporta modello":::        
-5. Individuare il file **zip** scaricato dal portale e decomprimere il file in una cartella di propria scelta. Questo file zip contiene i file JSON del modello e dei parametri. 
-1. Aprire il **template.js** in un editor di propria scelta. 
-1. L'URL per il webhook non viene esportato nel modello. Quindi, attenersi alla procedura seguente:
-    1. Nel file modello cercare **webhook**. 
-    1. Nella sezione **Proprietà** aggiungere un carattere virgola ( `,` ) alla fine dell'ultima riga. In questo esempio è `"preferredBatchSizeInKilobytes": 64`. 
-    1. Aggiungere la `endpointUrl` proprietà con il valore impostato sull'URL del webhook, come illustrato nell'esempio seguente. 
-
-        ```json
-        "destination": {
-            "properties": {
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64,
-                "endpointUrl": "https://mysite.azurewebsites.net/api/updates"
-            },
-            "endpointType": "WebHook"
+    :::image type="content" source="./media/move-system-topics-across-regions/export-template-menu.png" alt-text="Pagina gruppo di risorse"
         }
         ```
 
@@ -80,7 +65,7 @@ Distribuire il modello per creare un account di archiviazione e un argomento di 
 1. Nella portale di Azure selezionare **Crea una risorsa**.
 2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
 3. Selezionare **distribuzione modelli**.
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 7. Selezionare **Save (Salva** ) per salvare il modello. 
@@ -91,7 +76,7 @@ Distribuire il modello per creare un account di archiviazione e un argomento di 
     1. Per il **nome dell'argomento di sistema**, immettere un nome per l'argomento di sistema che verrà associato all'account di archiviazione.  
     1. Per **nome account di archiviazione**immettere un nome per l'account di archiviazione da creare nell'area di destinazione. 
 
-        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Distribuisci modello di Gestione risorse":::
+        :::image type="content" source="./media/move-system-topics-across-regions/deploy-template.png" alt-text="Pagina gruppo di risorse":::
     5. Selezionare **Rivedi e crea** nella parte inferiore della pagina. 
     1. Nella pagina **Verifica e crea** verificare le impostazioni e selezionare **Crea**. 
 
@@ -110,7 +95,7 @@ Per eliminare un gruppo di risorse (origine o destinazione) usando il portale di
 1. Nella finestra di ricerca nella parte superiore di portale di Azure digitare **gruppi di risorse**e selezionare **gruppi di risorse** dai risultati della ricerca. 
 2. Selezionare il gruppo di risorse da eliminare e selezionare **Elimina** dalla barra degli strumenti. 
 
-    :::image type="content" source="./media/move-system-topics-across-regions/delete-resource-group-button.png" alt-text="Eliminare un gruppo di risorse":::
+    Eliminare un gruppo di risorse
 3. Nella pagina Conferma immettere il nome del gruppo di risorse e selezionare **Elimina**.  
 
 ## <a name="next-steps"></a>Passaggi successivi
