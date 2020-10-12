@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542003"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entità per impostazioni cultura nel modello LUIS
@@ -52,7 +52,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | zh-CN |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -74,7 +74,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | nl-NL |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -96,7 +96,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | it-IT |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -118,7 +118,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | fr-FR |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -140,7 +140,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | fr-CA |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -162,7 +162,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita | de-DE |
 | -------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -186,7 +186,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | it-IT |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -208,7 +208,7 @@ Sono supportate le entità seguenti:
 
 |Entità predefinita | ja-JP |
 | -------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2,-   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2,-   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2,-   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2,-   |
@@ -230,7 +230,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | ko-KR |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
 [DateTime](luis-reference-prebuilt-deprecated.md)   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   |
@@ -252,7 +252,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | pt-BR |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -274,7 +274,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | es-ES |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    V2, V3   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    V2, V3   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    V2, V3   |
@@ -296,7 +296,7 @@ Sono supportate le entità seguenti:
 
 | Entità predefinita | es-MX |
 | --------------- | :---: |
-[Età](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Età](luis-reference-prebuilt-age.md):<br>anno<br>month<br>week<br>day   |    -   |
 [Valuta (denaro)](luis-reference-prebuilt-currency.md):<br>dollaro<br>unità frazionarie (ad esempio: centesimi)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>Data<br>daterange<br>time<br>intervallo di tempo   |    -   |
 [Dimensione](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>peso<br>informazioni (ad esempio bit/byte)<br>lunghezza (ad esempio metro)<br>velocità (ad esempio miglio all'ora)  |    -   |

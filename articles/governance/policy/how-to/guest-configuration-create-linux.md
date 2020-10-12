@@ -4,12 +4,12 @@ description: Informazioni su come creare criteri di Configurazione guest di Crit
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4f49732aa2be50b0d8be6f1f3af974121dc9f363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf798a18f28c490d95b28c6ea8f02c6f22eee8
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076362"
+ms.locfileid: "91893238"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -171,7 +171,7 @@ New-GuestConfigurationPackage `
   -ChefInSpecProfilePath './'
 ```
 
-Dopo aver creato il pacchetto di configurazione, ma prima di pubblicarlo in Azure, è possibile testarlo dalla workstation o dall'ambiente CI/CD. Il cmdlet GuestConfiguration `Test-GuestConfigurationPackage` include lo stesso agente nell'ambiente di sviluppo utilizzato all'interno dei computer Azure. Con questa soluzione, è possibile eseguire test di integrazione in locale prima del rilascio in ambienti cloud fatturati.
+Dopo aver creato il pacchetto di configurazione, ma prima di pubblicarlo in Azure, è possibile testare il pacchetto dalla workstation o dall'ambiente di integrazione continua e distribuzione continua (CI/CD). Il cmdlet GuestConfiguration `Test-GuestConfigurationPackage` include lo stesso agente nell'ambiente di sviluppo utilizzato all'interno dei computer Azure. Con questa soluzione, è possibile eseguire test di integrazione in locale prima del rilascio in ambienti cloud fatturati.
 
 Poiché l'agente valuta effettivamente l'ambiente locale, nella maggior parte dei casi è necessario eseguire il cmdlet Test- sulla stessa piattaforma del sistema operativo che si prevede di controllare.
 
@@ -194,7 +194,7 @@ Il cmdlet supporta anche l'input dalla pipeline di PowerShell. Inoltrare tramite
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-Il passaggio successivo consiste nel pubblicare il file nell'archiviazione BLOB. Lo script seguente contiene una funzione che è possibile usare per automatizzare questa attività. I comandi usati nella funzione `publish` richiedono il modulo `Az.Storage`.
+Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Azure. Lo script seguente contiene una funzione che è possibile usare per automatizzare questa attività. I comandi usati nella funzione `publish` richiedono il modulo `Az.Storage`.
 
 ```azurepowershell-interactive
 function publish {

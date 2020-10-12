@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541289"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico

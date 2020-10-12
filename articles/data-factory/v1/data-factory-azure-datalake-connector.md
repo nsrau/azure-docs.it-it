@@ -14,10 +14,10 @@ ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: fe3401354d4853b875cdd001d5074ebdf0d3377b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019539"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiare dati da e in Data Lake Storage di 1° generazione usando Data Factory
@@ -49,7 +49,7 @@ Il connettore Data Lake Store supporta questi tipi di autenticazione:
 
 È consigliabile usare l'autenticazione basata su entità servizio, in particolare per una copia di dati pianificata. Con l'autenticazione basata sulle credenziali dell'utente può verificarsi la scadenza del token. Per i dettagli di configurazione, vedere la sezione [Proprietà del servizio collegato](#linked-service-properties).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 È possibile creare una pipeline con l'attività di copia che sposta i dati da e verso Azure Data Lake Store usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline per copiare dati è usare la **Copia guidata**. Per un'esercitazione sulla creazione di una pipeline usando la Copia guidata, vedere [Esercitazione: creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md).
@@ -118,7 +118,7 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 ### <a name="user-credential-authentication"></a>Autenticazione basata su credenziali utente
 In alternativa, è possibile usare l'autenticazione delle credenziali dell'utente per copiare dati da o in Data Lake Store specificando le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | **autorizzazione** | Fare clic sul pulsante **Autorizza** nell'editor di Data Factory e immettere le credenziali per assegnare l'URL di autorizzazione generato automaticamente a questa proprietà. | Sì |
 | **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì |
@@ -237,7 +237,7 @@ Per specificare un set di dati per rappresentare i dati di input in Data Lake St
 
 La sezione **typeProperties** per un set di dati di tipo **AzureDataLakeStore** contiene le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | **folderPath** |Percorso del contenitore e della cartella in Data Lake Store. |Sì |
 | **fileName** |Nome del file in Azure Data Lake Store. La proprietà **fileName** è facoltativa e fa distinzione tra maiuscole e minuscole. <br/><br/>Se si specifica **fileName**, l'attività (inclusa la copia) viene eseguita sul file specifico.<br/><br/>Quando **fileName** non è specificato, l'attività di copia include tutti i file in **folderPath** nel set di dati di input.<br/><br/>Quando **filename** non è specificato per un set di dati di output e **preserveHierarchy** non è specificato nel sink dell'attività, il nome del file generato è nel formato `Data._Guid_.txt` . Ad esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |No |

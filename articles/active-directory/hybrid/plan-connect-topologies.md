@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658503"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
@@ -165,7 +165,7 @@ Questa topologia presenta le restrizioni seguenti per scenari altrimenti support
 * I dispositivi Windows 10 possono essere associati a un solo tenant di Azure AD.
 * L'opzione Single Sign-On (SSO) per la sincronizzazione dell'hash delle password e l'autenticazione pass-through può essere usata solo con un tenant di Azure AD.
 
-Il requisito relativo a un set di oggetti che si escludono a vicenda si applica anche al writeback. Alcune funzionalità di writeback non sono supportate con questa topologia, perché presuppongono una singola configurazione locale. Queste funzionalità comprendono:
+Il requisito relativo a un set di oggetti che si escludono a vicenda si applica anche al writeback. Alcune funzionalità di writeback non sono supportate con questa topologia, perché presuppongono una singola configurazione locale. Queste funzionalità includono:
 
 * Writeback dei gruppi con la configurazione predefinita.
 * Writeback dispositivi.

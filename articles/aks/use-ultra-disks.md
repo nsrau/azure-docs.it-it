@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/10/2020
 ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420864"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usare i dischi di Azure ultra in Azure Kubernetes Service (anteprima)
@@ -38,7 +38,7 @@ Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibil
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft.ContainerService* usando il comando [az provider register][az-provider-register]:
+Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService

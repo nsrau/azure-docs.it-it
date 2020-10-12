@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b9550f365eb11ffff87add041824504488c0de15
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619934"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga

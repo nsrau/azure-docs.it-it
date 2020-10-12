@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
 ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619764"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipi rilevabili di colli di bottiglia delle prestazioni delle query nel database SQL di Azure
@@ -153,8 +153,8 @@ Le prestazioni delle query lente non correlate ai piani di query non ottimali e 
 - Rilevamento dei limiti delle risorse tramite [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Rilevamento di problemi di risorse con [DMV](database/monitoring-with-dmvs.md):
 
-  - La DMV [sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) restituisce CPU, i/O e utilizzo di memoria per il database. È presente una riga per ogni intervallo di 15 secondi, anche se non è presente alcuna attività nel database. I dati cronologici vengono mantenuti per un'ora.
-  - La DMV [sys. resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) restituisce i dati di archiviazione e di utilizzo della CPU per il database SQL di Azure. I dati vengono raccolti e aggregati in intervalli di cinque minuti.
+  - La DMV [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) restituisce CPU, i/O e utilizzo di memoria per il database. È presente una riga per ogni intervallo di 15 secondi, anche se non è presente alcuna attività nel database. I dati cronologici vengono mantenuti per un'ora.
+  - La DMV [sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) restituisce i dati di archiviazione e di utilizzo della CPU per il database SQL di Azure. I dati vengono raccolti e aggregati in intervalli di cinque minuti.
   - [Numerose singole query hanno un utilizzo cumulativo elevato della CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 Se si identifica il problema come risorsa insufficiente, è possibile aggiornare le risorse per aumentare la capacità del database in modo da assorbire i requisiti della CPU. Per altre informazioni, vedere [ridimensionare le risorse di database singolo nel database SQL di Azure](database/single-database-scale.md) e [ridimensionare le risorse del pool elastico nel database SQL di Azure](database/elastic-pool-scale.md). Per informazioni sul ridimensionamento di un'istanza gestita, vedere [limiti delle risorse del livello di servizio](managed-instance/resource-limits.md#service-tier-characteristics)
@@ -203,16 +203,16 @@ Una volta eliminato un piano non ottimale e i problemi *correlati all'attesa* co
 Questi metodi vengono comunemente usati per mostrare le categorie principali dei tipi di attesa:
 
 - Usare Intelligent Insights per identificare le query con un calo delle prestazioni a causa di [attese aumentate](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Usare [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per trovare le statistiche di attesa per ogni query nel tempo. In Query Store, i pi di attesa vengono combinati in categorie di attesa. È possibile trovare il mapping delle categorie di attesa ai tipi di attesa in [sys. query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Utilizzare [sys. dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) per restituire informazioni su tutte le attese rilevate dai thread eseguiti durante un'operazione di query. È possibile usare questa visualizzazione aggregata per diagnosticare problemi di prestazioni con il database SQL di Azure e anche con query e batch specifici. Le query possono essere in attesa di risorse, attese di accodamento o attese esterne.
-- Utilizzare [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per restituire informazioni sulla coda di attività in attesa di una risorsa.
+- Usare [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per trovare le statistiche di attesa per ogni query nel tempo. In Query Store, i pi di attesa vengono combinati in categorie di attesa. È possibile trovare il mapping delle categorie di attesa ai tipi di attesa in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Utilizzare [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) per restituire informazioni su tutte le attese rilevate dai thread eseguiti durante un'operazione di query. È possibile usare questa visualizzazione aggregata per diagnosticare problemi di prestazioni con il database SQL di Azure e anche con query e batch specifici. Le query possono essere in attesa di risorse, attese di accodamento o attese esterne.
+- Utilizzare [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per restituire informazioni sulla coda di attività in attesa di una risorsa.
 
 Negli scenari con CPU elevata, Query Store e le statistiche di attesa potrebbero non riflettere l'utilizzo della CPU se:
 
 - Le query con utilizzo elevato di CPU sono ancora in esecuzione.
 - Le query con utilizzo elevato della CPU venivano eseguite quando si verificava un failover.
 
-DMV che tengono traccia delle statistiche di attesa e Query Store visualizzano i risultati solo per le query completate correttamente e scadute. Non visualizzano i dati per le istruzioni attualmente in esecuzione fino al completamento delle istruzioni. Utilizzare la vista a gestione dinamica [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per tenere traccia delle query attualmente in esecuzione e del tempo di lavoro associato.
+DMV che tengono traccia delle statistiche di attesa e Query Store visualizzano i risultati solo per le query completate correttamente e scadute. Non visualizzano i dati per le istruzioni attualmente in esecuzione fino al completamento delle istruzioni. Utilizzare la vista a gestione dinamica [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per tenere traccia delle query attualmente in esecuzione e del tempo di lavoro associato.
 
 > [!TIP]
 > Strumenti aggiuntivi:

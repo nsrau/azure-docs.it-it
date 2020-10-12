@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 7e3a5fcdcead402d59e680fcba270e80b4eda8bb
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843431"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
@@ -108,8 +108,8 @@ Sono previsti tempi di esecuzione massimi per garantire il bilanciamento e la st
 
 | Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Supporto dell'indicizzatore di endpoint privato | No | sì | sì | sì | sì | No | sì | sì |
-| Supporto degli endpoint privati per gli indicizzatori con un insieme di competenze<sup>1</sup> | No | No | No | sì | sì | No | sì | sì |
+| Supporto dell'indicizzatore di endpoint privato | No | Sì | Sì | Sì | Sì | No | Sì | Sì |
+| Supporto degli endpoint privati per gli indicizzatori con un insieme di competenze<sup>1</sup> | No | No | No | Sì | Sì | No | Sì | Sì |
 | Numero massimo di endpoint privati | N/D | 10 o 30 | 100 | 400 | 400 | N/D | 20 | 20 |
 | Numero massimo di tipi di risorse distinti<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
 

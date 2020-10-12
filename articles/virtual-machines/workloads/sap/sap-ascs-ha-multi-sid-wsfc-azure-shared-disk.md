@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a4856b2578a007f72aeeec64588ac7f9c58158de
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861183"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Disponibilità elevata a più SID dell'istanza di SAP ASC/SCS con Windows Server failover clustering e dischi condivisi di Azure
@@ -61,7 +61,7 @@ Si consiglia vivamente di utilizzare **Windows Server 2019 datacenter**, come:
 - Sono stati aggiunti l'integrazione e la conoscenza della manutenzione dell'host di Azure e l'esperienza migliorata monitorando gli eventi di pianificazione di Azure.
 - È possibile utilizzare il nome di rete distribuita (opzione predefinita). Non è pertanto necessario disporre di un indirizzo IP dedicato per il nome di rete del cluster. Non è inoltre necessario configurare questo indirizzo IP nel Load Balancer interno di Azure. 
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Il server di replica di Accodamento (ERS1) e il server di replica di Accodamento 2 (ERS2) sono supportati nella configurazione a più SID.  Una combinazione di ERS1 e ERS2 non è supportata nello stesso cluster. 
 

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541408"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Come usare il dashboard per migliorare l'app
@@ -32,7 +32,7 @@ I tre problemi trattati nel dashboard sono:
 |--|--|--|
 |Squilibrio dei dati|-|Questo errore si verifica quando la quantità di espressioni di esempio varia in modo significativo. Tutti gli Intent devono avere _approssimativamente_ lo stesso numero di espressioni di esempio, ad eccezione della finalità None. Deve avere solo il 10%-15% della quantità totale di espressioni nell'app.<br><br> Se i dati sono sbilanciati, ma l'accuratezza della finalità è superiore a una determinata soglia, questo squilibrio non viene segnalato come problema.<br><br>**Iniziare da questo problema. potrebbe essere la causa principale degli altri problemi.**|
 |Non deselezionare le stime|Orange|Questo errore si verifica quando i punteggi della parte superiore e della finalità successiva sono sufficientemente vicini che possono capovolgere il training successivo, a causa del [campionamento negativo](luis-how-to-train.md#train-with-all-data) o di altri enunciati di esempio aggiunti allo scopo. |
-|Stime non corrette|Red|Questo errore si verifica quando un enunciato di esempio non viene stimato per l'intento con etichetta (l'intento è in).|
+|Stime non corrette|Rosso|Questo errore si verifica quando un enunciato di esempio non viene stimato per l'intento con etichetta (l'intento è in).|
 
 Le stime corrette sono rappresentate dal colore blu.
 
@@ -152,7 +152,7 @@ Determinare le percentuali di soglia con cui si ha dimestichezza per l'azienda.
 
 Il filtro consente di trovare gli Intent con un problema specifico:
 
-|Filtro|Percentuale suggerita|Scopo|
+|Filtra|Percentuale suggerita|Scopo|
 |--|--|--|
 |Intent più problematici|-|**Iniziare da qui** : correggere le espressioni in questo intento migliorerà l'app più di altre correzioni.|
 |Correggere le stime di seguito|60%|Questa è la percentuale di enunciati nell'intento selezionato che sono corretti, ma hanno un punteggio di confidenza al di sotto della soglia. |

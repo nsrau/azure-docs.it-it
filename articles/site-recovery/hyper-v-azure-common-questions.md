@@ -4,10 +4,10 @@ description: Questo articolo presenta un riepilogo delle domande frequenti relat
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799889"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure

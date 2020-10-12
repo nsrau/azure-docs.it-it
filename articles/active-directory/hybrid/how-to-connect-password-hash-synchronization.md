@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89652073"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
@@ -113,7 +113,7 @@ Una volta abilitata, Azure AD non passa a ogni utente sincronizzato per rimuover
 
 È consigliabile abilitare EnforceCloudPasswordPolicyForPasswordSyncedUsers, prima di abilitare la sincronizzazione dell'hash delle password, in modo che la sincronizzazione iniziale degli hash delle password non aggiunga il `DisablePasswordExpiration` valore all'attributo PasswordPolicies per gli utenti.
 
-I criteri predefiniti per le password Azure AD richiedono agli utenti di modificare le password ogni 90 giorni. Se il criterio in Active Directory è anche di 90 giorni, i due criteri devono corrispondere. Tuttavia, se i criteri di Active Directory non sono 90 giorni, è possibile aggiornare i criteri di Azure AD password in modo che corrispondano usando il comando di PowerShell Set-MsolPasswordPolicy.
+I criteri predefiniti per le password Azure AD richiedono agli utenti di modificare le password ogni 90 giorni. Se il criterio in Active Directory è anche di 90 giorni, i due criteri devono corrispondere. Tuttavia, se i criteri di Active Directory non sono di 90 giorni, è possibile aggiornare i criteri di Azure AD password in modo che corrispondano usando il comando Set-MsolPasswordPolicy PowerShell.
 
 Azure AD supporta un criterio di scadenza della password separato per ogni dominio registrato.
 
@@ -122,7 +122,7 @@ Avvertenza: se sono presenti account sincronizzati che devono avere password non
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Il comando di PowerShell Set-MsolPasswordPolicy non funziona nei domini federati. 
+> Il comando Set-MsolPasswordPolicy PowerShell non funzionerà sui domini federati. 
 
 #### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Sincronizzazione delle password temporanee e "forzare la modifica della password all'accesso successivo"
 

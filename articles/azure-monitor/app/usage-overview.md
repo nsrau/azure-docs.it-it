@@ -4,10 +4,10 @@ description: Informazioni sugli utenti e le operazioni eseguite con l'app.
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532104"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights

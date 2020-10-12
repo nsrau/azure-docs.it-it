@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296366"
 ---
 # <a name="feature-list"></a>Elenco di funzionalità #
@@ -56,7 +56,7 @@ Di seguito è riportato l'elenco delle funzionalità testate e delle funzionalit
 | Localizzazione dell'interfaccia utente                         |        | X                |          |             |                                                                                                                      |
 | Riproduzione a istanze diverse                 |        |                  |          | X           | Questo scenario può funzionare per alcuni tecnici ma non è attualmente supportato e non testato. Questa operazione può essere eseguita anche con gli iframe |
 | Supporto per ADS                             |        | X                |          |             | AMP supporta l'inserimento di annunci lineari precedenti a metà e post-roll da server ad di grandi conformi per VOD in AzureHtml5JS Tech |
-| Analytics                               |        | X                |          |             | AMP consente di ascoltare le analisi e gli eventi di diagnostica per inviare un back-end di analisi di propria scelta.  Tutti gli eventi e le proprietà non sono disponibili in tecnologie a causa di limitazioni della piattaforma.                                                                            |
+| Analisi                               |        | X                |          |             | AMP consente di ascoltare le analisi e gli eventi di diagnostica per inviare un back-end di analisi di propria scelta.  Tutti gli eventi e le proprietà non sono disponibili in tecnologie a causa di limitazioni della piattaforma.                                                                            |
 | Interfacce personalizzate                            |        |                  | X        |             | Questo scenario può essere eseguito attivando l'impostazione dei controlli su false in AMP e usando il codice HTML e CSS.           |
 | Pulitura della barra di ricerca                      |        |                  |          | X           |                                                                                                                      |
 | Trick-Play                              |        |                  |          | X           |                                                                                                                      |

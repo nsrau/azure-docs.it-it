@@ -7,10 +7,10 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439523"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurare un set di scalabilità di macchine virtuali con un Azure Load Balancer esistente usando il portale di Azure
@@ -38,7 +38,7 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
 
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa**  >  **calcolo**  >  **set di scalabilità di macchine virtuali** o cercare set di **scalabilità di macchine virtuali** nella ricerca nel Marketplace.
 
-2. Selezionare **Create** (Crea).
+2. Selezionare **Crea**.
 
 3. In **creare un set di scalabilità di macchine virtuali**immettere o selezionare queste informazioni nella scheda **nozioni di base** :
 
@@ -52,12 +52,12 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
     | Region                         | Seleziona **Stati Uniti orientali 2**                                                                                    |
     | Zona di disponibilità              | Selezionare **Nessuno**                                                                                       |
     | **Dettagli istanza**           |                                                                                                       |
-    | Image                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
+    | Immagine                          | Selezionare **Ubuntu Server 18,04 LTS**                                                                    |
     | Istanza Spot di Azure            | Selezionare **No**                                                                                         |
     | Dimensione                           | Lascia il valore predefinito                                                                                      |
     | **Account amministratore**      |                                                                                                       |
     | Tipo di autenticazione            | Seleziona **password**                                                                                   |
-    | Nome utente                       | Immettere il nome utente dell'amministratore        |
+    | Username                       | Immettere il nome utente dell'amministratore        |
     | Password                       | Immettere la password amministratore    |
     | Conferma password               | Immettere nuovamente la password amministratore |
 
@@ -68,7 +68,7 @@ In questa sezione verrà creato un set di scalabilità di macchine virtuali nel 
 
 5. Immettere o selezionare queste informazioni nella scheda **rete** :
 
-     Impostazione                           | valore                                                    |
+     Impostazione                           | Valore                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Configurazione della rete virtuale** |                                                          |
     | Rete virtuale                   | Selezionare **myVNet** o la rete virtuale esistente.      |
