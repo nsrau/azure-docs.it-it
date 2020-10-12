@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067155"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Eseguire la migrazione di applicazioni Java Message Service (JMS) 2,0 esistenti da Apache ActiveMQ al bus di servizio di Azure
@@ -116,7 +116,7 @@ Per altre informazioni sulle diverse metriche e su come configurare gli avvisi, 
 |Gestore|`CurrentConnectionsCount`|`activeConnections`|
 |Gestore|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
 |Gestore|`InactiveDurableTopicSubscribersCount`|Usare le metriche della sottoscrizione|
-|Gestore|`TotalMessageCount`|Usa livello coda/argomento/sottoscrizione`activeMessages`|
+|Gestore|`TotalMessageCount`|Usa livello coda/argomento/sottoscrizione `activeMessages`|
 |Coda/argomento|`EnqueueCount`|`incomingMessages`|
 |Coda/argomento|`DequeueCount`|`outgoingMessages`|
 |Coda|`QueueSize`|`sizeBytes`|
@@ -134,7 +134,7 @@ Per garantire che le applicazioni client possano connettersi senza problemi con 
 > [!NOTE]
 > Per le applicazioni JMS, è possibile creare code, argomenti e sottoscrizioni come operazione di Runtime. La maggior parte dei provider JMS (broker di messaggi) fornisce la possibilità di crearli in fase di esecuzione. Ecco perché questo passaggio di esportazione è considerato facoltativo. Per assicurarsi che l'applicazione disponga delle autorizzazioni per creare la topologia in fase di esecuzione, usare la stringa di connessione con le `Manage` autorizzazioni SAS.
 
-A tale scopo, effettuare le seguenti operazioni:
+Per eseguire questa operazione:
 
 1. Usare gli [strumenti da riga di comando ActiveMQ](https://activemq.apache.org/activemq-command-line-tools-reference) per esportare la topologia.
 1. Ricreare la stessa topologia usando un [modello di Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 201459f4a7d2d23b384435493d6272e569698933
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887166"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Crittografia dei dati per database di Azure per MySQL usando il portale di Azure
@@ -48,7 +48,7 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
 
 2. Selezionare **autorizzazioni chiave**e selezionare **Get**, **Wrap**, **Unwrap**e l' **entità**, ovvero il nome del server MySQL. Se non è possibile trovare l'entità server nell'elenco di entità esistenti, è necessario registrarla. Viene richiesto di registrare l'entità server quando si tenta di configurare la crittografia dei dati per la prima volta e l'operazione ha esito negativo.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Panoramica dei criteri di accesso":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
 3. Selezionare **Salva**.
 
@@ -56,11 +56,11 @@ Informazioni su come usare la portale di Azure per configurare e gestire la crit
 
 1. In database di Azure per MySQL selezionare **crittografia dei dati** per configurare la chiave gestita dal cliente.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Screenshot del database di Azure per MySQL con la crittografia dei dati evidenziata":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
 2. È possibile selezionare un insieme di credenziali delle chiavi e una coppia di chiavi oppure immettere un identificatore di chiave.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Screenshot del database di Azure per MySQL con le opzioni di crittografia dei dati evidenziate":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
 3. Selezionare **Salva**.
 
@@ -72,28 +72,28 @@ Una volta eseguita la crittografia di Database di Azure per MySQL con una chiave
 
 1. Nel server selezionare **Panoramica**  >  **ripristino**.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Screenshot del database di Azure per MySQL con panoramica e ripristino evidenziati":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
    In alternativa, per un server abilitato per la replica, selezionare **replica**nell'intestazione **Impostazioni** .
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Screenshot del database di Azure per MySQL con la replica evidenziata":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
 2. Al termine dell'operazione di ripristino, il nuovo server creato verrà crittografato con la chiave del server primario. Tuttavia, le funzionalità e le opzioni del server sono disabilitate e il server è inaccessibile. In questo modo si evita la manipolazione dei dati, perché all'identità del nuovo server non è ancora stata assegnata l'autorizzazione per accedere all'insieme di credenziali delle chiavi.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Screenshot del database di Azure per MySQL, con stato inaccessibile evidenziato":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
 3. Per rendere accessibile il server, rivalidare la chiave nel server ripristinato. Selezionare **Data encryption**  >  **chiave di riconvalida**crittografia dati.
 
    > [!NOTE]
    > Il primo tentativo di riconvalida avrà esito negativo perché l'entità servizio del nuovo server deve avere accesso all'insieme di credenziali delle chiavi. Per generare l'entità servizio, selezionare **revalidate Key**, che visualizzerà un errore ma genera l'entità servizio. Successivamente, fare riferimento a [questi passaggi descritti](#set-the-right-permissions-for-key-operations) in precedenza in questo articolo.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot del database di Azure per MySQL con il passaggio di riconvalida evidenziato":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
    Sarà necessario concedere all'insieme di credenziali delle chiavi l'accesso al nuovo server.
 
 4. Dopo la registrazione dell'entità servizio, riconvalidare nuovamente la chiave e il server riprende le funzionalità normali.
 
-   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Screenshot del database di Azure per MySQL, che mostra la funzionalità ripristinata":::
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Screenshot di Key Vault, con criteri di accesso e Aggiungi criteri di accesso evidenziati":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

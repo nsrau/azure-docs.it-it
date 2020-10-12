@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: c678372fbd54e528a8a16eacc601e815cfd32e58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082234"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight
 
 Informazioni su come pre-caricare le librerie di [Apache hive](https://hive.apache.org/) in HDInsight. Questo documento contiene informazioni sull'uso di un'Azione Script per precaricare le librerie durante la creazione del cluster. Le librerie aggiunte usando i passaggi descritti in questo documento sono disponibili a livello globale in hive. non è necessario usare [Add jar](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) per caricarle.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si crea un cluster, è possibile usare un'azione script per modificare i nodi del cluster quando vengono creati. Lo script in questo documento accetta un solo parametro, ovvero la posizione delle librerie. Questa posizione deve essere in un Account di archiviazione di Azure e le librerie devono essere archiviate come file con estensione jar.
 
@@ -56,7 +56,7 @@ L'uso dell'azione script in questo articolo rende disponibili le librerie quando
 
 1. Per le **azioni script**, fornire le seguenti informazioni:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Tipo di script|- Personalizzato|
     |Nome|Librerie |

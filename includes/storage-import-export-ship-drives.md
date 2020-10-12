@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 author: alkohli
 services: storage
@@ -9,13 +9,13 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 7ecc36218df23d81c4646612b5474a1465f428eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80282478"
 ---
-Per spedire il pacco al data center di Azure è possibile usare FedEx, UPS o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo`adbops@microsoft.com`
+Per spedire il pacco al data center di Azure è possibile usare FedEx, UPS o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com`
 
 * Fornire un numero di account valido per il vettore FedEx, UPS o DHL, che Microsoft userà per restituire le unità.
   * Per la restituzione di unità da località negli Stati Uniti e in Europa è necessario un numero di account FedEx, UPS o DHL.

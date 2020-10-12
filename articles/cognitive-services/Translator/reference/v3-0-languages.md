@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588599"
 ---
 # <a name="translator-30-languages"></a>Translator 3,0: lingue
@@ -52,12 +52,12 @@ Le intestazioni della richiesta sono le seguenti:
   <th>Descrizione</th>
   <tr>
     <td>Accept-Language</td>
-    <td>*Intestazione di richiesta facoltativa*.<br/>Lingua da usare per le stringhe dell'interfaccia utente. Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui verranno restituiti tali nomi. La lingua viene specificata fornendo un tag di lingua BCP 47 in formato corretto. Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.<br/>Quando non è specificata una lingua di destinazione o non è disponibile la localizzazione, i nomi vengono forniti in lingua inglese.
+    <td>*Intestazione della richiesta facoltativa*.<br/>Lingua da usare per le stringhe dell'interfaccia utente. Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui verranno restituiti tali nomi. La lingua viene specificata fornendo un tag di lingua BCP 47 in formato corretto. Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.<br/>Quando non è specificata una lingua di destinazione o non è disponibile la localizzazione, i nomi vengono forniti in lingua inglese.
     </td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Intestazione di richiesta facoltativa*.<br/>GUID generato dal client che identifica in modo univoco la richiesta.</td>
+    <td>*Intestazione della richiesta facoltativa*.<br/>GUID generato dal client che identifica in modo univoco la richiesta.</td>
   </tr>
 </table> 
 
@@ -93,7 +93,7 @@ Una risposta corretta è un oggetto JSON con una proprietà per ogni gruppo rich
 
 Di seguito è riportato il valore di ogni proprietà.
 
-* Proprietà `translation`
+* Proprietà`translation`
 
   Il valore di `translation` è un dizionario di coppie (chiave, valore). Ogni chiave è un tag di lingua BCP 47. Una chiave identifica una lingua da o verso la quale può essere tradotto il testo. Il valore associato alla chiave è un oggetto JSON con le proprietà che descrivono la lingua.
 
@@ -119,7 +119,7 @@ Di seguito è riportato il valore di ogni proprietà.
   }
   ```
 
-* Proprietà `transliteration`
+* Proprietà`transliteration`
 
   Il valore di `transliteration` è un dizionario di coppie (chiave, valore). Ogni chiave è un tag di lingua BCP 47. Una chiave identifica un lingua per cui il testo può essere convertito da un alfabeto a un altro. Il valore associato alla chiave è un oggetto JSON con le proprietà che descrivono la lingua e gli alfabeti supportati.
 
@@ -184,7 +184,7 @@ Di seguito è riportato il valore di ogni proprietà.
   }
   ```
 
-* Proprietà `dictionary`
+* Proprietà`dictionary`
 
   Il valore di `dictionary` è un dizionario di coppie (chiave, valore). Ogni chiave è un tag di lingua BCP 47. La chiave identifica la lingua per cui sono disponibili traduzioni inverse e traduzioni alternative. Il valore è un oggetto JSON che descrive la lingua di origine e le lingue di destinazione con le traduzioni disponibili.
 
@@ -226,7 +226,7 @@ La struttura dell'oggetto risposta cambierà solo in caso di cambiamento della v
 
 L'elenco delle lingue supportate non subirà spesso modifiche. Per risparmiare larghezza di banda e migliorare la velocità di risposta, per un'applicazione client può essere opportuno memorizzare nella cache le risorse di lingua e il tag di entità corrispondente (`ETag`). L'applicazione client potrà quindi eseguire periodicamente query sul servizio, ad esempio ogni 24 ore, per recuperare il set di lingue supportate più recente. Passando il valore corrente di `ETag` in un campo dell'intestazione `If-None-Match` si consentirà al servizio di ottimizzare la risposta. Se la risorsa non è stata modificata, il servizio restituirà il codice di stato 304 e un corpo della risposta vuoto.
 
-## <a name="response-headers"></a>Intestazioni della risposta
+## <a name="response-headers"></a>Intestazioni di risposta
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
@@ -277,7 +277,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 L'esempio seguente mostra come recuperare le lingue supportate per la traduzione del testo.
 

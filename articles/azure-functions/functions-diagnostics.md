@@ -7,10 +7,10 @@ ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
 ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122367"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Panoramica della diagnostica di Funzioni di Azure
@@ -31,11 +31,11 @@ Per avviare la diagnostica di Funzioni di Azure:
 
 Dopo aver selezionato una categoria della home page pertinente per il problema dell'app per le funzioni, l'interfaccia interattiva di diagnostica di Funzioni di Azure, detta Genie, può guidare l'utente nella diagnosi e nella risoluzione del problema dell'app. È possibile usare i collegamenti nei riquadri forniti da Genie per visualizzare il report di diagnostica completo della categoria di problemi a cui si è interessati. I collegamenti nei riquadri consentono di accedere direttamente alle metriche di diagnostica.
 
-:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Genie è un'interfaccia di diagnostica di Funzioni di Azure." border="false":::
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Ricerca di informazioni di diagnostica di Funzioni di Azure." border="false":::
 
 Dopo aver selezionato un riquadro, è possibile visualizzare un elenco di argomenti correlati al problema descritto nel riquadro. Questi argomenti forniscono frammenti del report completo contenenti informazioni rilevanti. Selezionare uno di questi argomenti per esaminare ulteriormente i problemi. È anche possibile selezionare **Visualizza report completo** per esplorare tutti gli argomenti in un'unica pagina.
 
-:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Anteprima del report di diagnostica" border="false":::
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Ricerca di informazioni di diagnostica di Funzioni di Azure." border="false":::
 
 ## <a name="view-a-diagnostic-report"></a>Visualizzare un report di diagnostica
 
@@ -45,9 +45,9 @@ Dopo aver scelto un argomento, è possibile visualizzare un report di diagnostic
 
 Per le funzioni basate su script, è possibile usare **Function Execution and Errors** (Esecuzione ed errori funzioni) in **Function App Down or Reporting Errors** (Mancata disponibilità o errori app per le funzioni) per visualizzare le righe di codice che causano eccezioni o errori. È possibile usare questo strumento per ottenere la causa radice e correggere i problemi di una riga di codice specifica. Questa opzione non è disponibile per le funzioni Java e C# precompilate.
 
-:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Report di diagnostica sugli errori di esecuzione della funzione" border="false":::
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Ricerca di informazioni di diagnostica di Funzioni di Azure." border="false":::
 
-:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Visualizzazione dei dettagli dell'eccezione." border="false":::
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Ricerca di informazioni di diagnostica di Funzioni di Azure." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

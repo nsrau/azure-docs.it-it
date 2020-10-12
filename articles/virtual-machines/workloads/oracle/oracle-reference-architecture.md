@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
 ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274437"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in Azure
@@ -71,7 +71,7 @@ Quando si usa Oracle Data Guard, è anche possibile aprire il database secondari
 > Active Data Guard richiede licenze aggiuntive. Questa licenza è necessaria anche per usare la funzionalità di sincronizzazione estrema. Rivolgersi al rappresentante Oracle per discutere le implicazioni relative alle licenze.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>Oracle Data Guard con FSFO
-Oracle Data Guard con failover di avvio rapido (FSFO) può fornire resilienza aggiuntiva impostando il broker in un computer separato. Il broker di Data Guard e il database secondario eseguono entrambi l'Observer e osservano il database primario per i tempi di inattività. Ciò consente anche la ridondanza nell'installazione dell'Observer di Data Guard. 
+Oracle Data Guard con failover di Fast-Start (FSFO) può fornire resilienza aggiuntiva impostando il broker in un computer separato. Il broker di Data Guard e il database secondario eseguono entrambi l'Observer e osservano il database primario per i tempi di inattività. Ciò consente anche la ridondanza nell'installazione dell'Observer di Data Guard. 
 
 Con Oracle Database versione 12,2 e successive, è anche possibile configurare più Observer con una singola configurazione di Service Broker Oracle Data Guard. Questa installazione fornisce disponibilità aggiuntiva, nel caso in cui un osservatore e il database secondario riscontrino tempi di inattività. Data Guard Broker è leggero e può essere ospitato in una macchina virtuale relativamente piccola. Per altre informazioni su Data Guard broker e sui relativi vantaggi, vedere la [documentazione di Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) in questo argomento.
 
@@ -152,7 +152,7 @@ Il partizionamento orizzontale Oracle è costituito principalmente dai component
 
 - **Servizio globale** : il servizio globale è simile al normale servizio di database. Oltre a tutte le proprietà di un servizio di database, un servizio globale dispone di proprietà per i database partizionati, ad esempio l'affinità dell'area tra i client e la tolleranza di ritardo di replica e partizione. È necessario creare un solo servizio globale per leggere/scrivere dati da e verso un database partizionato. Quando si usa Active Data Guard e si configurano le repliche di sola lettura delle partizioni, è possibile creare un altro servizio gGobal per i carichi di lavoro di sola lettura. Il client può utilizzare questi servizi globali per connettersi al database.
 
-- **Database di partizionamento** : i database di partizione sono i database Oracle. Ogni database viene replicato con Oracle Data Guard in una configurazione di Service Broker con failover a avvio rapido (FSFO) abilitato. Non è necessario configurare il failover e la replica di Data Guard in ogni partizione. Questa configurazione viene configurata e distribuita automaticamente quando viene creato il database condiviso. Se una determinata partizione ha esito negativo, la condivisione Oracle esegue automaticamente il failover delle connessioni del database dal database primario a quello standby.
+- **Database di partizionamento** : i database di partizione sono i database Oracle. Ogni database viene replicato con Oracle Data Guard in una configurazione di Service Broker con Fast-Start failover (FSFO) abilitato. Non è necessario configurare il failover e la replica di Data Guard in ogni partizione. Questa configurazione viene configurata e distribuita automaticamente quando viene creato il database condiviso. Se una determinata partizione ha esito negativo, la condivisione Oracle esegue automaticamente il failover delle connessioni del database dal database primario a quello standby.
 
 È possibile distribuire e gestire i database partizionati Oracle con due interfacce: l'interfaccia utente grafica di controllo cloud di Oracle Enterprise Manager e/o l' `GDSCTL` utilità della riga di comando. È anche possibile monitorare le diverse partizioni per la disponibilità e le prestazioni usando il controllo cloud. Il `GDSCTL DEPLOY` comando crea automaticamente le partizioni e i rispettivi listener. Inoltre, questo comando distribuisce automaticamente la configurazione di replica usata per la disponibilità elevata a livello di partizione specificata dall'amministratore.
 
