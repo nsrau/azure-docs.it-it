@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
 ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460746"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Informazioni sui prezzi per applicazione Azure gateway e Web Application Firewall
@@ -66,8 +66,8 @@ I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
 
 |              Dati elaborati             |  Piccolo ($/GB)  |  Media ($/GB) |  Grande ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| Primi 10 TB/mese                       |     $ 0,008     |      Livello gratuito      |     Livello gratuito      |
-| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Livello gratuito      |
+| Primi 10 TB/mese                       |     $ 0,008     |      Gratuito      |     Gratuito      |
+| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Gratuito      |
 | Oltre 40 TB/mese                        |     $ 0,008     |     $0,007     |     $0,0035   |
 
 Per ulteriori informazioni sui prezzi in base all'area geografica, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).
@@ -92,8 +92,8 @@ I prezzi mensili stimati si basano su 730 ore di utilizzo al mese.
 
 |              Dati elaborati             |  Piccolo ($/GB)  |  Media ($/GB) |  Grande ($/GB) |
 | --------------------------------------- | -------------- | -------------- | ------------- |
-| Primi 10 TB/mese                       |     $ 0,008     |      Livello gratuito      |     Livello gratuito      |
-| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Livello gratuito      |
+| Primi 10 TB/mese                       |     $ 0,008     |      Gratuito      |     Gratuito      |
+| Successivi 30 TB (10 – 40 TB)/mese             |     $ 0,008     |     $0,007     |     Gratuito      |
 | Oltre 40 TB/mese                        |     $ 0,008     |     $0,007     |     $0,0035   |
 
 Per ulteriori informazioni sui prezzi in base all'area geografica, vedere la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/application-gateway/).

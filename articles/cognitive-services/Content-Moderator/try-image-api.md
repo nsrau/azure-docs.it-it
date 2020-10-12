@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75448254"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
@@ -48,7 +48,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
    ![Immagine di esempio nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/sample-image.jpg) 
 
-5. Selezionare **Invia**.
+5. Selezionare **Send** (Invia).
 
 6. L'API restituisce un punteggio di probabilità per ogni classificazione. Determina anche se l'immagine soddisfa le condizioni (**true** o **false**). 
 
@@ -74,7 +74,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
    ![Richiesta di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-request.png)
 
-4. Selezionare **Invia**. In questo esempio l'API trova due visi e ne restituisce le coordinate nell'immagine.
+4. Selezionare **Send** (Invia). In questo esempio l'API trova due visi e ne restituisce le coordinate nell'immagine.
 
    ![Casella Response content (Contenuto della risposta) di esempio in Try Image - Find Faces (Prova immagine - Ricerca visi)](images/try-image-api-face-response.png)
 
@@ -96,7 +96,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 4. Nella casella **Request body** (Corpo della richiesta) usare l'immagine di esempio predefinita. È la stessa immagine usata nella sezione precedente.
 
-5. Selezionare **Invia**. Il testo estratto viene visualizzato in JSON:
+5. Selezionare **Send** (Invia). Il testo estratto viene visualizzato in JSON:
 
    ![Casella Response content (Contenuto della risposta) di esempio in Image - OCR (Immagine - OCR)](images/try-image-api-ocr.PNG)
 

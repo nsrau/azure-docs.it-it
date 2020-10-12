@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846225"
 ---
 # <a name="logging-in-msal-applications"></a>Registrazione nelle applicazioni MSAL
@@ -48,10 +48,10 @@ Per informazioni dettagliate sulla registrazione di MSAL in una lingua specifica
 
 In MSAL 3.x la registrazione viene impostata per le singole applicazioni durante la creazione dell'app usando il modificatore del generatore `.WithLogging`. Questo metodo accetta parametri facoltativi:
 
-- `Level`consente di scegliere il livello di registrazione desiderato. Se lo si imposta su Error, verranno restituiti solo gli errori.
-- `PiiLoggingEnabled`consente di registrare dati personali e aziendali se impostati su true. Per impostazione predefinita, questo parametro è impostato su false, in modo che l'applicazione non registri dati personali.
-- `LogCallback`viene impostato su un delegato che esegue la registrazione. Se `PiiLoggingEnabled` è true, questo metodo riceverà i messaggi due volte: una volta con il `containsPii` parametro uguale a false e il messaggio senza dati personali e la seconda volta con il `containsPii` parametro è uguale a true e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
-- `DefaultLoggingEnabled`Abilita la registrazione predefinita per la piattaforma. Per impostazione predefinita, questo parametro è impostato su false. Se viene impostato su true, usa Event Tracing nelle applicazioni desktop/UWP, NSLog in iOS e logcat in Android.
+- `Level` consente di scegliere il livello di registrazione desiderato. Se lo si imposta su Error, verranno restituiti solo gli errori.
+- `PiiLoggingEnabled` consente di registrare dati personali e aziendali se impostati su true. Per impostazione predefinita, questo parametro è impostato su false, in modo che l'applicazione non registri dati personali.
+- `LogCallback` viene impostato su un delegato che esegue la registrazione. Se `PiiLoggingEnabled` è true, questo metodo riceverà i messaggi due volte: una volta con il `containsPii` parametro uguale a false e il messaggio senza dati personali e la seconda volta con il `containsPii` parametro è uguale a true e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
+- `DefaultLoggingEnabled` Abilita la registrazione predefinita per la piattaforma. Per impostazione predefinita, questo parametro è impostato su false. Se viene impostato su true, usa Event Tracing nelle applicazioni desktop/UWP, NSLog in iOS e logcat in Android.
 
 ```csharp
 class Program
@@ -86,10 +86,10 @@ class Program
 
 Attivare la registrazione durante la creazione dell'app creando un callback di registrazione. Il callback accetta i parametri seguenti:
 
-- `tag`stringa passata al callback dalla libreria. È associato alla voce di log e può essere usato per ordinare i messaggi di registrazione.
-- `logLevel`consente di scegliere il livello di registrazione desiderato. I livelli di registrazione supportati sono: `Error` ,, `Warning` `Info` e `Verbose` .
-- `message`contenuto della voce di log.
-- `containsPII`Specifica se i messaggi contenenti dati personali o i dati aziendali vengono registrati. Per impostazione predefinita, questo valore è impostato su false, in modo che l'applicazione non registri i dati personali. Se `containsPII` è `true` , questo metodo riceverà i messaggi due volte: una volta con il `containsPII` parametro impostato su `false` e `message` senza dati personali e una seconda volta con il `containsPii` parametro impostato su `true` e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
+- `tag` stringa passata al callback dalla libreria. È associato alla voce di log e può essere usato per ordinare i messaggi di registrazione.
+- `logLevel` consente di scegliere il livello di registrazione desiderato. I livelli di registrazione supportati sono: `Error` ,, `Warning` `Info` e `Verbose` .
+- `message` contenuto della voce di log.
+- `containsPII` Specifica se i messaggi contenenti dati personali o i dati aziendali vengono registrati. Per impostazione predefinita, questo valore è impostato su false, in modo che l'applicazione non registri i dati personali. Se `containsPII` è `true` , questo metodo riceverà i messaggi due volte: una volta con il `containsPII` parametro impostato su `false` e `message` senza dati personali e una seconda volta con il `containsPii` parametro impostato su `true` e il messaggio potrebbe contenere dati personali. In alcuni casi, quando il messaggio non contiene dati personali, il messaggio ricevuto è identico.
 
 ```java
 private StringBuilder mLogs;
@@ -129,9 +129,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  Abilitare la registrazione in MSAL.js (JavaScript) passando un oggetto logger durante la configurazione per la creazione di un' `UserAgentApplication` istanza. Questo oggetto logger ha le proprietà seguenti:
 
 - `localCallback`: istanza di callback che può essere fornita dallo sviluppatore per utilizzare e pubblicare i log in modo personalizzato. Implementare il metodo localCallback a seconda del modo in cui si intende reindirizzare i log.
-- `level`(facoltativo): livello di registrazione configurabile. I livelli di registrazione supportati sono: `Error` ,, `Warning` `Info` e `Verbose` . Il valore predefinito è `Info`.
-- `piiLoggingEnabled`(facoltativo): se impostato su true, registra i dati personali e aziendali. Per impostazione predefinita, questo valore è false in modo che l'applicazione non registri i dati personali. I log dei dati personali non vengono mai scritti negli output predefiniti come Console, Logcat o NSLog.
-- `correlationId`(facoltativo): identificatore univoco, usato per eseguire il mapping della richiesta con la risposta a scopo di debug. Per impostazione predefinita, viene usato il GUID RFC 4122 versione 4 (128 bit).
+- `level` (facoltativo): livello di registrazione configurabile. I livelli di registrazione supportati sono: `Error` ,, `Warning` `Info` e `Verbose` . Il valore predefinito è `Info`.
+- `piiLoggingEnabled` (facoltativo): se impostato su true, registra i dati personali e aziendali. Per impostazione predefinita, questo valore è false in modo che l'applicazione non registri i dati personali. I log dei dati personali non vengono mai scritti negli output predefiniti come Console, Logcat o NSLog.
+- `correlationId` (facoltativo): identificatore univoco, usato per eseguire il mapping della richiesta con la risposta a scopo di debug. Per impostazione predefinita, viene usato il GUID RFC 4122 versione 4 (128 bit).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -226,7 +226,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>Formato messaggi registro
 
-La parte del messaggio dei messaggi di log di MSAL è nel formato`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+La parte del messaggio dei messaggi di log di MSAL è nel formato `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Ad esempio:
 
@@ -303,7 +303,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Formato messaggi registro
 
-La parte del messaggio dei messaggi di log di MSAL è nel formato`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+La parte del messaggio dei messaggi di log di MSAL è nel formato `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Ad esempio:
 
@@ -389,6 +389,6 @@ MSAL per Python non registra i dati personali o i dati dell'organizzazione. Non 
 
 È possibile usare la registrazione standard di Python per registrare il contenuto desiderato, ma si è responsabili della gestione sicura dei dati sensibili e dei requisiti normativi.
 
-Per ulteriori informazioni sulla registrazione in Python, fare riferimento all'HOWTO sulla [registrazione](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)di Python.
+Per ulteriori informazioni sulla registrazione in Python, fare riferimento all'HOWTO sulla  [registrazione](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)di Python.
 
 ---

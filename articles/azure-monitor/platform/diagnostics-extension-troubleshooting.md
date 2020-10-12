@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86515496"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Risoluzione dei problemi di Diagnostica di Azure
@@ -79,7 +79,7 @@ Se non sono presenti dati per la metrica specifica, controllare la **configurazi
 Se la configurazione è impostata correttamente ma i dati relativi alle metriche non vengono comunque visualizzati, usare le linee guida seguenti per risolvere il problema.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Diagnostica di Azure non viene avviato
+## <a name="azure-diagnostics-is-not-starting"></a>Mancato avvio di Diagnostica di Azure
 Per informazioni sui motivi per cui non è stato possibile avviare Diagnostica di Azure, vedere i file **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** nel percorso dei file di log riportati in precedenza.
 
 Se questi log indicano `Monitoring Agent not reporting success after launch`, significa che si è verificato un errore di avvio di MonAgentHost.exe. Esaminare i log nel percorso indicato per `MonAgentHost log file` nella sezione precedente.
@@ -108,7 +108,7 @@ Se i processi sono in esecuzione, passare a [I dati vengono acquisiti in locale?
 
 Se il problema persiste, provare a:
 
-1. Disinstallare l'agente
+1. Disinstallazione dell'agente
 2. Rimuovi directory C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
 3. Installare di nuovo Agent
 
@@ -165,7 +165,7 @@ Le tabelle in Archiviazione di Azure contenenti gli eventi ETW vengono denominat
             tableName = "WAD" + eventDestination;
 ```
 
-Ecco un esempio:
+Esempio:
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">
@@ -212,7 +212,7 @@ Questo codice genera quattro tabelle:
 | provider = "ProV1" &lt; DefaultEvents/&gt; |WADDefault + MD5 ("ProV1") |
 | provider = "prov2" &lt; DefaultEvents eventDestination = "Dest2"/&gt; |WADdest2 |
 
-## <a name="references"></a>Bibliografia
+## <a name="references"></a>Riferimenti
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>Come controllare la configurazione dell'estensione Diagnostica
 Il modo più semplice per controllare la configurazione dell'estensione consiste nel passare ad [Azure Resource Explorer](https://resources.azure.com) e quindi alla macchina virtuale o al servizio cloud in cui si trova l'estensione Diagnostica di Azure (IaaSDiagnostics/PaasDiagnostics).

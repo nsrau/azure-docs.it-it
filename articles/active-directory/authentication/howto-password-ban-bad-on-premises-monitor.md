@@ -13,10 +13,10 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 02937c22cbc16defb0b7672ac7ebc56c2ae2beb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068780"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorare ed esaminare i log per gli ambienti Azure AD di protezione delle password locali
@@ -64,7 +64,7 @@ Vengono registrati eventi discreti per acquisire informazioni riguardo a queste 
 
 Gli eventi principali relativi alla convalida delle password sono i seguenti:
 
-| Event |Modifica della password |Impostazione della password|
+| Evento |Modifica della password |Impostazione della password|
 | --- | :---: | :---: |
 |Pass |10014 |10015|
 |Non riuscita (a causa dei criteri per le password del cliente)| 10016, 30002| 10017, 30003|

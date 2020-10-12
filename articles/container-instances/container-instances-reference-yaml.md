@@ -4,10 +4,10 @@ description: Informazioni di riferimento per il file YAML supportato da istanze 
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084761"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Guida di riferimento a YAML: istanze di contenitore di Azure
@@ -156,7 +156,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="microsoftcontainerinstancecontainergroups-object"></a>Oggetto Microsoft. ContainerInstance/containerGroups
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Sì | Nome del gruppo di contenitori. |
 |  apiVersion | enum | Sì | 2018-10-01 |
@@ -170,9 +170,9 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containergroupidentity-object"></a>Oggetto ContainerGroupIdentity
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
-|  tipo | enum | No | Tipo di identità utilizzata per il gruppo di contenitori. Il tipo ' SystemAssigned, UserAssigned ' include un'identità creata in modo implicito e un set di identità assegnate dall'utente. Il tipo ' none ' rimuoverà tutte le identità dal gruppo di contenitori. -SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
+|  type | enum | No | Tipo di identità utilizzata per il gruppo di contenitori. Il tipo ' SystemAssigned, UserAssigned ' include un'identità creata in modo implicito e un set di identità assegnate dall'utente. Il tipo ' none ' rimuoverà tutte le identità dal gruppo di contenitori. -SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
 |  userAssignedIdentities | object | No | Elenco di identità utente associate al gruppo di contenitori. I riferimenti alle chiavi del dizionario identità utente verranno Azure Resource Manager ID risorsa nel formato '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
 
 
@@ -180,11 +180,11 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containergroupproperties-object"></a>Oggetto ContainerGroupProperties
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  containers | array | Sì | Contenitori all'interno del gruppo di contenitori. - [Oggetto contenitore](#container-object) |
 |  Credenziali | array | No | Credenziali del registro di sistema dell'immagine da cui viene creato il gruppo di contenitori. - [Oggetto ImageRegistryCredential](#imageregistrycredential-object) |
-|  restartPolicy | enum | No | Criteri di riavvio per tutti i contenitori all'interno del gruppo di contenitori. - `Always`Riavvia sempre- `OnFailure` Riavvia in caso di errore- `Never` non riavviare mai. -Always, OnFailure, mai |
+|  restartPolicy | enum | No | Criteri di riavvio per tutti i contenitori all'interno del gruppo di contenitori. - `Always` Riavvia sempre- `OnFailure` Riavvia in caso di errore- `Never` non riavviare mai. -Always, OnFailure, mai |
 |  IpAddress | object | No | Tipo di indirizzo IP del gruppo di contenitori. - [Oggetto IpAddress](#ipaddress-object) |
 |  osType | enum | Sì | Tipo di sistema operativo necessario per i contenitori nel gruppo di contenitori. -Windows o Linux |
 |  volumes | array | No | Elenco di volumi che possono essere montati da contenitori in questo gruppo di contenitori. - [Oggetto volume](#volume-object) |
@@ -200,7 +200,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="container-object"></a>Oggetto contenitore
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Sì | Nome dell'istanza del contenitore fornito dall'utente. |
 |  properties | object | Sì | Proprietà dell'istanza di contenitore. - [Oggetto ContainerProperties](#containerproperties-object) |
@@ -210,7 +210,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="imageregistrycredential-object"></a>Oggetto ImageRegistryCredential
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  server | string | Sì | Il server del registro immagini Docker senza protocollo come "http" e "https". |
 |  username | string | Sì | Nome utente per il registro privato. |
@@ -221,10 +221,10 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="ipaddress-object"></a>Oggetto IpAddress
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  ports | array | Sì | Elenco di porte esposte nel gruppo di contenitori. - [Oggetto Port](#port-object) |
-|  tipo | enum | Sì | Specifica se l'indirizzo IP è esposto alla rete Internet pubblica o alla VNET privata. -Pubblico o privato |
+|  type | enum | Sì | Specifica se l'indirizzo IP è esposto alla rete Internet pubblica o alla VNET privata. -Pubblico o privato |
 |  IP | stringa | No | IP esposto alla rete Internet pubblica. |
 |  dnsNameLabel | stringa | No | Etichetta del nome DNS per l'indirizzo IP. |
 
@@ -233,7 +233,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="volume-object"></a>Oggetto volume
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Sì | Il nome del volume. |
 |  azureFile | object | No | Il volume di file di Azure. - [Oggetto AzureFileVolume](#azurefilevolume-object) |
@@ -246,7 +246,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containergroupdiagnostics-object"></a>Oggetto ContainerGroupDiagnostics
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  logAnalytics | object | No | Informazioni su log Analytics del gruppo di contenitori. - [Oggetto LogAnalytics](#loganalytics-object) |
 
@@ -255,7 +255,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containergroupnetworkprofile-object"></a>Oggetto ContainerGroupNetworkProfile
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  id | string | Sì | Identificatore di un profilo di rete. |
 
@@ -264,7 +264,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="dnsconfiguration-object"></a>Oggetto DnsConfiguration
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  Nameserver | array | Sì | Server DNS per il gruppo di contenitori. -stringa |
 |  searchDomains | stringa | No | Domini di ricerca DNS per la ricerca del nome host nel gruppo di contenitori. |
@@ -273,7 +273,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="encryptionproperties-object"></a>Oggetto EncryptionProperties
 
-| Nome  | Tipo  | Obbligatoria  | valore |
+| Nome  | Type  | Obbligatoria  | valore |
 |  ---- | ---- | ---- | ---- |
 | vaultBaseUrl  | string    | Sì   | URL di base dell'insieme di credenziali dell'insieme di credenziali. |
 | keyName   | string    | Sì   | Nome della chiave di crittografia. |
@@ -281,7 +281,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="initcontainerdefinition-object"></a>Oggetto InitContainerDefinition
 
-| Nome  | Tipo  | Obbligatoria  | valore |
+| Nome  | Type  | Obbligatoria  | valore |
 |  ---- | ---- | ---- | ---- |
 | name  | string |  Sì | Nome del contenitore init. |
 | properties    | object    | Sì   | Proprietà per il contenitore init. - [Oggetto InitContainerPropertiesDefinition](#initcontainerpropertiesdefinition-object)
@@ -289,7 +289,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containerproperties-object"></a>Oggetto ContainerProperties
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  image | string | Sì | Nome dell'immagine utilizzata per creare l'istanza di contenitore. |
 |  . | array | No | Comandi da eseguire all'interno dell'istanza del contenitore in formato EXEC. -stringa |
@@ -305,17 +305,17 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="port-object"></a>Oggetto Port
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | No | Protocollo associato alla porta. -TCP o UDP |
-|  port | integer | Sì | Il numero della porta. |
+|  port | numero intero | Sì | Il numero della porta. |
 
 
 
 
 ### <a name="azurefilevolume-object"></a>Oggetto AzureFileVolume
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  shareName | string | Sì | Nome della condivisione file di Azure da montare come volume. |
 |  readOnly | boolean | No | Flag che indica se il file di Azure condiviso montato come volume è di sola lettura. |
@@ -327,7 +327,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="gitrepovolume-object"></a>Oggetto GitRepoVolume
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  directory | stringa | No | Nome della directory di destinazione. Non devono contenere o iniziare con '. .'.  Se viene specificato ' .', la directory del volume sarà il repository git.  In caso contrario, se specificato, il volume conterrà il repository git nella sottodirectory con il nome specificato. |
 |  repository | string | Sì | URL del repository |
@@ -337,7 +337,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="loganalytics-object"></a>Oggetto LogAnalytics
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  workspaceId | string | Sì | ID dell'area di lavoro per log Analytics |
 |  workspaceKey | string | Sì | Chiave dell'area di lavoro per log Analytics |
@@ -347,29 +347,29 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="initcontainerpropertiesdefinition-object"></a>Oggetto InitContainerPropertiesDefinition
 
-| Nome  | Tipo  | Obbligatoria  | valore |
+| Nome  | Type  | Obbligatoria  | valore |
 |  ---- | ---- | ---- | ---- |
-| image | stringa    | No    | Immagine del contenitore init. |
+| image | string    | No    | Immagine del contenitore init. |
 | .   | array | No    | Comando da eseguire all'interno del contenitore init in formato EXEC. -stringa |
 | environmentVariables | array  | No |Variabili di ambiente da impostare nel contenitore init. - [Oggetto Metodo EnvironmentVariable](#environmentvariable-object)
 | volumeMounts |array   | No    | Il volume viene montato a disposizione del contenitore init. - [Oggetto VolumeMount](#volumemount-object)
 
 ### <a name="containerport-object"></a>Oggetto PORTACONTENITORE
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | No | Protocollo associato alla porta. -TCP o UDP |
-|  port | integer | Sì | Numero di porta esposto all'interno del gruppo di contenitori. |
+|  port | numero intero | Sì | Numero di porta esposto all'interno del gruppo di contenitori. |
 
 
 
 
 ### <a name="environmentvariable-object"></a>Oggetto Metodo EnvironmentVariable
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Sì | Nome della variabile di ambiente. |
-|  Valore | stringa | No | Valore della variabile di ambiente. |
+|  Valore | string | No | Valore della variabile di ambiente. |
 |  Parametro securevalue | stringa | No | Valore della variabile di ambiente protetta. |
 
 
@@ -377,7 +377,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="resourcerequirements-object"></a>Oggetto ResourceRequirements
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  requests | object | Sì | Richieste di risorse dell'istanza di contenitore. - [Oggetto ResourceRequests](#resourcerequests-object) |
 |  limiti | object | No | Limiti delle risorse di questa istanza di contenitore. - [Oggetto ResourceLimits](#resourcelimits-object) |
@@ -387,7 +387,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="volumemount-object"></a>Oggetto VolumeMount
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Sì | Nome del montaggio del volume. |
 |  mountPath | string | Sì | Il percorso all'interno del contenitore in cui deve essere montato il volume. Non devono contenere due punti (:). |
@@ -398,22 +398,22 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containerprobe-object"></a>Oggetto ContainerProbe
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  exec | object | No | Comando di esecuzione per l'oggetto Probe- [ContainerExec](#containerexec-object) |
 |  httpGet | object | No | Impostazioni HTTP Get per l'oggetto Probe- [ContainerHttpGet](#containerhttpget-object) |
-|  initialDelaySeconds | integer | No | Secondi di ritardo iniziali. |
-|  periodSeconds | integer | No | Secondi del periodo. |
-|  failureThreshold | integer | No | Soglia di errore. |
-|  successThreshold | integer | No | Soglia di esito positivo. |
-|  timeoutSeconds | integer | No | Secondi di timeout. |
+|  initialDelaySeconds | numero intero | No | Secondi di ritardo iniziali. |
+|  periodSeconds | numero intero | No | Secondi del periodo. |
+|  failureThreshold | numero intero | No | Soglia di errore. |
+|  successThreshold | numero intero | No | Soglia di esito positivo. |
+|  timeoutSeconds | numero intero | No | Secondi di timeout. |
 
 
 
 
 ### <a name="resourcerequests-object"></a>Oggetto ResourceRequests
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | d'acquisto | Sì | Richiesta di memoria in GB dell'istanza di contenitore. |
 |  cpu | d'acquisto | Sì | Richiesta di CPU dell'istanza di contenitore. |
@@ -424,7 +424,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="resourcelimits-object"></a>Oggetto ResourceLimits
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | d'acquisto | No | Limite di memoria in GB dell'istanza di contenitore. |
 |  cpu | d'acquisto | No | Limite di CPU dell'istanza di contenitore. |
@@ -435,7 +435,7 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containerexec-object"></a>Oggetto ContainerExec
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
 |  . | array | No | Comandi da eseguire all'interno del contenitore. -stringa |
 
@@ -444,10 +444,10 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="containerhttpget-object"></a>Oggetto ContainerHttpGet
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
-|  path | stringa | No | Percorso del probe. |
-|  port | integer | Sì | Numero di porta su cui eseguire il probe. |
+|  path | string | No | Percorso del probe. |
+|  port | numero intero | Sì | Numero di porta su cui eseguire il probe. |
 |  scheme | enum | No | Schema. -http o HTTPS |
 
 
@@ -455,9 +455,9 @@ Nelle tabelle seguenti vengono descritti i valori che è necessario impostare ne
 
 ### <a name="gpuresource-object"></a>Oggetto GpuResource
 
-|  Nome | Tipo | Obbligatoria | valore |
+|  Nome | Type | Obbligatoria | valore |
 |  ---- | ---- | ---- | ---- |
-|  count | integer | Sì | Conteggio della risorsa GPU. |
+|  count | numero intero | Sì | Conteggio della risorsa GPU. |
 |  sku | enum | Sì | SKU della risorsa GPU. -K80, P100, V100 |
 
 

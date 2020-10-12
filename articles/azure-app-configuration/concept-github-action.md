@@ -7,10 +7,10 @@ ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371822"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizzare il repository GitHub con Configurazione app
@@ -25,7 +25,7 @@ Un [flusso di lavoro](https://help.github.com/articles/about-github-actions#work
 La [documentazione](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) di GitHub offre una panoramica approfondita dei flussi di lavoro e delle azioni di GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Abilitare GitHub Actions nel repository
-Per iniziare a usare questa azione GitHub, passare al repository e selezionare la scheda **azioni** . Selezionare **nuovo flusso di lavoro**, quindi **configurare un flusso di lavoro**. Infine, cercare "Sincronizzazione di Configurazione app di Azure" nel marketplace.
+Per iniziare a usare questa azione GitHub, passare al repository e selezionare la scheda **azioni** . Selezionare **nuovo flusso di lavoro**, quindi **configurare manualmente un flusso di lavoro**. Infine, cercare "Sincronizzazione di Configurazione app di Azure" nel marketplace.
 > [!div class="mx-imgBorder"]
 > ![Selezionare la scheda Azione](media/find-github-action.png)
 
@@ -252,7 +252,7 @@ jobs:
 ## <a name="use-max-depth-to-limit-github-action"></a>Usare la profondità massima per limitare l'azione di GitHub
 Il comportamento predefinito per gli attributi JSON annidati consiste nel rendere flat l'intero oggetto.  Il codice JSON seguente definisce questa coppia chiave-valore:
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | Object:Inner:InnerKey | InnerValue |
 
@@ -295,7 +295,7 @@ jobs:
 
 Data una profondità di 2, l'esempio precedente restituisce ora la coppia chiave-valore seguente:
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | Object:Inner | {"InnerKey":"InnerValue"} |
 

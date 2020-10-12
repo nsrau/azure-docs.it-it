@@ -4,10 +4,10 @@ description: Informazioni su come configurare log attività e di diagnostica per
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88927732"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
@@ -155,7 +155,7 @@ Le stringhe JSON dei log del coordinatore Kafka includono gli elementi elencati 
 | `Operation` | Nome dell'operazione eseguita durante il coordinamento del gruppo |
 | `ClientId` | ID client |
 | `NamespaceName` | Nome spazio dei nomi | 
-| `SubscriptionId` | ID della sottoscrizione di Azure |
+| `SubscriptionId` | ID sottoscrizione di Azure |
 | `Message` | Messaggio informativo o di avviso, che fornisce informazioni dettagliate sulle azioni eseguite durante il coordinamento del gruppo. |
 
 ### <a name="example"></a>Esempio
@@ -193,7 +193,7 @@ Le stringhe JSON dell'evento di connessione rete virtuale degli hub eventi inclu
 
 | Nome | Descrizione |
 | ---  | ----------- | 
-| `SubscriptionId` | ID della sottoscrizione di Azure |
+| `SubscriptionId` | ID sottoscrizione di Azure |
 | `NamespaceName` | Nome spazio dei nomi |
 | `IPAddress` | Indirizzo IP di un client connesso al servizio Hub eventi |
 | `Action` | Azione eseguita dal servizio Hub eventi durante la valutazione delle richieste di connessione. Le azioni supportate sono **Accetta connessione** e **Rifiuta connessione**. |

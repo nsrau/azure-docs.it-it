@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85557915"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Usare i riferimenti Key Vault per il servizio app e funzioni di Azure
@@ -191,7 +191,7 @@ Per ottenere altre informazioni, è anche possibile usare uno dei rilevatori pre
 ### <a name="using-the-detector-for-app-service"></a>Uso del detector per il servizio app
 
 1. Nel portale passare all'app.
-2. Selezionare **Diagnostica e risolvi i problemi**.
+2. Selezionare **Diagnostica e risoluzione dei problemi**.
 3. Scegliere **disponibilità e prestazioni** e selezionare **app Web in basso.**
 4. Individuare **Key Vault Application Settings Diagnostics** e fare clic su **altre informazioni**.
 
@@ -200,6 +200,6 @@ Per ottenere altre informazioni, è anche possibile usare uno dei rilevatori pre
 
 1. Nel portale passare all'app.
 2. Passare a **funzionalità della piattaforma.**
-3. Selezionare **Diagnostica e risolvi i problemi**.
+3. Selezionare **Diagnostica e risoluzione dei problemi**.
 4. Scegliere **disponibilità e prestazioni** e selezionare l'app per le **funzioni inattiva o segnalazione errori.**
 5. Fare clic su **Key Vault impostazioni applicazione diagnostica.**

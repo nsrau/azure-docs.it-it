@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
 ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90968593"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Correzione rapida per Advisor
@@ -26,7 +26,7 @@ La funzionalità è disponibile solo per alcune indicazioni, tramite portale di 
 
 2. Nella pagina Dettagli raccomandazione verrà visualizzato un elenco di risorse per cui si dispone di questa raccomandazione. Selezionare tutte le risorse che si vuole correggere per la raccomandazione.
 
-   :::image type="content" source="./media/quick-fix-2.png" alt-text="Screenshot della finestra risorse interessate con elementi elenco e pulsante correzione rapida evidenziati.":::
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="{Screenshot della Azure Advisor che mostra le etichette di correzione rapida nei consigli.}":::
    
    *I prezzi nell'immagine sono solo a scopo esemplificativo*
 

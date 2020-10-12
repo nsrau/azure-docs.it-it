@@ -4,10 +4,10 @@ description: Informazioni su come inviare una richiesta di supporto per abilitar
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 72a7aca97067ce4e9ed0e901e4016c82b3549eb1
-ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90817897"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Come abilitare la risorsa della soluzione VMware di Azure
@@ -20,7 +20,7 @@ Informazioni su come inviare una richiesta di supporto per abilitare la risorsa 
 
 
 ## <a name="enable-azure-vmware-solution-resource"></a>Abilitare la risorsa della soluzione VMware di Azure
-Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviare un ticket di supporto per l'allocazione dei nodi. Una volta ricevuta la richiesta, il team di supporto richiede fino a cinque giorni lavorativi per confermare la richiesta e allocare i nodi. Se si dispone di un cloud privato della soluzione VMware di Azure esistente e si vogliono allocare più nodi, si procederà nello stesso processo.
+Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo.
 
 
 1. Nella portale di Azure in Guida e **supporto tecnico**creare una **[nuova richiesta di supporto](https://rc.portal.azure.com/#create/Microsoft.Support)** e fornire le informazioni seguenti per il ticket:
