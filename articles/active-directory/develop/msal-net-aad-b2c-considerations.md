@@ -14,10 +14,10 @@ ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166434"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usare MSAL.NET per l'accesso degli utenti con identità di social networking
@@ -31,11 +31,11 @@ Questo articolo si applica a MSAL.NET 3. x. Per MSAL.NET 2. x, vedere [Azure ad 
 
 ## <a name="authority-for-an-azure-ad-b2c-tenant-and-policy"></a>Autorità per un tenant e un criterio di Azure AD B2C
 
-Il formato dell'autorità per Azure AD B2C è il seguente:`https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
+Il formato dell'autorità per Azure AD B2C è il seguente: `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname`: Nome del tenant Azure AD B2C più l'host. Ad esempio, *contosob2c.b2clogin.com*.
-- `tenant`: Il nome di dominio o l'ID di directory (tenant) del tenant del Azure AD B2C. Ad esempio, *contosob2c.onmicrosoft.com* o GUID, rispettivamente.
-- `policyName`: Nome del flusso utente o criterio personalizzato da applicare. Ad esempio, un criterio di iscrizione/accesso come *b2c_1_susi*.
+- `azureADB2CHostname` : Nome del tenant Azure AD B2C più l'host. Ad esempio, *contosob2c.b2clogin.com*.
+- `tenant` : Il nome di dominio o l'ID di directory (tenant) del tenant del Azure AD B2C. Ad esempio, *contosob2c.onmicrosoft.com* o GUID, rispettivamente.
+- `policyName` : Nome del flusso utente o criterio personalizzato da applicare. Ad esempio, un criterio di iscrizione/accesso come *b2c_1_susi*.
 
 Per ulteriori informazioni sulle autorità Azure AD B2C, vedere [impostare URL di reindirizzamento su b2clogin.com](../../active-directory-b2c/b2clogin.md).
 
@@ -76,9 +76,9 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 Nel frammento di codice precedente:
 
-- `policy`stringa che contiene il nome del flusso utente Azure AD B2C o dei criteri personalizzati (ad esempio, `PolicySignUpSignIn` ).
-- `ParentActivityOrWindow`è necessario per Android (attività) ed è facoltativo per altre piattaforme che supportano un'interfaccia utente padre come Windows in Microsoft Windows e UIViewController in iOS. Per ulteriori informazioni sulla finestra di dialogo dell'interfaccia utente, vedere [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) sul wiki di MSAL.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`è un metodo che trova un account per un determinato criterio. Ad esempio:
+- `policy` stringa che contiene il nome del flusso utente Azure AD B2C o dei criteri personalizzati (ad esempio, `PolicySignUpSignIn` ).
+- `ParentActivityOrWindow` è necessario per Android (attività) ed è facoltativo per altre piattaforme che supportano un'interfaccia utente padre come Windows in Microsoft Windows e UIViewController in iOS. Per ulteriori informazioni sulla finestra di dialogo dell'interfaccia utente, vedere [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) sul wiki di MSAL.
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` è un metodo che trova un account per un determinato criterio. Ad esempio:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -136,7 +136,7 @@ Con il nome utente e la password in un flusso ROPC si sacrificano diversi elemen
 
 Nel tenant di Azure AD B2C creare un nuovo flusso utente e selezionare **Accedi con ROPC** per abilitare ROPC per il flusso utente. Per altre informazioni, vedere [configurare il flusso di credenziali password del proprietario della risorsa](../../active-directory-b2c/configure-ropc.md).
 
-`IPublicClientApplication`contiene il `AcquireTokenByUsernamePassword` Metodo:
+`IPublicClientApplication` contiene il `AcquireTokenByUsernamePassword` Metodo:
 
 ```csharp
 AcquireTokenByUsernamePassword(
@@ -169,7 +169,7 @@ MSAL.NET supporta una [cache di token](/dotnet/api/microsoft.identity.client.tok
 
 Attualmente, MSAL.NET richiede due attestazioni per compilare una chiave di cache del token:
 
-- `tid`(ID tenant Azure AD)
+- `tid` (ID tenant Azure AD)
 - `preferred_username`
 
 Entrambe le attestazioni potrebbero mancare negli scenari Azure AD B2C perché non tutti i provider di identità basati su social network (Facebook, Google e altri) li restituiscono nei token che restituiscono Azure AD B2C.

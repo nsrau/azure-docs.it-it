@@ -8,10 +8,10 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 9ea98df4b6cd8572412e7082b451feac3736919c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327073"
 ---
 # <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
@@ -224,7 +224,7 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Richieste non riuscite (richieste/non riuscite)
 
-Conteggio delle richieste del server rilevate contrassegnate come *non riuscite*. Per impostazione predefinita, il Application Insights SDK contrassegna automaticamente ogni richiesta del server che ha restituito il codice di risposta HTTP 5xx o 4xx come richiesta non riuscita. È possibile personalizzare questa logica modificando la proprietà *Success* dell'elemento telemetria della richiesta in un [inizializzatore di telemetria personalizzato](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+Conteggio delle richieste del server rilevate contrassegnate come *non riuscite*. Per impostazione predefinita, il Application Insights SDK contrassegna automaticamente ogni richiesta del server che ha restituito il codice di risposta HTTP 5xx o 4xx come richiesta non riuscita. È possibile personalizzare questa logica modificando la proprietà  *Success* dell'elemento telemetria della richiesta in un [inizializzatore di telemetria personalizzato](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
 |Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
 |---|---|---|---|
@@ -361,7 +361,7 @@ Utilizzo della CPU da parte di *tutti* i processi in esecuzione nell'istanza del
 |Percentuale|Media, min, max|Istanza del ruolo del cloud
 
 >[!NOTE]
-> La metrica del tempo del processore non è disponibile per le applicazioni ospitate nei servizi app Azure. Usare la metrica [Process CPU](#process-cpu-performancecountersprocesscpupercentage) per tenere traccia dell'utilizzo della CPU delle applicazioni Web ospitate nei servizi app.
+> La metrica del tempo del processore non è disponibile per le applicazioni ospitate nei servizi app Azure. Usare la metrica  [Process CPU](#process-cpu-performancecountersprocesscpupercentage) per tenere traccia dell'utilizzo della CPU delle applicazioni Web ospitate nei servizi app.
 
 ```Kusto
 performanceCounters

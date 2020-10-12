@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91260411"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Usare il server di cronologia Apache Spark esteso per eseguire il debug e la diagnosi delle applicazioni Apache Spark
@@ -125,8 +125,8 @@ Per riprodurre il processo, selezionare **riproduzione**. È possibile seleziona
 |Green|Succeeded: il processo è stato completato correttamente.|
 |Orange|Tentativi: istanze delle attività non riuscite, ma non influiscono sul risultato finale del processo. Per queste attività sono presenti istanze duplicate o nuovi tentativi che potrebbero riuscire in un secondo momento.|
 |Blu|Running: l'attività è in esecuzione.|
-|White|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
-|Red|Non riuscito: l'attività non è riuscita.|
+|bianco|In attesa o ignorata: l'attività è in attesa di esecuzione oppure la fase è stata ignorata.|
+|Rosso|Non riuscito: l'attività non è riuscita.|
 
 La figura seguente mostra i colori di stato verde, arancione e blu.
 

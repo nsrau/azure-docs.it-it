@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 2d6610a2f69b6da34972510a5619c6d16a605289
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776443"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Come creare un Lab con una risorsa condivisa in Azure Lab Services
 
 In alcuni casi, quando si crea un Lab in aula, è possibile che alcune risorse debbano essere condivise tra tutti gli studenti di un Lab.  Si dispone, ad esempio, di un server licenze o SQL Server per una classe database.  Questo articolo illustra i passaggi per abilitare la risorsa condivisa per un Lab.  Si parlerà anche di come limitare l'accesso a tale risorsa condivisa.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Come illustrato nel diagramma seguente, sarà disponibile un account Lab con un Lab.  L'account Lab avrà le impostazioni di peering di VNET in modo che la rete virtuale per il Lab sia connessa alla rete della risorsa condivisa.  Nel diagramma seguente sono presenti due reti virtuali con intervalli IP non sovrapposti.  Questi intervalli IP sono solo intervalli di esempio.  Si noti anche che la rete virtuale di risorse condivise si trova nella stessa sottoscrizione dell'account Lab.
 

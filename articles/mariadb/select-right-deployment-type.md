@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 47aff04dfd44ea7fd892fdee763e93d7fd13a9d1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542394"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Scegliere l'opzione del server MariaDB corretta in Azure
@@ -33,7 +33,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 
 | Attributo          | Database di Azure per MariaDB | MariaDB in macchine virtuali di Azure    |
 |:-------------------|:-----------------------------|:--------------------|
-| Contratto di servizio (SLA)                | Offre SLA con disponibilità del 99,99%| Disponibilità fino al 99,95% con due o più istanze nello stesso set di disponibilità.<br/><br/>disponibilità del 99,9% con una macchina virtuale a istanza singola che usa archiviazione Premium.<br/><br/>99,99% con zone di disponibilità con più istanze in più set di disponibilità.<br/><br/>Vedere il [contratto di contratto per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
+| Contratto di servizio                | Offre SLA con disponibilità del 99,99%| Disponibilità fino al 99,95% con due o più istanze nello stesso set di disponibilità.<br/><br/>disponibilità del 99,9% con una macchina virtuale a istanza singola che usa archiviazione Premium.<br/><br/>99,99% con zone di disponibilità con più istanze in più set di disponibilità.<br/><br/>Vedere il [contratto di contratto per macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Applicazione di patch al sistema operativo        | Automatico  | Gestito dai clienti |
 | Applicazione di patch MariaDB     | Automatico  | Gestito dai clienti |
 | Disponibilità elevata | Il modello a disponibilità elevata è basato sui meccanismi di failover predefiniti per quando si verifica un'interruzione a livello di nodo. In questi casi, il servizio crea automaticamente una nuova istanza e connette lo spazio di archiviazione a questa istanza. | I clienti progettano, implementano, testano e gestiscono la disponibilità elevata. Le funzionalità possono includere il clustering di failover always on, la replica di gruppi always on, log shipping o la replica transazionale.|
@@ -102,4 +102,4 @@ Nell'elenco seguente vengono descritte le considerazioni amministrative per ogni
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [i prezzi di database di Azure per MariaDB](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Per iniziare, [creare il primo server](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Iniziare [creando il primo server](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).

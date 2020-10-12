@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88870715"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
@@ -163,7 +163,7 @@ Una sintesi vocale personalizzata, nota anche come personalizzata, è costituita
 
 [!INCLUDE [Get the Speech SDK](includes/get-speech-sdk-android.md)]
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 [!INCLUDE [Get the Node.js Speech SDK](includes/get-speech-sdk-nodejs.md)]
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 852bce26e348c817b609d5ff837641741afe4461
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940395"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Log nel database di Azure per PostgreSQL-server flessibile
@@ -44,7 +44,7 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | TenantId | ID del tenant. |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
-| Tipo | Tipo di log. Sempre `AzureDiagnostics` |
+| Type | Tipo di log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID per la sottoscrizione a cui appartiene il server. |
 | ResourceGroup | Nome del gruppo di risorse a cui appartiene il server. |
 | ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
@@ -54,7 +54,7 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Livello di registrazione, ad esempio: LOG, ERROR, NOTICE |
-| Messaggio | Messaggio di log primario | 
+| Message | Messaggio di log primario | 
 | Dominio | Versione del server, ad esempio: postgres-10 |
 | Dettaglio | Messaggio di log secondario (se applicabile) |
 | ColumnName | Nome della colonna (se applicabile) |

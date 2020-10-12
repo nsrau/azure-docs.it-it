@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ms.openlocfilehash: 699434e89872b9525ea99883bc4fcbc86757ab8e
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619849"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Ruotare la protezione Transparent Data Encryption (Transparent Data Encryption)
@@ -44,7 +44,7 @@ In questa guida vengono illustrate due opzioni per ruotare la protezione TDE nel
 Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per i cmdlet specifici, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89670543"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Spostare le risorse tra le aree in PowerShell
@@ -19,7 +19,7 @@ ms.locfileid: "89670543"
 Informazioni su come spostare le risorse di Azure in un'area diversa usando PowerShell in Azure Resource Mover. 
 
 > [!NOTE]
-> Il motore di risorse di Azure è attualmente in versione di anteprima.
+> Spostamento risorse di Azure è attualmente disponibile in anteprima.
 
 
 
@@ -344,10 +344,10 @@ Invoke-AzResourceMoverInitiateMove -SubscriptionId <subscription-id> -ResourceGr
 
 ## <a name="discard-or-commit-the-move"></a>Rimuovere o eseguire il commit dello spostamento
 
-Dopo lo spostamento iniziale, è possibile decidere se si desidera eseguire il commit dello spostamento o per ignorarlo. 
+Dopo lo spostamento iniziale è possibile decidere se si vuole rimuovere lo spostamento o eseguirne il commit. 
 
-- **Scarto**: è possibile eliminare uno spostamento se si sta eseguendo il test e non si vuole spostare effettivamente la risorsa di origine. Se si ignora lo spostamento, la risorsa viene restituita a uno stato di *spostamento di avvio in sospeso*. Se necessario, è possibile avviare nuovamente lo spostamento.
-- **Commit**: il commit completa lo spostamento nell'area di destinazione. Dopo il commit, una risorsa di origine si troverà in uno stato di *eliminazione origine in sospeso*ed è possibile decidere se eliminarla.
+- **Rimozione**: è possibile eliminare uno spostamento se si sta eseguendo un test e non si vuole realmente spostare la risorsa di origine. In seguito alla rimozione dello spostamento, la risorsa torna allo stato *Avvio spostamento in sospeso*. Se necessario, è possibile avviare nuovamente lo spostamento.
+- **Commit**: il commit consente di completare lo spostamento nell'area di destinazione. Dopo il commit una risorsa di origine si troverà nello stato *Eliminazione origine in sospeso* e sarà possibile decidere se eliminarla.
 
 ### <a name="discard"></a>Discard
 

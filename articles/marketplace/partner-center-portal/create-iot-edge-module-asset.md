@@ -8,17 +8,17 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324642"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
 Questo articolo descrive i requisiti che gli asset tecnici del modulo perimetrale di Internet delle cose devono soddisfare prima di essere pubblicati in Azure Marketplace.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 Un modulo IoT Edge è un contenitore compatibile con Docker che viene eseguito in un dispositivo IoT Edge.
 
@@ -114,7 +114,7 @@ Usare uno dei metodi seguenti dagli SDK dei moduli di Internet delle cose per im
 
 Per i moduli che non usano l'SDK del modulo Internet, sono disponibili informazioni dettagliate meno precise tramite il centro per i partner, ad esempio il numero di download.
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 IoT Edge moduli devono evitare i [moduli con privilegi](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities). In alternativa, è possibile richiedere l'accesso con privilegi minimi all'host.
 
@@ -130,7 +130,7 @@ I partner ricevono una notifica ogni volta che viene apportata una modifica sost
 
 - Matrice del supporto del sistema operativo/Arch di livello 1 supportata da IoT Edge
 - SDK dei moduli IoT
-- Runtime IoT Edge
+- Runtime di IoT Edge
 - Linee guida per la certificazione del modulo IoT Edge
 
 I partner devono aggiornare e ricertificare le offerte ripubblicando tali offerte nel centro per i [partner](https://partner.microsoft.com/dashboard/commercial-marketplace).

@@ -3,12 +3,12 @@ title: Come accedere a un lab per le classi in Azure Lab Services | Microsoft Do
 description: Informazioni su come eseguire la registrazione in un Lab della classe, visualizzare tutti i Lab a cui è possibile accedere, avviare/arrestare una macchina virtuale nel Lab e connettersi alla macchina virtuale.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cd06bfc2dff27f1ef1bc84f01b001b8dbd282cf4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c2f0ba5e6a47e00f47a31e08c036ea17ff2507a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334056"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946111"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
 Questo articolo descrive come registrarsi a un lab per la classe, visualizzare tutti i lab a cui è possibile accedere, avviare e arrestare una macchina virtuale nel lab e connettersi alla macchina virtuale. 
