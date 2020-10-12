@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
 ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87036183"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Avvio del sistema operativo: il computer è stato riavviato in modo imprevisto o ha rilevato un errore imprevisto
@@ -47,7 +47,7 @@ In Azure, usare l'opzione di immissione di un **sistema (configurazione guidata)
 
 Questo problema viene spesso creato quando si usa **Sysprep.exe** con una macchina virtuale locale per caricare una macchina virtuale generalizzata in Azure. In questa situazione potrebbe essere interessante anche il modo in cui caricare correttamente una macchina virtuale generalizzata.
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 
 ### <a name="replace-unattended-answer-file-option"></a>Opzione Sostituisci file di risposte automatico
 

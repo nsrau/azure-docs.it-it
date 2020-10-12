@@ -10,10 +10,10 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
 ms.openlocfilehash: e585bc52121943102522f8c44291a4f9453d6214
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318399"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere una pagina personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto
@@ -30,7 +30,7 @@ Altre guide pratiche estendono questo scenario per aggiungere ulteriori funziona
 Per completare i passaggi in questa guida pratica, è necessario che nel computer di sviluppo locale sia installato il software seguente:
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>La preparazione di un ambiente di sviluppo locale per l'interfaccia utente
 

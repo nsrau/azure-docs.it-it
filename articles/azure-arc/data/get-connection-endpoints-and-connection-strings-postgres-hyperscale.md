@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331013"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Ottenere gli endpoint di connessione e le stringhe di connessione del modulo per il gruppo di server con iperscalabilità PostgreSQL abilitato per Arc
@@ -133,7 +133,7 @@ host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_passw
 host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require
 ```
 
-### <a name="psql"></a>psql
+### <a name="psql"></a>PSQL
 
 ```psql
 psql "host=192.168.1.121 port=24276 dbname=postgres user=postgres password={your_password_here} sslmode=require"

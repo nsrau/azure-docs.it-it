@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90970058"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
@@ -61,7 +61,7 @@ Selezionare uno dei livelli non gratuiti (**D1**, **B1**, **B2**, **B3** o uno q
 
 Fare clic su **Applica**.
 
-:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot dei piani tariffari del dominio personalizzato nella categoria produzione con la scheda produzione, il piano B1 e il pulsante Applica evidenziato.":::
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot del menu di spostamento a sinistra della pagina dell'app con scalabilità verticale (piano di servizio app) selezionato.":::
 
 La visualizzazione della notifica seguente indica che l'operazione di passaggio al livello superiore è stata completata.
 

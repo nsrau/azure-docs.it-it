@@ -16,10 +16,10 @@ ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90969398"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creare, elencare o eliminare un'identità gestita assegnata dall'utente usando le chiamate API REST
@@ -34,8 +34,8 @@ Questo articolo spiega come creare, elencare ed eliminare un'identità gestita a
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- È possibile eseguire tutti i comandi in questo articolo sia nel cloud che in locale:
-    - Per l'esecuzione nel cloud, usare il [Azure cloud Shell](../../cloud-shell/overview.md).
+- È possibile eseguire tutti i comandi di questo articolo nel cloud o in locale:
+    - Per l'esecuzione nel cloud, usare [Azure Cloud Shell](../../cloud-shell/overview.md).
     - Per eseguire localmente, installare [curl](https://curl.haxx.se/download.html) e l' [interfaccia](/cli/azure/install-azure-cli)della riga di comando di Azure.
 
 ## <a name="obtain-a-bearer-access-token"></a>Ottenere un token di accesso di connessione

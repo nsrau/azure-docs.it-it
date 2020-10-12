@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77523037"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
 Questo set di articoli illustra come eseguire l'autenticazione e inviare messaggi in tempo reale ai client connessi al [servizio Azure SignalR](https://azure.microsoft.com/services/signalr-service/) usando le associazioni del servizio SignalR in funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per il servizio SignalR.
 
-| Action | Type |
+| Azione | Type |
 |---------|---------|
 | Restituisce l'URL dell'endpoint del servizio e il token di accesso | [Binding di input](./functions-bindings-signalr-service-input.md) |
 | Inviare messaggi del servizio SignalR |[Binding di output](./functions-bindings-signalr-service-output.md) |
