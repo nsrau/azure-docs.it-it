@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: a4f7d330db9a4a0d9b435ebe7527e55e37c254e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086218"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con PowerShell (Resource Manager)
@@ -23,7 +23,7 @@ Questo articolo illustra come automatizzare la procedura per la replica di macch
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Esaminare [l'architettura e i componenti dello scenario](hyper-v-vmm-architecture.md).
-- Esaminare i [requisiti di supporto](./vmware-physical-secondary-support-matrix.md) per tutti i componenti.
+- Verificare i [requisiti di supporto](./vmware-physical-secondary-support-matrix.md) per tutti i componenti.
 - Assicurarsi che i server Virtual Machine Manager e gli host Hyper-V rispettino i [requisiti di supporto](./vmware-physical-secondary-support-matrix.md).
 - Assicurarsi che le macchine virtuali da replicare siano conformi al [supporto del computer replicato](./vmware-physical-secondary-support-matrix.md).
 

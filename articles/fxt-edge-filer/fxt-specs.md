@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184687"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifiche di Azure FXT Edge Filer
@@ -37,7 +37,7 @@ I numeri delle unità sono stampati nello spazio tra le unità. In Azure FXT Edg
 | Numeri di unità    |  Uso   |  Specifiche |
 |------------------|--------|-----------------|
 | 0, 1             | OS     | Unità SSD SATA da 480 GB |
-| 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: unità SSD NVMe 3,2 TB <br> FXT 6400: unità SSD NVMe 1,6 TB |
+| 2, 3, 4, 5, 6, 7, 8, 9 | Dati   | FXT 6600: unità SSD NVMe 3,2 TB <br> FXT 6400: unità SSD NVMe 1,6 TB |
 
 
 ## <a name="dimensions-and-weight"></a>Dimensioni e peso
@@ -96,7 +96,7 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 | Frequenza (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5,02 | 4,16 |2,40 | 2,20 | 2.16 |
 | Potenza apparente (VA) | 502 | 499 | 499 | 506 | 518|
-| Fattore di potenza | 0,99 | 0,99 |0.98 | 0.98 | 0.98 |
+| Fattore di potenza | 0.99 | 0.99 |0.98 | 0.98 | 0.98 |
 | Potenza effettiva (W) | 497 |494 | 489 | 496 | 508 |
 | Dissipazione termica (BTU/ora) |1696 | 1686 | 1669 | 1692 | 1733 |
 
@@ -106,7 +106,7 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 | Frequenza (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 5,98 | 5,01 | 2.81 | 2.55 | 2,48 |
 | Potenza apparente (VA) | 598 | 601 | 584 | 587 | 595 |
-| Fattore di potenza | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 |
+| Fattore di potenza | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
 | Potenza effettiva (W) | 592 | 595 | 573 | 575 | 583 |
 | Dissipazione termica (BTU/ora) | 2020 |2031 | 1954 | 1961 | 1990 |
 
@@ -116,7 +116,7 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 | Frequenza (Hz) |60 | 60 | 60 | 50 | 50 |
 | Corrente (A) | 4,63 | 3,86 | 2.24 | 2,04 | 1,94 |
 | Potenza apparente (VA) | 463 | 463 | 466 | 469 | 466 |
-| Fattore di potenza | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 | 
+| Fattore di potenza | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 | 
 | Potenza effettiva (W) | 458 | 459 | 457 | 460 | 456 |
 | Dissipazione termica (BTU/ora) | 1564 | 1565 | 1558 | 1569 | 1557 |
 
@@ -124,9 +124,9 @@ Di seguito sono riportate le misurazioni del consumo energetico e dell'emissione
 |---------|---|---|---|---|---|
 | Tensione (V) | 100 | 120 | 208 | 230 | 240 |
 | Frequenza (Hz) | 60 | 60 | 60 | 50 | 50 |
-| Corrente (A) | 5.15 | 4,28 | 2,48 | 2,28 | 2,13 |
+| Corrente (A) | 5.15 | 4,28 | 2,48 | 2.28 | 2,13 |
 | Potenza apparente (VA) | 515 | 514 | 516 | 524 | 511 |
-| Fattore di potenza | 0,99 | 0,99 | 0.98 | 0.98 | 0.98 |
+| Fattore di potenza | 0.99 | 0.99 | 0.98 | 0.98 | 0.98 |
 | Potenza effettiva (W) | 510 | 508 | 506 | 514 | 501 |
 | Dissipazione termica (BTU/ora) | 1740 | 1735 | 1725 | 1753 | 1709 |
 
@@ -160,7 +160,7 @@ Questa sezione contiene le specifiche per l'ambiente dell'hardware.
 
 Azure FXT Edge Filer è conforme alle normative elencate. 
 
-| Categoria       | Specifica della normativa | 
+| Category       | Specifica della normativa | 
 |----------------|--------------------------|
 | Sicurezza generale | EN 60950-1:2006 +A1:2010 +A2:2013 +A11:2009 +A12:2011/IEC 60950-1:2005 ed2 +A1:2009 +A2:2013 <br>EN 62311:2008 | 
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 +A1:2015/CISPR 24:2010 +A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (classe D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |

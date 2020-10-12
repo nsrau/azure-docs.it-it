@@ -10,10 +10,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84034682"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentare il numero di istanze con il database SQL di Azure
@@ -67,7 +67,7 @@ La maggior parte delle applicazioni di database su scala cloud usano una combina
 
 ## <a name="sharding"></a>Partizionamento orizzontale
 
-*Partizionamento orizzontale* è una tecnica per distribuire grandi quantità di dati strutturati in modo identico tra più database indipendenti. È molto usato dagli sviluppatori cloud che creano offerte Software as a Service (SAAS) per clienti finali o aziende. Questi clienti finali sono spesso denominati "tenant". Il partizionamento orizzontale può essere necessario per vari motivi:  
+Il *partizionamento orizzontale* è una tecnica per distribuire grandi quantità di dati strutturati in modo identico in diversi database indipendenti. È molto usato dagli sviluppatori cloud che creano offerte Software as a Service (SAAS) per clienti finali o aziende. Questi clienti finali sono spesso denominati "tenant". Il partizionamento orizzontale può essere necessario per vari motivi:  
 
 * La quantità totale di dati è troppo elevata per un singolo database
 * La velocità effettiva delle transazioni del carico di lavoro complessivo supera le capacità di un singolo database

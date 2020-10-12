@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558553"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Risolvere i problemi relativi all'archiviazione BLOB Azure Data Box
@@ -26,7 +26,7 @@ In questa sezione vengono illustrati alcuni dei problemi riscontrati durante l'u
 |Messaggio di errore  |Azione consigliata |
 |---------|---------|
 |Impossibile recuperare le risorse figlio. Il valore per una delle intestazioni HTTP non è nel formato corretto.|Dal menu **modifica** selezionare **destinazione API Azure stack**. <br>Riavviare Azure Storage Explorer.|
-|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts nel percorso seguente: <li>`C:\Windows\System32\drivers\etc\hosts`in Windows o </li><li> `/etc/hosts`in Linux.</li>|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com` |Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts nel percorso seguente: <li>`C:\Windows\System32\drivers\etc\hosts` in Windows o </li><li> `/etc/hosts` in Linux.</li>|
 |Impossibile recuperare le risorse figlio. <br>Dettagli: certificato autofirmato |Importare il certificato TLS/SSL per il dispositivo in Azure Storage Explorer: <li>Scaricare il certificato dal portale di Azure. Per ulteriori informazioni, vedere [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Scegliere **certificati SSL** dal menu **modifica** , quindi selezionare **Importa certificati**.</li>|
 
 ## <a name="errors-seen-in-azcopy-for-windows"></a>Errori visualizzati in AzCopy per Windows
@@ -35,7 +35,7 @@ Questa sezione illustra in dettaglio alcuni dei problemi riscontrati quando si u
 
 |Messaggio di errore  |Azione consigliata |
 |---------|---------|
-|Il comando AzCopy sembra smettere di rispondere per un minuto prima di visualizzare questo errore: <br>Impossibile enumerare la directory https://... Non è stato possibile risolvere il nome remoto`<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts in: `C:\Windows\System32\drivers\etc\hosts` .|
+|Il comando AzCopy sembra smettere di rispondere per un minuto prima di visualizzare questo errore: <br>Impossibile enumerare la directory https://... Non è stato possibile risolvere il nome remoto `<accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts in: `C:\Windows\System32\drivers\etc\hosts` .|
 |Il comando AzCopy sembra smettere di rispondere per un minuto prima di visualizzare questo errore: <br>Errore durante l'analisi del percorso di origine. Connessione sottostante chiusa: Impossibile stabilire una relazione di trust per il canale sicuro SSL/TLS.|Importare il certificato TLS/SSL per il dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](data-box-deploy-copy-data-via-rest.md#download-certificate).|
 
 

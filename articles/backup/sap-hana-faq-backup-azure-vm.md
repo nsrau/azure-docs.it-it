@@ -4,10 +4,10 @@ description: In questo articolo è possibile trovare le risposte ad alcune doman
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86513507"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti - Backup di database SAP HANA in VM di Azure
@@ -77,7 +77,7 @@ Attualmente non è possibile configurare la soluzione in base a un indirizzo IP 
 
 Attualmente, backup di Azure non è in grado di comprendere la configurazione di un HSR. Ciò significa che i nodi primari e secondari di HSR verranno considerati come due macchine virtuali singole e non correlate. Per prima cosa è necessario configurare il backup nel nodo primario. Quando si verifica un failover, il backup deve essere configurato nel nodo secondario, che ora diventa il nodo primario. Non esiste un failover automatico del backup nell'altro nodo.
 
-Per eseguire il backup dei dati dal nodo attivo (primario) in un determinato momento, è possibile **passare la protezione** al nodo secondario, che ora diventa primario dopo il failover.
+Per eseguire il backup dei dati dal nodo attivo (primario) in un determinato momento, è possibile **passare la protezione**  al nodo secondario, che ora diventa primario dopo il failover.
 
 Per eseguire questa **opzione**, attenersi alla procedura seguente:
 

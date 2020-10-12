@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: a5ce99927ce4cd2b04b5dd5cb865299b4be84ecb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86519797"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---hyperscale-citus-compute-resources-with-reserved-capacity"></a>PrePay per database di Azure per PostgreSQL-risorse di calcolo con iperscalabilità (CITUS) con capacità riservata
@@ -39,7 +39,7 @@ Per informazioni su come Enterprise Agreement clienti e clienti con pagamento in
 
 Le dimensioni della prenotazione si basano sulla quantità totale di risorse di calcolo usate dal coordinatore esistente o presto da distribuire e dai nodi del ruolo di lavoro nei gruppi di server iperscalari (CITUS) all'interno di un'area specifica.
 
-Si supponga, ad esempio, di eseguire un gruppo di server con iperscalabilità (CITUS) con 16 coordinatore vCore e tre nodi di lavoro da 8 vCore. Si supponga inoltre di pianificare la distribuzione nel prossimo mese di un gruppo di server CITUS (overscale) aggiuntivo con un coordinatore vCore di 32 e due nodi del ruolo di lavoro di 4 vCore. Supponiamo anche che siano necessarie per almeno un anno.
+Si supponga, ad esempio, di eseguire un gruppo di server con iperscalabilità (CITUS) con 16 coordinatore vCore e nodi di lavoro di 3 8 vCore. Si supponga inoltre di pianificare la distribuzione nel prossimo mese di un gruppo di server CITUS (overscale) aggiuntivo con un coordinatore vCore di 32 e 2 4 nodi di lavoro vCore. Supponiamo anche che siano necessarie per almeno un anno.
 
 In questo caso, acquistare una prenotazione di un anno per:
 

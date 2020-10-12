@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75464708"
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
@@ -31,7 +31,7 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 | PhysicalDisk(per Disk) | Byte letti da disco/sec |
 | PhysicalDisk(per Disk) | Scritture disco/sec |
 | PhysicalDisk(per Disk) | Byte scritti su disco/sec |
-| Memory | MByte disponibili |
+| Memoria | MByte disponibili |
 | PagingFile | % Usage |
 | Processor(Total) | % di tempo processore |
 | Process (per service) | % di tempo processore |

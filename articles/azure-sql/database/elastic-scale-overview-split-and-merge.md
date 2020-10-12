@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84034652"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
@@ -53,7 +53,7 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 
 - **Unire per ridurre**
 
-  In certi casi è necessario ridurre la capacità, per la natura stagionale dell'attività commerciale. Lo strumento consente di passare a un numero inferiore di unità di scala quando l'attività rallenta. La funzionalità' merge ' nel servizio di suddivisione-unione di scalabilità elastica copre questo requisito.
+  In certi casi è necessario ridurre la capacità, per la natura stagionale dell'attività commerciale. Lo strumento consente di passare a un numero inferiore di unità di scala quando l'attività rallenta. La funzionalità "merge" nel servizio di scalabilità elastica Split-Merge copre questo requisito.
 
 - **Gestire gli hotspot mediante lo spostamento di shardlet**
 
@@ -203,7 +203,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Flag che indica se la richiesta è stata annullata.
 
-- **Avanzamento**
+- **Progress**
 
   Stima della percentuale di completamento dell'operazione. Un valore pari a 50 indica che la percentuale di completamento dell'operazione è pari a circa il 50%.
 

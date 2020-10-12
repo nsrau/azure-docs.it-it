@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.author: Zhchia
 ms.openlocfilehash: 7fde4a82ff3a9e0cfa67e8ce5afeebc000757b7c
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462055"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Esercitazione: configurare l'Invisione per il provisioning utenti automatico
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e invisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-invision-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare INVISIO per supportare il provisioning con Azure AD
+## <a name="step-2-configure-invision-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare INVISIO per supportare il provisioning con Azure AD
 
 1. Accedere all' [account aziendale di Invision](https://www.invisionapp.com/enterprise) come amministratore o proprietario. Aprire il cassetto **impostazioni team** in basso a sinistra e selezionare **Impostazioni**.
 

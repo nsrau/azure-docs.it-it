@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 190aaae81d51434b57b5aaa6817a443dc541d26e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89069137"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioni
@@ -37,7 +37,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nel portale di Azure fare clic su **Tutti i servizi**. 
-1. Nell'elenco delle risorse immettere account di **archiviazione**. Mentre si digita, l'elenco viene filtrato in base all'input. Selezionare **account di archiviazione**.
+1. Nell'elenco delle risorse immettere account di **archiviazione**. Mentre si digita, l'elenco viene filtrato in base all'input. Selezionare **Account di archiviazione**.
 1. Nella finestra **account di archiviazione** visualizzata selezionare **Aggiungi**.
 1. Selezionare la sottoscrizione che verrà usata per creare l'account di archiviazione.
 1. Nel campo **Gruppo di risorse** selezionare **Crea nuovo**. Immettere un nome per il nuovo gruppo di risorse.
@@ -49,7 +49,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 1. Impostare la replica sull'archiviazione con **ridondanza locale** o sull' **archiviazione con ridondanza della zona**.
 1. Lasciare i valori predefiniti per questi campi:
 
-   |Campo  |valore  |
+   |Campo  |Valore  |
    |---------|---------|
    |Modello di distribuzione     |Gestione risorse         |
    |Prestazioni     |Standard         |
@@ -61,7 +61,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 
     ![Screenshot con il pulsante di opzione "Enabled" in un nuovo account di archiviazione nel portale di Azure](media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png)
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 

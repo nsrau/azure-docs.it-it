@@ -12,10 +12,10 @@ ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 77bb53e2605913fcee6999284acb04616efc53af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201413"
 ---
 # <a name="define-an-application-insights-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico Application Insights in un criterio personalizzato Azure AD B2C
@@ -32,9 +32,9 @@ Azure Active Directory B2C (Azure AD B2C) supporta l'invio diretto di dati di ev
 
 ## <a name="protocol"></a>Protocollo
 
-L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Proprietary`. L'attributo **handler** deve contenere il nome completo dell'assembly del gestore di protocollo usato da Azure AD B2C per Application Insights:`Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Proprietary`. L'attributo **handler** deve contenere il nome completo dell'assembly del gestore di protocollo usato da Azure AD B2C per Application Insights: `Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
-Nell'esempio seguente viene illustrato il profilo tecnico Application Insights comune. Altri profili tecnici Application Insights includono AzureInsights-Common per sfruttare la configurazione.  
+Nell'esempio seguente viene illustrato il profilo tecnico Application Insights comune. Altri profili tecnici Application Insights includono i AzureInsights-Common per sfruttare la configurazione.  
 
 ```xml
 <TechnicalProfile Id="AzureInsights-Common">
@@ -66,7 +66,7 @@ L'elemento PersistedClaims non viene utilizzato.
 
 Gli elementi OutputClaims e OutputClaimsTransformations non vengono utilizzati.
 
-## <a name="cryptographic-keys"></a>Chiavi crittografiche
+## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
 L'elemento CryptographicKeys non viene usato.
 

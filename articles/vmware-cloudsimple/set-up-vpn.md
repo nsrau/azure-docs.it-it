@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77087135"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configurare una connessione VPN al cloud privato CloudSimple
@@ -37,7 +37,7 @@ Il client VPN è necessario per la connessione a CloudSimple dal computer.  Scar
 1. Avviare il portale di CloudSimple e selezionare **rete**.
 2. Selezionare **gateway VPN**.
 3. Dall'elenco dei gateway VPN fare clic sul gateway VPN da punto a sito.
-4. Selezionare **utenti**.
+4. Selezionare **Utenti**.
 5. Fare clic su **Scarica configurazione VPN**
 
     ![Scaricare la configurazione della VPN](media/download-p2s-vpn-configuration.png)

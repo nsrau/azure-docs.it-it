@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91269761"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blocca le connessioni create dai connettori nelle app per la logica di Azure
@@ -150,7 +150,7 @@ Per bloccare la creazione di una connessione in un'app per la logica, seguire qu
     }
     ```
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | `mode` | `All` | Modalità che determina i tipi di risorse valutati dal criterio. <p><p>Questo scenario imposta `mode` su `All` , che applica i criteri a gruppi di risorse di Azure, sottoscrizioni e tutti i tipi di risorsa. <p><p>Per ulteriori informazioni, vedere la pagina relativa alla [modalità struttura della definizione dei criteri](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Condizione che determina quando applicare la regola dei criteri <p><p>In questo scenario, `{condition-to-evaluate}` determina se il `api.id` valore in `Microsoft.Web/connections/api.id` corrisponde a `*managedApis/{connector-name}` , che specifica un valore jolly (*). <p><p>Per altre informazioni, vedere [struttura della definizione dei criteri-regola dei criteri](../governance/policy/concepts/definition-structure.md#policy-rule). |
@@ -271,7 +271,7 @@ Quando si crea una connessione all'interno di un'app per la logica, tale conness
     }
     ```
 
-   | Proprietà | valore | Descrizione |
+   | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | `mode` | `All` | Modalità che determina i tipi di risorse valutati dal criterio. <p><p>Questo scenario imposta `mode` su `All` , che applica i criteri a gruppi di risorse di Azure, sottoscrizioni e tutti i tipi di risorsa. <p><p>Per ulteriori informazioni, vedere la pagina relativa alla [modalità struttura della definizione dei criteri](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | Condizione che determina quando applicare la regola dei criteri <p><p>In questo scenario, `{condition-to-evaluate}` determina se l'output della stringa da `[string(field('Microsoft.Logic/workflows/parameters'))]` contiene la stringa, `{connector-name}` . <p><p>Per altre informazioni, vedere [struttura della definizione dei criteri-regola dei criteri](../governance/policy/concepts/definition-structure.md#policy-rule). |
@@ -366,7 +366,7 @@ Il messaggio include le informazioni seguenti:
 | Descrizione | Contenuto |
 |-------------|---------|
 | Motivo dell'errore | `"Resource 'instagram' was disallowed by policy."` |
-| Nome dell'assegnazione | `"Block Instagram connections"` |
+| Nome assegnazione | `"Block Instagram connections"` |
 | ID assegnazione | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |
 | ID definizione dei criteri | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"` |
 |||

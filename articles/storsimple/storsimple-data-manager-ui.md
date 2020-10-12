@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88184536"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
@@ -133,7 +133,7 @@ Per creare una definizione del processo, seguire questa procedura.
 
 ### <a name="run-the-job-definition"></a>Eseguire la definizione di processo
 
-Per spostare i dati da StorSimple all'account di archiviazione specificato nella definizione del processo, è necessario eseguire tale definizione. In fase di esecuzione, è possibile specificare alcuni parametri in modo diverso. La procedura è la seguente:
+Per spostare i dati da StorSimple all'account di archiviazione specificato nella definizione del processo, è necessario eseguire tale definizione. In fase di esecuzione, è possibile specificare alcuni parametri in modo diverso. Attenersi alla procedura seguente:
 
 1. Fare clic sul servizio StorSimple Data Manager e passare a **Gestione > Definizioni processi**. Selezionare e fare clic sulla definizione del processo che si vuole eseguire.
      

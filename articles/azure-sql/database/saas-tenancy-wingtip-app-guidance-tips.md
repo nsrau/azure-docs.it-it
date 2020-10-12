@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 4c3a141525f650d6e254f79ce9e3396f2c35a95f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84040882"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
@@ -32,7 +32,7 @@ I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando s
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. Fare clic su **Clona o scarica**.
-3. Fare clic su **Download zip** (Scarica ZIP) e salvare il file.
+3. Fare clic su **Scarica zip** e salvare il file.
 4. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Proprietà**. Il nome del file ZIP corrisponderà al nome del repository. Ad esempio _WingtipTicketsSaaS-DbPerTenant-master.zip_
 5. Nella scheda **Generale** selezionare **Annulla blocco**.
 6. Fare clic su **OK**.

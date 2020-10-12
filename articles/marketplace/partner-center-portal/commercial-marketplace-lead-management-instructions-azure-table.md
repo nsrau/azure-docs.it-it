@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
 ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030798"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione tabelle di Azure per gestire i lead del marketplace commerciale
@@ -38,7 +38,7 @@ Se il sistema CRM (Customer Relationship Management, Gestione rapporti con clien
 
 1. Dalla **Home** page del portale di Azure selezionare **Visualizza tutte le risorse** per accedere all'account di archiviazione. È anche possibile selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure.
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Accedere all'account di archiviazione di Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Procedura per creare un account di archiviazione di Azure.":::
 
 1. Nel riquadro dell'account di archiviazione selezionare **Chiavi di accesso** e copiare il valore di **Stringa di connessione** per la chiave. Salvare questo valore perché si tratta del valore di **Stringa di connessione a account di archiviazione** che sarà necessario specificare nel portale di pubblicazione per ricevere i lead per l'offerta di Azure Marketplace.
 
@@ -48,7 +48,7 @@ Se il sistema CRM (Customer Relationship Management, Gestione rapporti con clien
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Chiave di archiviazione di Azure.":::
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Procedura per creare un account di archiviazione di Azure.":::
 
 
 1. Nel riquadro dell'account di archiviazione selezionare **Tabelle** e **Tabella** per creare una tabella. Immettere un nome per la tabella e selezionare **OK**. Salvare questo valore perché sarà necessario se si vuole configurare un flusso per ricevere notifiche di posta elettronica quando vengono ricevuti i lead.
@@ -185,7 +185,7 @@ Quando si è pronti per configurare le informazioni di gestione dei lead per l'o
 
 1. Nella sezione **Customer leads** (Lead clienti) selezionare **Connect** (Connetti).
 
-    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Lead clienti":::
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Procedura per creare un account di archiviazione di Azure.":::
 
 1. Nella finestra popup **Dettagli connessione** selezionare **Tabella di Azure** per **Destinazione del lead**. 
      ![Gestione dei lead, Dettagli connessione](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

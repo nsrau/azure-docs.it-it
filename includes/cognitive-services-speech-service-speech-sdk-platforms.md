@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: dapine
 ms.openlocfilehash: 85dfedc75807e273240066460a58b79380050e58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80656646"
 ---
 | Linguaggio di programmazione | Piattaforma                                                                           | Informazioni di riferimento sugli SDK              |
@@ -20,7 +20,7 @@ ms.locfileid: "80656646"
 | Objective-C/Swift  | iOS, macOS                                                                         | [Objective-C SDK][obj-sdk] |
 | Python               | Windows, Linux, macOS                                                              | [Python SDK][pyt-sdk]      |
 
-<sup>1 .NET Speech SDK è basato su .NET Standard 2,0, pertanto supporta molte piattaforme. Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">supporto <span class="docon docon-navigate-external x-hidden-focus"> </span>dell'implementazione di .NET </a>.</sup>
+<sup>1 .NET Speech SDK è basato su .NET Standard 2,0, pertanto supporta molte piattaforme. Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">supporto <span class="docon docon-navigate-external x-hidden-focus"></span> dell'implementazione di .NET </a>.</sup>
 
 <sup>2 Java Speech SDK è disponibile anche come parte dell'SDK per [dispositivi vocali](../articles/cognitive-services/speech-service/speech-devices-sdk.md).</sup>
 

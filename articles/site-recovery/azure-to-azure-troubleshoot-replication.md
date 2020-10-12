@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86130408"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Risolvere i problemi di replica in Azure VM Recovery
@@ -35,7 +35,7 @@ Si noterà che la **frequenza di modifica dei dati dell'evento supera i limiti s
 
 Se si seleziona l'evento, si dovrebbero vedere le informazioni esatte del disco:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Pagina che mostra i dettagli dell'evento della frequenza di modifica dei dati.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png" alt-text="Azure Site Recovery pagina che mostra una frequenza di modifica dei dati elevata troppo elevata.":::
 
 ### <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
 
@@ -56,7 +56,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 
 Azure Site Recovery presenta limiti per la frequenza di modifica dei dati, a seconda del tipo di disco. Per verificare se il problema è ricorrente o temporaneo, individuare la frequenza di modifica dei dati della macchina virtuale interessata. Andare alla macchina virtuale di origine, trovare le metriche in **Monitoraggio**, quindi aggiungere le metriche, come mostra questo screenshot:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Pagina in cui viene illustrato il processo in tre passaggi per l'individuazione della frequenza di modifica dei dati.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/churn.png" alt-text="Azure Site Recovery pagina che mostra una frequenza di modifica dei dati elevata troppo elevata.":::
 
 1. Selezionare **Aggiungi metrica** e aggiungere **Byte scritti su disco/sec per un disco del sistema operativo** e **Byte scritti su disco/sec per un disco dati**.
 1. Monitorare il picco come mostrato nello screenshot.
@@ -65,7 +65,7 @@ Azure Site Recovery presenta limiti per la frequenza di modifica dei dati, a sec
 Un picco della frequenza di modifica dei dati potrebbe provenire da un improvviso aumento dei dati. Se la frequenza di modifica dei dati è maggiore di 10 MB/s (per Premium) o 2 MB/s (per il livello standard) e si arresta, la replica si aggiornerà. Se la varianza è in modo coerente oltre il limite supportato, prendere in considerazione una delle opzioni seguenti:
 
 - Escludere il disco che causa un elevato tasso di modifica dei dati: prima di tutto disabilitare la replica. È quindi possibile escludere il disco usando [PowerShell](azure-to-azure-exclude-disks.md).
-- Modificare il livello del disco di archiviazione per il ripristino di emergenza: questa opzione è possibile solo se la varianza dei dati del disco è inferiore a 20 MB/s. Ad esempio, una macchina virtuale con un disco P10 ha una varianza di dati superiore a 8 MB/s ma minore di 10 MB/s. Se il cliente può usare il disco P30 per l'archiviazione di destinazione durante la protezione, il problema può essere risolto. Questa soluzione è possibile solo per i computer che usano Managed Disks Premium. Attenersi ai passaggi descritti di seguito.
+- Modificare il livello del disco di archiviazione per il ripristino di emergenza: questa opzione è possibile solo se la varianza dei dati del disco è inferiore a 20 MB/s. Ad esempio, una macchina virtuale con un disco P10 ha una varianza di dati superiore a 8 MB/s ma minore di 10 MB/s. Se il cliente può usare il disco P30 per l'archiviazione di destinazione durante la protezione, il problema può essere risolto. Questa soluzione è possibile solo per i computer che usano dischi Premium-Managed. Seguire questa procedura:
 
   1. Passare a **dischi** del computer replicato interessato e copiare il nome del disco di replica.
   1. Passare a questa replica del disco gestito.

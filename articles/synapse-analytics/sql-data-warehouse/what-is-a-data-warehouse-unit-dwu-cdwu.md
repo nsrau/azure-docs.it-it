@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89461987"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unità di data warehouse (DWU)
@@ -24,7 +24,7 @@ Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU) p
 
 ## <a name="what-are-data-warehouse-units"></a>Che cosa sono le unità Data Warehouse?
 
-Un [pool di SQL sinapsi](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning. Le risorse analitiche sono definite come una combinazione di CPU, memoria e i/o.
+Un [pool di SQL sinapsi](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) rappresenta una raccolta di risorse analitiche di cui è in corso il provisioning. Le risorse di analisi sono definite come una combinazione di CPU, memoria e I/O.
 
 Queste tre risorse sono aggregate in unità di calcolo note come unità Data Warehouse (DWU). Un'unità DWU rappresenta una misura astratta e normalizzata delle risorse e delle prestazioni di calcolo.
 
@@ -51,7 +51,7 @@ L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che 
 L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il costo e il livello di prestazioni del pool SQL. I livelli di servizio per il pool SQL Gen2 sono misurati in unità Data Warehouse, ad esempio DW2000c.
 
 > [!NOTE]
-> Azure sinapsi Analytics Gen2 ha recentemente aggiunto funzionalità di ridimensionamento aggiuntive per supportare i livelli di calcolo a 100 DWU. I data warehouse esistenti attualmente su Gen1 che richiedono i livelli di calcolo più bassi possono ora eseguire l'aggiornamento a Gen2 nelle aree attualmente disponibili senza costi aggiuntivi.  Se la propria area non è ancora supportata, è comunque possibile eseguire l'aggiornamento a un'area supportata. Per altre informazioni, vedere [Aggiornamento a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> In Azure Synapse Analytics Gen2 sono state di recente aggiunte altre funzionalità di dimensionamento per supportare livelli di calcolo di 100 DWU a elevato utilizzo di calcolo. I data warehouse esistenti attualmente su Gen1 che richiedono i livelli di calcolo più bassi possono ora eseguire l'aggiornamento a Gen2 nelle aree attualmente disponibili senza costi aggiuntivi.  Se la propria area non è ancora supportata, è comunque possibile eseguire l'aggiornamento a un'area supportata. Per altre informazioni, vedere [Aggiornamento a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 In T-SQL l'impostazione di SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per il pool SQL.
 
@@ -141,7 +141,7 @@ Per cambiare il numero di DWU, usare il cmdlet di PowerShell [Set-AzSqlDatabase]
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Per altre informazioni, vedere [cmdlet di PowerShell per Azure sinapsi Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Per altre informazioni, vedere [Cmdlet di PowerShell per Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -173,7 +173,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-Per altri esempi di API REST, vedere [API REST per Azure sinapsi Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Per altri esempi di API REST, vedere [API REST per Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Controllare lo stato delle modifiche alle DWU
 

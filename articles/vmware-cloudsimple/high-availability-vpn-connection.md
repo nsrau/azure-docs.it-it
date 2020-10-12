@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77025266"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurare una connessione a disponibilità elevata da locale a gateway VPN CloudSimple
@@ -44,7 +44,7 @@ Per abilitare la fase 1 (IKEv1) nell'interfaccia esterna, immettere il comando C
 
 ### <a name="2-create-an-ikev1-policy"></a>2. creare un criterio IKEv1
 
-Creare un criterio IKEv1 che definisce gli algoritmi e i metodi da usare per l'hashing, l'autenticazione, il gruppo Diffie-Hellman, la durata e la crittografia.
+Creare un criterio IKEv1 che definisce gli algoritmi e i metodi da usare per l'hashing, l'autenticazione, il Diffie-Hellman gruppo, la durata e la crittografia.
 
 ```
 crypto ikev1 policy 1
@@ -141,7 +141,7 @@ Output fase 2:
 
 ## <a name="configure-on-premises-palo-alto-networks-firewall"></a>Configurare il firewall di Palo Alto Networks locale
 
-Le istruzioni riportate in questa sezione si applicano a Palo Alto Networks versione 7,1 e successive. In questo esempio di configurazione, la versione del software della serie VM Palo Alto Networks 8.1.0 viene distribuita e configurata in modalità IKEv1.
+Le istruzioni riportate in questa sezione si applicano a Palo Alto Networks versione 7,1 e successive. In questo esempio di configurazione, Palo Alto Networks VM-Series versione software 8.1.0 viene distribuito e configurato in modalità IKEv1.
 
 Per il funzionamento della VPN da sito a sito, è necessario consentire UDP 500/4500 e ESP (protocollo IP 50) dall'IP pubblico primario e secondario di CloudSimple (IP peer) nell'interfaccia esterna del gateway Palo Alto Networks locale.
 
@@ -185,7 +185,7 @@ Selezionare **rete**  >  **espandere profili di rete**  >  **IKE Crypto**  >  **
 * Name. Immettere un nome per il profilo di crittografia IKE.
 * Gruppo DH. Fare clic su **Aggiungi** e selezionare il gruppo DH appropriato.
 * Crittografia. Fare clic su **Aggiungi** e selezionare il metodo di crittografia appropriato.
-* L'autenticazione. Fare clic su **Aggiungi** e selezionare il metodo di autenticazione appropriato.
+* Autenticazione. Fare clic su **Aggiungi** e selezionare il metodo di autenticazione appropriato.
 * Durata della chiave. Lasciare il valore predefinito.
 * IKEv2 multiple authentication. Lasciare il valore predefinito.
 
@@ -204,7 +204,7 @@ Scheda Generale:
 * Indirizzo IP locale. Lasciare il valore predefinito.
 * Tipo di indirizzo IP peer. Selezionare **IP**.
 * Peer Address (Indirizzo peer). Immettere l'indirizzo IP del peer VPN CloudSimple primario.
-* L'autenticazione. Selezionare la **chiave precondivisa**.
+* Autenticazione. Selezionare la **chiave precondivisa**.
 * Chiave pre-condivisa/conferma chiave precondivisa. Immettere la chiave precondivisa in modo che corrisponda alla chiave del gateway VPN CloudSimple.
 * Identificazione locale. Immettere l'indirizzo IP pubblico del palo alto firewall locale.
 * Identificazione peer. Immettere l'indirizzo IP del peer VPN CloudSimple primario.
@@ -229,7 +229,7 @@ Selezionare **rete**  >  **espandere profili di rete**  >  **IPSec crittografia*
 * Name. Immettere un nome per il profilo di crittografia IPsec.
 * Protocollo IPsec. Selezionare **ESP**.
 * Crittografia. Fare clic su **Aggiungi** e selezionare il metodo di crittografia appropriato.
-* L'autenticazione. Fare clic su **Aggiungi** e selezionare il metodo di autenticazione appropriato.
+* Autenticazione. Fare clic su **Aggiungi** e selezionare il metodo di autenticazione appropriato.
 * Gruppo DH. Selezionare **No-PFS**.
 * Vita. Impostato su 30 minuti.
 * Abilita. Lasciare deselezionata la casella.

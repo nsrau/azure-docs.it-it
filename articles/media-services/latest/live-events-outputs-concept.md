@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9a32cd4db9a4c4dbd2b5f36c16feef4717790c3c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89291467"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output Live in servizi multimediali
@@ -60,7 +60,7 @@ Per un esempio di codice .NET, vedere [MediaV3LiveApp](https://github.com/Azure-
 
 ![diagramma di esempio di codifica live con servizi multimediali](./media/live-streaming/live-encoding.svg)
 
-Quando si usa la codifica live con servizi multimediali, si configura il codificatore Live locale per inviare un video a bitrate singolo come feed di contributo all'evento Live (usando il protocollo RTMP o fragmented-MP4). Si configura quindi un evento Live per codificare il flusso a bitrate singolo in ingresso in un [flusso video a più velocità in bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)e rende disponibile l'output per la riproduzione di dispositivi tramite protocolli come MPEG-Dash, HLS e Smooth Streaming.
+Quando si usa la codifica live con servizi multimediali, si configura il codificatore Live locale per l'invio di un video a bitrate singolo come feed di contributo per l'evento Live (usando il protocollo RTMP o Fragmented-Mp4). Si configura quindi un evento Live per codificare il flusso a bitrate singolo in ingresso in un [flusso video a più velocità in bit](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)e rende disponibile l'output per la riproduzione di dispositivi tramite protocolli come MPEG-Dash, HLS e Smooth Streaming.
 
 Quando si usa la codifica live, è possibile inviare il feed di contributo solo alle risoluzioni fino alla risoluzione 1080p a una frequenza di fotogrammi pari a 30 frame al secondo, con codec video H. 264/AVC e codec audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Si noti che gli eventi live pass-through possono supportare le risoluzioni fino a 4K a 60 frame al secondo. Per altre informazioni, vedere [confronto tra tipi di eventi live](live-event-types-comparison.md).
 

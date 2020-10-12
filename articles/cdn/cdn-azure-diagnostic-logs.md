@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88191287"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Log di diagnostica-rete per la distribuzione di contenuti di Azure
@@ -52,7 +52,7 @@ Seguire questa procedura per abilitare la registrazione per l'endpoint della ret
 
 3. Selezionare **log di diagnostica** nella sezione **monitoraggio** :
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selezionare log di diagnostica." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selezionare endpoint rete CDN." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Abilitare la registrazione con Archiviazione di Azure
 
@@ -69,7 +69,7 @@ Per usare un account di archiviazione per archiviare i log, seguire questa proce
 
 4. Selezionare la sottoscrizione e l'account di archiviazione per i log.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Log di diagnostica-archiviazione." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selezionare endpoint rete CDN." border="true":::
 
 3. Selezionare **Salva**.
 
@@ -86,7 +86,7 @@ Per usare Log Analytics per i log, seguire questa procedura:
 
 3. Selezionare la sottoscrizione e l'area di lavoro Log Analytics per i log.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Log di diagnostica-Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selezionare endpoint rete CDN." border="true":::
 
 4. Selezionare **Salva**.
 
@@ -103,7 +103,7 @@ Per usare un hub eventi per i log, seguire questa procedura:
 
 3. Selezionare la sottoscrizione e lo spazio dei nomi dell'hub eventi per i log.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Log di diagnostica-Hub eventi." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selezionare endpoint rete CDN." border="true":::
 
 4. Selezionare **Salva**.
 
@@ -204,7 +204,7 @@ I log dell'analisi principale vengono generati ogni ora e i dati vengono raccolt
 
 **Descrizione dei campi:**
 
-|Valore|Descrizione|
+|Valore|Description|
 |-------|---------|
 |ID sottoscrizione    |ID della sottoscrizione di Azure nel formato GUID.|
 |Nome gruppo di risorse |Nome del gruppo di risorse cui appartengono le risorse della rete CDN.|
@@ -265,7 +265,7 @@ Non tutte le metriche sono disponibili da tutti i provider, sebbene le differenz
 | RequestCountCacheHit | Conteggio di tutte le richieste che hanno generato un riscontro nella cache. L'asset è stato servito direttamente dal POP al client. | Sì | Sì | No  |
 | RequestCountCacheMiss | Conteggio di tutte le richieste che hanno generato un mancato riscontro nella cache. Un mancato riscontro nella cache significa che l'asset non è stato trovato nel POP più vicino al client ed è stato recuperato dall'origine. | Sì | Sì | No |
 | RequestCountCacheNoCache | Conteggio di tutte le richieste a un asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione utente sul perimetro. | Sì | Sì | No |
-| RequestCountCacheUncacheable | Conteggio di tutte le richieste agli asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control e Expires dell'asset. Questo conteggio indica che non deve essere memorizzato nella cache in un POP o dal client HTTP. | Sì | Sì | No |
+| RequestCountCacheUncacheable | Conteggio di tutte le richieste agli asset che non possono essere memorizzati nella cache dalle intestazioni Cache-Control e Expires dell'asset. Questo conteggio indica che non deve essere memorizzato nella cache in un POP o dal client HTTP. | Sì | Sì | No |
 | RequestCountCacheOthers | Conteggio di tutte le richieste con stato della cache non coperto dalle metriche precedenti. | No | Sì | No  |
 | EgressTotal | Trasferimento di dati in uscita in GB | Sì |Sì |Sì |
 | EgressHttpStatus2xx | Trasferimento di dati in uscita* per risposte con codici di stato HTTP 2xx in GB. | Sì | Sì | No  |
@@ -276,7 +276,7 @@ Non tutte le metriche sono disponibili da tutti i provider, sebbene le differenz
 | EgressCacheHit | Trasferimento di dati in uscita per risposte recapitate direttamente dalla cache CDN su POP/Edge della rete CDN. | Sì | Sì | No |
 | EgressCacheMiss. | Trasferimento di dati in uscita per le risposte che non sono state trovate nel server POP più vicino e recuperate dal server di origine. | Sì | Sì | No |
 | EgressCacheNoCache | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione utente sul perimetro. | Sì | Sì | No |
-| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control e o Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o dal client HTTP. | Sì | Sì | No |
+| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui non è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control e o Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o dal client HTTP. | Sì | Sì | No |
 | EgressCacheOthers | Trasferimento di dati in uscita per altri scenari di cache. | No | Sì | No |
 
 *Il trasferimento di dati in uscita si riferisce al traffico recapitato da server POP della rete CDN al client.

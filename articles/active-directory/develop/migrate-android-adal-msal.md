@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77084047"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guida alla migrazione da ADAL a MSAL per Android
@@ -46,8 +46,8 @@ L'API pubblica MSAL introduce importanti modifiche, tra cui:
   - Le autorità non vengono più convalidate in fase di esecuzione. Lo sviluppatore dichiara invece un elenco di "autorità note" durante lo sviluppo.
 - Modifiche API token:
   - In ADAL, `AcquireToken()` esegue prima di tutto una richiesta invisibile all'utente. In caso contrario, esegue una richiesta interattiva. Questo comportamento ha comportato la relyinging di alcuni sviluppatori solo in, il che ha comportato `AcquireToken` la richiesta di credenziali a volte da parte dell'utente. MSAL richiede che gli sviluppatori siano intenzionali quando l'utente riceve un prompt dell'interfaccia utente.
-    - `AcquireTokenSilent`genera sempre una richiesta invisibile all'utente che ha esito positivo o negativo.
-    - `AcquireToken`restituisce sempre una richiesta che richiede all'utente tramite l'interfaccia utente.
+    - `AcquireTokenSilent` genera sempre una richiesta invisibile all'utente che ha esito positivo o negativo.
+    - `AcquireToken` restituisce sempre una richiesta che richiede all'utente tramite l'interfaccia utente.
 - MSAL supporta l'accesso da un browser predefinito o da una visualizzazione Web incorporata:
   - Per impostazione predefinita, viene usato il browser predefinito nel dispositivo. Questo consente a MSAL di usare lo stato di autenticazione (cookie) che può essere già presente per uno o più account di accesso. Se non è presente alcuno stato di autenticazione, l'autenticazione durante l'autorizzazione tramite MSAL comporta la creazione dello stato di autenticazione (cookie) per il vantaggio di altre applicazioni Web che verranno utilizzate nello stesso browser.
 - Nuovo modello di eccezione:
@@ -146,11 +146,11 @@ Prendere in considerazione un conto bancario. È possibile avere più di un acco
 
 Per analogie, ad esempio gli account di un istituto finanziario, è possibile accedere agli account della piattaforma Microsoft Identity usando le credenziali. Queste credenziali sono registrate con o emesse da Microsoft. O da Microsoft per conto di un'organizzazione.
 
-Se la piattaforma di identità Microsoft differisce da un istituto finanziario, in questa analogia, la piattaforma di gestione delle identità Microsoft fornisce un Framework che consente a un utente di usare un account e le credenziali associate per accedere alle risorse che appartengono a più utenti e organizzazioni. Questo è come poter usare una scheda rilasciata da una banca, a un altro istituto finanziario. Questa operazione funziona perché tutte le organizzazioni in questione usano la piattaforma di identità Microsoft, che consente l'uso di un account in più organizzazioni. Ad esempio:
+Se la piattaforma di identità Microsoft differisce da un istituto finanziario, in questa analogia, la piattaforma di gestione delle identità Microsoft fornisce un Framework che consente a un utente di usare un account e le credenziali associate per accedere alle risorse che appartengono a più utenti e organizzazioni. Questo è come poter usare una scheda rilasciata da una banca, a un altro istituto finanziario. Questa operazione funziona perché tutte le organizzazioni in questione usano la piattaforma di identità Microsoft, che consente l'uso di un account in più organizzazioni. Ecco un esempio:
 
 Sam funziona per Contoso.com, ma gestisce macchine virtuali di Azure appartenenti a Fabrikam.com. Per gestire le macchine virtuali di Fabrikam, Sam deve essere autorizzato ad accedervi. È possibile concedere l'accesso aggiungendo l'account di Sam a Fabrikam.com e concedendo al suo account un ruolo che consenta di lavorare con le macchine virtuali. Questa operazione viene eseguita con il portale di Azure.
 
-L'aggiunta dell'account Contoso.com di Sam come membro di Fabrikam.com comporterebbe la creazione di un nuovo record in Fabrikam. com Azure Active Directory per Sam. Il record di Sam nel Azure Active Directory è noto come oggetto utente. In questo caso, tale oggetto utente punterà di nuovo all'oggetto utente di Sam in Contoso.com. L'oggetto utente Fabrikam di Sam è la rappresentazione locale di Sam e viene usato per archiviare le informazioni sull'account associato a Sam nel contesto di Fabrikam.com. In Contoso.com, il titolo di Sam è Senior DevOps Consultant. In Fabrikam, il titolo di Sam è un appaltatore-macchine virtuali. In Contoso.com, Sam non è responsabile, né autorizzato, per gestire le macchine virtuali. In Fabrikam.com, si tratta dell'unica funzione del processo. Tuttavia, Sam ha ancora un solo set di credenziali di cui tenere traccia, ovvero le credenziali emesse da Contoso.com.
+L'aggiunta dell'account Contoso.com di Sam come membro di Fabrikam.com comporterebbe la creazione di un nuovo record in Fabrikam. com Azure Active Directory per Sam. Il record di Sam nel Azure Active Directory è noto come oggetto utente. In questo caso, tale oggetto utente punterà di nuovo all'oggetto utente di Sam in Contoso.com. L'oggetto utente Fabrikam di Sam è la rappresentazione locale di Sam e viene usato per archiviare le informazioni sull'account associato a Sam nel contesto di Fabrikam.com. In Contoso.com, il titolo di Sam è Senior DevOps Consultant. In Fabrikam il titolo di Sam è Contractor-Virtual computer. In Contoso.com, Sam non è responsabile, né autorizzato, per gestire le macchine virtuali. In Fabrikam.com, si tratta dell'unica funzione del processo. Tuttavia, Sam ha ancora un solo set di credenziali di cui tenere traccia, ovvero le credenziali emesse da Contoso.com.
 
 Una volta `acquireToken` effettuata una chiamata riuscita, verrà visualizzato un riferimento a un `IAccount` oggetto che può essere usato nelle richieste successive `acquireTokenSilent` .
 
