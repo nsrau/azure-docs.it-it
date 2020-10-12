@@ -8,10 +8,10 @@ ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401130"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Baseline della sicurezza di Azure per hub eventi
@@ -970,7 +970,7 @@ Informazioni sul ripristino di emergenza geografico per hub eventi di Azure: htt
 
 **Linee guida**: Hub eventi di Azure fornisce la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (Azure SSE). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. Se si usano Azure Key Vault per archiviare le chiavi gestite dal cliente, assicurarsi che i backup automatici delle chiavi siano regolari.
 
-Verificare i backup automatici regolari dei segreti di Key Vault con il comando di PowerShell seguente: backup-AzKeyVaultSecret
+Verificare la regolarità dei backup automatici dei segreti di Key Vault con il comando di PowerShell seguente: Backup-AzKeyVaultSecret
 
 Come configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 

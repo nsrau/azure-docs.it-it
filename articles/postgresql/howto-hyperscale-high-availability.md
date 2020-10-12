@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907399"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurare la disponibilità elevata di CITUS (iperscale)
@@ -29,7 +29,7 @@ Fare clic sul pulsante **Salva** per applicare la selezione. L'abilitazione di d
 
 Nella scheda **Panoramica** per il gruppo di server vengono elencati tutti i nodi e i relativi standby, insieme a una colonna a **disponibilità elevata** che indica se la disponibilità elevata è stata abilitata per ogni nodo.
 
-:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="Panoramica della colonna a disponibilità elevata in gruppo di server":::
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="dispositivo di scorrimento a disponibilità elevata":::
 
 ### <a name="next-steps"></a>Passaggi successivi
 

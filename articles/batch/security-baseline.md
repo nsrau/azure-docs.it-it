@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400977"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Baseline della sicurezza di Azure per batch
@@ -366,7 +366,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Responsabilità**: Customer
 
-### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3,4: utilizzo di Single Sign-on (SSO) con Azure Active Directory
+### <a name="34-utilize-single-sign-on-sso-with-azure-active-directory"></a>3,4: utilizzare Single Sign-On (SSO) con Azure Active Directory
 
 **Linee guida**: non applicabile, mentre Azure batch supporta l'autenticazione Azure AD, Single Sign-on non è supportata.
 
@@ -1135,7 +1135,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida**: se Azure Key Vault viene usato per mantenere le chiavi relative agli account di archiviazione del pool Azure batch, abilitare l'eliminazione temporanea in Azure Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
+**Linee guida**: se Azure Key Vault viene usato per mantenere le chiavi relative agli account di archiviazione del pool Azure batch, abilitare Soft-Delete in Azure Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
 Come abilitare l'eliminazione temporanea in Azure Key Vault:
 

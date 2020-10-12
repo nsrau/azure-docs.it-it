@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707277"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Spostare dati da SAP Business Warehouse usando Azure Data Factory
@@ -293,9 +293,9 @@ Tipo di dati nel dizionario ABAP | Tipo di dati .NET
 ACCP |  Int
 CHAR | string
 CLNT | string
-CURR | Decimal
+CURR | Decimale
 CUKY | string
-DEC | Decimal
+DEC | Decimale
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
@@ -304,7 +304,7 @@ LANG | string
 LCHR | string
 LRAW | Byte[]
 PREC | Int16
-QUAN | Decimal
+QUAN | Decimale
 RAW | Byte[]
 RAWSTRING | Byte[]
 STRING | string

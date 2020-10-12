@@ -4,10 +4,10 @@ description: Questo articolo illustra come eliminare un Lab o eliminare una macc
 ms.topic: article
 ms.date: 01/24/2020
 ms.openlocfilehash: 495fb98f3da41a47d316dd64554ba616ede0af47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481222"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Eliminare un lab o una macchina virtuale in un lab in Azure DevTest Labs
@@ -65,4 +65,4 @@ Per eliminare una macchina virtuale dalla pagina **Macchina virtuale**, selezion
 Se si vuole creare un lab, vedere gli articoli seguenti: 
 
 - [Creare un lab](devtest-lab-create-lab.md)
-- [Aggiungere una VM in un lab](devtest-lab-add-vm.md)
+- [Aggiungere una VM al lab](devtest-lab-add-vm.md)

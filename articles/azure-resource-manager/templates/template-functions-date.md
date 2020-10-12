@@ -4,10 +4,10 @@ description: Descrive le funzioni da usare in un modello di Azure Resource Manag
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: abdc88ce15279b90f8f9dc05a38a2ae236498f12
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86058045"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funzioni di data per i modelli ARM
@@ -25,7 +25,7 @@ Aggiunge una durata di tempo a un valore di base. È previsto il formato ISO 860
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | base | Sì | string | Valore DateTime iniziale per l'addizione. Usare il [formato timestamp ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 | duration | Sì | string | Valore di ora da aggiungere alla base. Può essere un valore negativo. Usare il [formato di durata ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
@@ -142,11 +142,11 @@ Restituisce il valore DateTime corrente (UTC) nel formato specificato. Se non vi
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Tipo | Descrizione |
+| Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
 | format |No |string |Valore URI codificato da convertire in stringa. Utilizzare [stringhe di formato standard](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [stringhe di formato personalizzate](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Questa funzione può essere usata solo all'interno di un'espressione per il valore predefinito di un parametro. L'uso di questa funzione in qualsiasi altra posizione in un modello restituisce un errore. La funzione non è consentita in altre parti del modello perché restituisce un valore diverso ogni volta che viene chiamato. La distribuzione dello stesso modello con gli stessi parametri non produrrebbe in modo affidabile gli stessi risultati.
 

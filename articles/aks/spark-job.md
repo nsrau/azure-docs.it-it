@@ -7,10 +7,10 @@ ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: 074e3db3234794aa891d5452b0c19060193c6d0c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243971"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Esecuzione di processi Apache Spark in servizio Azure Kubernetes
@@ -29,7 +29,7 @@ Per completare la procedura descritta in questo articolo è necessario quanto se
 * SBT ([strumento di compilazione Scala][sbt-install]) installato nel sistema.
 * Strumenti da riga di comando di GIT installati nel sistema.
 
-## <a name="create-an-aks-cluster"></a>Creare un cluster del servizio Azure Kubernetes
+## <a name="create-an-aks-cluster"></a>Creare un cluster AKS
 
 Spark viene usato per l'elaborazione di dati su larga scala ed è necessario che le dimensioni dei nodi Kubernetes soddisfino i requisiti di Spark in termini di risorse. Per i nodi del servizio Azure Kubernetes si consigliano le dimensioni minime `Standard_D3_v2`.
 

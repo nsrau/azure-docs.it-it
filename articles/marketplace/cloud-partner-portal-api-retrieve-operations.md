@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271944"
 ---
 # <a name="retrieve-operations"></a>Recuperare le operazioni
@@ -33,8 +33,8 @@ Recupera tutte le operazioni relative all'offerta o per ottenere una particolare
 
 |  **Nome**          |      **Descrizione**                                                                                           | **Tipo di dati** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  Stringa       |
-|  offerId           |  Identificatore dell'offerta                                                                                              |  Stringa       |
+|  publisherId       |  Identificatore dell'editore, per esempio `Contoso`                                                                   |  string       |
+|  offerId           |  Identificatore dell'offerta                                                                                              |  string       |
 |  operationId       |  GUID che identifica in modo univoco l'operazione sull'offerta. L'oprationId può essere recuperato tramite questa API e viene inoltre restituito nell'intestazione HTTP della risposta per tutte le operazioni a esecuzione prolungata, ad esempio l'API [Pubblica offerta](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
 |  api-version       | Ultima versione dell'API |    Data      |
 |  |  |  |

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80234186"
 ---
 ### <a name="standard-and-neural-voices"></a>Voci standard e neurali
@@ -35,8 +35,8 @@ Usare questa tabella per determinare la disponibilità delle voci standard e neu
 | Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
 | Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
 | Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
-| Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | No |
-| Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
+| Stati Uniti Occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | No |
+| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sì | Sì |
 
 ### <a name="custom-voices"></a>Voci personalizzate
 

@@ -4,10 +4,10 @@ description: Come descrivere le risorse di endpoint in un manifesto del servizio
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91354760"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
@@ -220,7 +220,7 @@ Se in ServiceManifest è stato specificato
 
 Si supponga che il valore PORT1 e Protocol1 per i parametri dell'applicazione sia null o vuoto. La porta verrà decisa da ServiceFabric e il protocollo sarà TCP.
 
-Si supponga di specificare un valore errato. Supponiamo che per Port sia stato specificato un valore stringa "foo" invece di int.  Il comando New-ServiceFabricApplication avrà esito negativo con un errore: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+Si supponga di specificare un valore errato. Supponiamo che per Port sia stato specificato un valore stringa "foo" invece di int.  New-ServiceFabricApplication comando non riuscirà e verrà eseguito un errore: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

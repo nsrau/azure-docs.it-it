@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
 ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88038258"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configurazione del servizio di bilanciamento del carico solo in uscita
@@ -63,9 +63,9 @@ Creare una macchina virtuale nella nuova rete virtuale.
 
 1. [Accedere](https://portal.azure.com) al portale di Azure.
 
-2. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa > rete > rete virtuale** o cercare **rete virtuale** nella casella di ricerca.
+2. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale**immettere o selezionare queste informazioni nella scheda **nozioni di base** :
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -76,19 +76,19 @@ Creare una macchina virtuale nella nuova rete virtuale.
     | Nome             | Immettere **myVNet**                                    |
     | Region           | Seleziona **Stati Uniti orientali 2** |
 
-3. Selezionare la scheda **indirizzi IP** oppure fare clic sul pulsante **Avanti: indirizzi IP** nella parte inferiore della pagina.
+3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
-4. Nella scheda **indirizzi IP** immettere queste informazioni:
+4. Nella scheda **Indirizzi IP** immettere queste informazioni:
 
-    | Impostazione            | Valore                      |
+    | Impostazione            | valore                      |
     |--------------------|----------------------------|
     | Spazio indirizzi IPv4 | Immettere **10.1.0.0/16** |
 
-5. In **nome subnet**selezionare la parola **default**.
+5. In **Nome subnet** selezionare la parola **predefinito**.
 
-6. In **modifica subnet**immettere queste informazioni:
+6. In **Modifica subnet** immettere queste informazioni:
 
-    | Impostazione            | Valore                      |
+    | Impostazione            | valore                      |
     |--------------------|----------------------------|
     | Nome della subnet | Immettere **myBackendSubnet** |
     | Intervallo di indirizzi subnet | Immettere **10.1.0.0/24** |
@@ -97,16 +97,16 @@ Creare una macchina virtuale nella nuova rete virtuale.
 
 8. Selezionare la scheda **Sicurezza**.
 
-9. In **BastionHost**selezionare **Abilita**. Immettere le informazioni seguenti:
+9. In **BastionHost** selezionare **Abilita**. Immettere le informazioni seguenti:
 
-    | Impostazione            | Valore                      |
+    | Impostazione            | valore                      |
     |--------------------|----------------------------|
-    | Nome Bastion | Immettere **myBastionHost** |
-    | Spazio degli indirizzi AzureBastionSubnet | Immettere **10.1.1.0/24** |
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Per **nome**immettere **myBastionIP**. </br> Selezionare **OK**. |
+    | Nome bastion | Immettere **myBastionHost** |
+    | Spazio indirizzi della subnet AzureBastionSubnet | Immettere **10.1.1.0/24** |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Per **Nome** immettere **myBastionIP**. </br> Selezionare **OK**. |
 
 
-8. Selezionare la scheda **Verifica + crea** oppure selezionare il pulsante **Verifica + crea** .
+8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea**.
 
 9. Selezionare **Create** (Crea).
 
@@ -123,8 +123,8 @@ Creare una macchina virtuale nella nuova rete virtuale.
     | Gruppo di risorse | Selezionare **myResourceGroupLB** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM** |
-    | Region | Seleziona **Stati Uniti orientali 2** |
-    | Opzioni di disponibilità | Selezionare **nessuna ridondanza dell'infrastruttura necessaria** |
+    | Area | Seleziona **Stati Uniti orientali 2** |
+    | Opzioni di disponibilità | Selezionare **La ridondanza dell'infrastruttura non è richiesta** |
     | Immagine | Selezionare **Windows Server 2019 Datacenter** |
     | Istanza Spot di Azure | Selezionare **No** |
     | Dimensione | Scegliere le dimensioni della macchina virtuale o usare l'impostazione predefinita |
@@ -146,7 +146,7 @@ Creare una macchina virtuale nella nuova rete virtuale.
     | Rete virtuale | **myVNet** |
     | Subnet | **myBackendSubnet** |
     | IP pubblico | Selezionare **Nessuno**. |
-    | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **nessuno**|
+    | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **Nessuno**|
     | Posizionare questa macchina virtuale dietro una soluzione di bilanciamento del carico esistente? | Selezionare **No** |
    
 5. Selezionare la scheda **Gestione** oppure **Avanti** > **Gestione**.
@@ -180,14 +180,14 @@ Aggiungere la macchina virtuale creata al pool back-end di ogni.  Si configurer�
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
-    | Resource group         | Selezionare **myResourceGroupLB** creato nel passaggio precedente.|
+    | Resource group         | Selezionare il gruppo **myResourceGroupLB** creato nel passaggio precedente.|
     | Nome                   | Immettere **myInternalLoadBalancer**                                   |
     | Region         | Selezionare **Stati Uniti orientali 2**.                                        |
     | Type          | Selezionare **Interno**.                                        |
     | SKU           | selezionare **Standard** |
-    | Rete virtuale | Selezionare **myVNet** creato nel passaggio precedente. |
-    | Subnet  | Selezionare **myBackendSubnet** creato nel passaggio precedente. |
-    | Assegnazione indirizzi IP | Selezionare **dinamico**. |
+    | Rete virtuale | Selezionare la rete **myVNet** creata nel passaggio precedente. |
+    | Subnet  | Selezionare la subnet **myBackendSubnet** creata nel passaggio precedente. |
+    | Assegnazione indirizzi IP | Selezionare **Dinamico**. |
 
 3. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
 
@@ -209,7 +209,7 @@ Aggiungere la macchina virtuale creata al pool back-end di ogni.  Si configurer�
     | SKU           | selezionare **Standard** |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
     | Nome dell'indirizzo IP pubblico | Immettere **myFrontendIP** nella casella di testo.|
-    | Zona di disponibilità | Seleziona con **ridondanza della zona** |
+    | Zona di disponibilità | Selezionare **Con ridondanza della zona**. |
     | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. |
 
 3. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
@@ -254,7 +254,7 @@ Creare il pool di indirizzi back-end **myPublicBackendPool**:
 
 2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
-4. Immettere il nome utente e la password immessi durante la creazione della macchina virtuale.
+4. Immettere il nome utente e la password specificati durante la creazione della VM.
 
 5. Selezionare **Connetti**.
 
@@ -289,7 +289,7 @@ Creare il pool di indirizzi back-end **myPublicBackendPool**:
 
 2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
-4. Immettere il nome utente e la password immessi durante la creazione della macchina virtuale.
+4. Immettere il nome utente e la password specificati durante la creazione della VM.
 
 5. Selezionare **Connetti**.
 

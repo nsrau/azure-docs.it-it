@@ -8,16 +8,16 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132637"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
 Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in particolare come scoprire quali referrer hanno riscontrato errori durante la visita al il sito Web.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 * **Visual Studio 2015 o Visual Studio 2013**.
 * **[Strumenti di data Lake per Visual Studio](https://aka.ms/adltoolsvs)**.
 
@@ -30,7 +30,7 @@ Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in par
 * **Un account Data Lake Analytics.**  Vedere la sezione relativa alla [creazione di un account di Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 * **Installare i dati di esempio.** Nel portale di Azure aprire l'account Data Lake Analytics e fare clic su **Script di esempio** nel menu a sinistra, quindi fare clic su **Copia dati di esempio**. 
 
-## <a name="connect-to-azure"></a>Connettersi ad Azure
+## <a name="connect-to-azure"></a>Connettiti ad Azure
 Prima di poter compilare e testare qualsiasi script U-SQL, è necessario connettersi ad Azure.
 
 ### <a name="to-connect-to-data-lake-analytics"></a>Per connettersi ad Analisi Data Lake

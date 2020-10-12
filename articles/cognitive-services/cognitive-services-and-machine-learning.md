@@ -8,24 +8,24 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132841"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
-Servizi cognitivi fornisce funzionalità di machine learning per risolvere i problemi generali, ad esempio l'analisi del testo per i sentimenti emotivi o l'analisi delle immagini per riconoscere oggetti o visi. Per usare questi servizi, non è necessario un apprendimento automatico speciale o data science Knowledge base. 
+Servizi cognitivi fornisce funzionalità di machine learning per risolvere i problemi generali, ad esempio l'analisi del testo per i sentimenti emotivi o l'analisi delle immagini per riconoscere oggetti o visi. Per usare questi servizi, non è necessario avere conoscenze specifiche di Machine Learning o data science. 
 
 [Servizi cognitivi](welcome.md) è un gruppo di servizi, ognuno dei quali supporta funzionalità di stima generalizzate diverse. I servizi sono divisi in categorie diverse che consentono di trovare il servizio corretto. 
 
 |Categoria servizio|Scopo|
 |--|--|
 |[Decisione](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Crea app che espongono raccomandazioni per un processo decisionale informato ed efficiente.|
-|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Consente alle app di elaborare il linguaggio naturale con script precompilati, di effettuare valutazioni e riconoscere i desideri degli utenti.|
-|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiunge le API di Ricerca Bing alle app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata API.|
-|[Funzionalità vocali](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.|
+|[Lingua](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permetti alle tue app di elaborare il linguaggio naturale con script predefiniti, valutare il sentiment e riconoscere i desideri degli utenti.|
+|[Ricerca](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Aggiungi le API di Ricerca Bing alle tue app e sfrutta la possibilità di esaminare miliardi di pagine Web, immagini, video e notizie con una singola chiamata all'API.|
+|[Voce](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Converti il parlato in testo e il testo in parlato simile al linguaggio naturale. Traduci da una lingua a un'altra e consenti la verifica voce e il riconoscimento del parlante.|
 |[Visione](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Riconosci, identifica, aggiungi sottotitoli, indicizza e modera immagini, video e contenuti di tipo input penna.|
 ||||
 

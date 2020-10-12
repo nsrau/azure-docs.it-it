@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 6a4f8b99be564779b350bff2ab5b37f3c7ccc6f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87020976"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Come usare l'archiviazione delle code da C++
@@ -39,8 +39,8 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
-* **Linux:** Seguire le istruzioni fornite nella pagina del [file Leggimi della libreria client di archiviazione di Azure per C++: introduzione in Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) .
-* **Windows:** In Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire la [Guida introduttiva](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
+* **Linux:** seguire le istruzioni fornite nella pagina [Libreria client di Archiviazione di Azure per C++ - README: Introduzione a Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
+* **Windows:** in Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come utilità di gestione dipendenze. Seguire la [Guida introduttiva](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp

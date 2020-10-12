@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 28d682a9ca698afb72d08b4d111562c725d46996
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530846"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Come usare gli strumenti disponibili negli SDK per semplificare lo sviluppo per il provisioning
@@ -34,7 +34,7 @@ I [certificati X.509](https://docs.microsoft.com/azure/iot-dps/concepts-security
 * Per un ambiente di produzione, è consigliabile acquistare un certificato della CA X.509 da una CA radice pubblica.
 * Per un ambiente di test, è possibile generare un certificato X.509 radice o una catena di certificati X.509 usando uno degli strumenti seguenti.
     * OpenSSL: è possibile usare gli script per la generazione di certificati:
-        * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
+        * [Node.JS](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell o Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
     * Emulatore DICE (Device Identity Composition Engine): DICE consente di ottenere l'identità crittografica dei dispositivi e l'attestazione basata sul protocollo TLS e certificati client X.509.  [Altre informazioni](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/) sull'identità dei dispositivi con DICE.

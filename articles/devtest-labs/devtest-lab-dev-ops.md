@@ -4,10 +4,10 @@ description: Informazioni su come usare i Lab di Azure DevTest Labs all'interno 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481069"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integrazione di Azure DevTest Labs e Azure DevOps
@@ -32,7 +32,7 @@ Un Lab dovrebbe concentrarsi su un team che lavora in un'area funzionale. Questo
 ## <a name="cicd-pipeline"></a>Pipeline CI/CD 
 La pipeline CI/CD è uno dei componenti fondamentali di DevOps che spostano il codice da una richiesta pull dello sviluppatore, lo integra con il codice esistente e lo distribuisce nell'ecosistema di produzione. Non è necessario che tutte le risorse si trovino all'interno di un Lab. Un host Jenkins, ad esempio, può essere configurato all'esterno del Lab come risorsa più persistente. Di seguito sono riportati alcuni esempi specifici di integrazione dei Lab nella pipeline. 
 
-### <a name="build"></a>Compilazione 
+### <a name="build"></a>Compilare 
 La pipeline di compilazione si concentra sulla creazione di un pacchetto di componenti che verranno testati insieme per essere passati alla pipeline di rilascio. I Lab possono far parte della pipeline di compilazione come posizione per gli agenti di compilazione e altre risorse di supporto. La possibilità di creare dinamicamente l'infrastruttura consente un maggiore controllo. Con la possibilità di avere più ambienti in un Lab, ogni compilazione può essere eseguita in modo asincrono usando l'ID compilazione come parte delle informazioni sull'ambiente per identificare in modo univoco le risorse per la compilazione specifica.   
 
 Per gli agenti di compilazione, la capacità del Lab di limitare l'accesso aumenta la sicurezza e riduce la possibilità di danneggiamenti accidentali.  

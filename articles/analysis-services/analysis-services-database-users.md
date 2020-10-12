@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 8ccd9120937148043590d30232acd6b556b09dc6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015273"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
@@ -135,11 +135,11 @@ I filtri di riga possono essere definiti solo per i ruoli con le autorizzazioni 
   
  I filtri di riga richiedono una formula DAX, che deve restituire un valore TRUE/FALSE, per definire le righe su cui i membri del ruolo specifico possono eseguire query. Non è possibile eseguire query su righe non incluse nella formula DAX. Ad esempio, la tabella Customers con l'espressione dei filtri di riga seguente, *= Customers [Country] = "USA"*, i membri del ruolo Sales possono visualizzare solo i clienti negli Stati Uniti.  
   
-I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella dispone di più relazioni, tramite i filtri viene applicata la sicurezza alla relazione che è attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
+I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella ha più relazioni, i filtri applicano la sicurezza per la relazione attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
   
 |Tabella|Espressione DAX|  
 |-----------|--------------------|  
-|Area|=Region[Country]="USA"|  
+|Region|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |Transazioni|=Transactions[Year]=2016|  
   
