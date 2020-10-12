@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84887710"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
@@ -81,7 +81,7 @@ La finalità di queste metriche consiste nel verificare se è possibile migliora
 
 * Riduzione del carico sul server di origine, che potrebbe permettere di ottenere:
   * Migliori prestazioni del server Web.
-  * Costi operativi ridotti.
+  * Costi operativi ridotti,
 * Miglioramento dell'accelerazione della distribuzione dei dati, perché un numero maggiore di richieste verrà gestito direttamente dalla rete CDN.
 
 | Campo | Descrizione |

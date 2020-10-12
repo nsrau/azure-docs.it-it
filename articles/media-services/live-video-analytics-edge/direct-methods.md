@@ -4,10 +4,10 @@ description: Analisi video in tempo reale su IoT Edge espone diversi metodi dire
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: ed7cec7b8513044c2bf9b24600b8d9f42a485aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87091828"
 ---
 # <a name="direct-methods"></a>Metodi diretti
@@ -143,9 +143,9 @@ Questo metodo diretto recupera una singola topologia Graph.
 |Condizione  |Codice di stato    |Codice di errore dettagliato|
 |---|---|---|
 |Entità trovata|  200 |N/D
-|Errori generali dell'utente    |intervallo 400  ||
+|Errori utente generici    |Intervallo 400  ||
 |Entità non trovata   |404        ||
-|Errori generali del server| intervallo 500       ||
+|Errori server generici| Intervallo 500       ||
 
 ### <a name="graphtopologyset"></a>GraphTopologySet
 
@@ -195,10 +195,10 @@ Aspetti principali:
 |---|---|---|
 Entità esistente aggiornata |200|   N/D|
 Nuova entità creata  |201|   N/D|
-Errori generali dell'utente |intervallo 400  ||
+Errori utente generici |Intervallo 400  ||
 Errori di convalida del grafo |400    |GraphValidationError|
 Errori di convalida del modulo|   400 |ModuleValidationError|
-Errori generali del server   |intervallo 500  ||
+Errori server generici   |Intervallo 500  ||
 
 ### <a name="graphtopologydelete"></a>GraphTopologyDelete
 
@@ -231,9 +231,9 @@ Elimina una singola topologia Graph.
 |---|---|---|
 |Entità eliminata|    200|    N/D|
 |Entità non trovata|  204|    N/D|
-|Errori generali dell'utente|   intervallo 400   ||
+|Errori utente generici|   Intervallo 400   ||
 |Una o più istanze di Graph fanno riferimento alla topologia del grafo| 409 |GraphTopologyInUse|
-|Errori generali del server| intervallo 500   ||
+|Errori server generici| Intervallo 500   ||
 
 ### <a name="graphtopologylist"></a>GraphTopologyList
 
@@ -288,8 +288,8 @@ Recupera un elenco di tutte le topologie del grafico che corrispondono ai criter
 |Condizione  |Codice di stato    |Codice di errore dettagliato|
 |---|---|---|
 |Operazione completata|   200 |N/D|
-|Errori generali dell'utente|   intervallo 400   ||
-|Errori generali del server| intervallo 500   ||
+|Errori utente generici|   Intervallo 400   ||
+|Errori server generici| Intervallo 500   ||
 
 ### <a name="graphinstanceget"></a>GraphInstanceGet
 
@@ -326,9 +326,9 @@ Recupera una singola istanza di Graph:
 |Condizione  |Codice di stato    |Codice di errore dettagliato|
 |---|---|---|
 |Entità trovata   |200|   N/D|
-|Errori generali dell'utente|   intervallo 400   ||
+|Errori utente generici|   Intervallo 400   ||
 |Entità non trovata|  404 ||
-|Errori generali del server| intervallo 500   ||
+|Errori server generici| Intervallo 500   ||
 
 ### <a name="graphinstanceset"></a>GraphInstanceSet
 
@@ -377,11 +377,11 @@ Aspetti principali:
 |---|---|---|
 |Entità esistente aggiornata    |200    |N/D|
 |Nuova entità creata|    201 |N/D|
-|Errori generali dell'utente|   intervallo 400   ||
+|Errori utente generici|   Intervallo 400   ||
 |Errori di convalida del grafo    |400|   GraphValidationError|
 |Errori di convalida del modulo|  400 |ModuleValidationError|
 |Errori di convalida delle risorse |409    |ResourceValidationError|
-|Errori generali del server  |intervallo 500||    
+|Errori server generici  |Intervallo 500||    
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 
@@ -418,9 +418,9 @@ Aspetti principali:
 |---|---|---|
 |Il grafico è stato eliminato|    200|    N/D|
 |Il grafico non è stato trovato|   204|    N/D|
-|Errori generali dell'utente    |intervallo 400  ||
+|Errori utente generici    |Intervallo 400  ||
 |Il grafico non è nello stato "arrestato"    |409    |OperationNotAllowedInState|
-|Errori generali del server| intervallo 500   ||
+|Errori server generici| Intervallo 500   ||
 
 ### <a name="graphinstancelist"></a>GraphInstanceList
 
@@ -475,8 +475,8 @@ Recupera un elenco di tutte le istanze dei grafici che corrispondono ai criteri 
 |Condizione  |Codice di stato    |Codice di errore dettagliato|
 |---|---|---|
 |Operazione completata    |200    |N/D|
-|Errori generali dell'utente|   intervallo 400   ||
-|Errori generali del server| intervallo 500   ||
+|Errori utente generici|   Intervallo 400   ||
+|Errori server generici| Intervallo 500   ||
 
 ### <a name="graphinstanceactivate"></a>GraphInstanceActivate
 
@@ -520,11 +520,11 @@ Aspetti principali
 |---|---|---|
 |Il grafico è stato attivato   |200    |N/D|
 |Nuova entità creata |201|   N/D|
-|Errori generali dell'utente    |intervallo 400  ||
+|Errori utente generici    |Intervallo 400  ||
 |Errori di convalida del modulo   |400|   ModuleValidationError|
 |Errori di convalida delle risorse|    409|    ResourceValidationError|
 |Il grafico è in stato di disattivazione |409    |OperationNotAllowedInState|
-|Errori generali del server| intervallo 500   ||
+|Errori server generici| Intervallo 500   ||
 
 ### <a name="graphinstancedeactivate"></a>GraphInstanceDeactivate
 
@@ -569,9 +569,9 @@ Aspetti principali:
 |---|---|---|
 |Il grafico è stato attivato   |200|   N/D|
 |Nuova entità creata |201|   N/D|
-|Errori generali dell'utente    |intervallo 400  ||
+|Errori utente generici    |Intervallo 400  ||
 |Il grafico è nello stato di attivazione   |409|   OperationNotAllowedInState|
-|Errori generali del server  |intervallo 500  ||
+|Errori server generici  |Intervallo 500  ||
 
 ## <a name="next-steps"></a>Passaggi successivi
 

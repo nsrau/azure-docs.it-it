@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027037"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inizializzare applicazioni client usando MSAL.js
@@ -36,7 +36,7 @@ Al termine della registrazione dell'app, sono necessari alcuni o tutti i valori 
 
 | Valore | Obbligatoria | Descrizione |
 |:----- | :------: | :---------- |
-| ID applicazione (client) | Richiesto | GUID che identifica in modo univoco l'applicazione all'interno della piattaforma di identità Microsoft. |
+| ID applicazione (client) | Obbligatoria | GUID che identifica in modo univoco l'applicazione all'interno della piattaforma di identità Microsoft. |
 | Authority | Facoltativo | URL del provider di identità (l' *istanza*) e *destinatari dell'accesso* per l'applicazione. L'istanza e i destinatari di accesso, se concatenati, costituiscono l' *autorità*. |
 | ID directory (tenant) | Facoltativo | Specificare questa impostazione se si sta creando un'applicazione line-of-business esclusivamente per la propria organizzazione, spesso definita *applicazione a tenant singolo*. |
 | URI di reindirizzamento | Facoltativo | Se si sta compilando un'app Web, `redirectUri` specifica la posizione in cui il provider di identità (la piattaforma di identità Microsoft) deve restituire i token di sicurezza emessi. |
@@ -107,9 +107,9 @@ Richiamare [handleRedirectPromise][msal-js-handleredirectpromise] quando l'appli
 
 Ci sono tre possibili risultati dalla promessa:
 
-- `.then`viene richiamato ed `tokenResponse` è veritiero: l'applicazione sta restituendo da un'operazione di reindirizzamento che ha avuto esito positivo.
-- `.then`viene richiamato e `tokenResponse` è false ( `null` ): l'applicazione non restituisce da un'operazione di reindirizzamento.
-- `.catch`viene richiamato: l'applicazione sta restituendo da un'operazione di reindirizzamento e si è verificato un errore.
+- `.then` viene richiamato ed `tokenResponse` è veritiero: l'applicazione sta restituendo da un'operazione di reindirizzamento che ha avuto esito positivo.
+- `.then` viene richiamato e `tokenResponse` è false ( `null` ): l'applicazione non restituisce da un'operazione di reindirizzamento.
+- `.catch` viene richiamato: l'applicazione sta restituendo da un'operazione di reindirizzamento e si è verificato un errore.
 
 ## <a name="initialize-msaljs-1x-apps"></a>Inizializzare app MSAL.js 1. x
 

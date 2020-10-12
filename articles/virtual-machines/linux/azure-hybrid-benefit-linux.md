@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
 ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279774"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Anteprima: Vantaggio Azure Hybrid-come viene applicato per macchine virtuali Linux
@@ -43,7 +43,7 @@ Vantaggio Azure Hybrid è disponibile per tutte le immagini RHEL e SLES Marketpl
 
 Le istanze riservate, gli host dedicati e i vantaggi ibridi SQL non sono idonei per il Vantaggio Azure Hybrid se si usa già il vantaggio con le VM Linux.
 
-## <a name="how-to-get-started"></a>Come iniziare
+## <a name="how-to-get-started"></a>Operazioni preliminari
 
 Vantaggio Azure Hybrid è attualmente in fase di anteprima per le macchine virtuali Linux. Una volta ottenuto l'accesso all'anteprima, è possibile abilitare il vantaggio usando il portale di Azure o l'interfaccia della riga di comando di Azure.
 

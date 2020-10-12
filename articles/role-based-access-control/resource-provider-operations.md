@@ -10,10 +10,10 @@ ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
 ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400095"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
@@ -625,7 +625,7 @@ Servizio di Azure: [Service Fabric](../service-fabric/index.yml)
 > | Microsoft.ServiceFabric/locations/operations/read | Legge tutte le operazioni per località |
 > | Microsoft.ServiceFabric/operations/read | Legge tutte le operazioni disponibili |
 
-## <a name="networking"></a>Rete
+## <a name="networking"></a>Funzionalità di rete
 
 ### <a name="microsoftcdn"></a>Microsoft.Cdn
 
@@ -1339,7 +1339,7 @@ Servizio di Azure: [gateway applicazione](../application-gateway/index.yml), [Az
 > | Microsoft.Network/vpnsites/delete | Elimina una risorsa di sito VPN. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/Read | Ottiene un collegamento di sito VPN |
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 
 ### <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -1421,7 +1421,7 @@ Servizio di Azure: [Azure Data Box](../databox/index.yml)
 > | Microsoft. DataBox/Operations/Read | Elencare o ottenere le operazioni |
 > | **DataAction** | **Descrizione** |
 > | Microsoft.DataBox/register/action | Registra il provider Microsoft.Databox |
-> | Microsoft. DataBox/Annulla registrazione/azione | Annulla la registrazione del provider Microsoft. databox |
+> | Microsoft. DataBox/Annulla registrazione/azione | Provider Un-Register Microsoft. databox |
 > | Microsoft.DataBox/jobs/cancel/action | Annulla un ordine in corso. |
 > | Microsoft.DataBox/jobs/bookShipmentPickUp/action | Consente di prenotare un ritiro per le spedizioni di ritorno. |
 > | Microsoft.DataBox/jobs/listCredentials/action | Elenca le credenziali non crittografate correlate all'ordine. |
@@ -4258,7 +4258,7 @@ Servizio di Azure: [SQL Server in macchine virtuali di Azure](../azure-sql/virtu
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Write | Crea una nuova proprietà o modifica le proprietà della macchina virtuale SQL esistente |
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Delete | Elimina macchina virtuale SQL esistente |
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
 ### <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -5667,7 +5667,7 @@ Servizio di Azure: [gestione API](../api-management/index.yml)
 > | Microsoft. ApiManagement/Service/policyDescriptions/Read | Elenca tutte le descrizioni dei criteri. |
 > | Microsoft.ApiManagement/service/policySnippets/read | Elenca tutti i frammenti di criteri. |
 > | Microsoft. ApiManagement/Service/portalSettings/Read | Elenca una raccolta di impostazioni del portale. oppure ottenere le impostazioni di accesso per il portale o ottenere le impostazioni di registrazione per il portale o ottenere le impostazioni di delega per il portale. |
-> | Microsoft. ApiManagement/Service/portalSettings/Write | Aggiornare le impostazioni di accesso. oppure creare o aggiornare le impostazioni di accesso. o aggiornare le impostazioni di iscrizione o aggiornare le impostazioni di iscrizione o aggiornare le impostazioni di delega. oppure creare o aggiornare le impostazioni di delega. |
+> | Microsoft. ApiManagement/Service/portalSettings/Write | Aggiornare le impostazioni del Sign-In. in alternativa, creare o aggiornare Sign-In impostazioni. o aggiornare le impostazioni di iscrizione o aggiornare le impostazioni di iscrizione o aggiornare le impostazioni di delega. oppure creare o aggiornare le impostazioni di delega. |
 > | Microsoft. ApiManagement/Service/portalSettings/listSecrets/Action | Ottiene la chiave di convalida delle impostazioni di delega del portale. o ottenere l'URI del contenitore BLOB del contenuto multimediale. |
 > | Microsoft.ApiManagement/service/products/read | Elenca una raccolta di prodotti nell'istanza del servizio specificata. o ottiene i dettagli del prodotto specificato dal relativo identificatore. |
 > | Microsoft.ApiManagement/service/products/write | Crea o aggiorna un prodotto. oppure aggiornare i dettagli del prodotto esistenti. |
@@ -6287,8 +6287,8 @@ Servizio di Azure: Azure Active Directory
 > | microsoft.aadiam/diagnosticsettings/read | Lettura di un'impostazione di diagnostica |
 > | microsoft.aadiam/diagnosticsettings/delete | Eliminazione di un'impostazione di diagnostica |
 > | microsoft.aadiam/diagnosticsettingscategories/read | Lettura delle categorie di un'impostazione di diagnostica |
-> | Microsoft. aadiam/metricDefinitions/Read | Lettura delle definizioni delle metriche a livello di tenant |
-> | Microsoft. aadiam/metrica/lettura | Lettura delle metriche a livello di tenant |
+> | Microsoft. aadiam/metricDefinitions/Read | Lettura Tenant-Level definizioni delle metriche |
+> | Microsoft. aadiam/metrica/lettura | Lettura delle metriche Tenant-Level |
 > | Microsoft. aadiam/privateLinkForAzureAD/Read | Leggi la definizione dei criteri di collegamento privato |
 > | Microsoft. aadiam/privateLinkForAzureAD/Write | Crea e aggiorna la definizione dei criteri di collegamento privato |
 > | Microsoft. aadiam/privateLinkForAzureAD/Delete | Elimina la definizione dei criteri di collegamento privato |
@@ -6867,7 +6867,7 @@ Servizio di Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Elimina il progetto |
 > | Microsoft.VisualStudio/Project/Read | Legge il progetto |
 
-## <a name="migrate"></a>Migrazione
+## <a name="migrate"></a>Migrate
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 

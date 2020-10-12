@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023467"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
@@ -286,11 +286,11 @@ Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), il te
 
 Nell'ambito di un [dispositivo gemello](iot-hub-devguide-device-twins.md), le proprietà segnalate sono un sottoparagrafo del dispositivo gemello usato con le [proprietà desiderate](#desired-properties) per sincronizzare la condizione o la configurazione del dispositivo. Le proprietà segnalate possono essere impostate solo dall'[app per dispositivo](#device-app) e possono essere lette e sottoposte a query da un'[app back-end](#back-end-app).
 
-## <a name="resource-group"></a>Gruppo di risorse
+## <a name="resource-group"></a>Resource group
 
 [Azure Resource Manager](#azure-resource-manager) usa i gruppi di risorse per raggruppare le risorse correlate. È possibile usare un gruppo di risorse per eseguire operazioni su tutte le risorse del gruppo contemporaneamente.
 
-## <a name="retry-policy"></a>Criteri di ripetizione
+## <a name="retry-policy"></a>Criterio di ripetizione dei tentativi
 
 I criteri di ripetizione si usano per gestire gli [errori temporanei](/azure/architecture/best-practices/transient-faults) quando ci si connette a un servizio cloud.
 
@@ -318,10 +318,10 @@ Un criterio di accesso condiviso definisce le autorizzazioni concesse a chiunque
 
 Per motivi di praticità, diverse esercitazioni su Hub IoT usano dispositivi simulati per consentire di eseguire esempi nel computer locale. Un [dispositivo fisico](#physical-device) è invece un vero e proprio dispositivo, ad esempio un Raspberry Pi, che si connette a un hub IoT.
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 Una _soluzione_ può essere una soluzione di Visual Studio che include uno o più progetti, ma una _soluzione_ può anche essere una soluzione IoT che include elementi come dispositivi, [app per dispositivo](#device-app), un hub IoT, altri servizi di Azure e [app back-end](#back-end-app).
 
-## <a name="subscription"></a>Sottoscrizione
+## <a name="subscription"></a>Subscription
 
 In una sottoscrizione di Azure viene eseguita la fatturazione. Ogni risorsa di Azure creata o ogni servizio di Azure usato è associato a una singola sottoscrizione. Anche diverse quote si applicano al livello di una sottoscrizione.
 

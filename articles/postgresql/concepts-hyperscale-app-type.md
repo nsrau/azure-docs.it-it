@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90895957"
 ---
 # <a name="determining-application-type"></a>Determinazione del tipo di applicazione
@@ -22,7 +22,7 @@ Ci sono molto due tipi di applicazioni che funzionano bene in iperscalabilità (
 
 ## <a name="at-a-glance"></a>A colpo d'occhio
 
-| Applicazioni multi-tenant                                 | Applicazioni in tempo reale                                |
+| Applicazioni multi-tenant                                 | Applicazioni Real-Time                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
 | A volte dozzine o centinaia di tabelle nello schema          | Numero ridotto di tabelle                                |
 | Query relative a un tenant (società/Archivio) alla volta | Query di analisi relativamente semplici con le aggregazioni |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87921419"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Che cos'è la conversazione per più dispositivi (anteprima)?
@@ -79,7 +79,7 @@ Ogni conversazione crea metadati che includono:
 -    Elenco di tutti i partecipanti alla conversazione, che include il nome alternativo e la lingua primaria scelti da ogni utente per l'input vocale o di testo.
 
 
-Esistono due tipi di utenti in una conversazione: **host** e **partecipante**.
+Esistono due tipi di utenti in una conversazione:  **host** e **partecipante**.
 
 L' **host** è l'utente che avvia una conversazione e che funge da amministratore della conversazione.
 - Ogni conversazione può avere un solo host

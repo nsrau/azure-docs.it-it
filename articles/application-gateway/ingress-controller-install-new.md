@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: cbebf430bf44ccdee51bf44b11b8b01f23544dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807153"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Come installare un controller di ingresso del gateway applicazione (AGIC) usando un nuovo gateway applicazione
@@ -30,10 +30,10 @@ In alternativa, avviare Cloud Shell da portale di Azure usando l'icona seguente:
 
 Il [Azure cloud Shell](https://shell.azure.com/) dispone già di tutti gli strumenti necessari. Se si sceglie di usare un altro ambiente, assicurarsi che siano installati gli strumenti da riga di comando seguenti:
 
-* `az`-INTERFACCIA della riga di comando di Azure: [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* `kubectl`-Strumento da riga di comando Kubernetes: [istruzioni di installazione](https://kubernetes.io/docs/tasks/tools/install-kubectl)
-* `helm`-Gestione pacchetti Kubernetes: [istruzioni di installazione](https://github.com/helm/helm/releases/latest)
-* `jq`-processore JSON da riga di comando: [istruzioni di installazione](https://stedolan.github.io/jq/download/)
+* `az` -INTERFACCIA della riga di comando di Azure: [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `kubectl` -Strumento da riga di comando Kubernetes: [istruzioni di installazione](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+* `helm` -Gestione pacchetti Kubernetes: [istruzioni di installazione](https://github.com/helm/helm/releases/latest)
+* `jq` -processore JSON da riga di comando: [istruzioni di installazione](https://stedolan.github.io/jq/download/)
 
 
 ## <a name="create-an-identity"></a>Creare un'identità
@@ -66,7 +66,7 @@ Attenersi alla procedura seguente per creare un [oggetto entità servizio](https
     }
     EOF
     ```
-    Per distribuire un cluster abilitato per **RBAC** , impostare il `aksEnableRBAC` campo su`true`
+    Per distribuire un cluster abilitato per **RBAC** , impostare il `aksEnableRBAC` campo su `true`
 
 ## <a name="deploy-components"></a>Distribuisci componenti
 Questo passaggio consente di aggiungere alla sottoscrizione i componenti seguenti:
@@ -124,7 +124,7 @@ az aks get-credentials --resource-group $resourceGroupName --name $aksClusterNam
   Azure Active Directory identità Pod fornisce l'accesso basato su token ai [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
   L' [identità pod di AAD](https://github.com/Azure/aad-pod-identity) aggiungerà i componenti seguenti al cluster Kubernetes:
-   * Kubernetes [CRD](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/): `AzureIdentity` , `AzureAssignedIdentity` ,`AzureIdentityBinding`
+   * [Definizioni di risorse personalizzate](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/) di Kubernetes: `AzureIdentity`, `AzureAssignedIdentity`, `AzureIdentityBinding`
    * Componente [Controller identità gestita](https://github.com/Azure/aad-pod-identity#managed-identity-controllermic)
    * Componente [Identità gestita del nodo](https://github.com/Azure/aad-pod-identity#node-managed-identitynmi)
 
@@ -250,13 +250,13 @@ Per installare l'identità pod di AAD nel cluster:
     ```
 
    Valori:
-     - `verbosityLevel`: Imposta il livello di dettaglio dell'infrastruttura di registrazione AGIC. Per i valori possibili, vedere [Livelli di registrazione](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels).
+     - `verbosityLevel`: imposta il livello di dettaglio dell'infrastruttura di registrazione di AGIC. Per i valori possibili, vedere [Livelli di registrazione](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels).
      - `appgw.subscriptionId`: ID sottoscrizione di Azure in cui risiede il gateway applicazione. Esempio: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Nome del gruppo di risorse di Azure in cui è stato creato il gateway applicazione. Esempio: `app-gw-resource-group`
-     - `appgw.name`: Nome del gateway applicazione. Esempio: `applicationgatewayd0f0`
-     - `appgw.shared`: Questo flag booleano deve essere impostato come valore predefinito `false` . Impostare su `true` se è necessario un [gateway applicazione condiviso](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
-     - `kubernetes.watchNamespace`: Specificare lo spazio dei nomi che AGIC deve controllare. Potrebbe trattarsi di un valore stringa singolo o di un elenco delimitato da virgole di spazi dei nomi.
-    - `armAuth.type`: può essere `aadPodIdentity` o`servicePrincipal`
+     - `appgw.name`: nome del gateway applicazione. Esempio: `applicationgatewayd0f0`
+     - `appgw.shared`: il valore predefinito di questo flag booleano deve essere `false`. Impostare su `true` se è necessario un [gateway applicazione condiviso](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+     - `kubernetes.watchNamespace`: specificare lo spazio dei nomi che AGIC deve controllare. Potrebbe trattarsi di un valore stringa singolo o di un elenco delimitato da virgole di spazi dei nomi.
+    - `armAuth.type`: può essere `aadPodIdentity` o `servicePrincipal`
     - `armAuth.identityResourceID`: ID risorsa dell'identità gestita di Azure
     - `armAuth.identityClientId`: ID client dell'identità. Vedere di seguito per altre informazioni sull'identità
     - `armAuth.secretJSON`: Necessario solo quando si sceglie il tipo di segreto dell'entità servizio (quando `armAuth.type` è stato impostato su `servicePrincipal` ) 
@@ -267,7 +267,7 @@ Per installare l'identità pod di AAD nel cluster:
    > ```azurecli
    > az identity show -g <resource-group> -n <identity-name>
    > ```
-   > `<resource-group>`nel comando precedente è il gruppo di risorse del gateway applicazione. `<identity-name>`nome dell'identità creata. È possibile elencare tutte le identità per una determinata sottoscrizione usando:`az identity list`
+   > `<resource-group>` nel comando precedente è il gruppo di risorse del gateway applicazione. `<identity-name>` nome dell'identità creata. È possibile elencare tutte le identità per una determinata sottoscrizione usando: `az identity list`
 
 
 1. Installare il pacchetto del controller di ingresso del gateway applicazione:

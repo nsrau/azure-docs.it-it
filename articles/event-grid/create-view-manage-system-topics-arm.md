@@ -4,10 +4,10 @@ description: Questo articolo illustra come usare i modelli di Azure Resource Man
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 1c8881a2d9dfca43084cc537b106e84b050a18d5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115163"
 ---
 # <a name="create-system-topics-in-azure-event-grid-using-resource-manager-templates"></a>Creare argomenti di sistema in griglia di eventi di Azure usando modelli di Gestione risorse

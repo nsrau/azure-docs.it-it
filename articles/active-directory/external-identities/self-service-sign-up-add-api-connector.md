@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613986"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Aggiungere un connettore API a un flusso utente
@@ -244,7 +244,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                          | Tipo              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
+| Parametro                                          | Type              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
 | action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
@@ -266,7 +266,7 @@ Content-type: application/json
 
 ```
 
-| Parametro   | Tipo   | Obbligatoria | Descrizione                                                                |
+| Parametro   | Type   | Obbligatoria | Descrizione                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | string | Sì      | Versione dell'API.                                                    |
 | action      | string | Sì      | Il valore deve essere `ShowBlockPage`                                              |
@@ -292,7 +292,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro   | Tipo    | Obbligatoria | Descrizione                                                                |
+| Parametro   | Type    | Obbligatoria | Descrizione                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | string  | Sì      | Versione dell'API.                                                    |
 | action      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |

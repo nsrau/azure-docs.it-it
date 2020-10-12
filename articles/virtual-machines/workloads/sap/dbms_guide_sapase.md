@@ -16,10 +16,10 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654600"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
@@ -188,7 +188,7 @@ La guida per gli utenti di HADR illustra l'installazione e la configurazione di 
 > L'unica configurazione supportata in Azure è l'uso di gestione errori senza IP mobile.  Il metodo di indirizzo IP mobile non funziona in Azure. 
 
 ### <a name="third-node-for-disaster-recovery"></a>Terzo nodo per il ripristino di emergenza
-Oltre all'uso di SAP ASE always on per la disponibilità elevata locale, potrebbe essere necessario estendere la configurazione a un nodo replicato in modo asincrono in un'altra area di Azure. La documentazione relativa a tale scenario è disponibile [qui](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
+Oltre all'uso di SAP ASE Always-On per la disponibilità elevata locale, potrebbe essere necessario estendere la configurazione a un nodo replicato in modo asincrono in un'altra area di Azure. La documentazione relativa a tale scenario è disponibile [qui](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199).
 
 ## <a name="sap-ase-database-encryption--ssl"></a>Crittografia del database SAP ASE & SSL 
 SAP software Provisioning Manager (SWPM) offre un'opzione per crittografare il database durante l'installazione.  Se si vuole usare la crittografia, è consigliabile usare la crittografia completa del database SAP.  Vedere i dettagli documentati in:
@@ -239,7 +239,7 @@ I collegamenti generati nella transazione DBACockpit sono simili ai seguenti:
 
 A seconda del modo in cui la macchina virtuale di Azure ospitante il sistema SAP è connessa ad Active Directory e DNS, è necessario verificare che ICM usi un nome host completo che può essere risolto nel computer da cui si sta aprendo DBACockpit. Vedere la [Nota sul supporto SAP #773830](https://launchpad.support.sap.com/#/notes/773830) per comprendere in che modo ICM determina il nome host completo in base ai parametri del profilo e impostare il parametro icm/host_name_full in modo esplicito, se necessario.
 
-Se la macchina virtuale è stata distribuita in uno scenario solo cloud senza connettività cross-premise tra l'istanza locale e Azure, è necessario definire un indirizzo IP pubblico e un `domainlabel` . Il formato del nome DNS pubblico della VM si presenta come segue:
+Se la macchina virtuale è stata distribuita in uno scenario di Cloud-Only senza connettività cross-premise tra l'istanza locale e Azure, è necessario definire un indirizzo IP pubblico e un `domainlabel` . Il formato del nome DNS pubblico della VM si presenta come segue:
 
 > `<custom domainlabel`&gt;.`<azure region`&gt;.cloudapp.azure.com
 > 

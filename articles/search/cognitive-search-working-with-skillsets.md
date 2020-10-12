@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.openlocfilehash: f1d8715fcadeda5ccd1a98192a70939b0c359c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84976677"
 ---
 # <a name="skillset-concepts-in-azure-cognitive-search"></a>Concetti relativi alle competenze in Azure ricerca cognitiva
@@ -223,7 +223,7 @@ Per estendere l'esempio, è possibile scegliere di rimuovere la definizione dell
 
 #### <a name="shaper-skill-and-projection"></a>Competenza di shaper e proiezione
 
-Questa 
+This 
 
 > [!Note]
 > Alcune colonne della tabella del documento sono state rimosse da questo esempio per brevità.

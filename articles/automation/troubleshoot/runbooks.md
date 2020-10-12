@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
 ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87904803"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
@@ -522,7 +522,7 @@ The runbook job failed due to a job stream being larger than 1MB, this is the li
 
 Questo errore si verifica perché il Runbook ha tentato di scrivere una quantità eccessiva di dati di eccezione nel flusso di output.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Il flusso di output del processo prevede un limite di 1 MB. Verificare che il runbook includa le chiamate a un eseguibile o a un sottoprocesso usando i blocchi `try` e `catch`. Se le operazioni generano un'eccezione, fare in modo che il codice scriva il messaggio generato dall'eccezione in una variabile di Automazione. Grazie a questo accorgimento, il messaggio non verrà scritto nel flusso di output del processo. Per i processi di lavoro ibrido per Runbook eseguiti, il flusso di output troncato a 1 MB viene visualizzato senza messaggio di errore.
 
