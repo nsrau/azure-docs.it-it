@@ -8,10 +8,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071704"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuire e configurare il firewall di Azure con Azure PowerShell
@@ -87,7 +87,7 @@ $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG 
 Creare ora le macchine virtuali per il jump server e il server del carico di lavoro e posizionarle nelle subnet appropriate.
 Quando richiesto, digitare il nome utente e la password per la macchina virtuale.
 
-Creare la macchina virtuale SRV-Jump.
+Creare la macchina virtuale Srv-Jump.
 
 ```azurepowershell
 New-AzVm `

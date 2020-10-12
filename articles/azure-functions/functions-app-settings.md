@@ -4,10 +4,10 @@ description: Documentazione di riferimento per le impostazioni o le variabili di
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88589301"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
@@ -41,16 +41,16 @@ Stringa di connessione per Application Insights. Usare `APPLICATIONINSIGHTS_CONN
 
 Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano un collegamento per inviare chiamate API da proxy direttamente alle funzioni nella stessa app per le funzioni. Questo tasto di scelta rapida viene utilizzato anziché creare una nuova richiesta HTTP. Questa impostazione consente di disabilitare il comportamento del collegamento.
 
-|Chiave|valore|Descrizione|
+|Chiave|Valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Si tratta del valore predefinito. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Rappresenta il valore predefinito. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 Questa impostazione determina se i caratteri `%2F` vengono decodificati come barre nei parametri di route quando vengono inseriti nell'URL back-end. 
 
-|Chiave|valore|Descrizione|
+|Chiave|Valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate vengono decodificati. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Tutti i parametri di route vengono passati insieme a Unchanged, che è il comportamento predefinito. |

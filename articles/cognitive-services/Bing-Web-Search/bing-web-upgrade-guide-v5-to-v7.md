@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85609453"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Aggiornare l'API Ricerca Web Bing dalla versione 5 alla versione 7
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca Web Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
-## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+## <a name="breaking-changes"></a>Modifiche di rilievo
 
 ### <a name="endpoints"></a>Endpoint
 

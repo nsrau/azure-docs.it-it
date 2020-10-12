@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09fa612e7e5c681da16bf19e94c626ae14a3b8a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77590801"
 ---
 Quando si aggiungono dischi dati a una VM Linux, potrebbero verificarsi errori in caso di disco inesistente nel LUN 0. Se si aggiunge un disco manualmente usando il comando `az vm disk attach -new` e si specifica un LUN (`--lun`) anziché consentire alla piattaforma Azure di determinare il LUN appropriato, fare attenzione che nel LUN 0 sia/sarà già presente un disco. 

@@ -4,10 +4,10 @@ description: Come usare le aree geografiche per il failover ed eseguire il ripri
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934073"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 

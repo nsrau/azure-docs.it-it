@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77594312"
 ---
 # <a name="about-service-meshes"></a>Informazioni sulle mesh del servizio
@@ -38,7 +38,7 @@ Il **piano dati** è in genere costituito da un proxy che viene inserito in modo
 
 ![Architettura tipica di mesh di servizi](media/servicemesh/typical-architecture.png)
 
-## <a name="capabilities"></a>Funzionalità
+## <a name="capabilities"></a>Capabilities
 
 Ognuna delle reti mesh dei servizi ha una scelta naturale e si concentra sul supporto di scenari specifici, ma in genere si noterà che la maggior parte implementa alcune delle funzionalità seguenti, se non tutte.
 

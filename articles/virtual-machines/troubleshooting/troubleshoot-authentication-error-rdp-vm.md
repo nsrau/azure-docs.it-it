@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088564"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Risolvere gli errori di autenticazione quando si usa RDP per connettersi a una macchina virtuale di Azure
@@ -161,7 +161,7 @@ Reset-ComputerMachinePassword -Server "<COMPUTERNAME>" -Credential <DOMAIN CREDE
 
 Se la comunicazione fra il controller di dominio e la macchina virtuale è buona ma il controller di dominio non è sufficientemente integro da aprire una sessione RDP, è possibile provare a riavviarlo.
 
-Se il problema di comunicazione con il dominio non si è risolto con i comandi precedenti, è possibile aggiungere di nuovo la macchina virtuale al dominio. A questo scopo, seguire questa procedura:
+Se il problema di comunicazione con il dominio non si è risolto con i comandi precedenti, è possibile aggiungere di nuovo la macchina virtuale al dominio. A tale scopo, attenersi alla seguente procedura:
 
 1. Creare uno script di nome Unjoin.ps1 usando il contenuto seguente, quindi distribuirlo come estensione script personalizzata nel portale di Azure:
 

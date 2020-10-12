@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74168357"
 ---
 # <a name="add-an-email-action"></a>Aggiungere un'azione di posta elettronica
@@ -49,7 +49,7 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica a una reg
 
 1. Verificare che l'opzione **Stato regola** sia impostata su **Abilitato**.
 
-1. Fare clic su **Apply**.
+1. Fare clic su **Applica**.
 
 ## <a name="create-a-new-rule"></a>Creare una nuova regola
 
@@ -77,7 +77,7 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica quando si
 
 1. Verificare che l'opzione **Stato regola** sia impostata su **Abilitato**.
 
-1. Fare clic su **Apply**.
+1. Fare clic su **Applica**.
 
 La regola con un'azione di posta elettronica è ora abilitata. Ogni volta che viene attivata l'azione, ai destinatari viene inviato un nuovo messaggio di posta elettronica.
 

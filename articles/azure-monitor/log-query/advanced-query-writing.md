@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
 ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77670288"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Scrittura di query avanzate in Monitoraggio di Azure
@@ -68,7 +68,7 @@ Event
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
 
-## <a name="print"></a>Print
+## <a name="print"></a>Stampa
 `print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Questa operazione viene spesso usata nei casi in cui è necessario un calcolo semplice. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
 
 ```Kusto

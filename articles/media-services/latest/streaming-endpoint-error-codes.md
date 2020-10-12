@@ -14,10 +14,10 @@ ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
 ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295326"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Errori dell'endpoint di streaming (Origine)
@@ -28,7 +28,7 @@ Questo argomento descrive gli errori che possono essere ricevuti dal [servizio d
 
 La richiesta contiene informazioni non valide e viene rifiutata con questi codici di errore e a causa di uno dei motivi seguenti:
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_BAD_URL_SYNTAX |0x80890201|Sintassi o errore di formato dell'URL. Gli esempi includono le richieste per un tipo non valido, un frammento non valido o una traccia non valida. |
 |MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|La richiesta non contiene tag di crittografia nell'URL. Le richieste CMAF richiedono un tag di crittografia nell'URL. Altri protocolli configurati con più di un tipo di crittografia richiedono anche il tag di crittografia per la risoluzione dell'ambiguità. |
@@ -38,7 +38,7 @@ La richiesta contiene informazioni non valide e viene rifiutata con questi codic
 
 La richiesta non è consentita per uno dei motivi seguenti:
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_STORAGE_AUTHENTICATION_FAILED |0x808900EA|La richiesta di archiviazione per completare la richiesta non è riuscita con un errore di autenticazione. Questo problema può verificarsi se le chiavi di archiviazione sono ruotate e il servizio non è stato in grado di sincronizzare le chiavi di archiviazione. <br/><br/>Per contattare il supporto tecnico di Azure, passare a [Guida e supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) nella portale di Azure.|
 |MPE_STORAGE_INSUFFICIENT_ACCOUNT_PERMISSIONS |0x808900EB |Errore dell'operazione di archiviazione. accesso non riuscito a causa di autorizzazioni di account insufficienti. |
@@ -52,7 +52,7 @@ La richiesta non è consentita per uno dei motivi seguenti:
 
 L'operazione tenta di agire su una risorsa che non esiste più. Ad esempio, è possibile che la risorsa sia stata già eliminata.
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_EGRESS_TRACK_NOT_FOUND |0x80890209 |La traccia richiesta non è stata trovata. |
 |MPE_RESOURCE_NOT_FOUND |0x808901F9 |La risorsa richiesta non è stata trovata. |
@@ -70,13 +70,13 @@ L'operazione tenta di agire su una risorsa che non esiste più. Ad esempio, è p
 
 L'ID fornito per una risorsa in un' `PUT` `POST` operazione o è stato accettato da una risorsa esistente. Per risolvere il problema, usare un altro ID per la risorsa.
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_STORAGE_CONFLICT  |0x808900EE  |Errore dell'operazione di archiviazione, errore di conflitto.  |
 
 ## <a name="410"></a>410
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_FILTER_FORCE_END_LEFT_EDGE_CROSSED_DVR_WINDOW|0x80890263|Per lo streaming live, quando il filtro con forceEndTimestamp è impostato su true, il timestamp di inizio o di fine è esterno alla finestra DVR corrente.|
 
@@ -84,7 +84,7 @@ L'ID fornito per una risorsa in un' `PUT` `POST` operazione o è stato accettato
 
 L'operazione ha specificato un valore eTag diverso dalla versione disponibile sul server, ovvero un errore di concorrenza ottimistica. Riprovare a eseguire la richiesta dopo aver letto la versione più recente della risorsa e aver aggiornato l'ETag sulla richiesta.
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_FRAGMENT_NOT_READY |0x80890200 |Il frammento richiesto non è pronto.|
 |MPE_STORAGE_PRECONDITION_FAILED| 0x808900EF|Errore dell'operazione di archiviazione, un errore di condizione preliminare.|
@@ -93,7 +93,7 @@ L'operazione ha specificato un valore eTag diverso dalla versione disponibile su
 
 Il formato del payload inviato dal client è in un formato non supportato.
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_ENC_ALREADY_ENCRYPTED| 0x8088021F| Non applicare la crittografia al contenuto già crittografato.|
 |MPE_ENC_INVALID_INPUT_ENCRYPTION_FORMAT|0x8088021D |La crittografia non è valida per il formato di input.|
@@ -165,7 +165,7 @@ Per gli articoli e gli esempi Live, vedere:
 
 ## <a name="416-range-not-satisfiable"></a>416 Impossibile attenersi all'intervallo richiesto
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Errore dell'operazione di archiviazione. errore HTTP 416 restituito, intervallo non valido.|
 
@@ -173,7 +173,7 @@ Per gli articoli e gli esempi Live, vedere:
 
 Durante l'elaborazione della richiesta, in Servizi multimediali viene generato un errore che impedisce di continuare l'elaborazione.  
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_STORAGE_SOCKET_TIMEOUT|0x808900F4|Ricevuto e tradotto dal codice di errore WinHTTP di ERROR_WINHTTP_TIMEOUT (0x00002ee2).|
 |MPE_STORAGE_SOCKET_CONNECTION_ERROR|0x808900F5|Ricevuto e tradotto dal codice di errore WinHTTP di ERROR_WINHTTP_CONNECTION_ERROR (0x00002efe).|
@@ -190,7 +190,7 @@ Il server non è attualmente in grado di ricevere richieste. Questo errore può 
 > Controllare il messaggio di errore e la stringa del codice di errore per ottenere informazioni più dettagliate sul motivo per cui è stato generato un errore 503. Questo errore non indica necessariamente la limitazione delle richieste.
 > 
 
-|Codice errore|Valore esadecimale |Descrizione errore|
+|Codice di errore|Valore esadecimale |Descrizione errore|
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Errore dell'operazione di archiviazione. errore del server HTTP occupato 503.|
 

@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
 ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84170043"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088598"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento 
@@ -113,7 +113,7 @@ Questo problema si verifica perché le chiavi di crittografia RSA locali nella c
 
 2. Chiave RSA danneggiata o mancante.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, è necessario configurare le autorizzazioni corrette per il certificato RDP seguendo questa procedura.
 
@@ -231,7 +231,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 
 Questo problema è causato dai criteri di sicurezza. Quando le versioni precedenti di TLS (ad esempio, la versione 1.0) sono disabilitate, l'accesso RDP non riesce.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, il protocollo può essere sostituito con TLS 1.1, che è il nuovo standard.
 
@@ -284,7 +284,7 @@ Questo problema è dovuto al fatto che viene modificato il nome host del server 
 
 Il nome host ha voci e dipendenze in Database interno di Windows, che è necessario per il funzionamento di servizi Desktop Remoto. La modifica del nome host dopo che la farm è già stata compilata comporta molti errori e può impedire il funzionamento del server gestore.
 
-### <a name="resolution"></a>Risoluzione 
+### <a name="resolution"></a>Soluzione 
 
 Per risolvere questo problema, è necessario reinstallare il ruolo Gestore connessione Desktop remoto e Database interno di Windows.
 

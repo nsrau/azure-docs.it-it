@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
 ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610201"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Ridimensionamento di cluster di Azure Service Fabric
@@ -28,7 +28,7 @@ Quando si ridimensiona un cluster di Azure, tenere presenti le linee guida segue
 - I tipi di nodo primario che eseguono carichi di lavoro di produzione devono contenere sempre cinque o più nodi.
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione con stato devono contenere sempre cinque o più nodi.
 - I tipi di nodo non primario che eseguono carichi di lavoro di produzione senza stato devono contenere sempre due o più nodi.
-- Qualsiasi tipo di nodo del [livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Gold o Silver deve sempre contenere cinque o più nodi.
+- Qualsiasi tipo di nodo del [livello di durabilità](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) Gold or Silver deve sempre contenere cinque o più nodi.
 - Non rimuovere istanze/nodi di VM casuali da un tipo di nodo, usare sempre la funzionalità di scalabilità del set di scalabilità di macchine virtuali. L'eliminazione di istanze di VM casuali può influenzare negativamente la capacità dei sistemi di eseguire il bilanciamento del carico in modo corretto.
 - Se si usano regole di scalabilità automatica, impostare le regole in modo che la riduzione (rimozione di istanze di VM) venga eseguita un nodo alla volta. La riduzione delle prestazioni di più di un'istanza per volta non è sicura.
 

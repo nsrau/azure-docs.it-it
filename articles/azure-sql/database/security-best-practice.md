@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885176"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
@@ -228,7 +228,7 @@ Assegnare solo le [autorizzazioni](https://docs.microsoft.com/sql/relational-dat
 - Nei database SQL:
   - Usare autorizzazioni granulari e ruoli del database definiti dall'utente (o ruoli del server in Istanza gestita):
     1. Creare i ruoli necessari
-       - [CREA RUOLO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Creare gli utenti necessari
        - [CREA UTENTE](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
@@ -266,7 +266,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
 - Tenere presente che le autorizzazioni nel motore di database possono essere applicate all'interno degli ambiti seguenti (minore sarà l'ambito, minore sarà l'effetto delle autorizzazioni concesse):
   - Server (ruoli speciali nel database master) in Azure
   - Database
-  - Schema
+  - SCHEMA
     - È consigliabile utilizzare gli schemi per concedere autorizzazioni all'interno di un database. (vedere anche: [progettazione schema: suggerimenti per la progettazione dello schema tenendo presente la sicurezza](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Oggetto (tabella, vista, procedura e così via)
 
@@ -461,7 +461,7 @@ Quando si usa CLE:
 
 - Proteggere le chiavi simmetriche con chiavi/certificati asimmetrici (non password) per evitare di utilizzare 3DES.
 
-- Prestare attenzione quando si esegue la migrazione di un database usando la crittografia a livello di cella tramite esportazione/importazione (file BACPAC).
+- Prestare attenzione quando si esegue la migrazione di un database usando Cell-Level crittografia tramite esportazione/importazione (file BACPAC).
   - Vedere l'articolo [Suggerimenti per l'uso della crittografia a livello di cella nel database SQL di Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) per informazioni su come evitare la perdita di chiavi durante la migrazione dei dati e per altre procedure consigliate.
 
 Tenere presente che Always Encrypted è progettato principalmente per proteggere i dati sensibili in uso dagli utenti con privilegi elevati del database SQL di Azure (operatori cloud, DBA). vedere [proteggere i dati sensibili in uso da utenti con privilegi elevati e non autorizzati](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Quando si utilizza Always Encrypted per proteggere i dati dagli utenti delle applicazioni, tenere presente i seguenti problemi:

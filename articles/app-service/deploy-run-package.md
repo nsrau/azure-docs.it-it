@@ -4,10 +4,10 @@ description: Distribuisci il pacchetto ZIP dell'app con l'atomicità. Migliorare
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77920723"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>Eseguire l'app nel servizio app Azure direttamente da un pacchetto ZIP
@@ -37,7 +37,7 @@ L' `WEBSITE_RUN_FROM_PACKAGE` impostazione dell'app consente l'esecuzione da un 
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_RUN_FROM_PACKAGE="1"
 ```
 
-`WEBSITE_RUN_FROM_PACKAGE="1"`consente di eseguire l'app da un pacchetto locale all'app. È anche possibile [eseguire da un pacchetto remoto](#run-from-external-url-instead).
+`WEBSITE_RUN_FROM_PACKAGE="1"` consente di eseguire l'app da un pacchetto locale all'app. È anche possibile [eseguire da un pacchetto remoto](#run-from-external-url-instead).
 
 ## <a name="run-the-package"></a>Eseguire il pacchetto
 

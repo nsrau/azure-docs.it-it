@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973579"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
@@ -29,14 +29,14 @@ Con Live Metrics Stream, è possibile:
 
 Le metriche attive sono attualmente supportate per le app ASP.NET, ASP.NET Core, funzioni di Azure, Java e Node.js.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 1. Seguire le linee guida specifiche del linguaggio per abilitare le metriche in tempo reale.
    * [ASP.NET](./asp-net.md) -la metrica dinamica è abilitata per impostazione predefinita.
    * La metrica [ASP.NET Core](./asp-net-core.md)-Live è abilitata per impostazione predefinita.
    * Per impostazione predefinita, le metriche di [.NET/.NET Core Console/Worker](./worker-service.md)-Live sono abilitate.
    * [Applicazioni .NET: consente di abilitare l'uso del codice](#enable-livemetrics-using-code-for-any-net-application).
-   * [Node.js](./nodejs.md#live-metrics)
+   * [Node.JS](./nodejs.md#live-metrics)
 
 2. Nel [portale di Azure](https://portal.azure.com) aprire la risorsa di Application Insights per l'app e quindi Live Stream.
 

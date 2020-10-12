@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: notification-hubs
 author: sethmanheim
@@ -9,10 +9,10 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 520a0b4ec42b9a32fbd30c28c7ce311b5445f23d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74260776"
 ---
 Quando si inviano notifiche modello, è necessario fornire solo un set di proprietà. In questo scenario il set di proprietà contiene la versione localizzata delle notizie correnti.

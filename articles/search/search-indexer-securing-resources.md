@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.openlocfilehash: 5075c4858f9584cb19442e19d9009d46d0e00ff8
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89463713"
 ---
 # <a name="indexer-access-to-data-sources-using-azure-network-security-features"></a>Accesso dell'indicizzatore alle origini dati usando le funzionalità di sicurezza di rete di Azure
@@ -24,7 +24,7 @@ Gli indicizzatori di Azure ricerca cognitiva possono eseguire chiamate in uscita
 | Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Origine dati |
 | Archiviazione di Azure (BLOB, tabelle) | Skillsets (memorizzazione nella cache di documenti arricchiti e archiviazione delle proiezioni dell'archivio informazioni) |
 | Azure Cosmos DB (varie API) | Origine dati |
-| Database SQL di Azure | Origine dati |
+| database SQL di Azure | Origine dati |
 | SQL Server in macchine virtuali IaaS di Azure | Origine dati |
 | Istanze gestite SQL | Origine dati |
 | Funzioni di Azure | Host per le competenze personalizzate dell'API Web |
@@ -37,13 +37,13 @@ I clienti possono proteggere queste risorse tramite diversi meccanismi di isolam
 
 | Risorsa | Restrizione IP | Endpoint privato |
 | --- | --- | ---- |
-| Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Supportato solo se l'account di archiviazione e il servizio di ricerca si trovano in aree diverse | Funzionalità supportata |
-| API Azure Cosmos DB-SQL | Funzionalità supportata | Funzionalità supportata |
+| Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Supportato solo se l'account di archiviazione e il servizio di ricerca si trovano in aree diverse | Supportato |
+| API Azure Cosmos DB-SQL | Supportato | Supportato |
 | Azure Cosmos DB-Cassandra, Mongo e Gremlin API | Supportato | Non supportato |
-| Database SQL di Azure | Funzionalità supportata | Funzionalità supportata |
-| SQL Server in macchine virtuali IaaS di Azure | Funzionalità supportata | N/D |
-| Istanze gestite SQL | Funzionalità supportata | N/D |
-| Funzioni di Azure | Funzionalità supportata | Supportato, solo per determinati SKU di funzioni di Azure |
+| database SQL di Azure | Supportato | Supportato |
+| SQL Server in macchine virtuali IaaS di Azure | Supportato | N/D |
+| Istanze gestite SQL | Supportato | N/D |
+| Funzioni di Azure | Supportato | Supportato, solo per determinati SKU di funzioni di Azure |
 
 > [!NOTE]
 > Oltre alle opzioni elencate in precedenza, per gli account di archiviazione di Azure protetti da rete, i clienti possono sfruttare il fatto che Azure ricerca cognitiva è un [servizio Microsoft attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Questo significa che un servizio di ricerca specifico può ignorare le restrizioni di rete virtuale o IP nell'account di archiviazione e può accedere ai dati nell'account di archiviazione, se il controllo degli accessi in base al ruolo appropriato è abilitato nell'account di archiviazione. I dettagli sono disponibili nella [Guida alle procedure](search-indexer-howto-access-trusted-service-exception.md). Questa opzione può essere usata al posto della route di restrizione IP, nel caso in cui non sia possibile spostare l'account di archiviazione o il servizio di ricerca in un'area diversa.

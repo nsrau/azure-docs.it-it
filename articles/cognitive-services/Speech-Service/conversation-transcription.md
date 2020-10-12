@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
 ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81402503"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Che cos'è la trascrizione delle conversazioni nelle riunioni (anteprima)?
@@ -44,7 +44,7 @@ Per rendere le riunioni inclusive per tutti gli utenti, ad esempio i partecipant
 
 I partecipanti alla riunione possono concentrarsi sulla riunione e lasciare la trascrizione delle conversazioni. I partecipanti possono partecipare attivamente alla riunione e proseguire rapidamente con i passaggi successivi, usando la trascrizione anziché prendere nota e potenzialmente mancare qualcosa durante la riunione.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Si tratta di una panoramica di alto livello del funzionamento della trascrizione delle conversazioni.
 
@@ -63,7 +63,7 @@ La trascrizione delle conversazioni offre tre modalità di trascrizione:
 
 I dati audio vengono elaborati in tempo reale per restituire l'identificatore e la trascrizione. Selezionare questa modalità se il requisito della soluzione di trascrizione consiste nel fornire ai partecipanti di conversazioni una visualizzazione della trascrizione in tempo reale della conversazione in corso. Ad esempio, la compilazione di un'applicazione per rendere le riunioni più accessibili da parte di membri sordi e difficili da ascoltare è un caso d'uso ideale per la trascrizione in tempo reale.
 
-### <a name="asynchronous"></a>Asincrona
+### <a name="asynchronous"></a>Asincrono
 
 I dati audio sono batch elaborati per restituire l'identificatore e la trascrizione del altoparlante. Selezionare questa modalità se il requisito della soluzione di trascrizione è fornire un'accuratezza più elevata senza visualizzazione della trascrizione in tempo reale. Se, ad esempio, si desidera compilare un'applicazione per consentire ai partecipanti della riunione di recuperare facilmente riunioni mancanti, utilizzare la modalità di trascrizione asincrona per ottenere risultati di trascrizione ad alta precisione.
 

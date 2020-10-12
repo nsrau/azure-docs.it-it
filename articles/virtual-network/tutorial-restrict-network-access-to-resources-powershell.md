@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 92a5ce539cdd61feb57722756ec8722916f346de
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89072384"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando PowerShell
@@ -43,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare PowerShell in locale, per questo articolo è necessario il modulo Azure PowerShell 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup*: 
 
@@ -205,7 +205,7 @@ $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 
 Creare una condivisione file con [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
-$share = New-AzStorageShare My-file-share-context $storageContext
+$share = New-AzStorageShare $storageContext del contesto di condivisione file
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Rifiutare l'accesso di rete a un account di archiviazione
 
@@ -366,7 +366,7 @@ Get-AzStorageFile `
 
 L'accesso viene negato e viene visualizzato *Get-AzStorageFile: il server remoto ha restituito un errore: (403) non consentito. Codice di stato HTTP: 403-messaggio di errore HTTP: questa richiesta non è autorizzata a eseguire l'* errore dell'operazione, perché il computer non si trova nella subnet *privata* della rete virtuale *MyVirtualNetwork* .
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli:
 

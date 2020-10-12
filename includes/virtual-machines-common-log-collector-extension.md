@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74085252"
 ---
 Per diagnosticare i problemi con un servizio cloud di Microsoft Azure è necessario raccogliere i file di log del servizio nelle macchine virtuali non appena si verificano i problemi. È possibile usare l'estensione AzureLogCollector su richiesta per eseguire una raccolta occasionale di log da una o più macchine virtuali del servizio cloud (da ruoli Web e ruoli di lavoro) e trasferire i file raccolti in un account di archiviazione di Azure, senza accedere in modalità remota ad alcuna macchina virtuale.
 
 > [!NOTE]
-> Le descrizioni per la maggior parte delle informazioni registrate sono disponibili all'indirizzohttps://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
+> Le descrizioni per la maggior parte delle informazioni registrate sono disponibili all'indirizzo https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 

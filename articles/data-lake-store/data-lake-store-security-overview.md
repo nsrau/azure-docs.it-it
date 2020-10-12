@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88192832"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sicurezza in Azure Data Lake Storage Gen1
@@ -52,11 +52,11 @@ Si noti che anche se per la gestione degli account vengono assegnati i ruoli, al
 
 | Ruoli | Diritti di gestione | Diritti di accesso ai dati | Spiegazione |
 | --- | --- | --- | --- |
-| Nessun ruolo assegnato |nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
+| Nessun ruolo assegnato |Nessuno |Regolato da ACL |Gli utenti non possono usare il portale di Azure o i cmdlet di Azure PowerShell per esplorare Data Lake Storage Gen1. L'utente può usare solo gli strumenti da riga di comando. |
 | Proprietario |Tutti |Tutti |Il ruolo di Proprietario è un utente avanzato. Questo ruolo può gestire tutto e ha l'accesso completo ai dati. |
-| Lettore |Sola lettura |Regolato da ACL |Il ruolo Lettore può visualizzare tutti gli elementi riguardanti la gestione degli account, ad esempio l'utente assegnato a un determinato ruolo, ma non prevede la possibilità di apportare modifiche. |
+| Reader |Sola lettura |Regolato da ACL |Il ruolo Lettore può visualizzare tutti gli elementi riguardanti la gestione degli account, ad esempio l'utente assegnato a un determinato ruolo, ma non prevede la possibilità di apportare modifiche. |
 | Autore di contributi |Tutti tranne quelli di aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Collaboratore può gestire alcuni aspetti di un account, ad esempio le distribuzioni e la creazione e la gestione di avvisi, ma non prevede la possibilità di aggiungere o rimuovere ruoli. |
-| Amministratore Accesso utenti |Aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Amministratore accessi utente può gestire l'accesso degli utenti agli account. |
+| Amministratore accessi utente |Aggiunta e rimozione dei ruoli |Regolato da ACL |Il ruolo Amministratore accessi utente può gestire l'accesso degli utenti agli account. |
 
 Per istruzioni, vedere [Assegnare utenti o gruppi di sicurezza agli account Data Lake Storage Gen1](data-lake-store-secure-data.md#assign-users-or-security-groups-to-data-lake-storage-gen1-accounts).
 

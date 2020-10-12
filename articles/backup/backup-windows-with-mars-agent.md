@@ -4,10 +4,10 @@ description: Utilizzare l'agente di Servizi di ripristino di Microsoft Azure (MA
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052223"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Eseguire il backup di file e cartelle di Windows Server in Azure
@@ -53,7 +53,7 @@ Per creare un criterio di backup:
     ![Seleziona elementi per backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Nella pagina **selezionare gli elementi di cui eseguire il backup** selezionare **Avanti**.
-1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Quindi selezionare **Avanti**.
+1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Fare quindi clic su **Avanti**.
 
     * Quando viene creato un backup, viene creato un punto di ripristino.
     * Il numero di punti di ripristino creati nell'ambiente dipende dalla pianificazione del backup.
@@ -65,7 +65,7 @@ Per creare un criterio di backup:
 
         ![Configurare una pianificazione di backup settimanale](./media/backup-configure-vault/week-schedule.png)
 
-1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Quindi selezionare **Avanti**.
+1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Fare quindi clic su **Avanti**.
 
     * Le impostazioni di conservazione specificano i punti di ripristino da archiviare e la durata dell'archiviazione.
     * Per un'impostazione di conservazione giornaliera, si indica che al momento specificato per la conservazione giornaliera, il punto di ripristino più recente verrà mantenuto per il numero di giorni specificato. In alternativa, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 di ogni mese deve essere archiviato per 12 mesi.

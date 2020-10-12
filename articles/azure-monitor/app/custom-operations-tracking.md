@@ -6,10 +6,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88933308"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
@@ -170,7 +170,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -301,7 +301,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 
 Nell'esempio seguente un messaggio in arrivo viene verificato in maniera simile a quanto avviene per una richiesta HTTP in ingresso:
 

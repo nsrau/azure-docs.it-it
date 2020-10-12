@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84172256"
 ---
 # <a name="private-ip-addresses"></a>Indirizzi IP privati
@@ -28,7 +28,7 @@ Le risorse possono essere:
 * Servizi di Azure, ad esempio:
     * Interfacce di rete di macchina virtuale
     * Servizi di bilanciamento del carico interno
-    * Gateway di applicazione
+    * Gateway applicazione
 * In una [rete virtuale](virtual-networks-overview.md).
 * Rete locale tramite un gateway VPN o un circuito ExpressRoute.
 
@@ -46,7 +46,7 @@ Esistono due metodi in cui viene fornito un indirizzo IP privato:
 
     Il metodo di allocazione predefinito è quello dinamico. Una volta assegnati, gli indirizzi IP dinamici vengono rilasciati se un'interfaccia di rete è:
     
-    * Deleted
+    * Eliminata
     * Riassegnata a una subnet diversa nella stessa rete virtuale.
     * Il metodo di allocazione viene modificato in statico e viene specificato un indirizzo IP diverso. 
     
@@ -92,12 +92,12 @@ La tabella seguente illustra la proprietà tramite la quale un indirizzo IP priv
 
 Vengono visualizzati anche i possibili metodi di allocazione che è possibile usare:
 
-* Dinamico
+* Dynamic
 * Statico
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | Statico |
 | --- | --- | --- | --- |
-| Macchina virtuale |interfaccia di rete |Sì |Sì |
+| Macchina virtuale |Interfaccia di rete |Sì |Sì |
 | Bilanciamento del carico |Configurazione front-end |Sì |Sì |
 | gateway applicazione |Configurazione front-end |Sì |Sì |
 

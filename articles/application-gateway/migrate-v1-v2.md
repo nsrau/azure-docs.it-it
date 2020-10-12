@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311598"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Eseguire la migrazione di applicazione Azure gateway e del Web Application Firewall da V1 a V2
@@ -25,7 +25,7 @@ La migrazione prevede due fasi:
 
 Questo articolo illustra la migrazione della configurazione. La migrazione del traffico client varia a seconda dell'ambiente specifico. Tuttavia, [vengono fornite](#migrate-client-traffic)alcune raccomandazioni generali di alto livello.
 
-## <a name="migration-overview"></a>Panoramica sulla migrazione
+## <a name="migration-overview"></a>Panoramica della migrazione
 
 È disponibile uno script Azure PowerShell che esegue le operazioni seguenti:
 
@@ -37,7 +37,7 @@ Questo articolo illustra la migrazione della configurazione. La migrazione del t
 * Il nuovo gateway V2 dispone di nuovi indirizzi IP pubblici e privati. Non è possibile spostare facilmente gli indirizzi IP associati al gateway V1 esistente alla versione V2. Tuttavia, è possibile allocare un indirizzo IP pubblico o privato esistente (non allocato) al nuovo gateway V2.
 * È necessario fornire uno spazio di indirizzi IP per un'altra subnet all'interno della rete virtuale in cui si trova il gateway V1. Lo script non è in grado di creare il gateway V2 in tutte le subnet esistenti che dispongono già di un gateway V1. Tuttavia, se la subnet esistente dispone già di un gateway V2, questo potrebbe continuare a funzionare purché lo spazio degli indirizzi IP sia sufficiente.
 * Se è presente un gruppo di sicurezza di rete o route definite dall'utente associate alla subnet del gateway V2, assicurarsi che rispettino i [requisiti di NSG](../application-gateway/configuration-infrastructure.md#network-security-groups) e i requisiti di [UdR](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) per una migrazione riuscita
-* I [criteri dell'endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoint-policies-overview.md) non sono attualmente supportati in una subnet del gateway applicazione.
+* I [criteri degli endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoint-policies-overview.md) non sono attualmente supportati in una subnet del gateway applicazione.
 * Per eseguire la migrazione di una configurazione TLS/SSL, è necessario specificare tutti i certificati TLS/SSL usati nel gateway V1.
 * Se è abilitata la modalità FIPS per il gateway V1, non verrà eseguita la migrazione al nuovo gateway V2. La modalità FIPS non è supportata nella versione V2.
 * V2 non supporta IPv6, quindi non viene eseguita la migrazione dei gateway V1 abilitati per IPv6. Se si esegue lo script, l'operazione potrebbe non essere completata.
@@ -57,7 +57,7 @@ Sono disponibili due opzioni a seconda della configurazione e delle preferenze d
 
 Per determinare se Azure AZ Modules è installato, eseguire `Get-InstalledModule -Name az` . Se non vengono visualizzati i moduli AZ installati, è possibile usare il `Install-Script` metodo.
 
-### <a name="install-using-the-install-script-method"></a>Eseguire l'installazione usando il metodo Install-script
+### <a name="install-using-the-install-script-method"></a>Eseguire l'installazione usando il metodo Install-Script
 
 Per usare questa opzione, non è necessario che nel computer siano installati i moduli AZ di Azure. Se sono installati, il comando seguente visualizza un errore. È possibile disinstallare i moduli di Azure AZ oppure usare l'altra opzione per scaricare lo script manualmente ed eseguirlo.
   

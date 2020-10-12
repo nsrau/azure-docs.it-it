@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81400026"
 ---
 :::row:::
     :::column span="3":::
-        C++ Speech SDK è disponibile in Windows, Linux e macOS. Per ulteriori informazioni, vedere <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        C++ Speech SDK è disponibile in Windows, Linux e macOS. Per ulteriori informazioni, vedere <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -25,7 +25,7 @@ ms.locfileid: "81400026"
 
 #### <a name="c-nuget-package"></a>Pacchetto NuGet C++
 
-È possibile installare C++ Speech SDK da **Gestione pacchetti** con il comando seguente `Install-Package` .
+È possibile installare C++ Speech SDK da **Gestione pacchetti** con il `Install-Package` comando seguente.
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
@@ -47,4 +47,4 @@ In alternativa, è possibile installare C++ Speech SDK da file binari. Scaricare
 
 #### <a name="additional-resources"></a>Risorse aggiuntive
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Codice sorgente di avvio rapido C++ per Windows, Linux e macOS<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp" target="_blank">Codice sorgente di avvio rapido C++ per Windows, Linux e macOS <span class="docon docon-navigate-external x-hidden-focus"></span></a>

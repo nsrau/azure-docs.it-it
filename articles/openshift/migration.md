@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migrazione, Aro, OpenShift, Red Hat
 ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89469746"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Eseguire la migrazione da Azure Red Hat OpenShift 3,11 ad Azure Red Hat OpenShift 4
@@ -77,11 +77,11 @@ Per consentire agli utenti di interagire con Azure Red Hat OpenShift, è necessa
 
 Quando viene creato un cluster Azure Red Hat OpenShift 4, viene creato un utente amministratore temporaneo. [Connettersi al cluster](tutorial-connect-cluster.md), aggiungere utenti e gruppi e [configurare le autorizzazioni appropriate](https://docs.openshift.com/aro/4/authentication/understanding-authentication.html) per entrambe.
 
-### <a name="networking"></a>Rete
+### <a name="networking"></a>Funzionalità di rete
 
 Azure Red Hat OpenShift 4 usa alcuni operatori diversi per configurare la rete nel cluster: [operatore di rete cluster](https://docs.openshift.com/aro/4/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), [operatore DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html)e [operatore di ingresso](https://docs.openshift.com/aro/4/networking/ingress-operator.html). Per altre informazioni sulla configurazione della rete in un cluster Azure Red Hat OpenShift 4, vedere il [diagramma di rete](concepts-networking.md) e [informazioni sulla rete](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
 
-### <a name="storage"></a>Archiviazione
+### <a name="storage"></a>Archiviazione:
 Azure Red Hat OpenShift 4 supporta i seguenti plug-in PersistentVolume:
 
 - Archivio del blocco elastico AWS (EBS)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, Twistlock, Red Hat
 ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78271367"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Eseguire contenitori con privilegi in un cluster di Azure Red Hat OpenShift
@@ -111,11 +111,11 @@ oc get route aqua-web -n aqua-security
 ### <a name="step-4-deploy-aqua-enforcers"></a>Passaggio 4: distribuire l'applicazione Aqua
 Quando si distribuiscono i campi, impostare i campi seguenti:
 
-| Campo          | valore         |
+| Campo          | Valore         |
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | Aqua-account  |
-| Project        | Aqua-sicurezza |
+| Progetto        | Aqua-sicurezza |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Passaggi specifici del prodotto per Prism cloud/Twistlock
 
@@ -169,7 +169,7 @@ eseguire quindi:
 oc create -f twistlock_route.yaml
 ```
 
-È possibile ottenere l'URL assegnato alla console di Twistlock con questo comando:`oc get route twistlock-console -n twistlock`
+È possibile ottenere l'URL assegnato alla console di Twistlock con questo comando: `oc get route twistlock-console -n twistlock`
 
 ### <a name="configure-console"></a>Configura console
 

@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
 ms.openlocfilehash: 13cbeca909b445d75fcbcf7b3751183421479d42
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052563"
 ---
 # <a name="microsoft-graph-api"></a>API Microsoft Graph
@@ -36,7 +36,7 @@ Per iniziare a usare le API beta, vedere informazioni di [riferimento sull'endpo
 
 Per iniziare a usare le API v 1.0, vedere informazioni di [riferimento sull'API REST di Microsoft Graph v 1.0](/graph/api/overview?view=graph-rest-1.0)
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 Per leggere o scrivere in una risorsa, ad esempio un utente o un messaggio di posta elettronica, creare una richiesta simile alla seguente:
 

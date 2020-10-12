@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: fa4d61599e102f9a2580e704ee7a02486067daa2
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135797"
 ---
-# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicare le macchine virtuali abilitate per crittografia dischi di Azure in un'altra area di Azure
+# <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali abilitate per Crittografia dischi di Azure in un'altra area di Azure
 
 Questo articolo descrive come eseguire la replica di macchine virtuali di Azure con crittografia dischi di Azure abilitata, da un'area di Azure a un'altra.
 
@@ -22,7 +22,7 @@ Questo articolo descrive come eseguire la replica di macchine virtuali di Azure 
 > Site Recovery attualmente supporta Crittografia dischi di Azure, con e senza Azure Active Directory (AAD), per le macchine virtuali che eseguono sistemi operativi Windows. Per i sistemi operativi Linux, il servizio Crittografia dischi di Azure è supportato solo senza AAD. Inoltre, per i computer che eseguono Crittografia dischi di Azure 1.1 (senza AAD), le VM devono usare dischi gestiti. Le VM con dischi non gestiti non sono supportate. Se si passa dalla versione 0.1 (con AAD) alla versione 1.1 di Crittografia dischi di Azure, è necessario disabilitare la replica e abilitarla per una VM dopo l'abilitazione della versione 1.1.
 
 
-## <a name="required-user-permissions"></a><a id="required-user-permissions"></a>Autorizzazioni utente necessarie
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Autorizzazioni utente necessarie
 Site Recovery richiede che l'utente disponga delle autorizzazioni per la creazione dell'insieme di credenziali delle chiavi nell'area di destinazione e la copia delle chiavi dall'area di origine all'insieme di credenziali delle chiavi dell'area di destinazione.
 
 Per abilitare la replica delle macchine virtuali abilitate per la crittografia del disco dalla portale di Azure, l'utente deve disporre delle autorizzazioni seguenti per l' **area di origine e** per gli insiemi di credenziali delle chiavi dell'area di destinazione.
@@ -122,7 +122,7 @@ Per modificare le impostazioni di destinazione predefinite Site Recovery, attene
 4. Quando le macchine virtuali sono abilitate per la replica, è possibile controllare lo stato di integrità delle macchine virtuali in **elementi replicati**.
 
 >[!NOTE]
->Durante la replica iniziale, l'aggiornamento dello stato potrebbe richiedere del tempo, senza lo stato di avanzamento. Fare clic su **Aggiorna** per ottenere lo stato più recente.
+>Durante la replica iniziale, l'aggiornamento dello stato potrebbe richiedere del tempo, senza lo stato di avanzamento. Fare clic su **Aggiorna**  per ottenere lo stato più recente.
 
 ## <a name="update-target-vm-encryption-settings"></a>Aggiornare le impostazioni di crittografia della VM di destinazione
 Negli scenari seguenti verrà richiesto di aggiornare le impostazioni di crittografia della macchina virtuale di destinazione:

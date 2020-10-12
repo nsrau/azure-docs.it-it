@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: iot-fundamentals
 author: robinsh
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "72793107"
 ---
 Per proteggere un'infrastruttura IoT (Internet of Things, Internet delle cose) è richiesta una strategia di sicurezza rigorosa e approfondita. Questa strategia richiede la protezione dei dati nel cloud, dell'integrità dei dati in transito sulla rete internet pubblica e il provisioning sicuro dei dispositivi. Ogni livello crea maggiori garanzie di sicurezza dell'infrastruttura complessiva.

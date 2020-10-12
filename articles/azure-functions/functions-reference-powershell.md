@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071160"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding` :
 
-| Nome | Tipo | Posizione | Descrizione |
+| Nome | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
@@ -145,7 +145,7 @@ Sono supportati anche i parametri comuni seguenti:
 
 Per ulteriori informazioni, vedere [informazioni su parametricomuni](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-#### <a name="push-outputbinding-example-http-responses"></a>Esempio di push-output: risposte HTTP
+#### <a name="push-outputbinding-example-http-responses"></a>Esempio di Push-OutputBinding: risposte HTTP
 
 Un trigger HTTP restituisce una risposta usando un'associazione di output denominata `response` . Nell'esempio seguente, l'associazione di output di `response` ha il valore "output #1":
 
@@ -174,7 +174,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 }) -Clobber
 ```
 
-#### <a name="push-outputbinding-example-queue-output-binding"></a>Esempio di push-output: associazione di output della coda
+#### <a name="push-outputbinding-example-queue-output-binding"></a>Esempio di Push-OutputBinding: associazione di output della coda
 
 `Push-OutputBinding` viene usato per inviare dati alle associazioni di output, ad esempio un' [associazione di output di archiviazione code di Azure](functions-bindings-storage-queue-output.md). Nell'esempio seguente, il messaggio scritto nella coda ha il valore "output #1":
 

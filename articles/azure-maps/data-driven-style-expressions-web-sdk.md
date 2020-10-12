@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91311377"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
