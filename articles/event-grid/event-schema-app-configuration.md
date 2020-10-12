@@ -4,10 +4,10 @@ description: Questo articolo descrive come usare la configurazione di app Azure 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116999"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Configurazione app Azure come origine di griglia di eventi
@@ -68,20 +68,20 @@ Lo schema per un evento di eliminazione chiave-valore è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | ID | string | Identificatore univoco dell'evento. |
 | data | object | Dati degli eventi di configurazione dell'app. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | Key | string | Chiave del valore della chiave che è stato modificato o eliminato. |
 | label | string | Etichetta, se presente, del valore della chiave che è stato modificato o eliminato. |
@@ -89,7 +89,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure
 
-|Titolo | Description |
+|Titolo | Descrizione |
 |---------|---------|
 | [Reagire agli eventi di configurazione di app Azure tramite griglia di eventi](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Panoramica dell'integrazione di app Azure configurazione con griglia di eventi. |
 | [Guida introduttiva: indirizzare eventi di configurazione app Azure a un endpoint Web personalizzato con l'interfaccia della riga di comando](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Illustra come usare l'interfaccia della riga di comando di Azure per inviare eventi di configurazione app Azure a un webhook. |

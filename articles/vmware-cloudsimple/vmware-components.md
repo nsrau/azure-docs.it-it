@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88142503"
 ---
 # <a name="private-cloud-vmware-components"></a>Componenti VMware del cloud privato
@@ -48,7 +48,7 @@ vCenter Server Appliance (VCSA) fornisce le funzioni di autenticazione, gestione
 
 ### <a name="vcenter-single-sign-on"></a>Single Sign-On vCenter
 
-Il controller Embedded Platform Services in VCSA è associato a un **dominio Single Sign-on di vCenter**.  Il nome di dominio è **cloudsimple. local**.  **CloudOwner@cloudsimple.com**Per accedere a vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
+Il controller Embedded Platform Services in VCSA è associato a un **singolo dominio Sign-On vCenter**.  Il nome di dominio è **cloudsimple. local**.  **CloudOwner@cloudsimple.com**Per accedere a vCenter viene creato un utente predefinito.  È possibile aggiungere le origini di identità locali/Azure Active Directory [per vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>archiviazione rete VSAN
 

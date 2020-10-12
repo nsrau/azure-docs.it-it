@@ -8,15 +8,15 @@ ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892550"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Ripristino di emergenza per Azure Spring Cloud
 
-**Questo articolo si applica a:** ✔️ Java ✔️ C #
+**Questo articolo si applica a:** ✔️ Java ✔️ C#
 
 Questo articolo illustra alcune strategie utilizzabili per proteggere le applicazioni Azure Spring Cloud da periodi di inattività.  Qualsiasi area o data center può subire interruzioni dell'attività causati da emergenze a livello di area, ma un'attenta pianificazione può attenuarne l'impatto sui clienti.
 

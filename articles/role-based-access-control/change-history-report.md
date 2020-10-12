@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 332d9a9ec28c4309fb1cf1d3e24d3cfd2d7d13d9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321973"
 ---
 # <a name="view-activity-logs-for-azure-rbac-changes"></a>Visualizzare i log attività per le modifiche RBAC di Azure
@@ -43,7 +43,7 @@ Il modo più semplice per iniziare è visualizzare i log attività con il portal
 
 Il log attività nel portale include diversi filtri. Ecco i filtri correlati a RBAC di Azure:
 
-| Filtro | valore |
+| Filtra | valore |
 | --------- | --------- |
 | Categoria evento | <ul><li>Amministrativo</li></ul> |
 | Operazione | <ul><li>Crea assegnazione ruolo</li><li>Elimina assegnazione ruolo</li><li>Crea o aggiorna la definizione del ruolo personalizzata</li><li>Elimina la definizione del ruolo personalizzata</li></ul> |

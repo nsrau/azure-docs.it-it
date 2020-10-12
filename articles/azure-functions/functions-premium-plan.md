@@ -9,10 +9,10 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578037"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
@@ -141,7 +141,7 @@ Di seguito sono riportati i valori di scalabilità orizzontale massimi attualmen
 
 Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Area| Windows | Linux |
+|Region| Windows | Linux |
 |--| -- | -- |
 |Australia centrale| 100 | Non disponibile |
 |Australia centrale 2| 100 | Non disponibile |
@@ -178,8 +178,8 @@ Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.c
 |Europa occidentale| 100 | 20 |
 |India occidentale| 100 | 20 |
 |Stati Uniti centro-occidentali| 100 | 20 |
-|Stati Uniti occidentali| 100 | 20 |
-|Stati Uniti occidentali 2| 100 | 20 |
+|Stati Uniti Occidentali| 100 | 20 |
+|West US 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,10 +10,10 @@ ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: d5aba3638ce19c24841fe5b49b19b1139327b790
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578088"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Librerie client e API REST
@@ -24,7 +24,7 @@ Le funzionalità dei servizi di comunicazione di Azure sono organizzate concettu
 
 ## <a name="client-libraries"></a>Librerie client
 
-| Assembly               | Protocolli             |Apri rispetto a origine chiusa| Spazi dei nomi                          | Funzionalità                                                      |
+| Assembly               | Protocolli             |Apri rispetto a origine chiusa| Spazi dei nomi                          | Capabilities                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Apri            | Azure. ResourceManager. Communication | Provisioning e gestione delle risorse di servizi di comunicazione             |
 | Comuni                 | REST | Apri               | Azure. Communication. Common          | Fornisce tipi di base per altre librerie client |

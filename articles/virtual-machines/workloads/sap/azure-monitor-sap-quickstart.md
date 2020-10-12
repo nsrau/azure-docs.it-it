@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.openlocfilehash: 2c3b11ca0c2bb916a5a3fcaf50eb99c7db3aa8e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88643006"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Distribuire monitoraggio di Azure per le soluzioni SAP con portale di Azure
@@ -29,7 +29,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 2. Nella scheda **nozioni di base** specificare i valori necessari. Se applicabile, è possibile usare un'area di lavoro Log Analytics esistente.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Visualizzazione delle opzioni di configurazione portale di Azure." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-2.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-2.png":::
 
 3. Quando si seleziona una rete virtuale, assicurarsi che i sistemi da monitorare siano raggiungibili dall'interno di tale VNET. 
 
@@ -42,7 +42,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Selezionare la scheda **provider** per aggiungere i provider che si desidera configurare. È possibile aggiungere più provider uno dopo l'altro oppure aggiungerli dopo la distribuzione della risorsa di monitoraggio. 
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Mostra la scheda provider per aggiungere altri provider al monitoraggio di Azure per le soluzioni SAP." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-3.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-3.png":::
 
 2. Selezionare **Aggiungi provider** e scegliere **SAP Hana** dall'elenco a discesa. 
 
@@ -56,7 +56,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 7. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Immagine delle opzioni di configurazione quando si aggiungono informazioni sul provider." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
 ### <a name="high-availability-cluster-pacemaker-provider"></a>Provider del cluster a disponibilità elevata (pacemaker)
 
@@ -71,7 +71,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 4. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
 
-   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image Mostra le opzioni correlate al provider pacemaker del cluster a disponibilità elevata." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+   :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
 
 
 ### <a name="microsoft-sql-server-provider"></a>Provider Microsoft SQL Server
@@ -109,7 +109,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 4. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
 
-     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Image Mostra informazioni correlate all'aggiunta del provider di Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
+     :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Immagine mostra la selezione dell'offerta monitoraggio di Azure per soluzioni SAP da Azure Marketplace." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

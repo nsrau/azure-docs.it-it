@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87827453"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
@@ -144,7 +144,7 @@ Questo esempio mostra una sezione di risorse tipica di un modello per la creazio
 >
 >
 
-## <a name="api-version"></a>Versione dell'API
+## <a name="api-version"></a>Versione API
 
 Quando si distribuiscono risorse usando un modello, è necessario specificare una versione dell'API da usare. L'esempio illustra l'uso di questa risorsa di macchina virtuale usando l'elemento apiVersion:
 
@@ -245,7 +245,7 @@ Tenere presente che la creazione di un ciclo per una risorsa nel modello potrebb
 } ]
 ```
 
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Il corretto funzionamento della maggior parte delle risorse dipende dalle altre risorse. Le macchine virtuali deve essere associate a una rete virtuale e a tale scopo è necessaria un'interfaccia di rete. L'elemento [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) viene usato per verificare che l'interfaccia di rete sia pronta per essere usata prima che vengano create le VM:
 
@@ -270,7 +270,7 @@ Come è possibile stabilire se è necessaria una dipendenza? Esaminare i valori 
 
 Per impostare questa proprietà, è necessario che esista l'interfaccia di rete. Pertanto, è necessaria una dipendenza. È inoltre necessario impostare una dipendenza quando viene definita una risorsa (figlio) all'interno di un'altra risorsa (padre). Ad esempio, le estensioni dello script personalizzate e le impostazioni di diagnostica vengono entrambe definite come risorse figlio della macchina virtuale. Non possono essere create fino a quando non esiste la macchina virtuale. Pertanto, entrambe le risorse sono contrassegnate come dipendenti nella macchina virtuale.
 
-## <a name="profiles"></a>Profili
+## <a name="profiles"></a>Profiles
 
 Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elementi di profilo. Alcuni sono necessari e alcuni sono facoltativi. Ad esempio, sono necessari gli elementi hardwareProfile, osProfile, storageProfile e networkProfile, ma diagnosticsProfile è facoltativo. Questi profili definiscono impostazioni, ad esempio:
    

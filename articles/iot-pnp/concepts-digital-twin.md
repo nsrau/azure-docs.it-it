@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui dispositivi gemelli Plug and Play digitali
+title: Informazioni sui gemelli digitali Plug and Play IoT
 description: Informazioni sul modo in cui l'Plug and Play usa i gemelli digitali
 author: prashmo
 ms.author: prashmo
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578054"
 ---
-# <a name="understand-iot-plug-and-play-digital-twins"></a>Informazioni sui dispositivi gemelli Plug and Play digitali
+# <a name="understand-iot-plug-and-play-digital-twins"></a>Informazioni sui gemelli digitali Plug and Play IoT
 
 Un dispositivo Plug and Play implementa un modello descritto dallo schema [DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) . Un modello descrive il set di componenti, proprietà, comandi e messaggi di telemetria che possono essere presenti in un determinato dispositivo. Un dispositivo gemello e un dispositivo gemello digitale vengono inizializzati la prima volta che un Plug and Play dispositivo si connette a un hub.
 
@@ -311,7 +311,7 @@ I dispositivi gemelli digitali di Azure sono forniti con **Get Digital Twin**, *
 
 ## <a name="digital-twin-change-events"></a>Eventi di modifica del gemello digitale
 
-Quando sono abilitati gli eventi di modifica del dispositivo gemello digitale, viene attivato un evento ogni volta che viene modificato il valore corrente o desiderato del componente o della proprietà. Gli eventi di modifica di dispositivi gemelli digitali vengono generati nel formato di [patch JSON](http://jsonpatch.com/) . Gli eventi corrispondenti vengono generati nel formato dispositivo gemello se sono abilitati gli eventi di modifica gemelli.
+Quando sono abilitati gli eventi di modifica del gemello digitale, viene attivato un evento ogni volta che viene modificato il valore attuale o desiderato del componente o della proprietà. Gli eventi di modifica di dispositivi gemelli digitali vengono generati nel formato di [patch JSON](http://jsonpatch.com/) . Gli eventi corrispondenti vengono generati nel formato dispositivo gemello se sono abilitati gli eventi di modifica gemelli.
 
 Per informazioni su come abilitare il routing per gli eventi di dispositivi e dispositivi gemelli digitali, vedere [usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a diversi endpoint](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Per informazioni sul formato del messaggio, vedere [creare e leggere i messaggi dell'hub](../iot-hub/iot-hub-devguide-messages-construct.md)Internet.
 

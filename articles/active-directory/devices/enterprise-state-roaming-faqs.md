@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268537"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Domande frequenti su impostazioni e dati in roaming
@@ -29,7 +29,7 @@ Questo articolo offre le risposte ad alcune possibili domande degli amministrato
 * *Tema*, che include funzionalità quali il tema del desktop e le impostazioni della barra delle applicazioni.
 * *Impostazioni di Internet Explorer*, incluse le schede aperte di recente e i Preferiti.
 * *Impostazioni del browser Microsoft Edge*, come i Preferiti e l'elenco di lettura.
-* *Password*, incluse le password Internet, i profili Wi-Fi e altro.
+* *Password*, incluse le password Internet, Wi-Fi profili e altro.
 * *Preferenze di lingua*, che includono le impostazioni per i layout di tastiera, la lingua di sistema, data/ora e altro ancora.
 * *Funzionalità di accessibilità*, ad esempio tema a contrasto elevato, Assistente vocale e Lente di ingrandimento.
 * *Altre impostazioni di Windows*, ad esempio le impostazioni del mouse.
@@ -77,7 +77,7 @@ Nella versione di Windows 10 di novembre 2015 o successiva, l'Enterprise State R
 Quando su uno stesso dispositivo sono presenti più account di Azure AD provenienti da tenant diversi, è necessario aggiornare il registro del dispositivo per comunicare con il servizio Azure Rights Management per ogni tenant di Azure AD.  
 
 1. Accedere al GUID di ogni tenant di Azure AD. Aprire il portale di Azure e selezionare un tenant di Azure AD. Il GUID per il tenant si trova nella pagina Proprietà del tenant selezionato (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), con etichetta **ID Directory**. 
-2. Dopo aver eseguito il GUID, sarà necessario aggiungere la chiave del registro di sistema **HKEY_LOCAL_MACHINE \<tenant ID GUID> \software\microsoft\windows\settingsync\winmsipc**.
+2. Dopo aver eseguito il GUID, sarà necessario aggiungere la chiave del registro di **sistema \<tenant ID GUID>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC**.
    Dalla chiave **tenant ID GUID**, creare un nuovo valore multistringa (REG-MULTI-SZ) denominato **AllowedRMSServerUrls**. Come dati, specificare gli URL del punto di distribuzione delle licenze di altri tenant Azure ai quali accede il dispositivo.
 3. Per trovare gli URL del punto di distribuzione delle licenze, è possibile eseguire il cmdlet **Get-AadrmConfiguration** dal modulo AADRM. Se i valori **LicensingIntranetDistributionPointUrl** e **LicensingExtranetDistributionPointUrl** sono diversi, specificarli entrambi. Se i valori sono uguali, specificare il valore solo una volta.
 

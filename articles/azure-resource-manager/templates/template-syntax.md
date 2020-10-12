@@ -4,13 +4,13 @@ description: Descrive la struttura e le proprietà dei modelli di Azure Resource
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116540"
 ---
-# <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli ARM
+# <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli di Resource Manager
 
 Questo articolo descrive la struttura di un modello di Azure Resource Manager (ARM). Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni.
 
@@ -33,7 +33,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | $schema |Sì |Percorso del file di schema JSON che descrive la versione del linguaggio del modello. Il numero di versione usato dipende dall'ambito della distribuzione e dall'editor JSON.<br><br>Se si usa [vs code con l'estensione strumenti di Azure Resource Manager](quickstart-create-templates-use-visual-studio-code.md), usare la versione più recente per le distribuzioni di gruppi di risorse:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Altri editor (incluso Visual Studio) potrebbero non essere in grado di elaborare questo schema. Per gli editor, usare:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Per le distribuzioni della sottoscrizione, usare: <br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Per le distribuzioni di gruppi di gestione, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Per le distribuzioni tenant, usare:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Sì |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
@@ -48,7 +48,7 @@ Ogni elemento ha proprietà che è possibile impostare. In questo articolo le se
 
 ## <a name="parameters"></a>Parametri
 
-Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. È previsto un limite di 256 parametri in un modello. È possibile ridurre il numero di parametri utilizzando oggetti che contengono più proprietà.
+Nella sezione parameters del modello specificare i valori che si possono immettere durante la distribuzione delle risorse. È previsto un limite di 256 parametri in un modello. È possibile ridurre il numero di parametri utilizzando oggetti che contengono più proprietà.
 
 Le proprietà disponibili per un parametro sono:
 
@@ -69,7 +69,7 @@ Le proprietà disponibili per un parametro sono:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | Nome parametro |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
 | tipo |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. Vedere [tipi di dati](#data-types). |
@@ -164,12 +164,12 @@ Quando si crea una funzione definita dall'utente, è necessario tenere presente 
 ],
 ```
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
-| spazio dei nomi |Sì |Spazio dei nomi per le funzioni personalizzate. Usare per evitare conflitti di denominazione con le funzioni di modello. |
+| namespace |Sì |Spazio dei nomi per le funzioni personalizzate. Usare per evitare conflitti di denominazione con le funzioni di modello. |
 | Nome funzione |Sì |Nome della funzione personalizzata. Quando si chiama la funzione, combinare il nome della funzione con lo spazio dei nomi. Ad esempio, per chiamare una funzione denominata UniqueName nello spazio dei nomi contoso, usare `"[contoso.uniqueName()]"` . |
 | Nome parametro |No |Nome del parametro da usare all'interno della funzione personalizzata. |
-| parameter-value |No |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
+| valore parametro |No |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
 | tipo di output |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input della funzione. |
 | valore di output |Sì |Espressione del linguaggio del modello valutata e restituita dalla funzione. |
 
@@ -235,7 +235,7 @@ Le risorse vengono definite con la struttura seguente:
 ]
 ```
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | condizione | No | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. Vedere [Condition](conditional-resource-deployment.md). |
 | tipo |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft. storage/storageAccounts**. Per determinare i valori disponibili, vedere [riferimento ai modelli](/azure/templates/). Per una risorsa figlio, il formato del tipo dipende dal fatto che sia annidato all'interno della risorsa padre o definito all'esterno della risorsa padre. Vedere [Impostare il nome e il tipo per le risorse figlio](child-resource-name-type.md). |
@@ -272,12 +272,12 @@ L'esempio seguente illustra la struttura di una definizione di output:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Description |
+| Nome dell'elemento | Obbligatoria | Descrizione |
 |:--- |:--- |:--- |
 | nome di output |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |
 | tipo |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. Se si specifica **SecureString** per il tipo di output, il valore non viene visualizzato nella cronologia di distribuzione e non può essere recuperato da un altro modello. Per usare un valore segreto in più di un modello, archiviare il segreto in un Key Vault e fare riferimento al segreto nel file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md). |
-| Valore |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare un **valore** o una **copia**. |
+| value |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare un **valore** o una **copia**. |
 | copy |No | Utilizzato per restituire più di un valore per un output. Specificare il **valore** o la **copia**. Per altre informazioni, vedere [iterazione di output nei modelli Azure Resource Manager](copy-outputs.md). |
 
 Per esempi relativi all'uso degli output, vedere [output nel modello di Azure Resource Manager](template-outputs.md).
