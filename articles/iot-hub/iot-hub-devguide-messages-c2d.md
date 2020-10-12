@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
 ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81730005"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Inviare messaggi da cloud a dispositivo da un hub Internet delle cose
@@ -99,7 +99,7 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 | OriginalMessageId  | *MessageID* del messaggio da cloud a dispositivo a cui si riferiscono le informazioni sul feedback |
 | StatusCode         | Una stringa obbligatoria, usata nei messaggi di feedback generati dall'hub Internet delle cose: <br/> *Success* <br/> *Scaduta* <br/> *DeliveryCountExceeded* <br/> *Rifiutato* <br/> *Eliminati* |
 | Descrizione        | Valori stringa per *statusCode* |
-| deviceId           | *DeviceID* del dispositivo di destinazione del messaggio da cloud a dispositivo a cui si riferisce questa parte del feedback |
+| DeviceId           | *DeviceID* del dispositivo di destinazione del messaggio da cloud a dispositivo a cui si riferisce questa parte del feedback |
 | DeviceGenerationId | *DeviceGenerationId* del dispositivo di destinazione del messaggio da cloud a dispositivo a cui si riferisce questa parte del feedback |
 
 Affinché il messaggio da cloud a dispositivo metta in correlazione il feedback con il messaggio originale, è necessario che il servizio specifichi un *MessageID*.

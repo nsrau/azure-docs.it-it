@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: tomfitz
 ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87810072"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operazione di simulazione della distribuzione del modello ARM (anteprima)
@@ -110,18 +110,18 @@ Resource changes: 1 to modify.
 
 Per visualizzare in anteprima le modifiche prima di distribuire un modello, usare [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) o [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Aggiungere il `-Whatif` parametro switch al comando Deployment.
 
-* `New-AzResourceGroupDeployment -Whatif`per le distribuzioni di gruppi di risorse
-* `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` per le distribuzioni a livello di sottoscrizione
+* `New-AzResourceGroupDeployment -Whatif` per le distribuzioni di gruppi di risorse
+* `New-AzSubscriptionDeployment -Whatif` e `New-AzDeployment -Whatif` per le distribuzioni a livello di sottoscrizione
 
 È possibile usare il `-Confirm` parametro switch per visualizzare l'anteprima delle modifiche e ottenere la richiesta di continuare con la distribuzione.
 
-* `New-AzResourceGroupDeployment -Confirm`per le distribuzioni di gruppi di risorse
-* `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` per le distribuzioni a livello di sottoscrizione
+* `New-AzResourceGroupDeployment -Confirm` per le distribuzioni di gruppi di risorse
+* `New-AzSubscriptionDeployment -Confirm` e `New-AzDeployment -Confirm` per le distribuzioni a livello di sottoscrizione
 
 I comandi precedenti restituiscono un riepilogo di testo che è possibile ispezionare manualmente. Per ottenere un oggetto che è possibile controllare a livello di codice le modifiche, usare [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) o [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
-* `$results = Get-AzResourceGroupDeploymentWhatIfResult`per le distribuzioni di gruppi di risorse
-* `$results = Get-AzSubscriptionDeploymentWhatIfResult`o `$results = Get-AzDeploymentWhatIfResult` per le distribuzioni a livello di sottoscrizione
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` per le distribuzioni di gruppi di risorse
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` o `$results = Get-AzDeploymentWhatIfResult` per le distribuzioni a livello di sottoscrizione
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

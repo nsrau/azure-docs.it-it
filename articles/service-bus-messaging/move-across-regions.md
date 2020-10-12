@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861063"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Spostare uno spazio dei nomi del bus di servizio di Azure in un'altra area
@@ -42,25 +42,25 @@ Per iniziare, esportare un modello di Gestione risorse. Questo modello contiene 
     > [!NOTE]
     > Non è possibile creare una regola predefinita per una sottoscrizione usando un modello di Gestione risorse. La regola predefinita viene creata automaticamente quando la sottoscrizione viene creata nell'area di destinazione. 
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 Distribuire il modello per creare uno spazio dei nomi del bus di servizio nell'area di destinazione. 
 
 1. Nella portale di Azure selezionare **Crea una risorsa**.
 2. In **Cerca nel Marketplace**Digitare **distribuzione modello** per il testo di ricerca, selezionare **distribuzione modelli (Distribuisci usando i modelli personalizzati)**, quindi premere **invio**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Distribuzione del nuovo modello":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Scarica Gestione risorse modello":::    
 1. Nella pagina **distribuzione modelli** selezionare **Crea**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Nuova distribuzione modello-pulsante Crea":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Scarica Gestione risorse modello":::        
 1. Nella pagina **distribuzione personalizzata** selezionare **Compila un modello personalizzato nell'editor**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Creare un modello personalizzato nell'editor-collegamento":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Scarica Gestione risorse modello":::            
 1. Nella pagina **modifica modello** selezionare **Carica file** sulla barra degli strumenti e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Selezionare il modello":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Scarica Gestione risorse modello":::                
 1. Selezionare **Save (Salva** ) per salvare il modello. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Salva modello":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Scarica Gestione risorse modello":::                    
 1. Nella pagina **distribuzione personalizzata** , attenersi alla seguente procedura: 
     1. Selezionare una **sottoscrizione**di Azure. 
     2. Selezionare un **gruppo di risorse** esistente o crearne uno. 
@@ -68,26 +68,26 @@ Distribuire il modello per creare uno spazio dei nomi del bus di servizio nell'a
     4. Immettere un nuovo **nome per lo spazio dei nomi**.
     1. Selezionare **Rivedi e crea**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Distribuisci modello di Gestione risorse":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Scarica Gestione risorse modello":::
     1. Nella pagina **Verifica e crea** selezionare **Crea** nella parte inferiore della pagina. 
     
 ## <a name="verify"></a>Verifica
 1. Una volta completata la distribuzione, selezionare **Vai al gruppo di risorse**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Collegamento Vai al gruppo di risorse":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Scarica Gestione risorse modello":::    
 1. Nella pagina **gruppo di risorse** selezionare lo spazio dei nomi del bus di servizio. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Selezionare lo spazio dei nomi del bus di servizio":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Scarica Gestione risorse modello":::    
 1. Nella pagina **spazio dei nomi del bus di servizio** verificare che siano visualizzate le code, gli argomenti e le sottoscrizioni dell'area di origine. 
     1. Nella parte inferiore del riquadro di destra vengono visualizzate le **Code** nello spazio dei nomi.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Code nello spazio dei nomi":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Scarica Gestione risorse modello":::
     2. Passare alla scheda **argomenti** per visualizzare gli argomenti nello spazio dei nomi
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Argomenti nello spazio dei nomi":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Scarica Gestione risorse modello":::
     3. Selezionare l'argomento per verificare che vengano create le sottoscrizioni. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Sottoscrizioni di argomenti":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Scarica Gestione risorse modello":::      
     
     
 

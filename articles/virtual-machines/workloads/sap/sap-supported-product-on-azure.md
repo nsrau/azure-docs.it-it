@@ -17,10 +17,10 @@ ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87065091"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Quale software SAP è supportato per le distribuzioni di Azure
@@ -117,7 +117,7 @@ Per le macchine virtuali di Azure, questi numeri di velocità effettiva di SAP s
 
 Esaminando la [Nota di supporto SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533), si applicano le osservazioni seguenti:
 
-- **Per le VM di Azure della serie M e le VM di Azure della serie Mv2, si applicano versioni minime del sistema operativo diverse da quelle per altri tipi di VM di Azure** Il requisito per le versioni più recenti del sistema operativo è basato sulle modifiche che i diversi fornitori di sistemi operativi hanno dovuto fornire nelle versioni del sistema operativo per abilitare i sistemi operativi in esecuzione sui tipi di VM di Azure specifici o ottimizzare le prestazioni e la velocità effettiva del carico di lavoro SAP in questi tipi di VM.
+- **Per macchine virtuali di Azure serie M e Mv2-Series macchine virtuali di Azure, si applicano versioni minime del sistema operativo diverse da quelle per altri tipi di VM di Azure** Il requisito per le versioni più recenti del sistema operativo è basato sulle modifiche che i diversi fornitori di sistemi operativi hanno dovuto fornire nelle versioni del sistema operativo per abilitare i sistemi operativi in esecuzione sui tipi di VM di Azure specifici o ottimizzare le prestazioni e la velocità effettiva del carico di lavoro SAP in questi tipi di VM.
 - Sono disponibili due tabelle che specificano tipi di VM diversi. La seconda tabella specifica la velocità effettiva di SAP per i tipi di VM di Azure che supportano solo l'archiviazione standard di Azure. La distribuzione DBMS nelle unità specificate nella seconda tabella della nota non è supportata
 
 

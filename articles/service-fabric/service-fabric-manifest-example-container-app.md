@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84701167"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per applicazioni multicontenitore
@@ -17,7 +17,7 @@ Di seguito sono riportati alcuni esempi di manifesto dell'applicazione e del ser
 
 Sono disponibili le funzionalità seguenti:
 
-|Manifesto|Funzionalità|
+|manifesto|Funzionalità|
 |---|---|
 |[Manifesto dell'applicazione](#application-manifest)| [override delle variabili di ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurazione del mapping da porta a host del contenitore](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configurazione dell'autenticazione del registro contenitori](service-fabric-get-started-containers.md#configure-container-repository-authentication), [governance delle risorse](service-fabric-resource-governance.md), [impostazione della modalità di isolamento](service-fabric-get-started-containers.md#configure-isolation-mode), [specifica delle immagini del contenitore specifiche delle build del sistema operativo](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[Manifesto del servizio FrontEndService](#frontendservice-service-manifest)| [impostazione delle variabili di ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurazione di un endpoint](service-fabric-get-started-containers.md#configure-communication), passaggio di comandi al contenitore, [importazione di un certificato in un contenitore](service-fabric-securing-containers.md)| 

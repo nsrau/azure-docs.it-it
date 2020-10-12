@@ -6,10 +6,10 @@ ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
 ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439561"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Usare ARM template test Toolkit
@@ -22,7 +22,7 @@ Questo articolo descrive come eseguire il Toolkit di test e come aggiungere o ri
 
 Il Toolkit è un set di script di PowerShell che può essere eseguito da un comando in PowerShell o CLI.
 
-## <a name="install-on-windows"></a>Eseguire l'installazione in Windows
+## <a name="install-on-windows"></a>Installare in Windows
 
 1. Se non si dispone già di PowerShell, [installare PowerShell in Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 

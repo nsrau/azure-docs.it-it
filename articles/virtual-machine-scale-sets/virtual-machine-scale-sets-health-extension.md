@@ -10,10 +10,10 @@ ms.date: 05/06/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: a38a715b45ab4d0810862ef4d016e4187ea507ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783045"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
@@ -69,8 +69,8 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 | Nome | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | protocol | `http` o `https` o `tcp` | string |
-| port | Facoltativo quando il protocollo è `http` o `https` , obbligatorio quando il protocollo è`tcp` | INT |
-| requestPath | Obbligatoria quando il protocollo è `http` o `https` , non è consentito quando il protocollo è`tcp` | string |
+| port | Facoltativo quando il protocollo è `http` o `https` , obbligatorio quando il protocollo è `tcp` | INT |
+| requestPath | Obbligatoria quando il protocollo è `http` o `https` , non è consentito quando il protocollo è `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuire l'estensione Integrità applicazione
 Esistono diversi modi per distribuire l'estensione Integrità applicazione nei set di scalabilità, come descritto in dettaglio negli esempi seguenti.

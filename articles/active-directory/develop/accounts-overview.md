@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
 ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115986"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Account e profili tenant (Android)
@@ -48,7 +48,7 @@ Un account nella piattaforma di identità Microsoft è costituito da:
 - Poiché un account può essere presente in uno o più tenant, un account può avere più di un profilo.
 
 > [!NOTE]
-> MSAL considera il sistema account Microsoft (Live, MSA) come un altro tenant all'interno della piattaforma di identità Microsoft. L'ID tenant del tenant account Microsoft è:`9188040d-6c67-4c5b-b112-36a304b66dad`
+> MSAL considera il sistema account Microsoft (Live, MSA) come un altro tenant all'interno della piattaforma di identità Microsoft. L'ID tenant del tenant account Microsoft è: `9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>Diagramma della panoramica dell'account
 
@@ -58,12 +58,12 @@ Nel diagramma precedente:
 
 - L'account `bob@contoso.com` viene creato nel Active Directory Windows Server locale (sistema locale di origine del record).
 - L'account `tom@live.com` viene creato nel tenant account Microsoft.
-- `bob@contoso.com`ha accesso ad almeno una risorsa nei seguenti tenant di Azure Active Directory:
+- `bob@contoso.com` ha accesso ad almeno una risorsa nei seguenti tenant di Azure Active Directory:
   - contoso.com (sistema cloud di record collegato al sistema locale di record)
   - fabrikam.com
   - woodgrovebank.com
   - Un profilo tenant per `bob@contoso.com` esiste in ognuno di questi tenant.
-- `tom@live.com`ha accesso alle risorse nei tenant Microsoft seguenti:
+- `tom@live.com` ha accesso alle risorse nei tenant Microsoft seguenti:
   - contoso.com
   - fabrikam.com
   - Un profilo tenant per `tom@live.com` esiste in ognuno di questi tenant.
@@ -99,7 +99,7 @@ Oltre a richiedere un token di accesso, MSAL richiede sempre un token ID da ogni
 - openid
 - profile
 
-Il token ID contiene un elenco di attestazioni. `Claims`sono le coppie nome/valore dell'account e vengono usate per eseguire la richiesta.
+Il token ID contiene un elenco di attestazioni. `Claims` sono le coppie nome/valore dell'account e vengono usate per eseguire la richiesta.
 
 Come indicato in precedenza, ogni tenant in cui è presente un account può archiviare informazioni diverse sull'account, inclusi, a titolo esemplificativo, attributi come il titolo del processo, la posizione dell'ufficio e così via.
 
