@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/01/2020
 ms.author: victorh
 ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86143829"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Panoramica dei criteri di Web Application Firewall (WAF) di Azure
@@ -33,9 +33,9 @@ Se si vuole applicare un singolo criterio a tutti i siti, è possibile associare
 
 ## <a name="per-site-waf-policy"></a>Criteri WAF per sito
 
-Con i criteri di WAF per sito, è possibile proteggere più siti con esigenze di sicurezza diverse rispetto a un singolo WAF usando i criteri per sito. Ad esempio, se sono presenti cinque siti dietro la WAF, è possibile avere cinque criteri WAF distinti (uno per ogni listener) per personalizzare le esclusioni, le regole personalizzate, i set di regole gestite e tutte le altre impostazioni WAF per ogni sito.
+Con i criteri WAF per sito, è possibile proteggere più siti con esigenze di sicurezza diverse dietro un unico WAF usando i criteri per sito. Ad esempio, se dietro il WAF ci sono cinque siti, è possibile avere cinque criteri WAF distinti, uno per ogni listener, per personalizzare le esclusioni, le regole personalizzate, i set di regole gestite e tutte le altre impostazioni WAF per ogni sito.
 
-Si dice che al gateway applicazione sono applicati criteri globali. Applicare quindi un criterio diverso a un listener nel gateway applicazione. I criteri del listener ora diventano effettivi solo per il listener. I criteri globali del gateway applicazione si applicano comunque a tutti gli altri listener e alle regole basate sul percorso a cui non è assegnato un criterio specifico.
+Supponiamo che al gateway applicazione sia stato applicato un criterio globale. È necessario applicare quindi un criterio diverso a un listener in quel gateway applicazione. I criteri del listener ora diventano effettivi solo per quel listener. I criteri globali del gateway applicazione si applicano comunque a tutti gli altri listener e alle regole basate sul percorso a cui non è stato assegnato un criterio specifico.
 
 ## <a name="per-uri-policy"></a>Criteri per URI
 

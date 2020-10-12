@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807096"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installare un controller di ingresso del gateway applicazione (AGIC) usando un gateway applicazione esistente
@@ -36,7 +36,7 @@ In questo documento si presuppone che siano già installati gli strumenti e l'in
 
 __Eseguire il backup della configurazione del gateway applicazione prima di__ installare AGIC:
   1. uso di [portale di Azure](https://portal.azure.com/) passare all' `Application Gateway` istanza
-  2. da `Export template` clic`Download`
+  2. da `Export template` clic `Download`
 
 Il file zip scaricato avrà i modelli JSON, bash e gli script di PowerShell che è possibile usare per ripristinare il gateway app che diventa necessario
 
@@ -79,7 +79,7 @@ Seguire le [istruzioni di installazione di AAD Pod Identity](https://github.com/
 A questo punto è necessario creare un'identità di Azure e assegnarle le autorizzazioni ARM.
 Usare [cloud Shell](https://shell.azure.com/) per eseguire tutti i comandi seguenti e creare un'identità:
 
-1. Creare un'identità **di Azure nello stesso gruppo di risorse dei nodi AKS**. La selezione del gruppo di risorse corretto è importante. Il gruppo di risorse richiesto nel comando seguente *non* è quello a cui si fa riferimento nel riquadro del portale AKS. Questo è il gruppo di risorse delle `aks-agentpool` macchine virtuali. In genere, il gruppo di risorse inizia con `MC_` e contiene il nome dell'AKS. Ad esempio:`MC_resourceGroup_aksABCD_westus`
+1. Creare un'identità **di Azure nello stesso gruppo di risorse dei nodi AKS**. La selezione del gruppo di risorse corretto è importante. Il gruppo di risorse richiesto nel comando seguente *non* è quello a cui si fa riferimento nel riquadro del portale AKS. Questo è il gruppo di risorse delle `aks-agentpool` macchine virtuali. In genere, il gruppo di risorse inizia con `MC_` e contiene il nome dell'AKS. Ad esempio: `MC_resourceGroup_aksABCD_westus`
 
     ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
@@ -91,9 +91,9 @@ Usare [cloud Shell](https://shell.azure.com/) per eseguire tutti i comandi segue
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Concedere all'identità l' `Contributor` accesso al gateway applicazione. A tale proposito, è necessario l'ID del gateway applicazione, che sarà simile al seguente:`/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
+1. Concedere all'identità l' `Contributor` accesso al gateway applicazione. A tale proposito, è necessario l'ID del gateway applicazione, che sarà simile al seguente: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
 
-    Ottenere l'elenco degli ID del gateway applicazione nella sottoscrizione con:`az network application-gateway list --query '[].id'`
+    Ottenere l'elenco degli ID del gateway applicazione nella sottoscrizione con: `az network application-gateway list --query '[].id'`
 
     ```azurecli
     az role assignment create \
@@ -102,7 +102,7 @@ Usare [cloud Shell](https://shell.azure.com/) per eseguire tutti i comandi segue
         --scope <App-Gateway-ID>
     ```
 
-1. Concedere all'identità l' `Reader` accesso al gruppo di risorse del gateway applicazione. L'ID del gruppo di risorse sarà simile al seguente: `/subscriptions/A/resourceGroups/B` . È possibile ottenere tutti i gruppi di risorse con:`az group list --query '[].id'`
+1. Concedere all'identità l' `Reader` accesso al gruppo di risorse del gateway applicazione. L'ID del gruppo di risorse sarà simile al seguente: `/subscriptions/A/resourceGroups/B` . È possibile ottenere tutti i gruppi di risorse con: `az group list --query '[].id'`
 
     ```azurecli
     az role assignment create \
@@ -239,14 +239,14 @@ Per impostazione predefinita, AGIC presuppone la proprietà completa del gateway
 
 Per abilitare questa impostazione, __eseguire il backup della configurazione del gateway applicazione__ :
   1. uso di [portale di Azure](https://portal.azure.com/) passare all' `Application Gateway` istanza
-  2. da `Export template` clic`Download`
+  2. da `Export template` clic `Download`
 
 Il file zip scaricato avrà modelli JSON, bash e script PowerShell che è possibile usare per ripristinare il gateway applicazione
 
 ### <a name="example-scenario"></a>Scenario di esempio
 Viene ora esaminato un gateway applicazione immaginaria, che gestisce il traffico per due siti Web:
-  - `dev.contoso.com`-ospitato su un nuovo AKS, usando il gateway applicazione e AGIC
-  - `prod.contoso.com`-ospitato in un [set di scalabilità di macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+  - `dev.contoso.com` -ospitato su un nuovo AKS, usando il gateway applicazione e AGIC
+  - `prod.contoso.com` -ospitato in un [set di scalabilità di macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
 Con le impostazioni predefinite, AGIC presuppone il 100% della proprietà del gateway applicazione a cui fa riferimento. AGIC sovrascrive tutta la configurazione del gateway applicazione. Se dovessimo creare manualmente un listener per `prod.contoso.com` (sul gateway applicazione) senza definirlo nell'ingresso Kubernetes, AGIC eliminerà la `prod.contoso.com` configurazione entro pochi secondi.
 

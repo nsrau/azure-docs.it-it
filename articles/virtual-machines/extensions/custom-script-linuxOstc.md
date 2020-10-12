@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
 ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87085708"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
@@ -125,7 +125,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | INT |
 | fileUris (es.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute (es.) | MyPythonScript.py Python\<my-param1\> | string |
+| commandToExecute (es.) | MyPythonScript.py Python \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (es.) | examplestorageacct | string |
 | storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
@@ -295,7 +295,7 @@ Alcuni punti da notare:
 
 1. Enable indica il momento in cui il comando inizia l'esecuzione.
 1. Download è relativo al download del pacchetto di estensioni CustomScript da Azure e non ai file di script specificati in fileUris.
-1. È anche possibile visualizzare il file di log in cui si sta scrivendo`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. È anche possibile visualizzare il file di log in cui si sta scrivendo `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Il passaggio successivo consiste nel controllare il file di log, nel formato:
 

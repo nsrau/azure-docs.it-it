@@ -12,10 +12,10 @@ ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235703"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) il provisioning utenti automatico semplifica q
 
 Vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md) per comprendere meglio le funzionalità.
 
-## <a name="learn"></a>Informazioni
+## <a name="learn"></a>Learn
 
 Il provisioning degli utenti crea una base per la governance delle identità in corso e migliora la qualità dei processi aziendali basati sui dati di identità autorevoli.
 
@@ -83,7 +83,7 @@ Il servizio di provisioning Azure AD esegue il provisioning degli utenti nelle a
 
 In questo esempio, gli utenti e i gruppi vengono creati in un database HR connesso a una directory locale. Il servizio di provisioning di Azure AD gestisce il provisioning utenti automatico per le applicazioni SaaS di destinazione.
 
- ![provisioning utenti](./media/plan-auto-user-provisioning/hybridprovisioning.png)
+ ![Provisioning utenti](./media/plan-auto-user-provisioning/hybridprovisioning.png)
 
 **Descrizione del flusso di lavoro:**
 
@@ -207,7 +207,7 @@ Per implementare il provisioning utenti automatico, è necessario definire gli a
 
 Azure AD supporta il mapping diretto da attributo a attributo, fornendo valori costanti o [scrivendo espressioni per i mapping degli attributi](../app-provisioning/functions-for-customizing-application-data.md). Questa flessibilità offre un controllo accurato degli elementi che verranno popolati nell'attributo del sistema di destinazione. È possibile usare [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) e Graph Explorer per esportare i mapping degli attributi e lo schema del provisioning degli utenti in un file JSON e importarli di nuovo in Azure ad.
 
-Per altre informazioni, vedere [personalizzazione degli attributi di provisioning dell'utente per le applicazioni SaaS in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
+Per altre informazioni, vedere [personalizzazione del provisioning utenti Attribute-Mappings per applicazioni SaaS in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Considerazioni speciali per il provisioning degli utenti
 

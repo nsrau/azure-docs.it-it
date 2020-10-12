@@ -12,10 +12,10 @@ ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87116368"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare la modifica delle password usando criteri personalizzati in Azure Active Directory B2C
@@ -24,7 +24,7 @@ ms.locfileid: "87116368"
 
 In Azure Active Directory B2C (Azure AD B2C), è possibile abilitare gli utenti che hanno eseguito l'accesso con un account locale per modificare la password senza dover dimostrare l'autenticità tramite la verifica tramite posta elettronica. Se la sessione scade nel momento in cui l'utente arriva al flusso di modifica della password, viene richiesto di accedere nuovamente. Questo articolo illustra come configurare la modifica delle password usando [criteri personalizzati](custom-policy-overview.md). È anche possibile configurare la [reimpostazione delle password self-service](user-flow-self-service-password-reset.md) usando i flussi utente.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 
 Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
 

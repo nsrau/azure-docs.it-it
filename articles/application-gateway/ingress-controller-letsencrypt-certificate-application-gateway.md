@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807023"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Usare i certificati con LetsEncrypt.org nel gateway applicazione per i cluster AKS
@@ -58,7 +58,7 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
 
     Creare una `ClusterIssuer` risorsa. È richiesto da `cert-manager` per rappresentare l' `Lets Encrypt` autorità di certificazione in cui verranno ottenuti i certificati firmati.
 
-    Utilizzando la risorsa senza spazio dei nomi `ClusterIssuer` , Cert-Manager emetterà certificati che possono essere utilizzati da più spazi dei nomi. `Let’s Encrypt`Usa il protocollo ACME per verificare di avere controllato un determinato nome di dominio e di emettere un certificato. Altre informazioni sulla configurazione delle proprietà sono disponibili `ClusterIssuer` [qui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`indicherà `cert-manager` a di emettere certificati usando l' `Lets Encrypt` ambiente di gestione temporanea usato per il test (il certificato radice non presente negli archivi di attendibilità del browser/client).
+    Utilizzando la risorsa senza spazio dei nomi `ClusterIssuer` , Cert-Manager emetterà certificati che possono essere utilizzati da più spazi dei nomi. `Let’s Encrypt` Usa il protocollo ACME per verificare di avere controllato un determinato nome di dominio e di emettere un certificato. Altre informazioni sulla configurazione delle proprietà sono disponibili `ClusterIssuer` [qui](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` indicherà `cert-manager` a di emettere certificati usando l' `Lets Encrypt` ambiente di gestione temporanea usato per il test (il certificato radice non presente negli archivi di attendibilità del browser/client).
 
     Il tipo di richiesta di verifica predefinito nel YAML seguente è `http01` . Altre problematiche sono documentate sui [tipi letsencrypt.org-Challenge](https://letsencrypt.org/docs/challenge-types/)
 
@@ -133,8 +133,8 @@ Attenersi alla procedura seguente per installare [Cert-Manager](https://docs.cer
 4. Certificato di produzione
 
     Quando il certificato di gestione temporanea è stato configurato correttamente, è possibile passare a un server ACME di produzione:
-    1. Sostituire l'annotazione di gestione temporanea nella risorsa in ingresso con:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Eliminare la gestione temporanea esistente `ClusterIssuer` creata nel passaggio precedente e crearne una nuova sostituendo il server Acme dal CLUSTERISSUER YAML precedente con`https://acme-v02.api.letsencrypt.org/directory`
+    1. Sostituire l'annotazione di gestione temporanea nella risorsa in ingresso con: `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
+    1. Eliminare la gestione temporanea esistente `ClusterIssuer` creata nel passaggio precedente e crearne una nuova sostituendo il server Acme dal CLUSTERISSUER YAML precedente con `https://acme-v02.api.letsencrypt.org/directory`
 
 5. Scadenza e rinnovo del certificato
 

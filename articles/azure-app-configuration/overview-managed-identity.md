@@ -8,10 +8,10 @@ ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
 ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82981222"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Come usare le identità gestite per la configurazione di app Azure
@@ -27,7 +27,7 @@ All'applicazione possono essere concessi due tipi di identità:
 
 La creazione di un archivio di configurazione dell'app con un'identità assegnata dal sistema richiede l'impostazione di una proprietà aggiuntiva nell'archivio.
 
-### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+### <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 Per configurare un'identità gestita usando l'interfaccia della riga di comando di Azure, usare il comando [AZ appconfig Identity Assign] per un archivio di configurazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
@@ -60,7 +60,7 @@ La procedura seguente illustra la creazione di un archivio di configurazione del
 
 Per creare un archivio di configurazione dell'app con un'identità assegnata dall'utente, è necessario creare l'identità e quindi assegnare il relativo identificatore di risorsa all'archivio.
 
-### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+### <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 Per configurare un'identità gestita usando l'interfaccia della riga di comando di Azure, usare il comando [AZ appconfig Identity Assign] per un archivio di configurazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
@@ -107,4 +107,4 @@ Un'identità assegnata dal sistema può essere rimossa disabilitando la funziona
 > [Creare un'app ASP.NET Core con la configurazione app Azure](quickstart-aspnet-core-app.md)
 
 [AZ appconfig Identity Assign]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
-[AZ login]: /cli/azure/reference-index#az-login
+[az login]: /cli/azure/reference-index#az-login

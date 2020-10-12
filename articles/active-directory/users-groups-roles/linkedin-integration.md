@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90053974"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrare le connessioni dell'account LinkedIn in Azure Active Directory
@@ -72,7 +72,7 @@ ms.locfileid: "90053974"
 1. Accedere Microsoft 365 con l'account amministratore.
 1. Avviare PowerShell.
 1. Installare il modulo Azure AD eseguendo `Install-Module AzureAD`
-1. Eseguire lo script seguente:
+1. Eseguire lo script riportato di seguito:
 
   ``` PowerShell
   $groupId = "GUID of the target group"

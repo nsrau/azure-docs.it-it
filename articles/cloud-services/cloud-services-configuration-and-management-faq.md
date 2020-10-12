@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092746"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
@@ -55,7 +55,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [I tecnici interni Microsoft possono usare desktop remoto per le istanze dei servizi cloud senza autorizzazione?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Non è possibile usare desktop remoto per la macchina virtuale del servizio cloud tramite il file RDP. Si è verificato l'errore seguente: si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
-**Scalabilità**
+**Ridimensionamento**
 
 - [Impossibile eseguire la scalabilità per un numero di istanze superiore a X](#i-cannot-scale-beyond-x-instances)
 - [Come è possibile configurare la scalabilità automatica in base alle metriche di memoria?](#how-can-i-configure-auto-scale-based-on-memory-metrics)

@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099635"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Creare avvisi per Azure Cosmos DB usando monitoraggio di Azure
@@ -83,7 +83,7 @@ Questa sezione illustra come creare un avviso quando si riceve un codice di stat
 
    * Specificare un nome per l'azione e selezionare **messaggio di posta elettronica/SMS/push/Voice** come **tipo di azione**. La schermata seguente mostra i dettagli del tipo di azione:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurare il tipo di azione, ad esempio la notifica tramite posta elettronica, per ricevere l'avviso":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurare la logica per la ricezione di avvisi per richieste con frequenza limitata/429":::
 
 1. Compilare la sezione dei **Dettagli della regola di avviso** :
 

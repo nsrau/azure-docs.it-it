@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84807906"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con applicazione Azure gateway-portale di Azure
@@ -91,7 +91,7 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
    - Nell'elenco **tipo di intestazione** selezionare **risposta**.
 
-   - Poiché in questo esempio si sta valutando l'intestazione Location, che è un'intestazione comune, selezionare **intestazione comune** in **nome intestazione**.
+   - Poiché in questo esempio si sta valutando l'intestazione Location, che è un'intestazione comune, selezionare  **intestazione comune** in **nome intestazione**.
 
    - Nell'elenco di **intestazioni comuni** selezionare **location**.
 
@@ -99,7 +99,7 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
    - Nell'elenco **operatore** selezionare uguale a **(=)**.
 
-   - Immettere un modello di espressione regolare. In questo esempio verrà usato il modello `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Immettere un modello di espressione regolare. In questo esempio verrà usato il modello  `(https?):\/\/.*azurewebsites\.net(.*)$` .
 
    - Selezionare **OK**.
 

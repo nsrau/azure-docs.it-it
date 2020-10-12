@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87117394"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurare Bring your own Storage (BYOS) per Application Insights Profiler e Snapshot Debugger
@@ -23,14 +23,14 @@ Con Bring your own storage, questi elementi vengono caricati in un account di ar
 > [!NOTE]
 > Se si Abilita il collegamento privato, è necessario disporre di una risorsa di archiviazione personalizzata. Per ulteriori informazioni sul collegamento privato per Application Insights, [vedere la documentazione di.](../platform/private-link-security.md)
 >
-> Se si abilitano le chiavi gestite dal cliente, è necessario avere una propria risorsa di archiviazione. Per ulteriori informazioni sulle chiavi gestite dal cliente per Application Insights, [vedere la documentazione.](../platform/customer-managed-keys.md)
+> Se si abilitano le chiavi di Customer-Managed, è necessario portare il proprio spazio di archiviazione. Per ulteriori informazioni sulle chiavi di Customer-Managed per Application Insights, [vedere la documentazione.](../platform/customer-managed-keys.md)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Come verrà eseguito l'accesso all'account di archiviazione?
 1. Gli agenti in esecuzione nelle macchine virtuali o nel servizio app caricherà gli artefatti (profili, snapshot e simboli) nei contenitori BLOB nell'account. Questo processo comporta il contatto con il servizio Application Insights Profiler o Snapshot Debugger per ottenere un token di firma di accesso condiviso (SAS) a un nuovo BLOB nell'account di archiviazione.
 1. Il servizio Application Insights Profiler o Snapshot Debugger analizzerà il BLOB in ingresso e riscriverà i risultati dell'analisi e i file di log nell'archivio BLOB. A seconda della capacità di calcolo disponibile, questo processo può verificarsi in qualsiasi momento dopo il caricamento.
 1. Quando si visualizzano le tracce del profiler o l'analisi del debugger snapshot, il servizio recupererà i risultati dell'analisi dall'archiviazione BLOB.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 * Assicurarsi di creare l'account di archiviazione nello stesso percorso della risorsa Application Insights. Ex. Se la risorsa Application Insights si trova negli Stati Uniti occidentali 2, l'account di archiviazione deve essere anche negli Stati Uniti occidentali 2. 
 * Concedere il ruolo "collaboratore dati BLOB di archiviazione" all'applicazione AAD "accesso all'archiviazione Trusted dei servizi di diagnostica" nell'account di archiviazione tramite l'interfaccia utente di controllo di accesso (IAM).
 * Se il collegamento privato è abilitato, configurare l'impostazione aggiuntiva per consentire la connessione al servizio Microsoft attendibile dalla rete virtuale. 
@@ -231,7 +231,7 @@ Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger),
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="template-schema-schema_uri-isnt-supported"></a>Lo schema di modello ' {schema_uri}' non è supportato.
-* Verificare che la `$schema` proprietà del modello sia valida. Deve seguire il modello seguente:`https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
+* Verificare che la `$schema` proprietà del modello sia valida. Deve seguire il modello seguente: `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Verificare che l'oggetto `schema_version` del modello sia compreso nei valori validi: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01` .
     Messaggio di errore:
     ```powershell
@@ -280,13 +280,13 @@ Per informazioni generali Snapshot Debugger sulla risoluzione dei problemi, vede
 * Se è abilitato Profiler o snapshot e quindi è stato abilitato BYOS, verrà eseguita la migrazione dei dati nell'account di archiviazione?
     _No._
 
-* BYOS funzionerà con la crittografia inattiva e la chiave gestita dal cliente?
-    _Sì, per essere precisi, BYOS è un requisito per abilitare Profiler/Debugger con chiavi Customer-Manager._
+* BYOS funzionerà con la crittografia dei reparti inattivi e Customer-Managed chiave?
+    _Sì, per essere precisi, BYOS è un requisito per abilitare il Profiler/Debugger con chiavi Customer-Manager._
 
 * BYOS funzionerà in un ambiente isolato da Internet?
     _Sì. In realtà, BYOS è un requisito per gli scenari di rete isolata._
 
-* BYOS funzionerà quando sono abilitate le chiavi gestite dal cliente e il collegamento privato? 
+* BYOS funzionerà quando, Customer-Managed chiavi e il collegamento privato sono stati abilitati? 
     _Sì, può essere possibile._
 
 * Se è stato abilitato BYOS, è possibile tornare indietro usando gli account di archiviazione dei servizi diagnostici per archiviare i dati raccolti? 

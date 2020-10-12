@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
 ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319120"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati di Riconoscimento vocale personalizzato
@@ -91,7 +91,7 @@ Dopo aver apportato le modifiche, fare clic sul pulsante **Salva** .
 
 Per esportare di nuovo i set di **dati** nella scheda dati, passare alla pagina dei dettagli dei dati e fare clic sul pulsante **Esporta** per esportare tutti i file come nuovo set di dati. È anche possibile filtrare i file in base all'ora dell'Ultima modifica, alle durate audio e così via per selezionare parzialmente i file desiderati. 
 
-![Esportazione dei dati](media/custom-speech/custom-speech-editor-export.png)
+![Esporta dati](media/custom-speech/custom-speech-editor-export.png)
 
 I file esportati nei dati verranno usati come set di dati completamente nuovo e non influiscono sulle entità esistenti di dati, training e test.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319079"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit di elaborazione batch per contenitori di sintesi vocale
@@ -118,7 +118,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 
 `ONESHOT` la modalità consente di trascrivere un singolo batch di file audio (da una directory di input e un elenco di file facoltativo) a una cartella di output.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagramma che mostra i file di elaborazione del contenitore batch kit in modalità oneshot.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Diagramma che illustra un flusso di lavoro contenitore di batch di esempio.":::
 
 1. Definire gli endpoint del contenitore vocale che il client batch utilizzerà nel `config.yaml` file. 
 2. Inserire i file audio per la trascrizione in una directory di input.  
@@ -133,7 +133,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 
 `DAEMON` la modalità esegue la trascrizione dei file esistenti in una determinata cartella e li registra continuamente quando vengono aggiunti.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagramma che illustra i file di elaborazione del contenitore batch kit in modalità daemon.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Diagramma che illustra un flusso di lavoro contenitore di batch di esempio.":::
 
 1. Definire gli endpoint del contenitore vocale che il client batch utilizzerà nel `config.yaml` file. 
 2. Richiamare il contenitore in una directory di input. Il client batch inizierà a monitorare la directory per i file in ingresso. 
@@ -146,7 +146,7 @@ Il kit di elaborazione batch offre tre modalità, usando il `--run-mode` paramet
 
 `REST` la modalità è una modalità Server API che fornisce un set di base di endpoint HTTP per l'invio in batch di file audio, il controllo dello stato e il polling prolungato. Consente anche l'uso a livello di codice usando un'estensione del modulo Python o l'importazione come modulo secondario.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagramma che illustra i file di elaborazione del contenitore batch kit in modalità daemon.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Diagramma che illustra un flusso di lavoro contenitore di batch di esempio.":::
 
 1. Definire gli endpoint del contenitore vocale che il client batch utilizzerà nel `config.yaml` file. 
 2. Inviare una richiesta di richiesta HTTP a uno degli endpoint del server API. 
