@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906836"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparare un'applicazione per la distribuzione nel cloud Spring di Azure
@@ -23,7 +23,7 @@ Azure Spring cloud offre servizi affidabili per l'hosting, il monitoraggio, la s
 Questo articolo illustra le dipendenze, la configurazione e il codice necessari per eseguire un'app Steeltoe .NET Core nel cloud Spring di Azure. Per informazioni su come distribuire un'applicazione nel cloud Spring di Azure, vedere [distribuire la prima applicazione Azure Spring cloud](spring-cloud-quickstart.md).
 
 >[!Note]
-> Il supporto di Steeltoe per Azure Spring cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per ulteriori informazioni sul supporto tecnico durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o il file a [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Il supporto di Steeltoe per Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ##  <a name="supported-versions"></a>Versioni supportate
 
@@ -198,8 +198,8 @@ La tabella seguente elenca le versioni di Azure Spring Cloud corrette per l'app 
 Versione di Spring Boot | Versione di Spring Cloud | Versione iniziale del client Azure Spring cloud
 ---|---|---
 2.1.x | Greenwich.RELEASE | 2.1.2
-2.2. x | Hoxton. SR8 | Non necessaria
-2.3. x | Hoxton. SR8 | Non necessaria
+2.2. x | Hoxton. SR8 | Non necessario
+2.3. x | Hoxton. SR8 | Non necessario
 
 Se si usa Spring Boot 2,1, includere il dependenciy seguente nel file di pom.xml.
 

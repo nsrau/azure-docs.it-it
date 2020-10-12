@@ -14,10 +14,10 @@ ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
 ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336531"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
@@ -55,7 +55,7 @@ Se si verifica un errore in un'area, il traffico viene indirizzato al servizio d
 
 Il probe di integrità del servizio di bilanciamento del carico tra aree raccoglie informazioni sulla disponibilità ogni 20 secondi. Se un servizio di bilanciamento del carico a livello di area ne rilascia la disponibilità a 0, il servizio di bilanciamento del carico tra aree rileverà l'errore. Il servizio di bilanciamento del carico a livello di area viene quindi tolto dalla rotazione. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramma della visualizzazione traffico dell'area globale." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramma del servizio di bilanciamento del carico tra aree." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latenza ultra-bassa
 
@@ -65,7 +65,7 @@ Il traffico avviato da un client raggiungerà l'area di partecipazione più vici
 
 Ad esempio, si dispone di un servizio di bilanciamento del carico tra aree con bilanciamento del carico standard nelle aree di Azure:
 
-* Stati Uniti occidentali
+* Stati Uniti Occidentali
 * Europa settentrionale
 
 Se un flusso viene avviato da Seattle, il traffico entra negli Stati Uniti occidentali. Questa area rappresenta l'area di partecipazione più vicina a Seattle. Il traffico viene indirizzato al servizio di bilanciamento del carico dell'area più vicino, che è Stati Uniti occidentali.
@@ -98,7 +98,7 @@ L' **area principale** è la posizione in cui viene distribuito il servizio di b
 
 ### <a name="home-regions"></a>Aree domestiche
 * Stati Uniti orientali 2
-* Stati Uniti occidentali
+* Stati Uniti Occidentali
 * Europa occidentale
 * Asia sud-orientale
 * Stati Uniti centrali
@@ -119,7 +119,7 @@ Il servizio di bilanciamento del carico tra aree instrada il traffico al servizi
 * Europa occidentale 
 * Stati Uniti centrali 
 * Stati Uniti orientali 2 
-* Stati Uniti occidentali 
+* Stati Uniti Occidentali 
 * Europa settentrionale 
 * Stati Uniti centro-meridionali 
 * Stati Uniti occidentali 2 
@@ -131,7 +131,7 @@ Il servizio di bilanciamento del carico tra aree instrada il traffico al servizi
 * Stati Uniti centro-occidentali 
 * Australia sud-orientale 
 * Australia orientale 
-* India centrale 
+* Central India 
 
 ## <a name="limitations"></a>Limitazioni
 

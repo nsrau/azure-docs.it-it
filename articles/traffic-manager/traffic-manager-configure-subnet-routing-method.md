@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401368"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
@@ -54,7 +54,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
     |Nome|myIISVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
+    |Resource group| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
     |Location| Selezionare **Stati Uniti orientali**.|
     |||
 
@@ -74,7 +74,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 
     |Impostazione|Valore|
     |---|---|
-    |Gruppo di risorse | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
+    |Resource group | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
     |Location|Europa occidentale|
     |Nome macchina virtuale | myIISVMWEurope|
     |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
@@ -140,7 +140,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
     |Nome|myVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Gruppo di risorse| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
+    |Resource group| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
     |||
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
@@ -160,7 +160,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
     |Impostazione|Valore|
     |---|---|
     |Nome macchina virtuale | *myVMWEuropa*|
-    |Gruppo di risorse | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
+    |Resource group | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
     |Rete virtuale | Selezionare **Rete virtuale**, nella sezione **Creare rete virtuale**, per il **Nome** immettere *myVNet4*, per la subnet immettere *mySubnet4*.|
     |||
 

@@ -1,14 +1,14 @@
 ---
-title: Gestire i backup con il controllo degli accessi in base al ruolo
+title: Gestire i backup con il controllo di accesso Role-Based
 description: Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle operazioni di gestione di backup in un insieme di credenziali di Servizi di ripristino.
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376129"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
@@ -35,25 +35,25 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Az
 | Creare un insieme di credenziali di Servizi di ripristino | Collaboratore di backup | Gruppo di risorse contenente l'insieme di credenziali |
 | Abilitare il backup di VM di Azure | Operatore di backup | Gruppo di risorse contenente l'insieme di credenziali |
 | | Collaboratore macchine virtuali | Risorsa della VM |
-| Backup su richiesta della VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
-| Ripristino della VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
-| | Collaboratore | Gruppo di risorse in cui verrà distribuita la VM |
+| Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
+| Ripristino della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
+| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
-| Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
+| Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | | Collaboratore account di archiviazione | Risorsa account di archiviazione in cui i dischi saranno ripristinati |
-| Ripristinare dischi gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
+| Ripristinare dischi gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | | Collaboratore account di archiviazione | Account di archiviazione temporaneo selezionato come parte del ripristino per contenere i dati dall'insieme di credenziali prima di convertirli in dischi gestiti |
-| | Collaboratore | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
-| Ripristinare singoli file dal backup delle VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
+| | Autore di contributi | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
+| Ripristinare singoli file dal backup delle VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
-| Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
-| Modificare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
-| Eliminare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
-| Interrompere il backup (con o senza conservazione dei dati) in operazioni di backup di VM | Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
-| Registrare Windows Server/client/SCDPM locale o server di Backup di Azure | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
-| Eliminare Windows Server/client/SCDPM locale o server di Backup di Azure registrato | Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
+| Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Modificare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Eliminare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Interrompere il backup (con o senza conservazione dei dati) in operazioni di backup di VM | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Registrare Windows Server/client/SCDPM locale o server di Backup di Azure | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
+| Eliminare Windows Server/client/SCDPM locale o server di Backup di Azure registrato | Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
 
 > [!IMPORTANT]
 > Se si specifica collaboratore macchina virtuale in un ambito di risorse VM e si seleziona **backup** come parte delle impostazioni della macchina virtuale, verrà visualizzata la schermata **Abilita backup** , anche se è già stato eseguito il backup della macchina virtuale. Questo perché la chiamata per verificare lo stato del backup funziona solo a livello di sottoscrizione. Per evitare questo problema, passare all'insieme di credenziali e aprire la visualizzazione dell'elemento di backup della VM o specificare il ruolo Collaboratore macchina virtuale a livello di sottoscrizione.
@@ -64,15 +64,15 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo corri
 
 | Operazione di gestione | Ruolo obbligatorio | Risorse |
 | --- | --- | --- |
-| Abilitare il backup delle condivisioni file di Azure | Collaboratore di backup |Insieme di credenziali di Servizi di ripristino |
+| Abilitare il backup delle condivisioni file di Azure | Collaboratore di backup |Insieme di credenziali dei servizi di ripristino |
 | |Account di archiviazione | Risorsa account di archiviazione collaboratore |
-| Backup su richiesta della VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
-| Ripristino della condivisione file | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
+| Backup su richiesta della VM | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
+| Ripristino della condivisione file | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | | Collaboratore account di archiviazione | Risorse dell'account di archiviazione in cui sono presenti condivisioni file di origine e di destinazione |
-| Ripristinare singoli file | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
+| Ripristinare singoli file | Operatore di backup | Insieme di credenziali dei servizi di ripristino |
 | |Collaboratore account di archiviazione|Risorse dell'account di archiviazione in cui sono presenti condivisioni file di origine e di destinazione |
-| Arresta protezione |Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
-| Annulla la registrazione dell'account di archiviazione dall'insieme di credenziali |Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
+| Arresta protezione |Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
+| Annulla la registrazione dell'account di archiviazione dall'insieme di credenziali |Collaboratore di backup | Insieme di credenziali dei servizi di ripristino |
 | |Collaboratore account di archiviazione | Risorsa dell'account di archiviazione|
 
 ## <a name="next-steps"></a>Passaggi successivi

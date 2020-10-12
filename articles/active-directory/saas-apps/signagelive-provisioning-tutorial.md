@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
 ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255730"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Esercitazione: configurare Signagelive per il provisioning utenti automatico
@@ -108,7 +108,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Signagelive**.
 
@@ -116,7 +116,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a Signagelive nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Signagelive per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Screenshot della sezione mapping degli attributi con sette mapping visualizzati.](media/signagelive-provisioning-tutorial/userattribute.png)
+    ![Screenshot della sezione Mapping degli attributi con i sette mapping visualizzati.](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppo in Signagelive**.
 
@@ -124,7 +124,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Signagelive nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account di gruppo in Signagelive per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Screenshot della sezione mapping degli attributi con tre mapping visualizzati.](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![Screenshot della sezione Mapping degli attributi con i tre mapping visualizzati.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

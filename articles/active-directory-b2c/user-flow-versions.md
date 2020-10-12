@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67949c31c710d88a05e1e110860fe703caf66d04
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87481326"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versioni del flusso utente in Azure Active Directory B2C
@@ -22,7 +22,7 @@ ms.locfileid: "87481326"
 I flussi utente in Azure Active Directory B2C (Azure AD B2C) consentono di configurare [criteri](user-flow-overview.md) comuni che descrivono in modo completo le esperienze di identità dei clienti. Queste esperienze includono iscrizione, accesso, reimpostazione della password o modifica del profilo. Le tabelle seguenti descrivono i flussi utente disponibili in Azure AD B2C.
 
 > [!IMPORTANT]
-> È stato modificato il modo in cui si fa riferimento alle versioni del flusso utente. In precedenza, abbiamo offerto versioni V1 (pronte per l'ambiente di produzione) e versioni V 1.1 e V2 (anteprima). A questo punto, i flussi utente sono stati consolidati in due versioni:
+> Il modo in cui si fa riferimento alle versioni dei flussi utente è stato cambiato. In precedenza, venivano offerte le versioni V1 (pronte per l'ambiente di produzione) e le versioni V 1.1 e V2 (anteprima). A questo punto, i flussi utente sono stati consolidati in due versioni:
 >
 >- I flussi utente **consigliati** sono le nuove versioni di anteprima dei flussi utente. Sono testati accuratamente e combinano tutte le funzionalità delle versioni **v2** e **v 1.1** legacy. In futuro, i nuovi flussi utente consigliati verranno mantenuti e aggiornati. Quando si passa a questi nuovi flussi utente consigliati, sarà possibile accedere alle nuove funzionalità non appena vengono rilasciate.
 >- I flussi utente standard, precedentemente noti come **V1**, sono disponibili a **livello** generale, flussi utente pronti per la produzione. Se i flussi utente sono cruciali e dipendono da versioni altamente stabili, è possibile continuare a usare i flussi utente standard, rendendo conto che tali versioni non verranno gestite e aggiornate.

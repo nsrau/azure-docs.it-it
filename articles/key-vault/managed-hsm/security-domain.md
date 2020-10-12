@@ -8,10 +8,10 @@ author: amitbapat
 ms.author: ambapat
 ms.date: 09/15/2020
 ms.openlocfilehash: 37e2541d0b53c96fd3f85da31b2c0ce5b68b551a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997214"
 ---
 # <a name="about-the-managed-hsm-security-domain"></a>Informazioni sul dominio di sicurezza HSM gestito
@@ -39,6 +39,6 @@ Il ripristino dei backup (backup completo o backup a chiave singola) può essere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggi una [Panoramica del modulo di protezione hardware gestito](overview.md)
+- Leggere una [panoramica del modulo di protezione hardware gestito](overview.md)
 - Informazioni sulla [gestione di HSM gestiti con l'interfaccia](key-management.md) della riga di comando
-- Esaminare le [procedure consigliate](best-practices.md) del modulo di protezione hardware gestito
+- Vedere le [procedure consigliate per il modulo di protezione hardware gestito](best-practices.md)

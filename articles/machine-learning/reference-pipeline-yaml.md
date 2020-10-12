@@ -12,10 +12,10 @@ author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 0f7ee0e18187b0a5d8ad1eb83dbda9734a9ff7de
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650190"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definire le pipeline di Machine Learning in YAML
@@ -24,7 +24,7 @@ Informazioni su come definire le pipeline di Machine Learning in [YAML](https://
 
 La tabella seguente elenca gli elementi che non sono attualmente supportati quando si definisce una pipeline in YAML:
 
-| Tipo di passaggio | Supportato? |
+| Tipo di passaggio | Supportata |
 | ----- | :-----: |
 | PythonScriptStep | Sì |
 | ParallelRunStep | Sì |

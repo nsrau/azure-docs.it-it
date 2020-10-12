@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
 ms.openlocfilehash: d43f94d3555a660d6b7c8f755eebfec253d31dc2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322924"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Informazioni sull'utilizzo della macchina virtuale di Azure
@@ -59,7 +59,7 @@ Per alcune immagini nella raccolta di Azure, il tipo di immagine viene popolato 
 - Windows Server Preview 
 
 ## <a name="service-type"></a>Tipo di servizio
-Il campo relativo al tipo di servizio nel campo Informazioni aggiuntive corrisponde alla dimensione esatta della macchina virtuale che è stata distribuita. Gli addebiti per le macchine virtuali di archiviazione Premium (basate su unità SSD) e per quelle di archiviazione non Premium (basate su HDD) sono gli stessi. Se si distribuisce una dimensione basata su SSD, ad esempio \_ DS2 standard \_ v2, le dimensioni non SSD () non vengono visualizzate `Standard\_D2\_v2 VM` nella colonna sottocategoria del contatore e le dimensioni SSD ( `Standard\_DS2\_v2` ) nel campo informazioni aggiuntive.
+Il campo relativo al tipo di servizio nel campo Informazioni aggiuntive corrisponde alla dimensione esatta della macchina virtuale che è stata distribuita. Gli addebiti per le macchine virtuali di archiviazione Premium (basate su unità SSD) e per quelle di archiviazione non Premium (basate su HDD) sono gli stessi. Se si distribuisce una dimensione basata su SSD, ad esempio \_ DS2 standard \_ v2, vengono visualizzate le dimensioni non SSD ( `Standard\_D2\_v2 VM` ) nella colonna Meter Sub-Category e le dimensioni SSD ( `Standard\_DS2\_v2` ) nel campo informazioni aggiuntive.
 
 ## <a name="region-names"></a>Nomi delle aree
 Il nome dell'area popolato nel campo Percorso della risorsa nei dettagli di utilizzo varia rispetto al nome dell'area usato in Azure Resource Manager. Di seguito è riepilogata l'associazione tra i valori relativi alle aree:

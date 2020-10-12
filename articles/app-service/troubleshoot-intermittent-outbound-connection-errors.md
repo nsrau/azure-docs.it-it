@@ -8,10 +8,10 @@ ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
 ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408216"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Risoluzione degli errori di connessione in uscita intermittenti nel servizio app Azure
@@ -114,7 +114,7 @@ Sebbene PHP non supporti il pool di connessioni, è possibile provare a usare co
 
 Evitare i limiti TCP in uscita è più semplice da risolvere, poiché i limiti vengono impostati dalle dimensioni del ruolo di lavoro. È possibile visualizzare i limiti nei [limiti numerici di sandbox tra macchine virtuali-connessioni TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Descrizione|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
+|Nome limite|Description|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
 |---|---|---|---|---|---|
 |Connessioni|Numero di connessioni nell'intera VM|1920|3968|8064|16.000|
 
@@ -146,7 +146,7 @@ Le connessioni TCP e le porte SNAT non sono direttamente correlate. Un rilevator
 * Il limite di connessioni TCP si verifica a livello di istanza di lavoro. Il bilanciamento del carico in uscita rete di Azure non usa la metrica connessioni TCP per la limitazione delle porte SNAT.
 * I limiti delle connessioni TCP sono descritti in [limiti numerici di sandbox tra macchine virtuali-connessioni TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Descrizione|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
+|Nome limite|Description|Piccolo (a1)|Media (a2)|Grande (a3)|Livello isolato (ASE)|
 |---|---|---|---|---|---|
 |Connessioni|Numero di connessioni nell'intera VM|1920|3968|8064|16.000|
 
@@ -162,7 +162,7 @@ Non è possibile modificare le impostazioni di Azure per rilasciare prima le por
 * Se viene individuata una RST, la porta SNAT viene rilasciata dopo 15 secondi.
 * Se è stato raggiunto il timeout di inattività, la porta viene rilasciata.
  
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="additional-information"></a>Altre informazioni
 
 * [SNAT con il servizio app](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)
 * [Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure](./troubleshoot-performance-degradation.md)

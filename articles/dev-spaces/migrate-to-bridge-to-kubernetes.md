@@ -1,18 +1,18 @@
 ---
-title: Migrazione a Bridge to Kubernetes
+title: Migrazione a Bridge per Kubernetes
 services: azure-dev-spaces
 ms.date: 09/21/2020
 ms.topic: conceptual
 description: Descrive i processi che alimentano Azure Dev Spaces
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, Bridge per Kubernetes
 ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997169"
 ---
-# <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge to Kubernetes
+# <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge per Kubernetes
 
 Bridge to Kubernetes offre un'alternativa più semplice a molti degli scenari di sviluppo che funzionano con Azure Dev Spaces. Bridge to Kubernetes è un'esperienza solo sul lato client che usa le estensioni in [Visual Studio][vs]   e [Visual Studio Code][vsc].  
 

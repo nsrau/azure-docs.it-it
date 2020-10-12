@@ -8,17 +8,17 @@ ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530370"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
 Funzioni di Azure si integra con il [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus) tramite [trigger e associazioni](./functions-triggers-bindings.md). L'integrazione con il bus di servizio consente di compilare funzioni che reagiscono e inviano messaggi di coda o di argomento.
 
-| Action | Tipo |
+| Azione | Type |
 |---------|---------|
 | Esegue una funzione quando viene creato un messaggio di coda o argomento del bus di servizio | [Trigger](./functions-bindings-service-bus-trigger.md) |
 | Inviare messaggi del bus di servizio di Azure |[Binding di output](./functions-bindings-service-bus-output.md) |
@@ -32,7 +32,7 @@ Funzioni di Azure si integra con il [bus di servizio di Azure](https://azure.mic
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Commenti 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 4. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure] è consigliata per l'uso con Visual Studio Code. |

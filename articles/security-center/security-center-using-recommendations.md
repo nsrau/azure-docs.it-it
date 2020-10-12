@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 4c6b8b0bfa78dca5ca32c8c72edcc463ebb9057a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322139"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
@@ -70,10 +70,10 @@ Jeff continua a sfogliare le raccomandazioni con priorità alta e media, deciden
 
 ### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Applicare raccomandazioni per impedire la configurazione della sicurezza
 
-Per assicurarsi che gli utenti non creino risorse che influiscano negativamente sul punteggio di Jeff, configurano le opzioni Applica e nega sulle raccomandazioni più importanti. Per altre informazioni, vedere [Impedisci configurazioni errate con le raccomandazioni Imponi/nega](prevent-misconfigurations.md).
+Per assicurarsi che gli utenti non creino risorse che influiscano negativamente sul punteggio di Jeff, configurano le opzioni Applica e nega sulle raccomandazioni più importanti. Per altre informazioni, vedere [Impedire gli errori di configurazione con le raccomandazioni di tipo Imponi/Nega](prevent-misconfigurations.md).
 
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Il monitoraggio delle raccomandazioni nel Centro sicurezza contribuisce a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. Quando si correggono le raccomandazioni, il Punteggio sicuro e il comportamento di sicurezza dei carichi di lavoro migliorano. Il Centro sicurezza individua automaticamente le nuove risorse distribuite, le valuta in base ai criteri di sicurezza e offre nuove raccomandazioni per proteggerle.
 
 

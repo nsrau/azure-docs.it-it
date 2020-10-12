@@ -1,16 +1,16 @@
 ---
-title: Monitorare e usare i backup con backup Center
+title: Monitorare e gestire i backup con Centro backup
 description: Questo articolo illustra come monitorare e gestire i backup su larga scala con backup Center
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996674"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorare e usare i backup con backup Center
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorare e gestire i backup con Centro backup
 
 Come amministratore di backup, è possibile usare il centro di backup come un unico riquadro di vetro per monitorare i processi e l'inventario dei backup su base giornaliera. È anche possibile usare il centro di backup per eseguire le normali operazioni, ad esempio la risposta alle richieste di backup su richiesta, il ripristino dei backup, la creazione di criteri di backup e così via.
 
