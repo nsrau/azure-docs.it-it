@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322122"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controllo di sicurezza V2: backup e ripristino
@@ -30,7 +30,7 @@ Abilitare backup di Azure e configurare l'origine di backup, ad esempio macchine
 
 Per un livello di protezione più elevato, è possibile abilitare l'opzione di archiviazione con ridondanza geografica per replicare i dati di backup in un'area secondaria e ripristinare tramite il ripristino tra aree.
 
-- [Continuità aziendale e ripristino di emergenza di livello aziendale](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
+- [Continuità aziendale e ripristino di emergenza su scala aziendale](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
 - [Come abilitare backup di Azure](/azure/backup/)
 

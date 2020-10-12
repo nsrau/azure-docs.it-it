@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89005650"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
@@ -19,7 +19,7 @@ Con *metriche* si intendono le risorse rilevanti per i servizi, che sono fornite
 Sono metriche, ad esempio, l'utilizzo della CPU, della memoria e dei dischi. In questo caso si tratta di metriche fisiche, ovvero risorse che corrispondono alle risorse fisiche nel nodo e che devono essere gestite. Le metriche possono anche essere logiche e in genere sono di questo tipo. Sono metriche logiche, ad esempio, "MyWorkQueueDepth", "MessagesToProcess" e "TotalRecords". Le metriche logiche sono definite dall'applicazione e corrispondono indirettamente al consumo di alcune risorse fisiche. Sono comuni in quanto può essere difficile misurare e creare report sul consumo delle risorse fisiche per ogni servizio. La complessità della misurazione e della creazione di report delle metriche è anche il motivo per cui in Service Fabric vengono fornite alcune metriche predefinite.
 
 ## <a name="default-metrics"></a>Metriche predefinite
-Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Ancora non si conoscono le risorse fisiche o logiche che il servizio consuma. Questo approccio non presenta problemi. Cluster Resource Manager di Service Fabric usa alcune metriche predefinite quando non vengono specificate altre metriche. I peering sono i seguenti:
+Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Ancora non si conoscono le risorse fisiche o logiche che il servizio consuma. Questo approccio non presenta problemi. Cluster Resource Manager di Service Fabric usa alcune metriche predefinite quando non vengono specificate altre metriche. ovvero:
 
   - PrimaryCount - Numero di repliche primarie nel nodo 
   - ReplicaCount - Numero di repliche con stato totali nel nodo
@@ -28,7 +28,7 @@ Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Anc
 | Metrica | Carico di istanza senza stato | Carico secondario con stato | Carico primario con stato | Peso |
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Alto |
-| ReplicaCount |0 |1 |1 |Medio |
+| ReplicaCount |0 |1 |1 |Media |
 | Conteggio |1 |1 |1 |Basso |
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689988"
 ---
 # <a name="azure-api-management-template-resources"></a>Risorse del modello Gestione API di Azure
@@ -31,7 +31,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="string-resources"></a><a name="strings"></a>Risorse di stringa  
+##  <a name="string-resources"></a><a name="strings"></a> Risorse di stringa  
  Gestione API offre un set completo di risorse di tipo stringa da usare nel portale per sviluppatori. Tali risorse sono localizzate in tutte le lingue supportate da Gestione API. Il set predefinito di modelli usa queste risorse per le intestazioni di pagina, le etichette e per ogni altra stringa costante visualizzata nel portale per sviluppatori. Per usare una risorsa di tipo stringa nei modelli, specificare il prefisso della stringa della risorsa seguito dal nome della stringa, come illustrato nell'esempio seguente.  
   
 ```  
@@ -111,24 +111,24 @@ Sono supportate le opzioni di localizzazione seguenti:
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="apisstrings"></a><a name="ApisStrings"></a>ApisStrings  
+###  <a name="apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |PageTitleApis|API|  
   
-###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a>AppDetailsStrings  
+###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Application preview (Anteprima dell'applicazione)|  
 |WebApplicationsRequirementsHeader|Requisiti|  
 |WebApplicationsScreenshotAlt|Schermata|  
-|WebApplicationsScreenshotsHeader|Screenshots (Schermate)|  
+|WebApplicationsScreenshotsHeader|Schermate|  
   
-###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a>ApplicationListStrings  
+###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application? (Rimuovere l'applicazione?)|  
 |WebDevelopersAppNotPublished|Not published (Non pubblicata)|  
@@ -142,15 +142,15 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebDevelopersSubmitLink|Invia|  
 |WebDevelopersYourApplicationsHeader|Applicazioni|  
   
-###  <a name="appstrings"></a><a name="AppStrings"></a>AppStrings  
+###  <a name="appstrings"></a><a name="AppStrings"></a> AppStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
-|WebApplicationsHeader|Applicazioni|  
+|WebApplicationsHeader|APPLICAZIONI|  
   
-###  <a name="commonresources"></a><a name="CommonResources"></a>CommonResources  
+###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |NoItemsToDisplay|No results found. (Nessun risultato trovato.)|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
@@ -159,16 +159,16 @@ Sono supportate le opzioni di localizzazione seguenti:
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|Http Request Body too large. (Corpo della richiesta HTTP troppo grande.)|  
   
-###  <a name="commonstrings"></a><a name="CommonStrings"></a>CommonStrings  
+###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |ButtonLabelCancel|Annulla|  
 |ButtonLabelSave|Salva|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
 |NoItemsToDisplay|There are no items to display. (Nessun elemento da visualizzare.)|  
 |PagerButtonLabelFirst|First (Primo)|  
-|PagerButtonLabelLast|Last (Ultimo)|  
+|PagerButtonLabelLast|Ultimi|  
 |PagerButtonLabelNext|Prossima|  
 |PagerButtonLabelPrevious|Prev (Precedente)|  
 |PagerLabelPageNOfM|Pagina {0} di {1}|  
@@ -183,9 +183,9 @@ Sono supportate le opzioni di localizzazione seguenti:
 |TablePlaceholderNothingToDisplay|There is no data for the selected period and scope (Non sono presenti dati per il periodo e l'ambito selezionati)|  
 |ButtonLabelClose|Chiudi|  
   
-###  <a name="documentation"></a><a name="Documentation"></a>Documentazione  
+###  <a name="documentation"></a><a name="Documentation"></a> Documentazione  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Intestazione "{0}" non valida|  
 |WebDocumentationInvalidRequestErrorMessage|Invalid Request URL (URL della richiesta non valido)|  
@@ -301,8 +301,8 @@ Sono supportate le opzioni di localizzazione seguenti:
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|OBBLIGATORIO. Il nome utente del proprietario delle risorse.|  
 |OAuth2UnsupportedTokenType|Il tipo di token '{0}' non è supportato.|  
 |OAuth2InvalidState|Invalid response from authorization server (Risposta non valida dal server di autorizzazione)|  
-|OAuth2GrantType_AuthorizationCode|Authorization code (Codice di autorizzazione)|  
-|OAuth2GrantType_Implicit|Implicito|  
+|OAuth2GrantType_AuthorizationCode|Codice di autorizzazione|  
+|OAuth2GrantType_Implicit|Implicita|  
 |OAuth2GrantType_ClientCredentials|Credenziali client|  
 |OAuth2GrantType_ResourceOwnerPassword|Resource owner password. (Password del proprietario delle risorse.)|  
 |WebDocumentation302Code|302 - Trovato|  
@@ -327,13 +327,13 @@ Sono supportate le opzioni di localizzazione seguenti:
 |SectionHeadingRequestUrl|URL richiesta|  
 |SectionHeadingResponse|Risposta|  
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
-|FormLabelSubtextOptional|facoltative|  
+|FormLabelSubtextOptional|facoltativo|  
 |SectionHeadingCodeSamples|Esempi di codice|  
 |TextblockOpenidConnectHeaderDescription|Token ID OpenID Connect ottenuto da <i \> {0}</i \> . Tipi di concessione supportati: <i\>{1}</i\>.|  
   
-###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a>ErrorPageStrings  
+###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |LinkLabelBack|Indietro|  
 |LinkLabelHomePage|home page|  
@@ -349,20 +349,20 @@ Sono supportate le opzioni di localizzazione seguenti:
 |TitlePotentialCause|Potential cause (Causa potenziale)|  
 |TitlePotentialSolution|It's possibly just a temporary issue, a few things to try (Potrebbe trattarsi di un problema temporaneo, alcune soluzioni da provare)|  
   
-###  <a name="issuesstrings"></a><a name="IssuesStrings"></a>IssuesStrings  
+###  <a name="issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
-|WebIssuesIndexTitle|Issues|  
+|WebIssuesIndexTitle|Problemi|  
 |WebIssuesNoActiveSubscriptions|Non si dispone di sottoscrizioni attive. You need to subscribe for a product to report an issue. (È necessario disporre della sottoscrizione al prodotto per segnalare un problema.)|  
 |WebIssuesNotSignin|You're not signed in. (Non è stato eseguito l'accesso.) {0} per segnalare un problema o pubblicare un commento.|  
 |WebIssuesReportIssueButton|Report Issue (Segnala un problema)|  
 |WebIssuesSignIn|sign in|  
 |WebIssuesStatusReportedBy|Stato: {0} &#124; Segnalato da {1}|  
   
-###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a>NotFoundStrings  
+###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|Inviare un messaggio di posta elettronica|  
@@ -375,14 +375,14 @@ Sono supportate le opzioni di localizzazione seguenti:
 |TitlePotentialCause|Potential cause (Causa potenziale)|  
 |TitlePotentialSolution|Potential solution (Potenziale soluzione)|  
   
-###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a>ProductDetailsStrings  
+###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |WebProductsAgreement|Con la sottoscrizione al Prodotto {0}, accetto il `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Condizioni per l'utilizzo|  
-|WebProductsSubscribeButton|Subscribe|  
-|WebProductsUsageLimitsHeader|Limiti di consumo|  
+|WebProductsSubscribeButton|Sottoscrivere|  
+|WebProductsUsageLimitsHeader|Limiti di utilizzo|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product. (È presente una sottoscrizione al prodotto.)|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product. (È stata richiesta una sottoscrizione al prodotto.)|  
 |ErrorYouNeedToAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
@@ -397,23 +397,23 @@ Sono supportate le opzioni di localizzazione seguenti:
 |TextblockSubscriptionDescription|A new subscription will be created as follows: (Verrà creata la nuova sottoscrizione indicata di seguito:)|  
 |TextblockSubscriptionLimitReached|Subscriptions limit reached. (È stato raggiunto il limite di sottoscrizioni.)|  
   
-###  <a name="productsstrings"></a><a name="ProductsStrings"></a>ProductsStrings  
+###  <a name="productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |PageTitleProducts|Prodotti|  
   
-###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a>ProviderInfoStrings  
+###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Sign in is disabled by the administrators at the moment. (L'accesso è al momento disabilitato dagli amministratori.)|  
 |TextboxExternalIdentitiesSigninInvitation|Alternatively, sign in with (In alternativa, accedere con)|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|Sign in with: (Accedere con:)|  
   
-###  <a name="signinresources"></a><a name="SigninResources"></a>SigninResources  
+###  <a name="signinresources"></a><a name="SigninResources"></a> SigninResources  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |PrincipalNotFound|Principal is not found or signature is invalid (Entità non trovata o firma non valida)|  
 |ErrorSsoAuthenticationFailed|SSO authentication failed (Autenticazione SSO non riuscita)|  
@@ -432,7 +432,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationEmailHasBeenRevertedNotice|You email already exist. (Indirizzo di posta elettronica già esistente.) Request has been reverted (La richiesta è stata ripristinata)|  
 |ValidationErrorEmailAlreadyExists|Email already exist. (Indirizzo di posta elettronica già esistente)|  
 |ValidationErrorEmailInvalid|Invalid e-mail address (Indirizzo di posta elettronica non valido)|  
-|TextboxLabelEmail|Posta elettronica|  
+|TextboxLabelEmail|E-mail|  
 |ValidationErrorEmailRequired|L'indirizzo di posta elettronica è obbligatorio.|  
 |WebAuthenticationErrorNoticeHeader|Errore|  
 |WebAuthenticationFieldLengthErrorMessage|{0} deve avere una lunghezza massima di {1}|  
@@ -459,7 +459,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationPasswordConfirmLabel|Conferma password|  
 |ValidationErrorPasswordInvalidDetailed|Password is too weak. (La password è troppo debole.)|  
 |WebAuthenticationPasswordLabel|Password|  
-|ValidationErrorPasswordRequired|Password is required. (La password è obbligatoria.)|  
+|ValidationErrorPasswordRequired|Password richiesta.|  
 |WebAuthenticationPasswordResetSendNotice|Il messaggio di posta elettronica per cambiare la password è stato inviato a {0}. Please follow the instructions within the email to continue your password change process. (Seguire le istruzioni contenute nel messaggio per continuare la procedura di modifica della password.)|  
 |WebAuthenticationPasswordResetSendNoticeHeader|Your passowrd change request was successfully processed (La richiesta di modifica della password è stata elaborata)|  
 |WebAuthenticationPasswordResetSendNoticeTitle|Password reset requested (Reimpostazione password richiesta)|  
@@ -503,25 +503,25 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationEmailSentNotificationMessage|Messaggio di posta elettronica inviato a {0} con successo|  
 |WebAuthenticationNoAadTenantConfigured|No Azure Active Directory tenant configured for the service. (Nessun tenant Azure Active Directory configurato per il servizio.)|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|Accetto il `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>` .|  
-|TextblockUserRegistrationTermsProvided|Verificare`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
+|TextblockUserRegistrationTermsProvided|Verificare `<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`|  
 |DialogHeadingTermsOfUse|Condizioni per l'utilizzo|  
 |ValidationMessageConsentNotAccepted|You must agree to the Terms of Use before you can proceed. (È necessario accettare le Condizioni per l'utilizzo prima di continuare.)|  
   
-###  <a name="signinstrings"></a><a name="SigninStrings"></a>SigninStrings  
+###  <a name="signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Password dimenticata?|  
 |WebAuthenticationIfAdministrator|Se si è un amministratore, è necessario accedere `<a href="{0}"\>here</a\>` .|  
 |WebAuthenticationNotAMember|Not a member yet? (Non si è ancora membri?) `<a href="/signup"\>Sign up now</a\>`|  
 |WebAuthenticationRemember|Remember me on this computer (Memorizza utente su questo computer)|  
 |WebAuthenticationSigininWithPassword|Sign in with your username and password (Immettere il proprio nome utente e la password)|  
-|WebAuthenticationSigninTitle|Accesso|  
+|WebAuthenticationSigninTitle|Accedi|  
 |WebAuthenticationSignUpNow|Effettua l'iscrizione ora|  
   
-###  <a name="signupstrings"></a><a name="SignupStrings"></a>SignupStrings  
+###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |PageTitleSignup|Iscrizione|  
 |WebAuthenticationAlreadyAMember|Already a member? (Si è già membri?)|  
@@ -529,9 +529,9 @@ Sono supportate le opzioni di localizzazione seguenti:
 |WebAuthenticationSigninNow|Sign in now (Accedere ora)|  
 |ButtonLabelSignup|Iscrizione|  
   
-###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a>SubscriptionListStrings  
+###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Are you sure that you want to cancel this subscription? (Annullare la sottoscrizione?)|  
 |SubscriptionRenewConfirmation|Are you sure that you want to renew this subscription? (Rinnovare la sottoscrizione?)|  
@@ -552,9 +552,9 @@ Sono supportate le opzioni di localizzazione seguenti:
 |PageTitleRenameSubscription|Rename subscription (Rinomina sottoscrizione)|  
 |SubscriptionPropertyLabelName|Nome sottoscrizione|  
   
-###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a>SubscriptionStrings  
+###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Looking to close your account? (Chiudere l'account?)|  
 |PageTitleDeveloperProfile|Profilo|  
@@ -563,21 +563,21 @@ Sono supportate le opzioni di localizzazione seguenti:
 |InformationMessageKeyWasRegenerated|Are you sure that you want to regenerate this key? (Rigenerare la chiave?)|  
 |ButtonLabelShowKey|Mostra|  
   
-###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a>UpdateProfileStrings  
+###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Update profile (Aggiorna profilo)|  
 |PageTitleUpdateProfile|Update account information (Aggiorna informazioni sull'account)|  
   
-###  <a name="userprofile"></a><a name="UserProfile"></a>UserProfile  
+###  <a name="userprofile"></a><a name="UserProfile"></a> UserProfile  
   
-|Nome|Text|  
+|Nome|Testo|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Change account information(Modifica informazioni sull'account)|  
 |ButtonLabelChangePassword|Cambia password|  
 |ButtonLabelCloseAccount|Close account (Chiudi account)|  
-|TextboxLabelEmail|Posta elettronica|  
+|TextboxLabelEmail|E-mail|  
 |TextboxLabelEmailFirstName|Nome|  
 |TextboxLabelEmailLastName|Cognome|  
 |TextboxLabelNotificationsSenderEmail|Notifications sender email (Indirizzo di posta elettronica del mittente delle notifiche)|  
@@ -594,7 +594,7 @@ Sono supportate le opzioni di localizzazione seguenti:
 |ValidationMessageSubscriptionNameRequired|Il nome della sottoscrizione non può essere vuoto.|  
 |ApiManagementUserLimitReached|This service has reached the maximum number of allowed users. (È stato raggiunto il numero massimo di utenti consentiti dal servizio.) Please upgrade to a higher pricing tier. (Eseguire l'aggiornamento a un piano tariffario superiore.)|  
   
-##  <a name="glyph-resources"></a><a name="glyphs"></a>Risorse glifo  
+##  <a name="glyph-resources"></a><a name="glyphs"></a> Risorse glifo  
  Nei modelli del portale per sviluppatori di Gestione API è possibile usare i glifi presenti in [Glyphicons da Bootstrap](https://getbootstrap.com/components/#glyphicons). Si tratta di un set di oltre 250 glifi in formato carattere dal set Halflings di [Glyphicon](https://glyphicons.com/). Per usare uno dei glifi del set, applicare la sintassi seguente.  
   
 ```html  

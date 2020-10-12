@@ -8,10 +8,10 @@ ms.date: 09/11/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 84b826ce33b5395db5bd38e883b3a0fb3425725b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86244039"
 ---
 # <a name="security-hardening-for-aks-agent-node-host-os"></a>Protezione avanzata per il sistema operativo host del nodo AKS Agent
@@ -87,6 +87,6 @@ Per ulteriori informazioni sulla sicurezza di AKS, vedere gli articoli seguenti:
 
 [Servizio Azure Kubernetes](./intro-kubernetes.md)
 
-[Considerazioni sulla sicurezza di AKS](./concepts-security.md)
+[Considerazioni sulla sicurezza di AKS ](./concepts-security.md)
 
-[Procedure consigliate di AKS](./best-practices.md)
+[Procedure consigliate di AKS ](./best-practices.md)

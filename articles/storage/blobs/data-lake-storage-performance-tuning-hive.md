@@ -9,10 +9,10 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88034771"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: hive, HDInsight & Azure Data Lake Storage Gen2
@@ -58,7 +58,7 @@ I carichi di lavoro con numerose operazioni di I/O possono trarre vantaggi da un
 Il numero di attività simultanee in esecuzione o il parallelismo verrà ristretto dalla memoria totale di YARN.  Il numero di contenitori YARN determinerà il numero di attività che è possibile eseguire contemporaneamente.  Per trovare la memoria YARN per ogni nodo è possibile passare ad Ambari.  Passare a YARN e visualizzare la scheda configs (configurazioni).  La memoria YARN viene visualizzata in questa finestra.  
 
 - Memoria totale YARN = nodi * memoria YARN per nodo
-- \#di contenitori YARN = totale memoria YARN/dimensioni del contenitore Tez
+- \# di contenitori YARN = totale memoria YARN/dimensioni del contenitore Tez
 
 La chiave per migliorare le prestazioni usando Data Lake Storage Gen2 consiste nell'aumentare il più possibile la concorrenza.  Tez calcola automaticamente il numero di attività da creare, in modo che non debba essere impostato manualmente.   
 
@@ -68,7 +68,7 @@ Si supponga di disporre di un cluster D14 a 8 nodi.
 
 - Memoria totale YARN = nodi * memoria YARN per nodo
 - Memoria totale YARN = 8 nodi * 96 GB = 768GB
-- \#dei contenitori YARN = 768GB/3072MB = 256
+- \# dei contenitori YARN = 768GB/3072MB = 256
 
 ## <a name="further-information-on-hive-tuning"></a>Ulteriori informazioni sull'ottimizzazione di Hive
 

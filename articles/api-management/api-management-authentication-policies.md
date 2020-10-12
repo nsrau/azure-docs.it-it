@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243716"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a>Criteri di autenticazione
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Criteri di autenticazione
 
 -   [authentication-basic](api-management-authentication-policies.md#Basic) : consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.
 
@@ -75,7 +75,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 In questo esempio, il certificato client viene identificato dalla relativa identificazione personale:
 
@@ -105,10 +105,10 @@ In questo esempio, il certificato client viene impostato nei criteri anziché es
   
 |Nome|Descrizione|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Identificazione personale del certificato client.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/A|
-|ID certificato|Nome della risorsa del certificato.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/A|
-|Corpo|Certificato client sotto forma di matrice di byte.|No|N/A|
-|password|Password per il certificato client.|Utilizzato se il certificato specificato in `body` è protetto da password.|N/A|
+|thumbprint|Identificazione personale del certificato client.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
+|ID certificato|Nome della risorsa del certificato.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
+|Corpo|Certificato client sotto forma di matrice di byte.|No|N/D|
+|password|Password per il certificato client.|Utilizzato se il certificato specificato in `body` è protetto da password.|N/D|
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.  
@@ -117,7 +117,7 @@ In questo esempio, il certificato client viene impostato nei criteri anziché es
   
 -   **Ambiti del criterio:** tutti gli ambiti  
 
-##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Eseguire l'autenticazione con identità gestita  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Eseguire l'autenticazione con identità gestita  
  Usare il `authentication-managed-identity` criterio per eseguire l'autenticazione con un servizio back-end usando l'identità gestita. Questo criterio USA essenzialmente l'identità gestita per ottenere un token di accesso da Azure Active Directory per l'accesso alla risorsa specificata. Dopo aver ottenuto il token, il criterio imposterà il valore del token nell' `Authorization` intestazione usando lo `Bearer` schema.
 
 Per richiedere il token, è possibile usare sia l'identità assegnata dal sistema che qualsiasi altra identità assegnata dall'utente. Se `client-id` non viene fornito, viene utilizzata l'identità assegnata dal sistema. Se `client-id` per l'identità assegnata dall'utente viene richiesta una variabile, il token viene fornito da Azure Active Directory
@@ -184,7 +184,7 @@ Per richiedere il token, è possibile usare sia l'identità assegnata dal sistem
 |----------|-----------------|--------------|-------------|  
 |Risorsa|Stringa. ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|Sì|N/D|
 |ID client|Stringa. ID app dell'identità assegnata dall'utente in Azure Active Directory.|No|identità assegnata dal sistema|
-|output-token-variabile-nome|Stringa. Nome della variabile di contesto che riceverà il valore del token come tipo di oggetto `string` . |No|N/A|  
+|output-token-variabile-nome|Stringa. Nome della variabile di contesto che riceverà il valore del token come tipo di oggetto `string` . |No|N/D|  
 |ignore-error|Proprietà di tipo Boolean. Se impostato su `true` , la pipeline dei criteri continuerà a essere eseguita anche se non viene ottenuto un token di accesso.|No|false|  
   
 ### <a name="usage"></a>Utilizzo  

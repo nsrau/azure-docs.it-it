@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: a8486ec87b5198231a33b1dab382ba457c8c8066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85478128"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedura: personalizzare browser e WebView per iOS/macOS
@@ -36,7 +36,7 @@ Per iOS e macOS:
 - [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MSAL per macOS supporta solo le `WKWebView` versioni precedenti del sistema operativo. `ASWebAuthenticationSession`è supportato solo in macOS 10,15 e versioni successive. 
+MSAL per macOS supporta solo le `WKWebView` versioni precedenti del sistema operativo. `ASWebAuthenticationSession` è supportato solo in macOS 10,15 e versioni successive. 
 
 ## <a name="system-browsers"></a>Browser di sistema
 
@@ -61,8 +61,8 @@ Per impostazione predefinita, MSAL rileverà in modo dinamico la versione di iOS
 
 Gli sviluppatori possono anche selezionare un browser di sistema diverso per le app MSAL:
 
-- `SFAuthenticationSession`è la versione iOS 11 di `ASWebAuthenticationSession` .
-- `SFSafariViewController`è più generico e fornisce un'interfaccia per l'esplorazione del Web e può essere usato anche per scopi di accesso. In iOS 9 e 10 i cookie e altri dati del sito Web vengono condivisi con Safari, ma non in iOS 11 e versioni successive.
+- `SFAuthenticationSession` è la versione iOS 11 di `ASWebAuthenticationSession` .
+- `SFSafariViewController` è più generico e fornisce un'interfaccia per l'esplorazione del Web e può essere usato anche per scopi di accesso. In iOS 9 e 10 i cookie e altri dati del sito Web vengono condivisi con Safari, ma non in iOS 11 e versioni successive.
 
 ## <a name="in-app-browser"></a>Browser in-app
 
@@ -74,10 +74,10 @@ Il browser utilizzato influisca sull'esperienza SSO grazie alla modalità di con
 
 | Tecnologia    | Tipo di browser  | disponibilità di iOS | disponibilità di macOS | Condivide i cookie e altri dati  | Disponibilità MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 | macOS 10,15 e su | Sì | iOS e macOS 10.15 + | istanze di w/Safari
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 | N/D | Sì | Solo iOS |  istanze di w/Safari
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 | N/D | No | Solo iOS | No**
-| **SFSafariViewController** | System | iOS10 | N/D | Sì | Solo iOS |  istanze di w/Safari
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Sistema | iOS12 | macOS 10,15 e su | Sì | iOS e macOS 10.15 + | istanze di w/Safari
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Sistema | iOS11 | N/D | Sì | Solo iOS |  istanze di w/Safari
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Sistema | iOS11 | N/D | No | Solo iOS | No**
+| **SFSafariViewController** | Sistema | iOS10 | N/D | Sì | Solo iOS |  istanze di w/Safari
 | **WKWebView**  | In-app | iOS 8 | macOS 10,10 e su | No | iOS e macOS | No**
 
 * * Per il funzionamento dell'accesso SSO, è necessario condividere i token tra le app. Questa operazione richiede una cache di token o un'applicazione broker, ad esempio Microsoft Authenticator per iOS.

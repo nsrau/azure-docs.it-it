@@ -8,10 +8,10 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.openlocfilehash: a254465d9055fcf1cf10a2a1d6eb82b2afc16f0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82692276"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Raccomandazioni sui test di benchmark delle prestazioni per Azure NetApp Files
@@ -109,7 +109,7 @@ Azure NetApp Files dati sulle prestazioni sono disponibili tramite i contatori d
 
 È anche possibile creare un dashboard in monitoraggio di Azure per Azure NetApp Files passando alla pagina metrica, filtrando per NetApp e specificando i contatori di volume di interesse: 
 
-![Dashboard del monitoraggio di Azure](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
+![Dashboard di Monitoraggio di Azure](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
 
 ### <a name="azure-monitor-api-access"></a>Accesso all'API di monitoraggio di Azure
 

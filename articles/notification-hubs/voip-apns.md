@@ -7,10 +7,10 @@ ms.date: 3/23/2020
 ms.topic: how-to
 ms.service: notification-hubs
 ms.openlocfilehash: c99af881b8f93b75633741c2352dc5df17dd2963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80146888"
 ---
 # <a name="use-apns-voip-through-notification-hubs-not-officially-supported"></a>Usare APNS VOIP tramite hub di notifica (non ufficialmente supportato)
@@ -21,7 +21,7 @@ ms.locfileid: "80146888"
 
 Se si sceglie ancora di inviare notifiche VOIP APNS tramite hub di notifica, tenere presenti le limitazioni seguenti:
 
-- Per inviare una notifica VOIP è necessario che l' `apns-topic` intestazione sia impostata sull'ID bundle dell'applicazione + il `.voip` suffisso. Ad esempio, per un'app di esempio con ID bundle `com.microsoft.nhubsample` , l' `apns-topic` intestazione deve essere impostata su`com.microsoft.nhubsample.voip.`
+- Per inviare una notifica VOIP è necessario che l' `apns-topic` intestazione sia impostata sull'ID bundle dell'applicazione + il `.voip` suffisso. Ad esempio, per un'app di esempio con ID bundle `com.microsoft.nhubsample` , l' `apns-topic` intestazione deve essere impostata su `com.microsoft.nhubsample.voip.`
 
    Questo metodo non funziona bene con hub di notifica di Azure, perché l'ID bundle dell'app deve essere configurato come parte delle credenziali APNS dell'hub e il valore non può essere modificato. Hub di notifica, inoltre, non consente di eseguire l'override del valore dell' `apns-topic` intestazione in fase di esecuzione.
 

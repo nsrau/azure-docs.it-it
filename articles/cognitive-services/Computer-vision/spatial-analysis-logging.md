@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
 ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254075"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e risoluzione dei problemi
 
-L'analisi spaziale include un set di funzionalità che consentono di monitorare l'integrità del sistema e di diagnosticare i problemi.
+L'analisi spaziale include un set di funzionalità per monitorare l'integrità del sistema e diagnosticare i problemi.
 
 ## <a name="enable-visualizations"></a>Abilita visualizzazioni
 
@@ -229,7 +229,7 @@ I log vengono caricati su richiesta con il `getRTCVLogs` metodo IOT Edge, nel `d
 >[!NOTE]
 > Se si richiama il `getRTCVLogs` metodo con un payload vuoto, viene restituito un elenco di tutti i contenitori distribuiti nel dispositivo. Per il nome del metodo si applica la distinzione tra maiuscole e minuscole. Si otterrà un errore 501 se viene specificato un nome di metodo non corretto.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Richiamo del metodo getRTCVLogs ":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Report di telemetria di monitoraggio di Azure":::
 ![pagina Metodo diretto getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -244,7 +244,7 @@ La tabella seguente elenca i parametri che è possibile usare quando si eseguono
 | ContainerId | Contenitore di destinazione per il recupero dei log.| `null`, quando non è presente alcun ID contenitore. L'API restituisce tutte le informazioni sui contenitori disponibili con ID.|
 | DoPost | Eseguire l'operazione di caricamento. Quando è impostato su `false` , viene eseguita l'operazione richiesta e vengono restituite le dimensioni di caricamento senza eseguire il caricamento. Se impostato su `true` , avvierà il caricamento asincrono dei log selezionati | `false`, non caricare.|
 | Limitazione | Indica il numero di righe di log da caricare per batch | `1000`, Usare questo parametro per modificare la velocità post. |
-| Filtri | Filtra i log da caricare | `null`, i filtri possono essere specificati come coppie chiave-valore in base alla struttura dei log di analisi spaziale: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Ad esempio: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filtri | Filtra i log da caricare | `null`, i filtri possono essere specificati come coppie chiave-valore in base alla struttura dei log di analisi spaziale: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . ad esempio `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 Nella tabella seguente sono elencati gli attributi nella risposta alla query.
 

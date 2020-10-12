@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86040419"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificare l'integrità di un dominio gestito Azure Active Directory Domain Services
@@ -28,7 +28,7 @@ Questo articolo illustra come visualizzare lo stato di integrità di Azure AD DS
 
 Lo stato di integrità di un dominio gestito viene visualizzato utilizzando il portale di Azure. È possibile visualizzare le informazioni relative all'ora dell'ultimo backup e alla sincronizzazione con Azure AD insieme a tutti gli avvisi che indicano un problema relativo all'integrità del dominio gestito. Per visualizzare lo stato di integrità di un dominio gestito, attenersi alla procedura seguente:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**.
 1. Selezionare il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Sul lato sinistro della finestra Azure AD DS Resource selezionare **Health (integrità**). La schermata di esempio seguente mostra un dominio gestito integro e lo stato dell'ultimo backup e Azure AD sincronizzazione:
 

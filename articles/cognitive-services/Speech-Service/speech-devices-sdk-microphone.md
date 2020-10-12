@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86232526"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per i dispositivi vocali SDK per array microfoni
@@ -30,7 +30,7 @@ Le seguenti geometrie di matrice sono consigliate per l'uso con lo stack audio M
 | Microfoni & geometria | Matrice circolare | Matrice circolare | Matrice lineare | Matrice lineare |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \#Microfoni | 7 | 4 | 4 | 2 |
+| \# Microfoni | 7 | 4 | 4 | 2 |
 | Geometria | 6 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | 3 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
 
 I canali del microfono devono essere ordinati in base alla numerazione raffigurata per ogni matrice precedente, aumentando da 0. Lo stack audio Microsoft richiederà un flusso di riferimento aggiuntivo per la riproduzione audio per eseguire l'annullamento Echo.
@@ -62,7 +62,7 @@ Le prestazioni dell'array di microfoni quando integrato in un dispositivo si dif
 
 | Parametro          | Consigliato                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \>63 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
+| SNR                | \> 63 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
 | Sensibilità output | -26 dBFS/PA a 1 kHz (scelta consigliata)                  |
 | Corrispondenza dell'ampiezza | ± 2 dB, 200-8000 Hz                                |
 | THD\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5a ordine             |
@@ -81,7 +81,7 @@ Poiché l'annullamento Echo è necessario per i dispositivi di riconoscimento vo
 | Considerazioni sulla linearità | Nessuna elaborazione non lineare dopo il riferimento del relatore; in caso contrario, è necessario un flusso di riferimento loopback basato su hardware |
 | Loopback altoparlante | Fornito tramite WASAPI, le API private, il plug-in ALSA personalizzato (Linux) o fornito tramite il canale del firmware |
 | THD | 3 bande di ottave, minimo 5 ordine, 70 dBA riproduzione @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
-| Accoppiamento Echo ai microfoni | \>-10 TCLw di database usando il metodo ITU-T G. 122 Annex B. 4, normalizzato a livello MIC<br />TCLw = TCLwmeasured \+ (misura sensibile al livello di output di destinazione)<br />TCLw = TCLwmeasured \+ (livello misurato-(-26)) |
+| Accoppiamento Echo ai microfoni | \> -10 TCLw di database usando il metodo ITU-T G. 122 Annex B. 4, normalizzato a livello MIC<br />TCLw = TCLwmeasured \+ (misura sensibile al livello di output di destinazione)<br />TCLw = TCLwmeasured \+ (livello misurato-(-26)) |
 
 ## <a name="integration-design-architecture"></a>Architettura di progettazione dell'integrazione
 

@@ -4,10 +4,10 @@ description: Questo articolo illustra tutti i preparativi necessari per eseguire
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476139"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Eseguire una factory di immagini da Azure DevOps
@@ -69,7 +69,7 @@ A questo punto, i file di origine sono archiviati in un repository git in Azure 
 Per semplificare i parametri della riga di comando, incapsulare i valori di chiave che guidano la factory di immagini a un set di variabili di compilazione. Selezionare la scheda **variabili** per visualizzare un elenco di diverse variabili predefinite. Ecco l'elenco di variabili da immettere in Azure DevOps:
 
 
-| Nome variabile | valore | Note |
+| Nome variabile | Valore | Note |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | Si tratta del percorso completo nel repository per la cartella di **configurazione** . Se è stato importato l'intero repository precedente, il valore a sinistra è corretto. In caso contrario, aggiornare per puntare al percorso di configurazione. |
 | DevTestLabName | MyImageFactory | Il nome del Lab in Azure DevTest Labs usato come factory per produrre le immagini. Se non si dispone di un, crearne uno. Verificare che il Lab si trovi nella stessa sottoscrizione a cui ha accesso l'endpoint del servizio. |
@@ -82,7 +82,7 @@ Per semplificare i parametri della riga di comando, incapsulare i valori di chia
 
 ![Variabili di compilazione](./media/set-up-devops-lab/configure-build-variables.png)
 
-## <a name="connect-to-azure"></a>Connettersi ad Azure
+## <a name="connect-to-azure"></a>Connettiti ad Azure
 Il passaggio successivo consiste nel configurare un'entità servizio. Si tratta di un'identità in Azure Active Directory che consente all'agente di compilazione DevOps di funzionare in Azure per conto dell'utente. Per configurarlo, iniziare con l'aggiunta del primo Azure PowerShell passaggio di compilazione.
 
 1. Selezionare **Aggiungi attività**.
@@ -107,7 +107,7 @@ Se si seleziona l'attività di compilazione, verranno visualizzati tutti i detta
 3. Scegliere l' **endpoint del servizio**.
 4. Per **percorso script**selezionare **... (puntini** di sospensione) a destra.
 5. Passare a **MakeGoldenImageVMs.ps1** script.
-6. I parametri dello script dovrebbero avere un aspetto simile al seguente:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
+6. I parametri dello script dovrebbero avere un aspetto simile al seguente: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 
     ![Completa la definizione di compilazione](./media/set-up-devops-lab/complete-build-definition.png)
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1d2dde4e77a39b114f721cd6d2be250141984e7f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86231710"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
@@ -77,30 +77,30 @@ Per garantire la comunicazione tramite l'appliance firewall corretta, in base al
 ### <a name="azgwudr"></a>azgwudr
 In questo scenario, il solo traffico da locale ad Azure verrà usato per gestire i firewall connettendosi a **AZF3** e tale traffico deve passare attraverso il firewall interno, **AZF2**. È quindi necessaria una sola route in **GatewaySubnet** come illustrato di seguito.
 
-| Destinazione | Hop successivo | Spiegazione |
+| Destination | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Consente al traffico locale di raggiungere il firewall di gestione **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Destinazione | Hop successivo | Spiegazione |
+| Destination | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Consente il traffico verso la subnet di back-end che ospita il server applicazioni tramite **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Consente di indirizzare il resto del traffico tramite **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Destinazione | Hop successivo | Spiegazione |
+| Destination | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Consente al traffico verso **azsn2** di passare dal server app al server Web attraverso **AZF2** |
 
 È anche necessario creare tabelle route per le subnet in **onpremvnet** per simulare il centro dati locale.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Destinazione | Hop successivo | Spiegazione |
+| Destination | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Consente il traffico verso **onpremsn2** attraverso **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Destinazione | Hop successivo | Spiegazione |
+| Destination | Hop successivo | Spiegazione |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Consente il traffico verso la subnet back-end in Azure tramite **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Consente il traffico verso **onpremsn1** attraverso **OPFW** |
@@ -150,7 +150,7 @@ AZF2 rappresenta un'appliance virtuale di Azure contenente le regole seguenti:
 ## <a name="network-security-groups-nsgs"></a>Gruppi di sicurezza di rete (NGS)
 In questo scenario i gruppi di sicurezza di rete non vengono usati. È tuttavia possibile applicare i gruppi di sicurezza di rete a ogni subnet per limitare il traffico in ingresso e in uscita. È ad esempio possibile applicare le seguenti regole per gruppi di sicurezza di rete alla subnet del firewall esterno.
 
-**Incoming**
+**In arrivo**
 
 * Consentire tutto il traffico TCP da Internet alla porta 80 in qualsiasi macchina virtuale della subnet.
 * Rifiutare il resto del traffico da Internet.

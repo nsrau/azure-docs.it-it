@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82733772"
 ---
 # <a name="understand-azure-deny-assignments"></a>Informazioni sulle assegnazioni di rifiuto di Azure
@@ -63,7 +63,7 @@ Le assegnazioni di negazione seguono un modello simile a quello delle assegnazio
 > | `Permissions.DataActions` | Almeno un Actions o un DataActions | String[] | Una matrice di stringhe che specifica le operazioni dati a cui l'assegnazione di rifiuto blocca l'accesso. |
 > | `Permissions.NotDataActions` | No | String[] | Una matrice di stringhe che specifica le operazioni dati da escludere nell'assegnazione di rifiuto. |
 > | `Scope` | No | string | Una stringa che specifica l'ambito a cui si applica l'assegnazione di rifiuto. |
-> | `DoNotApplyToChildScopes` | No | Boolean | Specifica se l'assegnazione di rifiuto è valida per gli ambiti figlio. Il valore predefinito è False. |
+> | `DoNotApplyToChildScopes` | No | Boolean | Specifica se l'assegnazione di rifiuto è valida per gli ambiti figlio. Il valore predefinito è false. |
 > | `Principals[i].Id` | Sì | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui si applica l'assegnazione di rifiuto. Impostare un GUID vuoto `00000000-0000-0000-0000-000000000000` per rappresentare tutte le entità. |
 > | `Principals[i].Type` | No | String[] | Matrice di tipi di oggetti rappresentati da entità [i]. ID. impostare su `SystemDefined` per rappresentare tutte le entità. |
 > | `ExcludePrincipals[i].Id` | No | String[] | Una matrice degli ID oggetto entità di Azure AD (utente, gruppo, entità servizio o identità gestita) a cui non si applica l'assegnazione di rifiuto. |
@@ -89,5 +89,5 @@ Tutte le entità possono essere combinate con `ExcludePrincipals` per negare l'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: proteggere nuove risorse con i blocchi delle risorse dei progetti di Azure](../governance/blueprints/tutorials/protect-new-resources.md)
+* [Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md)
 * [Elencare le assegnazioni di Azure Deny usando il portale di Azure](deny-assignments-portal.md)

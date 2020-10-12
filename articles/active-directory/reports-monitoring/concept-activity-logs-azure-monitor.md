@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89229855"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Log attività di Azure AD in Monitoraggio di Azure
@@ -55,7 +55,7 @@ Per usare questa funzionalità, sono necessari:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Una [licenza](https://azure.microsoft.com/pricing/details/active-directory/) di Azure AD Free, Basic, Premium 1 o Premium 2 per accedere ai log di controllo di Azure AD nel portale di Azure. 
 * Un tenant di Azure AD.
-* Utente che è un amministratore **globale** o un **amministratore della sicurezza** per il tenant del Azure ad.
+* Un utente con il ruolo di **amministratore globale** o **amministratore della sicurezza** per il tenant di Azure AD.
 * Una [licenza](https://azure.microsoft.com/pricing/details/active-directory/) di Azure AD Premium 1 o Premium 2 per accedere ai log di accesso di Azure AD nel portale di Azure. 
 
 A seconda del punto in cui si desidera instradare i dati dei log di controllo, è necessario uno dei due elementi seguenti:
@@ -64,7 +64,7 @@ A seconda del punto in cui si desidera instradare i dati dei log di controllo, �
 * Uno spazio dei nomi di Hub eventi di Azure, per l'integrazione con soluzioni di terze parti.
 * Un'area di lavoro Azure Log Analytics per inviare log a log di Monitoraggio di Azure.
 
-## <a name="cost-considerations"></a>Considerazioni sui costi
+## <a name="cost-considerations"></a>Considerazioni sul costo
 
 Se si dispone già di una licenza di Azure AD, è necessaria una sottoscrizione di Azure per configurare l'account di archiviazione o l'hub eventi. La sottoscrizione di Azure viene fornita gratuitamente, ma è necessario un pagamento per usare le risorse di Azure, tra cui l'account di archiviazione usato per archiviazione e l'hub eventi usato per la trasmissione. La quantità di dati, e quindi il costo addebitato, variano significativamente a seconda delle dimensioni del tenant. 
 

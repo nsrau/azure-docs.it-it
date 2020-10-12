@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88032425"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Informazioni sui requisiti di crittografia e i gateway VPN di Azure
@@ -36,7 +36,7 @@ Il set di criteri predefinito per il gateway VPN di Azure è riportato nell'arti
 
 Per le comunicazioni che richiedono specifici algoritmi di crittografia o parametri, in genere a causa di requisiti di conformità o di sicurezza, è ora possibile configurare i gateway VPN di Azure per usare un criterio IPsec/IKE personalizzato con algoritmi di crittografia e attendibilità delle chiavi specifici, invece dei set di criteri predefiniti di Azure.
 
-Ad esempio, i criteri della modalità principale di IKEv2 per i gateway VPN di Azure usano solo il gruppo Diffie-Hellman 2 (1024 bit), potrebbe essere necessario specificare gruppi più avanzati da usare in IKE, ad esempio il gruppo 14 (2048 bit), il gruppo 24 (gruppo MODP a 2048 bit) o ECP (gruppi a curva ellittica) 256 o 384 bit (rispettivamente il gruppo 19 e il gruppo 20). Simili requisiti si applicano anche ai criteri IPsec in modalità rapida.
+Ad esempio, i criteri della modalità principale di IKEv2 per i gateway VPN di Azure usano solo Diffie-Hellman Gruppo 2 (1024 bit), mentre potrebbe essere necessario specificare gruppi più avanzati da usare in IKE, ad esempio il gruppo 14 (2048-bit), il gruppo 24 (gruppo MODP a 2048 bit) o il bit ECP (gruppi a curva ellittica) 256 o 384 (rispettivamente gruppo 19 e 20). Simili requisiti si applicano anche ai criteri IPsec in modalità rapida.
 
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Criteri IPsec/IKE personalizzati con i gateway VPN di Azure
 

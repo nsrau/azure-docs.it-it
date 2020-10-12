@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: cynthn
@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82788995"
 ---
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini
@@ -30,7 +30,7 @@ L'esempio seguente crea una raccolta denominata *myGallery* nel gruppo di risors
 1. Lasciare l'impostazione predefinita per **Region**.
 1. È possibile digitare una breve descrizione della raccolta, ad esempio la *raccolta immagini per i test.* e quindi fare clic su **Verifica + crea**.
 1. Al termine della convalida, selezionare **Crea**.
-1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
@@ -50,7 +50,7 @@ Creare la definizione dell'immagine della raccolta all'interno della raccolta. I
 1. Per **SKU**, digitare *mySKU*.
 1. Al termine, selezionare **Verifica + crea**.
 1. Dopo che la definizione dell'immagine ha superato la convalida, selezionare **Crea**.
-1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
 
 ## <a name="create-an-image-version"></a>Creare una versione di immagine
@@ -72,7 +72,7 @@ I passaggi per la creazione di una versione di immagine sono leggermente diversi
 1. In **replica**lasciare il **numero di repliche predefinito** pari a 1. È necessario eseguire la replica nell'area di origine, quindi lasciare la prima replica come predefinita e quindi selezionare una seconda area di replica come *Stati Uniti orientali*.
 1. Al termine, selezionare **Rivedi e crea**. Azure convaliderà la configurazione.
 1. Quando la versione dell'immagine supera la convalida, selezionare **Crea**.
-1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
 La replica dell'immagine in tutte le aree di destinazione può richiedere tempo.
 
@@ -87,7 +87,7 @@ La replica dell'immagine in tutte le aree di destinazione può richiedere tempo.
 1. In **replica**lasciare il **numero di repliche predefinito** pari a 1. È necessario eseguire la replica nell'area di origine, quindi lasciare la prima replica come predefinita e quindi selezionare una seconda area di replica come *Stati Uniti orientali*.
 1. Al termine, selezionare **Rivedi e crea**. Azure convaliderà la configurazione.
 1. Quando la versione dell'immagine supera la convalida, selezionare **Crea**.
-1. Al termine della distribuzione, selezionare **Vai alla risorsa**.
+1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
 ## <a name="share-the-gallery"></a>Condividere la raccolta
 
