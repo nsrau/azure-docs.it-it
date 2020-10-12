@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515021"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
@@ -111,7 +111,7 @@ Per distribuire il modello utilizzando portale di Azure:
 
 4. Selezionare **Crea**.
 
-5. Selezionare **Compila un modello personalizzato nell'editor**.
+5. Selezionare **Creare un modello personalizzato nell'editor**.
 
 6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 
@@ -176,7 +176,7 @@ Per distribuire il modello usando PowerShell:
 
 <a id="move"></a>
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 
 Distribuire un modello per creare un nuovo account di archiviazione nell'area di destinazione. 
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087423"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
@@ -94,7 +94,7 @@ Se non si ha già un cluster del servizio Azure Container, vedere uno dei docume
     |---|---|
     |Nome del peering da \<this VN> alla rete virtuale remota|immettere un nome univoco per questa configurazione peering.|
     |Rete virtuale|Selezionare la rete virtuale per il **cluster del servizio Azure Kubernetes**.|
-    |Nome del peering da \<AKS VN> a\<this VN>|Immettere un nome univoco.|
+    |Nome del peering da \<AKS VN> a \<this VN>|Immettere un nome univoco.|
 
     Lasciare tutti gli altri campi impostati sul valore predefinito, quindi fare clic su __OK__ per configurare il peering.
 

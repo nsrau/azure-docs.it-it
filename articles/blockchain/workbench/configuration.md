@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073081"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
@@ -61,11 +61,11 @@ La logica di business di un'applicazione può essere modellata come macchina a s
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Tipi di dati supportati.
 
-| Tipo | Description |
+| Type | Descrizione |
 |-------|-------------|
 | address  | Tipo di indirizzo blockchain, ad esempio *contratti* o *utenti*. |
 | array    | Matrice a livello singolo di tipo integer, bool, money o time. Le matrici possono essere statiche o dinamiche. Usare **ElementType** per specificare il tipo di dati degli elementi all'interno della matrice. Vedere una [configurazione di esempio](#example-configuration-of-type-array). |
@@ -391,7 +391,7 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 | Nome | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Sì | 255 |
 | Descrizione | Descrizione della proprietà o del parametro. | No | 255 |
-| Tipo | [Tipo di dati](#type)della proprietà. | Sì |
+| Type | [Tipo di dati](#type)della proprietà. | Sì |
 
 ### <a name="identifiers-example"></a>Esempio di identificatori
 

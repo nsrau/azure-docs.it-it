@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87062065"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
@@ -21,7 +21,7 @@ In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambie
 > [!TIP]
 > "I dispositivi gemelli digitali di Azure" si riferiscono a questo servizio di Azure nel suo complesso. "I gemelli digitali" o solo i "gemelli" si riferiscono ai singoli nodi gemelli all'interno dell'istanza del servizio.
 
-## <a name="digital-twins"></a>Dispositivi gemelli digitali
+## <a name="digital-twins"></a>Gemelli digitali
 
 Prima di poter creare un dispositivo gemello digitale nell'istanza di Azure Digital gemelli, è necessario che nel servizio sia caricato un *modello* . Un modello descrive il set di proprietà, i messaggi di telemetria e le relazioni che un particolare gemello può avere, tra le altre cose. Per informazioni sui tipi definiti in un modello, vedere [*concetti: modelli personalizzati*](concepts-models.md).
 
@@ -116,11 +116,11 @@ Quando viene rappresentato come oggetto JSON, un dispositivo gemello digitale Vi
 | `$metadata.{propertyName}.desiredValue` | [Solo per le proprietà scrivibili] Valore desiderato della proprietà specificata. |
 | `$metadata.{propertyName}.desiredVersion` | [Solo per le proprietà scrivibili] Versione del valore desiderato |
 | `$metadata.{propertyName}.ackVersion` | La versione riconosciuta dall'app per dispositivi che implementa il dispositivo gemello digitale |
-| `$metadata.{propertyName}.ackCode` | [Solo per le proprietà scrivibili] `ack`Codice restituito dall'app per dispositivi che implementa il dispositivo gemello digitale |
-| `$metadata.{propertyName}.ackDescription` | [Solo per le proprietà scrivibili] `ack`Descrizione restituita dall'app per dispositivo che implementa il gemello digitale |
+| `$metadata.{propertyName}.ackCode` | [Solo per le proprietà scrivibili] `ack` Codice restituito dall'app per dispositivi che implementa il dispositivo gemello digitale |
+| `$metadata.{propertyName}.ackDescription` | [Solo per le proprietà scrivibili] `ack` Descrizione restituita dall'app per dispositivo che implementa il gemello digitale |
 | `{componentName}` | Oggetto JSON che contiene i valori e i metadati della proprietà del componente, simili a quelli dell'oggetto radice. Questo oggetto esiste anche se il componente non dispone di proprietà. |
 | `{componentName}.{propertyName}` | Il valore della proprietà del componente in JSON ( `string` , tipo numerico o oggetto) |
-| `{componentName}.$metadata` | Informazioni sui metadati per il componente, in modo analogo al livello radice`$metadata` |
+| `{componentName}.$metadata` | Informazioni sui metadati per il componente, in modo analogo al livello radice `$metadata` |
 
 Di seguito è riportato un esempio di un dispositivo gemello digitale formattato come oggetto JSON:
 

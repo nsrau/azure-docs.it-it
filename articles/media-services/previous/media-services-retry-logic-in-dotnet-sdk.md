@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 144db6a5ceaf56a35d3ce11dd54e1dfb4c97d7e3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264114"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logica di ripetizione dei tentativi in Media Services SDK for .NET
@@ -39,7 +39,7 @@ Quando si usano i servizi di Microsoft Azure, possono verificarsi errori tempora
 ## <a name="exception-types"></a>Tipi di eccezioni
 La tabella seguente descrive le eccezioni che Media Services SDK for .NET gestisce o meno per alcune operazioni che possono causare errori temporanei.  
 
-| Eccezione | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
+| Eccezione | Richiesta Web | Archiviazione: | Query | Salvataggio di modifiche |
 | --- | --- | --- | --- | --- |
 | WebException<br/>Per altre informazioni, vedere la sezione [Codici di stato di WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus). |Sì |Sì |Sì |Sì |
 | DataServiceClientException<br/> Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Sì |Sì |Sì |
@@ -54,7 +54,7 @@ La tabella seguente descrive le eccezioni che Media Services SDK for .NET gestis
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> Codici di stato di WebException
 La tabella seguente mostra i codici di errore WebException per cui viene implementata la logica di ripetizione dei tentativi. L'enumerazione [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) definisce i codici di stato.  
 
-| Stato | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
+| Stato | Richiesta Web | Archiviazione: | Query | Salvataggio di modifiche |
 | --- | --- | --- | --- | --- |
 | ConnectFailure |Sì |Sì |Sì |Sì |
 | NameResolutionFailure |Sì |Sì |Sì |Sì |
@@ -72,7 +72,7 @@ La tabella seguente mostra i codici di errore WebException per cui viene impleme
 ### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a> Codici di stato dell'errore HTTP
 Quando le operazioni di query e salvataggio di modifiche generano DataServiceClientException, DataServiceQueryException o DataServiceQueryException, nella proprietà StatusCode viene restituito il codice di stato dell'errore HTTP.  La tabella seguente mostra i codici di errore per cui viene implementata la logica di ripetizione dei tentativi.  
 
-| Stato | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
+| Stato | Richiesta Web | Archiviazione: | Query | Salvataggio di modifiche |
 | --- | --- | --- | --- | --- |
 | 401 |No |Sì |No |No |
 | 403 |No |Sì<br/>Gestione della ripetizione dei tentativi con attese più lunghe. |No |No |

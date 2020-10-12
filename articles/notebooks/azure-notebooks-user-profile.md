@@ -4,10 +4,10 @@ description: Come creare e gestire il profilo utente e l'ID utente con Azure Not
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 9a1ff7f92faec21f537f068f0a33473700ddfed8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85831353"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Profilo e ID utente per Azure Notebooks anteprima
@@ -61,4 +61,4 @@ Per modificare il profilo, usare il comando **Modifica le informazioni del profi
 ## <a name="next-steps"></a>Passaggi successivi  
 
 > [!div class="nextstepaction"]
-> [Esercitazione: creare ed eseguire un notebook Jupyter per eseguire una regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Esercitazione: Creare ed eseguire un Jupyter Notebook per la regressione lineare](tutorial-create-run-jupyter-notebook.md)

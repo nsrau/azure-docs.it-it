@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439776"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nuovo DBA nel cloud: gestione del database SQL di Azure dopo la migrazione
@@ -101,7 +101,7 @@ Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-cen
 
 Nel database SQL sono disponibili due metodi di autenticazione:
 
-- [Autenticazione di Azure Active Directory](authentication-aad-overview.md)
+- [Autenticazione Azure Active Directory](authentication-aad-overview.md)
 - [Autenticazione SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (Azure AD) è un servizio centralizzato di gestione delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. 
@@ -174,7 +174,7 @@ Per proteggere i dati sensibili in elaborazione e inattivi, il database SQL incl
 |**Intervallo di crittografia**|End-to-end|Dati inattivi|
 |**Il server può accedere ai dati sensibili**|No|Sì, poiché la crittografia è per i dati inattivi|
 |**Operazioni T-SQL consentite**|Confronto di uguaglianza|L'intera superficie di attacco T-SQL è disponibile|
-|**Modifiche all'app richieste per usare la funzionalità**|Minimal|Estremamente minime|
+|**Modifiche all'app richieste per usare la funzionalità**|Minime|Estremamente minime|
 |**Granularità di crittografia**|A livello di colonna|A livello di database|
 ||||
 
@@ -293,7 +293,7 @@ L'approccio alla risoluzione dei problemi delle prestazioni può offrire vantagg
 
 Con la risoluzione dei problemi delle prestazioni è importante stabilire se a incidere sulle prestazioni è solo l'applicazione o il database che la supporta. Spesso il problema delle prestazioni risiede a livello dell'applicazione. Potrebbe trattarsi dell'architettura o dei criteri di accesso ai dati. Si consideri ad esempio di avere un'applicazione "frammentata" sensibile alla latenza di rete. In questo caso, l'applicazione risente del traffico eccessivo di brevi richieste in entrata e in uscita ("frammentazione") tra l'applicazione e il server e, in una rete congestionata, questo traffico si accumula rapidamente. Per migliorare le prestazioni, è possibile usare gli [invii di query in batch](performance-guidance.md#batch-queries). L'uso dei batch risulta particolarmente utile, in quanto ora le richieste vengono elaborate in un batch, consentendo di ridurre la latenza di andata e ritorno e migliorare le prestazioni dell'applicazione.
 
-Inoltre, se si nota una riduzione delle prestazioni complessive del database, è possibile monitorare le viste a gestione dinamica [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) per comprendere l'utilizzo di CPU, io e memoria. Le prestazioni potrebbero risentirne perché il database ha esaurito le risorse. Potrebbe essere necessario modificare le dimensioni di calcolo e/o il livello di servizio in base all'aumento o alla riduzione delle esigenze di carico di lavoro.
+Inoltre, se si nota una riduzione delle prestazioni complessive del database, è possibile monitorare le [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) viste a gestione dinamica per comprendere l'utilizzo di CPU, io e memoria. Le prestazioni potrebbero risentirne perché il database ha esaurito le risorse. Potrebbe essere necessario modificare le dimensioni di calcolo e/o il livello di servizio in base all'aumento o alla riduzione delle esigenze di carico di lavoro.
 
 Per un set completo di raccomandazioni per la risoluzione dei problemi relativi alle prestazioni, vedere [Ottimizzare il database](performance-guidance.md#tune-your-database).
 

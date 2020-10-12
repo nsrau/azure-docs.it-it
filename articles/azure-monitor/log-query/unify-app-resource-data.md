@@ -8,10 +8,10 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330894"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificare più risorse di Application Insights in Monitoraggio di Azure 
@@ -74,12 +74,12 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | AvailabilityRunLocation | posizione |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
-| AvailabilityTimestamp | timestamp |
+| AvailabilityTimestamp |  timestamp |
 | Browser | client_browser |
 | City | client_city |
 | ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Country | client_CountryOrRegion | 
+| Paese | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -88,7 +88,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | tipo |
+| ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | OS | client_OS | 
@@ -106,7 +106,7 @@ La tabella seguente illustra le differenze tra gli schemi di Log Analytics e App
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | tipo |
+| TelemetryTYpe | type |
 | URL | url |
 | UserAccountId | user_AccountId |
 

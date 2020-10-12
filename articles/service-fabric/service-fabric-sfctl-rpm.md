@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260282"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -20,7 +20,7 @@ Consente di eseguire query e inviare comandi al servizio di gestione di ripristi
 |Comando|Descrizione|
 | --- | --- |
 | approve-force | Forza l'approvazione dell'attività di ripristino specificata. |
-| eliminazione | Elimina un'attività di ripristino completata. |
+| Elimina | Elimina un'attività di ripristino completata. |
 | list | Recupera un elenco di attività di ripristino corrispondenti ai filtri specificati. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force
@@ -30,14 +30,14 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --task-id [obbligatorio] | ID dell'attività di ripristino. |
 | --version | Il numero di versione corrente dell'attività di ripristino. Se è diverso da zero, la richiesta verrà completata solo se questo valore corrisponde alla versione corrente effettiva dell'attività di ripristino. Se è zero, non viene eseguito alcun controllo di versione. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -52,14 +52,14 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --task-id [obbligatorio] | L'ID dell'attività di ripristino completata da eliminare. |
 | --version | Il numero di versione corrente dell'attività di ripristino. Se è diverso da zero, la richiesta verrà completata solo se questo valore corrisponde alla versione corrente effettiva dell'attività di ripristino. Se è zero, non viene eseguito alcun controllo di versione. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -74,7 +74,7 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --executor-filter | Il nome dell'executor di ripristino le cui attività richieste devono essere incluse nell'elenco. |
 | --state-filter | Un operatore OR bit per bit dei valori seguenti, che specifica gli stati delle attività che devono essere inclusi nell'elenco dei risultati. <ul><li>1 - Creato</li><li>2-richiesta</li><li>4-preparazione</li><li>8-approvato</li><li>16-esecuzione</li><li>32-ripristino</li><li>64 - Completato</li></ul>
@@ -82,7 +82,7 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

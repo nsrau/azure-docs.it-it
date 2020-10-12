@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763211"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per accesso Single Sign-On federato in Azure Active Directory
@@ -59,12 +59,12 @@ Prima di tutto, creare e salvare un nuovo certificato con una data di scadenza d
 1. Selezionare l'applicazione interessata. Viene visualizzata una pagina di panoramica per l'applicazione.
 1. Nel riquadro sinistro della pagina Panoramica applicazione selezionare **Single Sign-on**.
 1. Se viene visualizzata la pagina **selezionare un metodo di Single Sign-on** , selezionare **SAML**.
-1. Nella pagina **Configura accesso Single Sign-on con SAML-Preview** trovare l'intestazione **certificato di firma SAML** e selezionare l'icona di **modifica** (matita). Viene visualizzata la pagina **certificato di firma SAML** , che visualizza lo stato (**attivo** o **inattivo**), la data di scadenza e l'identificazione personale (stringa hash) di ogni certificato.
+1. Nella pagina **Configura singolo Sign-On con SAML-Preview** trovare l'intestazione del **certificato di firma SAML** e selezionare l'icona di **modifica** (matita). Viene visualizzata la pagina **certificato di firma SAML** , che visualizza lo stato (**attivo** o **inattivo**), la data di scadenza e l'identificazione personale (stringa hash) di ogni certificato.
 1. Selezionare **nuovo certificato**. Viene visualizzata una nuova riga sotto l'elenco dei certificati, in cui la data di scadenza viene impostata per impostazione predefinita esattamente su tre anni dopo la data corrente. Le modifiche non sono state ancora salvate, quindi è comunque possibile modificare la data di scadenza.
 1. Nella riga nuovo certificato passare il puntatore del mouse sulla colonna Data di scadenza e selezionare l'icona **Seleziona data** (un calendario). Viene visualizzato un controllo calendario che Visualizza i giorni del mese della data di scadenza corrente della nuova riga.
 1. Usare il controllo Calendar per impostare una nuova data. È possibile impostare una data compresa tra la data corrente e tre anni dopo la data corrente.
 1. Selezionare **Salva**. Il nuovo certificato viene ora visualizzato con lo stato **inattivo**, la data di scadenza scelta e un'identificazione personale.
-1. Selezionare la **X** per tornare alla pagina **Configura accesso Single Sign-on con SAML-Preview** .
+1. Selezionare la **X** per tornare alla pagina **Configura Sign-On singola con SAML-Preview** .
 
 ### <a name="upload-and-activate-a-certificate"></a>Caricare e attivare un certificato
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/20/2020
 ms.author: cephalin
 ms.openlocfilehash: c3fa57dd162fbbfbf0d46f73bffc78f279ef2968
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83649138"
 ---
 * **Credenziali a livello di utente**: un insieme di credenziali per tutto l'account Azure. Può essere usato per distribuire il Servizio app per qualsiasi app, in tutte le sottoscrizioni a cui l'account di Azure è autorizzato ad accedere. Corrisponde al set predefinito indicato nell'interfaccia utente grafica del portale, ad esempio nelle aree **Panoramica** e **Proprietà** della [pagina delle risorse](../articles/azure-resource-manager/management/manage-resources-portal.md#manage-resources) dell'app. Quando a un utente viene concesso l'accesso all'app tramite il controllo degli accessi in base al ruolo (RBAC) o le autorizzazioni di co-amministratore, tale utente può usare le proprie credenziali a livello di utente fino a quando non viene revocato l'accesso. Non condividere queste credenziali con altri utenti di Azure.

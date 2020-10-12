@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764690"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
@@ -103,7 +103,7 @@ Seguire i passaggi per verificare il certificato:
 
 Se un connettore non viene connesso al servizio per molti mesi, i relativi certificati potrebbero non essere più aggiornati. L'errore del rinnovo del certificato comporta un certificato scaduto. In questo modo il servizio del connettore smette di funzionare. L'evento 1000 viene registrato nel log di amministrazione del connettore:
 
-"La nuova registrazione del connettore non è riuscita: il certificato di attendibilità del connettore è scaduto. Eseguire il cmdlet PowerShell Register-AppProxyConnector nel computer in cui è in esecuzione il connettore per registrare nuovamente il connettore ".
+"La nuova registrazione del connettore non è riuscita: il certificato di attendibilità del connettore è scaduto. Eseguire il cmdlet di PowerShell Register-AppProxyConnector nel computer in cui è in esecuzione il connettore per registrare nuovamente il connettore ".
 
 In questo caso, disinstallare e reinstallare il connettore per attivare la registrazione oppure è possibile eseguire i comandi di PowerShell seguenti:
 
