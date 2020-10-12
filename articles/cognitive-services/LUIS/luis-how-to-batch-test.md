@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: 8b34005f2796403e32b41a93e4163c7da16d40bb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540949"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
@@ -34,7 +34,7 @@ ms.locfileid: "91540949"
 
 3. Nel campo **Dataset Name** (Nome set di dati) immettere un nome per il file di set di dati. Il file del set di dati include una **matrice di espressioni**, incluse la *finalità etichettata* e le *entità*. Rivedere la sintassi del [file batch di esempio](luis-concept-batch-test.md#batch-file-format).
 
-4. Selezionare **Fine**. Il file di set di dati viene aggiunto.
+4. Selezionare **Operazione completata**. Il file di set di dati viene aggiunto.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Eseguire, rinominare, esportare o eliminare il set di dati
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: duau
 ms.openlocfilehash: 7bb5559f21289a40b6c75a3481680ab5b2c1c269
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392885"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestire un profilo di Gestione traffico di Azure
@@ -29,8 +29,8 @@ I profili di Gestione traffico di Azure usano metodi di routing del traffico per
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Per creare un profilo di Gestione traffico
 
-1. Da un browser accedere al [portale di Azure](https://portal.azure.com). Se non si dispone già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita di un mese](https://azure.microsoft.com/free/). 
-2. Fare clic su **Crea una risorsa**  >  **rete**  >  **profilo di gestione traffico**  >  **Crea**.
+1. Da un browser accedere al [portale di Azure](https://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
+2. Fare clic su **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 4. In **Crea profilo di Gestione traffico** procedere come segue:
     1. In **Nome** specificare un nome per il profilo. Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS `<name>`, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.
     2. In **Metodo di routing** selezionare il metodo di routing **Priorità**.

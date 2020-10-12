@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541170"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
@@ -28,9 +28,9 @@ Informazioni su come configurare il monitoraggio dell'integrità dei file nel ce
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
-|Ruoli e autorizzazioni necessari:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
+|Autorizzazioni e ruoli obbligatori:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
 |Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking.md) |
 |||
 

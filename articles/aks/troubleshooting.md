@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 81adbfe7a5a04ffb8fcb3311ad3561135b77ab7b
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 930dae7ae163a04fb8b5fc5ae44b9170a7e3c6ce
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614020"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893136"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -197,6 +197,23 @@ Il [Visualizzatore risorse Kubernetes](kubernetes-portal.md) richiede `--api-ser
 Quando si limita il traffico in uscita da un cluster del servizio Azure Kubernetes, sono presenti regole per le porte in uscita, regole di rete, regole di FQDN e dell'applicazione [necessarie e facoltative consigliate](limit-egress-traffic.md) per il servizio Azure Kubernetes. Se le impostazioni sono in conflitto con una di queste regole, alcuni comandi `kubectl` non funzioneranno correttamente. È anche possibile che vengano visualizzati errori durante la creazione di un cluster del servizio Azure Kubernetes.
 
 Verificare che le impostazioni non siano in conflitto con le regole per le porte in uscita, le regole di rete, le regole di FQDN e dell'applicazione necessarie o facoltative consigliate.
+
+## <a name="im-receiving-429---too-many-requests-errors"></a>Si ricevono errori di "429-troppe richieste" 
+
+Quando un cluster kubernetes in Azure (AKS o no) esegue una scalabilità verticale o orizzontale frequente o usa il servizio di scalabilità automatica (CA) del cluster, tali operazioni possono comportare un numero elevato di chiamate HTTP che a loro volta superano la quota di sottoscrizione assegnata, causando un errore. Gli errori appariranno come
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+Questi errori di limitazione sono descritti in dettaglio [qui](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) e [qui](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors)
+
+Il recommanding del team di progettazione di AKS è quello di verificare che sia in esecuzione la versione almeno 1.18. x che contiene molti miglioramenti. Per altri dettagli, vedere questi miglioramenti [qui](https://github.com/Azure/AKS/issues/1413) e [qui](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+
+Dato che questi errori di limitazione sono misurati a livello di sottoscrizione, possono comunque verificarsi se:
+- Sono disponibili applicazioni di terze parti che eseguono richieste GET, ad esempio monitoraggio delle applicazioni e così via...). È consigliabile ridurre la frequenza di queste chiamate.
+- Sono presenti numerosi cluster AKS/nodepools in VMSS. Il solito consiglio consiste nel disporre di un numero di cluster inferiore a 20-30 in una determinata sottoscrizione.
+
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Risoluzione dei problemi del servizio Azure Kubernetes e di Archiviazione di Azure
 

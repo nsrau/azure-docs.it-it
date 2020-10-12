@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323638"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Informazioni sull'app e la distribuzione nel cloud Spring di Azure
@@ -48,14 +48,14 @@ Le seguenti funzionalità/proprietà sono definite a livello di distribuzione e 
 | Istanza</br>Conteggio | Il numero di istanze dell'app, impostate manualmente o automaticamente |
 | Ridimensionamento automatico | Ridimensionare automaticamente il numero di istanze in base a regole e pianificazioni predefinite |
 | JVM</br>Opzioni | Impostazione delle opzioni JVM  |
-| Environment</br>Variabili | Impostazioni delle variabili di ambiente |
+| Ambiente</br>Variabili | Impostazioni delle variabili di ambiente |
 | Runtime</br>Versione | Java 8/Java 11|
 
 ## <a name="restrictions"></a>Restrizioni
 
 * **Un'app deve avere una distribuzione di produzione**: l'eliminazione di una distribuzione di produzione è bloccata dall'API. Deve essere scambiata in staging prima dell'eliminazione.
 * **Un'app può avere al massimo due distribuzioni**: la creazione di più di due distribuzioni è bloccata dall'API. Distribuire il nuovo file binario in una distribuzione di produzione o di gestione temporanea esistente.
-* **La gestione della distribuzione non è disponibile nel piano Basic**: usare il livello standard per la funzionalità di distribuzione blu-verde.
+* **Gestione della distribuzione non è disponibile nel livello Basic**: usare il livello standard per la funzionalità di distribuzione Blue-Green.
 
 ## <a name="see-also"></a>Vedere anche
 * [Configurare un ambiente di staging nel cloud Spring di Azure](spring-cloud-howto-staging-environment.md)

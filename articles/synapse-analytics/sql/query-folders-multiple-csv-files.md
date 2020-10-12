@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288342"
 ---
 # <a name="query-folders-and-multiple-files"></a>Eseguire query su cartelle e più file  
@@ -24,7 +24,7 @@ SQL su richiesta supporta la lettura di più file/cartelle utilizzando caratteri
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Il primo passaggio consiste nel **creare un database** in cui verranno eseguite le query. Inizializzare quindi gli oggetti eseguendo uno [script di configurazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di configurazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
+Il primo passaggio consiste nel **creare un database** in cui verranno eseguite le query. Inizializzare quindi gli oggetti eseguendo uno [script di installazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di configurazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
 
 Per seguire le query di esempio, si userà la cartella *CSV/taxi* . Contiene i dati di NYC Taxi-yellow taxi trip da luglio 2016 a giugno 2018. I file in *formato CSV/taxi* sono denominati dopo l'anno e il mese usando il modello seguente: yellow_tripdata_ <year> - <month> . csv
 

@@ -8,10 +8,10 @@ ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319984"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API di fatturazione a consumo del Marketplace
@@ -38,7 +38,7 @@ L'API dell'evento Usage deve essere chiamata dal server di pubblicazione per gen
 
 *Parametri di query:*
 
-| Parametro | Raccomandazione          |
+| Parametro | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Utilizzare 2018-08-31. |
 | | |
@@ -65,7 +65,7 @@ L'API dell'evento Usage deve essere chiamata dal server di pubblicazione per gen
 ```
 
 >[!NOTE]
->`resourceId`ha un significato diverso per l'app SaaS e per l'applicazione gestita che emette il contatore personalizzato. 
+>`resourceId` ha un significato diverso per l'app SaaS e per l'applicazione gestita che emette il contatore personalizzato. 
 
 Per i piani delle app gestite dell'applicazione Azure, il valore di `resourceId` è il valore di `resourceUsageId` individuato in `billingDetails` dell'oggetto metadati dell'app gestita. Uno script di esempio per recuperarlo è disponibile quando si [usa il token delle identità gestite da Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
@@ -95,7 +95,7 @@ Codice: 400 <br>
 Richiesta non valida.
 
 * Sono stati forniti dati della richiesta mancanti o non validi.
-* `effectiveStartTime`è più di 24 ore nel passato. L'evento è scaduto.
+* `effectiveStartTime` è più di 24 ore nel passato. L'evento è scaduto.
 * La sottoscrizione SaaS non è nello stato sottoscritto.
 
 Esempio di payload di risposta: 
@@ -151,7 +151,7 @@ L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per pi�
 
 *Parametri di query:*
 
-| Parametro  | Raccomandazione     |
+| Parametro  | Recommendation     |
 | ---------- | -------------------- |
 | `ApiVersion` | Utilizzare 2018-08-31. |
 
@@ -189,7 +189,7 @@ L'API dell'evento utilizzo batch consente di generare eventi di utilizzo per pi�
 ```
 
 >[!NOTE]
->`resourceId`ha un significato diverso per l'app SaaS e per l'applicazione gestita che emette il contatore personalizzato. 
+>`resourceId` ha un significato diverso per l'app SaaS e per l'applicazione gestita che emette il contatore personalizzato. 
 
 Per i piani delle app gestite dell'applicazione Azure, il valore di `resourceId` è il valore di `resourceUsageId` individuato in `billingDetails` dell'oggetto metadati dell'app gestita. Uno script di esempio per recuperarlo è disponibile quando si [usa il token delle identità gestite da Azure](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 

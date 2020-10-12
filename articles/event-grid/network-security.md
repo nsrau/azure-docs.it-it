@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
 ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326457"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
@@ -33,7 +33,7 @@ Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un dete
 ## <a name="ip-firewall"></a>Firewall IP 
 Griglia di eventi di Azure supporta i controlli di accesso basati su IP per la pubblicazione in argomenti e domini. Con i controlli basati su IP, è possibile limitare i Publisher a un argomento o un dominio solo a un set di computer e servizi cloud approvati. Questa funzionalità è complementare ai [meccanismi di autenticazione](security-authentication.md) supportati da griglia di eventi.
 
-Per impostazione predefinita, l'argomento e il dominio sono accessibili da Internet, purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con il firewall IP, è possibile limitarlo ulteriormente a un set di indirizzi IP o intervalli di indirizzi IP nella notazione [CIDR (instradamento tra domini senza classi)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Gli autori che hanno origine da altri indirizzi IP verranno rifiutati e riceveranno una risposta 403 (accesso negato).
+Per impostazione predefinita, l'argomento e il dominio sono accessibili da Internet, purché la richiesta venga fornita con autenticazione e autorizzazione valide. Con il firewall IP, è possibile limitarlo ulteriormente a un set di indirizzi IP o intervalli di indirizzi IP nella notazione [CIDR (Inter-Domain routing senza classi)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Gli autori che hanno origine da altri indirizzi IP verranno rifiutati e riceveranno una risposta 403 (accesso negato).
 
 Per istruzioni dettagliate su come configurare il firewall IP per argomenti e domini, vedere Configurare il [firewall IP](configure-firewall.md).
 
@@ -69,7 +69,7 @@ Quando viene risolto da VNet che ospita l'endpoint privato, l'argomento o l'URL 
 | Nome                                          | Type      | valore                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | Una         | 10.0.0.5
 
 Questo approccio consente di accedere all'argomento o al dominio usando la stessa stringa di connessione per i client in VNet che ospitano gli endpoint privati e i client esterni al VNet.
 

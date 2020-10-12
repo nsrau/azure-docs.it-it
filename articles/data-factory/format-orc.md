@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a25a1ec5f2d650501a7c5da8bb1c60f57ad549d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404723"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945788"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC in Azure Data Factory
 
@@ -59,7 +59,7 @@ Di seguito è riportato un esempio di set di dati ORC nell'archivio BLOB di Azur
 
 Tenere presente quanto segue:
 
-* I tipi di dati complessi non sono supportati (STRUCT, MAP, LIST, UNION).
+* I tipi di dati complessi, ad esempio MAP, LIST, STRUCT, sono attualmente supportati solo nei flussi di dati, non nell'attività di copia. Per utilizzare tipi complessi nei flussi di dati, non importare lo schema del file nel set di dati, lasciando vuoto lo schema nel set di dati. Quindi, nella trasformazione origine importare la proiezione.
 * Spazi vuoti nel nome della colonna non sono supportati.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
@@ -105,16 +105,16 @@ La tabella seguente elenca le proprietà supportate da un'origine ORC. È possib
 
 Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Name | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Il formato deve essere `orc` | sì | `orc` | format |
-| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | no | String[] | wildcardPaths |
-| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | no | string | partitionRootPath |
-| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | no | `true` o `false` | fileList |
-| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | no | string | rowUrlColumn |
-| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | no | Elimina: `true` o `false` <br> Spostare `[<from>, <to>]` | purgeFiles <br> moveFiles |
-| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore |
-| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
+| Formato | Il formato deve essere `orc` | Sì | `orc` | format |
+| Percorsi Wild Card | Verranno elaborati tutti i file corrispondenti al percorso con caratteri jolly. Sostituisce la cartella e il percorso del file impostati nel set di dati. | No | String[] | wildcardPaths |
+| Partition Root Path (Percorso radice partizione) | Per i dati di file partizionati, è possibile immettere un percorso radice della partizione per leggere le cartelle partizionate come colonne | No | string | partitionRootPath |
+| Elenco di file | Indica se l'origine sta puntando a un file di testo che elenca i file da elaborare | No | `true` o `false` | fileList |
+| Colonna in cui archiviare il nome del file | Crea una nuova colonna con il nome e il percorso del file di origine | No | string | rowUrlColumn |
+| Al termine | Elimina o sposta i file dopo l'elaborazione. Il percorso del file inizia dalla radice del contenitore | No | Elimina: `true` o `false` <br> Spostare `[<from>, <to>]` | purgeFiles <br> moveFiles |
+| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No | Timestamp | modifiedAfter <br> modifiedBefore |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | No | `true` o `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Esempio di origine
 
@@ -133,11 +133,11 @@ La tabella seguente elenca le proprietà supportate da un sink ORC. È possibile
 
 Quando si usa il set di dati inline, verranno visualizzate impostazioni file aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) .
 
-| Nome | Description | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
+| Name | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Il formato deve essere `orc` | sì | `orc` | format |
-| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
-| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | no | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Formato | Il formato deve essere `orc` | Sì | `orc` | format |
+| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | No | `true` o `false` | truncate |
+| Opzione nome file | Formato di denominazione dei dati scritti. Per impostazione predefinita, un file per partizione è nel formato `part-#####-tid-<guid>` | No | Modello: stringa <br> Per partizione: stringa [] <br> Come dati in column: String <br> Output in un singolo file: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
 ### <a name="sink-example"></a>Esempio di sink
 

@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88854909"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>File di configurazione della libreria di autenticazione Microsoft Android
@@ -30,7 +30,7 @@ Questo articolo consente di comprendere le diverse impostazioni nel file di conf
 
 ### <a name="general-settings"></a>Impostazioni generali
 
-| Proprietà | Tipo di dati | Obbligatorio | Note |
+| Proprietà | Tipo di dati | Obbligatoria | Note |
 |-----------|------------|-------------|-------|
 | `client_id` | string | Sì | ID client dell'app dalla pagina di [registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | string | Sì | URI di reindirizzamento dell'app dalla [pagina di registrazione dell'applicazione](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
@@ -86,7 +86,7 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Eseguire il mapping dell'autorità AAD & destinatari agli endpoint della piattaforma Microsoft Identity
 
-| Tipo | Destinatari | ID tenant | Authority_Url | Endpoint risultante | Note |
+| Type | Destinatari | ID tenant | Authority_Url | Endpoint risultante | Note |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` è un alias tenant per il quale l'account è. Come un tenant di Azure Active Directory specifico o il sistema di account Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Solo gli account presenti in contoso.com possono acquisire un token. Qualsiasi dominio verificato o GUID del tenant può essere usato come ID tenant. |
@@ -101,7 +101,7 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 
 #### <a name="authority-properties"></a>Proprietà dell'autorità
 
-| Proprietà | Tipo di dati  | Obbligatorio | Note |
+| Proprietà | Tipo di dati  | Obbligatoria | Note |
 |-----------|-------------|-----------|--------|
 | `type` | string | Sì | Rispecchia il tipo di destinatari o di account a cui è destinata l'app. Valori possibili: `AAD` , `B2C` |
 | `audience` | Oggetto | No | Si applica solo quando il tipo è = `AAD` . Specifica l'identità a cui è destinata l'app. Usare il valore della registrazione dell'app |
@@ -110,7 +110,7 @@ Elenco di autorità note e considerate attendibili dall'utente. Oltre alle autor
 
 #### <a name="audience-properties"></a>Proprietà del gruppo di destinatari
 
-| Proprietà | Tipo di dati  | Obbligatorio | Note |
+| Proprietà | Tipo di dati  | Obbligatoria | Note |
 |-----------|-------------|------------|-------|
 | `type` | string | Sì | Specifica i destinatari a cui si vuole assegnare l'app. Valori possibili: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
 | `tenant_id` | string | Sì | Obbligatorio solo quando `"type":"AzureADMyOrg"` . Facoltativo per altri `type` valori. Può trattarsi di un dominio tenant, ad esempio `contoso.com` , o un ID tenant, ad esempio, `72f988bf-86f1-41af-91ab-2d7cd011db46` |
@@ -138,7 +138,7 @@ Se si usa l'autorità AAD con audience impostato su `"MicrosoftPersonalAccount"`
 
 Configurare le impostazioni globali per i timeout HTTP, ad esempio:
 
-| Proprietà | Tipo di dati | Obbligatorio | Note |
+| Proprietà | Tipo di dati | Obbligatoria | Note |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | No | Tempo in millisecondi |
 | `read_timeout` | int | No | Tempo in millisecondi |
@@ -147,7 +147,7 @@ Configurare le impostazioni globali per i timeout HTTP, ad esempio:
 
 Per la registrazione sono disponibili le impostazioni globali seguenti:
 
-| Proprietà | Tipo di dati  | Obbligatorio | Note |
+| Proprietà | Tipo di dati  | Obbligatoria | Note |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Indica se creare dati personali |
 | `log_level`   | stringa | No | I messaggi di log da restituire. I livelli di log supportati sono `ERROR` ,, `WARNING` `INFO` e `VERBOSE` . |

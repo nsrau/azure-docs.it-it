@@ -4,10 +4,10 @@ description: Informazioni su come ripristinare la chiave dell'insieme di credenz
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 456ce18f253ffa02cd6b13826a7839f18beecba7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88827087"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure

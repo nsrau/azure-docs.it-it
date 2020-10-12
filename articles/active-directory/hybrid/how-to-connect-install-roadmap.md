@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244456298e9a85f7cf7a5bdc175f1df5397ca207
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662150"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roadmap di installazione di Azure AD Connect e Azure AD Connect Health
@@ -165,7 +165,7 @@ Il portale di Azure AD Connect Health visualizza gli avvisi, il monitoraggio del
 * **Active Directory Domain Services**: questa opzione visualizza tutte le foreste di Active Directory Domain Services attualmente monitorate da Azure AD Connect Health. Quando si seleziona una foresta, il pannello che si apre visualizza le informazioni su tale foresta. Queste informazioni includono una panoramica dei dati essenziali, il dashboard Controller di dominio, il dashboard Stato replica, avvisi e monitoraggio. Per altre informazioni sulle funzionalità, vedere [Uso di Azure AD Connect Health con Active Directory Domain Services](how-to-connect-health-adds.md).
 * **Configura**: questa sezione include le opzioni per attivare o disattivare quanto segue:
 
-   - **Aggiornamento automatico** dell'agente di Azure ad Connect Health alla versione più recente: l'agente di Azure ad Connect Health viene aggiornato automaticamente ogni volta che sono disponibili nuove versioni. Per impostazione predefinita, questa opzione è attivata.
+   - **Aggiornamento automatico** dell'agente di Azure ad Connect Health alla versione più recente: l'agente di Azure ad Connect Health viene aggiornato automaticamente ogni volta che sono disponibili nuove versioni. Questa opzione è attivata per impostazione predefinita.
    - **Accesso ai dati** dall'integrità di Azure ad directory da parte di Microsoft solo ai fini della risoluzione dei problemi: se questa opzione è abilitata, Microsoft potrà accedere agli stessi dati visualizzati dall'utente. Queste informazioni possono essere utili per la risoluzione dei problemi e per fornire l'assistenza necessaria. Questa opzione è disabilitata per impostazione predefinita
 * **Controllo degli accessi in base al ruolo (IAM)** è la sezione per gestire l'accesso ai dati di Connect Health data in base al ruolo. 
 
@@ -174,7 +174,7 @@ Il portale di Azure AD Connect Health visualizza gli avvisi, il monitoraggio del
 - [Hardware e prerequisiti](how-to-connect-install-prerequisites.md) 
 - [Impostazioni rapide](how-to-connect-install-express.md)
 - [Impostazioni personalizzate](how-to-connect-install-custom.md)
-- [Sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md)|
+- [Sincronizzazione degli hash delle password](how-to-connect-password-hash-synchronization.md)|
 - [Autenticazione pass-through](how-to-connect-pta.md)
 - [Azure AD Connect e federazione](how-to-connect-fed-whatis.md)
 - [Installare gli agenti di Azure AD Connect Health](how-to-connect-health-agent-install.md) 

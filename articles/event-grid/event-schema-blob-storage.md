@@ -4,10 +4,10 @@ description: Descrive le proprietà disponibili per gli eventi di archiviazione 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: a914edbb6f624617766c77b277d7ee8e6ad08bd9
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458944"
 ---
 # <a name="azure-blob-storage-as-an-event-grid-source"></a>Archiviazione BLOB di Azure come origine di griglia di eventi
@@ -293,32 +293,32 @@ Un evento presenta i seguenti dati di primo livello:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| argomento | Stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | Stringa | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
-| eventType | Stringa | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | Stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
+| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
 | dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
-| metadataVersion | Stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| api | Stringa | L'operazione che ha attivato l'evento. |
-| clientRequestId | Stringa | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Vedere [Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
+| api | string | L'operazione che ha attivato l'evento. |
+| clientRequestId | string | ID richiesta fornito dal client per l'operazione dell'API di archiviazione. Questo ID può essere usato per la correlazione ai log di diagnostica di archiviazione di Azure usando il campo "client-Request-ID" nei log e può essere specificato nelle richieste client usando l'intestazione "x-MS-client-Request-ID". Vedere [Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
 | requestId | string | ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai log di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei log e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
-| eTag | Stringa | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
-| contentType | Stringa | Il tipo di contenuto specificato per il BLOB. |
-| contentLength | integer | La dimensione del BLOB in byte. |
-| blobType | Stringa | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
-| contentOffset | Numero | Offset in byte di un'operazione di scrittura eseguita nel punto in cui l'applicazione che ha generato l'evento ha completato la scrittura nel file. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico.|
-| destinationUrl |Stringa | URL del file che presenterà al termine dell'operazione. Se, ad esempio, un file viene rinominato, la `destinationUrl` proprietà contiene l'URL del nuovo nome file. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico.|
-| sourceUrl |Stringa | URL del file esistente prima dell'operazione. Se, ad esempio, un file viene rinominato, `sourceUrl` contiene l'URL del nome file originale prima dell'operazione di ridenominazione. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
-| url | Stringa | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
-| ricorsiva | Stringa | `True`per eseguire l'operazione su tutte le directory figlio; in caso contrario `False` ,. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
-| sequencer | Stringa | Valore stringa opaca che rappresenta la sequenza logica di eventi per qualsiasi nome di BLOB specifico.  Gli utenti possono usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome di BLOB. |
+| eTag | string | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
+| contentType | string | Il tipo di contenuto specificato per il BLOB. |
+| contentLength | numero intero | La dimensione del BLOB in byte. |
+| blobType | string | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
+| contentOffset | d'acquisto | Offset in byte di un'operazione di scrittura eseguita nel punto in cui l'applicazione che ha generato l'evento ha completato la scrittura nel file. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico.|
+| destinationUrl |string | URL del file che presenterà al termine dell'operazione. Se, ad esempio, un file viene rinominato, la `destinationUrl` proprietà contiene l'URL del nuovo nome file. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico.|
+| sourceUrl |string | URL del file esistente prima dell'operazione. Se, ad esempio, un file viene rinominato, `sourceUrl` contiene l'URL del nome file originale prima dell'operazione di ridenominazione. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
+| url | string | Percorso del BLOB. <br>Se il client usa un'API REST BLOB, l'URL ha questa struttura: * \<storage-account-name\> . blob.Core.Windows.NET/ \<container-name\> / \<file-name\> *. <br>Se il client usa un'API REST di Data Lake Storage, l'URL ha questa struttura: * \<storage-account-name\> . DFS.Core.Windows.NET/ \<file-system-name\> / \<file-name\> *. |
+| ricorsiva | string | `True` per eseguire l'operazione su tutte le directory figlio; in caso contrario `False` ,. <br>Viene visualizzato solo per gli eventi generati negli account di archiviazione BLOB con uno spazio dei nomi gerarchico. |
+| sequencer | string | Valore stringa opaca che rappresenta la sequenza logica di eventi per qualsiasi nome di BLOB specifico.  Gli utenti possono usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome di BLOB. |
 | storageDiagnostics | object | Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure. Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi. |
 
 ## <a name="tutorials-and-how-tos"></a>Esercitazioni e procedure

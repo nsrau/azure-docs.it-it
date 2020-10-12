@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: 9391bb4867717b6780b50cf90b998254227d2310
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082614"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Estensione macchina virtuale Chef per Linux e Windows
@@ -78,15 +78,15 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione macchina vi
 
 | Nome | Valore/Esempio | Tipo di dati | Necessaria?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | Y |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | Y |
-| settings/runlist | `recipe[mycookbook::default]` | string | Y |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
+| settings/runlist | `recipe[mycookbook::default]` | string | S |
 
 ### <a name="protected-settings"></a>Impostazioni protette
 
 | Nome | Esempio | Tipo di dati | Necessaria?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | Y |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 
 <!--
 ### Linux-specific settings

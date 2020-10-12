@@ -16,10 +16,10 @@ ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91408873"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività di rete con monitoraggio connessione (anteprima)
@@ -123,10 +123,10 @@ Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un grup
 
 | Numero di test | Source (Sorgente) | Destination | Configurazione di test |
 | --- | --- | --- | --- |
-| 1 | A | D | Configurazione 1 |
-| 2 | A | D | Configurazione 2 |
-| 3 | A | E | Configurazione 1 |
-| 4 | A | E | Configurazione 2 |
+| 1 | Una | D | Configurazione 1 |
+| 2 | Una | D | Configurazione 2 |
+| 3 | Una | E | Configurazione 1 |
+| 4 | Una | E | Configurazione 2 |
 | 5 | B | D | Configurazione 1 |
 | 6 | B | D | Configurazione 2 |
 | 7 | B | E | Configurazione 1 |
@@ -199,7 +199,7 @@ Nel dashboard è possibile espandere ogni monitoraggio della connessione per vis
 * **Filtri basati sullo stato** : filtrare in base allo stato del monitoraggio della connessione, del gruppo di test o del test. Vedere la casella 2 nell'immagine seguente.
 * **Filtro basato su avviso** : consente di filtrare in base agli avvisi generati sulla risorsa di monitoraggio della connessione. Vedere la casella 3 nell'immagine seguente.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot che illustra come filtrare le visualizzazioni di monitoraggi connessione, gruppi di test e test in Connection Monitor (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
 Ad esempio, per esaminare tutti i test in Connection Monitor (anteprima) in cui l'indirizzo IP di origine è 10.192.64.56:
 1. Modificare la visualizzazione in **test**.
@@ -218,16 +218,16 @@ Per visualizzare solo i test non superati in monitoraggio connessione (anteprima
 1. Nel campo di ricerca immettere *Outlook.office365.com*
 1. In **ambito** nel filtro di primo livello selezionare **destinazioni**.
   
-  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot che mostra una visualizzazione filtrata per mostrare solo i test non superati per la destinazione Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
 Per individuare la causa dell'errore di un monitoraggio della connessione o di un gruppo di test o di un test, fare clic sulla colonna motivo.  Indica quale soglia (i controlli non riusciti% o RTT) è stata violata e i messaggi di diagnostica correlati
   
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Screenshot che illustra il motivo dell'errore per un monitoraggio della connessione, un gruppo di test o di test" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
     
 Per visualizzare le tendenze in RTT e la percentuale di verifiche non riuscite per un monitoraggio della connessione:
 1. Selezionare il monitoraggio della connessione che si desidera analizzare.
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Screenshot che mostra le metriche per un monitoraggio della connessione, visualizzate dal gruppo di test" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
 1. Vengono visualizzate le sezioni seguenti  
     1. Essentials-proprietà specifiche delle risorse del monitoraggio della connessione selezionato 
@@ -237,7 +237,7 @@ Per visualizzare le tendenze in RTT e la percentuale di verifiche non riuscite p
     1. Schede per gruppi di test, origini, destinazioni e configurazioni di test: elenca gruppi di test, origini o destinazioni nel monitoraggio della connessione. Test di controllo non riusciti, RTT aggregati e controlli non riusciti% valori.  È anche possibile tornare indietro nel tempo per visualizzare i dati. 
     1. Problemi a livello di hop per ogni test nel monitoraggio della connessione. 
 
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Screenshot che mostra le metriche per un monitoraggio della connessione, visualizzate dalla parte 2 del gruppo di test" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
 1. È possibile
     * Fare clic su Visualizza tutti i test per visualizzare tutti i test nel monitoraggio della connessione
@@ -247,7 +247,7 @@ Per visualizzare le tendenze in RTT e la percentuale di verifiche non riuscite p
 1. Dalla vista Visualizza tutti i test è possibile:
     * Selezionare test e fare clic su Confronta.
     
-    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Screenshot che mostra il confronto tra due test" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
     
     * Usare il cluster per espandere risorse composte come VNET, subnet per le risorse figlio
     * Consente di visualizzare la topologia di tutti i test facendo clic su topologia.
@@ -259,7 +259,7 @@ Per visualizzare le tendenze in RTT e la percentuale di verifiche non riuscite p
 Per visualizzare le tendenze in RTT e la percentuale di verifiche non riuscite per un test:
 1. Selezionare il test che si desidera analizzare. Si noterà che la topologia di rete e i grafici di tendenza end-to-end per i controlli non sono riusciti% e round trip tempo. Per visualizzare i problemi identificati, nella topologia selezionare qualsiasi hop nel percorso. Questi hop sono risorse di Azure. Questa funzionalità non è attualmente disponibile per le reti locali
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Screenshot che mostra la visualizzazione della topologia di un test" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### <a name="log-queries-in-log-analytics"></a>Query di log in Log Analytics
 
@@ -269,11 +269,11 @@ Usare Log Analytics per creare visualizzazioni personalizzate dei dati di monito
 
 Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio connessione (anteprima) sono disponibili tutte e quattro le metriche:% probe non riusciti, AverageRoundtripMs, ChecksFailedPercent (anteprima) e RoundTripTimeMs (anteprima). Nei monitoraggi connessioni creati nell'esperienza di monitoraggio connessione (anteprima), i dati sono disponibili solo per le metriche contrassegnate con *(anteprima)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot che mostra le metriche in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
+| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Description | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
 | AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |
@@ -300,7 +300,7 @@ Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Networ
     1. Fornire i dettagli dell'avviso.
     1. Creare la regola di avviso.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Screenshot che illustra l'area Crea regola in monitoraggio di Azure. L'indirizzo di origine e il nome dell'endpoint di origine sono evidenziati" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnosticare i problemi nella rete
 
