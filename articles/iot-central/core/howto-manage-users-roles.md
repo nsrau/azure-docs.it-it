@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80365509"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gestire utenti e ruoli nell'applicazione IoT Central
@@ -95,7 +95,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Gestione | Visualizzazione <br/> Altre dipendenze: visualizzare le istanze del dispositivo  |
 | Controllo completo | Visualizza, Gestisci <br/> Altre dipendenze: visualizzare le istanze del dispositivo |
 
@@ -103,7 +103,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi |
+| Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Create | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
@@ -114,7 +114,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
+| Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
 | Crea | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
 | Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
@@ -124,9 +124,9 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Lettura istanza | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
-| Gestisci istanza | nessuno |
-| Lettura globale | nessuno   |
+| Lettura istanza | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
+| Gestisci istanza | Nessuno |
+| Lettura globale | Nessuno   |
 | Gestione globale | Lettura globale |
 | Controllo completo | Lettura istanza, Gestisci istanza, lettura globale, Gestisci globale. <br/> Altre dipendenze: visualizzare i modelli di dispositivo, i gruppi di dispositivi, le istanze del dispositivo |
 
@@ -134,7 +134,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
 | Crea | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
 | Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
@@ -145,7 +145,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 | Crea | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 | Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
@@ -157,7 +157,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
 | Copia | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
 | Elimina | Visualizzazione   |
@@ -167,7 +167,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Esportazione | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
 | Controllo completo | Visualizza, Esporta <br/> Altre dipendenze: visualizzare modelli di dispositivi, gruppi di dispositivi, dashboard dell'applicazione, esportazione dei dati, personalizzazione, collegamenti alla guida, ruoli personalizzati, regole |
 
@@ -175,7 +175,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Gestione | nessuno     |
+| Gestione | Nessuno     |
 | Controllo completo | Gestione |
 
 #### <a name="managing-users-and-roles"></a>Gestione di utenti e ruoli
@@ -184,7 +184,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno |
+| Visualizzazione | Nessuno |
 | Aggiornamento | Visualizzazione |
 | Crea | Visualizza, aggiorna |
 | Elimina | Visualizzazione |
@@ -194,8 +194,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
-| Aggiunta | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Add | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 | Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 | Controllo completo | Visualizza, Aggiungi, Elimina <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 
@@ -208,7 +208,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
 | Crea | Visualizza, aggiorna |
 | Elimina | Visualizzazione   |
@@ -218,7 +218,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
 | Crea | Visualizza, aggiorna   |
 | Elimina | Visualizzazione   |
@@ -228,7 +228,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
 | Controllo completo | Visualizza, aggiorna |
 
@@ -236,7 +236,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
 | Controllo completo | Visualizza, aggiorna |
 
@@ -246,7 +246,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
 | Crea | Visualizza, aggiorna  |
 | Elimina | Visualizzazione   |
@@ -256,7 +256,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 
 | Nome | Dependencies |
 | ---- | -------- |
-| Visualizzazione | nessuno     |
+| Visualizzazione | Nessuno     |
 | Create | Visualizzazione   |
 | Elimina | Visualizzazione   |
 | Controllo completo | Visualizza, crea, Elimina |

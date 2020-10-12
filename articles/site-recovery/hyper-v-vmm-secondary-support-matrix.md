@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131171"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario
@@ -51,7 +51,7 @@ R2 per Windows Server 2012 | Qualsiasi sistema operativo guest [supportato da Hy
 
 ## <a name="network-configuration---hostguest-vm"></a>Configurazione di rete - Macchine virtuali host/guest
 
-**Configuration** | **Supportato**  
+**Configuration** | **Supporto**  
 --- | --- 
 Host - Gruppo NIC | Sì 
 Host - VLAN | Sì 
@@ -68,7 +68,7 @@ VM guest - Più NIC | Sì
 
 ### <a name="host-storage"></a>Archiviazione su host
 
-**Archiviazione (host)** | **Supportato**
+**Archiviazione (host)** | **Supporto**
 --- | --- 
 NFS | N/D
 SMB 3.0 |  Sì
@@ -77,7 +77,7 @@ Percorsi multipli (MPIO) | Sì
 
 ### <a name="guest-or-physical-server-storage"></a>Archiviazione su server fisico o guest
 
-**Configuration** | **Supportato**
+**Configuration** | **Supporto**
 --- | --- | 
 VMDK |  N/D
 VHD/VHDX | Sì (fino a 16 dischi)
@@ -97,7 +97,7 @@ Percorsi multipli (MPIO) | Sì
 
 ## <a name="vaults"></a>Insiemi di credenziali
 
-**Azione** | **Supportato**
+**Azione** | **Supporto**
 --- | --- 
 Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni |  No
 Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No
@@ -106,7 +106,7 @@ Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di r
 
 Il provider coordina le comunicazioni tra server VMM. 
 
-**Più recente** | **Aggiornamenti**
+**Ultima versione** | **Aggiornamenti**
 --- | --- 
 5.1.19 ([disponibile dal portale](https://aka.ms/downloaddra)) | [Funzionalità e correzioni più recenti](https://support.microsoft.com/kb/3155002)
 

@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86132324"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurare il ripristino di emergenza per Active Directory e DNS
 
 Le applicazioni aziendali, ad esempio SharePoint, Dynamics AX e SAP, dipendono dall'infrastruttura di Active Directory e DNS per funzionare correttamente. Quando si configura il ripristino di emergenza per le applicazioni, spesso è necessario ripristinare Active Directory e Domain Name System (DNS) prima di ripristinare altri componenti dell'applicazione, per garantire la corretta funzionalità dell'applicazione.
 
-È possibile usare [Site Recovery](site-recovery-overview.md) per creare un piano di ripristino di emergenza per Active Directory. Quando si verifica un'interruzione, è possibile avviare un failover. Active Directory può entrare in funzione in pochi minuti. Se è stato distribuito Active Directory per più applicazioni nel sito principale, ad esempio per SharePoint e SAP, si potrebbe voler eseguire il failover del sito completo. È possibile eseguire in primis il failover di Active Directory attraverso Site Recovery. Quindi eseguire il failover delle altre applicazioni usando i piani di ripristino specifici delle applicazioni.
+È possibile usare [Site Recovery](site-recovery-overview.md) per creare un piano di ripristino di emergenza per Active Directory. Quando si verifica un'interruzione, è possibile avviare un failover. Il servizio Active Directory può diventare operativo in pochi minuti. Se è stato distribuito Active Directory per più applicazioni nel sito principale, ad esempio per SharePoint e SAP, si potrebbe voler eseguire il failover del sito completo. È possibile eseguire in primis il failover di Active Directory attraverso Site Recovery. Quindi eseguire il failover delle altre applicazioni usando i piani di ripristino specifici delle applicazioni.
 
 Questo articolo spiega come creare una soluzione di ripristino di emergenza per Active Directory. Include i prerequisiti e le istruzioni di failover. È necessario conoscere Active Directory e Site Recovery prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se si esegue la replica in Azure, [preparare le risorse di Azure](tutorial-prepare-azure.md), inclusi una sottoscrizione, una rete virtuale di Azure, un account di archiviazione e un insieme di credenziali di Servizi di ripristino.
-- Esaminare i [requisiti di supporto](./vmware-physical-azure-support-matrix.md) per tutti i componenti.
+- Verificare i [requisiti di supporto](./vmware-physical-azure-support-matrix.md) per tutti i componenti.
 
 ## <a name="replicate-the-domain-controller"></a>Replicare il controller di dominio
 
@@ -79,7 +79,7 @@ Molte applicazioni richiedono la presenza di un controller di dominio e di un se
 1. Creare una rete isolata. Qualsiasi rete virtuale creata in Azure è isolata dalle altre reti per impostazione predefinita. Si consiglia di usare per questa rete lo stesso intervallo di indirizzi IP della rete di produzione. Non abilitare la connettività da sito a sito in questa rete.
 1. Fornire un indirizzo IP DNS nella rete isolata. Usare l'indirizzo IP che si prevede sarà ottenuto dalla macchina virtuale DNS. Se si esegue la replica in Azure, fornire l'indirizzo IP per la macchina virtuale che viene usata in caso di failover. Per immettere l'indirizzo IP, nella macchina virtuale replicata, nelle impostazioni **Calcolo e rete**, selezionare le impostazioni **IP di destinazione**.
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Rete di test di Azure":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Rete di Azure":::
 
    > [!TIP]
    > Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso indirizzo IP specificato nelle impostazioni **Calcolo e rete** della macchina virtuale. Se nella rete virtuale di Azure specificata per il failover di test non è disponibile una subnet con lo stesso nome, la macchina virtuale di test verrà creata nella prima subnet in ordine alfabetico.
@@ -118,21 +118,21 @@ Se le misure di sicurezza della virtualizzazione vengono attivate dopo un failov
 
 - Il valore **generazione** cambia:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Modifica dell'ID di generazione":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Rete di Azure":::
 
 - Il valore **invocationID** cambia:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Modifica ID chiamata":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Rete di Azure":::
 
-- `SYSVOL`la cartella e le `NETLOGON` condivisioni non sono disponibili.
+- `SYSVOL` la cartella e le `NETLOGON` condivisioni non sono disponibili.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Condivisione cartella SYSVOL":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Rete di Azure":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="NtFrs cartella SYSVOL":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Rete di Azure":::
 
 - I database DFSR vengono eliminati.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="I database DFSR vengono eliminati":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Rete di Azure":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>Risolvere i problemi del controller di dominio durante il failover di test
 

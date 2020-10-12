@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0941c95ee6215a710ebb1bbc2fba9fae09ccf16d
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707267"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Esercitazione: configurare SolarWinds Service Desk (in precedenza samanage) per il provisioning utenti automatico
@@ -63,7 +63,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e il servizio SolarWinds Service Desk](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-solarwinds-service-desk-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare il Service Desk per SolarWinds per supportare il provisioning con Azure AD
+## <a name="step-2-configure-solarwinds-service-desk-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare il Service Desk per SolarWinds per supportare il provisioning con Azure AD
 
 Per generare un token segreto per l'autenticazione, vedere [esercitazione token Authentication per l'integrazione dell'API](https://help.samanage.com/s/article/Tutorial-Tokens-Authentication-for-API-Integration-1536721557657).
 

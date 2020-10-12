@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 3a8d3309cdc5ddb0ae75ed6fcf0376118275b835
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87848010"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Come impostare o modificare i criteri di Gestione API di Azure
@@ -110,7 +110,7 @@ L'ambito dell'API è configurato per **tutte le operazioni** dell'API selezionat
 
     ![Ambito dell’API](./media/api-management-howto-policies/api-scope.png)
 
-2. Seleziona **tutte le operazioni**
+2. Selezionare **Tutte le operazioni**.
 3. Fare clic sull'icona a forma di triangolo.
 4. Selezionare **Editor di codice**.
 5. Aggiungere o modificare criteri.

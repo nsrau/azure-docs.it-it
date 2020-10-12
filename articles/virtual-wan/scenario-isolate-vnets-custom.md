@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267721"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: isolamento personalizzato per reti virtuali
@@ -23,7 +23,7 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 
 Per determinare il numero di tabelle di route necessarie, è possibile creare una matrice di connettività. Per questo scenario l'aspetto sarà simile al seguente, in cui ogni cella indica se un'origine (riga) può comunicare con una destinazione (colonna):
 
-| From | Con:| *Reti virtuali blu* | *Reti virtuali rosso* | *Rami*|
+| Da | Con:| *Reti virtuali blu* | *Reti virtuali rosso* | *Rami*|
 |---|---|---|---|---|
 | **Reti virtuali blu** |   &#8594;|      X        |               |       X      |
 | **Reti virtuali rosso**  |   &#8594;|              |       X       |       X      |

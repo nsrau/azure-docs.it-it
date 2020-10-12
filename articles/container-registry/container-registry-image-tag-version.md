@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75445747"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggerimenti per l'assegnazione di tag e il controllo delle versioni delle immagini del contenitore
@@ -29,7 +29,7 @@ I *tag stabili* significano che uno sviluppatore o un sistema di compilazione pu
 
 Un team del Framework è dotato della versione 1,0. Sanno che saranno disponibili aggiornamenti, inclusi gli aggiornamenti secondari. Per supportare i tag stabili per una determinata versione principale e secondaria, sono disponibili due set di tag stabili.
 
-* `:1`: un tag stabile per la versione principale. `1`rappresenta la versione "più recente" o "più recente" 1. *.
+* `:1` : un tag stabile per la versione principale. `1` rappresenta la versione "più recente" o "più recente" 1. *.
 * `:1.0`-un tag stabile per la versione 1,0, che consente a uno sviluppatore di eseguire l'associazione agli aggiornamenti di 1,0 e non viene eseguito il rollforward a 1,1 quando viene rilasciato.
 
 Il team USA anche il `:latest` tag, che punta al tag stabile più recente, indipendentemente dalla versione principale corrente.
@@ -49,7 +49,7 @@ Se viene aggiornata un'immagine con un tag stabile, l'immagine contrassegnata in
 Il contrassegno univoco significa semplicemente che ogni immagine inserita in un registro ha un tag univoco. I tag non vengono riutilizzati. Sono disponibili diversi modelli che è possibile seguire per generare tag univoci, tra cui:
 
 * **Indicatore di data e ora** : questo approccio è piuttosto comune, dal momento che è possibile stabilire chiaramente quando è stata compilata l'immagine. Tuttavia, come correlarlo di nuovo al sistema di compilazione? È necessario trovare la compilazione completata nello stesso momento? Quale fuso orario si trova? Tutti i sistemi di compilazione sono calibrati per l'ora UTC?
-* **Commit Git** : questo approccio funziona fino a quando non si inizia a supportare gli aggiornamenti delle immagini di base. Se si verifica un aggiornamento di un'immagine di base, il sistema di compilazione avvia con lo stesso commit Git della compilazione precedente. Tuttavia, l'immagine di base dispone di nuovo contenuto. In generale, un commit Git fornisce un tag *semi*-stabile.
+* **Commit Git**  : questo approccio funziona fino a quando non si inizia a supportare gli aggiornamenti delle immagini di base. Se si verifica un aggiornamento di un'immagine di base, il sistema di compilazione avvia con lo stesso commit Git della compilazione precedente. Tuttavia, l'immagine di base dispone di nuovo contenuto. In generale, un commit Git fornisce un tag *semi*-stabile.
 * **Digest del manifesto** : ogni immagine del contenitore di cui è stato eseguito il push in un registro contenitori è associata a un manifesto, identificato da un hash SHA-256 univoco o digest. Sebbene sia univoco, il digest è lungo, difficile da leggere e non correlato con l'ambiente di compilazione.
 * **ID compilazione** : questa opzione può essere ottimale poiché è probabilmente incrementale e consente di eseguire la correlazione alla compilazione specifica per trovare tutti gli elementi e i log. Tuttavia, come un digest del manifesto, potrebbe essere difficile da leggere.
 

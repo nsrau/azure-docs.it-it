@@ -1,18 +1,18 @@
 ---
-title: Riproiezione con ritardo della fase
+title: Riproiezione in fase avanzata
 description: Informazioni sulla riproiezione della fase finale e su come usarla.
 author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
 ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84022181"
 ---
-# <a name="late-stage-reprojection"></a>Riproiezione con ritardo della fase
+# <a name="late-stage-reprojection"></a>Riproiezione in fase avanzata
 
 *Ritardo fase riproiezione* (LSR) è una funzionalità hardware che consente di stabilizzare gli ologrammi quando l'utente si sposta.
 

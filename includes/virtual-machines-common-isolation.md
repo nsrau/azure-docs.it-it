@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: ayshakeen
@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
 ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87084051"
 ---
 Calcolo di Azure offre dimensioni delle macchine virtuali con piano Isolato per uno specifico tipo di hardware e dedicate a un singolo cliente. Le dimensioni isolate si trovano in un ambiente di generazione hardware specifico e verranno deprecate quando la generazione dell'hardware viene ritirata.
@@ -36,12 +36,12 @@ Le offerte di macchine virtuali con piano Isolato correnti includono:
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Deprecazione delle dimensioni delle VM isolate
 Poiché le dimensioni delle VM isolate sono dimensioni associate a hardware, Azure fornirà ai promemoria 12 mesi prima della deprecazione ufficiale delle dimensioni.  Azure offrirà anche una dimensione isolata aggiornata nella prossima versione hardware che il cliente può prendere in considerazione per lo spostamento del carico di lavoro.
 
-| Dimensioni | Data di ritiro isolamento | 
+| Dimensione | Data di ritiro isolamento | 
 | --- | --- |
 | Standard_DS15_v2<sup>1</sup> | 15 maggio 2020 |
 | Standard_D15_v2<sup>1</sup>  | 15 maggio 2020 |
 
-<sup>1</sup> per informazioni dettagliate su Standard_DS15_v2 e Standard_D15_v2 programma di ritiro dell'isolamento, vedere Domande frequenti
+<sup>1</sup>  per informazioni dettagliate su Standard_DS15_v2 e Standard_D15_v2 programma di ritiro dell'isolamento, vedere Domande frequenti
 
 
 ## <a name="faq"></a>Domande frequenti
@@ -62,7 +62,7 @@ Poiché le dimensioni delle VM isolate sono dimensioni associate a hardware, Azu
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>D: quali sono le attività cardine per D15_v2 o DS15_v2 il ritiro dell'isolamento? 
 **A**: 
-| Data | Operazione | 
+| Data | Azione | 
 | --- | --- |
 | 18 novembre 2019 | Disponibilità di D/DS15i_v2 (PAYG, 1 anno RI) |
 | 14 maggio 2020  | Ultimo giorno per l'acquisto di D/DS15i_v2 1 anno RI | 

@@ -16,10 +16,10 @@ ms.date: 05/30/2017
 ms.author: tagore
 ms.custom: devx-track-python
 ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87851512"
 ---
 # <a name="use-service-management-from-python"></a>Usare la gestione dei servizi da Python
@@ -123,7 +123,7 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 * Stati Uniti centrali
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
-* Stati Uniti occidentali
+* Stati Uniti Occidentali
 * Stati Uniti orientali
 * Giappone orientale
 * Giappone occidentale

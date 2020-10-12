@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
 ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67133750"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Configurare Azure PowerShell per DNS di Azure
@@ -24,7 +24,7 @@ ms.locfileid: "67133750"
 Prima di iniziare la configurazione, verificare di essere in possesso degli elementi seguenti.
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
-* È necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per ulteriori informazioni, vedere [come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
+* È necessario installare la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Inoltre, per usare Zone private (anteprima pubblica), è necessario assicurarsi di disporre dei moduli e delle versioni di PowerShell riportati di seguito. 
 * AzureRM.Dns - [versione 4.1.0](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) o successiva

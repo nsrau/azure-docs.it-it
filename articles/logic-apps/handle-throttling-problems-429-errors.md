@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87086440"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Gestire i problemi di limitazione (429-"numero eccessivo di richieste") nelle app per la logica di Azure
@@ -164,7 +164,7 @@ Per gestire la limitazione a questo livello, sono disponibili le opzioni seguent
 
 * Usare le versioni webhook per trigger e azioni anziché per le versioni di polling.
 
-  Questo problema dipende Un trigger di polling continua a controllare il servizio o il sistema di destinazione a intervalli specifici. Un intervallo molto frequente, ad esempio ogni secondo, può creare problemi di limitazione delle richieste. Tuttavia, un trigger o un'azione webhook, ad esempio [webhook http](../connectors/connectors-native-webhook.md), crea solo una singola chiamata al servizio o al sistema di destinazione, che si verifica al momento della sottoscrizione e richiede che la destinazione comunichi il trigger o l'azione solo quando si verifica un evento. In questo modo, il trigger o l'azione non deve controllare continuamente la destinazione.
+  Perché? Un trigger di polling continua a controllare il servizio o il sistema di destinazione a intervalli specifici. Un intervallo molto frequente, ad esempio ogni secondo, può creare problemi di limitazione delle richieste. Tuttavia, un trigger o un'azione webhook, ad esempio [webhook http](../connectors/connectors-native-webhook.md), crea solo una singola chiamata al servizio o al sistema di destinazione, che si verifica al momento della sottoscrizione e richiede che la destinazione comunichi il trigger o l'azione solo quando si verifica un evento. In questo modo, il trigger o l'azione non deve controllare continuamente la destinazione.
   
   Quindi, se il servizio o il sistema di destinazione supporta i webhook o fornisce un connettore con una versione di Webhook, questa opzione è migliore rispetto all'uso della versione di polling. Per identificare i trigger e le azioni del webhook, verificare che abbiano il `ApiConnectionWebhook` tipo o che non sia necessario specificare una ricorrenza. Per altre informazioni, vedere [trigger APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e [azione APIConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action).
 

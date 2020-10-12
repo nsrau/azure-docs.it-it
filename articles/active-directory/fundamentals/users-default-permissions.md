@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d585ac57a369c994df9871bf731157de7b23212
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707629"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
@@ -34,7 +34,7 @@ Il set di autorizzazioni predefinite ricevuto varia a seconda che l'utente sia u
 ------------ | --------- | ---------- | ----------
 Utenti e contatti | <ul><li>Lettura di tutte le proprietà pubbliche di utenti e contatti</li><li>Invito di utenti guest<li>Modifica della propria password<li>Gestione del proprio numero di cellulare<li>Gestione della propria foto<li>Invalidare i propri token di aggiornamento</li></ul> | <ul><li>Lettura delle proprietà personali<li>Leggi nome visualizzato, indirizzo di posta elettronica, nome di accesso, foto, nome dell'entità utente e proprietà dei tipi di utente di altri utenti e contatti<li>Modifica della propria password<li>Cerca un altro utente in base al nome visualizzato, al nome dell'entità utente o al valore ObjectId (se consentito)<li>Leggere le informazioni di gestione e di report dirette di altri utenti</li></ul> | <ul><li>Lettura delle proprietà personali<li>Modifica della propria password</li></ul>
 Gruppi | <ul><li>Creazione di gruppi di sicurezza<li>Creare gruppi di Microsoft 365<li>Lettura di tutte le proprietà dei gruppi<li>Lettura delle appartenenze a gruppi non nascoste<li>Lettura delle appartenenze a gruppi Microsoft 365 nascoste per il gruppo Unito<li>Gestione delle proprietà, della titolarità e dell'appartenenza a gruppi dell'utente<li>Aggiunta di utenti guest ai gruppi con proprietario<li>Gestire delle impostazioni di appartenenza dinamica<li>Eliminazione dei gruppi con proprietario<li>Ripristinare i gruppi di Microsoft 365 di proprietà</li></ul> | <ul><li>Leggere le proprietà di tutti i gruppi non nascosti, incluse l'appartenenza e la proprietà (anche gruppi non aggiunti)<li>Lettura delle appartenenze ai gruppi Microsoft 365 nascoste per i gruppi aggiunti<li>Cerca i gruppi in base al nome visualizzato o ObjectId (se consentito)</li></ul> | Nessuna autorizzazione
-Applicazioni | <ul><li>Registrazione (creazione) di una nuova applicazione<li>Lettura delle proprietà delle applicazioni aziendali e registrate<li>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<li>Creazione o eliminazione della password applicazione per un utente<li>Eliminazione delle applicazioni di proprietà<li>Ripristino delle applicazioni di proprietà</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate
+APPLICAZIONI | <ul><li>Registrazione (creazione) di una nuova applicazione<li>Lettura delle proprietà delle applicazioni aziendali e registrate<li>Gestione delle proprietà, delle assegnazioni e delle credenziali per le applicazioni con proprietario<li>Creazione o eliminazione della password applicazione per un utente<li>Eliminazione delle applicazioni di proprietà<li>Ripristino delle applicazioni di proprietà</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate</li></ul> | <ul><li>Lettura delle proprietà delle applicazioni aziendali e registrate
 Dispositivi</li></ul> | <ul><li>Lettura di tutte le proprietà dei dispositivi<li>Gestione di tutte le proprietà dei dispositivi con proprietario</li></ul> | Nessuna autorizzazione | Nessuna autorizzazione
 Directory | <ul><li>Lettura di tutte le informazioni aziendali<li>Lettura di tutti i domini<li>Lettura di tutti i contratti dei partner</li></ul> | <ul><li>Leggi nome visualizzato dell'azienda<li>Lettura di tutti i domini</li></ul> | <ul><li>Leggi nome visualizzato dell'azienda<li>Lettura di tutti i domini</li></ul>
 Ruoli e ambiti | <ul><li>Lettura di tutti i ruoli amministrativi e delle appartenenze<li>Lettura di tutte le proprietà e dell'appartenenza delle unità amministrative</li></ul> | Nessuna autorizzazione | Nessuna autorizzazione

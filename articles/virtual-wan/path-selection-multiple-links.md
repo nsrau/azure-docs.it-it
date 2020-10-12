@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: f24696c0db3155a59106e1361b01454b9ac16a20
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267755"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>Selezione percorso di Azure tra più collegamenti ISP
 
 La rete WAN virtuale di Azure offre agli utenti la possibilità di includere informazioni sui collegamenti in un sito VPN, abilitando scenari in cui la soluzione per dispositivi VPN/SD-WAN può programmare criteri specifici del ramo per indirizzare il traffico tra vari collegamenti in Azure. Questa operazione è denominata **Selezione percorso di Azure**.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Per comprendere il funzionamento della selezione dei percorsi di Azure, è possibile usare l'esempio di un sito VPN WAN virtuale e di una connessione da sito a sito.
 

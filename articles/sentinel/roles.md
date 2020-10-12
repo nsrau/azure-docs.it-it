@@ -16,13 +16,13 @@ ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
 ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88565843"
 ---
-# <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Sentinel di Azure
+# <a name="permissions-in-azure-sentinel"></a>Autorizzazioni in Azure Sentinel
 
 Azure Sentinel usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md) per fornire [ruoli predefiniti](../role-based-access-control/built-in-roles.md)   che possono essere assegnati a utenti, gruppi e servizi in Azure.
 
@@ -78,9 +78,9 @@ Ad esempio, un utente a cui viene assegnato il ruolo di **lettore Sentinel di Az
 
 ## <a name="roles-and-allowed-actions"></a>Ruoli e azioni consentite
 
-La tabella seguente riepiloga i ruoli e le azioni consentite in Sentinel di Azure. 
+La tabella seguente riepiloga i ruoli e le azioni consentite in Azure Sentinel. 
 
-| Ruolo | Creare ed eseguire PlayBook| Creazione e modifica di cartelle di lavoro, regole analitiche e altre risorse di Azure Sentinel | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizzare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel |
+| Ruolo | Creare ed eseguire playbook| Creare e modificare cartelle di lavoro, regole analitiche e altre risorse di Azure Sentinel | Gestire gli eventi imprevisti (Ignora, assegna e così via) | Visualizzare dati, eventi imprevisti, cartelle di lavoro e altre risorse di Azure Sentinel |
 |---|---|---|---|---|
 | Ruolo con autorizzazioni di lettura di Azure Sentinel | -- | -- | -- | &#10003; |
 | Risponditore di Azure Sentinel | -- | -- | &#10003; | &#10003; |

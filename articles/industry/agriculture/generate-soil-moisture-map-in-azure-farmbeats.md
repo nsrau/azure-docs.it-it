@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75482569"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Genera mappa termica di umidità del suolo
@@ -81,7 +81,7 @@ Questo passaggio consente di creare un processo o un'operazione a esecuzione pro
 
 ### <a name="download-the-soil-moisture-heatmap"></a>Scaricare la mappa termica di umidità del suolo
 
-Eseguire i passaggi seguenti:
+Eseguire la procedura descritta di seguito:
 
 1. Nella pagina **processi** controllare lo stato del **processo** creato nell'ultima procedura.
 2. Quando lo stato del processo è indicato **succeeded**, selezionare **Maps** nel menu.

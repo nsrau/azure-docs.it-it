@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 147b73b6772675d5143e41ddfff030614e393b95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84031732"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Connettersi al database SQL di Azure con Multi-Factor Authentication di Azure
@@ -62,13 +62,13 @@ Per registrare e impostare le autorizzazioni necessarie per l'applicazione:
 
 1. Nella portale di Azure selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione**.
 
-    ![Registrazione dell'app](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+    ![Registrazione delle app](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
     Dopo la creazione della registrazione dell'app, viene generato e visualizzato il valore dell' **ID applicazione** .
 
     ![ID applicazione visualizzato](./media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Selezionare **autorizzazioni API**  >  **Aggiungi un'autorizzazione**.
+2. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione**.
 
     ![Impostazioni delle autorizzazioni per l'app registrata](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 

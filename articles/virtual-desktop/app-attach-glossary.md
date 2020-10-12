@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556288"
 ---
 # <a name="msix-app-attach-glossary"></a>Glossario per il fissaggio dell'app MSIX
@@ -71,7 +71,7 @@ In desktop virtuale Windows la pubblicazione di un pacchetto MSIX lo collega a u
 
 Nel desktop virtuale di Windows è necessario assegnare un pacchetto MSIX pubblicato a un utente o a un gruppo di utenti di servizi di Dominio di Active Directory (AD DS) o Azure Active Directory (Azure AD).
 
-## <a name="staging"></a>Gestione temporanea
+## <a name="staging"></a>Staging
 
 La gestione temporanea prevede due elementi:
 
@@ -106,7 +106,7 @@ La degestione temporanea notifica al sistema operativo che un'applicazione o un 
 
 . CIM è una nuova estensione di file associata a composite image file System (CimFS). Il montaggio e lo smontaggio dei file CIM sono più veloci dei file VHD. CIM usa anche meno CPU e memoria rispetto al disco rigido virtuale.
 
-La tabella seguente rappresenta un confronto delle prestazioni tra VHD e CimFS. Questi numeri sono il risultato di un'esecuzione dei test con file di 800 MB in ogni formato eseguito in un computer DSv4.
+La tabella seguente rappresenta un confronto delle prestazioni tra VHD e CimFS. Questi numeri sono il risultato di un'esecuzione dei test con file di 500 300 MB in ogni formato eseguito in un computer DSv4.
 
 |  Specifiche                          | VHD                     | CimFS   |
 |---------------------------------|--------------------------|-----------|

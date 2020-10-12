@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
 ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86518080"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>Configura riepilogo periodico per le raccomandazioni
@@ -54,7 +54,7 @@ Ecco i passaggi per creare il **digest delle raccomandazioni:**
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui consigli di Advisor, vedere:
-* [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
+* [Introduzione ad Azure Advisor](advisor-overview.md)
 * [Introduzione ad Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
