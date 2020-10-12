@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085362"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Eseguire query nei log di Monitoraggio di Azure per monitorare i cluster HDInsight
@@ -33,7 +33,7 @@ Informazioni su alcuni scenari di base su come usare i log di monitoraggio di Az
 Informazioni su come cercare metriche specifiche per il cluster HDInsight.
 
 1. Aprire l'area di lavoro Log Analytics associata al cluster HDInsight dal portale di Azure.
-1. In **generale**selezionare **log**.
+1. In **Generale**, selezionare **Log**.
 1. Digitare la query seguente nella casella di ricerca per cercare tutte le metriche per tutte le metriche disponibili per tutti i cluster HDInsight configurati per l'uso dei log di monitoraggio di Azure e quindi selezionare **Esegui**. Esaminare i risultati.
 
     ```kusto
@@ -94,7 +94,7 @@ search in (metrics_resourcemanager_queue_root_default_CL) *
 Il primo passaggio per creare un avviso consiste nel creare una query in base a cui l'avviso viene attivato. È possibile usare qualsiasi query per creare un avviso.
 
 1. Aprire l'area di lavoro Log Analytics associata al cluster HDInsight dal portale di Azure.
-1. In **generale**selezionare **log**.
+1. In **Generale**, selezionare **Log**.
 1. Eseguire la query seguente in cui si desidera creare un avviso, quindi selezionare **Esegui**.
 
     ```kusto
@@ -127,7 +127,7 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
 Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Introduzione alle query su log in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 * [Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure](../azure-monitor/platform/view-designer.md)

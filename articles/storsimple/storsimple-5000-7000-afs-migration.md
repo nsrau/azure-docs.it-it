@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d656fd8757580b8ce96acf168e92fc847d400ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514067"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Eseguire la migrazione dei dati da StorSimple serie 5000/7000 a Sincronizzazione file di Azure
@@ -56,7 +56,7 @@ Qui sono disponibili i prerequisiti per la migrazione del dispositivo legacy 500
 - I volumi StorSimple vengono montati nell'host e contengono condivisioni file.
 - L'host dispone di spazio di archiviazione locale sufficiente per contenere i dati memorizzati nella cache locale.
 - Accesso a livello di proprietario alla sottoscrizione di Azure che si userà per distribuire Sincronizzazione file di Azure. Se non si dispone delle autorizzazioni di proprietario o di amministratore, è possibile che si verifichino problemi durante la creazione di un endpoint cloud per il gruppo di sincronizzazione.
-- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con una condivisione di File di Azure di cui si vuole eseguire la sincronizzazione. Per altre informazioni, vedere [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con una condivisione di File di Azure di cui si vuole eseguire la sincronizzazione. Per altre informazioni, vedere [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
   - Come [Creare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processo di migrazione

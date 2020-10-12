@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 77d2e61533016de7417446ba4111116e9749ac74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507875"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Installare aggiornamenti nell'array virtuale StorSimple - Portale di Azure
@@ -79,7 +79,7 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Apply**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update/update2m.png)
 

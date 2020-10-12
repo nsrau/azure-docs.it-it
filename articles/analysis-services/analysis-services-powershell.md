@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87050451"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gestire Azure Analysis Services con PowerShell

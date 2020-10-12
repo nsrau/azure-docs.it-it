@@ -15,10 +15,10 @@ ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
 ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253695"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Proteggere il back-end SPA con OAuth 2,0, Azure Active Directory B2C e gestione API di Azure
@@ -99,7 +99,7 @@ Aprire il pannello Azure AD B2C nel portale e seguire questa procedura.
 
 ## <a name="build-the-function-api"></a>Compilare l'API della funzione
 1. Tornare al tenant di Azure AD standard nel portale di Azure per poter configurare di nuovo gli elementi nella sottoscrizione 
-1. Passare al pannello app per le funzioni del portale di Azure, aprire l'app per le funzioni vuota, quindi creare una nuova funzione ' webhook + API ' nel portale tramite la Guida introduttiva.
+1. Passare al pannello app per le funzioni del portale di Azure, aprire l'app per le funzioni vuota, quindi creare una nuova funzione In-Portal' webhook + API ' tramite la Guida introduttiva.
 1. Incollare il codice di esempio riportato di seguito in Run. CSX sul codice esistente visualizzato.
 
    ```csharp

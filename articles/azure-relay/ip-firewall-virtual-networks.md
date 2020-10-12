@@ -4,10 +4,10 @@ description: Questo articolo descrive come usare regole del firewall per consent
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976011"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurare un firewall per gli indirizzi IP per uno spazio dei nomi di Inoltro di Azure

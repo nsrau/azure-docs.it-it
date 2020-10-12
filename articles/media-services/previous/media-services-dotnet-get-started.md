@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bbbf924ea950c5ba281be430190370ae77734b7a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89262176"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK
@@ -161,7 +161,7 @@ Il metodo **UploadFile** definito di seguito chiama **CreateFromFile**, definito
 
 Il metodo **CreateFromFile** accetta **AssetCreationOptions**, che consente di specificare una delle opzioni di creazione degli asset seguenti:
 
-* **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+* **None** : non viene usata alcuna crittografia. Rappresenta il valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
   Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.
 * **StorageEncrypted** : usare questa opzione per crittografare localmente il contenuto non crittografato applicando la crittografia AES (Advanced Encryption Standard) a 256 bit e quindi caricarlo nel servizio Archiviazione di Azure, in cui viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 * **CommonEncryptionProtected** : usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).

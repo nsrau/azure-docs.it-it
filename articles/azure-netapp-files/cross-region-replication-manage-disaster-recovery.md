@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: ad006279a656758ba856cd3f39c17b0410e525e6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708789"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gestire il ripristino di emergenza con la replica tra aree 
@@ -101,7 +101,7 @@ Al termine dell'operazione di risincronizzazione dalla destinazione all'origine,
 
 * [Replica tra più aree](cross-region-replication-introduction.md)
 * [Requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md)
-* [Visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md)
+* [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Risolvere i problemi di replica tra aree](troubleshoot-cross-region-replication.md)
+* [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 

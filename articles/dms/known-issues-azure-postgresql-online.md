@@ -15,10 +15,10 @@ ms.custom:
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2d268c5ced0d427216ce4f6a7e9c97c6b5b8b0f4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330316"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL
@@ -44,7 +44,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 - L'utente deve disporre del ruolo di replica nel server che ospita il database di origine.
 - Gli schemi del database di origine e di destinazione devono corrispondere.
-- Lo schema nel database di Azure di destinazione per PostgreSQL-singolo server non deve avere chiavi esterne. Per rilasciare le chiavi esterne usare la query seguente:
+- Lo schema nel database di Azure di destinazione per PostgreSQL-Single server non deve contenere chiavi esterne. Per rilasciare le chiavi esterne usare la query seguente:
 
     ```
                                 SELECT Queries.tablename
@@ -75,7 +75,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
     Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query.
 
-- Lo schema nel database di Azure di destinazione per PostgreSQL-server singolo non deve avere alcun trigger. Per disabilitare i trigger nel database di destinazione:
+- Lo schema nel database di Azure di destinazione per PostgreSQL-Single server non deve avere alcun trigger. Per disabilitare i trigger nel database di destinazione:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

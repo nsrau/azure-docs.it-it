@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cf080f2a6173651fce8f306619dba60347067e0e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085613"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster Apache HBase nelle reti virtuali di Azure
@@ -85,7 +85,7 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Valore |
 |----------|-------|
-| Location | Stati Uniti orientali |
+| Località | Stati Uniti orientali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
 | Prefisso dello spazio degli indirizzi | 10.2.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -336,7 +336,7 @@ Dopo aver distribuito correttamente l'azione script, è possibile usare SSH per 
 
 L'elenco seguente illustra alcuni casi di utilizzo generale e le relative impostazioni dei parametri:
 
-- **Abilitare la replica su tutte le tabelle tra i due cluster**. Questo scenario non richiede la copia o la migrazione dei dati esistenti nelle tabelle e non usa tabelle Phoenix. È possibile usare i parametri seguenti:
+- **Abilitare la replica su tutte le tabelle tra i due cluster**. Questo scenario non richiede la copia o la migrazione dei dati esistenti nelle tabelle e non usa tabelle Phoenix. Usare i parametri seguenti:
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>`
 
@@ -348,7 +348,7 @@ L'elenco seguente illustra alcuni casi di utilizzo generale e le relative impost
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata`
 
-- **Abilitare la replica in tutte le tabelle e replicare i metadati di Phoenix dall'origine alla destinazione**. La replica dei metadati di Phoenix non è perfetta. Usarla con cautela. È possibile usare i parametri seguenti:
+- **Abilitare la replica in tutte le tabelle e replicare i metadati di Phoenix dall'origine alla destinazione**. La replica dei metadati di Phoenix non è perfetta. Usarla con cautela. Usare i parametri seguenti:
 
   `-m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta`
 
@@ -360,7 +360,7 @@ Sono disponibili due script di azione script distinti per la copia o la migrazio
 
 - [Script per tabelle di grandi dimensioni](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) (tabelle per cui si prevede che la copia richieda più di un'ora)
 
-È possibile eseguire la stessa procedura descritta in [Abilitare la replica](#enable-replication) per chiamare l'azione script. È possibile usare i parametri seguenti:
+È possibile eseguire la stessa procedura descritta in [Abilitare la replica](#enable-replication) per chiamare l'azione script. Usare i parametri seguenti:
 
 `-m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]`
 
@@ -382,7 +382,7 @@ La sezione `print_usage()` dello [script](https://github.com/Azure/hbase-utils/b
 
 ## <a name="disable-replication"></a>Disabilitare la replica
 
-Per disabilitare la replica, usare un altro script di azione script disponibile in [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). È possibile eseguire la stessa procedura descritta in [Abilitare la replica](#enable-replication) per chiamare l'azione script. È possibile usare i parametri seguenti:
+Per disabilitare la replica, usare un altro script di azione script disponibile in [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). È possibile eseguire la stessa procedura descritta in [Abilitare la replica](#enable-replication) per chiamare l'azione script. Usare i parametri seguenti:
 
 `-m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">`
 

@@ -4,10 +4,10 @@ description: Informazioni su come configurare Azure Active Directory (Azure AD) 
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: 537a81a090828d3fcc9dde6032f1d4eb2df9b4e4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258764"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurare Azure Active Directory per l'autenticazione client
@@ -38,7 +38,7 @@ Per semplificare alcuni dei passaggi richiesti per la configurazione di Azure AD
 
 Verranno usati gli script per creare due Azure AD applicazioni per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa. Dopo aver creato le applicazioni per rappresentare il cluster, verranno creati utenti per i [ruoli supportati da Service Fabric](service-fabric-cluster-security-roles.md): sola lettura e amministratore.
 
-Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri.  Specificare anche i nomi utente e le password per gli utenti. ad esempio:
+Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri.  Specificare anche i nomi utente e le password per gli utenti. Ad esempio:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess

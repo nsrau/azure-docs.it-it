@@ -13,10 +13,10 @@ ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91395890"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Archivi dati relativi all'identità per i clienti Europai - Azure Active Directory
@@ -36,7 +36,7 @@ Per la Multi-Factor Authentication di Azure basata sul cloud, l'autenticazione �
 
 Per altre informazioni sulle informazioni sugli utenti raccolte da Azure server Multi-Factor Authentication (server di autenticazione a più fattori) e dall'autenticazione a più fattori di Azure basata sul cloud, vedere [raccolta di dati utente multi-factor authentication di Azure](../authentication/howto-mfa-reporting-datacollection.md).
 
-## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Single Sign-on basato su password per le applicazioni aziendali
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Sign-On singola basata su password per le applicazioni aziendali
  
 Se un cliente crea una nuova applicazione aziendale (tramite Azure AD raccolta o non raccolta) e Abilita l'accesso SSO basato su password, l'URL di accesso dell'applicazione e i campi di accesso di acquisizione personalizzati vengono archiviati nel Stati Uniti. Per ulteriori informazioni su questa funzionalità, vedere [configurare Single Sign-on basato su password](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 

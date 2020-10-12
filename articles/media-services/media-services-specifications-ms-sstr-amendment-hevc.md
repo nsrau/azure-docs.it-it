@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
 ms.openlocfilehash: 6454bc863cb5fd628d581fff380c5ab61354f762
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053053"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC 
@@ -40,11 +40,11 @@ I termini seguenti sono definiti in *[MS-GLOS]*:
 
 I termini seguenti sono specifici di questo documento:
 
->  **tempo di composizione:** Data e ora in cui un campione viene presentato al client, come definito in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>  **tempo di composizione:** Data e ora in cui un campione viene presentato al client, come definito in   [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Common Encryption, come definito in [ISO/IEC 23001-7] Second Edition.
 > 
->   **tempo di decodifica:** Tempo necessario per la decodifica di un campione nel client, come definito in [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
+>   **tempo di decodifica:** Tempo necessario per la decodifica di un campione nel client, come definito in   [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **frammento:** unità di **contenuto multimediale** scaricabile in modo indipendente che include uno o più **campioni**.
 
@@ -56,7 +56,7 @@ I termini seguenti sono specifici di questo documento:
 > 
 >   **campione:** l'unità fondamentale più piccola (ad esempio un fotogramma) in cui viene archiviato ed elaborato il **contenuto multimediale**.
 > 
->   **May, should, must, not deve:** Questi termini (in tutti i limiti) vengono usati come descritto in [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) tutte le istruzioni di comportamento facoltativo usano May, should o not.
+>   **May, should, must, not deve:** Questi termini (in tutti i limiti) vengono usati come descritto in   [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) tutte le istruzioni di comportamento facoltativo usano May, should o not.
 
 ## <a name="12-references"></a>1.2 Riferimenti
 
@@ -78,17 +78,17 @@ I termini seguenti sono specifici di questo documento:
 > 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for   "Bucket" Media Types” <https://tools.ietf.org/html/rfc6381>
 > 
->   [MPEG4-RA] Autorità di registrazione MP4, "MP4REG",[http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] Autorità di registrazione MP4, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 > 
->   RFC2119 Bradner, S., "parole chiave da usare in RFC per indicare i livelli di requisito", BCP 14, RFC 2119, marzo 1997,[https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   RFC2119 Bradner, S., "parole chiave da usare in RFC per indicare i livelli di requisito", BCP 14, RFC 2119, marzo 1997,   [https://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 Riferimenti informativi 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 > 
->   [RFC3548] Josefsson, S., ed., "base 16, Base32 e Base64 data Encodings", RFC 3548, luglio 2003,[https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., ed., "base 16, Base32 e Base64 data Encodings", RFC 3548, luglio 2003, [https://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 > 
->   RFC5234 Crocker, D., ed. e Overell, P., "Augmented BNF for Syntax Specifications: ABNF", STD 68, RFC 5234, January 2008,[https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   RFC5234 Crocker, D., ed. e Overell, P., "Augmented BNF for Syntax Specifications: ABNF", STD 68, RFC 5234, January 2008,   [https://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 Panoramica 

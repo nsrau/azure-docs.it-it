@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2b7522e4c1074c3c52e62453e815cce859a86148
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89435763"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato di Azure nativo: PowerShell
@@ -21,7 +21,7 @@ Questo articolo illustra come connettere in modo sicuro singoli client che esegu
 
 ![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Le connessioni con autenticazione tramite certificato da punto a sito di Azure usano gli elementi seguenti, che vengono configurati in questo esercizio:
 

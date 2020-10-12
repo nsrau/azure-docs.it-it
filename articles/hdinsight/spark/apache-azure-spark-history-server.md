@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86079293"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare le funzionalità estese del server di cronologia Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark
@@ -26,7 +26,7 @@ Il server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Aprire l'interfaccia utente Web del server cronologia Spark dalla portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. Da **Dashboard cluster**selezionare **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
+2. Da **Dashboard cluster**selezionare  **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
     ![Avviare il server cronologia Spark dal portale di Azure.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Server cronologia Spark")
 
@@ -307,7 +307,7 @@ Se si vuole eseguire l'aggiornamento con un hotfix, usare lo script seguente, ch
 1. Avviare il [portale di Azure](https://ms.portal.azure.com)e quindi selezionare il cluster.
 2. Completare un' [azione script](../hdinsight-hadoop-customize-cluster-linux.md) con i seguenti parametri.
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Tipo di script|- Personalizzato|
     |Nome|UpgradeJar|

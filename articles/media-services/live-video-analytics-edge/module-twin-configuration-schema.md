@@ -4,10 +4,10 @@ description: Questo argomento descrive lo schema JSON del modulo gemello di anal
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87053059"
 ---
 # <a name="module-twin-json-schema"></a>Schema JSON del modulo gemello
@@ -23,7 +23,7 @@ Questo argomento descrive lo schema JSON del modulo gemello di analisi video in 
 
 Analisi video in tempo reale su IoT Edge espone le proprietà gemelle del modulo seguenti. 
 
-|Proprietà |Obbligatoria |Dinamico |Descrizione |
+|Proprietà |Obbligatoria |Dynamic |Descrizione |
 |---|---|---|---|
 |applicationDataDirectory |Sì |No |Percorso di un volume montato per la configurazione permanente. |
 |azureMediaServicesArmId |Sì |No |Identificatore univoco di gestione risorse di Azure per l'account di servizi multimediali.|

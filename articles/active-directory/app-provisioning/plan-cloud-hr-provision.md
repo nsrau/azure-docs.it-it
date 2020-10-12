@@ -12,10 +12,10 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706356"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
@@ -255,7 +255,7 @@ Per impostazione predefinita, l'attributo nell'app Cloud HR che rappresenta l'ID
 
 Per impostazione predefinita, l'app del connettore di provisioning esegue il mapping dello stato del profilo utente HR allo stato dell'account utente in Active Directory o Azure AD per determinare se abilitare o disabilitare l'account utente.
 
-Quando si avvia il processo di Joiner-Leavers, raccogliere i requisiti seguenti.
+Quando si avvia il processo di Joiners-Leavers, raccogliere i requisiti seguenti.
 
 | Processo | Requisiti |
 | - | - |

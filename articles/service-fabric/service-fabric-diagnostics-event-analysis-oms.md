@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257670"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analisi e visualizzazione di eventi con i log di monitoraggio di Azure
@@ -59,11 +59,11 @@ Nella pagina Analisi Service Fabric fare clic sul grafo di **Eventi di Service F
 
 ![Canale operativo della soluzione Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-Fare clic su **Elenco** per visualizzare gli eventi in un elenco. Qui è possibile osservare tutti gli eventi di sistema che sono stati raccolti. Per riferimento, si tratta di un **WADServiceFabricSystemEventsTable** nell'account di archiviazione di Azure e, analogamente, gli eventi Reliable Services e Actors visualizzati di seguito si trovano nelle rispettive tabelle.
+Fare clic su **Elenco** per visualizzare gli eventi in un elenco. Qui è possibile osservare tutti gli eventi di sistema che sono stati raccolti. Come riferimento, questi elementi provengono da **WADServiceFabricSystemEventsTable** nell'account di Archiviazione di Azure. Analogamente, gli eventi di Reliable Services e Reliable Actors visualizzati accanto provengono dalle rispettive tabelle.
     
 ![Canale operativo della query](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
-In alternativa, è possibile fare clic sulla lente di ingrandimento a sinistra e usare il linguaggio di query Kusto per trovare gli elementi desiderati. Ad esempio, per trovare tutte le azioni eseguite sui nodi nel cluster, è possibile usare la query seguente. Gli ID evento usati di seguito si trovano nel [riferimento agli eventi del canale operativo](service-fabric-diagnostics-event-generation-operational.md).
+In alternativa, è possibile fare clic sulla lente di ingrandimento a sinistra e usare il linguaggio di query Kusto per trovare gli elementi desiderati. Ad esempio, per trovare tutte le azioni eseguite sui nodi nel cluster, è possibile usare la query seguente. Gli ID evento usati di seguito sono disponibili nelle [informazioni di riferimento sugli eventi del canale operativo](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -82,7 +82,7 @@ Fare clic su **Elenco** per visualizzare gli eventi in un elenco. Qui è possibi
 
 ![Reliable Services della query](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
-Gli eventi relativi a Reliable Actors possono essere visualizzati in modo simile. Per configurare eventi più dettagliati per Reliable Actors, è necessario modificare `scheduledTransferKeywordFilter` nel file di configurazione per l'estensione di diagnostica (illustrato di seguito). Per informazioni dettagliate sui valori, [fare riferimento agli eventi di Reliable Actors](service-fabric-reliable-actors-diagnostics.md#keywords).
+Gli eventi relativi a Reliable Actors possono essere visualizzati in modo simile. Per configurare eventi più dettagliati per Reliable Actors, è necessario modificare `scheduledTransferKeywordFilter` nel file di configurazione per l'estensione di diagnostica (illustrato di seguito). I dettagli sui valori per questi elementi sono disponibili nelle [informazioni di riferimento sugli eventi di Reliable Actors](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [

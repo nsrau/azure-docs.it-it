@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: 9f948fcc8ad36f8bef8b1ab6a1b74131faea9bd3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88068273"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Attività DevOps del servizio Generatore di immagini di Azure
@@ -69,7 +69,7 @@ Selezionare dal menu a discesa la sottoscrizione che si desidera venga eseguita 
 
 Usare il gruppo di risorse in cui verrà archiviato l'artefatto del modello di immagine temporanea. Quando si crea un elemento del modello, viene creato un altro gruppo di risorse generatore di immagini temporanee `IT_<DestinationResourceGroup>_<TemplateName>_guid` . Il gruppo di risorse temporaneo archivia i metadati dell'immagine, ad esempio gli script. Al termine dell'attività, l'artefatto del modello di immagine e il gruppo di risorse generatore di immagini temporanee vengono eliminati.
  
-### <a name="location"></a>Posizione
+### <a name="location"></a>Location
 
 Il percorso è l'area in cui verrà eseguito il generatore di immagini. Sono supportati solo un numero impostato di [aree](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) . Le immagini di origine devono essere presenti in questa posizione. Se ad esempio si usa raccolta immagini condivise, è necessario che sia presente una replica in tale area.
 
@@ -139,12 +139,12 @@ Selezionare il pulsante **percorso compilazione** per scegliere la cartella di c
 
 L'esempio seguente illustra come funziona:
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Struttura di directory che mostra la gerarchia.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="Selezionare Aggiungi un artefatto nella pipeline di rilascio.":::
 
 
 * Windows: i file sono disponibili in `C:\` . Viene creata una directory denominata `buildArtifacts` che include la `webapp` Directory.
 
-* Linux: i file sono presenti in `/tmp` . `webapp`Viene creata la directory che include tutti i file e le directory. È necessario spostare i file da questa directory. In caso contrario, verranno eliminati perché si trova nella directory temporanea.
+* Linux: i file sono presenti in  `/tmp` . `webapp`Viene creata la directory che include tutti i file e le directory. È necessario spostare i file da questa directory. In caso contrario, verranno eliminati perché si trova nella directory temporanea.
 
 #### <a name="inline-customization-script"></a>Script di personalizzazione inline
 
@@ -314,7 +314,7 @@ Se si verifica un errore di compilazione, l'attività DevOps non elimina il grup
 
 Verrà visualizzato un errore nel registro DevOps per l'attività generatore di immagini VM e verrà visualizzato il percorso Customization. log. Ad esempio:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Errore dell'attività DevOps di esempio che mostra un errore.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Selezionare Aggiungi un artefatto nella pipeline di rilascio.":::
 
 Per altre informazioni sulla risoluzione dei problemi, vedere [risolvere i problemi del servizio Generatore di immagini di Azure](image-builder-troubleshoot.md). 
 

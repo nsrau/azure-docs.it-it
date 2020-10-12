@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
 ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88639903"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
@@ -54,7 +54,7 @@ Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'appl
 > [!TIP]  
 > Quando si richiede che un token di Azure AD generi metriche personalizzate, assicurarsi che il destinatario o la risorsa per cui è richiesto il token sia `https://monitoring.azure.com/`. Assicurarsi di includere la barra finale (/).
 
-### <a name="subject"></a>Oggetto
+### <a name="subject"></a>Subject
 Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indicata la metrica personalizzata. L'informazione viene codificata nell'URL della chiamata API eseguita. Ogni API può inviare solo i valori delle metriche per una singola risorsa di Azure.
 
 > [!NOTE]  
@@ -206,7 +206,7 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 | **Africa** | |
 |Sudafrica settentrionale | https: \/ /southafricanorth.Monitoring.Azure.com |
 | **Asia** | |
-|India centrale | https: \/ /centralindia.Monitoring.Azure.com |
+|Central India | https: \/ /centralindia.Monitoring.Azure.com |
 |Australia orientale | https: \/ /australiaeast.Monitoring.Azure.com |
 |Giappone orientale | https: \/ /japaneast.Monitoring.Azure.com |
 |Asia sud-orientale  | https: \/ /SouthEastAsia.Monitoring.Azure.com |

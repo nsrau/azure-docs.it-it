@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: d994df4d56f4958784256ff9cd92ce1e6f3b3e50
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642164"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale ibrida
@@ -41,7 +41,7 @@ I requisiti del firewall per l'agente Log Analytics sono disponibili nella [Pano
 
 È possibile scaricare Dependency Agent da questi percorsi:
 
-| File | Sistema operativo | Versione | SHA-256 |
+| File | OS | Versione | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.5.10940 | C27A56D0BE9CF162DF73292DFBB2083F5FF749F2B80FCAD2545BC8B14B64A8D7  |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.5.10940 | 71B4E1DA5116E61E03317C49C6702B5069F01A0C9A7CB860F6ACFAF5C198740E |
@@ -95,7 +95,7 @@ I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 | File | Location |
 |:--|:--|
 | File core | /opt/microsoft/dependency-agent |
-| File di log | /var/opt/microsoft/dependency-agent/log |
+| File di registro | /var/opt/microsoft/dependency-agent/log |
 | File di configurazione | /etc/opt/microsoft/dependency-agent/config |
 | File eseguibili del servizio | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | File binary di archiviazione | /var/opt/microsoft/dependency-agent/storage |

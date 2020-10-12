@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
 ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376727"
 ---
 ## <a name="use-custom-page-content"></a>USA contenuto pagina personalizzata
 
 Con la funzionalità di personalizzazione dell'interfaccia utente della pagina, è possibile definire l'aspetto di qualsiasi criterio personalizzato. È anche possibile mantenere la coerenza visiva e del marchio tra l'applicazione e Azure AD B2C.
 
-### <a name="how-it-works"></a>Come funziona
+### <a name="how-it-works"></a>Funzionamento
 
 Azure AD B2C esegue il codice nel browser del cliente usando la [condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/). In fase di esecuzione, il contenuto viene caricato da un URL specificato nel flusso utente o in un criterio personalizzato. Ogni pagina nell'esperienza utente carica il proprio contenuto dall'URL specificato per la pagina. Dopo che il contenuto è stato caricato dall'URL, viene unito a un frammento HTML inserito da Azure AD B2C, quindi la pagina viene visualizzata per il cliente.
 
@@ -46,7 +46,7 @@ Invece di creare il contenuto della pagina personalizzata da zero, è possibile 
 
 Nella tabella seguente sono elencati i contenuti di pagina predefiniti forniti da Azure AD B2C. Scaricare i file e usarli come punto di partenza per la creazione di pagine personalizzate.
 
-| Pagina predefinita | Descrizione | ID definizione del contenuto<br/>(solo criteri personalizzati) |
+| Pagina predefinita | Description | ID definizione del contenuto<br/>(solo criteri personalizzati) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Pagina autocertificata**. Usare questo file come contenuto di pagina personalizzata per una pagina di iscrizione dell'account di social networking, una pagina di iscrizione dell'account locale, una pagina di accesso dell'account locale, la reimpostazione della password e altro ancora. Il modulo può contenere diversi controlli di input, ad esempio una casella per l'immissione di testo e una per l'immissione della password, un pulsante di opzione, caselle a discesa a selezione singola e caselle di controllo con selezione multipla. | API *. localaccountsignin*, *API. localaccountsignin*, *API. localaccountpasswordreset*, *API. selfasserted* |
@@ -167,7 +167,7 @@ Verificare che l'utente sia pronto attenendosi alla procedura seguente:
 
 1. Ripetere il passaggio Configure CORS. Per le **origini consentite**, immettere `https://www.test-cors.org`
 1. Passare a [www.test-CORS.org](https://www.test-cors.org/) 
-1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio, usare `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
+1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio: `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Selezionare **Invia richiesta**.
     Il risultato deve essere `XHR status: 200` . 
     Se si riceve un messaggio d'errore, verificare che le impostazioni CORS siano corrette. Potrebbe anche essere necessario cancellare la cache del browser o aprire una sessione di esplorazione anonima premendo Ctrl+Maiusc+P.

@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90706252"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
@@ -199,14 +199,14 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 | WIF | Supportato | Supportato ma sono disponibili istruzioni limitate |
 | WS-Federation | Supportato | Supportato |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
-| WS-Trust | Supportato | Non supportate |
+| WS-Trust | Supportato | Non supportato |
 | **Formati di token** | | |
 | Token JSON Web | Supportato nella versione Beta | Supportato |
 | SAML 1.1 | Supportato | Anteprima |
 | SAML 2.0 | Supportato | Supportato |
-| Token Web semplice | Supportato | Non supportate |
+| Token Web semplice | Supportato | Non supportato |
 | **Personalizzazioni** | | |
-| Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Non supportate |
+| Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Non supportato |
 | Caricare certificati per la firma di token personalizzati | Supportato | Supportato |
 | Personalizzare le attestazioni nei token |- Eseguire il pass-through delle attestazioni di input dai provider di identità<br />- Ottenere un token di accesso dal provider di identità come attestazione<br />- Rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- Rilasciare attestazioni di output con valori costanti |- Non è possibile eseguire il pass-through di attestazioni da provider di identità federati<br />- Non è possibile ottenere un token di accesso dal provider di identità come attestazione<br />- Non è possibile rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- È possibile rilasciare attestazioni di output con valori costanti<br />- È possibile rilasciare attestazioni di output in base alle proprietà degli utenti sincronizzati con Azure AD |
 | **Automazione** | | |
@@ -247,15 +247,15 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 | Account Microsoft per uso personale | Supportato | Supportato | 
 | Account Facebook, Google, Yahoo | Supportato | Facebook e Google supportati in modalità nativa, Yahoo supportato tramite la federazione di OpenID Connect con criteri personalizzati |
 | **Compatibilità con protocolli e SDK** | | |
-| Windows Identity Foundation (WIF) | Supportato | Non supportate |
-| WS-Federation | Supportato | Non supportate |
+| Windows Identity Foundation (WIF) | Supportato | Non supportato |
+| WS-Federation | Supportato | Non supportato |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
-| WS-Trust | Supportato | Non supportate |
+| WS-Trust | Supportato | Non supportato |
 | **Formati di token** | | |
 | Token JSON Web | Supportato nella versione Beta | Supportato |
-| SAML 1.1 | Supportato | Non supportate |
-| SAML 2.0 | Supportato | Non supportate |
-| Token Web semplice | Supportato | Non supportate |
+| SAML 1.1 | Supportato | Non supportato |
+| SAML 2.0 | Supportato | Non supportato |
+| Token Web semplice | Supportato | Non supportato |
 | **Personalizzazioni** | | |
 | Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Interfaccia utente completamente personalizzabile tramite CSS personalizzati |
 | Caricare certificati per la firma di token personalizzati | Supportato | Chiavi di accesso personalizzate, non certificati, supportati tramite criteri personalizzati |
@@ -266,7 +266,7 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 Se si decide che Azure AD B2C è l'approccio ottimale per le applicazioni e i servizi in uso, iniziare dalle risorse seguenti:
 
 - [Documentazione di Azure AD B2C](../../active-directory-b2c/overview.md)
-- [Azure AD B2C criteri personalizzati](../../active-directory-b2c/custom-policy-overview.md)
+- [Criteri personalizzati di Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
 - [Prezzi di Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Eseguire la migrazione a Ping Identity o Auth0

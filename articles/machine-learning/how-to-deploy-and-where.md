@@ -12,10 +12,10 @@ ms.date: 09/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: a9b8a2c2454c135c72d39a587e84220e8916e54b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315432"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
@@ -125,7 +125,7 @@ Per ulteriori informazioni su `az ml model register` , consultare la [documentaz
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    Il `model_path` parametro fa riferimento alla posizione cloud del modello. In questo esempio viene usato il percorso di un singolo file. Per includere più file nella registrazione del modello, impostare sul `model_path` percorso di una cartella che contiene i file. Per ulteriori informazioni, vedere la documentazione di [Run. register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) .
+    Il `model_path` parametro fa riferimento alla posizione cloud del modello. In questo esempio viene usato il percorso di un singolo file. Per includere più file nella registrazione del modello, impostare sul `model_path` percorso di una cartella che contiene i file. Per ulteriori informazioni, vedere la documentazione [Run.register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) .
 
   + Registrare un modello da un `azureml.train.automl.run.AutoMLRun` oggetto:
 
@@ -139,7 +139,7 @@ Per ulteriori informazioni su `az ml model register` , consultare la [documentaz
 
     In questo esempio, i `metric` `iteration` parametri e non vengono specificati, quindi l'iterazione con la metrica primaria migliore verrà registrata. Il `model_id` valore restituito dall'esecuzione viene utilizzato al posto di un nome di modello.
 
-    Per ulteriori informazioni, vedere la documentazione di [AutoMLRun. register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) .
+    Per ulteriori informazioni, vedere la documentazione [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) .
 
 ### <a name="register-a-model-from-a-local-file"></a>Registrare un modello da un file locale
 

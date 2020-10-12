@@ -11,11 +11,11 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 85a9c758f46150c422b55c6ac5cf7e62a429c74f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5308599f43788b35dbe278ddbbea2253c2f94cb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797769"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
@@ -46,7 +46,7 @@ Per altre informazioni sul caricamento bulk, vedere [Caricamento bulk in un indi
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Come monitorare la qualità di un gruppo di righe
 
-La DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contiene la definizione della vista che corrisponde al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio.
+Il sys.dm_pdw_nodes_db_column_store_row_group_physical_stats DMV ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contiene la definizione della vista che corrisponde al database SQL) che espone informazioni utili, ad esempio il numero di righe in RowGroups e il motivo per cui è stato tagliato il taglio.
 
 Per effettuare una query su questa DMV allo scopo di ottenere informazioni sul trimming di un gruppo di righe, è possibile creare la vista seguente.
 
@@ -74,9 +74,6 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
 select *
 from cte;
 ```
-
->[!TIP]
-> Per migliorare le prestazioni in sinapsi SQL, provare a usare **sys. pdw_permanent_table_mappings** anziché **sys. pdw_table_mappings** su tabelle utente permanenti. Per ulteriori informazioni, vedere **[sys. pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 trim_reason_desc specifica se il gruppo di righe è stato tagliato (trim_reason_desc = NO_TRIM indica che il gruppo di righe è di qualità ottimale e non è stato tagliato). I motivi seguenti indicano che il gruppo di righe è stato tagliato prematuramente:
 

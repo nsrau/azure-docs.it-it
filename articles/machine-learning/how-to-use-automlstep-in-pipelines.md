@@ -12,10 +12,10 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 960440b1c9a35aa9be33cd36945f9df3d800cc41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91315193"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usare Machine Learning automatiche in una pipeline Azure Machine Learning in Python
@@ -49,7 +49,7 @@ Un oggetto `Pipeline` viene eseguito in un oggetto `Experiment` . La pipeline `R
 
 Per rendere le cose concrete, questo articolo crea una semplice pipeline per un'attività di classificazione. L'attività sta stimando la sopravvivenza titanica, ma non verranno illustrati i dati o l'attività tranne che per il passaggio.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 ### <a name="retrieve-initial-dataset"></a>Recupera set di dati iniziale
 

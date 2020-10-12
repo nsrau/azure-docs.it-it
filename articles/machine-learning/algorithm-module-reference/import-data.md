@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372596"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
@@ -35,7 +35,7 @@ Il modulo **Import Data** supporta la lettura dei dati dalle origini seguenti:
     - Condivisione file di Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
-    - Database SQL di Azure
+    - database SQL di Azure
     - PostgreSQL di Azure    
 
 Prima di usare l'archiviazione cloud, prima di tutto è necessario registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per ulteriori informazioni, vedere [la pagina relativa alla modalità di accesso ai dati](../how-to-access-data.md). 
