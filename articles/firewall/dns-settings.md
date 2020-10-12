@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610643"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Impostazioni DNS del firewall di Azure (anteprima)
@@ -66,7 +66,7 @@ Per configurare il proxy DNS, è necessario configurare l'impostazione dei serve
 4. Esaminare la configurazione dei **server DNS** per assicurarsi che le impostazioni siano appropriate per l'ambiente in uso.
 5. Selezionare **Salva**.
 
-:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Proxy DNS":::
+:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Server DNS":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

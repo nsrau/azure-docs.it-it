@@ -4,10 +4,10 @@ description: È possibile usare l'analisi video in tempo reale su IoT Edge per l
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84260384"
 ---
 # <a name="playback-of-recordings"></a>Riproduzione di registrazioni 
@@ -18,7 +18,7 @@ ms.locfileid: "84260384"
 * [Registrazione continua di video](continuous-video-recording-concept.md)
 * [Registrazione di video basata su eventi](event-based-video-recording-concept.md)
 
-## <a name="background"></a>Sfondo  
+## <a name="background"></a>Background  
 
 È possibile usare analisi video in tempo reale su IoT Edge per la [registrazione video continua](continuous-video-recording-concept.md) (CVR), in cui è possibile registrare video nel cloud per settimane o mesi. È anche possibile limitare la registrazione a clip di interesse, tramite [registrazione video basata su eventi](event-based-video-recording-concept.md) (EVR). 
 
@@ -48,7 +48,7 @@ Quando si usa CVR, i dispositivi di riproduzione (client) non possono richiedere
 
 Dove il valore di precisione può essere uno dei seguenti: Year, month, Day o full (come illustrato di seguito). 
 
-|Precision|year|month|day|completi|
+|Precision|anno|month|day|completi|
 |---|---|---|---|---|
 |Query|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |Risposta|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Risposta di fedeltà completa. Se non si sono verificati Gap, l'inizio sarebbe startTime e end sarebbe endTime.|
@@ -209,8 +209,8 @@ GET https://hostname/locatorId/content.ism/availableMedia?precision=day&startTim
 
 Come indicato in precedenza, questi filtri consentono di selezionare parti della registrazione (ad esempio, dalle 9.00 alle 11.00 per il giorno dei nuovi anni) per la riproduzione. Quando si esegue lo streaming tramite HLS, l'URL di streaming sarà simile a `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl).m3u8` . Per selezionare una parte della registrazione, è necessario aggiungere un valore startTime e un parametro endTime, ad esempio: `https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00Z,endTime=2019-12-21T10:00:00Z).m3u8` . I filtri di intervallo di tempo sono quindi modificatori URL usati per descrivere la parte della sequenza temporale della registrazione inclusa nel manifesto di streaming:
 
-* `starttime`è un indicatore DateTime ISO 8601 che descrive l'ora di inizio desiderata della sequenza temporale del video nel manifesto restituito.
-* `endtime`è un indicatore DateTime ISO 8601 che descrive l'ora di fine desiderata della sequenza temporale video restituita nel manifesto.
+* `starttime` è un indicatore DateTime ISO 8601 che descrive l'ora di inizio desiderata della sequenza temporale del video nel manifesto restituito.
+* `endtime` è un indicatore DateTime ISO 8601 che descrive l'ora di fine desiderata della sequenza temporale video restituita nel manifesto.
 
 La lunghezza massima (nel tempo) di un manifesto di questo tipo non può superare 24 ore.
 
@@ -294,7 +294,7 @@ Con una registrazione di questo tipo:
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T14:01:00.000Z,endTime=2019-12-21T03:00:00.000Z).m3u8`
 * Se si richiede un manifesto in cui startTime e endTime si trovavano all'interno del "Hole" al centro, ad esempio dalle 8.00 alle 10.00 UTC, il servizio si comporterebbe allo stesso modo di un filtro asset per produrre un risultato vuoto.
 
-    [Si tratta di una richiesta che ottiene una risposta vuota]`GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
+    [Si tratta di una richiesta che ottiene una risposta vuota] `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T08:00:00.000Z,endTime=2019-12-21T10:00:00.000Z).m3u8`
 * Se si richiede un manifesto in cui solo uno dei startTime o endTime si trova all'interno del ' Hole ', il manifesto restituito includerà solo una parte di tale intervallo di tempo. Blocca il valore startTime o endTime al limite più vicino valido. Se, ad esempio, è stato richiesto un flusso di 3 ore dalle 10.00 alle 13.00, la risposta conterrà una quantità di supporti pari a 1 HR per le 12.00 alle 13.00
 
     `GET https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2019-12-21T10:00:00.000Z,endTime=2019-12-21T13:00:00.000Z).m3u8`
@@ -303,7 +303,7 @@ Con una registrazione di questo tipo:
 
 ## <a name="recording-and-playback-latencies"></a>Latenze di registrazione e riproduzione
 
-Quando si usa analisi video in tempo reale su IoT Edge per registrare in un asset, si specifica una proprietà segmentLength che indica al modulo di aggregare una durata minima del video (in secondi) prima di essere registrata nel cloud. Ad esempio, se segmentLength è impostato su 300, il modulo accumulerà 5 minuti di video prima del caricamento di un "blocco" di 5 minuti, quindi passerà alla modalità di accumulo per i successivi 5 minuti e caricherà nuovamente. L'aumento del segmentLength offre il vantaggio di ridurre i costi delle transazioni di archiviazione di Azure, in quanto il numero di letture e scritture non sarà più frequente di una volta ogni segmentLength secondi.
+Quando si usa analisi video in tempo reale su IoT Edge per registrare in un asset, si specifica una proprietà segmentLength che indica al modulo di aggregare una durata minima del video (in secondi) prima di essere registrata nel cloud. Ad esempio, se segmentLength è impostato su 300, il modulo accumulerà 5 minuti di video prima del caricamento di 1 5 minuti "blocco", quindi passa alla modalità di accumulo per i prossimi 5 minuti e carica nuovamente. L'aumento del segmentLength offre il vantaggio di ridurre i costi delle transazioni di archiviazione di Azure, in quanto il numero di letture e scritture non sarà più frequente di una volta ogni segmentLength secondi.
 
 Di conseguenza, lo streaming del video da servizi multimediali verrà ritardato di almeno molto tempo. 
 

@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85850961"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento sul modulo di PowerShell ADSyncConfig
@@ -1087,7 +1087,7 @@ Le autorizzazioni predefinite devono rimanere inalterate per SELF.
 
    | Type | Nome | Accesso | Si applica a |
    |------|------|--------|------------|
-   | Consenti | SYSTEM | Controllo completo | Questo oggetto |
+   | Allow | SYSTEM | Controllo completo | Questo oggetto |
    | Allow | Enterprise Admins | Controllo completo | Questo oggetto |
    | Allow | Domain Admins | Controllo completo | Questo oggetto | 
    | Allow | Administrators | Controllo completo | Questo oggetto |

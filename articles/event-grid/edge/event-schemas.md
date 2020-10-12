@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171568"
 ---
 # <a name="event-schemas"></a>Schemi degli eventi
@@ -52,9 +52,9 @@ Lo schema EventGrid è costituito da un set di proprietà obbligatorie a cui dev
 
 Tutti gli eventi hanno i dati di primo livello seguenti:
 
-| Proprietà | Type | Obbligatorio | Descrizione |
+| Proprietà | Type | Obbligatoria | Descrizione |
 | -------- | ---- | ----------- |-----------
-| argomento | stringa | No | Deve corrispondere all'argomento su cui è pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
+| argomento | string | No | Deve corrispondere all'argomento su cui è pubblicato. Griglia di eventi lo popola con il nome dell'argomento in cui viene pubblicato se non specificato. |
 | subject | string | Sì | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Sì | Tipo di evento per questa origine evento, ad esempio BlobCreated. |
 | eventTime | string | Sì | Ora di generazione dell'evento in base all'ora UTC del provider. |

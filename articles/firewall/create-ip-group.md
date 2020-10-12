@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
 ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85602534"
 ---
 # <a name="create-ip-groups"></a>Creare gruppi IP
@@ -27,7 +27,7 @@ I gruppi IP consentono di raggruppare e gestire gli indirizzi IP per le regole d
 5. selezionare un gruppo di risorse o crearne uno nuovo.
 6. Digitare un nome univoco per il gruppo IP, quindi selezionare un'area.
 
-6. Selezionare **Avanti: indirizzi IP**.
+6. Selezionare **Avanti: Indirizzi IP**.
 7. Digitare un indirizzo IP, più indirizzi IP o intervalli di indirizzi IP.
 
    Esistono due modi per immettere gli indirizzi IP:

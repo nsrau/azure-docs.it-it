@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171381"
 ---
 # <a name="security-and-authentication"></a>Sicurezza e autenticazione
@@ -35,13 +35,13 @@ Le sezioni seguenti descrivono in dettaglio il modo in cui queste impostazioni s
 
 Il modulo di griglia di eventi ospita sia endpoint HTTP che HTTPS. A ogni modulo IoT Edge viene assegnato un certificato server dal daemon di sicurezza IoT Edge. Il certificato del server viene usato per proteggere l'endpoint. Alla scadenza, il modulo viene aggiornato automaticamente con un nuovo certificato dal daemon di sicurezza IoT Edge.
 
-Per impostazione predefinita, sono consentite solo le comunicazioni HTTPS. È possibile eseguire l'override di questo comportamento tramite **inbound__serverAuth__tlsPolicy** configurazione. Nella tabella seguente vengono acquisiti i valori possibili di questa proprietà.
+Per impostazione predefinita, sono consentite solo le comunicazioni HTTPS. È possibile eseguire l'override di questo comportamento tramite  **inbound__serverAuth__tlsPolicy** configurazione. Nella tabella seguente vengono acquisiti i valori possibili di questa proprietà.
 
 | Valori possibili | Descrizione |
 | ---------------- | ------------ |
 | Strict | Valore predefinito. Abilita solo HTTPS
-| Abilitato | Abilita sia HTTP che HTTPS
-| Disattiva | Abilita solo HTTP
+| Attivato | Abilita sia HTTP che HTTPS
+| Disabled | Abilita solo HTTP
 
 ## <a name="inbound-client-authentication"></a>Autenticazione client in ingresso
 

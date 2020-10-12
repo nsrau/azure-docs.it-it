@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
 ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272651"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)
@@ -229,4 +229,4 @@ Per altre informazioni, vedere Panoramica di [FCI con SQL Server nelle macchine 
 
 Per altre informazioni, vedere: 
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server istanze del cluster di failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Istanze del cluster di failover di SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

@@ -16,10 +16,10 @@ ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63d1d87d9b576a8e181b5b339052a6b6512f18a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85359229"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>I dati del Servizio integrità non sono aggiornati
@@ -43,7 +43,7 @@ Nella tabella seguente viene eseguito il mapping dei tipi di servizio ai tipi di
 
 | Tipo di servizio | Agent (nome del servizio Windows) | Scopo | Tipo di dati generato  |
 | --- | --- | --- | --- |  
-| Azure AD Connect (sincronizzazione) | Azure AD Connect Health Sync Insights Service | Raccogliere informazioni specifiche di AAD Connect (connettori, regole di sincronizzazione e così via) | - AadSyncService-SynchronizationRules <br />  -AadSyncService-connettori <br /> - AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> -AadSyncService-ServiceStatus   |
+| Azure AD Connect (sincronizzazione) | Azure AD Connect Health Sync Insights Service | Raccogliere informazioni specifiche di AAD Connect (connettori, regole di sincronizzazione e così via) | -AadSyncService-SynchronizationRules <br />  -AadSyncService-Connectors <br /> -AadSyncService-GlobalConfigurations  <br />  -AadSyncService-RunProfileResults <br /> -AadSyncService-ServiceConfigurations <br /> -AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | Raccolta di contatori delle prestazioni specifici di AAD Connect, tracce ETW, file | Contatore delle prestazioni |
 | Servizi di dominio Active Directory | Azure AD Connect Health AD DS Insights Service | Eseguire test sintetici, raccogliere informazioni sulla topologia, metadati di replica |  -Aggiunge-TopologyInfo-JSON <br /> -Common-TestData-JSON (crea i risultati del test)   | 
 |  | Azure AD Connect Health AD DS Monitoring Service | Raccolta di contatori delle prestazioni specifici di aggiunta, tracce ETW, file | -Contatore delle prestazioni  <br /> -Common-TestData-JSON (carica i risultati del test)  |
@@ -58,13 +58,13 @@ Di seguito sono riportati i passaggi necessari per diagnosticare il problema. Il
 > [!IMPORTANT] 
 > Questo avviso è conforme ai [criteri di conservazione dei dati](reference-connect-health-user-privacy.md#data-retention-policy) di Connect Health.
 
-* Verificare che siano installate le versioni più recenti degli agenti. Visualizza la [cronologia delle versioni](reference-connect-health-version-history.md). 
-* Assicurarsi che i servizi di Azure AD Connect Health Agents siano **in esecuzione** nel computer. Ad esempio, Connect Health per AD FS deve avere tre servizi.
+* Verificare che siano installate le versioni più recenti degli agenti. Visualizzare la [cronologia delle versioni](reference-connect-health-version-history.md). 
+* Assicurarsi che i servizi degli agenti di Azure AD Connect Health siano **in esecuzione** nel computer. Ad esempio, Connect Health per AD FS deve avere tre servizi.
   ![Verificare Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Assicurarsi di esaminare le informazioni nella [sezione dei requisiti](how-to-connect-health-agent-install.md#requirements) e di essere conformi a tali requisiti.
-* Usare lo [strumento per il test della connettività](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) per individuare i problemi di connettività.
-* Se è presente un proxy HTTP, seguire questa [procedura di configurazione](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
+* Usare [lo strumento di connettività di test](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) per individuare i problemi di connettività.
+* Se si dispone di un proxy HTTP, attenersi alla [procedura di configurazione seguente](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

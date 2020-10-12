@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: e29e568786881f663414dcdf3eff72d4d72ab181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610609"
 ---
 # <a name="fqdn-tags-overview"></a>Panoramica dei tag FQDN
@@ -33,9 +33,9 @@ La tabella seguente mostra i tag FQDN attuali che è possibile usare. Microsoft 
 |Windows Update     |Consente l'accesso in uscita a Microsoft Update come descritto in [Come configurare un firewall per gli aggiornamenti software](https://technet.microsoft.com/library/bb693717.aspx).|
 |Diagnostica per Windows|Consente l'accesso in uscita a tutti gli [endpoint di Diagnostica Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Microsoft Active Protection Service (MAPS)|Consente l'accesso in uscita a [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
-|Ambiente del servizio app|Consente l'accesso in uscita al traffico della piattaforma Ambiente del servizio app. Questo tag non copre gli endpoint di archiviazione ed SQL specifici del cliente creati da Ambiente del servizio app. Tali endpoint devono essere abilitati tramite [Endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiunti manualmente.<br><br>Per altre informazioni sull'integrazione di Firewall di Azure con l'ambiente del servizio app, vedere [Blocco di un ambiente del servizio app](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
+|Ambiente del servizio app|Consente l'accesso in uscita al traffico della piattaforma Ambiente del servizio app. Questo tag non copre gli endpoint di archiviazione ed SQL specifici del cliente creati da Ambiente del servizio app. Queste devono essere abilitate tramite [endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiunte manualmente.<br><br>Per altre informazioni sull'integrazione di firewall di Azure con l'ambiente del servizio app, vedere [bloccare un ambiente del servizio app](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Backup di Azure|Consente l'accesso in uscita ai servizi Backup di Azure.|
-|HDInsight di Azure|Consente l'accesso in uscita per il traffico della piattaforma HDInsight. Questo tag non copre il traffico SQL o di archiviazione specifico del cliente da HDInsight. Abilitarli usando gli [endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiungerli manualmente.|
+|Azure HDInsight|Consente l'accesso in uscita per il traffico della piattaforma HDInsight. Questo tag non copre il traffico SQL o di archiviazione specifico del cliente da HDInsight. Abilitarli usando gli [endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiungerli manualmente.|
 |WindowsVirtualDesktop (WVD)|Consente il traffico della piattaforma desktop virtuale Windows in uscita. Questo tag non copre gli endpoint del bus di servizio e di archiviazione specifici della distribuzione creati da WVD. Sono inoltre necessarie le regole di rete DNS e KMS. Per altre informazioni sull'integrazione di firewall di Azure con WVD, vedere [usare il firewall di Azure per proteggere le distribuzioni di desktop virtuali di Windows](protect-windows-virtual-desktop.md).|
 |Servizio Azure Kubernetes|Consente l'accesso in uscita a AKS. Per altre informazioni, vedere [usare il firewall di Azure per proteggere le distribuzioni di Azure Kubernetes Service (AKS)](protect-azure-kubernetes-service.md).|
 

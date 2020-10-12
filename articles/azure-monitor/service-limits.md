@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
 ms.openlocfilehash: d2a2230613f9e4be3e0c9359a082843a4701b6f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77657912"
 ---
 # <a name="azure-monitor-service-limits"></a>Limiti del servizio Monitoraggio di Azure
@@ -39,6 +39,6 @@ Questo articolo elenca i limiti in diverse aree di monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/)
+- [Prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/)
 - [Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure](platform/usage-estimated-costs.md)
 - [Gestire l'utilizzo e i costi per Application Insights](app/pricing.md)

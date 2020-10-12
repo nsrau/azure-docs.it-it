@@ -15,13 +15,13 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272396"
 ---
-# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerazioni sulla sicurezza per SQL Server in macchine virtuali di Azure
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerazioni sulla sicurezza per SQL Server nelle macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Questo argomento include linee guida di sicurezza generali che consentono di stabilire l'accesso sicuro alle istanze di SQL Server in una macchina virtuale (VM) di Azure.
@@ -59,7 +59,7 @@ Occorre infine considerare di abilitare le connessioni crittografate per l'istan
 
 ## <a name="encryption"></a>Crittografia
 
-Managed Disks offre la crittografia lato server e crittografia dischi di Azure. La [crittografia lato server](/azure/virtual-machines/windows/disk-encryption) offre la crittografia dei dati inattivi e protegge i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. [Crittografia dischi di Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa la tecnologia BitLocker o DM-Crypt e si integra con Azure Key Vault per crittografare sia il disco del sistema operativo che i dischi dati. 
+Managed Disks offre Server-Side crittografia e crittografia dischi di Azure. La [crittografia lato server](/azure/virtual-machines/windows/disk-encryption) offre la crittografia dei dati inattivi e protegge i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. [Crittografia dischi di Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) usa la tecnologia BitLocker o DM-Crypt e si integra con Azure Key Vault per crittografare sia il disco del sistema operativo che i dischi dati. 
 
 ## <a name="use-a-non-default-port"></a>Usare una porta diversa da quella predefinita
 

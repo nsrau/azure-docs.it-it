@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.openlocfilehash: f2dd759203655746601699f665436c78ee0758f8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885506"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>JobConfig.jsdi analisi di flusso di Azure sui campi
@@ -37,7 +37,7 @@ I campi seguenti sono supportati nell' *JobConfig.jssu* file usato per [creare u
 }
 ```
 
-|Nome|Tipo|Obbligatoria|valore|
+|Nome|Type|Obbligatoria|valore|
 |----|----|--------|-----|
 |Impostazioni locali|stringa|No|Impostazioni locali dei dati del processo di analisi di flusso. Il valore deve corrispondere al nome di un oggetto supportato. Se non è specificato alcun valore, il valore predefinito è "en-US".|
 |OutputErrorPolicy|stringa|No|Indica i criteri da applicare agli eventi che arrivano all'output e che non possono essere scritti nella risorsa di archiviazione esterna a causa di un formato non valido (valori di colonna mancanti, valori di colonna di tipo o dimensione errata). -Arresta o Elimina|

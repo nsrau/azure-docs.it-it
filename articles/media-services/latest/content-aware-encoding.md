@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d08e09905841f6068f2bac45680a8e5a011c158
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297366"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usare il set di impostazioni di codifica compatibile con il contenuto per trovare il valore di velocità in bit ottimale per una determinata risoluzione
@@ -86,5 +86,5 @@ TransformOutput[] output = new TransformOutput[]
 * [Esercitazione: caricare, codificare e trasmettere in streaming video con servizi multimediali V3](stream-files-tutorial-with-api.md)
 * [Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST](stream-files-tutorial-with-rest.md)
 * [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-CLI](stream-files-cli-quickstart.md)
-* [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-.NET](stream-files-dotnet-quickstart.md)
-* [Esercitazione: codificare un file remoto in base all'URL e trasmettere il video Node.js](stream-files-nodejs-quickstart.md)
+* [Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - .NET](stream-files-dotnet-quickstart.md)
+* [Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - Node.js](stream-files-nodejs-quickstart.md)

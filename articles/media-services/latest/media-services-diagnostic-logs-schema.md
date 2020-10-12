@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 8cfbe26458de630aaf411aade4a31cb4e9c72b17
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295428"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
@@ -40,7 +40,7 @@ Per una descrizione dettagliata dello schema dei log di diagnostica di primo liv
 
 Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
 
-|Nome|Descrizione|
+|Nome|Description|
 |---|---|
 |keyId|ID della chiave richiesta.|
 |keyType|Può essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|

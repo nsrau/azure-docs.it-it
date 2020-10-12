@@ -10,10 +10,10 @@ ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527422"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Ripristini automatici delle istanze per i set di scalabilità di macchine virtuali di Azure
@@ -56,7 +56,7 @@ Questa funzionalità non è attualmente supportata per i set di scalabilità di 
 
 La funzionalità di ripristino automatico delle istanze si basa sul monitoraggio dello stato delle singole istanze in un set di scalabilità. Le istanze di VM in un set di scalabilità possono essere configurate per emettere lo stato di integrità dell'applicazione usando l' [estensione dell'integrità dell'applicazione](./virtual-machine-scale-sets-health-extension.md) o i [Probe di integrità del bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md) Se un'istanza risulta non integra, il set di scalabilità esegue un'azione di ripristino eliminando l'istanza non integra e creandone una nuova per sostituirla. Il modello di set di scalabilità di macchine virtuali più recente viene usato per creare la nuova istanza. Questa funzionalità può essere abilitata nel modello di set di scalabilità di macchine virtuali usando l'oggetto *automaticRepairsPolicy* .
 
-### <a name="batching"></a>Batch
+### <a name="batching"></a>Creazione di batch
 
 Le operazioni di ripristino automatico dell'istanza vengono eseguite in batch. In un determinato momento, non più del 5% delle istanze nel set di scalabilità viene ripristinato tramite i criteri di riparazione automatici. In questo modo è possibile evitare l'eliminazione e la ricreazione simultanee di un numero elevato di istanze, se non è stato trovato nello stesso momento.
 
@@ -287,7 +287,7 @@ Get-AzVmss `
     -InstanceView
 ```
 
-Usare il cmdlet Set-AzVmssOrchestrationServiceState per aggiornare il *serviceState* per le riparazioni automatiche dell'istanza. Una volta che il set di scalabilità è stato scelto per la funzionalità di ripristino automatico, è possibile usare questo cmdlet per sospendere o riprendere le riparazioni automatiche per il set di scalabilità.
+Usare Set-AzVmssOrchestrationServiceState cmdlet per aggiornare *serviceState* per le riparazioni automatiche dell'istanza. Una volta che il set di scalabilità è stato scelto per la funzionalità di ripristino automatico, è possibile usare questo cmdlet per sospendere o riprendere le riparazioni automatiche per il set di scalabilità.
 
 ```azurepowershell-interactive
 Set-AzVmssOrchestrationServiceState `
@@ -297,7 +297,7 @@ Set-AzVmssOrchestrationServiceState `
     -Action "Suspend"
 ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 **Errore di abilitazione dei criteri di riparazione automatica**
 
