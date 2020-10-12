@@ -1,6 +1,6 @@
 ---
-title: Distribuire l'offerta OpenShift container Platform 3,11 self-Managed Marketplace in Azure
-description: Distribuisci l'offerta OpenShift container Platform 3,11 self-Managed Marketplace in Azure.
+title: Distribuire OpenShift container Platform 3,11 Self-Managed offerta Marketplace in Azure
+description: Distribuire OpenShift container Platform 3,11 Self-Managed offerta Marketplace in Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,10 +11,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374100"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
@@ -63,7 +63,7 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 |-----------------------|-----------------|
 | Nome utente amministratore VM | Utente amministratore da creare in tutte le istanze di macchina virtuale |
 | Chiave pubblica SSH per l'utente amministratore | Chiave pubblica SSH usata per accedere alla macchina virtuale: non deve avere una passphrase |
-| Sottoscrizione | Sottoscrizione di Azure in cui distribuire il cluster |
+| Subscription | Sottoscrizione di Azure in cui distribuire il cluster |
 | Gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse cluster |
 | Location | Area di Azure in cui distribuire il cluster |
 

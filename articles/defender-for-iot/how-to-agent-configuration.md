@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939402"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: configurare gli agenti di sicurezza
@@ -105,7 +105,7 @@ Per usare un valore di proprietà predefinito, rimuovere la proprietà dall'ogge
     }
     ```
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ### <a name="using-a-default-value"></a>Uso di un valore predefinito
 
@@ -131,18 +131,18 @@ I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https
 |Nome evento| PropertyName | Valore predefinito| Evento snapshot| Stato dettagli  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Evento di diagnostica|eventPriorityDiagnostic| Off| False| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.|
-|Errore di configurazione |eventPriorityConfigurationError |Bassa |False |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.|
-|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Bassa |True|Statistiche evento correlate agli agenti. |
-|Hardware connesso|eventPriorityConnectedHardware |Bassa |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
+|Errore di configurazione |eventPriorityConfigurationError |Basso |False |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.|
+|Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True|Statistiche evento correlate agli agenti. |
+|Hardware connesso|eventPriorityConnectedHardware |Basso |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
 |Porte in ascolto|eventPriorityListeningPorts |Alto |True |Snapshot di tutte le porte di ascolto aperte sul dispositivo.|
-|Creazione processo |eventPriorityProcessCreate |Bassa |False |Controlla la creazione del processo nel dispositivo.|
-|Terminazione processo|eventPriorityProcessTerminate |Bassa |False |Controlla la terminazione del processo nel dispositivo.|
-|Informazioni di sistema |eventPrioritySystemInformation |Bassa |True |Uno snapshot delle informazioni di sistema (ad esempio, sistema operativo o CPU).|
+|Creazione processo |eventPriorityProcessCreate |Basso |False |Controlla la creazione del processo nel dispositivo.|
+|Terminazione processo|eventPriorityProcessTerminate |Basso |False |Controlla la terminazione del processo nel dispositivo.|
+|Informazioni di sistema |eventPrioritySystemInformation |Basso |True |Uno snapshot delle informazioni di sistema (ad esempio, sistema operativo o CPU).|
 |Utenti locali| eventPriorityLocalUsers |Alto |True|Snapshot degli utenti locali registrati nel sistema. |
 |Accedi|  eventPriorityLogin |Alto|False|Controllare gli eventi di accesso al dispositivo (account di accesso locali e remoti).|
-|Creazione della connessione |eventPriorityConnectionCreate|Bassa|False|Controlla le connessioni TCP create da e verso il dispositivo. |
-|Configurazione del firewall| eventPriorityFirewallConfiguration|Bassa|True|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
-|Baseline del sistema operativo| eventPriorityOSBaseline| Bassa|True|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
+|Creazione della connessione |eventPriorityConnectionCreate|Basso|False|Controlla le connessioni TCP create da e verso il dispositivo. |
+|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True|Snapshot della configurazione del firewall del dispositivo (regole del firewall). |
+|Baseline del sistema operativo| eventPriorityOSBaseline| Basso|True|Snapshot del controllo della linea di base del sistema operativo del dispositivo.|
 |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323726"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema

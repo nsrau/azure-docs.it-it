@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898904"
 ---
 # <a name="apply-image-transformation"></a>Apply Image Transformation 
@@ -47,20 +47,20 @@ Questo articolo descrive come usare il modulo Apply Image Transformation in Azur
 
 ### <a name="module-parameters"></a>Parametri del modulo
 
-| Nome | Range | Type | Predefinito                   | Descrizione                              |
+| Nome | Intervallo | Type | Predefinito                   | Descrizione                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
 | Mode | Qualsiasi   | Modalità | (Richiedere all'utente di specificare) | Per quale scopo si usa la trasformazione input. È necessario escludere le operazioni di trasformazione ' Random ' nell'inferenza ma mantenerle nel training |
 
 ### <a name="expected-inputs"></a>Input previsti  
 
-| Nome                       | Tipo                    | Descrizione                       |
+| Nome                       | Type                    | Descrizione                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Trasformazione immagine di input | TransformationDirectory | Trasformazione immagine di input        |
 | Directory dell'immagine di input      | ImageDirectory          | Directory dell'immagine da trasformare |
 
 ### <a name="outputs"></a>Output  
 
-| Nome                   | Tipo           | Descrizione            |
+| Nome                   | Type           | Descrizione            |
 | ---------------------- | -------------- | ---------------------- |
 | Directory dell'immagine di output | ImageDirectory | Directory dell'immagine di output |
 

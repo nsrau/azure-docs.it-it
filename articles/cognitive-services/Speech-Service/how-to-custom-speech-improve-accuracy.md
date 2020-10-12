@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-demjoh
 ms.openlocfilehash: bb904482f3cb5900b724803816269f1b10ab3720
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83727878"
 ---
-# <a name="improve-custom-speech-accuracy"></a>Migliorare l'accuratezza Riconoscimento vocale personalizzato
+# <a name="improve-custom-speech-accuracy"></a>Migliorare l'accuratezza di Riconoscimento vocale personalizzato
 
 Questo articolo illustra come migliorare la qualità del modello personalizzato aggiungendo le trascrizioni audio, con etichetta umana e il testo correlato.
 
@@ -37,8 +37,8 @@ Diversi scenari producono risultati qualitativi diversi. Nella tabella seguente 
 | Scenario | Qualità riconoscimento vocale | Errori di inserimento | Errori di eliminazione | Errori di sostituzione |
 |----------|----------------------------|------------------|-----------------|---------------------|
 | Call center | Media (< 30% WER) | Bassa, tranne quando altri utenti discutono in background | Può essere elevato. I Call Center possono essere rumorosi e gli altoparlanti sovrapposti possono confondere il modello | Media. I nomi di prodotti e persone possono causare questi errori |
-| Assistente vocale | Alta (può essere < il 10% WER) | Basso | Basso | Media, a causa di titoli di canzoni, nomi di prodotti o località |
-| Dettatura | Alta (può essere < il 10% WER) | Basso | Basso | Alta |
+| Assistente vocale | Alta (può essere < il 10% WER) | Bassa | Bassa | Media, a causa di titoli di canzoni, nomi di prodotti o località |
+| Dettatura | Alta (può essere < il 10% WER) | Bassa | Basso | Alto |
 | Sottotitoli video codificati | Dipende dal tipo di video (può essere < 50% WER) | Basso | Può essere elevato a causa di musica, rumori, qualità del microfono | Il gergo potrebbe causare questi errori |
 
 La determinazione dei componenti di WER (numero di errori di inserimento, eliminazione e sostituzione) consente di determinare il tipo di dati da aggiungere per migliorare il modello. Usare il [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech) per visualizzare la qualità di un modello di base. Il portale riporta le frequenze degli errori di inserimento, sostituzione ed eliminazione combinate nel tasso di qualità di WER.

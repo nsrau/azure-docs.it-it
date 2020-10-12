@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938048"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>Regolare il rilevamento anomalie usando il feedback
@@ -37,19 +37,19 @@ Con la modalità di annotazione feedback attivata, fare clic su un punto per apr
 
 È possibile lasciare un commento nella casella di testo del **Commento** e fare clic su **Save (Salva** ) per salvare il feedback.
 
-:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Menu commenti.":::
+:::image type="content" source="../media/feedback/feedback-menu.png" alt-text="Modalità di annotazione commenti.":::
 
 ## <a name="give-feedback-for-multiple-continuous-points"></a>Inviare commenti e suggerimenti per più punti continui
 
 È possibile inviare commenti e suggerimenti per più punti continui contemporaneamente facendo clic su di esso e trascinando il mouse sui punti che si desidera annotare. Viene visualizzato lo stesso menu di feedback illustrato in precedenza. Lo stesso feedback verrà applicato a tutti i punti scelti dopo aver fatto clic su **Salva**.
 
-:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Scegliere più punti":::
+:::image type="content" source="../media/feedback/continuous-points.png" alt-text="Modalità di annotazione commenti.":::
 
 ## <a name="how-to-view-my-feedback"></a>Come visualizzare i commenti e suggerimenti
 
 Per verificare se è stato modificato il rilevamento delle anomalie di un punto, passare il puntatore del mouse sul punto. La descrizione comando visualizzerà **interessato da feedback: true** se il rilevamento è stato modificato. Se viene visualizzato **false**, il calcolo del feedback è stato eseguito nel punto, ma il risultato del rilevamento anomalie non è stato modificato.
 
-:::image type="content" source="../media/feedback/affected-point.png" alt-text="Punto interessato dai commenti":::
+:::image type="content" source="../media/feedback/affected-point.png" alt-text="Modalità di annotazione commenti.":::
 
 ## <a name="when-should-i-annotate-an-anomaly-as-normal"></a>Quando è consigliabile annotare un'anomalia come "normale"
 

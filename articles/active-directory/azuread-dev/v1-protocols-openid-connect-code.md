@@ -15,10 +15,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: b719e866852d2e865c16c62fddd8c549ae505b7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85551550"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OpenID Connect e Azure Active Directory
@@ -111,9 +111,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parametro | Type | Descrizione |
 | --- | --- | --- |
 | tenant |obbligatorio |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
-| client_id |obbligatorio |ID applicazione assegnato all'app quando è stata registrata in Azure AD. Questo è reperibile nel portale di Azure. Fare clic su **Azure Active Directory**, fare clic su registrazioni per l' **app**, scegliere l'applicazione e individuare l'ID dell'applicazione nella pagina dell'applicazione. |
-| response_type |necessario |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri parametri response_type, ad esempio `code` o `token`. |
-| scope | Consigliato | La specifica di OpenID Connect richiede l'ambito `openid` , che viene convertito nell'autorizzazione "Sign Your in" nell'interfaccia utente del consenso. Questo e altri ambiti OIDC vengono ignorati nell'endpoint v 1.0, ma è comunque una procedura consigliata per i client conformi agli standard. |
+| client_id |necessarie |ID applicazione assegnato all'app quando è stata registrata in Azure AD. Questo è reperibile nel portale di Azure. Fare clic su **Azure Active Directory**, fare clic su registrazioni per l' **app**, scegliere l'applicazione e individuare l'ID dell'applicazione nella pagina dell'applicazione. |
+| response_type |necessarie |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere altri parametri response_type, ad esempio `code` o `token`. |
+| ambito | Consigliato | La specifica di OpenID Connect richiede l'ambito `openid` , che viene convertito nell'autorizzazione "Sign Your in" nell'interfaccia utente del consenso. Questo e altri ambiti OIDC vengono ignorati nell'endpoint v 1.0, ma è comunque una procedura consigliata per i client conformi agli standard. |
 | nonce |necessarie |Valore incluso nella richiesta, generata dall'app, che verrà incluso nel `id_token` risultante come attestazione. L'app può quindi verificare questo valore per l'attenuazione degli attacchi di riproduzione del token. Il valore è in genere un GUID o una stringa univoca casuale che consente di identificare l'origine della richiesta. |
 | redirect_uri | Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Se mancante, l'agente utente viene inviato di nuovo a uno degli URI di reindirizzamento registrati per l'app, in modo casuale. La lunghezza massima è 255 byte |
 | response_mode |facoltative |Specifica il metodo che deve essere usato per inviare un codice di autorizzazione all'app. I valori supportati sono `form_post` per *POST modulo HTTP* e `fragment` per *frammento URL*. Per le applicazioni Web è consigliabile usare `response_mode=form_post` per assicurare il trasferimento più sicuro dei token nell'applicazione. Il valore predefinito per qualsiasi flusso che include un id_token è `fragment`.|
@@ -135,7 +135,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | id_token |`id_token` richiesto dall'app. È possibile usare `id_token` per verificare l'identità dell'utente e avviare una sessione con l'utente. |
 | state |Valore incluso nella richiesta che viene restituito nella risposta del token. Per [evitare gli attacchi di richiesta intersito falsa](https://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Il parametro state viene anche usato per codificare le informazioni sullo stato dell'utente nell'app attivo prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista attiva. |
@@ -152,7 +152,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
@@ -244,7 +244,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | id_token |`id_token` richiesto dall'app. È possibile usare `id_token` per verificare l'identità dell'utente e avviare una sessione con l'utente. |
 | codice |Codice di autorizzazione richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. I codici di autorizzazione hanno una durata breve e in genere scadono dopo circa 10 minuti. |

@@ -7,10 +7,10 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
 ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328854"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Connettere Azure agli strumenti ITSM usando l'esportazione sicura
@@ -19,7 +19,7 @@ Questo articolo illustra come configurare la connessione tra il prodotto o il se
 
 L'esportazione protetta è una versione aggiornata di [IT Service Management Connector (connettore)](./itsmc-overview.md). Entrambe le versioni consentono di creare elementi di lavoro in uno strumento ITSM quando monitoraggio di Azure invia avvisi. La funzionalità include gli avvisi relativi a metriche, log e log attività.
 
-CONNETTORE usa le credenziali di nome utente e password. L'esportazione protetta ha un'autenticazione più avanzata perché usa Azure Active Directory (Azure AD). Azure AD è il servizio Microsoft di gestione delle identità e degli accessi basato sul cloud. Consente agli utenti di accedere alle risorse interne o esterne. L'uso di Azure AD con ITSM consente di identificare gli avvisi di Azure (tramite l'ID dell'applicazione Azure AD) inviati al sistema esterno.
+CONNETTORE usa le credenziali di nome utente e password. L'esportazione protetta ha un'autenticazione più avanzata perché usa Azure Active Directory (Azure AD). Azure AD è il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. Consente agli utenti di accedere alle risorse interne o esterne. L'uso di Azure AD con ITSM consente di identificare gli avvisi di Azure (tramite l'ID dell'applicazione Azure AD) inviati al sistema esterno.
 
 > [!NOTE]
 > La possibilità di connettere Azure agli strumenti ITSM tramite l'esportazione protetta è in anteprima.

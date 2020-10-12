@@ -4,10 +4,10 @@ description: Questo articolo illustra come filtrare gli eventi quando si crea un
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86120093"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Informazioni sui filtri eventi per le sottoscrizioni di Griglia di eventi

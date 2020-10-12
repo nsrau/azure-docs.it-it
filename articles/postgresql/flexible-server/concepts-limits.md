@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940398"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limiti nel database di Azure per PostgreSQL-server flessibile
@@ -75,7 +75,7 @@ Una connessione PostgreSQL, anche inattiva, può occupare circa 10 MB di memoria
 
 ### <a name="high-availability"></a>Disponibilità elevata
 
-- La disponibilità elevata con ridondanza della zona non è attualmente supportata per i server con picchi.
+- Zone-Redundant disponibilità elevata non è attualmente supportata per i server con estensione.
 - L'indirizzo IP del server di database cambia quando il server esegue il failover in standby a disponibilità elevata. Assicurarsi di usare il record DNS anziché l'indirizzo IP del server.
 
 ### <a name="availability-zones"></a>Zone di disponibilità

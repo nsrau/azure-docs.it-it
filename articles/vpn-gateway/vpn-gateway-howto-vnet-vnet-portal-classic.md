@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84985470"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
@@ -22,7 +22,7 @@ ms.locfileid: "84985470"
 Questo articolo consente di creare una connessione gateway VPN tra reti virtuali. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. I passaggi di questo articolo sono applicabili al modello di distribuzione classico e al portale di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -76,7 +76,7 @@ La tabella seguente mostra un esempio di come definire le reti virtuali. Usare g
 | Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Stati Uniti orientali |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti Occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Passaggio 2: Creare le reti virtuali
 
@@ -138,7 +138,7 @@ Il sito locale per ogni rete virtuale è l'altra rete virtuale. Per la configura
 | Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Stati Uniti orientali |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Stati Uniti Occidentali |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 1. Individuare TestVNet1 nel portale di Azure. Nella sezione **Connessioni VPN** della pagina fare clic su **Gateway**.
 

@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 434a977a6d8c5b2243996063f758f409c20723fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940914"
 ---
 # <a name="introducing-azure-defender-for-iot"></a>Introduzione ad Azure Defender per l'it
 
-Unifica la gestione della sicurezza e Abilita l'analisi e il rilevamento delle minacce end-to-end nei carichi di lavoro cloud ibridi e nella tua soluzione Azure.
+È possibile unificare la gestione della sicurezza e abilitare il rilevamento e l'analisi delle minacce end-to-end nei carichi di lavoro cloud ibridi e nella soluzione Azure IoT.
 
 ## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteggi la tua intera soluzione Internet delle cose da dispositivi Internet in Azure
 
@@ -36,7 +36,7 @@ Defender per le cose semplifica la protezione del carico di lavoro ibrido grazie
 
 ### <a name="unified-visibility-and-control"></a>Visibilità e controllo unificati
 
-Ottieni una visualizzazione unificata della sicurezza in tutti i tuoi carichi di lavoro locali e cloud, tra cui la tua soluzione Azure. Carica i nuovi dispositivi e applica i criteri di sicurezza nei tuoi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub Internet) per garantire la conformità agli standard di sicurezza e al miglioramento del comportamento di sicurezza.
+Ottieni una visualizzazione unificata della sicurezza in tutti i tuoi carichi di lavoro locali e cloud, tra cui la tua soluzione Azure. È possibile eseguire l'onboarding di nuovi dispositivi e applicare i criteri di sicurezza nei diversi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub IoT) per assicurare la conformità agli standard di sicurezza e migliorare il comportamento di sicurezza.
 
 ### <a name="adaptive-threat-prevention"></a>Prevenzione delle minacce adattiva
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 13d78110f50d6ce72b8525914ed0e91dfcadd2cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938502"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Gestire un database di Azure per PostgreSQL-server flessibile usando il portale di Azure
@@ -52,7 +52,7 @@ Dopo la creazione del server è possibile applicare la scalabilità tra i divers
 2. Immettere una nuova password e confermarla. Nella casella di testo vengono visualizzati i requisiti di complessità delle password.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Reimposta la password per il server flessibile":::
+> :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="ridimensionamento del server flessibile di archiviazione":::
 
 3. Selezionare **Save (Salva** ) per salvare la nuova password.
 
@@ -63,7 +63,7 @@ Se non è più necessario, è possibile eliminare il server.
 1. Selezionare il server nella portale di Azure. Nella finestra **Panoramica** selezionare **Elimina**.
 2. Digitare il nome del server nella casella di input per confermare che si desidera eliminare il server.
 
-   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="eliminare il server flessibile":::
+   :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="ridimensionamento del server flessibile di archiviazione":::
 
    > [!IMPORTANT]
    > L'eliminazione di un server è irreversibile.

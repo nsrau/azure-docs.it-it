@@ -1,14 +1,14 @@
 ---
 title: Panoramica di Azure Blueprint
 description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541765"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91614258"
 ---
 # <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
 
@@ -74,7 +74,10 @@ Quando si crea un progetto per la prima volta, questo viene considerato in modal
 
 ## <a name="blueprint-assignment"></a>Assegnazione progetto
 
-Ogni **versione** **pubblicata** di un progetto può essere assegnata (con un nome contenente al massimo 90 caratteri) a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri dell'artefatto (o parametri di progetto), questi vengono definiti durante il processo di assegnazione.
+Ogni **versione** **pubblicata** di un progetto può essere assegnata (con un nome contenente al massimo 90 caratteri) a un gruppo di gestione o a una sottoscrizione esistente. Nel portale il progetto imposta la **versione** **pubblicata** più di recente come predefinita. Se sono presenti parametri di artefatto o parametri di progetto, questi vengono definiti durante il processo di assegnazione.
+
+> [!NOTE]
+> L'assegnazione di una definizione di progetto a un gruppo di gestione indica l'esistenza dell'oggetto di assegnazione nel gruppo di gestione. La distribuzione di artefatti è ancora destinata a una sottoscrizione. Per eseguire un'assegnazione di un gruppo di gestione, è necessario usare l'[API REST Create o Update](/rest/api/blueprints/assignments/createorupdate) e il corpo della richiesta deve includere un valore per `properties.scope` per definire la sottoscrizione di destinazione.
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorizzazioni in Azure Blueprint
 

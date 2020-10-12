@@ -11,15 +11,15 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939205"
 ---
-# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Impostare le impostazioni del motore di database per l'iperscalabilità PostgreSQL abilitata per Azure Arc
+# <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Configurare le impostazioni del motore di database per PostgreSQL Hyperscale abilitato per Azure Arc
 
-Questo documento descrive la procedura per impostare le impostazioni del motore di database del gruppo di server di iperscalabilità PostgreSQL su valori personalizzati (non predefiniti). Per informazioni dettagliate sui parametri del motore di database che è possibile impostare e sul valore predefinito, vedere la documentazione di PostgreSQL [qui](https://www.postgresql.org/docs/current/runtime-config.html).
+Questo documento descrive la procedura per configurare le impostazioni del motore di database del gruppo di server di PostgreSQL Hyperscale su valori personalizzati, ovvero non predefiniti. Per informazioni dettagliate sui parametri del motore di database che è possibile impostare e sul valore predefinito, vedere la documentazione di PostgreSQL [qui](https://www.postgresql.org/docs/current/runtime-config.html).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 

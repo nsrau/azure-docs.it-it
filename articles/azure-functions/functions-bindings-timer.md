@@ -8,10 +8,10 @@ ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325794"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
@@ -270,7 +270,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 > [!CAUTION]
 > L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Quando viene richiamata una funzione di trigger del timer, nella funzione viene passato un oggetto timer. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
 

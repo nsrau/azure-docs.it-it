@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/22/2020
 ms.openlocfilehash: 229011f11ad6898555f59b063910d80a679070e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940446"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-mysql--single-server"></a>Panoramica di connessione ed esecuzione di query per database di Azure per MySQL-server singolo
@@ -21,12 +21,12 @@ Il documento seguente include collegamenti ad esempi che illustrano come connett
 
 | Guida introduttiva | Descrizione |
 |---|---|
-|[MySQL Workbench](connect-workbench.md)|Questa Guida introduttiva illustra come usare il client MySQL Workbench per connettersi a un database. È quindi possibile usare le istruzioni MySQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
+|[Workbench MySQL](connect-workbench.md)|Questa Guida introduttiva illustra come usare il client MySQL Workbench per connettersi a un database. È quindi possibile usare le istruzioni MySQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[Azure Cloud Shell](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#connect-to-azure-database-for-mysql-server-using-mysql-command-line-client)|Questo articolo illustra come eseguire **mysql.exe** in [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per connettersi al server e quindi eseguire istruzioni per eseguire query e inserire, aggiornare ed eliminare dati nel database.|
 |[MySQL con Visual Studio](https://www.mysql.com/why-mysql/windows/visualstudio)|È possibile usare MySQL per Visual Studio per la connessione al server MySQL. MySQL per Visual Studio si integra direttamente in Esplora server facilitando la configurazione di nuove connessioni e l'utilizzo di oggetti di database.|
 |[PHP](connect-php.md)|Questa Guida introduttiva illustra come usare PHP per creare un programma per connettersi a un database e usare istruzioni MySQL per eseguire query sui dati.|
 |[Java](connect-java.md)|Questa Guida introduttiva illustra come usare Java per connettersi a un database e quindi usare le istruzioni MySQL per eseguire query sui dati.|
-|[Node.js](connect-nodejs.md)|Questa Guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database e usare istruzioni MySQL per eseguire query sui dati.|
+|[Node.JS](connect-nodejs.md)|Questa Guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database e usare istruzioni MySQL per eseguire query sui dati.|
 |[.NET (C#)](connect-csharp.md)|Questa Guida introduttiva illustra come use.NET (C#) per creare un programma C# per connettersi a un database e usare istruzioni MySQL per eseguire query sui dati.|
 |[Go](connect-go.md)|Questa guida di avvio rapido illustra come usare Go per connettersi a un database. Vengono illustrate anche istruzioni Transact-SQL per eseguire query e modificare i dati.|
 |[Python](connect-python.md)|Questa Guida introduttiva illustra come usare Python per connettersi a un database e usare le istruzioni MySQL per eseguire query sui dati. |

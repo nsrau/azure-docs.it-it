@@ -4,10 +4,10 @@ description: Descrive la definizione di assegnazione dei criteri usata da criter
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904079"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
@@ -61,7 +61,7 @@ La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare
 
 Questa proprietà presenta i valori seguenti:
 
-|Modalità |Valore JSON |Tipo |Correzione manuale |Voce del log attività |Descrizione |
+|Modalità |Valore JSON |Type |Correzione manuale |Voce del log attività |Descrizione |
 |-|-|-|-|-|-|
 |Attivato |Predefinito |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
 |Disabled |DoNotEnforce |string |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
 ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324468"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Aggiungere feed di dati da origini dati diverse a metrica Advisor
@@ -40,7 +40,7 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 |[**Azure Application Insights**](#appinsights)|  Basic |
 |[**Archiviazione BLOB di Azure (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
-|[**Azure Esplora dati (kusto)**](#kusto) | Basic<br>ManagedIdentity|
+|[**Esplora dati di Azure (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Entità servizio<br>Entità servizio da Key Vault<br> |
 |[**Database SQL di Azure/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Entità servizio<br>Entità servizio da Key Vault<br>AzureSQLConnectionString
 |[**Archiviazione tabelle di Azure**](#table) | Basic | 
@@ -131,7 +131,7 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Esplora dati (kusto)</span>
+## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Esplora dati di Azure (Kusto)</span>
 
 * **Stringa di connessione**: per informazioni su come recuperare la stringa di connessione da Azure Esplora dati (kusto), vedere [visualizzare e copiare una stringa](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) di connessione.
 

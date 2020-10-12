@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
 ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325690"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
@@ -97,7 +97,7 @@ Un criterio di snapshot consente di specificare la frequenza di creazione dello 
 
     ![Criteri snapshot mensili](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Fare clic su **Salva**.  
+4.  Fare clic su **Save**.  
 
 Se è necessario creare criteri di snapshot aggiuntivi, ripetere il passaggio 3.
 I criteri creati vengono visualizzati nella pagina Criteri snapshot.
@@ -221,6 +221,6 @@ Se è stata selezionata la casella di controllo Nascondi percorso snapshot al mo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi relativi ai criteri snapshot](troubleshoot-snapshot-policies.md)
+* [Risolvere i problemi relativi ai criteri dello snapshot](troubleshoot-snapshot-policies.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Video snapshot di Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

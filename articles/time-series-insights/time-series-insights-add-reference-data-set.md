@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614241"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Azure Time Series Insights Gen1 usando il portale di Azure
 
 > [!CAUTION]
-> Questo è un articolo di Gen1.
+> È un articolo di Gen1.
 
 In questo articolo viene descritto come aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights. Risulta utile associare i dati di riferimento ai dati di origine per aumentarne il valore.
 

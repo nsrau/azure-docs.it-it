@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
 ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938482"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Connettere i dati da Microsoft 365 Defender ad Azure Sentinel
@@ -31,7 +31,7 @@ ms.locfileid: "90938482"
 >
 > È possibile visualizzare i nomi precedenti ancora in uso per un certo periodo di tempo.
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 Il nuovo [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) Connector consente di trasmettere i log di **caccia avanzati** , ovvero un tipo di dati di eventi non elaborati, da Microsoft 365 Defender ad Azure Sentinel. 
 

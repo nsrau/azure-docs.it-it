@@ -16,15 +16,15 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790977"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>Elencare le assegnazioni di ruolo di Azure tramite l'API REST
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Questo articolo descrive come elencare le assegnazioni di ruolo usando l'API REST.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Questo articolo descrive come elencare le assegnazioni di ruolo usando l'API REST.
 
 > [!NOTE]
 > Se l'organizzazione dispone di funzioni di gestione esternalizzate a un provider di servizi che usa la [gestione delle risorse delegate di Azure](../lighthouse/concepts/azure-delegated-resource-management.md), le assegnazioni di ruolo autorizzate dal provider di servizi non verranno visualizzate qui.
@@ -54,7 +54,7 @@ In controllo degli accessi in base al ruolo di Azure è possibile elencare le as
 1. Sostituire *{filter}* con la condizione da applicare per filtrare l'elenco delle assegnazioni di ruolo.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Descrizione |
+    > | Filtra | Descrizione |
     > | --- | --- |
     > | `$filter=atScope()` | Elenca le assegnazioni di ruolo solo per l'ambito specificato, escluse le assegnazioni di ruolo in ambito sottoambito. |
     > | `$filter=assignedTo('{objectId}')` | Elenca le assegnazioni di ruolo per un utente o un'entità servizio specificata.<br/>Se l'utente è membro di un gruppo che dispone di un'assegnazione di ruolo, viene elencata anche tale assegnazione di ruolo. Questo filtro è transitivo per i gruppi che significa che se l'utente è un membro di un gruppo e tale gruppo è membro di un altro gruppo che dispone di un'assegnazione di ruolo, viene elencata anche tale assegnazione di ruolo.<br/>Questo filtro accetta solo un ID oggetto per un utente o un'entità servizio. Non è possibile passare un ID oggetto per un gruppo. |
@@ -93,4 +93,4 @@ Il testo seguente è un esempio di output:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST](role-assignments-rest.md)
-- [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/)
+- [Informazioni di riferimento sulle API REST](/rest/api/azure/)

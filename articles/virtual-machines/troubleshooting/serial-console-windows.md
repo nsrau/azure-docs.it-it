@@ -1,6 +1,6 @@
 ---
 title: Console seriale di Azure per Windows | Microsoft Docs
-description: Console seriale bidirezionale per macchine virtuali di Azure e set di scalabilità di macchine virtuali con un esempio di Windows.
+description: Bi-Directional console seriale per macchine virtuali di Azure e set di scalabilità di macchine virtuali usando un esempio di Windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325981"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console seriale di Azure per Windows
