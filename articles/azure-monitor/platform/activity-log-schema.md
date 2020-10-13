@@ -8,10 +8,10 @@ ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612762"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
@@ -141,7 +141,7 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | authorization |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
 | caller |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. |
@@ -288,7 +288,7 @@ Questa categoria contiene il record degli eventi di integrità delle risorse che
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | channels | Sempre "Admin, Operation" |
 | correlationId | GUID in formato stringa. |
@@ -381,7 +381,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | caller | Sempre Microsoft.Insights/alertRules |
 | channels | Sempre "Admin, Operation" |
@@ -407,7 +407,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'evento dell'avviso. Due comuni provider di eventi di avviso sono gli avvisi delle metriche e gli avvisi del log attività.
 
 #### <a name="properties-for-activity-log-alerts"></a>Proprietà degli avvisi del log attività
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | properties.subscriptionId | ID della sottoscrizione dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività. |
 | properties.eventDataId | ID dei dati dell'evento dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività. |
@@ -418,7 +418,7 @@ Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'e
 | properties.status | Stato dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività.|
 
 #### <a name="properties-for-metric-alerts"></a>Proprietà degli avvisi delle metriche
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | properties.RuleUri | ID risorsa della regola di avviso per la metrica. |
 | properties.RuleName | Nome della regola di avviso per la metrica. |
@@ -491,7 +491,7 @@ Questa categoria contiene il record degli eventi correlati all'operazione del mo
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | caller | Sempre Microsoft.Insights/autoscaleSettings |
 | channels | Sempre "Admin, Operation" |
@@ -581,7 +581,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | channels | Sempre "Operation" |
 | correlationId | GUID in formato stringa. |
@@ -662,7 +662,7 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 
 ```
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | channels | Sempre "Operation" |
 | correlationId | GUID in formato stringa. |
@@ -772,7 +772,7 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 
 ### <a name="policy-event-property-descriptions"></a>Descrizioni delle proprietà degli eventi di Criteri
 
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | Description |
 | --- | --- |
 | authorization | Matrice delle proprietà RBAC dell'evento. Per le nuove risorse, questa è l'azione e l'ambito della richiesta che ha attivato la valutazione. Per le risorse esistenti, l'azione è "Microsoft.Resources/checkPolicyCompliance/read". |
 | caller | Per le nuove risorse, l'identità che ha avviato una distribuzione. Per le risorse esistenti, il GUID di Microsoft Azure Policy Insights RP. |

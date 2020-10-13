@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: dd052bf7a95cbadf2a107f7e49915a9899b084ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce4b93bc8f44e7bec490466fc42be829f942ae07
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614088"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940923"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Esercitazione: configurare Cinode per il provisioning utenti automatico
 
@@ -55,7 +55,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 3. Passare a **token** e creare un nuovo token.
 
-4. Immettere un nome univoco, selezionare https://api.cinode.app/scim/v2 come destinatari e impostare una data di scadenza in modo appropriato.
+4. Immettere un nome univoco, selezionare **' https://api.cinode.app/scim/v2 '** come audience e impostare una data di scadenza in modo appropriato.
 
 5. Fare clic su **crea token**.
 

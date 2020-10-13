@@ -4,12 +4,12 @@ description: Informazioni sulla crittografia al resto del registro contenitori d
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620342"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940668"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 
@@ -114,7 +114,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per Key Vault](../key-vault/general/rbac-guide.md) (anteprima) per assegnare autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi Ad esempio, assegnare il ruolo crittografia servizio Key Vault Crypto all'identità usando il comando [AZ Role Assignment create](/cli/azure/az/role/assigment#az-role-assignment-create) :
+In alternativa, usare il controllo degli accessi in base al ruolo di [Azure per Key Vault](../key-vault/general/rbac-guide.md) (anteprima) per assegnare autorizzazioni all'identità per accedere all'insieme di credenziali delle chiavi Ad esempio, assegnare il ruolo crittografia servizio Key Vault Crypto all'identità usando il comando [AZ Role Assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -525,7 +525,7 @@ Se si tenta di rimuovere un'identità assegnata dall'utente da un registro di si
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Non sarà possibile modificare (ruotare) la chiave di crittografia. Se si verifica questo problema, prima di tutto riassegnare l'identità utilizzando il GUID visualizzato nel messaggio di errore. Ad esempio:
+Non sarà possibile modificare (ruotare) la chiave di crittografia. Se si verifica questo problema, prima di tutto riassegnare l'identità utilizzando il GUID visualizzato nel messaggio di errore. Esempio:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
