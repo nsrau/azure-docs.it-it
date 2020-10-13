@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 83631c6c6503f32ba81195ecfe5df0b1a6c14092
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a8d79deb55a5693978569f5e3a940a03897efb80
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545288"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Esercitazione: Integrazione di Azure Active Directory con IDrive
 
@@ -99,11 +99,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con IDrive, seguire questa 
 
 4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Atlassian Cloud](common/preintegrated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base.](common/preintegrated.png)
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Atlassian Cloud](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL `https://www.idrive.com/idrive/login/loginForm`
 

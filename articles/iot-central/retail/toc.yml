@@ -35,7 +35,11 @@
         - name: 0 - Distribuire un'applicazione di rilevamento movimento e oggetti
           href: tutorial-video-analytics-deploy.md
         - name: 1 - Creare un'applicazione di analisi video
-          href: tutorial-video-analytics-create-app.md
+          items:
+            - name: Rilevamento movimento e oggetti (YOLO v3)
+              href: tutorial-video-analytics-create-app-yolo-v3.md
+            - name: Rilevamento movimento e oggetti (OpenVINO)
+              href: tutorial-video-analytics-create-app-openvino.md
         - name: 2 - Configurare un dispositivo IoT Edge
           items:
             - name: Creare un dispositivo di analisi video nella rete perimetrale (macchina virtuale Linux)
