@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88261889"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963296"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Stati e ciclo di vita di macchine virtuali
 
@@ -418,13 +418,13 @@ Una volta completata l'operazione, la macchina virtuale passerà a uno degli sta
 
 ## <a name="vm-instance-view"></a>Visualizzazione dell'istanza della macchina virtuale
 
-L'API per la visualizzazione dell'istanza fornisce informazioni sullo stato di esecuzione della macchina virtuale. Per altre informazioni, vedere la documentazione dell'API [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) (Macchine virtuali - Visualizzazione istanza).
+L'API per la visualizzazione dell'istanza fornisce informazioni sullo stato di esecuzione della macchina virtuale. Per altre informazioni, vedere la documentazione dell'API [Virtual Machines - Instance View](/rest/api/compute/virtualmachines/instanceview) (Macchine virtuali - Visualizzazione istanza).
 
 Azure Resource Explorer offre una semplice interfaccia utente per visualizzare lo stato di esecuzione della macchina virtuale: [Resource Explorer](https://resources.azure.com/).
 
 Gli stati di provisioning sono visibili nelle proprietà della macchina virtuale e nella visualizzazione dell'istanza. Gli stati di alimentazione sono disponibili nella visualizzazione dell'istanza di macchina virtuale.
 
-Per recuperare lo stato di alimentazione di tutte le macchine virtuali nella sottoscrizione, usare l'[API Macchine virtuali - Elenca tutte](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) con il parametro **statusOnly** impostato su *true*.
+Per recuperare lo stato di alimentazione di tutte le macchine virtuali nella sottoscrizione, usare l'[API Macchine virtuali - Elenca tutte](/rest/api/compute/virtualmachines/listall) con il parametro **statusOnly** impostato su *true*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

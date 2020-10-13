@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84730145"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia i file nuovi e modificati in modo incrementale in base a LastModifiedDate utilizzando lo strumento Copia dati
@@ -104,7 +104,7 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
 3. Nella pagina **archivio dati di origine** completare i passaggi seguenti:
 
-    a. Selezionare **Crea nuova connessione** per aggiungere una connessione.
+    a. Selezionare  **Crea nuova connessione** per aggiungere una connessione.
 
     b. Selezionare **archiviazione BLOB di Azure** dalla raccolta e quindi selezionare **continue (continua**):
 
@@ -128,7 +128,7 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
      ![Scegliere la pagina file o cartella di input](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. Nella pagina **archivio dati di destinazione** selezionare il servizio **AzureBlobStorage** creato. Si tratta dello stesso account di archiviazione dell'archivio dati di origine. Selezionare quindi **Avanti**.
+5. Nella pagina **archivio dati di destinazione** selezionare il servizio **AzureBlobStorage** creato. Si tratta dello stesso account di archiviazione dell'archivio dati di origine. Fare quindi clic su **Avanti**.
 
 6. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) completare questa procedura:
 

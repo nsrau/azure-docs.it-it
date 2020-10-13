@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 413847b7858549dc6130f219829b220b2857c7e2
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743200"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938891"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Risolvere i problemi relativi al dispositivo GPU Azure Stack Edge Pro 
 
@@ -167,7 +167,7 @@ Di seguito sono riportati gli errori che possono verificarsi durante la configur
 
 2. Verificare che siano installati i moduli di PowerShell corretti come indicato [qui](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client).
 
-3. Verificare che gli endpoint di Azure Resource Manager e di accesso siano raggiungibili. È possibile provare a effettuare il ping degli endpoint. Ad esempio:
+3. Verificare che gli endpoint di Azure Resource Manager e di accesso siano raggiungibili. È possibile provare a effettuare il ping degli endpoint. Esempio:
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -196,10 +196,11 @@ Ecco gli errori correlati all'archiviazione BLOB nel dispositivo Azure Stack Edg
 |Il comando AzCopy sembra smettere di rispondere per 20 minuti prima di visualizzare questo errore:<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts in: `/etc/hosts` .|
 |Il comando AzCopy sembra smettere di rispondere per 20 minuti prima di visualizzare l'errore seguente: `Error parsing source location… The SSL connection could not be established` .|Importare il certificato SSL del dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |Il valore per una delle intestazioni HTTP non è nel formato corretto.|La versione installata della libreria Archiviazione di Microsoft Azure per Python non è supportata da Data Box. Per informazioni sulle versioni supportate, vedere Azure Data Box requisiti di archiviazione BLOB.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Prima di eseguire python, impostare la variabile di ambiente REQUESTS_CA_BUNDLE sul percorso del file di certificato SSL con codifica Base64 (vedere How to [download the certificate](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Ad esempio:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>In alternativa, aggiungere il certificato all'archivio certificati del sistema, quindi impostare questa variabile di ambiente sul percorso di tale archivio. Ad esempio, in Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...| Prima di eseguire python, impostare la variabile di ambiente REQUESTS_CA_BUNDLE sul percorso del file di certificato SSL con codifica Base64 (vedere How to [download the certificate](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). Esempio:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>In alternativa, aggiungere il certificato all'archivio certificati del sistema, quindi impostare questa variabile di ambiente sul percorso di tale archivio. Ad esempio, in Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |Timeout della connessione.|Accedere al Azure Stack Edge Pro e verificare che sia sbloccato. Ogni volta che il dispositivo viene riavviato, rimane bloccato fino a quando l'utente non esegue l'accesso.|
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [problemi noti in questa versione](azure-stack-edge-gpu-2008-release-notes.md).
+- Altre informazioni su come [risolvere i problemi di attivazione del dispositivo](azure-stack-edge-gpu-troubleshoot-activation.md).

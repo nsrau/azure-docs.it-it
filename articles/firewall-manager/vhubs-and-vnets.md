@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
 ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563149"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quali sono le opzioni di architettura di Azure Firewall Manager?
@@ -35,7 +35,7 @@ Nella tabella seguente vengono confrontate queste due opzioni di architettura ch
 |**Risorsa sottostante**     |Rete virtuale|Hub WAN virtuale|
 |**Hub & spoke**     |Usa il peering di rete virtuale|Connessione automatizzata tramite la rete virtuale dell'hub|
 |**Connettività locale**     |Gateway VPN fino a 10 Gbps e 30 connessioni S2S; ExpressRoute|Gateway VPN più scalabile fino a 20 Gbps e 1000 connessioni S2S. Express Route|
-|**Connettività del ramo automatizzata con SDWAN**      |Non supportate|Supportato|
+|**Connettività del ramo automatizzata con SDWAN**      |Non supportato|Supportato|
 |**Hub per area**     |Più reti virtuali per area|Hub virtuale singolo per area. Più hub possibili con più WAN virtuali|
 |**Firewall di Azure: più indirizzi IP pubblici**      |Fornito dal cliente|Generato automaticamente|
 |**zone di disponibilità del firewall di Azure**     |Supportato|Non ancora disponibile|

@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816100"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
@@ -94,12 +94,12 @@ Quando si configura l'account, scegliere i valori seguenti:
 |----|---|
 |Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
 |Prestazioni|Premium|
-|Tipo di account|BlockBlobStorage|
+|Tipologia account|BlockBlobStorage|
 |Replica|Archiviazione con ridondanza locale|
 |Metodo di connettività|Endpoint pubblico (reti selezionate) o endpoint privato|
 |Trasferimento sicuro obbligatorio|Disabled|
-|Spazio dei nomi gerarchico|Abilitato|
-|NFS V3|Abilitato|
+|Spazio dei nomi gerarchico|Attivato|
+|NFS V3|Attivato|
 
 È possibile accettare i valori predefiniti per tutte le altre impostazioni. 
 
@@ -167,7 +167,7 @@ Creare una directory nel sistema Windows o Linux e quindi montare un contenitore
 
 ## <a name="resolve-common-issues"></a>Risolvere i problemi comuni
 
-|Problema/errore | Risoluzione|
+|Problema/errore | Soluzione|
 |---|---|
 |`Access denied by server while mounting`|Verificare che il client sia in esecuzione all'interno di una subnet supportata. Vedere i [percorsi di rete supportati](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verificare che il contenitore che si sta montando sia stato creato dopo aver verificato la registrazione della funzionalità. Vedere [passaggio 2: verificare che la funzionalità sia registrata](#step-2-verify-that-the-feature-is-registered). Assicurarsi anche di digitare il comando di montaggio e i relativi parametri direttamente nel terminale. Se si copiano e si incollano tutte le parti di questo comando nel terminale da un'altra applicazione, i caratteri nascosti nelle informazioni incollate potrebbero causare la visualizzazione di questo errore.|

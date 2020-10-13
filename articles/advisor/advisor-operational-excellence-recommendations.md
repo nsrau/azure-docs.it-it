@@ -4,10 +4,10 @@ description: USA Azure Advisor per ottimizzare e maturare l'eccellenza operativa
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258477"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Ottenere l'eccellenza operativa usando Azure Advisor
@@ -55,13 +55,13 @@ Criteri di Azure è un servizio di Azure che è possibile usare per creare, asse
 **Abilitare *ereditare un tag dai gruppi di risorse*.** Questi criteri aggiungono o sostituiscono il tag e il valore specifici del gruppo di risorse padre quando una risorsa viene aggiunta o aggiornata. È possibile monitorare e aggiornare le risorse esistenti attivando un'attività di correzione.
 
 ## <a name="no-validation-environment-enabled"></a>Nessun ambiente di convalida abilitato
-Azure Advisor determina che nella sottoscrizione corrente non è abilitato un ambiente di convalida. Quando si creano i pool host, \" nella scheda proprietà è stato selezionato No \" per \" ambiente di convalida \" . Avere almeno un pool host con un ambiente di convalida abilitato garantisce la continuità aziendale tramite le distribuzioni del servizio desktop virtuale di Windows con il rilevamento iniziale dei potenziali problemi. [Altre informazioni](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor determina che nella sottoscrizione corrente non è abilitato un ambiente di convalida. Quando si creano i pool host, \" nella scheda proprietà è stato selezionato No \" per \" ambiente di convalida \" . Avere almeno un pool host con un ambiente di convalida abilitato garantisce la continuità aziendale tramite le distribuzioni del servizio desktop virtuale di Windows con il rilevamento iniziale dei potenziali problemi. [Scopri di più](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
 
-## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Assicurarsi che l'ambiente di produzione (non di convalida) tragga vantaggio dalle funzionalità stabili
+## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Assicurarsi che l'ambiente di produzione (non di convalida) tragga vantaggio da funzionalità stabili
 Azure Advisor rileva che l'ambiente di convalida è abilitato per troppi pool host. Affinché gli ambienti di convalida soddisfino al meglio lo scopo, è necessario disporre di almeno uno, ma mai più della metà dei pool host nell'ambiente di convalida. Con un equilibrio integro tra i pool host con l'ambiente di convalida abilitato e quelli con disabilitato, è possibile sfruttare al meglio i vantaggi delle distribuzioni in più fasi offerte da desktop virtuale di Windows con determinati aggiornamenti. Per risolvere il problema, aprire le proprietà del pool host e selezionare \" No \" accanto all' \" impostazione dell'ambiente di convalida \" .
 
-## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Abilitare Analisi del traffico per visualizzare informazioni dettagliate sui modelli di traffico tra le risorse di Azure
-Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità sulle attività dell'utente e dell'applicazione in Azure. Analisi del traffico Network Watcher analizza i log dei flussi del gruppo di sicurezza di rete (NSG) per fornire informazioni sul flusso del traffico. Con analisi del traffico è possibile visualizzare i Talker principali tra le distribuzioni di Azure e non Azure, analizzare le porte aperte, i protocolli e i flussi dannosi nell'ambiente e ottimizzare la distribuzione della rete per le prestazioni. È possibile elaborare i log dei flussi a intervalli di 10 minuti e 60 minuti di elaborazione, offrendo un'analisi più veloce del traffico. È consigliabile abilitare Analisi del traffico per le risorse di Azure. 
+## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Abilitare Analisi del traffico per visualizzare informazioni dettagliate sui modelli di traffico nelle risorse di Azure
+Analisi del traffico è una soluzione basata sul cloud che fornisce la possibilità di visualizzare le attività di utenti e applicazioni in Azure. Analisi del traffico analizza i log dei flussi dei gruppi di sicurezza di rete di Network Watcher per fornire informazioni dettagliate sul flusso del traffico. Con Analisi del traffico è possibile visualizzare i Talker principali nelle distribuzioni Azure e non Azure, analizzare le porte aperte, i protocolli e i flussi dannosi nell'ambiente e ottimizzare la distribuzione della rete per le prestazioni. È possibile elaborare i log dei flussi a intervalli di elaborazione di 10 e 60 minuti, garantendo un'analisi più veloce del traffico. È consigliabile abilitare Analisi del traffico per le risorse di Azure. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e06a7a759c712b47f3a725a3c49a660226da6a09
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064146"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Eseguire la migrazione dai criteri di accesso all'insieme di credenziali a un modello di autorizzazione di controllo degli accessi in base al ruolo di Azure
@@ -86,8 +86,8 @@ Criteri di accesso modelli di autorizzazione predefiniti:
 
 Il controllo degli accessi in base al ruolo di Azure per la Key Vault consente l'assegnazione di ruoli
 - Gruppo di gestione
-- Sottoscrizione
-- Gruppo di risorse
+- Subscription
+- Resource group
 - Risorsa Key Vault
 - Chiave singola, segreto e certificato
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056004"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilizzo delle azioni del menu MMC in Gestione snapshot StorSimple
@@ -87,7 +87,7 @@ L'azione **Aggiorna** consente di aggiornare la finestra della console.
    1. Nella casella **Nome file** digitare un nome per file CSV oppure fare clic sulla freccia per selezionarne uno nell'elenco a discesa.
    2. Nella casella **Salva come** fare clic sulla freccia e selezionare un tipo di file nell'elenco a discesa.
    3. Per salvare solo elementi selezionati, selezionare le righe, quindi selezionare la casella di controllo **Salva solo righe selezionate**. Per salvare tutti gli elenchi esportati, deselezionare la casella di controllo **Salva solo le righe selezionate** .
-   4. Fare clic su **Salva**.
+   4. Fare clic su **Save**.
       
       ![Esportazione dell’elenco come file con valori delimitati da virgole](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

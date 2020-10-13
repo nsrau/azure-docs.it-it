@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86505520"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Usare le azioni di scalabilità automatica per inviare notifiche di avviso di webhook e posta elettronica in Monitoraggio di Azure
@@ -17,7 +17,7 @@ Questo articolo illustra come configurare i trigger per poter chiamare URL Web s
 ## <a name="webhooks"></a>Webhook
 I webhook consentono di instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le notifiche personalizzate. Ad esempio, il routing dell'avviso ai servizi in grado di gestire un SMS in ingresso Request to Send SMS, registrare bug, inviare notifiche a un team tramite servizi di messaggistica o chat e così via. L'URI del webhook deve essere un endpoint HTTP o HTTPS valido.
 
-## <a name="email"></a>Posta elettronica
+## <a name="email"></a>E-mail
 È possibile inviare un messaggio di posta elettronica a qualsiasi indirizzo di posta elettronica valido. Verrà inviata una notifica anche agli amministratori e ai coamministratori della sottoscrizione in cui viene eseguita la regola.
 
 ## <a name="cloud-services-and-app-services"></a>Servizi cloud e servizi app
@@ -58,7 +58,7 @@ Quando si usa l'API REST o il modello di Gestione risorse, includere l'elemento 
 
 | Campo | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| operazione |sì |Il valore deve essere "Scale" |
+| operation |sì |Il valore deve essere "Scale" |
 | sendToSubscriptionAdministrator |sì |Il valore deve essere "true" o "false" |
 | sendToSubscriptionCoAdministrators |sì |Il valore deve essere "true" o "false" |
 | customEmails |sì |Il valore può essere null [] o la matrice di stringhe di messaggi di posta elettronica |
@@ -102,9 +102,9 @@ Quando viene generata la notifica di scalabilità automatica, nel payload del we
 | Campo | Obbligatorio? | Descrizione |
 | --- | --- | --- |
 | status |sì |Stato che indica che è stata generata un'azione di scalabilità automatica |
-| operazione |sì |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In" |
+| operation |sì |Per un aumento delle istanze, sarà "Scale Out", mentre per una riduzione delle istanze, sarà "Scale In" |
 | contesto |sì |Contesto dell'azione di scalabilità automatica |
-| timestamp |sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica |
+|  timestamp |sì |Timestamp in cui è stata attivata l'azione di scalabilità automatica |
 | id |Sì |ID di Resource Manager dell'impostazione di scalabilità automatica |
 | name |Sì |Nome dell'impostazione di scalabilità automatica |
 | dettagli |Sì |Spiegazione dell'azione eseguita dal servizio di scalabilità automatica e della modifica al conteggio delle istanze |

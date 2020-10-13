@@ -9,10 +9,10 @@ ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
 ms.openlocfilehash: 1c2156975eb8d8dcb3580603dfbe1f5d1390b79a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88852473"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Applicare la sicurezza e usare criteri in macchine virtuali in Azure
@@ -43,7 +43,7 @@ La crittografia non influisca sulle prestazioni dei dischi gestiti. Non sono pre
 
 Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](windows/disk-encryption.md) o [Linux](linux/disk-encryption.md).
 
-### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Per migliorare la sicurezza e la conformità delle [macchine virtuali Windows](windows/disk-encryption-overview.md) e delle [macchine virtuali Linux](linux/disk-encryption-overview.md), i dischi virtuali in Azure possono essere crittografati. I dischi virtuali delle VM di Windows vengono crittografati a riposo mediante BitLocker. I dischi virtuali delle VM Linux vengono crittografati quando sono inattivi usando dm-crypt. 
 

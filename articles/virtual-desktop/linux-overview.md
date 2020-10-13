@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320243"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960644"
 ---
 # <a name="linux-support"></a>Supporto di Linux
 
-È possibile accedere alle risorse di desktop virtuali Windows dai dispositivi Linux con i client supportati seguenti, forniti dai partner thin client Linux. Microsoft collabora con diversi partner per abilitare i client desktop virtuali Windows supportati in più sistemi operativi e dispositivi basati su Linux. Se è necessario il supporto per desktop virtuali Windows in una piattaforma Linux non elencata qui, inviare una notifica nella [pagina UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+È possibile accedere alle risorse di desktop virtuali Windows dai dispositivi Linux con il [client Web](connect-web.md) o i client supportati seguenti, forniti dai partner thin client Linux. Microsoft sta collaborando con diversi partner per abilitare i client desktop virtuali Windows supportati su più dispositivi e sistemi operativi basati su Linux. Se è necessario il supporto per desktop virtuali Windows in una piattaforma Linux non elencata in questa pagina, è possibile inviarla alla [pagina UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Connettersi con il dispositivo Linux
 

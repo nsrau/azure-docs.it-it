@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
 ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88516623"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entità servizio di Azure Active Directory con Azure SQL
@@ -81,7 +81,7 @@ Per abilitare la creazione di un oggetto Azure AD nel database SQL e nella sinap
 > [!IMPORTANT]
 > I passaggi 1 e 2 devono essere eseguiti nell'ordine precedente. Prima di tutto, creare o assegnare l'identità del server, quindi concedere l'autorizzazione per i [**lettori di directory**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Se si omette uno di questi passaggi, si verificherà un errore di esecuzione durante la creazione di un oggetto Azure AD in Azure SQL per conto di un'applicazione Azure AD. Per istruzioni dettagliate su come creare un utente Azure AD per conto di un'applicazione Azure AD, vedere [esercitazione: creare Azure ad utenti che usano applicazioni Azure ad](authentication-aad-service-principal-tutorial.md).
 >
-> Nell' **anteprima pubblica**è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando la necessità di un amministratore **globale** o di **ruoli con privilegi** per concedere il ruolo dei **lettori di directory** . Per altre informazioni su questa funzionalità, vedere [ruolo dei lettori di directory nella Azure Active Directory per SQL di Azure](authentication-aad-directory-readers-role.md).
+> Nell' **anteprima pubblica**è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando la necessità di un amministratore **globale** o di **ruoli con privilegi** per concedere il ruolo dei **lettori di directory** . Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Risoluzione dei problemi e limitazioni per l'anteprima pubblica
 
