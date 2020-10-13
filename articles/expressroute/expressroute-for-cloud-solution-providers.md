@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653639"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
@@ -112,7 +112,7 @@ La tabella di route predefinita include le route seguenti:
 ![Diagramma che mostra le opzioni di routing predefinite.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Routing definito dall'utente
-Le route definite dall'utente consentono di controllare il traffico in uscita dalla subnet assegnata ad altre subnet nella rete virtuale o su uno degli altri gateway predefiniti (ExpressRoute, Internet o VPN). La tabella di routing di sistema predefinita può essere sostituita con una tabella di routing definita dall'utente che sostituisce la tabella di routing predefinita con route personalizzate. Con il routing definito dall'utente, i clienti possono creare route specifiche alle appliance, ad esempio firewall o appliance per il rilevamento di intrusioni, o bloccare l'accesso a subnet specifiche dalla subnet che ospita la route definita dall'utente. Per una panoramica delle route definite dall'utente, vedere [qui](../virtual-network/virtual-networks-udr-overview.md). 
+Le route definite dall'utente consentono di controllare il traffico in uscita dalla subnet assegnata ad altre subnet nella rete virtuale o su uno degli altri gateway predefiniti (ExpressRoute, Internet o VPN). La tabella di routing di sistema predefinita può essere sostituita con una tabella di routing definita dall'utente che sostituisce la tabella di routing predefinita con route personalizzate. Con il routing definito dall'utente, i clienti possono creare route specifiche alle appliance, ad esempio firewall o appliance per il rilevamento di intrusioni, o bloccare l'accesso a subnet specifiche dalla subnet che ospita la route definita dall'utente. Per una panoramica delle route User-Defined, vedere [qui](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Sicurezza
 A seconda del modello in uso, connessione diretta o connessione indiretta, il cliente definisce i criteri di sicurezza nella rete virtuale o fornisce i requisiti dei criteri di sicurezza al CSP per definirli per le reti virtuali. Possono essere definiti i criteri di sicurezza seguenti:

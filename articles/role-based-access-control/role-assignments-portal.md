@@ -11,10 +11,10 @@ ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4e5c13c635091988f299d31c67795916e709d51a
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597624"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure
@@ -41,7 +41,7 @@ Per essere il più efficace con la pagina controllo di accesso (IAM), consente d
 
 1. Trovare il ruolo appropriato. Le autorizzazioni vengono raggruppate in ruoli. È possibile scegliere da un elenco di diversi [ruoli predefiniti di Azure](built-in-roles.md) oppure usare ruoli personalizzati.
 
-1. Identificare l'ambito necessario. Azure offre quattro livelli di ambito: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)e risorsa. Per ulteriori informazioni sull'ambito, vedere [comprendere l'ambito](scope-overview.md).
+1. Identificare l'ambito necessario. Azure offre quattro livelli di ambito: [gruppo di gestione](../governance/management-groups/overview.md), sottoscrizione, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups)e risorsa. Per altre informazioni sull'ambito, vedere [Informazioni sull'ambito](scope-overview.md).
 
 1. Eseguire i passaggi in una delle sezioni seguenti per assegnare un ruolo.
 

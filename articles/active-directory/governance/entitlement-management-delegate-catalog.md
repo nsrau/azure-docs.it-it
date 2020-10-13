@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87798427"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delega della governance di accesso ai creatori di cataloghi in Azure AD gestione dei diritti
@@ -47,7 +47,7 @@ Attenersi alla procedura seguente per assegnare un utente al ruolo di autore del
 
 1. Fare clic su **Seleziona**.
 
-1. Fare clic su **Save** (Salva).
+1. Fare clic su **Save**.
 
 ## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Consenti ai ruoli delegati di accedere al portale di Azure
 

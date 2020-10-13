@@ -14,10 +14,10 @@ ms.custom:
 - references_regions
 ms.date: 07/15/2020
 ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563999"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
@@ -94,7 +94,7 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
-- Stati Uniti occidentali 2
+- West US 2
 - Stati Uniti centro-meridionali
 - Stati Uniti centrali
 - Europa settentrionale

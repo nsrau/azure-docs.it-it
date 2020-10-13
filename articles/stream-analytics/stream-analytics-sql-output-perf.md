@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869423"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
@@ -48,7 +48,7 @@ L'inserimento bulk dei dati è molto più veloce del caricamento dei dati con si
 
 Se la frequenza degli eventi in ingresso è bassa, è possibile creare facilmente dimensioni batch inferiori a 100 righe, rendendo inefficiente l'inserimento bulk e utilizzando una quantità eccessiva di spazio su disco. Per ovviare a questa limitazione, è possibile eseguire una di queste operazioni:
 * Creare un [trigger](/sql/t-sql/statements/create-trigger-transact-sql) instead of per utilizzare l'inserimento semplice per ogni riga.
-* Usare una tabella temporanea in memoria, come descritto nella sezione precedente.
+* Usare una tabella In-Memory Temp, come descritto nella sezione precedente.
 
 Un altro scenario di questo tipo si verifica quando si scrive in un indice columnstore non cluster (NCCI), in cui gli inserimenti bulk più piccoli possono creare troppi segmenti, che possono causare l'arresto anomalo dell'indice. In questo caso, è consigliabile usare un indice columnstore cluster.
 

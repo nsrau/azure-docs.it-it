@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dfd0929ea03cd99033482f71579e91aaf6fc131c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068243"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969638"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Opzioni di rete del servizio Azure Image Builder
 
@@ -33,7 +33,7 @@ Per ulteriori informazioni, vedere uno degli esempi seguenti:
 
 ### <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure?
 
-Il collegamento privato di Azure fornisce la connettività privata da una rete virtuale a una piattaforma distribuita come servizio (PaaS) di Azure, di proprietà del cliente o di servizi partner Microsoft. Semplifica l'architettura di rete e protegge la connessione tra gli endpoint in Azure eliminando l'esposizione dei dati alla rete Internet pubblica. Per ulteriori informazioni, vedere la [documentazione del collegamento privato](https://docs.microsoft.com/azure/private-link).
+Il collegamento privato di Azure fornisce la connettività privata da una rete virtuale a una piattaforma distribuita come servizio (PaaS) di Azure, di proprietà del cliente o di servizi partner Microsoft. Semplifica l'architettura di rete e protegge la connessione tra gli endpoint in Azure eliminando l'esposizione dei dati alla rete Internet pubblica. Per ulteriori informazioni, vedere la [documentazione del collegamento privato](../../private-link/index.yml).
 
 ### <a name="required-permissions-for-an-existing-vnet"></a>Autorizzazioni necessarie per un VNET esistente
 
@@ -68,7 +68,7 @@ Le dimensioni della VM del proxy distribuito sono A1_v2 standard oltre alla macc
 | subnetName | Nome della subnet all'interno della rete virtuale specificata. Deve essere specificato se e solo se il *nome* è specificato. |
 | resourceGroupName | Nome del gruppo di risorse che contiene la rete virtuale specificata. Deve essere specificato se e solo se il *nome* è specificato. |
 
-Il servizio di collegamento privato richiede un indirizzo IP dalla subnet e dal VNET specificati. Attualmente, Azure non supporta i criteri di rete in questi IP. Di conseguenza, è necessario disabilitare i criteri di rete nella subnet. Per ulteriori informazioni, vedere la [documentazione del collegamento privato](https://docs.microsoft.com/azure/private-link).
+Il servizio di collegamento privato richiede un indirizzo IP dalla subnet e dal VNET specificati. Attualmente, Azure non supporta i criteri di rete in questi IP. Di conseguenza, è necessario disabilitare i criteri di rete nella subnet. Per ulteriori informazioni, vedere la [documentazione del collegamento privato](../../private-link/index.yml).
 
 ### <a name="checklist-for-using-your-vnet"></a>Elenco di controllo per l'uso di VNET
 

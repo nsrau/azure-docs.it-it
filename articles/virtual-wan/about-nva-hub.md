@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313774"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Informazioni sull'appliance virtuale di rete in un hub WAN virtuale di Azure (anteprima)
@@ -50,7 +50,7 @@ I partner di appliance virtuale di dispositivi possono creare risorse diverse in
 * **Gruppo di risorse del cliente** : contiene un segnaposto per l'applicazione gestita. I partner possono usarlo per esporre le proprietà dei clienti che scelgono qui.
 * **Gruppo di risorse gestite** : i clienti non possono configurare o modificare direttamente le risorse in questo gruppo di risorse, perché questo è controllato dall'editore dell'applicazione gestita. Questo gruppo di risorse conterrà la risorsa **NetworkVirtualAppliances** .
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Gruppi di risorse dell'applicazione gestita":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Panoramica del processo":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>Unità di infrastruttura NVA
 
