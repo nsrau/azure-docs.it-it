@@ -13,12 +13,12 @@ ms.date: 09/6/2019
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77084047"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965999"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guida alla migrazione da ADAL a MSAL per Android
 
@@ -238,19 +238,16 @@ public interface SilentAuthenticationCallback {
 In ADAL è presente un tipo di eccezione, `AuthenticationException` , che include un metodo per il recupero del `ADALError` valore enum.
 In MSAL è presente una gerarchia di eccezioni e ognuna ha un proprio set di codici di errore specifici associati.
 
-Elenco di eccezioni MSAL
-
-|Eccezione  | Descrizione  |
-|---------|---------|
-| `MsalException`     | Eccezione controllata predefinita generata da MSAL.  |
-| `MsalClientException`     | Viene generata se l'errore è lato client. |
-| `MsalArgumentException`     | Generata se uno o più argomenti di input non sono validi. |
-| `MsalClientException`     | Viene generata se l'errore è lato client. |
-| `MsalServiceException`     | Viene generata se l'errore è lato server. |
-| `MsalUserCancelException`     | Generata se l'utente ha annullato il flusso di autenticazione.  |
-| `MsalUiRequiredException`     | Viene generata se il token non può essere aggiornato in modo invisibile all'utente.  |
-| `MsalDeclinedScopeException`     | Generata se uno o più ambiti richiesti sono stati rifiutati dal server.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Generata se per la risorsa sono abilitati i criteri di protezione MAMCA. |
+| Eccezione                                        | Descrizione                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalException`                                  | Eccezione controllata predefinita generata da MSAL.                           |
+| `MsalClientException`                            | Viene generata se l'errore è lato client.                                 |
+| `MsalArgumentException`                          | Generata se uno o più argomenti di input non sono validi.                 |
+| `MsalServiceException`                           | Viene generata se l'errore è lato server.                                 |
+| `MsalUserCancelException`                        | Generata se l'utente ha annullato il flusso di autenticazione.                |
+| `MsalUiRequiredException`                        | Viene generata se il token non può essere aggiornato in modo invisibile all'utente.                    |
+| `MsalDeclinedScopeException`                     | Generata se uno o più ambiti richiesti sono stati rifiutati dal server. |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Generata se per la risorsa sono abilitati i criteri di protezione MAMCA.         |
 
 ### <a name="adalerror-to-msalexception-errorcode"></a>ADALError MsalException ErrorCode
 

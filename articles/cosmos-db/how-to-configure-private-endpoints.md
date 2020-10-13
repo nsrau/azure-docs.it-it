@@ -8,10 +8,10 @@ ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334430"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos
@@ -98,7 +98,7 @@ Dopo aver eseguito il provisioning dell'endpoint privato, è possibile eseguire 
 1. Cercare l'endpoint privato creato in precedenza. In questo caso, si tratta di **cdbPrivateEndpoint3**.
 1. Selezionare la scheda **Panoramica** per visualizzare le impostazioni DNS e gli indirizzi IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Indirizzi IP privati nel portale di Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::
 
 Per ogni endpoint privato vengono creati più indirizzi IP:
 
@@ -411,7 +411,7 @@ Per questi account, è necessario creare un endpoint privato per ogni tipo di AP
 
 Al termine della distribuzione del modello, è possibile visualizzare un output simile a quello illustrato nell'immagine seguente. Il valore `provisioningState` è `Succeeded` se gli endpoint privati sono configurati correttamente.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Output della distribuzione per il modello di Resource Manager":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::
 
 Dopo aver distribuito il modello, gli indirizzi IP privati vengono riservati all'interno della subnet. La regola del firewall dell'account Azure Cosmos è configurata per accettare solo connessioni dall'endpoint privato.
 
