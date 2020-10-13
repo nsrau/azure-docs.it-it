@@ -3,18 +3,18 @@ title: Documentazione di Microsoft Identity Platform
 summary: Microsoft Identity Platform include un servizio di autenticazione, librerie open source e strumenti di gestione delle applicazioni. Informazioni su come creare soluzioni di autenticazione moderne basate su standard con avvii rapidi, esercitazioni ed esempi di codice. È possibile creare applicazioni a cui utenti e clienti possono accedere usando le identità Microsoft o gli account di social networking e autorizzare l'accesso ad API o ad API Microsoft come Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 09/26/2020
+  ms.date: 10/07/2020
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: d80d722594e717319bda473e2cb86551acc8d9f0
-  ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+  ms.openlocfilehash: b6dfd02b11c972ae4877e45e7424d3e35f0d0874
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/28/2020
-  ms.locfileid: "91403144"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91801886"
 landingContent:
 - title: Microsoft Identity Platform
   linkLists:
@@ -120,6 +120,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Panoramica della libreria Microsoft Identity Web
+      url: microsoft-identity-web.md
     - text: 'Esercitazione: Blazor Server'
       url: tutorial-blazor-server.md
     - text: "Avvio rapido: Proteggere un'API Web ASP.NET Core"

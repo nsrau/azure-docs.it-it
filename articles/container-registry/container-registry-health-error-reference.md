@@ -4,10 +4,10 @@ description: Codici di errore e possibili soluzioni per i problemi rilevati medi
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565599"
 ---
 # <a name="health-check-error-reference"></a>Riferimento errore controllo integrità

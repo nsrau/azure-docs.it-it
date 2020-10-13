@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
 ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567146"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
@@ -149,13 +149,13 @@ Di seguito è riportato un mapping di tutti i tipi di dati delle proprietà e de
 | Double |  ". float64" |    24,99|
 | Array | ". matrice" |    ["a", "b"]|
 |Binary | ". Binary" |0|
-|Boolean    | ". bool"   |Vero|
+|Boolean    | ". bool"   |True|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Null   | ". null"   | Null|
 |string|    ". stringa" | "ABC"|
 |Timestamp |    ". timestamp" |  Timestamp (0,0)|
-|DataOra   |". date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|Datetime   |". date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
 |Documento   |". Object" |    {"a": "a"}|
 

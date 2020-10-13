@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: bb1abb5b94653893e131c09af6de1625b0bc7998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87554855"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972357"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opzioni di backup e ripristino per macchine virtuali Linux in Azure
 
@@ -32,7 +32,7 @@ Azure Site Recovery protegge le VMs da uno scenario reale di ripristino di emerg
 
 È possibile eseguire esercitazioni per il ripristino di emergenza con failover di test su richiesta, senza influire sui carichi di lavoro di produzione o sulla replica continua. Creare piani di ripristino per orchestrare il failover e il failback dell'intera applicazione in esecuzione in più VM. La funzionalità del piano di ripristino è integrata con i runbook di Automazione di Azure.
 
-Iniziare eseguendo [la replica delle macchine virtuali](https://aka.ms/a2a-getting-started). 
+Iniziare eseguendo [la replica delle macchine virtuali](../site-recovery/azure-to-azure-quickstart.md). 
 
 ## <a name="managed-snapshots"></a>Snapshot gestiti 
 

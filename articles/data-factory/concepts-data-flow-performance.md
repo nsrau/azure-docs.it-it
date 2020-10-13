@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
 ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370879"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
@@ -173,7 +173,7 @@ Mentre i flussi di dati supportano un'ampia gamma di tipi di file, il Azure Data
 
 Se si sta eseguendo lo stesso flusso di dati in un set di file, è consigliabile leggere da una cartella, usando percorsi con caratteri jolly o leggendo da un elenco di file. Una singola esecuzione dell'attività flusso di dati può elaborare tutti i file in batch. Altre informazioni su come impostare queste impostazioni sono disponibili nella documentazione del connettore, ad esempio [archiviazione BLOB di Azure](connector-azure-blob-storage.md#source-transformation).
 
-Se possibile, evitare di utilizzare l'attività for-each per eseguire il flusso di dati in un set di file. In questo modo ogni iterazione di for-each può creare il proprio cluster Spark, che spesso non è necessario e può essere costoso. 
+Se possibile, evitare di utilizzare l'attività For-Each per eseguire i flussi di dati su un set di file. In questo modo ogni iterazione di for-each può creare il proprio cluster Spark, che spesso non è necessario e può essere costoso. 
 
 ## <a name="optimizing-sinks"></a>Ottimizzazione di sink
 
