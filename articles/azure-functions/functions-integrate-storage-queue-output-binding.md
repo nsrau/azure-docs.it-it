@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982013"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
@@ -38,7 +38,7 @@ In questa sezione si usa l'interfaccia utente del portale per aggiungere un'asso
 
 1. Selezionare il tipo di binding **archiviazione code di Azure** e aggiungere le impostazioni specificate nella tabella riportata dopo lo screenshot: 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Aggiungere un binding di output di archiviazione code a una funzione nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Creare un binding di output per la funzione." border="true":::
     
     | Impostazione      |  Valore consigliato   | Descrizione                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -94,7 +94,7 @@ In questa sezione si aggiunge il codice che scrive un messaggio nella coda di ou
 1. Dopo aver salvato le modifiche al codice, selezionare **Test**.
 1. Verificare che il test corrisponda all'immagine seguente e selezionare **Esegui**. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Testare il binding di archiviazione della coda nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Creare un binding di output per la funzione." border="true":::
 
     Si noti che in **Corpo della richiesta** è presente il valore di `name`*Azure*. Questo valore viene visualizzato nel messaggio della coda creato quando viene richiamata la funzione.
     
@@ -111,11 +111,11 @@ Quando il binding di output viene usato per la prima volta, nell'account di arch
 
 1. In **Impostazioni applicazione** selezionare **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Screenshot mostra la pagina di configurazione con AzureWebJobsStorage selezionato." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Creare un binding di output per la funzione." border="true":::
 
 1. Trovare e prendere nota del nome dell'account.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Trovare l'account di archiviazione connesso ad AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Creare un binding di output per la funzione." border="true":::
 
 ### <a name="examine-the-output-queue"></a>Esaminare la coda di output
 

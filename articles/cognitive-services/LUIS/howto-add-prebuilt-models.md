@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.openlocfilehash: 2080139732d71aa5df9a9d4ad13fcc4545128dff
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541918"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Aggiungere modelli predefiniti per scenari di utilizzo comuni
@@ -57,7 +57,7 @@ LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari ut
     > [!div class="mx-imgBorder"]
     > ![Finestra di dialogo Add prebuilt entities (Aggiungi entità predefinite)](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
-1. Selezionare **Fine**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app.
+1. Selezionare **Operazione completata**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app.
 
 ## <a name="add-a-prebuilt-domain-entity"></a>Aggiungere un'entità di dominio predefinita
 1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
@@ -68,7 +68,7 @@ LUIS include un set di modelli predefiniti per aggiungere rapidamente scenari ut
 
 1. Nella finestra di dialogo **Aggiungi modelli di dominio predefiniti** selezionare l'entità di dominio predefinita.
 
-1. Selezionare **Fine**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app.
+1. Selezionare **Operazione completata**. Dopo aver aggiunto l'entità, non è necessario eseguire il training dell'app.
 
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Pubblicazione per la visualizzazione del modello predefinito dall'endpoint di stima
 

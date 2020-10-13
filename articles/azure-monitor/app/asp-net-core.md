@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91839011"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875122"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -134,7 +134,7 @@ Eseguire l'applicazione e creare richieste. I dati di telemetria dovrebbero ora 
 
 ### <a name="ilogger-logs"></a>Log ILogger
 
-I log emessi con `ILogger` gravità `Warning` e versioni successive vengono acquisiti automaticamente. Seguire i [documenti di ILogger](ilogger.md#control-logging-level) per personalizzare i livelli di log acquisiti da Application Insights.
+La configurazione predefinita raccoglie i `ILogger` log di gravità `Warning` e superiori. Questa configurazione può essere [personalizzata](#how-do-i-customize-ilogger-logs-collection).
 
 ### <a name="dependencies"></a>Dependencies
 

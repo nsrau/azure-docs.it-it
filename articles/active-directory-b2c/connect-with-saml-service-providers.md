@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740378"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961324"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -437,6 +437,24 @@ Gli scenari di relying party SAML seguenti sono supportati tramite un endpoint d
 
 Gli scenari SAML relying party (RP) seguenti non sono attualmente supportati:
 * Accesso avviato dal provider di identità, dove il provider di identità è un provider di identità esterno, ad esempio ADFS.
+
+## <a name="saml-token"></a>Token SAML
+
+Un token SAML è un token di sicurezza emesso da Azure AD B2C dopo un accesso riuscito. Contiene informazioni sull'utente, il provider di servizi per il quale il token è destinato, la firma e il tempo di validità. La tabella seguente elenca le attestazioni e le proprietà che è possibile prevedere in un token SAML emesso da Azure AD B2C.
+
+|Elemento  |Proprietà  |Note  |
+|---------|---------|---------|
+|`<Response>`| `ID` | Identificatore univoco generato automaticamente della risposta. | 
+|`<Response>`| `InResponseTo` | ID della richiesta SAML a cui questo messaggio è in risposta. | 
+|`<Response>` | `IssueInstant` | Istante temporale del problema della risposta. Il valore di ora è codificato in formato UTC.Per modificare le impostazioni per la durata dei token, impostare i `TokenNotBeforeSkewInSeconds` [metadati](saml-issuer-technical-profile.md#metadata) del profilo tecnico dell'emittente del token SAML. | 
+|`<Response>` | `Destination`| Riferimento URI che indica l'indirizzo a cui è stata inviata la risposta. Il valore è identico a quello della richiesta SAML `AssertionConsumerServiceURL` . | 
+|`<Response>` `<Issuer>` | |Identifica l'emittente del token. Si tratta di un URI arbitrario definito dai metadati del problema del token SAML `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Entità su cui il token asserisce informazioni, ad esempio l'ID dell'oggetto utente. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa. Per impostazione predefinita, l'attestazione dell'oggetto viene popolata con l'ID oggetto dell'utente nella directory.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Riferimento URI che rappresenta la classificazione delle informazioni sugli identificatori basati su stringa. Per impostazione predefinita, questa proprietà viene omessa. È possibile impostare l'relying party [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) per specificare il `NameID` formato, ad esempio `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Istante temporale in cui il token diventa valido. Il valore di ora è codificato in formato UTC. L'applicazione deve usare questa attestazione per verificare la validità della durata del token. Per modificare le impostazioni per la durata dei token, impostare i `TokenNotBeforeSkewInSeconds` [metadati](saml-issuer-technical-profile.md#metadata) del profilo tecnico relativo al problema del token SAML. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Ora in cui il token diventa non valido. L'applicazione deve usare questa attestazione per verificare la validità della durata del token. Il valore è 15 minuti dopo `NotBefore` e non può essere modificato.|
+|`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Riferimento URI che identifica i destinatari desiderati. Identifica il destinatario del token. Il valore è identico a quello della richiesta SAML `AssertionConsumerServiceURL` .|
+|`<Response>``<Assertion>` `<saml:AttributeStatement>` raccolta di`<Attribute>` | | Raccolta di asserzioni (attestazioni), come configurato nell'relying party attestazioni di output del [profilo tecnico](relyingparty.md#technicalprofile) . È possibile configurare il nome dell'asserzione impostando il valore `PartnerClaimType` dell'attestazione di output. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

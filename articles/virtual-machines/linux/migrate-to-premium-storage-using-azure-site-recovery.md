@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 0cb7d1fa8dc9171c4baba09136d3a3c28d6c901c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c767edca46696bc7d04a1cf101e2bd183f5cf7f9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86510651"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970844"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
-Il livello [SSD Premium di Azure](disks-types.md) offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) che eseguono carichi di lavoro con elevato numero di operazioni di I/O. Questa guida consente agli utenti di eseguire la migrazione dei dischi delle macchine virtuali da un account di archiviazione Standard a un account di archiviazione Premium usando [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
+Il livello [SSD Premium di Azure](../disks-types.md) offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) che eseguono carichi di lavoro con elevato numero di operazioni di I/O. Questa guida consente agli utenti di eseguire la migrazione dei dischi delle macchine virtuali da un account di archiviazione Standard a un account di archiviazione Premium usando [Azure Site Recovery](../../site-recovery/site-recovery-overview.md).
 
 Il servizio Azure Site Recovery contribuisce alla strategia di continuità aziendale e ripristino di emergenza orchestrando la replica dei server fisici locali e delle macchine virtuali sul cloud (Azure) o in un data center secondario. In caso di interruzioni nella località primaria, verrà eseguito il failover alla località secondaria per mantenere disponibili applicazioni e carichi di lavoro. Quando la località primaria sarà di nuovo operativa, si tornerà a tale località. 
 
@@ -165,7 +165,7 @@ Seguire [Configurare le impostazioni di replica](../../site-recovery/vmware-azur
 
    ![Abilitare il riquadro di replica con l'origine selezionata][13]
 
-Quando si progetta l'ambiente di Archiviazione di Azure, è consigliabile usare account di archiviazione distinti per ogni VM in un set di disponibilità. È consigliabile seguire le procedure consigliate nel livello di archiviazione per [usare più account di archiviazione per ogni set di disponibilità](../linux/manage-availability.md). Distribuire i dischi delle VM in più account di archiviazione consente di migliorare la disponibilità di archiviazione e di suddividere le operazioni di I/O nell'infrastruttura di archiviazione di Azure.
+Quando si progetta l'ambiente di Archiviazione di Azure, è consigliabile usare account di archiviazione distinti per ogni VM in un set di disponibilità. È consigliabile seguire le procedure consigliate nel livello di archiviazione per [usare più account di archiviazione per ogni set di disponibilità](../manage-availability.md). Distribuire i dischi delle VM in più account di archiviazione consente di migliorare la disponibilità di archiviazione e di suddividere le operazioni di I/O nell'infrastruttura di archiviazione di Azure.
 
 Se le macchine virtuali sono in un set di disponibilità, invece di replicare i dischi di tutte le macchine virtuali in un account di archiviazione, è consigliabile eseguire più volte la migrazione di più macchine virtuali, in modo che le macchine virtuali nello stesso set di disponibilità non condividano un solo account di archiviazione. Usare il riquadro **Abilitazione della replica** per configurare contemporaneamente un account di archiviazione di destinazione per ogni VM.
  
@@ -217,7 +217,7 @@ Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione
 
 * [Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Macchine virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Selezionare un tipo di disco per macchine virtuali IaaS](disks-types.md)
+* [Selezionare un tipo di disco per macchine virtuali IaaS](../disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: 7b6c8faafac34ada664ddfadebf8d71a16c73fa7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710533"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
@@ -124,8 +124,8 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 |query_id   |bigint  || Codice hash interno, calcolato dall'albero di analisi dell'istruzione|
 |query_sql_text |Varchar(10000)  || Testo di un'istruzione rappresentativa. Query diverse con la stessa struttura vengono raggruppate e questo è il testo per la prima query del gruppo.|
 |plan_id    |bigint |   |ID del piano corrispondente alla query, non ancora disponibile|
-|start_time |timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
-|end_time   |timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
+|start_time | timestamp  ||  Le query vengono aggregate per intervalli di tempo. La durata di un intervallo è di 15 minuti per impostazione predefinita. Questo timestamp è l'ora di inizio corrispondente all'intervallo di tempo della voce.|
+|end_time   | timestamp  ||  Ora di fine corrispondente all'intervallo di tempo della voce|
 |calls  |bigint  || Numero di volte in cui la query è stata eseguita|
 |total_time |double precision   ||  Tempo totale di esecuzione della query, in millisecondi|
 |min_time   |double precision   ||  Tempo minimo di esecuzione della query, in millisecondi|
@@ -205,7 +205,7 @@ Le tabelle seguenti descrivono i campi per i due tipi di log. A seconda dell'end
 |---|---|
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
 | ResourceId | URI della risorsa di Azure del server Postgres |
-| Categoria | `QueryStoreRuntimeStatistics` |
+| Category | `QueryStoreRuntimeStatistics` |
 | OperationName | `QueryStoreRuntimeStatisticsEvent` |
 | LogicalServerName_s | Nome server Postgres | 
 | runtime_stats_entry_id_s | ID nella tabella runtime_stats_entries |
@@ -230,7 +230,7 @@ Le tabelle seguenti descrivono i campi per i due tipi di log. A seconda dell'end
 |---|---|
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
 | ResourceId | URI della risorsa di Azure del server Postgres |
-| Categoria | `QueryStoreWaitStatistics` |
+| Category | `QueryStoreWaitStatistics` |
 | OperationName | `QueryStoreWaitEvent` |
 | user_id_s | OID dell'utente che ha eseguito l'istruzione |
 | db_id_s | OID del database in cui l'istruzione è stata eseguita |

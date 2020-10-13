@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 09/30/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60eab197e38c7b6ef3b7f2d9442a0b7583f66d09
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739732"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970640"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -35,10 +35,12 @@ Azure Lighthouse consente una maggiore flessibilità nella gestione delle risors
 
 Il [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) Mostra gli `HomeTenantId` `ManagedByTenantIds` attributi e per ogni sottoscrizione, consentendo di identificare se una sottoscrizione restituita appartiene a un tenant gestito o al tenant di gestione.
 
-Analogamente, i comandi dell'interfaccia della riga di comando di Azure come [AZ account list](/cli/azure/account#az-account-list) mostrano gli `homeTenantId` `managedByTenants` attributi e.
+Analogamente, i comandi dell'interfaccia della riga di comando di Azure come [AZ account list](/cli/azure/account#az-account-list) mostrano gli `homeTenantId` `managedByTenants` attributi e. Se, quando si usa l'interfaccia della riga di comando di Azure, questi valori non vengono visualizzati, provare a cancellare la cache eseguendo `az account clear` seguito da `az login --identity`.
 
-> [!TIP]
-> Se, quando si usa l'interfaccia della riga di comando di Azure, questi valori non vengono visualizzati, provare a cancellare la cache eseguendo `az account clear` seguito da `az login --identity`.
+Nell'API REST di Azure, i comandi [Subscriptions-Get](/rest/api/resources/subscriptions/get) e [Subscriptions-list](/rest/api/resources/subscriptions/list) includono `ManagedByTenant` .
+
+> [!NOTE]
+> Oltre alle informazioni sui tenant correlate al Faro di Azure, i tenant visualizzati da queste API possono anche riflettere i tenant partner per Azure Databricks o le applicazioni gestite di Azure.
 
 Sono inoltre disponibili API specifiche per l'esecuzione delle attività del Faro di Azure. Per altre informazioni, vedere la sezione **Riferimento**.
 

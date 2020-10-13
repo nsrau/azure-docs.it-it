@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852396"
+ms.locfileid: "91875921"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Informazioni sulle opzioni di migrazione per gli avvisi più recenti
 
@@ -254,10 +254,12 @@ Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuov
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>I criteri con effetto ' nega ' impediscono la migrazione delle regole
 
-Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuovi gruppi di azioni, quindi verranno eliminate le regole di avviso classiche. Tuttavia, un criterio può impedire la creazione di risorse. A seconda del criterio, non è stato possibile eseguire la migrazione di alcune o di tutte le regole. I criteri che bloccano il processo sono elencati nello [strumento di migrazione](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Per risolvere il problema, eseguire una delle operazioni seguenti:
+Come parte della migrazione, verranno creati nuovi avvisi per le metriche e nuovi gruppi di azioni, quindi verranno eliminate le regole di avviso classiche. Tuttavia, un'assegnazione di [criteri di Azure](../../governance/policy/index.yml) può impedire la creazione di risorse. A seconda dell'assegnazione dei criteri, non è stato possibile eseguire la migrazione di alcune o di tutte le regole. Le assegnazioni di criteri che bloccano il processo sono elencate nello [strumento di migrazione](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Per risolvere il problema, eseguire una delle operazioni seguenti:
 
-- Esclusione delle sottoscrizioni o dei gruppi di risorse per la durata del processo di migrazione dall'assegnazione dei criteri. [Altre informazioni sulla gestione dell'ambito di esclusione dei criteri](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- La rimozione o la modifica dell'effetto in ' audit ' o ' append ' (che, ad esempio, può risolvere i problemi relativi ai tag mancanti). [Altre informazioni sulla gestione dei criteri effetto](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- Esclusione di sottoscrizioni, gruppi di risorse o singole risorse per la durata del processo di migrazione dall'assegnazione dei criteri. [Altre informazioni sulla gestione degli ambiti di esclusione dei criteri](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- Impostare la modalità di imposizione su **disabilitata** nell'assegnazione dei criteri. [Altre informazioni sulla proprietà enforcementMode dell'assegnazione dei criteri](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Impostare un'esenzione di criteri di Azure (anteprima) per le sottoscrizioni, i gruppi di risorse o le singole risorse nell'assegnazione dei criteri. [Altre informazioni sulla struttura di esenzione dei criteri di Azure](../../governance/policy/concepts/exemption-structure.md).
+- La rimozione o la modifica dell'effetto in ' disabled ',' audit ',' append ' o ' Modify ' (che, ad esempio, può risolvere i problemi relativi ai tag mancanti). [Altre informazioni sulla gestione degli effetti dei criteri](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

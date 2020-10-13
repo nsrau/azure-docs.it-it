@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443319"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
@@ -121,7 +121,7 @@ ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 
 Attualmente, la funzionalità di query del database elastico è compresa nel costo del database SQL di Azure.  
 
-Per informazioni sui prezzi, vedere [Database SQL - Prezzi](https://azure.microsoft.com/pricing/details/sql-database).
+Per informazioni sui prezzi, vedere [prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

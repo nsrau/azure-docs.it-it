@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836123"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961477"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP
 
@@ -67,12 +67,12 @@ Leggere prima i documenti seguenti:
   * [Panoramica del Firewall di Azure](../../../firewall/overview.md) - Panoramica del Firewall di Azure
   * [Esercitazione: Distribuire e configurare il Firewall di Azure](../../../firewall/tutorial-firewall-deploy-portal.md) - Istruzioni su come configurare il Firewall di Azure tramite il portale di Azure
 * [Reti virtuali - Regole definite dall'utente](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Concetti e regole di routing di Azure  
-* [Tag del servizio Gruppi di sicurezza](../../../virtual-network/security-overview.md#service-tags) - Come semplificare i gruppi di sicurezza di rete e la configurazione del firewall con i tag del servizio
+* [Tag del servizio Gruppi di sicurezza](../../../virtual-network/network-security-groups-overview.md#service-tags) - Come semplificare i gruppi di sicurezza di rete e la configurazione del firewall con i tag del servizio
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Load Balancer Standard di Azure esterno aggiuntivo per connessioni in uscita a Internet
 
 Per ottenere connettività in uscita verso endpoint pubblici senza consentire connettività in ingresso alle macchine virtuali da un endpoint pubblico, è possibile creare una seconda istanza di Load Balancer con indirizzo IP pubblico, aggiungere le macchine virtuali al pool back-end della seconda istanza e definire solo [regole in uscita](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Usare [Gruppi di sicurezza di rete](../../../virtual-network/security-overview.md) per controllare gli endpoint pubblici accessibili per chiamate in uscita dalla macchina virtuale.  
+Usare [Gruppi di sicurezza di rete](../../../virtual-network/network-security-groups-overview.md) per controllare gli endpoint pubblici accessibili per chiamate in uscita dalla macchina virtuale.  
 Per altre informazioni, vedere lo Scenario 2 nel documento [Connessioni in uscita](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 La configurazione avrà un aspetto simile al seguente:  
 
@@ -81,11 +81,11 @@ La configurazione avrà un aspetto simile al seguente:
 ### <a name="important-considerations"></a>Considerazioni importanti
 
 - Per ottenere connettività in uscita a un endpoint pubblico e ottimizzare i costi, è possibile usare un'istanza di Load Balancer pubblico aggiuntiva per più macchine virtuali della stessa subnet.  
-- Usare [Gruppi di sicurezza di rete](../../../virtual-network/security-overview.md) per controllare gli endpoint pubblici accessibili dalle macchine virtuali. È possibile assegnare il gruppo di sicurezza di rete alla subnet o a ogni macchina virtuale. Laddove sia possibile, usare [Tag di servizio](../../../virtual-network/security-overview.md#service-tags) per ridurre la complessità delle regole di sicurezza.  
+- Usare [Gruppi di sicurezza di rete](../../../virtual-network/network-security-groups-overview.md) per controllare gli endpoint pubblici accessibili dalle macchine virtuali. È possibile assegnare il gruppo di sicurezza di rete alla subnet o a ogni macchina virtuale. Laddove sia possibile, usare [Tag di servizio](../../../virtual-network/network-security-groups-overview.md#service-tags) per ridurre la complessità delle regole di sicurezza.  
 - Load Balancer Standard di Azure con un indirizzo IP pubblico e regole in uscita consente l'accesso diretto a un endpoint pubblico. Se i requisiti di sicurezza aziendali prevedono che tutto il traffico in uscita passi attraverso una soluzione aziendale centralizzata per il controllo e la registrazione, è possibile che con questo scenario non sia possibile soddisfare tali requisiti.  
 
 >[!TIP]
->Laddove sia possibile, usare [Tag di servizio](../../../virtual-network/security-overview.md#service-tags) per ridurre la complessità del gruppo di sicurezza di rete. 
+>Laddove sia possibile, usare [Tag di servizio](../../../virtual-network/network-security-groups-overview.md#service-tags) per ridurre la complessità del gruppo di sicurezza di rete. 
 
 ### <a name="deployment-steps"></a>Passaggi di distribuzione
 
@@ -117,7 +117,7 @@ La configurazione avrà un aspetto simile al seguente:
 
    ![Connessione in uscita con la seconda istanza di Load Balancer con IP pubblico](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Per altre informazioni sui gruppi di sicurezza di rete di Azure, vedere [Gruppi di sicurezza di rete](../../../virtual-network/security-overview.md). 
+   Per altre informazioni sui gruppi di sicurezza di rete di Azure, vedere [Gruppi di sicurezza di rete](../../../virtual-network/network-security-groups-overview.md). 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>Firewall di Azure per le connessioni in uscita a Internet
 
@@ -137,7 +137,7 @@ L'architettura avrà un aspetto analogo al seguente:
 - Se la soluzione firewall aziendale non è il servizio Firewall di Azure e i requisiti di sicurezza aziendali prevedono che tutto il traffico in uscita passi attraverso una soluzione aziendale centralizzata, questa soluzione potrebbe non essere pratica.  
 
 >[!TIP]
->Laddove sia possibile, usare [Tag di servizio](../../../virtual-network/security-overview.md#service-tags) per ridurre la complessità delle regole del Firewall di Azure.  
+>Laddove sia possibile, usare [Tag di servizio](../../../virtual-network/network-security-groups-overview.md#service-tags) per ridurre la complessità delle regole del Firewall di Azure.  
 
 ### <a name="deployment-steps"></a>Passaggi di distribuzione
 

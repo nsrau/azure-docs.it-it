@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5cfd355941a7fae211f3abb9b5dd31e86ba1d14b
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ff017671496816f0142bd3b71c3df1a3769b274b
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757504"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941093"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Esercitazione: configurare Apple Business Manager per il provisioning utenti automatico
 
@@ -50,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Apple Business Manager](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-apple-business-manager-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Apple Business Manager per supportare il provisioning con Azure AD
+## <a name="step-2-configure-apple-business-manager-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Apple Business Manager per supportare il provisioning con Azure AD
 
 1. In Apple Business Manager, accedere con un account con il ruolo di amministratore o People Manager.
 2. Fare clic su impostazioni nella parte inferiore della barra laterale fare clic su origine dati sotto Impostazioni organizzazione, quindi fare clic su Connetti a origine dati.
@@ -103,7 +103,7 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to Apple Business Manager**.
 
@@ -160,7 +160,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * [Gestire le connessioni e il token SCIM esistenti in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a823611)
 * [Disconnettere la connessione SCIM in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd609be3a61)
 * [Gestire le connessioni e il token SCIM esistenti in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
-* [Risoluzione dei problemi relativi alla connessione SCIM in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
+* [Risoluzione dei problemi relativi alla connessione SCIM in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd403a0f3bd/web)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
