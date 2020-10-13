@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 133ea21bf7a7c1df0fccaeacce7d7a29199c033d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827644"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Aggiornare e gestire gruppi nelle unità amministrative in Azure Active Directory
@@ -53,7 +53,7 @@ $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
 Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
-In questo esempio viene usato il cmdlet Add-AzureADMSAdministrativeUnitMember per aggiungere il gruppo all'unità amministrativa. L'ID oggetto dell'unità amministrativa e l'ID oggetto del gruppo da aggiungere vengono usati come argomenti. La sezione evidenziata può essere modificata in base alle esigenze dell'ambiente specifico.
+In questo esempio il cmdlet Add-AzureADMSAdministrativeUnitMember viene usato per aggiungere il gruppo all'unità amministrativa. L'ID oggetto dell'unità amministrativa e l'ID oggetto del gruppo da aggiungere vengono usati come argomenti. La sezione evidenziata può essere modificata in base alle esigenze dell'ambiente specifico.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 

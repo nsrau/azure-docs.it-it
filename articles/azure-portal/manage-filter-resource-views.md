@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605431"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91650400"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visualizzare e filtrare le informazioni sulle risorse di Azure
 
@@ -53,7 +53,11 @@ Per eliminare una visualizzazione:
 
 ## <a name="summarize-resources-with-visuals"></a>Riepilogare le risorse con oggetti visivi
 
-Le visualizzazioni esaminate finora sono state _visualizzazioni elenco_, ma sono presenti anche _visualizzazioni di riepilogo_ che includono oggetti visivi. È possibile salvare e usare queste visualizzazioni esattamente come le visualizzazioni elenco. I filtri vengono mantenuti tra i due tipi di visualizzazioni. Per salvare e usare una visualizzazione di riepilogo:
+Le visualizzazioni esaminate finora sono state _visualizzazioni elenco_, ma sono presenti anche _visualizzazioni di riepilogo_ che includono oggetti visivi. È possibile salvare e usare queste visualizzazioni esattamente come le visualizzazioni elenco. I filtri vengono mantenuti tra i due tipi di visualizzazioni. Sono disponibili visualizzazioni standard, come la visualizzazione **Località** illustrata di seguito, oltre a visualizzazioni pertinenti per specifici servizi, come la visualizzazione **Stato** per le macchine virtuali.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Visualizzazione portale di Azure di tutte le risorse":::
+
+Per salvare e usare una visualizzazione di riepilogo:
 
 1. Scegliere **Visualizzazione Riepilogo** dal menu Visualizza.
 
