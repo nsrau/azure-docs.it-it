@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
 ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611351"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Esercitazione: configurare la sincronizzazione del destinatario Cofense per il provisioning utenti automatico
@@ -46,7 +46,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e la sincronizzazione del destinatario Cofense](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare la sincronizzazione del destinatario Cofense per supportare il provisioning con Azure AD
+## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare la sincronizzazione del destinatario Cofense per supportare il provisioning con Azure AD
 
 1. Accedere a Cofense PhishMe. Passare a **destinatari > sincronizzazione del destinatario**. 
 2. Accettare i termini e le condizioni e quindi **fare clic su inizia.**

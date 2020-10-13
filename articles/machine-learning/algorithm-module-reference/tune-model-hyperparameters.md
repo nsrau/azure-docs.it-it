@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/17/2020
-ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907761"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940210"
 ---
 # <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
@@ -77,9 +77,9 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 
 Al termine del training:
 
-+ Per visualizzare i risultati dello sweep, fare clic con il pulsante destro del mouse sul modulo, quindi scegliere **Visualizza**.
++ Per visualizzare i risultati dello sweep, è possibile fare clic con il pulsante destro del mouse sul modulo, quindi scegliere **Visualizza**oppure fare clic con il pulsante destro del mouse sulla porta di output sinistra del modulo da visualizzare.
 
-    L'output include tutte le metriche relative a sweep e accuratezza dei parametri applicabili al tipo di modello, ma la metrica selezionata per la classificazione determina quale modello viene considerato "migliore".
+    I **risultati dello sweep** includono tutte le metriche di accuratezza e sweep dei parametri applicabili al tipo di modello e la metrica selezionata per la classificazione determina quale modello viene considerato "migliore".
 
 + Per salvare uno snapshot del modello sottoposto a training, selezionare la scheda **output + log** nel riquadro di destra del modulo **Train Model** . Selezionare l'icona **registra set di dati** per salvare il modello come modulo riutilizzabile.
 

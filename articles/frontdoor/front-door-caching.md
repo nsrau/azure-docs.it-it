@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535832"
 ---
 # <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
@@ -113,7 +113,7 @@ Per determinare per quanto tempo un elemento verrà archiviato nella cache, vien
 2. Cache-Control: max-age =\<seconds>
 3. Scadenza \<http-date>
 
-Intestazioni di risposta Cache-Control che indicano che la risposta non verrà memorizzata nella cache, ad esempio cache-Control: private, cache-Control: No-cache e cache-Control: No-Store viene rispettato.  Se non è presente alcun controllo cache, il comportamento predefinito è che la risorsa verrà memorizzata nella cache per l'intervallo di tempo X, dove X viene scelto in modo casuale tra 1 e 3 giorni.
+Cache-Control intestazioni di risposta che indicano che la risposta non verrà memorizzata nella cache, ad esempio cache-Control: private, cache-Control: No-cache e cache-Control: No-Store viene rispettato.  Se non è presente alcun Cache-Control, il comportamento predefinito prevede che la risorsa venga memorizzata nella cache per l'intervallo di tempo di X, dove X viene scelto in modo casuale tra 1 e 3 giorni.
 
 ## <a name="request-headers"></a>Intestazioni della richiesta
 

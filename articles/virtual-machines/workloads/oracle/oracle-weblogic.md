@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: rezar
 ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274368"
 ---
-# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Che cosa sono le soluzioni per l'esecuzione di Oracle WebLogic Server in macchine virtuali di Azure?
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quali sono le soluzioni per eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure?
 
 Questa pagina descrive le soluzioni per l'esecuzione di Oracle WebLogic Server (WLS) in macchine virtuali di Azure. Queste soluzioni sono sviluppate congiuntamente da Oracle e Microsoft.
 
@@ -56,7 +56,7 @@ Questa offerta crea un cluster dinamico scalabile e a disponibilità elevata di 
 
 Le soluzioni consentiranno un'ampia gamma di architetture di distribuzione pronte per la produzione con la relativa facilità. È possibile soddisfare la maggior parte dei casi di migrazione nel modo più produttivo possibile consentendo di concentrarsi sullo sviluppo di applicazioni aziendali.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Le distribuzioni di WebLogic Server complesse sono abilitate in Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="È possibile usare la portale di Azure per distribuire WebLogic Server in Azure":::
 
 Oltre a ciò di cui viene effettuato automaticamente il provisioning dalle soluzioni, i clienti hanno la massima flessibilità per personalizzare ulteriormente le distribuzioni. È probabile che, in base alla distribuzione di applicazioni, i clienti integrino altre risorse di Azure con le relative distribuzioni. I clienti sono invitati a fornire commenti e suggerimenti su come migliorare ulteriormente le soluzioni.
 

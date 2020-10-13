@@ -4,10 +4,10 @@ description: Informazioni sulle funzionalità principali dei data center e dei c
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316869"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concetti relativi ai cluster e al cloud privato della soluzione VMware di Azure
@@ -38,7 +38,7 @@ I nodi dell'infrastruttura bare metal iperconvergenti vengono usati nei cluster 
 
 | Host Type              |             CPU             |   RAM (GB)   |  Livello cache NVMe rete VSAN (TB, RAW)  |  livello di capacità SSD rete VSAN (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| High-end (HE)          |  Dual Intel 18 Core 2,3 GHz  |     576      |                3.2               |                15,20               |
+| High-End (HE)          |  Dual Intel 18 Core 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Gli host utilizzati per compilare o ridimensionare i cluster vengono acquisiti da un pool di host isolati. Questi host hanno superato i test hardware e tutti i dati sono stati eliminati in modo sicuro dai dischi flash. Quando si rimuove un host da un cluster, i dischi interni vengono cancellati in modo sicuro e gli host vengono inseriti nel pool isolato di host. Quando si aggiunge un host a un cluster, viene utilizzato un host purificato dal pool isolato.
 
@@ -61,7 +61,7 @@ I criteri e i processi di aggiornamento generali per il software della piattafor
 
 La gestione del ciclo di vita e la manutenzione dell'host vengono eseguite senza alcun effetto sulla capacità o sulle prestazioni dei cluster di cloud privati. Esempi di manutenzione automatica degli host includono gli aggiornamenti del firmware e la riparazione o la sostituzione dell'hardware.
 
-Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing nord-sud. In qualità di amministratore del cloud privato della soluzione VMware di Azure, l'utente è responsabile della configurazione di NSX-T SDN. Ad esempio, i segmenti di rete, le regole del firewall distribuite, i gateway di livello 1 e i bilanciamenti del carico.
+Microsoft è responsabile della gestione del ciclo di vita di appliance NSX-T, ad esempio NSX-T Manager e NSX-T Edge. Microsoft è anche responsabile del bootstrap della configurazione di rete, ad esempio la creazione del gateway di livello 0 e l'abilitazione del routing North-South. In qualità di amministratore del cloud privato della soluzione VMware di Azure, l'utente è responsabile della configurazione di NSX-T SDN. Ad esempio, i segmenti di rete, le regole del firewall distribuite, i gateway di livello 1 e i bilanciamenti del carico.
 
 > [!IMPORTANT]
 > Un amministratore della soluzione VMware di Azure non deve modificare la configurazione del gateway NSX-T Edge o di livello 0. Questo può comportare una perdita di servizio.

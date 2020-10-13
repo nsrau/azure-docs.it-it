@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536104"
 ---
 # <a name="intents-in-your-luis-app"></a>Intent nell'app LUIS
@@ -39,7 +39,7 @@ Assegnare un'espressione a una singola finalità. Quando LUIS riceve un enunciat
 
 Se si desiderano i punteggi per tutti gli Intent per l'espressione, è possibile specificare un flag sulla stringa di query dell'API di stima.
 
-|Versione dell'API di stima|Flag|
+|Versione dell'API di stima|Contrassegno|
 |--|--|
 |V2|`verbose=true`|
 |V3|`show-all-intents=true`|
@@ -63,7 +63,7 @@ I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) forniscono gli Inten
 
 ## <a name="none-intent"></a>Finalità None
 
-La finalità **None** (Nessuna) viene creata ma lasciata vuota di proposito. La finalità **None** è obbligatoria e non può essere eliminata o rinominata. Inserire le espressioni che si trovano all'esterno del dominio.
+La finalità **None** (Nessuna) viene creata ma lasciata vuota di proposito. L'intento **None** è uno scopo necessario e non può essere eliminato o rinominato. Inserire le espressioni che si trovano all'esterno del dominio.
 
 Lo scopo di **nessuno** è l'intento di fallback, importante in ogni app, e deve avere il 10% delle espressioni totali. Consente di insegnare a LUIS espressioni che non sono importanti nel dominio dell'app (area di interesse). Se non si aggiungono espressioni per la finalità **None** (Nessuna), LUIS forza un'espressione che si trova all'esterno del dominio in una delle finalità del dominio. Questo distorcerà i punteggi di stima perché a LUIS verrà insegnata la finalità errata dell'espressione.
 

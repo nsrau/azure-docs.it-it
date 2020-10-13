@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
 ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397284"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Controllare gli aggiornamenti con il controllo di manutenzione e i portale di Azure
 
 Il controllo della manutenzione consente di decidere quando applicare gli aggiornamenti alle VM isolate e agli host dedicati di Azure. In questo argomento vengono illustrate le opzioni di portale di Azure per il controllo di manutenzione. Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del controllo manutenzione, delle relative limitazioni e di altre opzioni di gestione, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](maintenance-control.md).
 
-## <a name="create-a-maintenance-configuration"></a>Creare una configurazione di manutenzione
+## <a name="create-a-maintenance-configuration"></a>Creare una configurazione della manutenzione
 
 1. Accedere al portale di Azure.
 

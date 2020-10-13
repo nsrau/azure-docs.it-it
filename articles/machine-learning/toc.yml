@@ -15,7 +15,7 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Introduzione all'uso di Python
+    - name: Introduzione a Python (giorno 1)
       expanded: true
       items:
         - name: 1. Configurare il computer locale
@@ -188,6 +188,8 @@
             - name: Usare Collegamento privato
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Usare DNS personalizzato
+              href: how-to-custom-dns.md
             - name: Configurare servizi Web sicuri
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
