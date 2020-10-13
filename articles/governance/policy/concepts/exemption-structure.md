@@ -3,16 +3,16 @@ title: Dettagli della struttura di esenzione dei criteri
 description: Descrive la definizione di esenzione dei criteri usata da criteri di Azure per esentare le risorse dalla valutazione di iniziative o definizioni.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968039"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950177"
 ---
 # <a name="azure-policy-exemption-structure"></a>Struttura di esenzione dei criteri di Azure
 
-La funzionalità di esenzione dei criteri di Azure (anteprima) viene usata per _esentare_ una gerarchia di risorse o una singola risorsa dalla valutazione di iniziative o definizioni. Le risorse _esentate_ vengono conteggiate rispetto alla conformità generale, ma non possono essere valutate o hanno una deroga temporanea. Per altre informazioni, vedere [comprendere l'ambito nei criteri di Azure](./scope.md). Le esenzioni dei criteri di Azure funzionano solo con le [modalità di gestione risorse](./definition-structure.md#resource-manager-modes) e non funzionano con le modalità del **provider di risorse**.
+La funzionalità di esenzione dei criteri di Azure (anteprima) viene usata per _esentare_ una gerarchia di risorse o una singola risorsa dalla valutazione di iniziative o definizioni. Le risorse _esentate_ vengono conteggiate rispetto alla conformità generale, ma non possono essere valutate o hanno una deroga temporanea. Per altre informazioni, vedere [comprendere l'ambito nei criteri di Azure](./scope.md). Le esenzioni dei criteri di Azure funzionano solo con le [modalità di gestione risorse](./definition-structure.md#resource-manager-modes) e non funzionano con le modalità del [provider di risorse](./definition-structure.md#resource-provider-modes).
 
 > [!IMPORTANT]
 > Questa funzionalità è gratuita durante l' **Anteprima**. Per informazioni dettagliate sui prezzi, vedere [prezzi di criteri di Azure](https://azure.microsoft.com/pricing/details/azure-policy/). Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

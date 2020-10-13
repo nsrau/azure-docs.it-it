@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654600"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963585"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -71,7 +71,7 @@ SAP ASE scrive i dati in sequenza nei dispositivi di archiviazione su disco, a m
 Si consiglia di configurare l'espansione automatica del database, come descritto nell'articolo [configurazione dell'espansione automatica dello spazio del database in SAP Adaptive Server Enterprise e della](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  nota di [supporto SAP #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Esempio di SAP ASE in macchine virtuali di Azure, configurazioni di dischi e file system 
-I modelli seguenti illustrano le configurazioni di esempio per Linux e Windows. Prima di confermare la configurazione della macchina virtuale e del disco, assicurarsi che le quote della larghezza di banda di rete e di archiviazione della singola VM siano sufficienti per soddisfare i requisiti aziendali. Tenere inoltre presente che i diversi tipi di VM di Azure hanno un numero massimo di dischi diverso che possono essere collegati alla macchina virtuale. Ad esempio, una macchina virtuale E4s_v3 ha una velocità effettiva di i/o di archiviazione limitata di 48 MB/sec. Se la velocità effettiva di archiviazione richiesta dall'attività di backup del database richiede più di 48 MB/sec, un tipo di macchina virtuale più grande con una maggiore velocità effettiva della larghezza di banda è inevitabile. Quando si configura archiviazione di Azure, è anche necessario tenere presente che, soprattutto con [archiviazione Premium di Azure](../../windows/premium-storage-performance.md) , la velocità effettiva e i IOPS per GB di capacità cambiano. Per altre informazioni su questo argomento, vedere [quali tipi di dischi sono disponibili in Azure](../../disks-types.md). Le quote per specifici tipi di VM di Azure sono documentate nell'articolo dimensioni e articoli di [macchine virtuali con ottimizzazione](../../sizes-memory.md) per la memoria collegati. 
+I modelli seguenti illustrano le configurazioni di esempio per Linux e Windows. Prima di confermare la configurazione della macchina virtuale e del disco, assicurarsi che le quote della larghezza di banda di rete e di archiviazione della singola VM siano sufficienti per soddisfare i requisiti aziendali. Tenere inoltre presente che i diversi tipi di VM di Azure hanno un numero massimo di dischi diverso che possono essere collegati alla macchina virtuale. Ad esempio, una macchina virtuale E4s_v3 ha una velocità effettiva di i/o di archiviazione limitata di 48 MB/sec. Se la velocità effettiva di archiviazione richiesta dall'attività di backup del database richiede più di 48 MB/sec, un tipo di macchina virtuale più grande con una maggiore velocità effettiva della larghezza di banda è inevitabile. Quando si configura archiviazione di Azure, è anche necessario tenere presente che, soprattutto con [archiviazione Premium di Azure](../../premium-storage-performance.md) , la velocità effettiva e i IOPS per GB di capacità cambiano. Per altre informazioni su questo argomento, vedere [quali tipi di dischi sono disponibili in Azure](../../disks-types.md). Le quote per specifici tipi di VM di Azure sono documentate nell'articolo dimensioni e articoli di [macchine virtuali con ottimizzazione](../../sizes-memory.md) per la memoria collegati. 
 
 > [!NOTE]
 >  Se è in corso lo spostamento di un sistema DBMS dall'ambiente locale ad Azure, è consigliabile eseguire il monitoraggio della macchina virtuale e valutare la velocità effettiva di CPU, memoria, IOPS e archiviazione. Confrontare i valori di picco osservati con i limiti di quota della VM documentati negli articoli sopra indicati
@@ -83,7 +83,7 @@ Un esempio di configurazione per un piccolo server di database SAP ASE con una d
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E4s_v3 (4 vCPU/32 GB di RAM) | E4s_v3 (4 vCPU/32 GB di RAM) | --- |
-| Rete accelerata | Abilita | Abilita | ---|
+| Rete accelerata | Abilitare | Abilitare | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 4 | 4 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |
@@ -104,7 +104,7 @@ Un esempio di configurazione per un server di database SAP ASE medio con dimensi
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E16s_v3 (16 vCPU/128 GB di RAM) | E16s_v3 (16 vCPU/128 GB di RAM) | --- |
-| Rete accelerata | Abilita | Abilita | ---|
+| Rete accelerata | Abilitare | Abilitare | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 8 | 8 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |
@@ -124,7 +124,7 @@ Un esempio di configurazione per un piccolo server di database SAP ASE con dimen
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E64s_v3 (64 vCPU/432 GB di RAM) | E64s_v3 (64 vCPU/432 GB di RAM) | --- |
-| Rete accelerata | Abilita | Abilita | ---|
+| Rete accelerata | Abilitare | Abilitare | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 16 | 16 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |
@@ -145,7 +145,7 @@ Un esempio di configurazione per un server di database SAP ASE di piccole dimens
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | Serie M (da 1,0 a 4,0 TB di RAM)  | Serie M (da 1,0 a 4,0 TB di RAM) | --- |
-| Rete accelerata | Abilita | Abilita | ---|
+| Rete accelerata | Abilitare | Abilitare | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 32 | 32 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |

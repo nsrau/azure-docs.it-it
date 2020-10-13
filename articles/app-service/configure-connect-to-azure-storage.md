@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435610"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968651"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app
+# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad Archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app
 
 ::: zone pivot="container-windows"
 
@@ -65,7 +65,6 @@ Questa guida illustra come aggiungere archiviazione di Azure a un servizio app c
 
 - Archiviazione di Azure nel servizio app è **in anteprima** per il servizio app in Linux e app Web per contenitori. Non è **supportata** per gli **scenari di produzione**.
 - Archiviazione di Azure nel servizio app supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura) e **contenitori BLOB di Azure** (sola lettura)
-- Archiviazione di Azure nel servizio app **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
 - Archiviazione di Azure nel servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
 - L'archiviazione di Azure montata in un'app non è accessibile tramite gli endpoint FTP/FTPs del servizio app. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 

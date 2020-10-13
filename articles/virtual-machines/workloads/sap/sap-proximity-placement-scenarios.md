@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6e15ef1b9bf488ac18e41dc09eb71e6ea3da39
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 7b48e4223e4e5fc5100de250d85441fcb96d50a3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569793"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977239"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP
 Le applicazioni SAP basate sull'architettura SAP NetWeaver o SAP S/4HANA sono sensibili alla latenza di rete tra il livello applicazione SAP e il livello database SAP. Questa distinzione è il risultato della maggior parte della logica di business in esecuzione a livello di applicazione. Poiché il livello dell'applicazione SAP esegue la logica di business, emette query al livello del database a una frequenza elevata, a una frequenza di migliaia o decine di migliaia al secondo. Nella maggior parte dei casi, la natura di queste query è semplice. Spesso possono essere eseguite a livello di database in microsecondi di 500 o meno.
@@ -33,7 +33,7 @@ Per offrire la possibilità di ottimizzare la latenza di rete, Azure offre [grup
 
 - Non è possibile presupporre che tutti i tipi di VM di Azure siano disponibili in tutti i Data Center di Azure. Di conseguenza, è possibile limitare la combinazione di diversi tipi di VM all'interno di un gruppo di posizionamento di prossimità. Queste restrizioni si verificano perché l'hardware host necessario per eseguire un determinato tipo di macchina virtuale potrebbe non essere presente nel Data Center in cui è stato distribuito il gruppo di posizionamento.
 - Quando si ridimensionano parti delle macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità, non è possibile presupporre automaticamente che in tutti i casi il nuovo tipo di macchina virtuale sia disponibile nello stesso data center delle altre macchine virtuali che fanno parte del gruppo di posizionamento vicino
-- Poiché Azure rimuove le autorizzazioni hardware, potrebbe forzare alcune macchine virtuali di un gruppo di posizionamento vicino in un altro Data Center di Azure. Per informazioni dettagliate su questo caso, vedere il documento relativo alla [condivisione percorso risorse per migliorare la latenza](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+- Poiché Azure rimuove le autorizzazioni hardware, potrebbe forzare alcune macchine virtuali di un gruppo di posizionamento vicino in un altro Data Center di Azure. Per informazioni dettagliate su questo caso, vedere il documento relativo alla [condivisione percorso risorse per migliorare la latenza](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > In seguito alle potenziali restrizioni, è necessario usare i gruppi di posizionamento di prossimità:

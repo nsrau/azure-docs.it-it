@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 917af7ea1789394ddba5d349d631018e2b620216
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33563d12ac31679eb3b658e7625d95581988536d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91295686"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977477"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.6 nell'array virtuale StorSimple
 
@@ -97,26 +97,26 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 
 1. Nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Prendere nota della versione del software in esecuzione. Se si esegue la versione **10.0.10290.0**, non è necessario aggiornare l'agente MDS nel passaggio 6.
    
-    ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![aggiornare il dispositivo 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
-    ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![aggiornare il dispositivo 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. Verrà visualizzato un avviso. Visto che l'array virtuale è un dispositivo a nodo singolo, dopo l'applicazione dell'aggiornamento il dispositivo si riavvia con un conseguente periodo di inattività. Fare clic sull'icona del segno di spunta
    
-   ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![aggiornare il dispositivo 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. L'aggiornamento si avvia. Dopo l'aggiornamento il dispositivo si riavvia in automatico. In questo periodo di tempo l'interfaccia utente locale non è accessibile.
    
-    ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![aggiornare il dispositivo 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10293** per l'aggiornamento 0.6.
    
    > [!NOTE]
    > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale indica **10.0.0.0.0.10293**, mentre il portale di Azure indica **10.0.10293.0** per la stessa versione.
    
-    ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-06/update6m.png)
+    ![aggiornare il dispositivo 5](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
 6. Ignorare questo passaggio se si eseguiva l'aggiornamento 0.5 dell'array virtuale StorSimple (**10.0.10290.0**) prima di applicare questo aggiornamento. L'utente ha preso nota della versione del software nel passaggio 1 prima di avviare l'aggiornamento. Se veniva eseguito l'aggiornamento 0.5, l'agente MDS è già aggiornato.
 

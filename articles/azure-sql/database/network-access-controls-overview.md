@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435372"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951996"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e di Azure sinapsi Analytics
 
@@ -42,7 +42,7 @@ Vedere il video seguente per una spiegazione generale di questi controlli di acc
 
 ## <a name="allow-azure-services"></a>Consenti i servizi di Azure
 
-Durante la creazione di un nuovo SQL Server logico [dal portale di Azure](single-database-create-quickstart.md), questa impostazione rimane deselezionata.
+Per impostazione predefinita, durante la creazione di un nuovo SQL Server logico [dal portale di Azure](single-database-create-quickstart.md), questa impostazione è impostata su **off**. Questa impostazione viene visualizzata quando la connettività è consentita tramite l'endpoint di servizio pubblico.
 
 È anche possibile modificare questa impostazione tramite il riquadro Firewall dopo aver creato il server SQL logico come indicato di seguito.
   
@@ -82,7 +82,7 @@ PS C:\> $sql.Properties.AddressPrefixes
 > [!TIP]
 > Get-AzNetworkServiceTag restituisce l'intervallo globale per il tag del servizio SQL, sebbene specifichi il parametro location. Assicurarsi di filtrarlo nell'area che ospita il database hub usato dal gruppo di sincronizzazione
 
-Si noti che l'output dello script di PowerShell è in notazione CIDR (Inter-Domain Routing). Questa operazione deve essere convertita in un formato di indirizzo IP iniziale e finale usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) di questo tipo:
+Si noti che l'output dello script di PowerShell è in notazione CIDR (Classal Inter-Domain routing). Questa operazione deve essere convertita in un formato di indirizzo IP iniziale e finale usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) di questo tipo:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26

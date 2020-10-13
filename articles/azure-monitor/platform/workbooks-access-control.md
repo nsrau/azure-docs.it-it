@@ -2,19 +2,16 @@
 title: Controllo di accesso delle cartelle di lavoro di monitoraggio di Azure
 description: Semplifica la creazione di report complessi con cartelle di lavoro predefinite con parametri personalizzati con controllo degli accessi in base al ruolo
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: dc6e1d738bf255fe7baa244556bad4519979b1df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c0b5dd72cf82649e7f659d23606d23aea62ac82
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539296"
+ms.locfileid: "91932550"
 ---
 # <a name="access-control"></a>Controllo di accesso
 

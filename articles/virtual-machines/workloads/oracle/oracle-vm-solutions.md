@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82db48690f8cfa48ebf3a6fdc81cb4e467c159d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331370"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977681"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini delle macchine virtuali Oracle e rispettiva distribuzione in Microsoft Azure
 
@@ -132,7 +132,7 @@ Con Oracle Data Guard, la disponibilità elevata può essere ottenuta con un dat
 
 L'esercitazione [Implementare Oracle Golden Gate in Azure](configure-oracle-golden-gate.md) illustra la procedura di configurazione di base in Azure.
 
-Oltre ad avere una soluzione a disponibilità elevata e con ripristino di emergenza in Azure, è consigliabile assicurarsi di avere una strategia di backup attiva per il ripristino del database. L'esercitazione [Eseguire backup e ripristino di un database Oracle](oracle-backup-recovery.md) illustra la procedura di base per la creazione di un backup coerente.
+Oltre ad avere una soluzione a disponibilità elevata e con ripristino di emergenza in Azure, è consigliabile assicurarsi di avere una strategia di backup attiva per il ripristino del database. L'esercitazione [Eseguire backup e ripristino di un database Oracle](./oracle-overview.md) illustra la procedura di base per la creazione di un backup coerente.
 
 ## <a name="support-for-jd-edwards"></a>Supporto per JD Edwards
 

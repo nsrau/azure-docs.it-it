@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: dc23a0a68471b82c990d5d8a3086e2e71e88d0c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513920"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949429"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire i processi (Aggiornamento 3 e successivi)
 
@@ -59,11 +59,11 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
 
 2. Nel pannello **Processi**, visualizzare i processi desiderati eseguendo una query con i filtri appropriati. È possibile cercare processi completati, in esecuzione o annullati.
 
-    ![Pannello Processi](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
+    ![Pannello del processo 2](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
 2. Selezionare e fare clic su un processo.
 
-    ![Pannello Processi](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
+    ![Pannello del processo 3](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
 
 3. Nella finestra di dialogo dei dettagli del processo è possibile visualizzare lo stato, i dettagli, le statistiche temporali e le statistiche sui dati.
    
@@ -81,7 +81,7 @@ Eseguire la procedura seguente per annullare un processo in esecuzione.
 
 2. Fare clic sul processo selezionato per richiamare il menu di scelta rapida e fare clic su **Annulla**.
 
-    ![Dettagli del processo](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
+    ![Dettagli processo 2](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
 3. Quando viene richiesta la conferma, fare clic su **Sì**. Questo processo ora viene annullato.
 

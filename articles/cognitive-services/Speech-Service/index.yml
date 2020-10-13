@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 2d1d1057d522d082b3a5a3c757d1fe988bc24ba1
-  ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+  ms.openlocfilehash: 2d00466672318ef05218fce392797df215b6bb5f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/02/2020
-  ms.locfileid: "91667453"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91856994"
 highlightedContent:
   items:
   - title: Informazioni sul Servizio di riconoscimento vocale
@@ -88,34 +88,6 @@ conceptualContent:
     footerLink:
       text: Altro
       url: index-intent-recognition.yml
-  - title: Scenari di conversazione
-    links:
-    - itemType: overview
-      text: Informazioni sulla trascrizione conversazione (riunioni)
-      url: conversation-transcription.md
-    - itemType: overview
-      text: Informazioni sulle conversazioni per più dispositivi (riunioni)
-      url: multi-device-conversation.md
-    - itemType: how-to-guide
-      text: Trascrizioni di call center
-      url: call-center-transcription.md
-    footerLink:
-      text: Altro
-      url: index-conversation-scenarios.yml
-  - title: Assistenti vocali
-    links:
-    - itemType: overview
-      text: Informazioni sugli assistenti vocali
-      url: voice-assistants.md
-    - itemType: quickstart
-      text: Creare un assistente vocale con comandi personalizzati
-      url: custom-commands.md
-    - itemType: get-started
-      text: Creare un assistente vocale con Bot Framework
-      url: direct-line-speech.md
-    footerLink:
-      text: Altro
-      url: index-voice-assistants.yml
   - title: Riconoscimento del parlante
     links:
     - itemType: overview
@@ -135,6 +107,26 @@ conceptualContent:
     - itemType: quickstart
       text: Introduzione alla parola chiave personalizzata
       url: custom-keyword-basics.md
+  - title: Approfondimenti dello scenario
+    links:
+    - itemType: overview
+      text: Informazioni sulla trascrizione conversazione (riunioni)
+      url: conversation-transcription.md
+    - itemType: overview
+      text: Informazioni sulle conversazioni per più dispositivi (riunioni)
+      url: multi-device-conversation.md
+    - itemType: overview
+      text: Informazioni sugli assistenti vocali
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: Creare un assistente vocale con comandi personalizzati
+      url: custom-commands.md
+    - itemType: quickstart
+      text: Creare un assistente vocale con Bot Framework
+      url: direct-line-speech.md
+    - itemType: how-to-guide
+      text: Abilitare la trascrizione di call center
+      url: call-center-transcription.md
   - title: Strumenti
     links:
     - itemType: overview

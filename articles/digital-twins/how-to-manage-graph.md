@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326542"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949616"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -74,7 +74,7 @@ Se lo si desidera, è anche possibile creare più istanze dello stesso tipo di r
 
 ## <a name="list-relationships"></a>Elencare le relazioni
 
-Per accedere all'elenco di relazioni per un dispositivo gemello specifico nel grafico, è possibile usare:
+Per accedere all'elenco delle relazioni in **uscita** provenienti da un gemello specifico nel grafico, è possibile usare:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -110,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 È possibile usare le relazioni recuperate per passare ad altri gemelli nel grafo. A tale scopo, leggere il `target` campo dalla relazione restituita e usarlo come ID per la chiamata successiva a `GetDigitalTwin` . 
 
-### <a name="find-relationships-to-a-digital-twin"></a>Trovare relazioni con un dispositivo gemello digitale
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>Trovare le relazioni in ingresso a un dispositivo gemello digitale
 
-I dispositivi gemelli digitali di Azure hanno anche un'API che consente di trovare tutte le relazioni in ingresso per un dispositivo gemello specifico. Questa operazione è spesso utile per la navigazione inversa o quando si elimina un dispositivo gemello.
+I dispositivi gemelli digitali di Azure hanno anche un'API che consente di trovare tutte le relazioni in **ingresso** per un dispositivo gemello specifico. Questa operazione è spesso utile per la navigazione inversa o quando si elimina un dispositivo gemello.
 
-L'esempio di codice precedente è stato incentrato sulla ricerca di relazioni in uscita. L'esempio seguente è simile, ma trova invece le relazioni in ingresso. Li elimina anche dopo che sono stati trovati.
+L'esempio di codice precedente è stato incentrato sulla ricerca di relazioni in uscita da un gemello. L'esempio seguente è strutturato in modo analogo, ma trova invece le relazioni in *ingresso* al dispositivo gemello.
 
 Si noti che le `IncomingRelationship` chiamate non restituiscono il corpo completo della relazione.
 

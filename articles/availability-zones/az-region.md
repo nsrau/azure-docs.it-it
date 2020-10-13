@@ -11,7 +11,7 @@ ms.openlocfilehash: 888365e04566f18e5a73454fea4c96c321f5ce52
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858388"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Aree che supportano zone di disponibilità in Azure
@@ -25,7 +25,7 @@ I servizi disponibili in ogni area, insieme alla prossima roadmap per la disponi
 
 ## <a name="americas"></a>Americhe
 
-| **Prodotti** | **Stati Uniti centrali** | **Stati Uniti orientali** | **Stati Uniti orientali 2** | **Stati Uniti occidentali 2** | **Canada centrale** |
+| **Prodotti** | **Stati Uniti centrali** | **Stati Uniti orientali** | **Stati Uniti orientali 2** | **West US 2** | **Canada centrale** |
 |--|--|--|--|--|--|
 | **Calcolo** |  |  |  |  |  |
 | [Ambienti del servizio app (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -140,7 +140,7 @@ I servizi disponibili in ogni area, insieme alla prossima roadmap per la disponi
 
 
 
-## <a name="other"></a>Altri
+## <a name="other"></a>Altro
 
 Azure offre anche il supporto zone di disponibilità nelle aree seguenti: • US Gov Virginia • Sudafrica settentrionale • Stati Uniti centro-meridionali
 

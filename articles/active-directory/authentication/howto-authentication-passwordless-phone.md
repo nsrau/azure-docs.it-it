@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4792e73f6326bb9ac67ce3aabe10b8314bb826
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 053a489993c31344b96e83253c88eed93b27b145
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568208"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964826"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -61,7 +61,7 @@ Per abilitare il metodo di autenticazione per l'accesso tramite telefono senza p
 
 Con il metodo di autenticazione senza password disponibile per l'uso in Azure AD, gli utenti devono ora registrarsi per il metodo di autenticazione senza password attenendosi alla procedura seguente:
 
-1. Passare a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
+1. Passare a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) .
 1. Accedere, quindi aggiungere l'app Authenticator selezionando **Aggiungi metodo > app Authenticator**, quindi **Aggiungi**.
 1. Seguire le istruzioni per installare e configurare l'app Microsoft Authenticator nel dispositivo.
 1. Selezionare **fine** per completare la configurazione dell'autenticatore.
