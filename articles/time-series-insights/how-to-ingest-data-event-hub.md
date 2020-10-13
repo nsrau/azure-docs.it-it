@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596235"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Aggiungere un'origine evento dell'hub eventi all'ambiente Azure Time Series Insights
@@ -50,7 +50,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Nella pagina **Gruppi di consumer** immettere un nuovo valore univoco per **Nome**.  Utilizzare questo stesso nome quando si crea una nuova origine evento nell'ambiente Azure Time Series Insights.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="add-a-new-event-source"></a>Aggiungere una nuova origine evento
 
@@ -107,7 +107,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Aggiungere il nome del gruppo di consumer Azure Time Series Insights dedicato aggiunto all'hub eventi.
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
    Dopo la creazione dell'origine evento, Azure Time Series Insights avvia automaticamente il flusso dei dati nell'ambiente.
 

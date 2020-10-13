@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 924dbadc07f57e5928ecc63a24bf5e57d6213670
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938812"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Panoramica di connessione ed esecuzione di query per database di Azure per PostgreSQL-server singolo
@@ -27,7 +27,7 @@ Il documento seguente include collegamenti ad esempi che illustrano come connett
 |[PostgreSQL con VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|L'estensione database di Azure per VS Code (anteprima) consente di esplorare ed eseguire query sul server PostgreSQL in locale e nel cloud usando gli album con IntelliSense avanzato. |
 |[PHP](connect-php.md)|Questa Guida introduttiva illustra come usare PHP per creare un programma per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
 |[Java](connect-java.md)|Questa Guida introduttiva illustra come usare Java per connettersi a un database e quindi usare il lavoro con oggetti di database per eseguire query sui dati.|
-|[Node.js](connect-nodejs.md)|Questa Guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
+|[Node.JS](connect-nodejs.md)|Questa Guida introduttiva illustra come usare Node.js per creare un programma per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
 |[.NET (C#)](connect-csharp.md)|Questa Guida introduttiva illustra come use.NET (C#) per creare un programma C# per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati.|
 |[Go](connect-go.md)|Questa guida di avvio rapido illustra come usare Go per connettersi a un database. Vengono illustrate anche istruzioni Transact-SQL per eseguire query e modificare i dati.|
 |[Python](connect-python.md)|Questa Guida introduttiva illustra come usare Python per connettersi a un database e usare il lavoro con oggetti di database per eseguire query sui dati. |

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89007962"
 ---
 # <a name="partitioned-queues-and-topics"></a>Code e argomenti partizionati
@@ -20,7 +20,7 @@ Il bus di servizio di Azure usa più broker messaggi per elaborare i messaggi e 
  
 Non è possibile modificare l'opzione di partizionamento su una coda o un argomento esistente. L'opzione può essere impostata solo in fase di creazione dell'entità.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Ogni coda o argomento partizionato è costituito da più partizioni. Ogni partizione è archiviata in un archivio di messaggistica diverso e gestita da un broker di messaggi diverso. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a una delle partizioni. La selezione viene eseguita in modo casuale dal bus di servizio o tramite una chiave di partizione che può essere specificata dal mittente.
 

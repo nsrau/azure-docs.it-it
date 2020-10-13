@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86509087"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Usare gli strumenti remoti per risolvere i problemi delle macchine virtuali di Azure
@@ -180,7 +180,7 @@ Eseguire il comando seguente in base alla posizione del computer client:
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Per una macchina virtuale Azure Resource Manager, aggiungere prima di tutto un nome DNS all'indirizzo IP pubblico. Per i passaggi dettagliati, vedere [Creare un nome di dominio completo nel portale di Azure per una macchina virtuale Windows](../windows/portal-create-fqdn.md). Quindi, eseguire il comando seguente:
+  * Per una macchina virtuale Azure Resource Manager, aggiungere prima di tutto un nome DNS all'indirizzo IP pubblico. Per i passaggi dettagliati, vedere [Creare un nome di dominio completo nel portale di Azure per una macchina virtuale Windows](../windows/portal-create-fqdn.md). Eseguire poi il comando seguente:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -251,7 +251,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sul cmdlet Enter-PSSession, vedere [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- Per ulteriori informazioni sul cmdlet di Enter-PSSession, vedere [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
 - Per altre informazioni sull'estensione script personalizzata per Windows con il modello di distribuzione classica, vedere [estensione script personalizzato per Windows](../extensions/custom-script-windows.md).
 - PsExec fa parte della [suite PSTools](https://download.sysinternals.com/files/PSTools.zip).
 - Per ulteriori informazioni su PSTools Suite, vedere [PsTools](/sysinternals/downloads/pstools).

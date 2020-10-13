@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324557"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Aggregazioni avanzate nelle query dei log di Monitoraggio di Azure
@@ -121,7 +121,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Categoria | TimeGenerated | count_ |
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente diretto | 2017-06-06T17:00:00Z | 15 |
 | Agente diretto | 2017-06-06T18:00:00Z | 60 |
@@ -137,7 +137,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Categoria | count_ | TimeGenerated |
+| Category | count_ | TimeGenerated |
 |---|---|---|
 | Agente diretto | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -151,7 +151,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Categoria | TimeGenerated | count_ |
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente diretto | 2017-06-06T17:00:00Z | 15 |
 | Agente diretto | 2017-06-06T18:00:00Z | 60 |

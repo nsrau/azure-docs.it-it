@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 62b2fd0554c218b733501805779745049d3b8c92
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532642"
 ---
 # <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>Anteprima: controllo manutenzione per gli aggiornamenti delle immagini del sistema operativo nei set di scalabilità di macchine virtuali di Azure con PowerShell
@@ -56,7 +56,7 @@ $location="eastus2"
 $vmss="myMaintenanceVMSS"
 ```
 
-## <a name="create-a-maintenance-configuration"></a>Creare una configurazione di manutenzione
+## <a name="create-a-maintenance-configuration"></a>Creare una configurazione della manutenzione
 
 Creare un gruppo di risorse come contenitore per la configurazione. In questo esempio viene creato un gruppo di risorse denominato *myMaintenanceRG* in *eastus2*. Se si dispone già di un gruppo di risorse che si vuole usare, è possibile ignorare questa parte. È sufficiente sostituire il nome del gruppo di risorse con il proprio nel resto degli esempi.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: f8daa25239b935a9e0092c6bf2e388c7cc3c6789
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264760"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Set di impostazioni delle attività per Azure Media Indexer
@@ -32,7 +32,7 @@ Questo argomento descrive il set di impostazioni delle attività che è necessar
 
 La tabella seguente illustra gli elementi e gli attributi del file XML di configurazione.
 
-|Nome|Richiedi|Description|
+|Nome|Richiedi|Descrizione|
 |---|---|---|
 |Input|true|File di asset che si desidera indicizzare.<br/>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>È possibile specificare il nome o i nomi file nell'attributo **name** o **list** dell'elemento **input**, come illustrato di seguito. Se non si specifica il file di risorse da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.<br/><br/>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>```<input name="TestFile.wmv" />```<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). Per eseguire questa operazione:<br/>- Creare un file di testo (file manifesto) con estensione lst.<br/>- Nel file manifesto aggiungere un elenco di tutti i nomi dei file di risorse inclusi nella risorsa di input.<br/>- Aggiungere (caricare) il file manifesto nella risorsa.<br/>- Specificare il nome del file manifesto nell'attributo list dell'input.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con il codice di errore 2006.|
 |metadata|false|Metadati per il file o i file di risorse specificati.<br/>```<metadata key="..." value="..." />```<br/><br/>È possibile fornire i valori per le chiavi predefinite. <br/><br/>Attualmente sono supportate le chiavi seguenti:<br/><br/>**title** e **description**: usate per aggiornare il modello di lingua per migliorare l'accuratezza del riconoscimento vocale.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** e **password**: usate per l'autenticazione quando si scaricano file da Internet tramite http o https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>I valori di nome utente e password si applicano a tutti gli URL di file multimediali nel manifesto di input.|

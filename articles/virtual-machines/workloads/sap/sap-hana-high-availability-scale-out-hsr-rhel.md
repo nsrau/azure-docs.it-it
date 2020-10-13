@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
 ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744849"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Disponibilità elevata del sistema di SAP HANA con scalabilità orizzontale in Red Hat Enterprise Linux 
@@ -84,10 +84,10 @@ Prima di iniziare, vedere le note e i documenti SAP seguenti:
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index) (Amministrazione dei componenti aggiuntivi a disponibilità elevata)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index) (Riferimento dei componenti aggiuntivi a disponibilità elevata)
   * [Guida alla rete Red Hat Enterprise Linux](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
-  * [Ricerca per categorie configurare SAP HANA la replica del sistema con scalabilità orizzontale in un cluster Pacemaker con file System HANA in condivisioni NFS](https://access.redhat.com/solutions/5423971)
+  * [Ricerca per categorie configurare SAP HANA la replica di sistema Scale-Out in un cluster Pacemaker con file System HANA in condivisioni NFS](https://access.redhat.com/solutions/5423971)
 * Documentazione di RHEL specifica di Azure:
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure) (Installare SAP HANA su Red Hat Enterprise Linux per l'uso in Microsoft Azure)
-  * [Soluzione Red Hat Enterprise Linux per SAP HANA la scalabilità orizzontale e la replica di sistema](https://access.redhat.com/solutions/4386601)
+  * [Soluzione Red Hat Enterprise Linux per SAP HANA Scale-Out e la replica di sistema](https://access.redhat.com/solutions/4386601)
 * [Applicazioni NetApp SAP su Microsoft Azure con Azure NetApp Files][anf-sap-applications-azure]
 * [Documentazione di Azure NetApp Files][anf-azure-doc] 
 
@@ -836,7 +836,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
     ```
 
    > [!TIP]
-   > Se la configurazione include altri file System, oltre a/ `hana/shared` , che sono montati NFS, includere `sequential=false` l'opzione, in modo che non esistano dipendenze di ordinamento tra i file System. Tutti i file system montati NFS devono iniziare, prima della risorsa attribute corrispondente, ma non devono essere avviati in alcun ordine. Per altre informazioni, vedere [ricerca per categorie configurare SAP Hana HSR con scalabilità orizzontale in un cluster pacemaker quando i file System Hana sono condivisioni NFS](https://access.redhat.com/solutions/5423971).  
+   > Se la configurazione include altri file System, oltre a/ `hana/shared` , che sono montati NFS, includere `sequential=false` l'opzione, in modo che non esistano dipendenze di ordinamento tra i file System. Tutti i file system montati NFS devono iniziare, prima della risorsa attribute corrispondente, ma non devono essere avviati in alcun ordine. Per altre informazioni, vedere [ricerca per categorie configurare SAP HANA Scale-Out HSR in un cluster pacemaker quando i file System Hana sono condivisioni NFS](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** posizionare pacemaker in modalità manutenzione per preparare la creazione delle risorse del cluster Hana.  
     ```

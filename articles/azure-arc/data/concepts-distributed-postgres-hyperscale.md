@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: c01da4aed9e27296ea7b570420bb190b16749848
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939783"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Concetti per la distribuzione dei dati con un gruppo di server con iperscalabilità PostgreSQL abilitato per Arc
@@ -23,7 +23,7 @@ Questo articolo illustra i concetti chiave che sono importanti per sfruttare al 
 Gli articoli collegati di seguito fanno riferimento ai concetti illustrati per la scalabilità di database di Azure per PostgreSQL (CITUS). Si tratta della stessa tecnologia di Azure Arc abilitata per l'iperscalabilità di PostgreSQL, in modo da applicare gli stessi concetti e prospettive.
 
 **Qual è la differenza tra di essi?**
-- _Iperscalabilità per database di Azure per PostgreSQL (CITUS)_
+- _Database di Azure per PostgreSQL Hyperscale (Citus)_
 
 Questo è il fattore di forma di iperscalabilità del motore di database Postgres disponibile come database come servizio in Azure (PaaS). È alimentato dall'estensione CITUS che consente l'esperienza di iperscalabilità. In questo fattore di forma il servizio viene eseguito nei Data Center Microsoft ed è gestito da Microsoft.
 
@@ -46,7 +46,7 @@ Per altre informazioni [, vedere nodi e tabelle in database di Azure per Postgre
 ## <a name="determine-the-application-type"></a>Determinare il tipo di applicazione
 È importante identificare chiaramente il tipo di applicazione che si sta compilando. Perché? Poiché l'esecuzione di query efficienti su un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc richiede che le tabelle vengano distribuite correttamente tra i server. La distribuzione consigliata varia in base al tipo di applicazione e ai relativi modelli di query. Sono disponibili due tipi di applicazioni che funzionano in modo ottimale in Azure Arc con iperscalabilità Postgres abilitata:
 - Applicazioni multi-tenant
-- Applicazioni in tempo reale
+- Applicazioni Real-Time
 
 Il primo passaggio nella modellazione dei dati consiste nell'identificare quali sono più simili all'applicazione.
 

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 8f755b42249a88a2d37117003d561f79aea6b170
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165992"
 ---
 #  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Novell Android System Browser considerazioni sull'uso di MSAL.NET
@@ -45,7 +45,7 @@ Nella tabella seguente sono elencati i dispositivi e i browser testati per la co
 | Dispositivo | Browser     |  Risultato  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/uno + | Chrome\* | Pass|
-| Huawei/uno + | Microsoft Edge\* | Pass|
+| Huawei/uno + | Edge\* | Pass|
 | Huawei/uno + | Firefox\* | Pass|
 | Huawei/uno + | Incredibile\* | Pass|
 | Uno + | Ecosia\* | Pass|
@@ -60,7 +60,7 @@ Nella tabella seguente sono elencati i dispositivi e i browser testati per la co
 | Uno + | Browser CM | Autenticazione annullata dall'utente|
 | Huawei/uno + | Nessuno installato | Eccezione AndroidActivityNotFound|
 
-\*Supporta schede personalizzate
+\* Supporta schede personalizzate
 
 ## <a name="known-issues"></a>Problemi noti
 

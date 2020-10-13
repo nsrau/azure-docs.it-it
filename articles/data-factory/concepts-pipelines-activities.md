@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562010"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
@@ -52,11 +52,11 @@ Attività di trasformazione dei dati | Ambiente di calcolo
 [Flusso di dati](control-flow-execute-data-flow-activity.md) | Azure Databricks gestiti da Azure Data Factory
 [Funzione di Azure](control-flow-azure-function-activity.md) | Funzioni di Azure
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
-[Maiale](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
+[Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
+[Attività di Machine Learning: esecuzione batch e aggiornamento risorse](transform-data-using-machine-learning.md) | Macchina virtuale di Azure
 [Stored procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure sinapsi Analytics (in precedenza SQL Data Warehouse) o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics.
 [Attività personalizzata](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -112,7 +112,7 @@ name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguit
 description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No
 attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
 parametri | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
-Concorrenza | Numero massimo di esecuzioni simultanee consentite dalla pipeline. Per impostazione predefinita, non esiste alcun valore massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni di pipeline aggiuntive vengono accodate fino al completamento di quelle precedenti | Number | No 
+Concorrenza | Numero massimo di esecuzioni simultanee consentite dalla pipeline. Per impostazione predefinita, non esiste alcun valore massimo. Se viene raggiunto il limite di concorrenza, le esecuzioni di pipeline aggiuntive vengono accodate fino al completamento di quelle precedenti | Numero | No 
 annotations | Elenco di tag associati alla pipeline | Array | No
 
 ## <a name="activity-json"></a>Attività JSON

@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669030"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gestire i certificati in un dispositivo IoT Edge
 
-Tutti i dispositivi IoT Edge usano i certificati per creare connessioni sicure tra il runtime e tutti i moduli in esecuzione nel dispositivo. IoT Edge i dispositivi che funzionano come gateway usano questi stessi certificati per connettersi anche ai dispositivi downstream.
+Tutti i dispositivi IoT Edge usano i certificati per creare connessioni sicure tra il runtime e i moduli in esecuzione nel dispositivo. IoT Edge i dispositivi che funzionano come gateway usano questi stessi certificati per connettersi anche ai dispositivi downstream.
 
 ## <a name="install-production-certificates"></a>Installare i certificati di produzione
 
@@ -57,7 +57,7 @@ Per visualizzare un esempio di questi certificati, esaminare gli script che crea
 
 Installare la catena di certificati nel dispositivo IoT Edge e configurare il runtime IoT Edge per fare riferimento ai nuovi certificati.
 
-Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati demo](how-to-create-test-certificates.md), copiare i file seguenti nel dispositivo:
+Ad esempio, se sono stati usati gli script di esempio per [creare i certificati demo](how-to-create-test-certificates.md), copiare i file seguenti nel dispositivo IoT-Edge:
 
 * Certificato CA dispositivo: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Chiave privata CA del dispositivo: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
