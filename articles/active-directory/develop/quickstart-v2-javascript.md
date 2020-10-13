@@ -1,7 +1,7 @@
 ---
-title: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript | Azure
+title: "Avvio rapido: Consentire l'accesso degli utenti nelle applicazioni a pagina singola JavaScript | Azure"
 titleSuffix: Microsoft identity platform
-description: Informazioni su come un'app JavaScript possa chiamare un'API che richiede token di accesso tramite Microsoft Identity Platform.
+description: Questa guida di avvio rapido illustra come un'app JavaScript può chiamare un'API che richiede token di accesso generati da Microsoft Identity Platform.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e3e0c1ecf9ce3a9d86f6b03c3ad3efc5676b5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1f5281ead3c0487b6052859df3b33fa6ddaaf45a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257929"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613323"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Avvio rapido: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -25,10 +25,9 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure - [Creare una sottoscrizione di Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (per modificare i file di progetto)
-
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrare e scaricare l'app dell'avvio rapido
@@ -300,9 +299,4 @@ myMSALObj.acquireTokenPopup(requestObj)
 Per informazioni dettagliate sulla creazione dell'applicazione per questo argomento di avvio rapido, vedere:
 
 > [!div class="nextstepaction"]
-> [Esercitazione per l'accesso e la chiamata a MS Graph](./tutorial-v2-javascript-spa.md)
-
-Per consultare il repository MSAL per documentazione, domande frequenti, problemi e altro ancora:
-
-> [!div class="nextstepaction"]
-> [Repository MSAL.js di GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Esercitazione: Concedere l'accesso agli utenti e chiamare l'API Microsoft Graph API da un'applicazione a pagina singola JavaScript](tutorial-v2-javascript-spa.md)

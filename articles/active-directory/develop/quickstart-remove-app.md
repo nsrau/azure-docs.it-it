@@ -1,6 +1,7 @@
 ---
-title: Rimuovere un'app registrata con Microsoft Identity Platform | Azure
-description: Informazioni su come rimuovere un'applicazione registrata con Microsoft Identity Platform.
+title: "Avvio rapido: Rimuovere un'app registrata da Microsoft Identity Platform | Azure"
+titleSuffix: Microsoft identity platform
+description: Questo argomento di avvio rapido illustra come rimuovere un'applicazione registrata con Microsoft Identity Platform.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bdcf32f53da49834b37471a8258262f0eb2b21da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0a0150112602cd34168f64132785faf1f8c33f62
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115323"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612388"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Guida introduttiva: Rimuovere un'applicazione registrata con Microsoft Identity Platform
 
@@ -30,22 +31,19 @@ In questa guida introduttiva si apprende come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un tenant in cui sono registrate applicazioni. Per informazioni su come aggiungere e registrare app, vedere [Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
+* Completamento di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Rimuovere un'applicazione creata dall'utente o dalla relativa organizzazione
 
 Le applicazioni registrate dall'utente o dalla relativa organizzazione vengono rappresentate nel tenant sia da un oggetto applicazione che da un oggetto entità servizio. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](./app-objects-and-service-principals.md).
 
-### <a name="to-remove-an-application"></a>Per rimuovere un'applicazione
+Per eliminare un'applicazione, è necessario essere un proprietario dell'applicazione o avere privilegi di amministratore.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-2. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-3. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** dell'applicazione.
-4. Nella pagina **Panoramica** selezionare **Elimina**.
-5. Selezionare **Sì** per confermare l'eliminazione dell'app.
-
-   > [!NOTE]
-   > Per eliminare un'applicazione, è necessario essere un proprietario dell'applicazione o avere privilegi di amministratore.
+1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
+1. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** dell'applicazione.
+1. Nella pagina **Panoramica** selezionare **Elimina**.
+1. Selezionare **Sì** per confermare l'eliminazione dell'app.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Rimuovere un'applicazione creata da un'altra organizzazione
 
@@ -55,9 +53,7 @@ Per rimuovere l'accesso di un'applicazione alla directory (dopo aver concesso il
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le altre guide introduttive correlate sulla gestione delle app:
+Altre informazioni sugli oggetti applicazione ed entità servizio in Microsoft Identity Platform:
 
-* [Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
-* [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md)
-* [Configurare un'applicazione per l'esposizione di API Web](quickstart-configure-app-expose-web-apis.md)
-* [Modificare gli account supportati da un'applicazione](quickstart-modify-supported-accounts.md)
+> [!div class="nextstepaction"]
+> [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md)

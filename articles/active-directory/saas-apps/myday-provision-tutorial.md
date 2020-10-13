@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/17/2020
 ms.author: Zhchia
 ms.openlocfilehash: e8d8f2af0350a8b4457f70632341f070c890cba0
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761057"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Esercitazione: configurare MyDay per il provisioning utenti automatico
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e MyDay](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-myday-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare MyDay per supportare il provisioning con Azure AD
+## <a name="step-2-configure-myday-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare MyDay per supportare il provisioning con Azure AD
 
 Contattare il rappresentante MyDay o il team di supporto per ricevere l' **URL del tenant** e il **token segreto**.
 

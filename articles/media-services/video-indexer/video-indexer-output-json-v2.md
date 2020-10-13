@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: juliako
 ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89050863"
 ---
 # <a name="examine-the-video-indexer-output"></a>Esaminare l'output del Video Indexer
@@ -58,7 +58,7 @@ Per altre informazioni, vedere [Visualizzare e analizzare le informazioni dettag
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
 |name|Nome della playlist.|
-|Descrizione|Descrizione della playlist.|
+|description|Descrizione della playlist.|
 |userName|Nome dell'utente che ha creato la playlist.|
 |created|Ora di creazione della playlist.|
 |privacyMode|Modalità di privacy della playlist (privata/pubblica).|
@@ -331,7 +331,7 @@ Se sono presenti visi (caratteri non animati), Video Indexer USA API Viso su tut
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
 |confidence|Grado di attendibilità dell'identificazione del volto.|
-|Descrizione|Descrizione del personaggio noto. |
+|description|Descrizione del personaggio noto. |
 |thumbnailId|ID dell'anteprima del volto.|
 |knownPersonId|Nel caso di una persona nota, il relativo ID interno.|
 |referenceId|Nel caso di un personaggio noto di Bing, il relativo ID Bing.|
@@ -519,7 +519,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |name|Nome del marchio.|
 |referenceId | Suffisso dell'URL di Wikipedia del marchio. Ad esempio, "Target_Corporation" è il suffisso di [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |referenceUrl | URL di Wikipedia del marchio, se presente. ad esempio [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|Descrizione|Descrizione del marchio.|
+|description|Descrizione del marchio.|
 |tags|Elenco di tag predefiniti associati a questo marchio.|
 |confidence|Valore di attendibilità della funzionalità di rilevamento dei marchi di Video Indexer (0-1).|
 |instances|Elenco degli intervalli di tempo di questo marchio. Ogni istanza ha un brandType, che indica se il marchio è presente nella trascrizione o nell'OCR.|
@@ -585,7 +585,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |Nome|Descrizione|
 |---|---|
 |id|L'ID dell'effetto audio.|
-|tipo|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
+|type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
 |instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
 
 ```json
@@ -699,7 +699,7 @@ Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'e
 |Nome|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
-|tipo|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
+|type|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
 |instances|Elenco degli intervalli di tempo in cui è comparsa l'emozione.|
 
 ```json

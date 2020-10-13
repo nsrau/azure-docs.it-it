@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: ded1887248e7313c2a284388e8338af96ad7614c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39585a68c5cddc50cd04e82caca71209270f7b68
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84987426"
+ms.locfileid: "91874119"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminare un gateway di rete virtuale usando PowerShell (classico)
 
@@ -35,11 +35,7 @@ Questo articolo illustra come eliminare un gateway VPN nel modello di distribuzi
 
 Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 
-1. Aprire la console di PowerShell con diritti elevati. Per passare a gestione servizi, usare questo comando:
-
-   ```powershell
-   azure config mode asm
-   ```
+1. Aprire la console di PowerShell con diritti elevati.
 2. Connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 
    ```powershell

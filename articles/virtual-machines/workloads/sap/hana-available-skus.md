@@ -15,10 +15,10 @@ ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6911128cfbaa87229a09bcea0d655c6110c2d208
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259782"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKU disponibili per le istanze large di HANA
@@ -32,7 +32,7 @@ SAP HANA in Azure (istanze large) in base ai soli timbri di revisione 3, è disp
 
 Il servizio SAP HANA in Azure (istanze large) basato su indicatori di revisione 4 è disponibile in diverse configurazioni nelle aree di Azure di:
 
-- Stati Uniti occidentali 2
+- West US 2
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-meridionali

@@ -15,10 +15,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317005"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurare un nome di rete distribuita per un'istanza FCI 
@@ -119,7 +119,7 @@ Per aggiornare i proprietari possibili, attenersi alla procedura seguente:
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Menu di scelta rapida per la risorsa DNN, con il comando Properties evidenziato.":::
 1. Deselezionare la casella di controllo per tutti i nodi che non fanno parte dell'istanza del cluster di failover. L'elenco dei possibili proprietari per la risorsa DNN deve corrispondere all'elenco dei possibili proprietari per la risorsa dell'istanza di SQL Server. Ad esempio, supponendo che data3 non partecipi all'istanza FCI, l'immagine seguente è un esempio di rimozione di data3 dall'elenco dei possibili proprietari per la risorsa DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Deselezionare la casella di controllo accanto ai nodi che non fanno parte dell'istanza FCI per i possibili proprietari della risorsa DNN":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu di scelta rapida per la risorsa DNN, con il comando Properties evidenziato.":::
 
 1. Selezionare **OK** per salvare le impostazioni. 
 

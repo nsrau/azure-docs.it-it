@@ -12,10 +12,10 @@ author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892971"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parità di Azure Machine Learning del cloud sovrano
@@ -34,7 +34,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Funzionalità | Stato del cloud pubblico  | Stati Uniti-Virginia | Stati Uniti-Arizona| 
+| Funzionalità | Stato del cloud pubblico  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Machine Learning automatizzato** | | | |
 | Creare ed eseguire esperimenti nei notebook                                    | GA                   | YES                | YES         |
@@ -112,7 +112,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 
 ### <a name="azure-government-scenarios"></a>Scenari di Azure per enti pubblici
 
-| Scenario                                                    | Stati Uniti-Virginia | Stati Uniti-Arizona| Limitazioni  |
+| Scenario                                                    | US-Virginia | US-Arizona| Limitazioni  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **Configurazione della sicurezza generale** |   | | |
 | Comunicazione di rete privata tra servizi                                     | NO | NO | Nessun collegamento privato attualmente | 
@@ -122,7 +122,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Accesso radice e SSH alle risorse di calcolo.                                          | YES | YES |  |
 | Mantenere la sicurezza dei sistemi distribuiti (istanze, endpoint e così via), inclusi Endpoint Protection, applicazione di patch e registrazione |  PARTIAL|  PARTIAL |ACI dietro VNet e endpoint privato attualmente non disponibile |                                  
 | Controllo (Disabilita/limita/limita) uso dell'integrazione di ACI/AKS                    | PARTIAL| PARTIAL |ACI dietro VNet e endpoint privato attualmente non disponibile|
-| Controllo degli accessi in base al ruolo (RBAC): creazioni di ruoli personalizzati                           | YES | YES |  |
+| Controllo di accesso Role-Based (RBAC)-creazioni di ruoli personalizzati                           | YES | YES |  |
 | Controllare l'accesso alle immagini del registro contenitori di Azure usate dal servizio ML (fornito/gestito da Azure e personalizzato)  |PARTIAL|  PARTIAL | ACR dietro endpoint privato e VNet non supportato in Azure per enti pubblici |
 | **Utilizzo generale del servizio Machine Learning** |  | | |
 | Possibilità di disporre di un ambiente di sviluppo per compilare un modello, eseguire il training del modello, ospitarlo come endpoint e utilizzarlo tramite un WebApp     | YES | YES |  |
@@ -134,7 +134,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 ### <a name="additional-azure-government-limitations"></a>Limitazioni aggiuntive di Azure per enti pubblici
 
 * Per Azure Machine Learning istanze di calcolo, la possibilità di aggiornare un token che dura più di 24 ore non è disponibile in Azure per enti pubblici.
-* La profilatura del modello non supporta 4 CPU nell'area Stati Uniti orientali.   
+* La profilatura del modello non supporta 4 CPU nell'area US-Arizona.   
 * I notebook di esempio potrebbero non funzionare in Azure per enti pubblici se è necessario l'accesso ai dati pubblici.
 * Indirizzi IP: il comando CLI usato nelle istruzioni [VNet e tunneling forzato](how-to-secure-training-vnet.md#forced-tunneling) non restituisce gli intervalli IP. Usare invece gli [intervalli IP di Azure e i tag di servizio per Azure per enti pubblici](https://www.microsoft.com/download/details.aspx?id=57063) .
 * Per le pipeline pianificate, viene fornito anche un meccanismo di trigger basato su BLOB. Questo meccanismo non è supportato per le aree di lavoro CMK. Per abilitare un trigger basato su BLOB per le aree di lavoro di CMK, è necessario eseguire un'installazione aggiuntiva. Per altre informazioni, vedere [attivare un'esecuzione di una pipeline di machine learning da un'app per la logica](how-to-trigger-published-pipeline.md).
@@ -229,7 +229,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 * Azure Cina ha SKU di VM limitati, specialmente per lo SKU GPU. Ha solo la famiglia NCv3 (V100).
 * Gli endpoint dell'API REST sono diversi da Azure globale. Usare la tabella seguente per trovare l'endpoint dell'API REST per le aree di Azure Cina:
 
-    | Endpoint REST                 | Azure globale                                 | Cina-governo                           |
+    | Endpoint REST                 | Azure globale                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
     | Piano di gestione | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Piano dati       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |
