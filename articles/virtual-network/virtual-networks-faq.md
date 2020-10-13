@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 171fc11c8de9cd53a7abd9602768a117341826ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d676d891683cc11dd8c1999c26464373d17e97be
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306601"
+ms.locfileid: "91932023"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -255,7 +255,6 @@ Le risorse seguenti possono usare i bilanciamenti del carico di base, che signif
 - Cache Redis 
 - SKU del gateway applicazione (V1)
 - Service Fabric
-- MI SQL
 - Gestione API
 - Servizio Dominio di Active Directory (aggiunge)
 - App per la logica

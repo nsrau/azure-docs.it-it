@@ -115,13 +115,13 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Creare l'asset tecnico delle macchine virtuali di Azure
               items:
-                - name: Certificazione di macchine virtuali - Problemi e soluzioni
+                - name: Problemi di certificazione delle macchine virtuali
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Creare un asset tecnico per macchine virtuali di Azure
                   href: partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Domande frequenti sull'asset tecnico delle macchine virtuali di Azure
                   href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Testare la macchina virtuale distribuita dal disco rigido virtuale
+                - name: Testare una macchina virtuale distribuita da disco rigido virtuale
                   href: partner-center-portal/azure-vm-image-certification.md
                 - name: URI della firma di accesso condiviso
                   items:
@@ -324,17 +324,27 @@
       href: marketplace-faq-publisher-guide.md
     - name: Domande frequenti sulla migrazione del portale Cloud Partner
       href: cloud-partner-portal-migration-faq.md
+    - name: Orario di ufficio dell'opportunità di business
+      href: 'https://aka.ms/marketplaceofficehours'
+    - name: Orario di ufficio per il reparto tecnico e pubblicazione
+      href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Opzioni di supporto del Centro per i partner
       href: partner-center-portal/support.md
+    - name: Annunci del Centro per i partner
+      href: /partner-center/announcements
+    - name: Community dei Partner Microsoft
+      href: 'https://www.microsoftpartnercommunity.com/'
+    - name: Forum della community di partner
+      href: 'https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222'
     - name: Disponibilità a livello geografico e valute
       href: marketplace-geo-availability-currencies.md
+    - name: Trovare gli ID tenant e oggetto
+      href: find-tenant-object-id.md
     - name: Paesi e aree supportati
       href: sell-from-countries.md
-    - name: Tag HTML supportati
-      href: supported-html-tags.md
     - name: Codici di paese e area per il co-selling
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Codici di stato per il co-selling
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 'Forum, blog e collegamenti rapidi'
-      href: marketplace-roadmap.md
+    - name: Tag HTML supportati
+      href: supported-html-tags.md

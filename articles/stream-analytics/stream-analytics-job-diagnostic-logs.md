@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
 ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91459813"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di Analisi di flusso di Azure usando i log delle risorse
@@ -66,7 +66,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
     ![Spostamento dei pannelli nei log delle risorse](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Specificare un **nome** nel **nome delle impostazioni di diagnostica** e selezionare le caselle per l' **esecuzione** e la **creazione** in **log**e **AllMetrics** in **metrica**. Selezionare quindi **Invia a log Analytics** e scegliere l'area di lavoro. Fare clic su **Salva**.
+2.  Specificare un **nome** nel **nome delle impostazioni di diagnostica** e selezionare le caselle per l' **esecuzione** e la **creazione** in **log**e **AllMetrics** in **metrica**. Selezionare quindi **Invia a log Analytics** e scegliere l'area di lavoro. Fare clic su **Save**.
 
     ![Impostazioni per i log delle risorse](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -95,7 +95,7 @@ Analisi di flusso di Azure acquisisce due categorie di log di risorse:
 
 Tutti i log vengono archiviati in formato JSON. Ogni voce include i campi stringa comuni seguenti:
 
-Nome | Descrizione
+Nome | Description
 ------- | -------
 time | Timestamp del log (in UTC).
 resourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
@@ -117,8 +117,8 @@ Nome | Descrizione
 ------- | -------
 Source (Sorgente) | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
 Message | Messaggio associato all'errore.
-Tipo | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
-Data | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
+Type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
 
@@ -134,11 +134,11 @@ In base al valore **operationName**, lo schema degli errori nei dati è il segue
 
 Gli eventi generici sono tutti gli altri.
 
-Nome | Descrizione
+Nome | Description
 -------- | --------
 Errore | (facoltativo) Informazioni sugli errori. In genere, quando disponibili, si tratta di informazioni sulle eccezioni.
 Message| Messaggio del log.
-Tipo | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+Type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | GUID che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi

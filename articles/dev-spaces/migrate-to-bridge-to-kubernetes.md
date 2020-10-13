@@ -1,18 +1,25 @@
 ---
 title: Migrazione a Bridge per Kubernetes
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 description: Descrive i processi che alimentano Azure Dev Spaces
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, Bridge per Kubernetes
-ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997169"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962854"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge per Kubernetes
+
+> [!IMPORTANT]
+> Azure Dev Spaces verrà ritirato il 31 ottobre 2023. Gli sviluppatori devono passare a usare Bridge per Kubernetes, uno strumento di sviluppo client.
+>
+> Lo scopo di Azure Dev Spaces è stato quello di semplificare lo sviluppo degli sviluppatori in Kubernetes. Un compromesso significativo nell'approccio di Azure Dev Spaces è stato quello di rendere più difficile per gli sviluppatori comprendere le configurazioni di Docker e Kubernetes, nonché i concetti di distribuzione di Kubernetes. Nel corso del tempo, è stato anche chiaro che l'approccio di Azure Dev Spaces non ha ridotto efficacemente la velocità dello sviluppo del ciclo interno in Kubernetes. Bridge to Kubernetes consente di ridurre in modo efficace la velocità dello sviluppo di cicli interni evitando inutili oneri sugli sviluppatori.
+>
+> La mission principale rimane invariata: creare le esperienze di sviluppo migliori per sviluppare, testare ed eseguire il debug del codice del microservizio nel contesto dell'applicazione più grande.
 
 Bridge to Kubernetes offre un'alternativa più semplice a molti degli scenari di sviluppo che funzionano con Azure Dev Spaces. Bridge to Kubernetes è un'esperienza solo sul lato client che usa le estensioni in [Visual Studio][vs]   e [Visual Studio Code][vsc].  
 

@@ -6,10 +6,10 @@ ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817740"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
@@ -91,7 +91,7 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano i servi
 
 #### <a name="advantages"></a>Vantaggi
 
-* Riduce il numero di passaggi necessari per le operazioni di scalabilità (la disattivazione del nodo e Remove-ServiceFabricNodeState vengono chiamati automaticamente).
+* Riduce il numero di passaggi necessari per le operazioni di scalabilità (disattivazione dei nodi e Remove-ServiceFabricNodeState vengono chiamati automaticamente).
 * Riduce il rischio di perdita di dati a causa di operazioni di modifica delle dimensioni della macchina virtuale sul posto e di operazioni di infrastruttura di Azure.
 
 #### <a name="disadvantages"></a>Svantaggi

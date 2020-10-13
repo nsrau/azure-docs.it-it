@@ -3,12 +3,12 @@ title: Usare applicazione Azure gateway per proteggere le app Web in una soluzio
 description: Configurare applicazione Azure gateway per esporre in modo sicuro le app Web in esecuzione in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 07/31/2020
-ms.openlocfilehash: ad7cd36d77da41d75ea9dcc18a51d0ffc5540d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b63b7348419500504cb45917d741cc17e2b8a622
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580110"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951452"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Usare applicazione Azure gateway per proteggere le app Web in una soluzione VMware di Azure
 
@@ -146,4 +146,4 @@ In questa sezione si apprenderà come configurare il gateway applicazione con ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri esempi di configurazione, vedere la [documentazione del Gateway applicazione Azure](https://docs.microsoft.com/azure/application-gateway/) .
+Per altri esempi di configurazione, vedere la [documentazione del Gateway applicazione Azure](../application-gateway/index.yml) .

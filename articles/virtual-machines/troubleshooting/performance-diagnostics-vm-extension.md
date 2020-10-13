@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090653"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963262"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
-L'estensione per macchine virtuali Azure Performance Diagnostics raccoglie i dati di diagnostica delle prestazioni di macchine virtuali Windows, esegue l'analisi dei dati e genera un report con i risultati, aggiungendo consigli per l'identificazione e la risoluzione di eventuali problemi di prestazioni delle macchine virtuali esaminate. Questa estensione installa uno strumento di risoluzione dei problemi denominato [PerfInsights](https://aka.ms/perfinsights).
+L'estensione per macchine virtuali Azure Performance Diagnostics raccoglie i dati di diagnostica delle prestazioni di macchine virtuali Windows, esegue l'analisi dei dati e genera un report con i risultati, aggiungendo consigli per l'identificazione e la risoluzione di eventuali problemi di prestazioni delle macchine virtuali esaminate. Questa estensione installa uno strumento di risoluzione dei problemi denominato [PerfInsights](./how-to-use-perfinsights.md).
 
 > [!NOTE]
 > Se si vuole eseguire la diagnostica della macchina virtuale dal portale di Azure per macchine virtuali non classiche, è consigliabile usare la nuova esperienza. Per altre informazioni, vedere [Diagnostica delle prestazioni per le macchine virtuali di Azure](performance-diagnostics.md) 
@@ -78,7 +78,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Versione dell'API.
 |publisher|Microsoft.Azure.Performance.Diagnostics|Spazio dei nomi del server di pubblicazione per l'estensione.
-|type|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
+|tipo|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
 |typeHandlerVersion|1.0|Versione del gestore dell'estensione.
 |performanceScenario|basic|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|Durata delle tracce se è selezionata una delle opzioni di traccia.
@@ -237,7 +237,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>Informazioni sui dati acquisiti
-Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnostica, in base allo scenario selezionato. Per altre informazioni, vedere la [documentazione di PerfInsights](https://aka.ms/perfinsights).
+Lo strumento PerfInsights raccoglie vari dati di log, configurazione e diagnostica, in base allo scenario selezionato. Per altre informazioni, vedere la [documentazione di PerfInsights](./how-to-use-perfinsights.md).
 
 ## <a name="view-and-share-the-results"></a>Visualizzare e condividere i risultati
 

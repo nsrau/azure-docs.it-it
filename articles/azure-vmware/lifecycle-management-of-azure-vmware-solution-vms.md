@@ -3,12 +3,12 @@ title: Gestione del ciclo di vita delle VM della soluzione VMware di Azure
 description: Informazioni su come gestire tutti gli aspetti del ciclo di vita delle macchine virtuali della soluzione VMware di Azure con Microsoft Azure strumenti nativi.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575478"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950364"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestione del ciclo di vita delle VM della soluzione VMware di Azure
 
@@ -21,10 +21,10 @@ Microsoft Azure strumenti nativi consentono di monitorare e gestire le macchine 
 - Con Gestione aggiornamenti di Azure in automazione di Azure, è possibile gestire gli aggiornamenti del sistema operativo per i computer Windows e Linux. 
 - Il Centro sicurezza di Azure offre protezione avanzata dalle minacce, tra cui:
     - Monitoraggio dell'integrità dei file
-    - Avvisi di sicurezza non file
+    - Avvisi di sicurezza senza file
     - Valutazione patch del sistema operativo
-    - Valutazione delle configurazioni errate della sicurezza
-    - Valutazione di Endpoint Protection 
+    - Valutazione degli errori di configurazione della sicurezza
+    - Valutazione della protezione endpoint 
 - Distribuisci con facilità il Microsoft Monitoring Agent (MMA) usando Azure ARC per le nuove macchine virtuali. 
 - L'area di lavoro Log Analytics in monitoraggio di Azure consente la raccolta di log e la raccolta di contatori delle prestazioni con MMA o estensioni. Raccogliere i dati e i log in un singolo punto e presentare i dati a diversi servizi nativi di Azure. 
 - I vantaggi aggiuntivi di monitoraggio di Azure includono: 
@@ -58,7 +58,7 @@ Le macchine virtuali della soluzione VMware di Azure possono essere monitorate t
 
 Il **Centro sicurezza di Azure** offre protezione avanzata dalle minacce tra i carichi di lavoro ibridi nel cloud e in locale. Valuterà la vulnerabilità delle macchine virtuali della soluzione VMware di Azure e genererà avvisi in base alle esigenze. Questi avvisi di sicurezza possono essere trasmessi a monitoraggio di Azure per la risoluzione.
 - Il Centro sicurezza di Azure non richiede la distribuzione. Per ulteriori informazioni, vedere l'elenco delle [funzionalità supportate per le macchine virtuali](../security-center/security-center-services.md).
-- Per aggiungere macchine virtuali della soluzione VMware di Azure e macchine virtuali non di Azure al centro sicurezza di Azure, vedere [onboarding Windows computers to Azure Security Center](../security-center/quick-onboard-windows-computer.md) e [onboarding Linux computers to Azure Security Center](../security-center/quick-onboard-linux-computer.md).
+- Per aggiungere macchine virtuali della soluzione VMware di Azure e macchine virtuali non di Azure al centro sicurezza di Azure, vedere [onboarding Windows computers to Azure Security Center](../security-center/quickstart-onboard-machines.md) e [onboarding Linux computers to Azure Security Center](../security-center/quickstart-onboard-machines.md).
 - Dopo l'aggiunta di macchine virtuali, il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Vengono inoltre forniti suggerimenti nella scheda Panoramica. Per altre informazioni, vedere [raccomandazioni per la sicurezza nel centro sicurezza di Azure](../security-center/security-center-recommendations.md).
 - È possibile definire i criteri di sicurezza nel centro sicurezza di Azure. Per informazioni sulla configurazione dei criteri di sicurezza, vedere [utilizzo dei criteri di sicurezza](../security-center/tutorial-security-policy.md).
 
