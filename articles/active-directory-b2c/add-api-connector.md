@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 092246da4c01aa826fd4425e5a778d567b75d9d6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828457"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854359"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Aggiungere un connettore API a un flusso utente di iscrizione
 
@@ -70,7 +70,7 @@ Content-type: application/json
 }
 ```
 
-Nella richiesta sono disponibili solo le proprietà utente e **Azure Active Directory**gli attributi personalizzati elencati nell'esperienza degli  >  **External Identities**  >  **attributi utente personalizzati** Azure Active Directory identità esterne.
+Nella richiesta sono disponibili solo le proprietà utente e gli attributi personalizzati elencati nel **Azure ad B2C**  >  esperienza**degli attributi utente** .
 
 Gli attributi personalizzati sono disponibili nel formato **extension_ \<extensions-app-id> _CustomAttribute**  nella directory. L'API deve essere in attesa di ricevere attestazioni in questo stesso formato serializzato. Per altre informazioni sugli attributi personalizzati, vedere [definire attributi personalizzati in Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -234,7 +234,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                          | Tipo              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
+| Parametro                                          | Type              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
 | action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
@@ -255,7 +255,7 @@ Content-type: application/json
 
 ```
 
-| Parametro   | Tipo   | Obbligatoria | Descrizione                                                                |
+| Parametro   | Type   | Obbligatoria | Descrizione                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | string | Sì      | Versione dell'API.                                                    |
 | action      | string | Sì      | Il valore deve essere `ShowBlockPage`                                              |
@@ -279,7 +279,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro   | Tipo    | Obbligatoria | Descrizione                                                                |
+| Parametro   | Type    | Obbligatoria | Descrizione                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | string  | Sì      | Versione dell'API.                                                    |
 | action      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |
@@ -294,7 +294,7 @@ Content-type: application/json
 ## <a name="best-practices-and-how-to-troubleshoot"></a>Procedure consigliate e risoluzione dei problemi
 
 ### <a name="using-serverless-cloud-functions"></a>Uso di funzioni cloud senza server
-Le funzioni senza server, come i trigger HTTP in funzioni di Azure, offrono un modo semplice per creare endpoint API da usare con il connettore API. È possibile usare la funzione cloud senza server per eseguire, ad esempio, la logica di convalida e limitare l'accesso a domini specifici. La funzione cloud senza server può anche chiamare e richiamare altre API Web, archivi utente e altri servizi cloud per scenari più complessi.
+Le funzioni senza server, come i trigger HTTP in funzioni di Azure, offrono un modo semplice per creare endpoint API da usare con il connettore API. È possibile usare la funzione cloud senza server per eseguire, [ad esempio](code-samples.md#api-connectors), la logica di convalida e limitare le iscrizioni a specifici domini di posta elettronica. La funzione cloud senza server può anche chiamare e richiamare altre API Web, archivi utente e altri servizi cloud per scenari più complessi.
 
 ### <a name="best-practices"></a>Procedure consigliate
 Assicurarsi che:
@@ -314,4 +314,4 @@ In generale, è utile usare gli strumenti di registrazione abilitati dal servizi
 
 ## <a name="next-steps"></a>Passaggi successivi
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
+- Per iniziare, vedere gli [esempi di avvio rapido di funzioni di Azure](code-samples.md#api-connectors).

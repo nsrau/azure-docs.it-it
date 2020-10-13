@@ -257,12 +257,16 @@
           href: batch-pool-resize-start-event.md
         - name: Evento di completamento ridimensionamento pool
           href: batch-pool-resize-complete-event.md
+        - name: Evento di scalabilità automatica del pool
+          href: batch-pool-autoscale-event.md
         - name: Evento di avvio attività
           href: batch-task-start-event.md
         - name: Evento di completamento attività
           href: batch-task-complete-event.md
         - name: Evento di attività non riuscita
           href: batch-task-fail-event.md
+        - name: Evento di pianificazione attività non riuscita
+          href: batch-task-schedule-fail-event.md
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

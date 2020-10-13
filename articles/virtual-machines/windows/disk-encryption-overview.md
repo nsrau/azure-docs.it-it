@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4650df71acb088fafc1280d31d9abfb398e06741
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ffed14c1877f92b8f8989ea65500f441506fa34
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284490"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977290"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Crittografia dischi di Azure per macchine virtuali Windows 
 
@@ -37,7 +37,7 @@ Le macchine virtuali Windows sono disponibili in un [intervallo di dimensioni](.
 
 Crittografia dischi di Azure è disponibile anche per le macchine virtuali con Archiviazione Premium.
 
-Crittografia dischi di Azure non è disponibile nelle macchine virtuali di [generazione 2](generation-2.md#generation-1-vs-generation-2-capabilities) e [VM della serie Lsv2](../lsv2-series.md). Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-windows.md#unsupported-scenarios).
+Crittografia dischi di Azure non è disponibile nelle macchine virtuali di [generazione 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e [VM della serie Lsv2](../lsv2-series.md). Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 

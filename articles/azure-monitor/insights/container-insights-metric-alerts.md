@@ -4,10 +4,10 @@ description: Questo articolo esamina gli avvisi della metrica consigliati dispon
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619951"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
@@ -39,7 +39,7 @@ Prima di iniziare, verificare quanto segue:
 
 Per ricevere un avviso sulla questione, monitoraggio di Azure per i contenitori include gli avvisi delle metriche seguenti per i cluster Kubernetes abilitati per AKS e Azure Arc:
 
-|Nome| Descrizione |Soglia predefinita |
+|Nome| Description |Soglia predefinita |
 |----|-------------|------------------|
 |% CPU del contenitore media |Calcola la CPU media usata per ogni contenitore.|Quando l'utilizzo medio della CPU per ogni contenitore è maggiore del 95%.| 
 |Percentuale media memoria working set contenitore |Calcola la memoria working set media utilizzata per ogni contenitore.|Quando l'utilizzo medio working set memoria per contenitore è maggiore del 95%. |

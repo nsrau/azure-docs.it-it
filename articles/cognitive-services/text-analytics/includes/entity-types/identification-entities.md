@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
 ms.openlocfilehash: 49a2b285d9494dfc5ca0863c021733b4bc874efa
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779080"
 ---
 Questa categoria di entità include informazioni finanziarie e forme ufficiali di identificazione. Disponibile a partire dalla versione del modello `2019-10-01` . I sottotipi sono elencati di seguito. 
 
 ### <a name="financial-account-identification"></a>Identificazione account finanziario
 
-| Nome sottotipo               | Descrizione                                                                |
+| Nome sottotipo               | Description                                                                |
 |----------------------------|----------------------------------------------------------------------------|
 | ABA Routing Number (Codice ABA)        | Numeri di routing di transito American Banker Association (ABA).                  |
 | Codice SWIFT                 | Codici SWIFT per informazioni sulle istruzioni di pagamento.                           |

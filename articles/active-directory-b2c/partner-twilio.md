@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259069"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Integrazione dell'app Twilio Verify con Azure Active Directory B2C
@@ -45,7 +45,7 @@ I componenti seguenti costituiscono la soluzione Twilio:
 | Passaggio | Descrizione |
 |------|------|
 | 1     | L'utente avvia l'accesso o l'iscrizione all'app demo PSD2. L'utente viene autenticato tramite il Azure AD B2C i criteri di accesso e iscrizione combinati. All'applicazione viene restituito un token. Al momento dell'iscrizione, il numero di telefono dell'utente viene verificato con SMS/telefono e registrato nell'account Azure AD B2C.     |
-| 2     | L'utente avvia una transazione a rischio elevato, ad esempio il trasferimento di $50,00. Il token di accesso corrente dell'utente viene valutato per PolicyId per determinare se l'utente ha già eseguito l'autenticazione tramite un criterio personalizzato Step-up.     |
+| 2     | L'utente avvia una transazione a rischio elevato, ad esempio il trasferimento di $50,00. Il token di accesso corrente dell'utente viene valutato per PolicyId per determinare se l'utente ha già eseguito l'autenticazione tramite un Step-Up criterio personalizzato.     |
 | 3     | L'applicazione registra il valore di transazione e il beneficiario, $50,00 e John Doe, e genera un token firmato. Questo token è denominato `id_token_hint` e contiene l'attestazione `amount:$500, payee:john doe` . `id_token_hint`Viene inviato insieme alla richiesta al Azure ad B2C criteri personalizzati, integrato con Twilio.     |
 | 4     | Azure AD B2C verifica la firma del id_token_hint controllando l'endpoint di OpenID Connect per le applicazioni `/.well-known` . Dopo la verifica, estrae le attestazioni da questo token, in particolare `amount` e `payee` . L'utente visualizzerà una pagina per verificare il numero di telefono cellulare tramite SMS.     |
 | 5     | L'utente richiede di verificare il numero di telefono tramite SMS e Azure AD B2C esegue una richiesta dell'API REST per l'endpoint dell'API verify di Twilio. Invia inoltre la transazione `amount` e `payee` come parte del processo PSD2 per generare il codice di sola esecuzione (OTP). Twilio Invia un messaggio SMS al numero di telefono registrato dell'utente.     |
