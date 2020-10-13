@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898004"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776120"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -156,6 +156,9 @@ Il numero esatto di immagini etichettate necessarie per avviare l'etichettatura 
 
 Poiché le etichette finali si basano ancora sull'input dell'etichettatore, questa tecnologia viene a volte chiamata etichettatura *human in the loop*.
 
+> [!NOTE]
+> L'etichettatura dei dati assistita da ML non supporta gli account di archiviazione predefiniti protetti da una [rete virtuale](how-to-network-security-overview.md). È necessario usare un account di archiviazione non predefinito per l'etichettatura dei dati assistita da ML. L'account di archiviazione non predefinito può essere protetto tramite la rete virtuale. 
+
 ### <a name="clustering"></a>Clustering
 
 Dopo l'invio di un determinato numero di etichette, il modello di Machine Learning per la classificazione delle immagini inizia a raggruppare le immagini simili.  Queste immagini simili vengono presentate all'etichettatore nella stessa schermata per velocizzare l'assegnazione manuale di tag. Il clustering è particolarmente utile quando l'etichettatore visualizza una griglia di 4, 6 o 9 immagini. 
@@ -186,7 +189,7 @@ Per sospendere o riavviare il progetto, attivare lo stato **In esecuzione** in a
 
 La scheda **Dashboard** indicherà lo stato di avanzamento dell'attività di etichettatura.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Dashboard di etichettatura dei dati":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Creazione guidata progetto di etichettatura":::
 
 Il grafico sullo stato di avanzamento mostra il numero di elementi etichettati e il numero di quelli non ancora completati.  Gli elementi in sospeso possono essere:
 

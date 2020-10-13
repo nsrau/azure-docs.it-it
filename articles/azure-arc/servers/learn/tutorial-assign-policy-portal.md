@@ -2,18 +2,17 @@
 title: 'Esercitazione: Nuova assegnazione di criteri con il portale di Azure'
 description: In questa esercitazione di avvio rapido viene usato il portale di Azure per creare un'assegnazione di Criteri di Azure per identificare le risorse non conformi.
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: fbfe7090db1b4e1a8f802b30fdf749466ea26f1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/07/2020
+ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321867"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826598"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Esercitazione: Creare un'assegnazione di criteri per identificare le risorse non conformi
 
-Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
-Questa esercitazione illustra il processo di creazione di un'assegnazione di criteri per identificare i server con abilitazione di Azure Arc e per identificare le macchine virtuali in cui non è installato l'agente di Log Analytics nelle macchine virtuali con abilitazione di Azure Arc.
+Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse. Criteri di Azure supporta il controllo dello stato del server con abilitazione di Azure Arc con i criteri di Configurazione guest. I criteri di Configurazione guest non applicano le configurazioni, ma controllano solo le impostazioni all'interno del computer. Questa esercitazione illustra il processo di creazione e assegnazione di un criterio, per identificare i server con abilitazione di Azure Arc in cui non è installato l'agente di Log Analytics.
 
 Al termine di questo processo, verranno identificate le macchine virtuali in cui non è installato l'agente di Log Analytics per Windows o Linux e che sono quindi _non conformi_ all'assegnazione di criteri.
 
@@ -23,7 +22,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
 
-In questa esercitazione si crea un'assegnazione di criteri e si assegna la definizione dei criteri _Controlla macchine virtuali che non usano dischi gestiti_.
+In questa esercitazione verrà creata un'assegnazione di criteri e verrà assegnata la definizione dei criteri _\[Anteprima]: L'agente di Log Analytics deve essere installato nelle macchine virtuali Linux in Azure Arc_ corrispondente.
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 

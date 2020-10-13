@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 13f62631e4913434699f4c5dd5eb1956ca3e3a36
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992463"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760394"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Ripristino di emergenza del modulo di protezione hardware gestito
 
@@ -30,7 +30,7 @@ ms.locfileid: "90992463"
 Ecco la procedura da seguire per il ripristino di emergenza:
 
 1. Creare una nuova istanza del modulo di protezione hardware.
-1. Attivare il ripristino del dominio di sicurezza. Verrà generata una nuova coppia di chiavi RSA (chiave di scambio del dominio di sicurezza) per il trasferimento del dominio di sicurezza. Tale coppia di chiavi verrà inviata nella risposta e verrà scaricata in un elemento SecurityDomainExchangeKey (chiave pubblica).
+1. Attivare il ripristino del dominio di sicurezza. Verrà generata una nuova coppia di chiavi RSA (chiave di scambio del dominio di sicurezza) per il trasferimento del dominio di sicurezza. Tale coppia di chiavi verrà inviata nella risposta e verrà scaricata come elemento SecurityDomainExchangeKey (chiave pubblica).
 1. Creare e caricare il file di trasferimento del dominio di sicurezza. Saranno necessarie le chiavi private che crittografano il dominio di sicurezza. Le chiavi private vengono usate in locale e non vengono mai trasferite in nessuna parte di questo processo.
 1. Eseguire un backup del nuovo modulo di protezione hardware. È necessario eseguire un backup prima di qualsiasi ripristino, anche quando il modulo di protezione hardware è vuoto. I backup consentono di eseguire facilmente il rollback.
 1. Ripristinare il backup recente del modulo di protezione hardware dal modulo di protezione hardware di origine
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 L'output di questo comando mostra le proprietà del modulo di protezione hardware gestito creato. Le due proprietà più importanti sono:
 
 * **name**: nell'esempio il nome è ContosoMHSM. Questo nome verrà usato per altri comandi di Key Vault.
-* **hsmUri**: nell'esempio l'URI è https://contosohsm.managedhsm.azure.net. Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
+* **hsmUri**: nell'esempio l'URI è 'https://contosohsm.managedhsm.azure.net '. Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo modulo di protezione hardware gestito. Per ora, nessun altro è autorizzato.
 
@@ -102,7 +102,7 @@ Per creare un backup del modulo di protezione hardware, sono necessari gli eleme
 - Un account di archiviazione in cui verrà archiviato il backup
 - Un contenitore di archiviazione BLOB in questo account di archiviazione in cui il processo di backup creerà una nuova cartella per l'archiviazione del backup crittografato
 
-Nell'esempio seguente si usa il comando `az keyvault backup` per il backup del modulo di protezione hardware nel contenitore di archiviazione **mhsmbackupcontainer** un account di archiviazione **ContosoBackup**. Viene creato un token di firma di accesso condiviso che scade dopo 30 minuti e viene fornito a un modulo di protezione hardware gestito per scrivere il backup.
+Nell'esempio seguente verrà usato il comando `az keyvault backup` per il backup del modulo di protezione hardware nel contenitore di archiviazione **mhsmbackupcontainer** che si trova nell'account di archiviazione **ContosoBackup**. Viene creato un token di firma di accesso condiviso che scade dopo 30 minuti e viene fornito a un modulo di protezione hardware gestito per scrivere il backup.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')

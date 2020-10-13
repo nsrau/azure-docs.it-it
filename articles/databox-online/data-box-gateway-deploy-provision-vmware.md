@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371287"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743948"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware
 
@@ -145,11 +145,11 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
     Nella stessa pagina fare clic su **Add hard disk** (Aggiungi disco rigido) e quindi selezionare **Existing hard disk** (Disco rigido esistente). Selezionare il file VMDK nell'archivio dati. Verrà aggiunto un disco del sistema operativo. 
 
-     ![Pagina per la personalizzazione delle impostazioni](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Personalizzazione delle impostazioni - Pagina 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Scorrere verso il basso fino all'elenco a discesa **New hard disk** (Nuovo disco rigido) ed espanderlo per visualizzare le impostazioni. Impostare **Virtual Device Node** (Nodo dispositivo virtuale) su **IDE controller 0** (Controller IDE 0).
 
-     ![Pagina per la personalizzazione delle impostazioni](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Personalizzazione delle impostazioni - Pagina 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Facoltativo) *Completare questo passaggio solo se si esegue VMware ESXi Server 6.7*. Nella pagina **Customize settings** (Personalizza impostazioni) fare clic su **VM options** (Opzioni VM). Passare a **Boot options > Firmware** (Opzioni di avvio > Firmware) e impostare il valore su **BIOS**. Per impostazione predefinita, il valore è impostato su EFI. Fare clic su **Avanti**.
 
@@ -157,8 +157,8 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
 18. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Verificare che il valore per la CPU sia 4, per la memoria sia 8192 MB, per la scheda di rete sia 1 e che il disco rigido 2 sia impostato sul controller IDE 0. Fare clic su **Fine**.
    
-    ![Pagina di riepilogo prima del completamento](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![Pagina di riepilogo prima del completamento](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Pagina Pronto per il completamento](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![Pronto per il completamento - Pagina 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 La macchina virtuale viene ora sottoposta a provisioning. Verrà visualizzata una notifica e la nuova macchina virtuale verrà aggiunta all'elenco di macchine virtuali.
 

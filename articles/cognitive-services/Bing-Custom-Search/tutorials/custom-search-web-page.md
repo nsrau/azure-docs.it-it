@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921945"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742503"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
@@ -118,7 +118,7 @@ Ricerca personalizzata fornisce un'interfaccia utente ospitata per eseguire il r
   
 5. Selezionare le chiavi della sottoscrizione negli elenchi a discesa. In alternativa, è possibile immettere manualmente la chiave della sottoscrizione.
   
-   ![Screenshot del passaggio di configurazioni aggiuntive dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Screenshot della chiave di sottoscrizione dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ La parte restante di questa esercitazione illustra l'**opzione 1: Frammento di c
   
 4. Nella finestra **Nuova applicazione Web ASP.NET Core** selezionare **Applicazione Web** e fare clic su **OK**.  
   
-   ![Screenshot della finestra Nuovo progetto](./media/custom-search-new-webapp.png)  
+   ![Screenshot della finestra Nuova app Web](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Modificare index.cshtml
 

@@ -5,16 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531645"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758983"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
 In questa esercitazione si crea e si distribuisce codice in Funzioni di Azure come contenitore Docker personalizzato usando un'immagine di base di Linux. In genere si usa un'immagine personalizzata quando le funzioni richiedono una specifica versione del linguaggio oppure hanno una specifica dipendenza o configurazione non disponibile dall'immagine predefinita.
+
+Per distribuire il codice della funzione in un contenitore Linux personalizzato richiede l'hosting con un [piano Premium](functions-premium-plan.md#features) o un [piano Dedicato (Servizio app)](functions-scale.md#app-service-plan). Il completamento di questa esercitazione comporta l'addebito di alcuni euro sull'account Azure, ma per ridurre i costi [pulire le risorse](#clean-up-resources) al termine dell'esercitazione.
 
 È anche possibile usare un contenitore predefinito del servizio app di Azure, come descritto in [Creare la prima funzione ospitata in Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Le immagini di base supportate per Funzioni di Azure sono disponibili nel [repository di immagini di base per Funzioni di Azure](https://hub.docker.com/_/microsoft-azure-functions-base).
 
@@ -31,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Abilitare le connessioni SSH al contenitore.
 > * Aggiungere un'associazione di output dell'archiviazione code. 
 
-È possibile seguire questa esercitazione in qualsiasi computer che esegue Windows, macOS o Linux. Il completamento dell'esercitazione comporta il costo di alcuni dollari USA nell'account Azure.
+È possibile seguire questa esercitazione in qualsiasi computer che esegue Windows, macOS o Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -243,7 +245,7 @@ Per creare queste tre risorse, usare i comandi dell'interfaccia della riga di co
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    L'hosting Linux per i contenitori di funzioni personalizzate è supportato nei [piani dedicati (Servizio app)](functions-scale.md#app-service-plan) e nei [piani Premium](functions-premium-plan.md#features). In questo caso viene usato il piano Premium, che è scalabile secondo necessità. Per altre informazioni sull'hosting, vedere [Confronto di piani di hosting per Funzioni di Azure](functions-scale.md). Per calcolare i costi, vedere la [pagina dei prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
+    In questo caso viene usato il piano Premium, che è scalabile secondo necessità. Per altre informazioni sull'hosting, vedere [Confronto di piani di hosting per Funzioni di Azure](functions-scale.md). Per calcolare i costi, vedere la [pagina dei prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
 
     Il comando effettua anche il provisioning di un'istanza di Azure Application Insights associata nello stesso gruppo di risorse, con cui è possibile monitorare l'app per le funzioni e visualizzare i log. Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md). L'istanza non comporta costi finché non viene attivata.
 

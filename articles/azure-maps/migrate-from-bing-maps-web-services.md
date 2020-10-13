@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4520332fbc5040aff682ce52e819fa4a940999cc
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108214"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741670"
 ---
 # <a name="migrate-web-service-from-bing-maps"></a>Eseguire la migrazione di un servizio Web da Bing Maps
 
@@ -249,7 +249,7 @@ L'API di pianificazione percorso di Mappe di Azure include numerose funzionalit√
 
 Esistono diversi modi per allineare le coordinate alle strade in Mappe di Azure.
 
--   Usare l'API di indicazioni percorso per allineare le coordinate e formare un percorso logico lungo la rete stradale.
+-   Usare l'API di indicazioni percorso per allineare le coordinate a un percorso logico lungo la rete stradale.
 -   Usare Azure Maps Web SDK per allineare singole coordinate alla strada pi√π vicina nelle tessere vettoriali.
 -   Usare direttamente le tessere vettoriali di Mappe di Azure per allineare singole coordinate.
 
