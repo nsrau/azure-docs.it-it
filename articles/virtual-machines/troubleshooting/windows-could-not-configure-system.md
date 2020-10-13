@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: 9c170607d6300c4921285e85ac78db5a8a18ad9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90078810"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977049"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Risolvere il problema che impedisce a Windows di completare la configurazione del sistema
 
@@ -28,7 +28,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui il process
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato un errore di installazione di Windows durante l'avvio di servizi di installazione di Windows. L'errore visualizzerà il messaggio:
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato un errore di installazione di Windows durante l'avvio di servizi di installazione di Windows. L'errore visualizzerà il messaggio:
 
 `Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
@@ -36,8 +36,8 @@ Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual
 
 ## <a name="cause"></a>Causa
 
-Questo errore si verifica quando il sistema operativo non è in grado di completare il [processo Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-process-overview). Questo errore si verifica quando si tenta un avvio iniziale di una macchina virtuale generalizzata. Se si verifica questo problema, ricreare l'immagine generalizzata, poiché l'immagine si trova in uno stato non distribuibile e non può essere ripristinata.
+Questo errore si verifica quando il sistema operativo non è in grado di completare il [processo Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Questo errore si verifica quando si tenta un avvio iniziale di una macchina virtuale generalizzata. Se si verifica questo problema, ricreare l'immagine generalizzata, poiché l'immagine si trova in uno stato non distribuibile e non può essere ripristinata.
 
 ## <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, seguire le [istruzioni di Azure per preparare/acquisire un'immagine](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) e preparare una nuova immagine generalizzata.
+Per risolvere questo problema, seguire le [istruzioni di Azure per preparare/acquisire un'immagine](../windows/upload-generalized-managed.md) e preparare una nuova immagine generalizzata.

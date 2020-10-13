@@ -5,14 +5,16 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Vengono descritti i processi di Power Azure Dev Spaces e il funzionamento del routing
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2c6f336222b4ae0907d6579289a8cad8d73aa6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981298"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977970"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Funzionamento del routing con Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces offre diversi modi per eseguire rapidamente l'iterazione e il debug di applicazioni Kubernetes e collaborare con il team in un cluster del servizio Azure Kubernetes. Quando il progetto viene eseguito in uno spazio di sviluppo, Azure Dev Spaces fornisce funzionalità di rete e di routing aggiuntive per il progetto.
 

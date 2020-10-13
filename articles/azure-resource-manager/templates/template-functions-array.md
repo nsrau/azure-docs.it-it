@@ -2,13 +2,13 @@
 title: Funzioni di modello-matrici
 description: Descrive le funzioni da utilizzare in un modello di Azure Resource Manager per l'utilizzo di matrici.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a5cf73203cf59a0b9f2b5f49c923d0a077c065fc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677849"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979139"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funzioni di matrice per i modelli ARM
 
@@ -278,12 +278,11 @@ Crea una matrice dai parametri.
 
 | Parametro | Obbligatoria | Type | Descrizione |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa, numero intero, matrice o oggetto |Primo valore della matrice. |
-| argomenti aggiuntivi |No |Stringa, numero intero, matrice o oggetto |Altri valori della matrice. |
+| args |No |Stringa, numero intero, matrice o oggetto |Valori nella matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
-Matrice .
+Matrice . Quando non viene fornito alcun parametro, viene restituita una matrice vuota.
 
 ### <a name="example"></a>Esempio
 
@@ -321,6 +320,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -334,6 +337,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
+| emptyArray | Array | [] |
 
 ## <a name="empty"></a>empty
 
@@ -568,7 +572,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | Nome | Type | valore |
 | ---- | ---- | ----- |
 | arrayOutput | string | three |
-| stringOutput | string | e |
+| stringOutput | string | h |
 
 ## <a name="length"></a>length
 
@@ -708,7 +712,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-## <a name="min"></a>min
+## <a name="min"></a>Min
 
 `min(arg1)`
 

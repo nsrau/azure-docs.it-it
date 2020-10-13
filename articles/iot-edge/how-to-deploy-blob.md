@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80804623"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978867"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuire l'Archiviazione BLOB di Azure su un modulo IoT Edge al dispositivo
 
@@ -21,7 +21,10 @@ Esistono diversi modi per distribuire i moduli in un dispositivo IoT Edge e tutt
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
-- Un [dispositivo IoT Edge](how-to-register-device.md) con il runtime di IoT Edge installato.
+- Un dispositivo IoT Edge.
+
+  Se non si dispone di un dispositivo IoT Edge configurato, è possibile crearne uno in una macchina virtuale di Azure. Per [creare un dispositivo Linux virtuale](quickstart-linux.md) o [creare un dispositivo Windows virtuale](quickstart.md), seguire la procedura descritta in uno degli articoli introduttivi.
+
 - [Visual Studio Code](https://code.visualstudio.com/) e gli [strumenti di Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) per la distribuzione da Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Eseguire la distribuzione dalla portale di Azure
@@ -32,7 +35,7 @@ Il portale di Azure illustra la creazione di un manifesto di distribuzione e il 
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 1. Selezionare **IoT Edge** dal menu.
-1. Fare clic sull'ID del dispositivo di destinazione dall'elenco dei dispositivi.
+1. Fare clic sull'ID del dispositivo di destinazione nell'elenco dei dispositivi.
 1. Selezionare **imposta moduli**.
 
 ### <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
@@ -203,10 +206,10 @@ Azure IoT Edge fornisce modelli di Visual Studio Code per assistere allo svilupp
      - Per i contenitori Linux, il formato è ** \<your storage path or volume> :/blobroot**. Ad esempio:
          - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - usare [Binding Mount](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Assicurarsi di seguire i passaggi per [concedere l'accesso alla directory all'utente del contenitore](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - Per i contenitori di Windows, il formato è ** \<your storage path or volume> : C:/BlobRoot**. Ad esempio
-         - usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
-         - usare [Binding Mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
-         - Anziché utilizzare l'unità locale, è possibile eseguire il mapping del percorso di rete SMB. per ulteriori informazioni, vedere [utilizzo della condivisione SMB come archiviazione locale](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+     - Per i contenitori di Windows, il formato è ** \<your storage path or volume> : C:/BlobRoot**. Ad esempio:
+         - Usare il [montaggio del volume](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
+         - Usare [Binding Mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
+         - Anziché utilizzare l'unità locale, è possibile eseguire il mapping del percorso di rete SMB. Per altre informazioni, vedere [uso della condivisione SMB come risorsa di archiviazione locale](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > Non modificare la seconda metà del valore di montaggio dell'archiviazione, che fa riferimento a una posizione specifica nell'archivio BLOB sul modulo IoT Edge. Il montaggio dell'archiviazione deve sempre terminare con **:/blobroot** per i contenitori Linux e **: C:/blobroot** per i contenitori di Windows.
@@ -271,7 +274,7 @@ Questo processo è descritto in [configurare un dispositivo IOT Edge per la comu
 
 Inoltre, un modulo di archiviazione BLOB richiede l'impostazione HTTPS_PROXY nel file di distribuzione del manifesto. È possibile modificare direttamente il file manifesto di distribuzione oppure utilizzare il portale di Azure.
 
-1. Passare all'hub Internet delle cose nel portale di Azure e selezionare il **bordo** del menu di scelta rapida nel riquadro sinistro.
+1. Passare all'hub Internet delle cose nel portale di Azure e selezionare **IOT Edge** dal menu del riquadro sinistro.
 
 1. Selezionare il dispositivo con il modulo da configurare.
 

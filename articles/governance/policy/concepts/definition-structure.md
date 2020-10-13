@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874000"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949378"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -114,7 +114,7 @@ Le modalità del provider di risorse seguenti sono attualmente supportate come *
 - `Microsoft.KeyVault.Data` per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite.
+> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le [esenzioni](./exemption-structure.md).
 
 ## <a name="metadata"></a>Metadati
 

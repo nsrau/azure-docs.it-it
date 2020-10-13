@@ -3,12 +3,12 @@ title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248604884cf1b7592b382a3490aab60102e12faf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822198"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979156"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -85,6 +85,7 @@ Tag del servizio:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureResourceManager
 * AzureArcInfrastructure
 
 URL:
@@ -94,10 +95,15 @@ URL:
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`agentserviceapi.azure-automation.net`|Configurazione guest|
-|`*-agentservice-prod-1.azure-automation.net`|Configurazione guest|
 |`*.guestconfiguration.azure.com` |Configurazione guest|
 |`*.his.arc.azure.com`|Servizio ibrido di gestione delle identità|
+
+Gli agenti di anteprima (versione 0,11 e inferiore) richiedono anche l'accesso agli URL seguenti:
+
+| Risorsa dell'agente | Descrizione |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|Configurazione guest|
+|`*-agentservice-prod-1.azure-automation.net`|Configurazione guest|
 
 Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](../../virtual-network/security-overview.md#service-tags).
 

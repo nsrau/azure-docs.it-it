@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.custom: ''
-ms.openlocfilehash: a73d327ad2a251b5043da7e58c14e5f6f311e334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d8838747c4f7ff195a5451a3c68f5cf891c91f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274504"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978459"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluzioni per l'integrazione di Microsoft Azure e Oracle Cloud Infrastructure per le applicazioni Oracle
 
@@ -68,7 +68,7 @@ Con ExpressRoute e FastConnect, i clienti possono eseguire il peering di una ret
 
 La sicurezza di rete è un componente fondamentale di qualsiasi applicazione aziendale ed è fondamentale per questa soluzione multi-cloud. Il traffico su ExpressRoute e FastConnect passa attraverso una rete privata. Questa configurazione consente la comunicazione sicura tra una rete virtuale di Azure e una rete cloud virtuale Oracle. Non è necessario fornire un indirizzo IP pubblico ad alcuna macchina virtuale in Azure. Analogamente, non è necessario un gateway Internet in OCI. Tutte le comunicazioni avvengono tramite l'indirizzo IP privato delle macchine.
 
-È inoltre possibile configurare [elenchi di sicurezza](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) nella rete cloud virtuale di OCI e regole di sicurezza (collegate ai [gruppi di sicurezza di rete](../../../virtual-network/security-overview.md) di Azure). Usare queste regole per controllare il flusso di traffico tra le macchine nelle reti virtuali. È possibile aggiungere regole di sicurezza di rete a livello di macchina, di subnet e di rete virtuale.
+È inoltre possibile configurare [elenchi di sicurezza](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) nella rete cloud virtuale di OCI e regole di sicurezza (collegate ai [gruppi di sicurezza di rete](../../../virtual-network/network-security-groups-overview.md) di Azure). Usare queste regole per controllare il flusso di traffico tra le macchine nelle reti virtuali. È possibile aggiungere regole di sicurezza di rete a livello di macchina, di subnet e di rete virtuale.
 
 Le [applicazioni WebLogic Server in Azure](oracle-weblogic.md) creano ciascuna un gruppo di sicurezza di rete preconfigurato per l'uso con le configurazioni delle porte di WebLogic Server.
  

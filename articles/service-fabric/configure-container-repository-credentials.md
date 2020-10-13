@@ -4,12 +4,12 @@ description: Configurare le credenziali del repository per scaricare immagini da
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421425"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978680"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurare le credenziali del repository per l'applicazione per scaricare le immagini del contenitore
 
@@ -96,6 +96,9 @@ Service Fabric supporta l'uso di token come credenziali per scaricare immagini p
 1. Verificare che l' *identità gestita assegnata dal sistema* sia abilitata per la macchina virtuale.
 
     ![Portale di Azure: creare un'opzione di identità del set di scalabilità di macchine virtuali](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> Per identità gestita assegnata dall'utente, ignorare questo passaggio. I passaggi rimanenti seguenti funzioneranno allo stesso modo, purché il set di scalabilità sia associato solo a una singola identità gestita assegnata dall'utente.
 
 2. Concedere le autorizzazioni al set di scalabilità di macchine virtuali per eseguire il pull/leggere le immagini dal registro di sistema. Nel pannello controllo di accesso (IAM) del Container Registry di Azure nella portale di Azure aggiungere un'assegnazione di *ruolo* per la macchina virtuale:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7d19d782e9cb29cfc917293f084b78830db89bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aba28e867f5fdb7bfaa917547f60565c39e382dd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797616"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977766"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -408,7 +408,7 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - Creare un'immagine o uno snapshot di una macchina virtuale crittografata e usarla per distribuire altre macchine virtuali.
 - Dump di arresto anomalo del kernel (kdump).
 - Oracle ACFS (file system cluster ASM).
-- Macchine virtuali di seconda generazione (vedere: [Supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
+- Macchine virtuali di seconda generazione (vedere: [Supporto per le macchine virtuali di seconda generazione in Azure](../generation-2.md#generation-1-vs-generation-2-capabilities)).
 - I dischi NVMe delle VM serie Lsv2 (vedere: [serie Lsv2](../lsv2-series.md)).
 - Una macchina virtuale con "punti di montaggio nidificati", ovvero con più punti di montaggio in un singolo percorso, ad esempio "/1stmountpoint/data/2stmountpoint".
 - Una macchina virtuale con un'unità dati montata su una cartella del sistema operativo.

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3589b4af06bc27a79c429bb0ccd743857651db97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 691b7c2890d29d390abbe8151fe66dbd99c5bc60
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653546"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978187"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Disponibilità elevata di SAP HANA per macchine virtuali di Azure
 
@@ -52,7 +52,7 @@ Questi articoli forniscono una buona panoramica dell'uso di SAP HANA in Azure:
 - [Riavvio automatico del servizio SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Configure SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html) (Configurare la replica di sistema SAP HANA)
 
-Oltre ad avere familiarità con la distribuzione di macchine virtuali in Azure, prima di definire l'architettura di disponibilità in Azure, è consigliabile vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../../windows/manage-availability.md).
+Oltre ad avere familiarità con la distribuzione di macchine virtuali in Azure, prima di definire l'architettura di disponibilità in Azure, è consigliabile vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../../manage-availability.md).
 
 ## <a name="service-level-agreements-for-azure-components"></a>Contratti di servizio per componenti di Azure
 
@@ -85,4 +85,3 @@ Confrontare il requisito di disponibilità con i contratti di servizio che i com
 
 
 
-  

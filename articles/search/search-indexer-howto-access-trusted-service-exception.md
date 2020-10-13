@@ -8,16 +8,16 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fbffaa7bc68bb32bd07b657f4b769e5af4302bf
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320473"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950025"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Accesso sicuro ai dati negli account di archiviazione tramite un'eccezione del servizio attendibile
 
-Gli indicizzatori che accedono ai dati negli account di archiviazione possono usare la funzionalità di [eccezione del servizio attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) per accedere in modo sicuro ai dati. Questo meccanismo offre ai clienti che non sono in grado di concedere [l'accesso all'indicizzatore tramite regole del firewall IP](search-indexer-howto-access-ip-restricted.md) un'alternativa semplice, sicura e gratuita per accedere ai dati negli account di archiviazione.
+Gli indicizzatori che accedono ai dati negli account di archiviazione possono usare la funzionalità di [eccezione del servizio attendibile](../storage/common/storage-network-security.md#exceptions) per accedere in modo sicuro ai dati. Questo meccanismo offre ai clienti che non sono in grado di concedere [l'accesso all'indicizzatore tramite regole del firewall IP](search-indexer-howto-access-ip-restricted.md) un'alternativa semplice, sicura e gratuita per accedere ai dati negli account di archiviazione.
 
 > [!NOTE]
 > Il supporto per l'accesso ai dati negli account di archiviazione tramite un'eccezione del servizio attendibile è limitato all'archiviazione BLOB di Azure e Azure Data Lake archiviazione Gen2. L'archiviazione tabelle di Azure non è supportata.

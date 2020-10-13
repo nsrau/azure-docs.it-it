@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1b3e12bcf744ad0d762f686a908a01239fc4323
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87428127"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949242"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -25,7 +25,7 @@ L'elemento **Localizzazione** consente di supportare più impostazioni locali o 
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>Elementi della pagina di iscrizione o accesso
 
-Gli ID seguenti vengono usati per una definizione del contenuto con ID `api.signuporsignin`.
+Gli ID seguenti vengono utilizzati per una definizione di contenuto con un ID `api.signuporsignin` e un [profilo tecnico autocertificato](self-asserted-technical-profile.md).
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -93,7 +93,7 @@ L'esempio seguente localizza il provider di identità Facebook sull'arabo:
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementi dell'interfaccia utente delle pagine di iscrizione e di autocertificazione
 
-Di seguito sono riportati gli ID per una definizione del contenuto con ID `api.localaccountsignup` o qualsiasi definizione del contenuto che inizia con `api.selfasserted`, ad esempio `api.selfasserted.profileupdate` e `api.localaccountpasswordreset`.
+Di seguito sono riportati gli ID per una definizione di contenuto con un ID `api.localaccountsignup` o qualsiasi definizione di contenuto che inizia con `api.selfasserted` , ad esempio `api.selfasserted.profileupdate` e `api.localaccountpasswordreset` , e un [profilo tecnico autocertificato](self-asserted-technical-profile.md).
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -155,7 +155,7 @@ L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nel
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementi dell'interfaccia utente della pagina di autenticazione del fattore telefono
 
-I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
+Di seguito sono riportati gli ID per una definizione di contenuto con ID `api.phonefactor` e [profilo tecnico Phone Factor](phone-factor-technical-profile.md).
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -197,11 +197,11 @@ I seguenti sono gli ID di definizione del contenuto con ID `api.phonefactor`.
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina di registrazione MFA:
 
-![Elementi dell'esperienza utente per la verifica della posta elettronica della pagina di iscrizione](./media/localization-string-ids/localization-mfa1.png)
+![Elementi UX di registrazione di autenticazione a fattore di telefono](./media/localization-string-ids/localization-mfa1.png)
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina di convalida MFA:
 
-![Elementi dell'esperienza utente per la verifica della posta elettronica della pagina di iscrizione](./media/localization-string-ids/localization-mfa2.png)
+![Elementi UX di convalida dell'autenticazione del telefono Factor](./media/localization-string-ids/localization-mfa2.png)
 
 ## <a name="verification-display-control-user-interface-elements"></a>Elementi dell'interfaccia utente del controllo di visualizzazione Verifica
 
