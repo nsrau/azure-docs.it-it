@@ -2,20 +2,20 @@
 title: Aggiungere una macchina virtuale SLE a Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come configurare e aggiungere una macchina virtuale SUSE Linux Enterprise a un dominio gestito Azure AD Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: iainfou
-ms.openlocfilehash: 9f50be95e456802c6ad403acd6a2f539780e53a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 5d89f1a3d6028afb3450e0112a6081c9c706775b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88251183"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962463"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale SUSE Linux Enterprise a un dominio gestito Azure Active Directory Domain Services
 
@@ -141,7 +141,7 @@ Dopo che la macchina virtuale è stata registrata nel dominio gestito, configura
 
 1. Specificare un valore per il percorso della Home Directory. Per fare in modo che Home directory segua il formato di */home/user_name*, utilizzare */Home/%u*. Per ulteriori informazioni sulle possibili variabili, vedere la sezione override_homedir della pagina dell'uomo SSSD. conf ( `man 5 sssd.conf` ). *override_homedir*
 
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 
 1. Per salvare le modifiche, selezionare **OK**. Assicurarsi quindi che i valori visualizzati ora siano corretti. Per uscire dalla finestra di dialogo, selezionare **Annulla**.
 

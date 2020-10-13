@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 124034fc6c999c37c6e79547b062508c957d1bac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710516"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939835"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leggere le repliche nel database di Azure per PostgreSQL-server singolo
 
@@ -126,7 +126,7 @@ Informazioni su come [arrestare la replica in una replica](howto-read-replicas-p
 ## <a name="failover"></a>Failover
 Non esiste un failover automatico tra i server primario e quello di replica. 
 
-Poiché la replica è asincrona, c'è un ritardo tra il database primario e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione sul server primario e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+Poiché la replica è asincrona, c'è un ritardo tra il database primario e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione sul server primario e la latenza tra i Data Center. In casi tipici, il ritardo di replica è compreso tra pochi secondi e un paio di minuti. Tuttavia, nei casi in cui il database primario esegue carichi di lavoro molto pesanti e la replica non viene rilevata abbastanza rapidamente, il ritardo può essere maggiore. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
 
 > [!Tip]
 > Se si esegue il failover alla replica, il ritardo nel momento in cui si scollega la replica dal database primario indicherà la quantità di dati persi.

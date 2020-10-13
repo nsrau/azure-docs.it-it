@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397828"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurare i criteri per Apache Hive in HDInsight con Enterprise Security Package
@@ -56,7 +56,7 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
     |---|---|
     |Nome criterio|Read-hivesampletable-all|
     |Database hive|default|
-    |table|hivesampletable|
+    |tabella|hivesampletable|
     |Colonna hive|*|
     |Seleziona utente|hiveuser1|
     |Autorizzazioni|Proprietà|
@@ -74,7 +74,7 @@ In questa sezione vengono creati due criteri di Ranger per accedere a hivesample
     |---|---|
     |Nome criterio|Read-hivesampletable-devicemake|
     |Database hive|default|
-    |table|hivesampletable|
+    |tabella|hivesampletable|
     |Colonna hive|ClientID, devicemake|
     |Seleziona utente|hiveuser2|
     |Autorizzazioni|Proprietà|

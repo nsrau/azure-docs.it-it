@@ -1,14 +1,14 @@
 ---
 title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596032"
+ms.locfileid: "91873626"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -163,12 +163,13 @@ In un'assegnazione, una risorsa **non è conforme** se non segue le regole di cr
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non conforme |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
-| Nuovo | Audit, AuditIfNotExist\* | True | Non conforme |
-| Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
+| Novità o aggiornamento | Audit, modify, AuditIfNotExist | True | Non conforme |
+| Novità o aggiornamento | Audit, modify, AuditIfNotExist | False | Conforme |
+| Exists | Deny, audit, Append, modify, DeployIfNotExist, AuditIfNotExist | True | Non conforme |
+| Exists | Deny, audit, Append, modify, DeployIfNotExist, AuditIfNotExist | False | Conforme |
 
-\* Per gli effetti Modify, Append, DeployIfNotExist e AuditIfNotExist è necessario che l'istruzione IF sia TRUE. Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
+> [!NOTE]
+> Per gli effetti DeployIfNotExist e AuditIfNotExist è necessario che l'istruzione IF sia TRUE e che la condizione di esistenza sia FALSE per non essere conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
 
 Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni account di archiviazione (evidenziati in rosso) esposti su reti pubbliche.
 
@@ -189,7 +190,7 @@ Oltre ai criteri **conformi** e **non conformi**, i criteri e le risorse hanno a
 - **Non avviato**: il ciclo di valutazione per i criteri o la risorsa non è stato avviato.
 - **Non registrato**: il provider di risorse di Criteri di Azure non è stato registrato o l'account connesso non è autorizzato a leggere i dati di conformità.
 
-Criteri di Azure usa i campi **tipo** e **nome** nella definizione per determinare se una risorsa corrisponde. Quando la risorsa corrisponde, viene considerata applicabile e presenta uno stato **conforme**, **non conforme**o **esentato**. Se il **tipo** o il **nome** è l'unica proprietà nella definizione, tutte le risorse incluse e non esenti vengono considerate applicabili e vengono valutate.
+Criteri di Azure usa i campi **tipo**, **nome**o **tipo** nella definizione per determinare se una risorsa è una corrispondenza. Quando la risorsa corrisponde, viene considerata applicabile e presenta uno stato **conforme**, **non conforme**o **esentato**. Se il **tipo**, il **nome**o il **tipo** è l'unica proprietà nella definizione, tutte le risorse incluse e non esenti vengono considerate applicabili e vengono valutate.
 
 La percentuale di conformità viene determinata dividendo le risorse **conformi** ed **esenti** dalle _risorse totali_. _Il totale delle risorse_ è definito come la somma delle risorse **conformi**, **non conformi**, **esentate**e in **conflitto** . I numeri di conformità generali sono la somma delle risorse distinte **conformi** o **esentate** divise per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**.
 La conformità complessiva delle risorse è pari al 95% (19 su 20).
@@ -210,14 +211,14 @@ Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambi
 :::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
 L'elenco delle risorse nella scheda **Conformità risorsa** mostra lo stato di valutazione delle risorse esistenti per l'assegnazione corrente. Il valore predefinito della scheda è **Non conforme**, ma è possibile applicare un filtro.
-Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione di una risorsa sono visualizzati nella scheda **Eventi**.
+Gli eventi (aggiungere, controllare, negare, distribuire, modificare) attivati dalla richiesta di creazione di una risorsa vengono visualizzati nella scheda **eventi** .
 
 > [!NOTE]
 > Per i criteri del motore del servizio Azure Kubernetes, la risorsa mostrata è il gruppo di risorse.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 
-Per le risorse della [Modalità del provider di risorse](../concepts/definition-structure.md#resource-provider-modes), nella scheda **Conformità risorse** selezionare la risorsa o fare clic con il pulsante destro del mouse sulla riga e selezionare **Visualizza dettagli conformità** per aprire i dettagli di conformità dei componenti. Questa pagina include anche le schede per visualizzare i criteri assegnati a questa risorsa, eventi, eventi del componente e cronologia delle modifiche.
+<a name="component-compliance"></a> Per le risorse in [modalità provider di risorse](../concepts/definition-structure.md#resource-provider-modes) , nella scheda **conformità risorse** Selezionare la risorsa o fare clic con il pulsante destro del mouse sulla riga e selezionare **Visualizza dettagli conformità** consente di aprire i dettagli di conformità dei componenti. Questa pagina include anche le schede per visualizzare i criteri assegnati a questa risorsa, eventi, eventi del componente e cronologia delle modifiche.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
 

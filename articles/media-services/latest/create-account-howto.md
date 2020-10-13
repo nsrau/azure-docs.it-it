@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267973"
 ---
 # <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
@@ -56,7 +56,7 @@ Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi
 1. Fare clic su **+ Crea una risorsa**  >  **Media**  >  **servizi multimediali**.
 1. Nella sezione **creare un account di servizi multimediali** immettere i valori necessari.
 
-    | Nome | Description |
+    | Nome | Descrizione |
     | ---|---|
     |**Account Name** (Nome account)|Immettere il nome del nuovo account di servizi multimediali. Un nome di account di Servizi multimediali deve essere composto solo da lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.|
     |**Sottoscrizione**|Se si hanno più sottoscrizioni, selezionarne una dall'elenco delle sottoscrizioni di Azure a cui si ha accesso.|
@@ -91,7 +91,7 @@ Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi
 
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
-### <a name="see-also"></a>Vedi anche
+### <a name="see-also"></a>Vedere anche
 
 * [Interfaccia della riga di comando di Azure](/cli/azure/ams?view=azure-cli-latest)
 * [Alleghi una risorsa di archiviazione secondaria a un account di servizi multimediali](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

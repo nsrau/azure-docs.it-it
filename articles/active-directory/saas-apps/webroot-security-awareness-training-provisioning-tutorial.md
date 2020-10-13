@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5bdcf197b4e8a619e55895faf7637ebac0ac12ae
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361127"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Esercitazione: configurare Webroot Security Awareness Training per il provisioning utenti automatico
@@ -47,7 +47,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Webroot Security Awareness Training](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-webroot-security-awareness-training-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Webroot Security Awareness Training per supportare il provisioning con Azure AD
+## <a name="step-2-configure-webroot-security-awareness-training-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Webroot Security Awareness Training per supportare il provisioning con Azure AD
 
 ### <a name="obtain-a-secret-token"></a>Ottenere un token segreto
 
@@ -65,7 +65,7 @@ Per connettere il sito a Azure AD, sarà necessario ottenere un **token segreto*
 
 4. Copiare e salvare il **token Secret**. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione Webroot Security Awareness Training nel portale di Azure.
 
-5. Fare clic su **Done**.
+5. Fare clic su **Fine**.
 
     ![Copia token segreto](./media/webroot-security-awareness-training-provisioning-tutorial/copy-secret-token.png)
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: b45c7fcbc4e3c0eda4f2e8d3eb21a81428dee39d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361246"
 ---
 # <a name="tutorial-configure-zapier-for-automatic-user-provisioning"></a>Esercitazione: configurare Zapier per il provisioning utenti automatico
@@ -44,7 +44,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Zapier](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-zapier-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Zapier per supportare il provisioning con Azure AD
+## <a name="step-2-configure-zapier-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Zapier per supportare il provisioning con Azure AD
 
 1. Accedere a [Zapier Admin Console](https://zapier.com/app/login/). Passare a **Impostazioni** sotto l'ID tenant.
 

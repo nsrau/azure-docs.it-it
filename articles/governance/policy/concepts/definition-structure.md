@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330282"
+ms.locfileid: "91874000"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -104,7 +104,7 @@ Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** s
 
 ### <a name="resource-provider-modes"></a>Modalità del provider di risorse
 
-Il nodo del provider di risorse seguente è completamente supportato:
+La modalità del provider di risorse seguente è completamente supportata:
 
 - `Microsoft.Kubernetes.Data` per la gestione dei cluster Kubernetes all'interno o all'esterno di Azure. Le definizioni che usano questa modalità del provider di risorse usano gli effetti _Audit_, _Deny_e _disabled_. L'uso dell'effetto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) è _deprecato_.
 
@@ -226,7 +226,7 @@ Nel blocco **Then** si definisce l'effetto che si verifica quando le condizioni 
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23e485c55ab591bcccdc32818839a8d484a6c3af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919540"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Aggiornare l'agente PhoneFactor al server Azure Multi-Factor Authentication
@@ -70,7 +70,7 @@ Il percorso di installazione viene rilevato dal Registro di sistema dall'install
 
    2. Per installare il portale per gli utenti nel server Web, aprire un prompt dei comandi come amministratore ed eseguire il file MultiFactorAuthenticationUserPortalSetupXX.msi.
 
-      Il nome predefinito della directory virtuale è adesso **MultiFactorAuth** anziché **PhoneFactor**. Se si desidera utilizzare il nome precedente, è necessario modificare il nome della directory virtuale durante l'installazione. In caso contrario, se si consente all'installazione di usare il nuovo nome predefinito, è necessario fare clic sull'icona del portale per gli utenti nella server Multi-Factor Authentication e aggiornare l'URL del portale per gli utenti nella scheda Impostazioni. gli utenti esistenti devono essere informati del nuovo URL.
+      Il nome predefinito della directory virtuale è adesso **MultiFactorAuth** anziché **PhoneFactor**. Se si desidera utilizzare il nome precedente, è necessario modificare il nome della directory virtuale durante l'installazione. In caso contrario, se si consente all'installazione di usare il nuovo nome predefinito, è necessario fare clic sull'icona del portale per gli utenti nella server Multi-Factor Authentication e aggiornare l'URL del portale per gli utenti nella scheda Impostazioni. Gli utenti esistenti devono essere informati del nuovo URL.
 
    3. Passare al percorso di installazione del portale per gli utenti, ad esempio C:\inetpub\wwwroot\MultiFactorAuth, e modificare il file web.config. Copiare i valori nelle sezioni appSettings e applicationSettings presenti nel file web.config originale di cui è stato eseguito il backup prima dell'aggiornamento nel nuovo file web.config. Se il nuovo nome della directory virtuale predefinita è stato mantenuto durante l'installazione dell'SDK servizio Web, modificare l'URL nella sezione applicationSettings in modo che punti al percorso corretto. Se nel file web.config precedente sono state modificate altre impostazioni predefinite, applicare le stesse modifiche nel nuovo file web.config.
 

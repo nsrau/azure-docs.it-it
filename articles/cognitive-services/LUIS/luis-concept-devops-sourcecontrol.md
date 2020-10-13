@@ -6,13 +6,13 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309507"
 ---
-# <a name="devops-practices-for-luis"></a>Procedure DevOps per LUIS
+# <a name="devops-practices-for-luis"></a>Procedure della metodologia DevOps per LUIS
 
 I tecnici software che stanno sviluppando un'app Language Understanding (LUIS) possono applicare procedure DevOps per il [controllo del codice sorgente](luis-concept-devops-sourcecontrol.md), le [compilazioni automatizzate](luis-concept-devops-automation.md), i [test](luis-concept-devops-testing.md)e la [gestione delle versioni](luis-concept-devops-automation.md#release-management) attenendosi alle linee guida.
 

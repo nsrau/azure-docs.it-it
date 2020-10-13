@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specifiche, hardware, DK, funzionalità, profondità, colori, RGB, IMU, array, profondità, più sincronizzazioni
 ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361161"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizzare più dispositivi Azure Kinect DK
@@ -166,12 +166,12 @@ Per verificare che i dispositivi siano connessi correttamente, usare il [Visuali
    > Per ottenere un allineamento di acquisizione delle immagini preciso tra tutti i dispositivi, è necessario avviare il dispositivo master per ultimo.  
 1. In **sincronizzazione esterna**selezionare **Sub**.  
    ![Avvio della fotocamera subordinata](./media/sub-device-start.png)
-1.  Selezionare **Inizio**.  
+1.  Selezionare **Start**.  
     > [!NOTE]  
     > Poiché si tratta di un dispositivo subordinato, il Visualizzatore Kinect di Azure non visualizza un'immagine dopo l'avvio del dispositivo. Non viene visualizzata alcuna immagine finché il dispositivo subordinato non riceve un segnale di sincronizzazione dal dispositivo master.
 1. Dopo l'avvio del dispositivo subordinato, usare l'altra istanza del Visualizzatore Kinect di Azure per aprire il dispositivo master.
 1. In **sincronizzazione esterna**selezionare **Master**.
-1. Selezionare **Inizio**.
+1. Selezionare **Start**.
 
 Quando il dispositivo Kinect di Azure master viene avviato, entrambe le istanze del Visualizzatore Kinect di Azure devono visualizzare le immagini.
 

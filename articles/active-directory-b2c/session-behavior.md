@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f2d6d00ea06bb362d82b5fbdff658b729eed17cd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 091704fabb7b50a0c83625c6ae46d9a807f01ffc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258985"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961035"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurare il comportamento della sessione in Azure Active Directory B2C
 
@@ -45,7 +45,25 @@ La gestione delle [sessioni Single Sign-on (SSO)](session-overview.md) in Azure 
 
     ![Impostazioni delle proprietà di comportamento della sessione nell'portale di Azure](./media/session-behavior/session-behavior.png)
 
-8. Fare clic su **Salva**.
+8. Fare clic su **Save**.
+
+## <a name="configure-sign-out-behavior"></a>Configurare il comportamento di disconnessione
+
+### <a name="secure-your-logout-redirect"></a>Proteggere il reindirizzamento di disconnessione
+
+Dopo la disconnessione, l'utente viene reindirizzato all'URI specificato nel `post_logout_redirect_uri` parametro, indipendentemente dagli URL di risposta specificati per l'applicazione. Tuttavia, se viene passato un oggetto valido `id_token_hint` e il **token ID richiesto nelle richieste di disconnessione** è attivato, Azure ad B2C verifica che il valore `post_logout_redirect_uri` corrisponda a uno degli URI di reindirizzamento configurati dell'applicazione prima di eseguire il reindirizzamento. Se per l'applicazione non è stato configurato alcun URL di risposta corrispondente, viene visualizzato un messaggio di errore e l'utente non viene reindirizzato. Per richiedere un token ID nelle richieste di disconnessione:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C selezionando il filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant del Azure ad B2C.
+1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Flussi utente**.
+1. Aprire il flusso utente creato in precedenza.
+1. Selezionare **Proprietà**.
+1. Abilitare il **Richiedi token ID nelle richieste di disconnessione**.
+1. Tornare alla  **Azure ad B2C**.
+1. Selezionare **registrazioni app**, quindi selezionare l'applicazione.
+1. Selezionare **Autenticazione**.
+1. Nella casella di testo **URL di disconnessione** Digitare l'URI di reindirizzamento post-disconnessione e quindi selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361365"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
@@ -124,7 +124,7 @@ Nella configurazione del connettore di Azure per SAP LaMa selezionare "Usa ident
 
 ### <a name="create-a-new-connector-in-sap-lama"></a>Creare un nuovo connettore in SAP LaMa
 
-Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le informazioni seguenti:
+Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le seguenti informazioni:
 
 * Label (Etichetta): scegliere un nome per l'istanza del connettore
 * Nome utente: ID dell'applicazione dell'entità servizio o ID dell'identità assegnata all'utente della macchina virtuale. Per ulteriori informazioni, vedere [utilizzo di un'identità assegnata a un sistema o a un utente]

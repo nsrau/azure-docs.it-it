@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310170"
 ---
 # <a name="supported-data-format-details"></a>Dettagli sul formato dati supportato
 
-Questo articolo fornisce informazioni specifiche sul supporto di lettura e scrittura per tutti i tag XML e i tipi di geometria del testo noti. Vengono inoltre illustrate le modalità di analisi dei dati spaziali delimitati nel modulo di i/o spaziale.
+Questo articolo fornisce informazioni specifiche sul supporto di lettura e scrittura per tutti i tag XML e i tipi di geometria del testo Well-Known. Vengono inoltre illustrate le modalità di analisi dei dati spaziali delimitati nel modulo di i/o spaziale.
 
 ## <a name="supported-xml-namespaces"></a>Spazi dei nomi XML supportati
 
@@ -304,7 +304,7 @@ Durante la scrittura;
 - I più punti verranno suddivisi in singoli waypoint.
 - Poligoni e multipoligoni verranno scritti come tracce. 
   
-## <a name="supported-well-known-text-geometry-types"></a>Tipi di geometria del testo noti supportati
+## <a name="supported-well-known-text-geometry-types"></a>Tipi di geometria del testo Well-Known supportati
 
 | Tipo di geometria | Lettura | Scrittura |
 |--------------|:----:|:-----:|
@@ -343,7 +343,7 @@ Durante la scrittura;
 
 ## <a name="delimited-spatial-data-support"></a>Supporto dei dati spaziali delimitati
 
-I dati spaziali delimitati, ad esempio i file con valori delimitati da virgole (CSV), presentano spesso colonne che contengono dati spaziali. Potrebbero ad esempio essere presenti colonne che contengono informazioni sulla latitudine e la longitudine. In un formato di testo noto, potrebbe essere presente una colonna che contiene dati geometrici spaziali.
+I dati spaziali delimitati, ad esempio i file con valori delimitati da virgole (CSV), presentano spesso colonne che contengono dati spaziali. Potrebbero ad esempio essere presenti colonne che contengono informazioni sulla latitudine e la longitudine. In Well-Known formato di testo, potrebbe essere presente una colonna che contiene dati geometrici spaziali.
 
 ### <a name="spatial-data-column-detection"></a>Rilevamento della colonna di dati spaziali
 
@@ -385,7 +385,7 @@ Quando si legge un file delimitato che contiene dati spaziali, l'intestazione ve
 
 #### <a name="geography"></a>Area geografica
 
-La prima riga di dati verrà analizzata per le stringhe in formato di testo noto. 
+La prima riga di dati verrà analizzata per le stringhe nel formato Well-Known testo. 
 
 ### <a name="delimited-data-column-types"></a>Tipi di colonna di dati delimitati
 
