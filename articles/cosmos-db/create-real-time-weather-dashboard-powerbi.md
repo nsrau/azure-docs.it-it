@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 681929928e6e6b28c7950c8aeeadc8b181491f46
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804130"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Creare un dashboard in tempo reale usando Azure Cosmos DB e Power BI
@@ -23,7 +23,7 @@ Questo articolo descrive i passaggi necessari per creare un dashboard Meteo atti
 Sono disponibili diversi modi per configurare i dashboard di Reporting sui dati archiviati in Azure Cosmos DB. A seconda dei requisiti di obsolescenza e della dimensione dei dati, nella tabella seguente viene descritta la configurazione di Reporting per ogni scenario:
 
 
-|Scenario |Installazione |
+|Scenario |Configurazione |
 |---------|---------|
 |1. generazione di report ad hoc (nessun aggiornamento)    |  [Power BI Azure Cosmos DB connettore con la modalità di importazione](powerbi-visualize.md)       |
 |2. generazione di report ad hoc con aggiornamento periodico   |  [Power BI Azure Cosmos DB connettore con la modalità di importazione (aggiornamento periodico pianificato)](powerbi-visualize.md)       |
@@ -63,11 +63,11 @@ Configurare una pipeline di inserimento per caricare [i dati meteo](https://cata
    A seconda della colonna e del tipo di dati presenti nel set di dati di origine, è possibile modificare di conseguenza i campi RangeStart e RangeEnd
 
    
-   |Proprietà  |Tipo di dati  |Filtro  |
+   |Proprietà  |Tipo di dati  |Filtra  |
    |---------|---------|---------|
-   |_ts     |   Numerico      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) e [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
-   |Data (ad esempio:-2019-08-19)     |   Stringa      | [Document. date] > DateTime. ToText (RangeStart, "AAAA-MM-GG") e [Document. date] < DateTime. ToText (RangeEnd, "AAAA-MM-GG")        |
-   |Data (ad esempio:-2019-08-11 12:00:00)   |  Stringa       |  [Document. date] > DateTime. ToText (RangeStart, "aaaa-mm-GG HH: mm: SS") e [Document. date] < DateTime. ToText (RangeEnd, "aaaa-mm-GG HH: mm: SS")       |
+   |_ts     |   Numeric      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) e [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
+   |Data (ad esempio:-2019-08-19)     |   string      | [Document. date] > DateTime. ToText (RangeStart, "AAAA-MM-GG") e [Document. date] < DateTime. ToText (RangeEnd, "AAAA-MM-GG")        |
+   |Data (ad esempio:-2019-08-11 12:00:00)   |  string       |  [Document. date] > DateTime. ToText (RangeStart, "aaaa-mm-GG HH: mm: SS") e [Document. date] < DateTime. ToText (RangeEnd, "aaaa-mm-GG HH: mm: SS")       |
 
 
 1. **Definire i criteri di aggiornamento** -definire i criteri di aggiornamento passando alla scheda **aggiornamento incrementale** nel menu di **scelta rapida** per la tabella. Impostare i criteri di aggiornamento per aggiornare **ogni giorno** e archiviare i dati dell'ultimo mese.

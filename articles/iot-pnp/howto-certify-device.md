@@ -9,15 +9,15 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577646"
 ---
-# <a name="how-to-certify-iot-plug-and-play-devices"></a>Come certificare i dispositivi Plug and Play
+# <a name="how-to-certify-iot-plug-and-play-devices"></a>Come certificare i dispositivi Plug and Play IoT
 
-Il programma di certificazione dei dispositivi Plug and Play è costituito da strumenti per verificare che un dispositivo soddisfi i requisiti di certificazione Plug and Play. Gli strumenti consentono inoltre alle organizzazioni di comprendere la disponibilità dei dispositivi Plug and Play. Questi dispositivi certificati sono personalizzati per le soluzioni Internet e consentono di ridurre il time-to-Market.
+Il programma di certificazione dei dispositivi Plug and Play IoT include strumenti per verificare che un dispositivo soddisfi i requisiti di certificazione Plug and Play IoT. Gli strumenti consentono inoltre alle organizzazioni di comprendere la disponibilità dei dispositivi Plug and Play. Questi dispositivi certificati sono personalizzati per le soluzioni Internet e consentono di ridurre il time-to-Market.
 
 Questo articolo illustra come:
 
@@ -45,7 +45,7 @@ Per soddisfare i requisiti di certificazione, il dispositivo deve:
 - Inviare l'ID modello durante la [registrazione DPS](concepts-developer-guide-device-csharp.md#dps-payload) nel payload di provisioning di DPS.
 - Annunciare l'ID modello durante la [connessione MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
-## <a name="test-with-the-azure-iot-extension-cli"></a>Eseguire test con l'interfaccia della riga di comando dell'estensione Azure
+## <a name="test-with-the-azure-iot-extension-cli"></a>Testare con l'interfaccia della riga di comando dell'estensione Azure IoT
 
 L' [estensione dell'interfaccia](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) della riga di comando di Azure è in grado di verificare che l'implementazione del dispositivo corrisponda al modello prima di inviare il dispositivo per la certificazione tramite il portale per i dispositivi Azure Certified
 
@@ -162,7 +162,7 @@ Esempio di output dell'esecuzione di test
             },
 ```
 
-## <a name="test-using-the-azure-certified-device-portal"></a>Eseguire test tramite il portale per i dispositivi Azure Certified
+## <a name="test-using-the-azure-certified-device-portal"></a>Testare tramite il portale Azure Certified Device
 
 I passaggi seguenti illustrano come usare il [portale per dispositivi Azure Certified](https://aka.ms/acdp) per l'onboarding, registrare i dettagli del prodotto, inviare una guida introduttiva ed eseguire i test di certificazione.
 

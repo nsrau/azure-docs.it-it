@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 351b10b68cf1c014d358032f41bb01ac1093bd68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91373130"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979020"
 ---
 # <a name="azure-dedicated-hosts"></a>Host dedicati di Azure
 
@@ -122,7 +122,7 @@ L'infrastruttura che supporta le macchine virtuali può essere occasionalmente a
 
 Il **controllo di manutenzione** offre ai clienti un'opzione che consente di ignorare gli aggiornamenti regolari della piattaforma pianificati sui rispettivi host dedicati, quindi di applicarli al momento desiderato entro una finestra in sequenza di 35 giorni.
 
-Per ulteriori informazioni, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+Per ulteriori informazioni, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](./maintenance-control.md).
 
 ## <a name="capacity-considerations"></a>Considerazioni sulla capacità
 
@@ -142,7 +142,7 @@ Il provisioning di un host dedicato utilizzerà sia vCPU host dedicato che la qu
 
 ![Screenshot della pagina utilizzo e quote nel portale](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-Per ulteriori informazioni, vedere la pagina relativa alle [quote vCPU per le macchine virtuali](/azure/virtual-machines/windows/quotas).
+Per ulteriori informazioni, vedere la pagina relativa alle [quote vCPU per le macchine virtuali](./windows/quotas.md).
 
 La versione di valutazione gratuita e gli abbonamenti MSDN non hanno una quota per gli host dedicati di Azure.
 
@@ -172,7 +172,7 @@ Le dimensioni e i tipi di hardware variano in base all'area. Per ulteriori infor
 
 Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue una query sull'host, verranno restituiti gli Stati seguenti:
 
-| Stato di integrità   | Description       |
+| Stato di integrità   | Descrizione       |
 |----------|----------------|
 | Host disponibile     | Nessun problema noto con l'host.   |
 | Host sottoposto a indagine  | Si sono verificati problemi con l'host che si sta cercando. Si tratta di uno stato di transizione necessario per consentire ad Azure di provare e identificare l'ambito e la causa radice del problema identificato. Le macchine virtuali in esecuzione nell'host potrebbero essere interessate. |
@@ -182,7 +182,7 @@ Azure monitora e gestisce lo stato di integrità degli host. Quando si esegue un
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- È possibile distribuire un host dedicato usando [Azure PowerShell](./windows/dedicated-hosts-powershell.md), il [portale](./windows/dedicated-hosts-portal.md)e l' [interfaccia](./linux/dedicated-hosts-cli.md)della riga di comando di Azure.
+- È possibile distribuire un host dedicato usando [Azure PowerShell](./windows/dedicated-hosts-powershell.md), il [portale](./dedicated-hosts-portal.md)e l' [interfaccia](./linux/dedicated-hosts-cli.md)della riga di comando di Azure.
 
 - È disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) un modello di esempio che usa sia le zone che i domini di errore per la resilienza massima in un'area.
 

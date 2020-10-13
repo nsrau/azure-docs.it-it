@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3b5af972ad6dd15b7c992d5e264ede97bd1dde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03ec8eddf55c6b3e90b56501a2e3b657bef6fc8c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80653627"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964197"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Raccolta dati utente in Microsoft Azure Multi-Factor Authentication
 
@@ -70,7 +70,7 @@ Tentativi di autenticazione (utilizzati per la segnalazione e la risoluzione dei
 
 Attivazioni (tentativi di attivare un account nell'app per dispositivi mobili Microsoft Authenticator):
 - Username
-- Nome account
+- Account Name
 - Timestamp
 - Ottenere il risultato del codice di attivazione
 - Attivare l'esito positivo

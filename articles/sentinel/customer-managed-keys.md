@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2020
+ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: 58936066abcbe4c3f9fcfad78bf914c74079aa95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc3da6f0d82adab2d21d4dbd91dee8654145b896
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141789"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951486"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurare una chiave gestita dal cliente in Azure Sentinel
-
 
 Questo articolo fornisce informazioni generali e procedure per la configurazione di una chiave gestita dal cliente per Azure Sentinel. Una chiave gestita dal cliente consente la crittografia di tutti i dati salvati o inviati ad Azure Sentinel in tutte le risorse di archiviazione pertinenti con una chiave di Azure Key Vault creata o di proprietà dell'utente.
 
 > [!NOTE]
-> -   La funzionalità CMK di Azure Sentinel viene fornita solo ai **nuovi** clienti e l'accesso a questa funzionalità è controllato dalla registrazione delle funzionalità di Azure. È possibile richiedere l'accesso contattando azuresentinelCMK@microsoft.come, quando la capacità è disponibile, le richieste in sospeso verranno approvate.
-> -   La funzionalità CMK di Azure Sentinel è disponibile solo nelle aree Stati Uniti orientali, Stati Uniti occidentali 2 e Stati Uniti centro-meridionali.
-> -   La funzionalità CMK è disponibile solo per i clienti che inviano almeno 1 TB al giorno. Vengono fornite informazioni aggiuntive sui prezzi nel momento in cui si richiede a Microsoft il provisioning di CMK nella sottoscrizione di Azure. Sono disponibili altre informazioni sui [prezzi di Log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - La funzionalità CMK di Azure Sentinel è disponibile solo per **i nuovi clienti**.
+>
+> - L'accesso a questa funzionalità è controllato dalla registrazione delle funzionalità di Azure.È possibile richiedere l'accesso contattando azuresentinelCMK@microsoft.com . Le richieste in sospeso verranno approvate in base alla capacità disponibile.
+>
+> - La funzionalità CMK è disponibile solo per i clienti che inviano almeno 1 TB al giorno. Vengono fornite informazioni aggiuntive sui prezzi nel momento in cui si richiede a Microsoft il provisioning di CMK nella sottoscrizione di Azure. Sono disponibili altre informazioni sui [prezzi di Log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="how-cmk-works"></a>Funzionamento di CMK 
 
@@ -58,7 +59,7 @@ Per effettuare il provisioning di CMK, seguire questa procedura: 
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>PASSAGGIO 1: creare un'istanza di Azure Key Vault e una chiave di archiviazione
 
-1.  [Creare una risorsa Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal?view=azs-1910) e generare o importare una chiave da usare per la crittografia dei dati.
+1.  [Creare una risorsa Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) e generare o importare una chiave da usare per la crittografia dei dati.
     > [!NOTE]
     >  L'istanza di Azure Key Vault deve essere configurata come recuperabile per proteggere la chiave e l'accesso.
 
@@ -132,5 +133,5 @@ Se si usa la stessa chiave in Azure Sentinel e in Log Analytics, è necessario e
 In questo documento si è appreso come configurare una chiave gestita dal cliente in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).
-- [Usare cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
+- [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
 

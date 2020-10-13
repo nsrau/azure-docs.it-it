@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d93edbefb61cb8ded09f6402ca1e1661429efe1
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904443"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952149"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gestire il calcolo nel Azure Stack Edge Pro
 
@@ -107,7 +107,7 @@ Eseguire i passaggi seguenti nel portale di Azure per rimuovere la configurazion
 
 2. Se si rimuove la configurazione di calcolo, occorre riconfigurare il dispositivo nel caso in cui è necessario utilizzare nuovamente la funzione calcolo. Alla richiesta di conferma selezionare **Sì**.
 
-    ![Selezionare Rimuovi calcolo](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![Selezionare Rimuovi calcolo 2](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Sincronizzazione delle chiavi di accesso per il dispositivo IoT e il dispositivo IoT Edge
 

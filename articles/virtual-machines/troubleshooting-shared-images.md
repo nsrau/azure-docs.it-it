@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
-ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d01ac7d5b01f485c3b0100c468332475a9bd4274
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328064"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978544"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Risoluzione dei problemi relativi alle raccolte di immagini condivise in Azure
 
@@ -79,7 +79,7 @@ Possibili cause:
 
 *L'utente che cerca di creare una macchina virtuale o un set di scalabilità di macchine virtuali non ha accesso in lettura alla versione dell'immagine.*
 
-Contattare il proprietario della sottoscrizione e chiedere di concedere l'accesso in lettura alla versione dell'immagine o alle risorse padre, ad esempio la raccolta di immagini condivise o la definizione dell'immagine, tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Contattare il proprietario della sottoscrizione e chiedere di concedere l'accesso in lettura alla versione dell'immagine o alle risorse padre, ad esempio la raccolta di immagini condivise o la definizione dell'immagine, tramite il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 *Non è possibile trovare la versione dell'immagine.*
 
@@ -91,7 +91,7 @@ Verificare che il **OSType** della versione dell'immagine che si sta tentando di
 
 ## <a name="unable-to-share-resources"></a>Impossibile condividere le risorse
 
-La condivisione delle risorse della raccolta di immagini condivise, della definizione di immagini e della versione immagine tra le sottoscrizioni viene abilitata usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+La condivisione delle risorse della raccolta di immagini condivise, della definizione di immagini e della versione immagine tra le sottoscrizioni viene abilitata usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## <a name="replication-is-slow"></a>La replica è lenta
 
@@ -99,7 +99,7 @@ Usare il flag **--expand ReplicationStatus** per controllare se la replica in tu
 
 ## <a name="azure-limits-and-quotas"></a>Limiti e quote di Azure 
 
-[Limiti e quote di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) si applicano a tutte le risorse della raccolta di immagini condivisa, della definizione dell'immagine e della versione dell'immagine. Assicurarsi di rispettare i limiti per le sottoscrizioni. 
+[Limiti e quote di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) si applicano a tutte le risorse della raccolta di immagini condivisa, della definizione dell'immagine e della versione dell'immagine. Assicurarsi di rispettare i limiti per le sottoscrizioni. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
