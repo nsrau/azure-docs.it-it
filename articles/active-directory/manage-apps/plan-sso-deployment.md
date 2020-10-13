@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603340"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
@@ -158,8 +158,8 @@ La sezione seguente illustra in dettaglio i requisiti per configurare l'applicaz
 Per tutte le app SaaS pre-integrate, Microsoft fornisce un'esercitazione e non è necessario disporre di queste informazioni. Se l'applicazione non si trovi nel Marketplace o nella raccolta di applicazioni, potrebbe essere necessario raccogliere i dati seguenti:
 
 - **Provider di identità corrente usato dall'applicazione per SSO, se applicabile** , ad esempio: ad FS, PingFederate, okta
-- **Protocolli supportati dall'applicazione di destinazione** , ad esempio SAML 2,0, OpenID Connect, OAuth, l'autenticazione basata su form, WS-Fed, WS-Trust
-- **Protocollo configurato con Azure ad** , ad esempio SAML 2,0 o 1,1, OpenID Connect, OAuth, basata su form, WS-Fed
+- **Protocolli supportati dall'applicazione di destinazione** , ad esempio SAML 2,0, OpenID Connect, OAuth, Forms-Based auth, WS-Fed WS-Trust
+- **Protocollo configurato con Azure ad** , ad esempio SAML 2,0 o 1,1, OpenID Connect, OAuth, basata su form WS-Fed
 
 ### <a name="attribute-requirements"></a>Requisiti per gli attributi
 
@@ -235,11 +235,11 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
-| Amministratore del supporto tecnico | Supporto di livello 1 | nessuno |
+| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuno |
 | Amministratore identità | Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD | Amministratore globale |
-| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
+| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
-| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
+| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 
 È consigliabile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 
@@ -313,11 +313,11 @@ I collegamenti seguenti presentano scenari di risoluzione dei problemi. Potrebbe
 
 [Protocollo SAML per Single Sign-on](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
 
-[Protocollo SAML per Single Sign-out](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
+[Protocollo Single Sign-Out SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
 
 [Azure ad B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (per utenti esterni, ad esempio partner e fornitori)
 
-[Azure AD l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 [Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

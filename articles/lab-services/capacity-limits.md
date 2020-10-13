@@ -4,10 +4,10 @@ description: Informazioni sui limiti di capacità (limiti delle macchine virtual
 ms.topic: conceptual
 ms.date: 06/26/2020
 ms.openlocfilehash: 92bdc714d70b3d73ca2cbc76b1f5dc5366582cbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444098"
 ---
 # <a name="capacity-limits-in-azure-lab-services"></a>Limiti di capacità in Azure Lab Services

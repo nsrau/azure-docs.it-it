@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319878"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
@@ -31,21 +31,21 @@ ms.locfileid: "91319878"
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## <a name="connector-actions"></a>Azioni del connettore
-| Action | Comment |
+| Azione | Commento |
 | --- | --- |
-| Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
+| Crea |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
 | Proprietà |Si usa per i filtri di unità organizzativa e dominio. |
 | [Elimina](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
 | [Configura profili di esecuzione](#configure-run-profiles) |Fatta eccezione per i filtri di dominio, qui non è richiesta alcuna configurazione. Questa azione consente di visualizzare i profili di esecuzione già configurati. |
 | Esegui |Si usa per avviare l'esecuzione occasionale di un profilo. |
-| Arresto |Arresta un connettore che sta eseguendo attualmente un profilo. |
+| Interrompere |Arresta un connettore che sta eseguendo attualmente un profilo. |
 | Esporta connettore |Non usare. |
 | Importa connettore |Non usare. |
 | Aggiorna connettore |Non usare. |
 | Aggiorna schema |Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione. |
 | [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e seguire un oggetto e i relativi dati attraverso il sistema. |
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 L'azione di eliminazione viene usata per due scopi diversi.  
 ![Screenshot che mostra la finestra "Elimina connettore" con il "Elimina solo spazio connettore" selezionato.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 

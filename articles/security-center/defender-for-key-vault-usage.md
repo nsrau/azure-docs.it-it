@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448320"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Rispondere agli avvisi di Azure Defender per Key Vault
@@ -35,7 +35,7 @@ Ogni avviso di Azure Defender per Key Vault include gli elementi seguenti:
 > Azure Defender per Key Vault è progettato per consentire di identificare attività sospette causate da credenziali rubate. **Non** chiudere l'avviso semplicemente perché si riconosce l'utente o l'applicazione. Contattare il proprietario dell'applicazione o l'utente e verificare che l'attività sia legittima. Se necessario, è possibile creare una regola di eliminazione per eliminare il rumore. Per ulteriori informazioni, vedere la pagina relativa all' [eliminazione degli avvisi da Azure Defender](alerts-suppression-rules.md).
 
 
-## <a name="step-2-immediate-mitigation"></a>Passaggio 2. Mitigazione immediata 
+## <a name="step-2-immediate-mitigation"></a>Passaggio 2: Mitigazione immediata 
 Se non si riconosce l'utente o l'applicazione o se si ritiene che l'accesso non sia stato autorizzato:
 
 - Se il traffico proviene da un indirizzo IP non riconosciuto:
@@ -71,5 +71,5 @@ Dopo aver compilato l'elenco dei segreti, delle chiavi e dei certificati accessi
 Questa pagina ha illustrato il processo di risposta a un avviso di Azure Defender per Key Vault. Per informazioni correlate, vedere le pagine seguenti:
 
 - [Introduzione ad Azure Defender per Key Vault](defender-for-key-vault-introduction.md)
-- [Non visualizzare avvisi da Azure Defender](alerts-suppression-rules.md)
+- [Eliminare gli avvisi di Azure Defender](alerts-suppression-rules.md)
 - [Esporta avvisi di sicurezza](continuous-export.md)

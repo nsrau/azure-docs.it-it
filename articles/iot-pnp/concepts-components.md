@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574280"
 ---
-# <a name="iot-plug-and-play-components-in-models"></a>Componenti Plug and Play nei modelli
+# <a name="iot-plug-and-play-components-in-models"></a>Componenti Plug and Play IoT nei modelli
 
-Per quanto riguarda le convenzioni Plug and Play, un dispositivo è molto Plug and Play dispositivo se presenta l'ID del modello DTDL (Digital Twin Definition Language) quando si connette a un hub.
+Nelle convenzioni Plug and Play un dispositivo è un dispositivo Plug and Play IoT se presenta l'ID del modello DTDL (Digital Twin Definition Language) quando si connette a un hub IoT.
 
-Il frammento di codice seguente mostra alcuni esempi di ID modello:
+Il frammento seguente mostra alcuni ID del modello di esempio:
 
 ```json
  "@id": "dtmi:com:example:TemperatureController;1"

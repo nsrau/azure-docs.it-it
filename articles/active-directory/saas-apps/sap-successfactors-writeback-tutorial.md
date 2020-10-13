@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91286554"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a SAP SuccessFactors
@@ -275,7 +275,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
 1. Nella sezione **mapping** degli attributi della tabella di mapping è possibile eseguire il mapping degli attributi Azure Active Directory seguenti a SuccessFactors. La tabella seguente fornisce indicazioni su come eseguire il mapping degli attributi write-back. 
 
-   | \# | Attributo di Azure AD | Attributo SuccessFactors | Osservazioni |
+   | \# | Attributo di Azure AD | Attributo SuccessFactors | Commenti |
    |--|--|--|--|
    | 1 | employeeId | personIdExternal | Per impostazione predefinita, questo attributo è l'identificatore corrispondente. Anziché employeeId, è possibile usare qualsiasi altro Azure AD attributo che può archiviare il valore uguale a personIdExternal in SuccessFactors.    |
    | 2 | mail | email | Origine dell'attributo di posta elettronica mappa. A scopo di test, è possibile eseguire il mapping di userPrincipalName alla posta elettronica. |

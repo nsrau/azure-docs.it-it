@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0453ec9eac2b73b5372c143b23d6db98f65e38aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946270"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631370"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Avvio rapido: Monitorare la prima metrica con il portale Web
 
@@ -38,6 +38,13 @@ Quando si effettua il provisioning di un'istanza di Advisor metriche, è possibi
 > * Se si vuole usare l'API REST per interagire con il servizio, sono necessari la chiave e l'endpoint della risorsa creata. È possibile trovarli nella scheda **Chiavi ed endpoint** della risorsa creata.
 
 In questo documento si usa un database SQL come esempio per la creazione del primo monitoraggio.
+
+## <a name="sign-in-to-your-workspace"></a>Accedere all'area di lavoro
+
+Dopo aver distribuito la risorsa, accedere al [portale Advisor metriche](https://go.microsoft.com/fwlink/?linkid=2143774). Selezionare l'area di lavoro per avviare il monitoraggio delle metriche. 
+ 
+Attualmente è possibile creare una risorsa di Advisor metriche in ogni area disponibile. È possibile spostare le aree di lavoro nel portale Advisor metriche in qualsiasi momento.
+
 
 ## <a name="onboard-time-series-data"></a>Eseguire l'onboarding dei dati delle serie temporali
 
@@ -90,7 +97,7 @@ Dopo che lo schema di dati è stato caricato, con un aspetto simile al seguente,
 |**Ignora**     | Ignora la colonna selezionata.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Configurazione dello schema" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Impostazioni di connessione" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Impostazioni di rollup automatico
 
@@ -110,7 +117,7 @@ Una volta applicato il rilevamento, fare clic su una delle metriche elencate nel
 - Aggiornare la configurazione del rilevamento per soddisfare i risultati previsti
 - Configurare la notifica per le anomalie rilevate
 
-:::image type="content" source="../media/metric-details.png" alt-text="Dettagli della metrica" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Impostazioni di connessione" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Visualizzare le informazioni di diagnostica
 
@@ -118,13 +125,13 @@ Dopo l'ottimizzazione della configurazione del rilevamento, le anomalie rilevate
 
 Per visualizzare le informazioni di diagnostica, fare clic sui puntini rossi nelle visualizzazioni delle serie temporali, che rappresentano le anomalie rilevate. Verrà visualizzata una finestra che contiene un collegamento alla pagina di analisi degli eventi imprevisti. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Collegamento all'evento imprevisto" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Impostazioni di connessione" lightbox="../media/incident-link.png":::
 
 Facendo clic sul collegamento si passerà alla pagina di analisi degli eventi imprevisti, che analizza le anomalie corrispondenti con una serie di informazioni dettagliate di diagnostica. Nella parte superiore sono presenti statistiche sull'evento imprevisto, ad esempio la **gravità**, le **anomalie interessate**, l'**ora di inizio** e l'**ora di fine**. 
 
 Si vedranno quindi l'anomalia predecessore dell'evento imprevisto e un suggerimento automatico sulla causa radice. Questo suggerimento viene generato analizzando l'albero degli eventi imprevisti di tutte le anomalie correlate, tra cui deviazione, distribuzione e contributo alle anomalie padre. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostica degli eventi imprevisti" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Impostazioni di connessione" lightbox="../media/incident-diagnostic.png":::
 
 In base a queste informazioni è già possibile ottenere una visione d'insieme di ciò che accade e l'impatto dell'evento imprevisto, oltre alla causa radice più probabile, in modo da poter agire immediatamente per risolvere l'incidente il più presto possibile. 
 

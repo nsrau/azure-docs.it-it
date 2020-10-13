@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936113"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Abilità cognitiva per la ricerca di entità personalizzate (anteprima)
@@ -69,7 +69,7 @@ Se la definizione viene fornita inline, deve essere fornita come inline come con
 
 ### <a name="csv-format"></a>Formato CSV
 
-È possibile specificare la definizione delle entità personalizzate da cercare in un file con valori delimitati da virgole (CSV) specificando il percorso del file e impostandolo nel parametro skill *entitiesDefinitionUri*  . Il percorso deve trovarsi in una posizione HTTPS. Il file di definizione può avere dimensioni massime di 10 MB.
+È possibile specificare la definizione delle entità personalizzate da cercare in un file di valore Comma-Separated (CSV) specificando il percorso del file e impostandolo nel parametro skill *entitiesDefinitionUri*  . Il percorso deve trovarsi in una posizione HTTPS. Il file di definizione può avere dimensioni massime di 10 MB.
 
 Il formato CSV è semplice. Ogni riga rappresenta un'entità univoca, come illustrato di seguito:
 
