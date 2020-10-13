@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715153"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Baseline della sicurezza di Azure per archiviazione di Azure
@@ -316,7 +316,7 @@ Abilitare inoltre Advanced Threat Protection per l'account di archiviazione di A
 
 **Responsabilità**: Customer
 
-### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: utilizzo di Azure Active Directory Single Sign-on (SSO)
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3,4: usare Azure Active Directory Single Sign-On (SSO)
 
 **Linee guida**: laddove possibile, utilizzare Azure Active Directory SSO anziché configurare singole credenziali autonome per servizio. Usare le raccomandazioni sulla gestione delle identità e dell'accesso del Centro sicurezza di Azure. 
 
@@ -960,7 +960,7 @@ Inoltre, ruotare le chiavi dell'account di archiviazione su base frequente per l
 
 È anche possibile abilitare automazione di Azure per eseguire snapshot regolari dei BLOB.
 
-- [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di servizio](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di Service-Level](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 - [Creare uno snapshot di un BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 

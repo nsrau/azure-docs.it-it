@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a90f0b4223d69ccb6c4def871eb9d5bf5fbc2e8
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91841442"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876210"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -104,7 +104,7 @@ Ogni opzione di configurazione è illustrata sopra in una nuova riga, se non si 
 
 Le opzioni di configurazione disponibili sono 
 
-| Nome | Tipo | Descrizione
+| Nome | Type | Description
 |------|------|----------------
 | src | stringa **[obbligatorio]** | URL completo da cui caricare l'SDK. Questo valore viene usato per l'attributo "src" di uno &lt; script/tag aggiunto dinamicamente &gt; . È possibile usare il percorso di rete CDN pubblico o un host privato.
 | name | String *[facoltativo]* | Nome globale per l'SDK inizializzato. il valore predefinito è `appInsights` . ```window.appInsights```Sarà quindi un riferimento all'istanza inizializzata. Nota: se si specifica un valore di nome o un'istanza precedente sembra essere assegnata (tramite il nome globale appInsightsSDK), il valore del nome verrà definito anche nello spazio dei nomi globale come ```window.appInsightsSDK=<name value>``` , necessario per il codice di inizializzazione dell'SDK per assicurarsi che l'inizializzazione e l'aggiornamento dei metodi del frammento e del proxy corretti.
@@ -200,6 +200,41 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 | ajaxPerfLookupDelay | 25 | Il valore predefinito è 25 ms. Tempo di attesa prima di ritentare la ricerca di Windows. i tempi di esecuzione di una `ajax` richiesta, il tempo è espresso in millisecondi e viene passato direttamente a timeout ().
 | enableUnhandledPromiseRejectionTracking | false | Se true, i rifiuti di Promise non gestiti verranno raccolti e segnalati come errori JavaScript. Quando disableExceptionTracking è true (non tenere traccia delle eccezioni), il valore di configurazione verrà ignorato e i rifiuti di promessa non gestita non verranno segnalati.
 
+## <a name="enable-time-on-page-tracking"></a>Abilita rilevamento temporizzazione pagina
+
+Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](../platform/metrics-custom-overview.md) denominata `PageVisitTime` . Questa metrica personalizzata è visualizzabile nel [Esplora metriche](../platform/metrics-getting-started.md) come "metrica basata su log".
+
+## <a name="enable-correlation"></a>Abilita correlazione
+
+La correlazione genera e invia dati che consentono la traccia distribuita e alimenta la [mappa delle applicazioni](../app/app-map.md), la [visualizzazione delle transazioni end-to-end](../app/app-map.md#go-to-details)e altri strumenti di diagnostica.
+
+Nell'esempio seguente vengono illustrate tutte le configurazioni possibili necessarie per abilitare la correlazione, con le note specifiche dello scenario seguenti:
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+Se uno dei server di terze parti con cui comunica il client non è in grado di accettare le `Request-Id` `Request-Context` intestazioni e e non è possibile aggiornarne la configurazione, sarà necessario inserirli in un elenco di esclusione tramite la `correlationHeaderExcludeDomains` proprietà di configurazione. Questa proprietà supporta caratteri jolly.
+
+Il lato server deve essere in grado di accettare connessioni con le intestazioni presenti. A seconda della `Access-Control-Allow-Headers` configurazione sul lato server, spesso è necessario estendere l'elenco sul lato server aggiungendo manualmente `Request-Id` e `Request-Context` .
+
+Access-Control-Allow-Headers: `Request-Id` , `Request-Context` , `<your header>`
+
+> [!NOTE]
+> Se si usa OpenTelemtry o Application Insights SDK rilasciati in 2020 o versioni successive, è consigliabile usare [WC3 TraceContext](https://www.w3.org/TR/trace-context/). Vedere la guida alla configurazione [qui](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+
 ## <a name="single-page-applications"></a>Applicazioni a pagina singola
 
 Per impostazione predefinita, questo SDK **non** gestirà la modifica della Route basata sullo stato che si verifica nelle applicazioni a pagina singola. Per abilitare il rilevamento automatico delle modifiche della route per l'applicazione a pagina singola, è possibile aggiungere `enableAutoRouteTracking: true` alla configurazione di installazione.
@@ -208,10 +243,6 @@ Attualmente si offre un plug-in [React](javascript-react-plugin.md)separato, che
 > [!NOTE]
 > Usare `enableAutoRouteTracking: true` solo se **non** si usa il plug-in React. Entrambi sono in grado di inviare nuove visualizzazioni di pagina quando la route cambia. Se entrambe le funzionalità sono abilitate, è possibile che vengano inviate pagine di visualizzazione duplicate.
 
-## <a name="configuration-autotrackpagevisittime"></a>Configurazione: autoTrackPageVisitTime
-
-Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](../platform/metrics-custom-overview.md) denominata `PageVisitTime` . Questa metrica personalizzata è visualizzabile nel [Esplora metriche](../platform/metrics-getting-started.md) come "metrica basata su log".
-
 ## <a name="extensions"></a>Estensioni
 
 | Estensioni |
@@ -219,38 +250,6 @@ Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impie
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
 | [Angular](javascript-angular-plugin.md) |
-
-## <a name="correlation"></a>Correlazione
-
-La correlazione tra client e lato server è supportata per:
-
-- Richieste XHR/AJAX 
-- Richieste di recupero 
-
-La correlazione tra client e lato server **non è supportata** per `GET` `POST` le richieste e.
-
-### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Abilita la correlazione tra componenti tra client AJAX e richieste server
-
-Per abilitare `CORS` la correlazione, il client deve inviare due intestazioni di richiesta aggiuntive `Request-Id` e `Request-Context` il lato server deve essere in grado di accettare connessioni con tali intestazioni. L'invio di queste intestazioni viene abilitato impostando `enableCorsCorrelation: true` nella configurazione di JavaScript SDK. 
-
-A seconda della `Access-Control-Allow-Headers` configurazione sul lato server, spesso è necessario estendere l'elenco sul lato server aggiungendo manualmente `Request-Id` e `Request-Context` .
-
-Access-Control-Allow-Headers: `Request-Id` , `Request-Context` , `<your header>`
-
-Se uno dei server di terze parti con cui comunica il client non è in grado di accettare le `Request-Id` `Request-Context` intestazioni e e non è possibile aggiornarne la configurazione, sarà necessario inserirli in un elenco di esclusione tramite la `correlationHeaderExcludeDomains` proprietà di configurazione. Questa proprietà supporta caratteri jolly.
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    enableCorsCorrelation: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-
-``` 
 
 ## <a name="explore-browserclient-side-data"></a>Esplorare i dati sul lato client e sul browser
 
@@ -272,7 +271,7 @@ Selezionare **browser** , quindi scegliere **errori** o **prestazioni**.
 
 ![Screenshot della pagina prestazioni in Application Insights che mostra la visualizzazione grafica delle metriche delle dipendenze per un'applicazione Web.](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 Per eseguire una query sui dati di telemetria raccolti da JavaScript SDK, selezionare il pulsante **Visualizza nei log (Analytics)** . Aggiungendo un' `where` istruzione di `client_Type == "Browser"` , verranno visualizzati solo i dati di JavaScript SDK e tutti i dati di telemetria sul lato server raccolti da altri SDK verranno esclusi.
  

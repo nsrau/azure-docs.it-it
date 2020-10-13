@@ -16,10 +16,10 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449387"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
@@ -75,7 +75,7 @@ Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione c
 L'acceleratore di scrittura di Azure è una funzionalità disponibile esclusivamente per le VM di Azure della serie M. Come indicato dal nome, lo scopo della funzionalità è migliorare la latenza di I/O delle Scritture per l'archiviazione Premium di Azure. Per SAP HANA, l'uso dell'acceleratore di scrittura è previsto solo sul volume **/hana/log**. Pertanto, **/hana/data** e **/hana/log** sono volumi separati con l'acceleratore di scrittura di Azure che supporta solo il volume **/hana/log**. 
 
 > [!IMPORTANT]
-> Quando si usa archiviazione Premium di Azure, l'uso di [acceleratore di scrittura](../../how-to-enable-write-accelerator.md) di Azure per il volume **/Hana/log** è obbligatorio. Acceleratore di scrittura è disponibile solo per le macchine virtuali di archiviazione Premium e serie M e Mv2. Acceleratore di scrittura non funziona in combinazione con altre famiglie di macchine virtuali di Azure, ad esempio Esv3 o Edsv4.
+> Quando si usa archiviazione Premium di Azure, l'uso di [acceleratore di scrittura](../../how-to-enable-write-accelerator.md) di Azure per il volume **/Hana/log** è obbligatorio. Acceleratore di scrittura è disponibile solo per le macchine virtuali di archiviazione Premium e serie M e Mv2-Series. Acceleratore di scrittura non funziona in combinazione con altre famiglie di macchine virtuali di Azure, ad esempio Esv3 o Edsv4.
 
 Le raccomandazioni relative alla memorizzazione nella cache per i dischi Premium di Azure riportati di seguito presuppongono le caratteristiche di I/O per SAP HANA elenco, ad esempio:
 
@@ -88,7 +88,7 @@ Le raccomandazioni relative alla memorizzazione nella cache per i dischi Premium
 **Raccomandazione: in seguito a questi modelli di I/O osservati SAP HANA, la memorizzazione nella cache per i diversi volumi con archiviazione Premium di Azure deve essere impostata come segue:**
 
 - **/Hana/data** -No caching o Read Caching
-- **/Hana/log** -No caching-Exception per le VM serie M e Mv2 in cui deve essere abilitato Azure acceleratore di scrittura 
+- **/Hana/log** -nessun caching-eccezione per le macchine virtuali M-e Mv2-Series in cui deve essere abilitato Azure acceleratore di scrittura 
 - **/hana/shared**: lettura della cache
 - **Disco del sistema operativo** : non modificare la memorizzazione nella cache predefinita impostata da Azure al momento della creazione della macchina virtuale
 
@@ -147,7 +147,7 @@ Configurazione per il volume **/Hana/data** di SAP:
 | --- | --- | --- | --- | --- | --- | --- | 
 | M32ts | 192 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14.000 |
 | M32ls | 256 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14.000 |
-| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 |  680 MBps | 2\.000 | 14.000 |
+| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 |  680 MBps | 2.000 | 14.000 |
 | M64s | 1\.000 GiB | 1\.000 MBps | 4 x P15 | 680 MBps | 4.400 | 14.000 |
 | M64ms | 1\.750 GiB | 1\.000 MBps | 4 x P20 | 680 MBps | 9.200 | 14.000 |  
 | M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 680 MBps | 9.200| 14.000 | 

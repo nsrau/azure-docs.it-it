@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
 ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802065"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origini dei dati di monitoraggio per monitoraggio di Azure
@@ -106,7 +106,7 @@ I requisiti di configurazione e il contenuto dei log delle risorse variano in ba
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
 | Log di Monitoraggio di Azure | Inviare i log delle risorse ai log di monitoraggio di Azure per l'analisi con altri dati di log raccolti. | [Raccogliere i log delle risorse di Azure nell'area di lavoro Log Analytics in monitoraggio di Azure](./resource-logs.md#send-to-azure-storage) |
-| Archiviazione | Inviare i log delle risorse ad archiviazione di Azure per l'archiviazione. | [Archiviare i log delle risorse di Azure](./resource-logs.md#send-to-log-analytics-workspace) |
+| Archiviazione: | Inviare i log delle risorse ad archiviazione di Azure per l'archiviazione. | [Archiviare i log delle risorse di Azure](./resource-logs.md#send-to-log-analytics-workspace) |
 | Hub eventi | Trasmettere i log delle risorse ad altre posizioni usando gli hub eventi. |[Trasmettere i log delle risorse di Azure a un hub eventi](./resource-logs.md#send-to-azure-event-hubs) |
 
 ## <a name="operating-system-guest"></a>Sistema operativo (Guest)
@@ -119,7 +119,7 @@ L'abilitazione dell'estensione Diagnostica di Azure per macchine virtuali di Azu
 
 | Destination | Descrizione | Informazioni di riferimento |
 |:---|:---|:---|
-| Archiviazione | L'estensione diagnostica di Azure scrive sempre in un account di archiviazione di Azure. | [Installare e configurare l'estensione Diagnostica di Azure per Windows (WAD)](diagnostics-extension-windows-install.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
+| Archiviazione: | L'estensione diagnostica di Azure scrive sempre in un account di archiviazione di Azure. | [Installare e configurare l'estensione Diagnostica di Azure per Windows (WAD)](diagnostics-extension-windows-install.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Metriche di Monitoraggio di Azure | Quando si configura l'estensione di diagnostica per raccogliere i contatori delle prestazioni, questi vengono scritti nel database di metriche di monitoraggio di Azure. | [Inviare metriche del sistema operativo guest all'archivio delle metriche di monitoraggio di Azure usando un modello di Gestione risorse per una macchina virtuale Windows](collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Hub eventi | Configurare l'estensione di diagnostica per trasmettere i dati in altri percorsi tramite hub eventi.  | [Streaming di dati Diagnostica di Azure tramite hub eventi](diagnostics-extension-stream-event-hubs.md)<br>[Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Log di Application Insights | Raccogliere i log e i contatori delle prestazioni dalla risorsa di calcolo che supporta l'applicazione per l'analisi con altri dati dell'applicazione. | [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](diagnostics-extension-to-application-insights.md) |

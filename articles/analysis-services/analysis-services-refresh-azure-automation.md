@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
 ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448600"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
@@ -143,7 +143,7 @@ L' **URL** è l'URL creato dal webhook.
 Il **corpo** è un documento JSON che deve contenere le proprietà seguenti:
 
 
-|Proprietà  |valore  |
+|Proprietà  |Valore  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nome del database di Azure Analysis Services <br/> Esempio: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nome del server Azure Analysis Services. <br/> Esempio: https: \/ /westus.asazure.Windows.NET/Servers/MyServer/Models/AdventureWorks/         |
@@ -161,7 +161,7 @@ Corpo JSON di esempio:
 
 Questi parametri sono definiti nello script di PowerShell Runbook.  Quando viene eseguita l'attività Web, il payload JSON passato è WEBHOOKDATA.
 
-Questa operazione viene deserializzata e archiviata come parametri PowerShell, che vengono quindi usati dal comando di PowerShell Invoke-ProcesASDatabase.
+Questa operazione viene deserializzata e archiviata come parametri PowerShell, che vengono quindi usati dal comando Invoke-ProcesASDatabase PowerShell.
 
 ![Webhook deserializzato](./media/analysis-services-refresh-azure-automation/20.png)
 

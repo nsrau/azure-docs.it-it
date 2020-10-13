@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
 ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449324"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
@@ -81,7 +81,7 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
 
    - Per il log attività, fare clic su **log attività** nel menu **monitoraggio di Azure** e quindi su **impostazioni di diagnostica**. Assicurarsi di disabilitare qualsiasi configurazione legacy per il log attività. Per informazioni dettagliate, vedere [disabilitare le impostazioni esistenti](./activity-log.md#legacy-collection-methods) .
 
-        ![Screenshot del menu monitoraggio di Azure con il log attività selezionato e le impostazioni di diagnostica evidenziate nella barra dei menu monitoraggio-attività log.](media/diagnostic-settings/menu-activity-log.png)
+        ![Screenshot del menu monitoraggio di Azure con il log attività selezionato e le impostazioni di diagnostica evidenziate nella barra dei menu Monitor-Activity log.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Se non esiste un'impostazione sulla risorsa selezionata, viene chiesto di creare un'impostazione. Fare clic su **Aggiungi impostazione di diagnostica**.
 
@@ -128,7 +128,7 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
         >
         > Se, ad esempio, si impostano i criteri di conservazione per *WorkflowRuntime* su 180 giorni e le 24 ore successive lo si imposta su 365 giorni, i log archiviati durante le prime 24 ore verranno eliminati automaticamente dopo 180 giorni, mentre tutti i registri successivi del tipo verranno eliminati automaticamente dopo 365 giorni. Se si modifica il criterio di conservazione in un secondo momento, le prime 24 ore di log rimaneranno per 365 giorni.
 
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e quando questo viene [visualizzato in un'area di lavoro log Analytics](data-ingestion-time.md).
 

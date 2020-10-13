@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4c44ad91b4fb8581a67ea67e09faca4a9d96df91
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447760"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
-È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device provisioning](../iot-dps/index.yml) proprio come i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere Panoramica del [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
+È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device provisioning](../iot-dps/index.yml) proprio come i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica sul [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
 
 Questo articolo illustra come creare un servizio Device provisioning singola registrazione con l'attestazione della chiave simmetrica in un dispositivo IoT Edge con i passaggi seguenti:
 
@@ -154,7 +154,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
-Il runtime IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.
 
 Quando si esegue il provisioning del dispositivo, sono necessarie le informazioni seguenti:
 

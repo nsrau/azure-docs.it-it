@@ -8,28 +8,28 @@ ms.reviewer: zhshang
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 105b40da2a612d2a2e9958eff52bfb786c500bc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "74158199"
+ms.locfileid: "91876074"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reazione agli eventi del Servizio Azure SignalR
 
-Gli eventi del servizio Azure SignalR consentono alle applicazioni di reagire alle connessioni client connesse o disconnesse usando architetture senza server moderne. e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.  Gli eventi vengono invece inviati attraverso [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai sottoscrittori, ad esempio [Funzioni di Azure](https://azure.microsoft.com/services/functions/), [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) o anche al listener http personalizzato in uso, e si paga solo ciò che si usa.
+Gli eventi del servizio Azure SignalR consentono alle applicazioni di reagire alle connessioni client connesse o disconnesse usando architetture senza server moderne. e senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti.  Al contrario, gli eventi vengono inviati tramite [griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai sottoscrittori, ad esempio funzioni di [Azure](https://azure.microsoft.com/services/functions/), app per la [logica di Azure](https://azure.microsoft.com/services/logic-apps/)o anche al listener HTTP personalizzato. Con Azure SignalR puoi pagare solo per le risorse che usi.
 
 Gli eventi del servizio Azure SignalR vengono inviati in modo affidabile al servizio griglia di eventi, che fornisce servizi di recapito affidabili alle applicazioni tramite criteri avanzati per i tentativi e il recapito dei messaggi non recapitabili. Per altre informazioni, vedere [recapito dei messaggi di griglia di eventi e riprovare](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 ![Modello di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
 
 ## <a name="serverless-state"></a>Stato senza server
-Gli eventi del servizio Azure SignalR sono attivi solo quando le connessioni client sono in stato senza server. In generale, se un client non viene indirizzato a un server Hub, entra nello stato senza server. La modalità classica funziona solo quando l'hub, a cui si connettono le connessioni client, non ha un server Hub. Tuttavia, per evitare problemi, è consigliabile usare la modalità senza server. Per ulteriori informazioni sulla modalità di servizio, vedere [How to Choose Service Mode](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
+Gli eventi del servizio Azure SignalR sono attivi solo quando le connessioni client si trovano in uno stato senza server. Se un client non viene indirizzato a un server Hub, entra nello stato senza server. La modalità classica funziona solo quando l'hub a cui si connettono le connessioni client non dispone di un server Hub. La modalità senza server è consigliata come procedura consigliata. Per ulteriori informazioni sulla modalità di servizio, vedere [How to Choose Service Mode](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
 
 ## <a name="available-azure-signalr-service-events"></a>Eventi del servizio Azure SignalR disponibili
 Griglia di eventi usa le [sottoscrizioni di eventi](../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori. Le sottoscrizioni di eventi del servizio Azure SignalR supportano due tipi di eventi:  
 
-|Nome evento|Descrizione|
+|Nome evento|Description|
 |----------|-----------|
 |`Microsoft.SignalRService.ClientConnectionConnected`|Generato quando una connessione client è connessa.|
 |`Microsoft.SignalRService.ClientConnectionDisconnected`|Generato quando una connessione client viene disconnessa.|
