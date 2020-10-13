@@ -12,13 +12,13 @@ ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667694"
 ---
-# <a name="get-started-with-custom-keyword"></a>Introduzione alla parola chiave Custom
+# <a name="get-started-with-custom-keyword"></a>Introduzione alla parola chiave personalizzata
 
 Questa Guida introduttiva illustra le nozioni di base sull'uso di parole chiave personalizzate, con speech studio e l'SDK di riconoscimento vocale. Una parola chiave è una parola o una frase breve che consente di attivare la voce del prodotto. È possibile creare modelli di parole chiave in speech studio, quindi esportare un file di modello usato con l'SDK di riconoscimento vocale nelle applicazioni.
 

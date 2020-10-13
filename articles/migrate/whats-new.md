@@ -4,19 +4,24 @@ description: Informazioni sulle novità e gli aggiornamenti recenti del servizio
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: a46519d434061ebfdedbabe70a3e044cb69ca552
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322224"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667079"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) consente di individuare, valutare ed eseguire la migrazione di server locali, app e dati nel cloud Microsoft Azure. Questo articolo riepiloga le nuove versioni e funzionalità di Azure Migrate.
+
 ## <a name="update-september-2020"></a>Aggiornamento (settembre 2020)
-- Azure Migrate consente ora di eseguire la migrazione dei server a zone di disponibilità.
-- Azure Migrate consente ora di eseguire la migrazione di macchine virtuali basate su UEFI e server fisici alle macchine virtuali di Azure di seconda generazione. 
+- È ora supportata la migrazione dei server in zone di disponibilità.
+- È ora supportata la migrazione di macchine virtuali e server fisici basati su UEFI in macchine virtuali di Azure di seconda generazione.
+- È disponibile un nuovo dashboard di valutazione di Power BI per Azure Migrate che consente di confrontare i costi tra diverse impostazioni di valutazione. Il dashboard è dotato di un'utilità di PowerShell che crea automaticamente le valutazioni che si collegano al dashboard Power BI. [Altre informazioni.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
+- L'analisi delle dipendenze (senza agente) può ora essere eseguita contemporaneamente su 1.000 VM.
+- L'analisi delle dipendenze (senza agente) può ora essere abilitata o disabilitata su larga scala tramite script di PowerShell. [Altre informazioni.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- È possibile visualizzare le connessioni di rete in Power BI usando i dati raccolti con l'analisi delle dipendenze (senza agente) [Altre informazioni.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 
 ## <a name="update-august-2020"></a>Aggiornamento (agosto 2020)
 
@@ -24,9 +29,10 @@ ms.locfileid: "91322224"
 - Opzione per scaricare i file OVA/VHD o gli script del programma di installazione dal portale per configurare rispettivamente le appliance VMware e Hyper-V.
 - Gestione configurazione dell'appliance aggiornata con esperienza utente migliorata.
 - Supporto di più credenziali per l'individuazione di macchine virtuali Hyper-V.
-- Miglioramento delle funzionalità di ricerca, ordinamento e filtro per le credenziali e le origini di individuazione aggiunte.
-- Opzioni utente per l'inserimento di singoli elementi, l'inserimento di più elementi e l'importazione in formato CSV per aggiungere origini di individuazione per server fisici e host/cluster Hyper-V.
-- Esperienza di errore migliorata con aggiornamenti di stato per le operazioni di convalida e individuazione su ogni origine aggiunta nella tabella. 
+
+## <a name="update-july-2020"></a>Aggiornamento (luglio 2020)
+
+- La migrazione VMware senza agente supporta ora la replica simultanea di 300 macchine virtuali per vCenter
 
 ## <a name="update-june-2020"></a>Aggiornamento (giugno 2020)
 

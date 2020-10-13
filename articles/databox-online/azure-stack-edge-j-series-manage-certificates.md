@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767375"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Usare i certificati con Azure Stack dispositivo GPU Pro Edge
@@ -77,7 +77,7 @@ Questi certificati possono essere certificati radice o certificati intermedi. I 
 - È necessario modificare un certificato del nodo se il dominio DNS viene modificato, ma il nome del dispositivo non cambia. Se si sta portando il proprio certificato del nodo, non è possibile modificare il numero di serie del dispositivo. è possibile modificare solo il nome di dominio.
 - Usare la tabella seguente per istruzioni per la creazione di un certificato del nodo.
    
-    |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+    |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Nodo|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,10 +98,10 @@ Quando si porta un certificato firmato, è necessaria anche la catena di firma c
 - Le proprietà dei certificati dell'endpoint sono simili a quelle di un tipico certificato SSL. 
 - Usare la tabella seguente per la creazione di un certificato dell'endpoint:
 
-    |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+    |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Archiviazione - BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Archiviazione BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificato singolo a più SAN per entrambi gli endpoint|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 
@@ -114,7 +114,7 @@ Quando si porta un certificato firmato, è necessaria anche la catena di firma c
 - Il certificato dell'interfaccia utente locale viene anche caricato in un `.pfx` formato con una chiave privata che può essere esportata.
 - Dopo aver caricato il certificato dell'interfaccia utente locale, sarà necessario riavviare il browser e cancellare la cache. Vedere le istruzioni specifiche per il browser.
 
-    |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+    |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Interfaccia utente locale| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 6f4f4c2de3b1030c4d14cb74e562954a3d3d1144
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bf9a2232a04b929d716d3b2412f1b2c666b29f62
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257826"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91767288"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph usando l'identità dell'app console
 
@@ -25,7 +25,7 @@ In questo argomento di avvio rapido verrà illustrato come scrivere un'applicazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
+Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
@@ -48,12 +48,12 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
 >
 > 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 > 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori.
+> 1. Passare alla pagina [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) di Microsoft Identity Platform per sviluppatori immettendo **Registrazioni app** nella barra di ricerca del portale di Azure.
 > 1. Selezionare **Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 > 1. Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato dagli utenti dell'app, ad esempio `Daemon-console`, quindi sezionare **Registra** per creare l'applicazione.
 > 1. Dopo la registrazione, selezionare il menu **Certificati e segreti**.
-> 1. In **Segreti client** selezionare **+ Nuovo segreto client**. Assegnargli un nome e selezionare **Aggiungi**. Copiare il segreto in una posizione sicura. Sarà necessario usarlo nel codice.
+> 1. In **Segreti client** selezionare **+ Nuovo segreto client**. Assegnargli un nome e selezionare **Aggiungi**. Copiare il segreto in una posizione sicura. Sarà necessario usarlo nel codice e non verrà più visualizzato nel portale.
 > 1. Selezionare ora il menu **Autorizzazioni API**, selezionare il pulsante **+ Aggiungi un'autorizzazione**, selezionare **Microsoft Graph**.
 > 1. Selezionare **Autorizzazioni applicazione**.
 > 1. Nel nodo **Utente** selezionare **User.Read.All**, quindi selezionare **Aggiungi autorizzazioni**
@@ -73,6 +73,11 @@ Questo avvio rapido richiede [.NET Core 2.2](https://www.microsoft.com/net/downl
 
 > [!div renderon="docs"]
 > [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+
+> [!div renderon="docs"]
+> > [!NOTE]
+> > È possibile eseguire il progetto fornito in Visual Studio o in Visual Studio per Mac
+
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Eseguire il progetto con Visual Studio 2019.
@@ -115,7 +120,7 @@ Se si prova a eseguire l'applicazione a questo punto, si riceverà l'errore *HTT
 ##### <a name="global-tenant-administrator"></a>Amministratore del tenant globale
 
 > [!div renderon="docs"]
-> Gli amministratori del tenant globali devono passare alla pagina **Autorizzazioni API** nella registrazione dell'applicazione del portale di Azure (anteprima) e selezionare **Concedi consenso amministratore per {nome del tenant}** (dove {nome del tenant} è il nome della directory).
+> Se si è un amministratore tenant globale, passare a **Applicazioni aziendali**, fare clic sulla registrazione dell'app, quindi scegliere **"Autorizzazioni"** nella sezione Sicurezza del riquadro di spostamento sinistro. Fare clic sul pulsante **Concedi consenso amministratore per {nome tenant}** , dove {nome tenant} è il nome della directory.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Gli amministratori globali devono passare alla pagina **Autorizzazioni API** e selezionare **Concedi consenso amministratore per Immettere_il_nome_tenant_qui**
@@ -144,10 +149,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Passaggio 5: Eseguire l'applicazione
 
-Se si usa Visual Studio, premere **F5** per eseguire l'applicazione. In caso contrario, eseguire l'applicazione tramite il prompt dei comandi o la console:
+Se si usa Visual Studio o Visual Studio per Mac, premere **F5** per eseguire l'applicazione; in caso contrario, eseguire l'applicazione tramite prompt dei comandi, console o terminale:
 
 ```console
-cd {ProjectFolder}\daemon-console\1-Call-Graph
+cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 

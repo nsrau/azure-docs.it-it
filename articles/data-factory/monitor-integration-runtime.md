@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568899"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory
@@ -49,7 +49,7 @@ Nella tabella seguente vengono fornite descrizioni per le proprietà restituite 
 -------- | ------------- | 
 | Nome | Nome del runtime di integrazione di Azure. |  
 | State | Stato del runtime di integrazione di Azure. | 
-| Località | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
+| Location | Percorso del runtime di integrazione di Azure. Per altri dettagli sul percorso di un runtime di integrazione di Azure, vedere [Introduzione al runtime di integrazione](concepts-integration-runtime.md). |
 | DataFactoryName | Nome della data factory a cui appartiene il runtime di integrazione di Azure. | 
 | ResourceGroupName | Nome del gruppo di risorse a cui appartiene la data factory.  |
 | Descrizione | Descrizione del runtime di integrazione di Azure.  |
@@ -182,7 +182,7 @@ Nella tabella seguente vengono fornite le descrizioni delle proprietà restituit
 | OtherErrors                  | Errori interoperabili non specifici del nodo nel Azure-SSIS IR. |
 | LastOperation                | Il risultato dell'ultima operazione di avvio/arresto sul Azure-SSIS IR con errori di utilità pratica se non è riuscito. |
 | State                        | Stato complessivo (iniziale/iniziale/avviata/arrestata/arrestata) del Azure-SSIS IR. |
-| Località                     | Percorso della Azure-SSIS IR. |
+| Location                     | Percorso della Azure-SSIS IR. |
 | NodeSize                     | Dimensioni di ogni nodo nella Azure-SSIS IR. |
 | NodeCount                    | Il numero di nodi nell'Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | Numero massimo di esecuzioni parallele per nodo nel Azure-SSIS IR. |
@@ -193,7 +193,7 @@ Nella tabella seguente vengono fornite le descrizioni delle proprietà restituit
 | VNetId                       | ID della risorsa di rete virtuale per la Azure-SSIS IR da unire. |
 | Subnet                       | Nome della subnet per il Azure-SSIS IR da unire. |
 | ID                           | ID risorsa della Azure-SSIS IR. |
-| Tipo                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
+| Type                         | Tipo IR (gestito/self-hosted) del Azure-SSIS IR. |
 | ResourceGroupName            | Nome del gruppo di risorse di Azure in cui sono stati creati i file ADF e Azure-SSIS IR. |
 | DataFactoryName              | Nome del file ADF. |
 | Nome                         | Nome del Azure-SSIS IR. |
@@ -246,7 +246,7 @@ Se si usa il modello di distribuzione del progetto in cui i pacchetti vengono ar
 
 #### <a name="proxy--staging-tile"></a>Riquadro PROXY/gestione temporanea
 
-Se si scarica, si installa e si configura il runtime di integrazione self-hosted come proxy per la Azure-SSIS IR di accedere ai dati in locale, il riquadro **proxy/staging** verrà visualizzato nella pagina di monitoraggio Azure-SSIS IR (vedere [configurazione di un proxy per il Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). In questo riquadro è possibile selezionare un collegamento che designa il problema per aprire la relativa pagina di monitoraggio. È anche possibile selezionare un altro collegamento che designa l'archivio BLOB di Azure per la gestione temporanea per riconfigurare il servizio collegato.
+Se si scarica, si installa e si configura Self-Hosted runtime di integrazione come proxy per la Azure-SSIS IR per accedere ai dati in locale, il riquadro **proxy/gestione temporanea** verrà visualizzato nella pagina Monitoraggio Azure-SSIS IR (vedere [configurazione di un proxy per la Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). In questo riquadro è possibile selezionare un collegamento che designa il problema per aprire la relativa pagina di monitoraggio. È anche possibile selezionare un altro collegamento che designa l'archivio BLOB di Azure per la gestione temporanea per riconfigurare il servizio collegato.
 
 #### <a name="validate-vnet--subnet-tile"></a>Riquadro convalida VNET/SUBNET
 

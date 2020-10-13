@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
 ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447366"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
@@ -86,7 +86,7 @@ Se i CNAME si trovano in altri servizi DNS e puntano a risorse di Azure, fornire
 Lo strumento supporta le risorse di Azure elencate nella tabella seguente. Lo strumento estrae o accetta come input tutti i CNAME del tenant.
 
 
-| Service                   | Tipo                                        | FQDNproperty                               | Esempio                         |
+| Servizio                   | Type                                        | FQDNproperty                               | Esempio                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Frontdoor di Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Archiviazione BLOB di Azure        | microsoft.storage/storageaccounts           | Properties. primari. blob           | `abc. blob.core.windows.net`    |

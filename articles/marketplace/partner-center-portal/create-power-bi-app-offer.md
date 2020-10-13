@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710652"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creare un'offerta di app Power BI
@@ -143,7 +143,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 7. Informativa sulla privacy
 8. Nome offerta
 9. Riepilogo
-10. Descrizione
+10. Description
 11. Screenshot/video
 
 ### <a name="name"></a>Nome

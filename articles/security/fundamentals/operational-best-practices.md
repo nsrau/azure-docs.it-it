@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629795"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943867"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altre risorse in Azure.
@@ -116,7 +116,7 @@ Il Punteggio sicuro, che si basa su controlli di sicurezza di rete per Internet 
 **Dettagli**: seguire le [raccomandazioni](../../security-center/security-center-recommendations.md) per la sicurezza nel centro sicurezza di avvio con gli elementi con la priorità più alta.
 
 **Procedura consigliata**: integrare gli avvisi del Centro sicurezza nella soluzione di gestione delle informazioni e degli eventi di sicurezza (Siem).   
-**Dettagli**: la maggior parte delle organizzazioni con Siem lo usa come centrale per gli avvisi di sicurezza che richiedono una risposta analista. Gli eventi elaborati generati dal centro sicurezza vengono pubblicati nel log attività di Azure, uno dei log disponibili tramite monitoraggio di Azure. Monitoraggio di Azure offre una pipeline consolidata per eseguire il routing dei dati di monitoraggio in uno strumento SIEM. Per istruzioni, vedere [esportare avvisi di sicurezza e consigli](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) . Se si usa Azure Sentinel, vedere [connettere il Centro sicurezza di Azure](../../sentinel/connect-azure-security-center.md).
+**Dettagli**: la maggior parte delle organizzazioni con Siem lo usa come centrale per gli avvisi di sicurezza che richiedono una risposta analista. Gli eventi elaborati generati dal centro sicurezza vengono pubblicati nel log attività di Azure, uno dei log disponibili tramite monitoraggio di Azure. Monitoraggio di Azure offre una pipeline consolidata per eseguire il routing dei dati di monitoraggio in uno strumento SIEM. Per istruzioni, vedere [trasmettere avvisi a una soluzione Siem, Soar o IT Service Management](../../security-center/export-to-siem.md) . Se si usa Azure Sentinel, vedere [connettere il Centro sicurezza di Azure](../../sentinel/connect-azure-security-center.md).
 
 **Procedura consigliata**: integrare i log di Azure con Siem.   
 **Dettagli**: usare [monitoraggio di Azure per raccogliere ed esportare dati](/azure/azure-monitor/overview#integrate-and-export-data). Questa procedura è fondamentale per l'abilitazione dell'analisi degli eventi imprevisti della sicurezza e la conservazione dei log online è limitata. Se si usa Sentinel di Azure, vedere [connettere le origini dati](../../sentinel/connect-data-sources.md).

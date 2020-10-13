@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9468b9c2c906ffe26bae400dc9e4746630a66e0e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401096"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970317"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
@@ -32,7 +32,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 In alternativa, se si dispone di un caso d'uso specifico per un firewall centralizzato, è possibile usare il firewall di Azure anche per soddisfare tali requisiti.
 
-* [Reti virtuali e macchine virtuali in Azure](../windows/network-overview.md)
+* [Reti virtuali e macchine virtuali in Azure](../network-overview.md)
 
 * [Come creare una rete virtuale](../../virtual-network/quick-create-portal.md)
 
@@ -64,7 +64,7 @@ In alternativa, se si dispone di un caso d'uso specifico per un firewall central
 
 * [Creare un gateway applicazione con un web application firewall tramite il portale di Azure](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-* [Reti virtuali e macchine virtuali in Azure](../windows/network-overview.md)
+* [Reti virtuali e macchine virtuali in Azure](../network-overview.md)
 
 * [Informazioni sui gruppi di sicurezza di rete](../../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -82,7 +82,7 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 * [Come distribuire il firewall di Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../../security-center/threat-protection.md)
+* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../../security-center/azure-defender.md)
 
 * [Informazioni sul centro sicurezza di Azure Adaptive Network hardening](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -148,7 +148,7 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/#network)
+* [Esempi di criteri di Azure per la rete](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Come creare un progetto di Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -182,7 +182,7 @@ Usare i criteri di Azure per convalidare e/o correggere le configurazioni per le
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/#network)
+* [Esempi di criteri di Azure per la rete](../../governance/policy/samples/built-in-policies.md#network)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -306,7 +306,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: è necessario uno strumento di terze parti per il rilevamento di vulnerabilità anti-malware per all'interno del sistema operativo Linux.
 
-* [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](../../security-center/quick-onboard-linux-computer.md)
+* [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](../../security-center/quickstart-onboard-machines.md)
 
 * [Il collegamento seguente fornisce le linee guida di sicurezza consigliate da Microsoft, che possono fungere da elenco di criteri per il software di vulnerabilità selezionato](./security-recommendations.md)
 
@@ -514,7 +514,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
 
@@ -616,7 +616,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: è necessario uno strumento di terze parti per il rilevamento di vulnerabilità anti-malware per all'interno del sistema operativo Linux.
 
-* [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](../../security-center/quick-onboard-linux-computer.md)
+* [Istruzioni per l'onboarding dei server Linux nel centro sicurezza di Azure](../../security-center/quickstart-onboard-machines.md)
 
 * [Linee guida sulla sicurezza consigliate da Microsoft](./security-recommendations.md)
 
@@ -700,7 +700,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
 
@@ -784,7 +784,7 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Come negare un tipo di risorsa specifico con Criteri di Azure](../../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -824,13 +824,13 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 
 **Linee guida**: le applicazioni ad alto rischio distribuite nell'ambiente Azure possono essere isolate usando reti virtuali, subnet, sottoscrizioni, gruppi di gestione e sufficientemente protette con un firewall di Azure, un Web Application Firewall (WAF) o un gruppo di sicurezza di rete (NSG).
 
-* [Reti virtuali e macchine virtuali in Azure](../windows/network-overview.md)
+* [Reti virtuali e macchine virtuali in Azure](../network-overview.md)
 
 * [Panoramica del Firewall di Azure](../../firewall/overview.md)
 
 * [Panoramica di Web Application Firewall](../../web-application-firewall/overview.md)
 
-* [Panoramica della sicurezza di rete](../../virtual-network/security-overview.md)
+* [Panoramica della sicurezza di rete](../../virtual-network/network-security-groups-overview.md)
 
 * [Panoramica di rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md)
 
