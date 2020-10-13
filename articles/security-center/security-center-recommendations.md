@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7f6c0f2a311590219fb59bfe1ec63831c03e8af2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0efb2c26a63418835dd2b7561a1fb9d3a9d5fee8
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314437"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945559"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
 Questo argomento illustra come visualizzare e comprendere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure.
 
-> [!NOTE]
-> Il documento introduce il servizio usando una distribuzione di esempio.  Questo argomento non costituisce una guida dettagliata.
->
 
 ## <a name="what-are-security-recommendations"></a>Informazioni sulle raccomandazioni di sicurezza
 
@@ -35,39 +32,36 @@ Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse 
 
 Ogni raccomandazione fornisce:
 
-- Breve descrizione del problema.
-- Procedura di correzione da eseguire per implementare la raccomandazione.
-- Risorse interessate.
+- Breve descrizione del problema
+- Procedura di correzione da eseguire per implementare la raccomandazione
+- Risorse interessate
 
 ## <a name="monitor-recommendations"></a>Monitorare le raccomandazioni <a name="monitor-recommendations"></a>
 
-Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Il riquadro **raccomandazioni** in **Panoramica** Mostra il numero totale di raccomandazioni identificate dal centro sicurezza.
+Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. 
 
-![Panoramica del Centro sicurezza](./media/security-center-recommendations/asc-overview.png)
-
-1. Selezionare il **riquadro raccomandazioni** in **Panoramica**. Verrà visualizzato l'elenco **raccomandazioni** .
-
-1. I consigli sono raggruppati in controlli di sicurezza.
+1. Dal menu del Centro sicurezza aprire la pagina **raccomandazioni** per visualizzare le raccomandazioni applicabili all'ambiente in uso. I consigli sono raggruppati in controlli di sicurezza.
 
       ![Raccomandazioni raggruppate per controllo di sicurezza](./media/security-center-recommendations/view-recommendations.png)
 
-1. Espandere un controllo e selezionare una raccomandazione specifica per visualizzare la pagina di raccomandazione.
+1. Espandere un controllo e selezionare una raccomandazione specifica per visualizzare la pagina dei dettagli della raccomandazione.
 
     :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Pagina dei dettagli della raccomandazione." lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
     La pagina include:
 
-    - **Applicare** e **negare** i pulsanti sulle raccomandazioni supportate (vedere Impedisci configurazioni non configurate [con le raccomandazioni Imponi/nega](prevent-misconfigurations.md))
-    - **Indicatore di gravità**
-    - **Intervallo di aggiornamento**  (se pertinente) 
-    - **Descrizione** : breve descrizione del problema
-    - **Passaggi correttivi** -Descrizione dei passaggi manuali necessari per correggere il problema di sicurezza sulle risorse interessate. Per consigli con la correzione rapida, è possibile selezionare **Visualizza la logica di monitoraggio e aggiornamento** prima di applicare la correzione consigliata alle risorse. 
-    - **Risorse interessate** : le risorse sono raggruppate in schede:
+    1. **Applicare** e **negare** i pulsanti sulle raccomandazioni supportate (vedere Impedisci configurazioni non configurate [con le raccomandazioni Imponi/nega](prevent-misconfigurations.md))
+    1. **Indicatore di gravità**
+    1. **Intervallo di aggiornamento**  (se pertinente) 
+    1. **Descrizione** : breve descrizione del problema
+    1. **Passaggi correttivi** -Descrizione dei passaggi manuali necessari per correggere il problema di sicurezza sulle risorse interessate. Per consigli con la correzione rapida, è possibile selezionare **Visualizza la logica di monitoraggio e aggiornamento** prima di applicare la correzione consigliata alle risorse. 
+    1. **Risorse interessate** : le risorse sono raggruppate in schede:
         - **Risorse integre** : risorse rilevanti che non sono interessate o per le quali il problema è già stato risolto.
         - **Risorse non integre** : risorse ancora interessate dal problema identificato.
         - **Risorse non applicabili** : risorse per le quali la raccomandazione non può fornire una risposta definitiva. La scheda non applicabile include anche i motivi di ogni risorsa. 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Pagina dei dettagli della raccomandazione.":::
+    1. Pulsanti di azione per correggere la raccomandazione o attivare un'app per la logica.
 
 ## <a name="preview-recommendations"></a>Suggerimenti per l'anteprima
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
 ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653554"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
 La serie Mv2 offre una piattaforma a bassa latenza e velocità effettiva elevata in esecuzione su un processore Intel® Xeon® Platinum 8180M a 2,5 GHz (Skylake) con una frequenza di base di tutti i core di 2,5 GHz e una frequenza massima turbo di 3,8 GHz. Tutte le dimensioni delle macchine virtuali della serie Mv2 possono usare dischi permanenti standard e Premium. Le istanze della serie Mv2 sono dimensioni di VM con ottimizzazione per la memoria che offrono prestazioni di calcolo ineguagliabili per supportare database e carichi di lavoro in memoria di grandi dimensioni, con un rapporto elevato tra memoria e CPU, ideale per server di database relazionali, cache di grandi dimensioni e analisi in memoria.
 
-Funzionalità della VM della serie Mv2 Intel® tecnologia Hyper-Threading
+Funzionalità della macchina virtuale della serie Mv2 Intel® Hyper-Threading Technology
 
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): supportato<br>

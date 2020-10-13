@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 08/12/2019
-ms.openlocfilehash: eba63ff500aad4538f5b30f11bac168cf14816c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 09/28/2020
+ms.openlocfilehash: bb9768c2a4d3be9ac0e06844c5ac0835707cf455
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84558171"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945873"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
 
@@ -51,7 +51,7 @@ Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà Type deve essere impostata su: **MongoDbV2** |Sì |
-| connectionString |Specificare la stringa di connessione di MongoDB, ad esempio `mongodb://[username:password@]host[:port][/[database][?options]]`. Per altri dettagli, vedere la sezione sulla [stringa di connessione nel manuale di MongoDB](https://docs.mongodb.com/manual/reference/connection-string/). <br/><br /> È anche possibile inserire una password in Azure Key Vault ed estrarre la  `password`   configurazione dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . |Sì |
+| connectionString |Specificare la stringa di connessione di MongoDB, ad esempio `mongodb://[username:password@]host[:port][/[database][?options]]`. Per altri dettagli, vedere la sezione sulla [stringa di connessione nel manuale di MongoDB](https://docs.mongodb.com/manual/reference/connection-string/). <br/><br /> È anche possibile inserire una stringa di connessione in Azure Key Vault. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) . |Sì |
 | database | Nome del database a cui si vuole accedere. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Per altre informazioni, vedere la sezione [Prerequisiti](#prerequisites). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 

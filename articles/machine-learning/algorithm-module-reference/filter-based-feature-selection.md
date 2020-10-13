@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893798"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945703"
 ---
 # <a name="filter-based-feature-selection"></a>Filter Based Feature Selection
 
@@ -90,8 +90,14 @@ Si sceglie una metrica statistica standard. Il modulo calcola la correlazione tr
 
     - Se si specifica un numero inferiore di colonne di risultati rispetto alle colonne di funzionalità, le funzionalità vengono classificate in base al Punteggio decrescente. Vengono restituite solo le funzionalità principali. 
 
-7.  Inviare la pipeline oppure selezionare il modulo filtro basato sulle funzionalità di selezione e quindi selezionare **Esegui**selezione.
+7.  Inviare la pipeline.
 
+> [!IMPORTANT]
+> Se si intende utilizzare la **selezione delle funzioni basata su filtro** nell'inferenza, è necessario utilizzare la [trasformazione Seleziona colonne](./select-columns-transform.md) per archiviare il risultato selezionato della funzionalità e [applicare la trasformazione](./apply-transformation.md) per applicare la trasformazione selezionata alla funzionalità al set di dati di assegnazione dei punteggi.
+>
+> Per creare la pipeline, fare riferimento allo screenshot seguente per assicurarsi che le selezioni di colonna siano le stesse per il processo di assegnazione dei punteggi.
+> [!div class="mx-imgBorder"]
+> ![Pipeline di esempio](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Risultati
 

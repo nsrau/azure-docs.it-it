@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370879"
+ms.locfileid: "91874833"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -260,6 +260,10 @@ Se si usano valori letterali nelle condizioni di join o si hanno più corrispond
 #### <a name="sorting-before-joins"></a>Ordinamento prima di join
 
 A differenza di Merge join in strumenti come SSIS, la trasformazione tramite join non rappresenta un'operazione di merge obbligatoria. Le chiavi di join non richiedono l'ordinamento prima della trasformazione. Il team di Azure Data Factory non consiglia di usare le trasformazioni di ordinamento nel mapping di flussi di dati.
+
+### <a name="window-transformation-performance"></a>Prestazioni trasformazione finestra
+
+La [trasformazione finestra](data-flow-window.md) suddivide i dati in base al valore nelle colonne selezionate come parte della ```over()``` clausola nelle impostazioni di trasformazione. Nella trasformazione Windows sono presenti numerose funzioni di aggregazione e analisi molto diffuse. Tuttavia, se il caso d'uso prevede la generazione di una finestra sull'intero set di dati a scopo di rango ```rank()``` o numero di riga ```rowNumber()``` , è consigliabile usare invece la [trasformazione classificazione](data-flow-rank.md) e la [trasformazione chiave surrogata](data-flow-surrogate-key.md). Tali funzioni eseguiranno nuovamente le operazioni complete del set di dati utilizzando tali funzioni.
 
 ### <a name="repartitioning-skewed-data"></a>Ripartizionamento di dati inclinati
 

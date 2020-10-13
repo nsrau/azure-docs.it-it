@@ -127,6 +127,8 @@
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure Resource Manager
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+            - name: Criteri predefiniti
+              href: nsg-flow-logs-policy-portal.md
         - name: Eliminare i BLOB di archiviazione del log del flusso del gruppo di sicurezza di rete
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Analizzare i log dei flussi dei gruppi di sicurezza di rete

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906836"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945448"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparare un'applicazione per la distribuzione nel cloud Spring di Azure
 
@@ -210,6 +210,8 @@ Se si usa Spring Boot 2,1, includere il dependenciy seguente nel file di pom.xml
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> Non specificare `server.port` nella configurazione. Azure Spring cloud Sostituisci questa impostazione a un numero di porta fisso. Osservare anche questa impostazione e non specificare la porta del server nel codice.
 
 ## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Altre dipendenze consigliate per abilitare le funzionalità di Azure Spring Cloud
 
@@ -227,6 +229,7 @@ Per usare il servizio Registro servizi di Azure gestito, includere la dipendenza
 ```
 
 L'endpoint del server Service Registry verrà inserito automaticamente come variabile di ambiente nell'app. Le applicazioni potranno quindi registrarsi con il server Service Registry e individuare altri microservizi dipendenti.
+
 
 #### <a name="enablediscoveryclient-annotation"></a>Annotazione EnableDiscoveryClient
 
