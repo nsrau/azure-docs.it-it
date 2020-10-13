@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
 ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326780"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per un database SQL usando app per la logica di Azure
@@ -74,7 +74,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
    | Authentication | Descrizione |
    |----------------|-------------|
    | [**Azure AD integrata**](../azure-sql/database/authentication-aad-overview.md) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un'identità valida in Azure Active Directory (Azure AD) che può accedere al database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD autenticazione integrata](../azure-sql/database/authentication-aad-overview.md) |
-   | [**Autenticazione SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nel database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nel database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Questo esempio continua con **Azure ad Integrated**:
@@ -118,7 +118,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
    | Authentication | Descrizione |
    |----------------|-------------|
    | [**Autenticazione di Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Supporta solo il connettore SQL Server non ISE, che richiede una risorsa del gateway dati creata in precedenza in Azure per la connessione, indipendentemente dal fatto che si usi Azure multi-tenant o ISE. <p><p>-Richiede un nome utente e una password validi di Windows per confermare l'identità tramite l'account di Windows. <p>Per ulteriori informazioni, vedere [autenticazione di Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) . |
-   | [**Autenticazione SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nella SQL Server. <p>Per ulteriori informazioni, vedere [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nella SQL Server. <p>Per ulteriori informazioni, vedere [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Questo esempio continua con **l'autenticazione di Windows**:

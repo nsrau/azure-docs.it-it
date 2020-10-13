@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: jushiman
-ms.openlocfilehash: 05da5a21fb558b7d936b7569a69578eda06e11cf
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 175d572e69dd34a09787f44cf14ae0336c8e95e0
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875275"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975604"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
 
@@ -75,7 +75,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 
-| Dimensioni – Dimensioni\Nome | vCPU | Memory|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
+| Dimensioni – Dimensioni\Nome | vCPU | Memoria|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
 |---|---|---|---|---|---|---|
 | A0\Basic_A0 | 1 | 768 MB  | 2 | 20 GB  | 1  | 1x300  |
 | A1\Basic_A1 | 1 | 1,75 GB | 2 | 40 GB  | 2  | 2x300  |
@@ -205,7 +205,7 @@ La serie DC USA la generazione più recente di processore Intel XEON E-2176G a 3
 
 > [!IMPORTANT]
 >
-> Le macchine virtuali serie DC sono [macchine virtuali di seconda generazione](./linux/generation-2.md#creating-a-generation-2-vm) e supportano solo le `Gen2` Immagini.
+> Le macchine virtuali serie DC sono [macchine virtuali di seconda generazione](./generation-2.md#creating-a-generation-2-vm) e supportano solo le `Gen2` Immagini.
 
 
 ### <a name="ds-series"></a>Serie DS  

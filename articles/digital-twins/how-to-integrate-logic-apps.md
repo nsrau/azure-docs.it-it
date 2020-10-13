@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: baf89ec75f844ae1a1f7797d26d2fb04a0d5df34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849844"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975162"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -192,7 +192,7 @@ Selezionarlo per visualizzare l'elenco delle API contenute in tale connettore. U
 Nella casella nuovo *DigitalTwinsAdd* compilare i campi come indicato di seguito:
 * _ID_: inserire l' *ID* del dispositivo gemello digitale nell'istanza che si vuole aggiornare all'app per la logica.
 * _gemello_: questo campo consente di immettere il corpo richiesto dalla richiesta API scelta. Per *DigitalTwinsUpdate*, questo corpo è sotto forma di codice patch JSON. Per altre informazioni sulla strutturazione di una patch JSON per l'aggiornamento del dispositivo gemello, vedere la sezione relativa all' [aggiornamento di un dispositivo gemello digitale](how-to-manage-twin.md#update-a-digital-twin) di *How-to: Manage Digital gemells*.
-* _API-Version_: nell'anteprima pubblica corrente, questo valore è *2020-05-31-Preview*
+* _API-Version_: versione più recente dell'API. Nell'anteprima pubblica corrente, questo valore è *2020-05-31-Preview*
 
 Fare clic su *Salva* nella finestra di progettazione di app per la logica.
 

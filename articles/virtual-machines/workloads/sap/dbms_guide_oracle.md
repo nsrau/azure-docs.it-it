@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72c9d64a71fceb90d0a6ae9984997f73c1b5c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540711"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963534"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Distribuzione del sistema DBMS Oracle per macchine virtuali di Azure per carichi di lavoro SAP
 
@@ -389,12 +389,12 @@ La configurazione delle prestazioni è la seguente:
 
 | Componente | Disco | Memorizzazione nella cache | Pool di archiviazione |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Disco Premium o ultra | Nessuno | Può essere usato per Premium  |
-| \oracle\<SID>\origlogaB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
-| \oracle\<SID>\mirrlogAB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
-| \oracle\<SID>\mirrlogBA | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| \oracle\<SID>\origlogaA | Disco Premium o ultra | nessuno | Può essere usato per Premium  |
+| \oracle\<SID>\origlogaB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| \oracle\<SID>\mirrlogAB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| \oracle\<SID>\mirrlogBA | Disco Premium o ultra | nessuno | Può essere usato per Premium |
 | \oracle\<SID>\sapdata1...n | Disco Premium o ultra | Sola lettura | Consigliato per Premium  |
-| \oracle\SID\sapdata(n+1)* | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| \oracle\SID\sapdata(n+1)* | Disco Premium o ultra | nessuno | Può essere usato per Premium |
 | \oracle\<SID>\oraarch* | Disco Premium o ultra | nessuno | Non necessario |
 | Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | Non necessario |
 
@@ -444,7 +444,7 @@ In questo caso, è consigliabile installare/individuare Oracle Home, stage, `sap
 
 ### <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-I file system ext4, xfs o Oracle ASM sono supportati per i file di Oracle Database in Azure. Tutti i file di database devono essere archiviati in questi file system basati su dischi rigidi virtuali o Managed Disks. Questi dischi vengono montati nella macchina virtuale di Azure e si basano sull'[archiviazione BLOB di pagine di Azure](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o su [Azure Managed Disks](../../managed-disks-overview.md).
+I file system ext4, xfs o Oracle ASM sono supportati per i file di Oracle Database in Azure. Tutti i file di database devono essere archiviati in questi file system basati su dischi rigidi virtuali o Managed Disks. Questi dischi vengono montati nella macchina virtuale di Azure e si basano sull'[archiviazione BLOB di pagine di Azure](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) o su [Azure Managed Disks](../../managed-disks-overview.md).
 
 Per i kernel Oracle Linux UEK, è necessario almeno il kernel UEK versione 4 per supportare [dischi SSD Premium di Azure](../../premium-storage-performance.md#disk-caching).
 
@@ -482,12 +482,12 @@ Configurazione delle prestazioni:
 
 | Componente | Disco | Memorizzazione nella cache | Rimozione * |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Disco Premium o ultra | Nessuno | Può essere usato per Premium  |
-| /oracle/\<SID>/origlogaB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
-| /oracle/\<SID>/mirrlogAB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
-| /oracle/\<SID>/mirrlogBA | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/origlogaA | Disco Premium o ultra | nessuno | Può essere usato per Premium  |
+| /oracle/\<SID>/origlogaB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/mirrlogAB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/mirrlogBA | Disco Premium o ultra | nessuno | Può essere usato per Premium |
 | /oracle/\<SID>/sapdata1...n | Disco Premium o ultra | Sola lettura | Consigliato per Premium  |
-| /oracle/\<SID>/sapdata(n+1)* | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/sapdata(n+1)* | Disco Premium o ultra | nessuno | Può essere usato per Premium |
 | /oracle/\<SID>/oraarch* | Disco Premium o ultra | nessuno | Non necessario |
 | Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | Non necessario |
 
@@ -508,7 +508,7 @@ Per le macchine virtuali della serie M di Azure, quando si usa acceleratore di s
 ### <a name="backuprestore"></a>Backup/ripristino
 Per la funzionalità di backup/ripristino, BR*Tools di SAP per Oracle è supportato esattamente come in bare metal e Hyper-V. Anche Oracle Recovery Manager (RMAN) è supportato per i backup su disco e per il ripristino da disco.
 
-Per altre informazioni su come è possibile usare i servizi di backup e di ripristino di Azure per il backup e il ripristino di database Oracle, vedere [Eseguire backup e ripristino di un database Oracle Database 12c in una macchina virtuale Linux di Azure](../oracle/oracle-backup-recovery.md).
+Per altre informazioni su come è possibile usare i servizi di backup e di ripristino di Azure per il backup e il ripristino di database Oracle, vedere [Eseguire backup e ripristino di un database Oracle Database 12c in una macchina virtuale Linux di Azure](../oracle/oracle-overview.md).
 
 ### <a name="high-availability"></a>Disponibilità elevata
 Oracle Data Guard è supportato per motivi di disponibilità elevata e ripristino di emergenza. Per ottenere il failover automatico in Data Guard, è necessario usare FSFA (Fast-Start Failover). La funzionalità osservatore (FSFA) attiva il failover. Se non si usa FSFA, è possibile usare solo una configurazione di failover manuale. Per altre informazioni, vedere [Implementare Oracle Data Guard su una macchina virtuale Linux di Azure](../oracle/configure-oracle-dataguard.md).
@@ -531,5 +531,3 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 Leggi l'articolo 
 
 - [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md)
- 
-

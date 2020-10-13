@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326389"
 ---
 # <a name="security-control-v2-incident-response"></a>Controllo di sicurezza V2: risposta agli eventi imprevisti
@@ -34,7 +34,7 @@ Assicurarsi che l'organizzazione disponga di processi per rispondere agli eventi
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -54,7 +54,7 @@ Configurare le informazioni di contatto per gli eventi imprevisti della sicurezz
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -80,7 +80,7 @@ Consente di esportare gli avvisi e le raccomandazioni del Centro sicurezza di Az
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -120,7 +120,7 @@ Azure Sentinel fornisce analisi approfondite dei dati in qualsiasi origine di lo
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -146,7 +146,7 @@ Inoltre, contrassegnare le risorse usando i tag e creare un sistema di denominaz
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -170,7 +170,7 @@ Automatizzare le attività ripetitive manuali per velocizzare il tempo di rispos
 
 **Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Preparazione agli eventi imprevisti](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 

@@ -19,6 +19,9 @@
       href: signalr-quickstart-azure-functions-java.md
     - name: Funzioni di Azure - Python
       href: signalr-quickstart-azure-functions-python.md
+    - name: Distribuzione di Servizio Azure SignalR - Modello di Resource Manager
+      href: signalr-quickstart-azure-signalr-service-arm-template.md
+      displayName: deploy azure resource manager template
     - name: API REST
       href: signalr-quickstart-rest-api.md
 - name: Esercitazioni

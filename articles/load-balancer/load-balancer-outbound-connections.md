@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
 ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649797"
 ---
 # <a name="outbound-connections"></a>Connessioni in uscita
@@ -37,7 +37,7 @@ Azure Load Balancer fornisce la connettività in uscita tramite diversi meccanis
 | ---------- | ------ | ------------ |
 | Servizio di bilanciamento del carico pubblico o autonomo | [SNAT (origine Network Address Translation)](#snat) </br> [Pat (mascheramento delle porte)](#pat) non utilizzato. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (incapsulamento del payload di sicurezza) |
 
-#### <a name="description"></a>Descrizione
+#### <a name="description"></a>Description
 
 Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda di interfaccia di rete dell'istanza per tutti i flussi in uscita. L'istanza ha tutte le porte temporanee disponibili. Non importa se la macchina virtuale è con carico bilanciato o meno. Questo scenario ha la precedenza rispetto agli altri. 
 
@@ -49,7 +49,7 @@ Un indirizzo IP pubblico assegnato a una macchina virtuale è una relazione 1:1,
 | ------------ | ------ | ------------ |
 | Bilanciamento del carico pubblico | Uso del front-end del servizio di bilanciamento del carico per [SNAT](#snat) con [Pat (mascheramento delle porte)](#pat).| TCP </br> UDP |
 
-#### <a name="description"></a>Descrizione
+#### <a name="description"></a>Description
 
 La risorsa del servizio di bilanciamento del carico è configurata con una regola di bilanciamento del carico. Questa regola viene usata per creare un collegamento tra il front-end IP pubblico e il pool back-end. 
 
@@ -69,7 +69,7 @@ In questo contesto le porte temporanee usate per SNAT sono dette porte SNAT. Le 
 | ------------ | ------ | ------------ |
 |Nessuno </br> Servizio di bilanciamento del carico di base | [SNAT](#snat) con [mascheramento delle porte (Pat)](#pat)| TCP </br> UDP | 
 
-#### <a name="description"></a>Descrizione
+#### <a name="description"></a>Description
 
 Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine in un indirizzo IP di origine pubblica. Questo indirizzo IP pubblico **non è configurabile** e non può essere riservato. Questo indirizzo non viene conteggiato rispetto al limite di risorse IP pubblico della sottoscrizione. 
 
