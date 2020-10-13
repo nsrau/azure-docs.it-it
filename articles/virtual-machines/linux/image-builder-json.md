@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
 ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307280"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: Creare un modello di Image Builder di Azure 
@@ -120,7 +120,7 @@ Per altre informazioni, vedere [Definire le dipendenze della risorsa](../../azur
 
 ## <a name="identity"></a>Identità
 
-Obbligatorio: per il generatore di immagini è necessario disporre delle autorizzazioni per leggere/scrivere immagini, leggere negli script da archiviazione di Azure è necessario creare un'identità assegnata dall'utente di Azure, che dispone delle autorizzazioni per le singole risorse. Per informazioni dettagliate sul funzionamento delle autorizzazioni di Image Builder e sui passaggi pertinenti, consultare la [documentazione](image-builder-user-assigned-identity.md).
+Obbligatorio: per il generatore di immagini è necessario disporre delle autorizzazioni per leggere/scrivere immagini, leggere negli script da archiviazione di Azure è necessario creare un'identità User-Assigned di Azure, che dispone delle autorizzazioni per le singole risorse. Per informazioni dettagliate sul funzionamento delle autorizzazioni di Image Builder e sui passaggi pertinenti, consultare la [documentazione](image-builder-user-assigned-identity.md).
 
 
 ```json
@@ -133,7 +133,7 @@ Obbligatorio: per il generatore di immagini è necessario disporre delle autoriz
 ```
 
 
-Supporto di Image Builder per un'identità assegnata dall'utente:
+Supporto di Image Builder per un'identità User-Assigned:
 * Supporta solo una singola identità
 * Non supporta i nomi di dominio personalizzati
 

@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: f5028abadbe5600058c83a144d0095aee1278fe6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86042076"
 ---
 # <a name="diving-deeper-into-cloud-init"></a>Approfondimenti su cloud-init
@@ -21,7 +21,7 @@ Per altre informazioni su [cloud-init](https://cloudinit.readthedocs.io/en/lates
 Quando cloud-init è incluso in un'immagine generalizzata e una macchina virtuale viene creata da tale immagine, elabora le configurazioni e viene eseguita fino a 5 fasi durante l'avvio iniziale. Queste fasi sono importanti, come illustrato in che punto cloud-init applicherà le configurazioni. 
 
 
-## <a name="understand-cloud-init-configuration"></a>Informazioni sulla configurazione di cloud-init
+## <a name="understand-cloud-init-configuration"></a>Informazioni sulla configurazione di Cloud-Init
 La configurazione di una macchina virtuale per l'esecuzione su una piattaforma, significa che cloud-init deve applicare più configurazioni, come consumer di immagini, le configurazioni principali che interagiscono con è `User data` (CustomData), che supporta più formati, questi sono documentati [qui](https://cloudinit.readthedocs.io/en/latest/topics/format.html#user-data-formats). È anche possibile aggiungere ed eseguire script (/var/lib/cloud/scripts) per una configurazione aggiuntiva. di seguito viene illustrato in modo più dettagliato questo aspetto.
 
 Alcune configurazioni sono già state preparate in immagini di Azure Marketplace disponibili con cloud-init, ad esempio:
@@ -71,9 +71,9 @@ Quando si effettua il provisioning con cloud-init, sono disponibili 5 fasi di av
 5. [Fase finale cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): in questa fase finale i moduli in `cloud_final_modules` , elencati in/etc/Cloud/Cloud.cfg, verranno eseguiti. Ecco i moduli che devono essere eseguiti in ritardo durante l'esecuzione del processo di avvio, ad esempio installazioni di pacchetti ed esecuzione di script e così via. 
 
    -   Durante questa fase, è possibile eseguire gli script inserendoli nelle directory sotto `/var/lib/cloud/scripts` :
-   - `per-boot`-script all'interno di questa directory, eseguiti a ogni riavvio
-   - `per-instance`-gli script all'interno di questa directory vengono eseguiti quando una nuova istanza viene avviata per la prima volta
-   - `per-once`-gli script all'interno di questa directory vengono eseguiti una sola volta
+   - `per-boot` -script all'interno di questa directory, eseguiti a ogni riavvio
+   - `per-instance` -gli script all'interno di questa directory vengono eseguiti quando una nuova istanza viene avviata per la prima volta
+   - `per-once` -gli script all'interno di questa directory vengono eseguiti una sola volta
 
 ## <a name="next-steps"></a>Passaggi successivi
 

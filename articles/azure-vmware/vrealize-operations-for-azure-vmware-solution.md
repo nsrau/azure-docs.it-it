@@ -4,10 +4,10 @@ description: Informazioni su come configurare le operazioni vRealize per il clou
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 9e512d107ddc4d9bca28323658d09f4b4b378dc3
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580402"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurare operazioni vRealize per la soluzione VMware di Azure
@@ -23,7 +23,7 @@ Prima di [iniziare](#before-you-begin) e prima dei [prerequisiti](#prerequisites
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 * Vedere la [documentazione del prodotto vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) per altre informazioni sulla distribuzione delle operazioni di vRealize. 
-* Esaminare la [serie di esercitazioni](tutorial-network-checklist.md)di base del software definito datacenter (SDDC) di Azure VMware Solution.
+* Esaminare la [serie di esercitazioni](tutorial-network-checklist.md) di base sul data center software-defined (SDDC, Software Defined Datacenter) della soluzione Azure VMware.
 * Facoltativamente, consultare la documentazione del prodotto [controller remoto operazioni vRealize](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) per l'opzione di distribuzione delle soluzioni vRealize in locale gestione di Azure VMware. 
 
 

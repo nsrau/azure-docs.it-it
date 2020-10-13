@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85611578"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Distribuire un provider del partner di sicurezza
@@ -39,7 +39,7 @@ Ignorare questa sezione se si distribuisce un provider di terze parti in un hub 
    > I provider di partner di sicurezza si connettono all'hub usando i tunnel del gateway VPN. Se si elimina il gateway VPN, le connessioni ai provider del partner di sicurezza andranno perse.
 9. Se si vuole distribuire il firewall di Azure per filtrare il traffico privato insieme al provider di servizi di terze parti per filtrare il traffico Internet, selezionare un criterio per il firewall di Azure. Vedere gli [scenari supportati](trusted-security-partners.md#key-scenarios).
 10. Se si vuole distribuire solo un provider di sicurezza di terze parti nell'hub, selezionare **Azure firewall: Enabled/Disabled** per impostarlo su **Disabled (disabilitato**). 
-11. Fare clic su **Next: Security partner provider**.
+11. Fare clic su  **Next: Security partner provider**.
 12. Impostare **provider del partner di sicurezza** su **abilitato**. 
 13. Selezionare un partner. 
 14. Selezionare **Avanti: Rivedi e crea**. 
@@ -101,7 +101,7 @@ Per configurare i tunnel per il gateway VPN dell'hub virtuale, i provider di ter
 5. È necessario selezionare **connessioni sicure** e selezionare le connessioni in cui devono essere impostate tali route. Ciò indica quali reti virtuali/Branch possono iniziare a inviare traffico Internet al provider di terze parti.
 6. In **Impostazioni route**selezionare **connessioni sicure** in traffico Internet, quindi selezionare VNet o Branch (*siti* in WAN virtuale) da proteggere. Selezionare **traffico Internet sicuro**.
    ![Traffico Internet sicuro](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Tornare alla pagina Hub. Lo stato del **provider del partner di sicurezza** dell'hub dovrebbe essere ora **protetto**.
+7. Tornare alla pagina Hub. Lo stato del **provider del partner di sicurezza** dell'hub dovrebbe essere ora  **protetto**.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Ramo o traffico Internet VNet tramite servizio di terze parti
 
@@ -111,4 +111,4 @@ Dopo aver completato i passaggi di impostazione della route, le macchine virtual
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: proteggere la rete cloud con Azure Firewall Manager usando il portale di Azure](secure-cloud-network.md)
+- [Esercitazione: Proteggere la rete cloud con Gestione firewall di Azure usando il portale di Azure](secure-cloud-network.md)

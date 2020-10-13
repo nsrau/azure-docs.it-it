@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a0d2bd6a07cfc9e5ebe205322550c9e898022846
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008441"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>Connettersi a desktop virtuale Windows (classico) con il client macOS
@@ -33,7 +33,7 @@ Sottoscrivi il feed fornito dall'amministratore per ottenere l'elenco di risorse
 Per sottoscrivere un feed:
 
 1. Selezionare **Aggiungi area di lavoro** nella pagina principale per connettersi al servizio e recuperare le risorse.
-2. Immettere l'URL del feed. Può essere un URL o un indirizzo e-mail:
+2. Immetti un valore in Feed URL (URL del feed). Può essere un URL o un indirizzo e-mail:
    - Nel caso di un URL, usa quello fornito dall'amministratore. In genere l'URL è <https://rdweb.wvd.microsoft.com>.
    - Nel caso dell'e-mail, immetti il tuo indirizzo. In tal caso indichi al client di cercare un URL associato al tuo indirizzo e-mail, se l'amministratore ha configurato il server in questo modo.
 3. Selezionare **Aggiungi**.

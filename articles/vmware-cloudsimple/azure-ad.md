@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532529"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usare Azure AD come provider di identità per vCenter nel cloud privato CloudSimple
@@ -98,7 +98,7 @@ Facoltativamente, è possibile configurare altre funzionalità di Azure AD.  Que
 
 3. Accedere al cloud privato vCenter dopo l'escalation dei privilegi.
 4. Seguire le istruzioni in [aggiungere un'origine di identità in vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) usando i valori del passaggio precedente per configurare Azure Active Directory come origine di identità.
-5. Aggiungere utenti/gruppi da Azure AD ai gruppi vCenter come descritto nell'argomento relativo all' [aggiunta di membri a un gruppo vCenter Single Sign-on](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)in VMware.
+5. Aggiungere utenti/gruppi da Azure AD ai gruppi vCenter, come descritto nell'argomento relativo all' [aggiunta di membri a un gruppo vcenter Sign-On singolo](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)da parte di VMware.
 
 > [!CAUTION]
 > I nuovi utenti devono essere aggiunti solo a *cloud-Owner-Group*, *cloud-Global-cluster-admin-* Group, *cloud-Global-Storage-admin-Group*, *cloud-Global-Network-Admin-Group* o, *cloud-Global-VM-admin-Group*.  Gli utenti aggiunti al gruppo *Administrators* verranno rimossi automaticamente.  Solo gli account di servizio devono essere aggiunti al gruppo *Administrators* .

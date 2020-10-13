@@ -12,10 +12,10 @@ ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597904"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Informazioni Single Sign-On basate su SAML
@@ -111,7 +111,7 @@ Dopo aver configurato l'applicazione per l'uso di Azure AD come provider di iden
 
 Selezionare **test** , quindi scegliere di eseguire il test con l'utente attualmente connesso o come un altro utente. 
 
-Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. È stata
+Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. A questo punto,
 
 Se viene visualizzato un messaggio di errore, completare la procedura seguente:
 

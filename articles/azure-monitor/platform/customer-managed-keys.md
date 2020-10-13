@@ -7,10 +7,10 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
 ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657296"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
@@ -744,7 +744,7 @@ Altre informazioni su [Customer Lockbox per Microsoft Azure](https://docs.micros
 - Se si aggiorna la versione della chiave in Key Vault e non si aggiornano i nuovi dettagli dell'identificatore di chiave nella risorsa *Cluster*, il cluster Log Analytics continuerà a usare la chiave precedente e i dati diventeranno inaccessibili. Aggiornare i nuovi dettagli dell'identificatore di chiave nella risorsa *Cluster* per riprendere l'inserimento dei dati e la possibilità di eseguire query sui dati.
 
 - Alcune operazioni sono lunghe e possono richiedere del tempo per essere completate, ovvero creazione di *cluster* , aggiornamento della chiave del *cluster* e eliminazione del *cluster* . È possibile controllare lo stato dell'operazione in due modi:
-  1. Quando si usa REST, copiare il valore di URL di Azure-AsyncOperation dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
+  1. Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
   2. Inviare una richiesta GET a un *cluster* o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro dissociata non avrà *clusterResourceId* in *funzionalità*.
 
 - Per il supporto e l'assistenza relativi alla chiave gestita dal cliente, usare i contatti di Microsoft.

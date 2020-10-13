@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 55cbc5db534dd1b05f91a24e0104b1f2dc110547
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532637"
 ---
 # <a name="preview-maintenance-control-for-azure-virtual-machine-scale-sets"></a>Anteprima: controllo di manutenzione per i set di scalabilità di macchine virtuali di Azure 
@@ -22,7 +22,7 @@ Il controllo della manutenzione consente di decidere quando applicare gli aggior
 
 Le configurazioni di manutenzione funzionano tra le sottoscrizioni e i gruppi di risorse.
 
-L'intero flusso di lavoro viene visualizzato in questa procedura: 
+L'intero flusso di lavoro si riduce a questi passaggi: 
 - Creare una configurazione di manutenzione.
 - Associare un set di scalabilità di macchine virtuali a una configurazione di manutenzione.
 - Abilitare gli aggiornamenti automatici del sistema operativo.

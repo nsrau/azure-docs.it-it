@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
 ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470137"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
@@ -103,7 +103,7 @@ In Cloud Shell, è possibile eseguire un comando denominato `clouddrive` , che c
 ### <a name="list-clouddrive"></a>Elenco `clouddrive`
 Per sapere quale condivisione file è montata come `clouddrive`, eseguire il comando `df`. 
 
-Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio, usare `//storageaccountname.file.core.windows.net/filesharename`
+Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio: `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

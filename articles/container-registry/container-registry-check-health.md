@@ -4,10 +4,10 @@ description: Informazioni su come eseguire un rapido comando di diagnostica per 
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245384"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Verificare l'integrità di un registro contenitori di Azure
@@ -38,7 +38,7 @@ az acr check-health
 
 ### <a name="check-the-environment-and-a-target-registry"></a>Controllare l'ambiente e un registro di sistema di destinazione
 
-Per controllare l'accesso a un registro di sistema e per eseguire controlli dell'ambiente locale, passare il nome di un registro di destinazione. Esempio:
+Per controllare l'accesso a un registro di sistema e per eseguire controlli dell'ambiente locale, passare il nome di un registro di destinazione. Ad esempio:
 
 ```azurecli
 az acr check-health --name myregistry

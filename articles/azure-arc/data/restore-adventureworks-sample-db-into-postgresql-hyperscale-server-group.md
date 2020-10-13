@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2b51c5ca2295671a30fa6c0aee8d313c4c333900
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938965"
 ---
 # <a name="restore-the-adventureworks-sample-database-to-azure-arc-enabled-postgresql-hyperscale"></a>Ripristinare il database di esempio AdventureWorks in Azure Arc abilitata per l'iperscalabilità PostgreSQL
@@ -84,4 +84,4 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres -- psql --use
 
    > \* Nei documenti precedenti ignorare le sezioni accedere al **portale di Azure**& **creare un database di Azure per PostgreSQL-iperscalabilità (CITUS)**. Implementare i passaggi rimanenti nella distribuzione di Azure Arc. Queste sezioni sono specifiche dell'iperscalabilità di database di Azure per PostgreSQL (CITUS) offerta come servizio PaaS nel cloud di Azure, ma le altre parti dei documenti sono direttamente applicabili all'iperscalabilità di PostgreSQL abilitata per Azure Arc.
 
-- [Scalabilità orizzontale del gruppo di server di scalabilità orizzontale per database di Azure per PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
+- [Aumentare le istanze in Database di Azure per il gruppo di server PostgreSQL Hyperscale](scale-out-postgresql-hyperscale-server-group.md)

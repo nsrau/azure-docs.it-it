@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231147"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Informazioni di riferimento sulle attività di controllo di Azure AD
@@ -135,17 +135,17 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione delle applicazioni|AdminPolicyDatas-SetResources|
 |Gestione delle applicazioni|AdminUserJourneys-GetResources|
 |Gestione delle applicazioni|AdminUserJourneys-RemoveResources|
-|Autenticazione|AdminUserJourneys-SetResources|
-|Autenticazione|Creare un provider di identità|
-|Autenticazione|Creare un'applicazione V1|
-|Autenticazione|Creare un'applicazione V2|
-|Autenticazione|Creare un dominio personalizzato nel tenant|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|Creare un provider di identità|
+|Authentication|Creare un'applicazione V1|
+|Authentication|Creare un'applicazione V2|
+|Authentication|Creare un dominio personalizzato nel tenant|
 |Autorizzazione|Crea un nuovo AdminUserJourney|
 |Autorizzazione|Creare JSON di risorse localizzate|
 |Autorizzazione|Creare un nuovo provider di identità personalizzato|
 |Autorizzazione|Creare un nuovo provider di identità|
 |Autorizzazione|Creare o aggiornare una risorsa della directory B2C|
-|Autorizzazione|Crea criteri|
+|Autorizzazione|Creare i criteri|
 |Autorizzazione|Creare criteri trustFramework|
 |Autorizzazione|Creare criteri trustFramework con prefisso configurabile|
 |Autorizzazione|Creare un attributo utente|
@@ -384,7 +384,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |Gestione directory|Creare un nuovo provider di identità personalizzato|
 |Gestione directory|Creare un nuovo provider di identità|
 |Gestione directory|Creare o aggiornare una risorsa della directory B2C|
-|Gestione directory|Crea criteri|
+|Gestione directory|Creare i criteri|
 |Gestione directory|Creare criteri trustFramework|
 |Gestione directory|Creare criteri trustFramework con prefisso configurabile|
 |Gestione directory|Creare un attributo utente|
@@ -474,7 +474,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |User Management|Aggiungere un ruolo da un modello|
 |User Management|Aggiungere un membro con ambito a un ruolo|
 |User Management|Aggiunta|
-|User Management|Assegna|
+|User Management|Assegnazione|
 |User Management|Creazione bulk utenti-avviato|
 |User Management|Creazione bulk di utenti-operazione completata|
 |User Management|Eliminazione bulk utenti-avviato|
@@ -558,7 +558,7 @@ Questo articolo elenca le attività di controllo che possono essere registrate n
 |PIM|ActivationRequested|
 |PIM|Aggiunta|
 |PIM|AddedOutsidePIM|
-|PIM|Assegna|
+|PIM|Assegnazione|
 |PIM|DismissAlert|
 |PIM|Elevare|
 |PIM|ReactivateAlert|

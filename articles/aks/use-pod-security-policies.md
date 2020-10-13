@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/21/2020
 ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669305"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
@@ -16,7 +16,7 @@ ms.locfileid: "89669305"
 > [!WARNING]
 > **La funzionalità descritta in questo documento Pod Security Policy (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 1 ° febbraio 2021,** a favore di [criteri di Azure per AKS](use-pod-security-on-azure-policy.md). La data di deprecazione è stata estesa dalla data precedente del 15 ottobre 2020.
 >
-> Dopo che i criteri di sicurezza pod (anteprima) sono deprecati, è necessario disabilitare la funzionalità in tutti i cluster esistenti usando la funzionalità deprecata per eseguire gli aggiornamenti futuri del cluster e rimanere nel supporto tecnico di Azure.
+> Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessario disabilitare la funzionalità in eventuali cluster esistenti che usano la funzionalità deprecata per eseguire aggiornamenti futuri del cluster e mantenere il supporto tecnico di Azure.
 >
 > È consigliabile iniziare a testare gli scenari con criteri di Azure per AKS, che offre criteri predefiniti per proteggere i pod e le iniziative predefinite che vengono mappate ai criteri di sicurezza pod. Fare clic qui per informazioni sulla [migrazione a criteri di Azure da criteri di sicurezza pod (anteprima)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
@@ -58,7 +58,7 @@ Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibil
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft.ContainerService* usando il comando [az provider register][az-provider-register]:
+Quando si è pronti, aggiornare la registrazione del provider di risorse *Microsoft. servizio contenitore* usando il comando [AZ provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService

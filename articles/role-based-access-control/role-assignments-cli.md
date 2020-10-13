@@ -11,13 +11,13 @@ ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
 ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597659"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando
+# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando l'interfaccia della riga di comando di Azure.
 
@@ -28,7 +28,7 @@ Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 - autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
 - [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](/azure/cloud-shell/overview) [Azure](/cli/azure)
 
-## <a name="steps-to-add-a-role-assignment"></a>Passaggi per l'aggiunta di un'assegnazione di ruolo
+## <a name="steps-to-add-a-role-assignment"></a>Procedura per aggiungere un'assegnazione di ruolo
 
 Per concedere l'accesso mediante il controllo degli accessi in base al ruolo di Azure, aggiungere un'assegnazione di ruolo. Un'assegnazione di ruolo è costituita da tre elementi: entità di sicurezza, definizione del ruolo e ambito. Per aggiungere un'assegnazione di ruolo, attenersi alla seguente procedura.
 
@@ -95,7 +95,7 @@ Per altre informazioni, vedere [elencare le definizioni dei ruoli di Azure](role
  
 ### <a name="step-3-identify-the-needed-scope"></a>Passaggio 3: identificare l'ambito necessario
 
-Azure offre quattro livelli di ambito: risorse, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups), sottoscrizione e [gruppo di gestione](../governance/management-groups/overview.md). È consigliabile concedere l'accesso con il privilegio minimo necessario, quindi evitare di assegnare un ruolo a un ambito più ampio. Per ulteriori informazioni sull'ambito, vedere [comprendere l'ambito](scope-overview.md).
+Azure offre quattro livelli di ambito: risorse, [gruppo di risorse](../azure-resource-manager/management/overview.md#resource-groups), sottoscrizione e [gruppo di gestione](../governance/management-groups/overview.md). È consigliabile concedere l'accesso con il privilegio minimo necessario, quindi evitare di assegnare un ruolo a un ambito più ampio. Per altre informazioni sull'ambito, vedere [Informazioni sull'ambito](scope-overview.md).
 
 **Ambito risorsa**
 

@@ -15,10 +15,10 @@ ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: abedbd60a82f280bcd983c05a43685524a3a24e7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598139"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Panoramica del modello di licenza di servizi multimediali V3 con Widevine
@@ -67,12 +67,12 @@ Una richiesta per la licenza Widevine è formattata come messaggio JSON.
 
 ## <a name="json-message"></a>Messaggio JSON
 
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | payload |Stringa con codifica Base64 |Richiesta di licenza inviata da un client. |
 | content_id |Stringa con codifica Base64 |Identificatore usato per derivare l'ID chiave e la chiave simmetrica per ogni content_key_specs.track_type. |
 | provider |string |Consente di cercare criteri e chiavi simmetriche. Se viene usata la distribuzione delle chiavi Microsoft per la distribuzione di licenze Widevine, questo parametro viene ignorato. |
-| policy_name |string |Nome di un criterio precedentemente registrato. facoltativo. |
+| policy_name |string |Nome di un criterio precedentemente registrato. Facoltativa. |
 | allowed_track_types |enum |SD_ONLY o SD_HD. Consente di controllare le chiavi simmetriche incluse in una licenza. |
 | content_key_specs |Matrice di strutture JSON. Vedere la sezione "Specifiche della chiave simmetrica".  |Controllo più granulare delle chiavi simmetriche da restituire. Per altre informazioni, vedere la sezione "Specifiche della chiave simmetrica". È possibile specificare solo uno dei valori allowed_track_types e content_key_specs. |
 | use_policy_overrides_exclusively |Booleano: true o false |Usare gli attributi di criteri specificati in policy_overrides e omettere tutti i criteri memorizzati in precedenza. |
@@ -85,7 +85,7 @@ Se esiste già un criterio preesistente, non è necessario specificare alcun val
 
 Ogni valore content_key_specs deve essere specificato per tutte le singole tracce, indipendentemente dall'opzione use_policy_overrides_exclusively. 
 
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | content_key_specs track_type |string |Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content_key_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non possono essere riprodotti gli ultimi 10 secondi. |
 | content_key_specs  <br/> security_level |uint32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/> - È richiesta una soluzione di crittografia white box basata su software. <br/> - Sono necessari una soluzione di crittografia software e un decodificatore offuscato. <br/> - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> - Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/> - Le operazioni di crittografia, decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
@@ -94,7 +94,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | content_key_specs.key_id |Stringa binaria con codifica Base64, 16 byte |Identificatore univoco della chiave. |
 
 ## <a name="policy-overrides"></a>Override dei criteri
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleano: true o false |Indica che è consentita la riproduzione del contenuto. L'impostazione predefinita è false. |
 | policy_overrides&#46;can_persist |Booleano: true o false |Indica che la licenza può essere mantenuta in una memoria non volatile per l'uso offline. L'impostazione predefinita è false. |
@@ -109,7 +109,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | policy_overrides&#46;renew_with_usage |Booleano: true o false |Indica che la licenza viene inviata per il rinnovo nel momento in cui si inizia a usarla. Questo campo viene usato solo se can_renew è true. |
 
 ## <a name="session-initialization"></a>Inizializzazione della sessione
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | provider_session_token |Stringa con codifica Base64 |Questo token di sessione viene restituito alla licenza e persiste nei rinnovi successivi, ma non in altre sessioni. |
 | provider_client_token |Stringa con codifica Base64 |Token client da restituire nella risposta di licenza. Se la richiesta di licenza contiene un token client, questo valore viene ignorato. Il token client persiste anche in altre sessioni della licenza. |

@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: e5a69525c4bd0717c0561bc61ee3c52aa68e1c9d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533962"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indicizzazione di BLOB per produrre più documenti di ricerca
@@ -66,7 +66,7 @@ Quando si crea un indicizzatore e si imposta **parsingMode** su `jsonLines` -sen
 
 Questa installazione determinerà l'indice del ricerca cognitiva di Azure contenente le informazioni seguenti (ID con codifica Base64 abbreviato per brevità)
 
-| ID | temperature | pressione | timestamp |
+| ID | temperatura | pressure |  timestamp |
 |----|-------------|----------|-----------|
 | aHR0 ... YjEuanNvbjsx | 100 | 100 | 2019-02-13T00:00:00Z |
 | aHR0 ... YjEuanNvbjsy | 33 | 30 | 2019-02-14T00:00:00Z |

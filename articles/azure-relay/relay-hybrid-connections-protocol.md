@@ -4,10 +4,10 @@ description: Questo articolo descrive le interazioni lato client con l'inoltro d
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531446"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocollo per le connessioni ibride di inoltro di Azure
@@ -230,7 +230,7 @@ In caso di errore il servizio può rispondere come segue:
 
  Per rifiutare il socket, il client accetta l'URI dell'indirizzo dal messaggio `accept` e vi aggiunge due parametri di stringa di query, come indicato di seguito:
 
-| Param                   | Obbligatoria | Descrizione                              |
+| Param                   | Obbligatoria | Description                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | Sì      | Codice di stato HTTP numerico.                |
 | sb-hc-statusDescription | Sì      | Motivo leggibile del rifiuto. |
@@ -404,7 +404,7 @@ Quando il token del listener sta per scadere, può essere sostituito inviando un
 
 Se la convalida del token non riesce, l'accesso viene negato e il servizio cloud chiude il WebSocket del canale di controllo con un errore. In caso contrario non vi è alcuna risposta.
 
-| Stato Web Socket | Descrizione                                                                     |
+| Stato Web Socket | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1008      | Il token di sicurezza è scaduto e i criteri di autorizzazione vengono quindi violati. |
 
@@ -449,7 +449,7 @@ Se la connessione WebSocket non riesce perché il percorso della connessione ibr
 
 Se la connessione WebSocket viene intenzionalmente arrestata dal servizio dopo la configurazione iniziale, il motivo viene comunicato usando un codice di errore del protocollo WebSocket appropriato con un messaggio di errore descrittivo che include anche un ID di traccia.
 
-| Stato Web Socket | Descrizione
+| Stato Web Socket | Description
 | --------- | ------------------------------------------------------------------------------- 
 | 1000      | Il listener ha arrestato il socket.
 | 1001      | Il percorso della connessione ibrida è stato eliminato o disabilitato.
@@ -471,7 +471,7 @@ La richiesta può contenere intestazioni HTTP aggiuntive arbitrarie, incluse que
 
 Le opzioni dei parametri della stringa di query sono le seguenti:
 
-| Param          | Necessaria? | Descrizione
+| Param          | Necessaria? | Description
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sì\*     | Il listener deve fornire un token di accesso condiviso del bus di servizio codificato con URL valido per lo spazio dei nomi o la connessione ibrida che conferisce il diritto **Send**.
 
