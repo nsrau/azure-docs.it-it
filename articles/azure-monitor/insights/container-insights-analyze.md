@@ -3,12 +3,12 @@ title: Monitoraggio di Kubernetes con monitoraggio di Azure per contenitori | Mi
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988133"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994766"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -293,7 +293,7 @@ Le icone nel campo stato indicano lo stato online dei Pod, come descritto nella 
 
 ## <a name="workbooks"></a>Workbooks
 
-Le cartelle di lavoro combinano testo, [query di log](../log-query/query-language.md), [metriche](../platform/data-platform-metrics.md)e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
+Le cartelle di lavoro combinano testo, [query di log](/azure/data-explorer/kusto/query/), [metriche](../platform/data-platform-metrics.md)e parametri in report interattivi avanzati. Le cartelle di lavoro possono essere modificate da tutti gli altri membri del team che possono accedere alla stessa risorsa di Azure.
 
 Il monitoraggio di Azure per i contenitori include quattro cartelle di lavoro per iniziare:
 
@@ -321,8 +321,8 @@ Per accedere a queste cartelle di lavoro, selezionarle nell'elenco a discesa **V
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare [creare avvisi di prestazioni con monitoraggio di Azure per i contenitori](container-insights-alerts.md) per informazioni su come creare avvisi per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi DevOps.
+- Esaminare [creare avvisi di prestazioni con monitoraggio di Azure per i contenitori](./container-insights-log-alerts.md) per informazioni su come creare avvisi per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi DevOps.
 
 - Visualizzare [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query ed esempi predefiniti per la valutazione o la personalizzazione per avvisare, visualizzare o analizzare i cluster.
 
-- Per informazioni sulla visualizzazione dello stato di integrità del cluster Kubernetes, vedere [monitorare l'integrità del cluster](container-insights-health.md) .
+- Per informazioni sulla visualizzazione dello stato di integrità del cluster Kubernetes, vedere [monitorare l'integrità del cluster](./container-insights-overview.md) .

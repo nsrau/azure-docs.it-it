@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto di definizione della base di Cloud Ad
 description: Panoramica e architettura del progetto di esempio di definizione della base di Cloud Adoption Framework (CAF) per Azure.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531696"
+ms.locfileid: "91929609"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Panoramica del progetto di esempio di definizione della base di Microsoft Cloud Adoption Framework per Azure
 
@@ -27,17 +27,18 @@ Questa implementazione include diversi servizi di Azure usati per offrire una ba
 - Un'istanza di [Azure Key Vault](../../../../key-vault/general/overview.md) usata per ospitare i segreti per le macchine virtuali distribuite nell'ambiente dei servizi condivisi
 - [Analisi dei log](../../../../azure-monitor/overview.md), distribuito per garantire la registrazione di tutte le azioni e tutti i servizi in una posizione centrale dal momento in cui viene avviata la distribuzione sicura negli [account di archiviazione](../../../../storage/common/storage-introduction.md) per la registrazione diagnostica
 - [Centro sicurezza di Azure](../../../../security-center/security-center-intro.md) (versione standard), distribuito per fornire la protezione dalle minacce per i carichi di lavoro di cui è stata eseguita la migrazione
-- Il progetto definisce e distribuisce anche [criteri di Azure](../../../policy/overview.md) per: 
-  - Applicare l'assegnazione di tag (CostCenter) a gruppi di risorse
-  - Accodare risorse nel gruppo di risorse con il tag CostCenter
-  - Area di Azure consentita per risorse e gruppi di risorse
-  - SKU dell'account di archiviazione consentiti (da scegliere durante la distribuzione)
-  - SKU di macchine virtuali di Azure consentiti (da scegliere durante la distribuzione)
-  - Richiedere la distribuzione di Network Watcher 
-  - Richiedere la crittografia di trasferimento sicuro dell'account di archiviazione di Azure
-  - Rifiutare tipi di risorsa (da scegliere durante la distribuzione)  
-- Iniziative
-  - Abilitare il monitoraggio nel Centro sicurezza di Azure (più di 100 definizioni di criteri)
+- Il progetto consente di impostare e distribuire definizioni di [Criteri di Azure](../../../policy/overview.md):
+  - Definizioni dei criteri:
+    - Applicare l'assegnazione di tag (CostCenter) a gruppi di risorse
+    - Accodare risorse nel gruppo di risorse con il tag CostCenter
+    - Area di Azure consentita per risorse e gruppi di risorse
+    - SKU dell'account di archiviazione consentiti (da scegliere durante la distribuzione)
+    - SKU di macchine virtuali di Azure consentiti (da scegliere durante la distribuzione)
+    - Richiedere la distribuzione di Network Watcher 
+    - Richiedere la crittografia di trasferimento sicuro dell'account di archiviazione di Azure
+    - Rifiutare tipi di risorsa (da scegliere durante la distribuzione)  
+  - Iniziative per i criteri:
+    - Abilitare il monitoraggio nel Centro sicurezza di Azure (più di 100 definizioni di criteri)
 
 Tutti questi elementi sono conformi a procedure comprovate pubblicate in [Centro architetture di Azure - Architetture di riferimento di Azure](/azure/architecture/reference-architectures/).
 

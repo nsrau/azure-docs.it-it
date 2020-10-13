@@ -1,7 +1,7 @@
 ---
-title: Aggiungere l'accesso a Microsoft Identity Platform a un'app Web ASP.NET
+title: "Esercitazione: Creare un'app Web ASP.NET che usa Microsoft Identity Platform per l'autenticazione | Azure"
 titleSuffix: Microsoft identity platform
-description: Implementazione delle informazioni di accesso Microsoft in una soluzione ASP.NET con un'applicazione tradizionale basata su Web browser e lo standard OpenID Connect
+description: In questa esercitazione si creerà un'applicazione Web ASP.NET che usa Microsoft Identity Platform e middleware OWIN per consentire l'accesso utente.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,23 +12,31 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9ff43202bdace577024413c9cc177de2997a0ad5
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165584"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627944"
 ---
-# <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
+# <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Esercitazione: Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
 Questa guida illustra come implementare le informazioni di accesso a Microsoft usando una soluzione MVC ASP.NET con un'applicazione tradizionale basata su Web browser e OpenID Connect.
 
 Al termine di questa guida, l'applicazione potrà accettare accessi di account personali, come quelli di outlook.com e live.com. L'accesso all'app sarà consentito anche ad account aziendali o dell'istituto di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Microsoft Identity Platform.
 
-> Questa guida richiede Microsoft Visual Studio 2019.  Se non lo si ha, è possibile  [Scaricare gratuitamente Visual Studio 2019](https://www.visualstudio.com/downloads/).
+Contenuto dell'esercitazione:
 
->[!NOTE]
-> Se non si ha familiarità con Microsoft Identity Platform, è consigliabile iniziare con l'articolo [Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Creare un progetto *Applicazione Web ASP.NET* in Visual Studio
+> * Aggiungere i componenti middleware OWIN (Open Web Interface for .NET)
+> * Aggiungere il codice per supportare l'accesso e la disconnessione
+> * Registrare l'app nel portale di Azure
+> * Testare l'app
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro **Sviluppo ASP.NET e Web** installato
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 
@@ -264,7 +272,7 @@ In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di 
     ```
 
 ### <a name="more-information"></a>Ulteriori informazioni
-Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione](./howto-add-branding-in-azure-ad-apps.md "Linee guida sulla personalizzazione").
+Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Pulsante Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione](./howto-add-branding-in-azure-ad-apps.md "Linee guida sulla personalizzazione").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Aggiungere un controller per visualizzare le attestazioni dell'utente
 Questo controller illustra gli usi dell'attributo `[Authorize]` per la protezione di un controller. Questo attributo limita l'accesso al controller ai soli utenti autenticati. Il codice seguente usa l'attributo per visualizzare le attestazioni utente recuperate durante l'accesso:
@@ -287,7 +295,7 @@ Questo controller illustra gli usi dell'attributo `[Authorize]` per la protezion
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -392,7 +400,7 @@ Per testare l'applicazione in Visual Studio, premere F5 per eseguire il progetto
 
 Quando si è pronti per eseguire il test, usare un account Azure AD (aziendale o dell'istituto di istruzione) o un account Microsoft personale (<span>live.</span>com oppure <span>outlook.</span>com) per accedere.
 
-![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Pulsante Accedi con Microsoft visualizzato nella pagina di accesso nel browser](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Accedere all'account Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -422,7 +430,7 @@ Dopo il passaggio alla visualizzazione dei controller, dovrebbe essere visualizz
 |**Nome** |Nome e cognome dell'utente | Nome e cognome dell'utente
 |**Nome utente** |utente<span>@domain.com</span> | Nome utente usato per identificare l'utente|
 |**Oggetto** |Oggetto |Stringa che identifica in modo univoco l'utente nel Web|
-|**ID tenant** |Guid | **GUID** che rappresenta in modo univoco l'organizzazione di Azure AD dell'utente.|
+|**ID tenant** |Guid | **GUID** che rappresenta in modo univoco l'organizzazione di Azure AD dell'utente|
 
 Dovrebbe anche essere visualizzata anche una tabella di tutte le attestazioni disponibili nella richiesta di autenticazione. Per altre informazioni, vedere l'[elenco di attestazioni disponibili in un token ID](./id-tokens.md).
 
@@ -470,20 +478,11 @@ Questa opzione viene usata di frequente per le *applicazioni line-of-business*: 
 
 È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere la classe [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulla modalità di chiamata delle API Web nelle app Web.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Informazioni su come creare l'applicazione usata in questo avvio rapido
-
-Altre informazioni su app Web che chiamano API Web con Microsoft Identity Platform:
+Informazioni sulla chiamata di API Web protette da app Web con Microsoft Identity Platform:
 
 > [!div class="nextstepaction"]
 > [App Web che chiamano API Web](scenario-web-app-sign-user-overview.md)
-
-Informazioni su come creare API Web che chiamano Microsoft Graph:
-
-> [!div class="nextstepaction"]
-> [Esercitazione su ASP.NET con Microsoft Graph](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

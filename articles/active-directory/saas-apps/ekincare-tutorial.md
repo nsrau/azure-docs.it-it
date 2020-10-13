@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: abd6382a9bf07f198e0344b8730c585cff0f96ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 987a8676fa9f738b788b183a1f3d964c0d0b88ad
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544283"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Esercitazione: Integrazione di Azure Active Directory con eKincare
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con eKincare, seguire quest
 
 5. L'applicazione eKincare prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la finestra di dialogo "Attributi utente" con il pulsante "Modifica" selezionato.](common/edit-attribute.png)
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con eKincare, seguire quest
     
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot che mostra la finestra di dialogo "Attestazioni utente" con i pulsanti "Aggiungi nuova attestazione" e "Salva" selezionati.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

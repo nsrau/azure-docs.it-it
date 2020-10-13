@@ -1,24 +1,24 @@
 ---
-title: Controllare una singola fattura di Azure
-description: Informazioni su come comprendere la fattura e l'utilizzo delle risorse e verificare gli addebiti per una singola sottoscrizione di Azure.
+title: Esaminare la fattura di una singola sottoscrizione di Azure
+description: Informazioni su come interpretare la fattura e l'utilizzo delle risorse e verificare gli addebiti per una singola sottoscrizione di Azure, incluso il pagamento in base al consumo.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270526"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653282"
 ---
-# <a name="tutorial-review-your-individual-azure-bill"></a>Esercitazione: Controllare una singola fattura di Azure
+# <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Esercitazione: Esaminare la fattura di una singola sottoscrizione di Azure
 
-Questo articolo consente di comprendere e controllare una fattura di Azure. Per ogni periodo di fatturazione si riceve in genere una fattura tramite posta elettronica. La fattura è una rappresentazione della fattura di Azure. Le stesse informazioni sui costi riportate nella fattura sono disponibili nella portale di Azure. In questa esercitazione si confronterà una fattura con il file di utilizzo giornaliero dettagliato e con l'analisi dei costi nel portale di Azure.
+Questo articolo aiuta a capire ed esaminare la fattura per la sottoscrizione di Azure con pagamento in base al consumo o di Visual Studio. Per ogni periodo di fatturazione si riceve in genere una fattura tramite posta elettronica. La fattura è una rappresentazione della fattura di Azure. Le stesse informazioni sui costi riportate nella fattura sono disponibili nella portale di Azure. In questa esercitazione si confronterà una fattura con il file di utilizzo giornaliero dettagliato e con l'analisi dei costi nel portale di Azure.
 
 Questa esercitazione si applica solo ai clienti di Azure con una singola sottoscrizione. In genere le sottoscrizioni singole sono quelle con tariffe con pagamento in base al consumo acquistate direttamente dal sito Web di Azure.
 
@@ -42,7 +42,7 @@ Devono essere trascorsi più di 30 giorni dalla data della sottoscrizione di Azu
 
 - Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="compare-invoiced-charges-with-usage-file"></a>Confrontare gli addebiti fatturati con il file di utilizzo
+## <a name="compare-billed-charges-with-your-usage-file"></a>Confrontare gli addebiti fatturati con il file sull'utilizzo
 
 <a name="charges"></a>
 
@@ -109,7 +109,7 @@ Il valore sommato della colonna *Cost* deve corrispondere esattamente al costo d
 
 Per altre informazioni, vedere [Comprendere la fattura di Azure](understand-invoice.md) e [Comprendere il file di utilizzo dettagliato di Azure](understand-usage.md).
 
-## <a name="compare-charges-and-usage-in-cost-analysis"></a>Confrontare gli addebiti e l'utilizzo nell'analisi dei costi
+## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Confrontare gli addebiti fatturati e l'utilizzo nell'analisi dei costi
 
 L'analisi dei costi nel portale di Azure consente anche di verificare gli addebiti. Per ottenere una rapida panoramica dell'utilizzo e degli addebiti fatturati, selezionare la sottoscrizione nella [pagina Sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure. Fare quindi clic su **Analisi dei costi** e quindi nell'elenco viste fare clic su **Dettagli della fattura**.
 
@@ -123,13 +123,15 @@ I costi mostrati nell'analisi dei costi devono corrispondere esattamente al cost
 
 ![Addebiti di utilizzo nella fattura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-services-billed-separately"></a><a name="external"></a>Servizi esterni fatturati separatamente
+## <a name="external-marketplace-services-are-billed-separately"></a>I servizi del marketplace esterni vengono fatturati separatamente
+
+<a name="external"></a>
 
 I servizi esterni o gli addebiti per Marketplace riguardano le risorse create da fornitori di software di terze parti. Tali risorse sono disponibili per l'uso in Azure Marketplace. Un firewall Barracuda è ad esempio una risorsa di Azure Marketplace offerta da terze parti. Tutti gli addebiti per il firewall e i relativi contatori corrispondenti verranno visualizzati come addebiti per servizi esterni.
 
 Gli addebiti per i servizi esterni vengono fatturati separatamente. Questi addebiti non compaiono nella fattura di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](understand-azure-marketplace-charges.md).
 
-### <a name="resources-billed-by-usage-meters"></a>Risorse fatturate in base a contatori di utilizzo
+### <a name="resources-are-billed-by-usage-meters"></a>Le risorse vengono fatturate in base ai contatori di utilizzo
 
 Azure non fattura direttamente in base al costo della risorsa. Gli addebiti relativi a una risorsa vengono calcolati con uno o più contatori, che vengono usati per tenere traccia dell'utilizzo di una risorsa per tutta la sua durata. Questi contatori vengono quindi usati per calcolare la fattura.
 
@@ -152,7 +154,9 @@ Dopo la creazione della VM, ogni contatore inizia a emettere record di utilizzo.
 
 È possibile visualizzare i contatori usati per calcolare la fattura nel file CSV di utilizzo, come nell'esempio precedente.
 
-## <a name="pay-your-bill"></a><a name="payment"></a>Pagare la fattura
+## <a name="pay-your-bill"></a>Pagare la fattura
+
+<a name="payment"></a>
 
 Se si configura una carta di credito come metodo di pagamento, il pagamento viene addebitato automaticamente entro 10 giorni dalla fine del periodo di fatturazione. Nell'estratto conto della carta di credito la voce sarà **MSFT Azure**.
 

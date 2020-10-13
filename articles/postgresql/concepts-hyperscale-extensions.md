@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ed023f17e19c6a018f55cb95df6447c6e5474ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314879"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996456"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Estensioni PostgreSQL nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -41,6 +41,7 @@ Le tabelle seguenti includono un elenco delle estensioni standard di PostgreSQL 
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object manutenzione. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Fornisce un tipo di dati per le strutture ad albero gerarchico. |
 > | [SEG](https://www.postgresql.org/docs/current/seg.html) | Tipo di dati per rappresentare segmenti di linea o intervalli a virgola mobile. |
+> | [tdigest](https://github.com/tvondra/tdigest) | Tipo di dati per l'accumulo in linea di statistiche basate su rango, ad esempio quantili e i mezzi eliminati. |
 > | [TopN](https://github.com/citusdata/postgresql-topn/) | Digitare per Top-n JSONB. |
 
 ### <a name="full-text-search-extensions"></a>Estensioni di ricerca full-text

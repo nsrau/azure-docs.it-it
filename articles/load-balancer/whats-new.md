@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: ffea6cdd1c8558a07559829b025cb5338cc59ee3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a20b69189226486de8cfceb95e2fa79a976cb12
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88586716"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91841034"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>Novità di Azure Load Balancer
 
@@ -29,6 +29,7 @@ Azure Load Balancer viene aggiornato regolarmente. Restare aggiornati con gli ul
 
 | Type |Nome |Descrizione  |Data di aggiunta  |
 | ------ |---------|---------|---------|
+| Funzionalità | Supporto per spostamenti tra gruppi di risorse | Supporto per Load Balancer Standard e indirizzi IP pubblici Standard per gli [spostamenti di gruppi di risorse](https://azure.microsoft.com/updates/standard-resource-group-move/). | Ottobre 2020 |
 | Funzionalità | Supporto per la gestione del pool back-end in base all'indirizzo IP (anteprima) | Azure Load Balancer supporta l'aggiunta e la rimozione di risorse da un pool back-end tramite indirizzi IPv4 o IPv6. In questo modo si semplifica la gestione di contenitori, macchine virtuali e set di scalabilità di macchine virtuali associati a Load Balancer. È inoltre possibile riservare indirizzi IP come parte di un pool back-end prima che vengano create le risorse associate. Fare clic [qui](backend-pool-management.md) per altre informazioni|Luglio 2020 |
 | Funzionalità| Informazioni su Azure Load Balancer con Monitoraggio di Azure | Come parte di Monitoraggio di Azure per reti, i clienti hanno ora mappe topologiche di tutte le configurazioni e i dashboard sull'integrità delle loro istanze di Load Balancer Standard, preconfigurati con le metriche nel portale di Azure. [Introduzione e altre informazioni](https://azure.microsoft.com/blog/introducing-azure-load-balancer-insights-using-azure-monitor-for-networks/) | Giugno 2020 |
 | Convalida | Aggiunta della convalida per le porte a disponibilità elevata | È stata aggiunta una convalida per garantire che le regole delle porta a disponibilità elevata e non a disponibilità elevata siano configurabili solo quando è abilitata l'opzione IP mobile. In precedenza, questa configurazione era accettata, ma non funzionava come previsto. Non è stata apportata alcuna modifica alla funzionalità. Per altre informazioni, fare clic [qui](load-balancer-ha-ports-overview.md#limitations)| Giugno 2020 |

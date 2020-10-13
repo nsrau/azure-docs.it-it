@@ -8,28 +8,31 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 0dd6618bdee8e6810d414d4b04b16a1e0a9c90ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df71f0804b62eb4b17ff8d2f652b076b5c64c959
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84905623"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91822797"
 ---
-È possibile accedere ai log della console generati dall'interno del contenitore. Attivare prima la registrazione del contenitore eseguendo il comando seguente in Cloud Shell:
+È possibile accedere ai log della console generati dall'interno del contenitore.
+
+Prima di tutto attivare la registrazione del contenitore eseguendo questo comando:
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group myResourceGroup --docker-container-logging filesystem
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
+
+Sostituire `<app-name>` e `<resource-group-name>` con i valori appropriati per l'app Web.
 
 Dopo che la registrazione del contenitore è attivata, eseguire il comando seguente per visualizzare il flusso di registrazione:
 
 ```azurecli-interactive
-az webapp log tail --name <app-name> --resource-group myResourceGroup
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
 Se i log di console non sono immediatamente visibili, controllare nuovamente dopo 30 secondi.
 
-> [!NOTE]
-> È anche possibile esaminare i file di log nel browser all'indirizzo `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+Per interrompere lo streaming dei log in qualsiasi momento, premere **CTRL**+**C**.
 
-Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`.
+È anche possibile ispezionare i file di log in un browser all'indirizzo `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.

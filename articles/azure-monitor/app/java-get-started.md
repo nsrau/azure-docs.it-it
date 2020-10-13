@@ -6,18 +6,18 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602466"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996163"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
 
 
 > [!IMPORTANT]
-> L'approccio consigliato per il monitoraggio delle applicazioni Java consiste nell'usare la strumentazione automatica senza modificare il codice. Seguire le linee guida per [Application Insights agente Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+> L'approccio consigliato per il monitoraggio delle applicazioni Java consiste nell'usare la strumentazione automatica senza modificare il codice. Seguire le linee guida per [Application Insights agente Java 3,0](./java-in-process-agent.md).
 
 In questa Guida introduttiva si usa Application Insights SDK per instrumentare la richiesta, tenere traccia delle dipendenze e raccogliere i contatori delle prestazioni, diagnosticare i problemi di prestazioni e le eccezioni e scrivere codice per tenere traccia delle operazioni eseguite dagli utenti con l'app.
 
@@ -199,7 +199,7 @@ A questo punto è possibile pubblicare l'applicazione nel server, permettere agl
 
 ## <a name="azure-app-service-aks-vms-config"></a>Servizio app Azure, AKS, configurazione VM
 
-L'approccio migliore e più semplice per monitorare le applicazioni in esecuzione in uno dei provider di risorse di Azure consiste nell'usare Application Insights la strumentazione automatica tramite [Java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+L'approccio migliore e più semplice per monitorare le applicazioni in esecuzione in uno dei provider di risorse di Azure consiste nell'usare Application Insights la strumentazione automatica tramite [Java 3,0 Agent](./java-in-process-agent.md).
 
 
 ## <a name="exceptions-and-request-failures"></a>Eccezioni e richieste non eseguite
@@ -313,4 +313,3 @@ Application Insights può testare il sito Web a intervalli regolari per verifica
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
-

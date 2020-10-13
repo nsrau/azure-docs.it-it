@@ -1,21 +1,21 @@
 ---
 title: Informazioni sui moduli gemelli nell'hub IoT di Azure | Microsoft Docs
 description: Guida per gli sviluppatori - Usare moduli gemelli per sincronizzare stato e dati di configurazione tra l'hub IoT e i dispositivi
-author: ash2017
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.author: asrastog
+ms.date: 09/29/2020
+ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323010"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996460"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendere e usare i moduli gemelli nell'hub IoT
 
@@ -179,7 +179,7 @@ Il back-end della soluzione opera sul modulo gemello tramite le seguenti operazi
 
   - Proprietà
 
-    | Nome | valore |
+    | Nome | Valore |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -241,7 +241,7 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
 
 * **Chiavi**: tutte le chiavi negli oggetti JSON sono con codifica UTF-8, con distinzione tra maiuscole e minuscole e con lunghezza fino a 1 KB. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, `$` e SP.
 
-* **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Non sono consentite le matrici.
+* **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Sono supportate anche le matrici.
 
     * I numeri interi possono avere un valore minimo di-4503599627370496 e un valore massimo pari a 4503599627370495.
 

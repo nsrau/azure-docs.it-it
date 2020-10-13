@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 52481eb40a46457a0374c776ee4897c81ebddf7c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 466e69ece993ca34f8f6770c0465471d01b9c3ed
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551286"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760938"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Cisco Webex Meetings
 
@@ -164,11 +164,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Passare a **Common Site Settings** (Impostazioni sito comune) e quindi a **SSO Configuration** (Configurazione dell'accesso Single Sign-On).
  
-    ![Configura accesso Single Sign-On](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+    ![Screenshot che mostra la schermata Cisco Webex Administration con le opzioni Common Site Settings e SSO Configuration selezionate.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. Nella pagina **Webex Administration** (Amministrazione di Webex) seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+    ![Screenshot che mostra la pagina Webex Administration con le informazioni descritte in questo passaggio.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
     a. Selezionare **SAML 2.0** come valore di **Federation Protocol** (Protocollo di federazione).
 

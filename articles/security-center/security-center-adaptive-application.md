@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439016"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996828"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -149,6 +149,23 @@ Per modificare le regole per un gruppo di computer:
 
 1. Per applicare le modifiche, selezionare **Salva**.
 
+
+## <a name="review-and-edit-a-groups-settings"></a>Esaminare e modificare le impostazioni di un gruppo
+
+1. Per visualizzare i dettagli e le impostazioni del gruppo, selezionare **Impostazioni gruppo**
+
+    Questo riquadro Mostra il nome del gruppo (che può essere modificato), il tipo di sistema operativo, la posizione e altri dettagli pertinenti.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Apertura di controlli applicazione adattivi dal dashboard di Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > L'opzione **Imponi** nelle impostazioni della modalità di protezione dei tipi di file è disattivata in tutti gli scenari. Al momento non sono disponibili opzioni di imposizione. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Apertura di controlli applicazione adattivi dal dashboard di Azure":::
+
+1. Facoltativamente, modificare il nome del gruppo o le modalità di protezione dei tipi di file.
+
+1. Selezionare **applica** e **Salva**.
 
 
 

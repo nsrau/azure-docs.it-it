@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 536d233a9c135b0b7dde6d6d80c705d2008226e6
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569643"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821878"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure
 
@@ -105,7 +105,7 @@ In questa sezione si crea la connessione di peering tra l'hub e una rete virtual
 
 ## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Connettere il circuito al gateway hub
 
-Una volta creato il gateway, è possibile connettervi un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). I circuiti ExpressRoute Premium/Standard che si trovano in località supportate da Copertura globale per ExpressRoute possono connettersi a un gateway ExpressRoute della rete WAN virtuale e usufruire quindi di tutte le funzionalità di transito delle reti WAN virtuali (da VPN a VPN, da VPN a ExpressRoute). I circuiti ExpressRoute Premium/Standard che non si trovano in località con Copertura globale possono connettersi alle risorse di Azure, ma non potranno usare le funzionalità di transito della rete WAN virtuale.
+Una volta creato il gateway, è possibile connettervi un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). I circuiti ExpressRoute Standard o Premium che si trovano in località supportate da Copertura globale per ExpressRoute possono connettersi a un gateway ExpressRoute della rete WAN virtuale e usufruire quindi di tutte le funzionalità di transito delle reti WAN virtuali (da VPN a VPN e da VPN a ExpressRoute). I circuiti ExpressRoute Standard e Premium che non si trovano in località con Copertura globale possono connettersi alle risorse di Azure, ma non potranno usare le funzionalità di transito della rete WAN virtuale. Il circuito ExpressRoute Local non è supportato con la rete WAN virtuale di Azure.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Per la connessione del circuito al gateway hub
 
