@@ -4,10 +4,10 @@ description: Questo articolo fornisce una panoramica dettagliata dell'agente ser
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822198"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
@@ -23,7 +23,7 @@ Il pacchetto agente computer connesso di Azure contiene diversi componenti logic
 
 * Il servizio metadati dell'istanza ibrida (HIMDS) gestisce la connessione ad Azure e all'identità di Azure del computer connesso.
 
-* L'agente di configurazione Guest fornisce la funzionalità di configurazione Guest e criteri in-Guest, ad esempio la valutazione della conformità del computer ai criteri richiesti.
+* L'agente di configurazione Guest fornisce funzionalità di configurazione dei criteri e Guest di In-Guest, ad esempio la valutazione della conformità del computer ai criteri richiesti.
 
     Si noti il comportamento seguente con la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md) di criteri di Azure per un computer disconnesso:
 
@@ -173,7 +173,7 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
     |Nome servizio |Nome visualizzato |Nome del processo |Descrizione |
     |-------------|-------------|-------------|------------|
     |himds |Servizio metadati dell'istanza di Azure Hybrid |himds.exe |Questo servizio implementa il servizio metadati dell'istanza di Azure (IMDS) per gestire la connessione ad Azure e l'identità di Azure del computer connesso.|
-    |DscService |Servizio di configurazione guest |dsc_service.exe |Codebase DSC (Desired state Configuration) usato in Azure per implementare i criteri nel guest.|
+    |DscService |Servizio di configurazione guest |dsc_service.exe |La codebase DSC (Desired state Configuration) usata all'interno di Azure per implementare i criteri di In-Guest.|
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti.
 

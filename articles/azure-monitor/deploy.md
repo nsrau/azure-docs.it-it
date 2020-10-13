@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033473"
 ---
 # <a name="deploy-azure-monitor"></a>Distribuire Monitoraggio di Azure
@@ -168,7 +168,7 @@ Le [cartelle di lavoro](platform/workbooks-overview.md) di monitoraggio di Azure
 
 Vedere [cartelle di lavoro di monitoraggio di Azure](platform/workbooks-overview.md) per informazioni dettagliate sulla creazione di cartelle di lavoro personalizzate.
 
-### <a name="create-dashboards"></a>Creare i dashboard
+### <a name="create-dashboards"></a>Creare dashboard
 I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) rappresentano la principale tecnologia di dashboard per Azure e consentono di combinare i dati di monitoraggio di Azure con i dati di altri servizi per offrire un unico riquadro di vetro nell'infrastruttura di Azure. Per informazioni dettagliate sulla creazione di un dashboard che includa i dati dei log di monitoraggio [di Azure, vedere creare e condividere i dashboard dei dati log Analytics](learn/tutorial-logs-dashboards.md) . 
 
 Per informazioni dettagliate sulla creazione di un dashboard che includa i dati Application Insights, vedere [creare dashboard KPI personalizzati con applicazione Azure Insights](learn/tutorial-app-dashboards.md) . 

@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 90815d52e6884efe6cff9a7860c093b4b5c1bc94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204542"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Gestire le risorse di calcolo in Azure sinapsi Analytics data warehouse
@@ -28,7 +28,7 @@ L'architettura di data warehouse separa archiviazione e calcolo, consentendo a o
 
 ## <a name="scaling-compute"></a>Ridimensionamento delle risorse di calcolo
 
-È possibile aumentare o ridurre le risorse di calcolo modificando l'impostazione delle [unità data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) per il pool SQL. Le prestazioni di caricamento e relative alle query possono aumentare in modo lineare man mano che si aggiungono più unità di data warehouse.
+È possibile aumentare o ridurre le risorse di calcolo modificando l'impostazione delle [unità data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) per il pool SQL. Le prestazioni di caricamento e query possono aumentare in modo lineare man mano che si aggiungono più unità di data warehouse.
 
 Per le procedure per la scalabilità orizzontale, vedere le guide introduttive al [portale di Azure](quickstart-scale-compute-portal.md), a [PowerShell](quickstart-scale-compute-powershell.md) oppure a [T-SQL](quickstart-scale-compute-tsql.md). È anche possibile eseguire le operazioni di scalabilità orizzontale con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -36,7 +36,7 @@ Per eseguire un'operazione di ridimensionamento, il pool SQL interrompe prima di
 
 La tabella seguente illustra come il numero di distribuzioni per nodo di calcolo si modifica in base alla modifica delle unità di data warehouse.  DW30000c fornisce 60 nodi di calcolo e ottiene prestazioni di query molto più elevate rispetto a DW100c.
 
-| Unità di data warehouse  | \#dei nodi di calcolo | \# di distribuzioni per nodo |
+| Unità di data warehouse  | \# dei nodi di calcolo | \# di distribuzioni per nodo |
 | -------- | ---------------- | -------------------------- |
 | DW100c   | 1                | 60                         |
 | DW200c   | 1                | 60                         |

@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376540"
 ---
 L'inserimento di macchine virtuali in una singola area riduce la distanza fisica tra le istanze. L'inserimento di tali elementi all'interno di una singola zona di disponibilità li rende anche fisicamente più vicini. Tuttavia, man mano che il footprint di Azure cresce, una singola zona di disponibilità può estendersi su più data center fisici, causando una latenza di rete che influisca sull'applicazione. 
@@ -58,7 +58,7 @@ Per verificare lo stato di allineamento dei gruppi di posizionamento vicini, è 
 
 - Lo stato di condivisione percorso gruppo posizionamento prossimità può essere visualizzato usando il portale, l'interfaccia della riga di comando e PowerShell.
 
-    -   Quando si usa PowerShell, è possibile ottenere lo stato della condivisione percorso usando il cmdlet Get-AzProximityPlacementGroup includendo il parametro facoltativo '-ColocationStatus '.
+    -   Quando si usa PowerShell, è possibile ottenere lo stato della condivisione percorso usando Get-AzProximityPlacementGroup cmdlet includendo il parametro facoltativo '-ColocationStatus '.
 
     -   Quando si usa l'interfaccia della riga di comando, è possibile ottenere lo stato della condivisione percorso usando `az ppg show` includendo il parametro facoltativo '--include-Colocation-status '.
 

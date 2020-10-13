@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278857"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure

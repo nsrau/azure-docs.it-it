@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
 ms.openlocfilehash: 9c54482dc188141c4fc697bd43628b81e0ddc29f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597125"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Cloud e aree in cui sono presenti i Aervizi multimediali v3 di Azure
@@ -27,7 +27,7 @@ I Servizi multimediali v3 di Azure sono disponibili tramite il manifesto di Azur
 
 ## <a name="feature-availability-in-azure-clouds"></a>Funzionalità disponibili nei cloud di Azure
 
-| Feature|Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
+| Funzionalità|Aree globali di Azure | Azure Government|Azure Germania|21Vianet per Azure Cina|
 | --- | --- | --- | --- | --- |
 | [Azure EventGrid](reacting-to-media-services-events.md) | Disponibile | Non disponibile | Non disponibile | Non disponibile |
 | [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponibile | Non disponibile | Non disponibile | Non disponibile |
@@ -114,7 +114,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Destinatari dei token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)

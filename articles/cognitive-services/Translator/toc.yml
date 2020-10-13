@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Traduttore?
       href: translator-info-overview.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       href: quickstart-translator.md
     - name: Supporto delle lingue
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'

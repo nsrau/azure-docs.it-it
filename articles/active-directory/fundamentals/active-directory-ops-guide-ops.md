@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601309"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Informazioni di riferimento sulla Guida operativa di Azure Active Directory
@@ -156,7 +156,7 @@ Vedere la tabella seguente per informazioni sul tipo di notifiche inviate e su d
 
 Organizzazioni, che configurano le applicazioni per l'autenticazione diretta per Azure AD trarre vantaggio da [Azure ad il blocco intelligente](../authentication/concept-sspr-howitworks.md). Se si usa AD FS in Windows Server 2012 R2, implementare la [protezione ad FS blocco della Extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Se si usa AD FS in Windows Server 2016 o versione successiva, implementare il [blocco Smart Extranet](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Come minimo, è consigliabile abilitare il blocco Extranet in modo che contenga il rischio di attacchi di forza bruta contro le Active Directory locali. Tuttavia, se si dispone di AD FS in Windows 2016 o versione successiva, è necessario abilitare anche il blocco intelligente Extranet per attenuare gli attacchi di spray per le [password](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
-Se AD FS viene usato solo per Azure AD Federazione, sono disponibili alcuni endpoint che possono essere disattivati per ridurre al minimo la superficie di attacco. Se, ad esempio, AD FS viene utilizzato solo per Azure AD, è necessario disabilitare gli endpoint WS-Trust diversi dagli endpoint abilitati per **usernamemixed** e **windowstransport**.
+Se AD FS viene usato solo per Azure AD Federazione, sono disponibili alcuni endpoint che possono essere disattivati per ridurre al minimo la superficie di attacco. Se ad esempio AD FS viene usato solo per Azure AD, è necessario disabilitare WS-Trust endpoint diversi dagli endpoint abilitati per **usernamemixed** e **windowstransport**.
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>Accesso ai computer con componenti di identità locali
 

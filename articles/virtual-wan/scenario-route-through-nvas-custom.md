@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267500"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: instradare il traffico attraverso appliance virtuali-Custom (anteprima)
@@ -33,12 +33,12 @@ La seguente matrice di connettività riepiloga i flussi supportati in questo sce
 
 **Matrice di connettività**
 
-| From          | Con:|*Spoke di NVA*|*Servizio VNet*|*VNet DMZ*|*Rami statici*|
+| Da          | Con:|*Spoke di NVA*|*Servizio VNet*|*VNet DMZ*|*Rami statici*|
 |---|---|---|---|---|---|
-| **Spoke di NVA**| &#8594;|      X |            X |   Peering |    Static    |
+| **Spoke di NVA**| &#8594;|      X |            X |   Peering |    Statico    |
 | **Servizio VNet**| &#8594;|    X |            X |      X    |      X       |
 | **VNet DMZ** | &#8594;|       X |            X |      X    |      X       |
-| **Rami** | &#8594;|  Static |            X |      X    |      X       |
+| **Rami** | &#8594;|  Statico |            X |      X    |      X       |
 
 Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo) per un flusso di traffico specifico. Una "X" significa che la connettività viene fornita a livello nativo dalla rete WAN virtuale e "static" significa che la connettività viene fornita dalla rete WAN virtuale usando route statiche. Di seguito vengono descritte le diverse righe:
 
@@ -129,7 +129,7 @@ Per configurare il routing tramite appliance virtuale di sistema, ecco i passagg
 
 **Figura 2**
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

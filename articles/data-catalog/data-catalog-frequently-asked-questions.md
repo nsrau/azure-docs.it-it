@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397301"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
@@ -33,7 +33,7 @@ Data Catalog è progettato per gli utenti tecnici e non tecnici, tra cui:
 ## <a name="what-is-its-availability-by-region"></a>Qual è la disponibilità per area?
 Attualmente i servizi di Data Catalog sono disponibili nei data center seguenti:
 
-* Stati Uniti occidentali
+* Stati Uniti Occidentali
 * Stati Uniti orientali
 * Europa occidentale
 * Europa settentrionale

@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204371"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
@@ -58,8 +58,8 @@ Nell'esempio seguente viene generata una stringa JSON basata sul valore dell'att
 La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a SendGrid (un provider di posta elettronica di terze parti). La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
 
 - Attestazioni di input:
-  - **indirizzo di posta elettronica**, trasformazione tipo di attestazione **personalizzazione. 0. a. 0. messaggio di posta elettronica**: " someone@example.com "
-  - **OTP**, tipo di attestazione di trasformazione **personalizzazioni. 0. dynamic_template_data. OTP** "346349"
+  - **indirizzo di posta elettronica**, trasformazione tipo di attestazione  **personalizzazione. 0. a. 0. messaggio di posta elettronica**: " someone@example.com "
+  - **OTP**, tipo di attestazione di trasformazione **personalizations.0.dynamic_template_data. OTP** "346349"
 - Parametro di input:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
   - **da. email**: " service@contoso.com "
@@ -123,7 +123,7 @@ Nell'esempio seguente la trasformazione delle attestazioni ha estratto l'element
 - Parametro di input:
     - **claimToExtract**: emailAddress
 - Attestazioni di output:
-  - **extractedClaim**:someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -283,7 +283,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae il primo eleme
 - Attestazioni di input:
   - **inputJsonClaim**: [" someone@example.com ", "qualcuno", 6353399]
 - Attestazioni di output:
-  - **extractedClaim**:someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

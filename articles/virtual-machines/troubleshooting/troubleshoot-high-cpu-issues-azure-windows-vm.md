@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
 ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596841"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Risolvere i problemi di CPU elevata per le macchine virtuali Windows di Azure
@@ -35,7 +35,7 @@ A parte i problemi di i/O e di latenza di rete, la risoluzione dei problemi di C
 
 La maggior parte degli strumenti esistenti per la risoluzione dei problemi relativi alle prestazioni, ad esempio PerfMon o procmon, usati per i server locali funziona in macchine virtuali Windows di Azure. Tuttavia, PerfInsights è progettato in modo esplicito per le macchine virtuali di Azure per fornire altre informazioni, tra cui le procedure consigliate di Azure, le procedure consigliate di SQL, I grafici di latenza di I/O ad alta risoluzione, le schede CPU e memoria e così via.
 
-Indipendentemente dal fatto che venga eseguito in modalità utente o in modalità kernel, qualsiasi thread di un processo attivo richiede cicli della CPU per eseguire il codice da cui viene compilato. Molti problemi sono direttamente correlati al carico di lavoro. Il tipo di carico di lavoro esistente sul server comporta l'utilizzo delle risorse, inclusa la CPU.
+Se viene eseguito come User-Mode o in modalità kernel, qualsiasi thread di un processo attivo richiede cicli della CPU per eseguire il codice da cui viene compilato. Molti problemi sono direttamente correlati al carico di lavoro. Il tipo di carico di lavoro esistente sul server comporta l'utilizzo delle risorse, inclusa la CPU.
 
 #### <a name="common-factors"></a>Fattori comuni
 
@@ -184,7 +184,7 @@ Se si espande l'evento **risultati** , verranno visualizzati diversi dettagli ch
 
 In **CPU** è disponibile un sottoscheda dedicato che può essere usato per l'analisi dettagliata dei modelli, per core o per processo.
 
-La scheda **principali consumer di CPU** dispone di due sezioni separate di interesse ed è possibile visualizzare le statistiche per processore qui. La progettazione dell'applicazione è spesso a thread singolo o si blocca a un singolo processore. In questo scenario uno o alcuni core vengono eseguiti al 100%, mentre gli altri core vengono eseguiti a livelli previsti. Questi scenari sono più complessi perché la CPU media sul server sembra essere eseguita come previsto, ma i processi aggiunti in core con utilizzo elevato saranno più lenti del previsto.
+La scheda **principali consumer di CPU** dispone di due sezioni separate di interesse ed è possibile visualizzare le statistiche per processore qui. La progettazione dell'applicazione è spesso Single-Threaded o si blocca a un singolo processore. In questo scenario uno o alcuni core vengono eseguiti al 100%, mentre gli altri core vengono eseguiti a livelli previsti. Questi scenari sono più complessi perché la CPU media sul server sembra essere eseguita come previsto, ma i processi aggiunti in core con utilizzo elevato saranno più lenti del previsto.
 
   ![utilizzo CPU elevato](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 
@@ -315,7 +315,7 @@ Per ulteriori informazioni su questi parametri, vedere [logman create counter](h
 
 Dopo la raccolta dei dati PerfMon mentre si verifica il problema, i passaggi rimanenti per analizzare i dati sono gli stessi descritti in precedenza.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Per eventuali problemi di prestazioni, la comprensione del carico di lavoro è fondamentale per la risoluzione del problema. Le opzioni in SKU di VM diversi e diverse opzioni di archiviazione su disco devono essere valutate tenendo conto del carico di lavoro di produzione. Il processo di test delle soluzioni in macchine virtuali diverse può aiutare a prendere la decisione migliore.
 

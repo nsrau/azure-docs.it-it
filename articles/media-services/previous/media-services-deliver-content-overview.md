@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266035"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
@@ -133,7 +133,7 @@ Per eseguire il download progressivo di contenuti, usare un localizzatore di tip
 
 Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
 
-## <a name="download"></a>Scarica
+## <a name="download"></a>Download
 Per scaricare i contenuti in un dispositivo client, è necessario creare un localizzatore SAS. Il localizzatore SAS offre l'accesso al contenitore di archiviazione di Azure in cui si trova il file. Per compilare l'URL di download, è necessario incorporare il nome di file tra l'host e la firma SAS.
 
 Il seguente esempio mostra l'URL basato sul localizzatore SAS:

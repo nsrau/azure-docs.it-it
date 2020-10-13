@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489516"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configurare itsme OpenID Connect (OIDC) con Azure Active Directory B2C
@@ -85,8 +85,8 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    | Nome | itsme |
    | URL dei metadati | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>dove `<environment>` è `e2e` (ambiente di test) o `prd` (produzione)  |
    | ClientID     | **ID client**, noto anche come **codice partner**  |
-   | Segreto client | Il **client_secret** |
-   | Ambito  | servizio OpenID: indirizzo di posta elettronica del profilo YOURSERVICECODE [Phone] [indirizzo]  |
+   | Client Secret | Il **client_secret** |
+   | Scope  | servizio OpenID: indirizzo di posta elettronica del profilo YOURSERVICECODE [Phone] [indirizzo]  |
    |Tipo di risposta | codice |
    |Modalità di risposta | query |
    |Hint di dominio | *È possibile lasciare vuoto questo* |

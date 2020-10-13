@@ -8,15 +8,15 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
 ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87475261"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Informazioni su come risolvere gli errori di runtime di U-SQL a causa di modifiche di runtime
 
-Il Azure Data Lake Runtime U-SQL, inclusi il compilatore, l'ottimizzatore e il gestore di processi, è il processo che elabora il codice U-SQL.
+Il runtime U-SQL di Azure Data Lake, tra cui compilatore, ottimizzatore e gestore di processi, si occupa di elaborare il codice U-SQL.
 
 ## <a name="choosing-your-u-sql-runtime-version"></a>Scelta della versione del runtime U-SQL
 
@@ -25,7 +25,7 @@ Quando si inviano processi U-SQL da Visual Studio, ADL SDK o il portale di Azure
 È anche possibile scegliere una versione runtime personalizzata. perché si vuole provare un nuovo aggiornamento, è necessario rimanere in una versione precedente di un Runtime oppure è stato fornito un hotfix per un problema segnalato in cui non è possibile attendere il normale nuovo aggiornamento.
 
 > [!CAUTION]
-> La scelta di un runtime diverso da quello predefinito può causare l'interruzione dei processi U-SQL. Usare queste altre versioni solo per i test.
+> La scelta di un runtime diverso da quello predefinito potrebbe interrompere i processi U-SQL. Usare queste altre versioni solo per i test.
 
 In rari casi, supporto tecnico Microsoft possibile aggiungere una versione diversa di un runtime come impostazione predefinita per l'account. Assicurarsi di ripristinare questo pin il prima possibile. Se si rimane bloccati a tale versione, la scadenza scadrà in un secondo momento.
 

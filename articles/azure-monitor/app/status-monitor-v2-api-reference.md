@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318998"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Informazioni di riferimento sull'API dell'agente Application Insights di monitoraggio di Azure
@@ -83,11 +83,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-In questo esempio:
-- `MachineFilter`corrisponde al computer corrente usando il `'.*'` carattere jolly.
-- `AppFilter='WebAppExclude'`fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
-- `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
-- `AppFilter='WebAppTwo'`assegna all'app specificata una chiave di strumentazione univoca.
+Esempio:
+- `MachineFilter` corrisponde al computer corrente usando il `'.*'` carattere jolly.
+- `AppFilter='WebAppExclude'` fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
+- `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
+- `AppFilter='WebAppTwo'` assegna all'app specificata una chiave di strumentazione univoca.
 - Infine, `AppFilter` usa anche il `'.*'` carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
 - Gli spazi vengono aggiunti per migliorare la leggibilità.
 
@@ -113,7 +113,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
-##### <a name="schema"></a>Schema
+##### <a name="schema"></a>SCHEMA
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
@@ -475,11 +475,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>Esempio con una mappa delle chiavi di strumentazione
-In questo esempio:
-- `MachineFilter`corrisponde al computer corrente usando il `'.*'` carattere jolly.
-- `AppFilter='WebAppExclude'`fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
-- `AppFilter='WebAppOne'`assegna all'app specificata una chiave di strumentazione univoca.
-- `AppFilter='WebAppTwo'`assegna all'app specificata una chiave di strumentazione univoca.
+Esempio:
+- `MachineFilter` corrisponde al computer corrente usando il `'.*'` carattere jolly.
+- `AppFilter='WebAppExclude'` fornisce una `null` chiave di strumentazione. L'app specificata non verrà instrumentata.
+- `AppFilter='WebAppOne'` assegna all'app specificata una chiave di strumentazione univoca.
+- `AppFilter='WebAppTwo'` assegna all'app specificata una chiave di strumentazione univoca.
 - Infine, `AppFilter` usa anche il `'.*'` carattere jolly per trovare la corrispondenza con tutte le app Web che non corrispondono alle regole precedenti e assegnare una chiave di strumentazione predefinita.
 - Gli spazi vengono aggiunti per migliorare la leggibilità.
 
@@ -503,7 +503,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 > [!IMPORTANT]
 > Le app corrisponderanno alle regole nell'ordine in cui vengono fornite le regole. Pertanto, è necessario specificare prima le regole più specifiche e le regole più generiche.
 
-##### <a name="schema"></a>Schema
+##### <a name="schema"></a>SCHEMA
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter** è un'espressione regolare C# obbligatoria del nome del computer o della macchina virtuale.
