@@ -2,20 +2,20 @@
 title: Pianificazione e connessioni di rete per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su alcune delle considerazioni sulla progettazione della rete virtuale e sulle risorse usate per la connettività quando si esegue Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 4ced7331daa116e237d9628d12d16a67687db5b9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396332"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968090"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerazioni sulla progettazione della rete virtuale e opzioni di configurazione per Azure Active Directory Domain Services
 
@@ -91,7 +91,7 @@ Le reti virtuali connesse alla rete virtuale del dominio gestito hanno in genere
 
 Un dominio gestito crea alcune risorse di rete durante la distribuzione. Queste risorse sono necessarie per il corretto funzionamento e la gestione del dominio gestito e non devono essere configurate manualmente.
 
-| Risorsa di Azure                          | Description |
+| Risorsa di Azure                          | Descrizione |
 |:----------------------------------------|:---|
 | Scheda di interfaccia di rete                  | Azure AD DS ospita il dominio gestito in due controller di dominio (DCs) che vengono eseguiti in Windows Server come macchine virtuali di Azure. Ogni macchina virtuale dispone di un'interfaccia di rete virtuale che si connette alla subnet della rete virtuale. |
 | Indirizzo IP pubblico standard dinamico      | Azure AD DS comunica con il servizio di sincronizzazione e gestione usando un indirizzo IP pubblico dello SKU standard. Per altre informazioni sugli indirizzi IP pubblici, vedere [tipi di indirizzi IP e metodi di allocazione in Azure](../virtual-network/public-ip-addresses.md). |

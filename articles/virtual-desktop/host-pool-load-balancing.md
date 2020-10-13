@@ -3,15 +3,15 @@ title: Bilanciamento del carico del pool host del desktop virtuale Windows-Azure
 description: Informazioni sui metodi di bilanciamento del carico del pool host per un ambiente desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd8f9e4a3ef63cd97f96af3d4f96a2bb65c3cd09
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461120"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951860"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Metodo di bilanciamento del carico per i pool di host
 
@@ -41,3 +41,6 @@ Il metodo di primo respiro esegue prima una query sugli host di sessione che con
 Il metodo di bilanciamento del carico depth-first consente di saturare un host di sessione alla volta per l'ottimizzazione per questo scenario. Questo metodo è ideale per le organizzazioni con costi ridotti che vogliono un controllo più granulare sul numero di macchine virtuali allocate per un pool host.
 
 Il metodo depth-first esegue prima una query sugli host di sessione che consentono nuove connessioni e non hanno superato il limite massimo di sessioni. Il metodo seleziona quindi l'host della sessione con il numero più elevato di sessioni. Se è presente una cravatta, il metodo seleziona il primo host della sessione nella query.
+
+>[!IMPORTANT]
+>L'algoritmo di bilanciamento del carico depth-first distribuisce le sessioni agli host di sessione in base al limite massimo di host sessione. Questo parametro è obbligatorio quando si usa l'algoritmo di bilanciamento del carico con il primo livello di profondità. Per un'esperienza utente ottimale, assicurarsi di modificare il parametro limite massimo host sessione in un numero più adatto all'ambiente in uso.

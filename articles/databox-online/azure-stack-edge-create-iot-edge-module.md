@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883494"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951146"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Azure Stack Edge Pro
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Sviluppare un modulo di IoT Edge C# per spostare i file con Azure Stack Edge Pro
 
 Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione con il dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro è una soluzione di archiviazione che consente di elaborare i dati e inviarli attraverso la rete ad Azure.
 
@@ -77,7 +77,7 @@ Un Registro Azure Container è un registro Docker privato in Azure nel quale è 
 
       ![Creare un registro contenitori](./media/azure-stack-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
 
     ![Ottenere le chiavi di accesso](./media/azure-stack-edge-create-iot-edge-module/get-access-keys-1.png)
@@ -259,7 +259,7 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
  
 3. Dopo aver specificato le credenziali, è quindi possibile eseguire il push dell'immagine del modulo in Registro Azure Container. Nello strumento di esplorazione di VS Code fare clic con il pulsante destro del mouse sul file **module.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge).
 
-    ![Compilare ed eseguire il push della soluzione IoT Edge](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Compilazione e push IoT Edge soluzione 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Quando si richiede di compilare la soluzione, Visual Studio Code esegue due comandi nel terminale integrato: docker build e docker push. Questi due comandi compilano il codice, includono CSharpModule.dll in contenitori e ne eseguono il push nel registro contenitori specificato quando è stata inizializzata la soluzione.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: fee727e16909355fe614b875ff61d4d38f7a98ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 516989e37e8c9eb0c4ab35ea6add4f5b6526ee6d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804384"
+ms.locfileid: "91893459"
 ---
 # <a name="manage-app-consent-policies"></a>Gestire i criteri di consenso delle app
 
@@ -117,10 +117,7 @@ Una volta creati i criteri di consenso per l'app, è possibile [consentire il co
 1. Di seguito viene illustrato come è possibile eliminare un criterio di consenso dell'app personalizzato. **Questa azione non può essere annullata.**
 
    ```powershell
-   New-AzureADMSPermissionGrantPolicy `
-       -Id "my-custom-policy" `
-       -DisplayName "My first custom consent policy" `
-       -Description "This is a sample custom app consent policy."
+   Remove-AzureADMSPermissionGrantPolicy -Id "my-custom-policy"
    ```
 
 > [!WARNING]
@@ -132,7 +129,7 @@ Una volta creati i criteri di consenso per l'app, è possibile [consentire il co
 
 La tabella seguente include l'elenco delle condizioni supportate per i criteri di consenso delle app.
 
-| Condizione | Description|
+| Condizione | Descrizione|
 |:---------------|:----------|
 | PermissionClassification | [Classificazione delle autorizzazioni](configure-permission-classifications.md) per l'autorizzazione che viene concessa o "All" per la corrispondenza con qualsiasi classificazione di autorizzazione (incluse le autorizzazioni non classificate). Il valore predefinito è "All". |
 | PermissionType | Tipo di autorizzazione dell'autorizzazione concessa. Usare "Application" per le autorizzazioni dell'applicazione (ad esempio, i ruoli dell'app) o "delegate" per le autorizzazioni delegate. <br><br>**Nota**: il valore "delegatedUserConsentable" indica le autorizzazioni delegate che non sono state configurate dal server di pubblicazione API per richiedere il consenso dell'amministratore. questo valore può essere usato nei criteri di concessione delle autorizzazioni predefinite, ma non può essere usato nei criteri di concessione delle autorizzazioni personalizzate. Obbligatorio. |

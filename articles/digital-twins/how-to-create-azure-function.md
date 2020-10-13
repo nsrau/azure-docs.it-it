@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 11034a585db6ef3a3e1e445bbed8a1e51f83948d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bf2894cc30873e3cbf7f379e22078dbb863ac179
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949787"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970436"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 
@@ -232,18 +232,18 @@ Si noti anche l' **ID oggetto** visualizzato nella pagina _identità_ , che verr
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Assegnare i ruoli di accesso utilizzando portale di Azure
 
-Selezionare il pulsante _assegnazioni di ruolo di Azure_ per aprire la pagina assegnazioni di ruolo di Azure. Quindi selezionare _+ Aggiungi assegnazione ruolo (anteprima)_.
+Selezionare il pulsante _assegnazioni di ruolo di Azure_ , che consente di aprire la pagina *assegnazioni di ruolo di Azure* . Quindi selezionare _+ Aggiungi assegnazione ruolo (anteprima)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
 
-Nella finestra _Aggiungi assegnazione ruolo (anteprima)_ visualizzata selezionare:
+Nella pagina _Aggiungi assegnazione ruolo (anteprima)_ visualizzata selezionare:
 
 * _Ambito_: gruppo di risorse
 * _Sottoscrizione_: selezionare la sottoscrizione di Azure
 * _Gruppo di risorse_: selezionare il gruppo di risorse dall'elenco a discesa
 * _Ruolo_: selezionare il _proprietario di Azure Digital gemelli (anteprima)_ nell'elenco a discesa
 
-Salvare i dettagli selezionando il pulsante _Salva_ .
+Salvare quindi i dettagli facendo clic sul pulsante _Salva_ .
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
 

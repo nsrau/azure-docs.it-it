@@ -3,12 +3,12 @@ title: Esporta modello in portale di Azure
 description: Usare portale di Azure per esportare un modello di Azure Resource Manager dalle risorse nella sottoscrizione.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0c9adb121372047336d2753df047f54f1e0fa2
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87423236"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951758"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Esportazione di una singola e più risorse in un modello in portale di Azure
 
@@ -49,11 +49,13 @@ Esportare il modello prima della distribuzione o dalla cronologia, quando:
 
 Quando si esporta da un gruppo di risorse o una risorsa, il modello esportato viene generato dagli [schemi pubblicati](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) per ogni tipo di risorsa. In alcuni casi lo schema non dispone della versione più recente per un tipo di risorsa. Controllare il modello esportato per assicurarsi che includa le proprietà necessarie. Se necessario, modificare il modello esportato per usare la versione dell'API necessaria.
 
-La funzionalità Esporta modello non supporta l'esportazione di risorse Azure Data Factory. Per informazioni su come è possibile esportare Data Factory risorse, vedere [copiare o clonare una data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+La funzionalità Esporta modello non supporta l'esportazione di risorse Azure Data Factory. Per informazioni su come è possibile esportare Data Factory risorse, vedere [copiare o clonare una data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](https://aka.ms/migrateclassicresourcetoarm).
+Per esportare le risorse create tramite il modello di distribuzione classica, è necessario [eseguirne la migrazione al modello di distribuzione gestione risorse](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 Se viene visualizzato un avviso quando si esporta un modello che indica che un tipo di risorsa non è stato esportato, è comunque possibile individuare le proprietà per tale risorsa. Per informazioni sulle diverse opzioni per la visualizzazione delle proprietà delle risorse, vedere [individuazione delle proprietà delle risorse](view-resources.md). È anche possibile esaminare l' [API REST di Azure](/rest/api/azure/) per il tipo di risorsa.
+
+È previsto un limite di 200 risorse nel gruppo di risorse in cui si crea il modello esportato. Se si tenta di esportare un gruppo di risorse con più di 200 risorse, viene visualizzato il messaggio di errore `Export template is not supported for resource groups more than 200 resources` .
 
 ## <a name="export-template-from-a-resource-group"></a>Esportare il modello da un gruppo di risorse
 

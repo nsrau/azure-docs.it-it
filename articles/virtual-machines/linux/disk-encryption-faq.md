@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 232bc43440979a08da4a0e77d9b49bf56fdb0ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06a84621c4d6abbf361eba232c776c167dc46265
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374040"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970610"
 ---
 # <a name="azure-disk-encryption-for-linux-virtual-machines-faq"></a>Domande frequenti su Crittografia dischi di Azure per le macchine virtuali Linux
 
@@ -164,5 +164,5 @@ Backup di Azure offre un meccanismo di backup e ripristino di macchine virtuali 
 In questo documento sono state fornite le risposte alle domande più frequenti relative a Crittografia dischi di Azure. Per altre informazioni sul servizio, vedere gli articoli seguenti:
 
 - [Informazioni su Crittografia dischi di Azure](disk-encryption-overview.md)
-- [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](../../security-center/security-center-virtual-machine-protection.md)
+- [Applicare la crittografia dei dischi nel Centro sicurezza di Azure](../../security-center/asset-inventory.md)
 - [Crittografia dei dati inattivi in Azure](../../security/fundamentals/encryption-atrest.md)

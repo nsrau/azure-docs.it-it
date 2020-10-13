@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 784a0acf139aa05179fd92afb4eab299c2669590
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630849"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972510"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di Azure Machine Learning inferenza con reti virtuali
 
@@ -81,11 +81,17 @@ Per aggiungere AKS in una rete virtuale all'area di lavoro, seguire questa proce
 
    ![Azure Machine Learning: impostazioni della rete virtuale dell'ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
-1. Verificare che per il gruppo di sicurezza di rete che controlla la rete virtuale sia abilitata una regola di sicurezza in ingresso per l'endpoint di punteggio, in modo che possa essere chiamata dall'esterno della rete virtuale.
+1. Quando si distribuisce un modello come servizio Web in AKS, viene creato un endpoint di assegnazione dei punteggi per gestire le richieste di inferenza. Verificare che il gruppo NSG che controlla la rete virtuale disponga di una regola di sicurezza in ingresso abilitata per l'indirizzo IP dell'endpoint di assegnazione dei punteggi se si vuole chiamarla dall'esterno della rete virtuale.
+
+    Per trovare l'indirizzo IP dell'endpoint di assegnazione dei punteggi, esaminare l'URI di punteggio per il servizio distribuito. Per informazioni sulla visualizzazione dell'URI di assegnazione dei punteggi, vedere [utilizzare un modello distribuito come servizio Web](how-to-consume-web-service.md#connection-information).
+
    > [!IMPORTANT]
    > Mantenere le regole in uscita predefinite per il gruppo di sicurezza di rete. Per altre informazioni, vedere le regole di sicurezza predefinite in [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
    [![Aggiungere una regola di sicurezza in ingresso](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+
+    > [!IMPORTANT]
+    > L'indirizzo IP visualizzato nell'immagine per l'endpoint di assegnazione dei punteggi sarà diverso per le distribuzioni. Mentre lo stesso IP è condiviso da tutte le distribuzioni in un cluster AKS, ogni cluster AKS avrà un indirizzo IP diverso.
 
 È anche possibile usare Azure Machine Learning SDK per aggiungere il servizio Azure Kubernetes in una rete virtuale. Se è già presente un cluster del servizio Azure Kubernetes in una rete virtuale, collegarlo all'area di lavoro come descritto nell'articolo relativo alla [distribuzione nel servizio Azure Kubernetes](how-to-deploy-and-where.md). Il codice seguente crea una nuova istanza del servizio Azure Kubernetes nella subnet `default` di una rete virtuale denominata `mynetwork`:
 

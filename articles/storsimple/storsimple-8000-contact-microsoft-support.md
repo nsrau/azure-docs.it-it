@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514242"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960321"
 ---
 # <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
@@ -39,7 +39,7 @@ In base al [piano di supporto](https://azure.microsoft.com/support/plans/) è po
    3. Scegliere un **piano di supporto** dall'elenco a discesa se alla sottoscrizione sono associati più piani. È necessario un piano di supporto a pagamento per poter abilitare il supporto tecnico.
    4. Fare clic su **Avanti**.
 
-       ![Contattare il supporto tecnico Microsoft tramite il nuovo portale](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Contattare il supporto tecnico Microsoft tramite il nuovo portale 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. Nel pannello **Nuova richiesta di supporto** selezionare **Passaggio 2 - Problema**. Nel pannello **Problema** attenersi alla procedura seguente:
     
@@ -51,7 +51,7 @@ In base al [piano di supporto](https://azure.microsoft.com/support/plans/) è po
     6. Selezionare **Condividi informazioni diagnostica**.
     7. Fare clic su **Avanti**.
 
-       ![Contattare il supporto tecnico Microsoft tramite il nuovo portale](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Contattare il supporto tecnico Microsoft tramite il nuovo portale 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. Nel pannello **Nuova richiesta di assistenza** fare clic su **Passaggio 3 - Informazioni di contatto**. Nel pannello **Informazioni di contatto**, attenersi alla procedura seguente:
 
@@ -59,7 +59,7 @@ In base al [piano di supporto](https://azure.microsoft.com/support/plans/) è po
    2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese/area. Selezionare la casella di controllo **Salva modifiche di contatto per le richieste di supporto future** .
    3. Fare clic su **Crea**.
    
-       ![Contattare il supporto tecnico Microsoft tramite il nuovo portale](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Contattare il supporto tecnico Microsoft tramite il nuovo portale 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       Il supporto Microsoft userà queste informazioni per contattare l'utente per altre informazioni, la diagnostica e la risoluzione.
       Dopo avere inviato la richiesta, si verrà presto contattati da un tecnico del supporto per procedere con la richiesta.
@@ -76,11 +76,11 @@ Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vi
 
 2. Nel pannello **Guida e supporto** viene visualizzato un elenco tabulare con tutte le richieste di supporto.
 
-    ![Gestire le richieste di supporto](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Gestisci richieste di supporto 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Selezionare e fare clic su una richiesta di supporto. È possibile visualizzare lo stato e i dettagli della richiesta. Fare clic su **+ Nuovo messaggio** se si vuole seguire la richiesta.
 
-    ![Gestire le richieste di supporto](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Gestire le richieste di supporto 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Avviare una sessione di supporto in Windows PowerShell per StorSimple
 

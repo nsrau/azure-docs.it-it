@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee00425da89391e5228f2d48b49ca85426066f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85299008"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971750"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aggiornare il daemon di sicurezza e il runtime di IoT Edge
 
@@ -117,7 +117,7 @@ Se si vuole eseguire l'aggiornamento a una versione specifica del daemon di sicu
 >[!NOTE]
 >Il `-OfflineInstallationPath` parametro Cerca un file denominato **Microsoft-Azure-IoTEdge.cab** nella directory specificata. A partire da IoT Edge versione 1.0.9-RC4, sono disponibili due file CAB da usare, uno per i dispositivi AMD64 e uno per ARM32. Scaricare il file corretto per il dispositivo, quindi rinominare il file per rimuovere il suffisso Architecture.
 
-Per ulteriori informazioni sulle opzioni di aggiornamento, utilizzare il comando `Get-Help Update-IoTEdge -full` o fare riferimento a [tutti i parametri di installazione](how-to-install-iot-edge-windows.md#all-installation-parameters).
+Per ulteriori informazioni sulle opzioni di aggiornamento, utilizzare il comando `Get-Help Update-IoTEdge -full` o fare riferimento allo [script di PowerShell per IOT Edge in Windows](reference-windows-scripts.md).
 
 ## <a name="update-the-runtime-containers"></a>Aggiornare i contenitori del runtime
 
@@ -213,10 +213,7 @@ Come anteprime, le versioni release candidate non sono incluse come ultima versi
 
 Usare le sezioni di questo articolo per informazioni su come aggiornare un dispositivo IoT Edge a una versione specifica del daemon di sicurezza o dei moduli di Runtime.
 
-Se si sta installando IoT Edge in un nuovo computer, usare i collegamenti seguenti per informazioni su come installare una versione specifica a seconda del sistema operativo del dispositivo:
-
-* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
-* [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+Se si sta installando IoT Edge, anziché eseguire l'aggiornamento di un'installazione esistente, attenersi alla procedura descritta in [installazione di versioni offline o specifiche](how-to-install-iot-edge.md#offline-or-specific-version-installation).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

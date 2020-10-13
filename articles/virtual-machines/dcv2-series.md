@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fccdaaab121f315f1cb98b2b6ee3bffcb9ac2b3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653010"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972374"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -36,7 +36,7 @@ I casi d'uso di esempio includono: condivisione tra più parti di dati riservati
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
-- Le macchine virtuali della serie DCsv2 sono [macchine virtuali di seconda generazione](./linux/generation-2.md#creating-a-generation-2-vm) e supportano solo immagini `Gen2`.
+- Le macchine virtuali della serie DCsv2 sono [macchine virtuali di seconda generazione](./generation-2.md#creating-a-generation-2-vm) e supportano solo immagini `Gen2`.
 - Attualmente disponibile nelle aree elencate [qui](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
 - Generazione precedente di macchine virtuali di calcolo riservato: [Serie DC](sizes-previous-gen.md#preview-dc-series)
 - Creare le macchine virtuali DCsv2 usando il [portale di Azure](./linux/quick-create-portal.md) o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)

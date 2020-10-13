@@ -8,14 +8,16 @@ ms.topic: conceptual
 manager: gwallace
 description: Informazioni su come configurare l'integrazione continua/distribuzione continua con Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080267"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960389"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Questo articolo illustra la configurazione di integrazione continua/distribuzione continua (CI/CD) nel servizio Azure Kubernetes con Dev Spaces abilitato. CI/CD nel servizio Azure Kubernetes consente di distribuire automaticamente gli aggiornamenti delle app ogni volta che viene eseguito il push di codice sottoposto a commit nel repository di origine. L'uso di CI/CD in combinazione con un cluster abilitato per Dev Spaces è utile perché consente di mantenere aggiornata una baseline dell'applicazione che il team può usare.
 
