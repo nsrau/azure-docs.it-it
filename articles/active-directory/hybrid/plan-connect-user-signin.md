@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299911"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
@@ -155,7 +155,7 @@ Per le informazioni seguenti, si supponga di usare il suffisso UPN contoso.com n
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Impostazioni rapide/Sincronizzazione dell'hash delle password
 
-| Stato | Effetto sull'esperienza di accesso degli utenti in Azure |
+| State | Effetto sull'esperienza di accesso degli utenti in Azure |
 |:---:|:--- |
 | Non aggiunto |In questo caso non è stato aggiunto alcun dominio personalizzato per contoso.com nella directory di Azure AD. Gli utenti che usano UPN locali con suffisso @contoso.com non potranno usare il proprio UPN locale per effettuare l'accesso ad Azure. Dovranno invece usare un nuovo UPN disponibile in Azure AD aggiungendo il suffisso per la directory predefinita di Azure AD. Ad esempio, se si sincronizzano gli utenti con la directory di Azure AD azurecontoso.onmicrosoft.com, all'utente locale user@contoso.com verrà assegnato l'UPN user@azurecontoso.onmicrosoft.com. |
 | Non verificato |In questo caso il dominio personalizzato contoso.com viene aggiunto nella directory di Azure AD, ma non è ancora verificato. Se si procede con la sincronizzazione degli utenti senza verificare il dominio, agli utenti verrà assegnato un nuovo UPN da Azure AD esattamente come accade nello scenario "Non aggiunto". |
@@ -166,7 +166,7 @@ Non è possibile creare una federazione con il dominio predefinito .onmicrosoft.
 
 Se si seleziona l'opzione di accesso utente come **Federazione con AD FS**, è necessario avere un dominio personalizzato per continuare con la creazione di una federazione in Azure AD. Ai fini di questa discussione, significa che si dovrà aggiungere un dominio personalizzato contoso.com nella directory di Azure AD.
 
-| Stato | Effetto sull'esperienza di accesso degli utenti in Azure |
+| State | Effetto sull'esperienza di accesso degli utenti in Azure |
 |:---:|:--- |
 | Non aggiunto |In questo caso Azure AD Connect non ha rilevato un dominio personalizzato corrispondente per il suffisso UPN contoso.com nella directory di Azure AD. È necessario aggiungere un dominio personalizzato contoso.com se è necessario che gli utenti accedano usando AD FS con il proprio UPN locale, ad esempio user@contoso.com. |
 | Non verificato |In questo caso Azure AD Connect richiederà i dettagli appropriati sul modo in cui si potrà verificare il dominio in una fase successiva. |

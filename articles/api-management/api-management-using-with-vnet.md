@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539198"
+ms.locfileid: "91874340"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -223,6 +223,7 @@ Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consente le ri
 | Azure Public| Canada orientale| 52.139.80.117|
 | Azure Public| Emirati Arabi Uniti settentrionali| 20.46.144.85|
 | Azure Public| Brasile meridionale| 191.233.24.179|
+| Azure Public| Brasile sudorientale| 191.232.18.181|
 | Azure Public| Asia sud-orientale| 40.90.185.46|
 | Azure Public| Sudafrica settentrionale| 102.133.130.197|
 | Azure Public| Canada centrale| 52.139.20.34|

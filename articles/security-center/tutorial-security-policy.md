@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894581"
 ---
 # <a name="working-with-security-policies"></a>Uso dei criteri di sicurezza
@@ -86,7 +86,7 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 È possibile modificare i criteri di sicurezza tramite il portale Criteri di Azure, l'API REST o Windows PowerShell.
 
-Il Centro sicurezza usa il controllo degli accessi in base al ruolo (RBAC), che fornisce ruoli predefiniti che è possibile assegnare a utenti, gruppi e servizi di Azure. Quando gli utenti aprono il Centro sicurezza, visualizzano solo le informazioni correlate alle risorse a cui possono accedere. Ciò significa che agli utenti viene assegnato il ruolo di *proprietario*, *collaboratore*o *lettore* alla sottoscrizione della risorsa. Sono inoltre disponibili due ruoli specifici del Centro sicurezza:
+Il Centro sicurezza usa il controllo di accesso di Role-Based (RBAC), che fornisce ruoli predefiniti che è possibile assegnare a utenti, gruppi e servizi di Azure. Quando gli utenti aprono il Centro sicurezza, visualizzano solo le informazioni correlate alle risorse a cui possono accedere. Ciò significa che agli utenti viene assegnato il ruolo di *proprietario*, *collaboratore*o *lettore* alla sottoscrizione della risorsa. Sono inoltre disponibili due ruoli specifici del Centro sicurezza:
 
 - **Lettura**per la sicurezza: dispone dei diritti per visualizzare gli elementi del Centro sicurezza, ad esempio raccomandazioni, avvisi, criteri e integrità. Non è possibile apportare modifiche.
 - **Amministratore della sicurezza**: ha gli stessi diritti di visualizzazione del *lettore di sicurezza*. Può anche aggiornare i criteri di sicurezza e ignorare gli avvisi.

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598083"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA scalabilità verticale con Azure NetApp Files in Red Hat Enterprise Linux
@@ -81,12 +81,12 @@ Leggere prima di tutto i documenti e le note SAP seguenti:
 - [SAP HANA la replica di sistema nel cluster pacemaker.](https://access.redhat.com/articles/3004101)
 - Documentazione generale di RHEL
     - [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index) (Panoramica dei componenti aggiuntivi a disponibilità elevata)
-    - [Amministrazione componenti aggiuntivi a disponibilità elevata.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-    - [Informazioni di riferimento sul componente aggiuntivo per la disponibilità elevata.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-    - [Configurare SAP HANA la replica di sistema in una scalabilità verticale in un cluster pacemaker quando i filesystem HANA si trovano su condivisioni NFS](https://access.redhat.com/solutions/5156571)
+    - [Amministrazione Add-On a disponibilità elevata.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+    - [Informazioni di riferimento sul Add-On di disponibilità elevata.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+    - [Configurare la replica di sistema SAP HANA in Scale-Up in un cluster pacemaker quando i filesystem HANA si trovano in condivisioni NFS](https://access.redhat.com/solutions/5156571)
 - Documentazione di RHEL specifica di Azure:
     - [Criteri di supporto per i cluster RHEL a disponibilità elevata Macchine virtuali di Microsoft Azure come membri del cluster.](https://access.redhat.com/articles/3131341)
-    - [Installazione e configurazione di un cluster a disponibilità elevata Red Hat Enterprise Linux 7,4 (e versioni successive) su Microsoft Azure.](https://access.redhat.com/articles/3252491)
+    - [Installazione e configurazione di un cluster Red Hat Enterprise Linux 7,4 (e versioni successive) High-Availability in Microsoft Azure.](https://access.redhat.com/articles/3252491)
     - [Installare SAP HANA in Red Hat Enterprise Linux per l'uso in Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Configurare SAP HANA la replica del sistema con scalabilità verticale su un cluster pacemaker quando il file System HANA si trova in condivisioni NFS](https://access.redhat.com/solutions/5156571)
 - [Applicazioni NetApp SAP su Microsoft Azure con Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
@@ -536,7 +536,7 @@ In questo esempio ogni nodo del cluster ha i propri filesystem HANA NFS/Hana/Sha
     ```
 
    > [!TIP]
-   > Se la configurazione include file System, all'esterno del gruppo `hanadb1_nfs` o `hanadb2_nfs` , includere l' `sequential=false` opzione, in modo che non esistano dipendenze di ordinamento tra i file System. Tutti i file System devono iniziare prima `hana_nfs1_active` , ma non devono essere avviati in alcun ordine. Per altri dettagli, vedere [ricerca per categorie configurare la replica del sistema SAP Hana in scalabilità verticale in un cluster pacemaker quando i filesystem Hana si trovano su condivisioni NFS](https://access.redhat.com/solutions/5156571)
+   > Se la configurazione include file System, all'esterno del gruppo `hanadb1_nfs` o `hanadb2_nfs` , includere l' `sequential=false` opzione, in modo che non esistano dipendenze di ordinamento tra i file System. Tutti i file System devono iniziare prima `hana_nfs1_active` , ma non devono essere avviati in alcun ordine. Per altri dettagli, vedere [ricerca per categorie configurare la replica del sistema SAP Hana in Scale-Up in un cluster pacemaker quando i filesystem Hana si trovano su condivisioni NFS](https://access.redhat.com/solutions/5156571)
 
 ### <a name="configure-sap-hana-cluster-resources"></a>Configurare SAP HANA risorse cluster
 

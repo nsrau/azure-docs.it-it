@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 8469f67967f311d4aca98417e8a5a639665b4641
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 8528c3a158c85c4b70bc1d6039b459993d06ce2b
+  ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90014923"
+  ms.locfileid: "91874204"
 landingContent:
 - title: Creare soluzioni per la vendita al dettaglio
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
     - text: Creare un'applicazione per il centro distribuzione digitale
       url: tutorial-iot-central-digital-distribution-center.md
     - text: Creare un'applicazione di analisi video
-      url: tutorial-video-analytics-create-app.md
+      url: tutorial-video-analytics-create-app-yolo-v3.md
   - linkListType: how-to-guide
     links:
     - text: Connettere un componente Rigado Cascade 500
