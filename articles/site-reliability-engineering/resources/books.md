@@ -5,22 +5,26 @@ author: dnblankedelman
 manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 10/08/2020
 ms.author: dnb
-ms.openlocfilehash: d1e4738d933b7bd20252f597ae9c0ea27c5e3f5c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 46956afc0962b9f0c868b491cd198dbdb9e3f30f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086590"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873048"
 ---
-# <a name="books-about-site-reliability-engineering"></a>Libri sulla progettazione dell'affidabilità del sito
+# <a name="site-reliability-engineering-sre-books"></a>Documentazione di Site affi Engineering (SRE)
+
+Uno dei modi migliori per apprendere o approfondire la conoscenza di SRE è la lettura. Di seguito sono riportate alcune delle migliori origini scritte disponibili nell'argomento.
+
+## <a name="core-sre-books"></a>Libri di core SRE
 
 Per informazioni più dettagliate su site affi Engineering (SRE), l'origine migliore è costituita da un trio di libri pubblicati sull'argomento
 
-- [_Site Reliability Engineering: How Google Runs Production Systems_](https://shop.oreilly.com/product/0636920041528.do) (Site Reliability Engineering: come Google esegue i sistemi di produzione, " noto anche con il titolo "The SRE Book")
-- [_The Site Reliability Workbook: Practical Ways to Implement SRE_](https://shop.oreilly.com/product/0636920132448.do) (Esercizi sull'affidabilità del sito: modi pratici per implementare SRE, noto anche con il titolo "The SRE Workbook")
-- [_Seeking SRE: Conversations About Running Production Systems at Scale_](https://shop.oreilly.com/product/0636920063964.do) (Alla ricerca di SRE: conversazioni sull'esecuzione di sistemi di produzione su larga scala)
+- [_Site Reliability Engineering: How Google Runs Production Systems_](https://www.oreilly.com/library/view/site-reliability-engineering/9781491929117/) (Site Reliability Engineering: come Google esegue i sistemi di produzione, " noto anche con il titolo "The SRE Book")
+- [_The Site Reliability Workbook: Practical Ways to Implement SRE_](https://www.oreilly.com/library/view/the-site-reliability/9781492029496/) (Esercizi sull'affidabilità del sito: modi pratici per implementare SRE, noto anche con il titolo "The SRE Workbook")
+- [_Seeking SRE: Conversations About Running Production Systems at Scale_](https://www.oreilly.com/library/view/seeking-sre/9781491978856/) (Alla ricerca di SRE: conversazioni sull'esecuzione di sistemi di produzione su larga scala)
 
 Ognuno di questi manuale offre informazioni importanti:
 
@@ -31,3 +35,13 @@ Ognuno di questi manuale offre informazioni importanti:
 - Seeking SRE: offre un'immagine più completa del mondo SRE oltre le sue origini, includendo informazioni su come è stato implementato in altri ambienti.
 
 Poiché questi libri descrivono l'esperienza, gli ambienti e le impostazioni cultura delle organizzazioni che possono o meno essere simili a quelli presenti in, è importante leggere questi libri con un occhio critico. Come è stato letto, provare a determinare quali procedure avrebbero avuto esito positivo o negativo nell'organizzazione. È importante cercare attentamente le informazioni che sicuramente andranno ad aggiungeranno valore alla propria organizzazione. Considerare quali parti della cultura e dei valori aziendali possono supportare le attività SRE descritte e quali invece potrebbero rappresentare un problema. Un attento e iterativo abbracciato di SRE produrrà quasi sempre risultati migliori rispetto a una duplicazione all'ingrosso di un elemento letto in questi libri.
+
+## <a name="additional-sre-books"></a>Altri libri su SRE
+
+Dopo aver letto i libri menzionati in precedenza, se si vuole approfondire la pratica degli indicatori del livello di servizio (SLIs)/Service Level Objectives (SLOs), il libro seguente è un'ottima risorsa:
+
+[_Implementazione degli obiettivi del livello di servizio_](https://www.oreilly.com/library/view/implementing-service-level/9781492076803/)
+
+Per esplorare l'intersezione tra sicurezza e affidabilità, questo libro fornisce un'ampia gamma di osservazioni valide sull'argomento:
+
+[_Creazione di sistemi sicuri e affidabili_](https://www.oreilly.com/library/view/building-secure-and/9781492083115/)

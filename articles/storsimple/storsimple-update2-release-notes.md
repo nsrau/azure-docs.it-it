@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 53be638c46685dd46a5afb5ed56f9a76ed7b5fd6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055861"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Note sulla versione dell'aggiornamento 2 di StorSimple serie 8000
@@ -64,7 +64,7 @@ L'aggiornamento 2 introduce le nuove funzionalità seguenti:
 ## <a name="issues-fixed-in-update-2"></a>Problemi risolti nell'aggiornamento 2
 Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento 2.    
 
-| No. | Feature | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No. | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
 | 1 |Interfacce di rete |Dopo aver eseguito l'aggiornamento 1, il servizio StorSimple Manager segnalava che le porte Data2 e Data3 restituivano un errore su un controller. Il problema è stato risolto. |Sì |No |
 | 2 |Aggiornamenti |Dopo aver eseguito l'aggiornamento 1, si sono attivati degli avvisi acustici nel portale di Azure classico in più dispositivi. Il problema è stato risolto. |Sì |No |
@@ -73,7 +73,7 @@ Le tabelle seguenti offrono un riepilogo dei problemi risolti nell'aggiornamento
 ## <a name="known-issues-in-update-2"></a>Problemi noti nell'aggiornamento 2
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
 
-| No. | Feature | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum disco |In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un'assenza di quorum disco, il pool di archiviazione sarà offline. e rimarrà in tale stato anche se i dischi vengono riconnessi. |Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
 | 2 |ID controller non corretto |Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema. |Non è richiesta alcuna azione da parte dell'utente. Questa situazione si risolverà dopo la sostituzione del controller. |Sì |No |

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514906"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
@@ -104,7 +104,7 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
    1. Creare i contenitori di volumi e quindi creare i volumi (questi volumi sono destinati alle condivisione file nella macchine virtuali del file server). Copiare il nome dell'iniziatore e assegnare un nome appropriato per i record di controllo di accesso quando si creano i volumi.
    1. Selezionare la scheda **Configura** e prendere nota dell'indirizzo IP del dispositivo.
    1. Nelle macchine virtuali locali tornare a **Iniziatore iSCSI** e immettere l'indirizzo IP nella sezione connessione rapida. Fare clic su **Connessione rapida** (il dispositivo ora deve essere connesso).
-   1. Aprire il portale di Azure e selezionare la scheda **volumi e dispositivi** . fare clic su **configura automaticamente**. Viene visualizzato il volume appena creato.
+   1. Aprire il portale di Azure e selezionare la scheda **volumi e dispositivi** . Fare clic su **configura automaticamente**. Viene visualizzato il volume appena creato.
    1. Nel portale selezionare la scheda **Dispositivi** e quindi selezionare **Create a New Virtual Device** (Crea un nuovo dispositivo virtuale)  (il dispositivo virtuale verrà usato se si verifica un failover). Il nuovo dispositivo virtuale può essere mantenuto in uno stato offline per evitare costi aggiuntivi. Per portare offline il dispositivo virtuale, passare alla sezione **Macchine virtuali** nel portale e arrestarlo.
    1. Tornare alle macchine virtuali locali e aprire Gestione disco (premere il tasto Windows + X, quindi selezionare **Gestione disco**).
    1. Si noteranno alcuni dischi aggiuntivi (a seconda del numero di volumi creati). Fare clic con il pulsante destro del mouse sul primo disco e scegliere **Inizializza disco**, quindi fare clic su **OK**. Fare doppio clic sulla sezione **Non allocato**, selezionare **Nuovo volume semplice**, assegnare una lettera di unità al volume e completare la procedura guidata.
@@ -170,7 +170,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    
 1. Nell'account di automazione fare clic su **Variabili** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
 
-   - **BaseUrl**: l'URL di Resource Manager per il cloud di Azure. Ottenere usando **Get-AzEnvironment | SELECT-nome oggetto, cmdlet ResourceManagerUrl** .
+   - **BaseUrl**: l'URL di Resource Manager per il cloud di Azure. Ottenere utilizzando **Get-AzEnvironment | nome Select-Object, cmdlet ResourceManagerUrl** .
    - _RecoveryPlanName_**-ResourceGroupName**: il gruppo di gestione risorse con la risorsa StorSimple.
    - _RecoveryPlanName_**-ManagerName**: la risorsa StorSimple che contiene il dispositivo StorSimple.
    - _RecoveryPlanName_**-DeviceName**: il dispositivo StorSimple di cui è necessario eseguire il failover.

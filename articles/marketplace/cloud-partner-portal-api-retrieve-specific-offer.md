@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271842"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recuperare un'offerta specifica
@@ -39,8 +39,8 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 
 | **Nome**    | **Descrizione**                                                                          | **Tipo di dati** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherid. Ad esempio, Contoso                                                        | Stringa        |
-| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | Stringa        |
+| publisherId | publisherid. Ad esempio, Contoso                                                        | string        |
+| offerId     | Guid che identifica in modo univoco l'offerta.                                                 | string        |
 | version     | Versione dell'offerta in corso di recupero. Per impostazione predefinita, viene recuperata la versione più recente dell'offerta. | Integer       |
 | slotId      | Lo slot da cui deve essere recuperata l'offerta, può essere uno dei seguenti:      <br/>  - `Draft` (impostazione predefinita) recupera la versione dell'offerta attualmente in bozza.  <br/>  -  `Preview` recupera la versione dell'offerta attualmente in anteprima.     <br/>  -  `Production` recupera la versione dell'offerta attualmente in produzione.          |      enum |
 | api-version | Ultima versione dell'API                                                                    | Data          |
@@ -200,7 +200,7 @@ Recupera l'offerta specificata all'interno dello spazio dei nomi del server di p
 |  NotStarted                 | L'offerta è nuova, ma non è stata attivata.              |
 |  WaitingForPublisherReview  | L'offerta è in attesa di approvazione da parte dell'editore.      |
 |  In esecuzione                    | Invio dell'offerta in corso.          |
-|  Completato                  | Invio dell'offerta completato.    |
+|  Operazione riuscita                  | Invio dell'offerta completato.    |
 |  Cancellati                   | Invio dell'offerta annullato.                |
-|  Non riuscito                     | Invio dell'offerta non riuscito.                      |
+|  Operazione non riuscita                     | Invio dell'offerta non riuscito.                      |
 |  |  |

@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87129271"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procedura: configurare un dominio di pubblicazione di un'applicazione
@@ -97,7 +97,7 @@ Se l'app non è registrata in un tenant, verrà visualizzata solo l'opzione per 
 - Se il tenant ha verificato domini, selezionare uno dei domini dall'elenco **a discesa selezionare un dominio verificato** .
 
 >[!Note]
-> L'intestazione ' Content-Type ' prevista restituita è `application/json` . È possibile che venga ricevuto un errore come indicato di seguito se si usa qualsiasi altra operazione, ad esempio`application/json; charset=utf-8` 
+> L'intestazione ' Content-Type ' prevista restituita è `application/json` . È possibile che venga ricevuto un errore come indicato di seguito se si usa qualsiasi altra operazione, ad esempio `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

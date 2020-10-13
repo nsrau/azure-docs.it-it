@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86229364"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Informazioni generali sulla sicurezza di Macchine virtuali di Azure
@@ -79,7 +79,7 @@ L'insieme di credenziali delle chiavi consente di archiviare le chiavi in moduli
 
 Altre informazioni:
 
-* [Che cos'è Azure Key Vault?](/azure/key-vault/key-vault-overview)
+* [Cos'è l'insieme di credenziali chiave di Azure?](/azure/key-vault/key-vault-overview)
 * [Blog sull'insieme di credenziali delle chiavi di Azure](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Crittografia dischi delle macchine virtuali
@@ -160,7 +160,7 @@ Altre informazioni:
 
 Sebbene il computing riservato non sia tecnicamente parte della sicurezza delle macchine virtuali, l'argomento relativo alla sicurezza della macchina virtuale appartiene al soggetto di livello superiore della sicurezza "calcolo". Il computing riservato appartiene alla categoria "calcolo" della sicurezza.
 
-Il computing riservato garantisce che, quando i dati sono "in chiaro", che è necessario per un'elaborazione efficiente, i dati sono protetti in un ambiente di esecuzione attendibile https://en.wikipedia.org/wiki/Trusted_execution_environment (Tee, noto anche come enclave), un esempio di come illustrato nella figura seguente.  
+Il computing riservato garantisce che, quando i dati sono "in chiaro", che è necessario per un'elaborazione efficiente, i dati sono protetti in un ambiente di esecuzione attendibile  https://en.wikipedia.org/wiki/Trusted_execution_environment (Tee, noto anche come enclave), un esempio di come illustrato nella figura seguente.  
 
 Gli ambienti di esecuzione attendibili impediscono qualsiasi tentativo di visualizzare operazioni o dati interni dall'esterno, anche con un debugger. Consentono inoltre l'accesso ai dati solo a codice autorizzato. Se il codice è stato modificato o manomesso, le operazioni vengono negate e l'ambiente viene disabilitato. Gli ambienti di esecuzione attendibili applicano queste protezioni a tutto il ciclo di esecuzione del codice in essi contenuto.
 

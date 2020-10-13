@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027444"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Rendere operativi i modelli di apprendimento automatico compilati con Spark
@@ -607,6 +607,6 @@ Se si preferisce non ricorrere al codice, usare [App per la logica di Azure](htt
 
 ![Progettazione app per la logica](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>Quali sono le operazioni successive?
+## <a name="whats-next"></a>Passaggi successivi
 **Convalida incrociata e sweep di iperparametri**: vedere [esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-data-exploration-modeling.md) sulla modalità di training dei modelli con la convalida incrociata e lo sweep di iperparametri.
 

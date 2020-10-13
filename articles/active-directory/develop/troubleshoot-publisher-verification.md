@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256892"
+ms.locfileid: "91873150"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -58,7 +58,7 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
     È possibile che le registrazioni dell'app siano state create usando un account utente diverso in questo tenant, un account personale/utente o un tenant diverso. Assicurarsi di aver eseguito l'accesso con l'account corretto nel tenant in cui sono state create le registrazioni dell'app.
 
 - **Si verifica un errore relativo all'autenticazione a più fattori. Cosa dovrei fare?** 
-    Assicurarsi che la [funzionalità autenticazione](../fundamentals/concept-fundamentals-mfa-get-started.md) a più fattori sia abilitata e necessaria per l'utente con cui si esegue l'accesso e per questo scenario. Ad esempio, l'autenticazione a più fattori può essere:
+    Assicurarsi che la [funzionalità autenticazione](../fundamentals/concept-fundamentals-mfa-get-started.md) a più fattori sia abilitata e **necessaria** per l'utente con cui si esegue l'accesso e per questo scenario. Ad esempio, l'autenticazione a più fattori può essere:
     - Sempre necessario per l'utente con cui si esegue l'accesso
     - [Obbligatorio per gestione di Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Obbligatorio per il tipo di amministratore](../conditional-access/howto-conditional-access-policy-admin-mfa.md) con cui si esegue l'accesso.
@@ -226,7 +226,9 @@ Questa funzionalità non è supportata per gli account utente Microsoft. Sono su
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Si verifica quando non è stata eseguita l'autenticazione a più fattori prima di tentare di aggiungere un server di pubblicazione verificato all'app. Per ulteriori informazioni, vedere [problemi comuni](#common-issues) .
+Si verifica quando non è stata eseguita l'autenticazione a più fattori prima di tentare di aggiungere un server di pubblicazione verificato all'app. Per ulteriori informazioni, vedere [problemi comuni](#common-issues) . Nota: è necessario eseguire l'autenticazione a più fattori nella stessa sessione quando si tenta di aggiungere un server di pubblicazione verificato. Se l'autenticazione a più fattori è abilitata ma non è necessaria per essere eseguita nella sessione, la richiesta avrà esito negativo.   
+
+Il messaggio di errore visualizzato sarà: "a causa di una modifica della configurazione effettuata dall'amministratore o perché è stato spostato in una nuova posizione, è necessario usare l'autenticazione a più fattori per continuare".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

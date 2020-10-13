@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054773"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
@@ -52,7 +52,7 @@ Se si fa clic sul nodo **Gruppi di volumi**, nel riquadro **Risultati** vengono 
 |:--- |:--- |
 | Nome |La colonna **Nome** contiene il nome del gruppo di volumi. |
 | Applicazione |La colonna **Applicazioni** mostra il numero di writer VSS attualmente installati e in esecuzione nell'host Windows. |
-| Opzione selezionata |La colonna **Selezionato** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
+| Selezionato |La colonna **Selezionato** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
 | Importati |La colonna **Importato** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure e non è stato creato in StorSimple Snapshot Manager. |
 
 > [!NOTE]
@@ -72,7 +72,7 @@ Utilizzare la procedura seguente per creare un gruppo di volumi.
     Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**.
    
     ![Finestra di dialogo Crea un gruppo di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
-3. Immettere le informazioni seguenti:
+3. Immettere le seguenti informazioni:
    
    1. Nella casella **Nome** digitare un nome univoco per il nuovo gruppo di volumi.
    2. Nella casella **Applicazioni** selezionare le applicazioni associate ai volumi che verranno aggiunte al gruppo di volumi.

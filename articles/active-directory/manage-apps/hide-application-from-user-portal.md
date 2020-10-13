@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601140"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Nascondi le applicazioni aziendali dagli utenti finali nel Azure Active Directory
@@ -40,7 +40,7 @@ Usare la procedura seguente per nascondere un'applicazione dal pannello app e Mi
 5.  Cercare l'applicazione che si desidera nascondere e fare clic su di essa.  Viene visualizzata la panoramica dell'applicazione.
 6.  Scegliere **Proprietà**. 
 7.  Nel campo **Visibile agli utenti?** fare clic su **No**.
-8.  Fare clic su **Salva**.
+8.  Fare clic su **Save**.
 
 > [!NOTE]
 > Queste istruzioni sono valide solo per le applicazioni aziendali.

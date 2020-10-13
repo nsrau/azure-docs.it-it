@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600798"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quattro passaggi per una solida base di identità con Azure Active Directory
@@ -131,7 +131,7 @@ Nell'area di lavoro digitale odierna è importante bilanciare la sicurezza con l
 
 Questa sezione elenca i consigli per la rimozione dell'attrito dall'organizzazione grazie alla possibilità per gli utenti di rimanere vigili.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>Abilitare la reimpostazione self-service delle password per tutti gli utenti
+### <a name="enable-self-service-password-reset-for-all-users"></a>Abilitare la reimpostazione della password Self-Service per tutti gli utenti
 
 La [reimpostazione della password self-service](../authentication/tutorial-enable-sspr.md) di Azure (SSPR) offre agli amministratori IT un metodo semplice per consentire agli utenti di reimpostare e sbloccare le password o gli account senza l'intervento dell'amministratore. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti accedono al sistema, oltre a notifiche per segnalare usi impropri.
 
@@ -147,7 +147,7 @@ Analogamente, è possibile usare il [report di gestione delle password self-serv
 
 ### <a name="self-service-app-management"></a>Gestione self-service delle app
 
-Prima che gli utenti possano individuare autonomamente le applicazioni dal pannello di accesso, è necessario abilitare [l'accesso alle applicazioni self-service](../manage-apps/access-panel-manage-self-service-access.md) alle applicazioni per le quali si desidera consentire agli utenti di individuare autonomamente e richiedere l'accesso. L'accesso alle applicazioni self-service è un ottimo modo per consentire agli utenti di individuare autonomamente le applicazioni e, facoltativamente, consentire al gruppo aziendale di approvare l'accesso a tali applicazioni. È possibile consentire al gruppo aziendale di gestire le credenziali assegnate a tali utenti per le applicazioni con accesso [Single Sign-on tramite password](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) direttamente dai rispettivi pannelli di accesso.
+Prima che gli utenti possano individuare autonomamente le applicazioni dal pannello di accesso, è necessario abilitare [l'accesso alle applicazioni self-service](../manage-apps/access-panel-manage-self-service-access.md) alle applicazioni per le quali si desidera consentire agli utenti di individuare autonomamente e richiedere l'accesso. L'accesso alle applicazioni self-service è un ottimo modo per consentire agli utenti di individuare autonomamente le applicazioni e, facoltativamente, consentire al gruppo aziendale di approvare l'accesso a tali applicazioni. È possibile consentire al gruppo aziendale di gestire le credenziali assegnate a tali utenti per [Single-Sign delle password sulle applicazioni](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) direttamente dai rispettivi pannelli di accesso.
 
 ### <a name="self-service-group-management"></a>Gestione di gruppi self-service
 
@@ -229,7 +229,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="today"></a>Oggi
 
-|Dopo aver completato l'operazione,|Elemento|
+|Dopo aver completato l'operazione,|Item|
 |:-|:-|
 ||Reimpostazione della password self-service (SSPR) pilota per un gruppo|
 ||Monitorare i componenti ibridi usando Azure AD Connect Health|
@@ -239,7 +239,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="next-two-weeks"></a>Prossime due settimane
 
-|Dopo aver completato l'operazione,|Elemento|
+|Dopo aver completato l'operazione,|Item|
 |:-|:-|
 ||Rendere disponibile un'app per gli utenti|
 ||Provisioning di Azure AD pilota per un'app SaaS preferita|
@@ -249,7 +249,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="next-month"></a>Mese prossimo
 
-|Dopo aver completato l'operazione,|Elemento|
+|Dopo aver completato l'operazione,|Item|
 |:-|:-|
 ||Monitora l'utilizzo delle app per ottenere informazioni dettagliate|
 ||Pilota sicuro per l'accesso remoto alle app|
@@ -258,7 +258,7 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ### <a name="next-three-months"></a>Prossimi tre mesi
 
-|Dopo aver completato l'operazione,|Elemento|
+|Dopo aver completato l'operazione,|Item|
 |:-|:-|
 ||Abilita gestione self-service delle app|
 ||Abilitare la gestione dei gruppi self-service|

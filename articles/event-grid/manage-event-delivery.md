@@ -4,13 +4,13 @@ description: Descrive come personalizzare le opzioni di recapito degli eventi pe
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261805"
 ---
-# <a name="set-dead-letter-location-and-retry-policy"></a>Imposta la posizione dei messaggi non recapitabili e i criteri di ripetizione
+# <a name="set-dead-letter-location-and-retry-policy"></a>Impostare la posizione degli eventi non recapitabili e i criteri di ripetizione
 
 Quando si crea una sottoscrizione di eventi, è possibile personalizzare le impostazioni per il recapito di tali eventi. Questo articolo illustra come configurare una posizione per gli eventi non recapitabili e personalizzare le impostazioni di ripetizione dei tentativi. Per informazioni su queste funzionalità, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-and-retry.md).
 
