@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
 ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600654"
 ---
 # <a name="common-questions"></a>Domande frequenti
@@ -34,15 +34,15 @@ Attualmente, è possibile spostare le risorse da qualsiasi area pubblica di orig
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Quali risorse è possibile spostare tra le aree usando il motore di risorse?
 
-Tramite il motore di risorse è possibile spostare le risorse seguenti tra le aree:
+Tramite Spostamento risorse è attualmente possibile spostare tra aree le risorse seguenti:
 
 - Macchine virtuali di Azure e dischi associati
 - Schede di interfaccia di rete
 - Set di disponibilità 
 - Reti virtuali di Azure 
 - Indirizzi IP pubblici
-- Gruppi di sicurezza di rete (NSG)
-- Bilanciamento del carico interno e pubblico 
+- Gruppi di sicurezza di rete:
+- Servizi di bilanciamento del carico interni e pubblici 
 - Database SQL di Azure e pool elastici
 
 
@@ -71,12 +71,12 @@ Sì, sia in transito che inattivi.
 
 ### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Quali autorizzazioni di identità gestite sono necessarie per il motore risorse?
 
-Per l'identità gestita di Azure Resource Mover sono necessarie almeno le autorizzazioni seguenti: 
+Per l'identità gestita di Spostamento risorse di Azure sono necessarie almeno le autorizzazioni seguenti: 
 
 - Autorizzazione per la scrittura e la creazione di risorse nella sottoscrizione utente, disponibile con il ruolo *collaboratore* . 
-- Autorizzazione per la creazione di assegnazioni di ruolo. Generalmente disponibile con i ruoli *proprietario* o *amministratore accesso utenti* o con un ruolo personalizzato con l' *autorizzazione Microsoft. Authorization/Role/Write* assegnata. Questa autorizzazione non è necessaria se all'identità gestita della risorsa di condivisione dati è già stato concesso l'accesso all'archivio dati di Azure. 
+- Autorizzazione a creare assegnazioni di ruolo. Generalmente disponibile con i ruoli *proprietario* o *amministratore accesso utenti* o con un ruolo personalizzato con l' *autorizzazione Microsoft. Authorization/Role/Write* assegnata. Questa autorizzazione non è necessaria se all'identità gestita della risorsa di condivisione dati è già stato concesso l'accesso all'archivio dati di Azure. 
  
-Quando si aggiungono risorse nell'hub del motore di risorse nel portale, le autorizzazioni vengono gestite automaticamente, purché l'utente disponga delle autorizzazioni descritte in precedenza. Se si aggiungono risorse con PowerShell, si assegnano le autorizzazioni manualmente.
+Quando si aggiungono risorse nell'hub di Spostamento risorse nel portale, le autorizzazioni vengono gestite automaticamente, purché l'utente disponga delle autorizzazioni descritte in precedenza. Se si aggiungono risorse con PowerShell, si assegnano le autorizzazioni manualmente.
 
 > [!IMPORTANT]
 > Si consiglia vivamente di non modificare o rimuovere le assegnazioni di ruolo Identity. 
@@ -96,4 +96,4 @@ Modificare le combinazioni di origine/destinazione in base alle esigenze usando 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre](about-move-process.md) informazioni sui componenti del motore di risorse e il processo di spostamento.
+[Leggere le informazioni](about-move-process.md) relative ai componenti di Spostamento risorse e al processo di spostamento.

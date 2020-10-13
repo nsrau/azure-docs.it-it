@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923399"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Panoramica del linguaggio OData per `$filter` , `$orderby` e `$select` in Azure ricerca cognitiva
@@ -46,7 +46,7 @@ Le espressioni OData variano da semplice a estremamente complesso, ma condividon
 
 ## <a name="field-paths"></a>Percorsi dei campi
 
-Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica dei percorsi dei campi.
+Il seguente EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica dei percorsi dei campi.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -135,7 +135,7 @@ Ad esempio, una frase con un apostrofo non formattato come "Alice ' s Car" verre
 
 ### <a name="constants-syntax"></a>Sintassi delle costanti
 
-Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per la maggior parte delle costanti mostrate nella tabella precedente. La grammatica per i tipi geospaziali si trova in [funzioni geospaziali OData in Azure ricerca cognitiva](search-query-odata-geo-spatial-functions.md).
+Il seguente EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per la maggior parte delle costanti mostrate nella tabella precedente. La grammatica per i tipi geospaziali si trova in [funzioni geospaziali OData in Azure ricerca cognitiva](search-query-odata-geo-spatial-functions.md).
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -211,7 +211,7 @@ Le costanti e i percorsi dei campi rappresentano la parte fondamentale di un'esp
 
 Tuttavia, nella maggior parte dei casi sono necessarie espressioni più complesse che fanno riferimento a più di un campo e una costante. Queste espressioni sono compilate in modi diversi a seconda del parametro.
 
-Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per i parametri **$Filter**, **$OrderBy**e **$Select** . Queste sono costituite da espressioni più semplici che fanno riferimento a percorsi e costanti dei campi:
+Il seguente EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per i parametri **$Filter**, **$OrderBy**e **$Select** . Queste sono costituite da espressioni più semplici che fanno riferimento a percorsi e costanti dei campi:
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
