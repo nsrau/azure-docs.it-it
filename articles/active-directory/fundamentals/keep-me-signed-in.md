@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320257"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configurare il ' rimanere connesso?' Richiedi account Azure AD
@@ -40,20 +40,15 @@ Il diagramma seguente illustra il flusso di accesso degli utenti per un tenant g
    * Se si sceglie **No**, l'opzione **rimane connesso?** viene nascosta dopo che l'utente ha effettuato l'accesso e l'utente deve eseguire l'accesso ogni volta che il browser viene chiuso e riaperto.
    * Se si sceglie **Sì**, l'opzione **rimane connesso?** viene visualizzata all'utente.
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Screenshot che mostra l'opzione Mostra opzione per mantenere l'accesso":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Diagramma che mostra il flusso di accesso utente per un tenant gestito e federato":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>Risolvere i problemi di accesso
 
 Se un utente non ha **eseguito** la richiesta di accesso, come illustrato nel diagramma seguente, ma abbandona il tentativo di accesso, verrà visualizzata una voce di log di accesso che indica l'interruzione.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Mostra l'accesso rimanente? prompt":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Diagramma che mostra il flusso di accesso utente per un tenant gestito e federato" quando l'utente esegue l'accesso.
 
-I dettagli sull'errore di accesso sono i seguenti e sono evidenziati nell'esempio.
-
-* **Codice errore di accesso**: 50140
-* **Motivo**dell'errore: questo errore è dovuto a un interrupt "Mantieni l'accesso" quando l'utente esegue l'accesso.
-
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Esempio di voce del log di accesso con l'interrupt Mantieni l'accesso":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Diagramma che mostra il flusso di accesso utente per un tenant gestito e federato":::
 
 È possibile impedire agli utenti di visualizzare l'interrupt impostando l' **opzione Mostra per mantenere l'accesso** impostato su **No** nelle impostazioni di personalizzazione avanzate. In questo modo viene disabilitato il prompt KMSI per tutti gli utenti nella directory Azure AD.
 

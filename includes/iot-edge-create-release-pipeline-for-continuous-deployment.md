@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
 ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89302952"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Creare una pipeline di versione per la distribuzione continua
@@ -78,7 +78,7 @@ Creare una nuova pipeline e aggiungere una nuova fase:
     | Nome dell'hub IoT | Selezionare l'hub IoT.|
     | Scegliere un dispositivo singolo/multiplo | Scegliere se si vuole distribuire la pipeline di rilascio in uno o più dispositivi. Se si distribuisce a un singolo dispositivo, immettere l'**ID del dispositivo IoT Edge**. Se si distribuisce a più dispositivi, specificare la **condizione di destinazione** del dispositivo. La condizione di destinazione è un filtro che corrisponde a un set di dispositivi IoT Edge nell'hub Internet. Se si vuole usare i tag del dispositivo come condizione, è necessario aggiornare i tag dei dispositivi corrispondenti con il dispositivo gemello dell'hub Internet. Aggiornare l'**ID distribuzione di IoT Edge** e la **priorità della distribuzione IoT Edge** nelle impostazioni avanzate. Per altre informazioni sulla creazione di una distribuzione per più dispositivi, vedere [Informazioni sulle distribuzioni automatiche IoT Edge](../articles/iot-edge/module-deployment-monitoring.md). |
     | ID dispositivo o condizione di destinazione | A seconda della selezione precedente, specificare un ID dispositivo o una [condizione di destinazione](../articles/iot-edge/module-deployment-monitoring.md#target-condition) da distribuire a più dispositivi. |
-    | Avanzate | Per il IoT Edge ID distribuzione, specificare `$(System.TeamProject)-$(Release.EnvironmentName)` . Questa variabile esegue il mapping del progetto e del nome della versione con l'ID distribuzione del IoT Edge. |
+    | Avanzato | Per il IoT Edge ID distribuzione, specificare `$(System.TeamProject)-$(Release.EnvironmentName)` . Questa variabile esegue il mapping del progetto e del nome della versione con l'ID distribuzione del IoT Edge. |
 
     ![Aggiungere Azure IoT Edge attività per la fase di sviluppo](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 
