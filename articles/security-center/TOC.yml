@@ -50,7 +50,7 @@
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Azure Defender per Kubernetes
-          displayName: 'clusters, k8s'
+          displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
         - name: Azure Defender per registri contenitori
           displayName: 'ACR, registry, images'
@@ -58,7 +58,7 @@
         - name: Altre misure di protezione dalle minacce
           href: other-threat-protections.md
     - name: Funzionalità di sicurezza dei contenitori di Centro sicurezza
-      displayName: 'kubernetes, aks, acr, registries'
+      displayName: 'kubernetes, aks, acr, registries, k8s'
       href: container-security.md
     - name: Prezzi
       href: security-center-pricing.md
@@ -79,6 +79,8 @@
           href: quickstart-onboard-gcp.md
     - name: Automatizzare l'onboarding con PowerShell
       href: security-center-powershell-onboarding.md
+    - name: Abilitare il Centro sicurezza per un gruppo di gestione
+      href: onboard-management-group.md
     - name: Configurare la raccolta dei dati
       href: security-center-enable-data-collection.md
     - name: Configurare le notifiche tramite posta elettronica
@@ -140,8 +142,6 @@
             - name: Automatizzare le risposte alle raccomandazioni
               displayName: workflow
               href: workflow-automation.md
-            - name: Esportare le raccomandazioni
-              href: continuous-export.md
             - name: Esentare una risorsa da una raccomandazione
               href: exempt-resource.md
     - name: Avvisi di Azure Defender
@@ -180,6 +180,9 @@
             - name: Esaminare e risolvere le vulnerabilità nelle macchine virtuali
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
+            - name: Disabilitare i risultati specifici della vulnerabilità
+              displayName: 'qualys, rapid7, vulnerability'
+              href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Proteggere le porte di gestione con l'accesso JIT alle macchine virtuali
           items:
             - name: Panoramica dell'accesso JIT alle macchine virtuali
@@ -213,6 +216,15 @@
     - name: Usare Azure Defender per registri contenitori
       displayName: 'ACR, registry, images'
       href: defender-for-container-registries-usage.md
+    - name: Esportare avvisi e raccomandazioni
+      items:
+        - name: 'Eseguire l''esportazione in una soluzione SIEM, SOAR o ITSM'
+          displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
+          href: export-to-siem.md
+        - name: Esportare in un'area di lavoro Log Analytics o un hub eventi di Azure
+          href: continuous-export.md
+        - name: Scaricare un report CSV di tutti gli avvisi
+          href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
     - name: Gestire gli avvisi di Azure Defender
       items:
         - name: Gestire gli avvisi di sicurezza
@@ -226,16 +238,14 @@
           href: security-center-incident.md
         - name: Generare report di intelligence sulle minacce
           href: security-center-threat-report.md
-        - name: Convalidare la configurazione degli avvisi (file di test EICAR)
+        - name: Convalidare la configurazione degli avvisi
+          displayname: 'eicar, Kubernetes, Linux'
           href: security-center-alert-validation.md
         - name: Automatizzare le risposte agli avvisi
           displayName: workflow
           href: workflow-automation.md
-        - name: Esportare gli avvisi
-          displayName: continuous
-          href: continuous-export.md
     - name: Proteggere i carichi di lavoro Kubernetes
-      displayName: 'k8s, containers'
+      displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
     - name: Gestire i dati utente per l'indagine
       href: security-center-investigation-user-data.md
