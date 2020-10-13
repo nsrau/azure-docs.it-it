@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236655"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Domande frequenti sulla distribuzione per le chiavi di sicurezza ibrido per FIDO2 in Azure AD (anteprima)
@@ -185,7 +185,7 @@ Il Azure AD server Kerberos è rappresentato in un ambiente AD DS locale come og
 
 * *CN = AzureADKerberos, OU = controller di dominio,\<domain-DN>*
     
-    Oggetto *computer* che rappresenta un controller di dominio di sola lettura (RODC) in servizi di dominio Active Directory. Nessun computer associato a questo oggetto. Si tratta invece di una rappresentazione logica di un controller di dominio.
+    Oggetto *computer* che rappresenta un controller di dominio Read-Only (RODC) in servizi di dominio Active Directory. Nessun computer associato a questo oggetto. Si tratta invece di una rappresentazione logica di un controller di dominio.
 
 * *CN = krbtgt_AzureAD, CN = Users,\<domain-DN>*
 
@@ -234,7 +234,7 @@ La richiesta HTTP è una richiesta standard PRT (Primary Refresh token). Questa 
 
 Azure AD combina la chiave client crittografata e il buffer dei messaggi nella risposta PRT come proprietà aggiuntive. Il payload viene crittografato usando la chiave di sessione del dispositivo Azure AD.
 
-| Campo              | Tipo   | Descrizione  |
+| Campo              | Type   | Descrizione  |
 |--------------------|--------|--------------|
 | tgt_client_key     | string | Chiave client con codifica Base64 (segreto). Questa chiave è il segreto client usato per proteggere TGT. In questo scenario senza password, il segreto client viene generato dal server come parte di ogni richiesta TGT e quindi restituito al client nella risposta. |
 | tgt_key_type       | INT    | Il tipo di chiave di servizi di dominio Active Directory locale utilizzato sia per la chiave client che per la chiave di sessione Kerberos inclusa nella KERB_MESSAGE_BUFFER. |

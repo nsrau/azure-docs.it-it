@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82561044"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Note sulla versione di disponibilità generale Azure Data Box Edge/Azure Data Box Gateway
@@ -33,7 +33,7 @@ La versione GA corrisponde alle versioni del software:
 
 - **Nuove immagini del disco virtuale** : i nuovi VHDX e VMDK sono ora disponibili nella portale di Azure. Scaricare queste immagini per eseguire il provisioning, configurare e distribuire nuovi dispositivi Data Box Gateway GA. I dispositivi Data Box Gateway creati nelle versioni di anteprima precedenti non possono essere aggiornati a questa versione. Per ulteriori informazioni, andare all'articolo sulle [operazioni preliminari alla distribuzione di Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 - **Supporto per NFS** : il supporto per NFS è attualmente disponibile in anteprima e disponibile per i client v 3.0 e v 4.1 che accedono ai dispositivi Data Box Edge e data box gateway.
-- **Resilienza dell'archiviazione** : il dispositivo data box Edge può sopportare l'errore di un disco dati con la funzionalità di resilienza di archiviazione. Questa funzionalità è attualmente disponibile in anteprima. È possibile abilitare la resilienza dell'archiviazione selezionando l'opzione **resiliente** nelle **impostazioni di archiviazione** nell'interfaccia utente Web locale.
+- **Resilienza dell'archiviazione** : il dispositivo data box Edge può sopportare l'errore di un disco dati con la funzionalità di resilienza di archiviazione. Questa funzionalità è attualmente in anteprima. È possibile abilitare la resilienza dell'archiviazione selezionando l'opzione **resiliente** nelle **impostazioni di archiviazione** nell'interfaccia utente Web locale.
 
 
 ## <a name="known-issues-in-ga-release"></a>Problemi noti nella versione GA

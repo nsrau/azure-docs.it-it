@@ -1,6 +1,6 @@
 ---
-title: Configurare la sicurezza per il gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
-description: Configurare la sicurezza per il gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
+title: Configurare la sicurezza per il gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
+description: Configurare la sicurezza per il gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,17 +10,17 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273201"
 ---
-# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurare la sicurezza per il gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
+# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurare la sicurezza per il gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 
 In questo documento vengono descritti i vari aspetti correlati alla sicurezza del gruppo di server:
 - Crittografia di dati inattivi
-- Gestione degli utenti
+- Gestione utente
    - Prospettive generali
    - Modificare la password dell'utente amministratore _Postgres_
 
@@ -148,9 +148,9 @@ Quando ci si connette con l'applicazione e si passa una password, la ricerca vie
 
 Questo piccolo esempio dimostra che è possibile crittografare i dati inattivi (archiviare i dati crittografati) in Azure Arc abilitata per l'iperscalabilità di PostgreSQL usando l'estensione Postgres `pgcrypto` e le applicazioni possono usare funzioni offerte da `pgcrypto` per modificare i dati crittografati.
 
-## <a name="user-management"></a>Gestione degli utenti
+## <a name="user-management"></a>Gestione utente
 ### <a name="general-perspectives"></a>Prospettive generali
-È possibile usare il metodo Postgres Standard per creare utenti o ruoli. Tuttavia, in tal caso, questi elementi saranno disponibili solo nel ruolo Coordinatore. Durante la fase di anteprima, questi utenti/ruoli non potranno ancora accedere ai dati distribuiti al di fuori del nodo coordinatore e nei nodi di lavoro del gruppo di server. Il motivo è che in anteprima la definizione utente non viene replicata nei nodi di lavoro.
+È possibile usare il metodo Postgres Standard per creare utenti o ruoli. Tuttavia, in tal caso, gli artefatti saranno disponibili solo nel ruolo di coordinatore. In anteprima, gli utenti o i ruoli non potranno ancora accedere ai dati distribuiti all'esterno del nodo coordinatore e nei nodi di lavoro del gruppo di server. Il motivo è che in anteprima la definizione dell'utente non viene replicata nei nodi di lavoro.
 
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>Modificare la password dell'utente amministratore _Postgres_
 L'iperscalabilità di PostgreSQL abilitata per Azure Arc viene fornita con l'utente amministratore _Postgres Standard_ per il quale si imposta la password quando si crea il gruppo di server.
@@ -170,7 +170,7 @@ Se la variabile di ambiente della **sessione**di AZDATA_PASSWORD esiste ma non h
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Ad esempio:
+   Ad esempio
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```
@@ -188,11 +188,11 @@ Se la variabile di ambiente della **sessione**di AZDATA_PASSWORD esiste ma non h
    
 #### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Modifica della password dell'utente amministratore Postgres usando la variabile di ambiente della **sessione**di AZDATA_PASSWORD:
 1. Impostare il valore della variabile di ambiente della **sessione**di AZDATA_PASSWORD su ciò che si desidera impostare come password.
-2. Eseguire il comando:
+2. Eseguire il comando :
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
    ```
-   Ad esempio:
+   Ad esempio
    ```console
    azdata arc postgres server edit -n postgres01 --admin-password
    ```

@@ -8,10 +8,10 @@ ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
 ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627594"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installare e usare l'emulatore di Azure Cosmos per lo sviluppo e il test locali
@@ -313,7 +313,7 @@ Per tutte le applicazioni in esecuzione in un Framework compatibile con .NET Sta
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
 
-# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
 
 Per Node.js applicazioni, è possibile modificare il `package.json` file per impostare il `NODE_TLS_REJECT_UNAUTHORIZED` durante l'avvio dell'applicazione:
 

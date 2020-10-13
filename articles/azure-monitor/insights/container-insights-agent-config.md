@@ -4,13 +4,13 @@ description: Questo articolo descrive come configurare l'agente di monitoraggio 
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84299282"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per il monitoraggio di Azure per i contenitori
+# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurare la raccolta dei dati dell'agente per Monitoraggio di Azure per i contenitori
 
 Monitoraggio di Azure per contenitori raccoglie le variabili stdout, stderr e Environment dai carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti dall'agente in contenitori. Per configurare le impostazioni di raccolta dati di Agent, è possibile creare un ConfigMaps Kubernetes personalizzato per controllare questa esperienza. 
 
@@ -31,7 +31,7 @@ Viene fornito un file ConfigMap modello che consente di modificarlo facilmente c
 
 Di seguito sono riportate le impostazioni che possono essere configurate per controllare la raccolta dei dati.
 
-| Chiave | Tipo di dati | valore | Descrizione |
+| Chiave | Tipo di dati | Valore | Descrizione |
 |--|--|--|--|
 | `schema-version` | Stringa (maiuscole/minuscole) | v1 | Si tratta della versione dello schema utilizzata dall'agente<br> durante l'analisi di questo ConfigMap.<br> La versione dello schema attualmente supportata è V1.<br> La modifica di questo valore non è supportata e sarà<br> rifiutato quando viene valutato ConfigMap. |
 | `config-version` | string |  | Supporta la possibilità di tenere traccia della versione del file di configurazione nel sistema/repository del controllo del codice sorgente.<br> I caratteri massimi consentiti sono 10 e tutti gli altri caratteri vengono troncati. |
@@ -39,7 +39,7 @@ Di seguito sono riportate le impostazioni che possono essere configurate per con
 | `[log_collection_settings.stdout] exclude_namespaces =` | string | Matrice con valori delimitati da virgole | Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stdout. Questa impostazione è efficace solo se<br> `log_collection_settings.stdout.enabled`<br> è impostato su `true`.<br> Se non è specificato in ConfigMap, il valore predefinito è<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.stderr] enabled =` | Boolean | true o false | Questo controlla se è abilitata la raccolta di log del contenitore stderr.<br> Quando è impostato su `true` e non viene escluso alcuno spazio dei nomi per la raccolta di log stdout<br> ( `log_collection_settings.stderr.exclude_namespaces` impostazione), i log stderr verranno raccolti da tutti i contenitori in tutti i pod/nodi del cluster.<br> Se non è specificato in ConfigMaps, il valore predefinito è<br> `enabled = true`. |
 | `[log_collection_settings.stderr] exclude_namespaces =` | string | Matrice con valori delimitati da virgole | Matrice di spazi dei nomi Kubernetes per cui non verranno raccolti i log stderr.<br> Questa impostazione è efficace solo se<br> `log_collection_settings.stdout.enabled` è impostato su `true`.<br> Se non è specificato in ConfigMap, il valore predefinito è<br> `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` | Boolean | true o false | Questa impostazione controlla la raccolta delle variabili di ambiente<br> in tutti i pod/nodi del cluster<br> e il valore predefinito è `enabled = true` quando non è specificato<br> in ConfigMaps.<br> Se la raccolta di variabili di ambiente è abilitata a livello globale, è possibile disabilitarla per un contenitore specifico<br> impostando la variabile di ambiente<br> `AZMON_COLLECT_ENV`per **false** con un'impostazione Dockerfile o nel file di [configurazione per il Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) nella sezione **env:** .<br> Se la raccolta di variabili di ambiente è disabilitata a livello globale, non è possibile abilitare la raccolta per un contenitore specifico, ovvero l'unico override che può essere applicato a livello di contenitore è disabilitare la raccolta quando è già abilitata a livello globale. |
+| `[log_collection_settings.env_var] enabled =` | Boolean | true o false | Questa impostazione controlla la raccolta delle variabili di ambiente<br> in tutti i pod/nodi del cluster<br> e il valore predefinito è `enabled = true` quando non è specificato<br> in ConfigMaps.<br> Se la raccolta di variabili di ambiente è abilitata a livello globale, è possibile disabilitarla per un contenitore specifico<br> impostando la variabile di ambiente<br> `AZMON_COLLECT_ENV` per **false** con un'impostazione Dockerfile o nel file di [configurazione per il Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) nella sezione **env:** .<br> Se la raccolta di variabili di ambiente è disabilitata a livello globale, non è possibile abilitare la raccolta per un contenitore specifico, ovvero l'unico override che può essere applicato a livello di contenitore è disabilitare la raccolta quando è già abilitata a livello globale. |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true o false | Questa impostazione controlla l'arricchimento dei log del contenitore per popolare i valori delle proprietà Name e image<br> per ogni record di log scritto nella tabella ContainerLog per tutti i log del contenitore nel cluster.<br> Il valore predefinito è `enabled = false` quando non è specificato in ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Boolean | true o false | Questa impostazione consente la raccolta di eventi Kube di tutti i tipi.<br> Per impostazione predefinita, gli eventi KUBE con tipo *Normal* non vengono raccolti. Quando questa impostazione è impostata su `true` , gli eventi *normali* non vengono più filtrati e vengono raccolti tutti gli eventi.<br> Per impostazione predefinita, il parametro è impostato su `false`. |
 
@@ -115,7 +115,7 @@ La modifica della configurazione può richiedere alcuni minuti prima di essere a
 
 ## <a name="verifying-schema-version"></a>Verifica della versione dello schema
 
-Le versioni dello schema di configurazione supportate sono disponibili come annotazione pod (versioni dello schema) nel pod omsagent. È possibile visualizzarli con il comando kubectl seguente:`kubectl describe pod omsagent-fdf58 -n=kube-system`
+Le versioni dello schema di configurazione supportate sono disponibili come annotazione pod (versioni dello schema) nel pod omsagent. È possibile visualizzarli con il comando kubectl seguente: `kubectl describe pod omsagent-fdf58 -n=kube-system`
 
 L'output sarà simile al seguente con le versioni dello schema di annotazione:
 

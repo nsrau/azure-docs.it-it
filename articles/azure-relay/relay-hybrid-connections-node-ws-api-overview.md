@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263488"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Panoramica dell'API del pacchetto Node per Connessioni ibride di inoltro
@@ -121,7 +121,7 @@ Argomenti del costruttore:
 - `server` (obbligatorio): URI completo del nome di una connessione ibrida su cui rimanere in ascolto, costruito in genere con il metodo helper WebSocket.createRelayListenUri().
 - `token` (obbligatorio): questo argomento contiene una stringa di token rilasciata in precedenza o una funzione di callback che è possibile chiamare per ottenere la stringa di token. È preferibile usare l'opzione di callback, perché consente il rinnovo del token.
 
-#### <a name="events"></a>Eventi
+#### <a name="events"></a>Events
 
 Le istanze di `RelayedServer` generano tre eventi che consentono di gestire le richieste in ingresso, stabilire le connessioni e rilevare le condizioni di errore. Per gestire i messaggi è necessario sottoscrivere l'evento `connect`. 
 
@@ -133,7 +133,7 @@ function(headers)
 
 L'evento `headers` viene generato immediatamente prima che venga accettata una connessione in ingresso, consentendo la modifica delle intestazioni da inviare al client. 
 
-##### <a name="connection"></a>connessione
+##### <a name="connection"></a>connection
 
 ```JavaScript
 function(socket)

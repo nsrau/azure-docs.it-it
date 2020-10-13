@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907889"
 ---
 # <a name="init-image-transformation"></a>Init Image Transformation
@@ -67,7 +67,7 @@ Al termine della trasformazione, è possibile trovare le immagini trasformate ne
 
 ###  <a name="module-parameters"></a>Parametri del modulo  
 
-| Nome                    | Range   | Type    | Predefinito | Descrizione                              |
+| Nome                    | Intervallo   | Type    | Predefinito | Descrizione                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Ridimensionamento                  | Qualsiasi     | Boolean | True    | Ridimensionare l'immagine del PIL di input alla dimensione specificata |
 | Dimensione                    | >= 1     | Integer | 256     | Specificare le dimensioni di output desiderate          |
@@ -93,7 +93,7 @@ Al termine della trasformazione, è possibile trovare le immagini trasformate ne
 
 ###  <a name="output"></a>Output  
 
-| Nome                        | Tipo                    | Descrizione                              |
+| Nome                        | Type                    | Descrizione                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | Trasformazione immagine di output | TransformationDirectory | Trasformazione dell'immagine di output che può essere connessa al modulo **Applica trasformazione immagine** . |
 

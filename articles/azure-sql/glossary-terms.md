@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2020
 ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619781"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossario dei termini relativi al database SQL di Azure
@@ -28,7 +28,7 @@ ms.locfileid: "91619781"
 |:---|:---|:---|
 |Servizio di Azure|Database SQL di Azure o database SQL|[Database SQL di Azure](database/sql-database-paas-overview.md)|
 |Modello di acquisto|modello di acquisto basato su DTU|[Modello di acquisto basato su DTU](database/service-tiers-dtu.md)|
-||Modello di acquisto basato su vCore|[modello di acquisto basato su vCore](database/service-tiers-vcore.md)|
+||Modello di acquisto basato su vCore|[Modello di acquisto basato su vCore](database/service-tiers-vcore.md)|
 |Opzione di distribuzione |Database singolo|[Database singoli](database/single-database-overview.md)|
 ||Pool elastico|[Pool elastico](database/elastic-pool-overview.md)|
 |Livello di servizio|Basic, standard, Premium, per utilizzo generico, iperscalabile, business critical|Per i livelli di servizio nel modello vCore, vedere [livelli di servizio del database SQL](database/service-tiers-vcore.md#service-tiers). Per i livelli di servizio nel modello DTU, vedere [modello DTU](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
@@ -44,7 +44,7 @@ ms.locfileid: "91619781"
 |Context|Termine|Ulteriori informazioni|
 |:---|:---|:---|
 |Servizio di Azure|Istanza gestita di SQL di Azure|[Istanza gestita di SQL](managed-instance/sql-managed-instance-paas-overview.md)|
-|Modello di acquisto|Modello di acquisto basato su vCore|[modello di acquisto basato su vCore](database/service-tiers-vcore.md)|
+|Modello di acquisto|Modello di acquisto basato su vCore|[Modello di acquisto basato su vCore](database/service-tiers-vcore.md)|
 |Opzione di distribuzione |Istanza singola|[Istanza singola](managed-instance/sql-managed-instance-paas-overview.md)|
 ||Pool di istanze (anteprima)|[Pool di istanze](managed-instance/instance-pools-overview.md)|
 |Livello di servizio|Per utilizzo generico, business critical|[Livelli di servizio di SQL Istanza gestita](managed-instance/sql-managed-instance-paas-overview.md#service-tiers)|

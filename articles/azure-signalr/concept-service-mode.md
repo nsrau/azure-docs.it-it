@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
 ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514842"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Modalità servizio nel servizio Azure SignalR
@@ -21,7 +21,7 @@ La modalità del servizio è un concetto importante nel servizio Azure SignalR. 
 
 È anche possibile modificarlo in un secondo momento nel menu impostazioni:
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="Aggiornare la modalità del servizio":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="Scegliere la modalità del servizio al momento della creazione":::
 
 Il servizio Azure SignalR supporta attualmente tre modalità di servizio: **predefinita**, senza **Server** e **classica**. La risorsa SignalR si comporterà in modo diverso in modalità diverse. In questo articolo vengono illustrate le differenze e viene illustrato come scegliere la modalità di servizio corretta in base allo scenario.
 
@@ -29,7 +29,7 @@ Il servizio Azure SignalR supporta attualmente tre modalità di servizio: **pred
 
 La modalità predefinita è il valore predefinito per la modalità del servizio quando si crea una nuova risorsa SignalR. In questa modalità l'applicazione funziona come un'applicazione di SignalR ASP.NET Core (o ASP.NET) tipica, in cui è presente un server Web che ospita un hub (denominato server Hub in seguito) e i client possono avere una comunicazione duplex in tempo reale con il server Hub. L'unica differenza è invece della connessione diretta tra client e server, il client e il server si connettono al servizio SignalR e usano il servizio come proxy. Di seguito è riportato un diagramma che illustra la struttura dell'applicazione tipica in modalità predefinita:
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="Struttura dell'applicazione in modalità predefinita":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="Scegliere la modalità del servizio al momento della creazione":::
 
 Quindi, se si ha un'applicazione SignalR e si vuole eseguire l'integrazione con il servizio SignalR, la modalità predefinita è la scelta ideale per la maggior parte dei casi.
 
@@ -59,7 +59,7 @@ Per ulteriori informazioni su come configurare upstream, vedere questo [document
 
 Di seguito è riportato un diagramma che illustra il funzionamento della modalità senza server:
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Struttura dell'applicazione in modalità senza server":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Scegliere la modalità del servizio al momento della creazione":::
 
 > [!NOTE]
 > Si noti che in modalità predefinita è anche possibile usare l'API REST/SDK di gestione/binding di funzione per inviare direttamente messaggi al client se non si vuole passare attraverso il server Hub. In modalità predefinita, tuttavia, le connessioni client vengono ancora gestite dai server Hub e upstream non funzionerà in tale modalità.

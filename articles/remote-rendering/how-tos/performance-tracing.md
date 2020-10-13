@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021161"
 ---
 # <a name="create-client-side-performance-traces"></a>Creare tracce di prestazioni lato client
@@ -81,7 +81,7 @@ Per registrare una traccia in un HoloLens, avviare il dispositivo e immettere l'
 
 1. A sinistra passare a *prestazioni > traccia delle prestazioni*.
 1. Selezione **profili personalizzati**
-1. Clicca**:::no-loc text="Browse...":::**
+1. Clicca **:::no-loc text="Browse...":::**
 1. Selezionare il file *AzureRemoteRenderingNetworkProfiling. WPRP*. È possibile trovare questo file in ARR SDK in *Tools/ETLProfiles*.
 1. Fare clic su **Avvia traccia**
 1. HoloLens sta ora registrando una traccia. Assicurarsi di attivare i problemi di prestazioni che si desidera analizzare. Quindi fare clic su **Arresta traccia**.

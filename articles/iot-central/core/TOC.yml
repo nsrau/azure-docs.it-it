@@ -170,9 +170,11 @@
             - name: Attivare e disattivare la live chat
               href: howto-show-hide-chat.md
     - name: Risolvere problemi
-      items: null
-      '-name': Device connections
-      href: troubleshoot-connection.md
+      items:
+        - name: Connessioni del dispositivo
+          href: troubleshoot-connection.md
+    - name: Domande frequenti
+      href: howto-faq.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

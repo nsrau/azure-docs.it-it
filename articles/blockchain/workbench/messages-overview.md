@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74324500"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
@@ -335,7 +335,7 @@ Per informazioni dettagliate sui vari messaggi che possono essere ricevuti, vede
 
 Se un utente vuole usare Griglia di eventi per ricevere notifiche sugli eventi che si verificano in Blockchain Workbench, può usare gli eventi in Griglia di eventi tramite Funzioni di Azure.
 
-1. Creare un'**app per le funzioni di Azure** nel portale di Azure.
+1. Creare una **app per le funzioni di Azure** nel portale di Azure.
 2. Creare una nuova funzione.
 3. Individuare il modello per Griglia di eventi. Verrà visualizzato il codice del modello di base per la lettura del messaggio. Modificare il codice in base alle esigenze.
 4. Salvare la funzione. 
@@ -471,7 +471,7 @@ Contiene le informazioni su un contratto. Il messaggio include una sezione con l
 |--------------------|-------------|
 | workflowPropertyId | Identificatore univoco della proprietà del flusso di lavoro in Azure Blockchain Workbench |
 | name | Nome della proprietà del flusso di lavoro |
-| Valore | Valore della proprietà del flusso di lavoro |
+| value | Valore della proprietà del flusso di lavoro |
 
 Esempio di *ContractMessage* da Blockchain Workbench:
 
@@ -582,7 +582,7 @@ Contiene informazioni quando viene richiamata una funzione del contratto, ad ese
 | Nome | Descrizione |
 |------|-------------|
 | name | Nome parametro |
-| Valore | Valore del parametro |
+| value | Valore del parametro |
 
 #### <a name="event-message-transaction-information"></a>Informazioni sulla transazione del messaggio di evento
 
@@ -698,7 +698,7 @@ Contiene informazioni quando un'applicazione viene caricata in Workbench, ad ese
 |------|-------------|
 | id | Identificatore univoco della proprietà del flusso di lavoro dell'applicazione in Azure Blockchain Workbench |
 | name | Nome proprietà |
-| tipo | Tipo di proprietà |
+| type | Tipo di proprietà |
 
 Esempio di *EventMessage ApplicationIngestion* da Blockchain Workbench:
 
@@ -855,7 +855,7 @@ Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, 
 | Nome | Descrizione |
 |------|-------------|
 | id | Identificatore univoco dell'utente in Azure Blockchain Workbench |
-| tipo | Tipo dell'assegnatore |
+| type | Tipo dell'assegnatore |
 | chainIdentifier | Identificatore univoco dell'utente nel libro mastro |
 
 #### <a name="roleassignment-assignee"></a>Assegnatario di RoleAssignment
@@ -863,7 +863,7 @@ Contiene informazioni quando a un utente viene assegnato un ruolo in Workbench, 
 | Nome | Descrizione |
 |------|-------------|
 | id | Identificatore univoco dell'utente in Azure Blockchain Workbench |
-| tipo | Tipo dell'assegnatario |
+| type | Tipo dell'assegnatario |
 | chainIdentifier | Identificatore univoco dell'utente nel libro mastro |
 
 Esempio di *EventMessage RoleAssignment* da Blockchain Workbench:
