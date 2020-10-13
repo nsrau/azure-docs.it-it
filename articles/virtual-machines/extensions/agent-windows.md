@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 07/20/2019
 ms.author: mimckitt
-ms.openlocfilehash: 2db83b643ec3000c5b86388f4b603bba32f2a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ef2c9ef4e2a2296ceb214c89bb6e3fb98dcb26f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91855776"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974907"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Panoramica dell'agente di macchine virtuali di Azure
 L'agente di macchine virtuali di Microsoft Azure è un processo protetto e leggero che gestisce l'interazione delle macchine virtuali con il controller di infrastruttura di Azure. L'agente di macchine virtuali svolge un ruolo primario per l'abilitazione e l'esecuzione delle estensioni macchina virtuale di Azure. Le estensioni macchina virtuale rendono possibile la configurazione post-distribuzione della macchina virtuale, ad esempio l'installazione e la configurazione di software. Le estensioni macchina virtuale abilitano anche funzionalità di ripristino, ad esempio la reimpostazione della password amministrativa di una macchina virtuale. Senza l'agente di macchine virtuali di Azure, le estensioni macchina virtuale non possono essere eseguite.
@@ -68,7 +68,7 @@ $vm | Update-AzVM
 
 - Assicurarsi che la macchina virtuale abbia accesso all'indirizzo IP 168.63.129.16. Per ulteriori informazioni, vedere la pagina relativa all' [indirizzo IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
-- Verificare che DHCP sia abilitato all'interno della macchina virtuale guest. Questa operazione è necessaria per ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP per il funzionamento dell'agente di macchine virtuali IaaS e delle estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite il portale di Azure o PowerShell e assicurarsi che l'opzione DHCP all'interno della VM sia abilitata. [Altre](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-ps#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) informazioni sulla configurazione di un indirizzo IP statico con PowerShell.
+- Verificare che DHCP sia abilitato all'interno della macchina virtuale guest. Questa operazione è necessaria per ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP per il funzionamento dell'agente di macchine virtuali IaaS e delle estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite il portale di Azure o PowerShell e assicurarsi che l'opzione DHCP all'interno della VM sia abilitata. [Altre](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) informazioni sulla configurazione di un indirizzo IP statico con PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Rilevare l'agente di macchine virtuali
@@ -120,7 +120,7 @@ Per rimuovere definitivamente un certificato, è necessario rimuoverlo dalla `OS
 
 Per una macchina virtuale, usare [Remove-AzVMSecret]() per rimuovere i certificati da `OSProfile` .
 
-Per altre informazioni sui certificati dei set di scalabilità di macchine virtuali, vedere [set di scalabilità di macchine virtuali-ricerca per categorie rimuovere i certificati deprecati?](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-remove-deprecated-certificates)
+Per altre informazioni sui certificati dei set di scalabilità di macchine virtuali, vedere [set di scalabilità di macchine virtuali-ricerca per categorie rimuovere i certificati deprecati?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
