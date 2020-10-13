@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e5ca792c6dbc3c08847315b916913e8c38909a7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3adc3dd0e0b7e9f964326f5e637b0fefb2cd173
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637239"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938460"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Baseline della sicurezza di Azure per il servizio Azure Kubernetes
 
@@ -20,7 +20,7 @@ Il servizio di base di sicurezza di Azure per il servizio Azure Kubernetes conti
 
 La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview-v1).
+Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
@@ -1235,7 +1235,7 @@ Rimuovere lo stato dalle applicazioni prima del backup. Nei casi in cui non è p
 
 Esegui backup automatici regolari di Key Vault certificati, chiavi, account di archiviazione gestiti e segreti con i comandi di PowerShell. 
 
-Ad esempio:
+Esempio:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Eseguire periodicamente il ripristino dei dati di Key Vault certificati, chiavi, account di archiviazione gestiti e segreti con i comandi di PowerShell. 
 
-Ad esempio:
+Esempio:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b2099a6a48c9393b6e9e8b983a4acac2933bf06
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085708"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973836"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
 
@@ -58,7 +58,7 @@ Distribuzioni Linux supportate:
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Ad esempio, se lo script si trova in archiviazione di Azure, è possibile consentire l'accesso usando i tag del servizio NSG di Azure per l' [archiviazione](../../virtual-network/security-overview.md#service-tags).
+Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Ad esempio, se lo script si trova in archiviazione di Azure, è possibile consentire l'accesso usando i tag del servizio NSG di Azure per l' [archiviazione](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
@@ -125,7 +125,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | INT |
 | fileUris (es.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute (es.) | MyPythonScript.py Python \<my-param1\> | string |
+| commandToExecute (es.) | MyPythonScript.py Python \<my-param1\> | Stringa |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (es.) | examplestorageacct | string |
 | storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |

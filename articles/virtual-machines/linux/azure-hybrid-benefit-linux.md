@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279774"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962395"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Anteprima: Vantaggio Azure Hybrid-come viene applicato per macchine virtuali Linux
 
@@ -126,7 +126,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
-Dall'interno della macchina virtuale, è possibile eseguire una query sui metadati attestati IMDS per determinare il licenseType della macchina virtuale. Il valore licenseType ' RHEL_BYOS ' o ' SLES_BYOS ' indicherà che il vantaggio è abilitato per la macchina virtuale. Altre informazioni sui metadati attestati sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data)
+Dall'interno della macchina virtuale, è possibile eseguire una query sui metadati attestati IMDS per determinare il licenseType della macchina virtuale. Il valore licenseType ' RHEL_BYOS ' o ' SLES_BYOS ' indicherà che il vantaggio è abilitato per la macchina virtuale. Altre informazioni sui metadati attestati sono disponibili [qui](./instance-metadata-service.md#attested-data)
 
 ## <a name="compliance"></a>Conformità
 

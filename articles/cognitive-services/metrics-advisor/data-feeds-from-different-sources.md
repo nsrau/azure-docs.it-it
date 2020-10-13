@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324468"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971949"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Aggiungere feed di dati da origini dati diverse a metrica Advisor
 
@@ -133,7 +133,7 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Esplora dati di Azure (Kusto)</span>
 
-* **Stringa di connessione**: per informazioni su come recuperare la stringa di connessione da Azure Esplora dati (kusto), vedere [visualizzare e copiare una stringa](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) di connessione.
+* **Stringa di connessione**: metrica Advisor supporta l'accesso ad Azure Esplora dati (kusto) utilizzando Azure ad l'autenticazione dell'applicazione. Sarà necessario creare e registrare un'applicazione Azure AD e quindi autorizzarla ad accedere a un database di Esplora dati di Azure. Per ottenere la stringa di connessione, vedere la documentazione di [Azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) .
 
 * **Query**: vedere il [linguaggio di query kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query) per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile utilizzare le `@StartTime` `@EndTime` variabili e nella query. Devono essere formattati: `yyyy-MM-dd HH:mm:ss` .
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426266"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973819"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -48,7 +48,7 @@ L'estensione per gli script personalizzati per Windows verrà eseguita sui siste
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall e il gruppo di sicurezza di rete. Se ad esempio lo script si trova in Archiviazione di Azure, è possibile consentire l'accesso usando i tag di servizio del gruppo di sicurezza di rete di Azure per [Archiviazione](../../virtual-network/security-overview.md#service-tags).
+Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall e il gruppo di sicurezza di rete. Se ad esempio lo script si trova in Archiviazione di Azure, è possibile consentire l'accesso usando i tag di servizio del gruppo di sicurezza di rete di Azure per [Archiviazione](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall e il gruppo di sicurezza di rete.
 

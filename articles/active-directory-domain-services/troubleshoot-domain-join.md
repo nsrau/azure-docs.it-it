@@ -2,20 +2,20 @@
 title: Risolvere i problemi di aggiunta al dominio con Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come risolvere i problemi comuni quando si tenta di aggiungere un dominio a una macchina virtuale o di connettere un'applicazione a Azure Active Directory Domain Services e non è possibile connettersi o eseguire l'autenticazione al dominio gestito.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039688"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967512"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Risolvere i problemi di aggiunta al dominio con un Azure Active Directory Domain Services dominio gestito
 

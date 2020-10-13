@@ -1,14 +1,14 @@
 ---
 title: Visualizzare e gestire i provider di servizi
 description: I clienti possono usare la pagina Provider di servizi nel portale di Azure per visualizzare informazioni sui provider di servizi, sulle offerte di provider di servizi e sulle risorse delegate.
-ms.date: 08/12/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167165"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974397"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualizzare e gestire i provider di servizi
 
@@ -76,7 +76,9 @@ I filtri nella parte superiore della pagina consentono di ordinare e raggruppare
 
 I clienti potrebbero voler ottenere visibilità nelle sottoscrizioni e/o nei gruppi di risorse delegati al Faro di Azure. Questa operazione è particolarmente utile per i clienti con un numero elevato di sottoscrizioni o con molti utenti che eseguono attività di gestione.
 
-Viene fornita una [definizione dei criteri incorporata in criteri di Azure](../../governance/policy/samples/built-in-policies.md#lighthouse) per controllare la delega degli ambiti a un tenant di gestione. È possibile assegnare questo criterio a un gruppo di gestione che include tutte le sottoscrizioni che si desidera controllare. Quando si verifica la conformità con questi criteri, tutte le sottoscrizioni delegate e/o i gruppi di risorse (all'interno del gruppo di gestione a cui viene assegnato il criterio) verranno visualizzati in uno stato non conforme. È quindi possibile esaminare i risultati e verificare che non esistano deleghe impreviste.
+Viene fornita una [definizione dei criteri incorporata in criteri di Azure](../../governance/policy/samples/built-in-policies.md#lighthouse) per [controllare la delega degli ambiti a un tenant di gestione](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). È possibile assegnare questo criterio a un gruppo di gestione che include tutte le sottoscrizioni che si desidera controllare. Quando si verifica la conformità con questi criteri, tutte le sottoscrizioni delegate e/o i gruppi di risorse (all'interno del gruppo di gestione a cui viene assegnato il criterio) verranno visualizzati in uno stato non conforme. È quindi possibile esaminare i risultati e verificare che non esistano deleghe impreviste.
+
+Un'altra [definizione di criteri predefinita](../../governance/policy/samples/built-in-policies.md#lighthouse) consente [di limitare le delega a specifici tenant di gestione](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json). Questo criterio può essere applicato in modo analogo a un gruppo di gestione che include tutte le sottoscrizioni per le quali si desidera limitare le deleghe. Dopo la distribuzione del criterio, qualsiasi tentativo di delegare una sottoscrizione a un tenant esterno a quelli specificati verrà negato.
 
 Per altre informazioni su come assegnare un criterio e visualizzare i risultati dello stato di conformità, vedere [Guida introduttiva: creare un'assegnazione di criteri](../../governance/policy/assign-policy-portal.md).
 

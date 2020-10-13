@@ -2,7 +2,7 @@
 title: Abilitare i controlli di sicurezza per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come abilitare i controlli di sicurezza per centralizzare la registrazione degli eventi per l'analisi e gli avvisi in Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 98e64f1ea1196b6fd773514d4dad5b6e178a6898
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722535"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967733"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Abilitare i controlli di sicurezza per Azure Active Directory Domain Services
 
@@ -237,10 +237,10 @@ Sono disponibili le categorie di eventi di controllo seguenti:
 |:---|:---|
 |Sicurezza accesso account|4767, 4774, 4775, 4776, 4777|
 |Sicurezza della gestione degli account|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Sicurezza del rilevamento dei dettagli|Nessuno|
+|Sicurezza del rilevamento dei dettagli|nessuno|
 |Sicurezza accesso DS|5136, 5137, 5138, 5139, 5141|
 |Sicurezza Logon-Logoff|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Sicurezza dall'accesso agli oggetti|Nessuno|
+|Sicurezza dall'accesso agli oggetti|nessuno|
 |Sicurezza della modifica dei criteri|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Sicurezza uso dei privilegi|4985|
 |Protezione del sistema|4612, 4621|

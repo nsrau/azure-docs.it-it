@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669030"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971796"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gestire i certificati in un dispositivo IoT Edge
 
@@ -33,10 +33,13 @@ Per altre informazioni sui diversi tipi di certificati e sui relativi ruoli, ved
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Un dispositivo IoT Edge, in esecuzione in [Windows](how-to-install-iot-edge-windows.md) o [Linux](how-to-install-iot-edge-linux.md).
+* Un dispositivo IoT Edge.
+
+  Se non si dispone di un dispositivo IoT Edge configurato, è possibile crearne uno in una macchina virtuale di Azure. Per [creare un dispositivo Linux virtuale](quickstart-linux.md) o [creare un dispositivo Windows virtuale](quickstart.md), seguire la procedura descritta in uno degli articoli introduttivi.
+
 * Disporre di un certificato dell'autorità di certificazione (CA) radice, autofirmato o acquistato da un'autorità di certificazione commerciale attendibile come Baltimora, Verisign, DigiCert o GlobalSign.
 
-Se non si ha ancora un'autorità di certificazione radice, ma si vuole provare IoT Edge funzionalità che richiedono certificati di produzione (ad esempio, scenari di gateway), è possibile [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md).
+  Se non si ha ancora un'autorità di certificazione radice, ma si vuole provare IoT Edge funzionalità che richiedono certificati di produzione (ad esempio, scenari di gateway), è possibile [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Creare certificati di produzione
 

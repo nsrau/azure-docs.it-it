@@ -3,12 +3,12 @@ title: Risparmiare sui costi con l'istanza riservata della soluzione VMware di A
 description: Informazioni su come acquistare un'istanza riservata per la soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91492427"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951418"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Salva i costi con la soluzione VMware di Azure
 
@@ -22,7 +22,7 @@ Le istanze riservate sono disponibili con alcune eccezioni.
 
 -   **Quota**   insufficiente -Una prenotazione con ambito a una sottoscrizione singola/condivisa deve avere una quota di host disponibile nella sottoscrizione per la nuova istanza riservata. Per risolvere il problema, è possibile [creare una richiesta di aumento della quota](enable-azure-vmware-solution.md) .
 
--   **Idoneità**per l'offerta: è necessario un [Enterprise Agreement di Azure (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements)   con Microsoft.
+-   **Idoneità**per l'offerta: è necessario un [Enterprise Agreement di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md)   con Microsoft.
 
 -   **Limitazioni**   di capacità In rari casi, Azure limita l'acquisto di nuove prenotazioni per gli SKU dell'host della soluzione VMware di Azure, a causa della capacità ridotta in un'area.
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946171"
+ms.locfileid: "91951682"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -186,10 +186,11 @@ Per informazioni sul modo in cui l'attività di copia esegue il mapping dei dati
 Oltre a copiare i dati dall'archivio dati di origine al sink, è anche possibile configurare per aggiungere ulteriori colonne di dati da copiare insieme a sink. Ad esempio:
 
 - Quando si esegue la copia da un'origine basata su file, archiviare il percorso del file relativo come colonna aggiuntiva per tracciare da quale file provengono i dati.
+- Duplicare la colonna di origine specificata come altra colonna. 
 - Aggiungere una colonna con l'espressione ADF, per associare le variabili di sistema ADF, ad esempio l'ID pipeline o il nome della pipeline, oppure archiviare altro valore dinamico dall'output dell'attività upstream.
 - Aggiungere una colonna con valore statico per soddisfare le esigenze di utilizzo a valle.
 
-È possibile trovare la configurazione seguente nella scheda origine dell'attività di copia: 
+È possibile trovare la configurazione seguente nella scheda origine dell'attività di copia. È anche possibile eseguire il mapping delle colonne aggiuntive nel [mapping dello schema](copy-activity-schema-and-type-mapping.md#schema-mapping) dell'attività di copia come di consueto usando i nomi di colonna definiti. 
 
 ![Aggiungere altre colonne nell'attività di copia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`** -una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **Espressione**<br>- **Valore statico** | No |
+| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`** -una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **$ $Column: <source_column_name>** -un modello di variabile riservata indica di duplicare la colonna di origine specificata come altra colonna<br>- **Espressione**<br>- **Valore statico** | No |
 
 **Esempio:**
 
@@ -218,6 +219,10 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",
