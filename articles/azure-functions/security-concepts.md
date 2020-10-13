@@ -4,10 +4,10 @@ description: Informazioni su come proteggere l'esecuzione del codice funzione in
 ms.date: 4/13/2020
 ms.topic: conceptual
 ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761414"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
@@ -76,7 +76,7 @@ Per altre informazioni sulle chiavi di accesso, vedere l'[articolo sull'associaz
 
 Per impostazione predefinita, le chiavi vengono archiviate in un contenitore di archiviazione BLOB nell'account fornito dall' `AzureWebJobsStorage` impostazione. È possibile usare impostazioni specifiche dell'applicazione per eseguire l'override di questo comportamento e archiviare le chiavi in un percorso diverso.
 
-|Location  |Impostazione | Valore | Descrizione  |
+|Location  |Impostazione | Valore | Description  |
 |---------|---------|---------|---------|
 |Account di archiviazione diverso     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Archivia le chiavi nell'archiviazione BLOB di un secondo account di archiviazione, in base all'URL SAS fornito. Le chiavi vengono crittografate prima di essere archiviate usando un segreto univoco per l'app per le funzioni. |
 |File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Le chiavi vengono salvate in modo permanente nella file system, crittografate prima dell'archiviazione usando un segreto univoco per l'app per le funzioni. |

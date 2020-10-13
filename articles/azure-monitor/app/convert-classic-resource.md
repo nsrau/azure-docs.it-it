@@ -1,16 +1,14 @@
 ---
 title: Eseguire la migrazione di un monitoraggio di Azure Application Insights risorsa classica a una risorsa basata sull'area di lavoro | Microsoft Docs
 description: Informazioni sui passaggi necessari per aggiornare il monitoraggio di Azure Application Insights risorsa classica al nuovo modello basato sull'area di lavoro.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333342"
+ms.locfileid: "91930578"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Eseguire la migrazione a risorse Application Insights basate sull'area di lavoro
 

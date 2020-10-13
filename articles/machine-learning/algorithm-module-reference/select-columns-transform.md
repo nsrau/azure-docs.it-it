@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893623"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945593"
 ---
 # <a name="select-columns-transform"></a>Select Columns Transform
 
@@ -46,8 +46,14 @@ In questo scenario si presuppone che si desideri utilizzare la selezione delle c
 
    *Non connettere il set di dati di input.* Aggiungere invece il modulo [Apply Transformation](apply-transformation.md) e connettere l'output della trasformazione Selezione funzionalità.
 
+   La struttura della pipeline dovrebbe essere simile alla seguente:
+
+   > [!div class="mx-imgBorder"]
+   > ![Pipeline di esempio](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > Non è possibile prevedere di applicare la [selezione delle funzioni basata su filtro](filter-based-feature-selection.md) al set di dati di assegnazione dei punteggi e ottenere gli stessi risultati. Poiché la selezione delle caratteristiche è basata sui valori, è possibile che scelga un set di colonne diverso, causando l'esito negativo dell'operazione di assegnazione dei punteggi.
+    
 7. Inviare la pipeline.
 
 Questo processo di salvataggio e applicazione di una selezione di colonna garantisce che lo stesso schema di dati sia disponibile per il training e l'assegnazione dei punteggi.

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569493"
+ms.locfileid: "91930306"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Linee guida per la pianificazione della rete per Azure NetApp Files
 
 La pianificazione dell'architettura di rete è un elemento fondamentale della progettazione di qualsiasi infrastruttura di applicazioni. Questo articolo consente di progettare un'architettura di rete efficace per i carichi di lavoro, in modo da sfruttare al meglio le avanzate funzionalità di Azure NetApp Files.
 
-I volumi di Azure NetApp Files sono progettati per essere contenuti in una subnet per scopi specifici denominata [subnet delegata](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet), appartenente alla rete virtuale di Azure. È quindi possibile accedere ai volumi direttamente dalla propria rete virtuale, da reti virtuali con peering della stessa area o dall'ambiente locale su un gateway di rete virtuale (ExpressRoute o Gateway VPN), in base alle esigenze. La subnet è dedicata ad Azure NetApp Files e non è connessa ad altri servizi di Azure né a Internet.
+I volumi di Azure NetApp Files sono progettati per essere contenuti in una subnet per scopi specifici denominata [subnet delegata](../virtual-network/virtual-network-manage-subnet.md), appartenente alla rete virtuale di Azure. È quindi possibile accedere ai volumi direttamente dalla propria rete virtuale, da reti virtuali con peering della stessa area o dall'ambiente locale su un gateway di rete virtuale (ExpressRoute o Gateway VPN), in base alle esigenze. La subnet è dedicata ad Azure NetApp Files e non è connessa ad altri servizi di Azure né a Internet.
 
 ## <a name="considerations"></a>Considerazioni  
 
@@ -71,11 +71,11 @@ In questa sezione vengono illustrati i concetti che possono semplificare la pian
 
 ### <a name="azure-virtual-networks"></a>Reti virtuali di Azure
 
-Prima di eseguire il provisioning di un volume di Azure NetApp Files, è necessario creare una rete virtuale di Azure o usarne una già esistente nella sottoscrizione. La rete virtuale definisce il limite di rete del volume.  Per altre informazioni sulla creazione di reti virtuali, vedere la [documentazione sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Prima di eseguire il provisioning di un volume di Azure NetApp Files, è necessario creare una rete virtuale di Azure o usarne una già esistente nella sottoscrizione. La rete virtuale definisce il limite di rete del volume.  Per altre informazioni sulla creazione di reti virtuali, vedere la [documentazione sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="subnets"></a>Subnet
 
-Le subnet segmentano la rete virtuale in spazi di indirizzi separati usabili dalle risorse di Azure contenute.  I volumi di Azure NetApp Files sono contenuti in una subnet per scopi specifici denominata [subnet delegata](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
+Le subnet segmentano la rete virtuale in spazi di indirizzi separati usabili dalle risorse di Azure contenute.  I volumi di Azure NetApp Files sono contenuti in una subnet per scopi specifici denominata [subnet delegata](../virtual-network/virtual-network-manage-subnet.md). 
 
 La delega della subnet offre al servizio Azure NetApp Files autorizzazioni esplicite per creare le risorse specifiche del servizio nella subnet.  Usa inoltre un identificatore univoco per la distribuzione del servizio. In questo caso, viene creata un'interfaccia di rete per abilitare la connettività ad Azure NetApp Files.
 
@@ -102,7 +102,7 @@ In uno scenario di base, si crea o ci si connette a un volume di Azure NetApp Fi
 
 ### <a name="vnet-peering"></a>Peering reti virtuali
 
-Se nella stessa area sono presenti reti virtuali aggiuntive che devono accedere alle risorse reciproche, è possibile metterle in connessione usando il [peering di reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) per abilitare la connettività sicura tramite l'infrastruttura di Azure. 
+Se nella stessa area sono presenti reti virtuali aggiuntive che devono accedere alle risorse reciproche, è possibile metterle in connessione usando il [peering di reti virtuali](../virtual-network/virtual-network-peering-overview.md) per abilitare la connettività sicura tramite l'infrastruttura di Azure. 
 
 Si considerino la rete virtuale 2 e la rete virtuale 3 del diagramma precedente. Se la macchina virtuale 1 deve connettersi alla macchina virtuale 2 o al volume 2 oppure se la macchina virtuale 2 deve connettersi alla macchina virtuale 1 o al volume 1, è necessario abilitare il peering di reti virtuali tra la rete virtuale 2 e la rete virtuale 3. 
 
@@ -116,7 +116,7 @@ Il diagramma seguente illustra un ambiente ibrido:
 
 ![Ambiente di rete ibrido](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-In uno scenario ibrido, le applicazioni dei data center locali devono accedere alle risorse in Azure.  Questa esigenza si verifica, ad esempio, quando si vuole estendere il datacenter ad Azure, si vogliono usare i servizi nativi di Azure o per il ripristino di emergenza. Per informazioni su come connettere più risorse locali a risorse di Azure tramite una rete VPN da sito a sito o un circuito ExpressRoute, vedere le [opzioni di pianificazione di Gateway VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
+In uno scenario ibrido, le applicazioni dei data center locali devono accedere alle risorse in Azure.  Questa esigenza si verifica, ad esempio, quando si vuole estendere il datacenter ad Azure, si vogliono usare i servizi nativi di Azure o per il ripristino di emergenza. Per informazioni su come connettere più risorse locali a risorse di Azure tramite una rete VPN da sito a sito o un circuito ExpressRoute, vedere le [opzioni di pianificazione di Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable).
 
 In una topologia di rete hub-spoke, l'hub è una rete virtuale in Azure che svolge la funzione di punto centrale di connettività alla rete locale. Gli spoke sono reti virtuali di cui viene eseguito il peering con l'hub e possono essere usati per isolare i carichi di lavoro.
 

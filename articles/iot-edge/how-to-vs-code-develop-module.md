@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
 ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296910"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
@@ -173,7 +173,7 @@ Per configurare e avviare il simulatore, eseguire il comando **Azure IOT Edge: a
         > [!NOTE]
         > Se .NET Core `TargetFramework` non è coerente con il percorso del programma in `launch.json` , è necessario aggiornare manualmente il percorso del programma in in `launch.json` `TargetFramework` modo che corrisponda a nel file con estensione csproj in modo che Visual Studio Code possibile avviare correttamente il programma.
 
-   - **Node.js**
+   - **Node.JS**
      - Nel terminale Visual Studio Code integrato, modificare la directory nella cartella del *** &lt; nome &gt; del modulo*** , quindi eseguire il comando seguente per installare i pacchetti del nodo
 
        ```cmd
@@ -318,7 +318,7 @@ Si noterà che la distribuzione è stata creata correttamente con un ID distribu
 
   [Configurare il canale SSH nel computer di sviluppo e nel dispositivo IoT Edge](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) e quindi modificare il file `launch.json` per il collegamento.
 
-- **Node.js**
+- **Node.JS**
 
   - Assicurarsi che il modulo nel computer di cui eseguire il debug sia in esecuzione e pronto per il collegamento dei debugger e che la porta 9229 sia accessibile esternamente. È possibile verificarlo aprendo `http://<target-machine-IP>:9229/json` nel computer debugger. Questo URL deve visualizzare informazioni sul modulo Node.js da sottoporre a debug.
   

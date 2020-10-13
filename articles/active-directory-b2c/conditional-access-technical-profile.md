@@ -12,10 +12,10 @@ ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91459830"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di accesso condizionale in un Azure Active Directory B2C criteri personalizzati
@@ -51,7 +51,7 @@ Per ogni accesso, Azure AD B2C valuta tutti i criteri e garantisce che tutti i r
 
 ### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | Tipo operazione | Sì | Deve essere **Evaluation**.  |
 
@@ -113,7 +113,7 @@ La modalità di **monitoraggio e aggiornamento** del profilo tecnico di accesso 
 
 ### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | Tipo operazione | Sì | Deve essere il monitoraggio e l' **aggiornamento**.  |
 

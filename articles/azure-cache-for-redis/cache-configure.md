@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840252"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
@@ -39,7 +39,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Chiavi di accesso](#access-keys)
     * [Impostazioni avanzate](#advanced-settings)
     * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-    * [Scalabilità](#scale)
+    * [Ridimensionamento](#scale)
     * [Dimensioni del cluster](#cluster-size)
     * [Salvataggio permanente dei dati](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -91,7 +91,7 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Chiavi di accesso](#access-keys)
 * [Impostazioni avanzate](#advanced-settings)
 * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-* [Scalabilità](#scale)
+* [Ridimensionamento](#scale)
 * [Dimensioni del cluster](#cluster-size)
 * [Salvataggio permanente dei dati](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)

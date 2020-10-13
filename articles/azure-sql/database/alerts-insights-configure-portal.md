@@ -12,10 +12,10 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
 ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444912"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creare avvisi per il database SQL di Azure e l'analisi delle sinapsi di Azure usando il portale di Azure
@@ -55,7 +55,7 @@ Questo articolo illustra come configurare gli avvisi per i database nel database
    ![Monitoraggio](./media/alerts-insights-configure-portal/Alerts.png)
   
 3. Selezionare il pulsante **nuova regola di avviso** per aprire la pagina **Crea regola** .
-  ![Crea regola](./media/alerts-insights-configure-portal/create-rule.png)
+  ![Creare una regola](./media/alerts-insights-configure-portal/create-rule.png)
 
 4. Nella sezione **condizione** fare clic su **Aggiungi**.
   ![Definire la condizione](./media/alerts-insights-configure-portal/create-rule.png)

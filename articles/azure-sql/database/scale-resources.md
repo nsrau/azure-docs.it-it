@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, sstein
 ms.date: 06/25/2019
 ms.openlocfilehash: 026c2b7b57929d31fbbf776d81ee41eb73b73d44
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321517"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
@@ -43,7 +43,7 @@ Il database SQL di Azure offre il modello di acquisto [basato su DTU](service-ti
 > [!NOTE]
 > La scalabilità dinamica è diversa dalla scalabilità automatica. La scalabilità automatica è quando un servizio viene ridimensionato automaticamente in base ai criteri, mentre la scalabilità dinamica consente la scalabilità manuale con tempi di inattività minimi.
 
-I database singoli nel database SQL di Azure supportano la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database.
+I database singoli nel database SQL di Azure supportano la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica* , provare a usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database.
 Sono tuttavia disponibili script che consentono di automatizzare la scalabilità per un singolo database nel database SQL di Azure. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un singolo database SQL](scripts/monitor-and-scale-database-powershell.md).
 
 È possibile modificare i [livelli di servizio delle DTU](service-tiers-dtu.md) o le [caratteristiche vCore](resource-limits-vcore-single-databases.md) in qualsiasi momento con tempi di inattività minimi per l'applicazione, in genere meno di 4 secondi. Per molte aziende e app, la possibilità di creare database e connettere o disconnettere prestazioni su richiesta è sufficiente, specialmente se i modelli d'uso sono relativamente prevedibili. Ma se si dispone di modelli di utilizzo imprevedibili, può risultare difficile gestire i costi e il modello aziendale. Per questo scenario usare un pool elastico con un determinato numero di eDTU condivise tra più database nel pool.

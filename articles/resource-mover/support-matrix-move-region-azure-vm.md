@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602286"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945914"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -155,7 +155,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 NIC | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione. 
 Servizio di bilanciamento del carico interno | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Bilanciamento del carico pubblico | Attualmente non supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
-Indirizzo IP pubblico | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
+Indirizzo IP pubblico | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.<br/><br/> L'indirizzo IP pubblico è specifico dell'area e non verrà mantenuto nell'area di destinazione dopo lo spostamento. Tenere presente questo aspetto quando si modificano le impostazioni di rete (incluse le regole di bilanciamento del carico) nel percorso di destinazione.
 Gruppo di sicurezza di rete | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Indirizzo IP riservato (statico) | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine. <br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione ha lo stesso indirizzo IP disponibile, viene assegnata alla macchina virtuale di destinazione.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP disponibile, lo spostamento di avvio per la macchina virtuale avrà esito negativo.
 Indirizzo IP dinamico | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine.<br/><br/> Se la scheda di interfaccia di rete nell'origine ha un indirizzo IP dinamico, anche la scheda di interfaccia di rete nella macchina virtuale di destinazione è dinamica per impostazione predefinita.

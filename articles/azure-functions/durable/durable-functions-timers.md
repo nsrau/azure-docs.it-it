@@ -4,12 +4,12 @@ description: Informazioni su come implementare timer permanenti nell'estensione 
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87056230"
+ms.locfileid: "91876448"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timer in Funzioni permanenti (Funzioni di Azure)
 
@@ -22,7 +22,7 @@ Si crea un timer durevole chiamando il metodo `CreateTimer` (.NET) o il `createT
 Quando si crea un timer che scade alle 4:30 PM, il Framework di attività permanenti sottostante Accoda un messaggio che diventa visibile solo alle 4:30. Quando si esegue il piano a consumo di funzioni di Azure, il messaggio del timer appena visibile garantisce che l'app per le funzioni venga attivata in una macchina virtuale appropriata.
 
 > [!NOTE]
-> * I timer durevoli sono attualmente limitati a 7 giorni. Se sono necessari ritardi più lunghi, è possibile simularli usando le API del timer in un `while` ciclo.
+> * A partire dalla [versione 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) dell'estensione durevole, i timer durevoli sono illimitati. Nelle versioni precedenti dell'estensione, i timer durevoli sono limitati a sette giorni. Quando si usa una versione precedente e si richiede un ritardo superiore a sette giorni, usare le API del timer in un `while` ciclo per simulare questo ritardo.
 > * Usare sempre `CurrentUtcDateTime` anziché `DateTime.UtcNow` in .NET o al `currentUtcDateTime` posto di `Date.now` o `Date.UTC` in JavaScript quando si calcola il tempo di attivazione per i timer durevoli. Per ulteriori informazioni, vedere l'articolo sui vincoli del codice della funzione dell'agente di [orchestrazione](durable-functions-code-constraints.md) .
 
 ## <a name="usage-for-delay"></a>Utilizzo per il ritardo

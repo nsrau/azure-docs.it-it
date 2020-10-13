@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236655"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964792"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Domande frequenti sulla distribuzione per le chiavi di sicurezza ibrido per FIDO2 in Azure AD (anteprima)
 
@@ -160,7 +160,7 @@ In un controller di dominio Windows Server 2016 o 2019, verificare che siano app
 
 No, questa funzionalità non è supportata per il dispositivo solo locale. Il provider di credenziali FIDO2 non viene visualizzato.
 
-### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>L'accesso alla chiave di sicurezza di FIDO2 non funziona per l'amministratore del dominio o altri account con privilegi elevati. Perché?
+### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>L'accesso alla chiave di sicurezza di FIDO2 non funziona per l'amministratore del dominio o altri account con privilegi elevati. Questo problema dipende
 
 Il criterio di sicurezza predefinito non concede Azure AD autorizzazione per firmare gli account con privilegi elevati in risorse locali.
 
@@ -228,7 +228,7 @@ Azure AD Connect non esegue la scrittura di informazioni da Azure AD a servizi d
 
 La richiesta HTTP è una richiesta standard PRT (Primary Refresh token). Questa richiesta di PRT include un'attestazione che indica che è necessario un ticket di concessione ticket (TGT) Kerberos.
 
-| Attestazione | Valore | Descrizione                             |
+| Attestazione | valore | Descrizione                             |
 |-------|-------|-----------------------------------------|
 | TGT   | true  | Attestazione indica che il client necessita di un TGT. |
 
@@ -236,9 +236,9 @@ Azure AD combina la chiave client crittografata e il buffer dei messaggi nella r
 
 | Campo              | Type   | Descrizione  |
 |--------------------|--------|--------------|
-| tgt_client_key     | string | Chiave client con codifica Base64 (segreto). Questa chiave è il segreto client usato per proteggere TGT. In questo scenario senza password, il segreto client viene generato dal server come parte di ogni richiesta TGT e quindi restituito al client nella risposta. |
+| tgt_client_key     | Stringa | Chiave client con codifica Base64 (segreto). Questa chiave è il segreto client usato per proteggere TGT. In questo scenario senza password, il segreto client viene generato dal server come parte di ogni richiesta TGT e quindi restituito al client nella risposta. |
 | tgt_key_type       | INT    | Il tipo di chiave di servizi di dominio Active Directory locale utilizzato sia per la chiave client che per la chiave di sessione Kerberos inclusa nella KERB_MESSAGE_BUFFER. |
-| tgt_message_buffer | string | KERB_MESSAGE_BUFFER con codifica Base64. |
+| tgt_message_buffer | Stringa | KERB_MESSAGE_BUFFER con codifica Base64. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

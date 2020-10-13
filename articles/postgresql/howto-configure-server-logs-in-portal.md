@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 3b52cea1d440506caf5b8244c9643719edd8755c
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704273"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurare e accedere a database di Azure per PostgreSQL: log a server singolo dal portale di Azure
@@ -44,7 +44,7 @@ Dalla pagina **parametri server** è possibile tornare all'elenco dei log chiude
 ## <a name="view-list-and-download-logs"></a>Visualizzare l'elenco e scaricare i log
 Una volta iniziata la registrazione, è possibile visualizzare un elenco di log disponibili e scaricare i singoli file di log. 
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 
 2. Selezionare il server di Database di Azure per PostgreSQL.
 

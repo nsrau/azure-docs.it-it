@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b32ef80ad670e369315ec3ddb6972aef30bec27a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627568"
+ms.locfileid: "91876550"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -93,11 +93,9 @@ Quando richiesto, immettere la password per l'account dell'utente.
 
 ## <a name="monitor-replication"></a>Monitorare la replica
 
-Database di Azure per MySQL offre la metrica **Replication lag in seconds** (Intervallo di replica in secondi) in Monitoraggio di Azure. Questa metrica è disponibile per solo le repliche.
+Database di Azure per MySQL offre la metrica **Replication lag in seconds** (Intervallo di replica in secondi) in Monitoraggio di Azure. Questa metrica è disponibile per solo le repliche. Questa metrica viene calcolata usando la metrica `seconds_behind_master` disponibile nel comando `SHOW SLAVE STATUS` di MySQL. Impostare un avviso per essere informati quando l'intervallo di replica raggiunge un valore non accettabile per il carico di lavoro.
 
-Questa metrica viene calcolata usando la metrica `seconds_behind_master` disponibile nel comando `SHOW SLAVE STATUS` di MySQL.
-
-Impostare un avviso per essere informati quando l'intervallo di replica raggiunge un valore non accettabile per il carico di lavoro.
+Se viene visualizzato un ritardo di replica maggiore, vedere [risolvere i problemi di latenza di replica](howto-troubleshoot-replication-latency.md) per risolvere i problemi e comprendere le possibili cause
 
 ## <a name="stop-replication"></a>Arrestare la replica
 
