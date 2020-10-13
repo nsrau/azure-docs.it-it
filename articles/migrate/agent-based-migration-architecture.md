@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357166"
 ---
 # <a name="agent-based-migration-architecture"></a>Architettura di migrazione basata su agente
@@ -38,7 +38,7 @@ Il diagramma illustra i componenti necessari per la migrazione basata su agenti.
 
 Nella tabella vengono riepilogati i componenti utilizzati per la migrazione basata su agenti.
 
-**Componente** | **Informazioni dettagliate** | **Installazione**
+**Componente** | **Dettagli** | **Installazione**
 --- | --- | ---
 **Appliance di replica** | Il dispositivo di replica (server di configurazione/server di elaborazione) è un computer locale che funge da Bridge tra l'ambiente locale e la migrazione del server. L'appliance individua l'inventario del computer locale, in modo che la migrazione del server possa orchestrare la replica e la migrazione. Il dispositivo è costituito da due componenti:<br/><br/> **Server di configurazione**: si connette alla migrazione del server e coordina la replica.<br/> **Server di elaborazione**: gestisce la replica dei dati. Il server di elaborazione riceve i dati del computer, li comprime e li crittografa e li invia ad Azure. In Azure, la migrazione del server scrive i dati in Managed Disks. | Per impostazione predefinita, il server di elaborazione viene installato insieme al server di configurazione nell'appliance di replica.
 **Servizio Mobility** | Il servizio Mobility è un agente installato in ogni computer di cui si vuole eseguire la replica e la migrazione. Invia i dati di replica dal computer al server di elaborazione. | I file di installazione per versioni diverse del servizio Mobility si trovano nell'appliance di replica. Scaricare e installare l'agente necessario, in base al sistema operativo e alla versione del computer che si vuole replicare.

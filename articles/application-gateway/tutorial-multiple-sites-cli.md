@@ -10,10 +10,10 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595844"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
@@ -124,7 +124,7 @@ Aggiungere i listener necessari per instradare il traffico usando [AZ Network Ap
 
 >[!NOTE]
 > Con il gateway applicazione o lo SKU WAF V2, è anche possibile configurare fino a 5 nomi host per listener ed è possibile usare caratteri jolly nel nome host. Per ulteriori informazioni, vedere [nomi host con caratteri jolly nel listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Per usare più nomi host e caratteri jolly in un listener usando l'interfaccia della riga di comando di Azure, è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole. Ad esempio, usare `--host-names "*.contoso.com,*.fabrikam.com"`
+>Per usare più nomi host e caratteri jolly in un listener usando l'interfaccia della riga di comando di Azure, è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole. Ad esempio: `--host-names "*.contoso.com,*.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

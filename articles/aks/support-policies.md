@@ -4,12 +4,12 @@ description: Informazioni sui criteri di supporto del servizio Azure Kubernetes,
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888976"
+ms.locfileid: "91892711"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto del servizio Azure Kubernetes
 
@@ -130,8 +130,7 @@ Sebbene sia possibile accedere a e modificare i nodi dell'agente, questa operazi
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Cluster interrotti o deallocati
 
-Come descritto in precedenza, la deallocazione manuale di tutti i nodi del cluster tramite l'API/CLI/portale di IaaS rende il cluster non supportato.
-L'unico modo supportato per arrestare/deallocare tutti i nodi è quello di [arrestare il cluster AKS, che conserverà lo stato del cluster per un massimo di 12 mesi.
+Come affermato in precedenza, la deallocazione manuale di tutti i nodi del cluster tramite le API IaaS/CLI/Portal rende il cluster non supportato. L'unico modo supportato per arrestare/deallocare tutti i nodi consiste nell' [arrestare il cluster AKS](start-stop-cluster.md#stop-an-aks-cluster), che consente di mantenere lo stato del cluster per un massimo di 12 mesi.
 
 I cluster interrotti per più di 12 mesi non conserveranno più lo stato. 
 

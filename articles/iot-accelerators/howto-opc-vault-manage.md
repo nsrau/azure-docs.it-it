@@ -9,16 +9,16 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281916"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gestire il servizio certificati dell'insieme di credenziali OPC
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 Questo articolo illustra le attività amministrative per il servizio di gestione certificati dell'insieme di credenziali OPC in Azure. Sono incluse informazioni su come rinnovare i certificati della CA emittente, su come rinnovare l'elenco di revoche di certificati (CRL) e su come concedere e revocare l'accesso utente.
 
@@ -68,7 +68,7 @@ Per impostazione predefinita, un utente autenticato nel tenant può accedere al 
 
 ### <a name="add-user"></a>Add User
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.
 3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione predefinita, il `resourceGroupName-service` ).
 4. Passare a **utenti e gruppi**.
@@ -80,7 +80,7 @@ Per impostazione predefinita, un utente autenticato nel tenant può accedere al 
 
 ### <a name="remove-user"></a>Rimuovi utente
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.
 3. Scegliere la registrazione del microservizio dell'insieme di credenziali OPC (per impostazione predefinita, il `resourceGroupName-service` ).
 4. Passare a **utenti e gruppi**.
@@ -95,7 +95,7 @@ Per impostazione predefinita, l'identità del servizio dispone solo di autorizza
 
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>Per un ruolo responsabile approvazione, è necessario aggiungere le autorizzazioni seguenti a Key Vault
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
 3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.
@@ -109,7 +109,7 @@ Per impostazione predefinita, l'identità del servizio dispone solo di autorizza
 
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Per un ruolo di amministratore, è necessario aggiungere le autorizzazioni seguenti a Key Vault
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
 3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.
@@ -123,7 +123,7 @@ Per impostazione predefinita, l'identità del servizio dispone solo di autorizza
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Rimuovere i criteri di accesso utente dal Azure Key Vault
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 2. Passare all'insieme di credenziali OPC `resourceGroupName` , usato durante la distribuzione.
 3. Passare alla Key Vault `resourceGroupName-xxxxx` .
 4. Passare a **criteri di accesso**.

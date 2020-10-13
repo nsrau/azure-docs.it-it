@@ -12,10 +12,10 @@ ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360753"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
@@ -173,7 +173,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
       URL facoltativo con firma di accesso condiviso [ad hoc del servizio](../../storage/common/storage-sas-overview.md) in un contenitore scrivibile in Azure. Il risultato viene archiviato in questo contenitore. La firma di accesso condiviso con criteri di accesso archiviati **non** è supportata. Quando non è specificato, Microsoft archivia i risultati in un contenitore di archiviazione gestito da Microsoft. Quando la trascrizione viene eliminata chiamando la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), verranno eliminati anche i dati del risultato.
 :::row-end:::
 
-### <a name="storage"></a>Archiviazione
+### <a name="storage"></a>Archiviazione:
 
 La trascrizione batch può leggere l'audio da un URI Internet visibile pubblicamente ed è in grado di leggere audio o scrivere trascrizioni usando un URI SAS con [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
 ms.openlocfilehash: d37034057f7d1bc39c065110b20a8a2cdce13b62
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360498"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Esercitazione: configurare mixpanel per il provisioning utenti automatico
@@ -45,7 +45,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e mixpanel](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-mixpanel-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare mixpanel per supportare il provisioning con Azure AD
+## <a name="step-2-configure-mixpanel-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare mixpanel per supportare il provisioning con Azure AD
 1. Per la configurazione di SSO e la richiesta di un dominio, fare riferimento a [questo](https://help.mixpanel.com/hc/articles/360036428871-Single-Sign-On).
 2. Successivamente, sarà necessario generare un token SCIM nella scheda SCIM della sezione sicurezza dell'accesso delle impostazioni dell'organizzazione.
 ![Token mixpanel](./media/mixpanel-provisioning-tutorial/mixpanelscim.png)

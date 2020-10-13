@@ -11,10 +11,10 @@ ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
 ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617758"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in SQL Istanza gestita
@@ -125,7 +125,7 @@ Lo stato dell'operazione può essere rilevato tramite la revisione delle rispost
 
 ## <a name="monitor-the-failover"></a>Monitorare il failover
 
-Per monitorare lo stato del failover manuale avviato dall'utente, eseguire la query T-SQL seguente nel client preferito, ad esempio SSMS, in SQL Istanza gestita. Verrà letta la vista di sistema sys. dm_hadr_fabric_replica_states e le repliche di report disponibili nell'istanza. Aggiornare la stessa query dopo l'avvio del failover manuale.
+Per monitorare lo stato del failover manuale avviato dall'utente, eseguire la query T-SQL seguente nel client preferito, ad esempio SSMS, in SQL Istanza gestita. Verrà letta la vista di sistema sys.dm_hadr_fabric_replica_states e le repliche di report disponibili nell'istanza. Aggiornare la stessa query dopo l'avvio del failover manuale.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states

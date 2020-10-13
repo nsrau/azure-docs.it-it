@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: dc83ea424aca1166d2b9c45b45255fbca865a7d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278754"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Esercitazione: configurare RingCentral per il provisioning utenti automatico
@@ -44,7 +44,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e RingCentral](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare RingCentral per supportare il provisioning con Azure AD
+## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare RingCentral per supportare il provisioning con Azure AD
 
 1. Accedere a [RingCentral Admin Console](https://login.ringcentral.com/sw.html). Passare a **strumenti > integrazione della directory**.
 

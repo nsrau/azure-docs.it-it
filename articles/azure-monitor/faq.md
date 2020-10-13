@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/15/2020
-ms.openlocfilehash: b524b0d8f24f011065772495bc2bb283a3c90d4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/08/2020
+ms.openlocfilehash: 06b92d982b42d97849994b4a21696b72461efe1f
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760254"
+ms.locfileid: "91893765"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -322,7 +322,6 @@ Viene cercato l'indirizzo IP (IPv4 o IPv6) del client Web tramite [GeoLite2](htt
 * Telemetria del server: viene raccolto l'indirizzo IP del client. L'indirizzo non viene raccolto se è impostato `X-Forwarded-For`.
 * Per altre informazioni su come vengono raccolti i dati relativi all'indirizzo IP e alla georilevazione in Application Insights fare riferimento a questo [articolo](./app/ip-collection.md).
 
-
 È possibile configurare `ClientIpHeaderTelemetryInitializer` per ottenere l'indirizzo IP da un'intestazione diversa. Ad esempio, in alcuni sistemi viene spostato da un proxy, da un bilanciamento del carico o da una rete CDN a `X-Originating-IP`. [Altre informazioni](https://apmtips.com/posts/2016-07-05-client-ip-address/)
 
 È possibile [usare Power BI](app/export-power-bi.md ) per visualizzare i dati di telemetria della richiesta in una mappa.
@@ -398,6 +397,29 @@ Ogni elemento trasmesso include una proprietà `itemCount` che visualizza il num
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
+### <a name="how-do-i-move-an-application-insights-resource-to-a-new-region"></a>Ricerca per categorie spostare una risorsa Application Insights in una nuova area?
+
+Il trasferimento di risorse Application Insights esistenti da un'area a un'altra **non è al momento supportato**. **Non è possibile eseguire la migrazione** dei dati cronologici raccolti in una nuova area. L'unica soluzione alternativa parziale consiste nel:
+
+1. Creare una nuova risorsa Application Insights ([classica](app/create-new-resource.md) o [basata sull'area di lavoro](/app/create-workspace-resource.md)) nella nuova area.
+2. Ricreare tutte le personalizzazioni univoche specifiche per la risorsa originale nella nuova risorsa.
+3. Modificare l'applicazione per usare la [chiave di strumentazione](app/create-new-resource.md#copy-the-instrumentation-key) della nuova regione o la [stringa di connessione](app/sdk-connection-string.md).  
+4. Verificare che tutti gli elementi continuino a funzionare come previsto con la nuova risorsa Application Insights. 
+5. A questo punto è possibile eliminare la risorsa originale che comporterà la **perdita di tutti i dati cronologici**. In alternativa, mantenere la risorsa originale per la creazione di report cronologici per la durata delle impostazioni di conservazione dei dati.
+
+Le personalizzazioni univoche che in genere devono essere ricreate o aggiornate manualmente per la risorsa nella nuova area includono, ad esempio,:
+
+- Ricreare dashboard e cartelle di lavoro personalizzati. 
+- Ricreare o aggiornare l'ambito di qualsiasi avviso di log/metrica personalizzato. 
+- Ricreare gli avvisi di disponibilità.
+- Ricreare le impostazioni di controllo di accesso Role-Based personalizzate (RBAC) necessarie per consentire agli utenti di accedere alla nuova risorsa. 
+- Replicare le impostazioni che coinvolgono il campionamento di inserimento, la conservazione dei dati, il limite giornaliero e l'abilitazione delle metriche personalizzate. Queste impostazioni vengono controllate tramite il riquadro **utilizzo e costi stimati** .
+- Qualsiasi integrazione basata su chiavi API, ad esempio le [annotazioni sulla versione](/app/annotations.md), il [canale di controllo sicuro di metriche attive](app/live-stream.md#secure-the-control-channel) e così via. Sarà necessario generare nuove chiavi API e aggiornare l'integrazione associata. 
+- È necessario configurare nuovamente l'esportazione continua nelle risorse classiche.
+- È necessario configurare di nuovo le impostazioni di diagnostica nelle risorse basate sull'area di lavoro.
+
+> [!NOTE]
+> Se la risorsa che si sta creando in una nuova area sta sostituendo una risorsa classica, si consiglia di esplorare i vantaggi della [creazione di una nuova risorsa basata sull'area di lavoro](app/create-workspace-resource.md) o [di eseguire la migrazione della risorsa esistente a basata sull'area di lavoro](app/convert-classic-resource.md). 
 
 ### <a name="automation"></a>Automazione
 

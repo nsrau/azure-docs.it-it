@@ -3,18 +3,19 @@ title: Uso di webhook come gestori degli eventi di Griglia di eventi di Azure
 description: Spiega in che modo usare i webhook come gestori degli eventi di Griglia di eventi di Azure. È possibile usare i runbook di Automazione di Azure e le app per la logica come gestori degli eventi tramite webhook.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105609"
+ms.locfileid: "91875802"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhook, runbook di Automazione e app per la logica come gestori degli eventi di Griglia di eventi di Azure
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue altre azioni per elaborare l'evento. Diversi servizi di Azure vengono automaticamente configurati per gestire gli eventi. È anche possibile usare un webhook per la gestione degli eventi. Non è necessario che il webhook sia ospitato in Azure per gestire gli eventi. Griglia di eventi supporta solo endpoint del webhook HTTPS.
 
 > [!NOTE]
-> È possibile usare i runbook di Automazione di Azure e le app per la logica come gestori degli eventi tramite webhook. 
+> - È possibile usare i runbook di Automazione di Azure e le app per la logica come gestori degli eventi tramite webhook. 
+> - Anche se è possibile usare **webhook** come **tipo di endpoint** per configurare una funzione di Azure come gestore eventi, usare la **funzione di Azure** come tipo di endpoint. Per altre informazioni, vedere [funzione di Azure come gestore dell'evento](handler-functions.md).
 
 ## <a name="webhooks"></a>Webhook
 Per una panoramica ed esempi sull'uso dei webhook come gestori eventi, vedere gli articoli seguenti. 
