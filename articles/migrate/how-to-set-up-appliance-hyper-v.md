@@ -4,10 +4,10 @@ description: Informazioni su come configurare un appliance Azure Migrate per la 
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448084"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurare un'appliance per le VM Hyper-V
@@ -27,10 +27,10 @@ Dopo aver creato l'appliance, verificare che sia in grado di connettersi ad Azur
 
 Per configurare l'appliance usando un modello VHD:
 
-- Specificare un nome per il dispositivo e generare una chiave del progetto Azure Migrate nel portale.
+- Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
 - Scaricare un disco rigido virtuale Hyper-V compresso dal portale di Azure.
 - Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
-- Configurare il dispositivo per la prima volta e registrarlo con il progetto Azure Migrate usando la chiave del progetto Azure Migrate.
+- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generare la chiave del progetto Azure Migrate
 
@@ -125,7 +125,7 @@ Configurare l'appliance per la prima volta.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegare le credenziali per i dischi rigidi virtuali SMB
 
-Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare la delega delle credenziali dall'appliance agli host Hyper-V. Per eseguire questa operazione dal dispositivo:
+Se i dischi rigidi virtuali sono in esecuzione in SMB, è necessario abilitare la delega delle credenziali dall'appliance agli host Hyper-V. Per eseguire questa operazione dall'appliance:
 
 1. Nell'appliance VM eseguire questo comando. HyperVHost1/HyperVHost2 sono nomi host di esempio.
 

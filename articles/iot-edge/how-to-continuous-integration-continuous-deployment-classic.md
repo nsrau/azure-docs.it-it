@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447804"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integrazione continua e distribuzione continua nei dispositivi Azure IoT Edge (Editor classico)
@@ -103,7 +103,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
     | Parametro | Descrizione |
     | --- | --- |
     | Nome visualizzato | Il nome visualizzato viene aggiornato automaticamente quando viene modificato il campo dell'azione. |
-    | Operazione | Selezionare **Compila immagini del modulo**. |
+    | Azione | Selezionare **Compila immagini del modulo**. |
     | .template.jssu file | Selezionare i puntini di sospensione (**...**) e passare al file **deployment.template.json** nel repository che contiene la soluzione IoT Edge. |
     | Piattaforma predefinita | Selezionare il sistema operativo appropriato per i moduli in base al dispositivo IoT Edge di destinazione. |
     | Variabili di output | Consente di specificare un nome di riferimento da associare al percorso del file in cui viene generato il deployment.jsnel file, ad esempio **Edge**. |
@@ -119,7 +119,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. La pipeline v
     | Parametro | Descrizione |
     | --- | --- |
     | Nome visualizzato | Il nome visualizzato viene aggiornato automaticamente quando viene modificato il campo dell'azione. |
-    | Operazione | Selezionare le **Immagini del modulo push**. |
+    | Azione | Selezionare le **Immagini del modulo push**. |
     | Tipo di registro contenitori | Usare il tipo predefinito: `Azure Container Registry` . |
     | Sottoscrizione di Azure | Scegliere la propria sottoscrizione. |
     | Registro Azure Container | selezionare il tipo di registro contenitori che si usa per archiviare le immagini dei moduli. A seconda del tipo di registro scelto, il modulo cambia. Se si sceglie **Registro Azure Container**, usare gli elenchi a discesa per selezionare la sottoscrizione di Azure e il nome del registro contenitori. Se si sceglie **Generic Container Registry** (Registro contenitori generico), selezionare **Nuovo** per creare una connessione al servizio di registro. |

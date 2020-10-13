@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 375c97179351e1dbf90ce4488114cb232d6dd450
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121324"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876006"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso di IDENTITY per la creazione di chiavi surrogate nel pool SQL sinapsi
 
@@ -26,7 +26,8 @@ In questo articolo sono disponibili indicazioni ed esempi per l'uso della propri
 
 Una chiave surrogata in una tabella è una colonna con un identificatore univoco per ogni riga. La chiave non viene generata dai dati della tabella. I progettisti di modelli di dati preferiscono creare chiavi surrogate nelle tabelle durante la progettazione dei modelli per i data warehouse. È possibile usare la proprietà IDENTITY per raggiungere questo obiettivo in modo semplice ed efficace senza effetti sulle prestazioni di caricamento.
 > [!NOTE]
-> Il valore IDENTITY in sinapsi SQL non è necessariamente univoco se l'utente inserisce in modo esplicito un valore duplicato con "SET IDENTITY_INSERT ON" o l'identità dei RESEED. Per informazioni dettagliate, vedere [Create Table (Transact-SQL) Identity (proprietà)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+> In Azure sinapsi Analytics, il valore IDENTITY aumenta autonomamente in ogni distribuzione e non si sovrappone ai valori IDENTITY in altre distribuzioni.  Non è garantito che il valore IDENTITY in sinapsi sia univoco se l'utente inserisce in modo esplicito un valore duplicato con l'identità "SET IDENTITY_INSERT ON" o reseeds. Per informazioni dettagliate, vedere [Create Table (Transact-SQL) Identity (proprietà)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creazione di una tabella con una colonna IDENTITY
 
@@ -163,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Non è attualmente possibile usare `CREATE TABLE AS SELECT` per il caricamento di dati in una tabella con una colonna IDENTITY.
 >
 
-Per altre informazioni sul caricamento dei dati, vedere [progettazione di Extract, Load e Transform (ELT) per il pool SQL sinapsi](design-elt-data-loading.md) e [caricamento delle procedure consigliate](guidance-for-loading-data.md).
+Per altre informazioni sul caricamento dei dati, vedere [progettazione di Extract, Load e Transform (ELT) per il pool SQL sinapsi](design-elt-data-loading.md) e  [caricamento delle procedure consigliate](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Viste di sistema
 

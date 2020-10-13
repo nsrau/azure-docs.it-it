@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 8/13/2020
 ms.openlocfilehash: 9e1bd3f555873503aa1f6ed9c804aced3620fb9e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627517"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
@@ -23,7 +23,7 @@ Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronol
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 
-|Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
+|Metrica|Nome visualizzato per la metrica|Unità|Description|
 |---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
