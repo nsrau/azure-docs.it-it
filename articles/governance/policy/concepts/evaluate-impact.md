@@ -1,18 +1,18 @@
 ---
 title: Valutare l'impatto di una nuova definizione di Criteri di Azure
 description: Comprendere il processo da seguire quando si introduce una nuova definizione dei criteri nell'ambiente di Azure.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544703"
+ms.locfileid: "91873868"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Valutare l'impatto di una nuova definizione di Criteri di Azure
 
-Criteri di Azure è uno strumento potente che consente di gestire le risorse di Azure in base agli standard aziendali e di soddisfare le esigenze di conformità. Quando utenti, processi o pipeline creano o aggiornano le risorse, Criteri di Azure esamina la richiesta. Quando il risultato della definizione dei criteri è [Accoda](./effects.md#deny) o [DeployIfNotExists](./effects.md#deployifnotexists), Criteri di Azure modifica o aggiunge la richiesta. Quando il risultato della definizione dei criteri è [Controlla](./effects.md#audit) o [AuditIfNotExists](./effects.md#auditifnotexists), Criteri di Azure crea una voce del log attività. Quando il risultato della definizione dei criteri è [Nega](./effects.md#deny), Criteri di Azure interrompe la creazione o la modifica della richiesta.
+Criteri di Azure è uno strumento potente che consente di gestire le risorse di Azure in base agli standard aziendali e di soddisfare le esigenze di conformità. Quando utenti, processi o pipeline creano o aggiornano le risorse, Criteri di Azure esamina la richiesta. Quando l'effetto della definizione dei criteri è [Modify](./effects.md#modify), [Append](./effects.md#deny) o [DeployIfNotExists](./effects.md#deployifnotexists), Policy modifica la richiesta o la aggiunge. Quando l'effetto della definizione dei criteri è [Audit](./effects.md#audit) o [AuditIfNotExists](./effects.md#auditifnotexists), Policy causa la creazione di una voce del log attività per le risorse nuove e aggiornate. Quando il risultato della definizione dei criteri è [Nega](./effects.md#deny), Criteri di Azure interrompe la creazione o la modifica della richiesta.
 
 Questi sono i risultati desiderati quando i criteri sono definiti correttamente. È, tuttavia, importante verificare che un nuovo criterio funzioni come previsto prima di consentire la modifica o il blocco dell'attività. La convalida deve garantire che vengano determinate come non conformi solo le risorse desiderate e che nei risultati non vengano incluse erroneamente le risorse non conformi (_falsi positivi_).
 

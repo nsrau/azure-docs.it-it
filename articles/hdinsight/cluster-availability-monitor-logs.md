@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88163731"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Come monitorare la disponibilità dei cluster con i log di monitoraggio di Azure in HDInsight
@@ -99,7 +99,7 @@ Verrà aperto **Aggiungi gruppo di azione**. Scegliere un **nome del gruppo di a
 > [!NOTE]
 > Esistono diverse altre azioni che possono essere attivate da un avviso oltre a un messaggio di posta elettronica/SMS/push/Voice, ad esempio una funzione di Azure, LogicApp, webhook, ITSM e Runbook di automazione. [Ulteriori informazioni.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
 
-Verrà aperta la **posta elettronica/SMS/push/Voice**. Scegliere un **nome** per il destinatario, **selezionare** la casella **posta elettronica** e digitare un indirizzo di posta elettronica a cui si vuole inviare l'avviso. Selezionare **OK** in **posta elettronica/SMS/push/voce**, quindi in **Aggiungi gruppo di azioni** per completare la configurazione del gruppo di azioni.
+Verrà aperta la **posta elettronica/SMS/push/Voice**. Scegliere un **nome** per il destinatario, **selezionare** la casella **posta elettronica** e digitare un indirizzo di posta elettronica a cui si vuole inviare l'avviso. Selezionare **OK** in  **posta elettronica/SMS/push/voce**, quindi in **Aggiungi gruppo di azioni** per completare la configurazione del gruppo di azioni.
 
 ![Regola di avviso crea il gruppo di azioni Aggiungi](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 

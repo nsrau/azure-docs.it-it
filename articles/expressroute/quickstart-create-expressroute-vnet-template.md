@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016555"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759238"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Avvio rapido: Creare un circuito ExpressRoute con peering privato usando un modello di Resource Manager
 
@@ -92,11 +92,11 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
 
 1. Il gruppo di risorse dovrà contenere le risorse illustrate qui:
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Gruppo di risorse della distribuzione ExpressRoute":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Modello di Resource Manager per ExpressRoute: output della distribuzione con PowerShell":::
 
 1. Selezionare il circuito ExpressRoute **er-ck01** per verificare che lo stato del circuito sia **abilitato**, lo stato del provider sia **senza provisioning** e lo stato del peering privato sia **con provisioning**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Circuito della distribuzione ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Modello di Resource Manager per ExpressRoute: output della distribuzione con PowerShell":::
 
 > [!NOTE]
 > Per completare il processo di provisioning prima di collegare la rete virtuale al circuito, è necessario chiamare il provider.
@@ -120,11 +120,7 @@ In questo argomento di avvio rapido sono stati creati questi componenti:
 * IP pubblico
 * gruppi di sicurezza di rete
 
-Per altre informazioni sul collegamento di una rete virtuale a un circuito, continuare con le esercitazioni su ExpressRoute.
+Per informazioni su come collegare una rete virtuale a un circuito, continuare con le esercitazioni su ExpressRoute.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni su ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* Per ulteriori informazioni sui flussi di lavoro ExpressRoute, vedere [Flussi di lavoro ExpressRoute](expressroute-workflows.md).
-* Per altre informazioni sul peering del circuito, vedere l'articolo relativo ai [circuiti ExpressRoute e domini di routing](expressroute-circuit-peerings.md)
-* Per ulteriori informazioni sull’uso delle reti virtuali, vedere [Panoramica sulla rete virtuale](../virtual-network/virtual-networks-overview.md).

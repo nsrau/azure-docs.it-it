@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265936"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale
@@ -80,7 +80,7 @@ Esempio 2:
 
 Una sessione del browser persistente consente agli utenti di rimanere connessi dopo la chiusura e la riapertura della finestra del browser.
 
-Il Azure AD predefinito per la persistenza della sessione del browser consente agli utenti dei dispositivi personali di scegliere se mantenere la sessione in modo permanente visualizzando un "rimanere connesso?" messaggio di richiesta dopo l'autenticazione riuscita. Se la persistenza del browser è configurata in AD FS usando le indicazioni fornite nell'articolo [ad FS impostazioni di Single Sign-on](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+Il Azure AD predefinito per la persistenza della sessione del browser consente agli utenti dei dispositivi personali di scegliere se mantenere la sessione in modo permanente visualizzando un "rimanere connesso?" messaggio di richiesta dopo l'autenticazione riuscita. Se la persistenza del browser è configurata in AD FS usando le linee guida disponibili nell'articolo [ad FS le singole impostazioni di Sign-On](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 ), si conformeranno a tale criterio e si renderà persistente anche la sessione di Azure ad. È anche possibile specificare se gli utenti nel tenant visualizzano il "rimanere connessi?" richiedere modificando l'impostazione appropriata nel riquadro branding dell'azienda in portale di Azure seguendo le istruzioni riportate nell'articolo [personalizzare la pagina di accesso Azure ad](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Configurazione di controlli della sessione di autenticazione
@@ -128,7 +128,7 @@ In Azure AD i dispositivi Windows registrati, l'accesso al dispositivo viene con
 
 ## <a name="validation"></a>Convalida
 
-Usare lo strumento simulazione per simulare un account di accesso dell'utente all'applicazione di destinazione e altre condizioni in base alla configurazione dei criteri. I controlli di gestione della sessione di autenticazione vengono visualizzati nel risultato dello strumento.
+Utilizzare lo strumento What-If per simulare l'accesso dell'utente all'applicazione di destinazione e altre condizioni in base alla configurazione dei criteri. I controlli di gestione della sessione di autenticazione vengono visualizzati nel risultato dello strumento.
 
 ![Risultati dell'accesso condizionale What If strumento](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 

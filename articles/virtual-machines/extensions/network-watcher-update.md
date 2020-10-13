@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: c386685d63894472623ffc4392a529541a91391c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd3fff2d438bbf804e35f04db0cfae15eea5e782
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410342"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973340"
 ---
 # <a name="how-to-update-the-network-watcher-extension-to-the-latest-the-version"></a>Come aggiornare l'estensione Network Watcher alla versione più recente 
 
@@ -114,4 +114,4 @@ Se l'aggiornamento automatico è impostato su true per l'estensione Network Watc
 
 ## <a name="support"></a>Supporto
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile fare riferimento alla documentazione dell'estensione Network Watcher ([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux), [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows)) oppure contattare gli esperti di Azure nei [Forum MSDN e stack overflow di Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile fare riferimento alla documentazione dell'estensione Network Watcher ([Linux](./network-watcher-linux.md), [Windows](./network-watcher-windows.md)) oppure contattare gli esperti di Azure nei [Forum MSDN e stack overflow di Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

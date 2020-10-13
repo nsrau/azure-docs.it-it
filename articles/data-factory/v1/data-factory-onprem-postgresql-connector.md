@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082835"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
@@ -44,7 +44,7 @@ Il gateway è necessario anche se il database PostgreSQL è ospitato in una macc
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
 Affinché il gateway di gestione dati si connetta al database PostgreSQL, installare il [provider di dati Ngpsql per PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) scegliendo una versione tra la 2.0.12 e la 3.1.9 nello stesso sistema del gateway di gestione dati. Sono supportate le versioni di PostgreSQL a partire dalla 7.4.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati PostgreSQL usando diversi strumenti/API.
 
 - Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
@@ -86,7 +86,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che include il set di dati PostgreSQL) presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database PostgreSQL a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -312,38 +312,38 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| carattere [(n)] |char [(n)] |Stringa |
-| variante carattere [(n)] |varchar [(n)] |Stringa |
-| cid | |Stringa |
-| cidr | |Stringa |
+| carattere [(n)] |char [(n)] |string |
+| variante carattere [(n)] |varchar [(n)] |string |
+| cid | |string |
+| cidr | |string |
 | circle | |Byte[], String |
-| date | |Datetime |
-| daterange | |Stringa |
+| Data | |Datetime |
+| daterange | |string |
 | double precision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |Stringa |
-| int4range | |Stringa |
-| int8range | |Stringa |
-| integer |int, int4 |Int32 |
+| intarry | |string |
+| int4range | |string |
+| int8range | |string |
+| numero intero |int, int4 |Int32 |
 | intervallo [campi] [(p)] | |TimeSpan |
-| json | |Stringa |
+| json | |string |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
-| numerico [(p, s)] |decimale [(p, s)] |Decimal |
-| numrange | |Stringa |
+| numerico [(p, s)] |decimale [(p, s)] |Decimale |
+| numrange | |string |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
 | point | |Byte[], String |
 | polygon | |Byte[], String |
 | real |float4 |Single |
-| smallint |int2 |Int16 |
+| SMALLINT |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Stringa |
+| text | |string |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

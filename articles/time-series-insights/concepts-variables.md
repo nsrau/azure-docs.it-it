@@ -7,10 +7,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653707"
 ---
 # <a name="time-series-model-variables"></a>Variabili del modello Time Series
@@ -29,7 +29,7 @@ Nella tabella seguente vengono illustrate le proprietà rilevanti per ogni tipo 
 
 ## <a name="numeric-variables"></a>Variabili numeriche
 
-| Proprietà Variable | Descrizione |
+| Proprietà Variable | Description |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Valore di variabile | Valori di telemetria usati per il calcolo proveniente dal dispositivo o dai sensori oppure trasformati usando le espressioni della serie temporale. Le variabili di tipo numerico devono essere di tipo *Double*.|
@@ -59,7 +59,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 
 ## <a name="categorical-variables"></a>Variabili categoriche
 
-| Proprietà Variable | Descrizione |
+| Proprietà Variable | Description |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Valore di variabile | Valori di telemetria usati per il calcolo proveniente dal dispositivo o dai sensori. Le variabili di tipo categorico devono essere *Long* o *String*. |
@@ -99,7 +99,7 @@ Le variabili sono conformi all'esempio JSON seguente:
 
 ## <a name="aggregate-variables"></a>Variabili di aggregazione
 
-| Proprietà Variable | Descrizione |
+| Proprietà Variable | Description |
 | --- | ---|
 | Filtro di variabile | I filtri sono clausole condizionali facoltative per limitare il numero di righe da considerare per il calcolo. |
 | Aggregazione di variabile | Eseguire calcoli tramite le [funzioni di aggregazione supportate per i tipi di variabile di aggregazione](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |

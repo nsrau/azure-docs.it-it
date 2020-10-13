@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2a931b1a3c3f88af1abec4fd1810aae09c849c48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940854"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Creare un'istanza gestita di SQL di Azure in Azure Arc
@@ -62,7 +62,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 >
 >  Quando si specifica l'allocazione di memoria e l'allocazione vCore, usare questa formula per assicurarsi che la creazione abbia esito positivo. per ogni vCore è necessario almeno 4 GB di RAM di capacità disponibile nel nodo Kubernetes in cui verrà eseguito il Pod dell'istanza gestita di SQL.
 >
->  Quando si crea un'istanza SQL, non usare maiuscole nel nome se si esegue il provisioning in Azure
+>  Quando si crea un'istanza di SQL, non usare maiuscole nel nome se si esegue il provisioning in Azure
 >
 >  Per elencare le classi di archiviazione disponibili nell'esecuzione del cluster Kubernetes `kubectl get storageclass` 
 

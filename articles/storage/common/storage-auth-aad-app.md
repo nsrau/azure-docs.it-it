@@ -10,18 +10,18 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714758"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939342"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Acquisire un token da Azure AD per autorizzare le richieste da un'applicazione client
 
 Un vantaggio fondamentale dell'uso di Azure Active Directory (Azure AD) con l'archiviazione BLOB o l'archiviazione di Accodamento di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce il token di accesso all'applicazione e l'applicazione può usare il token di accesso per autorizzare le richieste all'archivio BLOB di Azure o all'archiviazione code.
 
-Questo articolo illustra come configurare un'applicazione nativa o un'applicazione Web per l'autenticazione con Microsoft Identity Platform 2,0 usando un'applicazione di esempio disponibile per il download. L'applicazione di esempio include .NET, ma altri linguaggi utilizzano un approccio simile. Per ulteriori informazioni sulla piattaforma Microsoft Identity Platform 2,0, vedere [Panoramica di Microsoft Identity Platform (v 2.0)](../../active-directory/develop/v2-overview.md).
+Questo articolo illustra come configurare un'applicazione nativa o un'applicazione Web per l'autenticazione con la piattaforma di identità Microsoft usando un'applicazione di esempio disponibile per il download. L'applicazione di esempio include .NET, ma altri linguaggi utilizzano un approccio simile. Per ulteriori informazioni sulla piattaforma Microsoft Identity, vedere [Panoramica di Microsoft Identity Platform](../../active-directory/develop/v2-overview.md).
 
 Per una panoramica del flusso di concessione del codice di OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -247,7 +247,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity 2,0 supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app. Per ulteriori informazioni sul consenso incrementale, vedere il [consenso incrementale e dinamico](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Il consenso è il processo con cui un utente autorizza un'applicazione ad accedere per proprio conto a risorse protette. La piattaforma Microsoft Identity supporta il consenso incrementale, ovvero un'entità di sicurezza può richiedere inizialmente un set minimo di autorizzazioni e aggiungere le autorizzazioni nel tempo in base alle esigenze. Quando il codice richiede un token di accesso, specificare l'ambito delle autorizzazioni necessarie per l'app. Per ulteriori informazioni sul consenso incrementale, vedere il [consenso incrementale e dinamico](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## <a name="view-and-run-the-completed-sample"></a>Visualizzare ed eseguire l'esempio completato
 
