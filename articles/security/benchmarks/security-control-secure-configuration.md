@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400093"
 ---
 # <a name="security-control-secure-configuration"></a>Controllo di sicurezza: configurazione sicura
@@ -22,7 +22,7 @@ Consente di stabilire, implementare e gestire attivamente (rilevare, segnalare, 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.1 | 5,1 | Customer |
+| 7.1 | 5.1 | Customer |
 
 Usare gli alias di criteri di Azure per creare criteri personalizzati per controllare o applicare la configurazione delle risorse di Azure. È anche possibile usare le definizioni di criteri di Azure predefinite.
 
@@ -42,7 +42,7 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.2 | 5,1 | Customer |
+| 7.2 | 5.1 | Customer |
 
 Usare le raccomandazioni del Centro sicurezza di Azure per gestire le configurazioni di sicurezza in tutte le risorse di calcolo.  Inoltre, è possibile usare immagini del sistema operativo personalizzate o la configurazione dello stato di automazione di Azure per stabilire la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.
 
@@ -74,7 +74,7 @@ Usare criteri di Azure [deny] e [Distribuisci se non esistono] per applicare imp
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.4 | 5,2 | Shared |
+| 7.4 | 5,2 | Condiviso |
 
 Seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle risorse di calcolo di Azure.  Inoltre, è possibile usare modelli di Azure Resource Manager, immagini del sistema operativo personalizzate o la configurazione dello stato di automazione di Azure per mantenere la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.   I modelli di macchina virtuale Microsoft combinati con la configurazione dello stato desiderato di automazione di Azure possono contribuire alla riunione e alla gestione dei requisiti di sicurezza. 
 

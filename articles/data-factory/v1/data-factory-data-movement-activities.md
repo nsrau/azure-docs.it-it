@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195973"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
@@ -101,7 +101,7 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | &nbsp; | Stati Uniti centro-meridionali | Stati Uniti centro-meridionali |
 | &nbsp; | Stati Uniti centro-occidentali | Stati Uniti centro-occidentali |
 | &nbsp; | Stati Uniti occidentali | Stati Uniti occidentali |
-| &nbsp; | Stati Uniti occidentali 2 | Stati Uniti occidentali 2 |
+| &nbsp; | Stati Uniti occidentali 2 | West US 2 |
 | Canada | Canada orientale | Canada centrale |
 | &nbsp; | Canada centrale | Canada centrale |
 | Brasile | Brasile meridionale | Brasile meridionale |
@@ -115,7 +115,7 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | &nbsp; | Australia sud-orientale | Australia sud-orientale |
 | India | India centrale | India centrale |
 | &nbsp; | India occidentale | India centrale |
-| &nbsp; | India meridionale | India centrale |
+| &nbsp; | India meridionale | Central India |
 | Giappone | Giappone orientale | Giappone orientale |
 | &nbsp; | Giappone occidentale | Giappone orientale |
 | Corea del Sud | Corea centrale | Corea centrale |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: aahi
 ms.openlocfilehash: 09ea16f07973757b169f21c7c3f909a24651daa4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940647"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>Procedura: compilare un grafico delle metriche per analizzare le metriche correlate
@@ -35,7 +35,7 @@ Successivamente, è necessario aggiungere un altro nodo e specificare una relazi
 
 Fare clic su **Aggiungi relazione**. sarà possibile scegliere un'altra metrica e specificare il tipo di relazione tra i due nodi. È inoltre possibile applicare filtri di dimensione specifici. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Aggiungere un nodo e una relazione":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="Selezionare una metrica":::
 
 Dopo aver ripetuto i passaggi precedenti, si disporrà di un grafico delle metriche che descrive le relazioni tra tutte le metriche correlate.
 **Hint sui colori del nodo**
@@ -50,7 +50,7 @@ Quando si compila il grafico delle metriche, ogni volta che viene rilevata un'an
 
 Fare clic in un evento imprevisto all'interno del grafico e scorrere verso il basso fino a **analisi delle metriche incrociate**, sotto le informazioni di diagnostica.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Visualizzare le metriche e le anomalie correlate":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Selezionare una metrica":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

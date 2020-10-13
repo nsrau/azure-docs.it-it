@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261942"
 ---
 # <a name="add-a-tile-layer"></a>Aggiungere un livello per i riquadri
@@ -54,8 +54,8 @@ URL del riquadro un URL HTTPS a un modello di URL riquadro che usa i parametri s
 -   `{x}` - posizione X del riquadro. Necessita inoltre di `{y}` e `{z}`.
 -   `{y}` - posizione Y del riquadro. Necessita inoltre di `{x}` e `{z}`.
 -   `{z}` - Livello di zoom del riquadro. Necessita inoltre di `{x}` e `{y}`.
--   `{quadkey}`- `quadkey` Identificatore del riquadro basato sulla convenzione di denominazione del sistema dei riquadri di Bing Maps.
--   `{bbox-epsg-3857}`-Una stringa del rettangolo di delimitazione con il formato `{west},{south},{east},{north}` nel sistema di riferimento spaziale EPSG 3857.
+-   `{quadkey}` - `quadkey` Identificatore del riquadro basato sulla convenzione di denominazione del sistema dei riquadri di Bing Maps.
+-   `{bbox-epsg-3857}` -Una stringa del rettangolo di delimitazione con il formato `{west},{south},{east},{north}` nel sistema di riferimento spaziale EPSG 3857.
 
 Ad esempio, di seguito è riportato un URL di riquadro formattato per il [servizio del riquadro del radar meteorologico](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) in mappe di Azure. Si noti che `[subscription-key]` è un segnaposto per la chiave di sottoscrizione di Azure maps.
 
@@ -68,4 +68,4 @@ Per altre informazioni sul sistema di affiancamento delle mappe di Azure, vedere
 Aggiungere altro contesto alla mappa:
 
 > [!div class="nextstepaction"]
-> [Mostra traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)
+> [Visualizzare il traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)

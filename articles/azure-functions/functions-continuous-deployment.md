@@ -5,10 +5,10 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83123677"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
@@ -42,7 +42,7 @@ Per configurare la distribuzione continua per un'app per le funzioni esistente, 
 
 3. In GitHub selezionare **autorizza AzureAppService**.
 
-    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autorizzare il servizio app Azure":::
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Centro distribuzione servizio app Azure":::
 
     Immettere la password di GitHub e quindi selezionare **continue (continua**).
 
@@ -55,7 +55,7 @@ Per configurare la distribuzione continua per un'app per le funzioni esistente, 
 
 5. Configurare informazioni specifiche per l'opzione di controllo del codice sorgente specificata. Per GitHub è necessario immettere o selezionare i valori per **Organization**, **repository**e **Branch**. I valori sono basati sulla posizione del codice. Quindi selezionare **continue (continua**).
 
-    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configurare GitHub":::
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Centro distribuzione servizio app Azure":::
 
 6. Esaminare tutti i dettagli e quindi fare clic su **fine** per completare la configurazione della distribuzione.
 

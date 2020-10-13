@@ -8,10 +8,10 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87903715"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
@@ -91,7 +91,7 @@ Come indicato in una sezione precedente, la porta 443 deve essere aperta in usci
 
 La tabella seguente illustra i domini necessari per la comunicazione:
 
-| Servizio | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Uso |
+| Servizio | Endpoint cloud pubblico | Endpoint di Azure per enti pubblici | Utilizzo |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | Qualsiasi chiamata utente (ad esempio, PowerShell) giunge o passa attraverso questo URL, inclusa la chiamata di registrazione iniziale del server. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Le chiamate di Azure Resource Manager devono essere effettuate da un utente autenticato. Per l'autenticazione utente viene usato questo URL. |
@@ -119,7 +119,7 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 | Pubblico | Central India | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-cin.One.Microsoft.com | India meridionale | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-cin.One.Microsoft.com |
 | Pubblico | Stati Uniti centrali | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.One.Microsoft.com | Stati Uniti orientali 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.One.Microsoft.com |
 | Pubblico | Asia orientale | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.One.Microsoft.com | Asia sud-orientale | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.One.Microsoft.com |
-| Pubblico | Stati Uniti orientali | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.One.Microsoft.com | Stati Uniti occidentali | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.One.Microsoft.com |
+| Pubblico | Stati Uniti orientali | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.One.Microsoft.com | Stati Uniti Occidentali | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.One.Microsoft.com |
 | Pubblico | Stati Uniti orientali 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.One.Microsoft.com | Stati Uniti centrali | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.One.Microsoft.com |
 | Pubblico | Giappone orientale | https: \/ /japaneast01.AFS.Azure.NET | Giappone occidentale | https: \/ /TM-japaneast01.AFS.Azure.NET |
 | Pubblico | Giappone occidentale | https: \/ /japanwest01.AFS.Azure.NET | Giappone orientale | https: \/ /TM-japanwest01.AFS.Azure.NET |
@@ -134,7 +134,7 @@ Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibi
 | Pubblico | Regno Unito occidentale | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.One.Microsoft.com | Regno Unito meridionale | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.One.Microsoft.com |
 | Pubblico | Stati Uniti centro-occidentali | https: \/ /westcentralus01.AFS.Azure.NET | West US 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
 | Pubblico | Europa occidentale | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.One.Microsoft.com | Europa settentrionale | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.One.Microsoft.com |
-| Pubblico | Stati Uniti occidentali | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.One.Microsoft.com | Stati Uniti orientali | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.One.Microsoft.com |
+| Pubblico | Stati Uniti Occidentali | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.One.Microsoft.com | Stati Uniti orientali | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.One.Microsoft.com |
 | Pubblico | West US 2 | https: \/ /westus201.AFS.Azure.NET | Stati Uniti centro-occidentali | https: \/ /TM-westus201.AFS.Azure.NET |
 | Enti governativi | US Gov Arizona | https: \/ /usgovarizona01.AFS.Azure.US | US Gov Texas | https: \/ /TM-usgovarizona01.AFS.Azure.US |
 | Enti governativi | US Gov Texas | https: \/ /usgovtexas01.AFS.Azure.US | US Gov Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.US |
@@ -266,7 +266,7 @@ if ($found) {
 È quindi possibile usare gli intervalli di indirizzi IP in `$ipAddressRanges` per aggiornare il firewall. Per informazioni su come aggiornare il firewall, vedere il sito Web del firewall o dell'appliance di rete.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testare la connettività di rete agli endpoint di servizio
-Una volta che un server è stato registrato con il servizio Sincronizzazione file di Azure, è possibile usare il cmdlet test-StorageSyncNetworkConnectivity e ServerRegistration.exe per testare le comunicazioni con tutti gli endpoint (URL) specifici del server. Questo cmdlet consente di risolvere i problemi quando la comunicazione incompleta impedisce al server di lavorare completamente con Sincronizzazione file di Azure e può essere usata per ottimizzare le configurazioni del proxy e del firewall.
+Una volta che un server è stato registrato con il servizio Sincronizzazione file di Azure, è possibile utilizzare il cmdlet Test-StorageSyncNetworkConnectivity e ServerRegistration.exe per verificare le comunicazioni con tutti gli endpoint (URL) specifici del server. Questo cmdlet consente di risolvere i problemi quando la comunicazione incompleta impedisce al server di lavorare completamente con Sincronizzazione file di Azure e può essere usata per ottimizzare le configurazioni del proxy e del firewall.
 
 Per eseguire il test della connettività di rete, installare Sincronizzazione file di Azure Agent 9,1 o versione successiva ed eseguire i comandi di PowerShell seguenti:
 ```powershell

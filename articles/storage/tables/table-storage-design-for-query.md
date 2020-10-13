@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88236336"
 ---
 # <a name="design-for-querying"></a>Progettazione per le query
@@ -37,12 +37,12 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 | *Nome colonna* | *Tipo di dati* |
 | --- | --- |
-| **PartitionKey** (nome del reparto) |Stringa |
-| **RowKey** (ID dipendente) |Stringa |
-| **FirstName** |Stringa |
-| **LastName** |Stringa |
-| **Età** |Integer |
-| **EmailAddress** |Stringa |
+| **PartitionKey** (nome del reparto) |string |
+| **RowKey** (ID dipendente) |string |
+| **FirstName** |string |
+| **LastName** |string |
+| **Age** |Integer |
+| **EmailAddress** |string |
 
 L'articolo [Panoramica di Archiviazione tabelle di Azure](table-storage-overview.md) descrive alcune delle principali funzionalità del servizio tabelle di Azure che influiscono direttamente sulla progettazione per le query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. Si noti che la sintassi del filtro usata negli esempi seguenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](https://docs.microsoft.com/rest/api/storageservices/Query-Entities) (Entità query).  
 

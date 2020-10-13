@@ -4,10 +4,10 @@ description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385875"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
@@ -160,7 +160,7 @@ Ogni proxy ha un nome descrittivo, come *proxy1* nell'esempio precedente. L'ogge
 }
 ```
 
-### <a name="application-settings"></a><a name="applicationSettings"></a>Impostazioni applicazione
+### <a name="application-settings"></a><a name="applicationSettings"></a> Impostazioni applicazione
 
 Il comportamento del proxy può essere controllato da diverse impostazioni dell'app. Sono tutti indicati nel [Informazioni di riferimento sulle impostazioni dell'app per le funzioni](./functions-app-settings.md)
 
@@ -241,7 +241,7 @@ Un esempio di configurazione apparirà come segue:
 > [!NOTE] 
 > In questo esempio il corpo della risposta viene impostato direttamente, quindi non sono necessarie proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
 
-[Azure portal]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Trigger HTTP]: ./functions-bindings-http-webhook.md
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

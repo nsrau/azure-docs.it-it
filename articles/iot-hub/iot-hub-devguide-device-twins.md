@@ -12,10 +12,10 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327770"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
@@ -201,7 +201,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
   - Corpo
         
-    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. USA lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni gemelle: Tag, Properties. reported, Properties. desired, e che contiene gli elementi "$metadata". ad esempio:
+    Questa sezione include tutte le modifiche apportate al dispositivo gemello in formato JSON. USA lo stesso formato di una patch, con la differenza che può contenere tutte le sezioni gemelle: Tag, Properties. reported, Properties. desired, e che contiene gli elementi "$metadata". Ad esempio,
 
     ```json
     {

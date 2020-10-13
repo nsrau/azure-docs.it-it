@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306634"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>USA collegamento privato nella rete WAN virtuale
@@ -38,11 +38,11 @@ Per creare una nuova rete WAN virtuale e un nuovo hub, attenersi ai passaggi des
 
 Dopo aver creato il database SQL di Azure, è possibile verificare l'indirizzo IP dell'endpoint privato che Esplora gli endpoint privati:
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="endpoint privati" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="Crea collegamento privato" lightbox="./media/howto-private-link/endpoints.png":::
 
 Facendo clic sull'endpoint privato creato, dovrebbe essere visualizzato l'indirizzo IP privato e il nome di dominio completo (FQDN). Si noti che l'endpoint privato ha un indirizzo IP compreso nell'intervallo di VNet in cui è stato distribuito (10.1.3.0/24):
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Endpoint SQL" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="Crea collegamento privato" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>Verificare la connettività dallo stesso VNet
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 Come si può notare nell'output precedente, il nome di dominio completo `wantest.database.windows.net` viene mappato a `wantest.privatelink.database.windows.net` , che la zona DNS privata creata lungo l'endpoint privato verrà risolta nell'indirizzo IP privato `10.1.3.228` . Esaminando la zona DNS privata verrà verificato che sia presente un record A per l'endpoint privato di cui è stato eseguito il mapping all'indirizzo IP privato:
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Zona DNS" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="Crea collegamento privato" lightbox="./media/howto-private-link/dns-zone.png":::
 
 Dopo aver verificato la risoluzione DNS corretta, è possibile tentare di connettersi al database:
 
@@ -87,7 +87,7 @@ Quando si dispone della connettività tra il VNet o il ramo di VNet in cui è st
 
 In questo esempio verrà stabilita la connessione da un VNet diverso, quindi la zona DNS privata verrà collegata alla nuova VNet, in modo che i carichi di lavoro possano risolvere il nome di dominio completo del database SQL di Azure nell'indirizzo IP privato. Questa operazione viene eseguita tramite il collegamento della zona DNS privata alla nuova VNet:
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Collegamento DNS" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="Crea collegamento privato" lightbox="./media/howto-private-link/dns-link.png":::
 
 A questo punto, tutte le macchine virtuali nel VNet collegato devono risolvere correttamente il nome di dominio completo del database SQL di Azure nell'indirizzo IP privato del collegamento privato:
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 Per verificare che questo VNet (10.1.1.0/24) disponga della connettività al VNet originale in cui è stato configurato l'endpoint privato (10.1.3.0/24), è possibile verificare la tabella di route valida in qualsiasi macchina virtuale nell'VNet:
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="route valide" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="Crea collegamento privato" lightbox="./media/howto-private-link/effective-routes.png":::
 
 Come si può notare, esiste una route che punta alla VNet 10.1.3.0/24 inserita dai gateway di rete virtuale nella rete WAN virtuale di Azure. A questo punto è possibile testare la connettività al database:
 

@@ -8,10 +8,10 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079554"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
@@ -21,7 +21,7 @@ ms.locfileid: "87079554"
 
 ## <a name="metrics-in-azure"></a>Metriche in Azure
 
-[In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni usando l' [api Application Insights per gli eventi e le metriche personalizzati](../app/api-custom-events-metrics.md), l' [estensione di Windows diagnostica di Azure (WAD)](./diagnostics-extension-overview.md)o l' [API REST di monitoraggio di Azure](./metrics-store-custom-rest-api.md).
+[In Monitoraggio di Azure le metriche](data-platform-metrics.md) sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Mentre le metriche personalizzate vengono inviate ad Azure dalle applicazioni usando l' [api Application Insights per gli eventi e le metriche personalizzati](../app/api-custom-events-metrics.md), l'  [estensione di Windows diagnostica di Azure (WAD)](./diagnostics-extension-overview.md)o l' [API REST di monitoraggio di Azure](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Creare visualizzazioni con più metriche e grafici
 

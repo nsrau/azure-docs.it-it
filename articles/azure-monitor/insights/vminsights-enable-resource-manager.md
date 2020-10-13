@@ -1,5 +1,5 @@
 ---
-title: Abilitare Monitoraggio di Azure per le macchine virtuali usando modelli di Gestione risorse
+title: Abilitare Monitoraggio di Azure per le macchine virtuali con i modelli di Resource Manager
 description: Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una o più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando Azure PowerShell o Azure Resource Manager modelli.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87328229"
 ---
-# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Abilitare Monitoraggio di Azure per le macchine virtuali usando modelli di Gestione risorse
+# <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con i modelli di Resource Manager
 Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale o un set di scalabilità di macchine virtuali usando i modelli Gestione risorse. Questa procedura può essere utilizzata per gli elementi seguenti:
 
 - Macchina virtuale di Azure
