@@ -9,10 +9,10 @@ ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328106"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Anteprima: creare una VM Windows con Azure Image Builder usando PowerShell
@@ -20,7 +20,7 @@ ms.locfileid: "91328106"
 Questo articolo illustra come creare un'immagine di Windows personalizzata usando il modulo PowerShell di generatore di immagini di VM di Azure.
 
 > [!CAUTION]
-> Azure Image Builder è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio. Non è consigliabile per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Image Builder è attualmente disponibile in anteprima pubblica. Questa versione in anteprima viene fornita senza un contratto di servizio. Non è la scelta consigliata per carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -322,7 +322,7 @@ Azure-Image-Builder-Was-Here
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se le risorse create in questo articolo non sono necessarie, è possibile eliminarle eseguendo gli esempi seguenti.
+Se le risorse create in questo articolo non sono più necessarie, è possibile eliminarle eseguendo gli esempi seguenti.
 
 ### <a name="delete-the-image-builder-template"></a>Eliminare il modello di generatore di immagini
 

@@ -4,10 +4,10 @@ description: Questo articolo illustra il processo di creazione di un Lab usando 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 09999c5b0187f924f9cfbbc2afad8954adee0fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481256"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creare un lab di sviluppo/test di Azure
@@ -29,7 +29,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
    
     ![Aggiungere un lab](./media/devtest-lab-create-lab/add-lab-button.png)
 1. Nella pagina **Crea un'istanza di DevTest Labs** eseguire queste operazioni: 
-    1. Immettere un **nome** per il lab.
+    1. Immettere un **nome** per il Lab.
     2. Selezionare la **Sottoscrizione** da associare al lab.
     3. Immettere un **nome per il gruppo di risorse** del lab. 
     4. Selezionare una **posizione** in cui archiviare il Lab.

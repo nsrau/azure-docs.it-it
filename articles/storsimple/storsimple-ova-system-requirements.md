@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80298813"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisiti di sistema StorSimple Virtual Array
@@ -36,7 +36,7 @@ Le informazioni sui requisiti di sistema StorSimple pubblicate in questo articol
 I requisiti software includono le informazioni su Web browser supportati, versioni SMB, piattaforme di virtualizzazione e i requisiti minimi del dispositivo virtuale.
 
 ### <a name="supported-virtualization-platforms"></a>Piattaforme di virtualizzazione supportate
-| **Hypervisor** | **Version** |
+| **Hypervisor** | **Versione** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e versioni successive |
 | VMware ESXi |5.0, 5.5, 6.0 e 6.5. |
@@ -58,7 +58,7 @@ I requisiti software includono le informazioni su Web browser supportati, versio
 <sup>2</sup>: i requisiti di rete possono variare a seconda della frequenza di modifica dei dati giornaliera. Ad esempio, se un dispositivo deve eseguire il backup di 10 GB o di più modifiche durante la giornata, il backup giornaliero con una connessione da 5 Mbps potrebbe richiedere fino a 4,25 ore (se i dati non possono essere compressi o deduplicati).
 
 ### <a name="supported-web-browsers"></a>Web browser supportati
-| **Componente** | **Version** | **Requisiti aggiuntivi/note** |
+| **Componente** | **Versione** | **Requisiti aggiuntivi/note** |
 | --- | --- | --- |
 | Microsoft Edge |Versione più recente | |
 | Internet Explorer |Versione più recente |Testato con Internet Explorer 11 |
@@ -114,7 +114,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 > [!NOTE]
 > 
 > * Gli indirizzi IP di origine del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate per il cloud. 
-> * Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> * Gli IP di destinazione devono essere impostati sugli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
 ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553648"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Connettore Azure per i modelli di mapping di FHIR (anteprima)
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelli di mapping del connettore Azure IoT per FHIR (anteprima)
 Questo articolo illustra come configurare il connettore Azure per FHIR * usando i modelli di mapping.
 
 Il connettore Azure per FHIR richiede due tipi di modelli di mapping basati su JSON. Il primo tipo, ovvero il **mapping dei dispositivi**, è responsabile del mapping dei payload del dispositivo inviati all' `devicedata` endpoint dell'hub eventi di Azure. Estrae i tipi, gli identificatori di dispositivo, la data e l'ora di misurazione e i valori di misurazione. Il secondo tipo, **FHIR mapping**, controlla il mapping per la risorsa FHIR. Consente la configurazione della lunghezza del periodo di osservazione, il tipo di dati FHIR usato per archiviare i valori e i codici terminologici. 
@@ -39,7 +39,7 @@ Di seguito è riportato un esempio concettuale di ciò che accade durante la nor
 
 ![Esempio di normalizzazione](media/concepts-iot-mapping-templates/normalization-example.png)
 
-Il payload del contenuto è un messaggio di hub eventi di Azure, composto da tre parti: Body, Properties e SystemProperties. `Body`È una matrice di byte che rappresenta una stringa con codifica UTF-8. Durante la valutazione del modello, la matrice di byte viene convertita automaticamente nel valore stringa. `Properties`è una raccolta di valori chiave che può essere utilizzata dal creatore del messaggio. `SystemProperties`è anche una raccolta di valori chiave riservata dal framework di hub eventi di Azure con le voci popolate automaticamente.
+Il payload del contenuto è un messaggio di hub eventi di Azure, composto da tre parti: Body, Properties e SystemProperties. `Body`È una matrice di byte che rappresenta una stringa con codifica UTF-8. Durante la valutazione del modello, la matrice di byte viene convertita automaticamente nel valore stringa. `Properties` è una raccolta di valori chiave che può essere utilizzata dal creatore del messaggio. `SystemProperties` è anche una raccolta di valori chiave riservata dal framework di hub eventi di Azure con le voci popolate automaticamente.
 
 ```json
 {
@@ -352,7 +352,7 @@ Il CodeValueFhirTemplate è attualmente l'unico modello supportato nel mapping d
 |**Componenti []. Codici**|Una o più [codifiche](http://hl7.org/fhir/datatypes-definitions.html#coding) da applicare al componente.
 |**Componenti []. Valore**|Valore da estrarre e rappresentare nel componente. Per altre informazioni, vedere [modelli di tipi di valore](#valuetypes).
 
-### <a name="value-type-templates"></a>Modelli di tipo valore<a name="valuetypes"></a>
+### <a name="value-type-templates"></a>Modelli di tipo valore <a name="valuetypes"></a>
 Di seguito sono riportati i modelli di tipo valore attualmente supportati. In futuro, è possibile aggiungere altri modelli.
 #### <a name="sampleddata"></a>SampledData
 Rappresenta il tipo di dati FHIR di [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) . Le misurazioni di osservazione vengono scritte in un flusso di valori a partire da un punto nel tempo e vengono incrementate in base al periodo definito. Se non è presente alcun valore, `E` verrà scritto un oggetto nel flusso di dati. Se il periodo è tale che altri due valori occupano la stessa posizione nel flusso di dati, viene usato il valore più recente. La stessa logica viene applicata quando viene aggiornata un'osservazione che usa SampledData.
@@ -567,6 +567,6 @@ Vedere le domande frequenti sul connettore Azure per FHIR (anteprima).
 >[!div class="nextstepaction"]
 >[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
-* Nel portale di Azure, il connettore Azure per FHIR viene indicato come connettore Internet (anteprima).
+*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
 
 FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.

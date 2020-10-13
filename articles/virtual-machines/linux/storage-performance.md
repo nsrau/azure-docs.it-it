@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 650164556223a73a722bc91ecb31491ee98cb8a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307102"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Ottimizzare le prestazioni nelle macchine virtuali Linux della serie Lsv2
@@ -97,7 +97,7 @@ Per altre informazioni sulle opzioni di backup dei dati nell'archiviazione local
    L'impostazione rq_affinity è una lieve regolazione quando si usa il numero massimo assoluto di operazioni di input/output al secondo (IOPS). Quando tutto il resto funziona correttamente, provare a impostare rq_affinity su 0 per verificare se fa una differenza.
 
 * **È necessario modificare le impostazioni di blk_mq?**  
-   RHEL/CentOS 7. x usa automaticamente BLK-mq per i dispositivi NVMe. Non sono necessarie modifiche o impostazioni di configurazione. L'impostazione scsi_mod. use_blk_mq è solo per SCSI ed è stata usata durante l'anteprima di Lsv2 perché i dispositivi NVMe sono visibili nelle macchine virtuali guest come dispositivi SCSI. Attualmente, i dispositivi NVMe sono visibili come dispositivi NVMe, quindi l'impostazione SCSI BLK-mq è irrilevante.
+   RHEL/CentOS 7. x usa automaticamente BLK-mq per i dispositivi NVMe. Non sono necessarie modifiche o impostazioni di configurazione. L'impostazione scsi_mod. use _blk_mq è solo per SCSI ed è stata usata durante l'anteprima di Lsv2 perché i dispositivi NVMe erano visibili nelle macchine virtuali guest come dispositivi SCSI. Attualmente, i dispositivi NVMe sono visibili come dispositivi NVMe, quindi l'impostazione SCSI BLK-mq è irrilevante.
 
 * **È necessario modificare "fio"?**  
    Per ottenere il numero massimo di IOPS con uno strumento di misurazione delle prestazioni come ' Fio ' nelle dimensioni delle macchine virtuali L64v2 e L80v2, impostare "rq_affinity" su 0 in ogni dispositivo NVMe.  Questa riga di comando, ad esempio, imposterà "rq_affinity" su zero per tutti i 10 dispositivi NVMe in una macchina virtuale L80v2:

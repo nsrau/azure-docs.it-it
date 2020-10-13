@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 10/08/2020
-ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 01/13/2019
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873235"
+ms.locfileid: "89659919"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -22,9 +22,6 @@ Con le app per la logica di Azure e il connettore del file System è possibile c
 - Creare, leggere, accodare, aggiornare ed eliminare file.
 - Elencare i file in cartelle o in cartelle radice.
 - Leggere contenuti e metadati dei file.
-
-  > [!IMPORTANT]
-  > Il connettore del file System supporta attualmente solo i file System di Windows nei sistemi operativi Windows.  
 
 Questo articolo illustra come connettersi a un file system locale come descritto in questo scenario di esempio: copiare un file caricato in Dropbox in una condivisione file e quindi inviare un messaggio di posta elettronica. Per connettersi e accedere ai sistemi locali, le app per la logica usano il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md). Per informazioni tecniche specifiche del connettore, vedere il [riferimento al connettore del file System](/connectors/filesystem/).
 

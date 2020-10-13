@@ -10,17 +10,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f77e996e83819b78bb9ab4484b9a1d3653a97560
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88140973"
 ---
 # <a name="activity-management-overview"></a>Panoramica di gestione attività
 
 CloudSimple tiene traccia di tutte le attività che possono influire sul funzionamento dell'ambiente cloud privato. Le attività includono avvisi, eventi, attività e attività di controllo. Le [pagine attività](monitor-activity.md) riepilogano tutte le attività correnti e consentono di eseguire il drill-down per ulteriori dettagli.
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 
 Gli eventi tengono traccia dell'attività dell'utente e del sistema nel portale di CloudSimple. Gli eventi mostrano l'attività associata a una risorsa specifica e la gravità dell'effetto.  È possibile visualizzare gli eventi dal portale di CloudSimple.
 

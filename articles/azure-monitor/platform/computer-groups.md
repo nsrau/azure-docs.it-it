@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86112113"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
@@ -48,7 +48,7 @@ Eseguire questa procedura per creare un gruppo di computer da una ricerca log ne
 
 La tabella seguente descrive le proprietà che definiscono un gruppo di computer.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:---|:---|
 | Nome   | Nome della query da visualizzare nel portale. |
 | Alias di funzione | Alias univoco usato per identificare il gruppo di computer in una query. |
@@ -122,7 +122,7 @@ let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Gro
 ## <a name="computer-group-records"></a>Record dei gruppi di computer
 Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS viene creato un record nell'area di lavoro Log Analytics.  Il tipo di questi record è **ComputerGroup** e le proprietà sono elencate nella tabella seguente.  Per i gruppi di computer basati su query di log non vengono creati record.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

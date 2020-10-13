@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
 ms.openlocfilehash: 6034d1327d263eda49881af5eedf94ae06495128
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83122272"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Gestione di ambienti ibridi con PowerShell in funzioni di Azure e Connessioni ibride del servizio app
@@ -76,7 +76,7 @@ Il servizio app Connessioni ibride funzionalità è disponibile solo nei piani t
     |**Sistema operativo**| Sistema operativo preferito | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. |
     | **[Tipo di piano](../azure-functions/functions-scale.md)** | **Piano di servizio app** | Scegliere il **piano di servizio app**. In caso di esecuzione in un piano di servizio app, è necessario gestire il [ridimensionamento dell'app per le funzioni](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="Creare un'app per le funzioni-hosting." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Selezionare **Avanti: Monitoraggio**. Nella pagina **Monitoraggio** immettere le impostazioni seguenti.
 
@@ -84,7 +84,7 @@ Il servizio app Connessioni ibride funzionalità è disponibile solo nei piani t
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | Predefinito | Crea una risorsa di Application Insights con lo stesso *nome di app* nell'area più vicina supportata. Espandendo questa impostazione o selezionando **Crea nuovo**, è possibile cambiare il nome Application Insights oppure scegliere una regione diversa in un'[area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) in cui archiviare i dati. |
 
-    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="Creare un monitoraggio delle app per le funzioni." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Selezionare **Rivedi e crea** per rivedere le selezioni effettuate per la configurazione dell'app.
 
@@ -101,15 +101,15 @@ Le connessioni ibride sono configurate dalla sezione rete dell'app per le funzio
 1. In **Impostazioni** nell'app per le funzioni appena creata selezionare **rete**. 
 1. Selezionare **Configura gli endpoint delle connessioni ibride**.
    
-    :::image type="content" source="./media/functions-hybrid-powershell/configure-hybrid-connection-endpoint.png" alt-text="Configurare gli endpoint della connessione ibrida." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/configure-hybrid-connection-endpoint.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Selezionare **Aggiungi connessione ibrida**.
    
-    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Aggiungere una connessione ibrida." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Immettere le informazioni sulla connessione ibrida, come illustrato immediatamente dopo la schermata seguente. È possibile fare in modo che l'impostazione **host endpoint** corrisponda al nome host del server locale per semplificare la memorizzazione del server in un secondo momento quando si eseguono comandi remoti. La porta corrisponde alla porta predefinita del servizio gestione remota Windows che è stata definita nel server.
   
-      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Aggiungere la connessione ibrida." border="true":::
+      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
     | Impostazione      | Valore consigliato  |
     | ------------ | ---------------- |
@@ -126,24 +126,24 @@ Le connessioni ibride sono configurate dalla sezione rete dell'app per le funzio
 
 1. Selezionare **Scarica gestione connessione** per salvare il file con *estensione msi* localmente nel computer.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/download-hybrid-connection-installer.png" alt-text="Scaricare il programma di installazione." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/download-hybrid-connection-installer.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Copiare il file con *estensione msi* dal computer locale al server locale.
 1. Eseguire il programma di installazione Gestione connessione ibrida per installare il servizio nel server locale.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-installation.png" alt-text="Installare la connessione ibrida." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-installation.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Dal portale aprire la connessione ibrida, quindi copiare la stringa di connessione del gateway negli Appunti.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/copy-hybrid-connection.png" alt-text="Copiare la stringa di connessione ibrida." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/copy-hybrid-connection.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Aprire l'interfaccia utente di Gestione connessione ibrida nel server locale.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-ui.png" alt-text="Aprire l'interfaccia utente della connessione ibrida." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-ui.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Selezionare **invio manualmente** e incollare la stringa di connessione negli Appunti.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/enter-manual-connection.png" alt-text="Incollare la connessione ibrida." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/enter-manual-connection.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Riavviare il Gestione connessione ibrida da PowerShell se non viene visualizzato come connesso.
     ```powershell
@@ -155,26 +155,26 @@ Le connessioni ibride sono configurate dalla sezione rete dell'app per le funzio
 1. In **Impostazioni** per l'app per le funzioni selezionare **configurazione**. 
 1. Selezionare **+ nuova impostazione applicazione**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Configurare una password per l'account amministratore." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Denominare l'impostazione **ContosoUserPassword**e immettere la password. Selezionare **OK**.
 1. Selezionare **Salva** per archiviare la password nell'applicazione per le funzioni.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Salvare la password per l'account amministratore." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 ## <a name="create-a-function-http-trigger"></a>Creare un trigger HTTP di funzione
 
 1. Nell'app per le funzioni selezionare **funzioni**e quindi selezionare **+ Aggiungi**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Crea nuovo trigger HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Selezionare il modello di **trigger http** .
 
-    :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="Selezionare il modello di trigger HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 1. Assegnare un nome alla nuova funzione e selezionare **Crea funzione**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="Nome e creazione della nuova funzione trigger HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 ## <a name="test-the-function"></a>Testare la funzione
 
@@ -215,11 +215,11 @@ Le connessioni ibride sono configurate dalla sezione rete dell'app per le funzio
 
 1. Selezionare **Salva**.
 
-    :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Modificare il codice di PowerShell e salvare la funzione trigger HTTP." border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
  1. Selezionare **test**, quindi selezionare **Esegui** per testare la funzione. Esaminare i log per verificare che il test abbia avuto esito positivo.
 
-     :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Testare la funzione trigger HTTP." border="true":::
+     :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Creare un'app per le funzioni-nozioni di base." border="true":::
 
 ## <a name="managing-other-systems-on-premises"></a>Gestione di altri sistemi locali
 

@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: cdd93cf8751ce2e46f06020b1d18d42416f793d4
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166109"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrazione di applicazioni a MSAL.NET
@@ -59,7 +59,7 @@ In MSAL.NET è anche possibile accedere alle risorse v1.0. Per informazioni dett
 
 - ADAL.NET usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) come rappresentazione della connessione al Servizio token di sicurezza (STS) o al server di autorizzazione, tramite un'autorità. Al contrario, MSAL.NET è basato sulle [applicazioni client](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Fornisce due classi distinte: `PublicClientApplication` e `ConfidentialClientApplication`
 
-- Acquisizione di token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione ( `AcquireTokenAsync` e `AcquireTokenSilentAsync` per adal.NET, and `AcquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET) ma con parametri diversi. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
+- Acquisizione di token: ADAL.NET e MSAL.NET hanno le stesse chiamate di autenticazione ( `AcquireTokenAsync` e  `AcquireTokenSilentAsync` per adal.NET, and `AcquireTokenInteractive` e `AcquireTokenSilent` in MSAL.NET) ma con parametri diversi. Una differenza è il fatto che, in MSAL.NET, è non è più necessario passare il `ClientID` dell'applicazione in ogni chiamata AcquireTokenXX. Di fatto, `ClientID` viene impostato una sola volta durante la creazione di `IPublicClientApplication` o `IConfidentialClientApplication`.
 
 ### <a name="iaccount-not-iuser"></a>IAccount invece di IUser
 

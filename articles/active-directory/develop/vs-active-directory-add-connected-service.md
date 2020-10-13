@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.openlocfilehash: a1ba7db72743ac122a697bf271e783ec64e041e8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165482"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiungere un Azure Active Directory usando Servizi connessi in Visual Studio
 
-Utilizzando Azure Active Directory (Azure AD), è possibile supportare l'accesso Single Sign-on (SSO) per le applicazioni Web ASP.NET MVC o Active Directory l'autenticazione nei servizi API Web. Con l'autenticazione di Azure AD, gli utenti possono usare gli account di Azure Active Directory per connettersi alle applicazioni Web. I vantaggi di Autenticazione di Azure AD con l'API Web includono la sicurezza dei dati migliorata quando si espone un'API da un'applicazione Web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
+Utilizzando Azure Active Directory (Azure AD), è possibile supportare single Sign-On (SSO) per le applicazioni Web MVC ASP.NET o Active Directory l'autenticazione nei servizi API Web. Con l'autenticazione di Azure AD, gli utenti possono usare gli account di Azure Active Directory per connettersi alle applicazioni Web. I vantaggi di Autenticazione di Azure AD con l'API Web includono la sicurezza dei dati migliorata quando si espone un'API da un'applicazione Web. Con Azure AD, non è necessario gestire un sistema di autenticazione distinto con la gestione di account e utente.
 
 Questo articolo e gli articoli correlati forniscono i dettagli dell'uso del servizio connesso di Visual Studio per Active Directory. La funzionalità è disponibile in Visual Studio 2015 e versioni successive.
 

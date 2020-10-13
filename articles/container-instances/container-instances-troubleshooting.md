@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260744"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Risolvere i problemi comuni in Istanze di Azure Container
@@ -45,7 +45,7 @@ Se si specifica un'immagine non supportata da Istanze di Azure Container, viene 
 }
 ```
 
-Questo errore viene spesso rilevato quando si distribuiscono immagini Windows basate su un canale semestrale versione 1709 o 1803, che non sono supportate. Per le immagini di Windows supportate nelle istanze di contenitore di Azure, vedere [domande frequenti](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Questo errore si verifica spesso quando si distribuiscono immagini Windows basate su Semi-Annual Channel Release 1709 o 1803, che non sono supportate. Per le immagini di Windows supportate nelle istanze di contenitore di Azure, vedere [domande frequenti](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ### <a name="unable-to-pull-image"></a>Non è possibile eseguire il pull dell'immagine
 
@@ -204,7 +204,7 @@ Istanze di Azure Container non espone l'accesso diretto all'infrastruttura sotto
 
 Istanze di contenitore di Azure non supporta ancora il mapping delle porte come con la normale configurazione di Docker. Se si rileva che l'indirizzo IP di un gruppo di contenitori non è accessibile quando si ritiene che sia necessario, assicurarsi di aver configurato l'immagine del contenitore per l'ascolto delle stesse porte esposte nel gruppo di contenitori con la `ports` Proprietà.
 
-Se si vuole verificare che le istanze di contenitore di Azure possano restare in ascolto sulla porta configurata nell'immagine del contenitore, testare una distribuzione dell' `aci-helloworld` immagine che espone la porta. Eseguire anche l' `aci-helloworld` app in modo che sia in ascolto sulla porta. `aci-helloworld`accetta una variabile di ambiente facoltativa `PORT` per sostituire la porta predefinita 80 su cui è in ascolto. Ad esempio, per testare la porta 9000, impostare la [variabile di ambiente](container-instances-environment-variables.md) quando si crea il gruppo di contenitori:
+Se si vuole verificare che le istanze di contenitore di Azure possano restare in ascolto sulla porta configurata nell'immagine del contenitore, testare una distribuzione dell' `aci-helloworld` immagine che espone la porta. Eseguire anche l' `aci-helloworld` app in modo che sia in ascolto sulla porta. `aci-helloworld` accetta una variabile di ambiente facoltativa `PORT` per sostituire la porta predefinita 80 su cui è in ascolto. Ad esempio, per testare la porta 9000, impostare la [variabile di ambiente](container-instances-environment-variables.md) quando si crea il gruppo di contenitori:
 
 1. Configurare il gruppo di contenitori per esporre la porta 9000 e passare il numero di porta come valore della variabile di ambiente. L'esempio è formattato per la shell bash. Se si preferisce un'altra shell, ad esempio PowerShell o il prompt dei comandi, sarà necessario modificare di conseguenza l'assegnazione di variabili.
     ```azurecli

@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4650df71acb088fafc1280d31d9abfb398e06741
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284490"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Crittografia dischi di Azure per macchine virtuali Windows 
@@ -86,7 +86,7 @@ La tabella seguente definisce alcuni dei termini comuni usati nella documentazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida introduttiva: creare e crittografare una VM Windows con l'interfaccia della riga di comando](disk-encryption-cli-quickstart.md)
+- [Guida introduttiva: creare e crittografare una VM Windows con l'interfaccia della riga di comando ](disk-encryption-cli-quickstart.md)
 - [Guida introduttiva: creare e crittografare una VM Windows con Azure PowerShell](disk-encryption-powershell-quickstart.md)
 - [Scenari di crittografia dischi di Azure per macchine virtuali Windows](disk-encryption-windows.md)
 - [Script dell'interfaccia della riga di comando dei prerequisiti di Crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started)

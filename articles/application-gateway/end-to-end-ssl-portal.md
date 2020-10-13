@@ -10,10 +10,10 @@ ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808026"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurare TLS end-to-end usando il gateway applicazione con il portale
@@ -59,7 +59,7 @@ Per altre informazioni, vedere [abilitare la terminazione TLS durante la creazio
 
    Per i gateway applicazione standard e WAF (V1), è necessario caricare la chiave pubblica del certificato del server back-end in formato CER.
 
-   ![Aggiungere il certificato](./media/end-to-end-ssl-portal/addcert.png)
+   ![Aggiunta del certificato](./media/end-to-end-ssl-portal/addcert.png)
 
    Per Standard_v2 e WAF_v2 gateway applicazione, è necessario caricare il certificato radice del certificato del server back-end in formato CER. Se il certificato back-end viene emesso da un'autorità di certificazione (CA) Nota, è possibile selezionare la casella di controllo **Usa certificato CA noto** , quindi non è necessario caricare un certificato.
 
@@ -113,7 +113,7 @@ Se si sceglie la seconda opzione, applicare i passaggi descritti nella procedura
 
    Per i gateway applicazione standard e WAF (V1), è necessario caricare la chiave pubblica del certificato del server back-end in formato CER.
 
-   ![Aggiungere il certificato](./media/end-to-end-ssl-portal/addcert.png)
+   ![Aggiunta del certificato](./media/end-to-end-ssl-portal/addcert.png)
 
    Per Standard_v2 e WAF_v2 gateway applicazione, è necessario caricare il certificato radice del certificato del server back-end in formato CER. Se il certificato back-end viene emesso da un'autorità di certificazione nota, è possibile selezionare la casella di controllo **Usa certificato CA noto** , quindi non è necessario caricare un certificato.
 

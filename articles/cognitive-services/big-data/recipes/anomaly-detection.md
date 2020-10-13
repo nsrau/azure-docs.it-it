@@ -12,10 +12,10 @@ ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
 ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88691463"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Ricetta: manutenzione predittiva con servizi cognitivi per Big Data
@@ -33,7 +33,7 @@ Potrebbero essere presenti outlier nei dati in frequenza casuale. In questi casi
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Area di lavoro sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurata con un [pool Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
-## <a name="setup"></a>Eseguire la configurazione
+## <a name="setup"></a>Configurazione
 
 ### <a name="create-an-anomaly-detector-resource"></a>Creare una risorsa di Rilevamento anomalie
 
@@ -98,11 +98,11 @@ df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 
 Questa cella deve restituire un risultato simile al seguente:
 
-| timestamp           |   Valore | deviceId   | isAnomaly   |
+| timestamp           |   value | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
-| 2020-05-01 18:33:51 |    3174 | dev-7      | Falso       |
-| 2020-05-01 18:33:52 |    2976 | dev-7      | Falso       |
-| 2020-05-01 18:33:53 |    2714 | dev-7      | Falso       |
+| 2020-05-01 18:33:51 |    3174 | dev-7      | False       |
+| 2020-05-01 18:33:52 |    2976 | dev-7      | False       |
+| 2020-05-01 18:33:53 |    2714 | dev-7      | False       |
 
 
  ## <a name="visualize-anomalies-for-one-of-the-devices"></a>Visualizzare le anomalie per uno dei dispositivi

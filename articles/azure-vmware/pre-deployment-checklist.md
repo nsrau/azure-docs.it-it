@@ -4,10 +4,10 @@ description: Utilizzare questo elenco di controllo come parte del processo di pi
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 51480f72d6de6b1f49aa753e006c4683bbd48cc7
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580021"
 ---
 # <a name="azure-vmware-solution-pre-deployment-checklist"></a>Elenco di controllo pre-distribuzione della soluzione VMware di Azure
@@ -60,7 +60,7 @@ Fornire il nome della sottoscrizione e l'ID sottoscrizione per la soluzione VMwa
 | Sottoscrizione e ID | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 | Sottoscrizione con contratto Enterprise | ☐ Sì &nbsp; &nbsp; ☐ No  |
 | Nome del gruppo di risorse | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
-| Percorso | Stati Uniti orientali ☒ |
+| Location | Stati Uniti orientali ☒ |
 | Amministratore di Azure<br><br>Specificare il nome e il contatto dell'amministratore<br>assegnato per abilitare il servizio dal Marketplace.<br>Collaboratore è il ruolo minimo necessario per <br>[registrare il provider di risorse della soluzione VMware di Azure](tutorial-create-private-cloud.md#register-the-resource-provider). | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 
 

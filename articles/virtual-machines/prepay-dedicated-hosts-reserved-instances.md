@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
 ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87825260"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Salva i costi con le prenotazioni host dedicato di Azure
@@ -109,7 +109,7 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 
 - Quantità
 
-- Durata
+- Duration
 
 Tuttavia, *exchange*   se si desidera apportare modifiche, è possibile scambiare una prenotazione.
 
