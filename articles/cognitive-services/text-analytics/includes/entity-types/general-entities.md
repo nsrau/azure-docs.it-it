@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 630f04bf2cc9e7de6331f9d25754a20fe2327d76
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779393"
 ---
 Quando si inviano richieste all'endpoint, vengono restituite le categorie di entità seguenti `/entities/recognition/general` .
 
-| Category   | Subcategory | Descrizione                          | Versione modello di avvio                                                    | Note |
+| Category   | Subcategory | Description                          | Versione modello di avvio                                                    | Note |
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
 | Persona     | N/D         | Nomi delle persone.  | `2019-10-01`  | Restituito anche da NER v 2.1 |
 | PersonType | N/D         | Tipi di processo o ruoli contenuti da una persona. | `2020-02-01` | |
@@ -30,10 +30,10 @@ Quando si inviano richieste all'endpoint, vengono restituite le categorie di ent
 |Organizzazione | Medicina | Società e gruppi medicali. | `2020-04-01` |  |
 |Organizzazione | Scambio scorte | Gruppi di scambio azionario. | `2020-04-01` | |
 | Organizzazione | Sport | Organizzazioni correlate allo sport. | `2020-04-01` |  |
-| Event  | N/D | Eventi cronologici, di social networking e naturalmente in corso. | `2020-02-01` |  |
-| Event  | Culturale | Eventi culturali e festivi. | `2020-04-01` | |
-| Event  | Natural | Eventi che si verificano naturalmente. | `2020-04-01` |  |
-| Event  | Sport | Eventi sportivi.  | `2020-04-01` | |
+| Evento  | N/D | Eventi cronologici, di social networking e naturalmente in corso. | `2020-02-01` |  |
+| Evento  | Culturale | Eventi culturali e festivi. | `2020-04-01` | |
+| Evento  | Natural | Eventi che si verificano naturalmente. | `2020-04-01` |  |
+| Evento  | Sport | Eventi sportivi.  | `2020-04-01` | |
 | Prodotto | N/D | Oggetti fisici di diverse categorie. | `2020-02-01` | |
 | Prodotto | Elaborazione dei prodotti | Elaborazione di prodotti. |  `2020-02-01 ` | |
 | Competenza | N/D | Funzionalità, competenze o esperienza. | `2020-02-01` |  |

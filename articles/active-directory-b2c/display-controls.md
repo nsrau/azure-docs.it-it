@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202297"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961358"
 ---
 # <a name="display-controls"></a>Controlli per la visualizzazione
 
@@ -55,9 +55,9 @@ L'elemento **DisplayControl** contiene gli elementi seguenti:
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** vengono utilizzati per prepopolare il valore delle attestazioni da raccogliere dall'utente. |
-| DisplayClaims | 0:1 | **DisplayClaims** vengono utilizzati per rappresentare le attestazioni che devono essere raccolte dall'utente. |
-| OutputClaims | 0:1 | **OutputClaims** vengono utilizzati per rappresentare le attestazioni da salvare temporaneamente per questo **DisplayControl**. |
+| InputClaims | 0:1 | **InputClaims** vengono utilizzati per prepopolare il valore delle attestazioni da raccogliere dall'utente. Per altre informazioni, vedere elemento [InputClaims](technicalprofiles.md#inputclaims) . |
+| DisplayClaims | 0:1 | **DisplayClaims** vengono utilizzati per rappresentare le attestazioni che devono essere raccolte dall'utente. Per altre informazioni, vedere elemento [DisplayClaim](technicalprofiles.md#displayclaim) .|
+| OutputClaims | 0:1 | **OutputClaims** vengono utilizzati per rappresentare le attestazioni da salvare temporaneamente per questo **DisplayControl**. Per altre informazioni, vedere elemento [OutputClaims](technicalprofiles.md#outputclaims) .|
 | Azioni | 0:1 | Le **azioni** vengono usate per elencare i profili tecnici di convalida da richiamare per le azioni dell'utente che si verificano nel front-end. |
 
 ### <a name="input-claims"></a>Attestazioni di input
@@ -98,7 +98,90 @@ Le **azioni** di un controllo di visualizzazione sono procedure che si verifican
 
 Un'azione definisce un elenco di **profili tecnici di convalida**. Vengono utilizzati per la convalida di alcune o tutte le attestazioni di visualizzazione del controllo di visualizzazione. Il profilo tecnico di convalida convalida l'input dell'utente e può restituire un errore all'utente. È possibile usare **ContinueOnError**, **ContinueOnSuccess**e **precondizioni** nell'azione di controllo dello schermo Analogamente al modo in cui vengono usati nei [profili tecnici di convalida](validation-technical-profile.md) in un profilo tecnico autocertificato.
 
-Nell'esempio seguente viene inviato un codice in un messaggio di posta elettronica o in un SMS in base alla selezione dell'attestazione **mfaType** da parte dell'utente.
+#### <a name="actions"></a>Azioni
+
+L'elemento **Actions** contiene l'elemento seguente:
+
+| Elemento | Occorrenze | Descrizione |
+| ------- | ----------- | ----------- |
+| Azione | 1:n | Elenco di azioni da eseguire. |
+
+#### <a name="action"></a>Azione
+
+L'elemento **Action** contiene l'attributo seguente:
+
+| Attributo | Obbligatoria | Descrizione |
+| --------- | -------- | ----------- |
+| ID | Sì | Tipo di operazione. I valori possibili sono: `SendCode` o `VerifyCode`. Il `SendCode` valore Invia un codice all'utente. Questa azione può contenere due profili tecnici di convalida: uno per generare un codice e uno per inviarlo. Il `VerifyCode` valore verifica il codice digitato dall'utente nella casella di testo di input. |
+
+L'elemento **Action** contiene l'elemento seguente:
+
+| Elemento | Occorrenze | Descrizione |
+| ------- | ----------- | ----------- |
+| ValidationClaimsExchange | 1:1 | Identificatori dei profili tecnici utilizzati per convalidare alcune o tutte le attestazioni di visualizzazione del profilo tecnico di riferimento. Tutte le attestazioni di input del profilo tecnico a cui viene fatto riferimento devono essere visualizzate nelle attestazioni di visualizzazione del profilo tecnico di riferimento. |
+
+#### <a name="validationclaimsexchange"></a>ValidationClaimsExchange
+
+L'elemento **ValidationClaimsExchange** contiene l'elemento seguente:
+
+| Elemento | Occorrenze | Descrizione |
+| ------- | ----------- | ----------- |
+| ValidationTechnicalProfile | 1:n | Profilo tecnico da utilizzare per la convalida di alcune o tutte le attestazioni di visualizzazione del profilo tecnico di riferimento. |
+
+L'elemento **tecnico** contiene gli attributi seguenti:
+
+| Attributo | Obbligatoria | Descrizione |
+| --------- | -------- | ----------- |
+| ReferenceId | Sì | Identificatore di un profilo tecnico già definito nei criteri o nei criteri padre. |
+|ContinueOnError|No| Indica se la convalida di tutti i profili tecnici di convalida successivi deve continuare se il profilo tecnico di convalida genera un errore. Possibili valori: `true` o `false` (impostazione predefinita, l'elaborazione di ulteriori profili di convalida verrà arrestata e verrà restituito un errore). |
+|ContinueOnSuccess | No | Indica se la convalida di tutti i profili di convalida successivi deve continuare se il profilo tecnico di convalida ha esito positivo. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`, che significa che continuerà l'elaborazione di ulteriori profili di convalida. |
+
+L'elemento **ValidationTechnicalProfile** contiene l'elemento seguente:
+
+| Elemento | Occorrenze | Descrizione |
+| ------- | ----------- | ----------- |
+| Preconditions | 0:1 | Elenco di precondizioni che devono essere soddisfatte per consentire l'esecuzione del profilo tecnico di convalida. |
+
+L'elemento **precondition** contiene gli attributi seguenti:
+
+| Attributo | Obbligatoria | Descrizione |
+| --------- | -------- | ----------- |
+| `Type` | Sì | Tipo di controllo o query da eseguire per la precondizione. I valori possibili sono: `ClaimsExist` o `ClaimEquals`. `ClaimsExist` Specifica che le azioni devono essere eseguite se le attestazioni specificate sono presenti nel set di attestazioni corrente dell'utente. `ClaimEquals` Specifica che le azioni devono essere eseguite se l'attestazione specificata esiste e se il relativo valore è uguale al valore specificato. |
+| `ExecuteActionsIf` | Sì | Indica se le azioni incluse nella precondizione devono essere eseguite nel caso in cui il test sia true o false. |
+
+L'elemento **Precondition** contiene gli elementi seguenti:
+
+| Elemento | Occorrenze | Descrizione |
+| ------- | ----------- | ----------- |
+| valore | 1:n | Dati usati dal controllo. Se il controllo è di tipo `ClaimsExist`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query. Se il controllo è di tipo `ClaimEquals`, in questo campo viene specificato un valore di ClaimTypeReferenceId per il quale eseguire query, Consente di specificare il valore da archiviare in un altro elemento valore.|
+| Azione | 1:1 | Azione da eseguire se il controllo della precondizione all'interno di un passaggio di orchestrazione è true. Il valore dell' **azione** è impostato su `SkipThisValidationTechnicalProfile` , che specifica che il profilo tecnico di convalida associato non deve essere eseguito. |
+
+Nell'esempio seguente viene inviato e verificato l'indirizzo di posta elettronica utilizzando [Azure ad profilo tecnico SSPR](aad-sspr-technical-profile.md).
+
+```xml
+<DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+  <InputClaims></InputClaims>
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+  </DisplayClaims>
+  <OutputClaims></OutputClaims>
+  <Actions>
+    <Action Id="SendCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+      </ValidationClaimsExchange>
+    </Action>
+    <Action Id="VerifyCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+      </ValidationClaimsExchange>
+    </Action>
+  </Actions>
+</DisplayControl>
+```
+
+Nell'esempio seguente viene inviato un codice in un messaggio di posta elettronica o in un SMS in base alla selezione dell'attestazione **mfaType** da parte dell'utente con le precondizioni.
 
 ```xml
 <Action Id="SendCode">
@@ -141,3 +224,10 @@ Ad esempio:
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per esempi sull'uso del controllo di visualizzazione, vedere: 
+
+- [Verifica della posta elettronica personalizzata con Mailjet](custom-email-mailjet.md)
+- [Verifica della posta elettronica personalizzata con SendGrid](custom-email-sendgrid.md)

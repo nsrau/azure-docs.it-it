@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ms.openlocfilehash: 5c728b219168f61f7f791b7db280a701ff216985
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362385"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Eseguire script di Python Machine Learning in Azure Machine Learning Studio (versione classica)
 
-**si applica a:** ![ Si applica a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Python è uno strumento prezioso nello strumento di molti data scientist. Viene usato in ogni fase dei flussi di lavoro di apprendimento automatico tipici, tra cui esplorazione dei dati, estrazione di funzionalità, training e convalida del modello e distribuzione.
@@ -149,7 +149,7 @@ Questo processo è illustrato nelle immagini seguenti che creano una matrice di 
 
 L'ambiente Anaconda installato in studio (classico) contiene pacchetti comuni, ad esempio NumPy, SciPy e scikits-Learn. Questi pacchetti possono essere usati in modo efficace per l'elaborazione dei dati in una pipeline di machine learning.
 
-Ad esempio, l'esperimento e lo script seguenti illustrano l'uso di ensemble Learning in scikits-Learn per calcolare i punteggi di importanza della funzionalità per un set di dati. I punteggi possono essere utilizzati per eseguire la selezione delle caratteristiche supervisionata prima di essere inseriti in un altro modello.
+Ad esempio, l'esperimento e lo script seguenti illustrano l'uso degli Learner di insieme in Scikits-Learn per calcolare i punteggi di importanza della funzionalità per un set di dati. I punteggi possono essere utilizzati per eseguire la selezione delle caratteristiche supervisionata prima di essere inseriti in un altro modello.
 
 Di seguito è illustrata la funzione Python usata per calcolare i punteggi di rilevanza e ordinare le funzioni in base ai punteggi:
 

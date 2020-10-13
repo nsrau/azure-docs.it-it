@@ -4,10 +4,10 @@ description: Informazioni su come configurare un Lab usando Azure Lab Services p
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: ae0d57223edb68d1bed4ad64a005dd33da019dd0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631682"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurare un Lab per insegnare una classe di hacking etico 
@@ -22,7 +22,7 @@ Per configurare questo lab, è necessaria una sottoscrizione di Azure per inizia
 
 Seguire [questa esercitazione](tutorial-setup-classroom-lab.md) per creare un nuovo Lab e quindi applicare le impostazioni seguenti:
 
-| Dimensioni della macchina virtuale | Image |
+| Dimensioni della macchina virtuale | Immagine |
 | -------------------- | ----- | 
 | Media (virtualizzazione annidata) | Windows Server 2019 Datacenter |
 
@@ -123,7 +123,7 @@ Per una classe di 25 studenti con 20 ore di lezioni pianificate e 10 ore di quot
 
 Per ulteriori informazioni sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Questo articolo illustra la procedura per creare un Lab per la classe di hacker etici. Sono inclusi i passaggi per configurare la virtualizzazione annidata per la creazione di due macchine virtuali all'interno della macchina virtuale host per il testing.
 
 ## <a name="next-steps"></a>Passaggi successivi

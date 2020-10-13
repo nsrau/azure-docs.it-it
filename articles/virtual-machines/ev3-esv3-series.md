@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
 ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649576"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 e Esv3
@@ -24,7 +24,7 @@ Le istanze della serie EV3 vengono eseguite su Intel® Xeon® Platinum 8272CL (C
 
 L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare dischi di archiviazione Premium, usare le dimensioni ESv3. I prezzi e i contatori di fatturazione per le dimensioni ESv3 sono uguali a quelli della serie Ev3.
 
-La funzionalità della VM serie EV3 Intel® tecnologia Hyper-Threading.
+La funzionalità della VM serie EV3 Intel® Hyper-Threading Technology.
 
 [ACU](acu.md): 160-190<br>
 [Archiviazione Premium](premium-storage-performance.md): non supportata<br>
@@ -54,7 +54,7 @@ La funzionalità della VM serie EV3 Intel® tecnologia Hyper-Threading.
 
 Le istanze della serie Esv3 sono eseguite su Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2,1 GHz (Skylake) o sul processore Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell), che offre la tecnologia Intel Turbo Boost 2,0 e Usa archiviazione Premium. Le istanze della serie Esv3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
-La funzionalità della VM serie Esv3 Intel® tecnologia Hyper-Threading.
+La funzionalità della VM serie Esv3 Intel® Hyper-Threading Technology.
 
 [ACU](acu.md): 160-190<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>

@@ -8,10 +8,10 @@ ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: e5ca792c6dbc3c08847315b916913e8c38909a7a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637239"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Baseline della sicurezza di Azure per il servizio Azure Kubernetes
@@ -1237,7 +1237,7 @@ Esegui backup automatici regolari di Key Vault certificati, chiavi, account di a
 
 Ad esempio:
 
-Backup-AzKeyVaultCertificate backup-AzKeyVaultKey backup-AzKeyVaultManagedStorageAccount backup-AzKeyVaultSecret
+Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
 - [Come eseguire il backup di certificati Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
@@ -1281,7 +1281,7 @@ Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedSto
 
 **Linee guida**: eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero, che può eseguire il backup di volumi permanenti insieme a risorse e configurazioni aggiuntive del cluster. 
 
-Abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose se viene usato Azure Key Vault con per le distribuzioni di Azure Kubernetes Service (AKS).
+Abilitare Soft-Delete in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose se Azure Key Vault viene usato con per le distribuzioni di Azure Kubernetes Service (AKS).
 
 - [Informazioni su crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md)
 

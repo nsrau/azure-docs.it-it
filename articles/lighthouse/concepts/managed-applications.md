@@ -3,12 +3,12 @@ title: Azure Lighthouse e applicazioni gestite di Azure
 description: Informazioni sul modo in cui Azure Lighthouse e le applicazioni gestite di Azure consentono di abilitare scenari diversi e di come possono essere usati insieme.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483848"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970759"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e applicazioni gestite di Azure
 
@@ -35,7 +35,7 @@ In un'applicazione gestita, le risorse usate dall'applicazione vengono raggruppa
 
 Le applicazioni gestite supportano [esperienze di portale di Azure personalizzate](../../azure-resource-manager/managed-applications/concepts-view-definition.md) e l' [integrazione con i provider personalizzati](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). Queste opzioni possono essere usate per offrire un'esperienza più personalizzata e integrata, semplificando l'esecuzione di alcune attività di gestione da parte dei clienti.
 
-Le applicazioni gestite possono essere [pubblicate in Azure Marketplace](../../azure-resource-manager/managed-applications/publish-marketplace-app.md), come offerta privata per l'uso da parte di un cliente specifico, o come offerte pubbliche che possono essere acquistati da più clienti. Possono inoltre essere distribuiti agli utenti all'interno dell'organizzazione mediante la [pubblicazione di applicazioni gestite nel catalogo di servizi](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). È possibile distribuire sia il catalogo di servizi che le istanze del Marketplace usando i modelli ARM, che possono includere l'identificatore univoco di un partner del Marketplace commerciale per tenere traccia dell' [attribuzione dell'utilizzo del cliente](../../marketplace/azure-partner-customer-usage-attribution.md).
+Le applicazioni gestite possono essere [pubblicate in Azure Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md), come offerta privata per l'uso da parte di un cliente specifico, o come offerte pubbliche che possono essere acquistati da più clienti. Possono inoltre essere distribuiti agli utenti all'interno dell'organizzazione mediante la [pubblicazione di applicazioni gestite nel catalogo di servizi](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). È possibile distribuire sia il catalogo di servizi che le istanze del Marketplace usando i modelli ARM, che possono includere l'identificatore univoco di un partner del Marketplace commerciale per tenere traccia dell' [attribuzione dell'utilizzo del cliente](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Le applicazioni gestite di Azure vengono in genere usate per esigenze specifiche del cliente, che possono essere realizzate tramite una soluzione chiavi in mano completamente gestita dal provider di servizi.
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
 ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568098"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
@@ -75,8 +75,8 @@ Translator supporta le seguenti lingue per la traduzione da testo a testo.
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coreano |`ko`   |
-|Curdo (centrale)  |`ku`   |
-|Curdo (Northern) |`kmr`  |
+|Curdo centrale  |`ku`   |
+|Curdo settentrionale |`kmr`  |
 |Lettone|   `lv`    |
 |Lituano|    `lt`    |
 |Malgascio|  `mg`    |
@@ -155,7 +155,7 @@ Translator rileva le seguenti lingue per la conversione e la traslitterazione.
 |Giapponese|  `ja`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
-|Curdo (centrale)  |`ku-Arab`  |
+|Curdo centrale  |`ku-Arab`  |
 |Lettone|   `lv`    |
 |Lituano|    `lt`    |
 |Malese| `ms`        |

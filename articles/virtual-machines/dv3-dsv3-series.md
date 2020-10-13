@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
 ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649644"
 ---
 # <a name="dv3-and-dsv3-series"></a>Serie Dv3 e Dsv3
@@ -26,7 +26,7 @@ Le dimensioni della serie dv3 vengono eseguite su Intel® Xeon® Platinum 8272CL
 
 L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare dischi di archiviazione Premium, usare le dimensioni Dsv3. I prezzi e i contatori di fatturazione per le dimensioni Dsv3 sono uguali a quelli della serie Dv3.
 
-Le macchine virtuali serie dv3 includono tecnologia Intel® Hyper-Threading.
+Le macchine virtuali serie dv3 includono la tecnologia Intel® Hyper-Threading.
 
 [ACU](acu.md): 160-190<br>
 [Archiviazione Premium](premium-storage-performance.md): non supportata<br>
@@ -50,7 +50,7 @@ Le macchine virtuali serie dv3 includono tecnologia Intel® Hyper-Threading.
 
 Le dimensioni della serie Dsv3 vengono eseguite su Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o i processori Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) con la tecnologia Intel Turbo Boost 2,0 e usano archiviazione Premium. Le dimensioni della serie Dsv3 offrono una potente combinazione di vCPU, memoria e spazio di archiviazione temporaneo ideale per la maggior parte delle applicazioni di produzione.
 
-Le macchine virtuali serie Dsv3 includono tecnologia Intel® Hyper-Threading.
+Le macchine virtuali serie Dsv3 includono la tecnologia Intel® Hyper-Threading.
 
 [ACU](acu.md): 160-190<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>

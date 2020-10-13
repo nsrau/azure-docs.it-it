@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021441"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91650460"
 ---
 # <a name="about-azure-remote-rendering"></a>Informazioni su Rendering remoto di Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "84021441"
 
 *Rendering remoto di Azure* è un servizio che consente di eseguire il rendering di contenuti 3D interattivi di alta qualità nel cloud e di trasmetterli in streaming in tempo reale ai dispositivi come HoloLens 2.
 
-![Modello di esempio](../media/arr-engine.png)
+![Diagramma che mostra un esempio di rendering di alta qualità di un motore di automobile in 3D interattivo.](../media/arr-engine.png)
 
 I dispositivi non collegati hanno una potenza di calcolo limitata per il rendering di modelli complessi. Per molte applicazioni sarebbe però inaccettabile ridurre in qualche modo la fedeltà visiva. Lo screenshot seguente mette a confronto il modello in dettaglio con un modello che è stato decimato con un comune strumento di creazione di contenuti:
 

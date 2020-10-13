@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3751560125ea8ac6cc00ed63521bff30b751e688
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009597"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631380"
 ---
 # <a name="azure-cache-for-redis"></a>Cache Redis di Azure
 Cache di Azure per Redis offre un archivio dati in memoria basato sul software open source [Redis](https://redis.io/). Redis migliora in modo significativo le prestazioni e la scalabilità di un'applicazione che usano gli archivi dati back-end. È in grado di elaborare volumi elevati di richieste delle applicazioni mantenendo i dati usati di frequente nella memoria del server che garantisce rapidità di lettura e scrittura. Redis offre una soluzione di archiviazione dati a bassa latenza e velocità effettiva elevata strategica per le applicazioni moderne.
@@ -31,12 +31,20 @@ Cache di Azure per Redis migliora le prestazioni dell'applicazione grazie al sup
 | Accodamento di messaggi e processi | Spesso le applicazioni aggiungono le attività a una coda quando l'esecuzione delle operazioni associate alla richiesta richiede tempo. Le operazioni a esecuzione prolungata vengono accodate per essere elaborate in sequenza, spesso da un altro server.  Questo metodo di rinviare il lavoro viene detto accodamento delle attività. Cache di Azure per Redis fornisce una coda distribuita per abilitare questo modello nell'applicazione.|
 | Transazioni distribuite | Talvolta le applicazioni richiedono una serie di comandi su un archivio dati back-end per l'esecuzione come singola operazione atomica. Tutti i comandi devono avere esito positivo oppure è necessario eseguire il rollback allo stato iniziale. Cache di Azure per Redis supporta l'esecuzione di un batch di comandi come singola [transazione](https://redis.io/topics/transactions). |
 
+## <a name="redis-versions"></a>Versioni di Redis
+
+Cache di Azure per Redis supporta Redis versione 4.x e, come anteprima, 6.0. È stato deciso di ignorare Redis 5.0 per offrire l'ultima versione. In precedenza, cache di Azure per Redis manteneva solo una singola versione di Redis. In futuro fornirà un aggiornamento più recente della versione principale e almeno una versione stabile precedente. È possibile [scegliere quale versione](cache-how-to-version.md) è più adatta per l'applicazione.
+
+> [!NOTE]
+> Redis 6.0 è attualmente in fase di anteprima. [Contattare](mailto:azurecache@microsoft.com) Microsoft se si è interessati. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+
 ## <a name="service-tiers"></a>Livelli di servizio
 Cache Redis di Azure è disponibile nei livelli seguenti:
 
 | Livello | Descrizione |
 |---|---|
-Basic | Una cache con un nodo singolo. Questo livello supporta più dimensioni di memoria (da 250 MB a 53 GB) ed è ideale per carichi di lavoro di sviluppo/test e non critici. Il livello Basic non dispone di alcun contratto di servizio. |
+| Basic | Una cache con un nodo singolo. Questo livello supporta più dimensioni di memoria (da 250 MB a 53 GB) ed è ideale per carichi di lavoro di sviluppo/test e non critici. Il livello Basic non dispone di alcun contratto di servizio. |
 | Standard | Una cache replicata in una configurazione a due nodi, primario/replica, gestita da Azure, con un [contratto di servizio](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) che garantisce disponibilità elevata. |
 | Premium | Premium è il piano di livello aziendale. Le cache di livello Premium supportano più funzionalità e hanno una velocità effettiva superiore con latenze inferiori. Le cache di livello Premium sono distribuite su un hardware più potente e che offre prestazioni migliori rispetto al livello Standard o Basic. Questo vantaggio significa che la velocità effettiva per una cache delle stesse dimensioni sarà superiore nel livello Premium rispetto al livello Standard. |
 

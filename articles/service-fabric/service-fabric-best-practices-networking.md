@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
 ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630703"
 ---
-# <a name="networking"></a>Rete
+# <a name="networking"></a>Funzionalità di rete
 
 Quando si creano e si gestiscono cluster di Azure Service Fabric, viene fornita la connettività di rete per i nodi e le applicazioni. Le risorse di rete includono gli intervalli di indirizzi IP, le reti virtuali, i bilanciamenti del carico e i gruppi di sicurezza di rete. In questo articolo verranno illustrate le procedure consigliate per queste risorse.
 
@@ -61,7 +61,7 @@ Per abilitare la rete accelerata in un cluster esistente è necessario ridimensi
 
 Di seguito sono riportate le regole di base per un blocco di sicurezza di un cluster di Service Fabric gestito di Azure. L'impossibilità di aprire le porte seguenti o di approvare l'IP/URL impedirà il corretto funzionamento del cluster e potrebbe non essere supportato. Con questo set di regole è strettamente necessario usare gli [aggiornamenti automatici delle immagini del sistema operativo](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md). in caso contrario, sarà necessario aprire porte aggiuntive.
 
-### <a name="inbound"></a>In ingresso 
+### <a name="inbound"></a>In entrata 
 |Priorità   |Nome               |Porta        |Protocollo  |Source (Sorgente)             |Destination       |Azione   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Consenti

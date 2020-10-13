@@ -4,10 +4,10 @@ description: Questo modello di dati è in riferimento alla modalità specifica d
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569596"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modello di dati per gli eventi di diagnostica di backup di Azure
@@ -38,9 +38,9 @@ Questa tabella fornisce informazioni sulle entità di backup di base, ad esempio
 | BackupManagementServerOSVersion   | Text          | Versione del sistema operativo del server di gestione di backup                   |
 | BackupManagementServerVersion     | Text          | Versione del server di gestione di backup                      |
 | LatestRecoveryPointLocation       | Text          | Posizione del punto di ripristino più recente per l'elemento di backup    |
-| LatestRecoveryPointTime           | DataOra      | Data e ora del punto di ripristino più recente per l'elemento di backup   |
+| LatestRecoveryPointTime           | Datetime      | Data e ora del punto di ripristino più recente per l'elemento di backup   |
 | OldestRecoveryPointLocation       | Text          | Posizione del punto di ripristino meno recente per l'elemento di backup    |
-| OldestRecoveryPointTime           | DataOra      | Data e ora del punto di ripristino più recente per l'elemento di backup   |
+| OldestRecoveryPointTime           | Datetime      | Data e ora del punto di ripristino più recente per l'elemento di backup   |
 | PolicyUniqueId                    | Text          | ID univoco per l'identificazione dei criteri                             |
 | ProtectedContainerFriendlyName    | Testo          | Nome descrittivo del server protetto                        |
 | ProtectedContainerLocation        | Testo          | Indica se il contenitore protetto si trova in locale o in Azure |
@@ -74,7 +74,7 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 | Category                       | Text          | Categoria di dati di diagnostica inseriti nei log di monitoraggio di Azure-AddonAzureBackupAlerts |
 | AlertCode                      | Testo          | Codice per identificare in modo univoco un tipo di avviso                     |
 | AlertConsolidationStatus       | Text          | Identifica se l'avviso è un avviso consolidato o meno         |
-| AlertOccurrenceDateTime        | DataOra      | Data e ora di creazione dell'avviso                     |
+| AlertOccurrenceDateTime        | Datetime      | Data e ora di creazione dell'avviso                     |
 | AlertRaisedOn                  | Text          | Tipo di entità per cui viene generato l'avviso                        |
 | AlertSeverity                  | Testo          | Gravità dell'avviso Ad esempio, Critical                 |
 | AlertStatus                    | Testo          | Stato dell'avviso. Ad esempio, Active                     |
@@ -130,12 +130,12 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | JobFailureCode                 | Text          | Stringa di codice contenente un errore e a causa della quale si è verificato un errore del processo    |
 | JobOperation                   | Testo          | Operazione per cui viene eseguito il processo, ad esempio backup, Restore, Configure backup |
 | JobOperationSubType            | Testo          | Sottotipo dell'operazione di processo. Ad esempio, "log", nel caso di un processo di backup del log |
-| JobStartDateTime               | DataOra      | Data e ora di avvio dell'esecuzione del processo                       |
+| JobStartDateTime               | Datetime      | Data e ora di avvio dell'esecuzione del processo                       |
 | Stato processo                      | Text          | Stato del processo completato, ad esempio Completed o Failed   |
 | JobUniqueId                    | Text          | ID univoco per l'identificazione del processo                                |
 | ProtectedContainerUniqueId     | Testo          | Identificatore univoco del server protetto associato al processo |
 | RecoveryJobDestination         | Text          | Destinazione di un processo di ripristino in cui vengono ripristinati i dati   |
-| RecoveryJobRPDateTime          | DataOra      | Data, ora in cui è stato creato il punto di ripristino da ripristinare |
+| RecoveryJobRPDateTime          | Datetime      | Data, ora in cui è stato creato il punto di ripristino da ripristinare |
 | RecoveryJobLocation            | Testo          | Il percorso in cui è stato archiviato il punto di ripristino da ripristinare |
 | RecoveryLocationType           | Testo          | Tipo di percorso di ripristino                                |
 | schemaVersion                  | Text          | Versione corrente dello schema, ad esempio **V2**            |
@@ -233,7 +233,7 @@ A ogni record delle tabelle precedenti è associato un **nome dell'operazione**.
 | CoreAzureBackup | RecoveryPoint | Rappresenta un record contenente il punto di ripristino più vecchio e più recente per un determinato elemento di backup. |
 | AddonAzureBackupJobs | Processo |  Rappresenta un record contenente tutti i dettagli di un determinato processo. Ad esempio, operazione di processo, ora di inizio, stato e così via. |
 | AddonAzureBackupAlerts | Avviso | Rappresenta un record contenente tutti i dettagli di un determinato avviso. Ad esempio, ora di creazione dell'avviso, gravità, stato e così via.  |
-| AddonAzureBackupStorage | Archiviazione | Rappresenta un record contenente tutti i dettagli di un'entità di archiviazione specificata. Ad esempio, nome archiviazione, tipo e così via. |
+| AddonAzureBackupStorage | Archiviazione: | Rappresenta un record contenente tutti i dettagli di un'entità di archiviazione specificata. Ad esempio, nome archiviazione, tipo e così via. |
 | AddonAzureBackupStorage | StorageAssociation | Rappresenta un mapping tra un elemento di backup e l'archiviazione cloud totale utilizzata dall'elemento di backup. |
 | AddonAzureBackupProtectedInstance | ProtectedInstance | Rappresenta un record contenente il numero di istanze protette per ogni contenitore o elemento di backup. Per il backup delle macchine virtuali di Azure, il numero di istanze protette è disponibile a livello di elemento di backup, per altri carichi di lavoro è disponibile a livello di contenitore protetto. |
 | AddonAzureBackupPolicy | Policy |  Rappresenta un record contenente tutti i dettagli dei criteri di backup e conservazione. Ad esempio, ID, nome, impostazioni di conservazione e così via. |
