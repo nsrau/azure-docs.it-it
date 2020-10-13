@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318131"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996390"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoraggio continuo con Monitoraggio di Azure
 
@@ -43,7 +43,7 @@ Le applicazioni sono solo affidabili come la relativa infrastruttura sottostante
 
 [Infrastruttura come codice](/azure/devops/learn/what-is-infrastructure-as-code) è la gestione dell'infrastruttura in un modello descrittivo, usando lo stesso controllo delle versioni usato dai team DevOps per il codice sorgente. Aggiunge affidabilità e scalabilità all'ambiente e consente di sfruttare i processi simili che consentono di gestire le applicazioni.
 
--  Usare [modelli di Resource Manager](platform/template-workspace-configuration.md) per abilitare il monitoraggio e configurare gli avvisi tramite un ampio set di risorse.
+-  Usare [modelli di Resource Manager](./samples/resource-manager-workspace.md) per abilitare il monitoraggio e configurare gli avvisi tramite un ampio set di risorse.
 - Usare [Criteri di Azure](../governance/policy/overview.md) per applicare regole diverse in relazione alle risorse. Ciò assicura che tali risorse rimangano conformi con gli standard aziendali e i contratti di servizio. 
 
 
@@ -87,4 +87,3 @@ Assicurare che lo sviluppo e le operazioni abbiano accesso agli stessi dati di t
 
 - Informazioni sui componenti di differenza di [Monitoraggio di Azure](overview.md).
 - [Aggiungere un monitoraggio continuo](./app/continuous-monitoring.md) alla pipeline di versione.
-

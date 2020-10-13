@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536190"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774117"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Discovery Benefits SSO
 
@@ -86,7 +86,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Fare clic sull'icona **Edit** (Modifica) per aprire la finestra di dialogo **Unique User Identifier (Name ID)** (Identificatore utente univoco (ID nome)).
 
-    ![Configurazione di Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![Screenshot che mostra la sezione "Attributi utente e attestazioni" con l'opzione "Attestazione obbligatoria" sul lato destro selezionata.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![Configurazione di Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -103,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     f. Le attestazioni aggiuntive necessarie per la configurazione dell'accesso SSO (`SSOInstance` e `SSOID`) sono state popolate automaticamente. Usare l'icona **Edit** (Modifica) per eseguire il mapping dei valori in base alle indicazioni dell'organizzazione.
 
-    ![Configurazione di Discovery Benefits SSO](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    ![Screenshot che mostra la schermata "Attributi utente e attestazioni" con i valori di "SSOInstance" e "SSOID" evidenziati.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998408"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995689"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Abilitare Monitoraggio di Azure per le macchine virtuali
 
@@ -70,7 +70,7 @@ Se non si dispone di un'area di lavoro Log Analytics, è possibile crearne una u
 * [Interfaccia della riga di comando di Azure](../learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../platform/template-workspace-configuration.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 - Macchina virtuale di Azure
 - Set di scalabilità di macchine virtuali di Azure

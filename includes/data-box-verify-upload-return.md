@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.author: alkohli
-ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71172655"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631538"
 ---
 Quando Microsoft riceve e analizza il dispositivo, lo stato dell'ordine diventa **Ricevuto**. Il dispositivo viene quindi sottoposto a una verifica fisica per rilevare eventuali danni o segni di manomissione.
 
@@ -20,7 +20,7 @@ Al termine della copia, lo stato dell'ordine diventa **Completato**.
 
 Verificare che i dati siano stati caricati in Azure prima di eliminarli dall'origine. I dati possono trovarsi in:
 
-- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, a seconda del tipo, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
+- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure:
 
   - Per i BLOB in blocchi e i BLOB di pagine: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Per File di Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
@@ -37,7 +37,7 @@ Verificare che i dati siano stati caricati in Azure prima di eliminarli dall'ori
 
         ![Dischi gestiti associati ai gruppi di risorse](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - Se è stato copiato un VHDX oppure un disco rigido virtuale differenziale o dinamico, il caricamento verrà effettuato nell'account di archiviazione di staging come BLOB di pagine, ma la conversione del disco rigido virtuale in disco gestito avrà esito negativo. Passare ad **Account di archiviazione > BLOB** di staging e quindi selezionare il contenitore appropriato, ovvero Unità SSD Standard, HDD Standard o Unità SSD Premium. I dischi rigidi virtuali verranno caricati come BLOB di pagine nell'account di archiviazione di staging.
+    - Se è stato copiato un VHDX oppure un disco rigido virtuale differenziale o dinamico, il caricamento verrà effettuato nell'account di archiviazione di staging come BLOB di pagine, ma la conversione del disco rigido virtuale in un disco gestito non riuscirà. Passare ad **Account di archiviazione > BLOB** di staging e selezionare il contenitore appropriato, ovvero Unità SSD Standard, HDD Standard o Unità SSD Premium. I dischi rigidi virtuali verranno caricati come BLOB di pagine nell'account di archiviazione di staging e comportano un aumento dei costi.
 
 
 ## <a name="erasure-of-data-from-data-box"></a>Cancellare i dati dal Data Box

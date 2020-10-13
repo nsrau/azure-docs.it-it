@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 14b905c69f0dab933159b414028db3e985d314a3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935761"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993982"
 ---
 # <a name="manual-qos-capacity-pool"></a>Pool di capacità QoS manuale
 
@@ -34,6 +34,10 @@ In un pool di capacità QoS *manuale* è possibile assegnare la capacità e la v
 In un pool di capacità QoS *automatica* , la velocità effettiva viene assegnata automaticamente ai volumi nel pool, proporzionale alla quota di dimensioni assegnata ai volumi.  
 
 Vedere la [gerarchia di archiviazione di Azure NetApp files](azure-netapp-files-understand-storage-hierarchy.md) e [considerazioni sulle prestazioni per Azure NetApp files](azure-netapp-files-performance-considerations.md) per considerazioni sui tipi QoS.
+
+## <a name="example-of-using-manual-qos"></a>Esempio di uso di QoS manuale
+
+Quando si usa un pool di capacità QoS manuale con, ad esempio, un sistema di SAP HANA, un database Oracle o altri carichi di lavoro che richiedono più volumi, è possibile usare il pool di capacità per creare questi volumi dell'applicazione.  Ogni volume può fornire le singole dimensioni e la velocità effettiva per soddisfare i requisiti dell'applicazione.  Per informazioni dettagliate sui vantaggi, vedere [esempi di limiti di velocità effettiva dei volumi in un pool di capacità QoS manuale](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool) .  
 
 ## <a name="how-to-specify-the-manual-qos-type"></a>Come specificare il tipo QoS manuale
 

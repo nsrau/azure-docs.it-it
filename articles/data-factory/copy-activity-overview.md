@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951682"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995346"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -201,7 +201,7 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`** -una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **$ $Column: <source_column_name>** -un modello di variabile riservata indica di duplicare la colonna di origine specificata come altra colonna<br>- **Espressione**<br>- **Valore statico** | No |
+| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`** -una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **`$$COLUMN:<source_column_name>`** -un modello di variabile riservata indica di duplicare la colonna di origine specificata come altra colonna<br>- **Espressione**<br>- **Valore statico** | No |
 
 **Esempio:**
 

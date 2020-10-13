@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 47ffaef940b3fe2ffe033405a712195c5c74d774
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 85b355981a50804f1c43441efa38c5db59967c1d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520382"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760632"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Esercitazione: Integrare Civic Platform con Azure Active Directory
 
@@ -91,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
-    ![Collegamento di download del certificato](common/copy-metadataurl.png)
+    ![Screenshot che mostra la pagina Certificato di firma SAML in cui è possibile copiare il valore di URL dei metadati di federazione dell'app.](common/copy-metadataurl.png)
 
 1. Passare ad **Azure Active Directory** > **Registrazioni app** e quindi selezionare l'applicazione.
 
@@ -120,21 +120,21 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic su **Standard Choices** (Scelte standard).
 
-    ![Collegamento di download del certificato](media/civic-platform-tutorial/standard-choices.png)
+    ![Screenshot che mostra il sito di Atlassian Cloud con l'opzione Standard Choices evidenziata in Administrator Tools.](media/civic-platform-tutorial/standard-choices.png)
 
 1. Creare una scelta standard **ssoconfig**.
 
 1. Cercare **ssoconfig** e fare clic su Submit (Invia).
 
-    ![Collegamento di download del certificato](media/civic-platform-tutorial/sso-config.png)
+    ![Screenshot che mostra la schermata Standard Choices - Search con il nome ssoconfig immesso.](media/civic-platform-tutorial/sso-config.png)
 
 1. Espandere SSOCONFIG facendo clic sul punto rosso.
 
-    ![Collegamento di download del certificato](media/civic-platform-tutorial/sso-config01.png)
+    ![Screenshot che mostra la schermata Standard Choices - Browse con l'opzione SSOCONFIG disponibile.](media/civic-platform-tutorial/sso-config01.png)
 
 1. Fornire le informazioni di configurazione correlato all'accesso SSO nel passaggio seguente:
 
-    ![Collegamento di download del certificato](media/civic-platform-tutorial/sso-config02.png)
+    ![Screenshot che mostra la schermata Standard Choices Item - Edit per SSO CONFIG.](media/civic-platform-tutorial/sso-config02.png)
 
     1. Nel campo **applicationid** immettere il valore di **ID applicazione** copiato dal portale di Azure.
 

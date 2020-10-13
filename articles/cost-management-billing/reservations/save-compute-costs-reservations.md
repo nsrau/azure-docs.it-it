@@ -1,23 +1,23 @@
 ---
 title: Informazioni sulle prenotazioni di Azure
-description: Informazioni sulle prenotazioni e sui prezzi di Azure per risparmiare sui costi di macchine virtuali, database SQL, Azure Cosmos DB e altre risorse.
+description: Informazioni sulle prenotazioni di Azure e sui prezzi che consentono di risparmiare sui costi di istanze riservate per macchine virtuali, database SQL, Azure Cosmos DB e altre risorse.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: a5ab489e995506deb806fe5f0cee4a147ae42ac2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682587"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91652364"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
-Le prenotazioni di Azure consentono di risparmiare denaro a fronte di un impegno di acquisto di un piano di uno o tre anni per più prodotti. L'impegno consente di ottenere uno sconto sulle risorse che si usano. Le prenotazioni possono ridurre in modo significativo i costi delle risorse fino al 72% sui prezzi con pagamento a consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse. Dopo l'acquisto, lo sconto per la prenotazione si applica automaticamente alle risorse corrispondenti.
+Le prenotazioni di Azure consentono di risparmiare denaro a fronte di un impegno di acquisto di un piano di uno o tre anni per più prodotti. L'impegno consente di ottenere uno sconto sulle risorse che si usano. Le prenotazioni consentono di ridurre sensibilmente i costi delle risorse, fino al 72% rispetto ai prezzi con pagamento in base al consumo. Le prenotazioni offrono uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle risorse. Dopo l'acquisto, lo sconto per la prenotazione si applica automaticamente alle risorse corrispondenti.
 
 Il pagamento per le prenotazioni può essere anticipato o mensile. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente. Il pagamento mensile è disponibile per le prenotazioni di Azure, non per prodotti di terze parti.
 
@@ -39,7 +39,7 @@ Per altre informazioni sul funzionamento dell'ambito di prenotazione, vedere [De
 
 Tutte le prenotazioni, ad eccezione di Azure Databricks, vengono applicate su base oraria. Valutare gli acquisti delle prenotazioni in base all'utilizzo di base coerente. È possibile determinare la prenotazione da acquistare analizzando i dati di utilizzo o usando le raccomandazioni per le prenotazioni. Le raccomandazioni sono disponibili in:
 
-- Azure Advisor (solo macchine virtuali)
+- Azure Advisor (solo VM)
 - Esperienza di acquisto della prenotazione nel portale di Azure
 - App Power BI Gestione costi di Azure
 - API 
@@ -50,9 +50,9 @@ Per altre informazioni, vedere  [Determinare la prenotazione da acquistare](de
 
 È possibile acquistare prenotazioni tramite il portale di Azure, le API, PowerShell e l'interfaccia della riga di comando. 
 
-Passare al portale di Azure per procedere all'acquisto (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) ). 
+Passare al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) per effettuare un acquisto.
 
-Per altre informazioni, vedere  [Acquistare una prenotazione](prepare-buy-reservation.md) 
+Per altre informazioni, vedere  [Acquistare una prenotazione](prepare-buy-reservation.md).
 
 ## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione? 
 
@@ -106,7 +106,7 @@ Piani software:
 
 - **SUSE Linux**: una prenotazione copre i costi del piano software. Gli sconti si applicano solo ai contatori SUSE e non all'utilizzo della macchina virtuale.
 - **Piani Red Hat**: una prenotazione copre i costi del piano software. Gli sconti si applicano solo ai contatori RedHat e non all'utilizzo della macchina virtuale.
-- **Soluzione VMware di Azure di CloudSimple**: una prenotazione copre i nodi CloudSimple VMWare. Vengono comunque applicati costi aggiuntivi per il software.
+- **Soluzione Azure VMware di CloudSimple**: una prenotazione copre i costi dei nodi di VMware CloudSimple. Vengono comunque applicati costi aggiuntivi per il software.
 - **Azure Red Hat OpenShift**: una prenotazione si applica ai costi di OpenShift e non a quelli dell'infrastruttura di Azure.
 
 Per le macchine virtuali Windows e il database SQL, lo sconto per la prenotazione non si applica ai costi del software. È possibile coprire i costi di licenza con il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).

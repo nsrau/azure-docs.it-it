@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575521"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996326"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -49,7 +49,7 @@ Sono disponibili due modalità di fatturazione per l'utilizzo in un cluster. Que
 
 1. **Cluster**: in questo caso (impostazione predefinita), la fatturazione per i dati inseriti viene eseguita a livello di cluster. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. 
 
-2. **Aree di lavoro**: i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, dopo aver tenuto conto delle allocazioni per nodo dal [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/) per ogni area di lavoro.
+2. **Aree di lavoro**: i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, dopo aver tenuto conto delle allocazioni per nodo dal [Centro sicurezza di Azure](../../security-center/index.yml) per ogni area di lavoro.
 
 Si noti che se l'area di lavoro usa il piano tariffario per nodo Legacy, quando è collegato a un cluster, verrà fatturato in base ai dati inseriti per la prenotazione di capacità del cluster e non più per nodo. Le allocazioni di dati per nodo dal centro sicurezza di Azure continueranno a essere applicate.
 
@@ -321,7 +321,7 @@ Se si usano chiavi gestite dal cliente, i dati inseriti vengono archiviati critt
 
 - Copiare il valore dell'URL di Azure-AsyncOperation dalla risposta e seguire la verifica dello stato delle operazioni asincrone.
 
-- Inviare un' [area di lavoro: ottenere](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) la richiesta e osservare la risposta. L'area di lavoro associata dispone di un clusterResourceId in "features".
+- Inviare un' [area di lavoro: ottenere](/rest/api/loganalytics/workspaces/get) la richiesta e osservare la risposta. L'area di lavoro associata dispone di un clusterResourceId in "features".
 
 Una richiesta di invio ha un aspetto simile al seguente:
 

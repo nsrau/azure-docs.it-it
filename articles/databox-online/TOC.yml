@@ -165,6 +165,8 @@
               href: azure-stack-edge-gpu-troubleshoot.md
             - name: Problemi di ordinamento
               href: azure-stack-edge-troubleshoot-ordering.md
+            - name: Problemi di attivazione
+              href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Contattare il supporto tecnico Microsoft
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Note sulla versione

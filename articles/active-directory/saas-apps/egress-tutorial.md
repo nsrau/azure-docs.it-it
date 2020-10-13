@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.openlocfilehash: adbadc14caad6594dc30f0f9fd9cb1cb49b47888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d3dccc8d34852b967bffcf57e2f3609d9786279
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544265"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826672"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Egress
 
@@ -146,7 +146,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Invite Users** (Invita utenti) nel menu sul lato sinistro e quindi su **Invite Single User** (Invita singolo utente) per aggiungere l'utente.
 
-    ![Creazione dell'utente di test di Egress](./media/egress-tutorial/create-user-1.PNG)
+    ![Screenshot che mostra la pagina "Invite Users" con il pulsante "Invite Single User" selezionato.](./media/egress-tutorial/create-user-1.PNG)
 
 1. Compilare i campi obbligatori e fare clic su **Invite** (Invita).
 

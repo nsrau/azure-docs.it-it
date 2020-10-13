@@ -1,24 +1,18 @@
 ---
 title: Architetture per la distribuzione di app Oracle in macchine virtuali di Azure | Microsoft Docs
 description: Architetture delle applicazioni per la distribuzione di app Oracle, tra cui E-Business Suite, JD Edwards EnterpriseOne e PeopleSoft, in Microsoft Azure macchine virtuali con database in Azure o in Oracle Cloud Infrastructure (OCI).
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: ''
-tags: ''
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: kegorman
-ms.custom: ''
-ms.openlocfilehash: 838bd2014f543747a3c3ec7edee7b278f5f4d8df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 6261e2b49eda2aead75d080ca3f6c2304bc49d81
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274603"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996606"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Architetture per la distribuzione di applicazioni Oracle in Azure
 

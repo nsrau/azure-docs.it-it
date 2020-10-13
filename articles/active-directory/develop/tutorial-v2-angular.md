@@ -1,7 +1,7 @@
 ---
-title: Esercitazione sull'app a pagina singola Angular - Azure
+title: "Esercitazione: Creare un'app Angular che usa Microsoft Identity Platform per l'autenticazione | Azure"
 titleSuffix: Microsoft identity platform
-description: Informazioni su come le applicazioni a pagina singola Angular possono chiamare un'API che richiede token di accesso generati dall'endpoint Microsoft Identity Platform.
+description: In questa esercitazione si creerà un'app a pagina singola Angular che usa Microsoft Identity Platform per consentire l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph per loro conto.
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
@@ -12,30 +12,36 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256926"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611249"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Esercitazione: Accesso utenti e chiamata dell'API Microsoft Graph da un'applicazione a pagina singola Angular
 
-Questa esercitazione illustra come un'applicazione a pagina singola Angular consente di:
-- Accedere agli account personali e agli account aziendali e dell'istituto di istruzione.
-- Acquisire un token di accesso.
-- Chiamare l'API Microsoft Graph o altre API che richiedono token di accesso generati dall'*endpoint di Microsoft Identity Platform*.
+Questa esercitazione illustra come creare un'applicazione a pagina singola Angular che consente agli utenti di accedere con gli account Microsoft personali e con gli account aziendali e dell'istituto di istruzione e chiamare l'API Microsoft Graph per loro conto.
 
->[!NOTE]
->Questa esercitazione illustra come creare una nuova applicazione a pagina singola Angular usando Microsoft Authentication Library (MSAL). Per scaricare un'app di esempio, vedere la guida di [avvio rapido](quickstart-v2-angular.md).
+Contenuto dell'esercitazione:
+
+> [!div class="checklist"]
+> * Creare un progetto Angular con `npm`
+> * Registrare l'applicazione nel portale di Azure
+> * Aggiungere il codice per supportare l'accesso e la disconnessione
+> * Aggiungere il codice per chiamare l'API Microsoft Graph
+> * Testare l'app
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Node.js](https://nodejs.org/en/download/) per l'esecuzione di un server Web locale.
+* [Visual Studio Code](https://code.visualstudio.com/download) o un altro editor per la modifica dei file di progetto.
 
 ## <a name="how-the-sample-app-works"></a>Funzionamento dell'app di esempio
 
 ![Diagramma che mostra come funziona l'app di esempio generata in questa esercitazione](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-### <a name="more-information"></a>Ulteriori informazioni
-
-L'applicazione di esempio creata in questa esercitazione consente a un'applicazione a pagina singola Angular di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint Microsoft Identity Platform. Microsoft Authentication Library (MSAL) per la libreria Angular è un wrapper della libreria MSAL.js di base. Consente alle applicazioni Angular (6+) di autenticare gli utenti aziendali con Microsoft Azure Active Directory, utenti con account Microsoft, utenti con identità dei social network (Facebook, Google, LinkedIn e così via) e di ottenere l'accesso a servizi cloud Microsoft o a Microsoft Graph.
+L'applicazione di esempio creata in questa esercitazione consente a un'applicazione a pagina singola Angular di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token rilasciati da Microsoft Identity Platform. Usa Microsoft Authentication Library (MSAL) per Angular, un wrapper della libreria MSAL.js di base. La libreria MSAL Angular consente alle applicazioni Angular della versione 6 e successive di autenticare gli utenti aziendali usando Azure Active Directory (Azure AD), nonché gli utenti con account Microsoft e identità dei social network come Facebook, Google e LinkedIn. La libreria consente inoltre di ottenere l'accesso a servizi cloud Microsoft e a Microsoft Graph.
 
 Per questo scenario, dopo l'accesso di un utente, viene richiesto un token di accesso che viene aggiunto a richieste HTTP tramite l'intestazione dell'autorizzazione. L'acquisizione e il rinnovo dei token vengono gestiti da Microsoft Authentication Library (MSAL).
 
@@ -48,13 +54,6 @@ Questa esercitazione la libreria seguente:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library per il wrapper Angular JavaScript|
 
 Il codice sorgente per la libreria MSAL.js è disponibile nel repository [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) in GitHub.
-
-## <a name="prerequisites"></a>Prerequisiti
-
-Per eseguire questa esercitazione è necessario:
-
-* Un server Web locale, ad esempio [Node.js](https://nodejs.org/en/download/). Le istruzioni riportate in questa esercitazione sono basate su Node.js.
-* Un ambiente di sviluppo integrato (IDE), ad esempio [Visual Studio Code](https://code.visualstudio.com/download), per modificare i file di progetto.
 
 ## <a name="create-your-project"></a>Creare il progetto
 
@@ -343,6 +342,7 @@ Se un'API back-end non richiede alcun ambito (scelta non consigliata), è possib
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non si ha familiarità con la gestione delle identità e degli accessi, sono disponibili diversi articoli che illustrano i concetti dell'autenticazione moderna, a partire dal [confronto tra autenticazione e autorizzazione](authentication-vs-authorization.md).
+Per approfondire ulteriormente lo sviluppo di applicazioni a pagina singola in Microsoft Identity Platform, è possibile vedere la serie di articoli in più parti.
 
-Se si vuole approfondire lo sviluppo di applicazioni a pagina singola su Microsoft Identity Platform, la serie di articoli in più parti [Scenario: applicazione a pagina singola](scenario-spa-overview.md) può essere utile per iniziare.
+> [!div class="nextstepaction"]
+> [Scenario: Applicazione a pagina singola](scenario-spa-overview.md)

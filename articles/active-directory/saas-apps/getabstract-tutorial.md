@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6881681eef553dd2e21ba68a2bf722c7af1fc4a7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550847"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821197"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Esercitazione: integrazione di Azure Active Directory con Getabstract
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Getabstract, seguire qu
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per Single Sign-On di Getabstract](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le opzioni "Identificatore" e "URL di risposta" evidenziate e il pulsante "Salva" selezionato.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL: 
 

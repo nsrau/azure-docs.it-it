@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548350"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Esercitazione: Integrazione di Azure Active Directory con BorrowBox
 
@@ -100,11 +100,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con BorrowBox, seguire ques
 
 4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Atlassian Cloud](common/preintegrated.png)
+    ![[Screenshot che mostra la schermata Configurazione SAML di base.] Informazioni su URL e dominio per l'accesso Single Sign-On](common/preintegrated.png)
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Atlassian Cloud](common/metadata-upload-additional-signon.png)
+    ![[Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.] Informazioni su URL e dominio per l'accesso Single Sign-On](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 

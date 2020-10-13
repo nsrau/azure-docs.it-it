@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: afe6d89db81a372bf4b8f318e2439140fe434cd1
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 276368eaf54ea87dddd2b292b07084e09d97d5ec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802022"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850403"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza: una guida di riferimento
 
@@ -37,6 +37,7 @@ Il punteggio relativo alla sicurezza si basa sul numero di raccomandazioni del C
 |Recommendation|Descrizione e criteri correlati|Gravità|Correzione rapida abilitata? ([Altre informazioni](security-center-remediate-recommendations.md#quick-fix-remediation))|Tipo di risorsa|
 |----|----|----|----|----|
 |**Le raccomandazioni di Protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali con connessione Internet**|Il Centro sicurezza di Azure ha analizzato i criteri di comunicazione del traffico Internet delle macchine virtuali elencate più avanti e ha determinato che le regole esistenti nei gruppi di sicurezza di rete associati a tali VM sono eccessivamente permissive e ciò comporta un incremento della superficie di attacco potenziale.<br>Questo problema si verifica in genere quando questo indirizzo IP non comunica regolarmente con questa risorsa. In alternativa, l'indirizzo IP è stato contrassegnato come dannoso dalle origini di Intelligence per le minacce del Centro sicurezza.<br>(Criterio correlato: le raccomandazioni per la protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali che si interfacciano a Internet)|Alto|N|Macchina virtuale|
+|**Tutto il traffico Internet deve essere instradato tramite il Firewall di Azure distribuito**|Il Centro sicurezza di Azure ha rilevato che alcune delle subnet non sono protette con un firewall di nuova generazione. Proteggere le subnet da potenziali minacce limitandone l'accesso con Firewall di Azure o un firewall di nuova generazione supportato.<br>Criterio correlato: [anteprima] Tutto il traffico Internet deve essere instradato tramite il Firewall di Azure distribuito|Alto|N|Subnet|
 |**È consigliabile limitare tutte le porte di rete nei gruppi di sicurezza di rete associati alla VM**|Finalizzare i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso delle regole di autorizzazione esistenti.<br>Questa raccomandazione viene attivata quando viene aperta una porta per *tutte* le origini (ad eccezione delle porte 22, 3389, 5985, 5986, 80 e 1443).<br>(Criterio correlato: l'accesso tramite endpoint con connessione Internet deve essere limitato)|Alto|N|Macchina virtuale|
 |**Lo standard di protezione DDoS deve essere abilitato**|Proteggere le reti virtuali contenenti applicazioni con IP pubblici abilitando lo standard del servizio Protezione DDOS. La protezione DDoS abilita la mitigazione di attacchi volumetrici e ai protocolli della rete.<br>(Criterio correlato: lo standard di protezione DDoS deve essere abilitato)|Alto|N|Rete virtuale|
 |**L'app per le funzioni deve essere accessibile solo tramite HTTPS**|Abilitare l'accesso "Solo HTTPS" per le app per le funzioni. L'uso di HTTPS assicura l'autenticazione di server/servizi e protegge i dati in transito da attacchi di intercettazione a livello rete.<br>(Criterio correlato: l'app per le funzioni deve essere accessibile solo tramite HTTPS)|Media|**S**|App per le funzioni|

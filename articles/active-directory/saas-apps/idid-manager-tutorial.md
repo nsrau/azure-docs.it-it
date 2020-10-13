@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e656eb0062cafcf7a34008e0034ec0111242807d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ddc4e040824a7239aecbb24fc90123a88dc4e263
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545319"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Esercitazione: Integrazione di Azure Active Directory con iDiD Manager
 
@@ -99,11 +99,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con iDiD Manager, seguire q
 
 4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di iDiD Manager](common/preintegrated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base.](common/preintegrated.png)
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di iDiD Manager](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://idid2.fi/saml/login/<domain>`
 

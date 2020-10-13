@@ -1,22 +1,22 @@
 ---
 title: Informazioni sui dispositivi gemelli nell'hub IoT di Azure | Documentazione Microsoft
 description: Guida per gli sviluppatori - Usare dispositivi gemelli per sincronizzare stato e dati di configurazione tra l'hub IoT e i dispositivi
-author: ash2017
+author: nehsin
 manager: philmea
-ms.author: asrastog
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1d6787ab3d4083ee6418694d1965ea0f90f730
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327770"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996124"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendere e usare dispositivi gemelli nell'hub IoT
 
@@ -185,7 +185,7 @@ Il back-end della soluzione opera sul dispositivo gemello tramite le seguenti op
 
   - Proprietà
 
-    | Nome | valore |
+    | Nome | Valore |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  Data e ora in cui è stata inviata la notifica |
@@ -250,7 +250,7 @@ I tag e le proprietà desiderate e segnalate sono oggetti JSON soggetti alle res
 
 * **Chiavi**: tutte le chiavi negli oggetti JSON sono con codifica UTF-8, con distinzione tra maiuscole e minuscole e con lunghezza fino a 1 KB. I caratteri consentiti escludono i caratteri di controllo UNICODE (segmenti C0 e C1) e `.`, `$` e SP.
 
-* **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Non sono consentite le matrici.
+* **Valori**: tutti i valori negli oggetti JSON possono essere dei seguenti tipi JSON: Boolean, Number, String, Object. Sono supportate anche le matrici.
 
     * I numeri interi possono avere un valore minimo di-4503599627370496 e un valore massimo pari a 4503599627370495.
 

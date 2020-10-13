@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
-ms.openlocfilehash: bd3ac8d512c1b9d151c0dc549ffeee6a05c7f94b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 944b96e7726f2b2becd5960a17a89c00d00c878a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542792"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841953"
 ---
-La destinazione di calcolo usata per ospitare il modello influirà sul costo e sulla disponibilità dell'endpoint distribuito. Usare la tabella seguente per scegliere una destinazione di calcolo appropriata.
+La destinazione di calcolo usata per ospitare il modello influirà sul costo e sulla disponibilità dell'endpoint distribuito. Usare questa tabella per scegliere una destinazione di calcolo appropriata.
 
 | Destinazione del calcolo | Utilizzo | Supporto GPU | Supporto FPGA | Descrizione |
 | ----- | ----- | ----- | ----- | ----- |
@@ -26,14 +26,14 @@ La destinazione di calcolo usata per ospitare il modello influirà sul costo e s
 | [Istanze di Azure Container](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | Test o sviluppo | &nbsp;  | &nbsp; | Usare per carichi di lavoro basati su CPU su scala ridotta che richiedono meno di 48 GB di RAM. |
 | [Cluster di elaborazione di Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | Inferenza&nbsp;batch | [Sì](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline di Machine Learning) | &nbsp;  | Eseguire l'assegnazione di punteggi batch in un ambiente di calcolo serverless. Supporta VM con priorità normale e bassa. |
 | [Funzioni di Azure](../articles/machine-learning/how-to-deploy-functions.md) | (Anteprima) Inferenza in tempo reale | &nbsp; | &nbsp; | &nbsp; |
-| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Anteprima) Modulo&nbsp;IoT |  &nbsp; | &nbsp; | Distribuire e gestire modelli di ML in dispositivi IoT. |
-| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Tramite IoT Edge |  &nbsp; | Sì | Distribuire e gestire modelli di ML in dispositivi IoT. |
+| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Anteprima) Modulo&nbsp;IoT |  &nbsp; | &nbsp; | Distribuire e gestire modelli di Machine Learning in dispositivi IoT. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Tramite IoT Edge |  &nbsp; | Sì | Distribuire e gestire modelli di Machine Learning in dispositivi IoT. |
 
 > [!NOTE]
-> Anche se le destinazioni di calcolo, come l'istanza di ambiente di calcolo locale di Azure Machine Learning e i cluster di elaborazione di Azure Machine Learning, supportano l'uso di GPU per il training e la sperimentazione, l'uso di GPU per l'inferenza __se distribuita come servizio Web__ è supportato solo nel servizio Azure Kubernetes.
+> Anche se le destinazioni di calcolo, come l'ambiente di calcolo locale di Azure Machine Learning e i cluster di elaborazione di Azure Machine Learning, supportano l'uso di GPU per il training e la sperimentazione, l'uso di GPU per l'inferenza _se distribuita come servizio Web_ è supportato solo nel servizio Azure Kubernetes.
 >
-> L'uso di GPU per l'inferenza __per l'assegnazione di punteggi con una pipeline di Machine Learning__ è supportato solo nell'ambiente di calcolo di Machine Learning.
+> L'uso di GPU per l'inferenza _per l'assegnazione di punteggi con una pipeline di Machine Learning_ è supportato solo nell'ambiente di calcolo di Machine Learning.
 
 > [!NOTE]
-> * Il servizio Istanze di Azure Container è indicato solo per modelli di dimensioni inferiori a 1 GB. 
-> * È consigliabile usare cluster del servizio Azure Kubernetes a nodo singolo per le attività di sviluppo/test di modelli più grandi.
+> * Le istanze di contenitori sono indicate solo per modelli di dimensioni inferiori a 1 GB.
+> * Usare cluster del servizio Azure Kubernetes a nodo singolo per attività di sviluppo/test di modelli più grandi.

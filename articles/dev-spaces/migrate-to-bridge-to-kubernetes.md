@@ -3,14 +3,14 @@ title: Migrazione a Bridge per Kubernetes
 services: azure-dev-spaces
 ms.date: 10/12/2020
 ms.topic: conceptual
-description: Descrive i processi che alimentano Azure Dev Spaces
+description: Descrive il processo di migrazione da Azure Dev Spaces a Bridge per Kubernetes
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, Bridge per Kubernetes
-ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962854"
+ms.locfileid: "91993924"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge per Kubernetes
 
@@ -84,10 +84,34 @@ Il Bridge per Kubernetes offre la flessibilità necessaria per lavorare con le a
 
 1. Aggiornare l'IDE di Visual Studio alla versione 16,7 o successiva e installare l'estensione Bridge per Kubernetes dalla [Visual Studio Marketplace][vs-marketplace].
 1. Disabilitare il controller di Azure Dev Spaces usando il portale di Azure o l'interfaccia della riga di comando [Azure Dev Spaces][azds-delete].
-1. Rimuovere il `azds.yaml` file dal progetto.
+1. Usare [Azure cloud Shell](https://shell.azure.com). In alternativa, in Mac, Linux o Windows con bash installato aprire un prompt della shell bash. Assicurarsi che gli strumenti seguenti siano disponibili nell'ambiente della riga di comando: interfaccia della riga di comando di Azure, Docker, kubectl, CURL, tar e gunzip.
+1. Creare un registro contenitori o utilizzarne uno esistente. È possibile creare un registro contenitori in Azure usando [azure container Registry](../container-registry/index.yml) o usando [Docker Hub](https://hub.docker.com/).
+1. Eseguire lo script di migrazione per convertire gli asset Azure Dev Spaces in Bridge per gli asset Kubernetes. Lo script compila una nuova immagine compatibile con Bridge per Kubernetes, la carica nel registro di sistema designato e quindi usa [Helm](https://helm.sh) per aggiornare il cluster con l'immagine. È necessario specificare il gruppo di risorse, il nome del cluster AKS e un registro contenitori. Sono disponibili altre opzioni della riga di comando, come illustrato di seguito:
+
+   ```azure-cli
+   curl -sL https://aka.ms/migrate-tool | bash -s -- -g ResourceGroupName -n AKSName -h ContainerRegistryName -r PathOfTheProject -y
+   ```
+
+   Lo script supporta i flag seguenti:
+
+   ```cmd  
+    -g Name of resource group of AKS Cluster [required]
+    -n Name of AKS Cluster [required]
+    -h Container registry name. Examples: ACR, Docker [required]
+    -k Kubernetes namespace to deploy resources (uses 'default' otherwise)
+    -r Path to root of the project that needs to be migrated (default = current working directory)
+    -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
+    -i Enable a public endpoint to access your service over internet. (default is false)
+    -y Doesn't prompt for non-tty terminals
+    -d Helm Debug switch
+   ```
+
+1. Eseguire manualmente la migrazione di tutte le personalizzazioni, ad esempio le impostazioni delle variabili di ambiente, in *azds. YAML* nel file *values. yml* del progetto.
+1. opzionale Rimuovere il `azds.yaml` file dal progetto.
 1. Ridistribuire l'applicazione.
 1. Configurare Bridge per Kubernetes nell'applicazione distribuita. Per altre informazioni sull'uso di Bridge per Kubernetes in Visual Studio, vedere [usare Bridge per Kubernetes][use-btk-vs].
 1. Avviare il debug in Visual Studio usando il Bridge appena creato per Kubernetes il profilo di debug.
+1. È possibile eseguire nuovamente lo script in base alle esigenze per ridistribuire il cluster.
 
 ### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Usare Visual Studio Code per eseguire la transizione da Bridge a Kubernetes da Azure Dev Spaces
 

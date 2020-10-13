@@ -9,18 +9,61 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 189d6a57a17172f181e7375265960fe4f25f8ed1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940243"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996747"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2020-10-12"></a>2020-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v1160"></a>SDK di Azure Machine Learning per Python v 1.16.0
++ **Correzioni di bug e miglioramenti**
+  + **azure-cli-ml**
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-interpret**
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-contrib-K8S**
+    + Aggiunta del supporto per il fissaggio del calcolo ArcKubernetes
+  + **azureml-contrib-Mir**
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-server**
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-core**
+    + Aggiungere le versioni principali delle dipendenze dirette di azureml-Core
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Altre informazioni sulle risorse e sui limiti di Kubernetes sono disponibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + Aggiornamento run.log_table per consentire la registrazione di singole righe.
+    + Aggiunto metodo statico `Run.get(workspace, run_id)` per recuperare un'esecuzione solo usando un metodo di istanza aggiunto `Workspace.get_run(run_id)` per l'area di lavoro per recuperare un'esecuzione nell'area di lavoro
+    + Introduzione alla proprietà Command in Run Configuration, che consente agli utenti di inviare il comando anziché gli argomenti & di script.
+  + **azureml-dataprep-nativo**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-explain-Model**
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-interpret**
+    + correzione del comportamento del flag di is_raw client in azureml-interpreta
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-pipeline-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-sdk**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-tensorboard**
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-Training**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-train-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+    + Aggiunta dell'ambiente curato TensorFlow 2,3
+    + Introduzione alla proprietà Command in Run Configuration, che consente agli utenti di inviare il comando anziché gli argomenti & di script.
+  + **azureml-widgets**
+    + Interfaccia riprogettata per il widget di esecuzione dello script.
+
 
 ## <a name="2020-09-28"></a>2020-09-28
 

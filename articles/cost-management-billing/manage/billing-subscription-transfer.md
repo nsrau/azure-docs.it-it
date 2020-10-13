@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ef497439d77fef63f4b0c902aee06428a30c5ff5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276731"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666110"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -56,7 +56,7 @@ Quando ci si iscrive ad Azure, viene automaticamente creato un tenant di Azure A
 
 Le nuove sottoscrizioni create vengono ospitate nel tenant di Azure AD del proprio account. Se si vuole consentire ad altri utenti di accedere alla sottoscrizione o alle relative risorse, è necessario invitarli ad aggiungersi al tenant. In questo modo è possibile controllare l'accesso alle sottoscrizioni e alle risorse.
 
-Se la proprietà della fatturazione della sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, scegliere se la si vuole spostare nel tenant del nuovo account. In questo caso, tutti gli utenti, i gruppi o le entità servizio che avevano [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per la gestione delle sottoscrizioni e delle relative risorse perderanno l'accesso. Solo l'utente del nuovo account che accetta la richiesta di trasferimento avrà accesso per la gestione delle risorse. Il nuovo proprietario deve aggiungere manualmente questi utenti alla sottoscrizione per fornire l'accesso agli utenti che lo hanno perso. Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)](../../role-based-access-control/transfer-subscription.md).
+Se la proprietà della fatturazione della sottoscrizione viene trasferita in un account in un altro tenant di Azure AD, scegliere se la si vuole spostare nel tenant del nuovo account. In questo caso, tutti gli utenti, i gruppi o le entità servizio che avevano [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per la gestione delle sottoscrizioni e delle relative risorse perderanno l'accesso. Solo l'utente del nuovo account che accetta la richiesta di trasferimento avrà accesso per la gestione delle risorse. Il nuovo proprietario deve aggiungere manualmente questi utenti alla sottoscrizione per fornire l'accesso agli utenti che lo hanno perso. Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure in una directory di Azure AD diversa](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Trasferire le sottoscrizioni di Visual Studio e Partner Network
 

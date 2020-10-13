@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320728"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996411"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisiti di sistema per Azure Stack Edge Pro con GPU 
 
@@ -32,21 +32,29 @@ I requisiti di sistema per il Pro Azure Stack Edge includono:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
+## <a name="supported-azure-storage-accounts"></a>Account di archiviazione di Azure supportati
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>Account di archiviazione a livelli supportati
+## <a name="supported-edge-storage-accounts"></a>Account di archiviazione Edge supportati
 
-Quando vengono gestite da Azure Stack, i seguenti account di archiviazione a livelli sono supportati con le interfacce SMB/NFS/REST.
+Gli account di archiviazione Edge seguenti sono supportati con l'interfaccia REST del dispositivo. Gli account di archiviazione perimetrali vengono creati nel dispositivo. Per altre informazioni, vedere [account di archiviazione Edge](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
-|Type  |Account di archiviazione  |Commenti  |
+|Tipo  |Account di archiviazione  |Commenti  |
 |---------|---------|---------|
 |Standard     |Utilizzo generico V1: BLOB in blocchi         |         |
-|    |  Archiviazione BLOB: BLOB in blocchi       | Supportato solo per NAS     |
 
-* I BLOB di pagine e i File di Azure non sono attualmente supportati nella Azure Stack.
-* * Il livello ad accesso frequente e a freddo non esiste nel Azure Stack. Usare il Azure PowerShell per spostare i dati nel livello archivio dopo il caricamento dei dati. Per istruzioni dettagliate, vedere [usare Azure PowerShell per impostare il livello BLOB]()
+* I BLOB di pagine e i File di Azure non sono attualmente supportati.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>Account di archiviazione Azure Resource Manager locali supportati
+
+Questi account di archiviazione vengono creati tramite le API locali del dispositivo quando ci si connette a Azure Resource Manager locali. Sono supportati gli account di archiviazione seguenti:
+
+|Tipo  |Account di archiviazione  |Commenti  |
+|---------|---------|---------|
+|Standard     |Utilizzo generico V1: BLOB in blocchi, BLOB di pagine        | Il tipo di SKU è Standard_LRS       |
+|Premium     |Utilizzo generico V1: BLOB in blocchi, BLOB di pagine        | Il tipo di SKU è Premium_LRS        |
+
 
 ## <a name="supported-storage-types"></a>Tipi di archivio supportati
 
@@ -71,7 +79,7 @@ Azure IoT Edge consente la comunicazione in uscita da un dispositivo Edge locale
 
 Usare la tabella seguente per la configurazione delle porte per i server che ospitano il runtime di Azure IoT Edge:
 
-| N. porta | In ingresso/In uscita | Ambito porta | Obbligatoria | Indicazioni |
+| N. porta | In ingresso/In uscita | Ambito porta | Necessario | Indicazioni |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| In uscita       | WAN        | Sì      | Aperto in uscita per il provisioning di IoT Edge. Questa configurazione è necessaria quando si usano script manuali o il servizio Device Provisioning di Azure IoT.|
 

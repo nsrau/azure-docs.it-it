@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 57d04fff069e7cd7d766125bc7364cf4648911ad
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 43d593a65fd08542eb2829fcebcea81ea0c99986
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948348"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995442"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -94,7 +94,9 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 ### <a name="initial-one-time-provisioning"></a>Provisioning monouso iniziale
 
 **Enumerazione iniziale della modifica del cloud**: quando viene creato un nuovo gruppo di sincronizzazione, l'enumerazione iniziale della modifica del cloud è il primo passaggio che verrà eseguito. In questo processo, il sistema enumera tutti gli elementi nella condivisione file di Azure. Durante questo processo, non sarà presente alcuna attività di sincronizzazione, ovvero nessun elemento verrà scaricato dall'endpoint cloud all'endpoint server e nessun elemento verrà caricato dall'endpoint server all'endpoint cloud. L'attività di sincronizzazione riprenderà al termine dell'enumerazione iniziale della modifica del cloud.
-Il tasso di prestazioni è 7 oggetti al secondo. I clienti possono stimare il tempo necessario per completare l'enumerazione del cambiamento cloud iniziale determinando il numero di elementi nella condivisione cloud e usando la formula seguente per ottenere l'ora in giorni. Tempo (in giorni) per l'enumerazione del cloud iniziale = (numero di oggetti nell'endpoint cloud)/(7*60*60 * 24)
+Il tasso di prestazioni è 7 oggetti al secondo. I clienti possono stimare il tempo necessario per completare l'enumerazione del cambiamento cloud iniziale determinando il numero di elementi nella condivisione cloud e usando la formula seguente per ottenere l'ora in giorni. 
+
+   **Tempo (in giorni) per l'enumerazione del cloud iniziale = (numero di oggetti nell'endpoint cloud)/(7 * 60 * 60 * 24)**
 
 **Velocità effettiva di download dello spazio dei nomi** Quando si aggiunge un nuovo endpoint server a un gruppo di sincronizzazione esistente, l'agente di Sincronizzazione file di Azure non Scarica alcun contenuto del file dall'endpoint cloud. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
 
@@ -117,7 +119,7 @@ Come indicazione generale per la distribuzione, è necessario tenere presenti al
 - La velocità effettiva degli oggetti cambia all'incirca in misura proporzionale al numero di gruppi di sincronizzazione nel server. La suddivisione dei dati in più gruppi di sincronizzazione in un server produce una maggiore velocità effettiva, che è limitata anche dal server e dalla rete.
 - La velocità effettiva degli oggetti è inversamente proporzionale alla velocità effettiva in MiB al secondo. Per i file più piccoli, si riscontrerà una velocità effettiva maggiore per quanto riguarda il numero di oggetti elaborati al secondo, ma con una minore velocità effettiva in MiB al secondo. Al contrario, per i file di dimensioni maggiori, si otterrà un numero minore di oggetti elaborati al secondo, ma con una maggiore velocità effettiva in MiB al secondo. La velocità effettiva in MiB al secondo è limitata dagli obiettivi di scalabilità di File di Azure.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

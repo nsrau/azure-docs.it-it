@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1088827ead320007c758d8e843a15328f108c035
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543024"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Experience Manager
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Adobe Experience Manager](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base con le caselle di testo Identificatore e URL di risposta evidenziate.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un valore univoco definito anche nel server Adobe Experience Manager.
 
@@ -136,35 +136,35 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 2. Selezionare **Settings** (Impostazioni) > **Security** (Sicurezza) > **Users** (Utenti).
 
-    ![Pulsante di salvataggio per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Screenshot che mostra il riquadro Users in Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. Selezionare **Administrator** (Amministratore) o un altro utente rilevante.
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Screenshot con l'utente Administrator evidenziato.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. Selezionare **Account Settings** (Impostazioni account) > **Manage TrustStore** (Gestisci archivio trust).
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![Screenshot che mostra l'opzione Manage TrustStore in Account settings.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. In **Add Certificate from CER file** (Aggiungi certificato da file CER), fare clic su **Select Certificate File** (Seleziona file certificato). Individuare e selezionare il file di certificato, scaricato in precedenza dal portale di Azure.
 
-    ![Pulsante di salvataggio per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![Screenshot con il pulsante Select Certificate File evidenziato.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. Il certificato viene aggiunto all'archivio trust. Notare l'alias del certificato.
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![Screenshot che mostra che il certificato è stato aggiunto a TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. Nella pagina **Users** (Utenti) selezionare **authentication-service**.
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![Sreenshot con authentication-service evidenziato nella schermata.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. Selezionare **Account Settings** (Impostazioni account) > **Create/Manage KeyStore** (Crea/Gestisci archivio chiavi). Creare l'archivio chiavi specificando una password.
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![Screenshot con Manage KeyStore evidenziato.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. Tornare alla schermata di amministrazione e quindi selezionare **Settings** (Impostazioni) > **Operations** (Operazioni) > **Web Console** (Console Web).
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![Screenshot con Web Console evidenziato in Operations nella sezione Settings.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     Viene aperta la pagina di configurazione.
 
@@ -172,7 +172,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 10. Cercare **Adobe Granite SAML 2.0 Authentication Handler** e quindi selezionare l'icona **Aggiungi**.
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Screenshot con Adobe Granite SAML 2.0 Authentication Handler evidenziato.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. In questa pagina eseguire le azioni seguenti.
 

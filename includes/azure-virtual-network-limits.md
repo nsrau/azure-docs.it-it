@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859586"
+ms.locfileid: "91936211"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alla rete - Azure Resource Manager
 I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
@@ -75,6 +75,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorse di back-end per Load Balancer<sup>1<sup> | 150                   |
 | Porte a disponibilità elevata                 | 1 per front-end interno       |
 | Regole in uscita per Load Balancer        | 600                           |
+| Numero di Load Balancer per macchina virtuale                   | 2 (1 pubblico e 1 interno)   |
 
 <sup>1</sup>Il limite è fino a 150 risorse, in qualsiasi combinazione di risorse macchine virtuali autonome, risorse set di disponibilità e gruppi di selezione host per set di scalabilità di macchine virtuali.
 
@@ -88,6 +89,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Configurazioni IP front-end              | 200                          |
 | Dimensioni del pool back-end                       | 300 configurazioni IP, singolo set di disponibilità |
 | Set di disponibilità per Load Balancer     | 1                            |
+| Numero di Load Balancer per macchina virtuale                   | 2 (1 pubblico e 1 interno)  |
 
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo alle risorse di rete gestite tramite il modello di distribuzione **classico** per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
