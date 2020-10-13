@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798959"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestisci gli utenti con il personale (anteprima)
@@ -115,11 +115,11 @@ A seconda delle impostazioni, l'utente può quindi usare il numero di telefono c
 
 Per gestire il numero di telefono di un utente, è necessario disporre di uno dei ruoli seguenti:
 
-- [Amministratore autenticazione](directory-assign-admin-roles.md#authentication-administrator)
+- [Amministratore dell'autenticazione](directory-assign-admin-roles.md#authentication-administrator)
 - [Amministratore autenticazione con privilegi](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Amministratore globale](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Cerca
+## <a name="search"></a>Ricerca
 
 È possibile cercare gli AUs e gli utenti dell'organizzazione usando la barra di ricerca del personale. È possibile eseguire ricerche in tutte le unità di analisi e tutti gli utenti dell'organizzazione, ma è possibile apportare modifiche solo agli utenti che si trovano in un'unità di analisi per cui sono state concesse le autorizzazioni di amministratore.
 

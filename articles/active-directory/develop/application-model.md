@@ -14,13 +14,13 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117482"
 ---
-# <a name="application-model"></a>Modello applicativo
+# <a name="application-model"></a>Modello di applicazione
 
 Le applicazioni possono accedere agli utenti stessi o delegare l'accesso a un provider di identità. In questo argomento vengono illustrati i passaggi necessari per registrare un'applicazione con la piattaforma di identità Microsoft.
 

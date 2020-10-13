@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743727"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939018"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
 
@@ -42,10 +42,10 @@ Le modifiche apportate alla fatturazione cambiano a seconda del livello. Se, ad 
 | 512 GiB | P20 | P30, P40, P50 |
 | 1 TiB | P30 | P40, P50 |
 | 2 TiB | P40 | P50 |
-| 4 TiB | P50 | Nessuno |
+| 4 TiB | P50 | nessuno |
 | 8 TiB | P60 |  P70, P80 |
 | 16 TiB | P70 | P80 |
-| 32 TiB | P80 | Nessuno |
+| 32 TiB | P80 | nessuno |
 
 Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -58,7 +58,7 @@ Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-La possibilità di modificare il livello di prestazioni di un disco gestito è attualmente disponibile solo su unità SSD Premium nell'area Stati Uniti centro-occidentali. 
+La possibilità di modificare il livello di prestazioni di un disco gestito è attualmente disponibile solo nelle unità SSD Premium nelle aree Stati Uniti orientali 2, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Australia sud-orientale.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Creare un disco dati vuoto con un livello superiore rispetto al livello di base
 
