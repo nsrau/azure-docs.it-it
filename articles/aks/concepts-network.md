@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88243905"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes
@@ -116,12 +116,12 @@ Indipendentemente dal modello di rete usato, sia kubenet che Azure CNI possono e
 * La piattaforma Azure può creare e configurare automaticamente le risorse della rete virtuale quando si crea un cluster AKS.
 * Quando si crea il cluster AKS, è possibile creare e configurare manualmente le risorse della rete virtuale e connetterle a tali risorse.
 
-Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Esempio:
+Sebbene le funzionalità come gli endpoint di servizio o UdR siano supportate sia con kubenet che con Azure CNI, i [criteri di supporto per AKS][support-policies] definiscono le modifiche che è possibile apportare. Ad esempio:
 
 * Se si creano manualmente le risorse della rete virtuale per un cluster AKS, quando si configurano gli endpoint di servizio o UdR personalizzati, si è supportati.
 * Se la piattaforma Azure crea automaticamente le risorse di rete virtuale per il cluster del servizio contenitore di Azure, non è supportata la modifica manuale delle risorse gestite da AKS per configurare UdR o endpoint di servizio personalizzati.
 
-## <a name="ingress-controllers"></a>Controller di ingresso
+## <a name="ingress-controllers"></a>Controller in ingresso
 
 Quando si crea un servizio di tipo LoadBalancer, viene creata una risorsa di bilanciamento del carico di Azure sottostante. Il bilanciamento del carico viene configurato per distribuire il traffico verso i pod nel servizio su una porta specifica. Il servizio di tipo LoadBalancer opera solo sul livello 4: non è a conoscenza delle applicazioni effettive e non può gestire ulteriori considerazioni sul routing.
 

@@ -4,10 +4,10 @@ description: Quando una risorsa non è conforme, i motivi possibili sono molti. 
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: df1eefec782835838add0beb8939bf4ff1a8a194
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541272"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
@@ -30,7 +30,7 @@ Quando una risorsa non è conforme, è possibile trovare i dettagli di conformit
 
 Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 
-1. Avviare il servizio criteri di Azure nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **criteri**.
+1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
 1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio il cui **stato di conformità** sia _Non conforme_.
 
@@ -197,7 +197,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 La nuova **anteprima pubblica** include gli ultimi 14 giorni di cronologia delle modifiche per tutte le risorse di Azure che supportano l'[eliminazione in modalità completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Azure Resource Manager.
 
-1. Avviare il servizio criteri di Azure nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **criteri**.
+1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
 1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio con uno **stato di conformità** qualsiasi.
 

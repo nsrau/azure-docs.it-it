@@ -13,10 +13,10 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433654"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
@@ -29,7 +29,7 @@ Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all
 
 - Accesso condizionale basato sul dispositivo
 - [Roaming aziendale delle impostazioni](./enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Questo documento fornisce indicazioni sulla risoluzione dei problemi per risolvere potenziali problemi.
 
@@ -267,7 +267,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
    - Soluzione: verificare che l'endpoint MEX restituisca un codice XML valido. Verificare che il proxy non interferisca e restituisca risposte non XML.
 - **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
    - Motivo: Impossibile individuare l'endpoint per l'autenticazione con nome utente/password.
-   - Soluzione: controllare le impostazioni del provider di identità locale. Verificare che gli endpoint WS-Trust siano abilitati e assicurarsi che la risposta MEX contenga questi endpoint corretti.
+   - Soluzione: controllare le impostazioni del provider di identità locale. Verificare che gli endpoint WS-Trust siano abilitati e che la risposta MEX contenga questi endpoint corretti.
 
 ##### <a name="network-errors"></a>errori di rete
 
@@ -290,7 +290,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
    - Motivo: il token SAML del provider di identità locale non è stato accettato dal Azure AD.
    - Soluzione: controllare le impostazioni del server federativo. Cercare il codice di errore del server nei log di autenticazione.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
-   - Motivo: risposta del server WS-Trust segnalata eccezione di errore e non è stato possibile ottenere l'asserzione
+   - Motivo: eccezione di errore segnalata dal server WS-Trust risposta e non è stato possibile ottenere l'asserzione
    - Soluzione: controllare le impostazioni del server federativo. Cercare il codice di errore del server nei log di autenticazione.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Motivo: è stato ricevuto un errore durante il tentativo di ottenere il token di accesso dall'endpoint del token.

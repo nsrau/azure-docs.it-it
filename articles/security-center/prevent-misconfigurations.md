@@ -9,22 +9,22 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
 ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906383"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Impedisci configurazioni errate con le raccomandazioni Imponi/nega
 
-Le configurazioni non configurate per la sicurezza sono una delle principali cause degli incidenti di sicurezza. Il Centro sicurezza offre ora la possibilità di *evitare* configurazioni errate delle nuove risorse per quanto concerne raccomandazioni specifiche. 
+Gli errori di configurazione della sicurezza sono una delle cause principali degli eventi imprevisti di sicurezza. Il Centro sicurezza consente ora di contribuire a *evitare* gli errori di configurazione nelle nuove risorse per quanto riguarda raccomandazioni specifiche. 
 
-Questa funzionalità può aiutare a proteggere i carichi di lavoro e stabilizzare il Punteggio sicuro.
+Questa funzionalità può contribuire alla protezione dei carichi di lavoro e alla stabilizzazione del punteggio di sicurezza.
 
-L'applicazione di una configurazione sicura, basata su una raccomandazione specifica, viene offerta in due modalità:
+È possibile imporre una configurazione di sicurezza, basata su una raccomandazione specifica, in due modi:
 
-- Usando l'effetto di **negazione** di criteri di Azure, è possibile arrestare la creazione di risorse non integre.
-- Con l'opzione **Imponi** è possibile sfruttare l'effetto **DeployIfNotExist** di criteri di Azure e correggere automaticamente le risorse non conformi al momento della creazione
+- L'effetto **Deny** di Criteri di Azure consente di interrompere la creazione di risorse non integre
+- L'opzione **Imponi** consente di sfruttare i vantaggi dell'effetto **DeployIfNotExist** di Criteri di Azure e di correggere automaticamente eventuali risorse non conformi al momento della creazione
 
 Si trova nella parte superiore della pagina dei dettagli della risorsa per le raccomandazioni di sicurezza selezionate (vedere le [raccomandazioni con le opzioni di negazione/applicazione](#recommendations-with-denyenforce-options)).
 
@@ -41,18 +41,18 @@ Si trova nella parte superiore della pagina dei dettagli della risorsa per le ra
     > [!TIP]
     > È possibile utilizzare i tre puntini alla fine della riga per modificare una singola sottoscrizione oppure utilizzare le caselle di controllo per selezionare più sottoscrizioni o gruppi, quindi selezionare **modifica per nega**.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Impostazione dell'ambito per Deny di criteri di Azure":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Pagina di raccomandazione con pulsante nega evidenziato":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>Applicare una configurazione sicura
 
 1. Aprire la raccomandazione per la distribuzione di un modello se le nuove risorse non soddisfano le esigenze e selezionare il pulsante **applica** nella parte superiore della pagina.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Pagina di raccomandazione con il pulsante Applica evidenziato":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="Pagina di raccomandazione con pulsante nega evidenziato":::
 
     Viene visualizzato il riquadro Configurazione con tutte le opzioni di configurazione dei criteri. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Imponi opzioni di configurazione":::
+    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="Pagina di raccomandazione con pulsante nega evidenziato":::
 
 1. Impostare l'ambito, il nome dell'assegnazione e altre opzioni rilevanti.
 

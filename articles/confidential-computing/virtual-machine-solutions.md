@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
 ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245853"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluzioni nelle macchine virtuali di Azure
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Requisiti host dedicati
-La distribuzione di un **Standard_DC8_v2** dimensioni della macchina virtuale nella famiglia di macchine virtuali serie DCSv2 occuperà l'host completo e non verrà condiviso con altri tenant o sottoscrizioni. Questa famiglia di SKU della macchina virtuale fornisce l'isolamento che può essere necessario per soddisfare i requisiti normativi di conformità e sicurezza che in genere soddisfano con un servizio host dedicato. Quando si sceglie **Standard_DC8_v2** SKU, il server host fisico alloca tutte le risorse hardware disponibili, inclusa la memoria EPC, solo alla macchina virtuale. Si noti che questa funzionalità esiste dalla progettazione dell'infrastruttura e che tutte le funzionalità del **Standard_DC8_v2** saranno supportate. Questa distribuzione non corrisponde al servizio [host dedicato di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) fornito da altre famiglie di macchine virtuali di Azure.
+La distribuzione di un **Standard_DC8_v2** dimensioni della macchina virtuale nella famiglia di VM DCSv2-Series occuperà l'host completo e non verrà condiviso con altri tenant o sottoscrizioni. Questa famiglia di SKU della macchina virtuale fornisce l'isolamento che può essere necessario per soddisfare i requisiti normativi di conformità e sicurezza che in genere soddisfano con un servizio host dedicato. Quando si sceglie **Standard_DC8_v2** SKU, il server host fisico alloca tutte le risorse hardware disponibili, inclusa la memoria EPC, solo alla macchina virtuale. Si noti che questa funzionalità esiste dalla progettazione dell'infrastruttura e che tutte le funzionalità del **Standard_DC8_v2** saranno supportate. Questa distribuzione non corrisponde al servizio [host dedicato di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) fornito da altre famiglie di macchine virtuali di Azure.
 
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
@@ -84,7 +84,7 @@ Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Forn
 
 Per informazioni sui modelli ARM, vedere [Panoramica di distribuzione modelli](../azure-resource-manager/templates/overview.md).
 
-Per distribuire una macchina virtuale della serie DCsv2 in un modello ARM, si utilizzerà la [risorsa della macchina virtuale](../virtual-machines/windows/template-description.md). Assicurarsi di specificare le proprietà corrette per **vmSize** e per **imageReference**.
+Per distribuire una macchina virtuale DCsv2-Series in un modello ARM, si utilizzerà la [risorsa della macchina virtuale](../virtual-machines/windows/template-description.md). Assicurarsi di specificare le proprietà corrette per **vmSize** e per **imageReference**.
 
 ### <a name="vm-size"></a>Dimensioni macchina virtuale
 

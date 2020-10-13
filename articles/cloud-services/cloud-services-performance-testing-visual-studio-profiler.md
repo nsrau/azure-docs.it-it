@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 503b1ca8c8f1ff06bbdd54316611d886fb1e9d87
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462310"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
@@ -153,7 +153,7 @@ Nei rapporti vengono evidenziate le differenze tra le due esecuzioni.
 
 ![Report di confronto][16]
 
-Congratulazioni! sono state eseguite le operazioni preliminari con il profiler.
+A questo punto, sono state eseguite le operazioni preliminari con il profiler.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Assicurarsi di eseguire la profilatura di una compilazione di rilascio e avviarla senza eseguire il debug.

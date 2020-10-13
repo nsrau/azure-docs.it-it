@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 90691fda7b0bf58768c7e9be6a78fb27a7807186
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400367"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualizzare i log e le metriche di ricerca cognitiva di Azure con Power BI
@@ -32,7 +32,7 @@ ms.locfileid: "91400367"
     1. Selezionare **+ Aggiungi impostazione di diagnostica**
     1. Selezionare **archivia in un account di archiviazione**, specificare le informazioni sull'account di archiviazione e controllare **OperationLogs** e **AllMetrics**
 
-        :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="Screenshot che illustra come effettuare le selezioni per le metriche e la registrazione delle risorse nella pagina impostazioni di diagnostica.":::
+        :::image type="content" source="media/search-monitor-logs-powerbi/add-diagnostic-setting.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
     1. Selezionare **Salva**
 
 1. Dopo aver abilitato la registrazione, usare il servizio di ricerca per iniziare a generare log e metriche. Richiede fino a un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB con questi log. Viene visualizzato un contenitore **Insights-logs-operationlogs** per i log del traffico di ricerca e un contenitore **Insights-Metrics-PT1M** per le metriche.
@@ -41,48 +41,48 @@ ms.locfileid: "91400367"
 
 1. Dopo aver installato l'app, selezionarla dall'elenco di app in Power BI.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile.png" alt-text="Screenshot che illustra l'app Azure ricerca cognitiva per effettuare una selezione dall'elenco di app.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Selezionare **Connetti** per connettere i dati
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/get-started-with-your-new-app.png" alt-text="Screenshot che illustra come connettersi ai dati nell'app ricerca cognitiva di Azure.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/get-started-with-your-new-app.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Immettere il nome dell'account di archiviazione che contiene i log e le metriche. Per impostazione predefinita, l'app esaminerà gli ultimi 10 giorni di dati, ma questo valore può essere modificato con il parametro **Days** .
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Screenshot che illustra come inserire il nome dell'account di archiviazione e il numero di giorni per eseguire una query nella pagina connessione ad Azure ricerca cognitiva.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Selezionare **chiave** come metodo di autenticazione e specificare la chiave dell'account di archiviazione. Selezionare **privato** come livello di privacy. Fare clic su Accedi per iniziare il processo di caricamento.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Screenshot che illustra come inserire il metodo di autenticazione, la chiave dell'account e il livello di privacy nella pagina connessione ad Azure ricerca cognitiva.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/connect-to-storage-account-step-two.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Attendere l'aggiornamento dei dati. Questa operazione può richiedere del tempo a seconda della quantità di dati. È possibile verificare se i dati sono ancora aggiornati in base all'indicatore seguente.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-refreshing.png" alt-text="Screenshot che illustra come leggere le informazioni nella pagina di aggiornamento dati.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-refreshing.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Al termine dell'aggiornamento dei dati, selezionare **Azure ricerca cognitiva report** per visualizzare il report.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Screenshot che illustra come selezionare il report ricerca cognitiva di Azure nella pagina aggiornamento dati.":::![]()
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-report.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::![]()
 
 1. Assicurarsi di aggiornare la pagina dopo avere aperto il report in modo che venga aperto con i dati.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Screenshot del report Power BI di Azure ricerca cognitiva.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/powerbi-search.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 ## <a name="how-to-change-the-app-parameters"></a>Come modificare i parametri dell'app
 Se si desidera visualizzare i dati da un account di archiviazione diverso o modificare il numero di giorni di dati su cui eseguire la query, attenersi ai passaggi seguenti per modificare i parametri **Days** e **StorageAccount** .
 
 1. Passare alle app Power BI, trovare l'app Azure ricerca cognitiva e selezionare il pulsante **modifica app** per visualizzare l'area di lavoro.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png" alt-text="Screenshot che illustra come selezionare il pulsante modifica app per l'app Azure ricerca cognitiva.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/azure-search-app-tile-edit.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Selezionare **Impostazioni** dalle opzioni del set di dati.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-settings.png" alt-text="Screenshot che illustra come selezionare le impostazioni dalle opzioni del set di dati di Azure ricerca cognitiva.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-settings.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Nella scheda DataSets (set di impostazioni) modificare i valori dei parametri e selezionare **Apply (applica**). Se si verifica un problema con la connessione, aggiornare le credenziali dell'origine dati nella stessa pagina.
 
 1. Tornare all'area di lavoro e selezionare **Aggiorna ora** dalle opzioni del set di dati.
 
-    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png" alt-text="Screenshot che illustra come selezionare Aggiorna ora dalle opzioni del set di dati di Azure ricerca cognitiva.":::
+    :::image type="content" source="media/search-monitor-logs-powerbi/workspace-view-select-refresh-now.png" alt-text="Screenshot che illustra come selezionare le impostazioni di diagnostica nella sezione monitoraggio del servizio ricerca cognitiva di Azure.":::
 
 1. Aprire il report per visualizzare i dati aggiornati. Potrebbe inoltre essere necessario aggiornare il report per visualizzare i dati più recenti.
 

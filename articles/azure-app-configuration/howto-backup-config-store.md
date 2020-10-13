@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
 ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207134"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Eseguire il backup automatico degli archivi di configurazione delle app
@@ -40,7 +40,7 @@ In questa esercitazione verrà creato un archivio secondario nell' `centralus` a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/). 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro sviluppo di Azure.
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro Sviluppo di Azure.
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
 - Versione più recente dell'interfaccia della riga di comando di Azure (2.3.1 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si usa l'interfaccia della riga di comando di Azure, è necessario prima accedere usando `az login` . Facoltativamente, è possibile usare Azure Cloud Shell.
 
