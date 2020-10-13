@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015290"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Come usare il controllo degli accessi in base al ruolo in Gestione API di Azure
@@ -44,7 +44,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. È possibi
 
 <sup>[2] Accesso in scrittura a servizi ed entità di Gestione API, tranne per le operazioni seguenti: creazione, eliminazione e ridimensionamento di istanze; configurazione di VPN; configurazione di domini personalizzati.</sup>
 
-<sup>\*Il ruolo Editor del servizio sarà disponibile dopo la migrazione di tutte le interfacce utente di amministrazione dal portale di pubblicazione esistente al portale di Azure. Il ruolo Gestione contenuto sarà disponibile dopo il refactoring del portale di pubblicazione per contenere solo le funzionalità relative alla gestione del portale per sviluppatori.</sup>  
+<sup>\* Il ruolo Editor del servizio sarà disponibile dopo la migrazione di tutte le interfacce utente di amministrazione dal portale di pubblicazione esistente al portale di Azure. Il ruolo Gestione contenuto sarà disponibile dopo il refactoring del portale di pubblicazione per contenere solo le funzionalità relative alla gestione del portale per sviluppatori.</sup>  
 
 ## <a name="custom-roles"></a>Ruoli personalizzati
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/29/2019
 ms.author: alkohli
 ms.openlocfilehash: 31e24bcd9ed602647850b6c943b7786638331601
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085229"
 ---
 I dispositivi sono progettati per continuare a funzionare quando la connessione a Internet è lenta o viene interrotta. In condizioni operative normali è consigliabile usare: 

@@ -4,10 +4,10 @@ description: Questo articolo descrive come gestire e monitorare SQL Server datab
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146522"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
@@ -53,7 +53,7 @@ Per monitorare gli avvisi di backup del database:
 
 Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
-- Tutti i punti di ripristino rimarranno intatti per sempre e tutte le eliminazioni si arresteranno in arresto della protezione con Mantieni dati.
+- Tutti i punti di ripristino rimarranno invariati per sempre e tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
 - Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione utilizzato. Per altre informazioni, vedere [Prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo. I punti di ripristino precedenti scadranno in base ai criteri, ma il punto di ripristino più recente verrà sempre mantenuto fino a quando non si arrestano i backup ed eliminano i dati.
 

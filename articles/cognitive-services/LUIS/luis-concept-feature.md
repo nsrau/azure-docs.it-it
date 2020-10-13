@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372016"
 ---
 # <a name="machine-learning-features"></a>Funzionalità di Machine Learning
@@ -226,7 +226,7 @@ Dopo aver creato l'entità Machine Learning, è necessario aggiungere espression
 
 Per l'esempio di prenotazione di ticket, etichettare le espressioni di esempio nello scopo con l' `TicketBooking` entità e le eventuali sottoentità nel testo.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Etichettare le espressioni di esempio":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Schema di entità Ticketbooking":::
 
 ### <a name="example-pizza-ordering-app"></a>Esempio: Pizza ordering app
 
@@ -234,13 +234,13 @@ Per un secondo esempio, si consideri un'app per un ristorante pizzeria che ricev
 
 L'entità Machine Learning in questo esempio è più complessa con le sottoentità nidificate, gli elenchi di frasi, le entità predefinite e le entità personalizzate.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schema dell'entità dell'ordine di pizza":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schema di entità Ticketbooking":::
 
 In questo esempio vengono utilizzate le funzionalità a livello di sottoentità e figlio del livello di sottoentità. Il livello che ottiene il tipo di elenco di frasi o di modello come funzionalità è una parte importante della progettazione dell'entità.
 
 Sebbene le sottoentità possano avere molti elenchi di frasi come funzionalità che consentono di rilevare l'entità, ogni sottoentità ha un solo modello come funzionalità. In questa [app](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)per la pizza questi modelli sono principalmente elenchi.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Finalità dell'ordine di pizza con espressioni di esempio con etichetta":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Schema di entità Ticketbooking":::
 
 Le espressioni di esempio correttamente etichettate vengono visualizzate in modo da illustrare il modo in cui le entità sono annidate. 
 

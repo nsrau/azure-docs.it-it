@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499614"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>Criteri tra domini
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Criteri tra domini
 
 - [Permetti chiamate tra i domini](api-management-cross-domain-policies.md#AllowCrossDomainCalls) : rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
 - [CORS](api-management-cross-domain-policies.md#CORS) : aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) : aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser.
 
-## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>Consenti chiamate tra domini
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Consenti chiamate tra domini
 Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -57,13 +57,13 @@ Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Fl
 |----------|-----------------|--------------|
 |cross-domain|Elemento radice. Gli elementi figlio devono essere conformi alla [specifica dei file di criteri tra domini Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sì|
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound
 - **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="cors"></a><a name="CORS"></a>CORS
+## <a name="cors"></a><a name="CORS"></a> CORS
 Il criterio `cors` aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
 
 CORS permette a un browser e a un server di interagire e di determinare se permettere o meno richieste specifiche con origini diverse, ad esempio chiamate XMLHttpRequests effettuate da JavaScript in una pagina Web in altri domini. Ciò offre una maggiore flessibilità rispetto a permettere solo richieste con la stessa origine e una maggiore sicurezza rispetto a permettere tutte le richieste con origini diverse.
@@ -142,13 +142,13 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 |allow-credentials|L' `Access-Control-Allow-Credentials` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No|false|
 |preflight-result-max-age|L' `Access-Control-Max-Age` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound
 - **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="jsonp"></a><a name="JSONP"></a>JSONP
+## <a name="jsonp"></a><a name="JSONP"></a> JSONP
 Il criterio `jsonp` aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser. JSONP è un metodo usato in programmi JavaScript per richiedere dati da un server in un dominio diverso. JSONP supera le limitazioni applicate dalla maggior parte dei Web browser, in cui l'accesso alle pagine Web deve essere effettuato nello stesso dominio.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -179,7 +179,7 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Sì|N/D|
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** in uscita

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557184"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91652449"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Avvio rapido: Convertire un modello per il rendering
 
@@ -189,7 +189,7 @@ Lo script di conversione genera un URI di *firma di accesso condiviso* per il mo
 L'URI di firma di accesso condiviso creato dallo script di conversione sarà valido solo per 24 ore. Tuttavia, dopo la scadenza non è necessario ripetere la conversione del modello. È invece possibile creare una nuova firma di accesso condiviso nel portale, come descritto nei passaggi successivi:
 
 1. Accedere al [portale di Azure](https://www.portal.azure.com)
-1. Fare clic sulla risorsa **Account di archiviazione**: ![Accesso con firma](./media/portal-storage-accounts.png)
+1. Fare clic sulla risorsa **Account di archiviazione**: ![Screenshot che evidenzia la risorsa dell'account di archiviazione selezionata.](./media/portal-storage-accounts.png)
 1. Nella schermata seguente fare clic su **Storage Explorer** nel pannello a sinistra e trovare il modello di output (file *.arrAsset*) nel contenitore di archiviazione BLOB *arroutput*. Fare clic con il pulsante destro del mouse sul file e scegliere **Ottieni firma di accesso condiviso** nel menu di scelta rapida: ![Accesso con firma](./media/portal-storage-explorer.png)
 1. Verrà visualizzata una nuova schermata in cui è possibile selezionare una data di scadenza. Premere **Crea** e copiare l'URI visualizzato nella finestra di dialogo successiva. Questo nuovo URI sostituisce l'URI temporaneo creato dallo script.
 

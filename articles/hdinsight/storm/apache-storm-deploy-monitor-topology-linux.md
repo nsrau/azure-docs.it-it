@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085736"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight
@@ -44,7 +44,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 1. Nella finestra **Crea un nuovo progetto** selezionare la casella di ricerca e immettere `Storm` . Quindi scegliere **Storm Sample** dall'elenco dei risultati e fare clic su **Next (avanti**).
 
-1. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto**e passare a o creare un **percorso** in cui salvare il nuovo progetto. Quindi selezionare **Crea**
+1. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto**e passare a o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
 
     ![Configurare la finestra del nuovo progetto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
@@ -80,7 +80,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 ## <a name="submit-a-topology-programmatically"></a>Inviare una topologia a livello di codice
 
-È possibile distribuire a livello di codice una topologia usando il servizio Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)fornisce un'applicazione Java di esempio che illustra come distribuire e avviare una topologia tramite il servizio Nimbus.
+È possibile distribuire a livello di codice una topologia usando il servizio Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornisce un'applicazione Java di esempio che illustra come distribuire e avviare una topologia tramite il servizio Nimbus.
 
 ## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Monitorare e gestire una topologia in Visual Studio
 
@@ -205,7 +205,7 @@ La pagina di riepilogo della topologia Storm è simile a questa pagina Web:
 
 Nella sezione **azioni topologia** è possibile selezionare i pulsanti seguenti per eseguire un'azione:
 
-| Button | Descrizione |
+| Pulsante | Descrizione |
 | --- | --- |
 | Activate | riprende l'elaborazione di una topologia disattivata. |
 | Disattivare | sospende una topologia in esecuzione. |
@@ -228,7 +228,7 @@ Se si seleziona un elemento nella sezione **Spouts** o **Bolts**, verranno visua
 | Statistiche di output (intervallo di *tempo)* | informazioni sui flussi generati dallo spout o dal bolt. |
 | Profilatura e debug | Controlli per la profilatura e il debug dei componenti in questa pagina. È possibile impostare il valore **stato/timeout (minuti)** ed è possibile selezionare i pulsanti per **JStack**, **riavvio**del ruolo di lavoro e **heap**. |
 | Esecutori *(intervallo di tempo)* | informazioni sulle istanze dello spout o del bolt. Per visualizzare un log delle informazioni di diagnostica generate per questa istanza, selezionare la voce della **porta** per un esecutore specifico. È anche possibile visualizzare le risorse di lavoro associate a un esecutore specifico selezionando il relativo collegamento nella colonna **host** . |
-| Errori | informazioni su eventuali errori dello spout o del bolt. |
+| Errors | informazioni su eventuali errori dello spout o del bolt. |
 
 La pagina di riepilogo di Storm Bolt è simile a questa pagina Web:
 

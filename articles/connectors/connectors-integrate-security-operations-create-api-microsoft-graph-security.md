@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986369"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
@@ -146,7 +146,7 @@ Per altre informazioni sulle query che è possibile usare con questo connettore,
 
 | Azione | Descrizione |
 |--------|-------------|
-| **Ottenere indicatori di intelligence per le minacce** | Ottenere tiIndicators filtrati in base a una o più [proprietà di tiIndicator](/graph/api/resources/tiindicator?view=graph-rest-beta), ad esempio`threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Ottenere indicatori di intelligence per le minacce** | Ottenere tiIndicators filtrati in base a una o più [proprietà di tiIndicator](/graph/api/resources/tiindicator?view=graph-rest-beta), ad esempio `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Ottenere l'indicatore di intelligence per le minacce in base all'ID** | Ottenere un tiIndicator specifico in base all'ID tiIndicator. | 
 | **Crea indicatore di intelligence per le minacce** | Per creare un nuovo tiIndicator, inviare alla raccolta tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, fare riferimento alle [proprietà obbligatorie per la creazione di tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
 | **Inviare più indicatori di intelligence per le minacce** | Creare più tiIndicators nuovi inviando una raccolta tiIndicators. Per assicurarsi di passare le proprietà necessarie nella richiesta, vedere le [proprietà necessarie per l'invio di più tiIndicators](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |

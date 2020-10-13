@@ -10,13 +10,13 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261945"
 ---
-# <a name="add-a-reference-layer"></a>Aggiungere un livello di riferimento
+# <a name="add-a-reference-layer"></a>Aggiungere un livello per i riferimenti
 
 La funzionalità del livello di riferimento consente il caricamento di un set di dati spaziali secondario nell'oggetto visivo e la sovrapposizione della mappa per fornire il contesto di aggiunta. Questo set di dati è ospitato da Power BI e deve essere un [file GeoJSON](https://wikipedia.org/wiki/GeoJSON) con `.json` estensione di `.geojson` file o.
 
@@ -64,4 +64,4 @@ Aggiungere altro contesto alla mappa:
 > [Aggiungere un livello per i riquadri](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Mostra traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)
+> [Visualizzare il traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)

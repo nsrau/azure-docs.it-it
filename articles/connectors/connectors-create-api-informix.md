@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761645"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gestire le risorse del database IBM Informix usando app per la logica di Azure
@@ -60,7 +60,7 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
 
    | Azione | Descrizione | Proprietà e descrizioni |
    |--------|-------------|-----------------------------|
-   | **Ottieni tabelle** | Elencare le tabelle di database eseguendo un'istruzione di chiamata Informix. | nessuno |
+   | **Ottieni tabelle** | Elencare le tabelle di database eseguendo un'istruzione di chiamata Informix. | Nessuno |
    | **Ottieni righe** | Recuperare tutte le righe nella tabella specificata eseguendo un' `SELECT *` istruzione Informix. | **Nome tabella**: il nome della tabella Informix desiderata <p><p>Per aggiungere altre proprietà a questa azione, selezionarle nell'elenco **Aggiungi nuovo parametro** . Per altre informazioni, vedere l' [argomento di riferimento del connettore](/connectors/informix/). |
    | **Ottenere la riga** | Eseguire un'istruzione Informix per recuperare una riga dalla tabella specificata `SELECT WHERE` . | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **ID riga**: ID univoco per la riga, ad esempio `9999` |
    | **Inserimento di una riga** | Aggiungere una riga alla tabella Informix specificata eseguendo un' `INSERT` istruzione Informix. | - **Nome tabella**: il nome della tabella Informix desiderata <br>- **Item**: la riga con i valori da aggiungere |
@@ -83,13 +83,13 @@ Questo argomento illustra come usare il connettore in un'app per la logica per e
    | Nome connessione | `name` | Sì | `informix-demo-connection` | Nome da utilizzare per la connessione al database di Informix |
    | Server | `server` | Sì | Cloud `informixdemo.cloudapp.net:9089` <br>-Locale: `informixdemo:9089` | Indirizzo TCP/IP o alias in formato IPv4 o IPv6, seguito da due punti e da un numero di porta TCP/IP |
    | Database | `database` | Sì | `nwind` | Il nome del database relazionale DRDA (RDBNAM) o il nome del database Informix (DBName). Informix accetta una stringa a 128 byte. |
-   | Autenticazione | `authentication` | Solo in locale | **Basic** o **Windows** (Kerberos) | Tipo di autenticazione richiesto dal database Informix. Questa proprietà viene visualizzata solo quando si seleziona **Connetti tramite gateway dati locale**. |
+   | Authentication | `authentication` | Solo in locale | **Basic** o **Windows** (Kerberos) | Tipo di autenticazione richiesto dal database Informix. Questa proprietà viene visualizzata solo quando si seleziona **Connetti tramite gateway dati locale**. |
    | Username | `username` | No | <*nome utente-database*> | Nome utente del database |
    | Password | `password` | No | <*password database*> | Una password per il database |
    | Gateway | `gateway` | Solo in locale | -<*Azure-Subscription*> <br>-<*Azure-on-premises-Data-Gateway-Resource*> | La sottoscrizione di Azure e il nome della risorsa di Azure per il gateway dati locale creato nel portale di Azure. La proprietà e le sottoproprietà del **gateway** vengono visualizzate solo quando si seleziona **Connetti tramite il gateway dati locale**. |
    ||||||
 
-   Esempio:
+   Ad esempio:
 
    * **Database cloud**
 

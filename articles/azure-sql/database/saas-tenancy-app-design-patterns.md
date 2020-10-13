@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85250712"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
@@ -189,7 +189,7 @@ La tabella seguente riepiloga le differenze tra i modelli di tenancy principali.
 | Isolamento dei tenant | Molto alto | Alta | Basso, ad eccezione di eventuali tenant singoli (soli in un database multi-tenant). |
 | Costo di database per tenant | Alto; dimensionato per i picchi. | Basso; vengono usati i pool. | Minimo, per tenant di piccole dimensioni nei database multi-tenant. |
 | Monitoraggio e gestione delle prestazioni | Solo per singolo tenant | Aggregati + per singolo tenant | Aggregati, ma per singolo tenant solo per i database singoli. |
-| Complessità di sviluppo | Basso | Basso | Media, a causa del partizionamento orizzontale. |
+| Complessità di sviluppo | Bassa | Bassa | Media, a causa del partizionamento orizzontale. |
 | Complessità operativa | Bassa-alta. Semplice a livello individuale, complessa su larga scala. | Bassa-media. I criteri gestiscono la complessità su larga scala. | Bassa-alta. La gestione dei singoli tenant è complessa. |
 | &nbsp; ||||
 

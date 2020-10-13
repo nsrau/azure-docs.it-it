@@ -5,18 +5,18 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: 90556e0843cda94dc79330321d027f8d28eb7d20
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652194"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Creare un registro dello schema di hub eventi di Azure (anteprima)
 Questo articolo illustra come creare un gruppo di schemi con gli schemi in un registro dello schema ospitato da Hub eventi di Azure. Per una panoramica della funzionalità registro dello schema di hub eventi di Azure, vedere [registro dello schema di Azure in hub eventi](schema-registry-overview.md).
 
 > [!NOTE]
-> - La funzionalità **registro dello schema** è attualmente in **Anteprima**e non è consigliata per i carichi di lavoro di produzione.
-> - La funzionalità è disponibile solo nei livelli **standard** e **dedicato** , non nel livello **Basic** .
+> - La funzionalità **Registro schemi** è attualmente disponibile in **anteprima** e non è consigliata per i carichi di lavoro di produzione.
+> - La funzionalità è disponibile solo nei livelli **Standard** e **Dedicato**, non nel livello **Basic**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 [Creare uno spazio dei nomi di hub eventi](event-hubs-create.md#create-an-event-hubs-namespace). È anche possibile usare uno spazio dei nomi esistente. 

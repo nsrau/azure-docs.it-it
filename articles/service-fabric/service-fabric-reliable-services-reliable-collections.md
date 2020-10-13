@@ -4,10 +4,10 @@ description: I servizi con stato di Service Fabric forniscono raccolte Reliable 
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 6e0f39b994087fe44038e62e85326945589c719a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245127"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduzione alle Reliable Collections nei servizi con stato di Service Fabric
@@ -51,7 +51,7 @@ Attualmente **Microsoft.ServiceFabric.Data.Collections** include tre raccolte:
 * [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestione dei dati
   * [Backup e ripristino](service-fabric-reliable-services-backup-restore.md)
-  * [Notifiche](service-fabric-reliable-services-notifications.md)
+  * [Notifications](service-fabric-reliable-services-notifications.md)
   * [Serializzazione di raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serializzazione e aggiornamento](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration (Configurazione di Reliable State Manager)](service-fabric-reliable-services-configuration.md)

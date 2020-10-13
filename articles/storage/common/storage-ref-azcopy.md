@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285187"
 ---
 # <a name="azcopy"></a>azcopy
@@ -38,7 +38,7 @@ Per segnalare problemi o per ulteriori informazioni sullo strumento, vedere [htt
 
 **--Guida** Guida per azcopy
       
-**--output-Type** (String) formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è `text`. (impostazione predefinita `text` )
+**--output-Type**  (String) formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è `text`. (impostazione predefinita `text` )
 
 **--trusted-Microsoft-suffissi** (String) specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 

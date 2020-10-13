@@ -4,10 +4,10 @@ description: Creare un gruppo di contenitori in una rete virtuale e usare un gat
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: bc128da0f4c2e92af98781cef45f48f9e8aeab31
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260780"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Esporre un indirizzo IP statico per un gruppo di contenitori
@@ -29,7 +29,7 @@ Finché viene eseguito il gateway applicazione e il gruppo di contenitori espone
 
 In un caso tipico, è possibile che si disponga già di una rete virtuale di Azure. Se non è disponibile, crearne uno come illustrato con i comandi di esempio seguenti. La rete virtuale necessita di subnet separate per il gateway applicazione e il gruppo di contenitori.
 
-Se necessario, creare un gruppo di risorse di Azure. ad esempio:
+Se necessario, creare un gruppo di risorse di Azure. Ad esempio:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
