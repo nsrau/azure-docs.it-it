@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85254617"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formati di file supportati e codec di compressione in Azure Data Factory (legacy)
@@ -25,7 +25,7 @@ ms.locfileid: "85254617"
 >[!IMPORTANT]
 >Data Factory introdotto un nuovo modello di DataSet basato su formato, vedere l'articolo relativo al formato corrispondente con i dettagli: <br>- [Formato avro](format-avro.md)<br>- [Formato binario](format-binary.md)<br>- [Formato testo delimitato](format-delimited-text.md)<br>- [Formato JSON](format-json.md)<br>- [Formato ORC](format-orc.md)<br>- [Formato parquet](format-parquet.md)<br>Le configurazioni Rest indicate in questo articolo sono ancora supportate così come sono per le versioni precedenti di Compabitility. Si consiglia di utilizzare il nuovo modello in futuro. 
 
-## <a name="text-format-legacy"></a><a name="text-format"></a>Formato testo (legacy)
+## <a name="text-format-legacy"></a><a name="text-format"></a> Formato testo (legacy)
 
 >[!NOTE]
 >Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato testo delimitato](format-delimited-text.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
@@ -39,7 +39,7 @@ Se si vuole leggere da un file di testo o scrivere in un file di testo, impostar
 | escapeChar |carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Esempio: se si ha una virgola (',') come delimitatore di colonna, ma si vuole avere il carattere virgola nel testo (ad esempio: "Hello, World"), è possibile definire ' $' come carattere di escape e usare la stringa "Hello $, World" nell'origine. |No |
 | quoteChar |carattere usato per inserire un valore stringa tra virgolette. I delimitatori di riga e colonna all'interno delle virgolette sono considerati come parte del valore della stringa. Questa proprietà è applicabile ai set di dati di input e di output.<br/><br/>Non è possibile specificare sia escapeChar sia quoteChar per una tabella. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No |
 | nullValue |uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\n" e "null"** in lettura e **"\n"** in scrittura. |No |
-| encodingName |specifica il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
+| encodingName |specifica il nome della codifica. |Un nome di codifica valido. vedere [Proprietà Encoding. EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No |
 | firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True<br/><b>False (impostazione predefinita)</b> |No |
 | skipLineCount |Indica il numero di righe **non vuote** da ignorare durante la lettura di dati da file di input. Se vengono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e quindi le informazioni dell'intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No |
 | treatEmptyAsNull |specifica se considerare una stringa null o vuota come valore null durante la lettura dei dati da un file di input. |**True (impostazione predefinita)**<br/>False |No |
@@ -79,7 +79,7 @@ Per usare `escapeChar` invece di `quoteChar`, sostituire la riga con `quoteChar`
 * Si desidera copiare da un file di testo contenente una riga di intestazione a un sink non basato su file ed eliminare tale riga. Specificare `firstRowAsHeader` come true nel set di dati di input.
 * Si desidera copiare da un file di testo e ignorare alcune righe all'inizio che non contengono né dati né un'intestazione. Specificare `skipLineCount` per indicare il numero di righe da ignorare. Se il resto del file contiene una riga di intestazione, è anche possibile specificare `firstRowAsHeader`. Se sono specificati sia `skipLineCount` che `firstRowAsHeader`, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input.
 
-## <a name="json-format-legacy"></a><a name="json-format"></a>Formato JSON (legacy)
+## <a name="json-format-legacy"></a><a name="json-format"></a> Formato JSON (legacy)
 
 >[!NOTE]
 >Per informazioni sul nuovo modello, vedere l'articolo [formato JSON](format-json.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
@@ -406,7 +406,7 @@ Il set di dati di output con il tipo **JsonFormat** è definito come segue (defi
 }
 ```
 
-## <a name="parquet-format-legacy"></a><a name="parquet-format"></a>Formato parquet (legacy)
+## <a name="parquet-format-legacy"></a><a name="parquet-format"></a> Formato parquet (legacy)
 
 >[!NOTE]
 >Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato parquet](format-parquet.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
@@ -466,7 +466,7 @@ Esempio: impostare la variabile `_JAVA_OPTIONS` con il valore `-Xms256m -Xmx16g`
 | Char | Binary | Utf8 | Utf8 |
 | CharArray | Non supportato | N/D | N/D |
 
-## <a name="orc-format-legacy"></a><a name="orc-format"></a>Formato ORC (legacy)
+## <a name="orc-format-legacy"></a><a name="orc-format"></a> Formato ORC (legacy)
 
 >[!NOTE]
 >Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato ORC](format-orc.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
@@ -518,7 +518,7 @@ Per la copia in esecuzione sul runtime di integrazione self-hosted con la serial
 | Guid | string |
 | Char | Char(1) |
 
-## <a name="avro-format-legacy"></a><a name="avro-format"></a>Formato AVRO (legacy)
+## <a name="avro-format-legacy"></a><a name="avro-format"></a> Formato AVRO (legacy)
 
 >[!NOTE]
 >Per informazioni sul nuovo modello, vedere l'articolo relativo al [formato avro](format-avro.md) . Le configurazioni seguenti nel set di dati dell'archivio dati basato su file sono ancora supportate così come sono per le Compabitility precedenti. Si consiglia di utilizzare il nuovo modello in futuro.
@@ -538,7 +538,7 @@ Tenere presente quanto segue:
 
 * I [tipi di dati complessi](https://avro.apache.org/docs/current/spec.html#schema_complex) non sono supportati (record, enumerazioni, matrici, mappe, unioni e dati fissi).
 
-## <a name="compression-support-legacy"></a><a name="compression-support"></a>Supporto della compressione (legacy)
+## <a name="compression-support-legacy"></a><a name="compression-support"></a> Supporto della compressione (legacy)
 
 Azure Data Factory supporta la compressione/decompressione dei dati durante la copia. Quando si specifica una proprietà `compression` in un set di dati di input, l'attività di copia legge i dati compressi dall'origine e li decomprime. Quando si specifica la proprietà in un set di dati di output, l'attività di copia comprime e quindi scrive i dati nel sink. Di seguito vengono forniti alcuni scenari di esempio:
 

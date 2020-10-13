@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 9/28/2020
 ms.author: matjazl
 ms.openlocfilehash: bdbab0e032764d07119402686051d391376cb913
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843869"
 ---
 # <a name="exporting-de-identified-data-preview"></a>Esportazione dei dati deselezionati (anteprima)
@@ -23,7 +23,7 @@ Il $export comando può essere usato anche per esportare dati deselezionati dal 
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
-|Query parameter (Parametro di query)            | Esempio |Opzionalità| Descrizione|
+|Query parameter (Parametro di query)            | Esempio |Opzionalità| Description|
 |---------------------------|---------|-----------|------------|
 | _\_anonymizationConfig_   |DemoConfig.js|Obbligatorio per l'esportazione deselezionata |Nome del file di configurazione. Vedere il formato del file di configurazione [qui](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). Questo file deve essere conservato all'interno di un contenitore denominato **anonimato dei** nello stesso account di archiviazione di Azure configurato come percorso di esportazione. |
 | _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Facoltativo per esportazione deselezionata|Si tratta dell'ETAG del file di configurazione. È possibile ottenere il valore ETag usando Azure Storage Explorer dalla proprietà BLOB|

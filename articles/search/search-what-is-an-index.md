@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88932883"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creare un indice di ricerca di base in Azure ricerca cognitiva
@@ -184,7 +184,7 @@ Per ulteriori informazioni, vedere [tipi di dati supportati](/rest/api/searchser
 
 <a name="index-attributes"></a>
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 Gli attributi del campo determinano le modalità in cui un campo viene usato, ad esempio se viene usato nella ricerca full-text, nella navigazione con facet, nelle operazioni di ordinamento e così via. 
 

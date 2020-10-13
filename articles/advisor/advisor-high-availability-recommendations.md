@@ -4,10 +4,10 @@ description: USA Azure Advisor per garantire e migliorare l'affidabilità nelle 
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405191"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Migliorare l'affidabilità dell'applicazione usando Azure Advisor
@@ -112,8 +112,8 @@ Le macchine virtuali in cui non è abilitata la replica in un'altra area non son
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Eseguire l'aggiornamento alla versione più recente dell'agente di Azure Connected Machine
 L' [agente del computer connesso di Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) viene aggiornato regolarmente con correzioni di bug, miglioramenti della stabilità e nuove funzionalità. Sono state identificate risorse che non funzionano con la versione più recente di Machine Agent e questa raccomandazione di Advisor suggerisce di aggiornare l'agente alla versione più recente per la migliore esperienza di Azure Arc.
 
-## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Non eseguire l'override del nome host per garantire l'integrità del sito Web
-Advisor consiglia di evitare di eseguire l'override del nome host quando si configura il gateway applicazione. Avere un dominio diverso sul front-end del gateway applicazione rispetto a quello usato per accedere al back-end può causare l'interruzione dei cookie o degli URL di reindirizzamento. Si noti che questo potrebbe non essere il caso in tutte le situazioni e che alcune categorie di backend (come le API REST) in generale sono meno sensibili a questo. Verificare che il back-end sia in grado di gestire questo problema o aggiornare la configurazione del gateway applicazione in modo che non sia necessario sovrascrivere il nome host nel back-end. Quando usato con il servizio app, associare un nome di dominio personalizzato all'app Web ed evitare di usare il *nome host. azurewebsites.NET verso il back-end.* [Altre informazioni sul dominio personalizzato](https://aka.ms/appgw-advisor-usecustomdomain).
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Non sostituire il nome host per garantire l'integrità del sito Web
+Advisor consiglia di evitare di eseguire l'override del nome host quando si configura il gateway applicazione. L'uso di un dominio diverso sul front-end del gateway applicazione rispetto a quello usato per accedere al back-end può potenzialmente condurre a cookie o URL di reindirizzamento interrotti. Si noti che questa situazione potrebbe verificarsi solo in alcuni casi e che alcune categorie di back-end, quali le API REST, in generale sono meno sensibili. Verificare che il back-end sia in grado di gestire la situazione o di aggiornare la configurazione del gateway applicazione in modo che non sia necessario sovrascrivere il nome host nel back-end. Quando usato con il servizio app, associare un nome di dominio personalizzato all'app Web ed evitare di usare il *nome host. azurewebsites.NET verso il back-end.* [Altre informazioni sul dominio personalizzato](https://aka.ms/appgw-advisor-usecustomdomain).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 

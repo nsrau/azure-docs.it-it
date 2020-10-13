@@ -4,10 +4,10 @@ description: Questo articolo riepiloga il supporto di backup di Azure quando si 
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332696"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
@@ -92,7 +92,7 @@ Backup di Azure può eseguire il backup di istanze di DPM/MAB che eseguono uno d
 
 Se si distribuisce il server di Backup di Microsoft Azure in una macchina virtuale di Azure Stack, sarà possibile gestire il backup delle macchine virtuali di Azure Stack e dei carichi di lavoro da un'unica posizione.
 
-**Componente** | **Informazioni dettagliate**
+**Componente** | **Dettagli**
 --- | ---
 **Server di Backup di Microsoft Azure in una macchina virtuale di Azure Stack** | Almeno la dimensione a2. È consigliabile iniziare con un'immagine di Windows Server 2012 R2 o Windows Server 2016 da Azure Marketplace.<br/><br/> Non installare altri oggetti nella VM di MAB.
 **Archiviazione del server di Backup di Microsoft Azure** | Usare un account di archiviazione separato per la macchina virtuale di MAB. Per l'agente MARS eseguito su MAB è necessaria l'archiviazione temporanea per un percorso della cache e per conservare i dati ripristinati dal cloud.
@@ -102,7 +102,7 @@ Se si distribuisce il server di Backup di Microsoft Azure in una macchina virtua
 **.NET Framework nel server di Backup di Microsoft Azure** | Per la macchina virtuale MAB è necessario .NET Framework 3,3 SP1 o versione successiva.
 **Dominio del server di Backup di Microsoft Azure** | La macchina virtuale del server di Backup di Microsoft Azure deve essere aggiunta a un dominio. Un utente del dominio con privilegi di amministratore deve installare il server di Backup di Microsoft Azure nella macchina virtuale.
 **Backup dei dati di macchine virtuali di Azure Stack** | È possibile eseguire il backup di file, cartelle e app.
-**Backup supportato** | Questi sistemi operativi sono supportati per le macchine virtuali di cui si vuole eseguire il backup:<br/><br/> Canale semestrale di Windows Server (Datacenter, Enterprise, standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**Backup supportato** | Questi sistemi operativi sono supportati per le macchine virtuali di cui si vuole eseguire il backup:<br/><br/> Canale Semi-Annual di Windows Server (Datacenter, Enterprise, standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **Supporto SQL Server per le macchine virtuali Azure Stack** | Eseguire il backup di SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Eseguire il backup e il ripristino di un database.
 **Supporto SharePoint per macchine virtuali di Azure Stack** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Eseguire il backup e il ripristino di una farm, un database, un front-end e un server Web.
 **Requisiti di rete per macchine virtuali sottoposte a backup** | Tutte le macchine virtuali nel carico di lavoro Azure Stack devono appartenere alla stessa rete virtuale e appartenere alla stessa sottoscrizione.
@@ -146,7 +146,7 @@ Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../e
 
 Per il corretto funzionamento dei backup, è necessaria la connettività al servizio Backup di Azure e la sottoscrizione di Azure deve essere attiva. La tabella seguente illustra il comportamento che si riscontra quando queste due condizioni non si verificano.
 
-**Server di Backup di Microsoft Azure ad Azure** | **Sottoscrizione** | **Backup/Ripristino**
+**Server di Backup di Microsoft Azure ad Azure** | **Sottoscrizione** | **Backup/ripristino**
 --- | --- | ---
 Connesso | Attivo | Eseguire il backup nel disco di DPM/MAB.<br/><br/> Esegui il backup in Azure.<br/><br/> Ripristinare dal disco.<br/><br/> Ripristinare da Azure.
 Connesso | Scaduta/sottoposta a deprovisioning | Nessun backup su disco o in Azure.<br/><br/> Se la sottoscrizione è scaduta, è possibile eseguire il ripristino dal disco o da Azure.<br/><br/> Se la sottoscrizione viene ritirata, non è possibile eseguire il ripristino dal disco o da Azure. I punti di ripristino di Azure vengono eliminati.

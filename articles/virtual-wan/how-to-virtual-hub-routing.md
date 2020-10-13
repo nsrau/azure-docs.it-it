@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313689"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Come configurare il routing dell'hub virtuale
@@ -30,7 +30,7 @@ Per ulteriori informazioni, vedere [About Virtual Hub routing](about-virtual-hub
 3. Selezionare **+ Crea tabella di route** per aprire la pagina **Crea tabella di route** .
 4. Nella scheda Crea **nozioni di base** della pagina della tabella di route completare i campi seguenti.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Scheda Informazioni di base":::
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Pagina di routing":::
 
    * **Nome**
    * **Route**
@@ -41,20 +41,20 @@ Per ulteriori informazioni, vedere [About Virtual Hub routing](about-virtual-hub
 
      Se si seleziona una connessione di rete virtuale, si vedrà **configure static routes**. Si tratta di un'impostazione di configurazione facoltativa. Per altre informazioni, vedere [Configuring static routes](about-virtual-hub-routing.md#static).
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Hop successivo":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Pagina di routing":::
 
 5. Selezionare la scheda **etichette** per configurare i nomi delle etichette. Le etichette forniscono un meccanismo per raggruppare logicamente le tabelle di route.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Configurare i nomi delle etichette":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Pagina di routing":::
 
 6. Selezionare la scheda **associazioni** per associare le connessioni alla tabella di route.
 Vengono visualizzati i **rami**, le **reti virtuali**e le **impostazioni correnti** delle connessioni.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Connessioni di associazione alla tabella di route":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Pagina di routing":::
 
 7. Selezionare la scheda **propagazioni** per propagare le route dalle connessioni alla tabella di route.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Propagazione Route":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Pagina di routing":::
 
 8. Selezionare **Crea** per creare la tabella di route.
 
@@ -70,7 +70,7 @@ Nella portale di Azure individuare la tabella di route dell'hub virtuale. Non è
 
 Nella portale di Azure individuare la tabella di route dell'hub virtuale. Fare clic su **"..."** e selezionare **route valide** per visualizzare le route apprese dalla tabella di route selezionata. Le route propagate dalla connessione alla tabella di route vengono popolate automaticamente in **route valide** della tabella di route. Per ulteriori informazioni, vedere [informazioni sulle route valide](effective-routes-virtual-hub.md).
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Visualizza route valide" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Pagina di routing" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
 ## <a name="to-set-up-routing-configuration-for-a-virtual-network-connection"></a><a name="routing-configuration"></a>Per impostare la configurazione del routing per una connessione di rete virtuale
 
@@ -82,7 +82,7 @@ Nella portale di Azure individuare la tabella di route dell'hub virtuale. Fare c
 1. Per le **Route statiche**, configurare le route statiche per l'appliance virtuale di rete (se applicabile). La rete WAN virtuale supporta un singolo IP hop successivo per la route statica in una connessione di rete virtuale. Se, ad esempio, si dispone di un'appliance virtuale separata per i flussi di traffico in ingresso e in uscita, è consigliabile fare in modo che le appliance virtuali in reti virtuali separate e alleghino il reti virtuali all'hub virtuale.
 
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Configurare la configurazione del routing" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Pagina di routing" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

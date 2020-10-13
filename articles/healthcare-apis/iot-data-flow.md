@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
 ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513375"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Connettore Azure per il flusso di dati FHIR (anteprima)
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Flusso di dati del connettore Azure IoT per FHIR (anteprima)
 
 Questo articolo fornisce una panoramica del flusso di dati nel connettore Azure per FHIR *. Verranno fornite informazioni sulle diverse fasi di elaborazione dei dati nel connettore Azure per FHIR che trasformano i dati dei dispositivi in risorse di [osservazione](https://www.hl7.org/fhir/observation.html) basate su FHIR.
 
-![Connettore Azure per i flussi di dati FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
+![Flusso di dati del connettore Azure IoT per FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
 Il diagramma precedente illustra i flussi di dati comuni usando il connettore Azure per FHIR. 
 
@@ -36,7 +36,7 @@ Normalize è la fase successiva in cui i dati del dispositivo vengono recuperati
 
 Il processo di normalizzazione non solo semplifica l'elaborazione dei dati in fasi successive, ma offre anche la possibilità di proiettare un messaggio di input in più messaggi normalizzati. Ad esempio, un dispositivo potrebbe inviare più segni vitali per la temperatura del corpo, la frequenza degli impulsi, la pressione del sangue e la frequenza respiratoria in un singolo messaggio. Questo messaggio di input creerebbe quattro risorse FHIR separate. Ogni risorsa rappresenterebbe un segno di vitalità diverso, con il messaggio di input proiettato in quattro diversi messaggi normalizzati.
 
-## <a name="group"></a>Group
+## <a name="group"></a>Gruppo
 Il gruppo è la fase successiva in cui i messaggi normalizzati disponibili dalla fase precedente vengono raggruppati con tre parametri diversi: identità del dispositivo, tipo di misura e periodo di tempo.
 
 Il raggruppamento delle identità e dei tipi di misurazione del dispositivo Abilita l'uso del tipo di misurazione [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) . Questo tipo fornisce un modo conciso per rappresentare una serie di misurazioni basate sul tempo da un dispositivo in FHIR. E il periodo di tempo controlla la latenza in base alla quale le risorse di osservazione generate dal connettore Azure per FHIR vengono scritte nell'API di Azure per FHIR.
@@ -62,8 +62,8 @@ Dopo che la risorsa FHIR di osservazione è stata generata nella fase Transform,
 Fare clic sotto il passaggio successivo per informazioni su come creare modelli di mapping di dispositivi e FHIR.
 
 >[!div class="nextstepaction"]
->[Connettore Azure per i modelli di mapping di FHIR](iot-mapping-templates.md)
+>[Modelli di mapping del connettore Azure IoT per FHIR](iot-mapping-templates.md)
 
-* Nel portale di Azure, il connettore Azure per FHIR viene indicato come connettore Internet (anteprima).
+*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
 
 FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.
