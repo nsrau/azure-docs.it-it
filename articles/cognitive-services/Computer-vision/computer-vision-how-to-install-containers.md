@@ -13,10 +13,10 @@ ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: locale, OCR, Docker, contenitore
 ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536376"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installare i contenitori Docker per l'OCR di lettura (anteprima) 
@@ -93,14 +93,14 @@ Sono disponibili le immagini del contenitore per la lettura.
 | Contenitore | Container Registry/repository/nome dell'immagine |
 |-----------|------------|
 | Leggi 2,0-Anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Leggi 3,0-Anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
-| Leggi 3,1-anteprima | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| Read 3.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| Read 3.1-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore.
 
 ### <a name="docker-pull-for-the-read-container"></a>Pull Docker per il contenitore di lettura
 
-# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
@@ -135,7 +135,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) `docker run` Sono disponibili esempi di comando.
 
-# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
@@ -215,7 +215,7 @@ Per trovare la stringa di connessione:
 
 Il contenitore fornisce le API dell'endpoint di stima della query basata su REST. 
 
-# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 Usare l'host `http://localhost:5000` per le API del contenitore. È possibile visualizzare il percorso di spavalderia in: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
 
@@ -232,7 +232,7 @@ Usare l'host `http://localhost:5000` per le API del contenitore. È possibile vi
 ### <a name="asynchronous-read"></a>Lettura asincrona
 
 
-# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 È possibile usare le `POST /vision/v3.1/read/analyze` `GET /vision/v3.1/read/operations/{operationId}` operazioni e in Concert per leggere in modo asincrono un'immagine, in modo analogo a come il servizio visione artificiale usa le operazioni REST corrispondenti. Il metodo POST asincrono restituirà un oggetto `operationId` che viene usato come identificatore per la richiesta HTTP Get.
 
@@ -449,7 +449,7 @@ Quando il POST asincrono viene eseguito correttamente, restituisce un codice di 
 
 Per leggere in modo sincrono un'immagine, è possibile usare l'operazione seguente. 
 
-# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
@@ -497,7 +497,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](./c
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire i contenitori Visione artificiale. In sintesi:
 
@@ -512,8 +512,8 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esaminare [configurare i contenitori](computer-vision-resource-container-config.md) per le impostazioni di configurazione
+* Rivedere [Configurare i contenitori](computer-vision-resource-container-config.md) per informazioni sulle impostazioni di configurazione.
 * Rivedere [Panoramica di Visione artificiale](overview.md) per altre informazioni sul riconoscimento di testo scritto a mano e stampato
 * Fare riferimento all'[API Visione artificiale](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) per informazioni dettagliate sui metodi supportati dal contenitore.
 * Fare riferimento alle [domande frequenti](FAQ.md) per risolvere i problemi correlati alle funzionalità di Analisi del testo.
-* Usare più [contenitori di servizi cognitivi](../cognitive-services-container-support.md)
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)
