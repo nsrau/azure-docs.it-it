@@ -12,12 +12,12 @@ ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: locale, Docker, contenitore
-ms.openlocfilehash: 0ba479e8c73cb7b0f397f39124ec32d7b9afbf4f
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813271"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930442"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installare ed eseguire contenitori Docker per le API del servizio riconoscimento vocale 
 
@@ -39,7 +39,7 @@ I contenitori del servizio Voce permettono ai clienti di creare un'architettura 
 >
 > Per usare i contenitori di riconoscimento vocale è necessario inviare una richiesta online e approvarla. Per ulteriori informazioni, vedere la sezione relativa all' **approvazione della richiesta per eseguire il contenitore** riportata di seguito.
 
-| Contenitore | Funzionalità | Ultima versione |
+| Contenitore | Caratteristiche | Ultima versione |
 |--|--|--|
 | Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.5.0 |
 | Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.5.0 |
@@ -80,7 +80,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore vocale.
 
-| Contenitore | Minima | Consigliato |
+| Contenitore | Minima | Implementazione consigliata |
 |-----------|---------|-------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
@@ -176,7 +176,7 @@ Tutti i tag, ad eccezione di, `latest` sono nel formato seguente e fanno distinz
 Il seguente tag è un esempio del formato:
 
 ```
-2.4.0-amd64-en-us-preview
+2.5.0-amd64-en-us-preview
 ```
 
 Per tutte le impostazioni locali supportate del contenitore di **riconoscimento vocale** , vedere [tag dell'immagine da voce a testo](../containers/container-image-tags.md#speech-to-text).

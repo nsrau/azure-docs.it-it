@@ -13,7 +13,7 @@ ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856152"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Informazioni sull'ambito per RBAC di Azure
@@ -69,7 +69,7 @@ I gruppi di gestione sono un livello superiore alle sottoscrizioni e hanno l'amb
 > | Scope | Esempio |
 > | --- | --- |
 > | Gruppo di gestione | `/providers/Microsoft.Management/managementGroups/marketing-group` |
-> | Sottoscrizione | `/subscriptions/00000000-0000-0000-0000-000000000000` |
+> | Subscription | `/subscriptions/00000000-0000-0000-0000-000000000000` |
 > | Resource group | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg` |
 > |  | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales` |
 > | Risorsa | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-Storage-rg/providers/Microsoft.Storage/storageAccounts/azurestorage12345/blobServices/default/containers/blob-container-01` |

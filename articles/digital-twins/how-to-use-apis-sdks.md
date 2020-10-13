@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2af4f2e2148c96a6059836f861cf56d4a4ac005b
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 61c8468400898655b6501b7a8fada607b77b1466
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766176"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931496"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -29,7 +29,7 @@ Le API del piano di controllo sono API [ARM](https://docs.microsoft.com/azure/az
 La versione più recente dell'API del piano di controllo per l'anteprima pubblica è _**2020-03-01-Preview**_.
 
 Per usare le API del piano di controllo:
-* È possibile chiamare direttamente le API facendo riferimento alla [cartella spavalderia](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins)più recente. Questo repository include anche una cartella di esempi che illustrano l'utilizzo.
+* È possibile chiamare direttamente le API facendo riferimento all'oggetto spavalderia più recente nella [cartella spavalderia del piano di controllo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Questo repository include anche una cartella di esempi che illustrano l'utilizzo.
 * È attualmente possibile accedere ad SDK per le API di controllo in...
   - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([origine](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([riferimento [generato automaticamente]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([origine](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([riferimento [generato automaticamente]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview&preserve-view=true))
@@ -51,7 +51,7 @@ La versione più recente dell'API del piano dati per l'anteprima pubblica è _**
 
 Per usare le API del piano dati:
 * È possibile chiamare direttamente le API, da...
-   - riferimento alla [cartella spavalderia](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)più recente. Questo repository include anche una cartella di esempi che illustrano l'utilizzo. 
+   - fare riferimento alla più recente spavalderia nella [cartella spavalderia del piano dati](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Questo repository include anche una cartella di esempi che illustrano l'utilizzo. 
    - visualizzazione della [documentazione di riferimento](https://docs.microsoft.com/rest/api/azure-digitaltwins/)per le API.
 * È possibile usare **.NET (C#)** SDK. Per utilizzare .NET SDK...
    - è possibile visualizzare e aggiungere il pacchetto da NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 

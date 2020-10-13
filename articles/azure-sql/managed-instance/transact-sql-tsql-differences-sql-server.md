@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617877"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973309"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Limitazioni
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="auditing"></a>Controllo
 
@@ -353,7 +353,11 @@ Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate i
 
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
-Attualmente [le transazioni MSDTC e elastiche](../database/elastic-transactions-overview.md) non sono supportate in SQL istanza gestita.
+Il supporto parziale per [le transazioni distribuite](../database/elastic-transactions-overview.md) è attualmente disponibile in anteprima pubblica. Gli scenari supportati sono:
+* Le transazioni in cui i partecipanti sono solo istanze gestite da SQL di Azure che fanno parte del [gruppo di attendibilità del server](https://aka.ms/mitrusted-groups).
+* Transazioni avviate da .NET (TransactionScope Class) e Transact-SQL.
+
+Azure SQL Istanza gestita attualmente non supporta altri scenari che sono supportati regolarmente da MSDTC in locale o in macchine virtuali di Azure.
 
 ### <a name="extended-events"></a>Eventi estesi
 

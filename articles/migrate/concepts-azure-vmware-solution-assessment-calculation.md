@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
 ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576541"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Panoramica della valutazione del server (migrazione alla soluzione VMware di Azure)
@@ -172,7 +172,7 @@ Dopo che un computer è stato contrassegnato come pronto per AVS, AVS assessment
 
 ### <a name="ftt-sizing-parameters"></a>Parametri di ridimensionamento dell'ITF
 
-Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione rete VSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio richiesto per le macchine virtuali, perché determinano la modalità di allocazione dell'archiviazione alla macchina virtuale. Le combinazioni di transazioni di ITF disponibili sono: 
+Il motore di archiviazione usato in AVS è rete VSAN. i criteri di archiviazione rete VSAN definiscono i requisiti di archiviazione per le macchine virtuali. Questi criteri garantiscono il livello di servizio richiesto per le macchine virtuali, perché determinano la modalità di allocazione dell'archiviazione alla macchina virtuale. Le combinazioni di FTT-Raid disponibili sono: 
 
 **Tolleranza errori** | **Configurazione RAID** | **Numero minimo di host richiesti** | **Considerazioni sul dimensionamento**
 --- | --- | --- | --- 

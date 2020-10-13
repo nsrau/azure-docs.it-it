@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447842"
+ms.locfileid: "91932142"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -59,7 +59,7 @@ Quando si crea la nuova identità del dispositivo, fornire le informazioni segue
 
 * Selezionare **Chiave simmetrica** come tipo di autenticazione.
 
-* Facoltativamente, scegliere **Imposta un dispositivo padre** e selezionare il dispositivo gateway IoT Edge tramite cui si connetterà il dispositivo downstream. Questo passaggio è facoltativo per l'autenticazione tramite chiave simmetrica, ma è consigliato perché l'impostazione di un dispositivo padre abilita le [funzionalità offline](offline-capabilities.md) per il dispositivo downstream. È sempre possibile aggiornare i dati del dispositivo per aggiungere o modificare l'elemento padre in un secondo momento.
+* Selezionare **imposta un dispositivo padre** e selezionare il dispositivo gateway IOT Edge a cui si connetterà il dispositivo downstream. Questo passaggio consente di abilitare le [funzionalità offline](offline-capabilities.md) per il dispositivo downstream. È sempre possibile modificare l'elemento padre in un secondo momento.
 
    ![Creare l'ID dispositivo con l'autenticazione tramite chiave simmetrica nel portale](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -201,7 +201,7 @@ Oppure:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Se è stata stabilita una relazione padre/figlio per questo dispositivo downstream, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Le relazioni padre/figlio sono necessarie per l'autenticazione X.509, ma facoltative per l'autenticazione tramite chiave simmetrica. Ad esempio:
+Grazie alla relazione padre/figlio, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Ad esempio:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

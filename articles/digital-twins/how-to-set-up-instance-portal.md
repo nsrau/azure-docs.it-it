@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f8f5d7ddf25b2df6b2e07818e1b2ed7e90fb867
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280027"
+ms.locfileid: "91932116"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -123,12 +123,13 @@ Dalla pagina del portale per la registrazione dell'app, selezionare *autorizzazi
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
-Nella pagina *autorizzazioni API richiesta* seguente passare alle API usate dall' *organizzazione* e cercare i dispositivi *gemelli digitali di Azure*. Selezionare *Azure Digital gemelli* dai risultati della ricerca per procedere con l'assegnazione delle autorizzazioni per le API dei dispositivi gemelli digitali di Azure.
+Nella pagina *autorizzazioni API richiesta* seguente passare alle API usate dall' *organizzazione* e cercare i dispositivi *gemelli digitali di Azure*. Selezionare _**Azure Digital gemelli**_ dai risultati della ricerca per procedere con l'assegnazione delle autorizzazioni per le API dei dispositivi gemelli digitali di Azure.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
 >[!NOTE]
-> Se si ha un'istanza di Azure Digital Twins esistente dalla precedente versione di anteprima pubblica del servizio (prima del 2020 luglio) ancora nella sottoscrizione, sarà necessario cercare il *servizio Azure Smart Spaces* . Si tratta di un nome precedente per lo stesso set di API e l'esperienza non verrà modificata oltre questo passaggio.
+> Se la sottoscrizione ha ancora un'istanza di Azure Digital Twins esistente dalla precedente anteprima pubblica del servizio (prima del 2020 luglio), è necessario cercare e selezionare il _**servizio Azure Smart Spaces**_ . Si tratta di un nome precedente per lo stesso set di API (si noti che l' *ID dell'applicazione (client)* è identico a quello della schermata precedente) e l'esperienza non verrà modificata oltre questo passaggio.
+> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Selezione di ' crea una risorsa ' dal home page della portale di Azure":::
 
 Selezionare quindi le autorizzazioni da concedere per le API. Espandere l'autorizzazione **lettura (1)** e selezionare la casella *Read. Write* per concedere le autorizzazioni di lettura e scrittura per la registrazione dell'app.
 
@@ -163,7 +164,7 @@ Prendere nota dell'ID dell' *applicazione (client)* e della *Directory (tenant)*
 ## <a name="next-steps"></a>Passaggi successivi
 
 Testare le singole chiamate API REST nell'istanza usando i comandi dell'interfaccia della riga di comando di Azure Digital gemelli: 
-* [riferimento AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [riferimento AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
 
 In alternativa, vedere come connettere l'applicazione client all'istanza scrivendo il codice di autenticazione dell'app client:

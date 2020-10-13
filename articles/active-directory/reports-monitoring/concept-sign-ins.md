@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812829"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
@@ -143,7 +143,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 ![Filtro app client](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticazione moderna|Descrizione|
+|Nome|Autenticazione moderna|Description|
 |---|:-:|---|
 |SMTP autenticato| |Usato dai client POP e IMAP per inviare messaggi di posta elettronica.|
 |Individuazione automatica| |Usato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.|
@@ -195,7 +195,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Scaricare](./media/concept-sign-ins/71.png "Download")
+![Download](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -264,7 +264,7 @@ I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi pe
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
+![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 

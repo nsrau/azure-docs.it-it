@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812863"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
@@ -33,7 +33,7 @@ Analisi di flusso di Azure rende permanente i metadati e i dati seguenti per l'e
 
 Per soddisfare gli obblighi di conformità in qualsiasi settore o ambiente regolamentato, è possibile leggere altre informazioni sulle [offerte di conformità di Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
-## <a name="in-region-data-residency"></a>Residenza dei dati in-Region
+## <a name="in-region-data-residency"></a>In-Region residenza dei dati
 Analisi di flusso di Azure archivia i dati dei clienti e altri metadati descritti in precedenza. Per impostazione predefinita, i dati dei clienti vengono archiviati da analisi di flusso di Azure in una singola area, in modo che questo servizio soddisfi automaticamente i requisiti di residenza dei dati dell'area, inclusi quelli specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
 Inoltre, è possibile scegliere di archiviare tutti gli asset di dati (dati del cliente e altri metadati) correlati al processo di analisi di flusso in un'unica area crittografando i dati in un account di archiviazione di propria scelta.
 

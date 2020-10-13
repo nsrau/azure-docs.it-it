@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 61620a8497765c4d8f90a3d616bd2f4b932f8dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629030"
+ms.locfileid: "91930918"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algoritmo di Azure Load Balancer
 
@@ -54,16 +54,6 @@ Load Balancer non interagisce direttamente con il protocollo TCP o UDP o con il 
 - A ogni endpoint risponde una macchina virtuale. Ad esempio, si verifica sempre un handshake TCP tra il client e la macchina virtuale back-end selezionata. Una risposta a una richiesta in un front-end è una risposta generata da una macchina virtuale di back-end. Quando si convalida correttamente la connettività a un front-end, si convalida anche la connettività per almeno una macchina virtuale back-end.
 - I payload dell'applicazione sono trasparenti per Load Balancer. Qualsiasi applicazione UDP o TCP può essere supportata.
 - Poiché Load Balancer non interagisce con il payload TCP e fornisce l'offload TLS, è possibile creare scenari crittografati completi. L'uso di Load Balancer consente di ottenere un'ampia scalabilità orizzontale per le applicazioni TLS terminando la connessione TLS nella macchina virtuale stessa. Ad esempio, la funzionalità di codifica della sessione TLS è limitata solo dal tipo e dal numero di macchine virtuali aggiunte al pool di back-end.
-
-## <a name="limitations"></a><a name = "limitations"></a>Limitazioni
-
-- Una regola di bilanciamento del carico non può estendersi a due reti virtuali.  I front-end e le relative istanze di back-end devono trovarsi nella stessa rete virtuale.  
-
-- Load Balancer fornisce funzionalità di bilanciamento del carico e il port forwarding per protocolli TCP o UDP specifici. Le regole di bilanciamento del carico e le regole NAT in ingresso supportano TCP e UDP, ma non altri protocolli IP, ad esempio ICMP.
-
-- Il flusso in uscita da una macchina virtuale back-end a un front-end di un servizio Load Balancer interno non verrà eseguito.
-
-- L'inoltro di frammenti IP non è supportato nelle regole di bilanciamento del carico. né lo è frammentazione IP dei pacchetti UDP e TCP. È possibile usare le regole di bilanciamento del carico per le porte a disponibilità elevata per l'inoltro di frammenti IP esistenti. Per altre informazioni, vedere [Panoramica delle porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
