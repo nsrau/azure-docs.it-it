@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 83cd36683a0487f13ab5707e4b1534cc7f20a88a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945164"
+ms.locfileid: "91948528"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Supporto per lo trasferimento di risorse di Azure tra aree
 
@@ -544,14 +544,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md).<br/><br/> Se viene eseguito il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per eseguire il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
+> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md)<br/><br/> Se viene eseguito il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per eseguire il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../mysql/howto-move-regions-portal.md).
+> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../mysql/howto-move-regions-portal.md)
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
@@ -696,7 +696,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | account | No. [Altre informazioni](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
+> | account | No. [Altre informazioni](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region)
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 
@@ -1134,11 +1134,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
 > | instancepools | No | 
-> | managedinstances | Sì <br/><br/> [Altre](/azure/azure-sql/database/move-resources-across-regions) informazioni sullo trasferimento di istanze gestite tra le aree. | 
+> | managedinstances | Sì <br/><br/> [Altre](../../azure-sql/database/move-resources-across-regions.md) informazioni sullo trasferimento di istanze gestite tra le aree. | 
 > | managedinstances/databases | Sì | 
 > | servers | Sì | 
-> | servers/databases | Sì <br/><br/> [Altre](/azure/azure-sql/database/move-resources-across-regions) informazioni sullo stato di trasferimento dei database tra le aree.<br/><br/> [Altre](../../resource-mover/tutorial-move-region-sql.md) informazioni sull'uso di Azure Resource Mover per spostare i database SQL di Azure.  | 
-> | servers/elasticpools | Sì <br/><br/> [Altre](/azure/azure-sql/database/move-resources-across-regions) informazioni sullo stato di trasferimento dei pool elastici tra le aree.<br/><br/> [Altre](../../resource-mover/tutorial-move-region-sql.md) informazioni sull'uso di Azure Resource Mover per spostare i pool elastici SQL di Azure.  | 
+> | servers/databases | Sì <br/><br/> [Altre](../../azure-sql/database/move-resources-across-regions.md) informazioni sullo stato di trasferimento dei database tra le aree.<br/><br/> [Altre](../../resource-mover/tutorial-move-region-sql.md) informazioni sull'uso di Azure Resource Mover per spostare i database SQL di Azure.  | 
+> | servers/elasticpools | Sì <br/><br/> [Altre](../../azure-sql/database/move-resources-across-regions.md) informazioni sullo stato di trasferimento dei pool elastici tra le aree.<br/><br/> [Altre](../../resource-mover/tutorial-move-region-sql.md) informazioni sull'uso di Azure Resource Mover per spostare i pool elastici SQL di Azure.  | 
 > | virtualclusters | Sì | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

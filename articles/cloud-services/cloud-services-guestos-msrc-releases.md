@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/29/2020
+ms.date: 10/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fae523245189ca73caf38f643ded79dd0dd2f94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531157"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949089"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
 ## <a name="september-2020-guest-os"></a>Sistema operativo guest di settembre 2020
->[!NOTE]
->Il sistema operativo guest di settembre è attualmente in fase di implementazione in macchine virtuali del servizio cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le patch seguenti sono incluse nel sistema operativo guest di settembre. L'elenco è soggetto a variazioni.
-
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2,102, 3,89, 4,82 | 8 settembre 2020 |
-|  Rel 20-09 |  [4561600]  |  Aggiornamento Flash | 3,89, 4,82, 5,47, 6,23 | 8 settembre 2020 |
-|  Rel 20-09 |  [4577015]  |  Aggiornamento cumulativo più recente | 5,47 | 8 settembre 2020 |
-|  Rel 20-09 |  [4570333]  |  Aggiornamento cumulativo più recente | 6,23 | 8 settembre 2020 |
-|  Rel 20-09 |  [4570673]  |  Aggiornamento dello stack di manutenzione | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4577051]  |  Rollup mensile | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4569767]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4569780]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4566426]  |  Aggiornamento dello stack di manutenzione | 3,89 | 8 settembre 2020 |
-|  Rel 20-09 |  [4577038]  |  Rollup mensile | 3,89 | 8 settembre 2020 |
-|  Rel 20-09 |  [4569765]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 3,89 | 8 settembre 2020 |
-|  Rel 20-09 |  [4569779]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 3,89 | 8 settembre 2020 |
-|  Rel 20-09 |  [4566425]  |  Aggiornamento dello stack di manutenzione | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4577066]  |  Rollup mensile | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4569768]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4569778]  |  Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4578013]  |  Aggiornamento della sicurezza | 2,102 | 8 settembre 2020 |
-|  Rel 20-09 |  [4576750]  |  Aggiornamento dello stack di manutenzione | 5,47 | 8 settembre 2020 |
-|  Rel 20-09 |  [4494175]  |  Microcodice | 5,47 | 8 settembre 2020 |
-|  Rel 20-09 |  [4570332]  |  Aggiornamento dello stack di manutenzione | 6,23 | 8 settembre 2020 |
-|  Rel 20-09 |  [4570720]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | 6,23 | 8 settembre 2020 |
-|  Rel 20-09 |  [4494174]  |  Microcodice | 6,23 | 8 settembre 2020 |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2,102], [3,89], [4,82] | 8 settembre 2020 |
+|  Rel 20-09 |  [4561600]  |  Aggiornamento Flash | [3,89], [4,82], [5,47], [6,23] | 8 settembre 2020 |
+|  Rel 20-09 |  [4577015]  |  Aggiornamento cumulativo più recente | [5,47] | 8 settembre 2020 |
+|  Rel 20-09 |  [4570333]  |  Aggiornamento cumulativo più recente | [6,23] | 8 settembre 2020 |
+|  Rel 20-09 |  [4570673]  |  Aggiornamento dello stack di manutenzione | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4577051]  |  Rollup mensile | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569767]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,89] | 8 settembre 2020 |
+|  Rel 20-09 |  [4577038]  |  Rollup mensile | [3,89] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569765]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,89] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,89] | 8 settembre 2020 |
+|  Rel 20-09 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4577066]  |  Rollup mensile | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569768]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4569778]  |  Rollup della sicurezza e della qualità di 4.5.2 di .NET Framework | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4578013]  |  Aggiornamento della sicurezza | [2,102] | 8 settembre 2020 |
+|  Rel 20-09 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5,47] | 8 settembre 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcodice | [5,47] | 8 settembre 2020 |
+|  Rel 20-09 |  [4570332]  |  Aggiornamento dello stack di manutenzione | [6,23] | 8 settembre 2020 |
+|  Rel 20-09 |  [4570720]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,23] | 8 settembre 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcodice | [6,23] | 8 settembre 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -74,6 +71,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,102]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,47]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,23]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 ## <a name="august-2020-guest-os"></a>Sistema operativo guest 2020 agosto
 

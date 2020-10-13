@@ -8,10 +8,10 @@ ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
 ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570378"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
@@ -779,7 +779,7 @@ In questo articolo sono state apprese le porte e gli indirizzi da consentire se 
 
 Se necessario, è possibile generalizzare i passaggi precedenti per inviare il traffico alla soluzione in uscita preferita, seguendo la [ `userDefinedRoute` documentazione relativa al tipo](egress-outboundtype.md)in uscita.
 
-Se si vuole limitare il modo in cui i pod comunicano tra loro e le restrizioni del traffico verso l'area ovest all'interno del cluster, vedere [proteggere il traffico tra i pod usando i criteri di rete][network-policy]
+Per limitare il modo in cui i pod comunicano tra loro e East-West restrizioni del traffico all'interno del cluster, vedere [proteggere il traffico tra i pod usando i criteri di rete in AKS][network-policy].
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
