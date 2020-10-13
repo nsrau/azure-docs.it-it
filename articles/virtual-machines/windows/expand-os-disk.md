@@ -16,10 +16,10 @@ ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336004"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
@@ -45,11 +45,11 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
  
 3. In **nome disco**selezionare il disco che si desidera ridimensionare.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot che mostra il riquadro dischi con un nome di disco selezionato.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
 
 4. Nel menu a sinistra in **Impostazioni**selezionare **configurazione**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot che mostra l'opzione di configurazione selezionata nella sezione impostazioni del menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
 
 5. In **dimensioni (GIB)** selezionare le dimensioni del disco desiderate.
    
@@ -57,11 +57,11 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
    > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito è 2.048 GB per i dischi del sistema operativo. È possibile espandere il BLOB VHD oltre tale dimensione, ma il sistema operativo funziona solo con i primi 2.048 GB di spazio.
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot che mostra il riquadro di configurazione con le dimensioni del disco selezionate.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
 
 6. Selezionare **Salva**.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot che mostra il riquadro di configurazione con il pulsante Salva selezionato.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Ridimensionare un disco gestito usando PowerShell

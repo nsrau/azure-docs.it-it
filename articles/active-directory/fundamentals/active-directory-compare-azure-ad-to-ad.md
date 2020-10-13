@@ -1,5 +1,5 @@
 ---
-title: Confronta Active Directory con Azure Active Directory
+title: Confrontare Active Directory con Azure Active Directory
 description: Questo documento mette a confronto Active Directory Domain Services (aggiunge) a Azure Active Directory (AD). Vengono descritti i concetti chiave in entrambe le soluzioni di identità e viene illustrato come è diverso o simile.
 services: active-directory
 author: martincoetzer
@@ -12,13 +12,13 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318557"
 ---
-# <a name="compare-active-directory-to-azure-active-directory"></a>Confronta Active Directory con Azure Active Directory
+# <a name="compare-active-directory-to-azure-active-directory"></a>Confrontare Active Directory con Azure Active Directory
 
 Azure Active Directory è la prossima evoluzione delle soluzioni di gestione delle identità e dell'accesso per il cloud. Microsoft ha introdotto Active Directory Domain Services in Windows 2000 per offrire alle organizzazioni la possibilità di gestire più componenti e sistemi dell'infrastruttura locale usando una singola identità per ogni utente.
 
@@ -36,12 +36,12 @@ La maggior parte degli amministratori IT ha familiarità con Active Directory Do
 | Gestione delle credenziali| Le credenziali in Active Directory si basano su password, autenticazione del certificato e autenticazione basata su smart card. Le password vengono gestite con criteri password basati su lunghezza, scadenza e complessità della password.|Azure AD usa la [protezione con password](../authentication/concept-password-ban-bad.md) intelligente per il cloud e l'ambiente locale. La protezione include il blocco intelligente più il blocco di frasi e sostituzioni di password comuni e personalizzate. </br>Azure AD migliora significativamente la sicurezza [tramite l'autenticazione](../authentication/concept-mfa-howitworks.md) a più fattori e le tecnologie con [password](../authentication/concept-authentication-passwordless.md) , ad esempio FIDO2. </br>Azure AD riduce i costi di supporto fornendo agli utenti un sistema di [reimpostazione della password self-service](../authentication/concept-sspr-howitworks.md) . |
 | **App**|||
 | App dell'infrastruttura|Active Directory costituisce la base per molti componenti locali dell'infrastruttura, ad esempio DNS, DHCP, IPSec, Wi-Fi, server dei criteri di rete e accesso VPN|In un nuovo ambiente cloud, Azure AD, è il nuovo piano di controllo per l'accesso alle app rispetto a quello basato sui controlli di rete. Quando gli utenti eseguono[l'autenticazione, l'accesso condizionale (CA)](../conditional-access/overview.md)consente di controllare quali utenti avranno accesso alle app in condizioni obbligatorie.|
-| App tradizionali e Legacy| La maggior parte delle app locali usa LDAP, l'autenticazione integrata di Windows (NTLM e Kerberos) o l'autenticazione basata su intestazione per controllare l'accesso agli utenti.| Azure AD possibile fornire l'accesso a questi tipi di app locali usando [Azure ad agenti proxy di applicazione](../manage-apps/application-proxy.md) in esecuzione in locale. L'uso di questo metodo Azure AD può autenticare Active Directory utenti locali usando Kerberos mentre si esegue la migrazione o deve coesistere con le app legacy. |
+| App tradizionali e Legacy| La maggior parte delle app locali usa LDAP, l'autenticazione Windows-Integrated (NTLM e Kerberos) o l'autenticazione basata su intestazione per controllare l'accesso agli utenti.| Azure AD possibile fornire l'accesso a questi tipi di app locali usando [Azure ad agenti proxy di applicazione](../manage-apps/application-proxy.md) in esecuzione in locale. L'uso di questo metodo Azure AD può autenticare Active Directory utenti locali usando Kerberos mentre si esegue la migrazione o deve coesistere con le app legacy. |
 | App SaaS|Active Directory non supporta le app SaaS in modo nativo e richiede il sistema federativo, ad esempio AD FS.|Le app SaaS che supportano OAuth2, SAML e WS- \* Authentication possono essere integrate per usare Azure ad per l'autenticazione. |
 | App line-of-business (LOB) con autenticazione moderna|Le organizzazioni possono usare AD FS con Active Directory per supportare le app LOB che richiedono l'autenticazione moderna.| Le app LOB che richiedono l'autenticazione moderna possono essere configurate per usare Azure AD per l'autenticazione. |
 | Servizi di livello intermedio/daemon|I servizi in esecuzione in ambienti locali usano in genere gli account del servizio Active Directory o gli account del servizio gestito del gruppo (gMSA) per l'esecuzione. Queste app erediteranno quindi le autorizzazioni dell'account del servizio.| Azure AD fornisce le [identità gestite](../managed-identities-azure-resources/index.yml) per eseguire altri carichi di lavoro nel cloud. Il ciclo di vita di queste identità è gestito da Azure AD ed è associato al provider di risorse non può essere usato per altri scopi per ottenere l'accesso backdoor.|
 | **Dispositivi**|||
-| Mobile|Active Directory non supporta in modo nativo i dispositivi mobili senza soluzioni di terze parti.| La soluzione di gestione dei dispositivi mobili Microsoft, Microsoft Intune, è integrata con Azure AD. Microsoft Intune fornisce informazioni sullo stato del dispositivo al sistema di identità da valutare durante l'autenticazione. |
+| Dispositivi mobili|Active Directory non supporta in modo nativo i dispositivi mobili senza soluzioni di terze parti.| La soluzione di gestione dei dispositivi mobili Microsoft, Microsoft Intune, è integrata con Azure AD. Microsoft Intune fornisce informazioni sullo stato del dispositivo al sistema di identità da valutare durante l'autenticazione. |
 | Desktop di Windows|Active Directory offre la possibilità di aggiungere a un dominio i dispositivi Windows per gestirli con Criteri di gruppo, System Center Configuration Manager o altre soluzioni di terze parti.|I dispositivi Windows possono essere [aggiunti a Azure ad](../devices/index.yml). L'accesso condizionale può verificare se un dispositivo è Azure AD Unito come parte del processo di autenticazione. I dispositivi Windows possono essere gestiti anche con [Microsoft Intune](/intune/what-is-intune). In questo caso, l'accesso condizionale considera se un dispositivo è conforme (ad esempio, patch di sicurezza aggiornate e firme antivirus) prima di consentire l'accesso alle app.|
 | Server Windows| Active Directory offre funzionalità di gestione complesse per i server Windows locali che usano Criteri di gruppo o altre soluzioni di gestione.| Le macchine virtuali di Windows Server in Azure possono essere gestite con [Azure ad Domain Services](../../active-directory-domain-services/index.yml). È possibile usare le [identità gestite](../managed-identities-azure-resources/index.yml) quando le macchine virtuali devono accedere alla directory o alle risorse del sistema di identità.|
 | Carichi di lavoro Linux/UNIX|Active Directory non supporta in modo nativo non Windows senza soluzioni di terze parti, anche se i computer Linux possono essere configurati per l'autenticazione con Active Directory come area di autenticazione Kerberos.|Le macchine virtuali Linux/Unix possono usare [identità gestite](../managed-identities-azure-resources/index.yml) per accedere al sistema di identità o alle risorse. Per alcune organizzazioni, migrare questi carichi di lavoro in tecnologie contenitore cloud, che possono usare anche identità gestite.|

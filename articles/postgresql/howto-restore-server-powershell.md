@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708102"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>Come eseguire il backup e il ripristino di un server di Database di Azure per PostgreSQL con PowerShell
@@ -78,7 +78,7 @@ Il set di parametri **PointInTimeRestore** del `Restore-AzPostgreSqlServer` cmdl
 | Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
-| Name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
+| Nome | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selezionare un momento specifico per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. Ad esempio, è possibile usare il proprio fuso orario locale, ad esempio **2020-03-13T05:59:00-08:00**. È anche possibile usare il formato UTC Zulu, ad esempio **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Usare la modalità temporizzata per il ripristino. |
 
@@ -120,8 +120,8 @@ Il set di parametri **Georestore** del `Restore-AzPostgreSqlServer` cmdlet richi
 | Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
-|Name | mydemoserver-georestored | Nome del nuovo server. |
-|Percorso | eastus | Posizione del nuovo server. |
+|Nome | mydemoserver-georestored | Nome del nuovo server. |
+|Location | eastus | Posizione del nuovo server. |
 |UseGeoRestore | `<SwitchParameter>` | Usare la modalità geografica per il ripristino. |
 
 Quando si crea un nuovo server con il ripristino geografico, esso eredita le stesse dimensioni di archiviazione e il piano tariffario del server di origine, a meno che non venga specificato il parametro **SKU** .

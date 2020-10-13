@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
 ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360770"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da un endpoint REST tramite Azure Data Factory
@@ -318,7 +318,7 @@ Questo connettore REST generico supporta i modelli di paginazione seguenti:
 
 **Valori supportati** nelle regole di paginazione:
 
-| valore | Descrizione |
+| Valore | Description |
 |:--- |:--- |
 | Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | "response_header" è definito dall'utente, che fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per emettere la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |
@@ -412,7 +412,7 @@ Il modello definisce due parametri:
     |:--- |:--- |:--- |
     | URL |Specificare l'URL da cui recuperare il bearer token OAuth. Nell'esempio seguente, ad esempio, https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Metodo | Metodo HTTP. I valori consentiti sono **post** e **Get**. | 
-    | Intestazioni | L'intestazione è definita dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP. | 
+    | Headers | L'intestazione è definita dall'utente, che fa riferimento a un nome di intestazione nella richiesta HTTP. | 
     | Corpo | Corpo della richiesta HTTP. | 
 
     ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)

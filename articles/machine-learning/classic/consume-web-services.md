@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
 ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91343687"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Come utilizzare un servizio Web di Machine Learning Studio (classico)
@@ -36,7 +36,7 @@ Con il servizio Web di Azure Machine Learning, un'applicazione esterna comunica 
 
 Azure Machine Learning Studio (versione classica) dispone di due tipi di servizi:
 
-* Servizio di richiesta-risposta (RRS): servizio a bassa latenza e scalabilità elevata che fornisce un'interfaccia per i modelli senza stato creati e distribuiti dal Machine Learning Studio (classico).
+* Servizio di Request-Response (RRS): servizio a bassa latenza e scalabilità elevata che fornisce un'interfaccia per i modelli senza stato creati e distribuiti dalla Machine Learning Studio (classica).
 * Servizio esecuzione batch (BES). Un servizio asincrono che valuta un batch di record di dati.
 
 Per ulteriori informazioni sui servizi Web di Machine Learning, vedere la pagina relativa alla [distribuzione di un servizio Web di Machine Learning](deploy-a-machine-learning-web-service.md).

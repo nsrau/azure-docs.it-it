@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535730"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo di classificazione in Azure ricerca cognitiva
@@ -63,7 +63,7 @@ La proprietà di **somiglianza** è utile durante questo periodo di tempo, quand
 
 | Proprietà | Descrizione |
 |----------|-------------|
-| somiglianza | facoltativo. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
+| somiglianza | Facoltativa. I valori validi includono *"#Microsoft. Azure. search. ClassicSimilarity"* o *"#Microsoft. Azure. search. BM25Similarity"*. <br/> Richiede `api-version=2019-05-06-Preview` o versione successiva in un servizio di ricerca creato prima del 15 luglio 2020. |
 
 Per i nuovi servizi creati dopo il 15 luglio 2020, BM25 viene usato automaticamente ed è l'unico algoritmo di somiglianza. Se si tenta di impostare la **somiglianza** `ClassicSimilarity` su in un nuovo servizio, verrà restituito un errore 400 poiché tale algoritmo non è supportato in un nuovo servizio.
 
