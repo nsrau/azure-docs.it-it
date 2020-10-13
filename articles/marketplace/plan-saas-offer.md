@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
 ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819939"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
@@ -131,7 +131,7 @@ Quando si [Crea una nuova offerta SaaS](create-new-saas-offer.md) nel centro per
 6. Informativa sulla privacy
 7. Nome offerta
 8. Riepilogo
-9. Descrizione
+9. Description
 10. Screenshot/video
 11. Documenti
 

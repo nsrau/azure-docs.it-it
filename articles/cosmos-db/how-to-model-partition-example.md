@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
 ms.openlocfilehash: 7274627ccf0aaab29f3ca569568e0085d53f1dea
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818096"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
@@ -551,7 +551,7 @@ Il passaggio finale consiste nel reindirizzare la query al nuovo contenitore `fe
 | --- | --- | --- |
 | 9 ms | 16,97 UR | ✅ |
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Verranno ora esaminati i miglioramenti complessivi delle prestazioni e della scalabilità introdotti nelle diverse versioni progettate.
 

@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976258"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: indirizzare il traffico attraverso un'appliance virtuale di dispositivo
@@ -42,9 +42,9 @@ La seguente matrice di connettività, riepiloga i flussi supportati in questo sc
 | Da             | Con:|   *Spoke di NVA*|*Reti virtuali di appliance virtuale di dispositivo*|*Reti virtuali non appliance virtuale di dispositivo*|*Rami*|
 |---|---|---|---|---|---|
 | **Spoke di NVA**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
-| **Reti virtuali di appliance virtuale di dispositivo**    | &#8594; |   Static |      X   |        X     |      X    |
-| **Reti virtuali non appliance virtuale di dispositivo**| &#8594; |   Static |      X   |        X     |      X    |
-| **Rami**     | &#8594; |   Static |      X   |        X     |      X    |
+| **Reti virtuali di appliance virtuale di dispositivo**    | &#8594; |   Statico |      X   |        X     |      X    |
+| **Reti virtuali non appliance virtuale di dispositivo**| &#8594; |   Statico |      X   |        X     |      X    |
+| **Rami**     | &#8594; |   Statico |      X   |        X     |      X    |
 
 Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico. Una "X" significa che la connettività viene fornita a livello nativo dalla rete WAN virtuale e "static" significa che la connettività viene fornita dalla rete WAN virtuale usando route statiche. Considerare quanto segue:
 
@@ -99,7 +99,7 @@ Nella **Figura 2**sono presenti due hub: **HUB1** e **HUB2**.
 
 **Figura 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Flusso di lavoro dello scenario
 
@@ -117,7 +117,7 @@ La rete WAN virtuale non supporta uno scenario in cui reti virtuali 5, 6 si conn
 
 2. Aggiungere una voce di route statica aggregata per reti virtuali 2, 5, 6 alla tabella di route predefinita dell'hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Esempio":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Figura 1":::
 
 3. Configurare una route statica per reti virtuali 5, 6 nella connessione di rete virtuale di VNet 2. Per configurare la configurazione del routing per una connessione di rete virtuale, vedere [routing dell'hub virtuale](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Questo comporterà la modifica della configurazione del routing, come illustrato
 
 **Figura 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

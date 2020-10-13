@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658196"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuità aziendale e ripristino di emergenza per app per la logica di Azure
@@ -102,7 +102,7 @@ La risorsa del gateway dati è associata a una località o a un'area di Azure, p
 
 | Primario-ruolo secondario | Descrizione |
 |------------------------|-------------|
-| *Modalità attiva-attiva* | Le istanze dell'app per la logica primaria e secondaria in entrambe le posizioni gestiscono attivamente le richieste seguendo uno di questi modelli: <p><p>- *Bilanciamento del carico*: è possibile fare in modo che entrambe le istanze attendano un endpoint e bilanciare il carico del traffico in ogni istanza, se necessario. <p>- *Consumer concorrenti*: è possibile fare in modo che entrambe le istanze fungano da consumer concorrenti, in modo che le istanze concorrano per i messaggi da una coda. Se un'istanza ha esito negativo, l'altra istanza assume il carico di lavoro. |
+| *Attivo-attivo* | Le istanze dell'app per la logica primaria e secondaria in entrambe le posizioni gestiscono attivamente le richieste seguendo uno di questi modelli: <p><p>- *Bilanciamento del carico*: è possibile fare in modo che entrambe le istanze attendano un endpoint e bilanciare il carico del traffico in ogni istanza, se necessario. <p>- *Consumer concorrenti*: è possibile fare in modo che entrambe le istanze fungano da consumer concorrenti, in modo che le istanze concorrano per i messaggi da una coda. Se un'istanza ha esito negativo, l'altra istanza assume il carico di lavoro. |
 | *Modalità attiva-passiva* | L'istanza dell'app per la logica primaria gestisce attivamente l'intero carico di lavoro, mentre l'istanza secondaria è passiva (disabilitata o inattiva). Il database secondario attende un segnale che il database primario non è disponibile o non funziona a causa di interruzioni o errori e assume il carico di lavoro come istanza attiva. |
 | Combinazione | Alcune app per la logica svolgono un ruolo attivo-attivo, mentre altre app per la logica svolgono un ruolo attivo-passivo. |
 |||

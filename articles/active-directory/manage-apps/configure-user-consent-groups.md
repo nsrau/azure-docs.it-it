@@ -12,10 +12,10 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804367"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo
@@ -73,7 +73,7 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
 
 1. Esaminare i valori delle impostazioni. Sono disponibili due valori delle impostazioni che definiscono gli utenti che possono consentire a un'app di accedere ai dati del gruppo:
 
-    | Impostazione       | Tipo         | Descrizione  |
+    | Impostazione       | Type         | Descrizione  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | Boolean | Flag che indica se i proprietari dei gruppi possono concedere autorizzazioni specifiche del gruppo. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | Se _EnableGroupSpecificConsent_ è impostato su "True" e questo valore è impostato sull'ID oggetto di un gruppo, i membri del gruppo identificato saranno autorizzati a concedere autorizzazioni specifiche ai gruppi di cui sono proprietari. |

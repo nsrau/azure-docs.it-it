@@ -8,10 +8,10 @@ author: github-2407
 ms.author: krsh
 ms.date: 08/14/2020
 ms.openlocfilehash: 83fc141a658fb3f5f639d56794c77fe7a3ff28bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821322"
 ---
 # <a name="test-a-virtual-machine-image-for-azure-marketplace"></a>Testare un'immagine di macchina virtuale per Azure Marketplace
@@ -1000,7 +1000,7 @@ Selezionare infine Genera report per scaricare i risultati del test e i file di 
 > [!Note]
 > Pochi autori hanno scenari in cui le macchine virtuali devono essere bloccate in quanto hanno un software, ad esempio i firewall installati nella macchina virtuale. In questo caso, i server di pubblicazione possono scaricare lo [strumento di test certificato](https://aka.ms/AzureCertificationTestTool) e fornire il report al supporto per gli editori del [Marketplace](https://aka.ms/marketplacepublishersupport)
 
-## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Come usare PowerShell per utilizzare l'API self-test
+## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Come usare PowerShell per utilizzare l'API Self-Test
 
 ### <a name="on-linux-os"></a>Nel sistema operativo Linux
 
@@ -1735,7 +1735,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ![Risultati dei test in un visualizzatore JSON online.](media/vm/test-results-json-viewer-2.png)
 
-## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Come usare CURL per usare l'API self-test in un sistema operativo Linux
+## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Come usare CURL per usare l'API Self-Test in un sistema operativo Linux
 
 Chiamare l'API in CURL:
 
