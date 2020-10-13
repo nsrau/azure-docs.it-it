@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: f3ec284de3d43e75bd0832b1d98bb9d319a7ca0e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925312"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
@@ -68,7 +68,7 @@ Azure AD include inoltre una suite completa di [funzionalità di gestione delle 
 - [Gestione delle password self-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gestione di gruppi self-service](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gestione degli account con privilegi](/azure/active-directory/active-directory-privileged-identity-management-configure)
-- [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview)
+- [Controllo degli accessi in base al ruolo di Azure](/azure/role-based-access-control/overview)
 - [Monitoraggio dell'utilizzo delle applicazioni](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Controllo completo](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Monitoraggio della sicurezza e invio di avvisi](/azure/operations-management-suite/oms-security-responding-alerts)

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258849"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
@@ -40,7 +40,7 @@ Le entità e la gerarchia di integrità consentono di eseguire in modo efficace 
 Le entità di integrità sono le seguenti:
 
 * **Cluster**. Rappresenta l'integrità di un cluster di Service Fabric. I report sull'integrità del cluster illustrano le condizioni che interessano l'intero cluster. Queste condizioni interessano più entità nel cluster o il cluster stesso. In base alla condizione, il reporter non può restringere il problema a uno o più elementi figlio non integri. ad esempio lo split brain del cluster a causa di problemi di comunicazione o di partizionamento della rete.
-* **Nodo**. Rappresenta l'integrità di un nodo di Service Fabric. I report sull'integrità del nodo illustrano le condizioni che influiscono sulla funzionalità del nodo. In genere influiscono su tutte le entità distribuite in esecuzione su di esso. Ad esempio, un nodo con spazio su disco non sufficiente o con problemi relativi ad altre proprietà a livello di computer, come la memoria o le connessioni, oppure la presenza di un nodo non attivo. L'entità nodo è identificata dal nome del nodo (stringa).
+* **Node**. Rappresenta l'integrità di un nodo di Service Fabric. I report sull'integrità del nodo illustrano le condizioni che influiscono sulla funzionalità del nodo. In genere influiscono su tutte le entità distribuite in esecuzione su di esso. Ad esempio, un nodo con spazio su disco non sufficiente o con problemi relativi ad altre proprietà a livello di computer, come la memoria o le connessioni, oppure la presenza di un nodo non attivo. L'entità nodo è identificata dal nome del nodo (stringa).
 * **Applicazione**. Rappresenta l'integrità di un'istanza di applicazione in esecuzione nel cluster. I report sull'integrità dell'applicazione illustrano le condizioni che influiscono sull'integrità generale dell'applicazione e non possono essere limitati a singoli elementi figlio, servizi o applicazioni distribuite. Ad esempio, indicano l'interazione end-to-end tra diversi servizi nell'applicazione. L'entità applicazione è identificata dal nome dell'applicazione (URI).
 * **Servizio**. Rappresenta l'integrità di un servizio in esecuzione nel cluster. I report sull'integrità del servizio illustrano le condizioni che interessano l'integrità generale del servizio. Il reporter non può restringere il problema a una partizione o una replica non integra. Ad esempio, indicano una configurazione del servizio, una porta o una condivisione file esterna, che causa problemi a tutte le partizioni. L'entità servizio è identificata dal nome del servizio (URI).
 * **Partizione**. Rappresenta l'integrità di una partizione del servizio. I report sull'integrità della partizione illustrano le condizioni che influiscono sull'intero set di repliche. Ad esempio, indicano quando un numero di repliche è al di sotto del conteggio target o quando una partizione mostra una perdita di quorum. L'entità partizione è identificata dall'ID partizione (GUID).
@@ -64,7 +64,7 @@ I possibili [stati di integrità](/dotnet/api/system.fabric.health.healthstate) 
 
 * **OK**. L'entità è integra. Non vengono segnalati problemi noti per l'entità o i relativi elementi figlio (se esistenti).
 * **Avviso**. L'entità ha alcuni problemi, ma può comunque funzionare correttamente. Ad esempio, si verificano ritardi che però non causano ancora problemi funzionali. In alcuni casi, la condizione di avviso potrebbe risolversi automaticamente senza l'intervento esterno. In questi casi, i report sull'integrità forniscono informazioni e visibilità sulla situazione. In altri casi tale condizione può trasformarsi in un problema serio senza l'intervento dell'utente.
-* **Errore**. L'entità non è integra. È necessario intervenire per correggere lo stato dell'entità, che non può funzionare correttamente.
+* **Error**. L'entità non è integra. È necessario intervenire per correggere lo stato dell'entità, che non può funzionare correttamente.
 * **Sconosciuto**. L'entità non è presente nell'archivio integrità. È possibile ottenere questo risultato dalle query distribuite che uniscono i risultati da più componenti. Ad esempio, la query per ottenere l'elenco dei nodi passa a **FailoverManager**, **ClusterManager** e **HealthManager**, mentre la query per ottenere l'elenco delle applicazioni passa a **ClusterManager** e **HealthManager**. Tali query uniscono i risultati provenienti da più componenti di sistema. Se un altro componente di sistema restituisce un'entità non presente nell'archivio integrità, il risultato unito ha uno stato di integrità sconosciuto. Un'entità non è nell'archivio perché non sono ancora stati elaborati i report sull'integrità o è stata eseguita la pulizia dell'entità dopo l'eliminazione.
 
 ## <a name="health-policies"></a>Criteri di integrità
@@ -187,7 +187,7 @@ I [report sull'integrità](/dotnet/api/system.fabric.health.healthreport) per og
 * **SourceID**. Stringa che identifica in modo univoco il generatore di report per l'evento di integrità.
 * **Entity identifier**. Identifica l'entità a cui viene applicato il report. Varia in base al [tipo di entità](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. Nessuno.
+  * Cluster. No.
   * Node. Nome del nodo (stringa).
   * Application. Nome dell'applicazione (URI). Rappresenta il nome dell'istanza di applicazione distribuita nel cluster.
   * Service. Nome del servizio (URI). Rappresenta il nome dell'istanza di servizio distribuita nel cluster.
@@ -211,7 +211,7 @@ I metadati aggiunti includono quanto segue:
 
 * **SourceUtcTimestamp**. Ora in cui il report è stato fornito al client di integrità (UTC).
 * **LastModifiedUtcTimestamp**. Ora in cui il report è stato modificato l'ultima volta sul lato server (UTC).
-* **IsExpired**. Flag che indica se il report era scaduto quando la query è stata eseguita dall'archivio integrità. Un evento può risultare scaduto solo se RemoveWhenExpired è false. In caso contrario, l'evento non viene restituito dalla query e viene rimosso dall'archivio.
+* **Scaduto**. Flag che indica se il report era scaduto quando la query è stata eseguita dall'archivio integrità. Un evento può risultare scaduto solo se RemoveWhenExpired è false. In caso contrario, l'evento non viene restituito dalla query e viene rimosso dall'archivio.
 * **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. Ultima volta in cui si sono verificate transizioni OK/Warning/Error. Questi campi forniscono la cronologia delle transizioni degli stati di integrità per l'evento.
 
 I campi di transizione dello stato possono essere usati per ottenere avvisi più intelligenti o informazioni "cronologiche" sull'evento di integrità. Consentono l'uso di scenari simili ai seguenti:

@@ -4,10 +4,10 @@ description: Informazioni su come usare l'estensione di criteri di Azure per Vis
 ms.date: 06/16/2020
 ms.topic: how-to
 ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648337"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
@@ -40,7 +40,7 @@ Dopo aver soddisfatto i prerequisiti, è possibile installare l'estensione crite
 
 1. Selezionare **criteri di Azure** nei risultati della ricerca e quindi selezionare **Installa**.
 
-1. Selezionare **ricarica** quando necessario.
+1. Selezionare **Ricarica** quando è necessario.
 
 ## <a name="set-the-azure-environment"></a>Configurare l'ambiente di Azure
 
@@ -64,13 +64,13 @@ Per valutare le risorse e gli alias di ricerca, è necessario connettersi all'ac
 
      Dall'estensione criteri di Azure selezionare **Accedi ad Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot della Visual Studio Code e dell'icona dell'estensione criteri di Azure." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
 
    - Riquadro comandi
 
      Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: Sign in (accedi**).
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot delle opzioni di accesso al cloud di Azure per Visual Studio Code dal riquadro comandi." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
 
 1. Seguire le istruzioni di accesso per accedere ad Azure. Dopo la connessione, il nome dell'account Azure viene visualizzato sulla barra di stato nella parte inferiore della finestra di Visual Studio Code.
 
@@ -125,7 +125,7 @@ Quando si seleziona una risorsa, tramite l'interfaccia di ricerca o selezionando
 
 Una volta aperta una risorsa, il puntatore del mouse sul nome o sul valore della proprietà Gestione risorse Visualizza l'alias di criteri di Azure, se disponibile. In questo esempio, la risorsa è un `Microsoft.Compute/virtualMachines` tipo di risorsa e la proprietà **Properties. StorageProfile. imageReference. offer** viene posizionata sopra. Il passaggio del mouse Mostra gli alias corrispondenti.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot dell'estensione di criteri di Azure per Visual Studio Code il passaggio del mouse su una proprietà per visualizzare i nomi degli alias." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
 
 > [!NOTE]
 > L'estensione VS Code espone solo le proprietà della modalità Resource Manager e non visualizza nessuna proprietà della modalità [Provider di risorse](../concepts/definition-structure.md#mode).

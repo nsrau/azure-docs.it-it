@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: d4b21f092733f6ebb3c2bf5aa06c1d2782323730
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099054"
 ---
 # <a name="microsoftsolutionsresourceselector-ui-element"></a>Elemento Microsoft. Solutions. ResourceSelector dell'interfaccia utente
@@ -45,7 +45,7 @@ ResourceSelector consente agli utenti di selezionare una risorsa esistente da un
 "location": "{deployed-location}"
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 Nella `resourceType` Proprietà specificare lo spazio dei nomi del provider di risorse e il nome del tipo di risorsa per la risorsa che si desidera visualizzare nell'elenco.
 

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033224"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Strutture di dati nel servizio Mobility di Azure Maps
@@ -25,7 +25,7 @@ I dati del servizio Mobility sono raggruppati in base alle aree di metro support
 
 `metroID`È l'ID di un'area metropolitana che può essere usato per chiamare l' [API dell'area di informazioni di Get metro](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Usare l'API di Azure Maps ' "Get metro" per richiedere tipi di transito, agenzie di transito, avvisi attivi e dettagli aggiuntivi per la metropolitana scelta. È anche possibile richiedere le aree e i metroID di metro supportati. Gli ID area metro sono soggetti a modifiche.
 
-**metroID:** 522 **Nome:** Seattle-Tacoma-Bellevue
+**metroID:** 522   **Nome:** Seattle-Tacoma-Bellevue
 
 ![Seattle-Metro-area](./media/mobility-service-data-structure/seattle-metro.png)
 

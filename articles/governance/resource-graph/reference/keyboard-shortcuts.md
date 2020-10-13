@@ -5,10 +5,10 @@ ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
 ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89146437"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Tasti di scelta rapida per Azure Resource Graph Explorer
@@ -21,11 +21,11 @@ Questo articolo elenca i tasti di scelta rapida che funzionano nella pagina Azur
 |---|---|---|
 |Inserimento/Rimozione di commenti |<kbd>CTRL</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Riduci rientro |<kbd>CTRL</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
-|Aumenta rientro |<kbd>CTRL</kbd> + <kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
+|Aumenta rientro |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
 |Spostare la riga verso il basso |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>Opzione</kbd> + <kbd>↓</kbd> |
 |Spostare la riga verso l'alto |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>Opzione</kbd> + <kbd>↑</kbd> |
-|Sostituisci |<kbd>CTRL</kbd> + <kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |
-|Selezionare tutto |<kbd>CTRL</kbd> + <kbd>Oggetto</kbd> |<kbd>Cmd</kbd> + <kbd>Oggetto</kbd> |
+|Sostituisci |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |
+|Seleziona tutto |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd> + <kbd>Oggetto</kbd> |
 |Seleziona verso il basso |<kbd>Sposta</kbd> + <kbd>↓</kbd> |<kbd>Sposta</kbd> + <kbd>↓</kbd> |
 |Selezione a destra |<kbd>Sposta</kbd> + <kbd>→</kbd> |<kbd>Sposta</kbd> + <kbd>→</kbd> |
 |Selezionare a sinistra |<kbd>Sposta</kbd> + <kbd>←</kbd> |<kbd>Sposta</kbd> + <kbd>←</kbd> |
@@ -43,8 +43,8 @@ Questo articolo elenca i tasti di scelta rapida che funzionano nella pagina Azur
 |Annulla query in esecuzione |<kbd>ESC</kbd> | <kbd>ESC</kbd> |
 |Apri nuova scheda query |<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>N</kbd> | <kbd>Cmd</kbd> + <kbd>Opzione</kbd> + <kbd>N</kbd> |
 |Chiudi scheda query attiva |<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>W</kbd> | <kbd>Cmd</kbd> + <kbd>Opzione</kbd> + <kbd>W</kbd> |
-|Salva query corrente |<kbd>CTRL</kbd> + <kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>S</kbd> |
-|Aprire una query salvata |<kbd>CTRL</kbd> + <kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
+|Salva query corrente |<kbd>CTRL</kbd>+<kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>S</kbd> |
+|Aprire una query salvata |<kbd>CTRL</kbd>+<kbd>O</kbd> | <kbd>Cmd</kbd> + <kbd>O</kbd> |
 |Passa alla scheda query (1-9) |<kbd>CTRL</kbd> + <kbd>(1-9)</kbd> | <kbd>Cmd</kbd> + <kbd>(1-9)</kbd> |
 |Passa alla scheda query successiva |<kbd>CTRL</kbd> + <kbd>↓</kbd> | <kbd>Cmd</kbd> + <kbd>↓</kbd> |
 |Passa alla scheda della query precedente |<kbd>CTRL</kbd> + <kbd>↑</kbd> | <kbd>Cmd</kbd> + <kbd>↑</kbd> |

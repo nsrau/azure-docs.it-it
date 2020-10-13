@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079843"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure
@@ -105,6 +105,6 @@ Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
     ![immagine della posizione in cui inviare l'interrupt non mascherabile](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. Alleghi nuovamente il disco del sistema operativo a una macchina virtuale di ripristino, Raccogli file dump.
 
-## <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
+## <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
 Dopo aver raccolto il file di dump, contattare il [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per analizzare la causa radice.

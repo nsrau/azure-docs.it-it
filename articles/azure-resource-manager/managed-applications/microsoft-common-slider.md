@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: tomfitz
 ms.openlocfilehash: bb168a4bff6d2570f539307530232b5063bb535c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87098537"
 ---
 # <a name="microsoftcommonslider-ui-element"></a>Elemento Microsoft. Common. Slider dell'interfaccia utente
@@ -46,7 +46,7 @@ Il controllo dispositivo di scorrimento consente agli utenti di selezionare un i
 26
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - I `min` `max` valori e sono obbligatori. Impostano i punti di inizio e di fine per il dispositivo di scorrimento.
 - `showStepMarkers`Per impostazione predefinita, la proprietà è impostata su true. I marcatori di passaggio vengono visualizzati solo quando l'intervallo compreso tra min e Max è 100 o meno.

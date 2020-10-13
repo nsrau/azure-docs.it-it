@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
 ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065353"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architettura di connettività nel database di Azure per MariaDB
@@ -68,8 +68,8 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Regno Unito occidentale | 51.141.8.11  |
 | Stati Uniti centro-occidentali | 13.78.145.25     |
 | Europa occidentale | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
-| Stati Uniti occidentali | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
-| Stati Uniti occidentali 2 | 13.66.226.202  |
+| Stati Uniti Occidentali | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
+| West US 2 | 13.66.226.202  |
 ||||
 
 ## <a name="connection-redirection"></a>Reindirizzamento della connessione

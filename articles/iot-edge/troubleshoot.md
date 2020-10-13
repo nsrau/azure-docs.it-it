@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902457"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Risolvere i problemi del dispositivo IoT Edge
@@ -71,7 +71,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="check-your-iot-edge-version"></a>Controllare la versione di IoT Edge
 
-Se si sta eseguendo una versione precedente di IoT Edge, l'aggiornamento può risolvere il problema. Lo `iotedge check` strumento verifica che il daemon di sicurezza IoT Edge sia la versione più recente, ma non controlla le versioni dei moduli dell'hub IOT Edge e dell'agente. Per verificare la versione dei moduli di runtime nel dispositivo, usare i comandi `iotedge logs edgeAgent` e `iotedge logs edgeHub` . Il numero di versione viene dichiarato nei log all'avvio del modulo.
+Se si sta eseguendo una versione precedente di IoT Edge, l'aggiornamento può risolvere il problema. Lo `iotedge check` strumento verifica che il daemon di sicurezza IoT Edge sia la versione più recente, ma non controlla le versioni dei moduli dell'hub IOT Edge e dell'agente. Per verificare la versione dei moduli di runtime nel dispositivo, usare i comandi `iotedge logs edgeAgent` e `iotedge logs edgeHub` . Il numero di versione è dichiarato nei log all'avvio del modulo.
 
 Per istruzioni su come aggiornare il dispositivo, vedere [aggiornare il daemon di sicurezza di IOT Edge e il runtime](how-to-update-iot-edge.md).
 
@@ -255,7 +255,7 @@ Azure IoT Edge consente la comunicazione da un server locale al cloud di Azure u
 
 Sebbene IoT Edge offra una configurazione avanzata per la protezione del runtime e dei moduli distribuiti di Azure IoT Edge, dipende comunque dal computer e dalla configurazione di rete sottostanti. Di conseguenza, è fondamentale assicurarsi che le regole di rete e del firewall appropriate siano configurate per la comunicazione tra Edge e cloud. La tabella seguente può essere usata come linea guida per le regole del firewall di configurazione per i server sottostanti in cui è ospitato Azure IoT Edge Runtime:
 
-|Protocollo|Porta|In ingresso|In uscita|Materiale sussidiario|
+|Protocollo|Porta|In arrivo|In uscita|Indicazioni|
 |--|--|--|--|--|
 |MQTT|8883|BLOCCATO (impostazione predefinita)|BLOCCATO (impostazione predefinita)|<ul> <li>Configurare i dati in uscita in modo che siano Aperti quando si usa MQTT come protocollo di comunicazione.<li>1883 per MQTT non è supportato da IoT Edge. <li>Le connessioni in ingresso devono essere bloccate.</ul>|
 |AMQP|5671|BLOCCATO (impostazione predefinita)|APERTO (impostazione predefinita)|<ul> <li>Protocollo di comunicazione predefinito per IoT Edge. <li> Deve essere configurato per essere Aperto se Azure IoT Edge non è configurato per altri protocolli supportati o AMQP è il protocollo di comunicazione desiderato.<li>5672 per AMQP non è supportato da IoT Edge.<li>Bloccare questa porta quando Azure IoT Edge usa un protocollo supportato dall'hub IoT diverso.<li>Le connessioni in ingresso devono essere bloccate.</ul></ul>|

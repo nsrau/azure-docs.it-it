@@ -4,10 +4,10 @@ description: Questo articolo descrive come usare il bus di servizio di Azure da 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067104"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
@@ -65,7 +65,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | double |double |Valore AMQP |
 | decimal |decimal128 |Valore AMQP |
 | char |char |Valore AMQP |
-| Datetime |timestamp |Valore AMQP |
+| Datetime | timestamp |Valore AMQP |
 | Guid |uuid |Valore AMQP |
 | byte[] |BINARY |Valore AMQP |
 | string |string |Valore AMQP |
@@ -75,7 +75,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | Uri |Stringa descritta (vedere la tabella seguente) |Valore AMQP |
 | DateTimeOffset |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
 | TimeSpan |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
-| Flusso |BINARY |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
+| STREAM |BINARY |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
 | Altro oggetto |BINARY |Dati AMQP (possono essere multipli). Contiene i dati binari serializzati dell'oggetto che usa DataContractSerializer o un serializzatore fornito dall'applicazione. |
 
 | Tipo di .NET | Tipo descritto AMQP mappato | Note |
@@ -99,7 +99,7 @@ Le [API .NET](/dotnet/api/) espongono diverse impostazioni per controllare il co
 * **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: controlla il credito iniziale applicato a un collegamento. Il valore predefinito è 0.
 * **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: controlla la dimensione massima del frame AMQP offerta durante la negoziazione in fase di apertura della connessione. Il valore predefinito è 65.536 byte.
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: se i trasferimenti possono essere eseguiti in batch, questo valore determina il ritardo massimo per l'invio di disposizioni. Per impostazione predefinita, il valore viene ereditato dai mittenti/destinatari. Un singolo mittente/destinatario può sostituire il valore predefinito di 20 millisecondi.
-* **[MessagingFactorySettings. AmqpTransportSettings. UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: controlla se le connessioni AMQP vengono stabilite su una connessione TLS. Il valore predefinito è **true**.
+* **[MessagingFactorySettings. AmqpTransportSettings. UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: controlla se le connessioni AMQP vengono stabilite su una connessione TLS. Il valore predefinito è **True**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

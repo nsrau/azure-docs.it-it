@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949032"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Eseguire l'aggiornamento alla versione più recente dell'API REST in Azure ricerca cognitiva
@@ -61,7 +61,7 @@ La versione 2019-05-06 è la versione disponibile a livello generale precedente 
 * [Modalità di analisi di JsonLines](search-howto-index-json-blobs.md), parte dell'indicizzazione BLOB di Azure, crea un documento di ricerca per entità JSON separato da una nuova riga.
 * L' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) fornisce l'indicizzazione che sfrutta i motori di arricchimento di intelligenza artificiale dei servizi cognitivi.
 
-### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
+### <a name="breaking-changes"></a>Modifiche di rilievo
 
 Il codice esistente scritto con le versioni precedenti dell'API si interrompe in API-Version = 2019-05-06 e versioni successive se il codice contiene le funzionalità seguenti:
 
