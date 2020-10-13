@@ -3,12 +3,12 @@ title: Domande frequenti sul backup di file di Azure
 description: In questo articolo vengono fornite le risposte alle domande comuni su come proteggere le condivisioni file di Azure con il servizio Backup di Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729067"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940836"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 
@@ -80,18 +80,18 @@ Sì. Vedere la documentazione dettagliata [qui](backup-azure-afs-automation.md).
 
 Una volta che una condivisione file viene spostata in una sottoscrizione diversa, viene considerata come una nuova condivisione file da backup di Azure. Di seguito sono riportati i passaggi consigliati:
  
-Scenario: si può dire che è presente una condivisione file FS1 nella sottoscrizione S1 ed è protetta tramite l'insieme di credenziali V1. Si vuole ora spostare la condivisione file nella sottoscrizione S2.
+Scenario: si immagini di avere una condivisione file *FS1* nella sottoscrizione *S1* ed è protetta tramite l'insieme di credenziali *V1* . Si vuole ora spostare la condivisione file nella sottoscrizione *S2*.
  
 1.  Spostare l'account di archiviazione e la condivisione file desiderati (FS1) in una sottoscrizione diversa (S2).
-2.  Nell'insieme di credenziali V1 attivare Interrompi protezione con l'operazione di eliminazione dei dati per FS1.
-3.  Annullare la registrazione dell'account di archiviazione che ospita FS1 da V1 Vault.
+2.  Nell'insieme di credenziali V1 attivare l'operazione Stop Protection with Delete data per FS1.
+3.  Annullare la registrazione dell'account di archiviazione che ospita FS1 dall'insieme di credenziali V1.
 4.  Riconfigurare il backup per FS1, ora spostato in S2 con un insieme di credenziali (v2) nella sottoscrizione S2. 
  
-Si noti che dopo aver riconfigurato il backup con V2, gli snapshot eseguiti con la versione 1 non saranno più gestiti da backup di Azure e di conseguenza sarà necessario eliminare tali snapshot manualmente in base ai requisiti.
+Si noti che dopo la riconfigurazione del backup con V2, gli snapshot eseguiti con la versione 1 non saranno più gestiti da backup di Azure. Sarà quindi necessario eliminare manualmente gli snapshot in base ai requisiti.
 
 ### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>È possibile spostare la condivisione file di cui è stato eseguito il backup in un gruppo di risorse diverso?
  
-Sì, è possibile spostare la condivisione file di cui è stato eseguito il backup in un gruppo di risorse diverso. Tuttavia, sarà necessario riconfigurare il backup per la condivisione file in quanto verrebbe considerato come una nuova risorsa da backup di Azure. Inoltre, gli snapshot creati prima dello spostamento del gruppo di risorse non saranno più gestiti da backup di Azure. Sarà quindi necessario eliminare manualmente gli snapshot in base ai requisiti.
+Sì, è possibile spostare la condivisione file di cui è stato eseguito il backup in un gruppo di risorse diverso. Tuttavia, sarà necessario riconfigurare il backup per la condivisione file poiché verrà considerato come una nuova risorsa da backup di Azure. Inoltre, gli snapshot creati prima dello spostamento del gruppo di risorse non verranno più gestiti da backup di Azure. Sarà quindi necessario eliminare manualmente gli snapshot in base ai requisiti.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual è il periodo di conservazione massimo configurabile per i backup?
 

@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf70d4381a7d128f7a2716540b1318b39cd729b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602133"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961222"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
@@ -274,13 +274,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da usare per disconnettere l'utente dall'applicazione. |
-| id_token_hint| No | Token ID emesso in precedenza da passare all'endpoint di disconnessione come hint per la sessione autenticata corrente dell'utente finale con il client. `id_token_hint`Garantisce che `post_logout_redirect_uri` sia un URL di risposta registrato nelle impostazioni dell'applicazione Azure ad B2C. |
+| id_token_hint| No | Token ID emesso in precedenza da passare all'endpoint di disconnessione come hint per la sessione autenticata corrente dell'utente finale con il client. `id_token_hint`Garantisce che `post_logout_redirect_uri` sia un URL di risposta registrato nelle impostazioni dell'applicazione Azure ad B2C. Per altre informazioni, vedere [proteggere il reindirizzamento di disconnessione](#secure-your-logout-redirect). |
 | client_id | No* | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione.<br><br>\**Questa operazione è necessaria quando `Application` si usa la configurazione SSO di isolamento e il _token ID richiesto_ nella richiesta di disconnessione è impostato su `No` .* |
 | post_logout_redirect_uri | No | URL a cui l'utente deve essere reindirizzato dopo la disconnessione. Se non è incluso, Azure AD B2C Visualizza un messaggio generico da parte dell'utente. A meno che non si fornisca un `id_token_hint` , è consigliabile non registrare questo URL come URL di risposta nelle impostazioni dell'applicazione Azure ad B2C. |
 | state | No | Se nella richiesta è incluso un parametro `state`, lo stesso valore deve essere visualizzato nella risposta. L'applicazione deve verificare che i `state` valori nella richiesta e nella risposta siano identici. |
 
 ### <a name="secure-your-logout-redirect"></a>Proteggere il reindirizzamento di disconnessione
 
-Dopo la disconnessione, l'utente viene reindirizzato all'URI specificato nel `post_logout_redirect_uri` parametro, indipendentemente dagli URL di risposta specificati per l'applicazione. Tuttavia, se viene passato un oggetto valido `id_token_hint` , Azure ad B2C verifica che il valore `post_logout_redirect_uri` corrisponda a uno degli URI di reindirizzamento configurati dell'applicazione prima di eseguire il reindirizzamento. Se per l'applicazione non è stato configurato alcun URL di risposta corrispondente, viene visualizzato un messaggio di errore e l'utente non viene reindirizzato.
+Dopo la disconnessione, l'utente viene reindirizzato all'URI specificato nel `post_logout_redirect_uri` parametro, indipendentemente dagli URL di risposta specificati per l'applicazione. Tuttavia, se viene passato un oggetto valido `id_token_hint` e il **token ID richiesto nelle richieste di disconnessione** viene attivato, Azure ad B2C verifica che il valore `post_logout_redirect_uri` corrisponda a uno degli URI di reindirizzamento configurati dell'applicazione prima di eseguire il reindirizzamento. Se per l'applicazione non è stato configurato alcun URL di risposta corrispondente, viene visualizzato un messaggio di errore e l'utente non viene reindirizzato.
 
+Per impostare il token ID necessario nelle richieste di disconnessione, vedere [configurare il comportamento della sessione in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect)e [configurare il comportamento della sessione usando criteri personalizzati in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
 
+## <a name="next-steps"></a>Passaggi successivi
+
+- Altre informazioni sulla [sessione Azure AD B2C](session-overview.md).

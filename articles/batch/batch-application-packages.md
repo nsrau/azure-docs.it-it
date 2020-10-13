@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277700"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
@@ -77,7 +77,7 @@ Il servizio Batch usa Archiviazione di Azure per archiviare i pacchetti dell'app
 
 Per visualizzare le applicazioni nell'account batch, selezionare **applicazioni** nel menu di spostamento a sinistra.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Screenshot della voce di menu applicazioni nel portale di Azure.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagramma che mostra una visualizzazione di alto livello di applicazioni e pacchetti dell'applicazione.":::
 
 Selezionando questa opzione di menu viene visualizzata la finestra **applicazioni** . La finestra visualizza l'ID di ogni applicazione nell'account e le proprietà seguenti:
 
@@ -101,9 +101,9 @@ Per creare una nuova applicazione, è necessario aggiungere un pacchetto dell'ap
 
 Nell'account batch selezionare **applicazioni** , quindi selezionare **Aggiungi**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Screenshot del nuovo processo di creazione dell'applicazione nella portale di Azure.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagramma che mostra una visualizzazione di alto livello di applicazioni e pacchetti dell'applicazione.":::
 
-Immettere le informazioni seguenti:
+Immettere le seguenti informazioni:
 
 - **ID applicazione**: ID della nuova applicazione.
 - **Version**": la versione per il pacchetto dell'applicazione che si sta caricando.
@@ -128,7 +128,7 @@ Come per la nuova applicazione, specificare la **versione** del nuovo pacchetto,
 
 Per aggiornare o eliminare un pacchetto dell'applicazione esistente, selezionare l'applicazione nella sezione **applicazioni** dell'account batch. Selezionare i puntini di sospensione nella riga del pacchetto dell'applicazione che si desidera modificare, quindi selezionare l'azione che si desidera eseguire.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Screenshot che mostra le opzioni di aggiornamento ed eliminazione per i pacchetti dell'applicazione nella portale di Azure.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagramma che mostra una visualizzazione di alto livello di applicazioni e pacchetti dell'applicazione.":::
 
 Se si seleziona **Aggiorna**, sarà possibile caricare un nuovo file con estensione zip. Verrà sostituito il file zip precedente caricato per la versione.
 

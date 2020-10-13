@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537634"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure
@@ -231,8 +231,8 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 |---------------|-----------------|  
 |`name`|Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata).|  
 |`text`|Contiene la proprietà Weights.|  
-|`weights`|facoltativo. Contiene coppie nome-valore che specificano un nome di campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo.<br /><br /> I pesi vengono usati per indicare l'importanza di un campo ricercabile rispetto a un altro.|  
-|`functions`|facoltativo. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
+|`weights`|Facoltativa. Contiene coppie nome-valore che specificano un nome di campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo.<br /><br /> I pesi vengono usati per indicare l'importanza di un campo ricercabile rispetto a un altro.|  
+|`functions`|Facoltativa. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
 |`type`|Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness, distance e tag. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.|  
 |`boost`|Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1.|  
 |`fieldname`|Obbligatorio per le funzioni di assegnazione di punteggio. Una funzione di assegnazione di punteggio può essere applicata solo a campi che fanno parte della raccolta di campi dell'indice e che sono filtrabili. Ogni tipo di funzione introduce inoltre restrizioni aggiuntive (il valore freshness viene usato con campi datetime, il valore magnitude con campi di tipo Integer o Double e il valore distance con campi location). È possibile specificare solo un campo per ogni definizione di funzione. Ad esempio, per usare il valore magnitude due volte nello stesso profilo, sarà necessario includere due definizioni di magnitude, una per ogni campo.|  
@@ -248,7 +248,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 |`distance` &#124; `boostingDistance`|Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità.|  
 |`tag`|La funzione per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base ai tag nei documenti e nelle query di ricerca. La priorità di documenti con tag in comune con la query di ricerca verrà aumentata. I tag per la query di ricerca vengono specificati come parametro di assegnazione dei punteggi in ogni richiesta di ricerca (usando l'opzione stringa `scoringParameterquery`).|  
 |`tag` &#124; `tagsParameter`|Parametro da passare nelle query per specificare i tag per una particolare richiesta. `scoringParameter` è un parametro di query. Per le descrizioni dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents) .|  
-|`functionAggregation`|facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
+|`functionAggregation`|Facoltativa. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
 |`defaultScoringProfile`|Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo [tf-idf](http://www.tfidf.com/)).<br /><br /> Qui è possibile impostare un nome del profilo di Punteggio predefinito, in modo che Azure ricerca cognitiva usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo specifico.|  
 
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a> Imposta interpolazioni  

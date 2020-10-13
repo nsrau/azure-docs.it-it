@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236574"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940706"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>SQL Istanza gestita nuove funzionalità e problemi noti
+## <a name="new-features"></a>Nuove funzionalità
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Aggiornamenti di SQL Istanza gestita H2 2019
 
@@ -93,10 +93,11 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
   - Il nuovo [ruolo Collaboratore Istanza](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) predefinito abilita la conformità della separazione dei compiti con i principi di sicurezza e la conformità agli standard aziendali.
   - SQL Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per la versione GA (US Gov Texas, US Gov Arizona) e in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
 
-### <a name="known-issues"></a>Problemi noti
+## <a name="known-issues"></a>Problemi noti
 
 |Problema  |Data individuata  |Stato  |Data risolta  |
 |---------|---------|---------|---------|
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) nell'istruzione SQL di Azure e `BACKUP` / `RESTORE` in istanza gestita non è possibile usare Azure ad Gestisci identità per l'autenticazione in archiviazione di Azure|2020 Sep|Ha una soluzione alternativa||
 |[L'entità servizio non può accedere a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 agosto|Ha una soluzione alternativa||
 |[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Risolto|Giugno 2020|
 |[Agent smette di rispondere durante la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Risolto|Giugno 2020|
@@ -124,6 +125,21 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 |Il ripristino temporizzato di database dal livello business critical al livello utilizzo generico non avrà esito positivo se il database di origine contiene oggetti OLTP in memoria.||Risolto|Ottobre 2019|
 |Funzionalità posta elettronica database con server di posta elettronica esterni (non Azure) tramite connessione protetta||Risolto|Ottobre 2019|
 |Database indipendenti non supportati in SQL Istanza gestita||Risolto|Agosto 2019|
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT e le istruzioni BACKUP/RESTOre non possono usare identità gestite per accedere ad archiviazione di Azure
+
+L'istruzione BULK INSERT non può usare `DATABASE SCOPED CREDENTIAL` with Managed Identity per l'autenticazione nell'archiviazione di Azure. Come soluzione alternativa, passare all'autenticazione della firma di accesso condiviso. L'esempio seguente non funzionerà in SQL di Azure (database e Istanza gestita):
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Soluzione alternativa**: usare la [firma di accesso condiviso per l'autenticazione nella](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage)risorsa di archiviazione.
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>L'entità servizio non può accedere a Azure AD e AKV
 

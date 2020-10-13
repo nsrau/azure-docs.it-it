@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: jushiman
 ms.openlocfilehash: afad68be53637cf258223eafab0a13f525a92f4c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666620"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generazioni precedenti delle dimensioni delle macchine virtuali
@@ -96,7 +96,7 @@ Memorizzazione nella cache Archiviazione Premium:  Non supportato
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 
-| Dimensioni – Dimensioni\Nome | vCPU | Memoria|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
+| Dimensioni – Dimensioni\Nome | vCPU | Memory|NIC (Max)| Dimensioni massime per il disco temporaneo | Max. (1023 GB ciascuno)| Max. IOPS (300 per disco) |
 |---|---|---|---|---|---|---|
 | A0\Basic_A0 | 1 | 768 MB  | 2 | 20 GB  | 1  | 1x300  |
 | A1\Basic_A1 | 1 | 1,75 GB | 2 | 40 GB  | 2  | 2x300  |

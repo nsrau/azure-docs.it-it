@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767232"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
@@ -185,7 +185,7 @@ Il controllo delle versioni del BLOB è progettato per proteggere i dati da elim
 
 La tabella seguente illustra le azioni RBAC di Azure che supportano l'eliminazione di un BLOB o di una versione BLOB.
 
-| Descrizione | Operazione del servizio BLOB | Azione dati RBAC di Azure obbligatoria | Supporto del ruolo incorporato di Azure |
+| Description | Operazione del servizio BLOB | Azione dati RBAC di Azure obbligatoria | Supporto del ruolo incorporato di Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Eliminazione della versione corrente del BLOB | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Collaboratore ai dati del BLOB di archiviazione |
 | Eliminazione di una versione | Delete Blob | **Microsoft. storage/storageAccounts/blobServices/Containers/Blobs/deleteBlobVersion/Action** | Proprietario dei dati del BLOB di archiviazione |
@@ -198,7 +198,7 @@ La tabella seguente illustra l'autorizzazione necessaria per una firma di access
 
 | **Autorizzazione** | **Simbolo URI** | **Operazioni consentite** |
 |----------------|----------------|------------------------|
-| Delete         | x              | Eliminare una versione BLOB. |
+| Elimina         | x              | Eliminare una versione BLOB. |
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 

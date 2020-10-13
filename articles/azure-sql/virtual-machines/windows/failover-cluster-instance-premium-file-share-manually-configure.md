@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298712"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Creare un'istanza FCI con una condivisione file Premium (SQL Server nelle VM di Azure)
@@ -96,17 +96,7 @@ Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni s
 1. Selezionare **Avanti**.
 1. In **Selezione dei test** selezionare tutti i test tranne **Archiviazione** e **Spazi di archiviazione diretta**, come illustrato di seguito:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Selezionare i test di convalida del cluster":::
-
-1. Selezionare **Avanti**.
-1. In **Conferma** selezionare **Avanti**.
-
-La convalida guidata **configurazione** esegue i test di convalida.
-
-Per convalidare il cluster usando PowerShell, eseguire lo script seguente da una sessione di PowerShell in modalità amministratore in una delle macchine virtuali:
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Copiare entrambi i comandi di PowerShell dal portale di connessione della condivisione file"
    ```
 
 Dopo aver convalidato il cluster, creare il cluster di failover.
@@ -151,7 +141,7 @@ Configurare la soluzione quorum più adatta alle proprie esigenze aziendali. È 
 
 Testare il failover del cluster. In **Gestione cluster di failover**fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo**, quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando le risorse principali negli altri nodi":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Copiare entrambi i comandi di PowerShell dal portale di connessione della condivisione file":::
 
 
 ## <a name="create-sql-server-fci"></a>Creare l'istanza del cluster di failover di SQL Server
@@ -172,7 +162,7 @@ Dopo aver configurato il cluster di failover, è possibile creare l'istanza del 
 
    Le directory di dati dell'istanza del cluster di failover devono trovarsi nella condivisione file Premium. Immettere il percorso completo della condivisione, nel formato seguente: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Verrà visualizzato un avviso che informa che è stato specificato un file server come directory di dati. Si tratta di un avviso previsto. Assicurarsi che l'account utente usato per accedere alla macchina virtuale tramite RDP quando è stata resa permanente la condivisione file sia lo stesso account utilizzato dal servizio SQL Server per evitare possibili errori.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Usare la condivisione file come directory dati SQL":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Copiare entrambi i comandi di PowerShell dal portale di connessione della condivisione file":::
 
 1. Dopo aver completato i passaggi della procedura guidata, verrà installata un'istanza del cluster di failover di SQL Server nel primo nodo.
 
@@ -222,4 +212,4 @@ Per altre informazioni, vedere Panoramica di [FCI con SQL Server nelle macchine 
 
 Per altre informazioni, vedere: 
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server istanze del cluster di failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Istanze del cluster di failover di SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
