@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
 ms.openlocfilehash: b7757b5204c9b3b32145667367a71a9acc42c230
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434657"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
@@ -84,7 +84,7 @@ In Azure HDInsight sono attualmente disponibili i tipi di cluster seguenti, ognu
 | [Spark](spark/apache-spark-overview.md) |Elaborazione in memoria, query interattive, elaborazione di flussi di micro batch |
 | [Storm](storm/apache-storm-overview.md) |Elaborazione di eventi in tempo reale |
 
-#### <a name="version"></a>Version
+#### <a name="version"></a>Versione
 
 Scegliere la versione di HDInsight per questo cluster. Per altre informazioni, vedere [Versioni supportate di HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 

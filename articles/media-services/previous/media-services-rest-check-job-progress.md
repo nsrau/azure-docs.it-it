@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 429e443ea0de665632cbacaee13a3ff3be443b9d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89263400"
 ---
 # <a name="how-to-check-job-progress"></a>Procedura: Controllare lo stato dei processi
@@ -74,6 +74,6 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Informazioni generali sull'API REST di Servizi multimediali](media-services-rest-how-to-use.md)

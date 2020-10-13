@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
 ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89055312"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servizio di riconoscimento vocale: novità di docs
@@ -57,7 +57,7 @@ Questi problemi sono stati aperti a maggio. Questa tabella elenca l'utente che h
 
 Questa tabella viene aggiornata ogni mese e riflette solo i problemi aperti nel mese di maggio.  
 
-|ID|Utente|Descrizione|Aperto|State|Tipo|
+|ID|Utente|Descrizione|Aperto|State|Type|
 | :--- | :--- | :--- | :--- | :--- | :--- |
 |[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Attività eliminata perché manca l'endpoint del bot|2020-05-31|Chiusa|Problema|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Procedura bot per la pubblicazione errata|2020-05-31|Apri|Problema|

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: cherylmc
 ms.openlocfilehash: af3513c4a4f3b3187e85c65de51ad2e6e2d7279c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983198"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificare le impostazioni del gateway di rete locale usando il portale di Azure
@@ -21,7 +21,7 @@ In alcuni casi le impostazioni per il valore AddressPrefix o GatewayIPAddress de
 Prima di eliminare la connessione, è opportuno scaricare la configurazione dei dispositivi usati per la connessione per ottenere la chiave precondivisa definita. In questo modo non sarà necessario ridefinirla sull'altro lato della connessione.
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Portale di Azure](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
@@ -35,7 +35,7 @@ La schermata seguente mostra la pagina di **configurazione** di una risorsa gate
 
 Si tratta della stessa pagina di configurazione con un endpoint FQDN:
 
-:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="Configurare il gateway di rete locale-FQDN":::
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="Configurare il gateway di rete locale-indirizzo IP":::
 
 ## <a name="modify-the-gateway-ip-address"></a><a name="ip"></a>Modificare l'indirizzo IP del gateway
 

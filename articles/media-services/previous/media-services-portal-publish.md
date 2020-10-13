@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 1f9f1b51ce09577bf17fa4d92273348665987848
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266613"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Pubblicare contenuti sul portale di Azure
@@ -40,7 +40,7 @@ ms.locfileid: "89266613"
 
 Perché l'utente possa avere a disposizione un URL da usare per scaricare o riprodurre in streaming i contenuti, è prima necessario pubblicare un asset creando un localizzatore. I localizzatori forniscono accesso ai file di risorse. Servizi multimediali di Azure supporta due tipi di localizzatori: 
 
-* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Alcuni esempi di flusso adattivo includono Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. Ad esempio, `http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest`
+* **Localizzatori di streaming (OnDemandOrigin)**. I localizzatori di streaming vengono usati per il flusso adattivo. Alcuni esempi di flusso adattivo includono Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming over HTTP, denominato anche MPEG-DASH). Per creare un localizzatore di streaming, l'asset deve contenere un file con estensione ism. Ad esempio: `http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest`.
 * **Localizzatori progressivi (firma di accesso condiviso)**. I localizzatori progressivi vengono usati per la distribuzione di video tramite download progressivo.
 
 Per creare un URL di streaming HLS, aggiungere *(format=m3u8-aapl)* all'URL:
@@ -95,7 +95,7 @@ Considerazioni applicabili:
 * Media Player nel portale di Azure esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, selezionare e copiare l'URL e quindi incollarlo in un altro lettore. È ad esempio possibile testare il video in [Azure Media Player](https://aka.ms/azuremediaplayer).
 * L'endpoint di streaming da cui si effettua lo streaming deve essere in esecuzione.  
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,10 +11,10 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87336345"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Differenze di convalida in base ai tipi di conto supportati (signInAudience)
@@ -43,7 +43,7 @@ Per le differenze di convalida di diverse proprietà per diversi tipi di account
 | Ambiti definiti da questa API ( `oauth2Permissions` ) | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito |  Lunghezza massima del nome dell'ambito di 40 caratteri <br><br> Massimo 100 ambiti definiti | 
 | Applicazioni client autorizzate ( `preAuthorizedApplications` ) | Nessun limite * | Nessun limite * | Massimo totale di 500 <br><br> Massimo 100 di app client definite <br><br> Massimo 30 ambiti definiti per client | 
 | appRoles | Supportato <br> Nessun limite * | Supportato <br> Nessun limite * | Non supportato | 
-| URL di disconnessione | http://localhostconsentito <br><br> Lunghezza massima di 255 caratteri | http://localhostconsentito <br><br> Lunghezza massima di 255 caratteri | <br><br> https://localhostè consentito, http://localhost non riesce per MSA <br><br> Lunghezza massima di 255 caratteri <br><br> Lo schema HTTP non è consentito <br><br> I caratteri jolly non sono supportati | 
+| URL di chiusura sessione | http://localhost consentito <br><br> Lunghezza massima di 255 caratteri | http://localhost consentito <br><br> Lunghezza massima di 255 caratteri | <br><br> https://localhost è consentito, http://localhost non riesce per MSA <br><br> Lunghezza massima di 255 caratteri <br><br> Lo schema HTTP non è consentito <br><br> I caratteri jolly non sono supportati | 
 
 * Esiste un limite globale di circa 1000 elementi in tutte le proprietà della raccolta nell'oggetto app
 

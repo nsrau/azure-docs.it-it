@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070600"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
@@ -168,11 +168,11 @@ Eseguire la procedura seguente per avviare l'array virtuale a cui connettersi.
    ![Screenshot della scheda della console del client vSphere che mostra i caratteri indeterminati nella casella di accesso.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. Per motivi di sicurezza, la password amministratore del dispositivo scade al primo accesso. Viene richiesto di modificarla.
 
-   ![Screenshot della scheda della console client di vSphere. il testo nella pagina indica che è necessario modificare la password.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![Screenshot della scheda della console client di vSphere. Il testo nella pagina indica che è necessario modificare la password.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    Immettere una password contenente almeno 8 caratteri. La password deve soddisfare almeno 3 dei seguenti 4 requisiti: caratteri maiuscoli, minuscoli, numerici e speciali. Immettere nuovamente la password per confermarla. Si riceve una notifica in cui si comunica che la password è stata modificata.
 
-   ![Screenshot della scheda della console client di vSphere. il testo nella pagina indica che la password è stata modificata.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![Screenshot della scheda della console client di vSphere. Il testo nella pagina indica che la password è stata modificata.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. Dopo aver modificato correttamente la password, l'array virtuale potrebbe essere riavviato. Attendere l'avvio del dispositivo.
 
    ![Screenshot della pagina principale di StorSimpleAdmin. Il testo nella pagina chiede all'utente di attendere il servizio di notifica eventi di sistema.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
@@ -192,7 +192,7 @@ Eseguire la procedura seguente per avviare l'array virtuale a cui connettersi.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![Screenshot che mostra una finestra della console con l'output del comando Get-Help Set-HcsIpAddress e l'uso corretto del comando set-HcsIpAddress.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
+    ![Screenshot che mostra una finestra della console con l'output del comando Get-Help Set-HcsIpAddress e l'uso corretto del comando Set-HcsIpAddress.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
 9. Dopo aver completato l'installazione iniziale e avviato il dispositivo, viene visualizzato il relativo testo intestazione. Prendere nota dell'indirizzo IP e dell'URL visualizzati nel testo intestazione per gestire il dispositivo. Usare questo indirizzo IP per connettersi all'interfaccia utente Web dell'array virtuale e completare l'installazione locale e la registrazione.
 
    ![Screenshot che mostra una finestra della console con il testo del banner del dispositivo. Il testo include l'URL e l'indirizzo IP del dispositivo.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)

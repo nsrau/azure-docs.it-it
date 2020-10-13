@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269574"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
@@ -166,8 +166,8 @@ La tabella seguente contiene informazioni sul supporto per questi nomi dell'enti
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
-| Instradabile | Gestita | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestita | Non supportate | |
+| Instradabile | Gestiti | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
+| Non instradabile | Gestiti | Non supportate | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

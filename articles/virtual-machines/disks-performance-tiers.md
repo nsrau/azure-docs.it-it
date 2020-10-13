@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743727"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
@@ -20,7 +20,7 @@ ms.locfileid: "91743727"
 Archiviazione su disco di Azure attualmente offre funzionalità di espansione predefinite per offrire prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium offrono la flessibilità necessaria per aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco. Questa funzionalità consente di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. 
 
 > [!NOTE]
-> Questa funzionalità è attualmente disponibile in anteprima. 
+> Questa funzionalità è attualmente in anteprima. 
 
 Questa funzionalità è ideale per gli eventi che richiedono temporaneamente un livello di prestazioni costantemente superiore, ad esempio l'acquisto di festività, il test delle prestazioni o l'esecuzione di un ambiente di training. Per gestire questi eventi, è possibile usare un livello di prestazioni superiore per tutto il tempo necessario. È quindi possibile tornare al livello originale quando non sono più necessarie le prestazioni aggiuntive.
 
@@ -42,10 +42,10 @@ Le modifiche apportate alla fatturazione cambiano a seconda del livello. Se, ad 
 | 512 GiB | P20 | P30, P40, P50 |
 | 1 TiB | P30 | P40, P50 |
 | 2 TiB | P40 | P50 |
-| 4 TiB | P50 | nessuno |
+| 4 TiB | P50 | Nessuno |
 | 8 TiB | P60 |  P70, P80 |
 | 16 TiB | P70 | P80 |
-| 32 TiB | P80 | nessuno |
+| 32 TiB | P80 | Nessuno |
 
 Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/).
 

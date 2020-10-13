@@ -1,6 +1,6 @@
 ---
 title: Console seriale di Azure per Linux | Microsoft Docs
-description: Console seriale bidirezionale per macchine virtuali di Azure e set di scalabilità di macchine virtuali usando un esempio di Linux.
+description: Bi-Directional console seriale per macchine virtuali di Azure e set di scalabilità di macchine virtuali usando un esempio di Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306872"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console seriale di Azure per Linux

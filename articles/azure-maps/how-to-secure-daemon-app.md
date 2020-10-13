@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91355857"
 ---
 # <a name="secure-a-daemon-application"></a>Proteggere un'applicazione daemon
@@ -100,7 +100,7 @@ Quando è in esecuzione in un ambiente non Azure, le identità gestite non sono 
     * Se l'applicazione usa l'autenticazione del server o dell'applicazione, nella pagina di registrazione dell'app passare a **certificati & segreti**. Caricare quindi un certificato di chiave pubblica o creare una password selezionando **nuovo segreto client**.
 
         > [!div class="mx-imgBorder"]
-        > ![Creare un segreto client](./media/how-to-manage-authentication/app-keys.png)
+        > ![Creazione di un segreto client](./media/how-to-manage-authentication/app-keys.png)
 
     * Dopo aver selezionato **Aggiungi**, copiare il segreto e archiviarlo in modo sicuro in un servizio, ad esempio Azure Key Vault. Esaminare [Azure Key Vault guida](https://docs.microsoft.com/azure/key-vault/general/developers-guide) per gli sviluppatori per archiviare in modo sicuro il certificato o il segreto. Questo segreto verrà usato per ottenere i token da Azure AD.
 

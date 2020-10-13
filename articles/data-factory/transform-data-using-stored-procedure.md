@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484732"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Trasformare dati tramite l'attività stored procedure di SQL Server in Azure Data Factory
@@ -32,7 +32,7 @@ Le attività di trasformazione dei dati in una [pipeline](concepts-pipelines-act
 
 È possibile usare l'attività stored procedure per richiamare una stored procedure in uno dei seguenti archivi dati presenti in azienda o in una macchina virtuale di Azure: 
 
-- Database SQL di Azure
+- database SQL di Azure
 - Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 - Database di SQL Server.  Se si usa SQL Server, è necessario installare Runtime di integrazione (self-hosted) nello stesso computer che ospita il database o in un computer separato che ha accesso al database. Runtime di integrazione (self-hosted) è un componente che connette in modo sicuro e gestito origini dati presenti in locale o in macchine virtuali di Azure ai servizi cloud. Per informazioni dettagliate, vedere l'articolo [runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md) .
 
@@ -83,7 +83,7 @@ Il tipo di dati specificato per il parametro è il tipo di Azure Data Factory ch
 | origine dati          | Mapping dei tipi di dati |
 | ---------------------|-------------------|
 | Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Database SQL di Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| database SQL di Azure   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 

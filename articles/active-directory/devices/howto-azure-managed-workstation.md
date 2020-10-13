@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269557"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuire una workstation protetta gestita da Azure
@@ -35,7 +35,7 @@ Selezionare un profilo prima di distribuire la soluzione. È possibile utilizzar
 | Gestione di Intune | Sì | Sì | Sì | Sì | Sì | Sì |
 | Azure AD dispositivo registrato | Sì |  |  |  |  | |   |
 | Dispositivo-Azure AD aggiunto |   | Sì | Sì | Sì | Sì | Sì |
-| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Sì <br> Assicurato | ND |
+| Baseline della sicurezza di Intune applicata |   | Sì <br> Enhanced | Sì <br> (HighSecurity) | Sì <br> NCSC | Sì <br> Assicurato | N/D |
 | L'hardware soddisfa gli standard di Windows 10 protetti |   | Sì | Sì | Sì | Sì | Sì |
 | Microsoft Defender ATP abilitato |   | Sì  | Sì | Sì | Sì | Sì |
 | Rimozione dei diritti di amministratore |   |   | Sì  | Sì | Sì | Sì |
@@ -129,7 +129,7 @@ Nel portale di Azure:
 
 Questi passaggi consentono di gestire qualsiasi dispositivo con Intune. Per altre informazioni, vedere [Guida introduttiva di Intune: configurare la registrazione automatica per i dispositivi Windows 10](/Intune/quickstart-setup-auto-enrollment). I criteri di conformità e configurazione di Intune vengono creati in un passaggio successivo.
 
-#### <a name="azure-ad-conditional-access"></a>Azure AD l'accesso condizionale
+#### <a name="azure-ad-conditional-access"></a>Accesso condizionale di Azure AD
 
 Azure AD l'accesso condizionale può contribuire a limitare le attività amministrative con privilegi ai dispositivi conformi. Per eseguire l'autenticazione a più fattori per l'accesso alle applicazioni cloud sono necessari membri predefiniti del gruppo **utenti workstation protetti** . Una procedura consigliata consiste nell'escludere gli account di accesso di emergenza dal criterio. Per altre informazioni, vedere [gestire gli account di accesso di emergenza in Azure ad](../users-groups-roles/directory-emergency-access.md).
 

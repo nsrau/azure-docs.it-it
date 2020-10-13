@@ -88,7 +88,7 @@
       href: concept-feature-management.md
     - name: Gestione degli eventi
       href: concept-app-configuration-event.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Crittografare con chiavi gestite dal cliente
           href: concept-customer-managed-keys.md

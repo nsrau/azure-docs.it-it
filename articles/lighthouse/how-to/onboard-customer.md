@@ -3,12 +3,12 @@ title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 2e404c471990575460ccda3a26e7cdcb3ec1cf1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6902fb787b14c4443e28852b9aaf2533da9b49d3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396672"
+ms.locfileid: "91873214"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -19,7 +19,7 @@ Questo articolo illustra come un provider di servizi può caricare un cliente ne
 
 È possibile ripetere il processo di onboarding per più clienti. Quando un utente con le autorizzazioni appropriate accede al tenant di gestione, tale utente può essere autorizzato negli ambiti di locazione dei clienti per eseguire operazioni di gestione, senza dover accedere a ogni singolo tenant del cliente.
 
-Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. È necessario eseguire questa associazione nel tenant del provider di servizi. È consigliabile creare un account dell'entità servizio nel tenant associato all'ID MPN, quindi includere tale entità servizio ogni volta che si carica un cliente. Per altre informazioni, vedere [collegare l'ID partner per abilitare il credito guadagnato dal partner per le risorse Delegate.
+Per tenere traccia dell'impatto sull'engagement dei clienti e ricevere il riconoscimento, associare l'ID MPN (Microsoft Partner Network) ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. È necessario eseguire questa associazione nel tenant del provider di servizi. È consigliabile creare un account dell'entità servizio nel tenant associato all'ID MPN, quindi includere tale entità servizio ogni volta che si carica un cliente. Per altre informazioni, vedere [collegare l'ID partner per abilitare il credito guadagnato dal partner per le risorse delegate](partner-earned-credit.md).
 
 > [!NOTE]
 > I clienti possono anche essere caricati in Azure Lighthouse quando acquistano un'offerta di servizio gestita (pubblica o privata) [pubblicata in Azure Marketplace](publish-managed-services-offers.md). È anche possibile usare la procedura di onboarding descritta qui insieme alle offerte pubblicate in Azure Marketplace.

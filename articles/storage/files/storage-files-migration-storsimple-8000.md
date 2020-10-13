@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653248"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
@@ -427,7 +427,7 @@ Per verificare se i file sono stati lasciati, consultare i file di log Robocopy.
 
 È probabile che sia necessario creare le condivisioni SMB nel server Windows in cui si trovavano i dati StorSimple prima. È possibile eseguire il caricamento in primo piano di questo passaggio e farlo in precedenza in modo da non perdere tempo, ma è necessario assicurarsi che prima di questo punto non vengano apportate modifiche ai file nel server Windows.
 
-Se si dispone di una distribuzione DFS-N, è possibile puntare gli spazi dei nomi DFN ai nuovi percorsi delle cartelle del server. Se non si dispone di una distribuzione di DFS-N e l'appliance 8100 8600 è stata eseguita localmente con un server Windows, è possibile disconnettere il server e aggiungere il dominio al nuovo Windows Server con AFS al dominio, assegnargli lo stesso nome del server precedente e gli stessi nomi di condivisione, quindi il taglio al nuovo server rimane trasparente per gli utenti , criteri di gruppo o script.
+Se si dispone di una distribuzione DFS-N, è possibile puntare la DFN-Namespaces ai nuovi percorsi delle cartelle del server. Se non si dispone di una distribuzione di DFS-N e l'appliance 8100 8600 è stata eseguita localmente con un server Windows, è possibile disconnettere il server e aggiungere il dominio al nuovo Windows Server con AFS al dominio, assegnargli lo stesso nome del server precedente e gli stessi nomi di condivisione, quindi il taglio al nuovo server rimane trasparente per gli utenti , criteri di gruppo o script.
 
 ## <a name="phase-7-deprovision"></a>Fase 7: deprovisioning
 
@@ -458,5 +458,5 @@ Acquisire familiarità con Sincronizzazione file di Azure. Soprattutto con la fl
 Se viene visualizzato nella portale di Azure o negli eventi precedenti, che alcuni file non sono sincronizzati in modo permanente, consultare la guida alla risoluzione dei problemi per i passaggi necessari per risolvere questi problemi.
 
 * [Panoramica di Sincronizzazione file di Azure: aka.ms/AFS](https://aka.ms/AFS)
-* [Suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md) 
+* [Suddivisione in livelli cloud](storage-sync-cloud-tiering.md) 
 * [Guida alla risoluzione dei problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)

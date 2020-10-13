@@ -4,10 +4,10 @@ description: Informazioni su come eseguire il backup di macchine virtuali di Azu
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90986503"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
@@ -45,7 +45,7 @@ Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione 
 
 * Se l'insieme di credenziali rappresenta il meccanismo principale di backup, è consigliabile usare l'archiviazione con ridondanza geografica.
 * Per un'opzione più economica, è possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md#locally-redundant-storage) .
-* L' [archiviazione con ridondanza della zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati nelle [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area.
+* L'[archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendone la residenza e la resilienza nella stessa area.
 
 Modificare il tipo di replica di archiviazione come segue:
 

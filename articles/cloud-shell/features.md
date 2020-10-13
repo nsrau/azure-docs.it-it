@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470154"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
@@ -55,13 +55,13 @@ Tutte le modifiche apportate alle risorse di Azure, sia se eseguite direttamente
 
 PowerShell in Cloud Shell contiene una compilazione privata del modulo Exchange Online.  Eseguire `Connect-EXOPSSession` per ottenere i cmdlet di Exchange.
 
-![Screenshot di un Azure Cloud Shell esecuzione dei comandi Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
+![Screenshot di un Azure Cloud Shell che esegue i comandi Connect-EXOPSSession e Get-User.](media/features-powershell/exchangeonline.png)
 
  Eseguire `Get-Command -Module tmp_*`
 > [!NOTE]
 > Il nome del modulo dovrebbe iniziare con `tmp_` , se sono stati installati moduli con lo stesso prefisso, verranno visualizzati anche i relativi cmdlet. 
 
-![Screenshot di un Azure Cloud Shell che esegue il comando Get-Command-module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
+![Screenshot di un Azure Cloud Shell che esegue il comando Get-Command-Module tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Stretta integrazione con strumenti open source
 
@@ -78,7 +78,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
 |Contenitori             |[Computer Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [Interfaccia della riga di comando DC/OS](https://github.com/dcos/dcos-cli)         |
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [INTERFACCIA della riga di comando di Office 365](https://pnp.github.io/office365-cli/)|
+|Altro                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Bolt marionetta](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [INTERFACCIA della riga di comando di Office 365](https://pnp.github.io/office365-cli/)|
 
 ## <a name="language-support"></a>Lingue supportate
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398870"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registrazione e controllo di sicurezza di Azure
@@ -46,7 +46,7 @@ I log di Azure sono suddivisi nei tipi seguenti:
 
 La tabella seguente elenca i più importanti tipi di log disponibili in Azure.
 
-| Categoria di log | Tipo di log | Uso | Integrazione |
+| Categoria di log | Tipo di log | Utilizzo | Integrazione |
 | ------------ | -------- | ------ | ----------- |
 |[Log attività](../../azure-monitor/platform/platform-logs-overview.md)|Gli eventi del piano di controllo sulle risorse di Azure Resource Manager|  Offrono informazioni dettagliate sulle operazioni eseguite sulle risorse nella sottoscrizione.|    API REST e [Monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Log delle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md)|Dati frequenti sul funzionamento delle risorse di Azure Resource Manager nella sottoscrizione|   Offrono informazioni dettagliate sulle operazioni eseguite dalla risorsa stessa.| Monitoraggio di Azure|
