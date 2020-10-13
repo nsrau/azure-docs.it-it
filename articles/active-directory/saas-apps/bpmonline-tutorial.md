@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 0fe0dd43a59b0fb23a3a74509841402880b6fd69
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a6150093bd6735fe3ba6b2ff20aea89a3802bf21
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548156"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743472"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-creatio"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Creatio
 
@@ -93,11 +93,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
-    ![Collegamento di download del certificato](common/certificatebase64.png)
+    ![Screenshot che mostra la pagina Certificato di firma SAML con un collegamento di download per un certificato Base64.](common/certificatebase64.png)
 
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
-    ![Collegamento di download del certificato](common/copy-metadataurl.png)
+    ![Screenshot che mostra la pagina Certificato di firma SAML in cui è possibile copiare il valore di URL dei metadati di federazione dell'app.](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 

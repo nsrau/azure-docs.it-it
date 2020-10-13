@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549418"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713816"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con AskYourTeam
 
@@ -131,19 +131,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **My Organisation** (La mia organizzazione).
 
-    ![Configurazione di AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot che mostra il collegamento My Organisation.](./media/askyourteam-tutorial/user1.png)
 
 1. Fare clic su **Integrations** (Integrazioni).
 
-    ![Configurazione di AskYourTeam](./media/askyourteam-tutorial/configure1.png)
+    ![Screenshot che mostra il collegamento Integrations.](./media/askyourteam-tutorial/configure1.png)
 
 1. Fare clic su **Edit Settings** (Modifica impostazioni).
 
-    ![Configurazione di AskYourTeam](./media/askyourteam-tutorial/configure2.png)
+    ![Screenshot che mostra il messaggio Single Sign-On con un pulsante Edit Settings.](./media/askyourteam-tutorial/configure2.png)
 
 1. Nella pagina **Edit Single Sign-On Integration** (Modifica integrazione per l'accesso Single Sign-On) seguire questa procedura: 
 
-    ![Configurazione di AskYourTeam](./media/askyourteam-tutorial/configure3.png)
+    ![Screenshot che mostra la schermata Edit Single Sign-On Integration in cui è possibile immettere i valori per questo passaggio.](./media/askyourteam-tutorial/configure3.png)
 
     a. Nella casella di testo **SAML Single Sign-On Service URL** (URL del servizio Single Sign-On SAML) incollare il valore di **Login URL** (URL di accesso) copiato dal portale di Azure.
 
@@ -168,15 +168,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **My Organisation** (La mia organizzazione).
 
-    ![Configurazione di AskYourTeam](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot che mostra il collegamento My Organisation che consente di avviare questa attività.](./media/askyourteam-tutorial/user1.png)
 
 1. Fare clic su **Users** (Utenti) e selezionare **New User** (Nuovo utente).
 
-    ![Configurazione di AskYourTeam](./media/askyourteam-tutorial/user2.png)
+    ![Screenshot che mostra il collegamento Users con il pulsante New User.](./media/askyourteam-tutorial/user2.png)
 
 1. Nella sezione **New user** (Nuovo utente) seguire questa procedura:
 
-    ![Configurazione di AskYourTeam](./media/askyourteam-tutorial/user3.png)
+    ![Screenshot che mostra un sezione New User in cui immettere le informazioni utente.](./media/askyourteam-tutorial/user3.png)
 
     1. Nella casella di testo **First name** (Nome) immettere il nome dell'utente.
 

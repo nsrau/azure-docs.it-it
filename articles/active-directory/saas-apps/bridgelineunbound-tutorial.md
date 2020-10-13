@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 9089227d28b5e0141521dd4db2cc0883f6ecfc77
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d17c2d1a9ca41965bff7f7f72e2e753374a0fe2
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548175"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740793"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Esercitazione: Integrazione di Azure Active Directory con Bridgeline Unbound
 
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bridgeline Unbound, seg
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bridgeline Unbound](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `iApps_UPSTT_<ENVIRONMENTNAME>`
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bridgeline Unbound, seg
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Bridgeline Unbound](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
 

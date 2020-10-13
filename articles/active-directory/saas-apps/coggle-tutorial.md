@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555970"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759528"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Coggle
 
@@ -146,19 +146,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Fare clic sull'account **Coggle** e selezionare **My Settings** (Impostazioni personali).
 
-    ![Configurazione di Coggle](./media/Coggle-tutorial/configure1.png)
+    ![Screenshot che mostra il sito aziendale Coggle con l'opzione My Settings selezionata.](./media/Coggle-tutorial/configure1.png)
 
 3. Fare clic sul **Logo** seguente e selezionare **Authentication** (Autenticazione).
 
-    ![Configurazione di Coggle](./media/Coggle-tutorial/configure2.png)
+    ![Screenshot che mostra l'icona di una balena e l'opzione Authentication selezionate.](./media/Coggle-tutorial/configure2.png)
 
 4. Fare clic su **Edit SAML Config** (Modifica configurazione SAML).
 
-    ![Configurazione di Coggle](./media/Coggle-tutorial/configure3.png)
+    ![Screenshot che mostra la pagina SAML Integration con l'opzione Edit SAML Config.](./media/Coggle-tutorial/configure3.png)
 
 5. Nella pagina della finestra di dialogo **SAML Integration** (Integrazione SAML) seguire questa procedura:
 
-    ![Configurazione di Coggle](./media/Coggle-tutorial/configure4.png)
+    ![Screenshot che mostra la pagina SAML Integration in cui è possibile immettere le informazioni in questo passaggio.](./media/Coggle-tutorial/configure4.png)
 
     a. Nella casella di testo **Entrypoint (ID Provider SSO URL)** (Punto di ingresso URL SSO del provider di identità) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 

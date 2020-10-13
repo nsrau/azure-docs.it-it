@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 71181a30785ba729b87ddd51077d1c07b0b9a8df
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e22b34244e36cf9e4ff421383824377f23009812
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522182"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Esercitazione: Integrazione di Azure Active Directory con &frankly
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con &frankly, seguire quest
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di &frankly](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con &frankly, seguire quest
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di &frankly](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
 

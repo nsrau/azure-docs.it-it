@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536258"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775168"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Esercitazione: Integrazione di Displayr con Azure Active Directory
 
@@ -88,15 +88,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione Displayr prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la sezione "Attributi utente" con l'icona "Modifica" evidenziata.](common/edit-attribute.png)
 
 1. Oltre a quanto elencato in precedenza, l'applicazione Displayr prevede il passaggio di altri attributi nella risposta SAML. Nella sezione **Attributi e attestazioni utente** della finestra di dialogo **Attestazioni gruppo (Anteprima)** seguire questa procedura:
 
     a. Fare clic sulla **penna** accanto a **Gruppi restituiti nell'attestazione**.
 
-    ![image](./media/displayr-tutorial/config04.png)
+    ![Screenshot che mostra la sezione "Attributi utente e attestazioni" con l'icona della penna accanto a "Gruppi restituiti nell'attestazione" selezionata.](./media/displayr-tutorial/config04.png)
 
-    ![image](./media/displayr-tutorial/config05.png)
+    ![Screenshot che mostra la finestra "Attestazioni basate su gruppo (anteprima)" con le impostazioni selezionate.](./media/displayr-tutorial/config05.png)
 
     b. Selezionare **Tutti i gruppi** dall'elenco dei pulsanti di opzione.
 
@@ -126,11 +126,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 4. Fare clic su **Settings** (Impostazioni) e quindi passare ad **Account**.
 
-    ![Configurazione](./media/displayr-tutorial/config01.png)
+    ![Screenshot che mostra l'icona "Settings" e l'opzione "Account" selezionate.](./media/displayr-tutorial/config01.png)
 
 5. Passare a **Settings** (Impostazioni) dal menu in alto e scorrere la pagina verso il basso per fare clic su **Configure Single Sign On (SAML)** (Configura Single Sign-On - SAML).
 
-    ![Configurazione](./media/displayr-tutorial/config02.png)
+    ![Screenshot che mostra la scheda "Settings" e l'azione "Configure Single Sign On (SAML)" selezionate.](./media/displayr-tutorial/config02.png)
 
 6. Nella pagina **Single Sign-On (SAML)** seguire questa procedura:
 
@@ -190,11 +190,11 @@ Per consentire agli utenti di Azure AD di accedere a Displayr, è necessario eff
 
 2. Fare clic su **Settings** (Impostazioni) e quindi passare ad **Account**.
 
-    ![Configurazione di Displayr](./media/displayr-tutorial/config01.png)
+    ![Screenshot che mostra l'icona "Settings" (ingranaggio) e l'opzione "Account" selezionate.](./media/displayr-tutorial/config01.png)
 
 3. Passare a **Settings** (Impostazioni) dal menu in alto e scorrere la pagina verso il basso fino alla sezione **Users** (Utenti) e quindi fare clic su **New User** (Nuovo utente).
 
-    ![Configurazione di Displayr](./media/displayr-tutorial/config07.png)
+    ![Screenshot che mostra la scheda "Settings" con l'opzione "Users" evidenziata e il pulsante "New User" selezionato.](./media/displayr-tutorial/config07.png)
 
 4. Nella pagina **New User** (Nuovo utente) seguire questa procedura:
 

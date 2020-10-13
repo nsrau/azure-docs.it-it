@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544741"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Esercitazione: Integrazione di Azure Active Directory con AnswerHub
 
@@ -140,7 +140,7 @@ In questa sezione viene configurato l'accesso Single Sign-On per AnswerHub.
 
 4. Nella scheda **IDP Config** (Configurazione IDP) completare questa procedura:
 
-    ![Scheda per utenti e gruppi](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
+    ![Screenshot che mostra la pagina di AnswerHub con la scheda Users & Groups selezionata.](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
   
     a. Nella casella **IDP Login URL** (URL di accesso IDP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
   
@@ -231,7 +231,7 @@ Per consentire agli utenti di Azure AD di accedere ad AnswerHub, è necessario a
 
 4. Nel riquadro sinistro selezionare **Create or import users** (Crea o importa utenti) nella sezione **Manage Users** (Gestisci utenti) e quindi selezionare **Users & Groups** (Utenti e gruppi).
 
-   ![Scheda per utenti e gruppi](./media/answerhub-tutorial/ic785175.png "Utenti e gruppi")
+   ![Screenshot che mostra la pagina di AnswerHub con la scheda Users & Groups selezionata e il collegamento Create or import users evidenziato.](./media/answerhub-tutorial/ic785175.png "Utenti e gruppi")
 
 5. Nelle caselle appropriate immettere l'**indirizzo di posta elettronica**, il **nome utente** e la **password** di un account Azure AD valido da aggiungere e quindi selezionare **Save** (Salva).
 

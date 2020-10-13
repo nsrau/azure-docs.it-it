@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 7079ffd5cb2fe643d93dea0f5c9384a7931dc8a6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1754929629bd05dc48419e521fa8e07f7c873217
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550660"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823391"
 ---
 # <a name="tutorial-integrate-ey-globalone-with-azure-active-directory"></a>Esercitazione: Integrare EY GlobalOne con Azure Active Directory
 
@@ -80,7 +80,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione EY GlobalOne prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la sezione "Attributi utente" con l'icona "Modifica" selezionata.](common/edit-attribute.png)
 
 1. Oltre a quelli elencati in precedenza, l'applicazione EY GlobalOne prevede il passaggio di altri attributi nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
@@ -93,7 +93,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot che mostra la sezione "Attestazioni utente" con le azioni "Aggiungi nuova attestazione" e "Salva" evidenziate.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

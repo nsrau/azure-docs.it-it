@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538655"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708799"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 8x8
 
@@ -147,11 +147,11 @@ La parte successiva dell'esercitazione dipende dal tipo di sottoscrizione 8x8 sc
 
 1. Nella home page fare clic su **Identity Management** (Gestione identità).
 
-    ![Configuration Manager per 8x8](./media/8x8virtualoffice-tutorial/configure1.png)
+    ![Screenshot con il riquadro Identity Management evidenziato.](./media/8x8virtualoffice-tutorial/configure1.png)
 
 1. Selezionare **Single Sign-on (SSO)** e quindi **Microsoft Azure AD**.
 
-    ![Configuration Manager per 8x8](./media/8x8virtualoffice-tutorial/configure2.png)
+    ![Screenshot con le opzioni Single Sign-on (SSO) e Microsoft Azure AD evidenziate.](./media/8x8virtualoffice-tutorial/configure2.png)
 
 1. Copiare i tre URL e il certificato di firma dalla pagina **Configura l'accesso Single Sign-On con SAML** nella sezione **Microsoft Azure AD SAML Settings** (Impostazioni SAML di Microsoft Azure AD) in Configuration Manager di 8x8.
 
@@ -173,23 +173,23 @@ La parte successiva dell'esercitazione dipende dal tipo di sottoscrizione 8x8 sc
 
 1. Selezionare **Virtual Office Account Mgr** (Account manager di Virtual Office) nel pannello dell'applicazione.
 
-    ![Configurazione sul lato app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+    ![Screenshot con il riquadro Virtual Office Account Mgr evidenziato.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 1. Selezionare l'account **Business** (Aziendale) da gestire e fare clic sul pulsante **Sign In** (Accedi).
 
-    ![Configurazione sul lato app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+    ![Screenshot con l'opzione Business e il pulsante Sign In evidenziati.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Fare clic sulla scheda **ACCOUNTS** (ACCOUNT) nell'elenco di menu.
 
-    ![Configurazione sul lato app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+    ![Screenshot con la scheda ACCOUNTS nell'elenco di menu evidenziata.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 1. Fare clic su **Single Sign On** nell'elenco di account.
 
-    ![Configurazione sul lato app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+    ![Screenshot con l'opzione Single Sign On evidenziata.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Selezionare **Single Sign-On** sotto Metodi di autenticazione e fare clic su **SAML**.
 
-    ![Configurazione sul lato app](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+    ![Screenshot con l'opzione SAML in Single Sign On evidenziata.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
 1. Nella sezione **SAML Single Sign-On** seguire questa procedura:
 

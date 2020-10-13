@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554971"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Esercitazione: Integrazione di Azure Active Directory con Flatter Files
 
@@ -121,11 +121,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Flatter Files, seguire 
 
 2. Fare clic su **DASHBOARD**. 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Screenshot che mostra l'opzione "DASHBOARD" selezionata nell'app "Flatter Files".](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Fare clic su **Settings** (Impostazioni) e quindi nella scheda **Company** (Azienda) seguire questa procedura: 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Screenshot che mostra la scheda "Company" con l'opzione "Use SAML 2.0 for Authentication" e il pulsante "Configure SAML" selezionati.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. Selezionare **Use SAML 2.0 for Authentication**.
     
@@ -207,7 +207,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Flatter F
 
 2. Nel riquadro di spostamento a sinistra fare clic su **Settings** (Impostazioni) e quindi fare clic sulla scheda **Users** (Utenti).
    
-    ![Creare un utente in Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Screenshot che mostra la pagina "Settings" con la scheda "Users" selezionata.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Fare clic su **Add User**. 
 

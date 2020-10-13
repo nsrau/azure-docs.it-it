@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 39339803945034765fbc30e6f5fc11e737f750c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538400"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Esercitazione: Integrazione di Azure Active Directory con Acadia
 
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Acadia, seguire questa 
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Acadia](common/idp-intiated.png)
+    ![Screenshot che mostra gli elementi della schermata necessari per configurare l'applicazione in modalità avviata da IDP.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 

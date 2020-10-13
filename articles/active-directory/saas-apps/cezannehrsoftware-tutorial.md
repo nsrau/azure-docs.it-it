@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c9e0b6a81742ea4022bb8db2dd8d933f917331b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530083"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Esercitazione: Integrazione di Azure Active Directory con Cezanne HR Software
 
@@ -130,19 +130,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cezanne HR Software, se
 
 2. Nella barra di spostamento a sinistra fare clic su **System Setup**(Configurazione di sistema). Passare a **Security Settings**(Impostazioni di sicurezza). Passare quindi a **Single Sign-On Configuration**(Configurazione Single Sign-On).
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![Screenshot che mostra il tenant Cezanne HR Software con le opzioni Security Settings e Single Sign-On Configuration selezionate.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. Nel pannello **Allow users to log in using the following Single Sign-On (SSO) Service** (Consenti agli utenti di accedere usando il servizio Single Sign-On (SSO) seguente) selezionare la casella **SAML 2.0** e quindi l'opzione **Advanced Configuration** (Configurazione avanzata).
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+    ![Screenshot che mostra il riquadro Allow users con le opzioni SAML 2.0 e Advanced Configuration selezionate.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
 4. Fare clic sul pulsante **Add New** (Aggiungi nuovo).
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+    ![Screenshot che mostra il pulsante Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
 5. Seguire questa procedura nella sezione **SAML 2.0 IDENTITY PROVIDERS** (PROVIDER DI IDENTITÀ SAML 2.0).
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    ![Screenshot che mostra un riquadro in cui è possibile immettere i valori descritti in questo passaggio.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
     a. Immettere il nome del provider di identità in **Display Name**(Nome visualizzato).
 
@@ -160,7 +160,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Cezanne HR Software, se
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![Screenshot che mostra il pulsante Save per Single Sign-on Configuration.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -223,11 +223,11 @@ Per consentire agli utenti di Azure AD di accedere a Cezanne HR Software, è nec
 
 2. Nella barra di spostamento a sinistra fare clic su **System Setup**(Configurazione di sistema). Passare a **Gestisci utenti**. Passare quindi ad **Add New User**(Aggiungi nuovo utente).
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nuovo utente")
+    ![Screenshot che mostra il tenant Cezanne HR Software con le opzioni Manage Users e Add New User selezionate.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "Nuovo utente")
 
 3. Nella sezione **PERSON DETAILS** (DETTAGLI PERSONA) seguire questa procedura:
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nuovo utente")
+    ![Screenshot che mostra la sezione PERSON DETAILS in cui è possibile immettere i valori descritti in questo passaggio.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Nuovo utente")
 
     a. Impostare **Internal User** (Utente interno) su OFF.
 
@@ -239,7 +239,7 @@ Per consentire agli utenti di Azure AD di accedere a Cezanne HR Software, è nec
 
 4. Nella sezione **Account Information** (Informazioni account) seguire questa procedura:
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nuovo utente")
+    ![Screenshot che mostra la sezione ACCOUNT INFORMATION in cui è possibile immettere i valori descritti in questo passaggio.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Nuovo utente")
 
     a. Nella casella di testo **Username** (Nome utente) digitare l'indirizzo di posta elettronica di un utente, ad esempio Brittasimon@contoso.com.
 
@@ -251,15 +251,15 @@ Per consentire agli utenti di Azure AD di accedere a Cezanne HR Software, è nec
 
 5. Passare alla scheda **Single Sign-On** e selezionare **Add New** (Aggiungi nuovo) nell'area **SAML 2.0 Identifiers** (Identificatori SAML 2.0).
 
-    ![Utente](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utente")
+    ![Screenshot che mostra la scheda Single Sign-On in cui è possibile selezionare Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Utente")
 
 6. Scegliere il provider di identità per **Identity Provider** (Provider di identità) e nella casella di testo **User Identifier** (Identificatore utente) immettere l'indirizzo di posta elettronica dell'account Britta Simon.
 
-    ![Utente](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utente")
+    ![Screenshot che mostra la sezione SAML 2.0 Identifiers in cui è possibile selezionare un valore per Identity Provider e User Identifier.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Utente")
 
 7. Fare clic sul pulsante **Salva** .
 
-    ![Utente](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utente")
+    ![Screenshot che mostra il pulsante Save per User Settings.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Utente")
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 

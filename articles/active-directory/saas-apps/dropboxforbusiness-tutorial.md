@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555740"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775145"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Esercitazione: Integrare Dropbox Business con Azure Active Directory
 
@@ -145,27 +145,27 @@ In questa sezione si abiliterà Britta Simon all'uso dell'accesso Single Sign-On
 
 3. Per configurare manualmente Dropbox Business, aprire una nuova finestra del Web browser, passare al tenant di Dropbox Business e accedere al proprio tenant di Dropbox Business. Seguire quindi questa procedura:
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/ic769509.png "Configura accesso Single Sign-On")
+    ![Screenshot che mostra la pagina "Dropbox Business Sign in".](./media/dropboxforbusiness-tutorial/ic769509.png "Configura accesso Single Sign-On")
 
 4. Fare clic su **Icona utente** e selezionare la scheda **Impostazioni**.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure1.png "Configura accesso Single Sign-On")
+    ![Screenshot che mostra l'azione "USER ICON" e l'opzione "Settings" selezionate.](./media/dropboxforbusiness-tutorial/configure1.png "Configura accesso Single Sign-On")
 
 5. Nel riquadro di spostamento a sinistra fare clic su **Console di amministrazione**.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure2.png "Configura accesso Single Sign-On")
+    ![Screenshot che mostra l'opzione "Admin console" selezionata.](./media/dropboxforbusiness-tutorial/configure2.png "Configura accesso Single Sign-On")
 
 6. In **Console di amministrazione** fare clic su **Impostazioni** nel riquadro di spostamento a sinistra.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure3.png "Configura accesso Single Sign-On")
+    ![Screenshot che mostra l'opzione "Settings" selezionata.](./media/dropboxforbusiness-tutorial/configure3.png "Configura accesso Single Sign-On")
 
 7. Selezionare l'opzione **Single sign-on** sotto la sezione **Autenticazione**.
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure4.png "Configura accesso Single Sign-On")
+    ![Screenshot che mostra la sezione "Authentication" con l'opzione "Single sign-on" selezionata.](./media/dropboxforbusiness-tutorial/configure4.png "Configura accesso Single Sign-On")
 
 8. Nella sezione **Single sign-on**seguire questa procedura:  
 
-    ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure5.png "Configura accesso Single Sign-On")
+    ![Screenshot che mostra le impostazioni di configurazione di "Single sign-on".](./media/dropboxforbusiness-tutorial/configure5.png "Configura accesso Single Sign-On")
 
     a. Selezionare **Required** (Obbligatorio) come opzione nell'elenco a discesa **Single sign-on**.
 

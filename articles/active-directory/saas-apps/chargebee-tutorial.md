@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 6358c41ab6d63baa8ed1fa6960d7d887825a1d78
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529482"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760649"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>Esercitazione: Integrare Chargebee con Azure Active Directory
 
@@ -132,11 +132,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Nella parte sinistra del menu fare clic su **Settings** (Impostazioni)  > **Security** (Sicurezza)  > **Manage** (Gestisci).
 
-    ![Configurazione di Chargebee](./media/chargebee-tutorial/config01.png)
+    ![Screenshot che mostra il sito aziendale Chargebee con le opzioni Settings, Security e Manage selezionate.](./media/chargebee-tutorial/config01.png)
 
 5. Nel popup **Single Sign-On** seguire questa procedura:
 
-    ![Configurazione di Chargebee](./media/chargebee-tutorial/config02.png)
+    ![Screenshot che mostra la finestra di dialogo Single Sign-On con SAML selezionato e l'opzione da confermare.](./media/chargebee-tutorial/config02.png)
 
     a. Selezionare **SAML**.
 
@@ -156,11 +156,11 @@ Per consentire agli utenti di Azure AD di accedere a Chargebee, è necessario ef
 
 2. Nella parte sinistra del menu fare clic su **Customers** (Clienti) e quindi passare a **Create a New Customer** (Crea un nuovo cliente).
 
-    ![Configurazione di Freedcamp](./media/chargebee-tutorial/config03.png)
+    ![Screenshot che mostra il sito di Chargebee con le opzioni Customers e Create a New Customer selezionate.](./media/chargebee-tutorial/config03.png)
 
 3. Nella pagina **New Customer** (Nuovo cliente) compilare i campi corrispondenti mostrati di seguito e fare clic su **Create Customer** (Crea cliente) per procedere alla creazione dell'utente.
 
-    ![Configurazione di Freedcamp](./media/chargebee-tutorial/config04.png)
+    ![Screenshot che mostra la pagina New Customer in cui è possibile immettere le informazioni sui clienti.](./media/chargebee-tutorial/config04.png)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 8724bb332e48bb9e458550b312fb9c1d41da2477
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a98bec006a1bbb755a0c310b8e0409302c45198
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550572"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Esercitazione: Integrazione di Azure Active Directory con Infor Retail – Information Management
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Infor Retail – Inform
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Infor Retail – Information Management](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Infor Retail – Inform
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Infor Retail – Information Management](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<company name>.mingle.infor.com/<company code>`
 

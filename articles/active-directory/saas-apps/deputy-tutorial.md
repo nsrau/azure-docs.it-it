@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e9ca679c7bb8deedca20a5aa97cbb53a9139ea8a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6d0062214b4faa0cb2b26c30f1c2833d25d5493e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536876"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Esercitazione: Integrazione di Azure Active Directory con Deputy
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Deputy, seguire questa 
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Deputy](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le opzioni "Identificatore" e "URL di risposta" e il pulsante "Salva" evidenziati.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
@@ -171,7 +171,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Deputy, seguire questa 
 
 1. Passare all'URL seguente: `https://(your-subdomain).deputy.com/exec/config/system_config`. Passare a **Security Settings**(Impostazioni di sicurezza) e fare clic su **Modifica**.
    
-    ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Screenshot che mostra la pagina "System Config" con il pulsante "Security Settings - Edit" selezionato.](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. In questa pagina **Security Settings** (Impostazioni di sicurezza) attenersi alla procedura seguente.
 

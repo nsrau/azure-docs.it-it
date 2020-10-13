@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550255"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Esercitazione: Integrazione di Azure Active Directory con Attendance Management Services
 
@@ -128,11 +128,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Attendance Management S
 
 1. Fare clic su **SAML authentication** (Autenticazione SAML) nella sezione **Security management** (Gestione sicurezza).
 
-    ![Configurazione di Attendance Management Services](./media/attendancemanagementservices-tutorial/user1.png)
+    ![Screenshot che mostra l'opzione SAML authentication selezionata in una pagina che usa caratteri non latini.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Eseguire la procedura seguente:
 
-    ![Configurazione di Attendance Management Services](./media/attendancemanagementservices-tutorial/user2.png)
+    ![Screenshot che mostra una finestra in cui è possibile eseguire le attività descritte in questo passaggio.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. Selezionare **Use SAML authentication** (Usa autenticazione SAML).
 
@@ -206,15 +206,15 @@ Per consentire agli utenti di Azure AD di accedere ad Attendance Management Serv
 
 1. Fare clic su **User management** (Gestione utenti) nella sezione **Security management** (Gestione sicurezza).
 
-    ![Aggiungere un dipendente](./media/attendancemanagementservices-tutorial/user5.png)
+    ![Screenshot che mostra l'opzione User management selezionata in una pagina che usa caratteri non latini.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Fare clic su **New rules login** (Nuovo accesso con regole).
 
-    ![Aggiungere un dipendente](./media/attendancemanagementservices-tutorial/user3.png)
+    ![Screenshot che mostra la selezione dell'opzione per l'aggiunta (segno più).](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. Nella sezione **OBCiD information** (Informazioni OBCiD) seguire questa procedura:
 
-    ![Aggiungere un dipendente](./media/attendancemanagementservices-tutorial/user4.png)
+    ![Screenshot che mostra una finestra in cui è possibile eseguire le attività descritte.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. Nella casella di testo **OBCiD** digitare l'indirizzo di posta elettronica dell'utente, ad esempio `BrittaSimon\@contoso.com`.
 

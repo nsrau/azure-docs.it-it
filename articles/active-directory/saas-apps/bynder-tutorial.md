@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: f47fe7f18c4054f65e7a6882d4003006b1a896ad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9a0318b8deedf8f4725efee2f3c2723f1a4fe6d3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547577"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740242"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Esercitazione: Integrare Bynder con Azure Active Directory
 
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione Bynder prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra il riquadro Attributi utente e attestazioni con l'icona di modifica selezionata.](common/edit-attribute.png)
 
 1. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
@@ -116,7 +116,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     1. Fare clic su **Salva**.
 
-        ![image](./media/bynder-tutorial/config08.png)
+        ![Screenshot che mostra la sezione Attestazioni di gruppo con le opzioni Gruppi di sicurezza e ID gruppo selezionate.](./media/bynder-tutorial/config08.png)
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML dei metadati** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 

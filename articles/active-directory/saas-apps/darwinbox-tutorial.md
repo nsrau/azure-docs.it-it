@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550111"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775440"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Darwinbox
 
@@ -143,19 +143,19 @@ Quando si fa clic sul riquadro di Darwinbox nel pannello di accesso, si dovrebbe
 
 1. Aprire l'applicazione per dispositivi mobili Darwinbox. Fare clic su **Enter Organization URL** (Immetti l'URL dell'organizzazione), immettere l'URL dell'organizzazione nella casella di testo e fare clic sul pulsante con la freccia.
 
-    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Screenshot che mostra l'app per dispositivi mobili "Darwinbox" con l'opzione "Enter Organization URL" selezionata e un'organizzazione di esempio e il pulsante con la freccia evidenziati.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. Se sono disponibili più domini, fare clic sul dominio desiderato.
 
-    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Screenshot che mostra la schermata "Choose your domain" con un dominio di esempio selezionato.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Immettere l'indirizzo di posta elettronica di Azure AD nell'applicazione Darwinbox e fare clic su **Next** (Avanti).
 
-    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Screenshot che mostra la schermata "Sign in" con il pulsante "Next" evidenziato.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Immettere la password di Azure AD nell'applicazione Darwinbox e fare clic su **Sign in** (Accedi).
 
-    ![App per dispositivi mobili Darwinbox](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Screenshot che mostra la schermata "Enter password" con il pulsante "Next" evidenziato.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. Al termine dell'accesso verrà infine visualizzata la home page dell'applicazione.
 

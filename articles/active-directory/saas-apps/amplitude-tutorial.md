@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545475"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713577"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Amplitude
 
@@ -141,15 +141,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Plan Admin** (Amministratore piano) nella barra di spostamento a sinistra.
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure1.png)
+    ![Screenshot che mostra il menu di Amplitude con l'opzione Plan Admin selezionata.](./media/amplitude-tutorial/configure1.png)
 
 1. Selezionare **Microsoft Azure Active Directory Metadata** (Metadati di Microsoft Azure Active Directory) nell'**integrazione SSO**.
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure2.png)
+    ![Screenshot che mostra il riquadro Plan Admin con il collegamento Microsoft Azure Active Directory Metadata evidenziato.](./media/amplitude-tutorial/configure2.png)
 
 1. Nella sezione **Set Up Single Sign-On** (Configurare l'accesso Single Sign-On) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/amplitude-tutorial/configure3.png)
+    ![Screenshot che mostra la sezione Set Up Single Sign-on con i valori descritti in questo passaggio.](./media/amplitude-tutorial/configure3.png)
 
     a. Aprire il **file XML dei metadati** scaricato dal portale di Azure nel Blocco note, copiare il contenuto e incollarlo nella casella di testo **Microsoft Azure Active Directory Metadata** (Metadati di Microsoft Azure Active Directory).
 
