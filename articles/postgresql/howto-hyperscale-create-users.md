@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
 ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295737"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Creare utenti in database di Azure per PostgreSQL-iperscalabilità (CITUS)
@@ -50,9 +50,9 @@ Come indicato in precedenza, l' `citus` account amministratore non dispone dell'
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Pagina ruoli":::
 
-2. Immettere il nome e la password del ruolo. Fare clic su **Salva**.
+2. Immettere il nome e la password del ruolo. Fare clic su **Save**.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Aggiungi ruolo":::
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Pagina ruoli":::
 
 L'utente verrà creato nel nodo coordinatore del gruppo di server e propagato a tutti i nodi del ruolo di lavoro. I ruoli creati tramite il portale di Azure hanno l' `LOGIN` attributo, che indica che si tratta di utenti veri che possono accedere al database.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Per aggiornare un utente, visitare la pagina **ruoli** per il gruppo di server iperscalabile (CITUS) e fare clic sui puntini di sospensione **...** accanto all'utente. I puntini di sospensione aprono un menu per eliminare l'utente o reimpostare la password.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Modificare un ruolo":::
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Pagina ruoli":::
 
 Il `citus` ruolo è con privilegi e non può essere eliminato.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449780"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creare report interattivi con cartelle di lavoro in Monitoraggio di Azure per le macchine virtuali
@@ -26,7 +26,7 @@ Le cartelle di lavoro sono utili per scenari come:
 
 Nella tabella seguente sono riepilogate le cartelle di lavoro che Monitoraggio di Azure per le macchine virtuali include per iniziare.
 
-| Cartella di lavoro | Descrizione | Ambito |
+| Cartella di lavoro | Descrizione | Scope |
 |----------|-------------|-------|
 | Prestazioni | Fornisce una versione personalizzabile della visualizzazione Top N list e Charts in una singola cartella di lavoro che utilizza tutti i contatori delle prestazioni Log Analytics abilitati.| Su larga scala |
 | Contatori delle prestazioni | Visualizzazione del grafico Top N in un'ampia gamma di contatori delle prestazioni. | Su larga scala |

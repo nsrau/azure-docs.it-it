@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705511"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
@@ -72,7 +72,7 @@ Per consentire agli utenti di accedere con il proprio account aziendale, è nece
 
 Al termine della configurazione nell'app Dropbox, gli utenti guest o membro ricevono un invito separato da Dropbox. Per usare l'accesso Single Sign-On in Dropbox, gli invitati devono accettare l'invito facendo clic su un collegamento in esso contenuto.
 
-## <a name="box"></a>Casella
+## <a name="box"></a>Box
 È possibile consentire agli utenti di autenticare utenti guest Box con il proprio account Azure AD usando la federazione basata sul protocollo SAML. In questa procedura si caricano metadati in Box.com.
 
 1. Aggiungere l'app Box dalle app aziendali.

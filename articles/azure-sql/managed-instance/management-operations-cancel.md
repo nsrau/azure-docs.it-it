@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997241"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Annullamento delle operazioni di gestione di Istanza gestita SQL di Azure
@@ -38,12 +38,12 @@ Nella tabella seguente sono riepilogate le operazioni di gestione, se è possibi
 
 Category  |Operazione  |Annullabile  |Durata stimata annullamento  |
 |---------|---------|---------|---------|
-|Distribuzione |Creazione di istanze |Sì |90% di operazioni terminano tra 5 minuti. |
+|Distribuzione |Creazione di istanze |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
 |Aggiornamento |Scalabilità verticale/orizzontale di archiviazione dell'istanza (per utilizzo generico) |No |  |
-|Aggiornamento |Scalabilità verticale/orizzontale di archiviazione dell'istanza (business critical) |Sì |90% di operazioni terminano tra 5 minuti. |
-|Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (per utilizzo generico) |Sì |90% di operazioni terminano tra 5 minuti. |
-|Aggiornamento |Scalabilità verticale (VCore) di calcolo dell'istanza (business critical) |Sì |90% di operazioni terminano tra 5 minuti. |
-|Aggiornamento |Modifica del livello di servizio dell'istanza (per utilizzo generico business critical e viceversa) |Sì |90% di operazioni terminano tra 5 minuti. |
+|Aggiornamento |Scalabilità verticale/orizzontale di archiviazione dell'istanza (business critical) |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
+|Aggiornamento |Aumento e riduzione del calcolo (vCore) delle istanze (utilizzo generico) |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
+|Aggiornamento |Aumento e riduzione del calcolo (vCore) delle istanze (business critical) |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
+|Aggiornamento |Modifica del livello di servizio dell'istanza (da utilizzo generico a business critical e viceversa) |Sì |Il 90% delle operazioni viene completato in 5 minuti. |
 |Elimina |Eliminazione di un'istanza |No |  |
 |Elimina |Eliminazione di un cluster virtuale (operazione avviata dall'utente) |No |  |
 
@@ -61,7 +61,7 @@ Per annullare le operazioni di gestione utilizzando la portale di Azure, attener
 
 1. Selezionare **Annulla l'operazione** nella parte inferiore della pagina. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selezionare Annulla per annullare l'operazione.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selezionare la casella operazione in corso per aprire la pagina operazione in corso.":::
 
 1. Confermare che si desidera annullare l'operazione. 
 
@@ -131,8 +131,8 @@ Le istanze che non sono state create sono ancora presenti come risorsa e:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come creare la prima istanza gestita, vedere [Guida introduttiva](instance-create-quickstart.md).
-- Per un elenco di funzionalità e confronto, vedere [funzionalità comuni di SQL](../database/features-comparison.md).
-- Per ulteriori informazioni sulla configurazione di VNet, vedere la pagina relativa alla [configurazione di SQL istanza gestita VNet](connectivity-architecture-overview.md).
-- Per una guida introduttiva per la creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [creare un'istanza gestita](instance-create-quickstart.md).
-- Per un'esercitazione sull'uso del servizio migrazione del database di Azure per la migrazione, vedere la pagina relativa alla [migrazione istanza gestita SQL con il servizio migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).
+- Per informazioni su come creare la prima istanza gestita, vedere [Guida di avvio rapido](instance-create-quickstart.md).
+- Per un elenco di funzionalità e di confronto, vedere [Funzionalità comuni di SQL](../database/features-comparison.md).
+- Per altre informazioni sulla configurazione della rete virtuale, vedere [Configurazione di una rete virtuale per Istanza gestita di SQL](connectivity-architecture-overview.md).
+- Per una guida di avvio rapido sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](instance-create-quickstart.md).
+- Per un'esercitazione sull'uso del Servizio Migrazione del database di Azure, vedere [Migrazione a Istanza gestita di SQL con il Servizio Migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).

@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892644"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
@@ -161,7 +161,7 @@ Per altre informazioni, vedere [contatori DotNet](/dotnet/core/diagnostics/dotne
 Per altre informazioni, vedere [contatori DotNet](/dotnet/core/diagnostics/dotnet-counters).
 ::: zone-end
 
-### <a name="session"></a>sessione
+### <a name="session"></a>Sessione
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|

@@ -3,12 +3,12 @@ title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88756691"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974720"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -116,9 +116,7 @@ I criteri di configurazione Guest usano l'effetto **AuditIfNotExists** . Quando 
 I criteri **AuditIfNotExists** non restituiscono risultati di conformità fino a quando tutti i requisiti non vengono soddisfatti nel computer. I requisiti sono descritti nella sezione [distribuire i requisiti per le macchine virtuali di Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> In una versione precedente della configurazione Guest, era necessaria un'iniziativa per combinare le definizioni **DeployIfNoteExists** e **AuditIfNotExists** . Le definizioni **DeployIfNotExists** non sono più necessarie. Le definizioni e intiaitives sono etichettate, `[Deprecated]` ma le assegnazioni esistenti continueranno a funzionare.
->
-> È necessario eseguire un passaggio manuale. Se in precedenza sono state assegnate le iniziative dei criteri in Category `Guest Configuration` , eliminare l'assegnazione dei criteri e assegnare la nuova definizione. I criteri di configurazione Guest hanno un modello di nome come segue: `Audit <Windows/Linux> machines that <non-compliant condition>`
+> In una versione precedente della configurazione Guest, era necessaria un'iniziativa per combinare le definizioni **DeployIfNoteExists** e **AuditIfNotExists** . Le definizioni **DeployIfNotExists** non sono più necessarie. Le definizioni e intiaitives sono etichettate, `[Deprecated]` ma le assegnazioni esistenti continueranno a funzionare. Per informazioni, vedere il post di Blog [relativo alla modifica importante rilasciata per i criteri di controllo della configurazione Guest](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 Criteri di Azure usa la proprietà **complianceStatus** del provider di risorse di configurazione Guest per segnalare la conformità nel nodo **conformità** . Per altre informazioni, vedere [Ottenere dati sulla conformità](../how-to/get-compliance-data.md).
 

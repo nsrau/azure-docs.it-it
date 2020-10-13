@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
 ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613901"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
@@ -240,7 +240,7 @@ La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di
 
 4. Nella pagina delle risorse dell'hub IoT, passare alla scheda **Caricamento file**.
 
-5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Crea**. Se si riceve un errore in questo passaggio, impostare temporaneamente l'account di archiviazione per consentire l'accesso da **tutte le reti**, quindi riprovare. È possibile configurare il firewall nell'account di archiviazione al termine della configurazione del caricamento del file.
+5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea). Se si riceve un errore in questo passaggio, impostare temporaneamente l'account di archiviazione per consentire l'accesso da **tutte le reti**, quindi riprovare. È possibile configurare il firewall nell'account di archiviazione al termine della configurazione del caricamento del file.
 
 A questo punto, l'endpoint di archiviazione per il caricamento dei file è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa di archiviazione nonostante le restrizioni del firewall.
 

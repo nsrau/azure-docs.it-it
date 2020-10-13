@@ -8,10 +8,10 @@ ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983366"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
@@ -209,14 +209,14 @@ Dopo la pubblicazione corretta, l'output viene visualizzato nella finestra di co
 ```
 È inoltre possibile verificare lo stato del processo di pubblicazione nel [portale di Azure](https://portal.azure.com/). Cercare il _gruppo di risorse_ e passare a _log attività_ e cercare il _profilo di pubblicazione dell'app Web_ nell'elenco e verificare che lo stato sia completato.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Screenshot del portale di Azure che mostra lo stato del processo di pubblicazione.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Connettere la funzione all'hub Internet
 
 Configurare una destinazione evento per i dati dell'hub.
 Nella [portale di Azure](https://portal.azure.com/)passare all'istanza dell'hub Internet delle cose creata nella sezione [*prerequisiti*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . In **eventi**creare una sottoscrizione per la funzione di Azure.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot del portale di Azure che mostra l'aggiunta di una sottoscrizione di eventi.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Nella pagina **Crea sottoscrizione evento** compilare i campi come indicato di seguito:
   1. In **nome**assegnare un nome alla sottoscrizione come si desidera.
@@ -225,7 +225,7 @@ Nella pagina **Crea sottoscrizione evento** compilare i campi come indicato di s
   4. In **tipo di endpoint**selezionare _funzione di Azure_.
   5. In **endpoint**scegliere _selezionare un collegamento endpoint_ per creare un endpoint.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot della portale di Azure per creare i dettagli della sottoscrizione di eventi":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Nella pagina _Seleziona funzione di Azure_ visualizzata verificare i dettagli seguenti.
  1. **Sottoscrizione**: sottoscrizione di Azure
@@ -236,7 +236,7 @@ Nella pagina _Seleziona funzione di Azure_ visualizzata verificare i dettagli se
 
 Per salvare i dettagli, fare clic sul pulsante _conferma selezione_ .            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot della portale di Azure per selezionare la funzione di Azure":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Selezionare _Crea_ per creare una sottoscrizione di eventi.
 

@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773247"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Come creare un'appliance virtuale di rete in un hub WAN virtuale di Azure (anteprima)
@@ -90,7 +90,7 @@ In questo passaggio verrà creata un'appliance virtuale di rete nell'hub. La pro
    * **Unità di infrastruttura** di appliance virtuale di dispositivi: indica il numero di unità di infrastruttura dell'appliance virtuale con cui si vuole distribuire l'appliance virtuale di Scegliere la quantità di larghezza di banda aggregata che si vuole fornire in tutti i siti di succursale che si connetteranno a questo hub tramite l'appliance virtuale di dispositivo.
    * **Token** -Barracuda richiede l'uso di un token di autenticazione per identificarsi come utente registrato di questo prodotto. È necessario ottenere questo da Barracuda.
 1. Selezionare il pulsante **Verifica e crea** per continuare.
-1. In questa pagina verrà richiesto di accettare le condizioni del contratto di accesso al co-amministratore. Questa operazione è standard con le applicazioni gestite in cui il server di pubblicazione avrà accesso ad alcune risorse in questa distribuzione. Selezionare la casella **Accetto i termini e le condizioni precedenti** , quindi selezionare **Crea**.
+1. In questa pagina verrà richiesto di accettare le condizioni del contratto di accesso Co-Admin. Questa operazione è standard con le applicazioni gestite in cui il server di pubblicazione avrà accesso ad alcune risorse in questa distribuzione. Selezionare la casella **Accetto i termini e le condizioni precedenti** , quindi selezionare **Crea**.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Connettere la rete virtuale all'hub
 

@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324553"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connettere un'applicazione Node.js Mongoose ad Azure Cosmos DB
@@ -197,7 +197,7 @@ Questa sezione illustra come eseguire tale operazione con l'API di Azure Cosmos 
 
 1. Nel portale di Azure saranno a questo punto disponibili due raccolte create in Cosmos DB.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text=" EsercitazioneNode.js-screenshot del portale di Azure, che mostra un account di Azure Cosmos DB con più nomi di raccolta evidenziati-database nodo":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js esercitazione: screenshot del portale di Azure, che illustra come creare un database nel Esplora dati per un account di Azure Cosmos DB, da usare con il modulo Mangusta node":::
 
 1. È infine possibile leggere i dati da Cosmos DB. Poiché è stato usato il modello di funzionamento predefinito di Mongoose, le letture avvengono come di consueto in Mongoose.
 
@@ -302,7 +302,7 @@ In questo caso, si creerà un modello a oggetti di base, si definirà una chiave
 
 1. Passando di nuovo al portale di Azure, si noterà che è disponibile una sola raccolta denominata ```alldata``` con i dati di 'Family' e 'VacationDestinations'.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text=" EsercitazioneNode.js-screenshot del portale di Azure, che mostra un account Azure Cosmos DB, con il nome della raccolta evidenziato-database nodo":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js esercitazione: screenshot del portale di Azure, che illustra come creare un database nel Esplora dati per un account di Azure Cosmos DB, da usare con il modulo Mangusta node":::
 
 1. Si noti inoltre che ogni oggetto dispone di un altro attributo denominato ```__type```, che consente la differenziazione dei due diversi modelli a oggetti.
 

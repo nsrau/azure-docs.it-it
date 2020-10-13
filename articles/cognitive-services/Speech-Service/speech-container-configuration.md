@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900284"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
@@ -50,7 +50,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 - Portale di Azure: Panoramica **vocale** , con etichetta `Endpoint`
 
-| Necessario | Nome | Tipo di dati | Descrizione |
+| Obbligatoria | Nome | Tipo di dati | Descrizione |
 | -------- | ---- | --------- | ----------- |
 | Sì | `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
@@ -80,7 +80,7 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 | Facoltativo | Nome | Tipo di dati | Descrizione |
 | -------- | ---- | --------- | ----------- |
-| Non consentito | `Input` | Stringa | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
+| Non consentito | `Input` | string | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
 | Facoltativo | `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Impostazioni di montaggio del volume

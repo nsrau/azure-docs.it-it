@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398307"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
@@ -74,14 +74,11 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
 1. Creare una regola di sicurezza HTTPS in uscita per NSG, come illustrato nello screenshot seguente. Questo esempio usa il **tag del servizio di destinazione**: _storage. eastus_ e gli **intervalli di porte di destinazione**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Screenshot mostra un riquadro Aggiungi regola di sicurezza in uscita per una regola di sicurezza per l'archiviazione punto est U S.":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Errore COM":::
 
 1. Creare una regola di sicurezza HTTPS in uscita per NSG, come illustrato nello screenshot seguente. Questo esempio usa il **tag del servizio di destinazione**: _AzureActiveDirectory_ e gli intervalli di **porte di destinazione**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Screenshot mostra un riquadro Aggiungi regola di sicurezza in uscita per una regola di sicurezza per Azure Active Directory.":::
-
-1. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponda al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
-1. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Errore COM" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
 
 #### <a name="nsg-rules---central-us"></a>Regole NSG - Stati Uniti centrali
 
