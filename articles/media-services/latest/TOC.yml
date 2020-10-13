@@ -61,6 +61,8 @@
           href: protect-with-aes128.md
         - name: Crittografare in modo dinamico il contenuto con DRM
           href: protect-with-drm.md
+        - name: Protezione dei contenuti con Azure AD
+          href: azure-ad-content-protection.md
     - name: REST
       items:
         - name: Codificare e trasmettere un file remoto - REST
@@ -188,8 +190,6 @@
           href: streaming-policy-concept.md
         - name: Criteri di chiave simmetrica
           href: content-key-policy-concept.md
-        - name: Protezione dei contenuti con Azure AD
-          href: azure-ad-content-protection.md
     - name: Monitoraggio
       items:
         - name: Eventi con Griglia di eventi
