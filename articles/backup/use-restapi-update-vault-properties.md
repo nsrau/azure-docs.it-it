@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567826"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Aggiornare le configurazioni dell'insieme di credenziali di servizi di ripristino di Azure usando l'API
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 La risposta corretta per l'operazione ' GET ' è illustrata di seguito:
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,7 +83,7 @@ Per creare un corpo della richiesta vengono usate le seguenti definizioni comuni
 
 Per altri dettagli, vedere [la documentazione dell'API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body) .
 
-|Nome  |Obbligatoria  |Tipo  |Descrizione  |
+|Nome  |Obbligatoria  |Type  |Descrizione  |
 |---------|---------|---------|---------|
 |eTag     |         |   string      |  eTag facoltativo       |
 |posizione     |  true       |string         |   Posizione risorsa      |
@@ -107,7 +107,7 @@ L'esempio seguente viene usato per aggiornare lo stato di eliminazione temporane
 
 La risposta corretta per l'operazione ' PATCH ' è illustrata di seguito:
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

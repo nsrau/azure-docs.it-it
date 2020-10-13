@@ -6,10 +6,10 @@ ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715414"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
@@ -23,7 +23,7 @@ Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) suppo
 
 ### <a name="in-the-cloud-shell"></a>In Cloud Shell
 
-Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azure.com), eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Sostituire \<username> e \<password> con il nome utente e la password di una distribuzione. 
+Per configurare l'utente della distribuzione in [Cloud Shell](https://shell.azure.com), eseguire il comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Sostituire \<username> e \<password> con il nome utente e la password di un utente della distribuzione. 
 
 - Il nome utente deve essere univoco in Azure e per i push Git locali non deve contenere il simbolo "\@". 
 - La password deve essere composta da almeno otto caratteri, con due dei tre elementi seguenti: lettere, numeri e simboli. 

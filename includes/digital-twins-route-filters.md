@@ -6,19 +6,19 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779848"
 ---
-| Nome filtro | Descrizione | Filtra schema testo | Valori supportati | 
+| Nome filtro | Description | Filtra schema testo | Valori supportati | 
 | --- | --- | --- | --- |
 | True/false | Consente la creazione di una route senza filtro o la disabilitazione di una route in modo che non venga inviato alcun evento | `<true/false>` | `true` = Route abilitata senza filtro <br> `false` = la route è disabilitata |
-| Tipo | [Tipo di eventi](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) che passano attraverso l'istanza di dispositivi gemelli digitali | `type = '<eventType>'` | Ecco i possibili valori dei tipi di evento: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
-| Origine | Nome dell'istanza di Azure Digital Twins | `source = '<hostname>'`| Ecco i possibili valori di hostname: <br> **Per le notifiche**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Per la telemetria**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Type | [Tipo di eventi](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) che passano attraverso l'istanza di dispositivi gemelli digitali | `type = '<eventType>'` | Ecco i possibili valori dei tipi di evento: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Source (Sorgente) | Nome dell'istanza di Azure Digital Twins | `source = '<hostname>'`| Ecco i possibili valori di hostname: <br> **Per le notifiche**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Per la telemetria**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
 | Subject | Descrizione dell'evento nel contesto dell'origine evento precedente | `subject = '<subject>'` | Ecco i possibili valori oggetto: <br>**Per le notifiche**: l'oggetto è `<twinid>` <br> o un formato URI per gli oggetti, che sono identificati in modo univoco da più parti o ID:<br>`<twinid>/relationships/<relationshipid>`<br> **Per la telemetria**: l'oggetto è il percorso del componente (se i dati di telemetria vengono emessi da un componente gemello), ad esempio `comp1.comp2` . Se i dati di telemetria non vengono emessi da un componente, il relativo campo soggetto è vuoto. |
-| Schema dei dati | ID modello DTDL | `dataschema = '<model-dtmi-ID>'` | **Per la telemetria**: lo schema di dati è l'ID modello del dispositivo gemello o il componente che genera i dati di telemetria. Ad esempio, usare `dtmi:example:com:floor4;2` <br>**Per le notifiche**: è possibile accedere allo schema dei dati nel corpo della notifica in `$body.$metadata.$model`|
+| Schema dei dati | ID modello DTDL | `dataschema = '<model-dtmi-ID>'` | **Per la telemetria**: lo schema di dati è l'ID modello del dispositivo gemello o il componente che genera i dati di telemetria. Ad esempio: `dtmi:example:com:floor4;2` <br>**Per le notifiche**: è possibile accedere allo schema dei dati nel corpo della notifica in `$body.$metadata.$model`|
 | Tipo di contenuto | Tipo di contenuto del valore dati | `datacontenttype = '<contentType>'` | Il tipo di contenuto è `application/json` |
 | Versione spec | Versione dello schema di eventi in uso | `specversion = '<version>'` | La versione deve essere `1.0` . Indica la versione dello schema CloudEvents 1,0 |
 | Corpo della notifica | Fare riferimento a qualsiasi proprietà nel `data` campo di una notifica | `$body.<property>` | Vedere [*procedura: comprendere i dati degli eventi*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) per esempi di notifiche. `data`È possibile fare riferimento a qualsiasi proprietà nel campo usando`$body`

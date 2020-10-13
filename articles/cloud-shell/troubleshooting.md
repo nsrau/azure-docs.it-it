@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543453"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
@@ -46,7 +46,7 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Finestra di dialogo archiviazione - Errore: 403 RequestDisallowedByPolicy
 
-- **Dettagli**: quando si crea un account di archiviazione tramite cloud Shell, l'operazione ha esito negativo a causa di un'assegnazione di criteri di Azure effettuata dall'amministratore. Il messaggio di errore includerà:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Dettagli**: quando si crea un account di archiviazione tramite cloud Shell, l'operazione ha esito negativo a causa di un'assegnazione di criteri di Azure effettuata dall'amministratore. Il messaggio di errore includerà: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Soluzione**: contattare l'amministratore di Azure per rimuovere o aggiornare l'assegnazione di criteri di Azure negando la creazione dell'archiviazione.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Finestra di dialogo archiviazione - Errore: 400 DisallowedOperation
@@ -169,7 +169,7 @@ PowerShell:
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 Al fine di **eliminare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti. Al successivo avvio di Cloud Shell verrà richiesto di caricare di nuovo una condivisione file. 
 
 >[!Note]
@@ -196,4 +196,4 @@ PowerShell:
 Azure Cloud Shell in Azure per enti pubblici è accessibile solo tramite l'portale di Azure.
 
 >[!Note]
-> La connessione a cloud DoD-High o Government DoD per Exchange Online non è attualmente supportata.
+> La connessione a cloud DoD GCC-High o Government per Exchange Online non è attualmente supportata.

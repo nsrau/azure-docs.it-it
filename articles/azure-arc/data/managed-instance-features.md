@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940779"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Funzionalità e funzionalità di Azure Arc abilitate per SQL Istanza gestita
@@ -33,7 +33,7 @@ Azure Arc Enabled SQL Istanza gestita condividere una codebase comune con la ver
 
 ###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> Disponibilità elevata RDBMS  
   
-|Funzionalità|Istanza gestita SQL abilitato per Azure Arc|
+|Funzionalità|Istanza gestita di SQL con abilitazione di Azure Arc|
 |-------------|----------------|
 |Log shipping|Sì| 
 |Compressione backup|Sì|
@@ -59,7 +59,7 @@ Azure Arc Enabled SQL Istanza gestita condividere una codebase comune con la ver
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> Scalabilità e prestazioni RDBMS  
 
-|Funzionalità|Istanza gestita SQL abilitato per Azure Arc|
+|Funzionalità|Istanza gestita di SQL con abilitazione di Azure Arc|
 |-------------|----------------|
 |columnstore|   Sì|
 |File binari di oggetti di grandi dimensioni in indici columnstore cluster|    Sì|
@@ -80,7 +80,7 @@ Azure Arc Enabled SQL Istanza gestita condividere una codebase comune con la ver
 |Miglioramenti dell'inserimento bulk   |Sì|
 
 ###  <a name="rdbms-security"></a><a name="RDBMSS"></a> Sicurezza RDBMS  
-|Funzionalità|Istanza gestita SQL abilitato per Azure Arc|
+|Funzionalità|Istanza gestita di SQL con abilitazione di Azure Arc|
 |-------------|----------------|
 |Sicurezza a livello di riga|    Sì|
 |Always Encrypted|  Sì|
@@ -95,7 +95,7 @@ Azure Arc Enabled SQL Istanza gestita condividere una codebase comune con la ver
 
 ###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> Gestione RDBMS  
 
-|Funzionalità|Istanza gestita SQL abilitato per Azure Arc|
+|Funzionalità|Istanza gestita di SQL con abilitazione di Azure Arc|
 |-------------|----------------|
 |Connessione amministrativa dedicata|    Sì|
 |Supporto per script di PowerShell|  Sì|
@@ -114,7 +114,7 @@ Azure Arc Enabled SQL Istanza gestita condividere una codebase comune con la ver
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programmability  
 
-|Funzionalità|Istanza gestita SQL abilitato per Azure Arc|
+|Funzionalità|Istanza gestita di SQL con abilitazione di Azure Arc|
 |-------------|----------------|
 |JSON|  Sì |       |
 |Archivio query    |Sì    |       
@@ -137,7 +137,7 @@ Azure Arc Enabled SQL Istanza gestita condividere una codebase comune con la ver
 
 I Istanza gestita SQL abilitati per Azure Arc supportano diversi strumenti di dati che consentono di gestire i dati.
 
-| **Strumento** | Istanza gestita SQL abilitato per Azure Arc|
+| **Strumento** | Istanza gestita di SQL con abilitazione di Azure Arc|
 | --- | --- | --- |
 | Portale di Azure <sup>1</sup> | No |
 | Interfaccia della riga di comando di Azure | No |

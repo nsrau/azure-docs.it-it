@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934379"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
@@ -70,14 +70,14 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 >            int? take);
 > ```
 
-**Parameters**
+**Parametri**
 
 | Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | da | **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione. |
-| su | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| to | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | utente | **Facoltativo** Stringa usata per filtrare i risultati in base all'iniziatore dell'invio. |
@@ -105,7 +105,7 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 
 **Eccezioni**
 
-| Eccezione | Messaggio | Condizioni |
+| Eccezione | Message | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Una quota oraria e giornaliera limita il numero di caratteri accettati dal convertitore.</li></ul>|
@@ -141,14 +141,14 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 >             int? take);
 > ```
 
-**Parameters**
+**Parametri**
 
 | Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
 | da| **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione.|
-| su| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| to| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | utente| **Opzionale. Stringa utilizzata per filtrare il risultato in base al creatore dell'invio**|
@@ -178,7 +178,7 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 
 **Eccezioni**
 
-| Eccezione | Messaggio | Condizioni |
+| Eccezione | Message | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Una quota oraria e giornaliera limita il numero di caratteri accettati dal convertitore.</li></ul>|

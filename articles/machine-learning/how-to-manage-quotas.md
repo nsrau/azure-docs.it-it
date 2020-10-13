@@ -12,10 +12,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
 ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629591"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
@@ -151,7 +151,7 @@ Per richiedere una concessione per questi scenari, attenersi alla procedura segu
 
     | Campo | Selezione |
     | ----- | ----- |
-    | Tipo di problema | Informazioni tecniche |
+    | Tipo di problema | Prerequisiti tecnici |
     | Servizio | Servizi personali. Selezionare __Machine Learning__ nell'elenco a discesa. |
     | Tipo di problema | Configurazione dell'area di lavoro, SDK e CLI |
     | Sottotipo di problema | Problemi di provisioning o gestione dell'area di lavoro |

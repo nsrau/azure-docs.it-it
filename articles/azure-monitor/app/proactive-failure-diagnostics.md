@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
 ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565838"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Rilevamento intelligente - Anomalie degli errori
@@ -73,11 +73,11 @@ Questa regola di avviso viene creata con un [gruppo di azioni](../platform/actio
 
 Aprire la pagina degli avvisi. Le regole di avviso di anomalie degli errori sono disponibili con gli eventuali avvisi impostati manualmente e si può vedere se attualmente sono in uno stato di avviso.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Nella pagina risorsa Application Insights fare clic sul riquadro avvisi, quindi su Gestisci regole di avviso." lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Fare clic sull'avviso per configurarlo.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Schermata di configurazione della regola." lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Si ricorda che è possibile disabilitare o eliminare una regola di avviso di anomalie degli errori, ma non è possibile crearne un'altra nella stessa risorsa di Application Insights.
 
@@ -299,7 +299,7 @@ Per approfondire l'analisi, fare clic su "Visualizza dettagli completi in Applic
 
 Facendo clic su "Diagnostica errori", sarà possibile ottenere altri dettagli e risolvere il problema.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Ricerca diagnostica." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Dalla percentuale delle richieste e dal numero di utenti interessati è possibile decidere il livello di priorità del problema. Nell'esempio precedente si ha una percentuale di errori del 78,5% rispetto alla percentuale normale del 2,2% e ciò evidenzia sicuramente un'anomalia. D'altra parte, solo 46 utenti sono stati interessati. Se si fosse trattato di un'app personale, sarebbe stato più semplice valutare la gravità del problema.
 
@@ -307,13 +307,13 @@ In molti casi è possibile diagnosticare rapidamente il problema in base al nome
 
 In questo esempio è stata generata un'eccezione dal database SQL a causa del raggiungimento del limite di richieste.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Dettagli della richiesta non riuscita." lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Esaminare gli avvisi recenti
 
 Fare clic su **Avvisi** nella pagina delle risorse di Application Insights per ottenere gli avvisi generati più recentemente:
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Riepilogo degli avvisi." lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Avviso di rilevamento intelligente di esempio che mostra l'analisi del cluster in caso di errore." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>Qual è la differenza
 Il rilevamento intelligente delle anomalie degli errori integra altre funzionalità simili ma distinte di Application Insights.

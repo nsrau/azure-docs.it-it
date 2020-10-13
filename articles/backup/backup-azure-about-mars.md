@@ -4,10 +4,10 @@ description: Informazioni su come l'agente MARS supporta gli scenari di backup
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87562600"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Informazioni sull'agente di Servizi di ripristino di Microsoft Azure (MARS)
@@ -56,7 +56,7 @@ L'agente MARS supporta gli scenari di ripristino seguenti:
 
 ![Diagramma dell'agente di backup di Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-### <a name="additional-information"></a>Informazioni aggiuntive
+### <a name="additional-information"></a>Altre informazioni
 
 - Il **backup iniziale** (primo backup) viene eseguito in base alle impostazioni di backup.  L'agente MARS utilizza VSS per eseguire uno snapshot temporizzato dei volumi selezionati per il backup. L'agente utilizza solo l'operazione di scrittura del sistema Windows per acquisire lo snapshot. Non usa alcun writer VSS dell'applicazione e non acquisisce snapshot coerenti con l'app. Dopo l'acquisizione dello snapshot con VSS, l'agente MARS crea un disco rigido virtuale (VHD) nella cartella della cache specificata al momento della configurazione del backup. L'agente archivia inoltre i checksum per ogni blocco di dati.
 

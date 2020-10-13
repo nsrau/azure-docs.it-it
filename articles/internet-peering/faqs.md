@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775498"
 ---
 # <a name="internet-peering---faqs"></a>Peering Internet-domande frequenti
@@ -29,8 +29,8 @@ La connessione di peering configurata con Azure PowerShell viene gestita come un
 
 **Quando viene chiamato New-AzPeeringDirectConnectionObject, quali indirizzi IP vengono assegnati ai dispositivi Microsoft e peer?**
 
-Quando si chiama il cmdlet New-AzPeeringDirectConnectionObject, viene immesso un indirizzo/31 (a. b. c. d/31) o un indirizzo/30 (a. b. c. d/30). Il primo indirizzo IP (a. b. c. d + 0) viene assegnato al dispositivo del peer e il secondo indirizzo IP (a. b. c. d + 1) viene assegnato al dispositivo Microsoft.
+Quando si chiama New-AzPeeringDirectConnectionObject cmdlet, viene immesso un indirizzo/31 (a. b. c. d/31) o un indirizzo/30 (a. b. c. d/30). Il primo indirizzo IP (a. b. c. d + 0) viene assegnato al dispositivo del peer e il secondo indirizzo IP (a. b. c. d + 1) viene assegnato al dispositivo Microsoft.
 
-**Che cosa sono i parametri MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 nel cmdlet New-AzPeeringDirectConnectionObject?**
+**Che cosa sono i parametri MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 in New-AzPeeringDirectConnectionObject cmdlet?**
 
 I parametri MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 rappresentano il numero massimo di prefissi IPv4 e IPv6 che i peer desiderano accettare da Microsoft. Questi parametri possono essere modificati in qualsiasi momento.

@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f38e23a3af1e2c81ee012a4f3c268cbff3fc1bee
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171466"
 ---
 # <a name="persist-state-in-windows"></a>Mantieni stato in Windows
@@ -35,7 +35,7 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     docker -H npipe:////./pipe/iotedge_moby_engine volume create <your-volume-name-here>
     ```
 
-    ad esempio:
+    Ad esempio,
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume create myeventgridvol
@@ -46,7 +46,7 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     docker -H npipe:////./pipe/iotedge_moby_engine volume inspect <your-volume-name-here>
     ```
 
-    ad esempio:
+    Ad esempio,
 
    ```sh
    docker -H npipe:////./pipe/iotedge_moby_engine volume inspect myeventgridvol
@@ -77,7 +77,7 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
     1. In *autorizzazioni per utenti*selezionare **modifica**, quindi fare clic su **OK**.
 1. Usare le **associazioni** per montare il volume e ridistribuire il modulo di griglia di eventi da portale di Azure
 
-   ad esempio:
+   Ad esempio,
 
     ```json
         {
@@ -113,7 +113,7 @@ I [volumi Docker](https://docs.docker.com/storage/volumes/) vengono usati per ma
    >Non modificare la seconda parte del valore di binding. Punta a una posizione specifica nel modulo. Per il modulo di griglia di eventi in Windows, deve essere **C: \\ app \\ metadataDb**.
 
 
-    ad esempio:
+    Ad esempio,
 
     ```json
     {
@@ -156,7 +156,7 @@ Anziché montare un volume, è possibile creare una directory nel sistema host e
    mkdir <your-directory-name-here>
    ```
 
-   ad esempio:
+   Ad esempio,
 
    ```sh
    mkdir C:\myhostdir
@@ -176,7 +176,7 @@ Anziché montare un volume, è possibile creare una directory nel sistema host e
     >[!IMPORTANT]
     >Non modificare la seconda parte del valore di binding. Punta a una posizione specifica nel modulo. Per il modulo di griglia di eventi in Windows, deve essere **C: \\ app \\ metadataDb**.
 
-    ad esempio:
+    Ad esempio,
 
     ```json
     {

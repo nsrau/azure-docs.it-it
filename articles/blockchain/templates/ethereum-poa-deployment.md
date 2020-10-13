@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
 ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283429"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
@@ -90,7 +90,7 @@ In **nozioni di base**specificare i valori per i parametri standard per qualsias
 
 ![Nozioni di base](./media/ethereum-poa-deployment/basic-blade.png)
 
-Parametro | Descrizione | Valore di esempio
+Parametro | Description | Valore di esempio
 ----------|-------------|--------------
 Crea una nuova rete o Unisciti alla rete esistente | È possibile creare una nuova rete Consortium o partecipare a una rete Consortium esistente. Per l'aggiunta a una rete esistente sono necessari parametri aggiuntivi. | Create new
 Indirizzo di posta elettronica | Si riceverà una notifica di posta elettronica al termine della distribuzione con le informazioni sulla distribuzione. | Un indirizzo di posta elettronica valido
@@ -99,7 +99,7 @@ Tipo di autenticazione | Metodo per l'autenticazione per la macchina virtuale. |
 Password | Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. Tutte le macchine virtuali hanno inizialmente la stessa password. È possibile modificare la password dopo il provisioning. | 12-72 caratteri 
 Subscription | La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio |
 Gruppo di risorse| Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio. | myResourceGroup
-Location | La regione di Azure per gruppo di risorse. | Stati Uniti occidentali 2
+Location | La regione di Azure per gruppo di risorse. | West US 2
 
 Selezionare **OK**.
 
@@ -109,10 +109,10 @@ In *aree di distribuzione*specificare il numero di aree e località per ciascuna
 
 ![aree di distribuzione](./media/ethereum-poa-deployment/deployment-regions.png)
 
-Parametro | Descrizione | Valore di esempio
+Parametro | Description | Valore di esempio
 ----------|-------------|--------------
 Numero di regioni|Numero di aree per la distribuzione della rete di consorzio| 2
-Prima regione | Prima regione per la distribuzione della rete di consorzio | Stati Uniti occidentali 2
+Prima regione | Prima regione per la distribuzione della rete di consorzio | West US 2
 Seconda regione | Seconda area per la distribuzione della rete Consortium. Le aree aggiuntive sono visibili quando il numero di aree è maggiore o uguale a due. | Stati Uniti orientali 2
 
 Selezionare **OK**.
@@ -123,7 +123,7 @@ In *dimensioni e prestazioni della rete*specificare gli input per la dimensione 
 
 ![Dimensioni e prestazioni della rete](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
-Parametro | Descrizione | Valore di esempio
+Parametro | Description | Valore di esempio
 ----------|-------------|--------------
 Number of load balanced validator nodes (Numero di nodi di convalida con carico bilanciato) | Numero di nodi validator di cui eseguire il provisioning come parte della rete. | 2
 Validator node storage performance (Prestazioni di archiviazione dei nodi di convalida) | Tipo di disco gestito per ogni nodo validator distribuito. Per informazioni dettagliate sui prezzi, vedere [prezzi di archiviazione](https://azure.microsoft.com/pricing/details/managed-disks/) | SSD Standard
@@ -145,7 +145,7 @@ In *Impostazioni Ethereum*specificare le impostazioni di configurazione relative
 
 ![Impostazioni Ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
-Parametro | Descrizione | Valore di esempio
+Parametro | Description | Valore di esempio
 ----------|-------------|--------------
 Consortium Member ID (ID membro del consorzio) | ID associato a ogni membro che partecipa alla rete Consortium. Viene usato per configurare gli spazi degli indirizzi IP per evitare conflitti. Per una rete privata, l'ID membro deve essere univoco tra organizzazioni diverse nella stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro poiché è necessario condividerlo con altri membri di join per assicurarsi che non esistano conflitti. L'intervallo valido è compreso tra 0 e 255. | 0
 ID rete | L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione. Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica. L'intervallo valido è compreso tra 5 e 999.999.999 | 10101010
@@ -164,7 +164,7 @@ Il monitoraggio consente di configurare una risorsa di log per la rete. L'agente
 
 ![Monitoraggio di Azure](./media/ethereum-poa-deployment/azure-monitor.png)
 
-Parametro | Descrizione | Valore di esempio
+Parametro | Description | Valore di esempio
 ----------|-------------|--------------
 Monitoraggio | Opzione per abilitare il monitoraggio | Abilita
 Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Create new
@@ -174,7 +174,7 @@ Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Az
 
 Selezionare **OK**.
 
-### <a name="summary"></a>Summary
+### <a name="summary"></a>Riepilogo
 
 Fare clic sul riepilogo per esaminare gli input specificati ed eseguire la convalida pre-distribuzione di base. Prima di distribuire, è possibile scaricare il modello e i parametri.
 

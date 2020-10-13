@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
 ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87808508"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Informazioni di riferimento sugli attributi di SAP SuccessFactors
@@ -124,21 +124,21 @@ La tabella seguente fornisce il mapping predefinito degli attributi tra gli attr
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
 | 1  | PerPerson                              | personIdExternal         | employeeId                              | Utilizzato come attributo corrispondente                                                                   |
 | 2  | PerPerson                              | perPersonUuid            | \[Non mappato \- usato come ancoraggio di origine\] | Durante la sincronizzazione iniziale, il servizio di provisioning collega personUuid a objectGuid\. esistenti  |
-| 3  | PerPersonal                            | displayName              | displayName                             | ND                                                                                           |
-| 4  | PerPersonal                            | firstName                | givenName                               | ND                                                                                           |
-| 5  | PerPersonal                            | lastName                 | sn                                      | ND                                                                                           |
-| 6  | Utente                                   | addressLine1             | streetAddress                           | ND                                                                                           |
-| 7  | Utente                                   | city                     | l                                       | ND                                                                                           |
-| 8  | Utente                                   | country                  | co                                      | ND                                                                                           |
-| 9  | Utente                                   | state                    | st                                      | ND                                                                                           |
-| 10 | Utente                                   | username                 | samAccountName                          | ND                                                                                           |
-| 11 | Utente                                   | zipCode                  | postalCode                              | ND                                                                                           |
-| 12 | PerEmail                               | emailAddress             | mail                                    | ND                                                                                           |
-| 13 | EmpJob                                 | jobTitle                 | title                                   | ND                                                                                           |
-| 14 | EmpJob                                 | managerId                | manager                                 | ND                                                                                           |
-| 15 | \.CountryOfRegistration società \. EmpJob | twoCharCountryCode       | c                                       | ND                                                                                           |
-| 16 | \.Reparto EmpJob                     | department               | department                              | ND                                                                                           |
-| 17 | \.Divisione EmpJob                       | divisione                 | company                                 | ND                                                                                           |
-| 18 | \.Percorso EmpJob                       | officeLocationAddress    | streetAddress                           | ND                                                                                           |
-| 19 | \.Percorso EmpJob                       | officeLocationZipCode    | postalCode                              | ND                                                                                           |
+| 3  | PerPersonal                            | displayName              | displayName                             | N/D                                                                                           |
+| 4  | PerPersonal                            | firstName                | givenName                               | N/D                                                                                           |
+| 5  | PerPersonal                            | lastName                 | sn                                      | N/D                                                                                           |
+| 6  | Utente                                   | addressLine1             | streetAddress                           | N/D                                                                                           |
+| 7  | Utente                                   | city                     | l                                       | N/D                                                                                           |
+| 8  | Utente                                   | country                  | co                                      | N/D                                                                                           |
+| 9  | Utente                                   | state                    | st                                      | N/D                                                                                           |
+| 10 | Utente                                   | username                 | samAccountName                          | N/D                                                                                           |
+| 11 | Utente                                   | zipCode                  | postalCode                              | N/D                                                                                           |
+| 12 | PerEmail                               | emailAddress             | mail                                    | N/D                                                                                           |
+| 13 | EmpJob                                 | jobTitle                 | title                                   | N/D                                                                                           |
+| 14 | EmpJob                                 | managerId                | manager                                 | N/D                                                                                           |
+| 15 | \.CountryOfRegistration società \. EmpJob | twoCharCountryCode       | c                                       | N/D                                                                                           |
+| 16 | \.Reparto EmpJob                     | department               | department                              | N/D                                                                                           |
+| 17 | \.Divisione EmpJob                       | divisione                 | company                                 | N/D                                                                                           |
+| 18 | \.Percorso EmpJob                       | officeLocationAddress    | streetAddress                           | N/D                                                                                           |
+| 19 | \.Percorso EmpJob                       | officeLocationZipCode    | postalCode                              | N/D                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | Se activeEmploymentsCount = 0, disabilitare il account\.                                           |

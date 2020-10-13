@@ -10,20 +10,20 @@ ms.topic: include
 ms.date: 07/16/2020
 ms.author: aahi
 ms.openlocfilehash: eedfe4f24797a9b564479b2f8d3f4d04b0751272
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779597"
 ---
 > [!NOTE]
 > Per rilevare le informazioni di integrità protette (PHI), usare il `domain=phi` parametro e la versione del modello `2020-04-01` o versioni successive.
 >
-> Ad esempio: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
+> ad esempio `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
  
 Quando si inviano richieste all'endpoint, vengono restituite le categorie di entità seguenti `/v3.1-preview.2/entities/recognition/pii` .
 
-| Category   | Subcategory | Descrizione                          | Versione modello di avvio | Note |
+| Category   | Subcategory | Description                          | Versione modello di avvio | Note |
 |------------|-------------|--------------------------------------|------------------------|---|
 | Persona     | N/D         | Nomi delle persone.  | `2019-10-01`  | Restituito anche con `domain=phi` . |
 | PersonType | N/D         | Tipi di processo o ruoli contenuti da una persona. | `2020-02-01` | |
@@ -46,7 +46,7 @@ Quando si inviano richieste all'endpoint, vengono restituite le categorie di ent
 
 Questa categoria di entità include informazioni di Azure identificabili, incluse le informazioni di autenticazione e le stringhe di connessione. Disponibile a partire dalla versione del modello `2019-10-01` . Non restituito con il `domain=phi` parametro.
 
-| Subcategory                           | Descrizione                                                                 |
+| Subcategory                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chiave di autenticazione di Azure DocumentDB             | Chiave di autorizzazione per un server Azure Cosmos DB.                           |
 | Stringa di connessione del database IaaS di Azure e stringa di connessione di SQL di Azure | Stringa di connessione per un database di infrastruttura distribuita come servizio (IaaS) di Azure e una stringa di connessione SQL. |

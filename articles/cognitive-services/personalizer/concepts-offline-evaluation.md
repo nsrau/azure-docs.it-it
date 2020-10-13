@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 627f511bb12c16c8f54935d1f782cb7c2c962163
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132756"
 ---
 # <a name="offline-evaluation"></a>Valutazione offline
@@ -53,7 +53,7 @@ Criteri correnti inclusi nella valutazione:
 | Impostazioni di apprendimento | Scopo|
 |--|--|
 |**Criteri online**| i criteri di apprendimento correnti usati in Personalizza esperienze |
-|**Versione di base**|Il valore predefinito dell'applicazione (come determinato dalla prima azione inviata in Rank Calls)|
+|**Di base**|Il valore predefinito dell'applicazione (come determinato dalla prima azione inviata in Rank Calls)|
 |**Criteri casuali**|un comportamento di classificazione immaginario che restituisce sempre una scelta casuale di azioni da quelle fornite.|
 |**Criteri personalizzati**|ulteriori criteri di apprendimento caricati all'avvio della valutazione.|
 |**Criteri ottimizzati**|se la valutazione è stata avviata con l'opzione di individuare un criterio ottimizzato, anch'esso verrà confrontato e sarà possibile scaricarlo o renderlo il criterio di apprendimento online, sostituendo quello corrente.|

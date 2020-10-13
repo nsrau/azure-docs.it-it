@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a86d34fca9a88b0df601533a0f3de1cc97ad1a2f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a5a69bedb45f8037f3a97f5ebf4e2128930330a
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80050592"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728353"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Che cos'è il provisioning cloud di Azure AD Connect?
 Il provisioning cloud di Azure AD Connect è un nuovo agente Microsoft progettato per soddisfare e raggiungere gli obiettivi di identità ibrida per la sincronizzazione di utenti, gruppi e contatti con Azure AD.  Può essere usato insieme al servizio di sincronizzazione di Azure AD Connect e offre i vantaggi seguenti:
@@ -30,6 +30,14 @@ Il provisioning cloud di Azure AD Connect è un nuovo agente Microsoft progettat
 
 ## <a name="how-is-azure-ad-connect-cloud-provisioning-different-from-azure-ad-connect-sync"></a>Quali sono le differenze tra il provisioning cloud di Azure AD Connect e il servizio di sincronizzazione di Azure AD Connect?
 Con il provisioning cloud di Azure AD Connect, il provisioning tra AD e Azure AD è orchestrato in Microsoft Online Services. Le organizzazioni devono solo distribuire, nel proprio ambiente locale e in quello ospitato da IaaS, un agente leggero che funge da bridge tra Azure AD e AD. La configurazione del provisioning viene archiviata in Azure AD e gestita come parte del servizio.
+
+## <a name="azure-ad-connect-cloud-provisioning-video"></a>Video sul provisioning cloud di Azure AD Connect
+Il breve video seguente offre una panoramica eccellente del provisioning cloud di Azure AD Connect:
+
+> [!VIDEO https://youtube/embed/mOT3ID02_YQ]
+
+
+## <a name="comparison-between-azure-ad-connect-and-cloud-provisioning"></a>Confronto tra Azure AD Connect e il provisioning cloud
 
 La tabella seguente fornisce un confronto tra Azure AD Connect e il provisioning cloud di Azure AD Connect:
 
