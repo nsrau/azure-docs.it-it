@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949032"
+ms.locfileid: "91929643"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Eseguire l'aggiornamento alla versione più recente dell'API REST in Azure ricerca cognitiva
 
@@ -40,13 +40,19 @@ Se si verifica una di queste situazioni, potrebbe essere necessario modificare i
 
 ## <a name="upgrade-to-2020-06-30"></a>Aggiornamento a 2020-06-30
 
-La versione 2020-06-30 è la nuova versione disponibile a livello generale dell'API REST. Non sono state apportate modifiche di rilievo, ma esistono alcune differenze di comportamento. 
+La versione 2020-06-30 è la nuova versione disponibile a livello generale dell'API REST. Esiste una modifica sostanziale e diverse differenze di comportamento. 
 
 Le funzionalità sono ora disponibili a livello generale in questa versione dell'API, tra cui:
 
 * [Archivio informazioni](knowledge-store-concept-intro.md), archiviazione permanente di contenuti arricchiti creati tramite skillsets, creati per l'analisi downstream e l'elaborazione tramite altre applicazioni. Con questa funzionalità, una pipeline di arricchimento di intelligenza artificiale basata sull'indicizzatore può popolare un archivio informazioni oltre a un indice di ricerca. Se è stata usata la versione di anteprima di questa funzionalità, è equivalente alla versione disponibile a livello generale. L'unica modifica del codice richiesta è la modifica della versione API.
 
-Le modifiche del comportamento includono quanto segue:
+### <a name="breaking-change"></a>Modifica
+
+Il codice esistente scritto con le versioni precedenti dell'API si interrompe in API-Version = 2020-06-30 e versioni successive se il codice contiene le funzionalità seguenti:
+
+* Tutti i valori letterali EDM. date (una data costituita dall'anno-mese-giorno, ad esempio `2020-12-12` ) nelle espressioni di filtro devono seguire il formato EDM. DateTimeOffset: `2020-12-12T00:00:00Z` . Questa modifica era necessaria per gestire i risultati di query errati o imprevisti a causa di differenze del fuso orario.
+
+### <a name="behavior-changes"></a>Modifiche del comportamento
 
 * L' [algoritmo di classificazione BM25](index-ranking-similarity.md) sostituisce l'algoritmo di classificazione precedente con la tecnologia più recente. I nuovi servizi utilizzeranno questo algoritmo automaticamente. Per i servizi esistenti, è necessario impostare i parametri per l'utilizzo del nuovo algoritmo.
 

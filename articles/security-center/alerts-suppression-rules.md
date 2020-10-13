@@ -9,13 +9,13 @@ ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
 ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448480"
 ---
-# <a name="suppress-alerts-from-azure-defender"></a>Non visualizzare avvisi da Azure Defender
+# <a name="suppress-alerts-from-azure-defender"></a>Eliminare gli avvisi di Azure Defender
 
 Questa pagina illustra come è possibile usare le regole di eliminazione degli avvisi per disattivare falsi positivi o altri avvisi di sicurezza indesiderati da Azure Defender.
 
@@ -23,10 +23,10 @@ Questa pagina illustra come è possibile usare le regole di eliminazione degli a
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Anteprima|
-|Prezzi|Livello gratuito<br>(La maggior parte degli avvisi di sicurezza è disponibile solo con Azure Defender)|
-|Ruoli e autorizzazioni necessari:|Il **proprietario** e l' **amministratore della sicurezza** possono creare o eliminare regole.<br>**amministratore che legge i dati di sicurezza** e **lettore** possono visualizzare le regole.|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|Stato della versione:|Anteprima|
+|Prezzi:|Livello gratuito<br>(La maggior parte degli avvisi di sicurezza è disponibile solo con Azure Defender)|
+|Autorizzazioni e ruoli obbligatori:|Il **proprietario** e l' **amministratore della sicurezza** possono creare o eliminare regole.<br>**amministratore che legge i dati di sicurezza** e **lettore** possono visualizzare le regole.|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
 

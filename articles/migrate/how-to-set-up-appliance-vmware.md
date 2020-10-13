@@ -4,10 +4,10 @@ description: Informazioni su come configurare un appliance Azure Migrate per la 
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448652"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurare un'appliance per le macchine virtuali VMware
@@ -26,11 +26,11 @@ Dopo aver creato l'appliance, verificare che sia in grado di connettersi ad Azur
 
 ## <a name="appliance-deployment-ova"></a>Distribuzione di Appliance (OVA)
 
-Per configurare l'appliance usando un modello OVA è necessario:
-- Specificare un nome per il dispositivo e generare una chiave del progetto Azure Migrate nel portale
+Per configurare l'appliance con un modello OVA:
+- Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale
 - Scaricare un file modello OVA e importarlo nel server vCenter.
 - Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
-- Configurare il dispositivo per la prima volta e registrarlo con il progetto Azure Migrate usando la chiave del progetto Azure Migrate.
+- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generare la chiave del progetto Azure Migrate
 
@@ -66,7 +66,7 @@ Prima di distribuire il file OVA, verificarne la sicurezza.
 
 Importare il file scaricato e creare una macchina virtuale.
 
-1. Nella console di vSphere client fare clic su **file**  >  **Distribuisci modello OVF**.
+1. Nella console di vSphere Client fare clic su **File** > **Deploy OVF Template** (Distribuisci modello OVF).
 ![Comando di menu per la distribuzione di un modello OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. Nella procedura guidata Distribuire il modello OVF > **Origine** specificare il percorso del file con estensione ova.
@@ -74,7 +74,7 @@ Importare il file scaricato e creare una macchina virtuale.
 5. In **Host/Cluster** specificare l'host o il cluster in cui verrà eseguita la macchina virtuale.
 6. In **Storage** (Archiviazione) specificare la destinazione di archiviazione della macchina virtuale.
 7. In **Disk Format** (Formato disco) specificare il tipo e la dimensione del disco.
-8. In **mapping di rete**specificare la rete a cui si connetterà la macchina virtuale. La rete richiede la connettività Internet per l'invio dei metadati allo strumento Valutazione server di Azure Migrate.
+8. In **Network Mapping** (Mapping di rete) specificare la rete a cui si connetterà la macchina virtuale. La rete richiede la connettività Internet per l'invio dei metadati allo strumento Valutazione server di Azure Migrate.
 9. Rivedere e confermare le impostazioni e quindi fare clic su **Finish** (Fine).
 
 

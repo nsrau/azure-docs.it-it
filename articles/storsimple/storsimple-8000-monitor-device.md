@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514696"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977409"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 
@@ -29,7 +29,7 @@ La capacità fornita e quella residua sono ulteriormente suddivise in volumi agg
 
 
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 **Utilizzo** tiene traccia delle metriche correlate alla quantità di spazio di archiviazione di dati usato da volumi, contenitori del volume o dispositivo. È possibile creare report basati sull'utilizzo della capacità dell'archiviazione primaria, dell'archiviazione cloud o dell'archiviazione del dispositivo. L’utilizzo della capacità può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume.
 Per impostazione predefinita, viene segnalato l'uso nelle ultime 24 ore. Per modificare l'intervallo di calcolo dell'uso nel grafico, effettuare una selezione tra:
 * Ultime 24 ore
@@ -77,7 +77,7 @@ Se si esegue l'aggiornamento 3 o versioni successive, è possibile suddividere l
 
 È inoltre possibile fare clic su ogni volume in elenco e verificare l'uso corrispondente.
 
-![Utilizzo della capacità primaria per tutti i volumi aggiunti in locale](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Utilizzo della capacità primaria per tutti i volumi aggiunti in locale 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### <a name="cloud-storage-usage"></a>Uso dell'archiviazione cloud
 Questi grafici mostrano la quantità di spazio di archiviazione cloud utilizzato. Questi dati sono deduplicati e compressi. Questo quantità include snapshot cloud che potrebbero contenere dati che non sono riflessi in nessun volume principale e vengono mantenuti per scopi di legacy o di memorizzazione necessari. È possibile confrontare il consumo di memoria del database primario e del cloud per avere un'idea della frequenza di riduzione dei dati, anche se il numero non sarà esatto.

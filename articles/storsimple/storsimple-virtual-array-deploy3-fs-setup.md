@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006297"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977579"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
 ![Diagramma che illustra i passaggi necessari per distribuire un array virtuale. La prima parte del terzo passaggio è denominata configurata come file server ed è evidenziata.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     ![Screenshot della pagina tutte le risorse della portale di Azure. Viene evidenziato un servizio Device Manager.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Nell'elenco filtrato selezionare il servizio Gestione dispositivi StorSimple e quindi passare a **Gestione > Dispositivi**. Nel pannello **Dispositivi** verificare che il dispositivo sia connesso correttamente al servizio controllando che lo stato sia **Pronto per la configurazione**.
     
-    ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Distribuisci](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Passaggio 2: Configurare il dispositivo come file server
 Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/) per completare l'installazione richiesta del dispositivo.
@@ -129,7 +129,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
    ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. Fare clic sul dispositivo e verrà visualizzato un messaggio di intestazione che indica che il dispositivo è pronto per la configurazione.
    
-    ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
+    ![Configurare un file server 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Fare clic su **Configura** sulla barra dei comandi. Verrà visualizzato il pannello **Configura**. Nel pannello **Configura** eseguire le operazioni seguenti:
    
    1. Il nome del file server viene inserito automaticamente.
@@ -140,7 +140,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
     
    4. Fare clic su **Configura le impostazioni necessarie** per specificare le credenziali dell'account di archiviazione da usare con il dispositivo. Se non è configurata alcuna credenziale, fare clic su **Aggiungi nuova**. **Verificare che l'account di archiviazione usato supporti i BLOB in blocchi. I BLOB di pagine non sono supportati.** Altre informazioni sui [BLOB in blocchi e i BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-      ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurare un file server 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Nel pannello **Aggiungi credenziali dell'account di archiviazione** eseguire le operazioni seguenti: 
 
     1. Scegliere la sottoscrizione corrente se l'account di archiviazione è nella stessa sottoscrizione del servizio. Specificare altro se l'account di archiviazione è esterno alla sottoscrizione del servizio. 
@@ -153,19 +153,19 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
     
     5. Fare clic su **Aggiungi** per aggiungere questa credenziale dell'account di archiviazione. 
    
-        ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![Configurare un file server 4](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
 5. Dopo aver creato correttamente la credenziale dell'account di archiviazione, il pannello **Configura** verrà aggiornato per visualizzare le credenziali dell'account di archiviazione specificato. Fare clic su **Configure**.
    
-   ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
+   ![Configurare un file server 5](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    
    Viene avviata la creazione di un file server. Dopo aver creato correttamente il file server, si riceverà la relativa notifica.
    
-   ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
+   ![Configurare un file server 5b](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
    
    Anche lo stato del dispositivo verrà modificato in **Online**.
    
-   ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
+   ![Configurare un file server 5C](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
    
    È possibile procedere all'aggiunta di una condivisione.
 
@@ -189,15 +189,15 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://portal.azure.com/) p
    
    5. Fare clic su **Aggiungi** per creare la condivisione. 
     
-       ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Aggiungere una condivisione 1](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        Viene ricevuta una notifica che indica che la creazione della condivisione è in corso.
    
-       ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Aggiungere una condivisione 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** verrà aggiornato per riflettere la nuova condivisione. Per impostazione predefinita, il monitoraggio e il backup vengono abilitati per la condivisione.
    
-      ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Aggiungere una condivisione 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Passaggio 4: Connettersi alla condivisione
 A questo punto, è necessario connettersi a una o più condivisioni create nel passaggio precedente. Eseguire questi passaggi nell'host di Windows Server connesso all'array virtuale StorSimple.

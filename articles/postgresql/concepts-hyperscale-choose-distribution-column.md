@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314913"
+ms.locfileid: "91929337"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Scegliere le colonne di distribuzione nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -71,8 +71,6 @@ L'errore più comune nella modellazione delle informazioni della serie temporale
 
 -   **Non scegliere un timestamp come colonna di distribuzione.** Scegliere una colonna di distribuzione diversa. In un'app multi-tenant usare l'ID tenant o in un'app in tempo reale usare l'ID entità.
 -   **Usare invece il partizionamento delle tabelle PostgreSQL per il tempo.** Usare il partizionamento delle tabelle per suddividere una tabella di grandi dimensioni di dati ordinati in più tabelle ereditate con ogni tabella contenente intervalli di tempo diversi. La distribuzione di una tabella partizionata Postgres in iperscala (CITUS) Crea partizioni per le tabelle ereditate.
-
-Per un esempio di creazione di questo tipo di applicazione, vedere l'esercitazione relativa alle [serie temporali](https://aka.ms/hyperscale-tutorial-timeseries) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su [come la](concepts-hyperscale-colocation.md) condivisione tra i dati distribuiti consente di eseguire rapidamente le query.

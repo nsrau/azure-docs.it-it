@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91367751"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architettura di riferimento Azure DevTest Labs per le aziende
@@ -20,7 +20,7 @@ Questo articolo fornisce un'architettura di riferimento per facilitare la distri
 
 ![Diagramma dell'architettura di riferimento](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 Questi sono gli elementi chiave dell'architettura di riferimento:
 
 - **Azure Active Directory (Azure ad)**: DevTest Labs usa il [servizio Azure ad per la gestione delle identità](../active-directory/fundamentals/active-directory-whatis.md). Considerare questi due aspetti chiave quando si concede agli utenti l'accesso a un ambiente basato su DevTest Labs:
@@ -59,7 +59,7 @@ DevTest Labs offre un'ottima interfaccia utente amministrativa per l'uso di un s
 
 È importante notare che DevTest Labs USA le risorse di Azure sottostanti gestite allo stesso modo: rete, dischi, calcolo e così via. Ad esempio, criteri di Azure si applica alle macchine virtuali create in un Lab. Il Centro sicurezza di Azure può creare report sulla conformità della macchina virtuale. E il servizio backup di Azure è in grado di fornire backup regolari per le macchine virtuali nel Lab.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 Azure DevTest Labs USA le risorse esistenti in Azure (calcolo, rete e così via). Quindi, sfrutta automaticamente i vantaggi delle funzionalità di sicurezza integrate nella piattaforma. Ad esempio, per richiedere che le connessioni Desktop remoto in ingresso vengano originate solo dalla rete aziendale, è sufficiente aggiungere un gruppo di sicurezza di rete alla rete virtuale sul Gateway Desktop remoto. L'unica considerazione aggiuntiva sulla sicurezza è il livello di autorizzazioni concesse ai membri del team che utilizzano i Lab quotidianamente. Le autorizzazioni più comuni sono [ *owner* e *User*](devtest-lab-add-devtest-user.md). Per ulteriori informazioni su questi ruoli, vedere [aggiungere proprietari e utenti in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

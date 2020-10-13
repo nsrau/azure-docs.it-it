@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb3d1fd49c2623ff6dcbe8a19ae8c8ca3b46425a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447563"
+ms.locfileid: "91930629"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegare una subnet ad Azure NetApp Files 
 
@@ -33,7 +33,7 @@ ms.locfileid: "91447563"
    In un VNet è possibile avere una sola subnet delegata. Un account NetApp può distribuire volumi in più reti virtuali, ognuno dei quali ha una propria subnet delegata.  
 * Non è possibile designare un gruppo di sicurezza di rete o un endpoint di servizio nella subnet delegata. In questo modo, la delegazione della subnet ha esito negativo.
 * L'accesso a un volume da una rete virtuale con peering globale non è attualmente supportato.
-* Le [route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDR) e i gruppi di sicurezza di rete (gruppi) non sono supportati nelle subnet delegate per Azure NetApp files. È tuttavia è possibile applicare route definite dall'utente e gruppi di sicurezza di rete ad altre subnet, anche all'interno della stessa rete virtuale della subnet delegata ad Azure NetApp Files.  
+* Le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDR) e i gruppi di sicurezza di rete (gruppi) non sono supportati nelle subnet delegate per Azure NetApp files. È tuttavia è possibile applicare route definite dall'utente e gruppi di sicurezza di rete ad altre subnet, anche all'interno della stessa rete virtuale della subnet delegata ad Azure NetApp Files.  
    Azure NetApp Files crea una route di sistema alla subnet delegata. Se necessario per la risoluzione dei problemi, la route viene visualizzata in **route valide** nella tabella di route.
 
 ## <a name="steps"></a>Passaggi
@@ -54,6 +54,4 @@ ms.locfileid: "91447563"
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un volume per Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Informazioni sull'integrazione delle reti virtuali per i servizi di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-
-
+* [Informazioni sull'integrazione delle reti virtuali per i servizi di Azure](../virtual-network/virtual-network-for-azure-services.md)

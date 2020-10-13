@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 450ea0b8024192f6f351b4893fe6e8e07db236f7
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905593"
+ms.locfileid: "91931980"
 ---
 ## <a name="query-language-features"></a>Funzionalità del linguaggio di query
 
@@ -32,6 +32,7 @@ Ottenere i gemelli digitali per...
 * Ottenere i gemelli su più tipi di relazione ( `JOIN` query). 
   - Durante l'anteprima, `JOIN` sono consentiti fino a cinque livelli.
 * Seleziona solo i primi risultati della query ( `Select TOP` operatore)
+* Contare il numero di elementi in un set di risultati utilizzando `Select COUNT`
 * Usare funzioni scalari: `IS_BOOL` , `IS_DEFINED` , `IS_NULL` , `IS_NUMBER` , `IS_OBJECT` , `IS_PRIMITIVE` , `IS_STRING` , `STARTSWITH` , `ENDSWITH` .
 * Utilizzare gli operatori di confronto delle query: `IN` / `NIN` , `=` , `!=` , `<` , `>` , `<=` , `>=` .
 * Usare qualsiasi combinazione ( `AND` , `OR` , `NOT` operatore) di `IS_OF_MODEL` , funzioni scalari e operatori di confronto.

@@ -16,13 +16,13 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450730"
 ---
-# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumi NFS v 4.1 su Azure NetApp Files per SAP HANA
+# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumi NFS v4.1 in Azure NetApp Files per SAP HANA
 
 Azure NetApp Files fornisce condivisioni NFS native che possono essere usate per i volumi **/Hana/Shared**, **/Hana/data**e **/Hana/log** . L'uso di condivisioni NFS basate su e per i volumi **/Hana/data** e **/Hana/log** richiede l'utilizzo del protocollo NFS v 4.1. Il protocollo NFS v3 non è supportato per l'utilizzo di volumi **/Hana/data** e **/Hana/log** quando si basano le condivisioni su e. 
 

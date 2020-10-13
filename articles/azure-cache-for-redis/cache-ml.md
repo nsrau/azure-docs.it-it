@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650188"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuire un modello di Machine Learning in funzioni di Azure con cache di Azure per Redis 
@@ -45,7 +45,7 @@ Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure 
    
 1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare cache di Azure per Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare Cache di Azure per Redis.":::
    
 1. Nella pagina **Nuova cache Redis** configurare le impostazioni per la nuova cache.
    
@@ -57,25 +57,25 @@ Sarà possibile distribuire un modello di Machine Learning in funzioni di Azure 
    | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
    | **Piano tariffario** | Nell'elenco a discesa selezionare un [piano tariffario](https://azure.microsoft.com/pricing/details/cache/). |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](cache-overview.md). |
 
-1. Selezionare la scheda **rete** oppure fare clic sul pulsante **rete** nella parte inferiore della pagina.
+1. Selezionare la scheda **Rete** o fare clic sul pulsante **Rete** nella parte inferiore della pagina.
 
-1. Nella scheda **rete** selezionare il metodo di connettività.
+1. Nella scheda **Rete** selezionare il metodo di connettività.
 
-1. Selezionare la scheda **Avanti: avanzate** oppure fare clic sul pulsante **Avanti: avanzate** nella parte inferiore della pagina.
+1. Fare clic sul pulsante **Avanti: Avanzate** oppure fare clic sulla scheda **Avanti: Avanzate** nella parte inferiore della pagina.
 
-1. Nella scheda **Avanzate** per un'istanza di cache di base o standard, selezionare l'opzione Abilita se si vuole abilitare una porta non TLS.
+1. Nella scheda **Avanzate** per un'istanza della cache Basic o Standard selezionare l'interruttore Abilita se si vuole abilitare una porta non TLS.
 
-1. Nella scheda **Avanzate** per l'istanza di cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati.
+1. Nella scheda **Avanzate** per l'istanza della cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati.
 
-1. Selezionare la scheda **Next: Tags (tag successivi** ) oppure fare clic sul pulsante **Next: Tags (tag** ) nella parte inferiore della pagina.
+1. Fare clic sul pulsante **Avanti: Tag** o fare clic sulla scheda **Avanti: Tag** nella parte inferiore della pagina.
 
-1. Facoltativamente, nella scheda **tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
+1. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-1. Selezionare **Rivedi e crea**. Si passa alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
-1. Dopo che è stato visualizzato il messaggio di convalida verde, selezionare **Crea**.
+1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina della **Panoramica**di cache di Azure per Redis   . Quando **lo stato**   viene visualizzato come **in esecuzione**, la cache è pronta per essere utilizzata. 
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina  **Panoramica**  della cache di Azure per Redis. Quando la voce  **Stato**  indica  **In esecuzione**, la cache è pronta per l'uso. 
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
 

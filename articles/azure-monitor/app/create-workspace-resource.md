@@ -1,16 +1,14 @@
 ---
 title: Creare una nuova risorsa di Application Insights basata sull'area di lavoro in Monitoraggio di Azure | Microsoft Docs
 description: Informazioni sui passaggi necessari per abilitare le nuove risorse di Application Insights basate sull'area di lavoro in Monitoraggio di Azure.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fa9f1dc401ac4132d9c6c0d8c054b3f4a154ac
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894539"
+ms.locfileid: "91932431"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Risorse di Application Insights basate sull’area di lavoro
 

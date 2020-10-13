@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 3179324dd71ebf3bb44cb68f0fd84486bb88e2ce
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 987d4c7188c2bdc2ba6264805e33b79e7d2851d6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441041"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966288"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -61,7 +61,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Se **slmgr.vbs /dlv** indica il canale RETAIL, usare i comandi seguenti per impostare la [chiave di configurazione del client del Servizio di gestione delle chiavi](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys) per la versione di Windows Server in uso e forzare un nuovo tentativo di attivazione: 
+2. Se **slmgr.vbs /dlv** indica il canale RETAIL, usare i comandi seguenti per impostare la [chiave di configurazione del client del Servizio di gestione delle chiavi](/windows-server/get-started/kmsclientkeys) per la versione di Windows Server in uso e forzare un nuovo tentativo di attivazione: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>

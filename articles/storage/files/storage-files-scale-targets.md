@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fd04e92804a1d37afd8ee2cefb159c1e686748d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d04fff069e7cd7d766125bc7364cf4648911ad
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86496180"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948348"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Obiettivi di scalabilità e prestazioni per File di Azure
 
@@ -87,10 +87,17 @@ Per semplificare la pianificazione della distribuzione per ognuna delle fasi, di
 | Numero di oggetti | 25 milioni di oggetti |
 | Dimensioni del set di dati| ~ 4,7 TiB |
 | Dimensioni medie dei file | ~ 200 KiB (file più grande: 100 GiB) |
+| Enumerazione iniziale modifiche cloud | 7 oggetti al secondo  |
 | Velocità effettiva di caricamento | 20 oggetti al secondo per gruppo di sincronizzazione |
-| Velocità effettiva di download dello spazio dei nomi* | 400 oggetti al secondo |
+| Velocità effettiva di download dello spazio dei nomi | 400 oggetti al secondo |
 
-* Quando viene creato un nuovo endpoint del server, l'agente di Sincronizzazione file di Azure non scarica il contenuto di alcun file. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
+### <a name="initial-one-time-provisioning"></a>Provisioning monouso iniziale
+
+**Enumerazione iniziale della modifica del cloud**: quando viene creato un nuovo gruppo di sincronizzazione, l'enumerazione iniziale della modifica del cloud è il primo passaggio che verrà eseguito. In questo processo, il sistema enumera tutti gli elementi nella condivisione file di Azure. Durante questo processo, non sarà presente alcuna attività di sincronizzazione, ovvero nessun elemento verrà scaricato dall'endpoint cloud all'endpoint server e nessun elemento verrà caricato dall'endpoint server all'endpoint cloud. L'attività di sincronizzazione riprenderà al termine dell'enumerazione iniziale della modifica del cloud.
+Il tasso di prestazioni è 7 oggetti al secondo. I clienti possono stimare il tempo necessario per completare l'enumerazione del cambiamento cloud iniziale determinando il numero di elementi nella condivisione cloud e usando la formula seguente per ottenere l'ora in giorni. Tempo (in giorni) per l'enumerazione del cloud iniziale = (numero di oggetti nell'endpoint cloud)/(7*60*60 * 24)
+
+**Velocità effettiva di download dello spazio dei nomi** Quando si aggiunge un nuovo endpoint server a un gruppo di sincronizzazione esistente, l'agente di Sincronizzazione file di Azure non Scarica alcun contenuto del file dall'endpoint cloud. Sincronizza prima di tutto lo spazio dei nomi completo e quindi attiva il richiamo in background per scaricare i file, interamente o, se è abilitato il cloud a più livelli, in base ai criteri di suddivisione in livelli cloud impostati nell'endpoint del server.
+
 
 | Sincronizzazione continua  | Dettagli  |
 |-|--|

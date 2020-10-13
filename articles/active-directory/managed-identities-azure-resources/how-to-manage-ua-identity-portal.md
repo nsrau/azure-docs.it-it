@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266388"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977426"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure
 
@@ -45,7 +45,7 @@ Per creare un'identità gestita assegnata dall'utente, all'account deve essere a
     - **Area**: scegliere un'area per distribuire l'identità gestita assegnata dall'utente, ad esempio **Stati Uniti occidentali**.
     - **Nome**: nome dell'identità gestita assegnata dall'utente, ad esempio UAI1.
     ![Creare un'identità gestita assegnata dall'utente](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. Fare clic su **Verifica + Crate** per esaminare le modifiche.
+4. Fare clic su **Verifica + crea** per esaminare le modifiche.
 5. Fare clic su **Crea**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Elencare le identità gestite assegnate dall'utente
