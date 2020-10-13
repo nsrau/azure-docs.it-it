@@ -2,15 +2,15 @@
 title: Creare e distribuire una specifica di modello
 description: Informazioni su come creare una specifica di modello da un modello di Resource Manager e quindi distribuire la specifica di modello in un gruppo di risorse nella sottoscrizione.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369216"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728778"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Avvio rapido: Creare e distribuire una specifica di modello (anteprima)
 
@@ -27,7 +27,7 @@ Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente
 
 ## <a name="create-template-spec"></a>Creare la specifica di modello
 
-La specifica di modello è un nuovo tipo di risorsa denominato **Microsoft.Resources/templateSpecs**. Per creare la specifica di modello, è possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure o un modello di Resource Manager. In tutte le opzioni è necessario un modello di Resource Manager incluso nel pacchetto della specifica di modello.
+La specifica di modello è un tipo di risorsa denominato **Microsoft.Resources/templateSpecs**. Per creare la specifica di modello, è possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure o un modello di Resource Manager. In tutte le opzioni è necessario un modello di Resource Manager incluso nel pacchetto della specifica di modello.
 
 Con PowerShell e l'interfaccia della riga di comando, il modello di Resource Manager viene passato come parametro al comando. Con il modello di Resource Manager, il modello stesso da includere nel pacchetto della specifica di modello è incorporato nella definizione della specifica di modello.
 
