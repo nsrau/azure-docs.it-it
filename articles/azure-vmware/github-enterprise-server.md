@@ -3,12 +3,12 @@ title: Configurare GitHub Enterprise Server nel cloud privato della soluzione VM
 description: Informazioni su come configurare GitHub Enterprise Server nel cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 53e5264eed761909217c2e3a902c9fee9faaffaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afce212416c7c12631a7f8d388dc991ed957736f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343063"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949310"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Configurare GitHub Enterprise Server nel cloud privato della soluzione VMware di Azure
 
@@ -74,7 +74,7 @@ Per la protezione avanzata dell'istanza per l'uso in produzione, è consigliabil
 > [!NOTE]
 > Le azioni di GitHub sono [attualmente disponibili come versione beta limitata su GitHub Enterprise Server versione 2,22](https://docs.github.com/en/enterprise/admin/github-actions).
 
-L'archiviazione BLOB esterna è necessaria per abilitare le azioni di GitHub su GitHub Enterprise Server (attualmente disponibile come funzionalità "beta"). Questo archivio BLOB esterno viene usato dalle azioni per archiviare gli artefatti e i log. Azioni su GitHub Enterprise Server [supporta l'archiviazione BLOB di Azure come provider di archiviazione](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (e altri). Quindi verrà effettuato il provisioning di un nuovo account di archiviazione di Azure con un [tipo di account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#types-of-storage-accounts) di BlobStorage:
+L'archiviazione BLOB esterna è necessaria per abilitare le azioni di GitHub su GitHub Enterprise Server (attualmente disponibile come funzionalità "beta"). Questo archivio BLOB esterno viene usato dalle azioni per archiviare gli artefatti e i log. Azioni su GitHub Enterprise Server [supporta l'archiviazione BLOB di Azure come provider di archiviazione](https://docs.github.com/en/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage#about-external-storage-requirements) (e altri). Quindi verrà effettuato il provisioning di un nuovo account di archiviazione di Azure con un [tipo di account di archiviazione](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts) di BlobStorage:
 
 :::image type="content" source="media/github-enterprise-server/storage-account.png" alt-text="Scegliere di eseguire GitHub in locale o nel cloud.":::
 
@@ -215,7 +215,7 @@ Se tutti gli elementi sono stati eseguiti correttamente, verrà visualizzato un 
 
 :::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="Scegliere di eseguire GitHub in locale o nel cloud.":::
 
-A questo punto, È stato appena completato il primo flusso di lavoro azioni su GitHub Enterprise Server, in esecuzione nel cloud privato della soluzione VMware di Azure.
+Congratulazioni! È stato appena completato il primo flusso di lavoro azioni su GitHub Enterprise Server, in esecuzione nel cloud privato della soluzione VMware di Azure.
 
 Stiamo solo grattando la superficie di ciò che è possibile fare con le azioni di GitHub. Per ulteriori informazioni, vedere l'elenco delle azioni sul [Marketplace di GitHub](https://github.com/marketplace)o [crearne di personalizzate](https://docs.github.com/en/actions/creating-actions).
 

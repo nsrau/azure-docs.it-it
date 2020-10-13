@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0dadf523c5d17ffb91f4fefa71b52d1d1855c978
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570217"
 ---
 # <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Come ridimensionare l'ambiente Gen1 Azure Time Series Insights
 
 > [!CAUTION]
-> Questo è un articolo di Gen1.
+> È un articolo di Gen1.
 
 Questo articolo descrive come modificare la capacità dell'ambiente di Azure Time Series Insights usando il [portale di Azure](https://portal.azure.com). Per capacità si intende il moltiplicatore applicato alla velocità in ingresso, alla capacità di archiviazione e ai costi associati allo SKU selezionato.
 

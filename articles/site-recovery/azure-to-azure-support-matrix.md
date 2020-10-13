@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
 ms.openlocfilehash: 786947a03440cc837f9d104d43e8061c80a0844c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803093"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
@@ -245,7 +245,7 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limit
 Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Supportato | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
-Dischi condivisi di Azure | Non supportate
+Dischi condivisi di Azure | Non supportato
 Opzione di trasferimento sicuro | Supportato
 
 >[!IMPORTANT]
@@ -273,7 +273,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
 NIC | Numero massimo supportato per una specifica dimensione di macchina virtuale di Azure | Vengono create schede di interfaccia di rete contestualmente alla creazione della VM durante il failover.<br/><br/> Il numero di schede di interfaccia di rete sulla macchina virtuale di failover dipende dal numero di schede di rete sulla VM di origine quando è stata abilitata la replica. L'aggiunta o la rimozione di una scheda di interfaccia di rete dopo l'abilitazione della replica non influisce sul numero di schede sulla VM replicata dopo il failover. <br/><br/> Non è garantito che l'ordine delle schede di rete dopo il failover sia uguale a quello originale. <br/><br/> È possibile rinominare le schede di rete nell'area di destinazione in base alle convenzioni di denominazione dell'organizzazione. La ridenominazione NIC è supportata tramite PowerShell.
-Servizio di bilanciamento del carico Internet | Non supportate | Il servizio di bilanciamento del carico pubblico/Internet non è supportato da Azure Site Recovery.
+Servizio di bilanciamento del carico Internet | Non supportato | Il servizio di bilanciamento del carico pubblico/Internet non è supportato da Azure Site Recovery.
 Servizio di bilanciamento del carico interno | Supportato | Associare il servizio di bilanciamento del carico preconfigurato tramite uno script di Automazione di Azure in un piano di ripristino.
 Indirizzo IP pubblico | Supportato | Associare un indirizzo IP pubblico esistente alla scheda di interfaccia di rete. In alternativa, creare un indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.
 Gruppo di sicurezza di rete o scheda di interfaccia di rete | Supportato | Associare il gruppo di sicurezza di rete alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.

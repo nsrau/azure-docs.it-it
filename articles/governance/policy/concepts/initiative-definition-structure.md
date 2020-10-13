@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura della definizione dell'iniziativa
 description: Viene descritto come vengono usate le definizioni delle iniziative di criteri per raggruppare le definizioni di criteri per la distribuzione nelle risorse di Azure dell'organizzazione.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048500"
+ms.locfileid: "91876176"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Struttura di definizione di Azure Policy Initiative
 
@@ -248,19 +248,18 @@ Di seguito è riportato un esempio di `policyDefinitions` che include due defini
 ]
 ```
 
-## <a name="policy-definitions-groups-preview"></a><a name="policy-definition-groups"></a>Gruppi di definizioni dei criteri (anteprima)
+## <a name="policy-definition-groups"></a>Gruppi di definizioni dei criteri
 
-Come parte della funzionalità di [conformità normativa](./regulatory-compliance.md) di criteri di Azure (anteprima), le definizioni dei criteri in una definizione di iniziativa possono essere raggruppate. Queste informazioni sono definite nella proprietà `policyDefinitionGroups` _Array_ . In questi raggruppamenti sono disponibili ulteriori dettagli, ad esempio il dominio di **controllo** e di **conformità** che la definizione dei criteri fornisce per la copertura.
-È possibile trovare ulteriori dettagli sul raggruppamento in un oggetto **policyMetadata** creato da Microsoft. Per informazioni, vedere [oggetti di metadati](#metadata-objects).
+Le definizioni dei criteri in una definizione di iniziativa possono essere raggruppate e categorizzate. La funzionalità di [conformità normativa](./regulatory-compliance.md) di criteri di Azure (anteprima) usa questa proprietà per raggruppare le definizioni nei **controlli** e nei **domini di conformità**. Queste informazioni sono definite nella proprietà `policyDefinitionGroups` _Array_ . È possibile trovare ulteriori dettagli sul raggruppamento in un oggetto **policyMetadata** creato da Microsoft. Per informazioni, vedere [oggetti di metadati](#metadata-objects).
 
 ### <a name="policy-definition-groups-parameters"></a>Parametri dei gruppi di definizioni dei criteri
 
 Ogni elemento della _matrice_ in `policyDefinitionGroups` deve avere entrambe le proprietà seguenti:
 
-- `name` (stringa) \[ Required \] : nome breve per il **controllo**. Il valore di questa proprietà viene utilizzato da `groupNames` in `policyDefinitions` .
-- `category` (String): **dominio di conformità** del controllo.
-- `displayName` (String): nome descrittivo per il **controllo**. Usato dal portale.
-- `description` (String): Descrizione della funzione del **controllo** .
+- `name` (stringa) \[ Required \] : nome breve del **gruppo**. In conformità alle normative, il **controllo**. Il valore di questa proprietà viene utilizzato da `groupNames` in `policyDefinitions` .
+- `category` (String): gerarchia a cui appartiene il gruppo. In conformità alle normative, il **dominio di conformità** del controllo.
+- `displayName` (String): nome descrittivo per il **gruppo** o il **controllo**. Usato dal portale.
+- `description` (String): Descrizione della copertura del **gruppo** o del **controllo** .
 - `additionalMetadataId` (String): la posizione dell'oggetto [policyMetadata](#metadata-objects) con ulteriori dettagli sul dominio di **controllo** e **conformità**.
 
   > [!NOTE]

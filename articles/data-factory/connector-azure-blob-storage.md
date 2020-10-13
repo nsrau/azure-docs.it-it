@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/10/2020
-ms.openlocfilehash: dff5e73f9bb02357a6a6f74f5d0db08eee13e76e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332271"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948426"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -242,6 +242,9 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
 
 >[!NOTE]
+>Se l'account BLOB consente l' [eliminazione](../storage/blobs/soft-delete-blob-overview.md)temporanea, l'autenticazione dell'entità servizio non è supportata nel flusso di dati.
+
+>[!NOTE]
 >L'autenticazione basata su entità servizio è supportata solo dal servizio collegato di tipo "AzureBlobStorage" e non dal precedente servizio collegato di tipo "AzureStorage".
 
 **Esempio:**
@@ -293,6 +296,9 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 | serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Sì |
 | accountKind | Specificare il tipo di account di archiviazione. I valori consentiti sono: **storage** (utilizzo generico V1), **archiviazione V2** (utilizzo generico v2), **BlobStorage**o **BlockBlobStorage**. <br/> Quando si usa il servizio collegato BLOB di Azure nel flusso di dati, l'identità gestita o l'autenticazione basata su entità servizio non è supportata quando il tipo di account è vuoto o "archiviazione". Specificare il tipo di account appropriato, scegliere un'autenticazione diversa oppure aggiornare l'account di archiviazione a utilizzo generico V2. |No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
+
+> [!NOTE]
+> Se l'account BLOB consente l' [eliminazione](../storage/blobs/soft-delete-blob-overview.md)temporanea, l'autenticazione dell'identità gestita non è supportata nel flusso di dati.
 
 > [!NOTE]
 > Le identità gestite per l'autenticazione delle risorse di Azure sono supportate solo dal servizio collegato di tipo "AzureBlobStorage" e non dal precedente servizio collegato di tipo "AzureStorage".

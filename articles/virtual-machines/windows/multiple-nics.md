@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835545"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974006"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Creare e gestire una macchina virtuale Windows che ha più schede di interfaccia di rete
 Alle macchine virtuali (VM) in Azure possono essere collegate più schede di interfaccia di rete virtuale. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end. È possibile associare più schede di interfaccia di rete in una macchina virtuale a più subnet, ma tutte le subnet devono trovarsi nella stessa rete virtuale. Questo articolo illustra come creare una macchina virtuale a cui sono collegate più schede di interfaccia di rete e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](../sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
@@ -70,7 +70,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-In genere si crea anche un [gruppo di sicurezza di rete](../../virtual-network/security-overview.md) per filtrare il traffico di rete alla macchina virtuale e un [bilanciamento del carico](../../load-balancer/load-balancer-overview.md) per distribuire il traffico tra più macchine virtuali.
+In genere si crea anche un [gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) per filtrare il traffico di rete alla macchina virtuale e un [bilanciamento del carico](../../load-balancer/load-balancer-overview.md) per distribuire il traffico tra più macchine virtuali.
 
 ### <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 Ora è possibile iniziare con la configurazione della macchina virtuale. Ad ogni dimensione della macchina virtuale corrisponde un limite del numero totale di schede di rete che è possibile aggiungere. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../sizes.md).
@@ -288,4 +288,4 @@ Azure assegna un gateway predefinito alla prima interfaccia di rete (primaria) a
     La route specificata con *192.168.1.1* in **Gateway** è la route predefinita per l'interfaccia di rete primaria. La route con *192.168.2.1* in **Gateway** è la route aggiunta.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Dimensioni per le macchine virtuali Windows](../sizes.md) se si deve creare una VM con più schede di interfacce di rete. Prestare attenzione al numero massimo di schede di interfaccia di rete supportato per ogni dimensione della macchina virtuale. 
+Vedere [Dimensioni per le macchine virtuali Windows](../sizes.md) se si deve creare una VM con più schede di interfacce di rete. Prestare attenzione al numero massimo di schede di interfaccia di rete supportato per ogni dimensione della macchina virtuale.

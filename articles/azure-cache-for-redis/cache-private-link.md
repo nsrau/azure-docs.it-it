@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91838654"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
@@ -82,7 +82,7 @@ Per creare un'istanza della cache, attenersi alla seguente procedura.
    | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
    | **Piano tariffario** | Nell'elenco a discesa selezionare un [piano tariffario](https://azure.microsoft.com/pricing/details/cache/). |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](cache-overview.md). |
 
-1. Selezionare la scheda **rete** oppure fare clic sul pulsante **rete** nella parte inferiore della pagina.
+1. Selezionare la scheda **Rete** o fare clic sul pulsante **Rete** nella parte inferiore della pagina.
 
 1. Nella scheda **rete** selezionare **endpoint privato** per il metodo di connettività.
 
@@ -92,22 +92,22 @@ Per creare un'istanza della cache, attenersi alla seguente procedura.
 
 1. Nella pagina **Crea un endpoint privato** configurare le impostazioni per l'endpoint privato con la rete virtuale e la subnet create nell'ultima sezione e selezionare **OK**. 
 
-1. Selezionare la scheda **Avanti: avanzate** oppure fare clic sul pulsante **Avanti: avanzate** nella parte inferiore della pagina.
+1. Fare clic sul pulsante **Avanti: Avanzate** oppure fare clic sulla scheda **Avanti: Avanzate** nella parte inferiore della pagina.
 
-1. Nella scheda **Avanzate** per un'istanza di cache di base o standard, selezionare l'opzione Abilita se si vuole abilitare una porta non TLS.
+1. Nella scheda **Avanzate** per un'istanza della cache Basic o Standard selezionare l'interruttore Abilita se si vuole abilitare una porta non TLS.
 
-1. Nella scheda **Avanzate** per l'istanza di cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati.
+1. Nella scheda **Avanzate** per l'istanza della cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati.
 
 
-1. Selezionare la scheda **Next: Tags (tag successivi** ) oppure fare clic sul pulsante **Next: Tags (tag** ) nella parte inferiore della pagina.
+1. Fare clic sul pulsante **Avanti: Tag** o fare clic sulla scheda **Avanti: Tag** nella parte inferiore della pagina.
 
-1. Facoltativamente, nella scheda **tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
+1. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-1. Selezionare **Rivedi e crea**. Si passa alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
-1. Dopo che è stato visualizzato il messaggio di convalida verde, selezionare **Crea**.
+1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina della **Panoramica**di cache di Azure per Redis   . Quando **lo stato**   viene visualizzato come **in esecuzione**, la cache è pronta per essere utilizzata. 
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina  **Panoramica**  della cache di Azure per Redis. Quando la voce  **Stato**  indica  **In esecuzione**, la cache è pronta per l'uso. 
     
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Creare un endpoint privato con una cache di Azure esistente per l'istanza di redis 
@@ -181,7 +181,7 @@ Per creare un endpoint privato, attenersi alla seguente procedura.
 
 10. Fare clic sul pulsante **Next: Tags (tag** ) nella parte inferiore della pagina.
 
-11. Facoltativamente, nella scheda **tag** immettere il nome e il valore se si vuole categorizzare la risorsa.
+11. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa.
 
 12. Selezionare **Rivedi e crea**. Si passa alla scheda **Rivedi e crea**in   cui Azure convalida la configurazione.
 

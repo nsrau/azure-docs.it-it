@@ -10,15 +10,15 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574323"
 ---
-# <a name="iot-plug-and-play-architecture"></a>Architettura Plug and Play
+# <a name="iot-plug-and-play-architecture"></a>Architettura di Plug and Play IoT
 
-Internet delle cose Plug and Play consente ai generatori di soluzioni di integrare Smart Device con le proprie soluzioni senza alcuna configurazione manuale. Il nucleo del Plug and Play Internet è un _modello_ di dispositivo che descrive le funzionalità di un dispositivo per un'applicazione con plug and Play Internet delle cose. Questo modello è strutturato come un set di interfacce che definiscono:
+Plug and Play IoT Plug and Play consente agli sviluppatori di soluzioni di integrare dispositivi intelligenti con le rispettive soluzioni senza configurazione manuale. Il nucleo del Plug and Play Internet è un _modello_ di dispositivo che descrive le funzionalità di un dispositivo per un'applicazione con plug and Play Internet delle cose. Questo modello è strutturato come un set di interfacce che definiscono:
 
 - _Proprietà_ che rappresentano lo stato di sola lettura e di scrittura di un dispositivo o di un'altra entità. Ad esempio, il numero di serie del dispositivo può essere una proprietà di sola lettura, mentre la temperatura di destinazione di un termostato può essere una proprietà scrivibile.
 - _Dati di telemetria_ generati da un dispositivo, siano essi un normale flusso di letture di sensori, un errore occasionale o un messaggio informativo.
@@ -28,7 +28,7 @@ Ogni modello e interfaccia ha un ID univoco.
 
 Il diagramma seguente Mostra gli elementi chiave di una soluzione Plug and Play Internet:
 
-:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Architettura Plug and Play":::
+:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Architettura di Plug and Play IoT":::
 
 ## <a name="model-repository"></a>Repository modelli
 

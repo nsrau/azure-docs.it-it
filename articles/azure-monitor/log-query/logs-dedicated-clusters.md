@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
 ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575521"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
@@ -87,7 +87,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Chiamare* 
+*Chiamata* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -116,7 +116,7 @@ Deve essere 200 OK e un'intestazione.
 
 Il provisioning del cluster Log Analytics richiede del tempo per il completamento. È possibile controllare lo stato di provisioning in diversi modi:
 
-- Eseguire il comando Get-AzOperationalInsightsCluster di PowerShell con il nome del gruppo di risorse e controllare la proprietà ProvisioningState. Il valore è *ProvisioningAccount* durante il provisioning e il completamento è *riuscito* .
+- Eseguire Get-AzOperationalInsightsCluster comando PowerShell con il nome del gruppo di risorse e controllare la proprietà ProvisioningState. Il valore è *ProvisioningAccount* durante il provisioning e il completamento è *riuscito* .
   ```powershell
   New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
@@ -184,7 +184,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 
 Ad esempio: 
 
-*Chiamare*
+*Chiamata*
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview

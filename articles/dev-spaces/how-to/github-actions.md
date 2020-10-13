@@ -7,14 +7,16 @@ description: Esaminare e testare le modifiche da una richiesta pull direttamente
 keywords: Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, azioni di GitHub, Helm, mesh dei servizi, routing mesh del servizio, kubectl, K8S
 manager: gwallace
 ms.custom: devx-track-js
-ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c11150105db7a7bb48d20992dcc259cb5d87752
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316104"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973105"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azioni di GitHub & servizio Azure Kubernetes (anteprima)
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Azure Dev Spaces fornisce un flusso di lavoro con azioni di GitHub che consente di testare le modifiche da una richiesta pull direttamente in AKS prima che la richiesta pull venga unita al ramo principale del repository. Il fatto che un'applicazione in esecuzione riveda le modifiche di una richiesta pull può aumentare la confidenza sia per lo sviluppatore che per i membri del team. Questa applicazione in esecuzione può anche aiutare i membri del team, ad esempio i responsabili del prodotto e i progettisti, a diventare parte del processo di revisione durante le fasi iniziali dello sviluppo.
 

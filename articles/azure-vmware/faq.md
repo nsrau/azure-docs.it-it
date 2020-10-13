@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530477"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948715"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -101,6 +101,10 @@ Per quanto sappiamo, qualsiasi soluzione di backup che usa VMware VADP con la mo
 
 Poiché queste soluzioni di backup sono installate e gestite dai clienti, possono contattare il rispettivo ISV per il supporto. 
 
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Quali sono i criteri di archiviazione corretti per la configurazione di deduplicazione?
+
+Usare i criteri di archiviazione *thin_provision* per il modello di macchina virtuale.  Il valore predefinito è *thick_provision*.
+
 ## <a name="hosts-clusters-and-private-clouds"></a>Host, cluster e cloud privati
 
 #### <a name="is-the-underlying-infrastructure-shared"></a>L'infrastruttura sottostante è condivisa?
@@ -174,6 +178,8 @@ No. Il traffico di rete in ingresso diretto da Internet ai cloud privati non è 
 
 Sì. Sarà necessario usare NSX-T Manager per creare un firewall che limiti l'accesso delle VM a Internet.
 
+
+
 ## <a name="accounts-and-privileges"></a>Account e privilegi
 
 #### <a name="what-accounts-and-privileges-will-i-get-with-my-new-azure-vmware-solution-private-cloud"></a>Quali account e privilegi si ottengono con il nuovo cloud privato della soluzione VMware di Azure?
@@ -211,7 +217,7 @@ Sarà necessario un account Azure in una sottoscrizione di Azure.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Ricerca per categorie richiedere un aumento della quota host per la soluzione VMware di Azure?
 
-* È necessario un [Enterprise Agreement di Azure (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) con Microsoft.
+* È necessario un [Enterprise Agreement di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 * Sarà necessario un account Azure in una sottoscrizione di Azure.
 
 Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo.
