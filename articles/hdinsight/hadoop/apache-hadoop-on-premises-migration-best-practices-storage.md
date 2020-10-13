@@ -12,7 +12,7 @@ ms.openlocfilehash: cd27babee4b78d22bbd49ab53c1ed2fe5a54a0da
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856688"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight
@@ -33,7 +33,7 @@ Archiviazione di Azure può essere replicata geograficamente. Sebbene la replica
 
 Per accedere ai dati memorizzati in Archiviazione di Azure, è possibile usare i formati seguenti.
 
-|Formato di accesso ai dati |Descrizione |
+|Formato di accesso ai dati |Description |
 |---|---|
 |`wasb:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione non crittografata.|
 |`wasbs:///`|Accesso allo spazio di archiviazione predefinito usando la comunicazione crittografata.|
@@ -155,7 +155,7 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 1. Aprire il file [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) e modificare i valori seguenti:
 
-    |Proprietà token|Descrizione|
+    |Proprietà token|Description|
     |---|---|
     |policy_name|nome da usare per i criteri archiviati da creare.|
     |storage_account_name|nome dell'account di archiviazione.|

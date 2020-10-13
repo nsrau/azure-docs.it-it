@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 9fe149fb026aabcb50a595061d3ba57df7812563
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602813"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803501"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -71,6 +71,8 @@ API Cassandra di Azure Cosmos DB supporta i tipi di dati CQL seguenti:
 | tuple | Sì | 
 | udts  | Sì |
 | map | Sì |
+
+Per la dichiarazione del tipo di dati è supportato il tipo statico.
 
 ## <a name="cql-functions"></a>Funzioni CQL
 
@@ -273,7 +275,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## <a name="secondary-index"></a>Indice secondario
+L'API Cassandra supporta indici secondari in tutti i tipi di dati, tranne i tipi di raccolta bloccata, i tipi Decimal e Variant. 
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Utilizzo dei criteri di ripetizione delle connessioni di Cassandra
 

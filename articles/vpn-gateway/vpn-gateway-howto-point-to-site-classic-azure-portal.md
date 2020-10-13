@@ -1,18 +1,18 @@
 ---
-title: "Connettere un computer a una rete virtuale da punto a sito con l'autenticazione del certificato: portale di Azure classico | Microsoft Docs"
+title: "Connettere un computer a una rete virtuale usando l'autenticazione da punto a sito e certificato: portale di Azure classica | Microsoft Docs"
 description: Creare una connessione classica al gateway VPN da punto a sito tramite il portale di Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0618c120a7fe572aa55b423d36dce3ef5656da
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84984794"
+ms.locfileid: "91876193"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
 
@@ -79,31 +79,11 @@ Prima di iniziare, verificare di possedere una sottoscrizione di Azure. Se non s
 
 ### <a name="part-1-create-a-virtual-network"></a>Parte 1: Creare una rete virtuale
 
-Se non si ha una rete virtuale, crearne una. Gli screenshot sono forniti come esempio. Assicurarsi di sostituire i valori con i propri. Per creare una rete virtuale usando il portale di Azure, seguire questa procedura:
+Se si ha già una rete virtuale, verificare che le impostazioni siano compatibili con la progettazione del gateway VPN. Prestare particolare attenzione alle subnet che potrebbero sovrapporsi ad altre reti.
 
-1. Nel menu del [portale di Azure](https://portal.azure.com) o nella **home page** selezionare **Crea una risorsa**. Verrà visualizzata la pagina **Nuovo**.
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
 
-2. Nel campo **Cerca nel Marketplace** immettere *rete virtuale* e quindi selezionare **Rete virtuale** nell'elenco restituito. Verrà visualizzata la pagina **Rete virtuale**.
-
-3. Dall'elenco **Selezionare un modello di distribuzione** scegliere **Versione classica** e quindi **Crea**. Verrà visualizzata la pagina **Crea rete virtuale**.
-
-4. Nella pagina **Crea rete virtuale** configurare le impostazioni della rete virtuale. Aggiungere a questa pagina il primo spazio di indirizzi e l'intervallo di indirizzi di una subnet singola. Dopo aver creato la rete virtuale, è possibile tornare indietro e aggiungere altre subnet e altri spazi di indirizzi.
-
-   ![Pagina Crea rete virtuale](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
-
-5. Selezionare la **Sottoscrizione** da usare nell'elenco a discesa.
-
-6. Selezionare un **gruppo di risorse**esistente. In alternativa, creare un nuovo gruppo di risorse selezionando **Crea nuovo** e specificando un nome. Se si crea un nuovo gruppo di risorse, denominare il gruppo in base ai valori di configurazione pianificati. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
-
-7. Selezionare una **Posizione** per la rete virtuale. Questa impostazione determina la posizione geografica delle risorse distribuite in questa rete virtuale.
-
-8. Selezionare **Crea** per creare la rete virtuale. Nella pagina **Notifiche** si noterà il messaggio **Distribuzione in corso**.
-
-8. Una volta creata la rete virtuale, il messaggio nella pagina **Notifiche** cambia in **Distribuzione riuscita**. Per trovare facilmente la rete virtuale nel dashboard, selezionare **Aggiungi al dashboard**. 
-
-10. Aggiungere un server DNS (facoltativo). Dopo aver creato la rete virtuale, è possibile aggiungere l'indirizzo IP di un server DNS per la risoluzione dei nomi. L'indirizzo IP del server DNS specificato deve essere l'indirizzo di un server DNS in grado di risolvere i nomi per le risorse della rete virtuale.
-
-    Per aggiungere un server DNS, selezionare **Server DNS** dalla pagina della rete virtuale. Immettere quindi l'indirizzo IP del server DNS da usare per la risoluzione dei nomi e selezionare **Salva**.
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Parte 2: creare una subnet del gateway e un gateway di routing dinamico
 

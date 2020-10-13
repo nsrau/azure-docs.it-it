@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 7554993025d8f64a80c1b223586f856eedf9e964
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766607"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854308"
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurare un gateway di rete virtuale per ExpressRoute usando PowerShell
+# <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Esercitazione: Configurare un gateway di rete virtuale per ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portale di Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -30,15 +30,13 @@ In questa esercitazione verranno illustrate le procedure per:
 > - Creare una subnet del gateway.
 > - Creare il gateway di rete virtuale.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="configuration-reference-list"></a>Elenco di riferimento per la configurazione
 
 Nei passaggi di questa attività viene usata una rete virtuale basata sui valori indicati nell'elenco di riferimento per la configurazione riportato di seguito. In questo elenco sono indicati anche i nomi e le impostazioni aggiuntive. Questo elenco non verrà utilizzato direttamente nella procedura, ma si aggiungeranno variabili basate sui valori nell'elenco. È possibile copiare l'elenco per usarlo come riferimento, sostituendo i valori con quelli personalizzati.
 
-| Impostazione                   | valore                                              |
+| Impostazione                   | Valore                                              |
 | ---                       | ---                                                |
 | Nome della rete virtuale | *TestVNet* |    
 | Spazio degli indirizzi della rete virtuale | *192.168.0.0/16* |
@@ -48,7 +46,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 | Nome della subnet1 | *FrontEnd* |
 | Nome della subnet del gateway | *GatewaySubnet* |    
 | Spazio degli indirizzi della subnet del gateway | *192.168.200.0/26* |
-| Region | *Stati Uniti orientali* |
+| Area | *Stati Uniti orientali* |
 | Nome gateway | *GW* |   
 | Nome IP del gateway | *GWIP* |
 | Nome della configurazione IP del gateway | *gwipconf* |
@@ -94,7 +92,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
    ```azurepowershell-interactive
    $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
    ```
-1. Creare la configurazione per il gateway. La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. In questo passaggio si specifica la configurazione che verrà usata quando si crea il gateway. Questo passaggio non crea effettivamente l'oggetto gateway. Per creare la configurazione del gateway, usare l'esempio seguente.
+1. Creare la configurazione per il gateway. La configurazione del gateway definisce la subnet e l'indirizzo IP pubblico da utilizzare. In questo passaggio si specifica la configurazione che verrà usata quando si crea il gateway. Per creare la configurazione del gateway, usare l'esempio seguente.
 
    ```azurepowershell-interactive
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: c5537552e35c1738e6c3cd4873b4c6444685a5fe
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a01d4137217aa594d4636f3338d3f33dc03cc836
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448304"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713745"
 ---
 # <a name="pricing-of-azure-security-center"></a>Prezzi del Centro sicurezza di Azure
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -58,7 +58,7 @@ Di seguito è riportata la pagina dei prezzi per una sottoscrizione di esempio. 
 :::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Pagina dei prezzi del Centro sicurezza nel portale":::
 
 > [!NOTE]
-> Per abilitare le funzionalità del Centro sicurezza, incluse le funzionalità di protezione dalle minacce, è necessario abilitare Azure Defender nella sottoscrizione che contiene i carichi di lavoro applicabili. Se il servizio viene abilitato a livello di area di lavoro, non verranno abilitate funzionalità come l'accesso JIT alle VM, i controlli applicazioni adattivi e i rilevamenti di rete per le risorse di Azure. 
+> Per abilitare le funzionalità del Centro sicurezza, incluse le funzionalità di protezione dalle minacce, è necessario abilitare Azure Defender nella sottoscrizione che contiene i carichi di lavoro applicabili. Se il servizio viene abilitato a livello di area di lavoro, non verranno abilitate funzionalità come l'accesso JIT alle VM, i controlli applicazioni adattivi e i rilevamenti di rete per le risorse di Azure. Inoltre, gli unici piani di Azure Defender disponibili a livello di area di lavoro sono Azure Defender per i server e Azure Defender per i server SQL nelle macchine virtuali.
 >
 > È possibile abilitare **Azure Defender per gli account di archiviazione** a livello di sottoscrizione o di risorsa.
 > È possibile abilitare **Azure Defender per SQL** a livello di sottoscrizione o di risorsa.

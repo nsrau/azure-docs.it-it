@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815607"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972527"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opzioni di disponibilità per le macchine virtuali in Azure
 
@@ -51,7 +51,7 @@ I set di scalabilità di macchine virtuali di Azure consentono di creare e gesti
 
 **Domini di errore e domini di aggiornamento**
 
-I set di scalabilità di macchine virtuali semplificano la progettazione per la disponibilità elevata allineando domini di errore e domini di aggiornamento. È necessario definire solo il numero di domini di errore per il set di scalabilità. Il numero di domini di errore disponibili per i set di scalabilità può variare in base all'area. Vedere [gestire la disponibilità delle macchine virtuali in Azure](./windows/manage-availability.md).
+I set di scalabilità di macchine virtuali semplificano la progettazione per la disponibilità elevata allineando domini di errore e domini di aggiornamento. È necessario definire solo il numero di domini di errore per il set di scalabilità. Il numero di domini di errore disponibili per i set di scalabilità può variare in base all'area. Vedere [gestire la disponibilità delle macchine virtuali in Azure](./manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Set di disponibilità
@@ -61,7 +61,7 @@ In un set di disponibilità, le macchine virtuali vengono distribuite automatica
 
 Le VM che usano [Azure Managed Disks](./faq-for-disks.md) sono allineate con i domini di errore dei dischi gestiti quando si usa un set di disponibilità gestito. Questo allineamento garantisce che tutti i dischi gestiti collegati a una VM siano nello stesso dominio di errore dei dischi gestiti. 
 
-In un set di disponibilità gestito possono essere create solo VM con dischi gestiti. Il numero di domini di errore dei dischi gestiti varia in base all'area: due o tre domini di errore di dischi gestiti per area. Sono disponibili altre informazioni su questi domini di errore dei dischi gestiti per le [VM Linux](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) o le [VM Windows](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+In un set di disponibilità gestito possono essere create solo VM con dischi gestiti. Il numero di domini di errore dei dischi gestiti varia in base all'area: due o tre domini di errore di dischi gestiti per area. Sono disponibili altre informazioni su questi domini di errore dei dischi gestiti per le [VM Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) o le [VM Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Set di disponibilità gestito](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

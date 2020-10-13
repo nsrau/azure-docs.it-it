@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: alkohli
 ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91839946"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specifiche tecniche e conformità per Azure Stack Edge Pro con GPU 
@@ -26,7 +26,7 @@ Il dispositivo Pro Azure Stack Edge presenta le specifiche seguenti per le risor
 | Specifiche           | valore                  |
 |-------------------------|----------------------------|
 | CPU                     | 2 X CPU Intel Xeon Silver 4214 (Cascade Lake)            |
-| Memoria                  | 128 (8x16 GB) GB di RAM                     |
+| Memory                  | 128 (8x16 GB) GB di RAM                     |
 
 
 ## <a name="compute-acceleration-specifications"></a>Specifiche di accelerazione di calcolo
@@ -65,7 +65,7 @@ Il dispositivo Azure Stack Edge Pro dispone dei seguenti componenti hardware di 
 
 Ecco i dettagli per la scheda Mellanox:
 
-| Parametro           | Descrizione                 |
+| Parametro           | Description                 |
 |-------------------------|----------------------------|
 | Modello    | Scheda di interfaccia di rete ConnectX®-4 LX                      |
 | Descrizione modello               | 25GbE Dual-Port SFP28; PCIe 3.0 x8; ROHS R6                    |

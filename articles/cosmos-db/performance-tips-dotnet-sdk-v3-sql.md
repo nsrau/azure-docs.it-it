@@ -8,10 +8,10 @@ ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802991"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
@@ -62,7 +62,7 @@ Se si sta eseguendo il test a livelli di velocità effettiva elevata o a tariffe
 > [!NOTE] 
 > Un utilizzo elevato della CPU può causare un aumento della latenza e delle eccezioni di timeout richieste.
 
-## <a name="networking"></a>Rete
+## <a name="networking"></a>Funzionalità di rete
 <a id="direct-connection"></a>
 
 **Criteri di connessione: usare la modalità di connessione diretta**
