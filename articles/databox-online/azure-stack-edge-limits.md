@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904448"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992757"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Limiti di Azure Stack Edge Pro
 
@@ -27,12 +27,16 @@ Considerare questi limiti quando si distribuisce e si utilizza la soluzione di M
 
 La tabella seguente descrive i limiti per il dispositivo Azure Stack Edge Pro. 
 
+La tabella seguente descrive i limiti per il dispositivo Azure Stack Edge.
+
 | Descrizione | Valore |
 |---|---|
 |No. di file per dispositivo |100 milioni |
-|No. di condivisioni per dispositivo |24 |
 |No. di condivisioni per contenitore |1 |
+|Numero massimo. degli endpoint di condivisione e degli endpoint REST per ogni dispositivo| 24 |
+|Numero massimo. di account di archiviazione a livelli per dispositivo| 24|
 |Dimensione massima dei file scritti in una condivisione| 5 TB |
+|Numero massimo di gruppi di risorse per dispositivo| 800 |
 
 ## <a name="azure-storage-limits"></a>Limiti di Archiviazione di Azure
 

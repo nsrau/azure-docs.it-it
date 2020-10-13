@@ -1,25 +1,18 @@
 ---
 title: Red Hat Enterprise Linux immagini di Azure Bring your own Subscription | Microsoft Docs
 description: Informazioni sulle immagini Bring-your-own-Subscription per Red Hat Enterprise Linux in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87052172"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993334"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux le immagini Gold Bring your own Subscription in Azure
 
@@ -190,7 +183,7 @@ Crittografia dischi di Azure non è supportata nelle [Immagini personalizzate di
 
 Per i passaggi per l'applicazione di crittografia dischi di Azure, vedere [scenari di crittografia dischi di Azure nelle macchine virtuali Linux](../../linux/disk-encryption-linux.md) e articoli correlati.
 
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 - Se si tenta di effettuare il provisioning di una macchina virtuale in una sottoscrizione non abilitata per questa offerta, viene ricevuto il messaggio seguente:
 

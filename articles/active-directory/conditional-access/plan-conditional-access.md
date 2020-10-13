@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258677"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992867"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -89,7 +89,7 @@ Considerare le esigenze organizzative quando si determina la strategia per la di
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-Quando i progetti tecnologici hanno esito negativo, in genere la causa sono le diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi inconvenienti, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans) e che i ruoli del progetto siano chiari.
+Quando i progetti tecnologici hanno esito negativo, in genere la causa sono le diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi inconvenienti, [assicurarsi di coinvolgere gli stakeholder appropriati](../fundamentals/active-directory-deployment-plans.md) e che i ruoli del progetto siano chiari.
 
 ### <a name="plan-communications"></a>Pianificare le comunicazioni
 

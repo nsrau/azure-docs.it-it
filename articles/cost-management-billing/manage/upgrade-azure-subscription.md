@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7223d33f8f26897d24841f84454405f91cf3bc49
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e758a886e32c5a3f7cd3c744ac451b948a74802
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686344"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308861"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Aggiornare l'account Azure gratuito o l'account Azure for Students Starter
 
@@ -80,4 +80,4 @@ Se si è idonei, seguire questa procedura per eseguire l'aggiornamento a un acco
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che l'account è stato aggiornato, vedere [Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure.](getting-started.md)
+Ora che è stato aggiornato l'account, vedere [Pianificare la gestione dei costi di Azure](../understand/plan-manage-costs.md).

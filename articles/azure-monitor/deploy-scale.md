@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441465"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993254"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Distribuire monitoraggio di Azure su larga scala usando criteri di Azure
 Mentre alcune funzionalità di monitoraggio di Azure sono configurate una volta o un numero limitato di volte, altre devono essere ripetute per ogni risorsa che si vuole monitorare. Questo articolo descrive i metodi per l'uso di criteri di Azure per implementare monitoraggio di Azure su larga scala per garantire che il monitoraggio sia configurato in modo coerente e accurato per tutte le risorse di Azure.
@@ -33,7 +33,7 @@ Criteri di Azure è costituito dagli oggetti nella tabella seguente. Per una spi
 | Assegnazione | Una definizione o un'iniziativa di criteri non diventa effettiva fino a quando non viene assegnata a un ambito. Ad esempio, assegnare un criterio a un gruppo di risorse per applicarlo a tutte le risorse create in tale risorsa o applicarlo a una sottoscrizione per applicarlo a tutte le risorse nella sottoscrizione.  Per altri dettagli, vedere [struttura di assegnazione dei criteri di Azure](../governance/policy/concepts/assignment-structure.md). |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definizioni di criteri predefiniti per Monitoraggio di Azure
-Criteri di Azure include diverse definizioni predefinite correlate a monitoraggio di Azure. È possibile assegnare queste definizioni dei criteri alla sottoscrizione esistente o utilizzarle come base per creare definizioni personalizzate. Per un elenco completo delle politiche incorporate nella categoria **monitoraggio** , vedere [definizioni dei criteri predefiniti di criteri di Azure per monitoraggio di Azure](samples/policy-samples.md).
+Criteri di Azure include diverse definizioni predefinite correlate a monitoraggio di Azure. È possibile assegnare queste definizioni dei criteri alla sottoscrizione esistente o utilizzarle come base per creare definizioni personalizzate. Per un elenco completo delle politiche incorporate nella categoria **monitoraggio** , vedere [definizioni dei criteri predefiniti di criteri di Azure per monitoraggio di Azure](./samples/policy-reference.md).
 
 Per visualizzare le definizioni dei criteri predefinite correlate al monitoraggio, eseguire le operazioni seguenti:
 
@@ -130,7 +130,7 @@ L'iniziativa verrà applicata a ogni macchina virtuale creata. Un' [attività di
 
 Monitoraggio di Azure per le macchine virtuali include le seguenti iniziative predefinite che installano entrambi gli agenti per abilitare il monitoraggio completo. 
 
-|Nome |Description |
+|Nome |Descrizione |
 |:---|:---|
 |Abilita Monitoraggio di Azure per le macchine virtuali | Installa l'agente di Log Analytics e l'agente di dipendenza nelle VM di Azure e nelle macchine virtuali ibride connesse ad Azure Arc. |
 |Abilitare monitoraggio di Azure per i set di scalabilità di macchine virtuali | Installa l'agente di Log Analytics e l'agente di dipendenza nel set di scalabilità di macchine virtuali di Azure. |
@@ -163,7 +163,7 @@ Potrebbero esistere scenari in cui si vuole installare l'agente di Log Analytics
 > Non esiste alcun motivo per la distribuzione autonoma di Dependency Agent, perché richiede che l'agente Log Analytics fornisca i dati a monitoraggio di Azure.
 
 
-|Nome |Description |
+|Nome |Descrizione |
 |-----|------------|
 |Controllare la distribuzione dell'agente Log Analytics-immagine di macchina virtuale (sistema operativo) non in elenco |Segnala le macchine virtuali come non conformi se l'immagine di macchina virtuale (sistema operativo) non è definita nell'elenco e l'agente non è installato. |
 |Distribuire Log Analytics Agent per macchine virtuali Linux |Distribuire Log Analytics Agent per VM Linux se l'immagine di macchina virtuale (sistema operativo) è definita nell'elenco e l'agente non è installato. |

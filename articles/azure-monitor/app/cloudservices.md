@@ -4,12 +4,12 @@ description: Monitorare i ruoli Web e di lavoro in modo efficace con Application
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759374"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992848"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](../platform/diagnostics-extension-overview.md) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -67,7 +67,7 @@ Per evitare questa situazione, creare risorse separate per ogni configurazione d
 
 Per inviare i dati di telemetria alle risorse appropriate, è possibile configurare Application Insights SDK in modo che selezioni una chiave di strumentazione diversa a seconda della configurazione della build. 
 
-Informazioni su come [impostare dinamicamente la chiave di strumentazione](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) per diverse fasi. 
+Informazioni su come [impostare dinamicamente la chiave di strumentazione](./separate-resources.md#dynamic-ikey) per diverse fasi. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Creare una risorsa di Application Insights per ogni ruolo
 
@@ -290,4 +290,3 @@ Se si dispone di un'app client per dispositivi mobili, usare [App Center](../lea
 [qna]: ../faq.md
 [redfield]: ./monitor-performance-live-website-now.md
 [start]: ./app-insights-overview.md
-
