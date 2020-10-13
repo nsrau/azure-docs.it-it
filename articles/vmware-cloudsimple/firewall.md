@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846866"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurare le regole e le tabelle del firewall per i cloud privati
@@ -55,7 +55,7 @@ Le regole del firewall determinano il modo in cui il firewall tratta tipi specif
     * **Protocollo**. Selezionare il protocollo coperto dalla regola (TCP, UDP o qualsiasi protocollo).
     * **Direzione**. Consente di indicare se la regola è per il traffico in ingresso o in uscita. È necessario definire regole separate per il traffico in ingresso e in uscita.
     * **Azione**. Selezionare l'azione da eseguire se la regola corrisponde a (Consenti o nega).
-    * **Origine**. Specificare le origini coperte dalla regola (blocco CIDR, interno o qualsiasi origine).
+    * **Source**. Specificare le origini coperte dalla regola (blocco CIDR, interno o qualsiasi origine).
     * **Intervallo di porte di origine**. Specificare l'intervallo di porte soggetto alla regola.
     * **Direzione**. Selezionare in ingresso o in uscita.
     * **Destinazione**. Specificare le destinazioni coperte dalla regola (blocco CIDR, interno o qualsiasi origine).

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85829874"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Come proteggere l'ambiente cloud privato
@@ -39,7 +39,7 @@ Per altre informazioni, vedere informazioni [sul controllo degli accessi in base
 
 1. [Escalation dei privilegi](escalate-private-cloud-privileges.md) per l'utente **CloudOwner \@ Cloudsimple. local** nel cloud privato.
 2. Accedere a vCenter usando **CloudOwner \@ cloudsimple. local**
-3. [Aggiungere gli utenti di vCenter Single Sign-on](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
+3. [Aggiungere vCenter Single Sign-On Users](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Aggiungere utenti a [vCenter Single Sign-on gruppi](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 Per altre informazioni sui ruoli e sui gruppi predefiniti, vedere l'articolo relativo al [modello di autorizzazione del cloud privato CloudSimple di VMware vCenter](learn-private-cloud-permissions.md) .

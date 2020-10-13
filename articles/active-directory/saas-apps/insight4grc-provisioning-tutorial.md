@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
 ms.openlocfilehash: 60bf2034f1e6404f3f09bf25a66c497dbbaf4d05
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361654"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Esercitazione: configurare Insight4GRC per il provisioning utenti automatico
@@ -44,7 +44,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Insight4GRC](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-insight4grc-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Insight4GRC per supportare il provisioning con Azure AD
+## <a name="step-2-configure-insight4grc-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Insight4GRC per supportare il provisioning con Azure AD
 
 Prima di configurare Insight4GRC per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in Insight4GRC.
 

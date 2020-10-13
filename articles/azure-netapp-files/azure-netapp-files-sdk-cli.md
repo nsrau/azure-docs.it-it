@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61978566eba792a1d5b1db45ea4a9e8d6e84a543
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513622"
+ms.locfileid: "91931037"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDK e strumenti dell'interfaccia della riga di comando di Azure NetApp Files
 
@@ -44,12 +44,12 @@ La tabella seguente elenca gli strumenti dell'interfaccia della riga di comando 
 
 |    Strumento    |    Informazioni di riferimento sui comandi    |
 |------------------|--------------------------------------------|
-|    Interfaccia della riga di comando di Azure  |    [AZ netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure PowerShell per Azure NetApp Files](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Interfaccia della riga di comando di Azure  |    [AZ netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
+|    PowerShell   |    [Azure PowerShell per Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
 
 ## <a name="code-samples"></a>Esempi di codice
 
-Vedere [esempi di codice per Azure NetApp files](https://docs.microsoft.com/samples/browse/?filter-products=netapp&products=azure-netapp-files).
+Vedere [esempi di codice per Azure NetApp files](/samples/browse/?filter-products=netapp&products=azure-netapp-files).
 
 ## <a name="next-steps"></a>Passaggi successivi   
  [Scarica Azure SDK](https://azure.microsoft.com/downloads/)
