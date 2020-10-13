@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
-ms.openlocfilehash: 9a3ffeb4ff58cc4af2309268f1a95cd9d354de8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206626"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999276"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associazione di Twilio per Funzioni di Azure
 
@@ -203,7 +203,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene illustrato come inviare un messaggio SMS utilizzando l'associazione di output come definito nell' *function.js*seguente.
+Nell'esempio seguente viene illustrato come inviare un messaggio SMS utilizzando l'associazione di output come definito nell' *function.js*seguente in.
 
 ```json
     {
@@ -331,7 +331,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |---------|---------|---------|----------------------|
 |**type**|**type**| deve essere impostato su `twilioSms`.|
 |**direction**|**direction**| deve essere impostato su `out`.|
-|**name**|**name**| Nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio. |
+|**nome**|**nome**| Nome della variabile usato nel codice della funzione per il messaggio SMS di Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Questo valore deve essere impostato sul nome di un'impostazione dell'app che include il SID dell'account Twilio ( `TwilioAccountSid` ). Se non viene impostato, il nome predefinito dell'impostazione dell'app è "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Questo valore deve essere impostato sul nome di un'impostazione dell'app che include il token di autenticazione Twilio ( `TwilioAccountAuthToken` ). Se non viene impostato, il nome predefinito dell'impostazione dell'app è "AzureWebJobsTwilioAuthToken". |
 |**to**| N/D - specificare nel codice | **To**| Questo valore è impostato sul numero di telefono a cui viene inviato il messaggio SMS.|

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498798"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999739"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -104,9 +104,9 @@ ms.locfileid: "86498798"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>D: cosa avverrà il 31 ottobre? È necessario offboard in anticipo?
 > 
-> - Non sarà possibile ricevere i dati dalla soluzione **Office365** . La soluzione non sarà più disponibile nel Marketplace
+> - Non sarà possibile ricevere i dati dalla soluzione **Office365** . La soluzione verrà rimossa dall'area di lavoro e non sarà più disponibile nel Marketplace.
 > - Per i clienti di Azure Sentinel, la soluzione per l'area di lavoro Log Analytics **Office365** verrà inclusa nella soluzione **SecurityInsights** di Sentinel di Azure.
-> - Se non si offboard la soluzione manualmente, i dati verranno disconnessi automaticamente il 31 ottobre.
+> - Se la soluzione non viene offboardta manualmente entro il 31 ottobre, i dati verranno disconnessi automaticamente e la tabella **OfficeActivity** verrà rimossa. Anche in questo caso, sarà ancora possibile ripristinare la tabella quando si Abilita il connettore Office 365 in Sentinel di Azure, come illustrato di seguito.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>D: i dati vengono trasferiti alla nuova soluzione?
 > Sì. Quando si rimuove la soluzione **Office 365** dall'area di lavoro, i relativi dati diventeranno temporaneamente non disponibili perché lo schema è stato rimosso. Quando si Abilita il nuovo connettore **Office 365** in Sentinel, lo schema viene ripristinato nell'area di lavoro e tutti i dati già raccolti diventeranno disponibili. 
@@ -245,7 +245,7 @@ Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca i pr
 
 | Colonna | Descrizione |
 |:--|:--|
-| Operazioni | Fornisce informazioni sugli utenti attivi da tutte le sottoscrizioni Office 365 monitorate. Sarà inoltre possibile visualizzare il numero di attività che si verificano nel corso del tempo.
+| Gestione operativa | Fornisce informazioni sugli utenti attivi da tutte le sottoscrizioni Office 365 monitorate. Sarà inoltre possibile visualizzare il numero di attività che si verificano nel corso del tempo.
 | Exchange | Mostra i dettagli delle attività di Exchange Server, ad esempio Add-Mailbox Permission o Set-Mailbox. |
 | SharePoint | Mostra le prime attività che gli utenti eseguono nei documenti di SharePoint. Quando si visualizzano i dettagli da questo riquadro, nella pagina di ricerca vengono visualizzati i dettagli di queste attività, ad esempio il documento di destinazione e il percorso di questa attività. Ad esempio, per un evento di accesso ai file, sarà possibile visualizzare il documento a cui si accede, il nome dell'account associato e l'indirizzo IP. |
 | Azure Active Directory | Include le attività degli utenti superiori, ad esempio i tentativi di accesso e di reimpostazione password utente. È possibile visualizzare i dettagli di queste attività, ad esempio lo stato dei risultati. Questa funzionalità è particolarmente utile se si desidera monitorare le attività sospette in Azure Active Directory. |
@@ -272,7 +272,7 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministratore<br>Applicazione<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>Sistema |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Amministrativi<br>Applicazione<br>DcAdmin<br>Regular<br>Riservato<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory

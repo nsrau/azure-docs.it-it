@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961290"
+ms.locfileid: "91998437"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
@@ -112,7 +112,7 @@ Nell'esempio seguente viene generata una stringa JSON basata sui valori dell'att
 </ClaimsTransformation>
 ```
 
-La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a un'API REST. La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
+La trasformazione delle attestazioni seguente restituisce un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a un'API REST. La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value".
 
 - Attestazioni di input:
   - **posta elettronica**, tipo di attestazione di trasformazione  **customerEntity. email**: " john.s@contoso.com "

@@ -12,12 +12,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961324"
+ms.locfileid: "91998102"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -454,7 +454,7 @@ Un token SAML è un token di sicurezza emesso da Azure AD B2C dopo un accesso ri
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Istante temporale in cui il token diventa valido. Il valore di ora è codificato in formato UTC. L'applicazione deve usare questa attestazione per verificare la validità della durata del token. Per modificare le impostazioni per la durata dei token, impostare i `TokenNotBeforeSkewInSeconds` [metadati](saml-issuer-technical-profile.md#metadata) del profilo tecnico relativo al problema del token SAML. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Ora in cui il token diventa non valido. L'applicazione deve usare questa attestazione per verificare la validità della durata del token. Il valore è 15 minuti dopo `NotBefore` e non può essere modificato.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Riferimento URI che identifica i destinatari desiderati. Identifica il destinatario del token. Il valore è identico a quello della richiesta SAML `AssertionConsumerServiceURL` .|
-|`<Response>``<Assertion>` `<saml:AttributeStatement>` raccolta di`<Attribute>` | | Raccolta di asserzioni (attestazioni), come configurato nell'relying party attestazioni di output del [profilo tecnico](relyingparty.md#technicalprofile) . È possibile configurare il nome dell'asserzione impostando il valore `PartnerClaimType` dell'attestazione di output. |
+|`<Response>``<Assertion>` `<AttributeStatement>` raccolta di`<Attribute>` | | Raccolta di asserzioni (attestazioni), come configurato nell'relying party attestazioni di output del [profilo tecnico](relyingparty.md#technicalprofile) . È possibile configurare il nome dell'asserzione impostando il valore `PartnerClaimType` dell'attestazione di output. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

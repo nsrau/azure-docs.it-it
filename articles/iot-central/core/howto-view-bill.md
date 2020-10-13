@@ -1,25 +1,25 @@
 ---
 title: Gestire la fattura e la conversione dal piano tariffario gratuito nell'applicazione IoT Central di Azure | Microsoft Docs
 description: In qualità di amministratore, Scopri come gestire la fattura e passare dal piano tariffario gratuito a un piano tariffario standard nell'applicazione IoT Central di Azure
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/09/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 888b9f31b8082ac124a773cc489293b335d7d255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 515f5f665e947ff9594cce6dbbaea9b5e0c50ebf
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157511"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999712"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Gestire la fattura in un'applicazione IoT Central
 
-Questo articolo descrive come un amministratore può gestire la fattura nell'applicazione IoT Central di Azure nella sezione amministrazione. Si apprenderà come spostare l'applicazione dal piano tariffario gratuito a un piano tariffario standard, nonché come aggiornare o effettuare il downgrade del piano tariffario.
+Questo articolo descrive come un amministratore può gestire la fatturazione di Azure IoT Central. È possibile spostare l'applicazione dal piano tariffario gratuito a un piano tariffario standard, nonché aggiornare o effettuare il downgrade del piano tariffario.
 
-Per accedere e usare la sezione **Amministrazione** , è necessario avere il ruolo di *amministratore* o avere un *ruolo utente personalizzato* che consente di visualizzare la fatturazione per un'applicazione IoT Central di Azure. All'utente che crea un'applicazione Azure IoT Central viene automaticamente assegnato il ruolo **Amministratore** per l'applicazione.
+Per accedere alla sezione **Amministrazione** , è necessario avere il ruolo di *amministratore* o disporre di un *ruolo utente personalizzato* che consenta di visualizzare la fatturazione. Se si crea un'applicazione IoT Central di Azure, l'utente viene automaticamente assegnato al ruolo di **amministratore** .
 
 ## <a name="move-from-free-to-standard-pricing-plan"></a>Passare dal piano tariffario gratuito a quello standard
 
@@ -55,9 +55,9 @@ Nella sezione relativa ai prezzi è possibile aggiornare o effettuare il downgra
 
 1. Passare alla pagina dei **prezzi** nella sezione **Amministrazione** .
 
-    ![Stato della versione di valutazione](media/howto-view-bill/pricing.png)
+    ![Aggiorna piano prcing](media/howto-view-bill/pricing.png)
 
-1. Selezionare il **piano** e fare clic su **Save (Salva** ) per eseguire l'aggiornamento o il downgrade.
+1. Selezionare il **piano** e quindi fare clic su **Salva** per eseguire l'aggiornamento o il downgrade.
 
 ## <a name="view-your-bill"></a>Visualizzare la fattura
 

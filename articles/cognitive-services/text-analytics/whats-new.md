@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8f0a40e30cc58a01a66ba808076fe1d42c31c326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978884"
+ms.locfileid: "91999679"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -23,7 +23,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 
 ## <a name="october-2020"></a>Ottobre 2020
 
-* Supporto hindi per Analisi del sentiment, a partire dalla versione del modello `2020-04-01` . 
+* Supporto hindi per Analisi del sentiment V3. x, a partire dalla versione del modello `2020-04-01` . 
 
 ## <a name="september-2020"></a>Settembre 2020
 
@@ -169,8 +169,8 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
-    * Product
-    * Event
+    * Prodotto
+    * Evento
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 

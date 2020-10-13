@@ -1,18 +1,18 @@
 ---
 title: Usare le proprietà in una soluzione IoT Central di Azure
 description: Informazioni su come usare le proprietà di sola lettura e scrivibili in una soluzione IoT Central di Azure.
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: eb949f6f0895743250ead0276692497432bfeed5
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940566"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999767"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usare le proprietà in una soluzione IoT Central di Azure
 
@@ -35,7 +35,7 @@ Nella tabella seguente vengono illustrate le impostazioni di configurazione per 
 | Campo           | Descrizione                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome visualizzato    | Nome visualizzato per il valore della proprietà usato nei dashboard e nei moduli.                                                                                                                                                              |
-| NOME            | Nome della proprietà. Azure IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere il proprio valore, se necessario. Questo campo deve essere alfanumerico.                                                 |
+| Nome            | Nome della proprietà. Azure IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere il proprio valore, se necessario. Questo campo deve essere alfanumerico.                                                 |
 | Tipo di funzionalità | Proprietà.                                                                                                                                                                                                                          |
 | Tipo semantico   | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili.                                                                       |
 | SCHEMA          | Tipo di dati della proprietà, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento.                                               |

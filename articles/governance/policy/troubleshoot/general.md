@@ -3,12 +3,12 @@ title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione di definizioni di criteri, al vario SDK e al componente aggiuntivo per Kubernetes.
 ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743438"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999892"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Risolvere gli errori usando criteri di Azure
 
@@ -169,6 +169,24 @@ Il grafico Helm con il nome `azure-policy-addon` è già stato installato o parz
 #### <a name="resolution"></a>Soluzione
 
 Seguire le istruzioni per [rimuovere il componente aggiuntivo criteri di Azure per Kubernetes](../concepts/policy-for-kubernetes.md#remove-the-add-on), quindi eseguire di nuovo il `helm install azure-policy-addon` comando.
+
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>Scenario: le identità assegnate dall'utente di macchine virtuali di Azure vengono sostituite dalle identità gestite assegnate dal sistema
+
+#### <a name="issue"></a>Problema
+
+Dopo aver assegnato le iniziative dei criteri di configurazione Guest alle impostazioni di controllo all'interno dei computer, le identità gestite assegnate dall'utente assegnate al computer non vengono più assegnate. Viene assegnata solo un'identità gestita assegnata dal sistema.
+
+#### <a name="cause"></a>Causa
+
+Le definizioni dei criteri usate in precedenza nelle definizioni DeployIfNotExists di configurazione Guest hanno garantito che un'identità assegnata dal sistema venga assegnata al computer, ma anche le assegnazioni di identità assegnate dall'utente.
+
+#### <a name="resolution"></a>Soluzione
+
+Le definizioni che in precedenza hanno causato il problema vengono visualizzate come \[ deprecate \] e vengono sostituite dalle definizioni dei criteri che gestiscono i prerequisiti senza rimuovere l'identità gestita assegnata dall'utente. È necessario eseguire un passaggio manuale. Eliminare le assegnazioni di criteri esistenti contrassegnate \[ come deprecate \] e sostituirle con l'iniziativa dei criteri e le definizioni dei criteri dei prerequisiti aggiornati con lo stesso nome dell'originale.
+
+Per una descrizione dettagliata, vedere il post di Blog seguente:
+
+[Modifica importante rilasciata per i criteri di controllo della configurazione Guest](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
