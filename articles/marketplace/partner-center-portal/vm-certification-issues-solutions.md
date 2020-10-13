@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
 ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803467"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemi comuni durante la certificazione delle immagini di macchine virtuali per Azure Marketplace
@@ -187,7 +187,7 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
-|Windows Server 2012 R2|6.3.9600.18604|
+|R2 per Windows Server 2012|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|N/D|
 
@@ -338,7 +338,7 @@ Passaggio 3. Al termine dell'esecuzione del comando, riavviare la macchina virtu
 
 Passaggio 4. Generalizzare la VM, estrarre il disco rigido virtuale dell'immagine e arrestare la macchina virtuale.
 
-Passaggio 5.     Inviare nuovamente l'immagine generalizzata.
+Passaggio 5.     Re-Submit l'immagine generalizzata.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Richiesta di eccezioni (modelli personalizzati) sulle immagini di VM per i test selettivi
 

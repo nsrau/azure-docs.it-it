@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 617ecc6b2eccab3a123f4d3cbc2fb96a40d15f11
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442684"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Uso della libreria client dei database elastici con elegante
@@ -170,7 +170,7 @@ Gli approcci descritti in questo documento implicano due limitazioni:
 * Il codice di esempio per questo documento non illustra come gestire lo schema tra partizioni.
 * Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Tuttavia, questo presupposto non ha sempre valore, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. Per risolvere questo problema, la libreria client dei database elastici include la [classe MultiShardQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Questa classe implementa un'astrazione di connessione per l'esecuzione di query su più partizioni. L'uso di MultiShardQuery in combinazione con Dapper esula dall'ambito di questo documento.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Le applicazioni che usano Dapper e DapperExtensions possono trarre vantaggio facilmente dagli strumenti dei database elastici del database SQL di Azure. Tramite le procedure descritte in questo documento, tali applicazioni possono usare la funzionalità dello strumento per il routing dipendente dai dati modificando la creazione e l'apertura di nuovi oggetti [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) per usare la chiamata a [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) della libreria client dei database elastici. In questo modo si limitano le modifiche dell'applicazione ai punti in cui vengono create e aperte nuove connessioni. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

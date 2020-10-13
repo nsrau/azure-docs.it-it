@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
 ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445058"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
@@ -122,9 +122,9 @@ I database primari e secondari devono avere lo stesso livello di servizio. È in
 
 Un'altra conseguenza di una configurazione secondaria sbilanciata è che, dopo il failover, le prestazioni dell'applicazione potrebbero risentirne a causa di una capacità di calcolo insufficiente del nuovo database primario. In tal caso, sarà necessario aumentare l'obiettivo di servizio del database al livello necessario, che può richiedere molto tempo e risorse di calcolo, e richiederà un failover a [disponibilità elevata](high-availability-sla.md) alla fine del processo di scalabilità verticale.
 
-Se si decide di creare il database secondario con una dimensione di calcolo inferiore, il grafico percentuale di i/o del log in portale di Azure rappresenta un metodo efficace per stimare le dimensioni minime di calcolo del database secondario necessario per sostenere il carico di replica. Ad esempio, se il database primario è P6 (1000 DTU) e la relativa percentuale di scrittura del log è 50%, il database secondario deve essere almeno P4 (500 DTU). Per recuperare i dati cronologici del log, usare la vista [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Per recuperare i dati di scrittura log recenti con una granularità più elevata che riflette meglio i picchi a breve termine nella frequenza dei log, usare [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) View.
+Se si decide di creare il database secondario con una dimensione di calcolo inferiore, il grafico percentuale di i/o del log in portale di Azure rappresenta un metodo efficace per stimare le dimensioni minime di calcolo del database secondario necessario per sostenere il carico di replica. Ad esempio, se il database primario è P6 (1000 DTU) e la relativa percentuale di scrittura del log è 50%, il database secondario deve essere almeno P4 (500 DTU). Per recuperare i dati cronologici del log, usare la vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) . Per recuperare i dati di scrittura log recenti con una granularità più elevata che riflette meglio i picchi a breve termine nella frequenza dei log, usare [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) visualizzazione.
 
-La limitazione della frequenza dei log delle transazioni nel database primario a causa di una riduzione delle dimensioni di calcolo in una replica secondaria viene segnalata utilizzando il tipo di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visibile nelle viste di database [sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) .
+La limitazione della frequenza dei log delle transazioni nel database primario a causa di una riduzione delle dimensioni di calcolo in una replica secondaria viene segnalata utilizzando il tipo di attesa HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visibile nelle viste di [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database.
 
 Per impostazione predefinita, la ridondanza dell'archiviazione di backup del database secondario è uguale a quella del database primario. È possibile scegliere di configurare il database secondario con una ridondanza di archiviazione di backup diversa. I backup vengono sempre eseguiti nel database primario. Se il database secondario è configurato con una ridondanza di archiviazione di backup diversa, dopo il failover quando il database secondario viene promosso al database primario, i backup verranno fatturati in base alla ridondanza di archiviazione selezionata sul nuovo database primario (secondario precedente). 
 
@@ -132,7 +132,7 @@ Per impostazione predefinita, la ridondanza dell'archiviazione di backup del dat
 > La velocità del log delle transazioni nel database primario può essere limitata per motivi non correlati a dimensioni di calcolo inferiori in un database secondario. Questo tipo di limitazione può verificarsi anche se il database secondario ha una dimensione di calcolo uguale o superiore a quella del database primario. Per informazioni dettagliate, inclusi i tipi di attesa per diversi tipi di limitazione della frequenza dei log, vedere [gestione della frequenza dei log delle transazioni](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sudorientale. Nell'anteprima, se il database di origine viene creato con ridondanza del backup con ridondanza locale o con ridondanza della zona, la creazione di un database secondario in un'area di Azure diversa non sarà supportata. 
+> La ridondanza dell'archivio di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sud-orientale. Nell'anteprima, se il database di origine viene creato con ridondanza del backup con ridondanza locale o con ridondanza della zona, la creazione di un database secondario in un'area di Azure diversa non sarà supportata. 
 
 Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](purchasing-models.md).
 
@@ -235,7 +235,7 @@ A causa della latenza elevata delle reti WAN, per la copia continua viene usato 
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitoraggio del ritardo della replica geografica
 
-Per monitorare il ritardo rispetto a RPO, utilizzare *replication_lag_sec* colonna di [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. ad esempio Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato.
+Per monitorare il ritardo rispetto a RPO, utilizzare *replication_lag_sec* colonna di [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) nel database primario. Mostra un ritardo in secondi tra le transazioni di cui è stato eseguito il commit nel database primario e rese permanente sul database secondario. ad esempio Se il valore del ritardo è di 1 secondo, significa che se il database primario è influenzato da un'interruzione in questo momento e viene avviato il failover, 1 secondo delle transizioni più recenti non verrà salvato.
 
 Per misurare il ritardo rispetto alle modifiche apportate al database primario che sono state applicate al database secondario, ovvero disponibili per la lettura dalla replica secondaria, confrontare *last_commit* tempo nel database secondario con lo stesso valore nel database primario.
 
@@ -299,7 +299,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
   - [Configurare un database singolo ed eseguirne il failover usando la replica geografica attiva](scripts/setup-geodr-and-failover-database-powershell.md)
   - [Configurare un database in pool ed eseguirne il failover usando la replica geografica attiva](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - Il database SQL supporta anche i gruppi di failover automatico. Per altre informazioni, vedere l'uso dei [gruppi di failover automatico](auto-failover-group-overview.md).
-- Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](automated-backups-overview.md).
 - Per informazioni sull'uso dei backup automatici per il ripristino, vedere [ripristinare un database dai backup avviati dal servizio](recovery-using-backups.md).
 - Per ulteriori informazioni sui requisiti di autenticazione per un nuovo database e server primario, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md).

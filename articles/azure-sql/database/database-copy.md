@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
 ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443789"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiare una copia coerente a livello di transazioni di un database nel database SQL di Azure
@@ -29,7 +29,7 @@ Il database SQL di Azure offre diversi metodi per la creazione di una copia di u
 Una copia del database è uno snapshot coerente a livello di transazione del database di origine al momento dell'avvio della richiesta di copia. È possibile selezionare lo stesso server o un server diverso per la copia. È anche possibile scegliere di conservare la ridondanza del backup, il livello di servizio e le dimensioni di calcolo del database di origine oppure usare una ridondanza di archiviazione di backup e/o una dimensione di calcolo diverse nello stesso o in un livello di servizio diverso. Al termine del processo di copia, questa diventa un database indipendente e completamente funzionante. Gli account di accesso, gli utenti e le autorizzazioni nel database copiato vengono gestiti in modo indipendente dal database di origine. La copia viene creata usando la tecnologia di replica geografica. Al termine del seeding della replica, il collegamento di replica geografica viene terminato automaticamente. All'operazione di copia del database si applicano tutti i requisiti per l'uso della replica geografica. Per informazioni dettagliate, vedere [Panoramica della replica geografica attiva](active-geo-replication-overview.md) .
 
 > [!NOTE]
-> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sudorientale. Nell'anteprima, se il database di origine viene creato con ridondanza di archiviazione di backup con ridondanza locale o con ridondanza della zona, la copia del database in un server in un'area di Azure diversa non è supportata. 
+> La ridondanza dell'archivio di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sud-orientale. Nell'anteprima, se il database di origine viene creato con ridondanza di archiviazione di backup con ridondanza locale o con ridondanza della zona, la copia del database in un server in un'area di Azure diversa non è supportata. 
 
 ## <a name="logins-in-the-database-copy"></a>Account di accesso nella copia del database
 
@@ -56,7 +56,7 @@ Per copiare un database, usare gli esempi seguenti.
 Per PowerShell, usare il cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) .
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
+> Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
@@ -128,7 +128,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorare lo stato dell'operazione di copia
 
-Monitorare il processo di copia eseguendo una query sulle viste [sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys. dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Mentre è in corso la copia, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **Copying**.
+Monitorare il processo di copia eseguendo una query sulle viste [sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Mentre è in corso la copia, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **Copying**.
 
 * Se la copia ha esito negativo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **sospetta**. Eseguire l'istruzione DROP sul nuovo database e riprovare in un secondo momento.
 * Se la copia ha esito positivo, la colonna **state_desc** della vista sys. databases per il nuovo database viene impostata su **online**. La copia è stata completata e il nuovo database è un database standard, che può essere modificato indipendentemente dal database di origine.
