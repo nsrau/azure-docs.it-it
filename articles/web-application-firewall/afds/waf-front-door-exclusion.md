@@ -8,15 +8,15 @@ ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77925930"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Web Application Firewall (WAF) con elenchi di esclusione del servizio front door 
 
-A volte Web Application Firewall (WAF) potrebbe bloccare una richiesta che si desidera consentire per l'applicazione. Ad esempio, Active Directory inserisce i token usati per l'autenticazione. Questi token possono contenere caratteri speciali che possono attivare un falso positivo dalle regole WAF. Gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF.  È possibile configurare un elenco di esclusioni usando [PowserShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), l' [API REST](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)o la portale di Azure. Nell'esempio seguente viene illustrata la configurazione del portale di Azure. 
+A volte Web Application Firewall (WAF) potrebbe bloccare una richiesta che si desidera consentire per l'applicazione. Ad esempio, Active Directory inserisce i token usati per l'autenticazione. Questi token possono contenere caratteri speciali che possono attivare un falso positivo dalle regole WAF. Gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF.  È possibile configurare un elenco di esclusioni usando  [PowserShell](https://docs.microsoft.com/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), l' [API REST](https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)o la portale di Azure. Nell'esempio seguente viene illustrata la configurazione del portale di Azure. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configurare gli elenchi di esclusione usando il portale di Azure
 **Gestire le esclusioni** è accessibile dal portale di WAF in **regole gestite**
 

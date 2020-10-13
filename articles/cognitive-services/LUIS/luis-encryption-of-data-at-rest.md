@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078130"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi di Language Understanding Service
@@ -32,11 +32,11 @@ Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gesti
 
 È anche possibile gestire la sottoscrizione con le proprie chiavi. Le chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
 
-È necessario utilizzare Azure Key Vault per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. La risorsa Servizi cognitivi e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+È necessario usare Azure Key Vault per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. La risorsa Servizi cognitivi e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ### <a name="customer-managed-keys-for-language-understanding"></a>Chiavi gestite dal cliente per Language Understanding
 
-Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare il [modulo di richiesta della chiave gestita dal cliente del servizio Luis](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvate per l'uso di CMK con LUIS, è necessario creare una nuova risorsa Language Understanding dal portale di Azure e selezionare E0 come piano tariffario. Il nuovo SKU funzionerà come lo SKU F0 già disponibile ad eccezione di CMK. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
+Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare il [modulo di richiesta della chiave del servizio LUIS Customer-Managed](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvate per l'uso di CMK con LUIS, è necessario creare una nuova risorsa Language Understanding dal portale di Azure e selezionare E0 come piano tariffario. Il nuovo SKU funzionerà come lo SKU F0 già disponibile ad eccezione di CMK. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
 
 ![Immagine della sottoscrizione LUIS](../media/cognitive-services-encryption/luis-subscription.png)
 
@@ -85,5 +85,5 @@ Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'int
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Modulo di richiesta della chiave gestita dal cliente del servizio LUIS](https://aka.ms/cogsvc-cmk)
+* [Modulo di richiesta chiave Customer-Managed servizio LUIS](https://aka.ms/cogsvc-cmk)
 * [Altre informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

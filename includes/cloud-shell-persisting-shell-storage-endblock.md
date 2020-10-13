@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67180484"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Trasferire file locali in Cloud Shell
@@ -25,7 +25,7 @@ La directory `clouddrive` viene sincronizzata con il pannello di archiviazione d
 
 ![File locali da caricare](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
 1. Passare alla condivisione file montata.
-2. Fare clic sul pulsante **Carica**.
+2. Selezionare il pulsante **Carica**.
 3. Selezionare uno o più file che si desidera caricare.
 4. Confermare il caricamento.
 

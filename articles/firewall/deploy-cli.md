@@ -8,10 +8,10 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075427"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
@@ -105,7 +105,7 @@ az network vnet subnet create \
 Creare ora le macchine virtuali per il jump server e il server del carico di lavoro e posizionarle nelle subnet appropriate.
 Quando richiesto, digitare una password per la macchina virtuale.
 
-Creare la macchina virtuale SRV-Jump.
+Creare la macchina virtuale Srv-Jump.
 
 ```azurecli-interactive
 az vm create \
@@ -121,7 +121,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-Creare una scheda di interfaccia di rete per SRV-lavorare con indirizzi IP del server DNS specifici e nessun indirizzo IP pubblico con cui eseguire il test.
+Creare una scheda di interfaccia di rete per Srv-Work con indirizzi IP del server DNS specifici e nessun indirizzo IP pubblico con cui eseguire il test.
 
 ```azurecli-interactive
 az network nic create \

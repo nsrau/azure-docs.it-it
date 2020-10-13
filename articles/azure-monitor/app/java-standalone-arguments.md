@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374304"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configurazione degli argomenti JVM Java autonomo Agent per monitoraggio di Azure Application Insights
@@ -43,7 +43,7 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
 
-### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat installato tramite `apt-get` o`yum`
+### <a name="tomcat-installed-via-apt-get-or-yum"></a>Tomcat installato tramite `apt-get` o `yum`
 
 Se Tomcat è stato installato tramite `apt-get` o `yum` , è necessario disporre di un file `/etc/tomcat8/tomcat8.conf` .  Aggiungere questa riga alla fine del file:
 
@@ -139,12 +139,12 @@ Se si eseguono più server gestiti in un singolo host, sarà necessario aggiunge
 ...
 ```
 
-Il `applicationinsights.agent.id` valore specificato deve essere univoco. Viene usato per creare una sottodirectory nella directory applicationinsights, perché ogni processo JVM necessita di una configurazione applicationinsights locale e di un file di log applicationinsights locale. Inoltre, se si inviano report all'agente di raccolta centrale, il `applicationinsights.properties` file viene condiviso da più server gestiti, pertanto l'oggetto specificato `applicationinsights.agent.id` è necessario per eseguire l'override dell' `agent.id` impostazione nel file condiviso. `applicationinsights.agent.rollup.id`può essere specificato in modo analogo nel server `system-properties` se è necessario eseguire l'override dell' `agent.rollup.id` impostazione per ogni server gestito.
+Il `applicationinsights.agent.id` valore specificato deve essere univoco. Viene usato per creare una sottodirectory nella directory applicationinsights, perché ogni processo JVM necessita di una configurazione applicationinsights locale e di un file di log applicationinsights locale. Inoltre, se si inviano report all'agente di raccolta centrale, il `applicationinsights.properties` file viene condiviso da più server gestiti, pertanto l'oggetto specificato `applicationinsights.agent.id` è necessario per eseguire l'override dell' `agent.id` impostazione nel file condiviso. `applicationinsights.agent.rollup.id` può essere specificato in modo analogo nel server `system-properties` se è necessario eseguire l'override dell' `agent.rollup.id` impostazione per ogni server gestito.
 
 
 ## <a name="jetty-9"></a>Jetty 9
 
-Aggiungi le righe seguenti a`start.ini`
+Aggiungi le righe seguenti a `start.ini`
 
 ```
 --exec

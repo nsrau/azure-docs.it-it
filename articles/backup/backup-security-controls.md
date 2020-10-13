@@ -4,10 +4,10 @@ description: Informazioni sui controlli di sicurezza usati nel servizio backup d
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89418756"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controlli di sicurezza per backup di Azure
@@ -39,7 +39,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in backup di Azure
 | Controllo di sicurezza | Sì/No | Note| Documentazione
 |---|---|--|--|
 | Authentication| Sì | L'autenticazione avviene tramite Azure Active Directory. |  |
-| Autorizzazione| Sì | Creati dal cliente e vengono usati i ruoli predefiniti di Azure. Per altre informazioni, vedere [usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di backup di Azure](./backup-rbac-rs-vault.md). |  |
+| Autorizzazione| Sì | Creati dal cliente e vengono usati i ruoli predefiniti di Azure. Per altre informazioni, vedere [usare Role-Based controllo di accesso per gestire i punti di ripristino di backup di Azure](./backup-rbac-rs-vault.md). |  |
 
 ## <a name="data-protection"></a>Protezione dei dati
 
