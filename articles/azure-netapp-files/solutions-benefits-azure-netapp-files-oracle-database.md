@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 56322dc8def288ed388713e143f6b77816360ba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f431015caf5bb3364fe5628a599f760c6318c47
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "82117047"
+ms.locfileid: "91932499"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Vantaggi dell'uso di Azure NetApp Files con Oracle Database
 
@@ -62,4 +62,4 @@ Per disabilitare:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Architetture di soluzioni con Azure NetApp Files](azure-netapp-files-solution-architectures.md)
-- [Panoramica delle applicazioni e delle soluzioni Oracle in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview)
+- [Panoramica delle applicazioni e delle soluzioni Oracle in Azure](../virtual-machines/workloads/oracle/oracle-overview.md)

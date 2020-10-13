@@ -3,12 +3,12 @@ title: Informazioni su criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540252"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951537"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -57,6 +57,7 @@ Le limitazioni generali seguenti si applicano al componente aggiuntivo di criter
 - Le installazioni di Gatekeeper all'esterno del componente aggiuntivo criteri di Azure non sono supportate. Disinstallare i componenti installati da un'installazione precedente di gatekeeper prima di abilitare il componente aggiuntivo criteri di Azure.
 - I [motivi della mancata conformità](../how-to/determine-non-compliance.md#compliance-reasons) non sono disponibili per la `Microsoft.Kubernetes.Data` 
    [modalità del provider di risorse](./definition-structure.md#resource-provider-modes). Usare [i dettagli del componente](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- Le [esenzioni](./exemption-structure.md) non sono supportate per le [modalità del provider di risorse](./definition-structure.md#resource-provider-modes).
 
 Le limitazioni seguenti si applicano solo al componente aggiuntivo criteri di Azure per AKS:
 

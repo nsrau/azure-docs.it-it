@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84d97a86dd1dc912964b78d488c460faa744dd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274708"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977341"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -49,11 +49,11 @@ La tabella seguente elenca alcune differenze tra un'implementazione locale e un'
 | **Rete** |LAN/WAN  |SDN (Software Defined Networking)|
 | **Gruppo di sicurezza** |Strumenti di restrizione per indirizzi IP/porte |[Gruppo di sicurezza di rete (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resilienza** |MTBF (tempo medio tra gli errori) |MTTR (tempo medio per il ripristino)|
-| **Manutenzione pianificata** |Applicazione di patch/aggiornamenti|[Set di disponibilità](../../windows/infrastructure-example.md) (applicazione di patch/aggiornamenti gestita da Azure) |
+| **Manutenzione pianificata** |Applicazione di patch/aggiornamenti|[Set di disponibilità](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (applicazione di patch/aggiornamenti gestita da Azure) |
 | **Risorsa** |Dedicato  |Condivisa con altri client|
 | **Aree** |Data center |[Coppie di aree](../../regions.md#region-pairs)|
 | **Storage** |Dischi fisici/SAN |[Archiviazione gestita da Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-| **Scalabilità** |Scalabilità verticale |Scalabilità orizzontale|
+| **Ridimensionamento** |Scalabilità verticale |Scalabilità orizzontale|
 
 
 ### <a name="requirements"></a>Requisiti
@@ -211,7 +211,7 @@ Per ottimizzare la velocità effettiva, è consigliabile iniziare con **None** p
 
 Dopo avere salvato l'impostazione del disco dati, non è possibile modificare l'impostazione della cache host, a meno che l'unità a livello di sistema operativo non venga smontata e quindi rimontata dopo avere apportato la modifica.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo consiste nel proteggere la rete. Di seguito sono elencati alcuni suggerimenti:
 
@@ -230,7 +230,7 @@ Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo co
 - [Configurare Oracle ASM](configure-oracle-asm.md)
 - [Configurare Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configurare Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Backup e ripristino di Oracle](oracle-backup-recovery.md)
+- [Backup e ripristino di Oracle](./oracle-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

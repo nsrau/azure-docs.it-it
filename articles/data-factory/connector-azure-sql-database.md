@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 7cfb47ad4cad600f06aba2039f4b6a4b04722085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 7072adfcfd276d6420d8ffd7331c59ead7edd288
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332135"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952047"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 
@@ -44,6 +44,8 @@ Per l'attività di copia, questo connettore del database SQL di Azure supporta l
 - Come origine, il recupero dei dati tramite una query SQL o un stored procedure. È anche possibile scegliere di eseguire la copia parallela da un'origine del database SQL di Azure. per informazioni dettagliate, vedere la sezione [copia parallela dal database SQL](#parallel-copy-from-sql-database) .
 - Come sink, creazione automatica della tabella di destinazione se non esiste in base allo schema di origine. l'aggiunta di dati a una tabella o la chiamata di un stored procedure con la logica personalizzata durante la copia.
 
+Se si usa il livello senza [Server](../azure-sql/database/serverless-tier-overview.md)del database SQL di Azure, tenere presente che quando il server è sospeso, l'esecuzione dell'attività non riesce invece di attendere che il riavvio automatico sia pronto. È possibile aggiungere attività aggiuntive o concatenare ulteriori attività per assicurarsi che il server sia attivo in base all'effettiva esecuzione.
+
 >[!NOTE]
 > Il [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) del database SQL di Azure non è attualmente supportato da questo connettore. Per aggirare il contenuto, è possibile usare un [connettore ODBC generico](connector-odbc.md) e un driver ODBC SQL Server tramite un runtime di integrazione self-hosted. Per altre informazioni, vedere l'articolo relativo all' [uso always Encrypted](#using-always-encrypted) . 
 
@@ -51,7 +53,7 @@ Per l'attività di copia, questo connettore del database SQL di Azure supporta l
 > Se si copiano dati tramite il runtime di integrazione di Azure, configurare una [regola del firewall a livello di server](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) in modo che i servizi di Azure possano accedere al server.
 > Se si copiano i dati usando un runtime di integrazione self-hosted, configurare il firewall in modo da consentire l'intervallo di indirizzi IP appropriato. Questo intervallo include l'IP del computer usato per connettersi al database SQL di Azure.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -713,12 +715,12 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 | sql_variant |Oggetto |
 | text |String, Char[] |
 | time |TimeSpan |
-|  timestamp |Byte[] |
+| timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |string |
+| Xml |String |
 
 >[!NOTE]
 > Per i tipi di dati che vengono mappati al tipo provvisorio decimale, attualmente l'attività di copia supporta la precisione fino a 28. Se i dati hanno una precisione maggiore di 28, provare a eseguire la conversione in una stringa nella query SQL.

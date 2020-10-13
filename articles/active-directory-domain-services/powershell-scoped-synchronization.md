@@ -2,20 +2,20 @@
 title: Sincronizzazione con ambito usando PowerShell per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come usare Azure AD PowerShell per configurare la sincronizzazione con ambito da Azure AD a un dominio gestito Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.author: iainfou
-ms.openlocfilehash: 197ae37b0c63b19ebe4dcdf2732169be0f357a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: dc6ebb88440ecdccc3ea78d85f0b6186100da01a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87294228"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967884"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configurare la sincronizzazione con ambito da Azure AD a Azure Active Directory Domain Services tramite Azure AD PowerShell
 

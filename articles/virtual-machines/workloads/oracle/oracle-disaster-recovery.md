@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 5a162c0683a953399b48aaf627bbff5bc674e9dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96bb0892b1bc35d1eef34cffc798cf33c837acdc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274562"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976641"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
 
@@ -100,7 +100,7 @@ Il seguente è un riepilogo della configurazione di Azure:
 - [Progettare e implementare un database Oracle in Azure](oracle-design.md)
 - [Configurare Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configurare Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Backup e ripristino di Oracle](oracle-backup-recovery.md)
+- [Backup e ripristino di Oracle](./oracle-overview.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

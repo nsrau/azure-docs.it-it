@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 611edb06762b96ded7671b70ec0f5d4f07f51848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829085"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977375"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -70,7 +70,7 @@ I pacchetti di estensioni vengono scaricati dal repository delle estensioni di A
 > [!IMPORTANT]
 > Se è stato bloccato l'accesso a *168.63.129.16* tramite il firewall Guest o con un proxy, le estensioni hanno esito negativo indipendentemente dalla precedente. Sono necessarie le porte 80, 443 e 32526.
 
-Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. Per le estensioni che richiedono l'accesso ad archiviazione di Azure o Azure Active Directory, è possibile consentire l'accesso usando i [tag del servizio NSG di Azure](../../virtual-network/security-overview.md#service-tags) per l'archiviazione o AzureActiveDirectory.
+Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. Per le estensioni che richiedono l'accesso ad archiviazione di Azure o Azure Active Directory, è possibile consentire l'accesso usando i [tag del servizio NSG di Azure](../../virtual-network/network-security-groups-overview.md#service-tags) per l'archiviazione o AzureActiveDirectory.
 
 L'agente guest di Windows non dispone del supporto per il server proxy per il reindirizzamento delle richieste di traffico dell'agente tramite, il che significa che l'agente guest di Windows si basa sul proxy personalizzato (se disponibile) per accedere alle risorse su Internet o sull'host tramite IP 168.63.129.16.
 

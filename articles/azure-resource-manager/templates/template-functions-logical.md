@@ -2,13 +2,13 @@
 title: Funzioni di modello-Logical
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per determinare i valori logici.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677390"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978510"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funzioni logiche per i modelli ARM
 
@@ -16,9 +16,11 @@ Gestione risorse offre diverse funzioni per l'esecuzione di confronti nei modell
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* [true](#true)
 
 ## <a name="and"></a>e
 
@@ -85,7 +87,12 @@ Converte il parametro in un valore booleano.
 | arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
 
 ### <a name="return-value"></a>Valore restituito
+
 Valore booleano del valore convertito.
+
+### <a name="remarks"></a>Osservazioni
+
+È anche possibile usare [true ()](#true) e [false ()](#false) per ottenere i valori booleani.
 
 ### <a name="examples"></a>Esempi
 
@@ -126,6 +133,44 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
+## <a name="false"></a>false
+
+`false()`
+
+Restituisce false.
+
+### <a name="parameters"></a>Parametri
+
+La funzione false non accetta parametri.
+
+### <a name="return-value"></a>Valore restituito
+
+Valore booleano che è sempre false.
+
+### <a name="example"></a>Esempio
+
+Nell'esempio seguente viene restituito un valore false di output.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente è:
+
+| Nome | Type | valore |
+| ---- | ---- | ----- |
+| falseOutput | Bool | False |
+
 ## <a name="if"></a>if
 
 `if(condition, trueValue, falseValue)`
@@ -144,7 +189,7 @@ Restituisce un valore in base a un condizione true o false.
 
 Restituisce il secondo parametro, quando il primo parametro è **True**. In caso contrario, restituisce il terzo parametro.
 
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
 
 Quando la condizione è **true**, viene valutato solo il valore true. Quando la condizione è **false**, viene valutato solo il valore false. Con la funzione **if** è possibile includere espressioni che sono valide solo in modo condizionale. Ad esempio, è possibile fare riferimento a una risorsa presente in una condizione ma non in un'altra condizione. Nella sezione seguente viene illustrato un esempio della valutazione condizionale delle espressioni.
 
@@ -304,7 +349,7 @@ L'output dell'esempio precedente è:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>oppure
+## <a name="or"></a>o
 
 `or(arg1, arg2, ...)`
 
@@ -355,6 +400,44 @@ L'output dell'esempio precedente è:
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
+
+## <a name="true"></a>true
+
+`true()`
+
+Restituisce un valore true.
+
+### <a name="parameters"></a>Parametri
+
+La funzione true non accetta parametri.
+
+### <a name="return-value"></a>Valore restituito
+
+Valore booleano che è sempre true.
+
+### <a name="example"></a>Esempio
+
+Nell'esempio seguente viene restituito un valore di output true.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+L'output dell'esempio precedente è:
+
+| Nome | Type | valore |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
