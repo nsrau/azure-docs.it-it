@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e62da791e8c60f884855fba16315a03fe22cecb5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450714"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940328"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Baseline della sicurezza di Azure per Azure Load Balancer
 
@@ -98,7 +98,7 @@ Il Centro sicurezza (livello standard) fornisce l'accesso just-in-time alle macc
 Usare la funzionalità di protezione avanzata della rete adattiva del Centro sicurezza per consigliare le configurazioni dei gruppi di sicurezza di rete che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e alle informazioni sulle
  
 
-- [Gestire Protezione DDoS di Azure Standard nel portale di Azure](https://docs.microsoft.com/azure/virtual-network/manage-ddos`protection)
+- [Gestire Protezione DDoS di Azure Standard nel portale di Azure](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
 - [Filtro basato sull'intelligence sulle minacce del firewall di Azure](https://docs.microsoft.com/azure/firewall/threat-intel)
 

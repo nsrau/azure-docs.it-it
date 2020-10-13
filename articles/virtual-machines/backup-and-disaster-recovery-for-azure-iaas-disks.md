@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754974"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969705"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e ripristino di emergenza per dischi IaaS di Azure
 
@@ -48,7 +48,7 @@ Grazie a questa architettura, Azure ha offerto in modo costante una durabilità 
 
 Gli errori hardware localizzati nell'host di calcolo o nella piattaforma di archiviazione a volte possono provocare la mancata disponibilità temporanea della VM coperta dal [Contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) per la disponibilità delle macchine virtuali. Azure offre anche un Contratto di servizio leader di settore per singole istanze di macchine virtuali che usano unità SSD Premium di Azure.
 
-Per proteggere i carichi di lavoro dell'applicazione dall'inattività causata dalla mancata disponibilità temporanea di un disco o di una VM, i clienti possono usare i [set di disponibilità](windows/manage-availability.md). Due o più macchine virtuali in un set di disponibilità offrono la ridondanza per l'applicazione. Azure crea quindi queste VM e questi dischi in domini di errore separati con diverso tipo di alimentazione, diverse risorse di rete e diversi componenti del server.
+Per proteggere i carichi di lavoro dell'applicazione dall'inattività causata dalla mancata disponibilità temporanea di un disco o di una VM, i clienti possono usare i [set di disponibilità](./manage-availability.md). Due o più macchine virtuali in un set di disponibilità offrono la ridondanza per l'applicazione. Azure crea quindi queste VM e questi dischi in domini di errore separati con diverso tipo di alimentazione, diverse risorse di rete e diversi componenti del server.
 
 A causa di questi domini di errore separati, gli errori hardware localizzati in genere non interessano più VM contemporaneamente nello stesso set. La presenza di domini di errore separati offre una disponibilità elevata per l'applicazione. È consigliabile usare i set di disponibilità quando è necessaria la disponibilità elevata. La sezione successiva prende in esame l'aspetto del ripristino di emergenza.
 
@@ -77,7 +77,7 @@ Si consideri un server di database di produzione, ad esempio SQL Server oppure O
 - I dati devono essere protetti e recuperabili.
 - Il server deve essere disponibile per l'uso.
 
-Il piano di ripristino di emergenza potrebbe richiedere che venga conservata una replica del database in un'area diversa rispetto al backup. In base ai requisiti per la disponibilità del server e per il ripristino dei dati, si potrebbe usare una soluzione di tipo sito di replica attiva-attiva o attiva-passiva oppure una soluzione che preveda backup offline periodici dei dati. I database relazionali, come SQL Server e Oracle, offrono diverse opzioni per la replica. Per SQL Server, usare [Gruppi di disponibilità AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx) per ottenere la disponibilità elevata.
+Il piano di ripristino di emergenza potrebbe richiedere che venga conservata una replica del database in un'area diversa rispetto al backup. In base ai requisiti per la disponibilità del server e per il ripristino dei dati, si potrebbe usare una soluzione di tipo sito di replica attiva-attiva o attiva-passiva oppure una soluzione che preveda backup offline periodici dei dati. I database relazionali, come SQL Server e Oracle, offrono diverse opzioni per la replica. Per SQL Server, usare [Gruppi di disponibilità AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) per ottenere la disponibilità elevata.
 
 Anche i database NoSQL, come MongoDB, supportano le [repliche](https://docs.mongodb.com/manual/replication/) per la ridondanza. Vengono usate le repliche per la disponibilità elevata.
 
@@ -201,7 +201,7 @@ Un'altra opzione per la creazione di backup coerenti consiste nell'arresto della
 
 1. Creare uno snapshot di ogni BLOB di disco rigido virtuale, operazione che richiede solo pochi secondi.
 
-    Per creare uno snapshot, è possibile usare [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), l'[API REST di Archiviazione di Azure](https://msdn.microsoft.com/library/azure/ee691971.aspx), l'[interfaccia della riga di comando di Azure](/cli/azure/) o una delle librerie client di Archiviazione di Azure, come la [libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    Per creare uno snapshot, è possibile usare [PowerShell](/powershell/module/az.storage), l'[API REST di Archiviazione di Azure](/rest/api/storageservices/Snapshot-Blob), l'[interfaccia della riga di comando di Azure](/cli/azure/) o una delle librerie client di Archiviazione di Azure, come la [libreria client di archiviazione per .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 1. Avviare la VM, in modo da terminare il tempo di inattività. L'intero processo termina in genere in pochi minuti.
 
@@ -224,7 +224,7 @@ Per copiare in modo efficiente gli snapshot incrementali per il ripristino di em
 
 ### <a name="recovery-from-snapshots"></a>Ripristino da snapshot
 
-Per recuperare uno snapshot, copiarlo per creare un nuovo BLOB. Se si copia lo snapshot dall'account primario, è possibile copiare lo snapshot nel BLOB di base dello snapshot. Questo processo consente di ripristinare il disco allo snapshot. Questa operazione è nota come innalzamento di livello dello snapshot. Se si copia il backup dello snapshot da un account secondario, nel caso di un account di archiviazione con ridondanza geografica e accesso in lettura, è necessario copiarlo in un account primario. È possibile copiare uno snapshot [usando PowerShell](https://docs.microsoft.com/powershell/module/az.storage) oppure con l'utilità AzCopy. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Per recuperare uno snapshot, copiarlo per creare un nuovo BLOB. Se si copia lo snapshot dall'account primario, è possibile copiare lo snapshot nel BLOB di base dello snapshot. Questo processo consente di ripristinare il disco allo snapshot. Questa operazione è nota come innalzamento di livello dello snapshot. Se si copia il backup dello snapshot da un account secondario, nel caso di un account di archiviazione con ridondanza geografica e accesso in lettura, è necessario copiarlo in un account primario. È possibile copiare uno snapshot [usando PowerShell](/powershell/module/az.storage) oppure con l'utilità AzCopy. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](../storage/common/storage-use-azcopy-v10.md).
 
 Per le VM con più dischi, è necessario copiare tutti gli snapshot che fanno parte dello stesso punto di ripristino coordinato. Dopo la copia degli snapshot in BLOB di dischi rigidi virtuali scrivibili, è possibile usare i BLOB per ricreare la VM usando il modello per la macchina virtuale.
 
@@ -265,4 +265,3 @@ Vedere [eseguire il backup di dischi di macchine virtuali non gestiti di Azure c
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

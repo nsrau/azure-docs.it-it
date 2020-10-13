@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.date: 02/14/2020
 ms.topic: include
 ms.openlocfilehash: 5eb2517b4b71b61dd70406f345c005d007d9e3ef
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535959"
 ---
 L'entità pattern.any consente di trovare i dati in formato libero nel caso in cui la formulazione dell'entità renda difficile determinare la fine dell'entità dal resto dell'espressione.

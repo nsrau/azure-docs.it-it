@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 96a085e3183289d9f2add054128c0faa6b0cdb29
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375223"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91654393"
 ---
 Per creare un progetto di Visual Studio per lo sviluppo di applicazioni desktop con C++, è necessario configurare le opzioni di sviluppo di Visual Studio, creare il progetto, selezionare l'architettura di destinazione e installare Speech SDK.
 
@@ -19,13 +19,13 @@ Per iniziare, verificare di essere configurati correttamente in Visual Studio pe
 
 1. Aprire Visual Studio 2019 per visualizzare la finestra **iniziale**.
 
-   ![Finestra iniziale - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Screenshot della finestra iniziale di Visual Studio 2019.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Fare clic su **Continua senza codice** per passare all'IDE di Visual Studio.
 
 1. Dalla barra dei menu di Visual Studio scegliere **Strumenti** > **Ottieni strumenti e funzionalità** per aprire il Programma di installazione di Visual Studio e visualizzare la finestra di dialogo **Modifica**.
 
-   ![Scheda Carichi di lavoro, finestra di dialogo Modifica, Programma di installazione di Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Screenshot che mostra la scheda "Carichi di lavoro" nella finestra di dialogo "Modifica" del "programma di installazione di Visual Studio".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. Nella scheda **Carichi di lavoro**, in **Windows**, individuare il carico di lavoro **Sviluppo di applicazioni desktop con C++** . Se la casella di controllo accanto a tale carico di lavoro non è già selezionata, selezionarla.
 

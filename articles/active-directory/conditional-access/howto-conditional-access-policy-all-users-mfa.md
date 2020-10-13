@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a45ce7bee04716612431effe77315d739f328dba
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049299"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accesso condizionale: richiedere l'autenticazione a più fattori per tutti gli utenti
@@ -68,8 +68,8 @@ Nei criteri di esempio precedenti, un'organizzazione può scegliere di non richi
    1. Configurare **Sì**.
    1. Includere **Tutte le località**.
    1. Escludere **Tutte le posizioni attendibili**.
-   1. Selezionare **Fine**.
-1. Selezionare **Fine**.
+   1. Selezionare **Operazione completata**.
+1. Selezionare **Operazione completata**.
 1. **Salvare** le modifiche apportate ai criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
