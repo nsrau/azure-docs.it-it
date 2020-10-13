@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
 ms.openlocfilehash: 51f45b5c0b8a2729f64eb376e06875719474cbfc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664182"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>Monitoraggio degli schemi di varianza nelle macchine virtuali
@@ -19,9 +19,9 @@ Questo articolo fornisce una panoramica dei vari strumenti che è possibile usar
 
 ## <a name="for-azure-virtual-machines-windows-or-linux"></a>Per macchine virtuali di Azure (Windows o Linux)
 
-Se il computer è ospitato in Azure e usa un disco gestito o non gestito per l'archiviazione, è possibile tenere traccia delle prestazioni tenendo traccia della metrica del disco. In questo modo è possibile monitorare attentamente e fare in modo che la selezione del disco sia adatta al modello di utilizzo dell'applicazione. È anche possibile usarlo per creare avvisi, diagnosi e automazione della compilazione. [Altre informazioni](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+Se il computer è ospitato in Azure e usa un disco gestito o non gestito per l'archiviazione, è possibile tenere traccia delle prestazioni tenendo traccia della metrica del disco. In questo modo è possibile monitorare attentamente e fare in modo che la selezione del disco sia adatta al modello di utilizzo dell'applicazione. È anche possibile usarlo per creare avvisi, diagnosi e automazione della compilazione. [Altre informazioni](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
-Una volta protetti i computer con Azure Site Recovery, è possibile monitorare i computer usando i log di monitoraggio di Azure e Log Analytics. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics).
+Una volta protetti i computer con Azure Site Recovery, è possibile monitorare i computer usando i log di monitoraggio di Azure e Log Analytics. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics)
 
 Sono disponibili anche alcuni strumenti specifici del sistema operativo che è possibile usare.
 

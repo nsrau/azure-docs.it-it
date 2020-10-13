@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844241"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
@@ -65,7 +65,7 @@ Le espressioni a più istruzioni sono racchiuse tra `@{expression}`. Tutti i per
 }
 ```
 
-## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>Uso
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>Utilizzo
 Le espressioni possono essere usate come valori di attributo o valori di testo in tutti i [criteri](api-management-policies.md) di Gestione API, salvo diversamente specificato nella documentazione di riferimento.
 
 > [!IMPORTANT]
@@ -205,7 +205,7 @@ Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membr
 |System.Xml.Linq.XText|Tutti|
 |System.Xml.XmlNodeType|Tutti|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>Variabile di contesto
+## <a name="context-variable"></a><a name="ContextVariables"></a> Variabile di contesto
 Una variabile denominata `context` è implicitamente disponibile in qualunque [espressione](api-management-policy-expressions.md#Syntax) di criteri. I suoi membri forniscono informazioni riguardanti `\request`. Tutti i membri di `context` sono di sola lettura.
 
 |Variabile di contesto|Metodi, proprietà e valori di parametro consentiti|

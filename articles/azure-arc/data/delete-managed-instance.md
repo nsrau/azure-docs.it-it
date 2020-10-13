@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940851"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Elimina Istanza gestita SQL abilitata per Azure Arc
@@ -52,7 +52,7 @@ Deleted demo-mi from namespace arc
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Recuperare le attestazioni del volume permanente Kubernetes (PVC)
 
-L'eliminazione di un Istanza gestita SQL non comporta la rimozione del [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associato. Questo si verifica per motivi strutturali. L'intenzione è di consentire all'utente di accedere ai file di database nel caso in cui l'eliminazione dell'istanza fosse accidentale. L'eliminazione di PVC non è obbligatoria. È tuttavia consigliabile. Se questi PVC non vengono recuperati, si verificheranno errori in quanto il cluster Kubernetes esaurirà lo spazio su disco. Per recuperare il PVC, seguire questa procedura:
+L'eliminazione di un Istanza gestita SQL non comporta la rimozione del [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associato. Questo si verifica per motivi strutturali. L'intento è di consentire all'utente di accedere ai file di database nel caso in cui l'eliminazione dell'istanza fosse accidentale. L'eliminazione dei PVC non è obbligatoria, ma è consigliabile. Se questi PVC non vengono recuperati, si verificheranno errori in quanto il cluster Kubernetes esaurirà lo spazio su disco. Per recuperare i PVC, seguire questa procedura:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. elencare il PVC per il gruppo di server che è stato eliminato
 Per elencare il PVC, eseguire il comando seguente:
@@ -102,6 +102,6 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
 
 Altre informazioni su [caratteristiche e funzionalità di Istanza gestita di SQL con abilitazione di Azure Arc](managed-instance-features.md)
 
-[Iniziare creando un controller dati](create-data-controller.md)
+[Iniziare con la creazione di un controller dati](create-data-controller.md)
 
-Il controller dati è già stato creato? [Creare un'istanza gestita di SQL con abilitazione di Azure Arc](create-sql-managed-instance.md)
+È già stato creato un controller dati? [Creare un'istanza gestita di SQL con abilitazione di Azure Arc](create-sql-managed-instance.md)

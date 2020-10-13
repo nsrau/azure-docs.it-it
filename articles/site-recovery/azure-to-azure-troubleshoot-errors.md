@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
 ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397964"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Correggere gli errori di replica delle macchine virtuali da Azure ad Azure
@@ -281,14 +281,14 @@ Per rendere integro lo stato della replica della macchina virtuale, è possibile
 1. Passare a **elementi replicati**  >  _dischi nome VM_  >  **Disks**.
 1. Selezionare il disco non protetto e quindi selezionare **Abilita replica**:
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="Abilitare la replica nei dischi delle macchine virtuali.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/add-disk.png" alt-text="com: errore.":::
 
 #### <a name="to-dismiss-the-warning"></a>Per ignorare l'avviso
 
 1. Passare a **elementi replicati**  >  _nome VM_.
 1. Selezionare l'avviso nella sezione **Panoramica** e quindi fare clic su **OK**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="Ignora nuovo disco avviso.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png" alt-text="com: errore.":::
 
 ## <a name="vm-removed-from-vault-completed-with-information-error-code-150225"></a>Macchina virtuale rimossa dall'insieme di credenziali completata con informazioni (codice errore 150225)
 
@@ -309,7 +309,7 @@ Quando Site Recovery protegge la macchina virtuale, crea collegamenti nella macc
 
 1. Rimuovere il blocco dalla macchina virtuale o dal gruppo di risorse VM. Nell'immagine seguente, ad esempio, è necessario eliminare il blocco di risorsa nella macchina virtuale denominata `MoveDemo` :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Rimuovere il blocco dalla macchina virtuale.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com: errore.":::
 
 1. Scaricare lo script per [rimuovere una configurazione di Site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Eseguire lo script _Cleanup-stale-asr-config-Azure-VM.ps1_. Specificare l' **ID sottoscrizione**, il **gruppo di risorse VM**e il **nome della macchina virtuale** come parametri.
@@ -334,7 +334,7 @@ Una configurazione non aggiornata può verificarsi in una macchina virtuale di A
 
 1. Rimuovere il blocco dalla macchina virtuale o dal gruppo di risorse VM. Nell'immagine seguente, ad esempio, è necessario eliminare il blocco di risorsa nella macchina virtuale denominata `MoveDemo` :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Rimuovere il blocco dalla macchina virtuale.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com: errore.":::
 
 1. Scaricare lo script per [rimuovere una configurazione di Site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Eseguire lo script _Cleanup-stale-asr-config-Azure-VM.ps1_. Specificare l' **ID sottoscrizione**, il **gruppo di risorse VM**e il **nome della macchina virtuale** come parametri.
@@ -367,7 +367,7 @@ Potrebbe non essere possibile trovare il gruppo di risorse al momento della prot
 
 1. Rimuovere il blocco, se presente, dal gruppo di risorse VM o VM. Nell'immagine seguente, ad esempio, è necessario eliminare il blocco di risorsa nella macchina virtuale denominata `MoveDemo` :
 
-   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="Rimuovere il blocco dalla macchina virtuale.":::
+   :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png" alt-text="com: errore.":::
 
 1. Scaricare lo script per [rimuovere una configurazione di Site Recovery obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
 1. Eseguire lo script _Cleanup-stale-asr-config-Azure-VM.ps1_. Specificare l' **ID sottoscrizione**, il **gruppo di risorse VM**e il **nome della macchina virtuale** come parametri.
@@ -404,17 +404,17 @@ Per abilitare la replica nella macchina virtuale, lo stato di provisioning deve 
 
 Durante la configurazione del ripristino di emergenza, se la VM di origine fa parte di una rete virtuale e un'altra VM della stessa rete virtuale è già mappata a una rete nel gruppo di risorse di destinazione, per impostazione predefinita la casella di riepilogo a discesa Selezione rete non è disponibile (visualizzata in grigio).
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Elenco di selezione della rete non disponibile.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="com: errore.":::
 
 ### <a name="issue-2-you-previously-protected-the-vm-and-then-you-disabled-the-replication"></a>Problema 2: la macchina virtuale è stata precedentemente protetta e quindi la replica è stata disabilitata
 
 La disabilitazione della replica di una macchina virtuale non comporta l'eliminazione del mapping di rete. Il mapping deve essere eliminato dall'insieme di credenziali dei servizi di ripristino in cui la macchina virtuale è stata protetta. Selezionare l'insieme di credenziali di **servizi di ripristino** e passare a **Gestisci**  >  **Site Recovery infrastruttura**  >  **per macchine virtuali di Azure**  >  **mapping di rete**.
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Eliminare il mapping di rete.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="com: errore.":::
 
 La rete di destinazione configurata durante l'installazione del ripristino di emergenza può essere modificata dopo la configurazione iniziale e dopo la protezione della macchina virtuale. Per **modificare il mapping di rete** , selezionare il nome di rete:
 
-:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modificare il mapping di rete.":::
+:::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="com: errore.":::
 
 
 ## <a name="com-or-vss-error-code-151025"></a>COM+ o VSS (codice errore 151025)
@@ -437,7 +437,7 @@ Impostare l'applicazione di sistema COM+ e Servizio Copia Shadow del volume sull
 1. Aprire la console dei servizi in Windows.
 1. Verificare che l'applicazione di sistema COM+ e la Servizio Copia Shadow del volume non siano impostate su **disabled** come **tipo di avvio**.
 
-   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="Controllare il tipo di avvio dell'applicazione COM Plus System e Servizio Copia Shadow del volume.":::
+   :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/com-error.png" alt-text="com: errore.":::
 
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Dimensioni del disco gestito non supportate (codice errore 150172)
 

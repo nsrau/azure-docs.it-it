@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: raynew
 ms.openlocfilehash: 358efaa1493aa08fb76c9bb83e0e4289950e0969
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844321"
 ---
 # <a name="migrating-to-azure"></a>Migrazione ad Azure
@@ -43,4 +43,4 @@ Sebbene sia consigliabile usare Azure Migrate per eseguire la migrazione di serv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [Vedere le domande frequenti](../migrate/resources-faq.md) su Azure Migrate.
+> [Esaminare le domande comuni](../migrate/resources-faq.md) su Azure Migrate.

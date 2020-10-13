@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580472"
 ---
-# <a name="iot-plug-and-play-bridge"></a>Bridge Plug and Play
+# <a name="iot-plug-and-play-bridge"></a>Bridge Plug and Play IoT
 
 Il Plug and Play Bridge è un'applicazione open source per connettere i dispositivi esistenti collegati al gateway Windows o Linux come dispositivi Plug and Play. Dopo l'installazione e la configurazione dell'applicazione nel computer Windows o Linux, è possibile usarla per connettere i dispositivi collegati a un hub Internet. È possibile usare il Bridge per eseguire il mapping delle interfacce Plug and Play ai dati di telemetria inviati dai dispositivi collegati, usare le proprietà del dispositivo e richiamare i comandi.
 

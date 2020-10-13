@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259637"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
@@ -123,8 +123,8 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 | {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`Valore dell'elemento, dalla richiesta SAML. | urn: Oasis: Names: TC: SAML: 2.0: AC: Classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | `Format`Attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML: emittente} |  Valore dell' `Issuer` elemento SAML della richiesta SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | `AllowCreate`Valore dell'attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | Vero |
-| {SAML: ForceAuthn} | `ForceAuthN`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML. | Vero |
+| {SAML: AllowCreate} | `AllowCreate`Valore dell'attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | True |
+| {SAML: ForceAuthn} | `ForceAuthN`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML. | True |
 | {SAML: ProviderName} | `ProviderName`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML.| Contoso.com |
 | {SAML: RelayState} | Parametro di stringa di query `RelayState`.| 
 
@@ -132,7 +132,7 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 
 È possibile usare i resolver di attestazioni con gli elementi seguenti:
 
-| Elemento | Elemento | Impostazioni |
+| Item | Elemento | Impostazioni |
 | ----- | ----------------------- | --------|
 |Profilo tecnico di Application Insights |`InputClaim` | |
 |[Azure Active Directory](active-directory-technical-profile.md) profilo tecnico| `InputClaim`, `OutputClaim`| 1, 2|

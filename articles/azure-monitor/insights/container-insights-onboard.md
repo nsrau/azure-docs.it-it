@@ -4,17 +4,17 @@ description: Questo articolo descrive come abilitare e configurare monitoraggio 
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320307"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Abilitare monitoraggio di Azure per i contenitori
 
 Questo articolo fornisce una panoramica delle opzioni disponibili per la configurazione di monitoraggio di Azure per i contenitori per monitorare le prestazioni dei carichi di lavoro distribuiti negli ambienti Kubernetes e ospitati in:
 
-- [Servizio Azure Kubernetes (AKS)](../../aks/index.yml)  
+- [Servizio Azure Kubernetes](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versioni 3. x e 4. x  
 - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) versione 4. x  
 - Un [cluster Kubernetes abilitato per Arc](../../azure-arc/kubernetes/overview.md)

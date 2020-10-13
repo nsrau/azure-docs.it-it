@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 85f14329359eaf051b992f657ac0e4e634d504cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020831"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Azure ricerca cognitiva
@@ -23,7 +23,7 @@ Quando si gestiscono risorse ricerca cognitiva di Azure, ad esempio indici e ori
 > [!Tip]
 > Il codice concettuale in una [soluzione C# di esempio](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) illustra il funzionamento del controllo della concorrenza in Azure ricerca cognitiva. Il codice crea le condizioni che richiamano il controllo della concorrenza. La lettura del [frammento di codice riportato più avanti](#samplecode) è probabilmente sufficiente per la maggior parte degli sviluppatori, ma, se lo si vuole eseguire, modificare appsettings.json per aggiungere il nome del servizio e una chiave API di amministrazione. Dato un URL del servizio `http://myservice.search.windows.net`, il nome del service è `myservice`.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 La concorrenza ottimistica viene implementata tramite i controlli delle condizioni di accesso nelle chiamate API che scrivono in indici, indicizzatori, origini dati e risorse synonymMap.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 42efc2bee88f073f2a628b1d2041afcc310cb871
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822982"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
@@ -63,7 +63,7 @@ L'account a cui si accede o che si connette ad Azure deve essere assegnato al [r
 
 5. Dopo aver visualizzato il messaggio **convalida superata** , selezionare **Crea**.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -74,7 +74,7 @@ L'account a cui si accede o che si connette ad Azure deve essere assegnato al [r
 
 Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gruppi di sicurezza di rete. Cercare e selezionare **gruppi di sicurezza di rete**. Viene visualizzato l'elenco dei gruppi di sicurezza di rete per la sottoscrizione.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -99,7 +99,7 @@ Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli a
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Script di automazione](../azure-resource-manager/templates/export-template-portal.md)
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -114,7 +114,7 @@ Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli a
 
 Le modifiche più comuni sono l' [aggiunta di una regola di sicurezza](#create-a-security-rule), la [rimozione di una regola](#delete-a-security-rule)e l' [associazione o l'associazione di un gruppo di sicurezza di rete a o da una subnet o un'interfaccia di rete](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -135,7 +135,7 @@ Se un gruppo di sicurezza di rete è associato ad alcuna subnet o interfaccia di
 
 3. Nella barra degli strumenti del gruppo di sicurezza di rete selezionare **Elimina**. Quindi, selezionare **Sì** nella finestra di dialogo di conferma.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -160,7 +160,7 @@ Esiste un limite al numero di regole per gruppo di sicurezza di rete che è poss
 
 4. <a name="security-rule-settings"></a>Selezionare **Aggiungi**. Selezionare o aggiungere i valori per le impostazioni seguenti e quindi selezionare **OK**:
 
-    | Impostazione | valore | Dettagli |
+    | Impostazione | Valore | Dettagli |
     | ------- | ----- | ------- |
     | **Origine** | Uno dei valori possibili:<ul><li>**qualsiasi**</li><li>**Indirizzi IP**</li><li>**Tag servizio** (regola di sicurezza in ingresso) o **virtualnetwork** (regola di sicurezza in uscita)</li><li>**&nbsp;Gruppo di sicurezza delle applicazioni &nbsp;**</li></ul> | <p>Se si scelgono **indirizzi IP**, è necessario specificare anche **indirizzi IP/intervalli CIDR di origine**.</p><p>Se si sceglie il **tag del servizio**, è anche possibile selezionare un tag del servizio di **origine**.</p><p>Se si sceglie **gruppo di sicurezza delle applicazioni**, è necessario selezionare anche un gruppo di sicurezza delle applicazioni esistente. Se si sceglie il **gruppo di sicurezza delle applicazioni** sia per l' **origine** che per la **destinazione**, le interfacce di rete all'interno di entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale.</p> |
     | **Indirizzi IP/intervalli CIDR di origine** | Elenco delimitato da virgole di indirizzi IP e intervalli di routing interdominio (CIDR) con classi | <p>Questa impostazione viene visualizzata se si modifica l' **origine** in **indirizzi IP**. È necessario specificare un singolo valore o un elenco delimitato da virgole di più valori. Un esempio di più valori è `10.0.0.0/16, 192.188.1.1` . È previsto un limite al numero di valori che è possibile specificare. Per informazioni dettagliate, vedere [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).</p><p>Se l'indirizzo IP specificato viene assegnato a una macchina virtuale di Azure, specificare l'indirizzo IP privato e non l'indirizzo IP pubblico. Azure elabora le regole di sicurezza dopo aver convertito l'indirizzo IP pubblico in un indirizzo IP privato per le regole di sicurezza in ingresso, ma prima di convertire un indirizzo IP privato in un indirizzo IP pubblico per le regole in uscita. Per altre informazioni sugli indirizzi IP pubblici e privati in Azure, vedere [Tipi di indirizzo IP](virtual-network-ip-addresses-overview-arm.md).</p> |
@@ -178,7 +178,7 @@ Esiste un limite al numero di regole per gruppo di sicurezza di rete che è poss
     | **Nome** | Un nome univoco per la regola all'interno del gruppo di sicurezza di rete | Il nome può contenere fino a 80 caratteri. Deve iniziare con una lettera o un numero e deve terminare con una lettera, un numero o un carattere di sottolineatura. Il nome può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. |
     | **Descrizione** | Una descrizione di testo | Facoltativamente, è possibile specificare una descrizione di testo per la regola di sicurezza. La descrizione non può contenere più di 140 caratteri. |
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -197,7 +197,7 @@ Un gruppo di sicurezza di rete contiene zero o più regole. Per saperne di più 
 
 L'elenco contiene le regole create e le [regole di sicurezza predefinite](security-overview.md#default-security-rules)del gruppo di sicurezza di rete.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -217,7 +217,7 @@ L'elenco contiene le regole create e le [regole di sicurezza predefinite](securi
     > [!NOTE]
     > Questa procedura si applica solo a una regola di sicurezza personalizzata. Non funziona se si sceglie una regola di sicurezza predefinita.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -233,7 +233,7 @@ L'elenco contiene le regole create e le [regole di sicurezza predefinite](securi
     > [!NOTE]
     > Questa procedura si applica solo a una regola di sicurezza personalizzata. Non è consentito modificare una regola di sicurezza predefinita.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -249,7 +249,7 @@ L'elenco contiene le regole create e le [regole di sicurezza predefinite](securi
     > [!NOTE]
     > Questa procedura si applica solo a una regola di sicurezza personalizzata. Non è possibile eliminare una regola di sicurezza predefinita.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -281,7 +281,7 @@ Un gruppo di sicurezza delle applicazioni contiene zero o più interfacce di ret
 
 6. Nella scheda **Verifica e crea** , dopo aver visualizzato il messaggio **convalida superata** , selezionare **Crea**.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -292,7 +292,7 @@ Un gruppo di sicurezza delle applicazioni contiene zero o più interfacce di ret
 
 Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gruppi di sicurezza delle applicazioni. Cercare e selezionare **gruppi di sicurezza delle applicazioni**. Il portale di Azure Visualizza un elenco dei gruppi di sicurezza dell'applicazione.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -305,7 +305,7 @@ Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gru
 
 2. Selezionare il nome del gruppo di sicurezza delle applicazioni per cui si desidera visualizzare i dettagli.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -325,7 +325,7 @@ Passare alla [portale di Azure](https://portal.azure.com) per visualizzare i gru
 
     Nella barra dei menu è anche possibile selezionare **controllo di accesso (IAM)**. Nella pagina **controllo di accesso (IAM)** è possibile assegnare o rimuovere le autorizzazioni per il gruppo di sicurezza dell'applicazione.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |
@@ -342,7 +342,7 @@ Non è possibile eliminare un gruppo di sicurezza dell'applicazione se contiene 
 
 3. Selezionare **Elimina**, quindi selezionare **Sì** per eliminare il gruppo di sicurezza dell'applicazione.
 
-#### <a name="commands"></a>Comandi:
+#### <a name="commands"></a>Comandi
 
 | Strumento | Comando |
 | ---- | ------- |

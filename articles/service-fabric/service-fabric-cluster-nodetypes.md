@@ -6,10 +6,10 @@ ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90561891"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
@@ -75,7 +75,7 @@ Di seguito sono riportate le descrizioni delle proprietà:
 | **Nome** | **Valori consentiti** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
 | name | string | Nome univoco per l'estensione |
-| tipo | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | Identifica Service Fabric del sistema operativo per il bootstrap |
+| type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | Identifica Service Fabric del sistema operativo per il bootstrap |
 | autoUpgradeMinorVersion | true o false | Abilita l'aggiornamento automatico delle versioni secondarie di runtime SF |
 | publisher | Microsoft. Azure. ServiceFabric | Nome del server di pubblicazione dell'estensione Service Fabric |
 | clusterEndpont | string | URI: porta per l'endpoint di gestione |
