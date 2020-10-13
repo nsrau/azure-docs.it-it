@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278788"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Abilitare la collaborazione esterna B2B e gestire chi può invitare utenti guest
@@ -61,7 +61,7 @@ Per impostazione predefinita, tutti gli utenti, inclusi gli utenti guest, posson
 
    - **Gli utenti guest possono invitare**: per consentire agli utenti guest di invitare altri utenti guest, impostare questo criterio su **Sì**.
 
-   - **Abilita il codice di accesso monouso per i Guest (anteprima)**: per altre informazioni sulla funzionalità di accesso monouso, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](one-time-passcode.md).
+   - **Abilitare la posta elettronica One-Time il codice di accesso per i Guest (anteprima)**: per altre informazioni sulla funzionalità di accesso monouso, vedere la pagina relativa all' [autenticazione del codice di posta elettronica monouso (anteprima)](one-time-passcode.md).
 
    - **Abilitare l'iscrizione self-service Guest tramite flussi utente (anteprima)**: per altre informazioni su questa impostazione, vedere [aggiungere un flusso utente di iscrizione self-service a un'app (anteprima)](self-service-sign-up-user-flow.md).
 

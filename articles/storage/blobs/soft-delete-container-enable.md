@@ -10,10 +10,10 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280301"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Abilitare e gestire l'eliminazione temporanea per i contenitori (anteprima)
@@ -86,7 +86,7 @@ Per visualizzare i contenitori eliminati temporaneamente nella portale di Azure,
 1. Passare all'account di archiviazione nell'portale di Azure e visualizzare l'elenco dei contenitori.
 1. Attivare o disattivare l'opzione Mostra contenitori eliminati per includere i contenitori eliminati nell'elenco.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot che illustra come visualizzare i contenitori eliminati temporaneamente nel portale di Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot che illustra come abilitare l'eliminazione temporanea del contenitore in portale di Azure":::
 
 ## <a name="restore-a-soft-deleted-container"></a>Ripristinare un contenitore eliminato temporaneamente
 
@@ -95,7 +95,7 @@ Per visualizzare i contenitori eliminati temporaneamente nella portale di Azure,
 1. Passare all'account di archiviazione nell'portale di Azure e visualizzare l'elenco dei contenitori.
 1. Visualizzare il menu di scelta rapida per il contenitore che si desidera ripristinare e scegliere **Annulla eliminazione** dal menu.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot che illustra come ripristinare un contenitore eliminato temporaneamente in portale di Azure":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot che illustra come abilitare l'eliminazione temporanea del contenitore in portale di Azure":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
