@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: Zhchia
 ms.openlocfilehash: c8934e1344ff2d7df97c3854f4e025f19fb37f1e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361620"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Esercitazione: configurare New Relic by Organization per il provisioning utenti automatico
@@ -44,7 +44,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e New Relic dall'organizzazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-new-relic-by-organization-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare New Relic by Organization per supportare il provisioning con Azure AD
+## <a name="step-2-configure-new-relic-by-organization-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare New Relic by Organization per supportare il provisioning con Azure AD
 
 Collaborare con il rappresentante dell'account o ottenere supporto in support.newrelic.com per configurare SCIM e SSO per la propria organizzazione. Sarà necessario fornire al rappresentante dell'account:
 

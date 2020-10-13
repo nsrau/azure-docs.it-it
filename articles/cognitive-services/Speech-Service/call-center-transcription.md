@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630152"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
@@ -70,7 +70,7 @@ La latenza end-to-end è notevolmente bassa per le varie tecnologie interattive,
 
 Le nuove voci sono inoltre indistinguibili da quelle umane. Puoi usare le nostre voci per offrire al tuo bot la sua personalità univoca.
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
 Un altro elemento di base dell'analisi consiste nell'identificare le interazioni in cui si è verificata un'esperienza o un evento specifico. Questa operazione viene in genere eseguita con uno dei due approcci seguenti: una ricerca ad hoc in cui l'utente digita semplicemente una frase e il sistema risponde oppure una query più strutturata in cui un analista può creare un set di istruzioni logiche che identificano uno scenario in una chiamata e quindi ogni chiamata può essere indicizzata in base a tale set di query. Un esempio di ricerca valido è la dichiarazione di conformità universale "questa chiamata verrà registrata per scopi qualitativi... ". Molte aziende desiderano assicurarsi che i loro agenti forniscano questa dichiarazione di non responsabilità ai clienti prima che la chiamata venga effettivamente registrata. La maggior parte dei sistemi di analisi è in grado di eseguire la tendenza dei comportamenti individuati dagli algoritmi di ricerca/query e questa segnalazione delle tendenze è in definitiva una delle funzioni più importanti di un sistema di analisi. Grazie alla [directory Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/directory/search/), la soluzione end-to-end può essere significativamente migliorata con funzionalità di indicizzazione e ricerca.
 
@@ -121,7 +121,7 @@ Un altro scenario è l'integrazione diretta con SIP (Session Initiation Protocol
 
  Il servizio riconoscimento vocale funziona bene con i modelli predefiniti. Tuttavia, potrebbe essere necessario personalizzare ulteriormente e ottimizzare l'esperienza per il prodotto o l'ambiente. Le opzioni di personalizzazione spaziano dall'ottimizzazione del modello acustico ai caratteri voce univoci per il proprio marchio. Dopo aver compilato un modello personalizzato, è possibile usarlo con le funzionalità del servizio riconoscimento vocale in modalità batch o in tempo reale.
 
-| Servizio Voce | Modello | Descrizione |
+| Servizio Voce | Modello | Description |
 | -------------- | ----- | ----------- |
 | Riconoscimento vocale | [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
 |                | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |

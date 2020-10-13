@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a09c4513206bea3462577ecba49b5d77b655b0e0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628265"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sui rischi di accesso
@@ -39,7 +39,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. In **app Cloud o azioni**  >  **Includi**selezionare **tutte le app Cloud**.
 1. In **condizioni**di  >  **accesso al rischio**, impostare **Configura** su **Sì**. In **selezionare il livello di rischio di accesso a cui verranno applicati i criteri** 
    1. Selezionare **alta** e **media**.
-   1. Selezionare **Fine**.
+   1. Selezionare **Operazione completata**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
@@ -52,7 +52,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. In **assegnazioni**selezionare **utenti**.
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi**selezionare **Seleziona utenti esclusi**, scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass e selezionare **Seleziona**.
-   1. Selezionare **Fine**.
+   1. Selezionare **Operazione completata**.
 1. In **condizioni**selezionare **rischio di accesso**, quindi scegliere **media e versioni successive**.
    1. Selezionare **Seleziona**, quindi **fine**.
 1. In **Controlla**  >  **accesso**scegliere **Consenti accesso**, quindi selezionare **Richiedi autenticazione**a più fattori.

@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 720c5190bfc1b4b6a6c3e86052cfc329233c5ed2
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: bdab132d4d22dced97273e9d1d051f155f9d69b6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802481"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970725"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
@@ -32,6 +32,11 @@ L'estensione macchina virtuale di Key Vault supporta queste distribuzioni Linux:
 
 - PKCS #12
 - PEM
+
+## <a name="prerequisities"></a>Prerequisiti
+  - Key Vault istanza con certificato. Vedere [creare un Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+  - VM/VMSS deve avere l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) assegnata
+  - I criteri di accesso Key Vault devono essere impostati con i segreti `get` e l' `list` autorizzazione per l'identità gestita VM/vmss per recuperare la parte del certificato di un segreto. Vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
@@ -92,8 +97,8 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| msiEndpoint | http://169.254.169.254/metadata/identity | Stringa |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | Stringa |
 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
@@ -202,12 +207,10 @@ Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virt
         --vm-name "<vmName>" `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
-
 Tenere presenti le restrizioni e i requisiti seguenti:
 - Restrizioni relative all'insieme di credenziali:
   - Deve essere già presente al momento della distribuzione 
-  - I criteri di accesso Key Vault devono essere impostati per l'identità VM/VMSS usando un'identità gestita. Vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-cli).
-
+  - I criteri di accesso Key Vault devono essere impostati per l'identità VM/VMSS usando un'identità gestita. Vedere [come eseguire l'autenticazione a Key Vault](../../key-vault/general/authentication.md) e [assegnare un criterio di accesso key Vault](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 

@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761924"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere i dati da Database SQL di Azure e Azure Synapse Analytics
@@ -54,7 +54,7 @@ Di seguito è riportato l'elenco dei prerequisiti per la condivisione dei dati d
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic su **Sì** per *consentire ai servizi e alle risorse di Azure di accedere al server*.
     1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
-    1. Fare clic su **Salva**. 
+    1. Fare clic su **Save**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -169,7 +169,7 @@ Se si sceglie di ricevere dati nel database SQL di Azure, Azure sinapsi Analytic
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic su **Sì** per *consentire ai servizi e alle risorse di Azure di accedere al server*.
     1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
-    1. Fare clic su **Salva**. 
+    1. Fare clic su **Save**. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -266,7 +266,7 @@ Quando si condividono dati da un'origine SQL, vengono usati i mapping seguenti t
 | sql_variant |Oggetto |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

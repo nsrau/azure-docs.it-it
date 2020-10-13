@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 98fc8b23369f961ca023832430d47c8868e42158
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260666"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91620274"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Scheda di riferimento rapido di Azure Synapse Analytics
 
@@ -34,14 +34,18 @@ Un'area di lavoro consente di eseguire analisi con SQL e Apache Spark. Le risors
 ## <a name="apache-spark-for-synapse"></a>Apache Spark per Synapse
 Per usare Spark Analytics, creare e usare **pool di Spark** nell'area di lavoro di Synapse.
 
-## <a name="terminology"></a>Terminologia
+## <a name="sql-terminology"></a>Terminologia SQL
+| Termine                         | Definizione      |
+|:---                                 |:---                 |
+| **Richiesta SQL**  |   Operazione, ad esempio una query, eseguita tramite il pool SQL o SQL su richiesta. |
+
+## <a name="spark-terminology"></a>Terminologia Spark
 | Termine                         | Definizione      |
 |:---                                 |:---                 |
 |**Apache Spark per Synapse** | Runtime Spark usato in un pool di Spark. La versione corrente supportata è Spark 2.4 con supporto di Python 3.6.1, Scala 2.11.12, .NET per Apache Spark 0.5 e Delta Lake 0.3.  | 
 | **Pool di Apache Spark**  | In un'area di lavoro possono essere distribuite da 0 a N risorse con provisioning Spark con i database corrispondenti. Un pool di Spark può essere sospeso automaticamente, ripreso e ridimensionato.  |
 | **Replica di Spark**  |   Consiste in un processo driver e un set di processi executor. Una replica di Spark viene eseguita in un pool di Spark.            |
 | **Sessione di Spark**  |   Punto di ingresso unificato di un'applicazione Spark. Offre la possibilità di interagire con varie funzionalità di Spark e con un numero minore di costrutti. Per eseguire un notebook, è necessario creare una sessione. Una sessione può essere configurata per l'esecuzione in un numero specifico di executor di dimensioni specifiche. La configurazione predefinita per una sessione di notebook consiste nell'esecuzione di due executor di medie dimensioni. |
-| **Richiesta SQL**  |   Operazione, ad esempio una query, eseguita tramite il pool SQL o SQL su richiesta. |
 |**Integrazione dati**| Offre la possibilità di inserire dati tra varie origini e di orchestrare le attività all'interno o all'esterno di un'area di lavoro.| 
 |**Elementi**| Concetto che incapsula tutti gli oggetti necessari a un utente per la gestione delle origini dati, lo sviluppo, l'orchestrazione e la visualizzazione.|
 |**Notebook**| Interfaccia interattiva e reattiva di data science e ingegneria che supporta Scala, PySpark, C# e SparkSQL. |
