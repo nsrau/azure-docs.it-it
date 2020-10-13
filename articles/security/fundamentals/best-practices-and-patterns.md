@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73889846"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Procedure consigliate e modelli per la sicurezza di Azure
@@ -30,7 +30,7 @@ Le procedure consigliate costituiscono una risorsa per i professionisti IT. Potr
 
 * [Procedure consigliate per la sicurezza dei limiti di Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Procedure consigliate per la sicurezza del database di Azure](database-best-practices.md)
-* [Procedure consigliate per la crittografia e la sicurezza dei dati di Azure](data-encryption-best-practices.md)
+* [Procedure consigliate di crittografia e sicurezza dei dati di Azure](data-encryption-best-practices.md)
 * [Procedure consigliate per la sicurezza del controllo di accesso e la gestione delle identità di Azure](identity-management-best-practices.md)
 * [Procedure consigliate per la sicurezza della rete di Azure](network-best-practices.md)
 * [Procedure consigliate per la sicurezza operativa di Azure](operational-best-practices.md)

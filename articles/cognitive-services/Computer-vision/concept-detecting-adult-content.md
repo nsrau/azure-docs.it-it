@@ -12,10 +12,10 @@ ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ee18916a59bb081d65494f46e7aba7c29c7177cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71718523"
 ---
 # <a name="detect-adult-content"></a>Rileva contenuto per adulti
@@ -35,7 +35,7 @@ All'interno della classificazione "Adult" sono disponibili diverse categorie:
 
 ## <a name="use-the-api"></a>Usare l'API
 
-È possibile rilevare il contenuto per adulti con l'API [analizza immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Quando si aggiunge il valore di `Adult` al parametro di query **visualFeatures** , l'API restituisce&mdash;`isAdultContent`tre proprietà booleane, `isRacyContent`e `isGoryContent` &mdash;nella relativa risposta JSON. Il metodo restituisce anche le proprietà&mdash;`adultScore`corrispondenti `racyScore`, e `goreScore` &mdash;che rappresentano i punteggi di confidenza tra zero e uno per ogni rispettiva categoria.
+È possibile rilevare il contenuto per adulti con l'API [analizza immagine](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Quando si aggiunge il valore di `Adult` al parametro di query **visualFeatures** , l'API restituisce tre proprietà booleane &mdash; `isAdultContent` , `isRacyContent` e `isGoryContent` &mdash; nella relativa risposta JSON. Il metodo restituisce anche le proprietà corrispondenti &mdash; `adultScore` , `racyScore` e `goreScore` &mdash; che rappresentano i punteggi di confidenza tra zero e uno per ogni rispettiva categoria.
 
 - [Guida introduttiva: analizzare un'immagine (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 - [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

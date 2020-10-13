@@ -4,10 +4,10 @@ description: Descrive le proprietà disponibili per gli eventi della sottoscrizi
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: 72b1a73bf418b417cd29f88063781e7b45979998
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86105898"
 ---
 # <a name="azure-subscription-as-an-event-grid-source"></a>Sottoscrizione di Azure come origine di griglia di eventi
@@ -231,20 +231,20 @@ L'esempio seguente illustra lo schema di un evento **ResourceActionSuccess**. Lo
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
+| subject | string | Percorso dell'oggetto dell'evento definito dall'origine di pubblicazione. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
 | id | string | Identificatore univoco dell'evento. |
 | data | object | Dati dell'evento della sottoscrizione. |
-| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
-| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
+| dataVersion | string | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'origine di pubblicazione. |
+| metadataVersion | string | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene specificato da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | authorization | object | L'autorizzazione richiesta per l'operazione. |
 | claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
@@ -253,7 +253,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | resourceProvider | string | Provider di risorse per l'operazione. |
 | resourceUri | string | L'URI della risorsa nell'operazione. |
 | operationName | string | Operazione eseguita. |
-| status | string | Lo stato dell'operazione. |
+| status | string | Stato dell'operazione. |
 | subscriptionId | string | L'ID sottoscrizione della risorsa. |
 | TenantId | string | L'ID tenant della risorsa. |
 
