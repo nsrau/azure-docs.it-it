@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
 ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708646"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
@@ -93,7 +93,7 @@ La selezione del settore si applica solo alle offerte pubblicate in AppSource e 
 | **Architettura & costruzione** | |
 | **Automobilistico** | |
 | **Distribuzione** | Vendita all'ingrosso <br> Spedizione pacchetti & pacco |  
-| **Istruzione** | Istruzione superiore <br> Primario & secondario edu/K-12 <br> Librerie & musei |
+| **Education** | Istruzione superiore <br> Primario & secondario edu/K-12 <br> Librerie & musei |
 | **Servizi finanziari** | Settore bancario & mercati finanziari <br> Assicurazioni | 
 | **Enti pubblici** |  Difesa & Intelligence <br> Governo civile <br> Sicurezza pubblica & giustizia |
 | **Servizi sanitari** | Pagante di integrità <br> Provider di integrità <br> Prodotti farmaceutici | 

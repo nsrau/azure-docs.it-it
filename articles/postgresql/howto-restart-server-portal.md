@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: d25c8908b46608ac64bcf135404a070740413fe0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907381"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Riavviare database di Azure per PostgreSQL: singolo server usando il portale di Azure
@@ -36,15 +36,15 @@ La procedura seguente consente di riavviare il server PostgreSQL:
 
 3. Fare clic su **Sì** per confermare il riavvio del server.
 
-   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Database di Azure per PostgreSQL - Conferma di riavvio":::
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Database di Azure per PostgreSQL - Panoramica - Pulsante Riavvia":::
 
 4. Si noti che lo stato del server passa a "Riavvio in corso".
 
-   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Database di Azure per PostgreSQL - Stato di riavvio":::
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Database di Azure per PostgreSQL - Panoramica - Pulsante Riavvia":::
 
 5. La conferma del riavvio del server ha esito positivo.
 
-   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Database di Azure per PostgreSQL - Riavvio riuscito":::
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Database di Azure per PostgreSQL - Panoramica - Pulsante Riavvia":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

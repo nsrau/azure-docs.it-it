@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764044"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
@@ -78,7 +78,7 @@ Per pubblicare questo dashboard per qualsiasi macchina virtuale in futuro, param
 Esistono due approcci per le API che creano risorse in Azure:
 
 * Le API imperative creano una risorsa alla volta. Per altre informazioni, vedere [Risorse](/rest/api/resources/resources).
-* Un sistema di distribuzione basato su modello che crea più risorse dipendenti con una singola chiamata API. Per altre informazioni, vedere [distribuire risorse con modelli e Azure PowerShell di gestione risorse](../azure-resource-manager/resource-group-template-deploy.md).
+* Un sistema di distribuzione basato su modello che crea più risorse dipendenti con una singola chiamata API. Per altre informazioni, vedere  [distribuire risorse con modelli e Azure PowerShell di gestione risorse](../azure-resource-manager/resource-group-template-deploy.md).
 
 La distribuzione basata su modello supporta la parametrizzazione e la creazione di modelli. Questo approccio viene usato in questo articolo.
 

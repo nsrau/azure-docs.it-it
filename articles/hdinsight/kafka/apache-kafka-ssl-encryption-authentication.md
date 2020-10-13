@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082081"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurare la crittografia e l'autenticazione TLS per Apache Kafka in Azure HDInsight
@@ -52,7 +52,7 @@ Il riepilogo del processo di installazione di Service Broker è il seguente:
 Usare le istruzioni dettagliate seguenti per completare la configurazione di Service Broker:
 
 > [!Important]
-> Nei frammenti di codice seguenti wnX è un'abbreviazione per uno dei tre nodi di lavoro e deve essere sostituito con `wn0` `wn1` o `wn2` in base alle esigenze. `WorkerNode0_Name`e `HeadNode0_Name` devono essere sostituiti con i nomi dei rispettivi computer.
+> Nei frammenti di codice seguenti wnX è un'abbreviazione per uno dei tre nodi di lavoro e deve essere sostituito con `wn0` `wn1` o `wn2` in base alle esigenze. `WorkerNode0_Name` e `HeadNode0_Name` devono essere sostituiti con i nomi dei rispettivi computer.
 
 1. Eseguire la configurazione iniziale sul nodo Head 0, che per HDInsight riempirà il ruolo dell'autorità di certificazione (CA).
 

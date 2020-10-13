@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
 ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708680"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opzioni di calcolo e archiviazione nel database di Azure per MySQL-server flessibile (anteprima)
@@ -71,7 +71,7 @@ Le specifiche dettagliate dei tipi di server disponibili sono le seguenti:
 
 Per ottenere altri dettagli sulle serie di calcolo disponibili, vedere la documentazione relativa alle macchine virtuali [di Azure per utilizzo generico per la](../../virtual-machines/sizes-b-series-burstable.md)serie [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e con ottimizzazione per la [memoria (serie Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 
 L'archiviazione di cui si esegue il provisioning è la quantità di capacità di archiviazione disponibile per il server flessibile. Lo spazio di archiviazione viene usato per i file di database, i file temporanei, i log delle transazioni e i log del server MySQL. In tutti i livelli di calcolo, lo spazio di archiviazione minimo supportato è 5 GiB e il valore massimo è 16 TiB. Lo spazio di archiviazione viene scalato in incrementi di 1 GiB e può essere ridimensionato dopo la creazione del server.
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78675336"
 ---
 # <a name="speech-service-phonetic-sets"></a>Set fonetici del servizio vocale
 
-Il servizio riconoscimento vocale definisce alfabeti fonetici ("set di telefono" per brevità), costituito da sette lingue; `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`e `zh-TW`. I set di telefoni del servizio voce vengono in genere mappati all' <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">alfabeto fonetico internazionale (IPA) <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. I set di telefoni del servizio di riconoscimento vocale vengono usati insieme al [linguaggio di markup sintesi vocale (SSML)](speech-synthesis-markup.md), come parte dell'offerta di servizi di sintesi vocale. In questo articolo si apprenderà come viene eseguito il mapping di questi set di telefono e quando usare il set di telefono.
+Il servizio riconoscimento vocale definisce alfabeti fonetici ("set di telefono" per brevità), costituito da sette lingue; `en-US`, `fr-FR` , `de-DE` , `es-ES` , `ja-JP` , `zh-CN` e `zh-TW` . I set di telefoni del servizio voce vengono in genere mappati all' <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">alfabeto fonetico internazionale (IPA) <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. I set di telefoni del servizio di riconoscimento vocale vengono usati insieme al [linguaggio di markup sintesi vocale (SSML)](speech-synthesis-markup.md), come parte dell'offerta di servizi di sintesi vocale. In questo articolo si apprenderà come viene eseguito il mapping di questi set di telefono e quando usare il set di telefono.
 
 # <a name="en-us"></a>[it-IT](#tab/en-US)
 
@@ -179,7 +179,7 @@ Il set di telefoni del servizio di riconoscimento vocale pone tuttavia stress do
 **1** *solo per alcune parole straniere.*
 
 > [!TIP]
-> Il `fr-FR` set di telefono del servizio voce non supporta i Liasions francesi `n‿`seguenti `t‿`,, `z‿`e. Se necessario, è consigliabile usare direttamente il pacchetto IPA.
+> Il `fr-FR` set di telefono del servizio voce non supporta i Liasions francesi seguenti,, `n‿` `t‿` e `z‿` . Se necessario, è consigliabile usare direttamente il pacchetto IPA.
 
 # <a name="de-de"></a>[de-DE](#tab/de-DE)
 
@@ -256,7 +256,7 @@ Il set di telefoni del servizio di riconoscimento vocale pone tuttavia stress do
 | ts | `ts` | UG **Z** | AR**z**t | Wit**z** |  |
 | ch | `tʃ` | Echien **tsch** | aufgepu**tsch**t | **tsch** bundesdeu |  |
 | v | `v` | **w**INKEN | Domande**e**risposte | [<sup>9</sup>](#de-c-9) Gr**oO**ve |  |
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) Erach BA**ch** | Ma**ch**t mögli**ch**St | Schma**ch** ' i**ch** |
+| x | [<sup>10</sup>](#de-c-10) `x` ,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) Erach BA**ch** | Ma**ch**t mögli**ch**St | Schma**ch** ' i**ch** |
 | z | `z` | uPer **s** |  |  |  |
 | zh | `ʒ` | **G**ENRE | B**re**ezinski | EDVI**g**e |
 
@@ -292,7 +292,7 @@ Il set di telefoni del servizio di riconoscimento vocale pone tuttavia stress do
 | ^      | `ʔ`   | beachtlich/b AX-^ a 1 x t-l IH c/ |
 
 > [!NOTE]
-> È necessario aggiungere un [GS\] Phone tra due vocali distinte, ad eccezione del fatto che le due vocali sono una dittongo genuina. Questa consonante orale è un arresto glottal. per altre informazioni, <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">vedere glottal <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>stop.
+> È necessario aggiungere un [GS \] Phone tra due vocali distinte, ad eccezione del fatto che le due vocali sono una dittongo genuina. Questa consonante orale è un arresto glottal. per altre informazioni, vedere <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank"> glottal stop <span class="docon docon-navigate-external x-hidden-focus"> </a> </a> .
 
 # <a name="es-es"></a>[es-ES](#tab/es-ES)
 
@@ -336,11 +336,11 @@ Il set di telefoni del servizio di riconoscimento vocale pone tuttavia stress do
 | x      | `x`        | **j**OTA   | a**j**o        | trasfe**j**      |
 
 > [!TIP]
-> Il `es-ES` set di telefono del servizio voce non supporta il seguente IPA `β`spagnolo `ð`,, `ɣ`e. Se necessario, è consigliabile usare direttamente il pacchetto IPA.
+> Il `es-ES` set di telefono del servizio voce non supporta il seguente IPA spagnolo,, `β` `ð` e `ɣ` . Se necessario, è consigliabile usare direttamente il pacchetto IPA.
 
 # <a name="zh-cn"></a>[zh-CN](#tab/zh-CN)
 
-Il telefono del servizio di riconoscimento `zh-CN` vocale per è basato sul set <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">pinyin <span class="docon docon-navigate-external x-hidden-focus"></span> </a> del telefono nativo.
+Il telefono del servizio di riconoscimento vocale per `zh-CN` è basato sul set <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">pinyin <span class="docon docon-navigate-external x-hidden-focus"></span> </a> del telefono nativo.
 
 ### <a name="tone"></a>Tono
 
@@ -362,7 +362,7 @@ Il telefono del servizio di riconoscimento `zh-CN` vocale per è basato sul set 
 
 # <a name="zh-tw"></a>[zh-TW](#tab/zh-TW)
 
-Il telefono del servizio di riconoscimento `zh-TW` vocale per è basato sul set <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">di <span class="docon docon-navigate-external x-hidden-focus"></span> Bopomofo</a> del telefono nativo.
+Il telefono del servizio di riconoscimento vocale per `zh-TW` è basato sul set <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">di <span class="docon docon-navigate-external x-hidden-focus"></span> Bopomofo</a> del telefono nativo.
 
 ### <a name="tone"></a>Tono
 
@@ -384,14 +384,14 @@ Il telefono del servizio di riconoscimento `zh-TW` vocale per è basato sul set 
 
 # <a name="ja-jp"></a>[ja-JP](#tab/ja-JP)
 
-Il telefono del servizio di riconoscimento `ja-JP` vocale per è basato sul set <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">Kana <span class="docon docon-navigate-external x-hidden-focus"></span> </a> del telefono nativo.
+Il telefono del servizio di riconoscimento vocale per `ja-JP` è basato sul set <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">Kana <span class="docon docon-navigate-external x-hidden-focus"></span> </a> del telefono nativo.
 
 ### <a name="stress"></a>Stress
 
 | `sapi` | `ipa`          |
 |--------|----------------|
-| `ˈ`    | `ˈ`mainstress |
-| `+`    | `ˌ`sottolineatura  |
+| `ˈ`    | `ˈ` mainstress |
+| `+`    | `ˌ` sottolineatura  |
 
 #### <a name="example"></a>Esempio
 
