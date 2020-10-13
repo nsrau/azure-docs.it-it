@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86200513"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorie di ricerca per l'API di ricerca di attività locali Bing
@@ -27,7 +27,7 @@ L'API di ricerca di attività locali Bing permette di eseguire ricerche di entit
 I tipi seguenti definiscono le principali categorie di ricerca.  È possibile specificare più di una categoria usando un elenco di valori separati da virgole assegnato al parametro `localCategories`.  
 - EatDrink 
 - SeeDo 
-- Shop 
+- Acquista 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
 - Parking 
@@ -44,7 +44,7 @@ Le sottocategorie vengono passate allo stesso modo di `localCategories`. Le sott
 
 > AmusementParks, attrazioni, carnevali, casinò, LandmarksAndHistoricalSites, MiniatureGolfCourses, MovieTheaters, musei, parchi, SightseeingTours, servizi turistici, Zoo
 
-### <a name="shop"></a>Shop
+### <a name="shop"></a>Acquista
 
 > AntiqueStores, bookstores, CDAndRecordStores, ChildrensClothingStores, CigarAndTobaccoShops, ComicBookStores, DepartmentStores, DiscountStores, FleaMarketsAndBazaars, FurnitureStores, HomeImprovementStores, JewelryAndWatchesStores, KitchenwareStores, LiquorStores, MallsAndShoppingCenters, MensClothingStores, MusicStores, OutletStores, PetShops, PetSupplyStores, SchoolAndOfficeSupplyStores, ShoeStores, SportingGoodsStores, ToyAndGameStores, VitaminAndSupplementStores, WomensClothingStores
 

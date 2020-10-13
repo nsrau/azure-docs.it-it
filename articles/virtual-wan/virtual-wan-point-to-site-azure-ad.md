@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
 ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87832519"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione Azure Active Directory per la VPN utente
@@ -167,11 +167,11 @@ Usare questo [collegamento](https://www.microsoft.com/p/azure-vpn-client-preview
 
 1. Selezionare i puntini di sospensione (...) accanto al profilo client da eliminare. Selezionare quindi **Rimuovi**.
 
-    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![Elimina](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminare](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![Elimina](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticare i problemi di connessione
 

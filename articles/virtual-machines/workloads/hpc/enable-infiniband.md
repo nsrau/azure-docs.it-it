@@ -14,15 +14,15 @@ ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797986"
 ---
 # <a name="enable-infiniband"></a>Abilitare InfiniBand
 
-Le macchine virtuali serie [H](../../sizes-hpc.md) e serie [N](../../sizes-gpu.md) con supporto per [RDMA](../../sizes-hpc.md#rdma-capable-instances) comunicano attraverso la rete InfiniBand a bassa latenza e larghezza di banda elevata. La funzionalità RDMA su tale interconnessione è fondamentale per migliorare la scalabilità e le prestazioni dei carichi di lavoro HPC e AI del nodo distribuito. Le macchine virtuali serie H e serie N abilitate per InfiniBand sono connesse in un albero FAT non bloccante con una progettazione di basso diametro per prestazioni RDMA ottimizzate e coerenti.
+Le macchine virtuali [serie H](../../sizes-hpc.md) e [serie N](../../sizes-gpu.md) [con supporto RDMA](../../sizes-hpc.md#rdma-capable-instances) comunicano attraverso la rete InfiniBand a bassa latenza e larghezza di banda elevata. La funzionalità RDMA su un'interconnessione di questo tipo è fondamentale per migliorare la scalabilità e le prestazioni dei carichi di lavoro HPC e di intelligenza artificiale su nodi distribuiti. Le macchine virtuali serie H e serie N abilitate per InfiniBand sono connesse in strutture Fat Tree non bloccanti a diametro ridotto per prestazioni RDMA ottimizzate e coerenti.
 
 Esistono diversi modi per abilitare InfiniBand sulle dimensioni delle macchine virtuali in grado di supportare.
 
@@ -59,7 +59,7 @@ yum install -y kernel-devel-${KERNEL}
 ./MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64/mlnxofedinstall --kernel $KERNEL --kernel-sources /usr/src/kernels/${KERNEL} --add-kernel-support --skip-repo
 ```
 
-### <a name="windows"></a>WINDOWS
+### <a name="windows"></a>Windows
 Per Windows, scaricare e installare [MELLANOX OFED per i driver di Windows](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2).
 
 ## <a name="enable-ip-over-infiniband-ib"></a>Abilita IP over InfiniBand (IB)
@@ -73,6 +73,6 @@ sudo systemctl restart waagent
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sull'installazione di varie [librerie MPI supportate](setup-mpi.md) e sulla relativa configurazione ottimale nelle macchine virtuali.
-- Per informazioni sulla configurazione ottimale dei carichi di lavoro per prestazioni e scalabilità, vedere Panoramica della [serie HB](hb-series-overview.md) e [Panoramica sulle serie HC](hc-series-overview.md) .
-- Per informazioni sugli annunci più recenti e su alcuni esempi e risultati HPC, vedere i [Blog della community tecnica di calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
-- Per una visualizzazione architettonica di livello superiore dell'esecuzione di carichi di lavoro HPC, vedere [High Performance Computing (HPC) in Azure](/azure/architecture/topics/high-performance-computing/).
+- Esaminare la [panoramica della serie HB](hb-series-overview.md) e la [panoramica della serie HC](hc-series-overview.md) per informazioni su come configurare in modo ottimale i carichi di lavoro ai fini delle prestazioni e della scalabilità.
+- Leggere gli ultimi annunci e alcuni esempi HPC e risultati nei [blog della community tecnica di Calcolo di Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Per un quadro generale sull'architettura per l'esecuzione di carichi di lavoro HPC, vedere [HPC (High Performance Computing) in Azure](/azure/architecture/topics/high-performance-computing/).

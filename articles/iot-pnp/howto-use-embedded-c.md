@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91610076"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementare l'Plug and Play delle cose sui dispositivi vincolati
@@ -24,7 +24,7 @@ L'SDK per Embedded C offre una soluzione leggera per connettere i dispositivi vi
 
 ### <a name="use-a-real-device"></a>Usare un dispositivo reale
 
-Per un'esercitazione end-to-end completa che usa l'SDK per Embedded C, il servizio Device provisioning e gli Plug and Play su un dispositivo reale, vedere la pagina relativa alla [ridefinizione della lavagna di sviluppo di WX per connettersi ad Azure tramite il servizio Device provisioning in hub](https://github.com/Azure-Samples/Microchip-PIC-IoT-Wx)Internet.
+Per un'esercitazione end-to-end completa che usa l'SDK per la funzionalità Embedded C, il servizio Device provisioning e gli Plug and Play su un dispositivo reale, vedere [reimpiegate PIC-IoT WX Development Board per connettersi ad Azure tramite il servizio Device provisioning in hub](https://github.com/Azure-Samples/Microchip-PIC-IoT-Wx)Internet.
 
 ### <a name="introductory-samples"></a>Esempi introduttivi
 

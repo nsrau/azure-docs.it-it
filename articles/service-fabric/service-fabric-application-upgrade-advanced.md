@@ -4,10 +4,10 @@ description: Questo articolo illustra alcuni degli argomenti avanzati relativi a
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248085"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento dell'applicazione Service Fabric: argomenti avanzati
@@ -100,7 +100,7 @@ La durata del ritardo sottoposta a override si applica solo all'istanza di aggio
 >
 
 > [!NOTE]
-> Questa funzionalità può essere configurata nei servizi esistenti usando il cmdlet Update-ServiceFabricService o il modello ARM come indicato in precedenza, quando la versione del codice del cluster è 7.1.XXX o successiva.
+> Questa funzionalità può essere configurata nei servizi esistenti usando Update-ServiceFabricService cmdlet o il modello ARM come indicato in precedenza, quando la versione del codice del cluster è 7.1.XXX o successiva.
 >
 >
 

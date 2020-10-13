@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187252"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare Azure-SSIS Integration Runtime in base a una pianificazione
@@ -91,7 +91,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
    
 2. Nella casella degli strumenti **Attività** espandere il menu **Generale** e trascinare un'attività **Web** nell'area di progettazione della pipeline. Nella scheda **Generale** della finestra delle proprietà dell'attività modificare il nome dell'attività in **startMyIR**. Passare alla scheda **Impostazioni** e seguire questa procedura.
 
-    1. Per **URL**immettere l'URL seguente per l'API REST che avvia Azure-SSIS IR, sostituendo `{subscriptionId}` , `{resourceGroupName}` , `{factoryName}` e `{integrationRuntimeName}` con i valori effettivi per il runtime di integrazione: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` in alternativa, è anche possibile copiare & incollare l'ID risorsa del runtime di integrazione dalla relativa pagina di monitoraggio nell'interfaccia utente o nell'app ADF per sostituire la parte seguente dell'URL precedente:`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    1. Per **URL**immettere l'URL seguente per l'API REST che avvia Azure-SSIS IR, sostituendo `{subscriptionId}` , `{resourceGroupName}` , `{factoryName}` e `{integrationRuntimeName}` con i valori effettivi per il runtime di integrazione: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` in alternativa, è anche possibile copiare & incollare l'ID risorsa del runtime di integrazione dalla relativa pagina di monitoraggio nell'interfaccia utente o nell'app ADF per sostituire la parte seguente dell'URL precedente: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
     
        ![ID risorsa del runtime di integrazione SSIS di ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
   
@@ -104,7 +104,7 @@ Se si crea un terzo trigger programmato per essere eseguito ogni giorno a mezzan
   
 3. Clonare la prima pipeline per crearne un'altra, modificando il nome dell'attività in **stopMyIR** e sostituendo le proprietà seguenti.
 
-    1. Per **URL**, immettere l'URL seguente per l'API REST che interrompe Azure-SSIS IR, sostituendo `{subscriptionId}` , `{resourceGroupName}` , `{factoryName}` e `{integrationRuntimeName}` con i valori effettivi per il runtime di integrazione:`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
+    1. Per **URL**, immettere l'URL seguente per l'API REST che interrompe Azure-SSIS IR, sostituendo `{subscriptionId}` , `{resourceGroupName}` , `{factoryName}` e `{integrationRuntimeName}` con i valori effettivi per il runtime di integrazione: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
     
     2. In **Corpo** immettere `{"message":"Stop my IR"}`. 
 
@@ -371,7 +371,7 @@ Nella sezione precedente è stato creato un runbook di Automazione di Azure capa
 
    ![Pianificazione per l'avvio del runtime di integrazione SSIS di Azure](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
     
-3. Passare alla scheda **parametri e impostazioni di esecuzione** . specificare il gruppo di risorse, il file ADF e i nomi Azure-SSIS IR. In **OPERATION** immettere **START** e fare clic su **OK**. Fare nuovamente clic su **OK** per visualizzare la pianificazione nella pagina **Pianificazioni** del runbook. 
+3. Passare alla scheda **parametri e impostazioni di esecuzione** . Specificare il gruppo di risorse, il file ADF e i nomi Azure-SSIS IR. In **OPERATION** immettere **START** e fare clic su **OK**. Fare nuovamente clic su **OK** per visualizzare la pianificazione nella pagina **Pianificazioni** del runbook. 
 
    ![Pianificazione per l'avvio del runtime di integrazione SSIS di Azure](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
