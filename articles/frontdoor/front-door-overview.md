@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: bf0d802dc4ea4d18122a12b107dfb0cc0af80d63
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e5b8e5059d4d7df8d7061698ea29d7a6785236f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773451"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825647"
 ---
 # <a name="what-is-azure-front-door"></a>Che cos'è il servizio Frontdoor di Azure?
 
 Frontdoor di Azure è un punto di ingresso globale e scalabile che usa la rete perimetrale globale Microsoft per creare applicazioni Web veloci, sicure e ampiamente scalabili. Con Frontdoor è possibile trasformare il consumer globale e le applicazioni aziendali in applicazioni moderne, solide, personalizzate e dalle alte prestazioni con contenuti che raggiungono un pubblico globale tramite Azure.
 
-:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Architettura di Frontdoor":::
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Frontdoor di Azure">
+</p>
 
 Frontdoor funziona a livello 7 (livello HTTP / HTTPS) usando il protocollo anycast con TCP diviso e la rete globale di Microsoft per migliorare la connettività globale. In base al metodo di instradamento, è possibile garantire che Frontdoor instradi le richieste dei client al back-end dell'applicazione più veloce e disponibile. Il backend di un'applicazione può essere qualsiasi servizio internet ospitato all'interno o all'esterno di Azure. Frontdoor offre diversi [metodi di routing del traffico](front-door-routing-methods.md) e [opzioni di monitoraggio dello stato del back-end](front-door-health-probes.md) per soddisfare diverse esigenze delle applicazioni e scenari di failover automatico. Simile a [Gestione traffico](../traffic-manager/traffic-manager-overview.md), Frontdoor è resiliente agli errori, compreso gli errori di un'intera area di Azure.
 

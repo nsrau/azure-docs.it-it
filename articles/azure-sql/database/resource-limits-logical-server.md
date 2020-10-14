@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70897825dfebe03e920ff5948ad597b57bdd7d7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618962"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058251"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limiti delle risorse per il database SQL di Azure e i server di analisi di Azure sinapsi
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ In caso di uso elevato di risorse di elaborazione, le opzioni di mitigazione inc
 - Aumento delle dimensioni di calcolo del database o del pool elastico per mettere a disposizione del database un numero maggiore di risorse del computer. Vedere [Ridimensionare le risorse del database singolo](single-database-scale.md) e [Ridimensionare le risorse del pool elastico](elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'utilizzo delle risorse della CPU di ogni query. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Archiviazione:
+### <a name="storage"></a>Archiviazione
 
 Quando la quantità di spazio del database usato raggiunge il limite di dimensioni massime, gli inserimenti e gli aggiornamenti del database che aumentano la dimensione dei dati hanno esito negativo e i clienti ricevono un [messaggio di errore](troubleshoot-common-errors-issues.md). Le istruzioni SELECT e DELETE continuano ad avere esito positivo.
 
@@ -82,7 +82,7 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 - Riduzione dell'impostazione di [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (massimo grado di parallelismo).
 - Ottimizzazione del carico di lavoro delle query per ridurre il numero di occorrenze e la durata del blocco di query.
 
-### <a name="memory"></a>Memory
+### <a name="memory"></a>Memoria
 
 A differenza di altre risorse (CPU, ruoli di lavoro, archiviazione), raggiungere il limite di memoria non influisce negativamente sulle prestazioni delle query e non genera errori e errori. Come descritto in dettaglio in [Guida all'architettura di gestione della memoria](https://docs.microsoft.com/sql/relational-databases/memory-management-architecture-guide), il motore di database di SQL Server spesso usa tutta la memoria disponibile, in base alla progettazione. La memoria viene utilizzata principalmente per la memorizzazione nella cache dei dati, per evitare un accesso più costoso alle risorse di archiviazione. Pertanto, un utilizzo più elevato della memoria di solito migliora le prestazioni delle query a causa di letture più veloci dalla memoria, anziché letture più lente dall'archiviazione.
 
@@ -137,11 +137,11 @@ Se, ad esempio, una query genera 1000 IOPS senza governance delle risorse di i/o
 
 I valori di IOPS e velocità effettiva min/max restituiti dalla vista [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) fungono da limiti/maiuscole, non come garanzie. Inoltre, la governance delle risorse non garantisce una latenza di archiviazione specifica. La latenza, i IOPS e la velocità effettiva migliori per un determinato carico di lavoro degli utenti dipendono non solo dai limiti di governance delle risorse di i/o, ma anche dalla combinazione delle dimensioni di i/o utilizzate e dalle funzionalità dell'archiviazione sottostante. Il database SQL USA IOs che variano in base alle dimensioni comprese tra 512 KB e 4 MB. Ai fini dell'applicazione dei limiti di IOPS, ogni IO viene considerato indipendentemente dalle dimensioni, ad eccezione dei database con file di dati in archiviazione di Azure. In tal caso, IOs di dimensioni superiori a 256 KB vengono conteggiati come più 256 KB per l'allineamento con l'accounting di i/o di archiviazione di Azure.
 
-Per i database Basic, standard e per utilizzo generico, che usano file di dati in archiviazione di Azure, il `primary_group_max_io` valore potrebbe non essere raggiungibile se un database non dispone di un numero di file di dati sufficiente per fornire cumulativamente questo numero di IOPS o se i dati non vengono distribuiti in modo uniforme tra i file o se il livello di prestazioni dei BLOB sottostanti limita IOPS/velocità effettiva al di sotto del limite di Analogamente, con log IOs di piccole dimensioni generato da commit di transazione frequente, il `primary_max_log_rate` valore potrebbe non essere raggiungibile da un carico di lavoro a causa del limite di IOPS nel BLOB di archiviazione di Azure sottostante.
+Per i database Basic, standard e per utilizzo generico, che usano file di dati in archiviazione di Azure, il `primary_group_max_io` valore potrebbe non essere raggiungibile se un database non dispone di un numero di file di dati sufficiente per fornire cumulativamente questo numero di operazioni di i/o al secondo e se i dati non vengono distribuiti in modo uniforme tra i file o se il livello di prestazioni dei BLOB sottostanti limita i valori di IOPS Analogamente, con log IOs di piccole dimensioni generato da commit di transazioni frequenti, il `primary_max_log_rate` valore potrebbe non essere raggiungibile da un carico di lavoro a causa del limite di IOPS nel BLOB di archiviazione di Azure sottostante. Per i database che usano archiviazione Premium di Azure, il database SQL di Azure usa BLOB di archiviazione sufficientemente grandi per ottenere IOPS/velocità effettiva necessarie, indipendentemente dalle dimensioni del database. Per i database di dimensioni maggiori vengono creati più file di dati per aumentare la capacità totale di IOPS/velocità effettiva.
 
 I valori di utilizzo delle risorse, ad esempio `avg_data_io_percent` e `avg_log_write_percent` , riportati nelle viste [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database),  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) , vengono calcolati come percentuali dei limiti massimi di governance delle risorse. Pertanto, quando i fattori diversi dalla governance delle risorse limitano le operazioni di i/o al secondo, è possibile vedere IOPS/velocità effettiva flat e latenze che aumentano con l'aumentare del carico di lavoro, anche se l'utilizzo delle risorse segnalato rimane inferiore al 100%.
 
-Per visualizzare IOPS, velocità effettiva e latenza di lettura e scrittura per ogni file di database, usare la funzione [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Questa funzione copre tutti i/o nel database, inclusi i/o in background che non sono stati conteggiati `avg_data_io_percent` , ma usa IOPS e la velocità effettiva dell'archiviazione sottostante e può influisca sulla latenza di archiviazione osservata. La funzione presenta anche una latenza aggiuntiva che può essere introdotta dalla governance delle risorse di i/o per le operazioni di lettura e scrittura, `io_stall_queued_read_ms` `io_stall_queued_write_ms` rispettivamente nelle colonne e.
+Per visualizzare IOPS, velocità effettiva e latenza di lettura e scrittura per ogni file di database, usare la funzione [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) . Questa funzione copre tutti i/o nel database, inclusi i/o in background che non sono stati conteggiati `avg_data_io_percent` , ma usa IOPS e la velocità effettiva dell'archiviazione sottostante e può influisca sulla latenza di archiviazione osservata. La funzione presenta una latenza aggiuntiva che può essere introdotta dalla governance delle risorse di i/o per le operazioni di lettura e scrittura, `io_stall_queued_read_ms` `io_stall_queued_write_ms` rispettivamente nelle colonne e.
 
 ### <a name="transaction-log-rate-governance"></a>Governance della frequenza del log delle transazioni
 

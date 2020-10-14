@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a9886b005c5459456e005273dd11e2c3c183176f
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744237"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932006"
 ---
 # <a name="about-azure-key-vault"></a>Informazioni su Azure Key Vault
 
@@ -25,7 +25,7 @@ Azure Key Vault contribuisce a risolvere i problemi seguenti:
 - **Gestione delle chiavi**: Azure Key Vault può essere usato anche come soluzione di gestione delle chiavi. Con Azure Key Vault è semplice creare e controllare le chiavi di crittografia usate per crittografare i dati. 
 - **Gestione dei certificati**: Azure Key Vault è anche un servizio che facilita il provisioning, la gestione e la distribuzione dei certificati Transport Layer Security/Secure Sockets Layer (TLS/SSL) pubblici e privati da usare con Azure e le risorse connesse interne.
 
-Azure Key Vault offre due livelli di servizio: Standard, che esegue la crittografia con una chiave software, e Premium, che include chiavi con protezione HSM. Per un confronto tra i livelli Standard e Premium, vedere la [pagina relativa ai prezzi di Azure Key Vault](/pricing/details/key-vault).
+Azure Key Vault offre due livelli di servizio: Standard, che esegue la crittografia con una chiave software, e Premium, che include chiavi con protezione HSM. Per un confronto tra i livelli Standard e Premium, vedere la [pagina relativa ai prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="why-use-azure-key-vault"></a>Vantaggi di Azure Key Vault
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269710"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056856"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Domande frequenti sull'API di Azure per FHIR
 
@@ -43,6 +43,10 @@ L'API di Azure per FHIR è una versione ospitata e gestita del server Microsoft 
 Quando si esegue FHIR server per Azure, è possibile accedere direttamente ai servizi sottostanti. Tuttavia, l'utente è anche responsabile della manutenzione e dell'aggiornamento del server e di tutte le operazioni di conformità necessarie se si archiviano dati PHI.
 
 Dal punto di vista dello sviluppo, ogni funzionalità viene distribuita nel server Microsoft FHIR open source per Azure. Una volta convalidata in open source, verrà rilasciata alla soluzione API PaaS di Azure per FHIR. Il tempo tra il rilascio in open source e PaaS dipende dalla complessità della funzionalità e da altre priorità di roadmap. 
+
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Dove è possibile vedere cosa si sta rilasciando nell'API di Azure per FHIR?
+
+Per visualizzare alcuni elementi che vengono rilasciati nell'API di Azure per FHIR, fare riferimento alla [versione](https://github.com/microsoft/fhir-server/releases) del server FHIR open source. Si è lavorato per contrassegnare gli elementi con Azure-API-for-FHIR se verranno rilasciati al servizio gestito e sono in genere disponibili due settimane dopo esse nella pagina di rilascio in open source. Sono inoltre disponibili istruzioni su come testare la compilazione [qui](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) se si desidera eseguire il test nel proprio ambiente. Si sta valutando come condividere meglio gli aggiornamenti del servizio gestito aggiuntivi.
 
 ### <a name="what-is-smart-on-fhir"></a>Che cos'è SMART in FHIR?
 

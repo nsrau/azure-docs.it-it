@@ -4,12 +4,12 @@ description: Istruzioni su come spostare un insieme di credenziali di servizi di
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773366"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056430"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Spostare un insieme di credenziali di servizi di ripristino tra sottoscrizioni e gruppi di risorse di Azure
 
@@ -34,7 +34,7 @@ Francia centrale, Francia meridionale, Germania nord-orientale, Germania central
 - Se una macchina virtuale non viene spostata con l'insieme di credenziali di servizi di ripristino tra sottoscrizioni o in un nuovo gruppo di risorse, i punti di ripristino della macchina virtuale correnti rimarranno intatti nell'insieme di credenziali fino a quando non scadono.
 - Sia che macchina virtuale venga spostata nell'insieme di credenziali o meno, è sempre possibile ripristinare la macchina virtuale dalla cronologia di backup conservata nell'insieme di credenziali.
 - Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area e nella stessa sottoscrizione di Azure.
-- Per spostare una macchina virtuale con dischi gestiti, vedere questo [articolo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- Per spostare una macchina virtuale con dischi gestiti, vedere questo [articolo](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 - Le opzioni per lo scorrimento delle risorse distribuite con il modello classico variano a seconda che si stiano migrando le risorse all'interno di una sottoscrizione o a una nuova sottoscrizione. Per altre informazioni, vedere questo [articolo](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - I criteri di backup definiti per l'insieme di credenziali vengono conservati dopo che l'insieme di credenziali viene spostato tra le sottoscrizioni o in un nuovo gruppo di risorse.
 - È possibile spostare solo un insieme di credenziali contenente uno dei seguenti tipi di elementi di backup. Tutti gli elementi di backup dei tipi non elencati di seguito dovranno essere arrestati e i dati verranno eliminati definitivamente prima di trasferire l'insieme di credenziali.

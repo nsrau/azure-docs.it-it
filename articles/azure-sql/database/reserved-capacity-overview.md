@@ -11,20 +11,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 08/29/2019
-ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: c1bedf56896332430c6f4b937aab37764a0c6a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321595"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058268"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Risparmiare sui costi per le risorse con capacità riservata: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
 
 Risparmia denaro con il database SQL di Azure e con SQL Istanza gestita eseguendo il commit di una prenotazione per le risorse di calcolo rispetto ai prezzi con pagamento in base al consumo. Con la capacità riservata, si impegna per il database SQL e/o SQL Istanza gestita usare per un periodo di uno o tre anni per ottenere uno sconto significativo sui costi di calcolo. Per acquistare la capacità riservata, è necessario specificare l'area di Azure, il tipo di distribuzione, il livello di prestazioni e il termine.
 
-Non è necessario assegnare la prenotazione a un database specifico o a un'istanza gestita. Le distribuzioni esistenti che sono già in esecuzione o quelle appena distribuite vengono ricavate automaticamente. Con l'acquisto di una prenotazione, viene eseguito il commit dell'utilizzo per i costi di calcolo per un periodo di uno o tre anni. Non appena si acquista una prenotazione, i costi di calcolo che corrispondono agli attributi di prenotazione non vengono più addebitati in base alle tariffe con pagamento in base al consumo. Una prenotazione non copre il software, la rete o gli addebiti di archiviazione associati al servizio. Al termine del periodo di prenotazione, il vantaggio di fatturazione scadrà e il database o l'istanza gestita verrà fatturato in base al prezzo con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente. Per informazioni sui prezzi, vedere l' [offerta di capacità riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+Non è necessario assegnare la prenotazione a un database specifico o a un'istanza gestita. Le distribuzioni esistenti che sono già in esecuzione o quelle appena distribuite vengono ricavate automaticamente. Con l'acquisto di una prenotazione, viene eseguito il commit dell'utilizzo per i costi di calcolo per un periodo di uno o tre anni. Non appena si acquista una prenotazione, i costi di calcolo che corrispondono agli attributi di prenotazione non vengono più addebitati in base alle tariffe con pagamento in base al consumo. 
+
+Una prenotazione si applica sia alle repliche di calcolo secondarie primarie che fatturabili, ma non copre il software, la rete o gli addebiti di archiviazione associati al servizio. Al termine del periodo di prenotazione, il vantaggio di fatturazione scadrà e il database o l'istanza gestita verrà fatturato in base al prezzo con pagamento in base al consumo. Le prenotazioni non vengono rinnovate automaticamente. Per informazioni sui prezzi, vedere l' [offerta di capacità riservata](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
 È possibile acquistare capacità riservata nell' [portale di Azure](https://portal.azure.com). Usare [pagamenti anticipati o mensili](../../cost-management-billing/reservations/prepare-buy-reservation.md) per acquistare la prenotazione. Per acquistare capacità riservata:
 
@@ -32,6 +34,9 @@ Non è necessario assegnare la prenotazione a un database specifico o a un'istan
 - Per le sottoscrizioni Enterprise, **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com). In alternativa, se tale impostazione è disabilitata, è necessario essere un amministratore della sottoscrizione con contratto Enterprise. Capacità riservata.
 
 Per altre informazioni su come i clienti aziendali e i clienti con pagamento in base al consumo vengono addebitati per gli acquisti di prenotazione, vedere [informazioni sull'utilizzo della prenotazione di Azure per la registrazione Enterprise](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo](../../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+
+> [!NOTE]
+> L'acquisto di capacità riservata non consente di pre-allocare o riservare risorse di infrastruttura specifiche (macchine virtuali o nodi) per l'utilizzo.
 
 ## <a name="determine-correct-size-before-purchase"></a>Determinare le dimensioni corrette prima dell'acquisto
 
@@ -52,7 +57,7 @@ Si supponga, ad esempio, di eseguire un pool elastico per utilizzo generico, qui
     
     | Campo      | Descrizione|
     |------------|--------------|
-    |Subscription|Sottoscrizione usata per pagare la prenotazione della capacità. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numero offerta MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|
+    |Sottoscrizione|Sottoscrizione usata per pagare la prenotazione della capacità. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numero offerta MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|
     |Scope       |L'ambito della prenotazione vCore può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona <br/><br/>**Condiviso**, lo sconto di prenotazione vCore viene applicato al database o all'istanza gestita in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.<br/><br/>**Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato ai database o alle istanze gestite in questa sottoscrizione. <br/><br/>**Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alle istanze di database o istanze gestite nella sottoscrizione selezionata e nel gruppo di risorse selezionato all'interno di tale sottoscrizione.|
     |Region      |Area di Azure coperta dalla prenotazione della capacità.|
     |Tipo di distribuzione|Tipo di risorsa di SQL per cui si vuole acquistare la prenotazione.|

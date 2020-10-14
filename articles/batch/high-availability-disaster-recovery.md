@@ -3,12 +3,12 @@ title: Disponibilità elevata e ripristino di emergenza
 description: Informazioni su come progettare un'applicazione Batch per un'interruzione a livello di area.
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c77e6fa672d26545af47b262a982a7d0d7303eec
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83725738"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058013"
 ---
 # <a name="design-your-application-for-high-availability"></a>Progettare l'applicazione per la disponibilità elevata
 
@@ -39,5 +39,5 @@ Quando si progetta una soluzione di cui poter eseguire il failover, tenere prese
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla creazione di account Batch con il [portale di Azure](batch-account-create-portal.md), l'[interfaccia della riga di comando di Azure](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md) o l'[API di gestione Batch](batch-management-dotnet.md).
+- Altre informazioni sulla creazione di account Batch con il [portale di Azure](batch-account-create-portal.md), l'[interfaccia della riga di comando di Azure](./scripts/batch-cli-sample-create-account.md), [PowerShell](batch-powershell-cmdlets-get-started.md) o l'[API di gestione Batch](batch-management-dotnet.md).
 - A un account Batch sono associate quote predefinite. [Questo articolo](batch-quota-limit.md) illustra i valori delle quote predefinite e descrive come poter aumentare le quote.

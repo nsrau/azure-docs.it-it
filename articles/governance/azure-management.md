@@ -3,12 +3,12 @@ title: Panoramica della gestione di Azure - Governance di Azure
 description: Panoramica delle aree di gestione di applicazioni e risorse di Azure con collegamenti a contenuti sugli strumenti di gestione di Azure.
 ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662135"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949497"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Che cosa sono le aree di gestione di Azure?
 
@@ -44,7 +44,7 @@ Questa funzionalità consente di mantenere tali risorse conformi agli standard d
 
 ## <a name="secure"></a>Sicurezza
 
-Valutare la sicurezza delle risorse e dei dati. Un programma di sicurezza comprende la valutazione delle minacce, la raccolta e l'analisi dei dati e la conformità di applicazioni e risorse. Il monitoraggio della sicurezza e l'analisi delle minacce vengono forniti dal [Centro sicurezza di Azure](../security-center/security-center-intro.md), che include la gestione unificata della sicurezza e la protezione avanzata dalle minacce in carichi di lavoro cloud ibridi. Per informazioni complete sulla sicurezza e indicazioni sulla configurazione sicura delle risorse di Azure, vedere [Introduzione alla sicurezza in Azure](../security/fundamentals/overview.md).
+Valutare la sicurezza delle risorse e dei dati. Un programma di sicurezza comprende la valutazione delle minacce, la raccolta e l'analisi dei dati e la conformità di applicazioni e risorse. Il monitoraggio della sicurezza e l'analisi delle minacce vengono forniti dal [Centro sicurezza di Azure](../security-center/security-center-introduction.md), che include la gestione unificata della sicurezza e la protezione avanzata dalle minacce in carichi di lavoro cloud ibridi. Per informazioni complete sulla sicurezza e indicazioni sulla configurazione sicura delle risorse di Azure, vedere [Introduzione alla sicurezza in Azure](../security/fundamentals/overview.md).
 
 ## <a name="protect"></a>Proteggere
 

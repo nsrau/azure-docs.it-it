@@ -1,17 +1,17 @@
 ---
 title: "Avvio rapido: Distribuire un'app Web in Azure Service Fabric Mesh"
 description: Questa guida di avvio rapido illustra come creare un sito Web ASP.NET Core e pubblicarlo in Azure Service Fabric Mesh tramite Visual Studio.
-author: dkkapur
+author: georgewallace
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0828ad1acd23afdb7ebe7b89b20d8674e5876319
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 15e0c3bcbc19eae344ca3965b2b866ca9a15f28d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91653299"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840320"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guida introduttiva: Creare e distribuire un'app Web in Azure Service Fabric Mesh
 

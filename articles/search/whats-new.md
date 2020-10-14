@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 0df3c6b1851767616111308ad0bacce227ba1a83
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532228"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948902"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -26,11 +26,11 @@ Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |------------------------------|----------|-------------|---------------|
-| [Identità del servizio gestita](search-howto-managed-identities-data-sources.md) | Indicizzatori, sicurezza | Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi usare le autorizzazioni di controllo degli accessi in base al ruolo per accedere alle origini dati di Azure. Questo approccio elimina la necessità di immettere credenziali nella stringa di connessione. <br><br>Un altro modo per usare un'identità del servizio gestita è tramite un'[eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md), se non è possibile usare le regole IP. | Disponibile a livello generale. Accedere a questa funzionalità tramite il portale o [creare un'origine dati (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) con api-version=2020-06-30. |
-| [Richieste in uscita tramite un collegamento privato](search-indexer-howto-access-private.md) | Indicizzatori, sicurezza | Creare una risorsa collegamento privato condivisa che può essere usata dagli indicizzatori per accedere alle risorse di Azure protette da Collegamento privato di Azure. Per altre informazioni su tutte le modalità di protezione delle connessioni dell'indicizzatore, vedere [Proteggere le risorse dell'indicizzatore usando le funzionalità di sicurezza di rete di Azure](search-indexer-securing-resources.md). | Disponibile a livello generale. Accedere a questa funzionalità tramite il portale o una [risorsa collegamento privato condivisa](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) con api-version=2020-08-01. |
-| [API REST di gestione (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | La nuova API REST stabile aggiunge il supporto per la creazione di risorse collegamento privato condivise. | Disponibile a livello generale. |
-| [API REST di gestione (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Aggiunge una risorsa collegamento privato condivisa per Funzioni di Azure e Azure SQL per database MySQL. | Anteprima pubblica. |
-| [.NET SDK 4.0 per la gestione](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Aggiornamento di Azure SDK per l'SDK di gestione, destinato all'API REST versione 2020-08-01. | Disponibile a livello generale. |
+| [Identità del servizio gestita](search-howto-managed-identities-data-sources.md) | Indicizzatori, sicurezza | Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi usare le autorizzazioni di controllo degli accessi in base al ruolo per accedere alle origini dati di Azure. Questo approccio elimina la necessità di immettere credenziali nella stringa di connessione. <br><br>Un altro modo per usare un'identità del servizio gestita è tramite un'[eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md), se non è possibile usare le regole IP. | Disponibile a livello generale. Accedere a questa funzionalità tramite il portale o [creare un'origine dati (REST)](/rest/api/searchservice/create-data-source) con api-version=2020-06-30. |
+| [Richieste in uscita tramite un collegamento privato](search-indexer-howto-access-private.md) | Indicizzatori, sicurezza | Creare una risorsa collegamento privato condivisa che può essere usata dagli indicizzatori per accedere alle risorse di Azure protette da Collegamento privato di Azure. Per altre informazioni su tutte le modalità di protezione delle connessioni dell'indicizzatore, vedere [Proteggere le risorse dell'indicizzatore usando le funzionalità di sicurezza di rete di Azure](search-indexer-securing-resources.md). | Disponibile a livello generale. Accedere a questa funzionalità tramite il portale o una [risorsa collegamento privato condivisa](/rest/api/searchmanagement/sharedprivatelinkresources) con api-version=2020-08-01. |
+| [API REST di gestione (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | La nuova API REST stabile aggiunge il supporto per la creazione di risorse collegamento privato condivise. | Disponibile a livello generale. |
+| [API REST di gestione (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST | Aggiunge una risorsa collegamento privato condivisa per Funzioni di Azure e Azure SQL per database MySQL. | Anteprima pubblica. |
+| [.NET SDK 4.0 per la gestione](/dotnet/api/overview/azure/search/management) | .NET SDK | Aggiornamento di Azure SDK per l'SDK di gestione, destinato all'API REST versione 2020-08-01. | Disponibile a livello generale. |
 
 ## <a name="august-2020"></a>Agosto 2020
 

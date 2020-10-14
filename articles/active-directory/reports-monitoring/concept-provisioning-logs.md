@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812557"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056158"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -42,7 +42,7 @@ Questo argomento offre una panoramica del report di provisioning.
 ## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
-* Proprietari dell'applicazione
+* I proprietari dell'applicazione possono visualizzare i log per le applicazioni di loro proprietà
 * Utenti nei ruoli amministratore sicurezza, lettore sicurezza, lettore report, amministratore applicazione e amministratore applicazione cloud
 * Amministratori globali
 
@@ -56,7 +56,7 @@ Il tenant deve disporre di una licenza di Azure AD Premium associata per visuali
 I log di provisioning forniscono risposte alle domande seguenti:
 
 * Quali gruppi sono stati creati correttamente in ServiceNow?
-* Come sono stati importati i ruoli da Amazon Web Services?
+* Quali ruoli sono stati importati da Amazon Web Services?
 * Quali utenti non sono stati creati correttamente in DropBox?
 
 È possibile accedere ai log di provisioning selezionando i **log di provisioning** nella sezione **monitoraggio** del pannello **Azure Active Directory** nel [portale di Azure](https://portal.azure.com). Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record del provisioning nel portale.
@@ -86,7 +86,7 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtra")
+![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning
@@ -95,12 +95,12 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 Nella visualizzazione predefinita è possibile selezionare i filtri seguenti:
 
 - Identità
-- Data
+- Date
 - Stato
 - Azione
 
 
-![Aggiungere filtri](./media/concept-provisioning-logs/default-filter.png "Filtra")
+![Aggiungere filtri](./media/concept-provisioning-logs/default-filter.png "Filtro")
 
 Il filtro di **identità** consente di specificare il nome o l'identità a cui si è interessati. Questa identità può essere un utente, un gruppo, un ruolo o un altro oggetto. È possibile eseguire la ricerca in base al nome o all'ID dell'oggetto. L'ID varia in base allo scenario. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a SalesForce, l'ID di origine è l'ID oggetto dell'utente in Azure AD mentre TargetID è l'ID dell'utente in Salesforce. Quando si effettua il provisioning da giorni lavorativi a Active Directory, l'ID di origine è l'ID del dipendente del lavoro lavorativo. Si noti che il nome dell'utente potrebbe non essere sempre presente nella colonna Identity. Ci sarà sempre un ID. 
 
@@ -119,7 +119,7 @@ Quando si seleziona un intervallo di tempo personalizzato, è possibile configur
 
 Il filtro **Stato** consente di selezionare:
 
-- Tutti
+- All
 - Operazione completata
 - Operazioni non riuscite
 - Operazione ignorata
@@ -128,7 +128,7 @@ Il filtro **Stato** consente di selezionare:
 
 Il filtro **azione** consente di filtrare:
 
-- Crea 
+- Create 
 - Aggiornamento
 - Delete
 - Disabilita
@@ -191,7 +191,7 @@ Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il
 
 
 
-![Screenshot mostra la scheda passaggi, che mostra i passaggi di provisioning.](./media/concept-provisioning-logs/steps.png "Filtra")
+![Screenshot mostra la scheda passaggi, che mostra i passaggi di provisioning.](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Risoluzione dei problemi e suggerimenti
@@ -211,7 +211,7 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 
 ## <a name="what-you-should-know"></a>Informazioni importanti
 
-- Il portale di Azure archivia i dati di provisioning segnalati per 30 giorni se si dispone di un'edizione Premium e di 7 giorni se si dispone di un'edizione gratuita. I log di provisioning possono essere pubblicati in log Analytics per la conservazione oltre 30 giorni. 
+- Il portale di Azure archivia i dati di provisioning segnalati per 30 giorni se si dispone di un'edizione Premium e di 7 giorni se si dispone di un'edizione gratuita. I log di provisioning possono essere pubblicati in [log Analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) per la conservazione oltre 30 giorni. 
 
 - È possibile usare l'attributo Change ID come identificatore univoco. Questo è, ad esempio, utile quando si interagisce con il supporto tecnico.
 

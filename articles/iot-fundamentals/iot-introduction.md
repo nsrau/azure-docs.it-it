@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 73eb0b3164a386bb270e42ceba56d5dc7045af1c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ecc79eb52acbe393ac2777a0ec388e538a7f8fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81728998"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978901"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Informazioni su Azure IoT (Internet of Things)
 
@@ -74,6 +74,8 @@ Ad esempio, in una soluzione di monitoraggio remoto per un impianto di estrazion
 
 Per esempi concreti relativi all'uso di Azure IoT in ambito aziendale, vedere [i case study tecnici Microsoft per IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
+Per un'analisi approfondita dell'architettura IoT, vedere [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Architettura di riferimento di Microsoft Azure IoT).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per casi aziendali effettivi e per informazioni sull'architettura usata, vedere [Microsoft Azure IoT Technical Case Studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured) (Case study tecnici di Microsoft Azure IoT).
@@ -81,5 +83,3 @@ Per casi aziendali effettivi e per informazioni sull'architettura usata, vedere 
 Per alcuni progetti di esempio che possono essere usati con un DevKit di IoT, vedere [IoT DevKit Project Catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) (Catalogo di progetti per DevKit IoT). 
 
 Per una spiegazione più completa dei diversi servizi e del modo in cui vengono usati, vedere [Servizi e tecnologie di Azure IoT](iot-services-and-technologies.md).
-
-Per un'analisi approfondita dell'architettura IoT, vedere [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Architettura di riferimento di Microsoft Azure IoT).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5a8dfae58b9910504a11bf3986380398499e3357
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 0eacddfa56e46363c926aa1e8b35865676209577
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949599"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058489"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -295,10 +295,10 @@ Usare l' `break` elemento per inserire pause (o interruzioni) tra parole oppure 
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `strength` | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>none</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
+| `strength` | Specifica la durata relativa di una pausa utilizzando uno dei valori seguenti:<ul><li>Nessuno</li><li>x-debole</li><li>debole</li><li>media (impostazione predefinita)</li><li>complessa</li><li>x-forte</li></ul> | Facoltativo |
 | `time` | Specifica la durata assoluta di una pausa in secondi o millisecondi. Esempi di valori validi sono `2s` e `500` | Facoltativo |
 
-| Forza                      | Descrizione |
+| Forza                      | Description |
 |-------------------------------|-------------|
 | None oppure se non viene specificato alcun valore | 0 ms        |
 | x-debole                        | 250 ms      |
@@ -538,7 +538,7 @@ Poiché i valori dell'attributo prosodica possono variare in base a un intervall
 | `contour` |Contour supporta ora sia le voci neurale che quelle standard. Contour rappresenta le modifiche in pitch. Queste modifiche sono rappresentate come una matrice di destinazioni in posizioni temporali specificate nell'output del riconoscimento vocale. Ogni destinazione è definita da insiemi di coppie di parametri. Ad esempio: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Il primo valore di ogni set di parametri specifica la posizione della modifica del passo come percentuale della durata del testo. Il secondo valore specifica la quantità da elevare o abbassare il pitch, usando un valore relativo o un valore di enumerazione per pitch (vedere `pitch` ). | Facoltativo |
 | `range` | Valore che rappresenta l'intervallo di pitch per il testo. È possibile esprimere `range` usando gli stessi valori assoluti, i valori relativi o i valori di enumerazione usati per descrivere `pitch` . | Facoltativo |
 | `rate` | Indica la velocità di pronuncia del testo. È possibile esprimere le seguenti operazioni `rate` :<ul><li>Valore relativo, espresso come numero che funge da moltiplicatore del valore predefinito. Il valore *1* , ad esempio, non comporta alcuna modifica nella frequenza. Il valore *0,5* comporta una dimezzazione della frequenza. Il valore *3* comporta un triplo della frequenza.</li><li>Valore costante:<ul><li>x-lento</li><li>lento</li><li>media</li><li>veloce</li><li>x-veloce</li><li>default</li></ul></li></ul> | Facoltativo |
-| `duration` | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. | Facoltativo |
+| `duration` | Periodo di tempo che deve trascorrere mentre il servizio di sintesi vocale (TTS) legge il testo, in secondi o millisecondi. Ad esempio, *2S* o *1800ms*. Duration supporta solo le voci standard.| Facoltativo |
 | `volume` | Indica il livello del volume della voce di pronuncia. Il volume può essere espresso come segue:<ul><li>Valore assoluto, espresso come numero compreso nell'intervallo tra 0,0 e 100,0, dal più *silenzioso* al più *alto*. Ad esempio, 75. Il valore predefinito è 100,0.</li><li>Valore relativo, espresso come numero preceduto da "+" o "-", che specifica una quantità per modificare il volume. Ad esempio, + 10 o-5,5.</li><li>Valore costante:<ul><li>nessun suono</li><li>x-soft</li><li>temporanea</li><li>media</li><li>forte</li><li>x-Loud</li><li>default</li></ul></li></ul> | Facoltativo |
 
 ### <a name="change-speaking-rate"></a>Cambiare la velocità del parlato

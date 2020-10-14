@@ -4,12 +4,12 @@ description: Introduzione rapida ai comandi per Batch nell'interfaccia della rig
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531678"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055512"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
@@ -107,7 +107,7 @@ Installando l'estensione dell'interfaccia della riga di comando di Azure Batch, 
 
 ## <a name="script-examples"></a>Script di esempio
 
-Vedere gli [script di esempio dell'interfaccia della riga di comando](cli-samples.md) per Batch per eseguire le attività comuni. Questi esempi illustrano molti dei comandi disponibili nell'interfaccia della riga di comando di Azure per Batch e consentono di gestire account, pool, processi e attività. 
+Vedere gli [script di esempio dell'interfaccia della riga di comando](./scripts/batch-cli-sample-create-account.md) per Batch per eseguire le attività comuni. Questi esempi illustrano molti dei comandi disponibili nell'interfaccia della riga di comando di Azure per Batch e consentono di gestire account, pool, processi e attività.
 
 ## <a name="json-files-for-resource-creation"></a>File JSON per la creazione di risorse
 
