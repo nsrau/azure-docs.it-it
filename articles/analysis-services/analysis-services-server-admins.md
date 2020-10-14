@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922949"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019436"
 ---
 # <a name="manage-server-administrators"></a>Gestire gli amministratori del server
 
@@ -40,13 +40,13 @@ Quando si aggiunge un **gruppo di sicurezza**, utilizzare `obj:groupid@tenantid`
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Usare il cmdlet [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) per specificare il parametro Administrator durante la creazione di un nuovo server. <br>
-Usare il cmdlet [set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) per modificare il parametro Administrator per un server esistente.
+Usare il cmdlet [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) per specificare il parametro Administrator durante la creazione di un nuovo server. <br>
+Usare il cmdlet [set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) per modificare il parametro Administrator per un server esistente.
 
 ## <a name="rest-api"></a>API REST
 
-Usare [Crea](https://docs.microsoft.com/rest/api/analysisservices/servers/create) per specificare la proprietà asAdministrator quando si crea un nuovo server. <br>
-Usare [Aggiorna](https://docs.microsoft.com/rest/api/analysisservices/servers/update) per specificare la proprietà asAdministrator quando si modifica un server esistente. <br>
+Usare [Crea](/rest/api/analysisservices/servers/create) per specificare la proprietà asAdministrator quando si crea un nuovo server. <br>
+Usare [Aggiorna](/rest/api/analysisservices/servers/update) per specificare la proprietà asAdministrator quando si modifica un server esistente. <br>
 
 
 
@@ -54,4 +54,4 @@ Usare [Aggiorna](https://docs.microsoft.com/rest/api/analysisservices/servers/up
 
 [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md)  
 [Gestire ruoli e utenti del database](analysis-services-database-users.md)  
-[Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)  
+[Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)

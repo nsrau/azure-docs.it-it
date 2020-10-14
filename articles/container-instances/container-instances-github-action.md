@@ -3,13 +3,13 @@ title: Distribuire un'istanza del contenitore da un'azione GitHub
 description: Configurare un'azione GitHub che consente di automatizzare i passaggi per compilare, inserire e distribuire un'immagine del contenitore in istanze di contenitore di Azure
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: ''
-ms.openlocfilehash: 8da72d3911797e8e3a4551f2af100afb0d7ea0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: github-actions-azure
+ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755008"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019189"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurare un'azione GitHub per creare un'istanza di contenitore
 
@@ -116,7 +116,7 @@ az role assignment create \
 
 1. Selezionare **Aggiungi un nuovo segreto** per aggiungere i segreti seguenti:
 
-|Segreto  |Valore  |
+|Segreto  |valore  |
 |---------|---------|
 |`AZURE_CREDENTIALS`     | L'intero output JSON dal passaggio di creazione dell'entità servizio |
 |`REGISTRY_LOGIN_SERVER`   | Nome del server di accesso del registro di sistema (tutto in lettere minuscole). Esempio: *MyRegistry.azurecr.io*        |

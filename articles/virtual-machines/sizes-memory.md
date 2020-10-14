@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 2f18f830b690acdca67058da6ed6a0907406e66c
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 1e27ee2c045404d13b10945ac65484281b0cd967
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945968"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019716"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali ottimizzate per la memoria
 
@@ -36,7 +36,7 @@ Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono 
 
 - La [serie Ev4 e Esv4](ev4-esv4-series.md) è in esecuzione su processori Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) di seconda generazione in una configurazione con Hyper-Threading, ideale per varie applicazioni aziendali con utilizzo intensivo della memoria e funzionalità fino a 504 GiB di RAM. Include la [tecnologia Intel &reg; Turbo Boost 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Le serie Ev4 e Esv4 non includono un disco temporaneo locale. Per altre informazioni, vedere  [dimensioni delle macchine virtuali di Azure senza dischi temporanei locali](azure-vms-no-temp-disk.md).
 
-- La [serie Edv4 e Edsv4](edv4-edsv4-series.md) è in esecuzione su processori Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) di seconda generazione, ideale per database molto grandi o altre applicazioni che traggono vantaggio da conteggi di vCPU elevati e grandi quantità di memoria. Inoltre, le dimensioni delle VM includono un archivio SSD locale veloce e più grande per le applicazioni che traggono vantaggio dalla bassa latenza e dall'archiviazione locale ad alta velocità. Offre tutta la velocità di clock di base Turbo di 3,4 GHz, [ &reg; tecnologia Intel Turbo Boost 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; tecnologia Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- La [serie Edv4 e Edsv4](edv4-edsv4-series.md) è in esecuzione su processori Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) di seconda generazione, ideale per database molto grandi o altre applicazioni che traggono vantaggio da conteggi di vCPU elevati e grandi quantità di memoria. Inoltre, le dimensioni delle VM includono un archivio SSD locale veloce e più grande per le applicazioni che traggono vantaggio dalla bassa latenza e dall'archiviazione locale ad alta velocità. Offre una velocità di clock di tutti i core di 3,4 GHz [, &reg; tecnologia Intel Turbo Boost 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; tecnologia Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - La [serie M](m-series.md) offre un elevato numero di vCPU (fino a 128 vCPU) e una grande quantità di memoria (fino a 3,8 TiB). È ideale anche per database molto grandi o altre applicazioni che traggono vantaggio da un elevato numero di vCPU e una grande quantità di memoria.
 

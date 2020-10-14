@@ -9,16 +9,16 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: eb809b2dabe2d8b28f05b328877e1a20dbeacbc3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e8ecb0dde2208b367362f26f654ec8eb83c7a777
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977613"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016196"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 e Edsv4
 
-Le macchine virtuali serie Edv4 ed Edsv4, dotate di processori Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) in una configurazione con tecnologia Hyper-Threading, sono ideali per varie applicazioni aziendali con utilizzo intensivo della memoria, disponendo di un massimo di 504 GiB di RAM e delle tecnologie [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Supportano anche il [ &reg; potenziamento di Intel Deep Learning](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Queste nuove dimensioni di macchina virtuale avranno una risorsa di archiviazione locale del 50% più grande, oltre a una migliore IOPS del disco locale per la lettura e la scrittura rispetto alle dimensioni di [EV3/Esv3](./ev3-esv3-series.md) con le [VM Gen2](./generation-2.md). Offre tutte le velocità di clock di base di 3,4 GHz. 
+Le macchine virtuali serie Edv4 ed Edsv4, dotate di processori Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) in una configurazione con tecnologia Hyper-Threading, sono ideali per varie applicazioni aziendali con utilizzo intensivo della memoria, disponendo di un massimo di 504 GiB di RAM e delle tecnologie [Intel&reg; Turbo Boost 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Supportano anche il [ &reg; potenziamento di Intel Deep Learning](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). Queste nuove dimensioni di macchina virtuale avranno una risorsa di archiviazione locale del 50% più grande, oltre a una migliore IOPS del disco locale per la lettura e la scrittura rispetto alle dimensioni di [EV3/Esv3](./ev3-esv3-series.md) con le [VM Gen2](./generation-2.md). Offre una velocità di clock di tutti i core di 3,4 GHz. 
 
 ## <a name="edv4-series"></a>Serie Edv4
 

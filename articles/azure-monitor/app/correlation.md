@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 7df4df1f7c2fbb600b2350940f910f488827804d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 5d8adea95708f4c7bbe3e7113c3e39e0484159ee
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875450"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018050"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -34,7 +34,7 @@ In un ambiente di microservizi, le tracce dai componenti possono finire in eleme
 
 ## <a name="example"></a>Esempio
 
-Di seguito è descritto un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
+Esaminiamo un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
 
 È possibile analizzare i dati di telemetria risultanti eseguendo una query:
 
@@ -147,7 +147,7 @@ Aggiungere la configurazione seguente:
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> Per visualizzare tutte le configurazioni necessarie per abilitare la correlazione, vedere la [documentazione correlata a JavaScript](/app/javascript.md#enable-correlation).
+> Per visualizzare tutte le configurazioni necessarie per abilitare la correlazione, vedere la [documentazione correlata a JavaScript](/azure/azure-monitor/app/javascript#enable-correlation).
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlazione di dati di telemetria in OpenCensus Python
 

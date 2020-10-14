@@ -3,19 +3,19 @@ title: Come configurare un contenitore per l'API del rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
 description: L'ambiente di runtime del contenitore API del rilevamento anomalie viene configurato usando gli `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: aahi
-ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903538"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019750"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori di Rilevamento anomalie
 
@@ -25,7 +25,7 @@ L'ambiente di runtime del contenitore del **rilevatore di anomalie** viene confi
 
 Questo contenitore ha le impostazioni di configurazione seguenti:
 
-|Obbligatoria|Impostazione|Scopo|
+|Necessario|Impostazione|Scopo|
 |--|--|--|
 |Sì|[ApiKey](#apikey-configuration-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
@@ -59,7 +59,7 @@ Questa impostazione è disponibile nelle posizioni seguenti:
 
 * Portale di Azure: Panoramica **del rilevatore di anomalie** , con etichetta `Endpoint`
 
-|Obbligatoria| Nome | Tipo di dati | Descrizione |
+|Necessario| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](anomaly-detector-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5ac97812f973a20f6ee4c2dea34baaeb91203af
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91605769"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016470"
 ---
 ![Documentazione di Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -129,4 +129,21 @@ Metriche che consentono di diagnosticare la limitazione delle operazioni di i/o 
 - Percentuale di utilizzo della **larghezza di banda della VM memorizzata nella** cache: percentuale calcolata in base alla velocità effettiva totale del disco completata sulla velocità effettiva massima della macchina virtuale Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di larghezza di banda memorizzato nella cache della macchina virtuale.
 - Percentuale di IOPS di **VM non memorizzata nella cache** : la percentuale calcolata in base al numero totale di IOPS in una macchina virtuale è stata completata sul limite massimo di IOPS della macchina virtuale non memorizzato nella cache. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di IOPS non memorizzato nella cache della macchina virtuale.
 - Percentuale di utilizzo della **larghezza di banda della VM non memorizzata nella cache** : percentuale calcolata in base alla velocità effettiva totale del disco in una macchina virtuale completata tramite la velocità effettiva massima di provisioning della macchina virtuale. Se questa quantità è pari al 100%, l'applicazione in esecuzione sarà IO limitata dal limite di larghezza di banda non memorizzato nella cache della macchina virtuale.
+
+## <a name="storage-io-utilization-metrics-example"></a>Esempio di metrica di utilizzo IO di archiviazione
+Verrà ora illustrato un esempio di come usare queste nuove metriche di utilizzo di i/o di archiviazione per consentire il debug di un collo di bottiglia nel sistema. La configurazione del sistema è esattamente quella disponibile nell'esempio precedente, ma questa volta il disco del sistema operativo collegato **non** viene memorizzato nella cache.
+
+Configurazione:
+- Standard_D8s_v3 
+    - IOPS memorizzati nella cache: 16.000
+    - IOPS non memorizzati nella cache: 12.800
+- Disco del sistema operativo P30 
+    - IOPS: 5.000
+    - Caching dell'host: disabilitato
+- 2 dischi dati P30 X 2
+    - IOPS: 5.000
+    - Caching dell'host: lettura/scrittura
+- 2 dischi dati P30 X 2
+    - IOPS: 5.000
+    - Caching dell'host: disabilitato
 

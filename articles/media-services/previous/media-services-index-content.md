@@ -16,12 +16,12 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06bd9f159281a1353ca9474bf0876e99b6d1940a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256447"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018958"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
 
@@ -48,7 +48,7 @@ Questo articolo illustra come creare processi di indicizzazione per **indicizzar
 
 È anche possibile elaborare più file multimediali contemporaneamente usando un file manifesto.
 
-Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](./media-services-analytics-overview.md).
+Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](./legacy-components.md).
 
 ## <a name="index-an-asset"></a>Indicizzare un asset
 Il seguente metodo carica un file multimediale come asset e crea un processo per indicizzare l'asset.
@@ -161,7 +161,7 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 ## <a name="index-multiple-files"></a>indicizzare più file
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
-Viene creato un file manifesto con estensione LST, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](./media-services-analytics-overview.md).
+Viene creato un file manifesto con estensione LST, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](./legacy-components.md).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -264,7 +264,7 @@ In caso di errore, Azure Media Indexer dovrebbe segnalare uno dei codici di erro
 | 2004 |Protocollo non supportato |Il protocollo dell'URL multimediale non è supportato. |
 | 2005 |Tipo di file non supportato |Il tipo di file multimediale di input non è supportato. |
 | 2006 |Troppi file di input |Sono presenti oltre 10 file nel manifesto di input. |
-| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato  <br/>oppure<br/> File multimediale danneggiato <br/>oppure<br/> Nessun flusso audio nei file multimediali di input. |
+| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato  <br/>o<br/> File multimediale danneggiato <br/>o<br/> Nessun flusso audio nei file multimediali di input. |
 | 4000 |Indicizzazione batch parzialmente completata |Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="#output_files">File di output</a>. |
 | altro |Errori interni |Contattare il team di supporto. indexer@microsoft.com |
 
@@ -278,6 +278,6 @@ Attualmente, sono supportate le lingue inglese e spagnolo.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Collegamenti correlati
-[Panoramica di Analisi servizi multimediali di Azure](media-services-analytics-overview.md)
+[Panoramica di Analisi servizi multimediali di Azure](./legacy-components.md)
 
-[Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
+[Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview](./legacy-components.md)

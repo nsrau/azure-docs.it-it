@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbaaac0095622f14d5bc0033b7787bec8ec2fa2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885561"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018288"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Confronto delle funzionalità di analisi di flusso di Azure
 
@@ -44,7 +44,7 @@ Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cl
 |Funzione e deserializzatore di codice personalizzato C#|Modalità di sola lettura|Sì|No|
 |UDF e UDA JavaScript     |Sì         |Sì         |Solo Windows         |
 |Servizio Machine Learning     |Sì        |Sì         |No         |
-|Machine Learning Studio     |Sì, ma non è possibile testare la query        |Sì |No         |
+|Azure Machine Learning Studio (versione classica)|Sì, ma non è possibile testare la query        |Sì |No         |
 |Livello di compatibilità     |1.0</br>1.1</br>1,2 (impostazione predefinita)         |1.0</br>1.1</br>1,2 (impostazione predefinita)           |1.0</br>1.1</br>1,2 (impostazione predefinita)           |
 |Funzioni di rilevamento di anomalie basate su ML predefinite     |Sì         |Sì         |Sì         |
 |Funzioni geospaziali predefinite     |Sì         |Sì         |Sì         |

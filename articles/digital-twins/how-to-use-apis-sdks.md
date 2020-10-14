@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 030b41e086d700c527107d2246bc7f7df07e860f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9804eb2af28108572688244d6d7b513454e375b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977715"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019002"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -269,10 +269,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Note generali sull'utilizzo di API/SDK
 
 > [!NOTE]
-> Si noti che durante l'anteprima, i dispositivi gemelli digitali di Azure non supportano la **condivisione di risorse tra le origini (CORS)**. Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
-> Per risolvere questo errore, esegui una delle operazioni seguenti:
-> * Rimuovere l'intestazione CORS `Access-Control-Allow-Origin` dal messaggio. Questa intestazione indica se la risposta può essere condivisa. 
-> * In alternativa, creare un proxy CORS ed eseguire la richiesta dell'API REST di Azure Digital gemelli. 
+> Si noti che i dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Per ulteriori informazioni sulle strategie di effetto e risoluzione, vedere la sezione relativa alla [*condivisione delle risorse tra le origini (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) di *concetti relativi alla sicurezza per le soluzioni di dispositivi gemelli digitali di Azure*.
 
 L'elenco seguente fornisce informazioni aggiuntive e linee guida generali per l'uso delle API e degli SDK.
 

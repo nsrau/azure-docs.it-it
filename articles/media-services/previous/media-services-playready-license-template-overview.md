@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: df28078363162496672232ecdebe02fc99ce50f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cdf5915396fc40c12644552bb24a044279ea32d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261054"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019342"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali
 
@@ -86,7 +86,7 @@ In quanto classe di "livello superiore" nella gerarchia dei modelli, il modello 
 > 
 > 
 
-Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supporto Silverlight per la protezione dell'output](https://go.microsoft.com/fwlink/?LinkId=617318).
+Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supporto Silverlight per la protezione dell'output](/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc838192(v=vs.95)).
 
 ## <a name="playready-license-template-xml-schema"></a><a id="schema"></a>Schema XML del modello di licenza PlayReady
 ```xml

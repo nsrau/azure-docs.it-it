@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328344"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019801"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -37,7 +37,7 @@ Per i clienti che desiderano distribuire contenuti a destinatari Internet di gra
 Questo articolo fornisce una panoramica e informazioni aggiuntive sullo streaming live con servizi multimediali e collegamenti ad altri articoli pertinenti.
  
 > [!NOTE]
-> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare le [risorse](assets-concept.md)V3, ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](/cli/azure/ams) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="dynamic-packaging-and-delivery"></a>Creazione dinamica dei pacchetti e distribuzione
 

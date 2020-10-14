@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77925930"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018645"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Web Application Firewall (WAF) con elenchi di esclusione del servizio front door 
 
@@ -45,6 +45,17 @@ Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in bas
 I nomi di intestazione e cookie non fanno distinzione tra maiuscole e minuscole.
 
 È possibile applicare l'elenco di esclusioni a tutte le regole all'interno del set di regole gestite, alle regole per un gruppo di regole specifico o a una singola regola, come illustrato nell'esempio precedente. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Definire l'esclusione in base ai log del Web Application Firewall
+ Il [monitoraggio e la registrazione del firewall applicazione Web di Azure](waf-front-door-monitor.md) Visualizza i dettagli corrispondenti di una richiesta bloccata. Se un valore di intestazione, un valore di cookie, un valore dell'argomento post o un valore dell'argomento di query produce falsi positivi per alcune regole, è possibile escludere tale parte della richiesta da considerarla dalla regola. La tabella seguente mostra i valori di esempio dei log WAF e le condizioni di esclusione corrispondenti.
+
+|matchVariableName dai log WAF    |Esclusione di regole nel portale|
+|--------|------|
+|CookieValue: SOME_NAME  |Il nome del cookie della richiesta è uguale a SOME_NAME|
+|HeaderValue: SOME_NAME  |Il nome dell'intestazione della richiesta è uguale a SOME_NAME|
+|PostParamValue: SOME_NAME|  Il corpo della richiesta post arg è uguale a SOME_NAME|
+|QueryParamValue: SOME_NAME| Il nome degli argomenti della stringa di query è uguale a SOME_NAME|
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

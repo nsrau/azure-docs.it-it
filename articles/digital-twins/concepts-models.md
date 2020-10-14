@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616551"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019019"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendere i modelli gemelli nei dispositivi gemelli digitali di Azure
 
@@ -57,7 +57,7 @@ Di seguito sono riportate alcune informazioni aggiuntive sulla distinzione tra i
 
 La differenza tra proprietà e telemetria per i modelli di dispositivi gemelli digitali di Azure è la seguente:
 * Si prevede che le **Proprietà** dispongano di archiviazione di backup. Ciò significa che è possibile leggere una proprietà in qualsiasi momento e recuperare il relativo valore. Se la proprietà è scrivibile, è anche possibile archiviare un valore nella proprietà.  
-* La **telemetria** è più simile a un flusso di eventi; si tratta di un set di messaggi di dati che hanno una durata breve. Se non si configura l'ascolto dell'evento e le azioni da intraprendere quando si verifica, non è presente alcuna traccia dell'evento in un secondo momento. Non è possibile tornare indietro e leggerlo in un secondo momento. 
+* La **telemetria** è più simile a un flusso di eventi; si tratta di un set di messaggi di dati che hanno una durata breve. Se non si configura l'ascolto dell'evento e le azioni da intraprendere quando si verifica, non è presente alcuna traccia dell'evento in un secondo momento. Non è possibile tornare a questa pagina e leggerla in un secondo momento. 
   - Nei termini di C#, la telemetria è come un evento C#. 
   - In termini di utilizzo generale, la telemetria è in genere una singola misurazione inviata da un dispositivo.
 
@@ -138,7 +138,7 @@ Tenere presente che i pianeti possono interagire anche con le **lune** che sono 
 
 I campi del modello sono:
 
-| Campo | Description |
+| Campo | Descrizione |
 | --- | --- |
 | `@id` | Identificatore per il modello. Deve essere nel formato `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | Identifica il tipo di informazioni da descrivere. Per un'interfaccia, il tipo è *Interface*. |
