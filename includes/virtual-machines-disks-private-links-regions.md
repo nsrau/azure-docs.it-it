@@ -8,13 +8,21 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: references_regions
-ms.openlocfilehash: f545bac522eaac65cc5a3390e0cfcbd445805708
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 30cb46d5f37e9f44df2cf0b805ef58fae943f391
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377071"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816351"
 ---
 I collegamenti privati per l'importazione o l'esportazione di dischi gestiti sono attualmente disponibili solo nelle aree seguenti:
 
+- Stati Uniti orientali
 - Stati Uniti orientali 2
+- Stati Uniti centro-settentrionali 
+- Stati Uniti centro-meridionali 
+- Stati Uniti occidentali 
+- Stati Uniti occidentali 2 
+- India centrale 
+- US Gov Virginia 
+- US Gov Arizona 

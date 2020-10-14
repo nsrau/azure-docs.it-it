@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396434"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054764"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -149,7 +149,6 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. In **Gestisci**selezionare **impostazioni utente**.
-1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
 1. In **Gestisci**selezionare **Proprietà**
 1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
