@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757596"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057808"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB usando il collegamento SQL Server in Azure sinapsi (anteprima)
 
 Sinapsi SQL senza server (in precedenza SQL su richiesta) consente di analizzare i dati nei contenitori Azure Cosmos DB abilitati con il [collegamento sinapsi di Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quasi in tempo reale senza influito sulle prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall' [Archivio analitico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e la connettività integrata a un'ampia gamma di strumenti di query ad hoc e BI tramite l'interfaccia t-SQL.
 
 > [!NOTE]
-> Il supporto per l'esecuzione di query Azure Cosmos DB archivio analitico con SQL Server non è attualmente disponibile in anteprima gestita. 
+> Il supporto per l'esecuzione di query Azure Cosmos DB archivio analitico con SQL Server non è attualmente disponibile in anteprima gestita. L'anteprima pubblica aperta verrà annunciata nella pagina [aggiornamenti servizi di Azure](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) .
 
 Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa è supportata tramite la funzione [OPENROWSET](develop-openrowset.md) , inclusa la maggior parte degli [operatori e delle funzioni SQL](overview-features.md). È anche possibile archiviare i risultati della query che legge i dati da Azure Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage usando [Crea tabella esterna come SELECT](develop-tables-cetas.md#cetas-in-sql-on-demand). Attualmente non è possibile archiviare i risultati delle query SQL senza server per Azure Cosmos DB usando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
@@ -36,10 +36,15 @@ OPENROWSET(
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
        <Container name>
-    )  [ < with clause > ]
+    )  [ < with clause > ] AS alias
 ```
 
-La stringa di connessione Azure Cosmos DB specifica il nome dell'account di Azure Cosmos DB, il nome del database, la chiave master dell'account del database e un nome di area facoltativo per il `OPENROWSET` funzionamento. Il formato della stringa di connessione è il seguente:
+La stringa di connessione Azure Cosmos DB specifica il nome dell'account di Azure Cosmos DB, il nome del database, la chiave master dell'account del database e un nome di area facoltativo per il `OPENROWSET` funzionamento. 
+
+> [!IMPORTANT]
+> Assicurarsi di usare l'alias dopo `OPENROWSET` . Si è verificato un [problema noto](#known-issues) che causa il problema di connessione all'endpoint SQL senza server della sinapsi se non si specifica l'alias dopo la `OPENROWSET` funzione.
+
+Il formato della stringa di connessione è il seguente:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
@@ -252,6 +257,13 @@ Gli account Azure Cosmos DB dell'API SQL (Core) supportano i tipi di proprietà 
 | Oggetto annidato o matrice | varchar (max) (regole di confronto del database UTF8), serializzate come testo JSON |
 
 Per eseguire query Azure Cosmos DB account del tipo di API Mongo DB, è possibile ottenere altre informazioni sulla rappresentazione dello schema con fedeltà completa nell'archivio analitico e i nomi di proprietà estese da usare [qui](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+## <a name="known-issues"></a>Problemi noti
+
+- L'alias **deve** essere specificato dopo `OPENROWSET` la funzione (ad esempio, `OPENROWSET (...) AS function_alias` ). L'omissione di alias potrebbe causare un problema di connessione e l'endpoint SQL senza server della sinapsi potrebbe essere temporaneamente non disponibile. Questo problema verrà risolto nel 2020 novembre.
+- SQL Server senza server attualmente non supporta [Azure Cosmos DB schema di fedeltà completo](../../cosmos-db/analytical-store-introduction.md#schema-representation). Usare SQL Server senza server solo per accedere Cosmos DB schema ben definito.
+
+È possibile segnalare suggerimenti e problemi nella [pagina dei commenti](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862)e suggerimenti su sinapsi di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

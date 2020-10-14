@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968651"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057757"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad Archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app
 
@@ -90,7 +90,7 @@ az webapp config storage-account add --resource-group <group-name> --name <app-n
 
 Dopo aver creato l' [account di archiviazione di Azure, la condivisione file e la directory](#prerequisites), è ora possibile configurare l'app con archiviazione di Azure.
 
-Per montare un account di archiviazione in una directory nell'app del servizio app, usare il [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Il tipo di archiviazione può essere AzureBlob o AzureFiles. In questo esempio viene usato risorsa. L'impostazione del percorso di montaggio corrisponde alla cartella che si desidera montare dall'archiviazione di Azure. Impostando il valore su'/', viene montato l'intero spazio di archiviazione di Azure.
+Per montare un account di archiviazione in una directory nell'app del servizio app, usare il [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Il tipo di archiviazione può essere AzureBlob o AzureFiles. In questo esempio viene usato risorsa. L'impostazione del percorso di montaggio corrisponde alla cartella all'interno del contenitore che si vuole montare nell'archiviazione di Azure. Impostando il valore su'/', l'intero contenitore viene montato in archiviazione di Azure.
 
 
 > [!CAUTION]

@@ -3,12 +3,12 @@ title: Informazioni su Azure Lighthouse
 description: Azure Lighthouse consente ai provider di servizi di offrire servizi gestiti ai clienti con maggiore automazione ed efficienza su larga scala.
 ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: 22bec7ec8944a11ce0cfdf51776f1f193a1aedaa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41fa836321da7cdb42b9a3419bc0bb32963a5849
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89488814"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017864"
 ---
 # <a name="what-is-azure-lighthouse"></a>Informazioni su Azure Lighthouse
 
@@ -22,7 +22,7 @@ Azure Lighthouse consente di creare e distribuire in modo efficiente e proficuo 
 
 - **Gestione su larga scala**: l'engagement dei clienti e le operazioni del ciclo di vita per gestire le risorse dei clienti sono più semplici e più scalabili. Le API, gli strumenti di gestione e i flussi di lavoro esistenti possono essere usati con risorse delegate, indipendentemente dalle aree in cui si trovano.
 - **Maggiore visibilità e precisione per i clienti**: i clienti avranno una maggiore visibilità sulle azioni e un controllo preciso sull'ambito delegato per la gestione, inclusa la possibilità di rimuovere completamente l'accesso, mentre l'IP viene mantenuto.
-- **Strumenti di piattaforma completi e unificati**: l'esperienza con gli strumenti si applica ai principali scenari dei provider di servizi, inclusi più modelli di licenza, ad esempio EA, CSP e con pagamento in base al consumo. Le nuove funzionalità usano gli strumenti e le API esistenti, i modelli di licenza e i programmi per i partner, ad esempio il [programma Cloud Solution Provider (CSP)](/partner-center/csp-overview). È possibile integrare Azure Lighthouse nei flussi di lavoro e nelle applicazioni esistenti, nonché tenere traccia dell'impatto sugli engagement dei clienti e ricevere il credito ottenuto dai partner [collegando l'ID partner](./how-to/partner-earned-credit.md).
+- **Strumenti di piattaforma completi e unificati**: l'esperienza con gli strumenti si applica ai principali scenari dei provider di servizi, inclusi più modelli di licenza, ad esempio EA, CSP e con pagamento in base al consumo. Le nuove funzionalità usano gli strumenti e le API esistenti, i modelli di licenza e i programmi per i partner, ad esempio il [programma Cloud Solution Provider (CSP)](/partner-center/csp-overview). È possibile integrare Azure Lighthouse nei flussi di lavoro e nelle applicazioni esistenti, nonché tenere traccia dell'impatto sugli engagement dei clienti [collegando l'ID partner](./how-to/partner-earned-credit.md).
 
 Non sono previsti costi aggiuntivi associati all'uso di Azure Lighthouse per gestire le risorse di Azure. Qualsiasi cliente o partner di Azure può usare Azure Lighthouse.
 

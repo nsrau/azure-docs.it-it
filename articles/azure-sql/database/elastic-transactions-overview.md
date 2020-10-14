@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 65cd35dd60ed05da51b6da56882af4522b1b7573
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 369f79a436d76e6a1bf1a1ce64f7754f25a5abc5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043420"
+ms.locfileid: "92058047"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>Transazioni distribuite in database cloud (anteprima)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -145,14 +145,14 @@ Nel codice Transact-SQL di esempio seguente viene utilizzata l'istruzione [Begin
     -- Configure the Linked Server
     -- Add one Azure SQL Managed Instance as Linked Server
     EXEC sp_addlinkedserver
-        @server='managedinstance02', -- Linked server name
+        @server='RemoteServer', -- Linked server name
         @srvproduct='',
         @provider='sqlncli', -- SQL Server Native Client
-        @datasrc='sql-managed-instance-02.48ea8fd5ac90.database.windows.net' -- Managed Instance endpoint
+        @datasrc='managed-instance-server.46e7afd5bc81.database.windows.net' -- Managed Instance endpoint
 
     -- Add credentials and options to this Linked Server
     EXEC sp_addlinkedsrvlogin
-        @rmtsrvname = 'managedinstance02', -- Linked server name
+        @rmtsrvname = 'RemoteServer', -- Linked server name
         @useself = 'false',
         @rmtuser = '<login_name>',         -- login
         @rmtpassword = '<secure_password>' -- password
@@ -244,7 +244,7 @@ Usare i seguenti cmdlet di PowerShell per la gestione delle relazioni di comunic
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Transazioni tra più server per Istanza gestita SQL di Azure
 
-Le transazioni distribuite sono supportate in server diversi in Azure SQL Istanza gestita. Quando le transazioni attraversano Istanza gestita limiti, le istanze partecipanti devono prima essere immesse in una relazione di sicurezza e comunicazione reciproca. Questa operazione viene eseguita configurando il [gruppo Server trust](https://aka.ms/mitrusted-groups), che può essere eseguito in portale di Azure.
+Le transazioni distribuite sono supportate in server diversi in Azure SQL Istanza gestita. Quando le transazioni attraversano Istanza gestita limiti, le istanze partecipanti devono prima essere immesse in una relazione di sicurezza e comunicazione reciproca. Questa operazione viene eseguita creando un [gruppo di trust del server](https://aka.ms/mitrusted-groups), che può essere eseguito in portale di Azure. Se le istanze gestite non si trovano nella stessa rete virtuale, è necessario configurare il [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) e le regole in ingresso e in uscita del gruppo di sicurezza di rete devono consentire le porte 5024 e 11000-12000 in tutte le reti virtuali coinvolte.
 
   ![Gruppi di attendibilità del server nel portale di Azure][3]
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 77ab19296d1e310e48cdf3609c9f109dc42f6ec1
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: b5fc15815c9843c55bf31efe31e12e2de02d3be3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408301"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874017"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Guida introduttiva: Creare una chat room mediante il servizio SignalR
 
@@ -112,11 +112,11 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSignalR();
+        services.AddAzureSignalR();
     }
     ```
 
-    Non passando un parametro a `AddSignalR()`, questo codice usa la chiave di configurazione predefinita per la stringa di connessione della risorsa del servizio SignalR. La chiave di configurazione predefinita è *Azure:SignalR:ConnectionString*.
+    Non passando un parametro a `AddAzureSignalR()`, questo codice usa la chiave di configurazione predefinita per la stringa di connessione della risorsa del servizio SignalR. La chiave di configurazione predefinita è *Azure:SignalR:ConnectionString*.
 
 5. In *Startup.cs*aggiornare il metodo `Configure` sostituendolo con il codice seguente.
 

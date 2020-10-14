@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cde959d8e075b55cb6cbb37479ca49cdd8a8c0c1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ab2fb13be10d5992f1b26973e9735ac238090a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233738"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856059"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Creare una pipeline CI/CD per Ruby on Rails con Azure DevOps Starter
 
@@ -126,4 +126,4 @@ Quando non sono più necessarie, è possibile eliminare l'istanza del Servizio a
 Per altre informazioni sulla modifica delle pipeline di compilazione e di versione in base alle esigenze del team, vedere:
 
 > [!div class="nextstepaction"]
-> [Definire la pipeline di distribuzione continua (CD) in più fasi](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definire la pipeline di distribuzione continua (CD) in più fasi](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

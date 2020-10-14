@@ -4,12 +4,12 @@ description: Informazioni sui gruppi di gestione, sul funzionamento delle autori
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533806"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951877"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -202,6 +202,6 @@ Quando si esegue una query sui gruppi di gestione all'esterno del portale di Azu
 
 Per altre informazioni sui gruppi di gestione, vedere:
 
-- [Creare gruppi di gestione per organizzare le risorse di Azure](./create.md)
+- [Creare gruppi di gestione per organizzare le risorse di Azure](./create-management-group-portal.md)
 - [Come modificare, eliminare o gestire i gruppi di gestione](./manage.md)
 - Vedere le opzioni relative a [come proteggere la gerarchia di risorse](./how-to/protect-resource-hierarchy.md)

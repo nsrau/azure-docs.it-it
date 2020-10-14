@@ -3,12 +3,12 @@ title: Creare un lab in Azure DevTest Labs | Documentazione Microsoft
 description: Questo articolo illustra il processo di creazione di un Lab usando il portale di Azure e la Azure DevTest Labs.
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 962997bcc66188c66fd9db856fe44e4926f8e70c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fa33a59dd35bfe3469f30f2349f8a08c45bd5e3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019648"
+ms.locfileid: "92058344"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creare un lab di sviluppo/test di Azure
 
@@ -35,7 +35,11 @@ Nella pagina **Crea un DevTest Labs** compilare le impostazioni seguenti.
 
 ### <a name="basic-settings"></a>Impostazioni di base
 
-Per impostazione predefinita, viene visualizzata la scheda **impostazioni di base** . Compilare i valori seguenti:
+Per impostazione predefinita, viene visualizzata la scheda **impostazioni di base** . 
+
+![impostazioni di base](./media/devtest-lab-create-lab/basic-settings.png)
+
+Compilare i valori seguenti:
 
 |Nome|Descrizione|
 |---|---|
@@ -49,29 +53,41 @@ Per impostazione predefinita, viene visualizzata la scheda **impostazioni di bas
 
 Passare alla pagina **arresto automatico** per visualizzare le relative impostazioni. L'arresto automatico consente di arrestare automaticamente tutti i computer di un Lab a un'ora pianificata ogni giorno.
 
+![Scheda chiusura automatica](./media/devtest-lab-create-lab/auto-shutdown.png)
+
 Nella pagina è possibile abilitare l' **arresto automatico** e definire i parametri per l'arresto automatico di tutte le macchine virtuali del Lab. La funzionalità di arresto automatico è essenzialmente una funzionalità di riduzione dei costi che consente di specificare quando arrestare automaticamente la macchina virtuale. È possibile modificare le impostazioni di arresto automatico dopo la creazione del lab seguendo la procedura descritta nell'articolo [Gestire tutti i criteri per un lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
 
 ### <a name="networking"></a>Rete
 
-Quando si crea un Lab, viene creata automaticamente una rete predefinita.
+Quando si crea un Lab, viene creata automaticamente una rete predefinita. Passare alla scheda **rete** per modificare/configurare l'impostazione desiderata. Ad esempio, selezionare una rete virtuale esistente.
 
-Passare alla scheda **rete** per modificare/configurare l'impostazione desiderata. Ad esempio, selezionare una rete virtuale esistente.
+![Scheda Rete ](./media/devtest-lab-create-lab/networking.png)
 
 ### <a name="tags"></a>Tag
 
 Immettere le informazioni **NOME** e **VALORE** per **Tag** se si vuole creare un contrassegno personalizzato da aggiungere a ogni risorsa che si creerà nel lab. I tag sono utili per gestire e organizzare le risorse del lab per categoria. Per altre informazioni sui tag, ad esempio come aggiungere tag dopo avere creato il lab, vedere [Aggiungere tag a un lab](devtest-lab-add-tag.md).
 
+![Scheda Tag ](./media/devtest-lab-create-lab/tags.png)
+
 ### <a name="review-and-create"></a>Rivedi e crea
 
 Al termine, selezionare **Crea**. È possibile monitorare lo stato del processo di creazione Lab osservando l'area **notifiche** nella parte superiore destra della pagina del portale. 
+
+![Scheda Crea](./media/devtest-lab-create-lab/create-1.png)
 
 ## <a name="completed-the-creation"></a>Creazione completata
 
 Al termine, il pulsante **Vai alla risorsa** viene visualizzato nella parte inferiore della pagina e nella finestra di notifica. Al termine aggiornare la pagina **DevTest Labs** per visualizzare il lab appena creato nell'elenco dei lab.  
 
+![Creazione del servizio](./media/devtest-lab-create-lab/create-2.png)
+
 Premere il pulsante **Vai a risorsa per passare** alla Home page del nuovo account DevTest Labs.
 
+![Risorsa](./media/devtest-lab-create-lab/go-to-resource.png)
+
 È anche possibile cercare **DevTest Labs** nella portale di Azure. Selezionare il nuovo account dall'elenco e ottenere la home page. 
+
+![Il servizio è stato creato](./media/devtest-lab-create-lab/created.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

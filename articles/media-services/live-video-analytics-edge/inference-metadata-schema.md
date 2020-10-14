@@ -3,12 +3,12 @@ title: Schema dei metadati di inferenza - Azure
 description: In questo articolo verrà illustrato lo schema dei metadati di inferenza.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88701911"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019495"
 ---
 # <a name="inference-metadata-schema"></a>Schema dei metadati di inferenza 
 
@@ -123,5 +123,5 @@ L'esempio seguente contiene un solo evento con alcuni tipi di inferenza supporta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Contratto di dati gRPC](grpc-data-contract.md)
-- [Contratto di dati HTTP](http-data-contract.md)
+- [Contratto di dati gRPC](./grpc-extension-protocol.md)
+- [Contratto di dati HTTP](./http-extension-protocol.md)

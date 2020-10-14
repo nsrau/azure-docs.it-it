@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ebbdd103350e1de36d45ecf84acf15d477fa34db
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043392"
+ms.locfileid: "92058132"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,6 +98,8 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 
 |Problema  |Data individuata  |Stato  |Data risolta  |
 |---------|---------|---------|---------|
+|[Le transazioni distribuite possono essere eseguite dopo aver rimosso Istanza gestita dal gruppo di trust del server](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020 Sep|Ha una soluzione alternativa||
+|[Non è possibile eseguire le transazioni distribuite dopo Istanza gestita operazione di ridimensionamento](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020 Sep|Ha una soluzione alternativa||
 |[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) nell'istruzione SQL di Azure e `BACKUP` / `RESTORE` in istanza gestita non è possibile usare Azure ad Gestisci identità per l'autenticazione in archiviazione di Azure|2020 Sep|Ha una soluzione alternativa||
 |[L'entità servizio non può accedere a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 agosto|Ha una soluzione alternativa||
 |[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Risolto|Giugno 2020|
@@ -127,6 +129,14 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 |Funzionalità posta elettronica database con server di posta elettronica esterni (non Azure) tramite connessione protetta||Risolto|Ottobre 2019|
 |Database indipendenti non supportati in SQL Istanza gestita||Risolto|Agosto 2019|
 
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Le transazioni distribuite possono essere eseguite dopo aver rimosso Istanza gestita dal gruppo di trust del server
+
+I [gruppi di attendibilità del server](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) vengono utilizzati per stabilire una relazione di trust tra le istanze gestite prerequisito per l'esecuzione di [transazioni distribuite](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Dopo aver rimosso Istanza gestita dal gruppo di attendibilità del server o aver eliminato il gruppo, è ancora possibile eseguire transazioni distribuite. Esiste una soluzione alternativa che è possibile applicare per assicurarsi che le transazioni distribuite siano disabilitate e che il [failover manuale avviato dall'utente](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) in istanza gestita.
+
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Non è possibile eseguire le transazioni distribuite dopo Istanza gestita operazione di ridimensionamento
+
+Istanza gestita operazioni di ridimensionamento che includono la modifica del livello di servizio o il numero di Vcore Reimposta le impostazioni del gruppo di attendibilità del server nel back-end e Disabilita [le transazioni distribuite](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) Per risolvere il problema, eliminare e creare un nuovo [gruppo di trust server](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) in portale di Azure.
+
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT e le istruzioni BACKUP/RESTOre non possono usare identità gestite per accedere ad archiviazione di Azure
 
 L'istruzione BULK INSERT non può usare `DATABASE SCOPED CREDENTIAL` with Managed Identity per l'autenticazione nell'archiviazione di Azure. Come soluzione alternativa, passare all'autenticazione della firma di accesso condiviso. L'esempio seguente non funzionerà in SQL di Azure (database e Istanza gestita):
@@ -146,7 +156,7 @@ BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzur
 
 In alcune circostanze potrebbe esistere un problema con l'entità servizio usata per accedere ai servizi Azure AD e Azure Key Vault (AKV). Questo problema influisca quindi sull'utilizzo dell'autenticazione Azure AD e della crittografia Transparent Database Encryption (Transparent Database Encryption) con SQL Istanza gestita. Questo potrebbe essere un problema di connettività intermittente o non essere in grado di eseguire istruzioni, ad esempio creare un account di accesso/utente da un PROVIDER esterno o eseguire come account di accesso/utente. La configurazione di Transparent Data Encryption con una chiave gestita dal cliente in un nuovo Istanza gestita SQL di Azure potrebbe anche non funzionare in alcune circostanze.
 
-**Soluzione alternativa**: per evitare che questo problema si verifichi nel istanza gestita SQL prima di eseguire i comandi di aggiornamento o, nel caso in cui il problema sia già stato riscontrato dopo l'aggiornamento, passare al portale di Azure, accedere al [Pannello di amministrazione](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal)di SQL istanza gestita Active Directory. Verificare che venga visualizzato il messaggio di errore "Istanza gestita necessaria un'entità servizio per accedere Azure Active Directory. Fare clic qui per creare un'entità servizio ". Se è stato rilevato questo messaggio di errore, fare clic su di esso e seguire le istruzioni dettagliate fornite fino a quando l'errore non è stato risolto.
+**Soluzione alternativa**: per evitare che questo problema si verifichi nel istanza gestita SQL prima di eseguire i comandi di aggiornamento o, nel caso in cui il problema sia già stato riscontrato dopo l'aggiornamento, passare a portale di Azure, accedere a sql istanza gestita [Active Directory admin](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Verificare che venga visualizzato il messaggio di errore "Istanza gestita necessaria un'entità servizio per accedere Azure Active Directory. Fare clic qui per creare un'entità servizio ". Se è stato rilevato questo messaggio di errore, fare clic su di esso e seguire le istruzioni dettagliate fornite fino a quando l'errore non è stato risolto.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo
 

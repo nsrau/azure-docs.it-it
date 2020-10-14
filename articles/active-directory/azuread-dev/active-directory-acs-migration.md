@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706252"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055368"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
 
@@ -214,7 +214,7 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 
 Se si decide che Azure AD sia l'approccio di migrazione ottimale per le applicazioni e i servizi in uso, è necessario conoscere le due modalità disponibili per l'integrazione dell'app con Azure AD.
 
-Per utilizzare WS-Federation o WIF per l'integrazione con Azure AD, è consigliabile attenersi all'approccio descritto in [Configurare l'accesso Single Sign-On federato per un'applicazione non della raccolta](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Questo articolo fa riferimento alla configurazione di Azure AD per l'accesso Single Sign-On basato su SAML ma è applicabile anche alla configurazione di WS-Federation. L'uso di questo approccio richiede una licenza di Azure AD Premium. Questo approccio presenta due vantaggi:
+Per utilizzare WS-Federation o WIF per l'integrazione con Azure AD, è consigliabile attenersi all'approccio descritto in [Configurare l'accesso Single Sign-On federato per un'applicazione non della raccolta](../manage-apps/configure-saml-single-sign-on.md). Questo articolo fa riferimento alla configurazione di Azure AD per l'accesso Single Sign-On basato su SAML ma è applicabile anche alla configurazione di WS-Federation. L'uso di questo approccio richiede una licenza di Azure AD Premium. Questo approccio presenta due vantaggi:
 
 - Si ottiene la flessibilità completa della personalizzazione dei token di Azure AD. È possibile personalizzare le attestazioni rilasciate da Azure AD per associarle alle attestazioni generate da Controllo di accesso. In particolare è inclusa l'attestazione di ID utente o Identificatore nome. Per continuare a ricevere identificatori utente coerenti per gli utenti anche dopo il passaggio a tecnologie diverse, assicurarsi che gli ID utente rilasciati da Azure AD corrispondano a quelli rilasciati da Controllo di accesso.
 - È possibile configurare un certificato per la firma di token specifico per l'applicazione e controllarne la durata.
@@ -226,7 +226,7 @@ Un approccio alternativo consiste nell'attenersi a [questo esempio di codice](ht
 
 Se si sceglie questo approccio, è necessario comprendere il [rollover della chiave di firma in Azure AD](../develop/active-directory-signing-key-rollover.md). Questo approccio usa la chiave di firma globale di Azure AD per rilasciare token. Per impostazione predefinita, WIF non aggiorna automaticamente le chiavi di firma. Quando Azure AD ruota le rispettive chiavi di firma globali, l'implementazione di WIF deve essere preparata per l'accettazione delle modifiche. Per altre informazioni, vedere [Important information about signing key rollover in Azure AD](/previous-versions/azure/dn641920(v=azure.100)) (Informazioni importanti sul rollover della chiave di firma in Azure AD).
 
-Se si riesce a eseguire l'integrazione con Azure AD tramite i protocolli OAuth o OpenID Connect, è consigliabile scegliere questo approccio. Documentazione e indicazioni complete sull'integrazione di Azure AD nell'applicazione Web sono disponibili nella [Guida per gli sviluppatori di Azure AD](https://aka.ms/aaddev).
+Se si riesce a eseguire l'integrazione con Azure AD tramite i protocolli OAuth o OpenID Connect, è consigliabile scegliere questo approccio. Documentazione e indicazioni complete sull'integrazione di Azure AD nell'applicazione Web sono disponibili nella [Guida per gli sviluppatori di Azure AD](../develop/index.yml).
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrazione ad Azure Active Directory B2C
 
@@ -332,7 +332,7 @@ Azure AD può essere usato anche per l'autenticazione S2S tramite l'implementazi
 
 Per indicazioni sull'implementazione di scenari S2S, vedere le risorse seguenti:
 
-- Sezione da servizio a servizio della Guida per gli [sviluppatori di Azure ad](https://aka.ms/aaddev)
+- Sezione da servizio a servizio della Guida per gli [sviluppatori di Azure ad](../develop/index.yml)
 - [Esempio di codice Daemon che usa credenziali client per password semplice](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Esempio di codice Daemon che usa credenziali client per il certificato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

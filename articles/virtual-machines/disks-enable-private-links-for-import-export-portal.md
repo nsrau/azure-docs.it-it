@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815862"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979054"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Usare il portale di Azure per limitare l'accesso di importazione/esportazione per i dischi gestiti con collegamenti privati
 
@@ -30,12 +30,6 @@ Il supporto di collegamenti privati per i dischi gestiti, attualmente in antepri
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>Prerequisiti
-
-Per usare endpoint privati per l'esportazione e l'importazione di dischi gestiti, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a mdprivatelinks@microsoft.com con gli ID sottoscrizione per abilitare la funzionalità per le sottoscrizioni.
-
-È necessario annotare la rete virtuale della macchina virtuale a cui sono collegati i dischi. La rete virtuale è necessaria quando si configura l'endpoint privato.
 
 ## <a name="create-a-disk-access-resource"></a>Crea una risorsa di accesso al disco
 
@@ -101,4 +95,4 @@ A questo punto è stata completata la configurazione dei collegamenti privati ch
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Domande frequenti per i collegamenti privati](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Esportare/copiare snapshot gestiti come disco rigido virtuale in un account di archiviazione di un'area diversa con PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Esportare/copiare snapshot gestiti come disco rigido virtuale in un account di archiviazione di un'area diversa con PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

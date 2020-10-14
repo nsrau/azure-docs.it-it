@@ -1,14 +1,14 @@
 ---
 title: Panoramica di Azure Resource Graph
 description: Informazioni sul servizio Azure Resource Graph, che consente di eseguire query complesse sulle risorse su vasta scala, in diverse sottoscrizioni e diversi tenant.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: overview
-ms.openlocfilehash: f2de6ce52870417eab1c74333dfce2905317e73d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8e61dadc44a2b07066f7bac761c366c746cef1f1
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531685"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057774"
 ---
 # <a name="what-is-azure-resource-graph"></a>Che cos'è Azure Resource Graph?
 

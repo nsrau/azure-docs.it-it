@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: ae3090689f9999c9ea6aa65447dadbdd7b0b2026
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998465"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940770"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nodi di confidential computing nel servizio Azure Kubernetes (anteprima pubblica)
 
@@ -40,7 +40,7 @@ Il servizio Azure Kubernetes supporta l'aggiunta di [nodi di confidential comput
 
 #### <a name="sgx-device-plugin"></a>Plug-in del dispositivo SGX <a id="sgx-plugin"></a>
 
-Il plug-in del dispositivo SGX implementa l'interfaccia del plug-in del dispositivo Kubernetes per la memoria EPC. In realtà, con questo plug-in la memoria EPC diventa un tipo di risorsa aggiuntivo in Kubernetes. Gli utenti possono specificare dei limiti per questa risorsa esattamente come per altre risorse. Oltre alla funzione di pianificazione, il plug-in del dispositivo consente di assegnare le autorizzazioni di driver di dispositivo SGX ai contenitori di carichi di lavoro riservati. Un'implementazione di esempio della distribuzione basata sulla memoria EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) è disponibile [qui](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
+Il plug-in del dispositivo SGX implementa l'interfaccia del plug-in del dispositivo Kubernetes per la memoria EPC. In realtà, con questo plug-in la memoria EPC diventa un tipo di risorsa aggiuntivo in Kubernetes. Gli utenti possono specificare dei limiti per questa risorsa esattamente come per altre risorse. Oltre alla funzione di pianificazione, il plug-in del dispositivo consente di assegnare le autorizzazioni di driver di dispositivo SGX ai contenitori di carichi di lavoro riservati. Un'implementazione di esempio della distribuzione basata sulla memoria EPC (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) è disponibile [qui](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 #### <a name="sgx-quote-helper-service"></a>Servizio helper di citazioni SGX <a id="sgx-quote"></a>
 
