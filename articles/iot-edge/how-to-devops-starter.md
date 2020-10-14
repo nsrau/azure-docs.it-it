@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297131"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045857"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Creare una pipeline di integrazione continua/distribuzione continua per IoT Edge con Azure DevOps Starter
 
@@ -62,7 +62,7 @@ DevOps Starter crea una pipeline CI/CD in Azure DevOps. È possibile creare una 
 
    ![Nome e creazione progetto](media/how-to-devops-starter/create-project.png)
 
-Dopo alcuni minuti, il dashboard iniziale di DevOps viene visualizzato nella portale di Azure. Selezionare il nome del progetto per visualizzare lo stato di avanzamento. Potrebbe essere necessario aggiornare la pagina. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
+Dopo alcuni minuti, il dashboard di DevOps Starter viene visualizzato nel portale di Azure. Selezionare il nome del progetto per visualizzare lo stato di avanzamento. Potrebbe essere necessario aggiornare la pagina. Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'applicazione viene distribuita in Azure. Questo dashboard fornisce visibilità su repository di codice, pipeline CI/CD e applicazione in Azure.
 
    ![Visualizza progetto in portale di Azure](./media/how-to-devops-starter/portal.png)
 
@@ -81,7 +81,7 @@ DevOps Starter ha creato un repository Git per il progetto in Azure Repos. In qu
 
    ![Aprire il file module.json in Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Tenere presente che questo file usa le [variabili di compilazione di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) nel parametro **Versione**. Questa configurazione garantisce che venga creata una nuova versione del modulo ogni volta che viene eseguita una nuova compilazione.
+3. Tenere presente che questo file usa le [variabili di compilazione di Azure DevOps](/azure/devops/pipelines/build/variables?view=vsts#build-variables) nel parametro **Versione**. Questa configurazione garantisce che venga creata una nuova versione del modulo ogni volta che viene eseguita una nuova compilazione.
 
 ## <a name="examine-the-cicd-pipeline"></a>Esaminare la pipeline CI/CD
 

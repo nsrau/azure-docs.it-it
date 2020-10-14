@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 496ca7edfbfb81d8d8838d704b128701a5960e5b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9e489d58b2c4bee0cd9551d15bfa59c3610d959
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974924"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047200"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Analizzare e convalidare i modelli con la libreria del parser DTDL
 
@@ -20,11 +20,11 @@ I [modelli](concepts-models.md) nei dispositivi gemelli digitali di Azure vengon
 
 Per semplificare questa operazione, viene fornita una libreria di analisi DTDL lato client .NET in NuGet: [**Microsoft. Azure. DigitalTwins. parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-È possibile usare la libreria del parser direttamente nel codice C# oppure usare il progetto di esempio di codice indipendente dal linguaggio compilato nell' [**esempio di validator**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)della libreria parser: DTDL.
+È possibile usare la libreria del parser direttamente nel codice C# oppure usare il progetto di esempio di codice indipendente dal linguaggio compilato nell' [**esempio di validator**](/samples/azure-samples/dtdl-validator/dtdl-validator)della libreria parser: DTDL.
 
 ## <a name="use-the-dtdl-validator-sample"></a>Usare l'esempio di validator DTDL
 
-Il [**validator DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) è un progetto di esempio in grado di convalidare i documenti del modello per verificare che DTDL sia valido. È basato sulla libreria del parser .NET ed è indipendente dal linguaggio. È possibile ottenerlo con il pulsante *Scarica zip* nel collegamento di esempio.
+Il [**validator DTDL**](/samples/azure-samples/dtdl-validator/dtdl-validator) è un progetto di esempio in grado di convalidare i documenti del modello per verificare che DTDL sia valido. È basato sulla libreria del parser .NET ed è indipendente dal linguaggio. È possibile ottenerlo con il pulsante *Scarica zip* nel collegamento di esempio.
 
 Il codice sorgente Mostra esempi su come usare la libreria del parser. È possibile utilizzare l'esempio Validator come utilità della riga di comando per convalidare una struttura ad albero di directory di file DTDL. Fornisce inoltre una modalità interattiva.
 
