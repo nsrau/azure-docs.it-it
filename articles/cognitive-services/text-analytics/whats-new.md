@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999679"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015925"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
@@ -24,6 +24,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 ## <a name="october-2020"></a>Ottobre 2020
 
 * Supporto hindi per Analisi del sentiment V3. x, a partire dalla versione del modello `2020-04-01` . 
+* Modello versione `2020-09-01` per l'endpoint/languages V3, che consente di migliorare il rilevamento della lingua e i miglioramenti dell'accuratezza.
 
 ## <a name="september-2020"></a>Settembre 2020
 
@@ -191,9 +192,9 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 
 #### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
 
-* Un [nuovo endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) per il riconoscimento dei tipi di entità di informazioni personali (solo in inglese)
+* Un [nuovo endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) per il riconoscimento dei tipi di entità di informazioni personali (solo in inglese)
 
-* Separare gli endpoint per il [riconoscimento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e il collegamento delle [entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Separare gli endpoint per il [riconoscimento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) e il collegamento delle [entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Versione del modello](concepts/model-versioning.md) `2019-10-01` , che include:
     * Rilevamento espanso e categorizzazione di entità presenti nel testo. 
@@ -205,7 +206,7 @@ Il collegamento di entità supporta inglese e spagnolo. Il supporto del linguagg
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>Anteprima pubblica di Analisi del sentiment versione 3
 
-* Un [nuovo endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) per analizzare i sentimenti.
+* Un [nuovo endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) per analizzare i sentimenti.
 * [Versione del modello](concepts/model-versioning.md) `2019-10-01` , che include:
 
     * Miglioramenti significativi nell'accuratezza e nei dettagli della categorizzazione e del punteggio del testo dell'API.

@@ -10,12 +10,12 @@ ms.workload: media
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 363bb5389eda8336d04b1ff457f8246e89a042d8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266035"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014391"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
 
@@ -69,7 +69,7 @@ Per i localizzatori vengono definite date di scadenza. Il portale di Azure impos
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](/rest/api/media/operations/locator#update_a_locator) o [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
 I localizzatori non sono progettati per gestire il controllo dell'accesso per utente. È possibile assegnare a singoli utenti diritti di accesso diversi usando soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Protezione dei file multimediali](/previous-versions/azure/dn282272(v=azure.100)).
 
@@ -133,7 +133,7 @@ Per eseguire il download progressivo di contenuti, usare un localizzatore di tip
 
 Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
 
-## <a name="download"></a>Download
+## <a name="download"></a>Scarica
 Per scaricare i contenuti in un dispositivo client, è necessario creare un localizzatore SAS. Il localizzatore SAS offre l'accesso al contenitore di archiviazione di Azure in cui si trova il file. Per compilare l'URL di download, è necessario incorporare il nome di file tra l'host e la firma SAS.
 
 Il seguente esempio mostra l'URL basato sul localizzatore SAS:

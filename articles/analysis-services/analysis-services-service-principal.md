@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077372"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015319"
 ---
 # <a name="automation-with-service-principals"></a>Automazione con le entità servizio
 
@@ -33,8 +33,8 @@ Le entità servizio possono essere create nel portale di Azure oppure con PowerS
 
 I certificati e le credenziali delle entità servizio possono essere archiviati in modo sicuro in Automazione di Azure per le operazioni dei runbook. Per altre informazioni, vedere:
 
-[Asset credenziali in Automazione di Azure](../automation/automation-credentials.md)   
-[Asset di tipo certificato in Automazione di Azure](../automation/automation-certificates.md)
+[Asset credenziali in Automazione di Azure](../automation/shared-resources/credentials.md)   
+[Asset di tipo certificato in Automazione di Azure](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Aggiungere le entità servizio al ruolo di amministratore del server
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Quando ci si connette ad applicazioni client e app Web, i pacchetti installabili delle [librerie client AMO e ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) versione 15.0.2 e successive di NuGet supportano le entità servizio nelle stringhe di connessione con la sintassi seguente: `app:AppID` e password o `cert:thumbprint`. 
+Quando ci si connette ad applicazioni client e app Web, i pacchetti installabili delle [librerie client AMO e ADOMD](/analysis-services/client-libraries?view=azure-analysis-services-current) versione 15.0.2 e successive di NuGet supportano le entità servizio nelle stringhe di connessione con la sintassi seguente: `app:AppID` e password o `cert:thumbprint`. 
 
 Nell'esempio seguente vengono usati `appID` e una `password` per eseguire un'operazione di aggiornamento del database modello:
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Accedere con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Accedere con Azure PowerShell](/powershell/azure/authenticate-azureps)   
 [Eseguire l'aggiornamento con App per la logica](analysis-services-refresh-logic-app.md)  
 [Eseguire l'aggiornamento con Automazione di Azure](analysis-services-refresh-azure-automation.md)  
 [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)  
-[Automatizzare attività dell'area di lavoro e del set di dati di Power BI Premium con entità servizio](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automatizzare attività dell'area di lavoro e del set di dati di Power BI Premium con entità servizio](/power-bi/admin/service-premium-service-principal)

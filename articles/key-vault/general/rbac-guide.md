@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b4c48f25f1d4bd3822a93d2c780dd148d9e29827
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940532"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015156"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
 
@@ -37,7 +37,7 @@ Le autorizzazioni per chiavi, segreti e certificati singoli devono essere usate 
 
 -   Applicazioni a più livelli che devono separare il controllo degli accessi tra livelli
 
--   Insieme di credenziali delle chiavi condiviso con segreti comuni, quando le applicazioni devono accedere a subset di segreti nell'insieme di credenziali delle chiavi
+-   Condivisione di singoli segreti tra più applicazioni
 
 Per ulteriori informazioni sulle linee guida per la gestione di Azure Key Vault, vedere:
 

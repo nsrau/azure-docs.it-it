@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/28/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 76d1fd91053216103ef6ace0e56979c57eca569f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: bf39bd0c787ed64d573cc2a257442b4d3bb8ab7d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002636"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015115"
 ---
 # <a name="convert-industry-standard-models-to-dtdl-for-azure-digital-twins"></a>Convertire i modelli standard del settore in DTDL per i dispositivi gemelli digitali di Azure
 
@@ -31,8 +31,8 @@ Alcuni modelli di settore comuni includono:
 | Settore verticale | Modello |
 | --- | --- | 
 | Gestione compilazione/struttura | [RealEstateCore](https://www.realestatecore.io/)<br>[Schema BRICK](https://brickschema.org/ontology/1.1/)<br>[Creazione di una ontologia di topologia (BOT)](https://w3c-lbd-cg.github.io/bot/)<br>[Rete sensori semantici](https://www.w3.org/TR/vocab-ssn/)<br>[Classi di buildingSmart Industry Foundation (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/) |
-| Città intelligenti | [ETSI NGSI-LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Guida di riferimento alle applicazioni intelligenti (SAREF)](https://saref.etsi.org/) |
-| Griglia di energia | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968) | 
+| Città intelligenti | [ETSI NGSI-LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Guida di riferimento alle applicazioni intelligenti (SAREF)](https://saref.etsi.org/)<br>[Fiware](https://www.fiware.org/)<br>[Apri & le città intelligenti di agile (OASC)](https://oascities.org/) |
+| Griglia di energia | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>[Modelli ADRM](http://www.adrm.com/) per il trading di energia e commodities | 
 
 A seconda delle esigenze, è anche possibile usare DTDL per personalizzare o estendere i modelli di settore o sviluppare un modello personalizzato da zero. 
 

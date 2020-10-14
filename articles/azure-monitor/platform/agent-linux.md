@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294530"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013747"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installare l'agente di Log Analytics in computer Linux
 Questo articolo fornisce informazioni dettagliate sull'installazione dell'agente di Log Analytics nei computer Linux usando i metodi seguenti:
@@ -100,7 +100,7 @@ Vedere [Panoramica dell'agente di log Analytics](log-analytics-agent.md#network-
 
 L'agente di Log Analytics per Linux è costituito da più pacchetti. Il file di versione contiene i pacchetti seguenti, disponibili eseguendo il bundle della shell con il `--extract` parametro:
 
-**Pacchetto** | **Versione** | **Descrizione**
+**Pacchetto** | **Version** | **Descrizione**
 ----------- | ----------- | --------------
 omsagent | 1.13.9 | Agente di Log Analytics per Linux
 omsconfig | 1.1.1 | Agente di configurazione per l'agente di Log Analytics
@@ -126,9 +126,9 @@ La procedura seguente consente di configurare l'installazione dell'agente per Lo
 
 Se il computer Linux deve comunicare tramite un server proxy per Log Analytics, questa configurazione può essere specificata nella riga di comando includendo `-p [protocol://][user:password@]proxyhost[:port]` . La proprietà del *protocollo* accetta `http` o `https` e la proprietà *proxyhost* accetta un nome di dominio completo o un indirizzo IP del server proxy. 
 
-ad esempio `https://proxy01.contoso.com:30443`
+Ad esempio: `https://proxy01.contoso.com:30443`
 
-Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. ad esempio `https://user01:password@proxy01.contoso.com:30443`
+Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Per configurare il computer Linux per la connessione a un'area di lavoro Log Analytics, eseguire il comando seguente specificando l'ID e la chiave primaria dell'area di lavoro. Il comando seguente scarica l'agente, convalida il relativo checksum e ne esegue l'installazione.
     
@@ -215,7 +215,7 @@ L'aggiornamento da una versione precedente, a partire dalla versione 1.0.0-47, �
 ## <a name="cache-information"></a>Informazioni cache
 I dati dell'agente di Log Analytics per Linux vengono memorizzati nella cache nel computer locale al *% STATE_DIR_WS%/out_oms_common*. buffer * prima di essere inviati a monitoraggio di Azure. I dati di log personalizzati vengono memorizzati nel buffer in *% STATE_DIR_WS%/out_oms_blob*. buffer *. Il percorso può essere diverso per alcune [soluzioni e tipi di dati](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
-L'agente tenta di caricare ogni 20 secondi. Se ha esito negativo, attenderà una quantità di tempo esponenzialmente crescente fino a quando non avrà esito positivo. Attenderà 30 secondi prima del secondo tentativo, 60 secondi prima del successivo, 120 secondi e così via fino a un massimo di 9 minuti tra i tentativi fino a quando non si riconnette correttamente. L'agente tenterà solo 10 volte per un determinato blocco di dati prima di procedere con l'eliminazione e la successiva esecuzione. Questa operazione continua fino a quando l'agente non riesce a eseguire di nuovo il caricamento. Il significa che i dati possono essere memorizzati nel buffer fino a 8,5 ore prima di essere eliminati.
+L'agente tenta di caricare ogni 20 secondi. Se ha esito negativo, attenderà una quantità di tempo esponenzialmente crescente fino a quando non avrà esito positivo: 30 secondi prima del secondo tentativo, 60 secondi prima del terzo, 120 secondi... quindi, fino a un massimo di 16 minuti tra i tentativi fino a quando non si connette nuovamente. L'agente tenterà di eseguire un tentativo fino a 6 volte per un determinato blocco di dati prima di procedere con l'eliminazione e il passaggio a quello successivo. Questa operazione continua fino a quando l'agente non riesce a eseguire di nuovo il caricamento. Ciò significa che i dati possono essere memorizzati nel buffer fino a circa 30 minuti prima di essere eliminati.
 
 Le dimensioni predefinite della cache sono di 10 MB, ma possono essere modificate nel [file omsagent. conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 

@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Vedere le domande frequenti quando si eseguono i pool di nodi di Windows Server e i carichi di lavoro dell'applicazione in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927556"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013968"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Domande frequenti sui pool di nodi di Windows Server in AKS
 
@@ -113,6 +113,49 @@ Sì, è possibile, tuttavia monitoraggio di Azure è in anteprima pubblica per l
 
 Un cluster con nodi Windows può avere circa 500 servizi prima che riscontri l'esaurimento delle porte.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>È possibile usare Vantaggio Azure Hybrid con I nodi di Windows?
+
+Sì. Vantaggio Azure Hybrid per Windows Server riduce i costi operativi consentendo di importare la licenza di Windows Server locale per i nodi di Windows AKS.
+
+Vantaggio Azure Hybrid può essere usato nell'intero cluster AKS o nei singoli nodi. Per i singoli nodi è necessario passare al gruppo di [risorse del nodo][resource-groups] e applicare il vantaggio Azure Hybrid direttamente ai nodi. Per ulteriori informazioni sull'applicazione di Vantaggio Azure Hybrid ai singoli nodi, vedere [vantaggio Azure Hybrid per Windows Server][hybrid-vms]. 
+
+Per usare Vantaggio Azure Hybrid in un nuovo cluster AKS, usare l' `--enable-ahub` argomento.
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+Per usare Vantaggio Azure Hybrid in un cluster AKS esistente, aggiornare il cluster usando l' `--enable-ahub` argomento.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+Per verificare se Vantaggio Azure Hybrid è impostato nel cluster, usare il comando seguente:
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+Se il cluster ha Vantaggio Azure Hybrid abilitato, l'output di `az vmss show` sarà simile al seguente:
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>È possibile usare il dashboard Web Kubernetes con i contenitori di Windows?
 
 Sì, è possibile usare il [dashboard Web di Kubernetes][kubernetes-dashboard] per accedere alle informazioni sui contenitori di Windows, ma in questo momento non è possibile eseguire *kubectl Exec* in un contenitore Windows in esecuzione direttamente dal dashboard Web di Kubernetes. Per altri dettagli sulla connessione al contenitore Windows in esecuzione, vedere [connettere i nodi di Windows Server per la manutenzione o la risoluzione dei problemi nel cluster di Azure Kubernetes Service (AKS)][windows-rdp].
@@ -152,3 +195,5 @@ Per iniziare a usare i contenitori di Windows Server in AKS, [creare un pool di 
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

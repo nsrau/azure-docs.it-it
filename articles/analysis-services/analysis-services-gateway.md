@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438823"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016094"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 
@@ -91,11 +91,11 @@ Di seguito sono riportati i nomi di dominio completi usati dal gateway.
 
 Gli articoli seguenti sono inclusi nel contenuto generale del gateway dati locale applicabile a tutti i servizi supportati dal gateway:
 
-* [Domande frequenti sul gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Usare l'app del gateway dati locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Amministrazione a livello di tenant](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Configurare le impostazioni proxy](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Modificare impostazioni di comunicazione](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Configurare i file di log](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Risolvere i problemi](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitorare e ottimizzare le prestazioni del gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Domande frequenti sul gateway dati locale](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Usare l'app del gateway dati locale](/data-integration/gateway/service-gateway-app)   
+* [Amministrazione a livello di tenant](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Configurare le impostazioni proxy](/data-integration/gateway/service-gateway-proxy)   
+* [Modificare impostazioni di comunicazione](/data-integration/gateway/service-gateway-communication)   
+* [Configurare i file di log](/data-integration/gateway/service-gateway-log-files)   
+* [Risolvere i problemi](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorare e ottimizzare le prestazioni del gateway](/data-integration/gateway/service-gateway-performance)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82731867"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013679"
 ---
 # <a name="azure-analysis-services-samples"></a>Esempi di Azure Analysis Services
 
@@ -28,7 +28,7 @@ Il repository di [Analysis Services](https://github.com/Microsoft/Analysis-Servi
 
 ## <a name="sample-database-on-azure"></a>Database di esempio in Azure
 
-Azure sinapsi Analytics (SQL Data Warehouse) fornisce un database AdventureWorksDW di esempio che può essere incluso in una risorsa di cui è stato effettuato il provisioning. Per altre informazioni, vedere [Guida introduttiva: creare ed eseguire query in un pool SQL di Azure sinapsi Analytics](/azure/sql-data-warehouse/create-data-warehouse-portal).
+Azure sinapsi Analytics (SQL Data Warehouse) fornisce un database AdventureWorksDW di esempio che può essere incluso in una risorsa di cui è stato effettuato il provisioning. Per altre informazioni, vedere [Guida introduttiva: creare ed eseguire query in un pool SQL di Azure sinapsi Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## <a name="sample-databases-on-github"></a>Database di esempio su GitHub
 
@@ -46,5 +46,5 @@ Se è disponibile un server Analysis Services nel portale di Azure, è possibile
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esercitazione su Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Gateway dati locale di Azure](analysis-services-gateway.md)  
+[Esercitazione su Adventure Works](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Gateway dati locale di Azure](analysis-services-gateway.md)

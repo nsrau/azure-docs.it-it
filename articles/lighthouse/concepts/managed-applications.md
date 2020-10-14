@@ -3,12 +3,12 @@ title: Azure Lighthouse e applicazioni gestite di Azure
 description: Informazioni sul modo in cui Azure Lighthouse e le applicazioni gestite di Azure consentono di abilitare scenari diversi e di come possono essere usati insieme.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970759"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014988"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e applicazioni gestite di Azure
 
@@ -23,7 +23,7 @@ Sia le applicazioni gestite di Azure che Azure Lighthouse funzionano abilitando 
 
 Con [Azure Lighthouse](../overview.md), un provider di servizi può eseguire un'ampia gamma di attività di gestione direttamente nella sottoscrizione o nel gruppo di risorse di un cliente. Questo accesso viene effettuato tramite una proiezione logica, consentendo ai provider di servizi di accedere al proprio tenant e accedere alle risorse che appartengono al tenant del cliente. Il cliente può determinare quali sottoscrizioni o gruppi di risorse delegare al provider di servizi e il cliente mantiene l'accesso completo a tali risorse. Possono anche rimuovere l'accesso del provider di servizi in qualsiasi momento.
 
-Per usare Azure Lighthouse, i clienti vengono caricati per la [gestione delle risorse delegata di Azure](azure-delegated-resource-management.md) tramite la [distribuzione di modelli ARM](../how-to/onboard-customer.md) o tramite un' [offerta di servizio gestito in Azure Marketplace](managed-services-offers.md). È possibile tenere traccia dell'effetto sugli impegni dei clienti e ricevere un credito guadagnato dal partner collegando [l'ID partner](../how-to/partner-earned-credit.md).
+Per usare Azure Lighthouse, i clienti vengono caricati per la [gestione delle risorse delegata di Azure](azure-delegated-resource-management.md) tramite la [distribuzione di modelli ARM](../how-to/onboard-customer.md) o tramite un' [offerta di servizio gestito in Azure Marketplace](managed-services-offers.md). È possibile tenere traccia dell'effetto sugli impegni dei clienti [collegando l'ID partner](../how-to/partner-earned-credit.md).
 
 Azure Lighthouse viene in genere usato quando un provider di servizi eseguirà regolarmente attività di gestione per un cliente.
 

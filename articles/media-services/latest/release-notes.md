@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651191"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015703"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -34,7 +34,7 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 ## <a name="known-issues"></a>Problemi noti
 
 > [!NOTE]
-> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare [Asset](assets-concept.md) e processi V3, ottenere informazioni sull'accesso alle API, crittografare il contenuto. Per tutte le altre attività di gestione (ad esempio, gestione di trasformazioni e processi), usare l' [API REST](https://aka.ms/ams-v3-rest-ref), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
+> È possibile usare la [portale di Azure](https://portal.azure.com/) per gestire [gli eventi live](live-events-outputs-concept.md)V3, visualizzare [Asset](assets-concept.md) e processi V3, ottenere informazioni sull'accesso alle API, crittografare il contenuto. Per tutte le altre attività di gestione (ad esempio, gestione di trasformazioni e processi), usare l' [API REST](/rest/api/media/accountfilters), l' [interfaccia](/cli/azure/ams)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 >
 > Per informazioni dettagliate, vedere: [limitazioni portale di Azure per servizi multimediali V3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
@@ -174,7 +174,7 @@ Per altre informazioni, vedere [Cloud e aree in cui sono presenti Servizi multim
 
 Viene annunciata la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME), che sono in fase di ritiro. Per le date di ritiro, vedere l'articolo relativo ai [componenti legacy](../previous/legacy-components.md) .
 
-Per informazioni dettagliate, vedere [Eseguire la migrazione da WAME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) ed [Eseguire la migrazione da AME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Per informazioni dettagliate, vedere [Eseguire la migrazione da WAME a Media Encoder Standard](../previous/migrate-windows-azure-media-encoder.md) ed [Eseguire la migrazione da AME a Media Encoder Standard](../previous/migrate-azure-media-encoder.md).
  
 ## <a name="july-2019"></a>Luglio 2019
 

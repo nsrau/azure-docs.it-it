@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994676"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014240"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -401,7 +401,7 @@ Ogni elemento trasmesso include una proprietà `itemCount` che visualizza il num
 
 Il trasferimento di risorse Application Insights esistenti da un'area a un'altra **non è al momento supportato**. **Non è possibile eseguire la migrazione** dei dati cronologici raccolti in una nuova area. L'unica soluzione alternativa parziale consiste nel:
 
-1. Creare una nuova risorsa Application Insights ([classica](app/create-new-resource.md) o [basata sull'area di lavoro](/app/create-workspace-resource.md)) nella nuova area.
+1. Creare una nuova risorsa Application Insights ([classica](app/create-new-resource.md) o [basata sull'area di lavoro](/azure/azure-monitor/app/create-workspace-resource)) nella nuova area.
 2. Ricreare tutte le personalizzazioni univoche specifiche per la risorsa originale nella nuova risorsa.
 3. Modificare l'applicazione per usare la [chiave di strumentazione](app/create-new-resource.md#copy-the-instrumentation-key) della nuova regione o la [stringa di connessione](app/sdk-connection-string.md).  
 4. Verificare che tutti gli elementi continuino a funzionare come previsto con la nuova risorsa Application Insights. 
@@ -414,7 +414,7 @@ Le personalizzazioni univoche che in genere devono essere ricreate o aggiornate 
 - Ricreare gli avvisi di disponibilità.
 - Ricreare le impostazioni di controllo di accesso Role-Based personalizzate (RBAC) necessarie per consentire agli utenti di accedere alla nuova risorsa. 
 - Replicare le impostazioni che coinvolgono il campionamento di inserimento, la conservazione dei dati, il limite giornaliero e l'abilitazione delle metriche personalizzate. Queste impostazioni vengono controllate tramite il riquadro **utilizzo e costi stimati** .
-- Qualsiasi integrazione basata su chiavi API, ad esempio le [annotazioni sulla versione](/app/annotations.md), il [canale di controllo sicuro di metriche attive](app/live-stream.md#secure-the-control-channel) e così via. Sarà necessario generare nuove chiavi API e aggiornare l'integrazione associata. 
+- Qualsiasi integrazione basata su chiavi API, ad esempio le [annotazioni sulla versione](/azure/azure-monitor/app/annotations), il [canale di controllo sicuro di metriche attive](app/live-stream.md#secure-the-control-channel) e così via. Sarà necessario generare nuove chiavi API e aggiornare l'integrazione associata. 
 - È necessario configurare nuovamente l'esportazione continua nelle risorse classiche.
 - È necessario configurare di nuovo le impostazioni di diagnostica nelle risorse basate sull'area di lavoro.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259184"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014410"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -89,10 +89,10 @@ Per informazioni sulla disponibilità nei data center, vedere la sezione relativ
 
 ## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Usare Analisi Servizi multimediali per derivare analisi approfondite di utilità pratica dai propri video
 
-Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai propri file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md).
+Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai propri file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](./legacy-components.md).
 
 1. Caricare un file multimediale di alta qualità in un asset.
-2. Elaborare i video con uno dei servizi di Analisi Servizi multimediali descritti nella [panoramica di Analisi Servizi multimediali](media-services-analytics-overview.md).
+2. Elaborare i video con uno dei servizi di Analisi Servizi multimediali descritti nella [panoramica di Analisi Servizi multimediali](./legacy-components.md).
 3. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'archiviazione BLOB di Azure.
 
 Per informazioni sulla disponibilità nei data center, vedere la sezione relativa alla [disponibilità](#availability).
@@ -181,8 +181,8 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 |Nome|Stato|Data center
 |---|---|---|
-|Standard|GA|Tutti|
-|Premium|GA|Tutti|
+|Standard|GA|All|
+|Premium|GA|All|
 
 ### <a name="live-encoding"></a>Codifica live
 
@@ -198,12 +198,12 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Codificatore multimediale standard|GA|Tutti|
+|Codificatore multimediale standard|GA|All|
 |Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
 
 ### <a name="analytics-media-processors"></a>Processori di contenuti multimediali di analisi
 
-Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai loro file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md).
+Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai loro file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](./legacy-components.md).
 
 > [!NOTE]
 > Alcuni processori di contenuti multimediali di analisi verranno ritirati. Per informazioni sulle date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md).
@@ -213,10 +213,10 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
 |Rilevamento multimediale volti di Azure|Anteprima|Tutti|
-|Azure Media Indexer|GA|Tutti|
+|Azure Media Indexer|GA|All|
 |Rilevatore multimediale di movimento Azure|Anteprima|Tutti|
 |Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutti|
-|Azure Media Redactor|GA|Tutti|
+|Azure Media Redactor|GA|All|
 |Anteprime video multimediali di Azure|Anteprima|Tutti|
 
 ### <a name="protection"></a>Protezione
@@ -227,10 +227,10 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 |Crittografia|Stato|Data center|
 |---|---|---| 
-|Archiviazione|GA|Tutti|
-|Chiavi AES-128|GA|Tutti|
-|Fairplay|GA|Tutti|
-|PlayReady|GA|Tutti|
+|Archiviazione|GA|All|
+|Chiavi AES-128|GA|All|
+|Fairplay|GA|All|
+|PlayReady|GA|All|
 |Widevine|GA|Tutti tranne Germania, Governo federale e Cina.
 
 ### <a name="reserved-units-rus"></a>Unità riservate
@@ -253,7 +253,7 @@ Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scali
 
 |Nome tipo di unità riservata|Stato|Data center
 |---|---|---|
-|S1|GA|Tutti|
+|S1|GA|All|
 |S2|GA|Tutti tranne Brasile meridionale e India occidentale|
 |S3|GA|Tutti tranne India occidentale|
 

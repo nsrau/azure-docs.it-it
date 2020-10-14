@@ -8,16 +8,16 @@ ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506996"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014053"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>Backup e ripristino di Analysis Services database
 
-Il backup dei database modello tabulare in Azure Analysis Services è molto simile a quello di Analysis Services in locale. La differenza principale è dove vengono archiviati i file di backup. I file di backup devono essere salvati in un contenitore in un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). È possibile usare un account di archiviazione e un contenitore già esistenti, o è possibile crearne di nuovi durante la configurazione delle impostazioni di archiviazione per il server.
+Il backup dei database modello tabulare in Azure Analysis Services è molto simile a quello di Analysis Services in locale. La differenza principale è dove vengono archiviati i file di backup. I file di backup devono essere salvati in un contenitore in un [account di archiviazione di Azure](../storage/common/storage-account-create.md). È possibile usare un account di archiviazione e un contenitore già esistenti, o è possibile crearne di nuovi durante la configurazione delle impostazioni di archiviazione per il server.
 
 > [!NOTE]
 > La creazione di un account di archiviazione può dare luogo a un nuovo servizio fatturabile. Per altre informazioni, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -75,10 +75,10 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 
 
 ### <a name="powershell"></a>PowerShell
-Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase).
+Usare il cmdlet [Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase).
 
 ## <a name="restore"></a>Restore
-Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/common/storage-use-azcopy.md). 
+Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) o l'utilità della riga di comando [AzCopy](../storage/common/storage-use-azcopy-v10.md). 
 
 
 
@@ -102,11 +102,11 @@ Durante il ripristino, il file di backup deve essere nell'account di archiviazio
 
 ### <a name="powershell"></a>PowerShell
 
-Usare il cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase).
+Usare il cmdlet [Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase).
 
 
 ## <a name="related-information"></a>Informazioni correlate
 
-[Account di archiviazione di Azure](../storage/common/storage-create-storage-account.md)  
+[Account di archiviazione di Azure](../storage/common/storage-account-create.md)  
 [Disponibilità elevata](analysis-services-bcdr.md)      
 [Domande frequenti sulla connettività di rete Analysis Services](analysis-services-network-faq.md)

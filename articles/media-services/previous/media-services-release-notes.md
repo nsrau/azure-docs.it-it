@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652959"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014104"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
@@ -53,8 +53,8 @@ Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multim
 
 Le seguenti proprietà V2 non verranno più popolate con i dati cronologici sullo stato del processo:
 
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 Per ottenere la cronologia delle attività, è consigliabile usare le notifiche dei processi v2 tramite webhook o messaggi in coda usando gli endpoint di notifica. Per altre informazioni, vedere:
 
@@ -81,7 +81,7 @@ Vedere anche l'articolo [Eseguire la migrazione da Azure Media Indexer e Azure M
 
 Si annuncia la deprecazione dei processori di contenuti multimediali *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME). Per le date di ritiro, vedere questo argomento relativo ai [componenti legacy](legacy-components.md).
 
-Per informazioni dettagliate, vedere [Eseguire la migrazione da WAME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Eseguire la migrazione da AME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Per informazioni dettagliate, vedere [Eseguire la migrazione da WAME a Media Encoder Standard](./migrate-windows-azure-media-encoder.md) e [Eseguire la migrazione da AME a Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## <a name="march-2019"></a>Marzo 2019
 
@@ -198,7 +198,7 @@ Alcuni client possono riscontrare un problema di tag di ripetizione nel manifest
 
 ## <a name="april-2016-release"></a><a id="apr_changes16"></a>Versione di aprile 2016
 ### <a name="media-analytics"></a>Analisi Servizi multimediali
- Servizi multimediali presenta la funzionalità di Analisi Servizi multimediali per una straordinaria esperienza di video intelligence. Per altre informazioni, vedere la [panoramica di Analisi Servizi multimediali](media-services-analytics-overview.md).
+ Servizi multimediali presenta la funzionalità di Analisi Servizi multimediali per una straordinaria esperienza di video intelligence. Per altre informazioni, vedere la [panoramica di Analisi Servizi multimediali](./legacy-components.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (anteprima)
 È ora possibile usare Servizi multimediali per crittografare dinamicamente i contenuti di HTTP Live Streaming (HLS) usando Apple FairPlay. È possibile anche usare il servizio di distribuzione delle licenze di Servizi multimediali per distribuire le licenze FairPlay ai client. Per altre informazioni, vedere "Use Azure Media Services to stream your HLS content protected with Apple FairPlay" (Usare Servizi multimediali di Azure per trasmettere il contenuto HLS in modo protetto con Apple FairPlay).
@@ -275,7 +275,7 @@ Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/az
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>Versione di luglio 2015
 * È stata annunciata la disponibilità generale di Media Encoder Standard. Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
-    Media Encoder Standard usa i set di impostazioni, come descritto in [questa sezione](https://go.microsoft.com/fwlink/?LinkId=618336). Quando si usa un set di impostazioni per 4.000 codifiche, acquistare il tipo di unità riservata Premium. Per altre informazioni, vedere l'argomento su come [ridimensionare la codifica](media-services-scale-media-processing-overview.md).
+    Media Encoder Standard usa i set di impostazioni, come descritto in [questa sezione](./media-services-mes-presets-overview.md). Quando si usa un set di impostazioni per 4.000 codifiche, acquistare il tipo di unità riservata Premium. Per altre informazioni, vedere l'argomento su come [ridimensionare la codifica](media-services-scale-media-processing-overview.md).
 * Sono state usate didascalie live in tempo reale con Servizi multimediali e Media Player. Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Aggiornamenti di Media Services .NET SDK

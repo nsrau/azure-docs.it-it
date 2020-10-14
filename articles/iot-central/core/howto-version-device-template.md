@@ -1,20 +1,20 @@
 ---
 title: Informazioni sulle versioni dei modelli di dispositivo per le app Azure IoT Central | Microsoft Docs
 description: Eseguire iterazioni con i modelli di dispositivo creando nuove versioni, senza determinare conseguenze per i dispositivi collegati
-author: sarahhubbard
-ms.author: sahubbar
+author: philmea
+ms.author: philmea
 ms.date: 04/24/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: device-developer
-ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c13c0b8cb118df877642328fa1b5512be31cffa
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015960"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014427"
 ---
 # <a name="create-a-new-device-template-version"></a>Creare una nuova versione di un modello di dispositivo
 
@@ -93,7 +93,7 @@ Le sezioni seguenti illustrano alcuni esempi di modifica dei modelli di disposit
 1. Selezionare il modello di dispositivo che si desidera personalizzare.
 1. Scegliere la scheda **Personalizza** .
 1. Tutte le funzionalità definite nel modello di funzionalità del dispositivo sono elencate qui. È possibile modificare, salvare e usare tutti questi campi senza dover eseguire la versione del modello di dispositivo. Se sono presenti campi di cui si vuole modificare la modalità di sola lettura, è necessario eseguire la versione del modello di dispositivo per modificarli. Selezionare un campo che si desidera modificare e immettere i nuovi valori.
-1. Fare clic su **Save**. Ora questi valori eseguono l'override di qualsiasi elemento salvato inizialmente nel modello di dispositivo e vengono usati nell'applicazione.
+1. Fare clic su **Salva**. Ora questi valori eseguono l'override di qualsiasi elemento salvato inizialmente nel modello di dispositivo e vengono usati nell'applicazione.
 
 ## <a name="version-a-device-template"></a>Versione di un modello di dispositivo
 

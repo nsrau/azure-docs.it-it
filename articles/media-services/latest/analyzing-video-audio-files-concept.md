@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05994a61b0afd0190e3fc1d4b841d576cec047f5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89320682"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015845"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -42,7 +42,7 @@ Attualmente Servizi multimediali supporta i set di impostazioni di analisi prede
 
 |**Nome set di impostazioni**|**Scenario**|**Dettagli**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisi dell'audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente, il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio che contiene il parlato in una sola lingua. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Le lingue supportate sono inglese ("en-US" e "en-GB"), spagnolo ("es-ES" ed "es-MX"), francese ("fr-FR"), Italiano ("it it"), giapponese ("ja-JP"), portoghese ("PT-BR"), cinese ("zh-CN"), tedesco ("de-DE"), arabo ("ar-EG" e "ar-SY"), russo (' ur-ur '), Hindi (' Hi-IN ') e coreano (' ko-KR ').<br/><br/> Se la lingua non è specificata o è impostata su null, il rilevamento automatico della lingua sceglie il primo linguaggio rilevato e continua con la lingua selezionata per la durata del file. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. Non supporta il cambio dinamico tra le lingue dopo che il primo linguaggio è stato rilevato. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato facilmente comprensibile. Se il rilevamento automatico della lingua non riesce a trovare la lingua, la trascrizione torna all'inglese.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisi dello standard audio|Il set di impostazioni applica un set predefinito di operazioni di analisi basate su intelligenza artificiale, tra cui la trascrizione del parlato. Attualmente, il set di impostazioni supporta l'elaborazione del contenuto con una singola traccia audio che contiene il parlato in una sola lingua. È possibile specificare la lingua per il payload audio nell'input usando il formato BCP-47 per 'tag lingua-area'. Le lingue supportate sono inglese ("en-US" e "en-GB"), spagnolo ("es-ES" ed "es-MX"), francese ("fr-FR"), Italiano ("it it"), giapponese ("ja-JP"), portoghese ("PT-BR"), cinese ("zh-CN"), tedesco ("de-DE"), arabo ("ar-EG" e "ar-SY"), russo (' ur-ur '), Hindi (' Hi-IN ') e coreano (' ko-KR ').<br/><br/> Se la lingua non è specificata o è impostata su null, il rilevamento automatico della lingua sceglie il primo linguaggio rilevato e continua con la lingua selezionata per la durata del file. La funzionalità di rilevamento automatico della lingua attualmente supporta inglese, cinese, francese, tedesco, italiano, giapponese, spagnolo, russo e portoghese. Non supporta il cambio dinamico tra le lingue dopo che il primo linguaggio è stato rilevato. La funzionalità di rilevamento automatico della lingua funziona in modo ottimale con registrazioni audio con parlato facilmente comprensibile. Se il rilevamento automatico della lingua non riesce a trovare la lingua, la trascrizione torna all'inglese.|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analisi di base audio|"Questa modalità esegue la trascrizione di sintesi vocale e la generazione di un file sottotitolo/didascalia VTT. L'output di questa modalità include un file JSON di Insights che include solo le parole chiave, la trascrizione e le informazioni di temporizzazione. Il rilevamento automatico della lingua e la loro relatore non sono inclusi in questa modalità ". L'elenco delle lingue supportate è disponibile qui: https://go.microsoft.com/fwlink/?linkid=2109463|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analisi di audio e video|Estrae informazioni cognitive dettagliate (metadati avanzati) da audio e video e restituisce un file in formato JSON. È possibile specificare se si vogliono estrarre solo informazioni dettagliate sull'audio durante l'elaborazione di un file video. Per altre informazioni, vedere [Analizzare i video](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Rilevamento di visi presenti nel video|Descrive le impostazioni da usare durante l'analisi di un video per rilevare tutti i visi presenti.|
 
@@ -74,7 +74,7 @@ L'output include un file JSON (insights.json) con tutte le informazioni dettagli
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
-|text|Testo della trascrizione.|
+|testo|Testo della trascrizione.|
 |Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
@@ -112,7 +112,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|text|Testo risultante dal riconoscimento ottico dei caratteri.|
+|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
@@ -363,7 +363,7 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 |Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|text|Testo della parola chiave.|
+|testo|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
 |Linguaggio|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|

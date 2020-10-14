@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bdb2c36bc895c9229e4c04e9e0d76aa852bd139
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297307"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015850"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Caricare supporti per lo streaming o la codifica
 
@@ -47,7 +47,7 @@ Dopo aver [creato un asset usando Postman o un altro metodo REST e aver ottenuto
 
 ---
 <!-- add these to the tabs when available -->
-Per altri metodi, vedere la [documentazione di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/) per l'uso di BLOB in [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python) e [JavaScript (Node.js)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs).
+Per altri metodi, vedere la [documentazione di Archiviazione di Azure](../../storage/blobs/index.yml) per l'uso di BLOB in [.NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Java](../../storage/blobs/storage-quickstart-blobs-java.md), [Python](../../storage/blobs/storage-quickstart-blobs-python.md) e [JavaScript (Node.js)](../../storage/blobs/storage-quickstart-blobs-nodejs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
