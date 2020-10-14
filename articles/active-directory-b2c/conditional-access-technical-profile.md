@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/01/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459830"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042627"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di accesso condizionale in un Azure Active Directory B2C criteri personalizzati
 
@@ -51,7 +51,7 @@ Per ogni accesso, Azure AD B2C valuta tutti i criteri e garantisce che tutti i r
 
 ### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Tipo operazione | Sì | Deve essere **Evaluation**.  |
 
@@ -113,7 +113,7 @@ La modalità di **monitoraggio e aggiornamento** del profilo tecnico di accesso 
 
 ### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Tipo operazione | Sì | Deve essere il monitoraggio e l' **aggiornamento**.  |
 
@@ -521,3 +521,7 @@ Di seguito è riportato un esempio di un file di relying party che fa riferiment
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- È possibile trovare un esempio di criteri di accesso condizionale in [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).

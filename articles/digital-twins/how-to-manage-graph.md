@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8c698cdf5b26cb1682eec2828922517cf4272275
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949616"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048441"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -247,7 +247,7 @@ Si consideri la tabella dati seguente, che descrive un set di gemelli digitali e
 | stanza    | Room21 | Floor02 | contains | … |
 | stanza    | Room22 | Floor02 | contains | … |
 
-Il codice seguente usa l' [API Microsoft Graph](https://docs.microsoft.com/graph/overview) per leggere un foglio di calcolo e creare un grafico a gemelli di Azure Digital gemelli dai risultati.
+Il codice seguente usa l' [API Microsoft Graph](/graph/overview) per leggere un foglio di calcolo e creare un grafico a gemelli di Azure Digital gemelli dai risultati.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;

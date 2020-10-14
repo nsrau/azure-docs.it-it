@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f2cef34413f46608e8bc35a009a29212af5ddf20
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893595"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043035"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
@@ -31,15 +31,15 @@ Per continuare, sarà necessario un progetto di app client in cui si scrive il c
 ## <a name="common-authentication-methods-with-azureidentity"></a>Metodi di autenticazione comuni con Azure. Identity
 
 `Azure.Identity` è una libreria client che fornisce diversi metodi per ottenere le credenziali che è possibile usare per ottenere un bearer token ed eseguire l'autenticazione con l'SDK. Sebbene in questo articolo vengano forniti esempi in C#, è possibile visualizzare `Azure.Identity` diverse lingue, tra cui...
-* [.NET (C#)](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)
-* [Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true)
-* [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true)
-* [Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true)
+* [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
+* [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
+* [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
+* [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Tre metodi comuni di recupero delle credenziali in `Azure.Identity` sono:
-* [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**. È anche possibile abilitare per provare gli altri due metodi consigliati in questo articolo. esegue il wrapping `ManagedIdentityCredential` e può accedere `InteractiveBrowserCredential` con una variabile di configurazione.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) funziona benissimo nei casi in cui sono necessarie [identità gestite (MSI)](../active-directory/managed-identities-azure-resources/overview.md)ed è un buon candidato per l'uso di funzioni di Azure e la distribuzione nei servizi di Azure.
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) è destinato alle applicazioni interattive e può essere usato per creare un client SDK autenticato
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**. È anche possibile abilitare per provare gli altri due metodi consigliati in questo articolo. esegue il wrapping `ManagedIdentityCredential` e può accedere `InteractiveBrowserCredential` con una variabile di configurazione.
+* [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funziona benissimo nei casi in cui sono necessarie [identità gestite (MSI)](../active-directory/managed-identities-azure-resources/overview.md)ed è un buon candidato per l'uso di funzioni di Azure e la distribuzione nei servizi di Azure.
+* [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) è destinato alle applicazioni interattive e può essere usato per creare un client SDK autenticato
 
 Nell'esempio seguente viene illustrato come utilizzare ognuno di questi con .NET (C#) SDK.
 
@@ -60,7 +60,7 @@ Aggiungere quindi il codice per ottenere le credenziali utilizzando uno dei meto
 
 ### <a name="defaultazurecredential-method"></a>Metodo DefaultAzureCredential
 
-[DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**.
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**.
 
 Per usare le credenziali di Azure predefinite, è necessario l'URL dell'istanza di Azure Digital Twins ([istruzioni per la ricerca](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
@@ -86,7 +86,7 @@ try
 
 ### <a name="managedidentitycredential-method"></a>Metodo ManagedIdentityCredential
 
-Il metodo [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) funziona in modo ottimale nei casi in cui sono necessarie [identità gestite (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), ad esempio quando si lavora con funzioni di Azure.
+Il metodo [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funziona in modo ottimale nei casi in cui sono necessarie [identità gestite (MSI)](../active-directory/managed-identities-azure-resources/overview.md), ad esempio quando si lavora con funzioni di Azure.
 
 Ciò significa che è possibile utilizzare `ManagedIdentityCredential` nello stesso progetto di `DefaultAzureCredential` o `InteractiveBrowserCredential` per autenticare una parte diversa del progetto.
 
@@ -103,7 +103,7 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 ### <a name="interactivebrowsercredential-method"></a>Metodo InteractiveBrowserCredential
 
-Il metodo [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) è destinato alle applicazioni interattive e consente di visualizzare un browser Web per l'autenticazione. È possibile usarlo anziché `DefaultAzureCredential` nei casi in cui è necessaria l'autenticazione interattiva.
+Il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) è destinato alle applicazioni interattive e consente di visualizzare un browser Web per l'autenticazione. È possibile usarlo anziché `DefaultAzureCredential` nei casi in cui è necessaria l'autenticazione interattiva.
 
 Per usare le credenziali del browser interattivo, è necessaria una **registrazione dell'app** con le autorizzazioni per le API dei dispositivi gemelli digitali di Azure. Per la procedura di configurazione di questa registrazione dell'app, vedere la sezione [*configurare le autorizzazioni di accesso per le applicazioni client*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) di *procedura: configurare un'istanza e l'autenticazione*. Una volta configurata la registrazione dell'app, sarà necessario...
 * *ID applicazione (client)* della registrazione dell'app
@@ -142,8 +142,8 @@ try
 Vedere [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md) per un esempio più completo che illustra alcune delle importanti scelte di configurazione nel contesto delle funzioni.
 
 Inoltre, per usare l'autenticazione in una funzione, ricordarsi di:
-* [Abilitare l'identità gestita](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
-* Usare le [variabili di ambiente](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp) nel modo appropriato
+* [Abilitare l'identità gestita](../app-service/overview-managed-identity.md?tabs=dotnet)
+* Usare le [variabili di ambiente](/sandbox/functions-recipes/environment-variables?tabs=csharp) nel modo appropriato
 * Assegnare le autorizzazioni all'app funzioni che consente di accedere alle API dei dispositivi gemelli digitali. Per altre informazioni sui processi di funzioni di Azure, vedere [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md).
 
 ## <a name="other-credential-methods"></a>Altri metodi Credential

@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940706"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043392"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 
 | Funzionalità | Dettagli |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transazioni distribuite</a> | Transazioni distribuite tra istanze gestite. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pool di istanze</a> | Soluzione comoda ed economica per eseguire la migrazione di istanze SQL di dimensioni ridotte nel cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Entità di sicurezza server (accessi) di Azure AD a livello di istanza</a> | Creare account di accesso a livello di istanza usando un'istruzione <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">create login from External provider</a> . |
 | [Replica transazionale](../managed-instance/replication-transactional-overview.md) | Replicare le modifiche dalle tabelle in altri database di SQL Istanza gestita, database SQL o SQL Server. In alternativa, aggiornare le tabelle quando alcune righe vengono modificate in altre istanze di SQL Istanza gestita o SQL Server. Per informazioni, vedere [configurare la replica in Azure SQL istanza gestita](../managed-instance/replication-between-two-instances-configure-tutorial.md). |

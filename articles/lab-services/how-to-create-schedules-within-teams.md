@@ -3,12 +3,12 @@ title: Creare pianificazioni Azure Lab Services all'interno di Team
 description: Informazioni su come creare pianificazioni di servizi Lab in team.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: 5578a2f63a4d6f58998a54560299a4356ed65997
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 202b202f99868875a51d13e95fbcac677246cc05
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946751"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042338"
 ---
 # <a name="create-and-manage-lab-services-schedules-within-teams"></a>Creare e gestire pianificazioni di servizi Lab nei team
 
@@ -23,39 +23,9 @@ Ecco in che modo le pianificazioni influiscono sulle macchine virtuali del Lab:
 > [!IMPORTANT]
 > Il tempo di esecuzione pianificato delle macchine virtuali non interferisce con la quota assegnata a un utente. La quota è relativa al periodo di tempo non compreso nelle ore di pianificazione trascorso da uno studente sulle macchine virtuali. 
 
-## <a name="createeditdelete-a-schedule-for-the-lab"></a>Creazione/modifica/eliminazione di una pianificazione per il Lab
-
-Creare un evento pianificato per il lab in modo che le VM al suo interno vengano automaticamente avviate/arrestate in specifici orari. La quota utente specificata in precedenza corrisponde al tempo aggiuntivo assegnato a ogni utente al di fuori del tempo pianificato. 
-
-1. Passare alla pagina **pianificazioni** e selezionare **Aggiungi evento pianificato** sulla barra degli strumenti (in alto a sinistra della finestra). 
-1. Impostare i parametri seguenti per la pianificazione:
-    1. Verificare che per **Event type** (Tipo di evento) sia selezionata l'opzione **Standard**. Selezionare **Start only** (Solo avvio) per specificare solo l'ora di avvio per le VM. Selezionare **Stop only** (Solo arresto) per specificare solo l'ora di arresto per le VM. 
-    1. Specificare la **data di inizio**.
-    1. Specificare l'**ora di avvio** in cui si vuole che vengano avviate le VM.
-    1. Specificare l'**ora di arresto** in cui devono essere arrestate le VM. 
-    1. Specificare il **fuso orario** per le ore di avvio e di arresto specificate. 
-    1. Nella sezione **Ripeti** selezionare **ogni settimana** o **mai**. 
-    1. Per **Note (facoltativo)** immettere una descrizione o una nota per la pianificazione. 
-1. Fare clic su **Save**. 
-
-### <a name="view-schedules-in-calendar"></a>Visualizzare le pianificazioni nel calendario
-
-È possibile visualizzare le date e le ore pianificate evidenziate nel calendario. Selezionare il pulsante **Oggi** nell'angolo in alto a destra per passare alla data corrente nel calendario. Selezionare la **freccia sinistra** per passare alla settimana precedente e la **freccia destra** per passare a quella successiva nel calendario. 
-
-### <a name="edit-a-schedule"></a>Modificare pianificazione
-
-Quando si seleziona una pianificazione evidenziata nel calendario, vengono visualizzati i pulsanti per **modificare** o **eliminare** la pianificazione. 
-
-Nella pagina **modifica evento pianificato** è possibile aggiornare la pianificazione e selezionare **Salva**. 
-
-### <a name="delete-a-schedule"></a>Eliminare una pianificazione
-
-1. Per eliminare una pianificazione, selezionare una pianificazione evidenziata nel calendario e selezionare il pulsante icona del cestino (Elimina):
-1. Nella finestra di dialogo **Elimina evento pianificato** selezionare **Sì** per confermare l'eliminazione. 
+Gli utenti possono creare, modificare ed eliminare le pianificazioni dei Lab nei team come nel [sito Web Labs](https://labs.azure.com). Vedere l'articolo sulla [creazione e la gestione delle pianificazioni](how-to-create-schedules-within-teams.md).
 
 ## <a name="automatic-shutdown-and-disconnect-settings"></a>Impostazioni di chiusura e disconnessione automatiche
-
-Nella parte superiore della pagina si noterà un collegamento alle impostazioni di **arresto** automatico.
 
 È possibile abilitare diverse funzionalità di controllo dei costi di AutoShutdown per prevenire in modo proattivo i costi aggiuntivi quando le macchine virtuali non vengono usate attivamente. La combinazione delle tre funzionalità di arresto e disconnessione automatiche rileva la maggior parte dei casi in cui gli utenti lasciano accidentalmente le macchine virtuali in esecuzione:
  
@@ -63,14 +33,14 @@ Nella parte superiore della pagina si noterà un collegamento alle impostazioni 
 - Arresta automaticamente le macchine virtuali quando gli utenti si disconnettono.
 - Arrestare automaticamente le macchine virtuali avviate, ma gli utenti non si connettono.
 
-Per ulteriori informazioni, fare clic sull'icona *informazioni* accanto a opzioni nelle impostazioni.
+Per altri dettagli, vedere l'articolo sulla [configurazione delle impostazioni di arresto automatico per un Lab](how-to-enable-shutdown-disconnect.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere gli articoli seguenti:
 
 - [Usare Azure Lab Services in teams Overview](lab-services-within-teams-overview.md)
-- [Per iniziare, creare un Lab di Lab Services dai team](how-to-get-started-create-lab-within-teams.md)
-- [Gestire gli elenchi utenti di Lab Services dai team](how-to-manage-user-lists-within-teams.md)
-- [Gestire un pool di macchine virtuali in Lab Services dai team](how-to-manage-vm-pool-within-teams.md)
-- [Accedere a una macchina virtuale (visualizzazione studente) in Lab Services dai team](how-to-access-vm-for-students-within-teams.md)
+- [Introduzione e creazione di un Lab nei team](how-to-get-started-create-lab-within-teams.md)
+- [Gestire gli elenchi degli utenti del Lab nei team](how-to-manage-user-lists-within-teams.md)
+- [Gestisci il pool di macchine virtuali del Lab in team](how-to-manage-vm-pool-within-teams.md)
+- [Accedere a una macchina virtuale all'interno di teams-visualizzazione studente](how-to-access-vm-for-students-within-teams.md)

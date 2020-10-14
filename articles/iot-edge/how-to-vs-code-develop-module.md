@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296910"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043732"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Usare Visual Studio Code per sviluppare moduli per Azure IoT Edge ed eseguirne il debug
 
@@ -51,13 +51,13 @@ Sarà inoltre necessario installare alcuni strumenti aggiuntivi specifici del li
 
 - Node.js: [Node.js](https://nodejs.org). È necessario installare anche [Yeoman](https://www.npmjs.com/package/yo) e il [generatore di moduli Node.js di Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java se Development Kit 10](https://aka.ms/azure-jdks) e [Maven](https://maven.apache.org/). È necessario [impostare la variabile di ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
+- Java: [Java se Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) e [Maven](https://maven.apache.org/). È necessario [impostare la variabile di ambiente `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
 
 Per compilare e distribuire l'immagine del modulo, è necessario Docker per compilare l'immagine del modulo e un registro contenitori in cui inserire l'immagine del modulo:
 
 - [Docker Community Edition](https://docs.docker.com/install/) nel computer di sviluppo.
 
-- [Azure container Registry](https://docs.microsoft.com/azure/container-registry/) o [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure container Registry](../container-registry/index.yml) o [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
     > Per prototipi e test è possibile usare un registro Docker locale anziché un registro nel cloud.
@@ -173,7 +173,7 @@ Per configurare e avviare il simulatore, eseguire il comando **Azure IOT Edge: a
         > [!NOTE]
         > Se .NET Core `TargetFramework` non è coerente con il percorso del programma in `launch.json` , è necessario aggiornare manualmente il percorso del programma in in `launch.json` `TargetFramework` modo che corrisponda a nel file con estensione csproj in modo che Visual Studio Code possibile avviare correttamente il programma.
 
-   - **Node.JS**
+   - **Node.js**
      - Nel terminale Visual Studio Code integrato, modificare la directory nella cartella del *** &lt; nome &gt; del modulo*** , quindi eseguire il comando seguente per installare i pacchetti del nodo
 
        ```cmd
@@ -318,7 +318,7 @@ Si noterà che la distribuzione è stata creata correttamente con un ID distribu
 
   [Configurare il canale SSH nel computer di sviluppo e nel dispositivo IoT Edge](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) e quindi modificare il file `launch.json` per il collegamento.
 
-- **Node.JS**
+- **Node.js**
 
   - Assicurarsi che il modulo nel computer di cui eseguire il debug sia in esecuzione e pronto per il collegamento dei debugger e che la porta 9229 sia accessibile esternamente. È possibile verificarlo aprendo `http://<target-machine-IP>:9229/json` nel computer debugger. Questo URL deve visualizzare informazioni sul modulo Node.js da sottoporre a debug.
   

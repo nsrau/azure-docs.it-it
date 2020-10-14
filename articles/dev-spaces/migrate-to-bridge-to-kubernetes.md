@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Descrive il processo di migrazione da Azure Dev Spaces a Bridge per Kubernetes
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, Bridge per Kubernetes
-ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019937"
+ms.locfileid: "92044701"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge per Kubernetes
 
@@ -108,7 +108,6 @@ Il Bridge per Kubernetes offre la flessibilità necessaria per lavorare con le a
 
 1. Eseguire manualmente la migrazione di tutte le personalizzazioni, ad esempio le impostazioni delle variabili di ambiente, in *azds. YAML* nel file *values. yml* del progetto.
 1. opzionale Rimuovere il `azds.yaml` file dal progetto.
-1. Ridistribuire l'applicazione.
 1. Configurare Bridge per Kubernetes nell'applicazione distribuita. Per altre informazioni sull'uso di Bridge per Kubernetes in Visual Studio, vedere [usare Bridge per Kubernetes in Visual Studio][use-btk-vs]. Per VS Code, vedere [usare Bridge per Kubernetes in vs code][use-btk-vsc].
 1. Avviare il debug usando il Bridge appena creato per Kubernetes il profilo di debug/avvio.
 1. È possibile eseguire nuovamente lo script in base alle esigenze per ridistribuire il cluster.

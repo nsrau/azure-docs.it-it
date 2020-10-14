@@ -3,12 +3,12 @@ title: Livelli di servizio registro e funzionalità
 description: Informazioni sulle funzionalità e sui limiti dei livelli di servizio Basic, Standard e Premium (SKU) di Registro Azure Container.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512614"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048475"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Livelli di servizio di Registro Azure Container
 

@@ -7,16 +7,16 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61ca10612a0935f8483745d164835d7498280c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610076"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042814"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementare l'Plug and Play delle cose sui dispositivi vincolati
 
-Se si sta sviluppando per i *dispositivi vincolati*, è possibile usare la plug and Play di Internet delle cose con [Azure SDK per le librerie client di Azure Internet Embedded](https://aka.ms/embeddedcsdk) o con [Azure RTO](https://docs.microsoft.com/azure/rtos/overview-rtos). Questo articolo include collegamenti e risorse per questi scenari vincolati.
+Se si sta sviluppando per i *dispositivi vincolati*, è possibile usare la plug and Play di Internet delle cose con [Azure SDK per le librerie client di Azure Internet Embedded](https://aka.ms/embeddedcsdk) o con [Azure RTO](/azure/rtos/overview-rtos). Questo articolo include collegamenti e risorse per questi scenari vincolati.
 
 ## <a name="use-the-sdk-for-embedded-c"></a>Usare l'SDK per Embedded C
 
@@ -39,7 +39,7 @@ L'SDK per il repository C incorporato contiene [diversi esempi](https://github.c
 
 ## <a name="using-azure-rtos"></a>Uso di Azure RTO
 
-Azure RTO include un livello leggero che aggiunge connettività nativa ai servizi cloud di Azure. Questo livello offre un meccanismo semplice per connettere i dispositivi vincolati ad Azure, usando le funzionalità avanzate di Azure RTO. Per ulteriori informazioni, vedere la pagina relativa alla [Microsoft Azure RTO](https://docs.microsoft.com/azure/rtos/overview-rtos).
+Azure RTO include un livello leggero che aggiunge connettività nativa ai servizi cloud di Azure. Questo livello offre un meccanismo semplice per connettere i dispositivi vincolati ad Azure, usando le funzionalità avanzate di Azure RTO. Per ulteriori informazioni, vedere la pagina relativa alla [Microsoft Azure RTO](/azure/rtos/overview-rtos).
 
 ### <a name="toolchains"></a>Toolchain
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 95fd10ab7de4885d3630b5defe4080fe0203b62f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14ef742c19556a9df2bd193a54bfaa1672d5964
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296978"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044225"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Eseguire Azure IoT Edge in macchine virtuali Ubuntu
 
@@ -50,7 +50,7 @@ Il [pulsante Distribuisci in Azure](../azure-resource-manager/templates/deploy-t
 
     **Nome utente amministratore**: un nome utente, a cui verranno forniti i privilegi radice per la distribuzione.
 
-    **Stringa di connessione del dispositivo**: una [stringa di connessione del dispositivo](how-to-register-device.md) per un dispositivo che è stato creato all'interno dell' [Hub](../iot-hub/about-iot-hub.md).
+    **Stringa di connessione del dispositivo**: una [stringa di connessione del dispositivo](./how-to-manual-provision-symmetric-key.md) per un dispositivo che è stato creato all'interno dell' [Hub](../iot-hub/about-iot-hub.md).
 
     **VM size (dimensioni VM**): [dimensioni](../cloud-services/cloud-services-sizes-specs.md) della macchina virtuale da distribuire
 

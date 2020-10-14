@@ -3,19 +3,19 @@ title: Caricare il feed di dati in metriche Advisor
 titleSuffix: Azure Cognitive Services
 description: Come iniziare a caricare i feed di dati in metriche Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940131"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043206"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Procedura: caricare i dati delle metriche in metriche Advisor
 
@@ -78,7 +78,7 @@ Se il timestamp di un punto dati viene omesso, Metrics Advisor utilizzerà il ti
 |**Timestamp**     | Timestamp di un punto dati. Se omesso, Advisor metriche userà il timestamp quando il punto dati viene inserito. Per ogni feed di dati, è possibile specificare al massimo una colonna come timestamp.        | facoltativo. Deve essere specificato con al massimo una colonna. Se **non è possibile specificare una colonna come errore timestamp** , controllare la query o l'origine dati per ottenere timestamp duplicati.      |
 |**Measure**     |  Valori numerici nel feed di dati. Per ogni feed di dati, è possibile specificare più misure, ma è necessario selezionare almeno una colonna come misura.        | Deve essere specificato con almeno una colonna.        |
 |**Dimensione**     | Valori di categoria. Una combinazione di valori diversi identifica una particolare serie temporale unidimensionale, ad esempio paese, lingua, tenant. È possibile selezionare zero o più colonne come dimensioni. Nota: prestare attenzione quando si seleziona una colonna non di tipo stringa come dimensione. | facoltativo.        |
-|**Ignora**     | Ignora la colonna selezionata.        | Facoltativa. Vedere il testo seguente.       |
+|**Ignora**     | Ignora la colonna selezionata.        | facoltativo. Vedere il testo seguente.       |
 
 Se si desidera ignorare le colonne, è consigliabile aggiornare la query o l'origine dati per escludere tali colonne. È inoltre possibile ignorare le colonne utilizzando **Ignora colonne** , quindi **ignorare** le colonne specifiche. Se una colonna deve essere una dimensione e viene erroneamente impostata come *ignorata*, le metriche di Advisor potrebbero essere l'inserimento di dati parziali. Si supponga, ad esempio, che i dati della query siano i seguenti:
 

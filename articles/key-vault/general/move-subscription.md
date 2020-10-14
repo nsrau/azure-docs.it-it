@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394738"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042406"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
 
@@ -36,6 +36,9 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 * Aggiungere nuove voci dei criteri di accesso associate al tenant B.
 
 ## <a name="limitations"></a>Limitazioni
+
+> [!IMPORTANT]
+> **Non è possibile spostare gli insiemi di credenziali delle chiavi usati per la crittografia del disco** Se si usa Key Vault con la crittografia del disco per una macchina virtuale, l'insieme di credenziali delle chiavi non può essere spostato in un gruppo di risorse diverso o in una sottoscrizione mentre è abilitata la crittografia del disco. Prima di trasferire l'insieme di credenziali delle chiavi in un nuovo gruppo di risorse o una nuova sottoscrizione, è necessario disabilitare la crittografia del disco. 
 
 Alcune entità servizio (utenti e applicazioni) sono associate a un tenant specifico. Se si sposta l'insieme di credenziali delle chiavi in una sottoscrizione in un altro tenant, è probabile che non sia possibile ripristinare l'accesso a un'entità servizio specifica. Verificare che tutte le entità servizio essenziali esistano nel tenant in cui si sta migrando l'insieme di credenziali delle chiavi.
 

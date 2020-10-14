@@ -3,12 +3,12 @@ title: Accedere a una macchina virtuale (visualizzazione studente) in Azure Lab 
 description: Informazioni su come accedere a una macchina virtuale (visualizzazione studente) in Azure Lab dai team.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: f121486c361b3b4cbf0b79da5dab7ddc5822a075
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 346f4bcd75356b0466b1eea46e1da74aa2c63784
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946808"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043446"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Accedere a una macchina virtuale (visualizzazione studente) in Azure Lab dai team
 
@@ -16,7 +16,7 @@ Quando viene creato un Lab all'interno dei team, gli utenti possono visualizzare
 
 ## <a name="view-labs"></a>Visualizza Lab
 
-Se il Lab è stato pubblicato, gli studenti vedranno quanto segue e saranno in grado di connettersi al Lab:
+Se il Lab è ancora in stato di pubblicazione o se non è ancora stata attivata una sincronizzazione dopo l'aggiunta al team, verrà visualizzato un messaggio simile per gli studenti. In ' se il lab deve essere pubblicato o se non è ancora stata attivata una sincronizzazione dopo l'aggiunta al team, viene visualizzato un messaggio simile ai membri del team.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Lab Azure Lab Services":::
@@ -31,7 +31,7 @@ Se il Lab è ancora in stato di pubblicazione o se non è ancora stata attivata 
 Vedere gli articoli seguenti:
 
 - [Usare Azure Lab Services in teams Overview](lab-services-within-teams-overview.md)
-- [Inizia subito e crea un Lab in un team](how-to-get-started-create-lab-within-teams.md)
-- [Gestisci elenchi utenti](how-to-manage-user-lists-within-teams.md)
-- [Gestisci pool di macchine virtuali](how-to-manage-vm-pool-within-teams.md)
-- [Creare pianificazioni](how-to-create-schedules-within-teams.md)
+- [Introduzione e creazione di un Lab nei team](how-to-get-started-create-lab-within-teams.md)
+- [Gestire gli elenchi degli utenti del Lab nei team](how-to-manage-user-lists-within-teams.md)
+- [Gestisci il pool di macchine virtuali del Lab in team](how-to-manage-vm-pool-within-teams.md)
+- [Creare e gestire pianificazioni Lab all'interno di Team](how-to-create-schedules-within-teams.md)

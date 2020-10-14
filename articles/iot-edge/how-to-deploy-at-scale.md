@@ -5,20 +5,20 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/21/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855385"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048424"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuisci moduli IoT Edge su larga scala usando il portale di Azure
 
-Creare una **IOT Edge distribuzione automatica** nel portale di Azure per gestire contemporaneamente le distribuzioni in corso per molti dispositivi. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](/azure/iot-hub/iot-hub-automatic-device-management) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, di tenere traccia dello stato e dell'integrità dei moduli, nonché di apportare modifiche all'occorrenza.
+Creare una **IOT Edge distribuzione automatica** nel portale di Azure per gestire contemporaneamente le distribuzioni in corso per molti dispositivi. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](../iot-hub/iot-hub-automatic-device-management.md) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, di tenere traccia dello stato e dell'integrità dei moduli, nonché di apportare modifiche all'occorrenza.
 
 Per altre informazioni, vedere [Informazioni sulle distribuzioni automatiche di IoT Edge per singoli dispositivi o su vasta scala](module-deployment-monitoring.md).
 
@@ -53,6 +53,11 @@ I passaggi per la creazione di una distribuzione e una distribuzione a più live
 
 La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezioni seguenti.
 
+>[!NOTE]
+>I passaggi descritti in questo articolo riflettono la versione dello schema più recente dell'agente e dell'hub IoT Edge. La versione dello schema 1,1 è stata rilasciata insieme a IoT Edge versione 1.0.10 e Abilita le funzionalità per l'ordine di avvio e la definizione delle priorità del modulo.
+>
+>Se si esegue la distribuzione in un dispositivo che esegue la versione 1.0.9 o precedente, modificare le **impostazioni di runtime** nel passaggio **moduli** della procedura guidata per usare la versione dello schema 1,0.
+
 ### <a name="step-1-name-and-label"></a>Passaggio 1: nome ed etichetta
 
 1. Assegnare alla distribuzione un nome univoco contenente al massimo 128 lettere minuscole. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
@@ -65,55 +70,19 @@ La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezi
 
 Nelle distribuzioni è possibile gestire le impostazioni per i moduli agente IoT Edge e hub IoT Edge. Selezionare **le impostazioni di runtime** per configurare i due moduli di Runtime. In una distribuzione a più livelli i moduli di runtime non sono inclusi e pertanto non possono essere configurati.
 
-È possibile aggiungere tre tipi di moduli:
-
-* Modulo IoT Edge
-* Modulo Marketplace
-* Modulo di analisi di flusso di Azure
-
-#### <a name="add-an-iot-edge-module"></a>Aggiungere un modulo IoT Edge
-
 Per aggiungere codice personalizzato come modulo o aggiungere manualmente un modulo per un servizio di Azure, seguire questa procedura:
 
-1. Nella sezione **credenziali container Registry** della pagina fornire i nomi e le credenziali per tutti i registri di contenitori privati contenenti le immagini del modulo per la distribuzione. L'agente di IoT Edge segnalerà l'errore 500 se non riesce a trovare le credenziali del registro contenitori per un'immagine docker.
-1. Nella sezione **Moduli IoT Edge** della pagina fare clic su **Aggiungi**.
-1. Selezionare **IOT Edge modulo** dal menu a discesa.
-1. Assegnare al modulo un **nome di modulo IOT Edge**.
-1. Nel campo **URI immagine** immettere l'immagine del contenitore per il modulo.
-1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere una delle opzioni seguenti:
-   * **sempre** : il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
-   * **mai** : il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
-   * **in caso di errore** : il modulo viene riavviato in caso di arresto anomalo, ma non se viene arrestato in modo corretto.
-   * **in-non integro** : il modulo viene riavviato in caso di arresto anomalo o restituisce uno stato non integro. Ogni modulo deve implementare la funzione di stato di integrità.
-1. Usare il menu a discesa per selezionare lo **stato desiderato** per il modulo. È possibile scegliere una delle opzioni seguenti:
-   * **Running** -running è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
-   * **arrestato** : dopo la distribuzione, il modulo rimarrà inattivo fino a quando non viene chiamato per iniziare dall'utente o da un altro modulo.
-1. Specificare le eventuali **Container Create Options** (Opzioni di creazione container) da passare al contenitore. Per altre informazioni, vedere [docker create](https://docs.docker.com/engine/reference/commandline/create/).
-1. Selezionare **modulo dispositivi gemelli** se si vuole aggiungere tag o altre proprietà al modulo gemello.
-1. Immettere **Variabili di ambiente** per il modulo. Le variabili di ambiente forniscono informazioni di configurazione a un modulo.
-1. Selezionare **Aggiungi** per aggiungere il modulo alla distribuzione.
+1. Nella sezione **impostazioni container Registry** della pagina fornire le credenziali per accedere ai registri di contenitori privati contenenti le immagini del modulo.
+1. Nella sezione **moduli IOT Edge** della pagina selezionare **Aggiungi**.
+1. Scegliere uno dei tre tipi di moduli dal menu a discesa:
 
-#### <a name="add-a-module-from-the-marketplace"></a>Aggiungere un modulo dal Marketplace
+   * **Modulo IOT Edge** : specificare il nome del modulo e l'URI dell'immagine del contenitore. Ad esempio, l'URI dell'immagine per il modulo SimulatedTemperatureSensor di esempio è `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Se l'immagine del modulo è archiviata in un registro contenitori privato, aggiungere le credenziali in questa pagina per accedere all'immagine.
+   * **Modulo Marketplace** : moduli ospitati in Azure Marketplace. Alcuni moduli del Marketplace richiedono una configurazione aggiuntiva, quindi esaminare i dettagli del modulo nell'elenco dei [moduli IOT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
+   * **Modulo di analisi di flusso di Azure** : moduli generati da un carico di lavoro di analisi di flusso di Azure.
 
-Per aggiungere un modulo da Azure Marketplace, seguire questa procedura:
+1. Se necessario, ripetere i passaggi 2 e 3 per aggiungere ulteriori moduli alla distribuzione.
 
-1. Nella sezione **Moduli IoT Edge** della pagina fare clic su **Aggiungi**.
-1. Selezionare **modulo Marketplace** dal menu a discesa.
-1. Scegliere un modulo dalla pagina del **Marketplace del modulo IOT Edge** . Il modulo selezionato viene configurato automaticamente per la sottoscrizione, il gruppo di risorse e il dispositivo. Viene quindi visualizzato nell'elenco dei moduli IoT Edge. Alcuni moduli possono richiedere una configurazione aggiuntiva. Per altre informazioni, vedere [distribuire moduli da Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
-
-#### <a name="add-a-stream-analytics-module"></a>Aggiungere un modulo di analisi di flusso
-
-Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura:
-
-1. Nella sezione **Moduli IoT Edge** della pagina fare clic su **Aggiungi**.
-1. Selezionare il **modulo analisi di flusso di Azure** dal menu a discesa.
-1. Nel riquadro destro scegliere la **sottoscrizione**.
-1. Scegli il tuo **processo Edge**.
-1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione.
-
-#### <a name="configure-module-settings"></a>Configurare le impostazioni del modulo
-
-Dopo aver aggiunto un modulo a una distribuzione, è possibile selezionarne il nome per aprire la pagina **aggiorna IOT Edge modulo** . In questa pagina è possibile modificare le impostazioni del modulo, le variabili di ambiente, le opzioni di creazione e il modulo gemello. Se è stato aggiunto un modulo dal Marketplace, è possibile che alcuni di questi parametri siano già stati compilati.
+Dopo aver aggiunto un modulo a una distribuzione, è possibile selezionarne il nome per aprire la pagina **aggiorna IOT Edge modulo** . In questa pagina è possibile modificare le impostazioni del modulo, le variabili di ambiente, le opzioni di creazione, l'ordine di avvio e il modulo gemello. Se è stato aggiunto un modulo dal Marketplace, è possibile che alcuni di questi parametri siano già stati compilati. Per ulteriori informazioni sulle impostazioni dei moduli disponibili, vedere [configurazione e gestione dei moduli](module-composition.md#module-configuration-and-management).
 
 Se si sta creando una distribuzione a più livelli, è possibile che si stia configurando un modulo presente in altre distribuzioni destinate agli stessi dispositivi. Per aggiornare il modulo gemello senza sovrascrivere altre versioni, aprire la scheda **impostazioni del modulo gemello** . Creare una nuova **proprietà del modulo gemello** con un nome univoco per una sottosezione nelle proprietà desiderate del modulo gemello, ad esempio `properties.desired.settings` . Se si definiscono proprietà solo nel `properties.desired` campo, le proprietà desiderate per il modulo definite in tutte le distribuzioni con priorità inferiore vengono sovrascritte.
 
@@ -125,9 +94,13 @@ Una volta configurati tutti i moduli per una distribuzione, fare clic su **Next:
 
 ### <a name="step-3-routes"></a>Passaggio 3: Route
 
-Le route definiscono le modalità di comunicazione tra i moduli in una distribuzione. Per impostazione predefinita, la procedura guidata fornisce una route denominata **upstream** e definita **da/messages/ \* in $upstream**, il che significa che tutti i messaggi restituiti da qualsiasi modulo vengono inviati all'hub Internet.  
+Nella scheda **Route** è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore.
 
-Aggiungere o aggiornare le route con le informazioni riportate in [Dichiarare le route](module-composition.md#declare-routes) e quindi scegliere **Avanti** per proseguire con la sezione di verifica.
+Ad esempio, una route con una **Route** di nome e un valore **da/messages/a \* $upstream** otterrebbe tutti i messaggi restituiti da qualsiasi modulo e li invierà all'hub Internet.  
+
+I parametri **Priority** e **time to Live** sono parametri facoltativi che è possibile includere in una definizione di route. Il parametro Priority consente di scegliere le route di cui devono essere elaborati i messaggi prima o le route da elaborare per ultime. La priorità viene determinata impostando un numero 0-9, dove 0 è la priorità più alta. Il parametro time to Live consente di dichiarare per quanto tempo i messaggi in tale route devono essere conservati fino a quando non vengono elaborati o rimossi dalla coda.
+
+Per altre informazioni su come creare route, vedere [dichiarare le route](module-composition.md#declare-routes).
 
 Selezionare **Avanti: metrica**.
 

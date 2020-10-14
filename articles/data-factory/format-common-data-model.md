@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905294"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042593"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato Common Data Model in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,6 +51,8 @@ La tabella seguente elenca le proprietà supportate da un'origine CDM. È possib
 | Cartella Corpus | posizione radice del Corpus | Sì, se si usa il manifesto | string | corpusPath |
 | Entità Corpus | Percorso del riferimento all'entità | sì | string | Entità |
 | Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
+
+Se la definizione di entità che si desidera utilizzare nella trasformazione origine si trova nella stessa directory della cartella dati, è possibile deselezionare "utilizza entità da Corpus" e digitare semplicemente l'entità dell'entità che si desidera utilizzare come riferimento all'entità.
 
 ### <a name="sink-settings"></a>Impostazioni sink
 
