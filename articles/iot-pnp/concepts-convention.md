@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 8b5492a737b733f486455507a8a813b5d583d453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91573838"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045483"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenzioni di Plug and Play IoT
 
@@ -343,6 +343,6 @@ In un dispositivo o un modulo, più interfacce componente utilizzano i nomi di c
 A questo punto, dopo aver appreso le informazioni sulle convenzioni Plug and Play, Ecco alcune risorse aggiuntive:
 
 - [DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [SDK per dispositivi per C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [API REST](https://docs.microsoft.com/rest/api/iothub/device)
+- [SDK per dispositivi per C](/azure/iot-hub/iot-c-sdk-ref/)
+- [API REST](/rest/api/iothub/device)
 - [Componenti del modello](./concepts-components.md)

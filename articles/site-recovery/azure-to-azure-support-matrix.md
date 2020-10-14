@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: dd4cbf0228bc68fa253f9e7a06b4eaba5157d2bd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952081"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045330"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -247,6 +247,7 @@ Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
 Dischi condivisi di Azure | Non supportato
 Opzione di trasferimento sicuro | Supportato
+Dischi abilitati per l'acceleratore di scrittura | Non supportate
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni del disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si usano le impostazioni predefinite, Site Recovery crea i dischi e gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni personalizzate, rispettare gli obiettivi di scalabilità e prestazioni dei dischi per le macchine virtuali.
@@ -273,7 +274,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
 NIC | Numero massimo supportato per una specifica dimensione di macchina virtuale di Azure | Vengono create schede di interfaccia di rete contestualmente alla creazione della VM durante il failover.<br/><br/> Il numero di schede di interfaccia di rete sulla macchina virtuale di failover dipende dal numero di schede di rete sulla VM di origine quando è stata abilitata la replica. L'aggiunta o la rimozione di una scheda di interfaccia di rete dopo l'abilitazione della replica non influisce sul numero di schede sulla VM replicata dopo il failover. <br/><br/> Non è garantito che l'ordine delle schede di rete dopo il failover sia uguale a quello originale. <br/><br/> È possibile rinominare le schede di rete nell'area di destinazione in base alle convenzioni di denominazione dell'organizzazione. La ridenominazione NIC è supportata tramite PowerShell.
-Servizio di bilanciamento del carico Internet | Non supportato | È possibile configurare il servizio di bilanciamento del carico pubblico/Internet nell'area primaria. Tuttavia, i bilanciamenti del carico pubblico/Internet non sono supportati da Azure Site Recovery nell'area di ripristino di emergenza.
+Servizio di bilanciamento del carico Internet | Non supportate | È possibile configurare il servizio di bilanciamento del carico pubblico/Internet nell'area primaria. Tuttavia, i bilanciamenti del carico pubblico/Internet non sono supportati da Azure Site Recovery nell'area di ripristino di emergenza.
 Servizio di bilanciamento del carico interno | Supportato | Associare il servizio di bilanciamento del carico preconfigurato tramite uno script di Automazione di Azure in un piano di ripristino.
 Indirizzo IP pubblico | Supportato | Associare un indirizzo IP pubblico esistente alla scheda di interfaccia di rete. In alternativa, creare un indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.
 Gruppo di sicurezza di rete o scheda di interfaccia di rete | Supportato | Associare il gruppo di sicurezza di rete alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.

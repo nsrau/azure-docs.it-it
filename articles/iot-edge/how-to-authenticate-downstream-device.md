@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932142"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046724"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -47,7 +47,7 @@ Scegliere il modo in cui si vuole che il dispositivo downstream esegua l'autenti
 
 Dopo aver registrato il dispositivo con uno di questi tre metodi, passare alla sezione successiva per [recuperare e modificare la stringa di connessione](#retrieve-and-modify-connection-string) per il dispositivo downstream.
 
-### <a name="symmetric-key-authentication"></a>Autenticazione con chiave simmetrica
+### <a name="symmetric-key-authentication"></a>Autenticazione con chiavi simmetriche
 
 L'autenticazione tramite chiave simmetrica, o autenticazione tramite chiave di accesso condiviso, è il modo più semplice per eseguire l'autenticazione nell'hub IoT. Con l'autenticazione tramite chiave simmetrica, una chiave Base64 viene associata all'ID dispositivo IoT nell'hub IoT. Questa chiave viene inclusa nelle applicazioni IoT, in modo che il dispositivo possa presentarla quando si connette all'hub IoT.
 
@@ -110,7 +110,7 @@ Per l'autenticazione autofirmata X. 509, a volte definita autenticazione con ide
 
 4. Copiare i certificati del dispositivo primario e secondario e le rispettive chiavi in qualsiasi posizione nel dispositivo downstream. Spostare inoltre una copia del certificato CA radice condiviso che ha generato sia il certificato del dispositivo gateway che i certificati dei dispositivi downstream.
 
-   Si farà riferimento a questi file di certificato in tutte le applicazioni sul dispositivo downstream che si connettono all'hub Internet. È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
+   Si farà riferimento a questi file di certificato in tutte le applicazioni sul dispositivo downstream che si connettono all'hub Internet. È possibile usare un servizio come [Azure Key Vault](../key-vault/index.yml) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
 
 5. A seconda del linguaggio preferito, vedere gli esempi di come fare riferimento ai certificati X.509 nelle applicazioni IoT:
 
@@ -156,7 +156,7 @@ Questa sezione si basa sulle istruzioni illustrate nell'articolo relativo all'hu
 
 5. Copiare il certificato e le chiavi del dispositivo in qualsiasi posizione nel dispositivo downstream. Spostare inoltre una copia del certificato CA radice condiviso che ha generato sia il certificato del dispositivo gateway che i certificati dei dispositivi downstream.
 
-   Si farà riferimento a questi file in qualsiasi applicazione nel dispositivo downstream che si connette all'hub Internet. È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
+   Si farà riferimento a questi file in qualsiasi applicazione nel dispositivo downstream che si connette all'hub Internet. È possibile usare un servizio come [Azure Key Vault](../key-vault/index.yml) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
 
 6. A seconda del linguaggio preferito, vedere gli esempi di come fare riferimento ai certificati X.509 nelle applicazioni IoT:
 

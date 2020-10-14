@@ -8,18 +8,18 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975162"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045296"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
 [App](../logic-apps/logic-apps-overview.md) per la logica di Azure è un servizio cloud che consente di automatizzare i flussi di lavoro tra app e servizi. Connettendo app per la logica alle API dei dispositivi gemelli digitali di Azure, è possibile creare flussi automatizzati per i dispositivi gemelli digitali di Azure e i relativi dati.
 
-I dispositivi gemelli digitali di Azure attualmente non dispongono di un connettore certificato (predefinito) per le app per la logica. Al contrario, il processo corrente per l'uso di app per la logica con i dispositivi gemelli digitali di Azure consiste nel creare un connettore di app per la [**logica personalizzato**](../logic-apps/custom-connector-overview.md), usando un [personalizzato di Azure gemelli di Azure personalizzato](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) modificato per lavorare con le app per la logica
+I dispositivi gemelli digitali di Azure attualmente non dispongono di un connettore certificato (predefinito) per le app per la logica. Al contrario, il processo corrente per l'uso di app per la logica con i dispositivi gemelli digitali di Azure consiste nel creare un connettore di app per la [**logica personalizzato**](../logic-apps/custom-connector-overview.md), usando un [personalizzato di Azure gemelli di Azure personalizzato](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) modificato per lavorare con le app per la logica
 
 > [!NOTE]
 > Sono disponibili più versioni di spavalderia contenute nell'esempio di spavalderia personalizzato collegato sopra. La versione più recente sarà disponibile nella sottocartella con la data più recente, ma anche le versioni precedenti contenute nell'esempio sono ancora supportate.
@@ -93,7 +93,7 @@ Si passerà alla pagina di distribuzione per il connettore. Al termine della dis
 
 Successivamente, verrà configurato il connettore creato per raggiungere i dispositivi gemelli digitali di Azure.
 
-Prima di tutto, scaricare un'app personalizzata dei gemelli digitali di Azure che è stata modificata per lavorare con le app per la logica. Scaricare l'esempio di **spavalderia personalizzato di Azure Digital Twins** da [**questo collegamento**](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) facendo clic sul pulsante *Scarica zip* . Passare alla cartella *Azure_Digital_Twins_Custom_Swaggers.zip* scaricata e decomprimerla. 
+Prima di tutto, scaricare un'app personalizzata dei gemelli digitali di Azure che è stata modificata per lavorare con le app per la logica. Scaricare l'esempio di **spavalderia personalizzato di Azure Digital Twins** da [**questo collegamento**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) facendo clic sul pulsante *Scarica zip* . Passare alla cartella *Azure_Digital_Twins_Custom_Swaggers.zip* scaricata e decomprimerla. 
 
 Il spavalderia personalizzato per questa esercitazione si trova nella cartella _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Questa cartella contiene sottocartelle denominate *stable* e *Preview*, entrambe che contengono versioni diverse della spavalderia organizzata per data. La cartella con la data più recente conterrà la copia più recente della spavalderia. Indipendentemente dalla versione selezionata, il file di spavalderia è denominato _**digitaltwins.json**_.
 
@@ -204,7 +204,7 @@ Fare clic su *Salva* nella finestra di progettazione di app per la logica.
 
 Ora che l'app per la logica è stata creata, l'evento di aggiornamento del dispositivo gemello definito nella finestra di progettazione delle app per la logica dovrebbe ripetersi ogni tre secondi. Ciò significa che dopo tre secondi dovrebbe essere possibile eseguire una query sul dispositivo gemello e visualizzare i nuovi valori con patch.
 
-È possibile eseguire una query sul dispositivo gemello tramite il metodo preferito, ad esempio un' [app client personalizzata](tutorial-command-line-app.md), l' [app di esempio Explorer di Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), gli [SDK e le API](how-to-use-apis-sdks.md)o l' [interfaccia](how-to-use-cli.md)della riga di comando. 
+È possibile eseguire una query sul dispositivo gemello tramite il metodo preferito, ad esempio un' [app client personalizzata](tutorial-command-line-app.md), l' [app di esempio Explorer di Azure Digital Twins](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), gli [SDK e le API](how-to-use-apis-sdks.md)o l' [interfaccia](how-to-use-cli.md)della riga di comando. 
 
 Per altre informazioni sull'esecuzione di query sull'istanza di Azure Digital Twins, vedere [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
 

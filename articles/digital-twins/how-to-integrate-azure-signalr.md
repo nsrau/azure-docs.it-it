@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 38e3526627eb4191643f8bc86b9ce5f49e41a71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564407"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048118"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrare i dispositivi gemelli digitali di Azure con il servizio Azure SignalR
 
@@ -39,9 +39,9 @@ Il servizio Azure SignalR verrà collegato ai dispositivi gemelli digitali di Az
 ## <a name="download-the-sample-applications"></a>Scaricare le applicazioni di esempio
 
 Prima di tutto, scaricare le app di esempio richieste. Sono necessari entrambi gli elementi seguenti:
-* [**Esempi di dispositivi gemelli digitali di Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/): questo esempio contiene un *AdtSampleApp* con due funzioni di Azure per lo spostamento dei dati in un'istanza di Azure Digital Twins. per informazioni dettagliate su questo scenario, vedere [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Contiene anche un'applicazione di esempio *DeviceSimulator* che simula un dispositivo molto, generando un nuovo valore di temperatura ogni secondo. 
+* [**Esempi di dispositivi gemelli digitali di Azure**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): questo esempio contiene un *AdtSampleApp* con due funzioni di Azure per lo spostamento dei dati in un'istanza di Azure Digital Twins. per informazioni dettagliate su questo scenario, vedere [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Contiene anche un'applicazione di esempio *DeviceSimulator* che simula un dispositivo molto, generando un nuovo valore di temperatura ogni secondo. 
     - Passare al collegamento di esempio e fare clic sul pulsante *Scarica zip* per scaricare una copia dell'esempio nel computer, come _**Azure_Digital_Twins_samples.zip**_. Decomprimere la cartella.
-* [**Esempio di app Web di integrazione SignalR**](https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): si tratta di un'app Web React di esempio che utilizzerà i dati di telemetria di Azure Digital Twins da un servizio Azure SignalR.
+* [**Esempio di app Web di integrazione SignalR**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): si tratta di un'app Web React di esempio che utilizzerà i dati di telemetria di Azure Digital Twins da un servizio Azure SignalR.
     -  Passare al collegamento di esempio e fare clic sul pulsante *Scarica zip* per scaricare una copia dell'esempio nel computer, come _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Decomprimere la cartella.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
@@ -145,7 +145,7 @@ Successivamente, pubblicare la funzione in Azure usando la procedura descritta n
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end. Viene illustrato il flusso di dati da un dispositivo all'hub Internet, tramite una funzione di Azure (freccia B) a un'istanza di Azure Digital gemelli (sezione A), quindi tramite griglia di eventi a un'altra funzione di Azure per l'elaborazione (freccia C). La sezione D Mostra il flusso di dati dalla stessa griglia di eventi nella freccia C a una funzione di Azure con etichetta &quot;broadcast&quot;. ' Broadcast ' comunica con un'altra funzione di Azure con etichetta ' Negotiate ' è Broadcast ' è Negotiate ' comunicano con i dispositivi computer.":::
 
-1. Infine, aggiungere la **stringa di connessione** di Azure SignalR precedente alle impostazioni dell'app della funzione usando il comando dell'interfaccia della riga di comando di Azure seguente. Il comando può essere eseguito in [Azure cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure:
+1. Infine, aggiungere la **stringa di connessione** di Azure SignalR precedente alle impostazioni dell'app della funzione usando il comando dell'interfaccia della riga di comando di Azure seguente. Il comando può essere eseguito in [Azure cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure:
  
     ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -232,7 +232,7 @@ Verrà aperta una finestra del browser che esegue l'app di esempio, che visualiz
 
 Se le risorse create in questo articolo non sono più necessarie, attenersi alla procedura seguente per eliminarle. 
 
-Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Rimuovere anche il gruppo di risorse...
+Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Rimuovere anche il gruppo di risorse...
 * istanza di Azure Digital Twins (dall'esercitazione end-to-end)
 * l'hub e la registrazione del dispositivo hub (dall'esercitazione end-to-end)
 * argomento di griglia di eventi e sottoscrizioni associate

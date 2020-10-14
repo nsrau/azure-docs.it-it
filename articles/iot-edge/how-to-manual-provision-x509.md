@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 8cfb7c5a0821bd030252a105b98b1c138b9ef820
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979731"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048186"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Configurare un dispositivo di Azure IoT Edge con l'autenticazione del certificato X. 509
 
@@ -91,12 +91,12 @@ Tutti i dispositivi abilitati per Edge che si connettono all'hub IoT sono elenca
 ### <a name="prerequisites-for-the-azure-cli"></a>Prerequisiti per l'interfaccia della riga di comando di Azure
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Creare un dispositivo IoT Edge con l'interfaccia della riga di comando di Azure
 
-Usare il comando [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) per creare una nuova identità del dispositivo nell'hub IoT. Ad esempio:
+Usare il comando [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) per creare una nuova identità del dispositivo nell'hub IoT. Ad esempio:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -113,7 +113,7 @@ Questo comando include diversi parametri:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Visualizzare i dispositivi IoT Edge con l'interfaccia della riga di comando di Azure
 
-Usare il comando [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) per visualizzare tutti i dispositivi nell'hub IoT. Ad esempio:
+Usare il comando [az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) per visualizzare tutti i dispositivi nell'hub IoT. Ad esempio:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -160,10 +160,10 @@ In un dispositivo Linux è possibile fornire queste informazioni modificando un 
 
 1. Aggiornare i campi seguenti:
 
-   * **iothub_hostname**: nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio: `{IoT hub name}.azure-devices.net`.
+   * **iothub_hostname**: nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio, `{IoT hub name}.azure-devices.net`
    * **DEVICE_ID**: ID specificato durante la registrazione del dispositivo.
-   * **identity_cert**: URI di un certificato di identità nel dispositivo. Ad esempio: `file:///path/identity_certificate.pem`.
-   * **identity_pk**: URI del file di chiave privata per il certificato di identità fornito. Ad esempio: `file:///path/identity_key.pem`.
+   * **identity_cert**: URI di un certificato di identità nel dispositivo. Ad esempio, `file:///path/identity_certificate.pem`
+   * **identity_pk**: URI del file di chiave privata per il certificato di identità fornito. Ad esempio, `file:///path/identity_key.pem`
 
 1. Salvare e chiudere il file.
 
@@ -202,10 +202,10 @@ In un dispositivo Linux è possibile fornire queste informazioni modificando un 
 
 3. Quando richiesto, specificare le informazioni seguenti:
 
-   * **IotHubHostName**: nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio: `{IoT hub name}.azure-devices.net`.
+   * **IotHubHostName**: nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio, `{IoT hub name}.azure-devices.net`
    * **DeviceID**: ID specificato durante la registrazione del dispositivo.
-   * **X509IdentityCertificate**: percorso assoluto di un certificato di identità nel dispositivo. Ad esempio: `C:\path\identity_certificate.pem`.
-   * **X509IdentityPrivateKey**: percorso assoluto del file di chiave privata per il certificato di identità fornito. Ad esempio: `C:\path\identity_key.pem`.
+   * **X509IdentityCertificate**: percorso assoluto di un certificato di identità nel dispositivo. Ad esempio, `C:\path\identity_certificate.pem`
+   * **X509IdentityPrivateKey**: percorso assoluto del file di chiave privata per il certificato di identità fornito. Ad esempio, `C:\path\identity_key.pem`
 
 Quando si esegue il provisioning di un dispositivo manualmente, è possibile usare parametri aggiuntivi per modificare il processo, tra cui:
 

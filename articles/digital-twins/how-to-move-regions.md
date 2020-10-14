@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328497"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047387"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Spostare un'istanza di Azure Digital Twins in un'altra area di Azure
 
@@ -49,18 +49,18 @@ Di seguito sono riportate alcune domande che è possibile prendere in consideraz
     - Servizio Device provisioning (DPS)
 * Quali altre **app personali o aziendali** sono disponibili per connettersi all'istanza?
 
-È possibile raccogliere queste informazioni usando il [portale di Azure](https://portal.azure.com), le [API e gli SDK di Azure Digital](how-to-use-apis-sdks.md)gemelli, i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando di Azure Digital gemelli o l'esempio di esplorazione di [Azure Digital Twins (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+È possibile raccogliere queste informazioni usando il [portale di Azure](https://portal.azure.com), le [API e gli SDK di Azure Digital](how-to-use-apis-sdks.md)gemelli, i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando di Azure Digital gemelli o l'esempio di esplorazione di [Azure Digital Twins (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 ## <a name="prepare"></a>Preparazione
 
-In questa sezione si prepara la ricreazione dell'istanza **scaricando i modelli, i dispositivi gemelli e il grafo originali** dall'istanza originale. Questo articolo usa l'esempio di [Esplora risorse di Azure Digital gemelli (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
+In questa sezione si prepara la ricreazione dell'istanza **scaricando i modelli, i dispositivi gemelli e il grafo originali** dall'istanza originale. Questo articolo usa l'esempio di [Esplora risorse di Azure Digital gemelli (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) .
 
 >[!NOTE]
 >È possibile che siano già presenti file contenenti i modelli e/o il grafico nell'istanza. In tal caso, non è necessario scaricare di nuovo tutti gli elementi, solo quelli mancanti o elementi che potrebbero essere stati modificati da quando sono stati caricati originariamente questi file, ad esempio i dispositivi gemelli che potrebbero essere stati aggiornati con nuovi dati.
 
 ### <a name="limitations-of-adt-explorer"></a>Limitazioni di ADT Explorer
 
-L' [esempio di esplorazione di Azure Digital Twins (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) è un esempio di app client che supporta una rappresentazione visiva del grafo e fornisce l'interazione visiva con l'istanza. Questo articolo illustra come usarlo per scaricare e caricare nuovamente i modelli, i dispositivi gemelli e i grafici.
+L' [esempio di esplorazione di Azure Digital Twins (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) è un esempio di app client che supporta una rappresentazione visiva del grafo e fornisce l'interazione visiva con l'istanza. Questo articolo illustra come usarlo per scaricare e caricare nuovamente i modelli, i dispositivi gemelli e i grafici.
 
 Si noti, tuttavia, che si tratta di un **esempio** e non di uno strumento completo. Il test non è stato testato e non è stato compilato per gestire i grafici di grandi dimensioni. Di conseguenza, tenere presenti le limitazioni di esempio seguenti:
 * L'esempio è attualmente stato testato solo su dimensioni del grafo fino a 1000 nodi e 2000 relazioni
@@ -76,7 +76,7 @@ Se l'esempio non è in grado di gestire le dimensioni del grafo, è possibile es
 
 Per procedere con ADT Explorer, scaricare prima di tutto il codice dell'applicazione di esempio e configurarlo per l'esecuzione nel computer. 
 
-Passare all'esempio qui: [Esplora risorse di Azure Digital gemelli (ADT)](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome _**ADT_Explorer.zip**_. Decomprimere il file.
+Passare all'esempio qui: [Esplora risorse di Azure Digital gemelli (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome _**ADT_Explorer.zip**_. Decomprimere i file.
 
 Configurare quindi le autorizzazioni per l'esecuzione di ADT Explorer nel computer. A tale scopo, seguire la procedura descritta nella sezione [*set ADT Explorer Permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) della Guida introduttiva a Azure Digital gemelli.
 
@@ -219,7 +219,7 @@ Al termine di questo passaggio, la nuova istanza nell'area di destinazione deve 
 Per verificare che la nuova istanza sia stata configurata correttamente, è possibile usare gli strumenti seguenti:
 * Il [**portale di Azure**](https://portal.azure.com) (valido per verificare che la nuova istanza esista e si trovi nell'area di destinazione corretta; anche per verificare gli endpoint e le route e le connessioni ad altri servizi di Azure)
 * I comandi dell'interfaccia della riga di [ **comando** di Azure Digital gemelli](how-to-use-cli.md) (validi per verificare che la nuova istanza esista e si trovi nell'area di destinazione corretta; può essere usata anche per verificare i dati dell'istanza)
-* [**Esplora ADT**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (ideale per la verifica dei dati dell'istanza, ad esempio modelli, gemelli e grafi)
+* [**Esplora ADT**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (ideale per la verifica dei dati dell'istanza, ad esempio modelli, gemelli e grafi)
 * [API e SDK per i dispositivi digitali gemelli di Azure](how-to-use-apis-sdks.md) (ideali per la verifica dei dati dell'istanza, ad esempio modelli, gemelli e Graph; anche per verificare gli endpoint e le route)
 
 È anche possibile provare a eseguire eventuali app personalizzate o flussi end-to-end eseguiti con l'istanza originale, per consentire di verificare che funzionino correttamente con la nuova istanza.

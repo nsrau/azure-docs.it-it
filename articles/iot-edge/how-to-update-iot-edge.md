@@ -9,12 +9,12 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e16e7fa5ecc2fb947f9f82c1cdd27af6758d6bda
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7cde23372f6a3af0320e2d48c78a0d7fe69a2600
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971750"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045704"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Aggiornare il daemon di sicurezza e il runtime di IoT Edge
 
@@ -194,7 +194,7 @@ Per aggiornare un dispositivo IoT Edge vengono usati due componenti:
 
 3. Se il file con estensione cab scaricato contiene un suffisso di architettura, rinominare il file semplicemente **Microsoft-Azure-IoTEdge.cab**.
 
-4. Per eseguire l'aggiornamento con i componenti offline, il [punto di origine](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) è la copia locale dello script di PowerShell. Usare quindi il `-OfflineInstallationPath` parametro come parte del `Update-IoTEdge` comando e fornire il percorso assoluto alla directory di file. Ad esempio,
+4. Per eseguire l'aggiornamento con i componenti offline, il [punto di origine](/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) è la copia locale dello script di PowerShell. Usare quindi il `-OfflineInstallationPath` parametro come parte del `Update-IoTEdge` comando e fornire il percorso assoluto alla directory di file. Ad esempio,
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

@@ -3,19 +3,19 @@ title: Fornire feedback sulle anomalie al servizio metrica Advisor
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come inviare commenti e suggerimenti sulle anomalie rilevate dall'istanza di Advisor di metrica e ottimizzare i risultati.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 11864cb26b76d414aa2efe2643797a2f66fa30e4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938048"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047608"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>Regolare il rilevamento anomalie usando il feedback
 

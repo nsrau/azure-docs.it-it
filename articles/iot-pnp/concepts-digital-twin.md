@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578054"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046469"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>Informazioni sui gemelli digitali Plug and Play IoT
 
@@ -307,7 +307,7 @@ I frammenti di codice seguenti mostrano la rappresentazione in formato JSON affi
 
 ## <a name="digital-twin-apis"></a>API gemelle digitali
 
-I dispositivi gemelli digitali di Azure sono forniti con **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** e **Invoke Command** per la gestione dei dispositivi gemelli digitali. È possibile usare le [API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) direttamente o tramite un [SDK del servizio](../iot-pnp/libraries-sdks.md).
+I dispositivi gemelli digitali di Azure sono forniti con **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** e **Invoke Command** per la gestione dei dispositivi gemelli digitali. È possibile usare le [API REST](/rest/api/iothub/service/digitaltwin) direttamente o tramite un [SDK del servizio](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Eventi di modifica del gemello digitale
 
@@ -383,5 +383,5 @@ Ora che sono state apprese informazioni sui dispositivi gemelli digitali, di seg
 
 - [Come usare le API per i dispositivi gemelli Plug and Play digitali](howto-manage-digital-twin.md)
 - [Interagire con un dispositivo dalla soluzione](quickstart-service-node.md)
-- [API REST Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API REST Digital Twin](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

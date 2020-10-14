@@ -8,16 +8,16 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287264"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048152"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge
 
-Archiviazione BLOB di Azure in IoT Edge fornisce un [BLOB in blocchi](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) e una soluzione di archiviazione [BLOB aggiuntiva](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) al perimetro. Un modulo di archiviazione BLOB nel dispositivo IoT Edge si comporta come un servizio BLOB di Azure, ad eccezione dei BLOB archiviati localmente sul dispositivo IoT Edge. È possibile accedere ai BLOB usando gli stessi metodi dell'SDK di archiviazione di Azure o le chiamate all'API blob a cui si è già abituati. Questo articolo illustra i concetti relativi all'archiviazione BLOB di Azure in IoT Edge contenitore che esegue un servizio BLOB sul dispositivo IoT Edge.
+Archiviazione BLOB di Azure in IoT Edge fornisce un [BLOB in blocchi](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) e una soluzione di archiviazione [BLOB aggiuntiva](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) al perimetro. Un modulo di archiviazione BLOB nel dispositivo IoT Edge si comporta come un servizio BLOB di Azure, ad eccezione dei BLOB archiviati localmente sul dispositivo IoT Edge. È possibile accedere ai BLOB usando gli stessi metodi dell'SDK di archiviazione di Azure o le chiamate all'API blob a cui si è già abituati. Questo articolo illustra i concetti relativi all'archiviazione BLOB di Azure in IoT Edge contenitore che esegue un servizio BLOB sul dispositivo IoT Edge.
 
 Questo modulo è utile negli scenari:
 
@@ -160,7 +160,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## <a name="configure-log-files"></a>Configurare i file di log
 
-Per informazioni sulla configurazione dei file di log per il modulo, vedere le [procedure consigliate](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics)per la produzione.
+Per informazioni sulla configurazione dei file di log per il modulo, vedere le [procedure consigliate](./production-checklist.md#set-up-logs-and-diagnostics)per la produzione.
 
 ## <a name="connect-to-your-blob-storage-module"></a>Connettere il modulo di archiviazione BLOB
 
@@ -187,7 +187,7 @@ Gli esempi di avvio rapido seguenti usano linguaggi supportati anche da IoT Edge
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Le versioni precedenti alla versione 2.1 di Python SDK hanno un problema noto in cui il modulo non restituisce la data e l'ora di creazione del BLOB. A causa di questo problema, alcuni metodi come i BLOB di elenco non funzionano. Come soluzione alternativa, impostare in modo esplicito la versione dell'API nel client BLOB su "2017-04-17". Esempio: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Esempio di Accodamento BLOB](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)

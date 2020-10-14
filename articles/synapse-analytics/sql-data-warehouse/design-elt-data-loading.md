@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af3eb828e1fd2c4aa14467e5afc18f1b5a0b7fa1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201159"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047710"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie di caricamento dei dati per il pool Synapse SQL
 
@@ -28,10 +28,6 @@ Benché il pool SQL supporti molti metodi di caricamento, incluse le opzioni di 
 
 Con PolyBase e l'istruzione COPY, è possibile accedere ai dati archiviati esterni in Archiviazione BLOB di Azure o Azure Data Lake Store tramite il linguaggio T-SQL. Per la massima flessibilità durante il caricamento, è consigliabile usare l'istruzione COPY.
 
-> [!NOTE]  
-> L'istruzione COPY è attualmente disponibile in versione di anteprima pubblica. Per fornire feedback, inviare un messaggio di posta elettronica alla lista di distribuzione sqldwcopypreview@service.microsoft.com.
-
-> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>Definizione di ELT
 

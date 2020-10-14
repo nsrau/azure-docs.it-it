@@ -3,19 +3,19 @@ title: Configurare gli avvisi di Advisor metriche
 titleSuffix: Azure Cognitive Services
 description: Come configurare gli avvisi di Advisor per le metriche usando hook per la posta elettronica, il Web e Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977779"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046792"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Procedura: configurare gli avvisi e ricevere notifiche tramite un hook
 

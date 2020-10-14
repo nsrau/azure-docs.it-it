@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 791aadf349654e1e62c3ac2b98a955de7b46c0b7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 10ed546e8f05f4a93e4523c7870f79d41aa1f622
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966118"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045993"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando l'attestazione della chiave simmetrica
 
@@ -26,7 +26,7 @@ Questo articolo illustra come creare un servizio Device provisioning singola reg
 * Creare una singola registrazione per il dispositivo.
 * Installare il runtime di IoT Edge e connettersi all'hub Internet.
 
-L'attestazione con chiave simmetrica costituisce un approccio semplice per autenticare un dispositivo con un'istanza del servizio Device Provisioning. Questo metodo di attestazione rappresenta un'esperienza di "Hello World" per gli sviluppatori che non hanno familiarità con il provisioning dei dispositivi o che non possiedono requisiti di sicurezza restrittivi. L'attestazione del dispositivo che usa un [TPM](../iot-dps/concepts-tpm-attestation.md) o [certificati X. 509](../iot-dps/concepts-security.md#x509-certificates) è più sicura e deve essere usata per requisiti di sicurezza più rigorosi.
+L'attestazione con chiave simmetrica costituisce un approccio semplice per autenticare un dispositivo con un'istanza del servizio Device Provisioning. Questo metodo di attestazione rappresenta un'esperienza di "Hello World" per gli sviluppatori che non hanno familiarità con il provisioning dei dispositivi o che non possiedono requisiti di sicurezza restrittivi. L'attestazione del dispositivo che usa un [TPM](../iot-dps/concepts-tpm-attestation.md) o [certificati X. 509](../iot-dps/concepts-x509-attestation.md) è più sicura e deve essere usata per requisiti di sicurezza più rigorosi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

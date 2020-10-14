@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723929"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047676"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: registrazione diagnostica
 
@@ -70,10 +70,10 @@ Ogni categoria di log è costituita da operazioni di scrittura, lettura, elimina
 | --- | --- |
 | Scrittura | PUT e PATCH |
 | Lettura | GET |
-| Elimina | DELETE |
+| Delete | DELETE |
 | Azione | POST |
 
-Ecco un elenco completo delle operazioni e delle [chiamate API REST di Azure Digital gemelle](https://docs.microsoft.com/rest/api/azure-digitaltwins/) corrispondenti registrate in ogni categoria. 
+Ecco un elenco completo delle operazioni e delle [chiamate API REST di Azure Digital gemelle](/rest/api/azure-digitaltwins/) corrispondenti registrate in ogni categoria. 
 
 >[!NOTE]
 > Ogni categoria di log contiene diverse chiamate API REST e operazioni. Nella tabella riportata di seguito, ogni categoria di log esegue il mapping a tutte le chiamate API REST e delle operazioni sottostanti fino a quando non viene elencata la categoria di log successiva. 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: f64b5a186c026bf752d7975ac4337535ca64458e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b3cc70eadfaa1295cd67fa3f2b36c97f107b4bad
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876533"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046996"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -19,18 +19,29 @@ Database di Azure per MySQL crea automaticamente backup del server e li archivia
 
 ## <a name="backups"></a>Backup
 
-Database di Azure per MySQL esegue i backup dei file di dati e del log delle transazioni. A seconda delle dimensioni massime di archiviazione supportate, è possibile eseguire backup completi e differenziali (server di archiviazione max da 4 TB) o backup di snapshot (fino a 16 TB di server di archiviazione max). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. [Facoltativamente, è possibile configurarlo](howto-restore-server-portal.md#set-backup-configuration) fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+Database di Azure per MySQL esegue i backup dei file di dati e del log delle transazioni. Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. [Facoltativamente, è possibile configurarlo](howto-restore-server-portal.md#set-backup-configuration) fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
 Questi file di backup non sono esposti dall'utente e non possono essere esportati. Questi backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MySQL. Per copiare un database, è possibile usare [mysqldump](concepts-migrate-dump-restore.md) .
 
-### <a name="backup-frequency"></a>Frequenza di backup
+Il tipo e la frequenza di backup variano a seconda dell'archiviazione back-end per i server.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Server con un massimo di 4 TB di archiviazione
+### <a name="backup-type-and-frequency"></a>Tipo di backup e frequenza
 
-Per i server che supportano fino a 4 TB di spazio di archiviazione massimo, i backup completi vengono eseguiti una volta alla settimana. I backup differenziali si verificano due volte al giorno. I backup del log delle transazioni vengono eseguiti ogni cinque minuti.
+#### <a name="basic-storage-servers"></a>Server di archiviazione Basic
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Server con un massimo di 16 TB di archiviazione
-In un subset di [aree di Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning possono supportare fino a 16 TB di archiviazione. I backup su questi server di archiviazione di grandi dimensioni sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali. 
+I server di archiviazione di base sono l'archivio back-end per i [Server SKU di base](concepts-pricing-tiers.md). I backup nei server di archiviazione Basic sono basati su snapshot. Ogni giorno viene eseguito uno snapshot completo del database. Per i server di archiviazione di base non sono stati eseguiti backup differenziali e tutti i backup di snapshot sono solo backup completi del database. 
+
+I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Server di archiviazione per utilizzo generico con archiviazione fino a 4 TB
+
+Per i server che supportano un massimo di 4 TB di archiviazione per utilizzo generico, i backup completi vengono eseguiti una volta alla settimana. I backup differenziali si verificano due volte al giorno. I backup del log delle transazioni vengono eseguiti ogni cinque minuti. I backup in archiviazione per utilizzo generico fino a 4 TB di archiviazione non sono basati su snapshot e utilizzano la larghezza di banda di i/o al momento del backup. Per database di grandi dimensioni (> 1 TB) nell'archiviazione da 4 TB, è consigliabile prendere in considerazione 
+
+- Provisioning di più IOPs per tenere conto del backup IOs  
+- In alternativa, eseguire la migrazione a una risorsa di archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione, se l'archiviazione è disponibile nelle [aree di Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)preferite. Non sono previsti costi aggiuntivi per l'archiviazione per utilizzo generico che supporta fino a 16 TB di archiviazione. Per assistenza sulla migrazione a una risorsa di archiviazione da 16 TB, aprire un ticket di supporto da portale di Azure. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Server di archiviazione per utilizzo generico con archiviazione fino a 16 TB
+In un sottoinsieme di [aree di Azure](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), tutti i server di cui è stato effettuato il provisioning sono in grado di supportare l'archiviazione per utilizzo generico fino a 16 TB. I backup in questi server di archiviazione da 16 TB sono basati su snapshot. Il primo backup completo dello snapshot viene pianificato subito dopo la creazione di un server. Il primo backup completo dello snapshot viene mantenuto come backup di base del server. I backup dello snapshot successivi sono solo backup differenziali. 
 
 I backup differenziali degli snapshot vengono eseguiti almeno una volta al giorno. I backup differenziali degli snapshot non vengono eseguiti in base a una pianificazione fissa. I backup differenziali degli snapshot si verificano ogni 24 ore, a meno che il log delle transazioni (binlog in MySQL) superi 50 GB dall'ultimo backup differenziale. In un giorno sono consentiti al massimo sei snapshot differenziali. 
 

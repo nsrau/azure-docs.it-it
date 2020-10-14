@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dd2d42bb83afa5a97bd5bd71d7b1a4bcc506d93e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976165"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048084"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
@@ -41,7 +41,7 @@ Quando si usano chiavi gestite dal cliente per crittografare le immagini della r
 
 - I set di chiavi di crittografia sono risorse regionali, quindi ogni area richiede un set di chiavi di crittografia diverso.
 
-- Le immagini che usano chiavi gestite dal cliente non possono essere condivise. 
+- Non è possibile copiare o condividere immagini che usano chiavi gestite dal cliente. 
 
 - Dopo aver usato le proprie chiavi per crittografare un disco o un'immagine, non è possibile tornare all'uso delle chiavi gestite dalla piattaforma per la crittografia di tale disco o immagine.
 

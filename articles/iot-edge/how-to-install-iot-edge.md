@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: e5dc5601be5bd6d8003b196b5e7768e66bc48478
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979787"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045687"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Installare o disinstallare il runtime di Azure IoT Edge
 
@@ -267,7 +267,7 @@ Se il dispositivo sarà offline durante l'installazione o se si vuole installare
 
 4. Facoltativamente, scaricare un programma di installazione per Visual C++ ridistribuibile. Ad esempio, lo script di PowerShell usa questa versione: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Salvare il programma di installazione nella stessa cartella del dispositivo Internet dell'utente come file di IoT Edge.
 
-5. Per eseguire l'installazione con i componenti offline, il [punto di origine](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) è la copia locale dello script di PowerShell. 
+5. Per eseguire l'installazione con i componenti offline, il [punto di origine](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) è la copia locale dello script di PowerShell. 
 
 6. Eseguire il comando [deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) con il `-OfflineInstallationPath` parametro. Consente di specificare il percorso assoluto della directory di file. Ad esempio,
 
