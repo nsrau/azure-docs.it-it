@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89645752"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019733"
 ---
 # <a name="data-encryption-models"></a>Modelli di crittografia dei dati
 
@@ -149,7 +149,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | Ricerca cognitiva di Azure           | Sì                | Sì                | -                  |
 | Servizi cognitivi di Azure         | Sì                | Sì                | -                  |
 | Azure Machine Learning           | Sì                | Sì                | -                  |
-| Azure Machine Learning Studio    | Sì                | Anteprima, RSA a 2048 bit | -               |
+| Azure Machine Learning Studio (versione classica) | Sì         | Anteprima, RSA a 2048 bit | -               |
 | Content Moderator                | Sì                | Sì                | -                  |
 | Viso                             | Sì                | Sì                | -                  |
 | Language Understanding           | Sì                | Sì                | -                  |
@@ -164,7 +164,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | Funzioni                        | Sì                | Sì                | -                  |
 | Azure Analysis Services          | Sì                | -                  | -                  |
 | Azure Data Catalog               | Sì                | -                  | -                  |
-| Azure HDInsight                  | Sì                | Tutti                | -                  |
+| Azure HDInsight                  | Sì                | All                | -                  |
 | Application Insights di monitoraggio di Azure | Sì                | Sì                | -                  |
 | Log Analytics di monitoraggio di Azure      | Sì                | Sì                | -                  |
 | Esplora dati di Azure              | Sì                | Sì                | -                  |
