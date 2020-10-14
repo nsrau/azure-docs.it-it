@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231232"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056141"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure
 
@@ -100,16 +100,13 @@ AuditLogs
 
 5. Dopo aver configurato l'avviso, selezionare **Crea avviso** per abilitarlo. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Installare e usare le viste predefinite per i log attività di Azure AD
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Usare cartelle di lavoro predefinite per Azure AD log attività
 
-È anche possibile scaricare le viste predefinite di analisi dei log per i log attività di Azure AD. Le viste includono numerosi report relativi a scenari comuni che interessano gli eventi di accesso e controllo. È possibile anche impostare un avviso per tutti i dati disponibili nei report, seguendo la procedura descritta nella sezione precedente.
+Le cartelle di lavoro di forniscono diversi report correlati a scenari comuni che coinvolgono gli eventi di controllo, di accesso e di provisioning. È possibile anche impostare un avviso per tutti i dati disponibili nei report, seguendo la procedura descritta nella sezione precedente.
 
-* **Azure AD Account Provisioning Events** (Eventi di provisioning degli account di Azure AD): questa vista mostra i report relativi al controllo delle attività di provisioning, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e gli errori di provisioning, il numero di utenti aggiornati e gli errori di aggiornamento, nonché il numero di utenti di cui è stato annullato il provisioning e gli errori corrispondenti.    
-* **Sign-ins Events** (Eventi di accesso): questa vista mostra i report rilevanti relativi al monitoraggio delle attività di accesso, ad esempio gli accessi per applicazione, utente e dispositivo, nonché una visualizzazione di riepilogo che tiene traccia del numero di accessi nel tempo.
-* **Users Performing Consent** (Consenso dagli utenti): questa vista mostra i report relativi al consenso dell'utente, ad esempio i consensi per utente, gli accessi di utenti che hanno concesso il consenso e gli accessi per applicazione per tutte le applicazioni basate sul consenso dell'utente. 
-
-Vedere come [installare e usare le viste di analisi dei log per i log attività di Azure AD](howto-install-use-log-analytics-views.md). 
-
+* **Analisi del provisioning**: questa [cartella di lavoro](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) Mostra i report relativi alle attività di provisioning di controllo, ad esempio il numero di nuovi utenti di cui è stato effettuato il provisioning e il provisioning degli errori, il numero di utenti aggiornati e gli errori di aggiornamento e il numero di utenti di cui è stato effettuato il deprovisioning e gli errori    
+* **Eventi di accesso**: questa cartella di lavoro Mostra i report più rilevanti correlati al monitoraggio dell'attività di accesso, ad esempio accessi in base all'applicazione, all'utente, al dispositivo, oltre a una visualizzazione riepilogativa che verifica il numero di accessi nel tempo.
+* **Informazioni dettagliate sull'accesso condizionale**: la [cartella di lavoro](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) di report e informazioni sull'accesso condizionale consente di comprendere l'effetto dei criteri di accesso condizionale nell'organizzazione nel tempo. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

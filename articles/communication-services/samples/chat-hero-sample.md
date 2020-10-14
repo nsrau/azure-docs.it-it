@@ -2,19 +2,19 @@
 title: Banner della chat di gruppo di esempio
 titleSuffix: An Azure Communication Services sample overview
 description: Panoramica del banner della chat di esempio sui Servizi di comunicazione di Azure per consentire agli sviluppatori di scoprire di più sul meccanismo dell'esempio e apprendere come modificarlo.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460561"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962990"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introduzione al banner della chat di gruppo di esempio
 
@@ -78,7 +78,6 @@ Aprire Visual Studio in chat.csproj ed eseguirlo in modalità di debug per avvia
 2. `git clone https://github.com/Azure/Communication.git`
 3. Ottenere la `Connection String` dal portale di Azure. Per altre informazioni sulle stringhe di connessione, vedere [Creare risorse di comunicazione di Azure](../quickstarts/create-communication-resource.md)
 4. Dopo aver ottenuto la `Connection String`, aggiungere la stringa di connessione al file **Chat/appsettings.json** nella cartella Chat. Immettere la stringa di connessione nella variabile: `ResourceConnectionString`.
-5. Aggiornare ENVIRONMENT_URL in `./Chat/ClientApp/src/constants.tsx` con il percorso della risorsa. Ad esempio, https://<RESOURCE_NAME>.communication.azure.com.
 
 ### <a name="local-run"></a>Esecuzione locale
 
@@ -115,6 +114,6 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 - [Pagina GitHub dei servizi di comunicazione di Azure](https://github.com/Azure/communication) - Nella pagina ufficiale di GitHub sono disponibili altri esempi e informazioni
 - [Redux](https://redux.js.org/) - Gestione dello stato lato client
-- [FluentUI](https://developer.microsoft.com/fluentui#/) - Libreria dell'interfaccia utente di Microsoft
+- [FluentUI](https://aka.ms/fluent-ui) - Libreria dell'interfaccia utente di Microsoft
 - [React](https://reactjs.org/) - Libreria per la compilazione di interfacce utente
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework per la compilazione di applicazioni Web
