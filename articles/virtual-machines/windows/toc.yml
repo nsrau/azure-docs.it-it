@@ -337,7 +337,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -555,6 +555,8 @@
           href: client-images.md
         - name: Scaricare un disco esistente
           href: download-vhd.md
+        - name: Disco gestito da una versione dell'immagine
+          href: ../managed-disk-from-image-version.md
     - name: Proteggere le macchine virtuali
       items:
         - name: Consigli

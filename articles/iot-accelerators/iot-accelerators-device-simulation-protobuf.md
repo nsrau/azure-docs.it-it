@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc, amqp, devx-track-csharp
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: c9c8aa86aa8a374a33750e306529ef212c9a8bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12aa18c966745b450b3c9aa55e87e576b0c3f99b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012331"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075961"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializzare i dati di telemetria con i Protocol Buffers
 
@@ -40,7 +40,7 @@ Per seguire la procedura illustrata in questa guida pratica, sono necessari:
 * .NET Core. È possibile scaricare [.NET Core per Mac, Linux e Windows](https://www.microsoft.com/net/download).
 * Postman. È possibile scaricare il [post per Mac, Windows o Linux](https://www.getpostman.com/apps).
 * Un [hub IoT distribuito nella sottoscrizione di Azure in uso](../iot-hub/iot-hub-create-through-portal.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'hub IoT. È possibile ottenere la stringa di connessione nel portale di Azure.
-* Un [database Cosmos DB distribuito nella sottoscrizione di Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) che usi l'API SQL e che sia configurato per [coerenza assoluta](../cosmos-db/manage-account.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione del database Cosmos DB. È possibile ottenere la stringa di connessione nel portale di Azure.
+* Un [database Cosmos DB distribuito nella sottoscrizione di Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) che usi l'API SQL e che sia configurato per [coerenza assoluta](../cosmos-db/how-to-manage-database-account.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione del database Cosmos DB. È possibile ottenere la stringa di connessione nel portale di Azure.
 * Un [account di archiviazione di Azure distribuito nella sottoscrizione di Azure](../storage/common/storage-account-create.md). Per completare la procedura descritta in questa guida, è necessaria la stringa di connessione dell'account di archiviazione. È possibile ottenere la stringa di connessione nel portale di Azure.
 
 ## <a name="prepare-your-development-environment"></a>Preparare l'ambiente di sviluppo
