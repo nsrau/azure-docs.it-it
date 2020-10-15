@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259527"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un Registro Azure Container con replica geografica
@@ -57,7 +57,7 @@ Configurare il nuovo registro con le impostazioni seguenti. Nella scheda **Infor
 
 Selezionare **Rivedi e crea** e quindi **Crea** per creare l'istanza del registro.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Configurazione di un registro contenitori nel portale di Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
 Nella parte restante di questa esercitazione si usa `<acrName>` come segnaposto per il **nome del registro** contenitori scelto.
 
@@ -70,19 +70,19 @@ Dopo aver creato un registro Premium, è possibile configurare la replica geogra
 
 Passare al nuovo registro contenitori nel portale di Azure e selezionare **Repliche** in **Servizi**:
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Repliche nell'interfaccia utente del registro contenitori del portale di Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
 Viene visualizzata una mappa che mostra esagoni verdi a indicare le aree di Azure disponibili per la replica geografica:
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Mappa delle aree nel portale di Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
 Replicare il registro per l'area Stati Uniti orientali selezionando il relativo esagono verde e quindi selezionare **Crea** in **Crea replica**:
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Interfaccia utente Crea replica nel portale di Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
 Dopo aver completato la replica, nel portale viene visualizzato *Pronta* per entrambe le aree. Usare il pulsante **Aggiorna** per aggiornare lo stato della replica. La creazione o la sincronizzazione delle repliche può richiedere un minuto circa.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Interfaccia utente Stato replica nel portale di Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
 
 ## <a name="enable-admin-account"></a>Abilitare l'account amministratore
@@ -91,7 +91,7 @@ Nelle esercitazioni successive verrà distribuita un'immagine del contenitore da
 
 Passare al nuovo registro contenitori nel portale di Azure e selezionare **Chiavi di accesso** in **Impostazioni**. In **Utente amministratore**selezionare **Abilita**.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Abilitare l'account amministratore nel portale di Azure":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
@@ -110,7 +110,7 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione.
 
 L'esempio in questa esercitazione include una semplice applicazione Web compilata con [ASP.NET Core][aspnet-core]. L'app usa una pagina HTML che visualizza l'area da cui l'immagine viene distribuita da Registro Azure Container.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="App dell'esercitazione visualizzata nel browser":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
 Usare git per scaricare l'esempio in una directory locale ed eseguire il comando `cd` nella directory:
 
