@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905143"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077848"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Confronto basato sulle funzionalità dei livelli di Gestione API di Azure
 
@@ -37,7 +37,7 @@ Ogni [piano tariffario](https://aka.ms/apimpricing) di Gestione API offre un set
 | Analisi incorporata                                                                           | No          | Sì       | Sì   | Sì      | Sì     |
 | [Gateway self-hosted](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Sì       | No    | No       | Sì     |
 | [Impostazioni di TLS](api-management-howto-manage-protocols-ciphers.md)                             | Sì         | Sì       | Sì   | Sì      | Sì     |
-| [Cache esterna](https://aka.ms/apimbyoc)                                                    | Sì         | Sì       | Sì   | Sì      | Sì     |
+| [Cache esterna](./api-management-howto-cache-external.md)                                                    | Sì         | Sì       | Sì   | Sì      | Sì     |
 | [Autenticazione con certificato client](api-management-howto-mutual-certificates-for-clients.md) | Sì         | Sì       | Sì   | Sì      | Sì     |
 | [Backup e ripristino](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Sì       | Sì   | Sì      | Sì     |
 | [Gestione tramite Git](api-management-configuration-repository-git.md)                        | No          | Sì       | Sì   | Sì      | Sì     |

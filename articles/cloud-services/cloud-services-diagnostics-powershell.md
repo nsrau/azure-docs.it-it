@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: tagore
-ms.openlocfilehash: e3c4beac5bd88ba0bbefa91fc83976416b24d2fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0bf7fa56ca511981820f63cd7178493a7d048e3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141075"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077508"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Abilitare la diagnostica nei servizi cloud di Azure con PowerShell
 È possibile raccogliere dati di diagnostica come log applicazioni, contatori delle prestazioni e così via da un servizio cloud mediante l'estensione Diagnostica di Azure. Questo articolo descrive come abilitare l'estensione Diagnostica di Azure per un servizio Cloud tramite PowerShell.  Per i prerequisiti necessari per questo articolo, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/) .
@@ -131,8 +131,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre istruzioni sull'uso della diagnostica di Azure e di altre tecniche per la risoluzione dei problemi, vedere [Abilitazione di Diagnostica in servizi cloud e macchine virtuali di Azure](cloud-services-dotnet-diagnostics.md).
-* Lo [Schema di configurazione della diagnostica](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) illustra le varie opzioni di configurazione xml per l'estensione della diagnostica.
-* Per informazioni su come abilitare l'estensione della diagnostica per le macchine virtuali, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](../virtual-machines/windows/extensions-diagnostics-template.md)
-
-
-
+* Lo [Schema di configurazione della diagnostica](../azure-monitor/platform/diagnostics-extension-schema-windows.md) illustra le varie opzioni di configurazione xml per l'estensione della diagnostica.
+* Per informazioni su come abilitare l'estensione della diagnostica per le macchine virtuali, vedere [Creare una macchina virtuale Windows con monitoraggio e diagnostica mediante i modelli di Gestione risorse di Azure](../virtual-machines/extensions/diagnostics-template.md)

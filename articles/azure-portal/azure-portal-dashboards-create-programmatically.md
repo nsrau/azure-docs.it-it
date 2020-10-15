@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764044"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077865"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -78,13 +78,13 @@ Per pubblicare questo dashboard per qualsiasi macchina virtuale in futuro, param
 Esistono due approcci per le API che creano risorse in Azure:
 
 * Le API imperative creano una risorsa alla volta. Per altre informazioni, vedere [Risorse](/rest/api/resources/resources).
-* Un sistema di distribuzione basato su modello che crea più risorse dipendenti con una singola chiamata API. Per altre informazioni, vedere  [distribuire risorse con modelli e Azure PowerShell di gestione risorse](../azure-resource-manager/resource-group-template-deploy.md).
+* Un sistema di distribuzione basato su modello che crea più risorse dipendenti con una singola chiamata API. Per altre informazioni, vedere  [distribuire risorse con modelli e Azure PowerShell di gestione risorse](../azure-resource-manager/templates/deploy-powershell.md).
 
 La distribuzione basata su modello supporta la parametrizzazione e la creazione di modelli. Questo approccio viene usato in questo articolo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Creare un dashboard a livello di codice dal modello usando una distribuzione di modelli
 
-Azure offre la possibilità di orchestrare la distribuzione di più risorse. Viene creato un modello di distribuzione che esprime il set di risorse da distribuire e le relazioni tra di esse.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il linguaggio del modello aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto di una distribuzione modello. Non funziona se usato con le API imperative descritte in precedenza. Per altre informazioni, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure offre la possibilità di orchestrare la distribuzione di più risorse. Viene creato un modello di distribuzione che esprime il set di risorse da distribuire e le relazioni tra di esse.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il linguaggio del modello aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto di una distribuzione modello. Non funziona se usato con le API imperative descritte in precedenza. Per altre informazioni, vedere [comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 La parametrizzazione deve essere eseguita utilizzando la sintassi dei parametri del modello.  Si sostituiscono tutte le istanze dell'ID risorsa trovato in precedenza, come illustrato di seguito.
 
@@ -125,7 +125,7 @@ Dichiarare i metadati del modello obbligatori e i parametri nella parte superior
 Dopo aver configurato il modello, distribuirlo usando uno dei metodi seguenti:
 
 * [API REST](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/group/deployment#az-group-deployment-create)
 * [Pagina di distribuzione del modello di portale di Azure](https://portal.azure.com/#create/Microsoft.Template)
 

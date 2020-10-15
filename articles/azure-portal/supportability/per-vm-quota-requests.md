@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e00b1cf11b906390335f257b20787d394b3a8ed4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26fc916a2bacc0f6ae9791a53b642e93bb031466
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85117166"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077984"
 ---
 # <a name="standard-quota-increase-limits-by-vm-series"></a>Quota standard: aumentare i limiti per serie di macchine virtuali
 
@@ -30,7 +30,7 @@ Ogni volta che si distribuisce una nuova macchina virtuale spot, l'utilizzo tota
 
 È possibile richiedere un aumento del limite di quota vCPU per la serie di macchine virtuali usando il portale di Azure. Un aumento della quota della serie di VM aumenta automaticamente il limite di vCPU regionale totale per la stessa quantità.
 
-Per altre informazioni sulle quote vCPU standard, vedere la pagina relativa alle [quote vCPU della macchina virtuale](../../virtual-machines/windows/quotas.md) e ai [limiti del servizio e della sottoscrizione di Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests).
+Per altre informazioni sulle quote vCPU standard, vedere la pagina relativa alle [quote vCPU della macchina virtuale](../../virtual-machines/windows/quotas.md) e ai [limiti del servizio e della sottoscrizione di Azure](./classic-deployment-model-quota-increase-requests.md).
 
 Per informazioni su come aumentare il limite di vCPU in base all'area per la quota standard, vedere [quota standard: aumentare i limiti per area](regional-quota-requests.md).
 

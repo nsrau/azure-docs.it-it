@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 5760d5e140919c9309b22f6f597e73c88f7a9069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: e0ac1ec93dba23eb6ab3380e342141618a1ab6e4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710278"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069658"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel Database di Azure per PostgreSQL: server singolo
 
@@ -39,7 +39,7 @@ Dopo aver creato un server, il numero di vCore, la generazione dell'hardware e i
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Cina orientale 1, Cina settentrionale 1, US DoD (area centrale) e US DoD (area orientale) utilizzano le CPU logiche di generazione 4 basate sui processori Intel E5-2673 V3 (Haswell) a 2,4 GHz. Tutte le altre aree utilizzano le CPU logiche di generazione 5 basate sui processori Intel E5-2673 V4 (Broadwell) a 2,3 GHz.
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di archiviazione disponibile per il server Database di Azure per PostgreSQL. Lo spazio di archiviazione viene usato per i file del database, i file temporanei, i log delle transazioni e i log del server PostgreSQL. Lo spazio di archiviazione totale di cui si effettua il provisioning definisce anche la capacità di I/O disponibile per il server.
 
@@ -51,7 +51,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!NOTE]
-> L'archiviazione fino a 16TB e 20.000 IOPS è supportata nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale
+> Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale e Canada Central.
 >
 > Tutte le altre aree supportano fino a 4 TB di archiviazione e 6000 IOPS.
 >

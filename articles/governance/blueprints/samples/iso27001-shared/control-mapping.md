@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Servizi condivisi ISO 27001
-description: Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
+description: Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: e0e5aa7bbfb8178b2527e65f7e6371d815b0cccd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 7b13440db5574da84c296e27380739e58e640a67
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541204"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930119"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001
 
@@ -17,7 +17,7 @@ L'articolo seguente descrive il mapping dell'esempio di progetto Servizi condivi
 I mapping seguenti fanno riferimento ai controlli **ISO 27001:2013**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\]: Verifica controlli ISO 27001:2013 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo**.
 
 > [!IMPORTANT]
-> Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
+> Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
 
 ## <a name="a612-segregation-of-duties"></a>A.6.1.2 Separazione dei compiti
 
@@ -108,8 +108,7 @@ Questo progetto consente di imporre password complesse assegnando 10 definizioni
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Criteri sull'uso dei controlli crittografici
 
-Questo progetto consente di applicare i criteri sull'uso dei controlli crittografici assegnando 13 definizioni di [Criteri di Azure](../../../policy/overview.md) che applicano specifici controlli crittografici e controllano l'uso di impostazioni di crittografia meno sicure.
-Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, i criteri assegnati da questo progetto richiedono la crittografia per gli account di archiviazione BLOB e gli account Data Lake Storage; richiedono l'applicazione di Transparent Data Encryption per i database SQL; controllano se manca la crittografia in account di archiviazione, database SQL, dischi di macchine virtuali e variabili degli account di automazione; controllano le connessioni non sicure ad account di archiviazione, app per le funzioni, app Web, app per le API e cache Redis; controllano la crittografia poco sicura delle password delle macchine virtuali; infine, controllano le comunicazioni non crittografate con Service Fabric.
+Questo progetto consente di applicare i criteri sull'uso dei controlli crittografici assegnando 13 definizioni di [Criteri di Azure](../../../policy/overview.md) che applicano specifici controlli crittografici e controllano l'uso di impostazioni di crittografia meno sicure. Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, i criteri assegnati da questo progetto richiedono la crittografia per gli account di archiviazione BLOB e gli account Data Lake Storage; richiedono l'applicazione di Transparent Data Encryption per i database SQL; controllano se manca la crittografia in account di archiviazione, database SQL, dischi di macchine virtuali e variabili degli account di automazione; controllano le connessioni non sicure ad account di archiviazione, app per le funzioni, app Web, app per le API e cache Redis; controllano la crittografia poco sicura delle password delle macchine virtuali; infine, controllano le comunicazioni non crittografate con Service Fabric.
 
 - L'app per le funzioni deve essere accessibile solo tramite HTTPS
 - L'applicazione Web deve essere accessibile solo tramite HTTPS
