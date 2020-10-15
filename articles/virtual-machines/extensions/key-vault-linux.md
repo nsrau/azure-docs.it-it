@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bdab132d4d22dced97273e9d1d051f155f9d69b6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e10336b9c817c71026c167144a190b2ed6b4ab6d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970725"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070266"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
@@ -106,6 +106,10 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono uno strumento ideale per distribuire una o più macchine virtuali per cui è necessario l'aggiornamento dei certificati successivamente alla distribuzione. L'estensione può essere distribuita in singole macchine virtuali o in set di scalabilità di macchine virtuali. Lo schema e la configurazione sono comuni a entrambi i tipi di modello. 
 
 La configurazione JSON per un'estensione macchina virtuale deve essere annidata all'interno del frammento delle risorse della macchina virtuale del modello, in particolare nell'oggetto `"resources": []` per il modello di macchina virtuale e nell'oggetto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` nel caso di un set di scalabilità di macchine virtuali.
+
+ > [!NOTE]
+> Per l'autenticazione nell'insieme di credenziali delle chiavi, l'estensione della macchina virtuale richiede l'assegnazione dell'identità gestita dal sistema o dall'utente.  Vedere [come eseguire l'autenticazione a Key Vault e assegnare un criterio di accesso key Vault.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> 
 
 ```json
     {

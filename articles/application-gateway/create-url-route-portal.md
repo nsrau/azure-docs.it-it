@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: victorh
 ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205582"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Esercitazione: Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure

@@ -6,10 +6,10 @@ ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47, references_regions
 ms.openlocfilehash: 9083ff7d8f65c68ce8d173973a4eda650ac355aa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212905"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Creare una definizione OpenAPI per un'API serverless con Gestione API di Azure
@@ -49,12 +49,12 @@ La funzione calcola quindi il costo della riparazione e i ricavi che la turbina 
 
 1. Scegliere **Funzione** nell'elenco a discesa **[Livello di autorizzazione](functions-bindings-http-webhook-trigger.md#http-auth)** e quindi selezionare **Crea funzione**.
 
-    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Creare la funzione HTTP per OpenAPI":::
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Creare la funzione HTTP per OpenAPI&quot;:::
 
 1. Selezionare **Codice e test** e quindi **run.csx** nell'elenco a discesa. Sostituire il contenuto del file di script C# run.csx con il codice seguente e quindi fare clic su **Salva**:
 
     ```csharp
-    #r "Newtonsoft.Json"
+    #r &quot;Newtonsoft.Json"
     
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
@@ -115,7 +115,12 @@ La funzione calcola quindi il costo della riparazione e i ricavi che la turbina 
     }
     ```
 
-    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Testare la funzione nel portale di Azure":::
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Creare la funzione HTTP per OpenAPI&quot;:::
+
+1. Selezionare **Codice e test** e quindi **run.csx** nell'elenco a discesa. Sostituire il contenuto del file di script C# run.csx con il codice seguente e quindi fare clic su **Salva**:
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
     Nella scheda **Output** verrà restituito l'output seguente:
 
@@ -131,7 +136,12 @@ Per generare la definizione OpenAPI:
 
 1. Selezionare l'app per le funzioni, scegliere **Gestione API** nel menu a sinistra e quindi selezionare **Crea nuova** in **Gestione API**.
 
-    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Scegliere Gestione API":::
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Creare la funzione HTTP per OpenAPI&quot;:::
+
+1. Selezionare **Codice e test** e quindi **run.csx** nell'elenco a discesa. Sostituire il contenuto del file di script C# run.csx con il codice seguente e quindi fare clic su **Salva**:
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
 
 1. Usare le impostazioni di Gestione API specificate nella tabella seguente:
@@ -158,7 +168,12 @@ Per generare la definizione OpenAPI:
 
 1. Nella pagina **Crea da app per le funzioni** accettare le impostazioni predefinite e quindi selezionare **Crea**.
 
-    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Crea da app per le funzioni":::
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Creare la funzione HTTP per OpenAPI&quot;:::
+
+1. Selezionare **Codice e test** e quindi **run.csx** nell'elenco a discesa. Sostituire il contenuto del file di script C# run.csx con il codice seguente e quindi fare clic su **Salva**:
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
     Azure creerà l'API per la funzione.
 
@@ -179,7 +194,12 @@ Prima di usare la definizione OpenAPI, è necessario verificare il funzionamento
 
 1. Selezionare **Invia** e quindi visualizzare **Risposta HTTP**.
 
-    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Testare l'API della funzione":::
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Creare la funzione HTTP per OpenAPI&quot;:::
+
+1. Selezionare **Codice e test** e quindi **run.csx** nell'elenco a discesa. Sostituire il contenuto del file di script C# run.csx con il codice seguente e quindi fare clic su **Salva**:
+
+    ```csharp
+    #r &quot;Newtonsoft.Json":::
 
 ## <a name="download-the-openapi-definition"></a>Scaricare la definizione OpenAPI
 
