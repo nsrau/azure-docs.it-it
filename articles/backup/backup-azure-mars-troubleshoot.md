@@ -3,12 +3,12 @@ title: Risolvere i problemi dell'agente di backup di Azure
 description: Questo articolo illustra come risolvere i problemi di installazione e registrazione dell'agente di backup di Azure.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e2e807a8b849af435fe82d54bbfdd96b729fa38
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019624"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091458"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -67,7 +67,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 
 | Errore   | Azioni consigliate |
 | ---     | ---    |
-|Non è stato possibile scaricare il file dell'insieme di credenziali. (ID: 403) | <ul><li> Provare a scaricare le credenziali dell'insieme di credenziali usando un browser diverso o eseguire le operazioni seguenti: <ul><li> Avviare Internet Explorer. Selezionare F12. </li><li> Passare alla scheda **rete** e deselezionare la cache e i cookie. </li> <li> Aggiornare la pagina.<br></li></ul> <li> Controllare se la sottoscrizione è disabilitata/scaduta.<br></li> <li> Controllare se una regola del firewall sta bloccando il download. <br></li> <li> Assicurarsi di non aver esaurito il limite nell'insieme di credenziali (50 computer per ogni insieme di credenziali).<br></li>  <li> Verificare che l'utente disponga delle autorizzazioni di backup di Azure necessarie per scaricare le credenziali dell'insieme di credenziali e registrare un server con l'insieme di credenziali. Vedere [usare il controllo di accesso di Role-Based per gestire i punti di ripristino di backup di Azure](backup-rbac-rs-vault.md).</li></ul> |
+|Non è stato possibile scaricare il file dell'insieme di credenziali. (ID: 403) | <ul><li> Provare a scaricare le credenziali dell'insieme di credenziali usando un browser diverso o eseguire le operazioni seguenti: <ul><li> Avviare Internet Explorer. Selezionare F12. </li><li> Passare alla scheda **rete** e deselezionare la cache e i cookie. </li> <li> Aggiornare la pagina.<br></li></ul> <li> Controllare se la sottoscrizione è disabilitata/scaduta.<br></li> <li> Controllare se una regola del firewall sta bloccando il download. <br></li> <li> Assicurarsi di non aver esaurito il limite nell'insieme di credenziali (50 computer per ogni insieme di credenziali).<br></li>  <li> Verificare che l'utente disponga delle autorizzazioni di backup di Azure necessarie per scaricare le credenziali dell'insieme di credenziali e registrare un server con l'insieme di credenziali. Vedere [usare il controllo di accesso in base al ruolo di Azure per gestire i punti di ripristino di backup di Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>L'agente di Servizi di ripristino di Microsoft Azure non è riuscito a connettersi a Backup di Microsoft Azure
 

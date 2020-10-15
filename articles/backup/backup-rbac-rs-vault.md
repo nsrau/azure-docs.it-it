@@ -1,19 +1,19 @@
 ---
-title: Gestire i backup con il controllo di accesso Role-Based
-description: Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle operazioni di gestione di backup in un insieme di credenziali di Servizi di ripristino.
+title: Gestire i backup con il controllo degli accessi in base al ruolo di Azure
+description: Usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle operazioni di gestione di backup nell'insieme di credenziali di servizi
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376129"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090880"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
+# <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo di accesso in base al ruolo di Azure per gestire i punti di ripristino di backup di Azure
 
-Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile separare le mansioni all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il loro lavoro.
 
 > [!IMPORTANT]
 > I ruoli forniti da backup di Azure sono limitati alle azioni che possono essere eseguite in portale di Azure o tramite l'API REST o i cmdlet di PowerShell per l'insieme di credenziali di servizi di ripristino. Le azioni eseguite nell'interfaccia utente del client dell'agente di backup di Azure o nell'interfaccia utente di System Center Data Protection Manager o nell'interfaccia utente server di Backup di Azure non sono in alcun controllo di questi ruoli.
@@ -77,9 +77,9 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo corri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md): Introduzione a rbac nel portale di Azure.
+* [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md): Introduzione a RBAC di azure nella portale di Azure.
 * Informazioni su come gestire l'accesso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Risoluzione dei problemi del controllo degli accessi in base al ruolo](../role-based-access-control/troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
+* [Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure](../role-based-access-control/troubleshooting.md): ottenere suggerimenti per la risoluzione di problemi comuni.

@@ -169,15 +169,15 @@
           href: update-regulatory-compliance-packages.md
     - name: Usare Azure Defender per server
       items:
-        - name: Analisi delle vulnerabilità per le macchine virtuali
+        - name: Analisi delle vulnerabilità
           items:
-            - name: Analizzare le macchine virtuali con la soluzione di valutazione della vulnerabilità integrata
-              displayName: 'qualys, vulnerability'
+            - name: Analizzatore integrato di vulnerabilità per i computer
+              displayName: 'qualys, vulnerability, arc'
               href: deploy-vulnerability-assessment-vm.md
             - name: Analizzare le macchine virtuali con una soluzione di valutazione della vulnerabilità BYOL
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
-            - name: Esaminare e risolvere le vulnerabilità nelle macchine virtuali
+            - name: Esaminare e correggere le vulnerabilità
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: Disabilitare i risultati specifici della vulnerabilità
