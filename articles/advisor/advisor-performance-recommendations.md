@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405157"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077814"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -142,38 +142,38 @@ Le istanze della cache offrono prestazioni ottimali quando non vengono eseguite 
 
 ## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Aggiungere aree con traffico all'account di Azure Cosmos DB
 
-Advisor rileva Azure Cosmos DB account con traffico da un'area che non è attualmente configurata. È consigliabile aggiungere tale area. Questa operazione migliora la latenza per le richieste provenienti da tale area e garantisce la disponibilità in caso di interruzioni dell'area. [Scopri di più sulla distribuzione di dati globali con Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
+Advisor rileva Azure Cosmos DB account con traffico da un'area che non è attualmente configurata. È consigliabile aggiungere tale area. Questa operazione migliora la latenza per le richieste provenienti da tale area e garantisce la disponibilità in caso di interruzioni dell'area. [Scopri di più sulla distribuzione di dati globali con Azure Cosmos DB.](../cosmos-db/distribute-data-globally.md)
 
 ## <a name="configure-your-azure-cosmos-db-indexing-policy-by-using-custom-included-or-excluded-paths"></a>Configurare i criteri di indicizzazione Azure Cosmos DB usando percorsi personalizzati inclusi o esclusi
 
-Advisor identifica Azure Cosmos DB contenitori che usano i criteri di indicizzazione predefiniti ma possono trarre vantaggio da criteri di indicizzazione personalizzati. Questa determinazione si basa sul modello del carico di lavoro. Il criterio di indicizzazione predefinito indicizza tutte le proprietà. Un criterio di indicizzazione personalizzato con percorsi inclusi o esclusi espliciti utilizzati nei filtri di query può ridurre le UR e l'archiviazione utilizzata per l'indicizzazione. [Altre informazioni sulla modifica dei criteri di indice.](https://aka.ms/cosmosdb/modify-index-policy)
+Advisor identifica Azure Cosmos DB contenitori che usano i criteri di indicizzazione predefiniti ma possono trarre vantaggio da criteri di indicizzazione personalizzati. Questa determinazione si basa sul modello del carico di lavoro. Il criterio di indicizzazione predefinito indicizza tutte le proprietà. Un criterio di indicizzazione personalizzato con percorsi inclusi o esclusi espliciti utilizzati nei filtri di query può ridurre le UR e l'archiviazione utilizzata per l'indicizzazione. [Altre informazioni sulla modifica dei criteri di indice.](/azure/cosmos-db/index-policy)
 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Impostare le dimensioni della pagina della query Azure Cosmos DB (MaxItemCount) su-1 
 
-Azure Advisor identifica Azure Cosmos DB contenitori che utilizzano una dimensione della pagina di query di 100. Si consiglia di utilizzare una dimensione di pagina pari a-1 per analisi più veloci. [Altre informazioni su MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+Azure Advisor identifica Azure Cosmos DB contenitori che utilizzano una dimensione della pagina di query di 100. Si consiglia di utilizzare una dimensione di pagina pari a-1 per analisi più veloci. [Altre informazioni su MaxItemCount.](../cosmos-db/sql-api-query-metrics.md)
 
 ## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Provare a usare la funzionalità Scritture accelerate nel cluster HBase per migliorare le prestazioni del cluster
 Azure Advisor analizza i registri di sistema negli ultimi 7 giorni e identifica se il cluster ha riscontrato gli scenari seguenti:
 1. Latenza elevata dell'ora di sincronizzazione log write-ahead 
 2. Numero elevato di richieste di scrittura (almeno 3 in un'ora di oltre 1000 avg_write_requests/second/node)
 
-Queste condizioni indicano che il cluster è soggetto a latenze di scrittura elevate. Il problema potrebbe essere dovuto a carichi di lavoro intensivi eseguiti nel cluster. Per migliorare le prestazioni del cluster, è consigliabile usare la funzionalità di scrittura accelerata fornita da Azure HDInsight HBase. La funzionalità scritture accelerate per i cluster HDInsight Apache HBase collega i dischi gestiti da SSD Premium a ogni RegionServer (nodo di lavoro) invece di usare l'archiviazione cloud. Di conseguenza, offre bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni su questa funzionalità, vedere [altre informazioni](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+Queste condizioni indicano che il cluster è soggetto a latenze di scrittura elevate. Il problema potrebbe essere dovuto a carichi di lavoro intensivi eseguiti nel cluster. Per migliorare le prestazioni del cluster, è consigliabile usare la funzionalità di scrittura accelerata fornita da Azure HDInsight HBase. La funzionalità scritture accelerate per i cluster HDInsight Apache HBase collega i dischi gestiti da SSD Premium a ogni RegionServer (nodo di lavoro) invece di usare l'archiviazione cloud. Di conseguenza, offre bassa latenza di scrittura e una migliore resilienza per le applicazioni. Per altre informazioni su questa funzionalità, vedere [altre informazioni](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
 ## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Esaminare la cache della tabella Esplora dati di Azure-periodo (criteri) per migliorare le prestazioni (anteprima)
 Questo consiglio fa emergere le tabelle di Esplora dati di Azure con un numero più elevato di query che si riferiscono al periodo (criteri) configurato per la permanenza nella cache. Verranno visualizzate le 10 tabelle principali per percentuale di cache che accedono ai dati non appartenenti alla cache. Azione consigliata per migliorare le prestazioni del cluster: Limitare le query nella tabella all'intervallo di tempo minimo necessario (entro i criteri definiti). In alternativa, se servono i dati dell'intero intervallo di tempo, aumentare il periodo della cache al valore consigliato.
 
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Migliorare le prestazioni ottimizzando il dimensionamento della tabella temporanea MySQL
-L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Scopri di più](https://aka.ms/azure_mysql_tmp_table)
+L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Altre informazioni](https://aka.ms/azure_mysql_tmp_table)
 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuire i dati nel gruppo di server per la distribuzione del carico di lavoro tra i nodi
-Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Scopri di più](https://go.microsoft.com/fwlink/?linkid=2135201) 
+Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Migliorare l'esperienza utente e la connettività distribuendo VM più vicine al percorso di distribuzione di desktop virtuale Windows
-Si è riscontrato che le macchine virtuali si trovano in un'area diversa o lontana da quella da cui si connettono gli utenti, tramite Desktop virtuale Windows. Questo può comportare tempi di risposta della connessione più lunghi e influisce sull'esperienza utente complessiva in Desktop virtuale Windows. Quando si creano macchine virtuali per i pool di host, è consigliabile tentare di usare un'area più vicina all'utente. Una maggiore vicinanza assicura un'affidabilità costante del servizio Desktop virtuale Windows e una migliore qualità complessiva dell'esperienza. [Altre informazioni sulla latenza di connessione](https://docs.microsoft.com/azure/virtual-desktop/connection-latency)sono disponibili qui.
+Si è riscontrato che le macchine virtuali si trovano in un'area diversa o lontana da quella da cui si connettono gli utenti, tramite Desktop virtuale Windows. Questo può comportare tempi di risposta della connessione più lunghi e influisce sull'esperienza utente complessiva in Desktop virtuale Windows. Quando si creano macchine virtuali per i pool di host, è consigliabile tentare di usare un'area più vicina all'utente. Una maggiore vicinanza assicura un'affidabilità costante del servizio Desktop virtuale Windows e una migliore qualità complessiva dell'esperienza. [Altre informazioni sulla latenza di connessione](../virtual-desktop/connection-latency.md)sono disponibili qui.
 
 ## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Eseguire l'aggiornamento alla versione più recente dell'SDK dello strumento di lettura immersiva
 In questa sottoscrizione sono state rilevate risorse che usano versioni obsolete dell'SDK dello strumento di lettura immersiva. L'uso della versione più recente dell'SDK dello strumento di lettura immersiva offre una maggiore sicurezza, prestazioni più elevate e un set di funzionalità ampliate per la personalizzazione e il miglioramento dell'esperienza di integrazione.
-Scopri di più su [immersive Reader SDK](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+Scopri di più su [immersive Reader SDK](../cognitive-services/immersive-reader/index.yml).
 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Come accedere ai consigli sulle prestazioni in Advisor

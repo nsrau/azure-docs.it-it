@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3357cb40ff476a3cc0bce259930068aeccf2c10c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0849eb0c421883ecb0510451ff81b604538c9cc3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767376"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069892"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gestire un account RunAs di Automazione di Azure
 
@@ -214,7 +214,7 @@ $roleDefinition | Set-AzRoleDefinition
 * Concedere le autorizzazioni a Key Vault.
 * Impostare i criteri di accesso.
 
-È possibile usare lo script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) nella PowerShell Gallery per concedere le autorizzazioni dell'account RunAs a Key Vault. Per ulteriori informazioni sull'impostazione delle autorizzazioni per Key Vault, vedere [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-powershell) .
+È possibile usare lo script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) nella PowerShell Gallery per concedere le autorizzazioni dell'account RunAs a Key Vault. Per ulteriori informazioni sull'impostazione delle autorizzazioni per Key Vault, vedere [assegnare un criterio di accesso key Vault](../key-vault/general/assign-access-policy-powershell.md) .
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Risolvere i problemi di configurazione errata per gli account RunAs
 

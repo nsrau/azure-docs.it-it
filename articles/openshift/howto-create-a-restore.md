@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 0cd6797bcdfadca807e25f8b3decf34bd553fc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac34d643ba0df4be79a064858c580c884de727
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470052"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078562"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Creare un ripristino dell'applicazione cluster Red Hat OpenShift 4 di Azure
 
@@ -23,7 +23,7 @@ In questo articolo si prepara l'ambiente per la creazione di un ripristino dell'
 > * Configurare i prerequisiti e installare gli strumenti necessari
 > * Creare un ripristino dell'applicazione Azure Red Hat OpenShift 4
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -45,7 +45,7 @@ oc get backups -n velero
 Una volta ottenuto il backup che si desidera ripristinare, sarà necessario eseguire il ripristino con il comando seguente:
 
 ```bash
-velero restore create --from-backup <name of backup from above output list>
+velero restore create <name of restore> --from-backup <name of backup from above output list>
 ```
 
 Questo passaggio creerà gli oggetti Kubernetes di cui è stato eseguito il backup dal passaggio precedente durante la creazione di un backup.
@@ -57,14 +57,36 @@ oc get restore -n velero <name of restore created previously> -o yaml
 ```
 Quando la fase indica `Completed` , l'applicazione Azure Red Hat 4 deve essere ripristinata.
 
+## <a name="restore-an-azure-red-hat-openshift-4-application-with-included-snapshots"></a>Ripristinare un'applicazione Azure Red Hat OpenShift 4 con snapshot inclusi
+
+
+Per creare un ripristino di un'applicazione Azure Red Hat OpenShift 4 con volumi permanenti usando Velero, è necessario eseguire il ripristino con il comando seguente:
+
+```bash
+velero restore create <name of the restore> --from-backup <name of backup from above output list> --exclude-resources="nodes,events,events.events.k8s.io,backups.ark.heptio.com,backups.velero.io,restores.ark.heptio.com,restores.velero.io"
+```
+Questo passaggio creerà gli oggetti Kubernetes di cui è stato eseguito il backup dal passaggio precedente durante la creazione di un backup.
+
+Per visualizzare lo stato del ripristino, eseguire il passaggio seguente:
+
+```bash
+oc get restore -n velero <name of restore created previously> -o yaml
+```
+Quando la fase indica `Completed` , l'applicazione Azure Red Hat 4 deve essere ripristinata.
+
+Per altre informazioni su come creare backup e ripristini usando Velero, vedere [backup OpenShift Resources in modalità nativa](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo è stata ripristinata un'applicazione cluster Azure Red Hat OpenShift 4. Si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un ripristino dell'applicazione cluster OpenShift V4 con Velero
+> * Creare un ripristino dell'applicazione cluster OpenShift V4 con snapshot usando Velero
 
 
 Passare all'articolo successivo per informazioni sulle risorse supportate da Azure Red Hat OpenShift 4.
 
 * [Risorse supportate da Azure Red Hat OpenShift V4](supported-resources.md)
+
+

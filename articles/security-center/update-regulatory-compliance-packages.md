@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 306a4773563b829ecad09a021f6763192e8246f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445848"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078103"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzazione del set di standard nel dashboard di conformità alle normative
 
@@ -84,6 +84,31 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
     > La visualizzazione di uno standard appena aggiunto nel dashboard di conformità potrebbe richiedere alcune ore.
 
     [![Dashboard di conformità alle normative che mostra il vecchio e il nuovo standard Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
+
+
+## <a name="removing-a-standard-from-your-dashboard"></a>Rimozione di uno standard dal dashboard
+
+Se uno degli standard normativi forniti non è pertinente per l'organizzazione, si tratta di un processo semplice per rimuoverli semplicemente dall'interfaccia utente. In questo modo è possibile personalizzare ulteriormente il dashboard di conformità alle normative e concentrarsi solo sugli standard applicabili.
+
+Per rimuovere uno standard:
+
+1. Dal menu del Centro sicurezza selezionare **criteri di sicurezza**.
+
+1. Selezionare la sottoscrizione pertinente da cui si desidera rimuovere uno standard.
+
+    > [!NOTE]
+    > È possibile rimuovere uno standard da una sottoscrizione, ma non da un gruppo di gestione. 
+
+    Verrà visualizzata la pagina Criteri di sicurezza. Per la sottoscrizione selezionata, vengono visualizzati i criteri predefiniti, gli standard di settore e normativi e tutte le iniziative personalizzate create.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Rimozione di uno standard normativo dal dashboard di conformità normativa nel centro sicurezza di Azure":::
+
+1. Per lo standard che si desidera rimuovere, selezionare **Disabilita**. Viene visualizzata una finestra di conferma.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Rimozione di uno standard normativo dal dashboard di conformità normativa nel centro sicurezza di Azure":::
+
+1. Selezionare **Sì**. Lo standard verrà rimosso. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
