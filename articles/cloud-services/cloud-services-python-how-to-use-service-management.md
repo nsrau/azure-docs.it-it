@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef155116904ee0d3ecab250a254010e2f7664757
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851512"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073989"
 ---
 # <a name="use-service-management-from-python"></a>Usare la gestione dei servizi da Python
 La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure][management-portal]. È possibile usare questa funzionalità per creare, aggiornare ed eliminare servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali. Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
@@ -123,7 +123,7 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 * Stati Uniti centrali
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
-* Stati Uniti Occidentali
+* Stati Uniti occidentali
 * Stati Uniti orientali
 * Giappone orientale
 * Giappone occidentale
@@ -194,7 +194,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>Creare un servizio di archiviazione
-Un [servizio di archiviazione](../storage/common/storage-create-storage-account.md) consente di accedere a [BLOB](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabelle](../cosmos-db/table-storage-how-to-use-python.md)e [Code](../storage/queues/storage-python-how-to-use-queue-storage.md)di Azure. Per creare un servizio di archiviazione, è necessario un nome per il servizio, compreso tra 3 e 24 caratteri minuscoli e univoco in Azure. Sono inoltre richieste una descrizione, un'etichetta fino a 100 caratteri con codifica base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località:
+Un [servizio di archiviazione](../storage/common/storage-account-create.md) consente di accedere a [BLOB](../storage/blobs/storage-quickstart-blobs-python.md), [tabelle](../cosmos-db/table-storage-how-to-use-python.md)e [Code](../storage/queues/storage-python-how-to-use-queue-storage.md)di Azure. Per creare un servizio di archiviazione, è necessario un nome per il servizio, compreso tra 3 e 24 caratteri minuscoli e univoco in Azure. Sono inoltre richieste una descrizione, un'etichetta fino a 100 caratteri con codifica base64 automatica e una località. Nell'esempio seguente viene illustrato come creare un servizio di archiviazione specificando una località:
 
 ```python
 from azure import *
@@ -446,9 +446,9 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-Per altre informazioni su come acquisire una macchina virtuale Linux nel modello di distribuzione classica, vedere [Acquisire una macchina virtuale Linux](../virtual-machines/linux/classic/capture-image-classic.md).
+Per altre informazioni su come acquisire una macchina virtuale Linux nel modello di distribuzione classica, vedere [Acquisire una macchina virtuale Linux](/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic).
 
-Per altre informazioni su come acquisire una macchina virtuale Windows nel modello di distribuzione classica, vedere [Acquisire una macchina virtuale Windows](../virtual-machines/windows/classic/capture-image-classic.md).
+Per altre informazioni su come acquisire una macchina virtuale Windows nel modello di distribuzione classica, vedere [Acquisire una macchina virtuale Windows](/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic).
 
 ## <a name="next-steps"></a><a name="What's Next"> </a>Passaggi successivi
 Ora che sono state apprese le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente attività complesse per gestire l'applicazione Python.
@@ -474,7 +474,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Python](https:
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: /previous-versions/azure/ee460799(v=azure.100)
 
 
 [cloud service]:/azure/cloud-services/

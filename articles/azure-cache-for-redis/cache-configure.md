@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000191"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089724"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -51,7 +51,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Script di automazione](#automation-script)
 * Amministrazione
     * [Importa dati](#importexport)
-    * [Esporta dati](#importexport)
+    * [Esportazione dei dati](#importexport)
     * [Reboot](#reboot)
 * [Monitoring](#monitoring)
     * [Metriche Redis](#redis-metrics)
@@ -72,7 +72,7 @@ Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cac
 
 ### <a name="access-control-iam"></a>Controllo di accesso (IAM)
 
-La sezione **Controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo nel portale di Azure. Questa configurazione consente alle organizzazioni di soddisfare i propri requisiti di gestione degli accessi in modo semplice e accurato. Per altre informazioni, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../role-based-access-control/role-assignments-portal.md).
+La sezione **controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) nella portale di Azure. Questa configurazione consente alle organizzazioni di soddisfare i propri requisiti di gestione degli accessi in modo semplice e accurato. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure nel portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Tag
 
@@ -291,7 +291,7 @@ Le impostazioni della sezione **Amministrazione** consentono di eseguire le atti
 ![Amministrazione](./media/cache-configure/redis-cache-administration.png)
 
 * [Importa dati](#importexport)
-* [Esporta dati](#importexport)
+* [Esportazione dei dati](#importexport)
 * [Reboot](#reboot)
 
 

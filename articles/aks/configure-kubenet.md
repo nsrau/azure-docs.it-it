@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264610"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072748"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Usare funzionalità di rete kubenet con i propri intervalli di indirizzi IP nel servizio Azure Kubernetes
 
@@ -56,7 +56,7 @@ Con *Azure CNI* ogni pod riceve un indirizzo IP nella subnet IP e può comunicar
 * A differenza dei cluster CNI di Azure, più cluster kubenet non possono condividere una subnet.
 * Le funzionalità **non supportate in kubenet** includono:
    * [Criteri di rete di Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), ma i criteri di rete di calice sono supportati in kubenet
-   * [Pool di nodi di Windows](windows-node-limitations.md)
+   * [Pool di nodi di Windows](./windows-faq.md)
    * [Componente aggiuntivo nodi virtuali](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilità ed esaurimento degli indirizzi IP
