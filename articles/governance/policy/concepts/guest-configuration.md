@@ -1,14 +1,14 @@
 ---
 title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come Criteri di Azure usa l'agente di Configurazione guest per controllare le impostazioni all'interno delle macchine virtuali.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974720"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075485"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -18,8 +18,7 @@ Criteri di Azure consente di controllare le impostazioni all'interno di un compu
 - Configurazione o presenza di applicazioni
 - Impostazioni dell'ambiente
 
-Al momento, la maggior parte dei criteri di Configurazione guest di Criteri di Azure controlla solo le impostazioni all'interno del computer.
-Non vengono invece applicate le configurazioni. L'eccezione è rappresentata da un criterio predefinito [illustrato di seguito](#applying-configurations-using-guest-configuration).
+Al momento, la maggior parte delle definizioni dei criteri di configurazione Guest di criteri di Azure controlla solo le impostazioni all'interno del computer. Non vengono invece applicate le configurazioni. L'eccezione è rappresentata da un criterio predefinito [illustrato di seguito](#applying-configurations-using-guest-configuration).
 
 ## <a name="enable-guest-configuration"></a>Abilita configurazione Guest
 
@@ -59,8 +58,7 @@ Il client di Configurazione guest verifica la presenza di nuovi contenuti ogni c
 
 ## <a name="supported-client-types"></a>Tipi di client supportati
 
-I criteri di Configurazione guest includono le nuove versioni. Le versioni precedenti dei sistemi operativi disponibili in Azure Marketplace vengono escluse se l'agente di configurazione Guest non è compatibile.
-La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azure:
+Le definizioni dei criteri di configurazione Guest sono incluse nelle nuove versioni. Le versioni precedenti dei sistemi operativi disponibili in Azure Marketplace vengono escluse se l'agente di configurazione Guest non è compatibile. La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azure:
 
 |Editore|Nome|Versioni|
 |-|-|-|
@@ -72,7 +70,7 @@ La tabella seguente elenca i sistemi operativi supportati nelle immagini di Azur
 |Red Hat|Red Hat Enterprise Linux|7,4-7,8|
 |SUSE|SLES|12 SP3-SP5|
 
-Le immagini di macchine virtuali personalizzate sono supportate dai criteri di Configurazione guest a condizione che il sistema operativo sia uno di quelli indicati nella tabella precedente.
+Le immagini di macchine virtuali personalizzate sono supportate dalle definizioni dei criteri di configurazione Guest purché siano uno dei sistemi operativi nella tabella precedente.
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
@@ -86,7 +84,7 @@ Per le macchine virtuali che usano reti virtuali per la comunicazione è necessa
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicazione tramite collegamento privato in Azure
 
-Le macchine virtuali possono usare un [collegamento privato](../../../private-link/private-link-overview.md) per la comunicazione con il servizio di configurazione Guest. Applicare il tag con il nome `EnablePrivateNeworkGC` e il valore `TRUE` per abilitare questa funzionalità. Il tag può essere applicato prima o dopo l'applicazione dei criteri di configurazione Guest alla macchina.
+Le macchine virtuali possono usare un [collegamento privato](../../../private-link/private-link-overview.md) per la comunicazione con il servizio di configurazione Guest. Applicare il tag con il nome `EnablePrivateNeworkGC` e il valore `TRUE` per abilitare questa funzionalità. Il tag può essere applicato prima o dopo l'applicazione delle definizioni dei criteri di configurazione Guest al computer.
 
 Il traffico viene instradato tramite l' [indirizzo IP pubblico virtuale](../../../virtual-network/what-is-ip-address-168-63-129-16.md) di Azure per stabilire un canale protetto e autenticato con le risorse della piattaforma Azure.
 
@@ -111,9 +109,9 @@ Se il computer dispone attualmente di un'identità di sistema assegnata dall'ute
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione di Configurazione guest
 
-I criteri di configurazione Guest usano l'effetto **AuditIfNotExists** . Quando viene assegnata la definizione, un servizio back-end gestisce automaticamente il ciclo di vita di tutti i requisiti nel `Microsoft.GuestConfiguration` provider di risorse di Azure.
+Le definizioni dei criteri di configurazione Guest usano l'effetto **AuditIfNotExists** . Quando viene assegnata la definizione, un servizio back-end gestisce automaticamente il ciclo di vita di tutti i requisiti nel `Microsoft.GuestConfiguration` provider di risorse di Azure.
 
-I criteri **AuditIfNotExists** non restituiscono risultati di conformità fino a quando tutti i requisiti non vengono soddisfatti nel computer. I requisiti sono descritti nella sezione [distribuire i requisiti per le macchine virtuali di Azure](#deploy-requirements-for-azure-virtual-machines)
+Le definizioni dei criteri **AuditIfNotExists** non restituiscono risultati di conformità fino a quando tutti i requisiti non vengono soddisfatti nel computer. I requisiti sono descritti nella sezione [distribuire i requisiti per le macchine virtuali di Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
 > In una versione precedente della configurazione Guest, era necessaria un'iniziativa per combinare le definizioni **DeployIfNoteExists** e **AuditIfNotExists** . Le definizioni **DeployIfNotExists** non sono più necessarie. Le definizioni e intiaitives sono etichettate, `[Deprecated]` ma le assegnazioni esistenti continueranno a funzionare. Per informazioni, vedere il post di Blog [relativo alla modifica importante rilasciata per i criteri di controllo della configurazione Guest](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
@@ -138,15 +136,15 @@ Solo la definizione _Configura il fuso orario sui computer Windows_ apporta modi
 Quando si assegnano definizioni che iniziano con _Configura_, è necessario assegnare anche la definizione _Distribuisci i prerequisiti per abilitare i criteri di Configurazione guest nelle macchine virtuali Windows_. Se lo si desidera, è possibile combinare queste definizioni in un'iniziativa.
 
 > [!NOTE]
-> Il criterio di fuso orario predefinito è l'unica definizione che supporta la configurazione delle impostazioni all'interno dei computer e i criteri personalizzati che configurano le impostazioni all'interno dei computer non sono supportati.
+> Il criterio di fuso orario predefinito è l'unica definizione che supporta la configurazione delle impostazioni all'interno dei computer e le definizioni dei criteri personalizzati che configurano le impostazioni all'interno dei computer non sono supportate.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Assegnazione di criteri a computer esterni ad Azure
 
-I criteri di controllo disponibili per Configurazione guest includono il tipo di risorsa **Microsoft.HybridCompute/machines**. Tutti i computer di cui è stato eseguito l'onboarding in [Azure Arc per server](../../../azure-arc/servers/overview.md) inclusi nell'ambito dell'assegnazione dei criteri vengono inclusi automaticamente.
+Le definizioni dei criteri di controllo disponibili per la configurazione Guest includono il tipo di risorsa **Microsoft. HybridCompute/machines** . Tutti i computer di cui è stato eseguito l'onboarding in [Azure Arc per server](../../../azure-arc/servers/overview.md) inclusi nell'ambito dell'assegnazione dei criteri vengono inclusi automaticamente.
 
 ### <a name="multiple-assignments"></a>Assegnazioni multiple
 
-I criteri di Configurazione guest attualmente supportano solo l'assegnazione della stessa assegnazione guest una volta per ogni computer, anche se l'assegnazione dei criteri usa parametri diversi.
+Le definizioni dei criteri di configurazione Guest supportano attualmente solo l'assegnazione della stessa assegnazione Guest una volta per ogni computer, anche se l'assegnazione dei criteri USA parametri diversi.
 
 ## <a name="client-log-files"></a>File di log del client
 
