@@ -1,14 +1,14 @@
 ---
 title: Indice di esempi di criteri
 description: Indice dei criteri predefiniti di Criteri di Azure. Tag delle categorie, conformità alle normative, Key Vault, Kubernetes, configurazione Guest e altro ancora.
-ms.date: 07/20/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9fec7c7b0db554d424f8faee7e4e10e6121f1caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c73273f94822873c410564f13ba43f0b679f0ff
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812523"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077916"
 ---
 # <a name="azure-policy-samples"></a>Esempi di Criteri di Azure
 

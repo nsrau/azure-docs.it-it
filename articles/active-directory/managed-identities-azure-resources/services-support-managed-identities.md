@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843176"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072170"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -212,6 +212,14 @@ Vedere l'elenco seguente per configurare l'identità gestita per le App per la l
 - [Azure portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Modello di Azure Resource Manager](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
+### <a name="azure-machine-learning"></a>Azure Machine Learning 
+
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
+| --- | :-: | :-: | :-: | :-: |
+| Assegnata dal sistema | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
+
+Per altre informazioni, vedere [usare identità gestite con Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
 ### <a name="azure-policy"></a>Criteri di Azure
 

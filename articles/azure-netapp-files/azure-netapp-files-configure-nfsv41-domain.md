@@ -11,14 +11,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325624"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072153"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configurare il dominio predefinito di NFS versione 4.1 per Azure NetApp Files
 
@@ -26,11 +26,11 @@ In NFSv4 è stato introdotto il concetto di dominio di autenticazione. Azure Net
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>Comportamento predefinito del mapping di utenti/gruppi
 
-Il mapping radice per impostazione predefinita `nobody` è l'utente perché il dominio NFSv4 è impostato su `localdomain` . Quando si monta un volume Azure NetApp Files NFSv 4.1 come radice, vengono visualizzate le autorizzazioni per i file come indicato di seguito:  
+Il mapping radice per impostazione predefinita `nobody` è l'utente perché il dominio NFSv4 è impostato su per `localdomain` impostazione predefinita. Quando si monta un volume Azure NetApp Files NFSv 4.1 come radice, vengono visualizzate le autorizzazioni per i file come indicato di seguito:  
 
 ![Comportamento predefinito del mapping di utenti/gruppi per NFSv 4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-Come illustrato nell'esempio precedente, l'utente per `file1` deve essere `root` , ma è associato a per `nobody` impostazione predefinita.  Questo articolo illustra come impostare l' `file1` utente su `root` .  
+Come illustrato nell'esempio precedente, l'utente per `file1` deve essere `root` , ma è associato a per `nobody` impostazione predefinita.  Questo articolo illustra come impostare l' `file1` utente su `root` cambiando l' `idmap Domain` impostazione su `defaultv4iddomain.com` .  
 
 ## <a name="steps"></a>Passaggi 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255299"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072085"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -176,10 +176,10 @@ Se si desidera creare pool di nodi con il runtime Moby (Docker), è possibile om
 
 ## <a name="generation-2-virtual-machines-preview"></a>Macchine virtuali di seconda generazione (anteprima)
 
-Azure supporta [macchine virtuali (Gen2) di seconda generazione](../virtual-machines/windows/generation-2.md). Le macchine virtuali di seconda generazione supportano le funzionalità principali che non sono supportate nelle macchine virtuali di prima generazione (Gen1). Queste funzionalità includono una maggior quantità di memoria, Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM).
+Azure supporta [macchine virtuali (Gen2) di seconda generazione](../virtual-machines/generation-2.md). Le macchine virtuali di seconda generazione supportano le funzionalità principali che non sono supportate nelle macchine virtuali di prima generazione (Gen1). Queste funzionalità includono una maggior quantità di memoria, Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM).
 
 Le macchine virtuali di seconda generazione usano la nuova architettura di avvio basata su UEFI anziché l'architettura basata su BIOS usata dalle macchine virtuali di prima generazione.
-Solo SKU e dimensioni specifiche supportano le VM Gen2. Controllare l' [elenco delle dimensioni supportate](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)per verificare se lo SKU supporta o richiede Gen2.
+Solo SKU e dimensioni specifiche supportano le VM Gen2. Controllare l' [elenco delle dimensioni supportate](../virtual-machines/generation-2.md#generation-2-vm-sizes)per verificare se lo SKU supporta o richiede Gen2.
 
 Inoltre, non tutte le immagini di macchina virtuale supportano Gen2, nelle macchine virtuali AKS Gen2 utilizzeranno la nuova [immagine AKS Ubuntu 18,04](#os-configuration). Questa immagine supporta tutti gli SKU e le dimensioni di Gen2.
 

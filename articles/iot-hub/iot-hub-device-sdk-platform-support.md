@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4081fe8ba97ba2dd27680cf5f0fa60abd59e44a9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87423083"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072272"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Supporto della piattaforma SDK per dispositivi Azure
 
@@ -60,7 +60,7 @@ L' [SDK per dispositivi Python per hub Azure](https://github.com/Azure/azure-iot
 | OS                  | Compilatore                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2,7. *, 3,5 o versione successiva |
-| MacOS High Sierra   | Python 2,7. *, 3,5 o versione successiva |
+| macOS High Sierra   | Python 2,7. *, 3,5 o versione successiva |
 | Famiglia Windows 10   | Python 2,7. *, 3,5 o versione successiva |
 
 Solo Python Version 3.5.3 o versioni successive supportano le API asincrone, è consigliabile usare la versione 3,7 o successiva.
@@ -120,7 +120,7 @@ Microsoft collabora con diversi partner per espandere continuamente l'universo d
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Connessione all'hub Internet senza SDK
 
-Se non si è in grado di usare uno degli SDK per dispositivi dell'hub Internet delle cose, è possibile connettersi direttamente all'hub di Internet delle cose usando le [API REST dell'hub](https://docs.microsoft.com/rest/api/iothub/) tutto da qualsiasi applicazione in grado di inviare e ricevere richieste e risposte HTTPS.
+Se non si è in grado di usare uno degli SDK per dispositivi dell'hub Internet delle cose, è possibile connettersi direttamente all'hub Internet usando un protocollo di comunicazione supportato. Per altre informazioni, vedere [sviluppare senza un SDK di Azure](iot-hub-devguide-no-sdk.md).
 
 ## <a name="support-and-other-resources"></a>Supporto e altre risorse
 
