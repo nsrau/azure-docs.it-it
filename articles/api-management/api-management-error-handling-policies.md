@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243546"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070946"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 
@@ -80,9 +80,9 @@ La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli aut
 
 Quando si verifica un errore e il controllo passa alla `on-error` sezione dei criteri, l'errore viene archiviato nel [contesto. Proprietà LastError](api-management-policy-expressions.md#ContextVariables) , a cui è possibile accedere dai criteri nella `on-error` sezione. LastError ha le seguenti proprietà.
 
-| Nome       | Type   | Descrizione                                                                                               | Obbligatoria |
+| Nome       | Type   | Description                                                                                               | Obbligatoria |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | string | Indica l'elemento in cui si è verificato l'errore. Può essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
+| `Source`   | Stringa | Indica l'elemento in cui si è verificato l'errore. Può essere un criterio o un nome di passaggio della pipeline predefinito.      | Sì      |
 | `Reason`   | string | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No       |
 | `Message`  | string | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
 | `Scope`    | string | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No       |
@@ -190,4 +190,4 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 -   [Criteri di Gestione API](api-management-howto-policies.md)
 -   [Trasformare le API](transform-api.md)
 -   [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
--   [Esempi di criteri](policy-samples.md)
+-   [Esempi di criteri](./policy-reference.md)

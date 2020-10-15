@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053151"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072000"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errori dei dati di Analisi di flusso di Azure
 
@@ -211,6 +211,10 @@ Vedere [risolvere i problemi di analisi di flusso di Azure usando i log di diagn
 ```
 
 ## <a name="output-data-errors"></a>Errori dati di output
+
+Analisi di flusso di Azure consente di identificare gli errori dei dati di output con o senza una richiesta di I/O al sink di output a seconda della configurazione. Ad esempio, manca una colonna obbligatoria, ad esempio  `PartitionKey` , quando si usa l'output della tabella di Azure può essere identificata senza una richiesta di I/O. Tuttavia, le violazioni di vincolo nell'output SQL richiedono una richiesta di I/O.
+
+Esistono diversi errori relativi ai dati che possono essere rilevati solo dopo l'esecuzione di una chiamata al sink di output, in modo da rallentare l'elaborazione. Per risolvere il problema, modificare la configurazione del processo o la query che sta causando l'errore dei dati.
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 

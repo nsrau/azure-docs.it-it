@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 831fc28711a181d45a8c69e3f46056604b30649e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83742224"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089469"
 ---
 # <a name="glossary"></a>Glossario
 
@@ -53,7 +53,7 @@ L'elenco seguente descrive le parole comuni usate con i servizi di Mappe di Azur
 
 <a name="azure-location-based-services-lbs"></a> **Servizi Location Based di Azure**: nome precedente di Mappe di Azure, usato durante la fase di anteprima.
 
-<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)** : Azure AD è il servizio Microsoft basato sul cloud per la gestione delle identità e degli accessi. L'integrazione di Azure AD con Mappe di Azure è attualmente disponibile in anteprima per tutte le API Mappe di Azure. Azure AD supporta il controllo degli accessi in base al ruolo per consentire l'accesso con granularità fine alle risorse di Mappe di Azure. Per altre informazioni sull'integrazione di Mappe di Azure e Azure AD, vedere [Mappe di Azure e Azure AD](azure-maps-authentication.md) e [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)** : Azure AD è il servizio Microsoft basato sul cloud per la gestione delle identità e degli accessi. L'integrazione di Azure AD con Mappe di Azure è attualmente disponibile in anteprima per tutte le API Mappe di Azure. Azure AD supporta il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per consentire l'accesso con granularità fine alle risorse di Azure maps. Per altre informazioni sull'integrazione di Mappe di Azure e Azure AD, vedere [Mappe di Azure e Azure AD](azure-maps-authentication.md) e [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
 
 <a name="azure-maps-key"></a> **Chiave di Mappe di Azure**: vedere [Autenticazione con chiave condivisa](#shared-key-authentication).
 

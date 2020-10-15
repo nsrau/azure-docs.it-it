@@ -3,12 +3,12 @@ title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985516"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092308"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -24,7 +24,7 @@ I destinatari primari di questo articolo sono gli amministratori IT e delle appl
 
 Sebbene sia facile iniziare a proteggere l'infrastruttura e le applicazioni in Azure, quando si garantisce che le risorse di Azure sottostanti siano configurate correttamente e utilizzate in modo ottimale, è possibile accelerare il time-to-value. Questo articolo illustra una breve panoramica delle considerazioni sulla progettazione e delle linee guida per la configurazione ottimale della distribuzione di backup di Azure. Esamina i componenti di base (ad esempio, l'insieme di credenziali dei servizi di ripristino, i criteri di backup) e i concetti (ad esempio, la governance) e come pensarli e le relative funzionalità con collegamenti alla documentazione dettagliata del prodotto.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 ![Architettura di Backup di Azure](./media/guidance-best-practices/azure-backup-architecture.png)
 
@@ -42,13 +42,13 @@ Backup di Azure consente la protezione dei dati per diversi carichi di lavoro (i
 
 * **Protezione da eliminazioni dannose:** Proteggi da eventuali tentativi accidentali e dannosi di eliminare i backup tramite l'eliminazione temporanea dei backup. I dati di backup eliminati vengono archiviati per 14 giorni senza costi aggiuntivi e consentono il ripristino da questo stato.
 
-* **Backup crittografati sicuri-** Backup di Azure garantisce che i dati di backup vengano archiviati in modo sicuro, sfruttando le funzionalità di sicurezza predefinite della piattaforma Azure, ad esempio RBAC e la crittografia.
+* **Backup crittografati sicuri-** Backup di Azure garantisce che i dati di backup vengano archiviati in modo sicuro, sfruttando le funzionalità di sicurezza predefinite della piattaforma Azure, ad esempio il controllo degli accessi in base al ruolo e la crittografia di Azure.
 
 * **Gestione del ciclo di vita dei dati di backup-** Backup di Azure pulisce automaticamente i dati di backup meno recenti per conformarsi ai criteri di conservazione. È anche possibile eseguire la suddivisione in livelli dei dati dall'archiviazione operativa all'archiviazione dell'insieme di credenziali.
 
 ### <a name="management-plane"></a>Piano di gestione
 
-* **Controllo degli accessi** : gli insiemi di credenziali (servizi di ripristino e insiemi di credenziali di backup) forniscono le funzionalità di gestione e sono accessibili tramite il portale di Azure, il centro di backup, i dashboard dell'insieme di credenziali, l'SDK, l'interfaccia della riga di comando e persino Si tratta anche di un limite RBAC, che consente di limitare l'accesso ai backup solo agli amministratori di backup autorizzati.
+* **Controllo degli accessi** : gli insiemi di credenziali (servizi di ripristino e insiemi di credenziali di backup) forniscono le funzionalità di gestione e sono accessibili tramite il portale di Azure, il centro di backup, i dashboard dell'insieme di credenziali, l'SDK, l'interfaccia della riga di comando e persino Si tratta anche di un limite di controllo degli accessi in base al ruolo di Azure, che offre la possibilità di limitare l'accesso ai backup solo agli amministratori di backup autorizzati.
 
 * **Gestione dei criteri** : i criteri di backup di Azure in ogni insieme di credenziali definiscono quando devono essere attivati i backup e per quanto tempo devono essere conservati. È anche possibile gestire questi criteri e applicarli tra più elementi.
 
