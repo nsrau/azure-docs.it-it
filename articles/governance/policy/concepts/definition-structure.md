@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b6cb1b9e9a57fb3278ec931364bc355258d649d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019954"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074261"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -111,7 +111,7 @@ La modalità del provider di risorse seguente è completamente supportata:
 Le modalità del provider di risorse seguenti sono attualmente supportate come **Anteprima**:
 
 - `Microsoft.ContainerService.Data` per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). Le definizioni che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Questa modalità è _deprecata_.
-- `Microsoft.KeyVault.Data` per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md). Per altre informazioni su queste definizioni di criteri, vedere [integrare Azure Key Vault con criteri di Azure](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
 > Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le [esenzioni](./exemption-structure.md).
@@ -189,7 +189,7 @@ Questo esempio fa riferimento al parametro **allowedLocations** illustrato nella
 
 ### <a name="strongtype"></a>strongType
 
-Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **strongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Il formato di un _tipo di risorsa_ **strongType** è `<Resource Provider>/<Resource Type>` . Ad esempio: `Microsoft.Network/virtualNetworks/subnets`.
+Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **strongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Il formato di un _tipo di risorsa_ **strongType** è `<Resource Provider>/<Resource Type>` . Ad esempio, `Microsoft.Network/virtualNetworks/subnets`
 
 Alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** sono supportati. Questi tipi sono:
 
@@ -609,8 +609,20 @@ Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **Range**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
+    - **targetRange proviene**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
+
+    Restituisce un valore che indica se l'intervallo di indirizzi IP specificato contiene l'intervallo di indirizzi IP di destinazione. Gli intervalli vuoti o la combinazione tra famiglie IP non sono consentiti e genera un errore di valutazione.
+
+    Formati supportati:
+    - Singolo indirizzo IP (esempi: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+    - Intervallo CIDR (esempi: `10.0.0.0/24` , `2001:0DB8::/110` )
+    - Intervallo definito dagli indirizzi IP di inizio e fine (esempi: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+
+
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
 Questo esempio di regola dei criteri usa la `resourceGroup` funzione risorsa per ottenere la proprietà **name**, in combinazione con la matrice `concat` e la funzione oggetto per creare una condizione `like` che fa in modo che il nome della risorsa inizi con il nome del gruppo di risorse.

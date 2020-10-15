@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997932"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857436"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Esercitazione: Creare e distribuire moduli IoT Edge personalizzati
 
@@ -809,14 +809,6 @@ Accedendo al dispositivo IoT Edge (in questo caso la VM Linux), è possibile tro
 In questo articolo è stata creata una soluzione IoT Edge in Visual Studio Code con tre moduli, ossia un classificatore, un router e un writer/strumento di caricamento file. Sono state configurate le route per consentire le comunicazioni tra i moduli nel dispositivo perimetrale. È stata modificata la configurazione di tale dispositivo e sono stati aggiornati i Dockerfile per installare le dipendenze e aggiungere bind mount ai contenitori dei moduli. 
 
 In seguito è stata aggiornata la configurazione dell'hub IoT per instradare i messaggi in base al tipo e per gestire il caricamento dei file. Dopo aver implementato il tutto, i moduli sono stati distribuiti nel dispositivo IoT Edge, verificando se vengono eseguiti correttamente.
-
-Per altre indicazioni, vedere gli articoli seguenti:
-
-* [Informazioni su come distribuire moduli e definire route in IoT Edge](module-composition.md)
-* [Sintassi query per il routing dei messaggi di hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [Routing dei messaggi dell'hub IoT di Azure: ora disponibile il routing nel corpo del messaggio](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [Caricare file con l'hub IoT](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Caricare file da un dispositivo al cloud con l'hub IoT](../iot-hub/iot-hub-python-python-file-upload.md)
 
 Continuare con l'articolo successivo per iniziare a inviare dati e vedere come funziona la soluzione.
 
