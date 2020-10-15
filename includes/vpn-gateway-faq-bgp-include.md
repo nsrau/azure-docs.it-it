@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025191"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082181"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP è supportato in tutti gli SKU del gateway VPN di Azure?
 BGP è supportato in tutti gli SKU del gateway VPN ad eccezione dello SKU Basic.
@@ -108,3 +108,6 @@ Sì.
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Cosa è necessario aggiungere al dispositivo VPN locale per la sessione di peering BGP?
 È necessario aggiungere una route host dell'indirizzo IP del peer BGP di Azure nel dispositivo VPN che punta al tunnel VPN S2S IPsec. Ad esempio, se l'indirizzo IP del peer VPN di Azure è "10.12.255.30", è necessario aggiungere una route host per "10.12.255.30" con un'interfaccia nexthop dell'interfaccia del tunnel IPsec corrispondente nel dispositivo VPN.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>Il gateway di rete virtuale supporta il rilevamento dell'inoltro bidirezionale (BFD) per le connessioni da sito a sito con BGP?
+No. Il rilevamento dell'inoltro bidirezionale (BFD) è un protocollo che può essere usato unitamente a BGP per rilevare l'inattività di vicini più rapidamente rispetto ai keep-alive BGP standard. BFD usa timer di frazioni di secondo progettati per funzionare in ambienti LAN, ma non in connessioni tramite Internet pubblico o reti WAN. Per le connessioni tramite Internet pubblico, la presenza di alcuni pacchetti ritardati o addirittura eliminati non è insolita, di conseguenza l'introduzione di questi timer aggressivi potrebbe aggiungere instabilità che potrebbero causare la conseguente attenuazione delle route da parte di BGP. In alternativa, è possibile configurare il dispositivo locale con timer di durata inferiore all'intervallo di attesa di keep-alive predefinito di 60 secondi e il timer di attesa di 180 secondi per un tempo di convergenza più rapido.

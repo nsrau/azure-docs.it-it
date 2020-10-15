@@ -5,6 +5,7 @@
     - name: Che cos'è Azure Bastion?
       href: bastion-overview.md
 - name: Avvi rapidi
+  expanded: true
   items:
     - name: Creare un host usando le impostazioni della macchina virtuale
       href: quickstart-host-portal.md
@@ -69,7 +70,7 @@
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Contratto di servizio in anteprima
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: Contratto di servizio

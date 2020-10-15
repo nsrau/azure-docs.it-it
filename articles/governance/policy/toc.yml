@@ -240,6 +240,8 @@
           href: /rest/api/resources/policyassignments
         - name: Definizioni dei criteri
           href: /rest/api/resources/policydefinitions
+        - name: Esenzioni dei criteri
+          href: /rest/api/resources/policyexemptions
         - name: Definizioni delle iniziative
           href: /rest/api/resources/policysetdefinitions
         - name: Risorse monitorate dai criteri

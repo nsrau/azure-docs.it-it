@@ -6,19 +6,19 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: Advisor metriche è una piattaforma di monitoraggio delle serie temporali che fornisce un set di API per l'inserimento dei dati, il rilevamento delle anomalie e la diagnostica, anche senza conoscere l'apprendimento automatico.
-  author: aahill
+  author: mrbullwinkle
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: metrics-advisor
   ms.topic: landing-page
   ms.date: 08/13/2020
-  ms.author: aahi
-  ms.openlocfilehash: f30f45b8a683d9403973517ee4558be9cd4be664
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.author: mbullwin
+  ms.openlocfilehash: 71548974c3ea1d136a307d90a7747c788e7a1bb2
+  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90928826"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92046129"
 landingContent:
 - title: Informazioni su Advisor metriche
   linkLists:

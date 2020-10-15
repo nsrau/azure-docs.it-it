@@ -214,6 +214,8 @@
           href: log-query/scope.md
         - name: Esperienza Log semplice
           href: log-query/simple-logs.md
+        - name: Eseguire query con Esplora dati di Azure
+          href: platform/azure-data-explorer-monitor-proxy.md
         - name: Query di log
           items:
             - name: Colonne standard
@@ -303,6 +305,14 @@
               href: platform/service-providers.md
             - name: Cluster Hub eventi Dedicato
               href: log-query/logs-dedicated-clusters.md
+        - name: Esportazione dei dati
+          items:
+            - name: Esportazione di dati dell'area di lavoro
+              href: platform/logs-data-export.md
+            - name: Esportare con App per la logica
+              href: platform/logs-export-logic-app.md
+            - name: Eseguire query sui dati esportati con Esplora dati
+              href: platform/azure-data-explorer-query-storage.md
     - name: Esplora metriche
       items:
         - name: Introduzione a Esplora metriche
