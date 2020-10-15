@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715446"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074958"
 ---
 # <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
 
@@ -45,11 +45,11 @@ Sì. La configurazione dell'app crittografa tutti i valori di chiave che possied
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>Dove si trovano i dati archiviati nella configurazione dell'app? 
 
-I dati dei clienti archiviati nella configurazione dell'app si trovano nell'area in cui è stato creato l'archivio di configurazione dell'app del cliente. La configurazione dell'app può replicare i dati nelle [aree abbinate](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) per la resilienza dei dati, ma non eseguirà la replica o lo spostamento dei dati del cliente all'esterno dell'area geografica, come definito dalla [residenza dei dati](https://azure.microsoft.com/global-infrastructure/data-residency/) I clienti e gli utenti finali possono spostare, copiare o accedere ai dati dei clienti da qualsiasi posizione a livello globale.
+I dati dei clienti archiviati nella configurazione dell'app si trovano nell'area in cui è stato creato l'archivio di configurazione dell'app del cliente. La configurazione dell'app può replicare i dati nelle [aree abbinate](../best-practices-availability-paired-regions.md) per la resilienza dei dati, ma non eseguirà la replica o lo spostamento dei dati del cliente all'esterno dell'area geografica, come definito dalla [residenza dei dati](https://azure.microsoft.com/global-infrastructure/data-residency/) I clienti e gli utenti finali possono spostare, copiare o accedere ai dati dei clienti da qualsiasi posizione a livello globale.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>In che modo la configurazione delle app è diversa dalle impostazioni del servizio app Azure?
 
-App Azure servizio consente di definire le impostazioni dell'app per ogni istanza del servizio app. Queste impostazioni vengono passate come variabili di ambiente al codice dell'applicazione. Se lo si desidera, è possibile associare un'impostazione a uno slot di distribuzione specifico. Per altre informazioni, vedere [configurare le impostazioni dell'app](/azure/app-service/configure-common#configure-app-settings).
+App Azure servizio consente di definire le impostazioni dell'app per ogni istanza del servizio app. Queste impostazioni vengono passate come variabili di ambiente al codice dell'applicazione. Se lo si desidera, è possibile associare un'impostazione a uno slot di distribuzione specifico. Per altre informazioni, vedere [configurare le impostazioni dell'app](../app-service/configure-common.md#configure-app-settings).
 
 Al contrario, la configurazione di app Azure consente di definire le impostazioni che possono essere condivise tra più app. Sono incluse le app in esecuzione nel servizio app e altre piattaforme. Il codice dell'applicazione accede a queste impostazioni tramite i provider di configurazione per .NET e Java, tramite Azure SDK o direttamente tramite le API REST.
 
@@ -111,7 +111,7 @@ Quando un negozio raggiunge il limite, restituirà il codice di stato HTTP 429 p
 
 Se l'applicazione presenta regolarmente risposte con codice di stato HTTP 429, provare a riprogettarla per ridurre il numero di richieste effettuate. Per altre informazioni, vedere [ridurre le richieste effettuate alla configurazione dell'app](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
 
-## <a name="my-application-receives-http-status-code-429-responses-why"></a>L'applicazione riceve il codice di stato HTTP 429 risposte. Perché?
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>L'applicazione riceve il codice di stato HTTP 429 risposte. Questo problema dipende
 
 Si riceverà una risposta con codice di stato HTTP 429 in queste circostanze:
 

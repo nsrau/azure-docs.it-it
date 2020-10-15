@@ -12,10 +12,10 @@ ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332390"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Esempio: Usare la funzionalità su larga scala

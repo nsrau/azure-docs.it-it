@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: aa33106f200b2edb3b710c6b0e08208bd4da8ace
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932261"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089316"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -80,9 +80,9 @@ Sì, è possibile configurare fino a cinque regole in un singolo criterio di esp
 
 No, attualmente non è possibile applicare gruppi di sicurezza di rete alla subnet delegata di Azure NetApp Files o alle interfacce di rete create dal servizio.
 
-### <a name="can-i-use-azure-iam-with-azure-netapp-files"></a>È possibile usare Azure IAM con Azure NetApp Files?
+### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>È possibile usare il controllo degli accessi in base al ruolo con Azure NetApp Files
 
-Sì, Azure NetApp Files supporta le funzionalità RBAC con Azure IAM.
+Sì, Azure NetApp Files supporta le funzionalità RBAC di Azure.
 
 ## <a name="performance-faqs"></a>Domande frequenti sulle prestazioni
 
