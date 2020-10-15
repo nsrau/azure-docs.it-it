@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263233"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075706"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Prerequisiti per la creazione di Gruppi di disponibilità Always On in SQL Server in macchine virtuali di Azure
 
@@ -420,6 +420,10 @@ A questo punto è possibile aggiungere la macchina virtuale a **corp.contoso.com
 7. Quando viene visualizzato il messaggio "Benvenuto nel dominio corp.contoso.com", fare clic su **OK**.
 8. Selezionare **Chiudi**, quindi fare clic su **Riavvia ora** nella finestra di dialogo popup.
 
+## <a name="add-accounts"></a>Aggiungere account
+
+Aggiungere l'account di installazione come amministratore in ogni macchina virtuale, concedere l'autorizzazione per l'account di installazione e gli account locali all'interno SQL Server e aggiornare l'account del servizio di SQL Server. 
+
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>Aggiungere l'utente Corp\Install come amministratore in ogni VM del cluster
 
 Dopo l'avvio di ogni macchina virtuale come membro del dominio, aggiungere **CORP\Install** come membro del gruppo di amministratori locale.
@@ -438,16 +442,6 @@ Dopo l'avvio di ogni macchina virtuale come membro del dominio, aggiungere **COR
 7. Selezionare **OK** per chiudere la finestra di dialogo **Proprietà amministratore** .
 8. Ripetere i passaggi precedenti in **sqlserver-1** e **cluster-fsw**.
 
-### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Impostare gli account del servizio SQL Server
-
-Impostare l'account del servizio SQL Server in ogni macchina virtuale di SQL Server. Usare gli account creati in fase di configurazione degli account di dominio.
-
-1. Aprire **Gestione configurazione SQL Server**.
-2. Fare clic con il pulsante destro del mouse sul servizio SQL Server, quindi scegliere **Proprietà**.
-3. Impostare l'account e la password.
-4. Ripetere questi passaggi per l'altra VM di SQL Server.  
-
-Per i gruppi di disponibilità di SQL Server, ogni VM di SQL Server deve essere eseguita come account di dominio.
 
 ### <a name="create-a-sign-in-on-each-sql-server-vm-for-the-installation-account"></a>Creare un accesso in ogni macchina virtuale di SQL Server per l'account di installazione
 
@@ -467,13 +461,54 @@ Usare l'account di installazione (CORP\install) per configurare il gruppo di dis
 
 1. Immettere le credenziali di rete dell'amministratore di dominio.
 
-1. Usare l'account di installazione.
+1. Usare l'account di installazione (CORP\install).
 
 1. Impostare l'account di accesso come membro del ruolo del server predefinito **sysadmin**.
 
 1. Selezionare **OK**.
 
 Ripetere i passaggi precedenti nell'altra VM di SQL Server.
+
+### <a name="configure-system-account-permissions"></a>Configurare le autorizzazioni dell'account di sistema
+
+Per creare un account per l'account di sistema e concedere le autorizzazioni appropriate, completare questa procedura in ogni istanza di SQL Server:
+
+1. Creare un account per `[NT AUTHORITY\SYSTEM]` in ogni istanza di SQL Server. Lo script seguente crea questo account:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Concedere le autorizzazioni seguenti a `[NT AUTHORITY\SYSTEM]` in ogni istanza di SQL Server:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   Lo script seguente concede queste autorizzazioni:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Impostare gli account del servizio SQL Server
+
+Impostare l'account del servizio SQL Server in ogni macchina virtuale di SQL Server. Usare gli account creati in fase di configurazione degli account di dominio.
+
+1. Aprire **Gestione configurazione SQL Server**.
+2. Fare clic con il pulsante destro del mouse sul servizio SQL Server, quindi scegliere **Proprietà**.
+3. Impostare l'account e la password.
+4. Ripetere questi passaggi per l'altra VM di SQL Server.  
+
+Per i gruppi di disponibilità di SQL Server, ogni VM di SQL Server deve essere eseguita come account di dominio.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Aggiungere le funzionalità del cluster di failover a entrambe le VM di SQL Server
 
@@ -524,35 +559,6 @@ Il metodo per aprire le porte dipende dalla soluzione firewall in uso. La sezion
 
 Ripetere questi passaggi per la seconda VM di SQL Server.
 
-## <a name="configure-system-account-permissions"></a>Configurare le autorizzazioni dell'account di sistema
-
-Per creare un account per l'account di sistema e concedere le autorizzazioni appropriate, completare questa procedura in ogni istanza di SQL Server:
-
-1. Creare un account per `[NT AUTHORITY\SYSTEM]` in ogni istanza di SQL Server. Lo script seguente crea questo account:
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. Concedere le autorizzazioni seguenti a `[NT AUTHORITY\SYSTEM]` in ogni istanza di SQL Server:
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   Lo script seguente concede queste autorizzazioni:
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
