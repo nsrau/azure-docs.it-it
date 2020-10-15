@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077865"
+ms.locfileid: "92089367"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -55,7 +55,7 @@ Dopo aver configurato il dashboard, il passaggio successivo consiste nel pubblic
 
 ![condivisione di un dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selezionando **Condividi** viene richiesto di scegliere la sottoscrizione e il gruppo di risorse in cui eseguire la pubblicazione. È necessario avere accesso in scrittura alla sottoscrizione e al gruppo di risorse scelti. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo usando RBAC di Azure e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+Selezionando **Condividi** viene richiesto di scegliere la sottoscrizione e il gruppo di risorse in cui eseguire la pubblicazione. È necessario avere accesso in scrittura alla sottoscrizione e al gruppo di risorse scelti. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![modificare la condivisione e l'accesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

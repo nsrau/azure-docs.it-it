@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597846"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073972"
 ---
 # <a name="understand-linked-sign-on"></a>Informazioni sull'accesso collegato
 
@@ -35,7 +35,7 @@ Di seguito sono riportati alcuni scenari comuni in cui l'opzione di collegamento
 
 Per velocizzare la conoscenza, esaminare la [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Nella Guida introduttiva, in cui è possibile configurare Single Sign-On, sarà anche presente l'opzione **collegata** . 
 
-L'opzione **collegata** non fornisce funzionalità di accesso tramite Azure ad. L'opzione imposta semplicemente il percorso a cui gli utenti verranno inviati quando selezionano l'app nelle app [personali](https://myapps.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.
+L'opzione **collegata** non fornisce funzionalità di accesso tramite Azure ad. L'opzione imposta semplicemente il percorso a cui gli utenti verranno inviati quando selezionano l'app nelle app [personali](https://myapps.microsoft.com/) o nell'utilità di avvio dell'app Microsoft 365.  Poiché l'accesso non fornisce funzionalità di accesso tramite Azure AD, l'accesso condizionale non è disponibile per le applicazioni configurate con Single Sign-On collegati.
 
 > [!IMPORTANT] 
 > Esistono alcuni scenari in cui l'opzione **Single Sign-on** non verrà spostata per un'applicazione nelle **applicazioni aziendali**. 

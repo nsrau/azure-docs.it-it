@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8bf74994a07d69bbe53ec9a7e18f08b4232298bd
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8ecf37f9aa8a378e37e01cf6218f0f69e4e3bd7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552952"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
 
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di iQualify LMS](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
     | |
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di iQualify LMS](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
     | |
@@ -129,7 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
 
 6. L'applicazione iQualify LMS prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra il riquadro Attributi utente con l'icona di modifica selezionata.](common/edit-attribute.png)
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
@@ -142,9 +142,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con iQualify LMS, seguire q
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot che mostra il riquadro Attestazioni utente con l'opzione per aggiungere una nuova attestazione.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Screenshot che mostra la finestra di dialogo Gestisci attestazioni utente in cui è possibile immettere i valori descritti.](common/new-attribute-details.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 

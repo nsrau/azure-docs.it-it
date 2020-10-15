@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 102248882e1ec123ee74eedd74730c12a991fb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2c21d85d1b88f33ff696ba1d230d34bbd6945d1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021188"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091679"
 ---
 # <a name="create-an-account-sas-with-net"></a>Creare una firma di accesso condiviso con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare la chiave dell'account di archiviazione per creare una firma di accesso condiviso dell'account con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Questo articolo illustra come usare la chiave dell'account di archiviazione per creare una firma di accesso condiviso dell'account con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="create-an-account-sas"></a>Creare un SAS dell'account
 

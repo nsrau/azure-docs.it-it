@@ -10,18 +10,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f54b91ab1ea4521c17a3b40c88214f5637ab47a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cf137eae9e026f4854034efe1565dc8f7f0b35d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021613"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091662"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Panoramica
-La [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento in archiviazione di Azure e la decrittografia dei dati durante il download nel client. La libreria supporta anche l'integrazione con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi dell'account di archiviazione.
+La [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage) supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento in archiviazione di Azure e la decrittografia dei dati durante il download nel client. La libreria supporta anche l'integrazione con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi dell'account di archiviazione.
 
 Per un'esercitazione dettagliata che guidi l'utente attraverso il processo di crittografia dei BLOB mediante la crittografia lato client e l'insieme di credenziali delle chiavi di Azure, vedere [Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite l'insieme di credenziali chiave di Azure](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 

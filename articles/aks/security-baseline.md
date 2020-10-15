@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d3adc3dd0e0b7e9f964326f5e637b0fefb2cd173
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938460"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072867"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Baseline della sicurezza di Azure per il servizio Azure Kubernetes
 
@@ -165,7 +165,7 @@ Usare anche le definizioni di criteri predefinite correlate a AKS, ad esempio:
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/#network)
+- [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -178,9 +178,9 @@ Usare una qualsiasi delle definizioni correlate all'assegnazione di tag dei crit
 
 Scegliere di consentire o negare percorsi di rete specifici all'interno del cluster in base agli spazi dei nomi e ai selettori di etichette con i criteri di rete. Usare questi spazi dei nomi ed etichette come descrittori per le regole di configurazione del traffico. Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag.
 
-- [Criteri di Azure con interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest)
+- [Criteri di Azure con interfaccia della riga di comando](/cli/azure/policy?view=azure-cli-latest)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 - [Come creare un gruppo di sicurezza di rete con una configurazione di sicurezza](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -196,7 +196,7 @@ In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apporta
 
 Usare i log di monitoraggio di Azure per abilitare ed eseguire query sui log da AKS The Master Components, Kube-apiserver e Kube-Controller-Manager. Creare e gestire i nodi che eseguono kubelet con il runtime del contenitore e distribuire le applicazioni tramite il server API Kubernetes gestito. 
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -322,7 +322,7 @@ Per la risoluzione dei problemi relativi all'applicazione e ai servizi, visualiz
 
 **Indicazioni**: usare Azure Kubernetes Service (AKS) insieme al centro sicurezza per ottenere una maggiore visibilità sui nodi AKS. Esaminare gli avvisi del Centro sicurezza per le minacce e le attività dannose rilevate nell'host e a livello di cluster. Il Centro sicurezza implementa l'analisi continua degli eventi di sicurezza non elaborati che si verificano in un cluster AKS, ad esempio i dati di rete, la creazione di processi e il registro di controllo di Kubernetes. Determinare se questa attività è un comportamento previsto o se l'applicazione non funziona correttamente. Usare le metriche e i log in monitoraggio di Azure per convalidare i risultati. 
 
-- [Informazioni sull'integrazione dei servizi Kubernetes di Azure con il Centro sicurezza](/azure/security-center/azure-kubernetes-service-integration)
+- [Informazioni sull'integrazione dei servizi Kubernetes di Azure con il Centro sicurezza](../security-center/defender-for-kubernetes-introduction.md)
 
 - [Come abilitare il livello standard del Centro sicurezza di Azure](../security-center/security-center-get-started.md)
 
@@ -380,9 +380,9 @@ Eseguire query ad hoc per individuare gli account che sono membri dei gruppi amm
 
 Usare l'interfaccia della riga di comando di Azure per operazioni come ' ottenere le credenziali di accesso per un cluster Kubernetes gestito ' per facilitare la riconciliazione dell'accesso a intervalli regolari. Implementare questo processo per memorizzare un inventario aggiornato degli account del servizio, un altro tipo di utente primario in AKS. Applicare le raccomandazioni relative alla gestione delle identità e dell'accesso del Centro sicurezza.
 
-- [Come integrare AKS con Azure AD](/azure/aks/azure-ad-integration)
+- [Come integrare AKS con Azure AD](./azure-ad-integration-cli.md)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Come monitorare l'identità e l'accesso con il Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -457,7 +457,7 @@ Abilitare Azure AD Multi-Factor Authentication (multi-factor authentication) e s
 
 **Indicazioni**: usare i report di sicurezza Azure Active Directory (Azure ad) con l'autenticazione Azure ad integrata per il servizio Azure KUBERNETES (AKS). Gli avvisi possono essere generati quando si verifica un'attività sospetta o non sicura nell'ambiente. Usare il Centro sicurezza per monitorare le attività di identità e accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come monitorare l'identità degli utenti e l'attività di accesso nel centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -487,7 +487,7 @@ Usare i ruoli predefiniti di AKS con il controllo degli accessi in base al ruolo
 
 - [Panoramica dei criteri di Azure](../governance/policy/overview.md)
 
-- [Come integrare Azure AD con AKS](/azure/aks/azure-ad-integration) 
+- [Come integrare Azure AD con AKS](./azure-ad-integration-cli.md) 
 
 - [Integrare Azure AD gestiti da AKS](managed-aad.md)
 
@@ -528,7 +528,7 @@ Tenere presente i ruoli usati a scopo di supporto o per la risoluzione dei probl
 
 **Linee guida**: integrare l'autenticazione utente per il servizio Azure KUBERNETES (AKS) con Azure Active Directory (Azure ad). Usare i rilevamenti dei rischi e la funzionalità di protezione delle identità di Azure AD per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inserire i dati in Sentinel di Azure per ulteriori indagini in base alle esigenze aziendali.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -555,7 +555,7 @@ Tenere presente i ruoli usati a scopo di supporto o per la risoluzione dei probl
 
 **Indicazioni**: usare i tag sulle risorse correlate alle distribuzioni di Azure Kubernetes Service (AKS) per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 - [Aggiornare i tag per i cluster gestiti](/rest/api/aks/managedclusters/updatetags)
 
@@ -573,7 +573,7 @@ Implementare sottoscrizioni e/o gruppi di gestione distinti per ambienti di svil
 
 - [Informazioni sulle procedure consigliate per l'isolamento del cluster in AKS](operator-best-practices-cluster-isolation.md)
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
 - [Informazioni sulle procedure consigliate per la sicurezza e la connettività di rete in AKS](operator-best-practices-network.md)
 
@@ -589,7 +589,7 @@ Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei 
 
 - [Elenco di porte, indirizzi e nomi di dominio obbligatori per la funzionalità AKS](limit-egress-traffic.md)
 
-- [Come configurare le impostazioni di diagnostica per il firewall di Azure](/azure/firewall/tutorial-diagnostics)
+- [Come configurare le impostazioni di diagnostica per il firewall di Azure](../firewall/firewall-diagnostics.md)
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -677,7 +677,7 @@ Usare log attività di Azure per monitorare i cluster AKS e le risorse correlate
 
 - [Come abilitare monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-onboard.md)
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -695,11 +695,11 @@ Ricevere una notifica nel dashboard del Centro sicurezza quando vengono rilevati
 
 Usare il Centro sicurezza per le raccomandazioni di utilità pratica per ogni vulnerabilità. Questi consigli includono una classificazione di gravità e linee guida per la correzione. 
 
-- [Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore nel servizio Azure Kubernetes](/azure/security-center/azure-container-registry-integration)
+- [Procedure consigliate per la gestione e la sicurezza delle immagini del contenitore nel servizio Azure Kubernetes](../security-center/defender-for-container-registries-introduction.md)
 
 - [Informazioni sulle procedure consigliate per la gestione e la sicurezza delle immagini del contenitore in AKS](operator-best-practices-container-image-management.md)
 
-- [Informazioni sull'integrazione del registro contenitori con il Centro sicurezza di Azure](/azure/security-center/azure-container-registry-integration)
+- [Informazioni sull'integrazione del registro contenitori con il Centro sicurezza di Azure](../security-center/defender-for-container-registries-introduction.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -735,7 +735,7 @@ Si noti che il processo per tenere aggiornati i nodi di Windows Server differisc
 
 Usare il cmdlet di PowerShell "Get-AzSecurityTask" per automatizzare il recupero delle attività di sicurezza consigliate dal centro sicurezza per rafforzare il comportamento di sicurezza e i risultati dell'analisi delle vulnerabilità di correzione.
 
-- [Come usare PowerShell per visualizzare le vulnerabilità individuate dal centro sicurezza di Azure](https://docs.microsoft.com/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [Come usare PowerShell per visualizzare le vulnerabilità individuate dal centro sicurezza di Azure](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -763,7 +763,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Graph d
 
 - [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -775,7 +775,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Graph d
 
 **Linee guida**: applicare i tag alle risorse di Azure con i metadati per organizzarli in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -789,11 +789,11 @@ Applicare macchie, etichette o tag quando si crea un pool di nodi del servizio K
 
 Macchie, etichette o tag possono essere usati per riconciliare l'inventario a intervalli regolari e garantire che le risorse non autorizzate vengano eliminate in modo tempestivo dalle sottoscrizioni.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e tag utente](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e tag utente](../azure-resource-manager/management/tag-resources.md)
 
 - [Cluster gestiti-Aggiorna Tag](/rest/api/aks/managedclusters/updatetags)
 
@@ -894,7 +894,7 @@ Usare il grafico risorse di Azure per eseguire query e individuare le risorse al
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -927,15 +927,15 @@ Concedere agli utenti o ai gruppi l'accesso alle risorse Kubernetes all'interno 
 
 Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri dei gruppi amministrativi AKS. riconciliare l'accesso a intervalli regolari. Usare l'interfaccia della riga di comando di Azure per operazioni come ' ottenere le credenziali di accesso per un cluster Kubernetes gestito. Implementare le raccomandazioni per la gestione dell'identità e dell'accesso del Centro sicurezza.
 
-- [Gestire AKS con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest)
+- [Gestire AKS con l'interfaccia della riga di comando di Azure](/cli/azure/aks?view=azure-cli-latest)
 
 - [Informazioni sull'integrazione di AKS e Azure AD](concepts-identity.md)
 
-- [Come integrare AKS con Azure AD](/azure/aks/azure-ad-integration)
+- [Come integrare AKS con Azure AD](./azure-ad-integration-cli.md)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Come monitorare l'identità e l'accesso con il Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -953,9 +953,9 @@ Esaminare e implementare le funzionalità e le considerazioni aggiuntive di Kube
 
 - [Informazioni sulle procedure consigliate per l'isolamento del cluster in AKS](operator-best-practices-cluster-isolation.md)
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 - [Informazioni sulle procedure consigliate per la sicurezza e la connettività di rete in AKS](operator-best-practices-network.md)
 
@@ -1055,7 +1055,7 @@ Protezione avanzata per il sistema operativo host del nodo AKS Agent
 
 security-hardened-vm-host-image.md
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1113,7 +1113,7 @@ Fare riferimento all'elenco di controlli di sicurezza di rete (SID) di Center in
 
 **Indicazioni**: usare le raccomandazioni del contenitore del Centro sicurezza nella &amp; sezione "app di calcolo" per eseguire analisi di base per i cluster del servizio Azure Kubernetes (AKS). Ricevere una notifica nel dashboard del Centro sicurezza quando vengono rilevati problemi di configurazione o vulnerabilità. Questa operazione richiede l'abilitazione del bundle facoltativo dei registri contenitori, che consente al centro sicurezza di eseguire l'analisi dell'immagine.  
 
-- [Informazioni sulle raccomandazioni per i contenitori nel Centro sicurezza di Azure](/azure/security-center/security-center-container-recommendations)
+- [Informazioni sulle raccomandazioni per i contenitori nel Centro sicurezza di Azure](../security-center/container-security.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1187,7 +1187,7 @@ Limitare l'esposizione delle credenziali non definendo le credenziali nel codice
 
 **Linee guida**: pre-analisi di tutti i file caricati nelle risorse di AKS. Usare il rilevamento delle minacce del Centro sicurezza per i servizi dati per rilevare il malware caricato negli account di archiviazione se si usa un account di archiviazione di Azure come archivio dati o per tenere traccia dello stato di bonifica per il cluster AKS. 
 
-- [Informazioni sul rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati](/azure/security-center/security-center-alerts-data-services)
+- [Informazioni sul rilevamento delle minacce del Centro sicurezza di Azure per i servizi dati](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1235,7 +1235,7 @@ Rimuovere lo stato dalle applicazioni prima del backup. Nei casi in cui non è p
 
 Esegui backup automatici regolari di Key Vault certificati, chiavi, account di archiviazione gestiti e segreti con i comandi di PowerShell. 
 
-Esempio:
+Ad esempio:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1247,7 +1247,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 - [Come eseguire il backup di Key Vault segreti](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Come abilitare backup di Azure](/azure/backup)
+- [Come abilitare backup di Azure](../backup/index.yml)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1259,19 +1259,19 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Eseguire periodicamente il ripristino dei dati di Key Vault certificati, chiavi, account di archiviazione gestiti e segreti con i comandi di PowerShell. 
 
-Esempio:
+Ad esempio:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 
-- [Come ripristinare Key Vault certificati](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+- [Come ripristinare Key Vault certificati](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
-- [Come ripristinare chiavi di Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come ripristinare chiavi di Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 - [Come ripristinare Key Vault account di archiviazione gestiti](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Come ripristinare Key Vault segreti](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Come ripristinare Key Vault segreti](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
 
-- [Come ripristinare i file dal backup della macchina virtuale di Azure](/azure/backup/backup-azure-restore-files-from-vm)
+- [Come ripristinare i file dal backup della macchina virtuale di Azure](../backup/backup-azure-restore-files-from-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1285,7 +1285,7 @@ Abilitare Soft-Delete in Key Vault per proteggere le chiavi da eliminazioni acci
 
 - [Informazioni su crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md)
 
-- [Come abilitare l'eliminazione temporanea in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1379,5 +1379,5 @@ Fare riferimento alla pubblicazione del NIST: Guida ai programmi di test, formaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

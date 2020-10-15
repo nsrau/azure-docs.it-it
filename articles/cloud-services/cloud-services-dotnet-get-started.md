@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932543"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073802"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -33,7 +33,7 @@ Questa applicazione è un BBS pubblicitario. Gli utenti creano un'inserzione tra
 L'applicazione usa il [modello di lavoro incentrato sulle code](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) per delegare a un processo back-end il lavoro di creazione delle anteprime, che comporta un utilizzo elevato della CPU.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Architettura alternativa: servizio app e processi Web
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [servizio app di Azure](/azure/app-service/) e usare la funzionalità [Processi Web](https://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un [servizio app di Azure](../app-service/index.yml) e usare la funzionalità [Processi Web](https://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
@@ -169,7 +169,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
 
 4. Nell'elenco a discesa **Replica** scegliere **Archiviazione con ridondanza locale**.
 
-    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato viene replicato in un data center secondario per permettere il failover in caso di emergenza grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage/common/storage-create-storage-account.md).
+    Quando per un account di archiviazione è abilitata la replica geografica, il contenuto archiviato viene replicato in un data center secondario per permettere il failover in caso di emergenza grave nella posizione primaria. La replica geografica può comportare costi aggiuntivi. Per gli account di test e di sviluppo si preferisce in genere non pagare per la replica geografica. Per altre informazioni, vedere la pagina relativa alla [creazione, gestione o eliminazione di un account di archiviazione](../storage/common/storage-account-create.md).
 
 5. In **Gruppo di risorse** fare clic su **Usa esistente** e selezionare il gruppo di risorse usato per il servizio cloud.
 6. Scegliere dall'elenco a discesa **Località** la stessa area geografica selezionata per il servizio cloud.
@@ -290,7 +290,7 @@ L'impostazione `<Instances>` specifica il numero di macchine virtuali in cui Azu
 
     ![Passaggio Impostazioni](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    Le impostazioni predefinite della scheda **Advanced** sono corrette per questa esercitazione. Per informazioni sulla scheda Avanzate, vedere [Procedura guidata Pubblica l'applicazione Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
+    Le impostazioni predefinite della scheda **Advanced** sono corrette per questa esercitazione. Per informazioni sulla scheda Avanzate, vedere [Procedura guidata Pubblica l'applicazione Azure](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard).
 4. Nel passaggio **Riepilogo** fare clic su **Pubblica**.
 
     ![Passaggio Riepilogo](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -776,5 +776,5 @@ Per altre informazioni, vedere le seguenti risorse:
 
 * [Servizi cloud di Azure - Parte 1: Introduzione](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
-* [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/)
+* [Archiviazione di Azure](../storage/index.yml)
 * [Come scegliere un provider di servizi cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
