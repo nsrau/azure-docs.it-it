@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2b83433a135fec486701b4538793f0c3e0a6fa6e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611827"
 ---
 # <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Inviare eventi a un ambiente Azure Time Series Insights Gen1 usando un hub eventi
 
 > [!CAUTION]
-> Questo è un articolo di Gen1.
+> È un articolo di Gen1.
 
 Questo articolo illustra come creare e configurare un hub eventi in hub eventi di Azure. Viene inoltre descritto come eseguire un'applicazione di esempio per effettuare il push degli eventi Azure Time Series Insights da Hub eventi. Se è presente un hub eventi con eventi in formato JSON, ignorare questa esercitazione e visualizzare l'ambiente in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -108,7 +108,7 @@ In Azure Time Series Insights Gen2 è possibile aggiungere dati contestuali ai d
 
 * **Output**: un evento.
 
-    |id|timestamp|
+    |id| timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -131,7 +131,7 @@ In Azure Time Series Insights Gen2 è possibile aggiungere dati contestuali ai d
 
 * **Output**: due eventi.
 
-    |id|timestamp|
+    |id| timestamp|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|
@@ -201,7 +201,7 @@ In Azure Time Series Insights Gen2 è possibile aggiungere dati contestuali ai d
 
     |posizione|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
-    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressione|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Passaggi successivi

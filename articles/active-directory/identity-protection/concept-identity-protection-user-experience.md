@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950205"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Esperienze utente con Azure AD Identity Protection
@@ -67,7 +67,7 @@ Quando è stato configurato un criterio di rischio utente, gli utenti che soddis
 
 1. L'utente viene informato che la sicurezza dell'account è a rischio a causa di attività sospette o di credenziali perse.
    
-    ![Correzione](./media/concept-identity-protection-user-experience/101.png)
+    ![Soluzione](./media/concept-identity-protection-user-experience/101.png)
 
 1. L'utente deve dimostrare la propria identità completando l'autenticazione a più fattori di Azure con uno dei metodi precedentemente registrati. 
 1. Infine, l'utente deve modificare la password usando la reimpostazione della password self-service perché qualcun altro potrebbe avere accesso al proprio account.

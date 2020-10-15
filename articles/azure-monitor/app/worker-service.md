@@ -4,12 +4,12 @@ description: Monitoraggio delle app non HTTP .NET Core/.NET Framework con Applic
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 8156541a5b04a5db5f2ce683fd0e514c81e8b53e
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 3d02b6e70d0832b92ae88db237b4c554b92e7f3b
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840405"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875071"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights per le applicazioni del servizio Worker (applicazioni non HTTP)
 
@@ -44,7 +44,7 @@ Nelle sezioni seguenti vengono descritte le istruzioni specifiche per ogni tipo 
 
 ## <a name="net-core-30-worker-service-application"></a>Applicazione del servizio ruolo di lavoro .NET Core 3,0
 
-L'esempio completo è condiviso [qui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+L'esempio completo è condiviso [qui](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Scaricare e installare [.NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Creare un nuovo progetto di servizio del ruolo di lavoro usando il nuovo modello di progetto o la riga di comando di Visual Studio `dotnet new worker`
@@ -136,7 +136,7 @@ In genere, `APPINSIGHTS_INSTRUMENTATIONKEY` specifica la chiave di strumentazion
 
 In [questo](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) documento viene descritto come creare attività di background nell'applicazione ASP.NET Core 2.1/2.2.
 
-L'esempio completo è condiviso [qui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+L'esempio completo è condiviso [qui](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
 1. Installare il pacchetto [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) nell'applicazione.
 2. Aggiungere `services.AddApplicationInsightsTelemetryWorkerService();` al `ConfigureServices()` metodo, come nell'esempio seguente:
@@ -223,7 +223,7 @@ Di seguito è riportato il codice per `TimedHostedService` la posizione in cui s
 
 Come indicato all'inizio di questo articolo, è possibile usare il nuovo pacchetto per abilitare Application Insights Telemetry anche da un'applicazione console normale. Questo pacchetto è destinato a [`NetStandard2.0`](/dotnet/standard/net-standard) , quindi può essere usato per le app console in .NET Core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
 
-L'esempio completo è condiviso [qui](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+L'esempio completo è condiviso [qui](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
 1. Installare il pacchetto [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) nell'applicazione.
 
@@ -561,11 +561,11 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="sample-applications"></a>Applicazioni di esempio
 
-[Applicazione console .NET Core](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Usare questo esempio se si usa un'applicazione console scritta in .NET Core (2,0 o versione successiva) o .NET Framework (4.7.2 o versione successiva)
+[Applicazione console .NET Core](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights) Usare questo esempio se si usa un'applicazione console scritta in .NET Core (2,0 o versione successiva) o .NET Framework (4.7.2 o versione successiva)
 
-[Attività in background ASP .NET Core con HostedServices](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService) Usare questo esempio se ci si trova in Asp.Net Core 2.1/2.2 e si creano attività in background in base alle linee guida ufficiali [qui](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
+[Attività in background ASP .NET Core con HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService) Usare questo esempio se ci si trova in Asp.Net Core 2.1/2.2 e si creano attività in background in base alle linee guida ufficiali [qui](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
 
-[Servizio ruolo di lavoro .NET Core 3,0](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Usare questo esempio se si dispone di un'applicazione di servizio di lavoro .NET Core 3,0 in base a una guida ufficiale [qui](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
+[Servizio ruolo di lavoro .NET Core 3,0](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights) Usare questo esempio se si dispone di un'applicazione di servizio di lavoro .NET Core 3,0 in base a una guida ufficiale [qui](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
 
 ## <a name="open-source-sdk"></a>SDK open source
 

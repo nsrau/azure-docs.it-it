@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6c88a1eaee50676cfe6bb9589779d7156b805e30
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77dc64d9660f9a0bf66559c4a5a976362cf1acd0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920977"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951639"
 ---
 ::: zone target = "docs"
 
@@ -97,11 +97,11 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
 1. Innanzitutto è necessario autenticare e avviare una sessione. Selezionare **Connetti e copia**. Fare clic su **Ottieni credenziali** per ottenere le credenziali di accesso per le condivisioni associate all'account di archiviazione.
 
-    ![Ottenere le credenziali delle condivisioni 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
+    ![Ottenere le credenziali delle condivisioni](media/data-box-heavy-deploy-copy-data/get-share-credentials-1.png)
 
 2. Nella finestra di dialogo Accedi alla condivisione e copia i dati copiare il **nome utente** e la **password** corrispondenti alla condivisione. Fare clic su **OK**.
     
-    ![Ottenere le credenziali delle condivisioni 1](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
+    ![Ottenere le credenziali delle condivisioni 2](media/data-box-heavy-deploy-copy-data/get-share-credentials-2.png)
 
 3. Per accedere alle condivisioni associate all'account di archiviazione (*databoxe2etest* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
 
@@ -122,7 +122,7 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
 4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Fare clic su **OK** per aprire Esplora file.
     
-    ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
+    ![Connettersi a una condivisione tramite Esplora file](media/data-box-heavy-deploy-copy-data/connect-shares-file-explorer-1.png)
 
     Le condivisioni verranno ora visualizzate come cartelle.
     

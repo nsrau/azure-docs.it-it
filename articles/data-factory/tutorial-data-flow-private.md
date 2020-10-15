@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/19/2019
 ms.openlocfilehash: d752b747a0156bcef587f81ee421c55a6de81e17
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079473"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Trasformare i dati in modo sicuro utilizzando il flusso di dati di mapping
@@ -35,7 +35,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**. Usare Data Lake Storage come archivi dati di *origine* e *sink* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) per informazioni su come crearne uno. *Verificare che l'account di archiviazione consenta l'accesso solo dalle reti selezionate.* 
+* **Account di archiviazione di Azure**. Usare Data Lake Storage come archivi dati di *origine* e *sink* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) per informazioni su come crearne uno. *Assicurarsi che l'account di archiviazione consenta l'accesso solo da reti selezionate.* 
 
 Il file che verrà trasformato in questa esercitazione è moviesDB.csv, disponibile nel [sito di contenuto GitHub](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). Per recuperare il file da GitHub, copiare il contenuto in un editor di testo di propria scelta per salvarlo localmente come file con estensione CSV. Per caricare il file nell'account di archiviazione, vedere [caricare BLOB con il portale di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Gli esempi faranno riferimento a un contenitore denominato **Sample-Data**.
 
@@ -43,11 +43,11 @@ Il file che verrà trasformato in questa esercitazione è moviesDB.csv, disponib
 
 In questo passaggio si crea una data factory e si apre l'interfaccia utente di Data Factory per creare una pipeline nella data factory.
 
-1. Aprire Microsoft Edge o Google Chrome. Attualmente, solo i Web browser Microsoft Edge e Google Chrome supportano l'interfaccia utente di Data Factory.
+1. Aprire Microsoft Edge o Google Chrome. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**.
 1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**.
 
-   Il nome della data factory deve essere *univoco a livello globale*. Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per il data factory (ad esempio, Nomeutenteadftutorialdatafactory). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
+   Il nome della data factory deve essere *univoco a livello globale*. Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory (ad esempio, nomeADFTutorialDataFactory). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
 
 1. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
@@ -57,10 +57,10 @@ In questo passaggio si crea una data factory e si apre l'interfaccia utente di D
          
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
 1. In **Versione** selezionare **V2**.
-1. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono visualizzate solo le posizioni supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre aree.
+1. In **Località** selezionare una località per la data factory. Nell'elenco a discesa vengono visualizzate solo le località supportate. Gli archivi dati (ad esempio, archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, Azure HDInsight) usati dal data factory possono trovarsi in altre aree.
 
-1. Selezionare **Create** (Crea).
-1. Al termine della creazione, viene visualizzata la notifica nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina **Data Factory** .
+1. Selezionare **Crea**.
+1. Al termine della creazione, la relativa notifica verrà visualizzata nel centro notifiche. Selezionare **Vai alla risorsa** per passare alla pagina **Data Factory**.
 1. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Creare un Azure IR in Data Factory rete virtuale gestita
@@ -73,11 +73,11 @@ In questo passaggio si crea una Azure IR e si Abilita Data Factory rete virtuale
 
    ![Screenshot che mostra un nuovo Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
-1. In **Configurazione rete virtuale (anteprima)** selezionare **Abilita**.
+1. In **Configurazione della rete virtuale (anteprima)** selezionare **Abilita**.
 
    ![Screenshot che mostra l'abilitazione di un nuovo Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Creare una pipeline con un'attività flusso di dati
 
@@ -119,7 +119,7 @@ In questo passaggio si configurano Data Lake Storage Gen2 come origine.
 
 1. Nella schermata di creazione del servizio collegato assegnare un nome al servizio collegato Data Lake Storage Gen2 **ADLSGen2** e specificare il metodo di autenticazione. Immettere quindi le credenziali di connessione. In questa esercitazione viene usata la **chiave dell'account** per connettersi all'account di archiviazione. 
 
-1. Assicurarsi di abilitare la **creazione interattiva**. L'abilitazione potrebbe richiedere un minuto.
+1. Assicurarsi di abilitare **Creazione interattiva**. L'abilitazione potrebbe richiedere un minuto.
 
     ![Screenshot che mostra la creazione interattiva.](./media/tutorial-data-flow-private/interactive-authoring.png)
 
@@ -141,36 +141,36 @@ In questo passaggio si configurano Data Lake Storage Gen2 come origine.
 
 #### <a name="create-a-managed-private-endpoint"></a>Creare un endpoint privato gestito
 
-Se non è stato usato il collegamento ipertestuale quando è stato testato la connessione precedente, seguire il percorso. A questo punto è necessario creare un endpoint privato gestito che si connetterà al servizio collegato creato.
+Se non è stato usato il collegamento ipertestuale quando è stato testato la connessione precedente, seguire il percorso. A questo punto è necessario creare un endpoint privato gestito che verrà connesso al servizio collegato creato.
 
-1. Passare alla scheda **Gestisci** .
+1. Passare alla scheda **Gestisci**.
 
    > [!NOTE]
-   > La scheda **Gestisci** potrebbe non essere disponibile per tutte le istanze di data factory. Se non viene visualizzato, è possibile accedere a endpoint privati selezionando **autore**  >  **connessioni**  >  **endpoint privato**.
+   > La scheda **Gestisci** potrebbe non essere disponibile per tutte le istanze di Data Factory. Se non viene visualizzata, è possibile accedere agli endpoint privati selezionando **Autore** > **Connessioni**  > **Endpoint privato**.
 
-1. Passare alla sezione **endpoint privati gestiti** .
-1. Selezionare **+ nuovo** in **endpoint privati gestiti**.
+1. Passare alla sezione **Managed private endpoints** (Endpoint privati gestiti).
+1. Selezionare **+ Nuovo** in **Managed private endpoints** (Endpoint privati gestiti).
 
-    ![Screenshot che mostra il pulsante nuovi endpoint privati gestiti.](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
+    ![Screenshot che mostra il pulsante Nuovo in Managed private endpoints (Endpoint privati gestiti).](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
 
 1. Selezionare il riquadro **Azure Data Lake storage Gen2** dall'elenco e selezionare **continua**.
 1. Immettere il nome dell'account di archiviazione creato.
-1. Selezionare **Create** (Crea).
-1. Dopo alcuni secondi, si noterà che il collegamento privato creato richiede un'approvazione.
-1. Selezionare l'endpoint privato creato. È possibile visualizzare un collegamento ipertestuale che consentirà di approvare l'endpoint privato a livello di account di archiviazione.
+1. Selezionare **Crea**.
+1. Dopo alcuni secondi si noterà che il collegamento privato creato necessita dell'approvazione.
+1. Selezionare l'endpoint privato creato. Verrà visualizzato un collegamento ipertestuale, seguendo il quale sarà possibile approvare l'endpoint privato a livello di account di archiviazione.
 
     ![Screenshot che mostra il riquadro Gestisci endpoint privato.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>Approvazione di un collegamento privato in un account di archiviazione
 
-1. Nell'account di archiviazione passare a **connessioni a endpoint privati** nella sezione **Impostazioni** .
+1. Nell'account di archiviazione passare a **Connessioni a endpoint privato** nella sezione **Impostazioni**.
 
 1. Selezionare la casella di controllo dall'endpoint privato creato e selezionare **approva**.
 
     ![Screenshot che mostra il pulsante approva endpoint privato.](./media/tutorial-data-flow-private/approve-private-endpoint.png)
 
-1. Aggiungere una descrizione e selezionare **Sì**.
-1. Tornare alla sezione **endpoint privati gestiti** della scheda **gestisci** in data factory.
+1. Aggiungere una descrizione e selezionare **sì**.
+1. Tornare nella sezione **Managed private endpoints** (Gestisci endpoint privati) della scheda **Gestisci** in Data Factory.
 1. Dopo circa un minuto dovrebbe essere visualizzata l'approvazione per l'endpoint privato.
 
 ### <a name="add-the-filter-transformation"></a>Aggiungere la trasformazione filtro

@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
 ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709017"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
@@ -118,7 +118,7 @@ Quando si pubblica l'offerta nel marketplace commerciale tramite il Centro per i
 
 Nella pagina **Proprietà** è possibile definire le categorie usate per raggruppare l'offerta in Azure Marketplace, la versione dell'applicazione e i contratti legali che supportano l'offerta.
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
@@ -541,7 +541,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Termini e condizioni
 5. Indirizzo privacy policy (collegamento)
 6. Nome offerta
-7. Descrizione
+7. Description
 8. Collegamenti utili
 9. Screenshot/video
 
@@ -572,8 +572,8 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
-1. Name
-2. Descrizione
+1. Nome
+2. Description
 3. Collegamenti utili
 4. Screenshot/video
 

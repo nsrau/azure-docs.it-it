@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514238"
 ---
 # <a name="upstream-settings"></a>Impostazioni upstream
@@ -82,7 +82,7 @@ Quando si seleziona `ManagedIdentity` , è necessario abilitare in anticipo un'i
 3. Aggiungere URL nel **modello URL upstream**. Impostazioni come le **regole dell'hub** mostreranno quindi il valore predefinito.
 4. Per impostare le impostazioni per le **regole dell'hub**, le **regole degli eventi**, le regole di **categoria**e **l'autenticazione upstream**, selezionare il valore delle **regole dell'hub**. Viene visualizzata una pagina che consente di modificare le impostazioni:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Dettagli impostazione upstream":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Impostazioni upstream":::
 
 5. Per impostare **l'autenticazione upstream**, assicurarsi che sia stata abilitata per prima un'identità gestita. Selezionare quindi **Usa identità gestita**. Secondo le esigenze, è possibile scegliere qualsiasi opzione in **ID risorsa di autenticazione**. Per informazioni dettagliate, vedere [identità gestite per il servizio Azure SignalR](howto-use-managed-identity.md) .
 

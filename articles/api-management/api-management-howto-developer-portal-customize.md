@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3ceb8fd154e8ad533f4bf6bc9eb0ec3900749f8b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206245"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075366"
 ---
 # <a name="access-and-customize-developer-portal"></a>Accedere e personalizzare il portale per sviluppatori
 
@@ -80,9 +80,9 @@ La Guida di stile è un pannello creato con le finestre di progettazione. Consen
 
 Per modificare una variante, fare clic su di essa e selezionare l'icona a matita visualizzata sopra. Dopo aver apportato le modifiche nella finestra popup, chiuderla.
 
-### <a name="save-button"></a>Pulsante per il salvataggio
+### <a name="save-button"></a>Pulsante Salva
 
-![Pulsante per il salvataggio](media/api-management-howto-developer-portal-customize/save-button.png)
+![Pulsante Salva](media/api-management-howto-developer-portal-customize/save-button.png)
 
 Ogni volta che si apportano modifiche nel portale, è necessario salvarle manualmente premendo il pulsante **Salva** nel menu in basso. Quando si salvano le modifiche, il contenuto modificato viene caricato automaticamente nel servizio gestione API.
 
@@ -131,7 +131,7 @@ Dopo aver pubblicato il portale, è possibile accedervi con lo stesso URL del pa
 È necessario abilitare CORS (condivisione risorse tra le origini) sulle API per consentire ai visitatori del portale di testare le API tramite la console interattiva incorporata. Per ulteriori informazioni, fare riferimento a [questo articolo della documentazione](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Ottimizza e Risparmia sulla spesa per il cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Ottimizza e Risparmia sulla spesa per il cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Altre informazioni sul portale per sviluppatori:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892950"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775667"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -159,11 +159,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Passare il puntatore del mouse sulla rotellina e scegliere **Add-ons** (Componenti aggiuntivi).
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Screenshot che mostra l'icona dell'ingranaggio e l'opzione "Add-ons" evidenziata nel menu a discesa.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Scaricare il plug-in dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Caricare manualmente il plug-in fornito da Microsoft tramite il menu **Upload add-on** (Carica componente aggiuntivo). Il download del plug-in è coperto dal [Contratto di Servizi Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Screenshot che mostra la pagina "Manage add-ons" con l'azione "Upload add-on" selezionata.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Per l'esecuzione dello scenario di proxy inverso Confluence o dello scenario di bilanciamento del carico, seguire questa procedura:
 
@@ -174,19 +174,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Screenshot che mostra il file "server.xml" con l'attributo aggiunto alla porta "connector".](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Modificare il valore di **Base URL** (URL di base) in **System Settings** (Impostazioni di sistema) in base al proxy/bilanciamento del carico.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Screenshot che mostra la pagina "Administration - Settings" con l'opzione "Base URL" evidenziata.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Dopo aver installato il plug-in, questo comparirà nella sezione dei componenti aggiuntivi **User Installed** (Installati dall'utente) della sezione **Manage Add-on** (Gestisci componente aggiuntivo). Fare clic su **Configure** (Configura) per configurare il nuovo plug-in.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Screenshot che mostra la sezione "User Installed" con il pulsante "Configure" evidenziato.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Seguire questa procedura nella pagina di configurazione:
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Screenshot che mostra la pagina di configurazione dell'accesso Single Sign-On.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Assicurarsi che esista un solo certificato mappato per l'app in modo che non si verifichino errori durante la risoluzione dei metadati. Se sono presenti più certificati, l'amministratore riceve un errore durante la risoluzione dei metadati.
@@ -237,7 +237,7 @@ Per consentire agli utenti di Azure AD di accedere a un server Confluence locale
 
 1. Nella sezione Users (Utenti) fare clic sula scheda **Add users** (Aggiungi utenti). Nella pagina della finestra di dialogo **Add a User** (Aggiungi un utente) eseguire la procedura seguente:
 
-    ![Aggiungere un dipendente](./media/confluencemicrosoft-tutorial/user2.png)
+    ![Screenshot che mostra la schermata "Confluence administration" con la scheda "Add Users" selezionata e le informazioni immesse in "Add a User".](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. Nella casella di testo **Username** (Nome utente) digitare l'indirizzo di posta elettronica di un utente, ad esempio B.Simon.
 

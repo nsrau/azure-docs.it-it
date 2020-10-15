@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660878"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Writeback del gruppo di Azure AD Connect
@@ -62,7 +62,7 @@ Per disabilitare il writeback del gruppo, attenersi alla procedura seguente:
    ![Deseleziona casella](media/how-to-connect-group-writeback/group2.png)
   
 3. Fare clic su **Avanti**.
-4. Fare clic su **Configura**.
+4. Fare clic su **Configure**.
 
  >[!NOTE]
  > La disabilitazione del writeback del gruppo imposterà i flag completi per l'importazione e la sincronizzazione completa su' true ' sul connettore Azure Active Directory, causando la propagazione della regola durante il ciclo di sincronizzazione successivo, eliminando i gruppi precedentemente riscritti nel Active Directory.

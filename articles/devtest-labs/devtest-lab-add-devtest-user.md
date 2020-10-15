@@ -4,10 +4,10 @@ description: Aggiungere proprietari e utenti in Azure DevTest Labs usando il por
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533326"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
@@ -30,19 +30,19 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 | --- | --- | --- | --- |
 | **Attività lab** | | | |
 | Aggiungere utenti a un lab |No |Sì |No |
-| Aggiornare le impostazioni dei costi |No |Sì |sì |
+| Aggiornare le impostazioni dei costi |No |Sì |Sì |
 | **Attività di base delle VM** | | | |
-| Aggiungere e rimuovere immagini personalizzate |No |Sì |sì |
-| Aggiungere, aggiornare ed eliminare formule |sì |sì |sì |
-| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No |Sì |sì |
+| Aggiungere e rimuovere immagini personalizzate |No |Sì |Sì |
+| Aggiungere, aggiornare ed eliminare formule |Sì |Sì |Sì |
+| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No |Sì |Sì |
 | **Attività della macchina virtuale** | | | |
-| Creare VM |sì |sì |sì |
-| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |sì |sì |
-| Aggiornare i criteri delle VM |No |Sì |sì |
-| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |sì |sì |
+| Creare VM |Sì |Sì |Sì |
+| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Sì |Sì |
+| Aggiornare i criteri delle VM |No |Sì |Sì |
+| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Sì |Sì |
 | **Attività degli elementi** | | | |
-| Aggiungere e rimuovere repository di elementi |No |Sì |sì |
-| Applicare elementi |sì |sì |sì |
+| Aggiungere e rimuovere repository di elementi |No |Sì |Sì |
+| Applicare elementi |Sì |Sì |Sì |
 
 > [!NOTE]
 > Quando un utente crea una VM, tale utente viene automaticamente assegnato al ruolo **Proprietario** della VM creata.
@@ -118,7 +118,7 @@ Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi pas
     ![Utenti di accesso](./media/devtest-lab-add-devtest-user/access-users.png)
 5. Nel pannello **utenti** selezionare **Aggiungi**.
    
-    ![Aggiungi utente](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+    ![Add User](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 6. Nel pannello **Selezionare un ruolo** selezionare **Proprietario**.
 7. Nel pannello **Aggiungi utenti** immettere l'indirizzo di posta elettronica o il nome dell'utente che si vuole aggiungere come proprietario. Se l'utente non viene trovato, si riceve un messaggio di errore che spiega il problema. Se l'utente viene trovato, tale utente viene elencato sotto la casella di testo **Utente** .
 8. Selezionare il nome utente individuato.

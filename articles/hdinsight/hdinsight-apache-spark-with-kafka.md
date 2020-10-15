@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: e2f4bbe6157e1affa4975f6dcee2ad0f1d98a71b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086093"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Esempio dello streaming Apache Spark (DStream) con Apache Kafka in HDInsight
@@ -51,7 +51,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
 1. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
 
-    |Proprietà |valore |
+    |Proprietà |Valore |
     |---|---|
     |Resource group|creare un gruppo o selezionarne uno esistente.|
     |Location|scegliere una località geograficamente vicina.|
@@ -63,7 +63,7 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     ![HDInsight parametri di distribuzione personalizzati](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-1. Leggere i **termini e le condizioni**e quindi selezionare Accetto **i termini e le condizioni indicati in precedenza**.
+1. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 
 1. Infine selezionare **Acquisto**. La creazione dei cluster richiede circa 20 minuti.
 

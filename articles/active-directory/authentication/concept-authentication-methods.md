@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: c331334df64ea1bea45949152a34241a73fa5bb9
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: c5ae0e0d312aa9a959b114d576f887bfa5072f49
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91666161"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965506"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -36,7 +36,7 @@ Quando si distribuiscono funzionalità come Azure Multi-Factor Authentication ne
 
 Nella tabella seguente vengono descritte le considerazioni sulla sicurezza per i metodi di autenticazione disponibili. La disponibilità indica che l'utente è in grado di usare il metodo di autenticazione, non della disponibilità del servizio in Azure AD:
 
-| Metodo di autenticazione          | Sicurezza | Usabilità | Disponibilità |
+| Metodo di autenticazione          | Security | Usabilità | Disponibilità |
 |--------------------------------|:--------:|:---------:|:------------:|
 | Windows Hello for Business     | Alto     | Alto      | Alto         |
 | App Microsoft Authenticator    | Alto     | Alto      | Alto         |
@@ -73,7 +73,7 @@ Tutti questi metodi di autenticazione possono essere configurati nella portale d
 
 Per altre informazioni sul funzionamento di ogni metodo di autenticazione, vedere gli articoli concettuali distinti seguenti:
 
-* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [App Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chiave di sicurezza FIDO2 (anteprima)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Token hardware OATH (anteprima)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)

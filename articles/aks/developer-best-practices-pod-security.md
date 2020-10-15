@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022276"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza dei pod nel servizio Azure Kubernetes
@@ -97,7 +97,7 @@ L'uso del progetto di identità del pod consente l'autenticazione nei servizi di
 
 Quando le applicazioni hanno bisogno di credenziali, comunicano con l'insieme di credenziali digitali, recuperano i contenuti di segreti più recenti e quindi si connettono al servizio necessario. Questo insieme di credenziali digitali può essere Azure Key Vault. Il flusso di lavoro semplificato per il recupero di credenziali da Azure Key Vault mediante le identità gestite del pod è illustrato nel diagramma seguente:
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Flusso di lavoro semplificato per il recupero di credenziali da Azure Key Vault mediante un'identità gestita del pod":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Flusso di lavoro semplificato per l'identità gestita del pod in Azure":::
 
 Con Azure Key Vault segreti come credenziali, chiavi dell'account di archiviazione o certificati vengono archiviati e sottoposti a regolare rotazione. È possibile integrare Azure Key Vault con un cluster del servizio Azure Kubernetes usando il [provider di Azure Key Vault per il driver CSI dell'archivio di segreti](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). Il driver CSI dell'archivio di segreti consente al cluster del servizio Azure Kubernetes di recuperare i contenuti di segreti in modo nativo da Key Vault e fornirle in tutta sicurezza solo al pod che le ha richieste. Collaborare con l'operatore del cluster per distribuire il driver CSI dell'archivio di segreti nei nodi di lavoro del servizio Azure Kubernetes. È possibile usare un'identità gestita del pod per richiedere l'accesso a Key Vault e recuperare i contenuti di segreti necessari tramite il driver CSI dell'archivio di segreti.
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0a2a386264be0ec13e29b7a7546926819c5d931a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827453"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972884"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Macchine virtuali in un modello di Azure Resource Manager
 
@@ -144,7 +144,7 @@ Questo esempio mostra una sezione di risorse tipica di un modello per la creazio
 >
 >
 
-## <a name="api-version"></a>Versione dell'API
+## <a name="api-version"></a>Versione API
 
 Quando si distribuiscono risorse usando un modello, è necessario specificare una versione dell'API da usare. L'esempio illustra l'uso di questa risorsa di macchina virtuale usando l'elemento apiVersion:
 
@@ -245,7 +245,7 @@ Tenere presente che la creazione di un ciclo per una risorsa nel modello potrebb
 } ]
 ```
 
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Il corretto funzionamento della maggior parte delle risorse dipende dalle altre risorse. Le macchine virtuali deve essere associate a una rete virtuale e a tale scopo è necessaria un'interfaccia di rete. L'elemento [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) viene usato per verificare che l'interfaccia di rete sia pronta per essere usata prima che vengano create le VM:
 
@@ -270,7 +270,7 @@ Come è possibile stabilire se è necessaria una dipendenza? Esaminare i valori 
 
 Per impostare questa proprietà, è necessario che esista l'interfaccia di rete. Pertanto, è necessaria una dipendenza. È inoltre necessario impostare una dipendenza quando viene definita una risorsa (figlio) all'interno di un'altra risorsa (padre). Ad esempio, le estensioni dello script personalizzate e le impostazioni di diagnostica vengono entrambe definite come risorse figlio della macchina virtuale. Non possono essere create fino a quando non esiste la macchina virtuale. Pertanto, entrambe le risorse sono contrassegnate come dipendenti nella macchina virtuale.
 
-## <a name="profiles"></a>Profili
+## <a name="profiles"></a>Profiles
 
 Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elementi di profilo. Alcuni sono necessari e alcuni sono facoltativi. Ad esempio, sono necessari gli elementi hardwareProfile, osProfile, storageProfile e networkProfile, ma diagnosticsProfile è facoltativo. Questi profili definiscono impostazioni, ad esempio:
    
@@ -282,7 +282,7 @@ Quando si definisce una risorsa di macchina virtuale, vengono usati diversi elem
 
 ## <a name="disks-and-images"></a>Dischi e immagini
    
-In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una macchina virtuale specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più macchine virtuali, viene considerato un'immagine.   
+In Azure i file del disco rigido virtuale possono rappresentare [dischi o immagini](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json). Quando il sistema operativo in un file di disco rigido virtuale è specializzato per essere una macchina virtuale specifica, vi viene fatto riferimento come disco. Quando il sistema operativo in un file di disco rigido virtuale è generalizzato per essere usato per creare più macchine virtuali, viene considerato un'immagine.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Creare nuove macchine virtuali e nuovi dischi da un'immagine della piattaforma
 

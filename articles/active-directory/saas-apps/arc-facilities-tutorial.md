@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: bca696cc633a1d2a4fd64180135bb4b1e25f801c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 953b1d766788092564ae32f6c0ab1fb3e57c492f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540583"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713898"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ARC Facilities
 
@@ -84,15 +84,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione ARC Facilities prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la finestra di dialogo Attributi utente con l'icona di modifica evidenziata.](common/edit-attribute.png)
 
 1. Oltre a quelli elencati in precedenza, l'applicazione ARC Facilities prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attributi e attestazioni utente** della finestra di dialogo **Attestazioni gruppo (Anteprima)** seguire questa procedura:
 
     a. Fare clic sulla **penna** accanto a **Gruppi restituiti nell'attestazione**.
 
-    ![image](./media/arc-facilities-tutorial/config01.png)
+    ![Screenshot che mostra la schermata Attributi utente e attestazioni con la penna accanto a Gruppi restituiti nell'attestazione evidenziata.](./media/arc-facilities-tutorial/config01.png)
 
-    ![image](./media/arc-facilities-tutorial/config02.png)
+    ![Screenshot che mostra la sezione Attestazioni di gruppo con le opzioni Tutti i gruppi e ID gruppo selezionate e il pulsante Salva evidenziato.](./media/arc-facilities-tutorial/config02.png)
 
     b. Selezionare **Tutti i gruppi** dall'elenco dei pulsanti di opzione.
 

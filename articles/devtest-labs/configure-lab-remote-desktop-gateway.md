@@ -4,10 +4,10 @@ description: Informazioni su come configurare un Lab in Azure DevTest Labs con G
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288080"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurare il Lab in Azure DevTest Labs per l'uso di un Gateway Desktop remoto
@@ -21,9 +21,9 @@ Questo approccio è più sicuro perché l'utente del Lab esegue l'autenticazione
 
 1. L'azione [Ottieni contenuto file RDP](/rest/api/dtl/virtualmachines/getrdpfilecontents) viene chiamata quando si seleziona il pulsante **Connetti** . 1. 
 1. L'azione Ottieni contenuto file RDP richiama `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` per richiedere un token di autenticazione.
-    1. `{gateway-hostname}`è il nome host del gateway specificato nella pagina **impostazioni Lab** per il lab nel portale di Azure. 
-    1. `{lab-machine-name}`è il nome del computer che si sta tentando di connettere.
-    1. `{port-number}`porta su cui deve essere effettuata la connessione. In genere questa porta è 3389. Se la macchina virtuale del Lab usa la funzionalità [IP condivisa](devtest-lab-shared-ip.md) in DevTest Labs, la porta sarà diversa.
+    1. `{gateway-hostname}` è il nome host del gateway specificato nella pagina **impostazioni Lab** per il lab nel portale di Azure. 
+    1. `{lab-machine-name}` è il nome del computer che si sta tentando di connettere.
+    1. `{port-number}` porta su cui deve essere effettuata la connessione. In genere questa porta è 3389. Se la macchina virtuale del Lab usa la funzionalità [IP condivisa](devtest-lab-shared-ip.md) in DevTest Labs, la porta sarà diversa.
 1. Il Gateway Desktop remoto rinvia la chiamata da `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}` a una funzione di Azure per generare il token di autenticazione. Il servizio DevTest Labs include automaticamente il tasto funzione nell'intestazione della richiesta. Il tasto funzione deve essere salvato nell'insieme di credenziali delle chiavi del Lab. Nome del segreto da visualizzare come chiave privata del **token del gateway** nella pagina **impostazioni Lab** per il Lab.
 1. Si prevede che la funzione di Azure restituisca un token per l'autenticazione del token basata sui certificati nel computer del gateway.  
 1. L'azione Ottieni contenuto file RDP restituisce quindi il file RDP completo, incluse le informazioni di autenticazione.

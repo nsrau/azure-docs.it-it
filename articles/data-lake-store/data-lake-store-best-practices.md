@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667742"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
@@ -23,7 +23,7 @@ ms.locfileid: "91667742"
 
 Questo articolo illustra le procedure consigliate e alcune considerazioni sul funzionamento di Azure Data Lake Storage Gen1. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Storage Gen1. Prima di Data Lake Storage Gen1, il funzionamento di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Storage Gen1 elimina la maggior parte dei limiti assoluti relativi a dimensioni e prestazioni. Tuttavia, in questo articolo sono ancora illustrate alcune considerazioni che aiutano a ottenere prestazioni ottimali con Data Lake Storage Gen1.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Azure Data Lake Storage Gen1 offre controlli di accesso POSIX e controlli dettagliati per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e cartelle esistenti. I controlli di accesso possono essere usati anche per creare valori predefiniti che possono essere applicati a nuovi file o cartelle. Quando vengono impostate le autorizzazioni sulle cartelle esistenti e sugli oggetti figlio, è necessario propagarle in modo ricorsivo a ogni oggetto. Se il numero di file è elevato, la propagazione delle autorizzazioni può richiedere molto tempo. Il tempo necessario può variare tra i 30 e i 50 oggetti elaborati al secondo. Pianificare quindi in modo appropriato la struttura di cartelle e i gruppi di utenti. In caso contrario, possono verificarsi problemi e ritardi imprevisti quando si lavora con i dati.
 

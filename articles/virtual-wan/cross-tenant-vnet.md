@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 881f955014032d18fec447784a879fbf4f0e24fa
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571489"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078970"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>Connettere reti virtuali tra tenant a un hub WAN virtuale
 
@@ -54,7 +54,7 @@ Per consentire alla sottoscrizione padre con l'hub virtuale di modificare e acce
 1. Successivamente, aggiungere la sottoscrizione tenant remoto e la sottoscrizione tenant padre alla sessione corrente di PowerShell. Eseguire il comando seguente. Se è stato eseguito l'accesso all'elemento padre, è sufficiente eseguire il comando per il tenant remoto.
 
    ```azurepowershell-interactive
-   Add-AzAccount “xxxxx-b34a-4df9-9451-4402dcaecc5b”
+   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Verificare che l'assegnazione di ruolo abbia esito positivo eseguendo l'accesso Azure PowerShell usando le credenziali padre ed eseguendo il comando seguente:
@@ -72,25 +72,25 @@ Nei passaggi seguenti si passerà tra il contesto delle due sottoscrizioni quand
 1. Assicurarsi di trovarsi nel contesto dell'account remoto eseguendo il comando seguente:
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[remote ID]”
+   Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. Creare una variabile locale per archiviare i metadati della rete virtuale che si vuole connettere all'hub.
 
    ```azurepowershell-interactive
-   $remote = Get-AzVirtualNetwork -Name "[v-net name]" -ResourceGroupName "[resource group name]"
+   $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. Tornare all'account padre.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[parent ID]”
+   Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. Connettere il VNet all'hub.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[Parent Resource Group Name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
    ```
 
 1. È possibile visualizzare la nuova connessione in PowerShell o nel portale di Azure.

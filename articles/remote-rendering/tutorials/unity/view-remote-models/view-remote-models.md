@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006466"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653673"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto
 
@@ -76,10 +76,10 @@ In questo esempio si presuppone che il progetto venga creato in una cartella den
 
 Dopo aver modificato e salvato il manifesto, Unity verrà aggiornato automaticamente. Verificare che i pacchetti siano stati caricati nella finestra *Project* (Progetto):
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="Verificare l'importazione dei pacchetti":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="Nuovo progetto di Unity":::
 
 Se i pacchetti non vengono caricati, controllare la presenza di errori nella console di Unity. Se non sono presenti errori e non è ancora possibile visualizzare i pacchetti nella cartella **Packages**, selezionare il pulsante di attivazione visibilità pacchetti.\
-![Proprietà della videocamera Unity](./media/unity-package-visibility.png)
+![Screenshot con una freccia che punta al pulsante di attivazione/disattivazione della visibilità del pacchetto.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Assicurarsi di avere l'ultima versione del pacchetto
 
@@ -120,7 +120,7 @@ I passaggi seguenti consentono di verificare l'uso dell'ultima versione del pacc
 
 1. Selezionare **Graphics** (Grafica) nel menu di elenco a sinistra
 1. Impostare l'opzione **Scriptable Rendering Pipeline** (Pipeline di rendering gestibile tramite script) su *HybridRenderingPipeline*.\
-    ![Modifica delle impostazioni grafiche del progetto](./media/settings-graphics-render-pipeline.png)\
+    ![Screenshot che evidenza la posizione in cui si modifica l'impostazione Scriptable Rendering Pipeline (Pipeline di rendering gestibile tramite script) su HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     In alcuni casi l'interfaccia utente non popola l'elenco dei tipi di pipeline disponibili dai pacchetti. In tal caso, l'asset *HybridRenderingPipeline* deve essere trascinato nel campo manualmente:\
     ![Modifica delle impostazioni grafiche del progetto](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ Per procedere da **NotAuthorized** a **NoSession**, in genere viene visualizzata
 1. Trascinare il componente sul relativo evento, in modo che faccia riferimento a se stesso.\
 ![Ignorare l'autenticazione](./media/bypass-authorization-add-event.png)\
 1. Nell'elenco a discesa selezionare **RemoteRenderingCoordinator-> BypassAuthorization**.\
-![Ignorare l'autenticazione](./media/bypass-authorization-event.png)
+![Screenshot che mostra l'opzione RemoteRenderingCoordinator.BypassAuthorization selezionata.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Creare o partecipare a una sessione remota
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 Una volta implementate le basi necessarie, è possibile caricare un modello nella sessione remota e iniziare a ricevere fotogrammi.
 
-![Rendering remoto di Azure, stack 4](./media/remote-render-stack-4.png)
+![Diagramma che mostra il flusso del processo per la preparazione del caricamento e della visualizzazione di un modello.](./media/remote-render-stack-4.png)
 
 Il metodo **LoadModel** è progettato per accettare un percorso di modelli, un gestore di stato e una trasformazione padre. Questi argomenti verranno usati per caricare un modello nella sessione remota, aggiornare l'utente sullo stato di caricamento e orientare il modello sottoposto a rendering remoto in base alla trasformazione padre.
 

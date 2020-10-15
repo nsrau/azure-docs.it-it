@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831227"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Informazioni sui messaggi di errore comuni quando si gestiscono le macchine virtuali in Azure
@@ -179,7 +179,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  OSProvisioningTimedOut  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è stato completato nel tempo assegnato. La macchina virtuale può comunque completare il provisioning. Controllare lo stato del provisioning più tardi. Assicurarsi inoltre che l'immagine sia stata preparata correttamente (generalizzata).   <ul><li>Istruzioni per [Windows]( ../windows/upload-generalized-managed.md).</li><li> Istruzioni per [Linux](../linux/capture-image.md)</li></ul>  |
 |  OSProvisioningTimedOut  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è stato completato nel tempo assegnato. Tuttavia, è stato rilevato che l'agente guest di macchine virtuali è in esecuzione. Questo può indicare che il sistema operativo guest non è stato preparato correttamente per essere usato come immagine di macchina virtuale (con CreateOption=FromImage). Per risolvere il problema, usare il disco rigido virtuale così com'è con CreateOption=Attach oppure prepararlo correttamente per essere usato come immagine:   <ul><li>Istruzioni per Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Istruzioni per Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Le dimensioni della macchina virtuale richieste non sono attualmente disponibili nel percorso selezionato.  |
-|  ResourceUpdateBlockedOnPlatformUpdate  |  Non è possibile aggiornare la risorsa in questo momento perché è in corso un aggiornamento della piattaforma. Riprovare più tardi.  |
+|  ResourceUpdateBlockedOnPlatformUpdate  |  Non è possibile aggiornare la risorsa in questo momento perché è in corso un aggiornamento della piattaforma. Riprova più tardi.  |
 |  StorageAccountLimitation  |  L'account di archiviazione '{0}' non supporta i BLOB di pagine richiesti per creare i dischi.  |
 |  StorageAccountLimitation  |  È stata superata la quota allocata per l'account di archiviazione '{0}'.  |
 |  StorageAccountLocationMismatch  |  Non è stato possibile risolvere l'account di archiviazione {0}. Verificare che sia stato creato con il provider delle risorse di archiviazione nello stesso percorso della risorsa di calcolo.  |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: fb9c776061407669f27f61ac4bc536b859d04b66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 41dd61182674d63e7c8b83232c53b9e7054de04d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550618"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91816862"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-helpshift"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Helpshift
 
@@ -134,11 +134,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Aprire il **dashboard** di Helpshift e fare clic sull'icona **Settings** (Impostazioni).
 
-    ![Configurazione di Helpshift](./media/helpshift-tutorial/configuration01.png)
+    ![Screenshot che mostra l'icona Settings di Helpshift.](./media/helpshift-tutorial/configuration01.png)
 
 1. Fare clic sulla scheda **Integrations** (Integrazioni) e seguire questa procedura:
 
-    ![Configurazione di Helpshift](./media/helpshift-tutorial/configuration02.png)
+    ![Screenshot che mostra la scheda Integration in cui eseguire i passaggi descritti.](./media/helpshift-tutorial/configuration02.png)
 
     a. Attivare l'opzione **Single Sign-On (SAML - SSO)** .
 

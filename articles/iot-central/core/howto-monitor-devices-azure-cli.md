@@ -10,10 +10,10 @@ ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015977"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
@@ -53,7 +53,7 @@ az extension update --name azure-iot
 
 Nelle sezioni seguenti vengono descritti i comandi e le opzioni comuni che è possibile utilizzare quando si esegue `az iot central` . Per visualizzare il set completo di comandi e opzioni, passare `--help` a `az iot central` o a uno dei relativi sottocomandi.
 
-### <a name="login"></a>Login
+### <a name="login"></a>Accedi
 
 Per iniziare, accedere all'interfaccia della riga di comando di Azure. 
 

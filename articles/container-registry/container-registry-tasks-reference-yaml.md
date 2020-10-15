@@ -4,10 +4,10 @@ description: Riferimento per la definizione di attività in YAML per Attività d
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067584"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Riferimenti ad Attività di Registro Azure Container: YAML
@@ -79,7 +79,7 @@ Le proprietà delle attività vengono in genere visualizzate all'inizio di un `a
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sì | Versione del file `acr-task.yaml` come analizzato dal servizio Attività di Registro Azure Container. Attività di Registro Azure Container cerca di mantenere la compatibilità con le versioni precedenti e questo valore consente di mantenere la compatibilità in una versione definita. Se non è specificato, l'impostazione predefinita è la versione più recente. | No | nessuno |
 | `stepTimeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un passaggio. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `timeout` di tutti i passaggi. Se la `timeout` proprietà viene specificata in un passaggio, esegue l'override della proprietà fornita dall'attività. | Sì | 600 (10 minuti) |
-| `workingDirectory` | string | Sì | Directory di lavoro del contenitore durante la fase di esecuzione. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `workingDirectory` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override della proprietà fornita dall'attività. | Sì | `c:\workspace`in Windows o `/workspace` in Linux |
+| `workingDirectory` | string | Sì | Directory di lavoro del contenitore durante la fase di esecuzione. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `workingDirectory` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override della proprietà fornita dall'attività. | Sì | `c:\workspace` in Windows o `/workspace` in Linux |
 | `env` | [stringa, stringa, ...] | Sì |  Matrice di stringhe in `key=value` formato che definiscono le variabili di ambiente per l'attività. Se la proprietà viene specificata in un'attività, imposta la proprietà predefinita `env` di tutti i passaggi. Se viene specificato in un passaggio, viene eseguito l'override di tutte le variabili di ambiente ereditate dall'attività. | Sì | Nessuno |
 | `secrets` | [segreto, segreto,...] | Sì | Matrice di oggetti [Secret](#secret) . | No | nessuno |
 | `networks` | [rete, rete,...] | Sì | Matrice di oggetti di [rete](#network) . | No | nessuno |
@@ -404,7 +404,7 @@ Ogni tipo di passaggio supporta diverse proprietà appropriate per il tipo stess
 | `timeout` | intero (secondi) | Sì | Numero massimo di secondi per l'esecuzione di un passaggio prima che venga terminato. | 600 |
 | [`when`](#example-when) | [stringa, stringa, ...] | Sì | Configura la dipendenza di un passaggio in uno o più passaggi nell'attività. | Nessuno |
 | `user` | string | Sì | Nome utente o UID di un contenitore | Nessuno |
-| `workingDirectory` | string | Sì | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività di Registro Azure Container crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. | `c:\workspace`in Windows o `/workspace` in Linux |
+| `workingDirectory` | string | Sì | Imposta la directory di lavoro per un passaggio. Per impostazione predefinita, Attività di Registro Azure Container crea una directory radice come directory di lavoro. Se la compilazione prevede diversi passaggi, tuttavia, i passaggi precedenti possono condividere artefatti con quelli successivi specificando la stessa directory di lavoro. | `c:\workspace` in Windows o `/workspace` in Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
@@ -413,7 +413,7 @@ L'oggetto volumeMount presenta le seguenti proprietà.
 | Proprietà | Type | Facoltativo | Descrizione | Valore predefinito |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | stringa | No | Nome del volume da montare. Deve corrispondere esattamente al nome di una `volumes` Proprietà. | Nessuno |
-| `mountPath`   | string | No | Percorso assoluto di montaggio dei file nel contenitore.  | Nessuno |
+| `mountPath`   | string | no | Percorso assoluto di montaggio dei file nel contenitore.  | Nessuno |
 
 ### <a name="examples-task-step-properties"></a>Esempi: proprietà dei passaggi delle attività
 

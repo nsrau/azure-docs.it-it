@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: rohink
 ms.openlocfilehash: 9b6cac64d2e3def673f6d7c27e80bd64eead9e97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689164"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Come gestire le zone DNS nel portale di Azure
@@ -38,7 +38,7 @@ Questo articolo spiega come gestire le zone DNS usando il portale di Azure. È a
 4. Nel pannello **Crea zona DNS** immettere i valori seguenti, quindi fare clic su **Crea**:
 
 
-   | **Impostazione** | **Valore** | **Dettagli** |
+   | **Impostazione** | **Valore** | **Informazioni dettagliate** |
    |---|---|---|
    |**Nome**|contoso.com|Nome della zona DNS|
    |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare la zona DNS.|

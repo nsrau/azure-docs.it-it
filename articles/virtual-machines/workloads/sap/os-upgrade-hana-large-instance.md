@@ -14,10 +14,10 @@ ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82192417"
 ---
 # <a name="operating-system-upgrade"></a>Aggiornamento del sistema operativo
@@ -95,7 +95,7 @@ Le istanze large di SAP in Azure HANA (Type I) possono trovarsi in uno stato non
 
 
 *   Eseguire il `multipath -ll` comando.
-*   Ottenere l'ID LUN la cui dimensione è approssimativamente 50G o usare il comando:`fdisk -l | grep mapper`
+*   Ottenere l'ID LUN la cui dimensione è approssimativamente 50G o usare il comando: `fdisk -l | grep mapper`
 *   Aggiorna il `/etc/default/grub_installdevice` file con la riga `/dev/mapper/<LUN ID>` . Esempio:/dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
 >L'ID LUN varia da server a server.
@@ -110,7 +110,7 @@ Le istanze large di SAP in Azure HANA (Type I) possono trovarsi in uno stato non
 ```
 lsmod | grep -i edac 
 ```
-* Disabilitare i moduli aggiungendo le righe seguenti al file`/etc/modprobe.d/blacklist.conf`
+* Disabilitare i moduli aggiungendo le righe seguenti al file `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
@@ -121,8 +121,8 @@ blacklist edac_core
 ### <a name="kernel-parameters"></a>Parametri del kernel
    Verificare che siano state applicate le impostazioni corrette per `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` e `intel_idle.max_cstate` .
 
-* intel_idle. max_cstate = 1
-* processore. max_cstate = 1
+* intel_idle intel_idle.max_cstate = 1
+* processor.max_cstate = 1
 * transparent_hugepage = mai
 * numa_balancing = Disabilita
 * MCE = ignore_ce
@@ -130,7 +130,7 @@ blacklist edac_core
 
 #### <a name="execution-steps"></a>Passaggi di esecuzione
 
-* Aggiungere questi parametri alla `GRB_CMDLINE_LINUX` riga nel file`/etc/default/grub`
+* Aggiungere questi parametri alla `GRB_CMDLINE_LINUX` riga nel file `/etc/default/grub`
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299525"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977953"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La macchina virtuale non risponde durante l'applicazione dei criteri di configurazione dei criteri di controllo
 
@@ -27,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui la macchin
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza che il sistema operativo non risponde durante un avvio con il messaggio applicazione dei criteri di configurazione dei criteri di **controllo**.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza che il sistema operativo non risponde durante un avvio con il messaggio applicazione dei criteri di configurazione dei criteri di **controllo**.
 
   ![Avvio del sistema operativo con il messaggio: "applicazione dei criteri di configurazione dei criteri di controllo"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -54,7 +54,7 @@ Ecco i criteri problematici: *computer Configurazione computer\Modelli \ System/
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 ### <a name="disable-the-policy"></a>Disabilitare il criterio
@@ -153,7 +153,7 @@ Ecco i criteri problematici: *computer Configurazione computer\Modelli \ System/
    
 ### <a name="rebuild-the-virtual-machine"></a>Ricompilare la macchina virtuale
 
-1. Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per ricreare la macchina virtuale.
+1. Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per ricreare la macchina virtuale.
 
 1. Verificare se la macchina virtuale viene avviata normalmente per verificare se il problema è stato risolto.
 
@@ -175,11 +175,11 @@ Per risolvere il problema, è necessario innanzitutto raccogliere il file di dum
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Connetti il disco del sistema operativo a una nuova macchina virtuale di ripristino
 
-1. Usare i passaggi 1-3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una nuova macchina virtuale di ripristino.
+1. Usare i passaggi 1-3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una nuova macchina virtuale di ripristino.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Individuare il file dump e inviare un ticket di supporto
 
 1. Nella macchina virtuale di ripristino andare alla cartella Windows nel disco del sistema operativo collegato. Se la lettera di driver assegnata al disco del sistema operativo collegato è denominata *F*, è necessario passare a `F:\Windows` .
 1. Individuare il `memory.dmp` file e quindi [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con il file di dump della memoria.
-1. Se si verificano problemi durante l'individuazione del `memory.dmp` file, usare invece le [chiamate di interrupt non mascherabili (NMI) nella console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) . Seguire la guida per [generare un file di dump di arresto anomalo del sistema usando le chiamate a NMI qui](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Se si verificano problemi durante l'individuazione del `memory.dmp` file, usare invece le [chiamate di interrupt non mascherabili (NMI) nella console seriale](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) . Seguire la guida per [generare un file di dump di arresto anomalo del sistema usando le chiamate a NMI qui](/windows/client-management/generate-kernel-or-complete-crash-dump).

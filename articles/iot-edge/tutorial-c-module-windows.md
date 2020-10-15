@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: edfe0a383ab68b640b5bc7e7e0a1fdd038d0fa38
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 59656db2bbb8a6898ae08a168dbbc7e0a6a82aec
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318331"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044718"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Esercitazione: Sviluppare un modulo IoT Edge in C per dispositivi Windows
 
@@ -49,8 +49,8 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
 * Un [dispositivo Windows che esegue Azure IoT Edge](quickstart.md).
-* Un registro contenitori, ad esempio [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurato con l'estensione [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
+* Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
+* [Visual Studio 2019](/visualstudio/install/install-visual-studio) configurato con l'estensione [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) configurato per eseguire i contenitori Windows.
 * Installare Azure IoT C SDK per Windows x64 tramite vcpkg:
 
@@ -346,6 +346,7 @@ Il computer di sviluppo può ora accedere al Registro Container, come pure posso
 
 Usare Cloud Explorer di Visual Studio e l'estensione Azure IoT Edge Tools per distribuire il progetto di modulo nel dispositivo IoT Edge. Per questo scenario è già disponibile un manifesto della distribuzione, il file **deployment.windows-amd64.json** nella cartella config. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
 
+
 Assicurarsi che il dispositivo IoT Edge sia in esecuzione.
 
 1. In Cloud Explorer di Visual Studio espandere le risorse per visualizzare l'elenco di dispositivi IoT.
@@ -396,7 +397,7 @@ In caso contrario, è possibile eliminare le configurazioni locali e le risorse 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un modulo di IoT Edge con codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Quando si è pronti a creare moduli personalizzati, si può passare agli argomenti su come [sviluppare moduli IoT Edge personalizzati](module-development.md) o [sviluppare moduli con Visual Studio](how-to-visual-studio-develop-module.md). Per esempi di moduli di IoT Edge, incluso il modulo per le temperature simulate, vedere gli [esempi di moduli di IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) e gli [esempi di IoT SDK per C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
+In questa esercitazione è stato creato un modulo di IoT Edge con codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge.
 
 Continuare con le esercitazioni successive per informazioni sul modo in cui Azure IoT Edge semplifica la distribuzione di servizi cloud di Azure per elaborare e analizzare i dati nei dispositivi perimetrali.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
 ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085549"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Eseguire query Apache Hive con Apache Hadoop in HDInsight tramite REST
@@ -48,7 +48,7 @@ Modificare lo script seguente sostituendo `PASSWORD` con la password effettiva. 
 export password='PASSWORD'
 ```  
 
-**B. PowerShell** eseguire il codice seguente e immettere le credenziali nella finestra popup:
+**B. PowerShell** Eseguire il codice seguente e immettere le credenziali nella finestra popup:
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -146,7 +146,7 @@ $clusterName
 
    Le istruzioni eseguono queste azioni:
 
-   * `DROP TABLE`-Se la tabella esiste già, viene eliminata.
+   * `DROP TABLE` -Se la tabella esiste già, viene eliminata.
    * `CREATE EXTERNAL TABLE`: crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.
 
      > [!NOTE]  
@@ -155,7 +155,7 @@ $clusterName
      > L'eliminazione di una tabella esterna **non** comporta anche l'eliminazione dei dati. Viene eliminata solo la definizione della tabella.
 
    * `ROW FORMAT`: indica il modo in cui sono formattati i dati. I campi in ogni log sono separati da uno spazio.
-   * `STORED AS TEXTFILE LOCATION`-Dove sono archiviati i dati (la directory example/Data) e che sono archiviati come testo.
+   * `STORED AS TEXTFILE LOCATION` -Dove sono archiviati i dati (la directory example/Data) e che sono archiviati come testo.
    * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna **t4** include il valore **[ERROR]**. L'istruzione dovrebbe restituire un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.
 
      > [!NOTE]  

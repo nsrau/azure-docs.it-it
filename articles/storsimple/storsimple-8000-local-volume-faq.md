@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
 ms.openlocfilehash: 483fa81b409e1bd740af85b431a86b6c814831e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85511511"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volumi aggiunti in locale di StorSimple: domande frequenti
@@ -52,9 +52,9 @@ Poiché parte dello spazio locale del dispositivo viene usato per ospitare il wo
 | 1 TB |176.5 TB |477.8 TB |
 | 4 TB |105.9 TB |411.1 TB |
 | 8.5 TB |0 TB |311.1 TB |
-| 10 TB |ND |277.8 TB |
-| 15 TB |ND |166.7 TB |
-| 22.5 TB |ND |0 TB |
+| 10 TB |N/D |277.8 TB |
+| 15 TB |N/D |166.7 TB |
+| 22.5 TB |N/D |0 TB |
 
 **D.**  Perché la creazione di un volume aggiunto in locale è un'operazione di lunga durata?
 
@@ -178,7 +178,7 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 
 **D.**  È possibile clonare un volume aggiunto in locale?
 
-**R.** Sì, ma il volume aggiunto in locale verrà duplicato come volume a livelli per impostazione predefinita. Sono disponibili altre informazioni su come [clonare un volume aggiunto in locale](storsimple-8000-clone-volume-u2.md)
+**R.** Sì, è possibile. ma il volume aggiunto in locale verrà duplicato come volume a livelli per impostazione predefinita. Sono disponibili altre informazioni su come [clonare un volume aggiunto in locale](storsimple-8000-clone-volume-u2.md)
 
 ## <a name="questions-about-failing-over-a-locally-pinned-volume"></a>Domande sul failover di un volume aggiunto in locale
 **D.**  È necessario effettuare il failover del dispositivo in un altro dispositivo fisico. Dei volumi aggiunti in locale verrà effettuato il failover come volumi aggiunti in locale o a livelli?
@@ -201,5 +201,5 @@ Sono disponibili altre informazioni sugli [failover e ripristino di emergenza de
 
 **D.**  È possibile effettuare il failover di un contenitore di volumi con volumi aggiunti in locale nell'appliance cloud?
 
-**R.** Sì, Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni sugli [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
+**R.** Sì, è possibile. Il failover dei volumi aggiunti in locale viene effettuato come volumi a livelli. Sono disponibili altre informazioni sugli [failover e ripristino di emergenza dei volumi aggiunti in locale nelle diverse versioni](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
 

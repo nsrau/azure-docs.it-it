@@ -6,15 +6,15 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 7d1044d02ceba1f3d0996b1fe1c8a9a44b31049b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91253650"
 ---
 # <a name="active-and-inactive-events"></a>Eventi attivi e inattivi
 
-Un evento **attivo** è qualsiasi chiamata al rango in cui si è certi che il risultato verrà visualizzato al cliente e verrà determinato il Punteggio di ricompensa. Questo è il comportamento predefinito.
+Un evento **attivo** è qualsiasi chiamata al rango in cui si è certi che il risultato verrà visualizzato al cliente e verrà determinato il Punteggio di ricompensa. Comportamento predefinito.
 
 Un evento **inattivo** è una chiamata a Rank in cui non si è certi se l'utente visualizzerà l'azione consigliata, a causa della logica di business. In questo modo è possibile eliminare l'evento in modo che la personalizzazione non venga sottoposta a training con la ricompensa predefinita. Gli eventi inattivi non devono chiamare l'API Reward.
 

@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui dispositivi gemelli Plug and Play digitali
+title: Informazioni sui gemelli digitali Plug and Play IoT
 description: Informazioni sul modo in cui l'Plug and Play usa i gemelli digitali
 author: prashmo
 ms.author: prashmo
@@ -7,14 +7,14 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578054"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046469"
 ---
-# <a name="understand-iot-plug-and-play-digital-twins"></a>Informazioni sui dispositivi gemelli Plug and Play digitali
+# <a name="understand-iot-plug-and-play-digital-twins"></a>Informazioni sui gemelli digitali Plug and Play IoT
 
 Un dispositivo Plug and Play implementa un modello descritto dallo schema [DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl) . Un modello descrive il set di componenti, proprietà, comandi e messaggi di telemetria che possono essere presenti in un determinato dispositivo. Un dispositivo gemello e un dispositivo gemello digitale vengono inizializzati la prima volta che un Plug and Play dispositivo si connette a un hub.
 
@@ -307,11 +307,11 @@ I frammenti di codice seguenti mostrano la rappresentazione in formato JSON affi
 
 ## <a name="digital-twin-apis"></a>API gemelle digitali
 
-I dispositivi gemelli digitali di Azure sono forniti con **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** e **Invoke Command** per la gestione dei dispositivi gemelli digitali. È possibile usare le [API REST](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) direttamente o tramite un [SDK del servizio](../iot-pnp/libraries-sdks.md).
+I dispositivi gemelli digitali di Azure sono forniti con **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** e **Invoke Command** per la gestione dei dispositivi gemelli digitali. È possibile usare le [API REST](/rest/api/iothub/service/digitaltwin) direttamente o tramite un [SDK del servizio](../iot-pnp/libraries-sdks.md).
 
 ## <a name="digital-twin-change-events"></a>Eventi di modifica del gemello digitale
 
-Quando sono abilitati gli eventi di modifica del dispositivo gemello digitale, viene attivato un evento ogni volta che viene modificato il valore corrente o desiderato del componente o della proprietà. Gli eventi di modifica di dispositivi gemelli digitali vengono generati nel formato di [patch JSON](http://jsonpatch.com/) . Gli eventi corrispondenti vengono generati nel formato dispositivo gemello se sono abilitati gli eventi di modifica gemelli.
+Quando sono abilitati gli eventi di modifica del gemello digitale, viene attivato un evento ogni volta che viene modificato il valore attuale o desiderato del componente o della proprietà. Gli eventi di modifica di dispositivi gemelli digitali vengono generati nel formato di [patch JSON](http://jsonpatch.com/) . Gli eventi corrispondenti vengono generati nel formato dispositivo gemello se sono abilitati gli eventi di modifica gemelli.
 
 Per informazioni su come abilitare il routing per gli eventi di dispositivi e dispositivi gemelli digitali, vedere [usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a diversi endpoint](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Per informazioni sul formato del messaggio, vedere [creare e leggere i messaggi dell'hub](../iot-hub/iot-hub-devguide-messages-construct.md)Internet.
 
@@ -383,5 +383,5 @@ Ora che sono state apprese informazioni sui dispositivi gemelli digitali, di seg
 
 - [Come usare le API per i dispositivi gemelli Plug and Play digitali](howto-manage-digital-twin.md)
 - [Interagire con un dispositivo dalla soluzione](quickstart-service-node.md)
-- [API REST Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [API REST Digital Twin](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

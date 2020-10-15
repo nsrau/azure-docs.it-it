@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087606"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opzioni del contesto di calcolo per ML Services in HDInsight
@@ -57,7 +57,7 @@ Quale delle tre opzioni consenta l'esecuzione parallelizzata dipende dalla natur
 
 Dati questi principi, la sezione seguente illustra alcune regole generali per la selezione di un contesto di calcolo.
 
-### <a name="local"></a>Local
+### <a name="local"></a>Locale
 
 - Se la quantità di dati da analizzare è limitata e non richiede un'analisi ripetuta, trasmettere il flusso direttamente alla routine di analisi usando *local* o *localpar*.
 - Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con *local* o *localpar*.

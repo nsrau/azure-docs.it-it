@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 91683b3328af384c073f7273b97a1cc0e49814a2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91377480"
 ---
 Una delle funzionalità principali del servizio di riconoscimento vocale è la possibilità di riconoscere la voce umana e tradurla in altre lingue. Questa Guida introduttiva illustra come usare l'SDK di riconoscimento vocale nelle app e nei prodotti per eseguire la traduzione vocale di alta qualità. Questa Guida introduttiva illustra gli argomenti tra cui:
@@ -17,9 +17,9 @@ Una delle funzionalità principali del servizio di riconoscimento vocale è la p
 * Conversione di riconoscimento vocale in più lingue di destinazione
 * Esecuzione della traduzione vocale diretta
 
-## <a name="skip-to-samples-on-github"></a>Passare agli esempi in GitHub
+## <a name="skip-to-samples-on-github"></a>Passare agli esempi su GitHub
 
-Per passare direttamente al codice di esempio, vedere gli esempi di [avvio rapido di Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python) su GitHub.
+Per passare direttamente al codice di esempio, vedere gli [esempi di avvio rapido Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python) in GitHub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

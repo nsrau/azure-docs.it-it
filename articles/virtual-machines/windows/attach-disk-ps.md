@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: baeeeae54829fad7378df597965eec5ba2039d20
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825447"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972816"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Collegare un disco dati a una macchina virtuale Windows con PowerShell
 
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile distribuire dischi gestiti usando i modelli. Per altre informazioni, vedere [uso di Managed disks nei modelli di Azure Resource Manager](using-managed-disks-template-deployments.md) o nel [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) per la distribuzione di più dischi dati.
+È anche possibile distribuire dischi gestiti usando i modelli. Per altre informazioni, vedere [uso di Managed disks nei modelli di Azure Resource Manager](../using-managed-disks-template-deployments.md) o nel [modello di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) per la distribuzione di più dischi dati.

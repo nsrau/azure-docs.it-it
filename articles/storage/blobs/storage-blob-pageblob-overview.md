@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 542c9374b70cd765ed27dd4dd158ad81035269f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018842"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091016"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Panoramica dei BLOB di pagine di Azure
 
@@ -90,7 +90,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 # <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
-Per ridimensionare un BLOB di pagine dopo la creazione, usare il metodo [Resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) . Le dimensioni richieste devono essere un multiplo di 512 byte.
+Per ridimensionare un BLOB di pagine dopo la creazione, usare il metodo [Resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize) . Le dimensioni richieste devono essere un multiplo di 512 byte.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 

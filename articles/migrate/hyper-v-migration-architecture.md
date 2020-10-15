@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362198"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Funzionamento della replica Hyper-V
@@ -80,7 +80,7 @@ I
 Se si dispone di larghezza di banda di riserva per la replica e si desidera aumentare i caricamenti, è possibile aumentare il numero di thread allocati per l'attività di caricamento, come indicato di seguito:
 
 1. Aprire il registro di sistema con Regedit.
-2. Passare a chiave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+2. Passa a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM chiave
 3. Aumentare il valore per il numero di thread usati per il caricamento dei dati per ogni macchina virtuale di replica. Il valore predefinito è 4 e il valore massimo è 32. 
 
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287738"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
@@ -98,7 +98,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrare il server di configurazione con i servizi Azure Site Recovery
 
-1. Dalla console client di VMware vSphere, accendere la macchina virtuale.
+1. Accendere la macchina virtuale dalla console del client VMware vSphere.
 2. La macchina virtuale si avvia con la procedura di installazione di Windows Server 2016. Accettare il contratto di licenza e immettere una password amministratore.
 3. Al termine dell'installazione, accedere alla macchina virtuale come amministratore.
 4. La prima volta che si accede, entro pochi secondi viene avviato lo strumento di configurazione Azure Site Recovery.

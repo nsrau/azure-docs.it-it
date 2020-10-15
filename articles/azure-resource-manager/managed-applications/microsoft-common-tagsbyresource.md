@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: e730201812005a9b469a964e4acd081ebe86b100
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063933"
 ---
 # <a name="microsoftcommontagsbyresource-ui-element"></a>Elemento Microsoft. Common. TagsByResource dell'interfaccia utente
@@ -47,7 +47,7 @@ Controllo per l'associazione dei [tag](../management/tag-resources.md) alle riso
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - È necessario specificare almeno un elemento nella `resources` matrice.
 - Ogni elemento in `resources` deve essere un tipo di risorsa completo. Questi elementi vengono visualizzati nell'elenco a discesa **delle risorse** e sono taggable dall'utente.

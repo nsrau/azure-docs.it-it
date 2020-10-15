@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836106"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Risolvere i problemi di connettività del servizio NAT di rete virtuale di Azure
@@ -195,14 +195,6 @@ _**Soluzione:**_
 Non è necessario riavviare una macchina virtuale configurando una subnet per una risorsa del gateway NAT.  Se una macchina virtuale viene riavviata, tuttavia, lo stato della connessione viene eliminato.  Quando lo stato della connessione è stato eliminato, tutte le connessioni iniziano a usare gli indirizzi IP della risorsa del gateway NAT.  Si tratta tuttavia di un effetto collaterale della macchina virtuale che viene riavviata e non di un indicatore di richiesta d riavvio.
 
 Se si verificano ancora problemi, aprire un caso di supporto per un'ulteriore intervento di risoluzione dei problemi.
-
-### <a name="connection-setup-time"></a>Tempo di installazione della connessione
-
-Poiché Load Balancer le regole in uscita assegnano staticamente pool di porte SNAT a macchine virtuali specifiche, la creazione di nuovi flussi in uscita è più veloce rispetto all'uso di NAT della rete virtuale. Pertanto, quando si passa da Load Balancer regole in uscita, è possibile che venga visualizzata una latenza maggiore durante la creazione di una nuova connessione in uscita. Come spiegato in precedenza, per ottimizzare le prestazioni dell'applicazione, è consigliabile usare flussi di lunga durata, ad esempio le connessioni TCP riutilizzate.
-
-_**Soluzione:**_
-
-Se si è interessati principalmente alla latenza minima dell'installazione di connnection, usare Load Balancer regole in uscita.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

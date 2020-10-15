@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
 ms.openlocfilehash: 15f9387aac909c0245d25b3a208ed24444b2b343
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329399"
 ---
 # <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
@@ -166,7 +166,7 @@ Dopo aver creato l'account di archiviazione, è possibile creare la condivisione
 Le condivisioni file standard possono essere distribuite in uno dei livelli standard: Transaction Optimized (default), Hot o cool. Si tratta di un livello per condivisione file che non è influenzato dal **livello di accesso BLOB** dell'account di archiviazione. questa proprietà è relativa solo all'archiviazione BLOB di Azure, ma non è correlata a file di Azure. È possibile modificare il livello della condivisione in qualsiasi momento dopo la distribuzione. Le condivisioni file Premium non possono essere convertite direttamente in condivisioni file standard in qualsiasi livello standard.
 
 > [!Important]  
-> È possibile spostare le condivisioni file tra livelli all'interno di tipi di account di archiviazione GPv2 (transazione ottimizzata, frequente e sporadica). Gli spostamenti di condivisione tra livelli comportano transazioni: il passaggio da un livello più caldo a un livello più frequente comporta l'addebito per le transazioni di scrittura del livello di raffreddamento per ogni file della condivisione, mentre un passaggio da un livello più sporadico a un livello più caldo comporterà l'addebito delle transazioni di lettura del livello di accesso sporadico per ogni file della condivisione.
+> È possibile spostare le condivisioni file tra livelli all'interno di tipi di account di archiviazione GPv2 (ottimizzato per le transazioni, ad accesso frequente e ad accesso sporadico). Gli spostamenti delle condivisioni tra livelli comportano transazioni: il passaggio da un livello ad accesso più frequente a uno ad accesso più sporadico comporta l'addebito per le transazioni di scrittura del livello più sporadico per ogni file della condivisione, mentre un passaggio da un livello più sporadico a uno più frequente comporterà l'addebito delle transazioni di lettura del livello ad accesso sporadico per ogni file della condivisione.
 
 La proprietà **quota** indica un valore leggermente diverso tra le condivisioni file Premium e standard:
 

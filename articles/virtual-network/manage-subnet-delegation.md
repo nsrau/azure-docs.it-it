@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
 ms.openlocfilehash: d2db8eb5b93d84a5ece182fffbca5870762ee89e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84703894"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Aggiungere o rimuovere una delega della subnet
@@ -36,14 +36,14 @@ Questa sezione illustra come creare una rete virtuale e la subnet da delegare in
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere *MyVirtualNetwork*. |
     | Spazio degli indirizzi | Immettere *10.0.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
     | Location | Selezionare **eastus**.|
-    | Subnet - Nome | Immettere *mySubnet*. |
+    | Subnet - Nome | Immettere la *subnet*. |
     | Subnet - Intervallo di indirizzi | Immettere *10.0.0.0/24*. |
     |||
 1. Lasciare l'impostazione predefinita REST e quindi selezionare **Crea**.
@@ -177,7 +177,7 @@ L'output del comando è una parentesi null:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="connect-to-azure"></a>Connettersi ad Azure
+### <a name="connect-to-azure"></a>Connettiti ad Azure
 
 ```azurepowershell-interactive
   Connect-AzAccount

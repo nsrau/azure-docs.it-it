@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0c90062f1968cc7be5a742a67363f57b9632fdfa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906860"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090676"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e sistema operativo di base per le app di microservizi Spring
 
@@ -46,7 +46,7 @@ Azul Systems analizzerà continuamente le modifiche apportate ai sistemi operati
     * Ubuntu 20,04 LTS (fossa focale). Le app continueranno a rimanere nella versione LTS più recente di Ubuntu.
     * Vedere [Ubuntu 20,04 LTS (fossa focale)](http://releases.ubuntu.com/focal/)
 * Come è possibile scaricare un runtime Java supportato per lo sviluppo locale? 
-    * Vedere [Install the JDK for Azure and Azure stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+    * Vedere [Install the JDK for Azure and Azure stack](/azure/developer/java/fundamentals/java-jdk-install)
 * Come è possibile ottenere supporto per i problemi a livello di runtime Java?
     * Aprire un ticket di supporto con il supporto tecnico di Azure.
  
@@ -57,4 +57,4 @@ Azul Systems analizzerà continuamente le modifiche apportate ai sistemi operati
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Avvio rapido: Distribuire la prima applicazione Azure Spring Cloud](spring-cloud-quickstart.md)
-* [Supporto a lungo termine Java per Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Supporto a lungo termine Java per Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support)

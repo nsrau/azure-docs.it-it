@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82193123"
 ---
 # <a name="security-control-network-security"></a>Controllo di sicurezza: sicurezza di rete
@@ -144,7 +144,7 @@ Usare i tag del servizio rete virtuale per definire i controlli di accesso alla 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 1.9 | 11,1 | Customer |
+| 1,9 | 11,1 | Customer |
 
 Definire e implementare configurazioni di sicurezza standard per le risorse di rete con criteri di Azure.
 

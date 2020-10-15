@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
 ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91409664"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Aggiornare la versione del protocollo wire di MongoDB dell'API del Azure Cosmos DB per l'account MongoDB
@@ -62,27 +62,27 @@ Per l'aggiornamento alla versione 3,6, il suffisso dell'endpoint dell'account de
 
 2. Selezionare il pannello dalle opzioni a sinistra `Features` . Verranno rivelate le funzionalità a livello di account disponibili per l'account di database.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Panoramica di portale di Azure con l'account MongoDB con il pannello funzionalità evidenziato" border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/2.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
 3. Fare clic sulla `Upgrade to Mongo server version 3.6` riga. Se questa opzione non viene visualizzata, è possibile che l'account non sia idoneo per l'aggiornamento. Se questo è il caso, inviare [un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
-    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Pannello funzionalità con opzioni." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/3.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
 4. Esaminare le informazioni visualizzate sull'aggiornamento specifico. Si noti che l'aggiornamento verrà completato solo se le applicazioni usano l'endpoint aggiornato, come evidenziato in questa sezione. Fare clic su on appena `Enable` si è pronti per avviare il processo.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Linee guida per l'aggiornamento espanse." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/4.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
 5. Dopo l'avvio del processo, nel `Features` menu sarà visualizzato lo stato dell'aggiornamento. Lo stato passerà da `Pending` , a `In Progress` , a `Upgraded` . Questo processo non influirà sulle funzionalità o sulle operazioni esistenti dell'account del database.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Stato dell'aggiornamento dopo l'avvio." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/5.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
 6. Una volta completato l'aggiornamento, lo stato verrà visualizzato come `Upgraded` . Fare clic su di esso per ulteriori informazioni sui passaggi successivi e sulle azioni che è necessario eseguire per finalizzare il processo. Se si è verificato un problema durante l'elaborazione della richiesta, [contattare il supporto tecnico](https://azure.microsoft.com/en-us/support/create-ticket/) .
 
-    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Stato dell'account aggiornato." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
 7. **Per iniziare a usare la versione aggiornata dell'account del database**, tornare al pannello `Overview` e copiare la nuova stringa di connessione da usare nell'applicazione. Le applicazioni inizieranno a usare la versione aggiornata non appena si connetteranno al nuovo endpoint. Le connessioni esistenti non verranno interrotte e potranno essere aggiornate in praticità. Per garantire un'esperienza coerente, è necessario che tutte le applicazioni usino il nuovo endpoint.
 
-    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Nuovo pannello panoramica." border="false":::
+    :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

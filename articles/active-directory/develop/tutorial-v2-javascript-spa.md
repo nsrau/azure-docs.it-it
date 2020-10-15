@@ -1,7 +1,7 @@
 ---
-title: Esercitazione sull'app a pagina singola JavaScript | Azure
+title: "Esercitazione: Creare un'app a pagina singola JavaScript che usa Microsoft Identity Platform per l'autenticazione | Azure"
 titleSuffix: Microsoft identity platform
-description: In questa esercitazione si apprenderà come le app a pagina singola JavaScript possono chiamare un'API che richiede token di accesso emessi da Microsoft Identity Platform.
+description: In questa esercitazione si creerà un'app a pagina singola JavaScript che usa Microsoft Identity Platform per consentire l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph per loro conto.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,52 +12,48 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256825"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825910"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
-Questa guida illustra come un'applicazione a pagina singola JavaScript consente di:
-- Accedere agli account personali, nonché agli account aziendali e dell'istituto di istruzione
-- Acquisire un token di accesso
-- Chiamare l'API Microsoft Graph o altre API che richiedono token di accesso generati dall'*endpoint di Microsoft Identity Platform*
+In questa esercitazione viene creata un'applicazione a pagina singola in JavaScript che consente agli utenti di accedere con gli account Microsoft personali o con gli account aziendali o dell'istituto di istruzione e quindi acquisire un token di accesso per chiamare l'API Microsoft Graph.
+
+Contenuto dell'esercitazione:
+
+> [!div class="checklist"]
+> * Creare un progetto JavaScript con `npm`
+> * Registrare l'applicazione nel portale di Azure
+> * Aggiungere il codice per supportare l'accesso e la disconnessione
+> * Aggiungere il codice per chiamare l'API Microsoft Graph
+> * Testare l'app
 
 >[!TIP]
 > Questa esercitazione usa MSAL.js v1.x, che è limitato all'uso del flusso di concessione implicita per le applicazioni a pagina singola. È consigliabile invece che tutte le nuove applicazioni usino [MSAL.js 2.x e il flusso del codice di autorizzazione con il supporto PKCE e CORS](tutorial-v2-javascript-auth-code.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Node.js](https://nodejs.org/en/download/) per l'esecuzione di un server Web locale.
+* [Visual Studio Code](https://code.visualstudio.com/download) o un altro editor per la modifica dei file di progetto.
+* Un Web browser moderno. **Internet Explorer** **non è supportato** dall'app creato in questa esercitazione perché l'app usa le convenzioni [ES6](http://www.ecma-international.org/ecma-262/6.0/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 
 ![Illustra come funziona l'app di esempio generata da questa esercitazione](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-### <a name="more-information"></a>Ulteriori informazioni
+L'applicazione di esempio creata in questa guida consente a un'applicazione a pagina singola JavaScript di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint di Microsoft Identity Platform. Per questo scenario, dopo l'accesso di un utente, viene richiesto un token di accesso che viene aggiunto a richieste HTTP tramite l'intestazione dell'autorizzazione. Questo token verrà usato per acquisire il profilo dell'utente e gli indirizzi di posta elettronica tramite l'**API Microsoft Graph**.
 
-L'applicazione di esempio creata in questa guida consente a un'applicazione a pagina singola JavaScript di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint di Microsoft Identity Platform. Per questo scenario, dopo l'accesso di un utente, viene richiesto un token di accesso che viene aggiunto a richieste HTTP tramite l'intestazione dell'autorizzazione. Questo token verrà usato per acquisire il profilo dell'utente e gli indirizzi di posta elettronica tramite l'**API Microsoft Graph**. L'acquisizione e il rinnovo del token vengono gestiti da **Microsoft Authentication Library (MSAL) per JavaScript**.
-
-### <a name="libraries"></a>Librerie
-
-Questa guida usa la libreria seguente:
-
-|Libreria|Descrizione|
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Authentication Library di Microsoft per JavaScript|
+L'acquisizione e il rinnovo del token vengono gestiti da [Microsoft Authentication Library (MSAL) per JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 ## <a name="set-up-your-web-server-or-project"></a>Impostare il server Web o il progetto
 
 > Si preferisce scaricare questo progetto di esempio? [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
 > Per configurare l'esempio di codice prima di eseguirlo, procedere con il [passaggio di configurazione](#register-your-application).
-
-## <a name="prerequisites"></a>Prerequisiti
-
-* Per eseguire l'esercitazione, è necessario un server Web locale, ad esempio [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-
-* Le istruzioni riportate in questa guida sono basate su un server Web compilato in Node.js. È consigliabile usare [Visual Studio Code](https://code.visualstudio.com/download) come IDE (Integrated Development Environment).
-
-* Un Web browser moderno. Per questo esempio JavaScript si usano le convenzioni [ES6](http://www.ecma-international.org/ecma-262/6.0/), di conseguenza, **Internet Explorer** **non** è supportato.
 
 ## <a name="create-your-project"></a>Creare il progetto
 
@@ -76,7 +72,7 @@ Assicurarsi che [Node.js](https://nodejs.org/en/download/) sia installato e quin
    npm install morgan --save
    ```
 
-1. A questo punto, creare un file con estensione js denominato `index.js` e quindi aggiungere il codice seguente:
+1. A questo punto, creare un file con estensione js denominato `server.js` e quindi aggiungere il codice seguente:
 
    ```JavaScript
    const express = require('express');
@@ -283,7 +279,7 @@ Prima di procedere con l'autenticazione, registrare l'applicazione in **Azure Ac
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Impostare l'URL di reindirizzamento per Node.js
 >
-> Per Node.js, è possibile impostare la porta del server Web nel file *index.js*. Questa esercitazione usa la porta 3000, ma è possibile usarne un'altra qualsiasi disponibile.
+> Per Node.js, è possibile impostare la porta del server Web nel file *server.js*. Questa esercitazione usa la porta 3000, ma è possibile usarne un'altra qualsiasi disponibile.
 >
 > Per configurare un URL di reindirizzamento nelle informazioni di registrazione dell'applicazione, tornare al riquadro **Registrazione dell'applicazione** ed eseguire una delle operazioni seguenti:
 >
@@ -486,8 +482,6 @@ Nell'applicazione di esempio creata in questa guida, viene usato il metodo `call
    ```
 1. Nel browser immettere **http://localhost:3000** o **http://localhost:{port}** , dove *porta* è la porta su cui il server Web è in ascolto. Dovrebbero essere visibili il contenuto del file *index.html* e il pulsante **Accedi**.
 
-## <a name="test-your-application"></a>Testare l'applicazione
-
 Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Verrà chiesto di accedere con l'endpoint Microsoft Identity Platform:
 
 ![Finestra di accesso all'account JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
@@ -512,3 +506,11 @@ L'API Microsoft Graph richiede l'ambito *user.read* per leggere il profilo dell'
 > Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per approfondire ulteriormente lo sviluppo di applicazioni a pagina singola in Microsoft Identity Platform, è possibile vedere la serie di scenari in più parti.
+
+> [!div class="nextstepaction"]
+> [Scenario: Applicazione a pagina singola](scenario-spa-overview.md)
+

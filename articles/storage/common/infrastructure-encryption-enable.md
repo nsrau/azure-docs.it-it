@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984181"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Creare un account di archiviazione con la crittografia dell'infrastruttura abilitata per la doppia crittografia dei dati
@@ -29,7 +29,7 @@ Per crittografare i dati in modo doppiato, è prima necessario creare un account
 
 Per creare un account di archiviazione con la crittografia dell'infrastruttura abilitata, è necessario prima registrarsi per usare questa funzionalità con Azure tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -89,7 +89,7 @@ N/D
 
 Non è possibile abilitare o disabilitare la crittografia dell'infrastruttura dopo la creazione dell'account.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per usare PowerShell per creare un account di archiviazione con la crittografia dell'infrastruttura abilitata, seguire questa procedura:
 
@@ -173,14 +173,14 @@ Nell'esempio JSON seguente viene creato un account di archiviazione per utilizzo
 
 ## <a name="verify-that-infrastructure-encryption-is-enabled"></a>Verificare che la crittografia dell'infrastruttura sia abilitata
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per verificare che la crittografia dell'infrastruttura sia abilitata per un account di archiviazione con la portale di Azure, attenersi alla seguente procedura:
 
 1. Passare all'account di archiviazione nel portale di Azure.
 1. In **Impostazioni**scegliere **crittografia**.
 
-    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Screenshot che illustra come verificare che la crittografia dell'infrastruttura sia abilitata per l'account":::
+    :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Screenshot che illustra come abilitare la crittografia dell'infrastruttura durante la creazione dell'account":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

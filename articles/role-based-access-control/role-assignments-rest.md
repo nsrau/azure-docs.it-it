@@ -16,15 +16,15 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: d66b4c8e9f41f661cfc399f72a9ad97405a860fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790847"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'API REST
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Questo articolo descrive come assegnare i ruoli usando l'API REST.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Questo articolo descrive come assegnare i ruoli usando l'API REST.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -170,5 +170,5 @@ Il testo seguente è un esempio di output:
 
 - [Elencare le assegnazioni di ruolo di Azure tramite l'API REST](role-assignments-list-rest.md)
 - [Distribuire le risorse con i modelli di Gestione risorse e Gestione risorse API REST](../azure-resource-manager/templates/deploy-rest.md)
-- [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/)
+- [Informazioni di riferimento sulle API REST](/rest/api/azure/)
 - [Creare o aggiornare i ruoli personalizzati di Azure usando l'API REST](custom-roles-rest.md)

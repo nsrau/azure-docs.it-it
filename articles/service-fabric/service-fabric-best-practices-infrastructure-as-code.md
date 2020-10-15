@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: c381c6e7d692eda32fea2033779bacddafc267bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86253678"
 ---
-# <a name="infrastructure-as-code"></a>Infrastruttura come codice
+# <a name="infrastructure-as-code"></a>Infrastructure as code
 
 In uno scenario di produzione, creare i cluster Azure Service Fabric usando i modelli di Resource Manager. I modelli di Resource Manager offrono un maggiore controllo delle proprietà delle risorse e assicurano di avere a disposizione un modello di risorse coerente.
 
@@ -104,7 +104,7 @@ L'aggiornamento delle macchine virtuali è un'operazione avviata dall'utente ed 
 ```
 Quando si usano gli aggiornamenti automatici del sistema operativo con Service Fabric, la nuova immagine del sistema operativo viene implementata un dominio di aggiornamento alla volta per mantenere la disponibilità elevata dei servizi in esecuzione in Service Fabric. Per usare gli aggiornamenti automatici del sistema operativo in Service Fabric, il cluster deve essere configurato per usare il livello di durabilità Silver o superiore.
 
-Verificare che la seguente chiave del registro di sistema sia impostata su false per impedire che i computer host Windows avviino gli aggiornamenti non coordinati: HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Verificare che la seguente chiave del registro di sistema sia impostata su false per impedire che i computer host Windows avviino gli aggiornamenti non coordinati: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
 Di seguito è riportato il set di scalabilità di macchine virtuali di calcolo Gestione risorse le proprietà del modello per impostare la chiave del registro di sistema WindowsUpdate su false:
 ```json

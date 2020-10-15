@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 3274e45738c079c89560f546fe58163f695e12df
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.openlocfilehash: 390cda604b71404735b7c14382d30067e154ef70
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91851102"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976184"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
 Prima di caricare una macchina virtuale (VM) Windows dall'ambiente locale ad Azure, è necessario preparare il disco rigido virtuale (VHD o VHDX). Azure supporta macchine virtuali sia di prima che di seconda generazione in formato di file VHD con un disco a dimensione fissa. La dimensione massima consentita per il VHD del sistema operativo in una macchina virtuale di prima generazione è 2 TB.
 
-È possibile convertire un file VHDX in VHD, convertire un disco a espansione dinamica in un disco di dimensioni fisse, ma non è possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere la pagina relativa alla [creazione di una macchina virtuale di generazione 1 o 2 in Hyper-V](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) e [il supporto per le macchine virtuali di seconda generazione in Azure](generation-2.md).
+È possibile convertire un file VHDX in VHD, convertire un disco a espansione dinamica in un disco di dimensioni fisse, ma non è possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere la pagina relativa alla [creazione di una macchina virtuale di generazione 1 o 2 in Hyper-V](/windows-server/virtualization/hyper-v/plan/Should-I-create-a-generation-1-or-2-virtual-machine-in-Hyper-V) e [il supporto per le macchine virtuali di seconda generazione in Azure](../generation-2.md).
 
 Per informazioni sui criteri di supporto per le macchine virtuali di Azure, vedere [supporto del software server Microsoft per macchine virtuali di Azure](https://support.microsoft.com/help/2721672/).
 
@@ -71,7 +71,7 @@ Al termine dell'analisi SFC, installare gli aggiornamenti di Windows e riavviare
    netsh.exe winhttp reset proxy
    ```
 
-    Se la macchina virtuale deve usare un proxy specifico, aggiungere un'eccezione proxy per l'indirizzo IP di Azure ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)) in modo che la macchina virtuale possa connettersi ad Azure:
+    Se la macchina virtuale deve usare un proxy specifico, aggiungere un'eccezione proxy per l'indirizzo IP di Azure ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)) in modo che la macchina virtuale possa connettersi ad Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -197,7 +197,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, verificare i criteri seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                  |                                                                            Policy                                                                            |                           Valore                            |
+    |                 Obiettivo                  |                                                                            Policy                                                                            |                           valore                            |
     | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
     | RDP è abilitato                        | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto    |
     | Criteri di gruppo NLA                      | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedere l'autenticazione utente per l'accesso remoto usando NLA |
@@ -241,7 +241,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, controllare i criteri di Azure AD seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                 |                                                                         Policy                                                                          |                  Valore                  |
+    |                 Obiettivo                 |                                                                         Policy                                                                          |                  valore                  |
     | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
     | Abilitare i profili di Windows Firewall | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Proteggi tutte le connessioni di rete         |
     | Abilitare RDP                           | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni per Desktop remoto in ingresso |
@@ -385,7 +385,7 @@ Idealmente, è consigliabile lasciare aggiornato il computer al *livello di patc
 |                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726          | 10.0.14393.594 - KB4022715                  | -                          | -                                           | -                                           |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
 |                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
-| Sicurezza                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                           | KB4012606                                   | KB4012606                  | -                                           | -                                           |
+| Security                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                           | KB4012606                                   | KB4012606                  | -                                           | -                                           |
 |                         |                |                                           | KB4012216                                   |                                     | KB4013198                                   | KB4013198                  | -                                           | -                                           |
 |                         |                | KB4012215                                 | KB4012214                                   | KB4012216                           | KB4013429                                   | KB4013429                  | -                                           | -                                           |
 |                         |                |                                           | KB4012217                                   |                                     | KB4013429                                   | KB4013429                  | -                                           | -                                           |
@@ -405,7 +405,7 @@ In genere si esegue `sysprep.exe` per creare un modello da cui è possibile dist
 Per creare una sola macchina virtuale da un disco, non è necessario usare Sysprep. È invece possibile creare la macchina virtuale da un' *immagine specializzata*. Per informazioni su come creare una macchina virtuale da un disco specializzato, vedere:
 
 - [Creare una macchina virtuale da un disco specializzato](create-vm-specialized.md)
-- [Creare una macchina virtuale da un disco rigido virtuale specializzato](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Creare una macchina virtuale da un disco rigido virtuale specializzato](./create-vm-specialized-portal.md)
 
 Per creare un'immagine generalizzata, è necessario eseguire Sysprep. Per ulteriori informazioni, vedere [How to use Sysprep: An Introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -427,10 +427,10 @@ In particolare, Sysprep richiede che le unità vengano decrittografate completam
 
     ![Utilità preparazione sistema](media/prepare-for-upload-vhd-image/syspre.png)
 1. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
-1. Selezionare **OK**.
+1. Scegliere **OK**.
 1. Quando Sysprep termina, arresta la macchina virtuale. Non usare **Riavvia** per arrestare la macchina virtuale.
 
-A questo punto il disco rigido virtuale è pronto per essere caricato. Per altre informazioni su come creare una macchina virtuale da un disco generalizzato, vedere [caricare un disco rigido virtuale generalizzato e usarlo per creare una nuova macchina virtuale in Azure](sa-upload-generalized.md).
+A questo punto il disco rigido virtuale è pronto per essere caricato. Per altre informazioni su come creare una macchina virtuale da un disco generalizzato, vedere [caricare un disco rigido virtuale generalizzato e usarlo per creare una nuova macchina virtuale in Azure](/previous-versions/azure/virtual-machines/windows/sa-upload-generalized).
 
 >[!NOTE]
 > Un file di *unattend.xml* personalizzato non è supportato. Anche se la proprietà **additionalUnattendContent** è supportata, questo fornisce solo un supporto limitato per l'aggiunta di opzioni [Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) al file *unattend.xml* usato dall'agente di provisioning di Azure. È possibile usare, ad esempio, [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) per aggiungere FirstLogonCommands e LogonCommands. Per altre informazioni, vedere [esempio di AdditionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
@@ -468,7 +468,7 @@ Usare uno dei metodi descritti in questa sezione per convertire e ridimensionare
 
 ### <a name="use-powershell-to-convert-the-disk"></a>Usare PowerShell per convertire il disco
 
-È possibile convertire un disco virtuale usando il cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, vedere [installare il ruolo Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+È possibile convertire un disco virtuale usando il cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, vedere [installare il ruolo Hyper-V](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 Nell'esempio seguente viene convertito il disco da VHDX a VHD. Converte inoltre il disco da un disco a espansione dinamica a un disco a dimensione fissa.
 
@@ -488,7 +488,7 @@ In questo esempio, sostituire il valore di **path** con il percorso del disco ri
 
 ### <a name="use-powershell-to-resize-the-disk"></a>Usare PowerShell per ridimensionare il disco
 
-È possibile ridimensionare un disco virtuale usando il cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, vedere [installare il ruolo Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+È possibile ridimensionare un disco virtuale usando il cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) in PowerShell. Per informazioni sull'installazione di questo cmdlet, vedere [installare il ruolo Hyper-V](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 L'esempio seguente ridimensiona il disco da 100,5 MiB a 101 MiB per soddisfare il requisito di allineamento di Azure.
 
@@ -500,7 +500,7 @@ In questo esempio, sostituire il valore di **path** con il percorso del disco ri
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Conversione dal formato VMware VMDK
 
-Se si dispone di un'immagine di macchina virtuale Windows nel [formato di file VMDK](https://en.wikipedia.org/wiki/VMDK), è possibile usare [Azure migrate](https://docs.microsoft.com/azure/migrate/server-migrate-overview) per convertire il file VMDK e caricarlo in Azure.
+Se si dispone di un'immagine di macchina virtuale Windows nel [formato di file VMDK](https://en.wikipedia.org/wiki/VMDK), è possibile usare [Azure migrate](../../migrate/server-migrate-overview.md) per convertire il file VMDK e caricarlo in Azure.
 
 ## <a name="complete-the-recommended-configurations"></a>Completare le configurazioni consigliate
 
@@ -520,4 +520,4 @@ Le impostazioni seguenti non influiscono sul caricamento del disco rigido virtua
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](upload-generalized-managed.md)
-- [Risolvere i problemi di attivazione della macchina virtuale Windows di Azure](troubleshoot-activation-problems.md)
+- [Risolvere i problemi di attivazione della macchina virtuale Windows di Azure](../troubleshooting/troubleshoot-activation-problems.md)

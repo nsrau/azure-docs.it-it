@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083158"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Riscrivere l'URL con applicazione Azure gateway-portale di Azure (anteprima)
@@ -53,13 +53,13 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
     
     c. Selezionare **Avanti**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Associa a una regola":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Aggiungi riscrittura set":::
 
 5. Creare una regola di riscrittura:
 
     a. Selezionare **Aggiungi regola di riscrittura**.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Aggiungi regola di riscrittura":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Aggiungi riscrittura set":::
     
     b. Immettere un nome per la regola di riscrittura nella casella **Riscrivi nome regola** . Immettere un numero nella casella **sequenza regole** .
 
@@ -75,13 +75,13 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
     
     e. Nell'elenco **operatore** selezionare uguale a **(=)**.
     
-    f. Immettere un modello di espressione regolare. In questo esempio verrà usato il modello`.*article/(.*)/(.*)`
+    f. Immettere un modello di espressione regolare. In questo esempio verrà usato il modello `.*article/(.*)/(.*)`
     
       () viene usato per acquisire la sottostringa per un uso successivo nella composizione dell'espressione per la riscrittura del percorso URL. Per altre informazioni, vedere [qui](rewrite-http-headers-url.md#capturing).
 
     g. Selezionare **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::.
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Aggiungi riscrittura set":::
 
  
 
@@ -97,17 +97,17 @@ Nell'esempio seguente, ogni volta che l'URL della richiesta contiene */article*,
 
    e. Nel **valore stringa di query URL**immettere il nuovo valore della stringa di query dell'URL. In questo esempio si userà **ID = {var_uri_path_1} &title = {var_uri_path_2}**
     
-    `{var_uri_path_1}`e `{var_uri_path_1}` vengono utilizzati per recuperare le sottostringhe acquisite durante la valutazione della condizione in questa espressione`.*article/(.*)/(.*)`
+    `{var_uri_path_1}` e `{var_uri_path_1}` vengono utilizzati per recuperare le sottostringhe acquisite durante la valutazione della condizione in questa espressione `.*article/(.*)/(.*)`
     
    f. Selezionare **OK**.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Azione":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Aggiungi riscrittura set":::
 
 8. Fare clic su **Crea** per creare il set di riscrittura.
 
 9. Verificare che il nuovo set di riscrittura venga visualizzato nell'elenco dei set di riscrittura
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Aggiungi regola di riscrittura":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Aggiungi riscrittura set":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>Verificare la riscrittura URL tramite log di accesso
 

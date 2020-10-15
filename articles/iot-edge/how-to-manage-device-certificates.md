@@ -8,16 +8,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669030"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044140"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gestire i certificati in un dispositivo IoT Edge
 
-Tutti i dispositivi IoT Edge usano i certificati per creare connessioni sicure tra il runtime e tutti i moduli in esecuzione nel dispositivo. IoT Edge i dispositivi che funzionano come gateway usano questi stessi certificati per connettersi anche ai dispositivi downstream.
+Tutti i dispositivi IoT Edge usano i certificati per creare connessioni sicure tra il runtime e i moduli in esecuzione nel dispositivo. IoT Edge i dispositivi che funzionano come gateway usano questi stessi certificati per connettersi anche ai dispositivi downstream.
 
 ## <a name="install-production-certificates"></a>Installare i certificati di produzione
 
@@ -33,10 +33,13 @@ Per altre informazioni sui diversi tipi di certificati e sui relativi ruoli, ved
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Un dispositivo IoT Edge, in esecuzione in [Windows](how-to-install-iot-edge-windows.md) o [Linux](how-to-install-iot-edge-linux.md).
+* Un dispositivo IoT Edge.
+
+  Se non si dispone di un dispositivo IoT Edge configurato, è possibile crearne uno in una macchina virtuale di Azure. Per [creare un dispositivo Linux virtuale](quickstart-linux.md) o [creare un dispositivo Windows virtuale](quickstart.md), seguire la procedura descritta in uno degli articoli introduttivi.
+
 * Disporre di un certificato dell'autorità di certificazione (CA) radice, autofirmato o acquistato da un'autorità di certificazione commerciale attendibile come Baltimora, Verisign, DigiCert o GlobalSign.
 
-Se non si ha ancora un'autorità di certificazione radice, ma si vuole provare IoT Edge funzionalità che richiedono certificati di produzione (ad esempio, scenari di gateway), è possibile [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md).
+  Se non si ha ancora un'autorità di certificazione radice, ma si vuole provare IoT Edge funzionalità che richiedono certificati di produzione (ad esempio, scenari di gateway), è possibile [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Creare certificati di produzione
 
@@ -57,7 +60,7 @@ Per visualizzare un esempio di questi certificati, esaminare gli script che crea
 
 Installare la catena di certificati nel dispositivo IoT Edge e configurare il runtime IoT Edge per fare riferimento ai nuovi certificati.
 
-Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati demo](how-to-create-test-certificates.md), copiare i file seguenti nel dispositivo:
+Ad esempio, se sono stati usati gli script di esempio per [creare i certificati demo](how-to-create-test-certificates.md), copiare i file seguenti nel dispositivo IoT-Edge:
 
 * Certificato CA dispositivo: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Chiave privata CA del dispositivo: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
@@ -65,7 +68,7 @@ Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati
 
 1. Copiare i tre file di certificato e di chiave nel dispositivo IoT Edge.
 
-   È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.  Se i certificati sono stati generati nel dispositivo IoT Edge stesso, è possibile ignorare questo passaggio e usare il percorso della directory di lavoro.
+   È possibile usare un servizio come [Azure Key Vault](../key-vault/index.yml) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.  Se i certificati sono stati generati nel dispositivo IoT Edge stesso, è possibile ignorare questo passaggio e usare il percorso della directory di lavoro.
 
 1. Aprire il file di configurazione del daemon di sicurezza di IoT Edge.
 

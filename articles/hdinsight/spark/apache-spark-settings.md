@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82188158"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurare le impostazioni di Apache Spark
@@ -29,7 +29,7 @@ Il numero di macchine virtuali e le dimensioni delle VM per i nodi nel cluster H
 
 Usare la versione di Spark più appropriata per il cluster.  Il servizio HDInsight include diverse versioni di Spark e di HDInsight.  Ogni versione di Spark include un set di impostazioni del cluster predefinite.  
 
-Quando si crea un nuovo cluster, è possibile scegliere tra più versioni di Spark. Per visualizzare l'elenco completo, i [componenti e le versioni di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Quando si crea un nuovo cluster, è possibile scegliere tra più versioni di Spark. Per visualizzare l'elenco completo, i  [componenti e le versioni di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 
 > [!NOTE]  
 > La versione predefinita di Apache Spark nel servizio HDInsight può cambiare senza preavviso. In caso di dipendenza dalla versione, è consigliabile indicare la versione specifica quando si creano i cluster tramite .NET SDK, Azure PowerShell e l'interfaccia della riga di comando classica di Azure.
@@ -90,7 +90,7 @@ I tre parametri principali che vengono spesso modificati per ottimizzare le conf
 > [!NOTE]  
 > Questi tre parametri di configurazione possono essere configurati a livello di cluster, per tutte le applicazioni in esecuzione nel cluster, oppure specificati per ogni singola applicazione.
 
-Un'altra fonte di informazioni sulle risorse usate dagli esecutori Spark è l'interfaccia utente dell'applicazione Spark.  Nell'interfaccia utente, **eXecutors** Visualizza le visualizzazioni Riepilogo e dettagli della configurazione e le risorse utilizzate.  Determinare se modificare i valori degli esecutori per l'intero cluster o un particolare set di esecuzioni di processi.
+Un'altra fonte di informazioni sulle risorse usate dagli esecutori Spark è l'interfaccia utente dell'applicazione Spark.  Nell'interfaccia utente,  **eXecutors** Visualizza le visualizzazioni Riepilogo e dettagli della configurazione e le risorse utilizzate.  Determinare se modificare i valori degli esecutori per l'intero cluster o un particolare set di esecuzioni di processi.
 
 ![Executor Spark](./media/apache-spark-settings/apache-spark-executors.png)
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: d4dc5c2690be7b9abbda685e78ea562878626b5c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902848"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Espandere automaticamente l'archiviazione nel database di Azure per MySQL usando il portale di Azure
@@ -38,7 +38,7 @@ Seguire questa procedura per impostare l'aumento automatico delle dimensioni di 
 
 5. Una notifica conferma che l'espansione automatica è stata abilitata correttamente.
 
-    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Database di Azure per MySQL-crescita automatica riuscita":::
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Database di Azure per MySQL-Settings_Pricing_tier-aumento automatico":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602286"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945914"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -106,7 +106,7 @@ Zone di disponibilità | Supportato | Supportato, a seconda del supporto dell'ar
 Immagini della raccolta di Azure (pubblicate da Microsoft) | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini della raccolta di Azure (pubblicate da terze parti)  | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini personalizzate (pubblicate da terze parti)| Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
-Macchine virtuali con Site Recovery | Non supportate | Spostare le risorse tra aree per le macchine virtuali, usando Site Recovery nel back-end. Se si sta già usando Site Recovery, disabilitare la replica e quindi avviare il processo di preparazione.
+Macchine virtuali con Site Recovery | Non supportato | Spostare le risorse tra aree per le macchine virtuali, usando Site Recovery nel back-end. Se si sta già usando Site Recovery, disabilitare la replica e quindi avviare il processo di preparazione.
 Criteri di controllo degli accessi in base al ruolo | Non supportate | I criteri di controllo degli accessi in base al ruolo (RBAC) nelle VM non vengono copiati nella macchina virtuale nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono copiate nella macchina virtuale nell'area di destinazione. Installarli manualmente al termine dello spostamento.
 
@@ -128,12 +128,12 @@ Dimensione minima del disco dati |  2 GB per i dischi gestiti |
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/windows/sizes.md) sulle dimensioni delle VM.
 Frequenza di modifica del disco dati | Massimo 10 Mbps per disco per l'archiviazione Premium. Massimo 2 Mbps per disco per l'archiviazione Standard. | Se la frequenza di modifica dei dati media sul disco è costantemente superiore al limite massimo, la preparazione non verrà aggiornata.<br/><br/>  Tuttavia, se il valore massimo viene superato sporadicamente, la preparazione può essere aggiornata, ma è possibile che vengano visualizzati punti di ripristino leggermente ritardati.
 Disco dati (account di archiviazione standard) | Non supportata. | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
-Disco dati (account di archiviazione Premium) | Non supportate | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
+Disco dati (account di archiviazione Premium) | Non supportato | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
 Disco gestito (standard) | Supportato  |
 Disco gestito (Premium) | Supportato |
 SSD Standard | Supportato |
 Generazione 2 (avvio UEFI) | Supportato
-Account di archiviazione di diagnostica di avvio | Non supportate | Riabilitarla dopo aver spostato la macchina virtuale nell'area di destinazione.
+Account di archiviazione di diagnostica di avvio | Non supportato | Riabilitarla dopo aver spostato la macchina virtuale nell'area di destinazione.
 
 ### <a name="limits-and-data-change-rates"></a>Limiti e frequenza di modifica dei dati
 
@@ -155,7 +155,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 NIC | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione. 
 Servizio di bilanciamento del carico interno | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Bilanciamento del carico pubblico | Attualmente non supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
-Indirizzo IP pubblico | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
+Indirizzo IP pubblico | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.<br/><br/> L'indirizzo IP pubblico è specifico dell'area e non verrà mantenuto nell'area di destinazione dopo lo spostamento. Tenere presente questo aspetto quando si modificano le impostazioni di rete (incluse le regole di bilanciamento del carico) nel percorso di destinazione.
 Gruppo di sicurezza di rete | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Indirizzo IP riservato (statico) | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine. <br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione ha lo stesso indirizzo IP disponibile, viene assegnata alla macchina virtuale di destinazione.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP disponibile, lo spostamento di avvio per la macchina virtuale avrà esito negativo.
 Indirizzo IP dinamico | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine.<br/><br/> Se la scheda di interfaccia di rete nell'origine ha un indirizzo IP dinamico, anche la scheda di interfaccia di rete nella macchina virtuale di destinazione è dinamica per impostazione predefinita.

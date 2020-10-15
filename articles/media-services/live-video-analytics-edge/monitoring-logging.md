@@ -4,10 +4,10 @@ description: Questo articolo fornisce una panoramica di analisi video in tempo r
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567555"
 ---
 # <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
@@ -21,7 +21,7 @@ Si apprenderà anche come è possibile controllare i log generati dal modulo.
 Analisi video in tempo reale su IoT Edge emette eventi o dati di telemetria in base alla tassonomia seguente.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Tassonomia degli eventi":::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Tassonomia degli eventi&quot;:::
 
 * Operativo: eventi generati come parte di azioni eseguite da un utente o durante l'esecuzione di un [grafico multimediale](media-graph-concept.md).
    
@@ -32,16 +32,16 @@ Analisi video in tempo reale su IoT Edge emette eventi o dati di telemetria in b
       
       ```
       {
-        "body": {
-          "outputType": "assetName",
-          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+        &quot;body&quot;: {
+          &quot;outputType&quot;: &quot;assetName&quot;,
+          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
         },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
-          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
-          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
-          "eventTime": "2020-05-12T23:33:10.392Z",
-          "dataVersion": "1.0"
+        &quot;applicationProperties&quot;: {
+          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
+          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
+          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
+          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
+          &quot;dataVersion&quot;: &quot;1.0"
         }
       }
       ```
@@ -207,7 +207,7 @@ I tipi di evento vengono assegnati a uno spazio dei nomi in base allo schema seg
 
 |Nome della classe|Descrizione|
 |---|---|
-|Analytics  |Eventi generati come parte dell'analisi del contenuto.|
+|Analisi  |Eventi generati come parte dell'analisi del contenuto.|
 |Diagnostica    |Eventi che facilitano la diagnostica dei problemi e delle prestazioni.|
 |Operativo    |Eventi generati come parte dell'operazione di risorsa.|
 

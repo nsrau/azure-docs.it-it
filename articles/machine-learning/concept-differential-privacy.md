@@ -10,10 +10,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.openlocfilehash: 9728bf2c86c0629b09e2325650ce288cf9b3cc7e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86199794"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package-preview"></a>Mantenere la privacy dei dati tramite la privacy differenziale e il pacchetto WhiteNoise (anteprima)

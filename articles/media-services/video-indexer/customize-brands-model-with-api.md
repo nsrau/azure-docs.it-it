@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
 ms.openlocfilehash: 5fc565ecc1b501f52e934784695594dcfef2a83a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87047288"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizzare un modello Marchi con l'API di Video Indexer
@@ -94,7 +94,7 @@ La risposta specifica informazioni sul marchio che è stato cercato (usando l'ID
 ```
 
 > [!NOTE]
-> `enabled`l'impostazione di su `true` indica che il marchio si trova nell'elenco di *inclusione* per video Indexer da rilevare e `enabled` che se è false significa che il marchio è incluso nell'elenco di *esclusione* , quindi video Indexer non lo rileverà.
+> `enabled` l'impostazione di su `true` indica che il marchio si trova nell'elenco di *inclusione* per video Indexer da rilevare e `enabled` che se è false significa che il marchio è incluso nell'elenco di *esclusione* , quindi video Indexer non lo rileverà.
 
 ## <a name="update-a-specific-brand"></a>Aggiornare un marchio specifico
 
@@ -178,7 +178,7 @@ La risposta mostra se i marchi Bing sono abilitati seguendo il formato dell'esem
 ```
 
 > [!NOTE]
-> `useBuiltIn`l'impostazione di true indica che i marchi Bing sono abilitati. Se `useBuiltin` è false, i marchi Bing sono disabilitati. Il `state` valore può essere ignorato perché è stato deprecato.
+> `useBuiltIn` l'impostazione di true indica che i marchi Bing sono abilitati. Se `useBuiltin` è false, i marchi Bing sono disabilitati. Il `state` valore può essere ignorato perché è stato deprecato.
 
 ## <a name="update-brands-model-settings"></a>Aggiornare le impostazioni del modello Marchi
 

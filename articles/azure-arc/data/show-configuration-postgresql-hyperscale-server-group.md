@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: ceab9af7e6556b2d957fafce8cd89d4a0daf9508
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940770"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Mostra la configurazione di un gruppo di server con iperscalabilità PostgreSQL abilitata per Arc
@@ -369,4 +369,4 @@ Restituisce l'output seguente in un formato e contenuto molto simile a quello re
 - [Ulteriori informazioni sulla configurazione dell'archiviazione](storage-configuration.md)
 - [Informazioni su come monitorare un'istanza di database](monitor-grafana-kibana.md)
 - [Usare le estensioni di PostgreSQL nel gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc](using-extensions-in-postgresql-hyperscale-server-group.md)
-- [Configurare la sicurezza per il gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc](configure-security-postgres-hyperscale.md)
+- [Configurare la sicurezza per il gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc](configure-security-postgres-hyperscale.md)

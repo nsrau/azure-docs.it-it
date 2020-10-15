@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: e9491757852b42faef40c107540e0ce3da3c7f99
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650902"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Esecuzione di query sui dati da Azure Time Series Insights Gen2
@@ -24,7 +24,7 @@ Azure Time Series Insights Gen2 consente l'esecuzione di query sui dati su event
 In Azure Time Series Insights Gen2 sono disponibili tre categorie di API principali:
 
 * **API dell'ambiente**: queste API consentono di eseguire query sull'ambiente di Azure Time Series Insights Gen2. Questi possono essere usati per raccogliere l'elenco di ambienti a cui il chiamante ha accesso e i metadati dell'ambiente.
-* **Modello Time Series-API query (TSM-Q)**: Abilita le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sui metadati archiviati nel modello Time Series dell'ambiente. Questi possono essere usati per accedere e modificare le istanze, i tipi e le gerarchie.
+* **API time series Model-Query (TSM-Q)**: Abilita le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sui metadati archiviati nel modello Time Series dell'ambiente. Questi possono essere usati per accedere e modificare le istanze, i tipi e le gerarchie.
 * **API TSQ (Time Series query)**: consente il recupero di dati di telemetria o di eventi durante la registrazione dal provider di origine e consente di calcolare e aggregazioni efficienti sui dati utilizzando funzioni scalari e di aggregazione avanzate.
 
 Azure Time Series Insights Gen2 utilizza un linguaggio delle espressioni basato su stringa, [ovvero TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax), per esprimere calcoli nelle [variabili Time Series](./concepts-variables.md).

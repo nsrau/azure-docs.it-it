@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
 ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825428"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
@@ -26,7 +26,7 @@ Questo articolo descrive l'architettura, i componenti e i processi usati per la 
 
 La tabella seguente riepiloga i componenti coinvolti nel ripristino di emergenza delle macchine virtuali di Azure.
 
-**Componente** | **Requisiti**
+**Componente** | **Requirements**
 --- | ---
 **Macchine virtuali nell'area di origine** | Una o più macchine virtuali di Azure in un'[area di origine supportata](azure-to-azure-support-matrix.md#region-support).<br/><br/> Le macchine virtuali possono eseguire qualsiasi [sistema operativo supportato](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Archiviazione macchine virtuali di origine** | Le macchine virtuali di Azure possono essere gestite o avere dischi non gestiti distribuiti fra gli account di archiviazione.<br/><br/>[Informazioni](azure-to-azure-support-matrix.md#replicated-machines---storage) sull'archiviazione di Azure supportata.

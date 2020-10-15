@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260869"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -20,7 +20,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 |Comando|Descrizione|
 | --- | --- |
 | create | Crea un'applicazione di Service Fabric usando la descrizione specificata. |
-| eliminazione | Elimina un'applicazione di Service Fabric esistente. |
+| Elimina | Elimina un'applicazione di Service Fabric esistente. |
 | deployed | Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric. |
 | deployed-health | Recupera le informazioni sull'integrità di un'applicazione distribuita in un nodo Service Fabric. |
 | deployed-list | Mostra l'elenco delle applicazioni distribuite in un nodo di Service Fabric. |
@@ -31,7 +31,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 | manifest | Mostra il manifesto che descrive un tipo di applicazione. |
 | provision | Esegue il provisioning o registra un tipo di applicazione Service Fabric con il cluster usando il pacchetto ". sfpkg" nell'archivio esterno o usando il pacchetto dell'applicazione nell'archivio immagini. |
 | report-health | Invia un report di integrità sull'applicazione di Service Fabric. |
-| tipo | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato. |
+| type | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato. |
 | type-list | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric. |
 | unprovision | Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric dal cluster. |
 | aggiornamento | Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric. |
@@ -45,7 +45,7 @@ Crea un'applicazione di Service Fabric usando la descrizione specificata.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --app-name [obbligatorio] | Nome dell'applicazione, incluso lo schema URI "fabric\:". |
 | -app-type [obbligatorio] | Il nome del tipo di applicazione trovato nel manifesto dell'applicazione. |
@@ -58,7 +58,7 @@ Crea un'applicazione di Service Fabric usando la descrizione specificata.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -73,7 +73,7 @@ Prima di poter essere eliminata, un'applicazione deve essere creata. Se si elimi
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --application-id [obbligatorio] | Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric\:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "\~". Ad esempio, se il nome dell'applicazione è "fabric\:/myapp/app1", l'identità dell'applicazione sarà "myapp\~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --force-remove | Consente di rimuovere un servizio o un'applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio per il quale l'operazione di eliminazione è prossima al timeout a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche. |

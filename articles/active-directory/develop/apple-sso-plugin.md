@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530698"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise SSO per i dispositivi Apple (anteprima)
@@ -31,11 +31,11 @@ Il *plug-in Microsoft Enterprise SSO per i dispositivi Apple* fornisce Single Si
 
 In questa versione di anteprima pubblica, il plug-in Enterprise SSO è disponibile solo per i dispositivi iOS ed è distribuito in determinate applicazioni Microsoft.
 
-## <a name="features"></a>Funzionalità
+## <a name="features"></a>Caratteristiche
 
 Il plug-in Microsoft Enterprise SSO per i dispositivi Apple offre i vantaggi seguenti:
 
-- Fornisce l'accesso SSO per gli account Azure AD in tutte le applicazioni che supportano la funzionalità Enterprise Single Sign-On di Apple.
+- Fornisce SSO per gli account Azure AD in tutte le applicazioni che supportano la funzionalità Enterprise Single Sign-On di Apple.
 - Viene recapitato automaticamente nel Microsoft Authenticator e può essere abilitato da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
 ## <a name="requirements"></a>Requisiti
@@ -125,7 +125,7 @@ Se si sta creando un'applicazione per gli scenari di lavoro Frontline, vedere [m
 
 ## <a name="how-the-sso-plug-in-works"></a>Funzionamento del plug-in SSO
 
-Il plug-in Microsoft Enterprise SSO si basa sul [Framework di Enterprise Single Sign-on di Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). I provider di identità che vengono caricati nel Framework possono intercettare il traffico di rete per i domini e migliorare o modificare la modalità di gestione di tali richieste. Il plug-in SSO, ad esempio, può visualizzare un'interfaccia utente aggiuntiva per raccogliere le credenziali dell'utente finale in modo sicuro, richiedere l'autenticazione a più fattori o fornire i token all'applicazione in modo invisibile all'utente.
+Il plug-in Microsoft Enterprise SSO si basa sul [Framework Enterprise Single Sign-On di Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). I provider di identità che vengono caricati nel Framework possono intercettare il traffico di rete per i domini e migliorare o modificare la modalità di gestione di tali richieste. Il plug-in SSO, ad esempio, può visualizzare un'interfaccia utente aggiuntiva per raccogliere le credenziali dell'utente finale in modo sicuro, richiedere l'autenticazione a più fattori o fornire i token all'applicazione in modo invisibile all'utente.
 
 Le applicazioni native possono inoltre implementare operazioni personalizzate e comunicare direttamente con il plug-in SSO.
 È possibile ottenere informazioni sul Framework Single Sign-on in questo [video 2019 WWDC di Apple](https://developer.apple.com/videos/play/tech-talks/301/)

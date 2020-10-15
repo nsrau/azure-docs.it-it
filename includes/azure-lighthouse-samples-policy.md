@@ -5,21 +5,22 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 09/24/2020
+ms.date: 10/12/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: a9c9b5081232988cb4ab80bfcbb9f2d92d1d025f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20d80fe1a09d388552b6289f8a9b23c878672f94
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336574"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974287"
 ---
 Questi esempi illustrano come usare Criteri di Azure con le sottoscrizioni di cui è stato eseguito l'onboarding in Azure Lighthouse.
 
 | **Modello** | **Descrizione** |
 |---------|---------|
 | [policy-add-or-replace-tag](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-add-or-replace-tag) | Assegna un criterio che aggiunge o rimuove un tag (usando l'effetto modify) in una sottoscrizione delegata. Per altre informazioni, vedere [Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata](../articles/lighthouse/how-to/deploy-policy-remediation.md). |
+| [policy-allow-certain-managing-tenants](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-allow-certain-managing-tenants) | Assegna un criterio limitando le deleghe di Azure Lighthouse a tenant di gestione specifici. |
 | [policy-audit-delegation](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-audit-delegation) | Assegna un criterio che controlla le assegnazioni di delega. |
 | [policy-delegate-management-groups](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups) | Assegna un criterio per confermare che le sottoscrizioni all'interno di un gruppo di gestione sono state delegate a un tenant di gestione e, in caso contrario, crea l'assegnazione.
 | [policy-enforce-keyvault-monitoring](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring) | Assegna un criterio che abilita la diagnostica per le risorse di Azure Key Vault in una sottoscrizione delegata (usando l'effetto deployIfNotExists). Per altre informazioni, vedere [Distribuire un criterio che è possibile correggere all'interno di una sottoscrizione delegata](../articles/lighthouse/how-to/deploy-policy-remediation.md). |

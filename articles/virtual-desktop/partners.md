@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056462"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
@@ -236,7 +236,7 @@ Login VSI è un provider di servizi a valore aggiunto per desktop virtuale Windo
 
 Nasuni Corp., il provider leader di servizi file cloud e un partner ISV globale di Azure, offre la piattaforma software-as-a-Service Nasuni come soluzione di archiviazione file moderna per i desktop virtuali moderni. Nasuni, in combinazione con l'archiviazione BLOB di Azure, consolida l'archiviazione di file primari (NAS), il backup di file, il ripristino di emergenza e la sincronizzazione dei file tra aree in una soluzione unificata. Con Nasuni, le aziende possono distribuire desktop virtuali Windows per più casi d'uso e in più aree di Azure, semplificare l'amministrazione e garantire la continuità aziendale. 
 
-Essendo una soluzione VDI cloud moderna, desktop virtuale di Windows richiede l'archiviazione file Cloud moderna. Tradizionalmente, l'archiviazione di file VDI è basata su NAS (Network-Attached Storage) e file server hardware situato in locale e sulla tecnologia necessaria per fornire backup di file, ripristino e ripristino di emergenza. Questi approcci tradizionali sono costosi, complessi da gestire e amministrare e non possono essere ridimensionati facilmente. Introducono anche la latenza se usata con una soluzione VDI cloud moderna, come desktop virtuale Windows, a causa della distanza fisica e delle connessioni WAN più lente tra i desktop basati su Azure e l'archiviazione file basata in locale. Nasuni, una piattaforma di servizi file creata appositamente per Azure, offre capacità di archiviazione file illimitata e accesso ai file ad alte prestazioni. Nasuni può avere un percorso condiviso con il desktop virtuale di Windows nelle stesse aree di Azure per offrire un accesso ai file economico e ad alte prestazioni a un singolo spazio dei nomi globale. Nasuni offre l'archiviazione dei file di desktop virtuali Windows a una frazione del costo dei file server NAS e Windows tradizionali e include backup predefiniti e ripristino di emergenza per ridurre ulteriormente i costi e liberare risorse IT.
+Essendo una soluzione VDI cloud moderna, desktop virtuale di Windows richiede l'archiviazione file Cloud moderna. Tradizionalmente, l'archiviazione di file VDI si basa su Network-Attached Storage (NAS) e file server hardware locale e sulla tecnologia necessaria per fornire backup di file, ripristino e ripristino di emergenza. Questi approcci tradizionali sono costosi, complessi da gestire e amministrare e non possono essere ridimensionati facilmente. Introducono anche la latenza se usata con una soluzione VDI cloud moderna, come desktop virtuale Windows, a causa della distanza fisica e delle connessioni WAN più lente tra i desktop basati su Azure e l'archiviazione file basata in locale. Nasuni, una piattaforma di servizi file creata appositamente per Azure, offre capacità di archiviazione file illimitata e accesso ai file ad alte prestazioni. Nasuni può avere un percorso condiviso con il desktop virtuale di Windows nelle stesse aree di Azure per offrire un accesso ai file economico e ad alte prestazioni a un singolo spazio dei nomi globale. Nasuni offre l'archiviazione dei file di desktop virtuali Windows a una frazione del costo dei file server NAS e Windows tradizionali e include backup predefiniti e ripristino di emergenza per ridurre ulteriormente i costi e liberare risorse IT.
 
 - [Accedere al sito Web del partner](https://www.nasuni.com/partner/microsoft/#wvd).
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).

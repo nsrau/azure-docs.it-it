@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268265"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
@@ -57,7 +57,7 @@ Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è la pr
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Ottenere il Punteggio sicuro dall'API REST
 
-È possibile accedere al Punteggio tramite l' [API per il Punteggio sicuro](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (attualmente in anteprima). I metodi API offrono la flessibilità necessaria per eseguire query sui dati e creare un proprio meccanismo di creazione di report dei punteggi sicuri nel tempo. Ad esempio, è possibile usare l'API dei **punteggi sicuri** per ottenere il punteggio per una sottoscrizione specifica. Inoltre, è possibile usare l'API di **controllo del Punteggio sicuro** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
+È possibile accedere al Punteggio tramite l' [API per il Punteggio sicuro](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (attualmente in anteprima). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. È ad esempio possibile usare l'API **Secure Score** per ottenere il punteggio per una sottoscrizione specifica. È anche possibile usare l'API **Secure Score Controls** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
 
 ![Recupero di un singolo Punteggio sicuro tramite l'API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -95,9 +95,9 @@ Il punteggio massimo per il controllo Applica gli aggiornamenti del sistema, è 
 
 Solo le raccomandazioni predefinite hanno effetto sul punteggio di sicurezza.
 
-Le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcoli del Punteggio sicuro. Dovrebbero comunque essere corretti, laddove possibile, in modo che, al termine del periodo di anteprima, contribuiscano al punteggio.
+Le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcoli del Punteggio sicuro. È comunque necessario correggerle non appena possibile, in modo che possano contribuire al punteggio al termine del periodo di anteprima.
 
-Esempio di raccomandazione per l'anteprima:
+Esempio di una raccomandazione in anteprima:
 
 :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Raccomandazione con il flag di anteprima":::
 
@@ -105,7 +105,7 @@ Esempio di raccomandazione per l'anteprima:
 
 Per migliorare il punteggio di sicurezza, correggere le raccomandazioni sulla sicurezza presenti nell'elenco delle raccomandazioni. È possibile correggere ogni raccomandazione manualmente per ogni risorsa o usando l' opzione **Correzione rapida** (se disponibile) per applicare rapidamente una correzione per una raccomandazione a un gruppo di risorse. Per altre informazioni, vedere [Correggere le raccomandazioni](security-center-remediate-recommendations.md).
 
-Un altro modo per migliorare il punteggio e assicurarsi che gli utenti non creino risorse che influiscono negativamente sul punteggio consiste nel configurare le opzioni Applica e nega sulle raccomandazioni pertinenti. Per altre informazioni, vedere [Impedisci configurazioni errate con le raccomandazioni Imponi/nega](prevent-misconfigurations.md).
+Un altro modo per migliorare il punteggio e assicurarsi che gli utenti non creino risorse che influiscono negativamente sul punteggio consiste nel configurare le opzioni Applica e nega sulle raccomandazioni pertinenti. Per altre informazioni, vedere [Impedire gli errori di configurazione con le raccomandazioni di tipo Imponi/Nega](prevent-misconfigurations.md).
 
 ## <a name="security-controls-and-their-recommendations"></a>Controlli di sicurezza e relative raccomandazioni
 

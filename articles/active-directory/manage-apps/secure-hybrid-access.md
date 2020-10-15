@@ -12,10 +12,10 @@ ms.date: 9/10/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d64f7423d537958b6d3c388cb12f23bd2e30e36
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087087"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Accesso ibrido sicuro: Proteggi le app legacy con Azure Active Directory
@@ -26,7 +26,7 @@ ms.locfileid: "90087087"
 
 - [Controller e reti per la distribuzione di applicazioni esistenti](#sha-through-networking-and-delivery-controllers)
 
-- [Applicazioni di rete privata virtuale (VPN) e software-defined perimetrale (SDP)](#sha-through-vpn-and-sdp-applications)
+- [Applicazioni di rete privata virtuale (VPN) e Software-Defined perimetrale (SDP)](#sha-through-vpn-and-sdp-applications)
 
 È possibile colmare il gap e rafforzare il comportamento di sicurezza in tutte le applicazioni con funzionalità Azure AD come Azure AD [l'accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) e Azure ad [Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection).
 

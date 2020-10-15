@@ -8,10 +8,10 @@ ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87542739"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure che non sono collegati tramite il portale di Azure
@@ -45,17 +45,17 @@ Il processo illustrato di seguito spiega come usare il portale di Azure per elim
 
     Verrà visualizzato un elenco di tutti i dischi non gestiti. I dischi con il simbolo " **-** " nella colonna **Collegato a** sono dischi non collegati.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot del pannello dei dischi non gestiti. In questo pannello i dischi con il simbolo - nella colonna Scollegato sono dischi non collegati.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot del pannello dei singoli dischi gestiti. Questo pannello visualizzerà lo stato Scollegato se il disco non è collegato. È possibile eliminare il disco se non è più necessario conservare i dati":::
 
 1. Selezionare il disco non collegato che si vuole eliminare. Si aprirà il pannello del disco.
 
 1. Nel pannello del disco è possibile confermare che il disco non è collegato, poiché sarà ancora visualizzato il simbolo **-** in **Scollegato**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot di un pannello dei dischi non gestiti. Il valore in Scollegato sarà - se è il disco non è collegato. Se i dati dei dischi non sono più necessari, è possibile eliminarli.":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot del pannello dei singoli dischi gestiti. Questo pannello visualizzerà lo stato Scollegato se il disco non è collegato. È possibile eliminare il disco se non è più necessario conservare i dati":::
 
 1. Selezionare **Elimina**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot di un pannello dei dischi non gestiti, con evidenziazione dell'opzione di eliminazione.":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot del pannello dei singoli dischi gestiti. Questo pannello visualizzerà lo stato Scollegato se il disco non è collegato. È possibile eliminare il disco se non è più necessario conservare i dati":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

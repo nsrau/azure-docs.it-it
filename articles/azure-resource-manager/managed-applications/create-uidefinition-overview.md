@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89319569"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json per l'esperienza di creazione di un'applicazione gestita di Azure
@@ -129,7 +129,7 @@ Per `location` , specificare le proprietà per il controllo del percorso di cui 
 
 Il passaggio di **base** è il primo passaggio generato quando il portale di Azure analizza il file. Per impostazione predefinita, il passaggio di base consente agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la località per la distribuzione.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Principi predefiniti":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Creazione guidata scheda":::
 
 È possibile aggiungere altri elementi in questa sezione. Quando possibile, aggiungere elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore.
 

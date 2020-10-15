@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: e64de987bd82f6b93350cdd706fc1a243d2855b1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90977830"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurare un client VPN per le connessioni del protocollo OpenVPN da punto a sito: Autenticazione di Azure AD
@@ -88,33 +88,33 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Selezionare i puntini di sospensione accanto al profilo client che si desidera eliminare. Selezionare quindi **Rimuovi**.
 
-    ![eliminare](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![Elimina](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminare](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![Elimina](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Creare una connessione
 
 1. Nella pagina selezionare **+** , quindi **+ Aggiungi**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create1.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
 
 2. Inserire le informazioni di connessione. Se non si è certi dei valori, contattare l'amministratore. Dopo aver compilato i valori, selezionare **Salva**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create2.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
 
 3. Selezionare **Connetti** per connettersi alla VPN.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create3.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
 
 4. Selezionare le credenziali appropriate e quindi fare clic su **continua**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create4.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
 
 5. Una volta stabilita la connessione, l'icona diventerà verde e si **disconnetterà**.
 
-    ![connessione](./media/openvpn-azure-ad-client/create/create5.jpg)
+    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
 
 ### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Per connettersi automaticamente
 
@@ -252,7 +252,7 @@ Questi passaggi consentono di configurare la connessione per la connessione auto
 ```
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>È possibile importare il profilo da un prompt della riga di comando?
 
-È possibile importare il profilo da un prompt della riga di comando inserendo il file di **azurevpnconfig.xml** scaricato nella cartella **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** ed eseguendo il comando seguente:
+È possibile importare il profilo da un prompt della riga di comando inserendo il file di **azurevpnconfig.xml** scaricato nella cartella **%USERPROFILE%\appdata\local\packages\ Microsoft.AzureVpn_8wekyb3d8bbwe \localstate** ed eseguendo il comando seguente:
 
 ```
 azurevpn -i azurevpnconfig.xml 

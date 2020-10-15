@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85510335"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migrazione a Sincronizzazione file di Azure
@@ -210,7 +210,7 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 È possibile provare a eseguire alcune di queste copie in parallelo. Si consiglia di elaborare l'ambito di una condivisione file di Azure alla volta.
 
 > [!WARNING]
-> Dopo aver spostato tutti i dati da StorSimple a Windows Server e aver completato la migrazione: tornare a ***tutti*** i gruppi di sincronizzazione nell'portale di Azure e modificare il valore percentuale spazio disponibile del volume del cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
+> Dopo aver spostato tutti i dati da StorSimple a Windows Server e aver completato la migrazione: tornare a ***tutti***  i gruppi di sincronizzazione nell'portale di Azure e modificare il valore percentuale spazio disponibile del volume del cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
 
 I criteri di spazio libero del volume di suddivisione in livelli nel cloud agiscono a livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere il 99% di spazio libero su disco, rendendo la cache locale non funziona come previsto. A meno che non si tratti dell'obiettivo di avere solo lo spazio dei nomi per un volume che contiene solo i dati di archiviazione a cui si accede raramente.
 

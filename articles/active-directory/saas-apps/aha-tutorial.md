@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542854"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760685"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Esercitazione: Integrare Aha! con Azure Active Directory
 
@@ -148,7 +148,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 6. Fare clic su **Sicurezza e single sign-on**.
 
-    ![Sicurezza e accesso Single Sign-On](./media/aha-tutorial/IC798952.png "Sicurezza e single sign-on")
+    ![Screenshot con l'opzione di menu Security and single sign-on evidenziata.](./media/aha-tutorial/IC798952.png "Sicurezza e single sign-on")
 
 7. Nella sezione **Single Sign-On** in **Identity Provider** (Provider di identità) selezionare **SAML2.0**.
 

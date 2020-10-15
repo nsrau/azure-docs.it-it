@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b2dea32163fbb2827daed616087c893631429aea
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0709152631037e7561094082c8ce02b860fd4edc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400850"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951560"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Baseline della sicurezza di Azure per Azure ricerca cognitiva
 
-Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview) ad Azure ricerca cognitiva. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili ad Azure ricerca cognitiva. I **controlli** non sono applicabili ad Azure ricerca cognitiva o il cliente è stato escluso.
+Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 1,0](../security/benchmarks/overview.md) ad Azure ricerca cognitiva. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili ad Azure ricerca cognitiva. I **controlli** non sono applicabili ad Azure ricerca cognitiva o il cliente è stato escluso.
 
 Per informazioni sul modo in cui Azure ricerca cognitiva è completamente mappato al benchmark di sicurezza di Azure, vedere il [file di mapping di base della sicurezza ricerca cognitiva di Azure completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: sicurezza di rete](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
@@ -30,9 +30,9 @@ Per informazioni sul modo in cui Azure ricerca cognitiva è completamente mappat
 
 Ricerca cognitiva supporta inoltre funzionalità di sicurezza di rete aggiuntive per la gestione degli elenchi di controllo di accesso di rete. Configurare il servizio di ricerca in modo che consenta solo la comunicazione con origini attendibili limitando l'accesso da intervalli di indirizzi IP pubblici specifici usando la funzionalità del firewall.
 
-- [Come configurare gli endpoint privati per Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/service-create-private-endpoint)
+- [Come configurare gli endpoint privati per Azure ricerca cognitiva](./service-create-private-endpoint.md)
 
-- [Come configurare il firewall di Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/service-configure-firewall)
+- [Come configurare il firewall di Azure ricerca cognitiva](./service-configure-firewall.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -42,11 +42,11 @@ Ricerca cognitiva supporta inoltre funzionalità di sicurezza di rete aggiuntive
 
 **Linee guida**: non è possibile distribuire ricerca cognitiva direttamente in una rete virtuale. Tuttavia, se l'applicazione client o le origini dati si trovano in una rete virtuale, è possibile monitorare e registrare il traffico per i componenti in rete, incluse le richieste inviate a un servizio di ricerca nel cloud. Le raccomandazioni standard includono l'abilitazione di un log di flusso del gruppo di sicurezza di rete e l'invio di log a un'area di lavoro di Azure o Log Analytics Facoltativamente, è possibile usare Analisi del traffico per ottenere informazioni dettagliate sui modelli di traffico.
 
-- [Come abilitare i log dei flussi dei gruppi di sicurezza di rete](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Come abilitare i log dei flussi dei gruppi di sicurezza di rete](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Come abilitare e usare Analisi del traffico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Come abilitare e usare Analisi del traffico](../network-watcher/traffic-analytics.md)
 
-- [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -64,7 +64,7 @@ Ricerca cognitiva supporta inoltre funzionalità di sicurezza di rete aggiuntive
 
 **Linee guida**: ricerca cognitiva non fornisce una funzionalità specifica per combattere un attacco Denial of Service distribuito, ma è possibile abilitare la protezione DDoS standard nelle reti virtuali associate al servizio ricerca cognitiva per la protezione generale.
 
-- [Come configurare la protezione DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -76,9 +76,9 @@ Ricerca cognitiva supporta inoltre funzionalità di sicurezza di rete aggiuntive
 
 Se necessario, abilitare l'acquisizione di pacchetti Network Watcher per analizzare le attività anomale.
 
-- [Come abilitare i log dei flussi NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Come abilitare Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Come abilitare Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -88,9 +88,9 @@ Se necessario, abilitare l'acquisizione di pacchetti Network Watcher per analizz
 
 **Linee guida**: ricerca cognitiva non supporta il rilevamento delle intrusioni di rete, ma come mitigazione delle intrusioni, è possibile configurare le regole del firewall per specificare gli indirizzi IP accettati dal servizio di ricerca cognitiva. Configurare un endpoint privato per evitare il traffico di ricerca dalla rete Internet pubblica.
 
-- [Come configurare le chiavi gestite dal cliente per la crittografia dei dati](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
+- [Come configurare le chiavi gestite dal cliente per la crittografia dei dati](./search-security-manage-encryption-keys.md)
 
-- [Come ottenere informazioni sulle chiavi gestite dal cliente da indici e mappe sinonimi](https://docs.microsoft.com/azure/search/search-security-get-encryption-keys)
+- [Come ottenere informazioni sulle chiavi gestite dal cliente da indici e mappe sinonimi](./search-security-get-encryption-keys.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -110,7 +110,7 @@ Se necessario, abilitare l'acquisizione di pacchetti Network Watcher per analizz
 
 Consentire o negare il traffico alle risorse specificando il nome del tag di servizio (ad esempio, AzureCognitiveSearch) nel campo di origine o destinazione appropriato di una regola. 
 
-- [Tag del servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Tag del servizio di rete virtuale](../virtual-network/service-tags-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -132,13 +132,13 @@ Usare una qualsiasi delle definizioni di criteri di Azure predefinite correlate 
 
 È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni sulle risorse in base ai tag. 
 
-- [Come creare un endpoint privato per ricerca cognitiva](https://docs.microsoft.com/azure/search/service-create-private-endpoint)
+- [Come creare un endpoint privato per ricerca cognitiva](./service-create-private-endpoint.md)
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-- [Come creare una rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Come creare una rete virtuale di Azure](../virtual-network/quick-create-portal.md)
 
-- [Come filtrare il traffico di rete con le regole del gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Come filtrare il traffico di rete con le regole del gruppo di sicurezza di rete](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -154,7 +154,7 @@ Usare una qualsiasi delle definizioni di criteri di Azure predefinite correlate 
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
 
@@ -171,9 +171,9 @@ In alternativa, è possibile abilitare e caricare questi dati in Sentinel di Azu
 
 - [Come iniziare a usare Monitoraggio di Azure e l'integrazione SIEM di terze parti](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -183,9 +183,9 @@ In alternativa, è possibile abilitare e caricare questi dati in Sentinel di Azu
 
 **Linee guida**: i log di diagnostica e operativi forniscono informazioni approfondite sulle operazioni dettagliate dei ricerca cognitiva e sono utili per il monitoraggio del servizio e per i carichi di lavoro che accedono al servizio.  Per acquisire i dati di diagnostica, abilitare la registrazione specificando dove vengono archiviate le informazioni di registrazione.
 
-- [Come raccogliere e analizzare i dati di log per Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-monitor-logs)
+- [Come raccogliere e analizzare i dati di log per Azure ricerca cognitiva](./search-monitor-logs.md)
 
-- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [Come raccogliere i log e le metriche della piattaforma con monitoraggio di Azure](../azure-monitor/platform/diagnostic-settings.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -205,9 +205,9 @@ In alternativa, è possibile abilitare e caricare questi dati in Sentinel di Azu
 
 In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro Log Analytics in base alle normative di conformità dell'organizzazione. Usare gli account di archiviazione di Azure per l'archiviazione a lungo termine e di archiviazione. 
 
-- [Modificare il periodo di conservazione dei dati in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Modificare il periodo di conservazione dei dati in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Come configurare i criteri di conservazione per i log dell'account di archiviazione di Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -217,15 +217,15 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 **Linee guida**: analizzare e monitorare i log del servizio ricerca cognitiva per un comportamento anomalo. Usare Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui relativi dati. In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
-- [Come raccogliere e analizzare i dati di log per ricerca cognitiva](https://docs.microsoft.com/azure/search/search-monitor-logs)
+- [Come raccogliere e analizzare i dati di log per ricerca cognitiva](./search-monitor-logs.md)
 
-- [Come visualizzare i dati del log di ricerca in Power BI](https://docs.microsoft.com/azure/search/search-monitor-logs-powerbi)
+- [Come visualizzare i dati del log di ricerca in Power BI](./search-monitor-logs-powerbi.md)
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Informazioni su Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Informazioni su Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-- [Come eseguire query personalizzate in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -235,11 +235,11 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 **Linee guida**: usare il Centro sicurezza con log Analytics area di lavoro per il monitoraggio e l'invio di avvisi su attività anomale riscontrate in registri di sicurezza ed eventi. In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Come gestire gli avvisi nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Come inviare un avviso sui dati del log di log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -271,7 +271,7 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
@@ -279,12 +279,12 @@ In monitoraggio di Azure impostare il periodo di conservazione dell'area di lavo
 
 Ricerca cognitiva ruoli sono associati alle autorizzazioni che supportano le attività di gestione del livello di servizio.  Questi ruoli non concedono l'accesso all'endpoint del servizio. Per l'accesso alle operazioni eseguite sull'endpoint, ad esempio la gestione degli indici, il popolamento dell'indice e le query sui dati di ricerca, usare le chiavi API per autenticare la richiesta.
 
-- [Impostare i ruoli per l'accesso amministrativo ad Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-security-rbac)
+- [Impostare i ruoli per l'accesso amministrativo ad Azure ricerca cognitiva](./search-security-rbac.md)
 
-- [Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-security-api-keys)
+- [Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure](./search-security-api-keys.md)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -304,9 +304,9 @@ Ricerca cognitiva ruoli sono associati alle autorizzazioni che supportano le att
 
 Usare i ruoli predefiniti Azure AD che devono essere assegnati in modo esplicito per le operazioni di gestione. Richiamare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-- [Come usare i ruoli per l'accesso amministrativo in ricerca cognitiva](https://docs.microsoft.com/azure/search/search-security-rbac)
+- [Come usare i ruoli per l'accesso amministrativo in ricerca cognitiva](./search-security-rbac.md)
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -318,7 +318,7 @@ Usare i ruoli predefiniti Azure AD che devono essere assegnati in modo esplicito
 
 Definire un processo per ridurre il numero di identità e credenziali abilitando SSO per il servizio con le identità preesistenti dell'organizzazione.
 
-- [Informazioni su SSO con Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -328,9 +328,9 @@ Definire un processo per ridurre il numero di identità e credenziali abilitando
 
 **Linee guida**: abilitare la funzionalità di multi-factor authentication (multi Azure ad) di Azure Active Directory e seguire le indicazioni relative all'identità e all'accesso del Centro sicurezza.
 
-- [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) 
+- [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
-- [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access) 
+- [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -340,10 +340,10 @@ Definire un processo per ridurre il numero di identità e credenziali abilitando
 
 **Indicazioni**: usare una workstation con accesso con privilegi (Paw) con multi-factor authentication (multi-factor authentication) configurato per accedere alle risorse di Azure e accedervi.
 
-- [Informazioni sulle workstation sicure gestite da Azure](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+- [Informazioni sulle workstation sicure gestite da Azure](../active-directory/devices/concept-azure-managed-workstation.md)
  
 
-- [Come abilitare l'autenticazione a più fattori Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Come abilitare l'autenticazione a più fattori Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
  
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -354,9 +354,9 @@ Definire un processo per ridurre il numero di identità e credenziali abilitando
 
 **Linee guida**: usare i report di sicurezza di Azure Active Directory (Azure ad) e il monitoraggio per rilevare quando nell'ambiente si verificano attività sospette o non sicure. Usare il Centro sicurezza per monitorare le attività di identità e accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -374,9 +374,9 @@ Definire un processo per ridurre il numero di identità e credenziali abilitando
 
 **Linee guida**: usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale per le attività di gestione del livello di servizio in Azure ricerca cognitiva. Azure AD identità non consentono l'accesso all'endpoint del servizio di ricerca.  L'accesso a operazioni come la gestione degli indici, il popolamento degli indici e le query sui dati di ricerca sono disponibili tramite le chiavi API.
 
-- [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Come creare e configurare un'istanza di Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-security-api-keys)
+- [Creare e gestire le chiavi API per un servizio ricerca cognitiva di Azure](./search-security-api-keys.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -388,11 +388,11 @@ Definire un processo per ridurre il numero di identità e credenziali abilitando
 
 Esaminare i log di diagnostica da ricerca cognitiva per attività nell'endpoint del servizio di ricerca, ad esempio gestione degli indici, popolamento degli indici e query.
 
-- [Informazioni sulla creazione di report Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Come usare Azure AD le verifiche di identità e accesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
 
-- [Monitorare le operazioni e le attività di Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-monitor-usage)
+- [Monitorare le operazioni e le attività di Azure ricerca cognitiva](./search-monitor-usage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -404,7 +404,7 @@ Esaminare i log di diagnostica da ricerca cognitiva per attività nell'endpoint 
 
 Semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. Configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) 
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -414,11 +414,11 @@ Semplificare questo processo creando impostazioni di diagnostica per Azure AD ac
 
 **Indicazioni**: usare le funzionalità di protezione delle identità Azure Active Directory (Azure ad) per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inserire i dati in Sentinel di Azure per un'analisi più approfondita, come richiesto.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Come configurare e abilitare i criteri di rischio di Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies) 
+- [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
-- [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -434,7 +434,7 @@ Semplificare questo processo creando impostazioni di diagnostica per Azure AD ac
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
@@ -448,11 +448,11 @@ Semplificare questo processo creando impostazioni di diagnostica per Azure AD ac
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Le risorse devono essere separate da rete virtuale/subnet, contrassegnate in modo appropriato e protette in un gruppo di sicurezza di rete o in un firewall di Azure. Le risorse che archiviano o elaborano dati sensibili devono essere isolate. Usare il collegamento privato per configurare un endpoint privato per ricerca cognitiva.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md) 
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-- [Come creare un endpoint privato per ricerca cognitiva](https://docs.microsoft.com/azure/search/service-create-private-endpoint)
+- [Come creare un endpoint privato per ricerca cognitiva](./service-create-private-endpoint.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -464,7 +464,7 @@ Semplificare questo processo creando impostazioni di diagnostica per Azure AD ac
 
 Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data) 
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -474,7 +474,7 @@ Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei 
 
 **Indicazioni**: ricerca cognitiva crittografa i dati in transito con Transport Layer Security 1,2 e impone la crittografia (SSL/TLS) in qualsiasi momento per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il servizio.
 
-- [Informazioni sulla crittografia in transito con Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) 
+- [Informazioni sulla crittografia in transito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -486,7 +486,7 @@ Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei 
 
 Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -495,10 +495,10 @@ Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse
 
 **Linee guida**: per l'amministrazione del servizio, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alle chiavi e alla configurazione. Per le operazioni sul contenuto, ad esempio indicizzazione e query, ricerca cognitiva usa le chiavi anziché un modello di controllo degli accessi in base all'identità. Usare il controllo degli accessi in base al ruolo di Azure.
-- [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 
+- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
-- [Come usare i ruoli per l'accesso amministrativo ai ricerca cognitiva](https://docs.microsoft.com/azure/search/search-security-rbac)
+- [Come usare i ruoli per l'accesso amministrativo ai ricerca cognitiva](./search-security-rbac.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -510,7 +510,7 @@ Microsoft gestisce la piattaforma sottostante e considera tutti i contenuti dei 
 
 Microsoft gestisce l'infrastruttura sottostante per ricerca cognitiva e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -520,9 +520,9 @@ Microsoft gestisce l'infrastruttura sottostante per ricerca cognitiva e ha imple
 
 **Linee guida**: ricerca cognitiva crittografa automaticamente il contenuto indicizzato inattivo con le chiavi gestite da Microsoft. Se è necessaria una maggiore protezione, è possibile integrare la crittografia predefinita con un secondo livello di crittografia usando le chiavi create e gestite in Azure Key Vault.
 
-- [Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)
+- [Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva](./search-security-manage-encryption-keys.md)
 
-- [Informazioni sulla crittografia inattiva in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -532,9 +532,9 @@ Microsoft gestisce l'infrastruttura sottostante per ricerca cognitiva e ha imple
 
 **Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione di ricerca cognitiva e altre risorse critiche o correlate.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-- [Come creare avvisi per le attività ricerca cognitiva](https://docs.microsoft.com/azure/search/search-monitor-logs)
+- [Come creare avvisi per le attività ricerca cognitiva](./search-monitor-logs.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -542,7 +542,7 @@ Microsoft gestisce l'infrastruttura sottostante per ricerca cognitiva e ha imple
 
 ## <a name="vulnerability-management"></a>Gestione vulnerabilità
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: gestione delle vulnerabilità](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: gestione delle vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
@@ -586,7 +586,7 @@ Microsoft gestisce l'infrastruttura sottostante per ricerca cognitiva e ha imple
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
@@ -594,11 +594,11 @@ Microsoft gestisce l'infrastruttura sottostante per ricerca cognitiva e ha imple
 
 Verificare le autorizzazioni (lettura) appropriate nel tenant ed enumerare tutte le sottoscrizioni di Azure e le risorse nelle sottoscrizioni.  
 
-- [Come creare query con Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal) 
+- [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
 
-- [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -608,7 +608,7 @@ Verificare le autorizzazioni (lettura) appropriate nel tenant ed enumerare tutte
 
 **Linee guida**: applicare i tag alle risorse di Azure con i metadati per organizzarli in modo logico in una tassonomia.
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -617,11 +617,11 @@ Verificare le autorizzazioni (lettura) appropriate nel tenant ed enumerare tutte
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate laddove appropriato per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md) 
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create) 
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md) 
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -639,9 +639,9 @@ Verificare le autorizzazioni (lettura) appropriate nel tenant ed enumerare tutte
 
 **Linee guida**: è consigliabile definire un inventario delle risorse di Azure approvate per l'utilizzo in base ai criteri e agli standard dell'organizzazione precedenti, quindi monitorare le risorse di Azure non approvate con criteri di Azure o Azure Resource Graph.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Come creare query con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal) 
+- [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -682,9 +682,9 @@ Si consiglia di disporre di un inventario delle applicazioni software che sono s
 
 Usare Azure Resource Graph per eseguire query o individuare risorse all'interno delle sottoscrizioni. Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate.
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types) 
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -726,7 +726,7 @@ Controllare l'accesso alle chiavi usate per autenticare le richieste per tutte l
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
@@ -738,9 +738,9 @@ Azure Resource Manager è in grado di esportare il modello in JavaScript Object 
 
 È anche possibile usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per le risorse di Azure. 
 
-- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](./security-controls-policy.md)
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -760,13 +760,13 @@ Azure Resource Manager è in grado di esportare il modello in JavaScript Object 
 
 Azure Resource Manager modelli possono essere usati per gestire la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione. 
 
-- [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
-- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](./security-controls-policy.md)
 
-- [Creare e gestire i criteri per applicare la conformità](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
-- [Panoramica sui modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Panoramica sui modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -784,9 +784,9 @@ Azure Resource Manager modelli possono essere usati per gestire la configurazion
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index)
+- [Documentazione di Azure Repos](/azure/devops/repos/index)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -808,9 +808,9 @@ Usare gli alias per creare criteri personalizzati per controllare o applicare le
 
 Inoltre, è possibile usare automazione di Azure per distribuire le modifiche di configurazione e gestire le eccezioni dei criteri. 
 
-- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](./security-controls-policy.md)
 
-- [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -828,9 +828,9 @@ Inoltre, è possibile usare automazione di Azure per distribuire le modifiche di
 
 **Linee guida**: usare il Centro sicurezza per eseguire analisi di base delle risorse del servizio ricerca cognitiva.  Usare inoltre i criteri di Azure per inviare avvisi e controllare le configurazioni delle risorse. 
 
-- [Come correggere le raccomandazioni nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Come correggere le raccomandazioni nel centro sicurezza di Azure](../security-center/security-center-remediate-recommendations.md)
 
-- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/security-controls-policy)
+- [Controlli di conformità alle normative di Criteri di Azure per Ricerca cognitiva di Azure](./security-controls-policy.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -847,10 +847,10 @@ Inoltre, è possibile usare automazione di Azure per distribuire le modifiche di
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: gestire i segreti di Azure in modo sicuro
 
 **Linee guida**: usare identità gestite di Azure insieme a Azure Key Vault per semplificare la gestione dei segreti per le applicazioni cloud.
-- [Come usare le identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity) 
-- [Come creare una Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal) 
+- [Come usare le identità gestite per le risorse di Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md) 
+- [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md) 
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](https://docs.microsoft.com/azure/key-vault/managed-identity) 
+- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/assign-access-policy-portal.md) 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -860,9 +860,9 @@ Inoltre, è possibile usare automazione di Azure per distribuire le modifiche di
 
 **Linee guida**: usare un'identità gestita di Azure per concedere a ricerca cognitiva l'accesso ad altri servizi di Azure, come Key Vault e le origini dati dell'indicizzatore, usando un'identità gestita automaticamente in Azure Active Directory (Azure ad). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Azure Key Vault, senza credenziali nel codice. 
 
-- [Configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita](https://docs.microsoft.com/azure/search/search-howto-managed-identities-data-sources)
+- [Configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita](./search-howto-managed-identities-data-sources.md)
 
-- [Configurare chiavi gestite dal cliente per la crittografia dei dati usando un'identità gestita](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys#3---create-a-service-identity)
+- [Configurare chiavi gestite dal cliente per la crittografia dei dati usando un'identità gestita](./search-security-manage-encryption-keys.md#3---create-a-service-identity)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -878,7 +878,7 @@ Inoltre, è possibile usare automazione di Azure per distribuire le modifiche di
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-antimalware-software"></a>8,1: usare il software antimalware gestito centralmente
 
@@ -912,7 +912,7 @@ Per tutte le risorse di calcolo di proprietà dell'organizzazione e usate nella 
 
 ## <a name="data-recovery"></a>Recupero dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: ripristino dei dati](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantire l'esecuzione regolare di backup automatizzati
 
@@ -928,9 +928,9 @@ Per tutte le risorse di calcolo di proprietà dell'organizzazione e usate nella 
 
 **Indicazioni**: ricerca cognitiva attualmente non supporta il backup automatico dei dati in un servizio di ricerca ed è necessario eseguirne il backup tramite un processo manuale.  È anche possibile eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault. 
 
-- [Eseguire il backup e il ripristino di un indice di ricerca cognitiva di Azure](https://docs.microsoft.com/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
+- [Eseguire il backup e il ripristino di un indice di ricerca cognitiva di Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Come eseguire il backup di chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come eseguire il backup di chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -940,9 +940,9 @@ Per tutte le risorse di calcolo di proprietà dell'organizzazione e usate nella 
 
 **Indicazioni**: ricerca cognitiva attualmente non supporta il backup automatico dei dati in un servizio di ricerca ed è necessario eseguirne il backup e il ripristino tramite un processo manuale.  Eseguire periodicamente il ripristino dei dati del contenuto di cui è stato eseguito il backup manualmente per garantire l'integrità end-to-end del processo di backup.
 
-- [Eseguire il backup e il ripristino di un indice di ricerca cognitiva di Azure](https://docs.microsoft.com/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
+- [Eseguire il backup e il ripristino di un indice di ricerca cognitiva di Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Come ripristinare chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come ripristinare chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -954,11 +954,11 @@ Per tutte le risorse di calcolo di proprietà dell'organizzazione e usate nella 
 
 Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Se si usa archiviazione di Azure per archiviare i backup manuali, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB. 
 
-- [Eseguire il backup e il ripristino di un indice di ricerca cognitiva di Azure](https://docs.microsoft.com/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
+- [Eseguire il backup e il ripristino di un indice di ricerca cognitiva di Azure](/samples/azure-samples/azure-search-dotnet-samples/azure-search-backup-restore-index/)
 
-- [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Eliminazione temporanea per archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminazione temporanea per archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -966,7 +966,7 @@ Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per pr
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: risposta agli eventi imprevisti](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
@@ -988,9 +988,9 @@ Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per pr
 
 Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
 
-- [Usare tag per organizzare le risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
-- [Avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1010,7 +1010,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai propri dati. Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
 
-- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1020,9 +1020,9 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Linee guida**: esportare gli avvisi e le raccomandazioni del Centro sicurezza usando la funzionalità di esportazione continua. L'esportazione continua consente di esportare avvisi e consigli manualmente o su base continua. È possibile usare il connettore dati del Centro sicurezza per trasmettere gli avvisi ad Azure Sentinel.
 
-- [Come configurare l'esportazione continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 
-- [Come trasmettere gli avvisi in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Come trasmettere gli avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1032,7 +1032,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 **Indicazioni**: usare la funzionalità di automazione del flusso di lavoro nel Centro sicurezza di Azure per attivare automaticamente le risposte tramite App per la logica negli avvisi di sicurezza e nelle raccomandazioni.
 
-- [Come configurare l'automazione del flusso di lavoro e App per la logica](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Come configurare l'automazione del flusso di lavoro e App per la logica](../security-center/workflow-automation.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -1040,7 +1040,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
@@ -1054,5 +1054,5 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

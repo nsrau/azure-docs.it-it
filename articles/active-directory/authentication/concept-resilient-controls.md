@@ -13,10 +13,10 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049571"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
@@ -215,13 +215,13 @@ Se è stata distribuita Azure AD estensione di server dei criteri di rete multi-
 In questo caso, è possibile disabilitare l'estensione NPS, di conseguenza il server NPS verificherà solo l'autenticazione primaria e non imporrà l'autenticazione a più fattori sugli utenti.
 
 Disabilitare l'estensione NPS: 
--   Esportare la chiave del registro di sistema \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters HKEY_LOCAL_MACHINE come backup. 
+-   Esportare la chiave del registro di sistema HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters come backup. 
 -   Eliminare i valori del registro di sistema per "AuthorizationDLLs" e "ExtensionDLLs", non la chiave Parameters. 
 -   Riavviare il servizio IAS (Network Policy Service) per rendere effettive le modifiche 
 -   Determinare se l'autenticazione principale per la VPN è riuscita.
 
 Dopo che il servizio è stato recuperato e si è pronti per applicare l'autenticazione a più fattori sugli utenti, abilitare l'estensione NPS: 
--   Importare la chiave del registro di sistema da backup HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
+-   Importare la chiave del registro di sistema da backup HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 
 -   Riavviare il servizio IAS (Network Policy Service) per rendere effettive le modifiche 
 -   Determinare se l'autenticazione principale e l'autenticazione secondaria per la VPN hanno esito positivo.
 -   Esaminare il server dei criteri di rete e il registro VPN per determinare gli utenti che hanno eseguito l'accesso durante la finestra di emergenza.

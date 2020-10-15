@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 911f819343f675ebe0a2604d912e6e26aa646eb5
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533061"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096760"
 ---
 # <a name="x509-certificate-attestation"></a>Attestazione certificato X.509
 
-Questo articolo fornisce una panoramica dei concetti relativi al provisioning dei dispositivi con l'attestazione del certificato X. 509. L'articolo è di particolare interesse per tutte le persone coinvolte nella preparazione di un dispositivo per la distribuzione.
+Questo articolo fornisce una panoramica dei concetti relativi al servizio Device provisioning (DPS) interessati durante il provisioning di dispositivi con l'attestazione del certificato X. 509. L'articolo è di particolare interesse per tutte le persone coinvolte nella preparazione di un dispositivo per la distribuzione.
 
 I certificati X. 509 possono essere archiviati in un modulo di protezione hardware HSM.
 
@@ -44,22 +44,58 @@ Un certificato radice è un certificato X.509 autofirmato che rappresenta un'aut
 
 Un certificato intermedio è un certificato X.509 che è stato firmato dal certificato radice o da un altro certificato intermedio con il certificato radice nella catena. L'ultimo certificato intermedio in una catena viene usato per firmare il certificato foglia. Un certificato intermedio viene anche chiamato certificato della CA intermedia.
 
+##### <a name="why-are-intermediate-certs-useful"></a>Perché i certificati intermedi sono utili?
+I certificati intermedi vengono utilizzati in diversi modi. Ad esempio, è possibile usare i certificati intermedi per raggruppare i dispositivi in base a linee di prodotti, clienti che acquistano dispositivi, divisioni aziendali o fabbriche. 
+
+Si supponga che Contoso sia una grande azienda con una propria infrastruttura a chiave pubblica (PKI) usando il certificato radice denominato *ContosoRootCert*. Ogni filiale di Contoso dispone di un proprio certificato intermedio firmato da *ContosoRootCert*. Ogni filiale utilizzerà quindi il certificato intermedio per firmare i certificati foglia per ogni dispositivo. In questo scenario, Contoso può usare una singola istanza di DPS in cui *ContosoRootCert* è stato verificato con la [prova di possesso](./how-to-verify-certificates.md). Possono avere un gruppo di registrazione per ogni filiale. In questo modo, ogni singolo affiliato non dovrà preoccuparsi della verifica dei certificati.
+
+
 ### <a name="end-entity-leaf-certificate"></a>Certificato "foglia" dell'entità finale
 
 Il certificato foglia, o certificato dell'entità finale, identifica il titolare del certificato. Include il certificato radice nella relativa catena di certificati, nonché zero o più certificati intermedi. Il certificato foglia non viene usato per firmare altri certificati. Identifica in modo univoco il dispositivo per il servizio di provisioning e a volte viene chiamato anche certificato del dispositivo. Durante l'autenticazione, il dispositivo usa la chiave privata associata a questo certificato per rispondere a una richiesta di prova di possesso dal servizio.
 
-I certificati foglia usati con una voce di registrazione [singola](./concepts-service.md#individual-enrollment) hanno il requisito che il **nome del soggetto** deve essere impostato sull'ID di registrazione della voce di registrazione singola. I certificati foglia usati con una voce del [gruppo](./concepts-service.md#enrollment-group) di registrazioni devono avere il **nome soggetto** impostato sull'ID dispositivo desiderato, che verrà visualizzato nei **record di registrazione** per il dispositivo autenticato nel gruppo di registrazione.
+I certificati foglia usati con una voce di registrazione [singola](./concepts-service.md#individual-enrollment) hanno il requisito che il **nome del soggetto** deve essere impostato sull'ID di registrazione della voce di registrazione singola. I certificati foglia usati con una voce del [gruppo](./concepts-service.md#enrollment-group) di registrazioni devono avere il **nome soggetto** impostato sull'ID dispositivo desiderato che verrà visualizzato nei record di **registrazione** per il dispositivo autenticato nel gruppo di registrazione.
 
 Per altre informazioni, vedere [Autenticazione dei dispositivi firmati con i certificati della CA X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controllo dell'accesso dei dispositivi al servizio di provisioning con certificati X.509
 
-Il servizio di provisioning espone due tipi di voce di registrazione che è possibile usare per controllare l'accesso per i dispositivi che usano il meccanismo di attestazione X.509:  
+Il servizio di provisioning espone due tipi di registrazione che è possibile usare per controllare l'accesso dei dispositivi con il meccanismo di attestazione X. 509:  
 
 - Le voci di [registrazione singola](./concepts-service.md#individual-enrollment) vengono configurate con il certificato del dispositivo associato a un dispositivo specifico. Queste voci controllano le registrazioni per dispositivi specifici.
 - Le voci dei [gruppi di registrazioni](./concepts-service.md#enrollment-group) sono associate a un certificato della CA intermedia o radice specifico. Queste voci controllano le registrazioni per tutti i dispositivi che hanno un certificato intermedio o radice nella rispettiva catena di certificati. 
 
-Quando un dispositivo si connette al servizio di provisioning, il servizio assegna la priorità alle voci di registrazione più specifiche rispetto a quelle meno specifiche. Di conseguenza, se esiste una registrazione singola per il dispositivo, il servizio di provisioning applica questa voce. Se non esiste alcuna registrazione singola per il dispositivo ed esiste invece un gruppo di registrazioni per il primo certificato intermedio nella catena di certificati del dispositivo, il servizio applica questa voce e così via verso l'alto nella catena fino alla radice. Il servizio applica la prima voce applicabile trovata, in modo che:
+#### <a name="dps-device-chain-requirements"></a>Requisiti della catena di dispositivi DPS
+
+Quando un dispositivo sta provando a eseguire la registrazione tramite DPS usando un gruppo di registrazione, il dispositivo deve inviare la catena di certificati dal certificato foglia a un certificato verificato con la [prova di possesso](how-to-verify-certificates.md). In caso contrario, l'autenticazione avrà esito negativo.
+
+Se, ad esempio, viene verificato solo il certificato radice e viene caricato un certificato intermedio nel gruppo di registrazione, il dispositivo deve presentare la catena di certificati dal certificato foglia fino al certificato radice verificato. Questa catena di certificati include tutti i certificati intermedi. L'autenticazione avrà esito negativo se DPS non riesce a attraversare la catena di certificati a un certificato verificato.
+
+Si consideri, ad esempio, un'azienda che usa la seguente catena di dispositivi per un dispositivo.
+
+![Esempio di catena di certificati dispositivo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+Viene verificato solo il certificato radice e il certificato *intermediate2* viene caricato nel gruppo di registrazione.
+
+![Esempio di radice verificato](./media/concepts-x509-attestation/example-root-verified.png) 
+
+Se il dispositivo invia solo la catena di dispositivi seguente durante il provisioning, l'autenticazione avrà esito negativo. Poiché DPS non può tentare l'autenticazione presumendo la validità del certificato *intermediate1*
+
+![Esempio di catena di certificati non riuscita](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
+
+Se il dispositivo invia la catena di dispositivi completa come indicato di seguito durante il provisioning, DPS può tentare l'autenticazione del dispositivo.
+
+![Esempio di catena di certificati dispositivo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+
+
+
+> [!NOTE]
+> I certificati intermedi possono anche essere verificati con la [prova di possesso](how-to-verify-certificates.md).
+
+
+#### <a name="dps-order-of-operations-with-certificates"></a>Ordine di operazioni DPS con certificati
+Quando un dispositivo si connette al servizio di provisioning, il servizio assegna la priorità alle voci di registrazione più specifiche rispetto a quelle meno specifiche. Di conseguenza, se esiste una registrazione singola per il dispositivo, il servizio di provisioning applica questa voce. Se non esiste alcuna registrazione singola per il dispositivo e non esiste un gruppo di registrazioni per il primo certificato intermedio nella catena di certificati del dispositivo, il servizio applica tale voce e così via verso la fine della catena fino alla radice. Il servizio applica la prima voce applicabile trovata, in modo che:
 
 - Se la prima voce di registrazione trovata è abilitata, il servizio effettua il provisioning del dispositivo.
 - Se la prima voce di registrazione trovata è disabilitata, il servizio non effettua il provisioning del dispositivo.  

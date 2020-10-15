@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371610"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Visualizzazione dell'elemento di definizione nelle applicazioni gestite di Azure
@@ -125,7 +125,7 @@ Quando si fornisce questa visualizzazione in **viewDefinition.json**, viene sost
 }
 ```
 
-|Proprietà|Obbligatoria|Descrizione|
+|Proprietà|Obbligatoria|Description|
 |---------|---------|---------|
 |header|No|Intestazione della pagina Overview.|
 |description|No|Descrizione dell'applicazione gestita.|
@@ -164,7 +164,7 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 }
 ```
 
-|Proprietà|Obbligatoria|Descrizione|
+|Proprietà|Obbligatoria|Description|
 |---------|---------|---------|
 |displayName|No|Titolo visualizzato della visualizzazione.|
 |version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
@@ -172,7 +172,7 @@ La visualizzazione metriche consente di raccogliere e aggregare dati dalle risor
 
 ### <a name="chart"></a>Grafico
 
-|Proprietà|Obbligatoria|Descrizione|
+|Proprietà|Obbligatoria|Description|
 |---------|---------|---------|
 |displayName|Sì|Titolo visualizzato del grafico.|
 |chartType|No|Visualizzazione da utilizzare per il grafico. Per impostazione predefinita, viene utilizzato un grafico a linee. Tipi di grafico supportati: `Bar, Line, Area, Scatter` .|
@@ -224,7 +224,7 @@ In questa visualizzazione è possibile eseguire operazioni GET, PUT, DELETE e PO
 }
 ```
 
-|Proprietà|Obbligatoria|Descrizione|
+|Proprietà|Obbligatoria|Description|
 |---------|---------|---------|
 |displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione CustomResources nel **viewDefinition.js**.|
 |version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|
@@ -253,7 +253,7 @@ Commands è una matrice di pulsanti aggiuntivi della barra degli strumenti che v
 }
 ```
 
-|Proprietà|Obbligatoria|Descrizione|
+|Proprietà|Obbligatoria|Description|
 |---------|---------|---------|
 |displayName|Sì|Nome visualizzato del pulsante di comando.|
 |path|Sì|Nome dell'azione del provider personalizzato. L'azione deve essere definita in **mainTemplate.js**.|
@@ -280,7 +280,7 @@ In questa visualizzazione è possibile estendere le risorse di Azure esistenti i
 }
 ```
 
-|Proprietà|Obbligatoria|Descrizione|
+|Proprietà|Obbligatoria|Description|
 |---------|---------|---------|
 |displayName|Sì|Titolo visualizzato della visualizzazione. Il titolo deve essere **univoco** per ogni visualizzazione di associazioni nel **viewDefinition.js**.|
 |version|No|Versione della piattaforma utilizzata per il rendering della visualizzazione.|

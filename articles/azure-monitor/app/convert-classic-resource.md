@@ -1,22 +1,20 @@
 ---
 title: Eseguire la migrazione di un monitoraggio di Azure Application Insights risorsa classica a una risorsa basata sull'area di lavoro | Microsoft Docs
 description: Informazioni sui passaggi necessari per aggiornare il monitoraggio di Azure Application Insights risorsa classica al nuovo modello basato sull'area di lavoro.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333342"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930578"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Eseguire la migrazione a risorse Application Insights basate sull'area di lavoro
 
 Questa guida illustra in modo dettagliato il processo di migrazione di una risorsa di Application Insights classica a una risorsa basata sull'area di lavoro. Le risorse basate sull'area di lavoro supportano l'integrazione completa tra Application Insights e Log Analytics. Le risorse basate sull'area di lavoro inviano Application Insights dati di telemetria a un'area di lavoro Log Analytics comune, che consente di accedere [alle funzionalità più recenti di monitoraggio di Azure mantenendo i log delle](#new-capabilities) applicazioni, dell'infrastruttura e della piattaforma in un unico percorso consolidato.
 
-Le risorse basate sull'area di lavoro consentono il controllo degli accessi in base al ruolo comune tra le risorse e Elimina la necessità di eseguire query tra app o aree di lavoro.
+Le risorse basate sull'area di lavoro consentono il controllo degli accessi Role-Based comune (RBAC) tra le risorse e Elimina la necessità di eseguire query tra app o aree di lavoro.
 
 **Le risorse basate sull'area di lavoro sono attualmente disponibili in tutte le aree commerciali e nel governo degli Stati Uniti di Azure**
 

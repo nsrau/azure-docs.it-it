@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072042"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019512"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure 
 
@@ -39,7 +39,7 @@ Il diagramma seguente mostra l'architettura di alto livello del servizio di stre
 ![Flusso di inserimento][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. formato bitstream: MP4 frammentato ISO 14496-12
-Il formato di trasmissione per l'inserimento di streaming live descritto in questo documento si basa sullo standard [ISO 14496-12]. Per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili per i file video on demand e l'inserimento di streaming live, vedere [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
+Il formato di trasmissione per l'inserimento di streaming live descritto in questo documento si basa sullo standard [ISO 14496-12]. Per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili per i file video on demand e l'inserimento di streaming live, vedere [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).
 
 ### <a name="live-ingest-format-definitions"></a>Definizioni del formato di inserimento live
 L'elenco seguente descrive le definizioni di formato speciali applicabili all'inserimento live in Servizi multimediali di Azure:
@@ -70,7 +70,7 @@ Di seguito sono elencati i requisiti dettagliati:
 1. Se la richiesta HTTP POST viene terminata o causa un timeout con errore TCP prima della fine del flusso, il codificatore deve (MUST) inviare un'altra richiesta POST usando una nuova connessione, seguendo i requisiti precedenti. Inoltre, il codificatore deve (MUST) inviare di nuovo i due frammenti MP4 precedenti per ogni traccia nel flusso e riprendere senza introdurre discontinuità nella sequenza temporale dei contenuti multimediali. L'invio degli ultimi due frammenti MP4 per ogni traccia impedisce eventuali perdite di dati. In altre parole, se un flusso contiene una traccia audio e una tracia video e la richiesta POST corrente non riesce, il codificatore deve riconnettersi e inviare gli ultimi due frammenti per la traccia audio, già correttamente inviati in precedenza, e gli ultimi due frammenti per la traccia video, anch'essi già inviati correttamente, in modo da garantire che non si siano verificate perdite di dati. Il codificatore deve (MUST) mantenere un buffer "anticipato" di frammenti di contenuti, che invia di nuovo quando si riconnette.
 
 ## <a name="5-timescale"></a>5. scala cronologica
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) descrive l'utilizzo della scala cronologica per **SmoothStreamingMedia** (sezione 2.2.2.1), **StreamElement** (sezione 2.2.2.3), **StreamFragmentElement** (sezione 2.2.2.6) e **LiveSMIL** (sezione 2.2.7.3.1). Se non è presente un valore di scala cronologica, viene usato il valore predefinito 10.000.000 (10 MHz). Benché le specifiche del formato Smooth Streaming non impediscano l'utilizzo di altri valori di scala cronologica, la maggior parte delle implementazioni dei codificatori usa questo valore predefinito (10 MHz) per generare dati di inserimento Smooth Streaming. A causa della funzionalità di [creazione dinamica dei pacchetti di Servizi multimediali di Azure](./previous/media-services-dynamic-packaging-overview.md) , è consigliabile usare un valore di scala cronologica pari a 90 kHz per i flussi video e a 44,1 o 48,1 kHz per i flussi audio. Se vengono usati valori di scala cronologica differenti per flussi diversi, è necessario (MUST) inviare il valore di scala cronologica del livello di flusso. Per altre informazioni, vedere [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+[[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) descrive l'utilizzo della scala cronologica per **SmoothStreamingMedia** (sezione 2.2.2.1), **StreamElement** (sezione 2.2.2.3), **StreamFragmentElement** (sezione 2.2.2.6) e **LiveSMIL** (sezione 2.2.7.3.1). Se non è presente un valore di scala cronologica, viene usato il valore predefinito 10.000.000 (10 MHz). Benché le specifiche del formato Smooth Streaming non impediscano l'utilizzo di altri valori di scala cronologica, la maggior parte delle implementazioni dei codificatori usa questo valore predefinito (10 MHz) per generare dati di inserimento Smooth Streaming. A causa della funzionalità di [creazione dinamica dei pacchetti di Servizi multimediali di Azure](./previous/media-services-dynamic-packaging-overview.md) , è consigliabile usare un valore di scala cronologica pari a 90 kHz per i flussi video e a 44,1 o 48,1 kHz per i flussi audio. Se vengono usati valori di scala cronologica differenti per flussi diversi, è necessario (MUST) inviare il valore di scala cronologica del livello di flusso. Per altre informazioni, vedere [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251).     
 
 ## <a name="6-definition-of-stream"></a>6. definizione di "Stream"
 Il flusso è l'unità operativa di base nel processo di inserimento live per la composizione di presentazioni live, la gestione del failover di streaming e gli scenari di ridondanza. Il flusso è definito come un flusso di bit MP4 frammentato univoco che può contenere una singola traccia o più tracce. Una presentazione live completa può contenere uno o più flussi, a seconda della configurazione dei codificatori live. Gli esempi seguenti mostrano varie modalità d'uso dei flussi per comporre una presentazione live completa.

@@ -4,6 +4,8 @@
   items:
     - name: Che cos'è Microsoft Identity Platform?
       href: v2-overview.md
+    - name: Novità della documentazione
+      href: whats-new-docs.md
 - name: Avvi rapidi
   expanded: true
   items:

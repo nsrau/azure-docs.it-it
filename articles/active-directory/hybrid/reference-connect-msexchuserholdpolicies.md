@@ -15,17 +15,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265256"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 Nel documento di riferimento seguente vengono descritti questi attributi utilizzati da Exchange e il modo corretto per modificare le regole di sincronizzazione predefinite.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Che cosa sono msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Sono disponibili due tipi di [esenzioni](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) per un server Exchange: la conservazione dei contenziosi e l'attesa sul posto. Quando è abilitata la funzionalità di contenzioso, tutti gli elementi della cassetta postale vengono posizionati in attesa.  Un'attesa sul posto viene usata per mantenere solo gli elementi che soddisfano i criteri di una query di ricerca definita tramite lo strumento eDiscovery sul posto.
+Sono disponibili due tipi di [esenzioni](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) per un server Exchange: la conservazione dei contenziosi e il In-Place Hold. Quando è abilitata la funzionalità di contenzioso, tutti gli elementi della cassetta postale vengono posizionati in attesa.  Per mantenere solo gli elementi che soddisfano i criteri di una query di ricerca definita tramite lo strumento In-Place eDiscovery, viene utilizzato un In-Place.
 
 Gli attributi MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies consentono AD locale e Azure AD di determinare quali utenti sono in attesa a seconda che utilizzino Exchange locale o Exchange on-line.
 

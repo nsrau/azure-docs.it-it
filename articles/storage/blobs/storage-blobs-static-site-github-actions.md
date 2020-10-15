@@ -1,5 +1,5 @@
 ---
-title: Usare le azioni di GitHub per distribuire un sito statico in archiviazione di Azure
+title: Usare GitHub Actions per distribuire un sito statico in Archiviazione di Azure
 description: Hosting di siti web statici di archiviazione di Azure con azioni GitHub
 author: juliakm
 ms.service: storage
@@ -10,10 +10,10 @@ ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure
 ms.openlocfilehash: 919fa0d7b6dff0361e4439b442bcfe9648ed8677
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776392"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurare un flusso di lavoro di azioni GitHub per distribuire il sito Web statico in archiviazione di Azure

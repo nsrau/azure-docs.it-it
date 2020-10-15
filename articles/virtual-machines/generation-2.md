@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: a54de6dbfb320ca530e9c885af9ebe5d833274cc
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322974"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977596"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -89,7 +89,7 @@ Azure attualmente non supporta alcune funzionalità supportate da Hyper-V in loc
 |---------|--------------|--------------|
 | Avvio             | PCAT                      | UEFI                               |
 | Controller del disco | IDE                       | SCSI                               |
-| Dimensioni delle macchine virtuali         | Tutte le dimensioni delle macchine virtuali | [Vedere le dimensioni disponibili](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
+| Dimensioni delle macchine virtuali         | Tutte le dimensioni delle macchine virtuali | [Vedere le dimensioni disponibili](#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funzionalità di prima e seconda generazione
 
@@ -222,4 +222,3 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sulle [macchine virtuali di seconda generazione in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
-

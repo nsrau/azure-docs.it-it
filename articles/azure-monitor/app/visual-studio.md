@@ -2,17 +2,14 @@
 title: Eseguire il debug in Visual Studio con applicazione Azure Insights
 description: Diagnostica e analisi delle prestazioni delle app Web durante il debug e nell'ambiente di produzione.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/07/2017
-ms.reviewer: mbullwin
+ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 1bb18cc43ef306a208500ff49ec41dbfb74b788e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323469"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932210"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Eseguire il debug delle applicazioni con Azure Application Insights in Visual Studio
 In Visual Studio 2015 e versioni successive è possibile analizzare le prestazioni e diagnosticare i problemi nell'app Web ASP.NET sia durante il debug che nell'ambiente di produzione, usando i dati di telemetria di [Azure Application Insights](./app-insights-overview.md).
@@ -94,8 +91,6 @@ Questo è consigliabile se è già stata pubblicata una versione precedente dell
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-|  |  |
-| --- | --- |
-| **[Aggiungere altri dati](./asp-net-more.md)**<br/>Monitorare l'utilizzo, la disponibilità, le dipendenze e le eccezioni, integrare le tracce dei framework di registrazione e scrivere telemetria personalizzata. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Uso del portale Application Insights](./overview-dashboard.md)**<br/>Visualizzare i dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, una mappa attiva delle dipendenze dell'applicazione e i dati di telemetria esportati. |![Visual Studio](./media/visual-studio/62.png) |
+
+ * **[Uso del portale di Application Insights](./overview-dashboard.md)**. Visualizzare i dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, una mappa attiva delle dipendenze dell'applicazione e i dati di telemetria esportati. 
 

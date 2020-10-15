@@ -7,10 +7,10 @@ author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
 ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539653"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modifiche ai prezzi per il Monitoraggio prestazioni rete di Azure
@@ -18,7 +18,7 @@ ms.locfileid: "86539653"
 In risposta al feedback degli utenti, di recente è stata introdotta una [nuova esperienza di acquisto](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) per i vari servizi di monitoraggio disponibili in Azure. Questo articolo illustra le modifiche ai prezzi relative a [Monitoraggio prestazioni rete](../../networking/network-monitoring-overview.md) di Azure in un semplice formato basato su domanda e risposta.
 
 Monitoraggio prestazioni rete è costituito da tre componenti:
-* [Monitoraggio delle prestazioni](../../networking/network-monitoring-overview.md#performance-monitor)
+* [Performance Monitor](../../networking/network-monitoring-overview.md#performance-monitor)
 * [Monitoraggio endpoint di servizio](../../networking/network-monitoring-overview.md)
 * [Monitoraggio di ExpressRoute](../../networking/network-monitoring-overview.md#expressroute-monitor)
 
@@ -109,6 +109,6 @@ Una connessione è un test della raggiungibilità di un endpoint (URL o servizio
 
 Vedere la sezione [monitoraggio della connessione](https://azure.microsoft.com/pricing/details/network-watcher/) per il costo del monitoraggio di un endpoint per l'intero mese. Gli addebiti per i dati sono disponibili nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) di Log Analytics, nella sezione Inserimento dati.
 
-## <a name="references"></a>Bibliografia
+## <a name="references"></a>Riferimenti
 
 [Domande frequenti sui prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/): la sezione delle domande frequenti contiene informazioni sul livello gratuito, il prezzo per nodo e altri dati relativi ai prezzi.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
 ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370913"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
@@ -109,7 +109,7 @@ I flussi di dati di mapping sono disponibili nelle aree geografiche seguenti:
 | Australia sud-orientale   | ✓ | ✓ |
 | Brasile meridionale  | ✓ |  |
 | Canada centrale | ✓ |  |
-| India centrale | ✓ |   ✓ |
+| Central India | ✓ |   ✓ |
 | Stati Uniti centrali    | ✓ |   ✓ |
 | Cina orientale |      | ✓ |
 | Cina orientale 2  |   |    |
@@ -154,8 +154,8 @@ I flussi di dati di mapping sono disponibili nelle aree geografiche seguenti:
 | Stati Uniti centro-occidentali |     | ✓ |
 | Europa occidentale   | ✓ |   ✓ |
 | India occidentale | | |
-| Stati Uniti occidentali   | ✓ |   |
-| Stati Uniti occidentali 2 | ✓ |   ✓ | 
+| Stati Uniti Occidentali   | ✓ |   |
+| West US 2 | ✓ |   ✓ | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802414"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
@@ -55,7 +55,7 @@ Il controllo delle [metriche del portale](monitor-accounts.md) consente di deter
 
 ## <a name="common-error-status-codes"></a>Codici di stato di errore comuni <a id="error-codes"></a>
 
-| Codice di stato | Descrizione | 
+| Codice di stato | Description | 
 |----------|-------------|
 | 400 | Richiesta non valida (dipende dal messaggio di errore)| 
 | 401 | [Non autorizzato](troubleshoot-unauthorized.md) | 

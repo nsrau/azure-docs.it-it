@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
 ms.openlocfilehash: 7d35799cd73ff4d065cb58189f2325dc4dac6840
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87567935"
 ---
 # <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Creare un monitoraggio connessione (anteprima) usando ARMClient
@@ -314,7 +314,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
         * checksFailedPercent: consente di impostare la percentuale di verifiche che possono avere esito negativo quando le origini controllano la connettività alle destinazioni usando i criteri specificati. Per il protocollo TCP o ICMP, la percentuale di controlli non riusciti può essere equivalente alla percentuale di perdita di pacchetti. Per il protocollo HTTP, questo campo rappresenta la percentuale di richieste HTTP che non hanno ricevuto risposta.
         * roundTripTimeMs: consente di impostare RTT in millisecondi per il tempo necessario per la connessione alla destinazione tramite la configurazione di test.
 
-## <a name="scale-limits"></a>Limiti di scalabilità
+## <a name="scale-limits"></a> Limiti di scalabilità
 
 I monitoraggi connessione presentano i limiti di scalabilità seguenti:
 

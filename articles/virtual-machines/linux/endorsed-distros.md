@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: guybo
-ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0236644930af699180cf26b4baee7bb591d8bbaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279434"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978935"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distribuzioni di Linux approvate in Azure
 
@@ -37,9 +37,9 @@ L'agente Linux di Azure è già preinstallato nelle immagini di Azure Marketplac
 | CentOS di software Wave Rogue |CentOS 6. x, 7. x, 8. x |CentOS 6,3: [download LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: nel kernel |Pacchetto: in [repository](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) in "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS è ora la [fine del ciclo di vita](https://coreos.com/os/eol/) a partire dal 26 maggio 2020. |Non più disponibile | | |
 | Debian da Credativ |8.x, 9.x |Nel kernel |Pacchetto: in repo sotto "waagent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Pianale container Linux di Kinvolk| Stabile, beta| Nel kernel | WA-Linux-Agent è già installato in/usr/share/OEM/bin/waagent |
+|Pianale container Linux di Kinvolk| Pro, stabile, beta| Nel kernel | WA-Linux-Agent è già installato in/usr/share/OEM/bin/waagent |
 | Oracle Linux da Oracle |6.x, 7.x, 8.x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| [Red Hat Enterprise Linux da Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux da Red Hat](../workloads/redhat/overview.md) |6.x, 7.x, 8.x |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise di SUSE |SLES/SLES per SAP 11. x, 12. x, 15. x <br/> [Ciclo di vita delle immagini del cloud pubblico SUSE](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |Nel kernel |Pacchetto:<p> per 11 in [Cloud: strumenti](https://build.opensuse.org/project/show/Cloud:Tools) archivio<br>per 12 inclusi nel modulo "Cloud pubblico" in "python-azure-agent"<br/>Codice sorgente: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE di SUSE |openSUSE Leap 15.x |Nel kernel |Pacchetto: in repository [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) sotto "python-azure-agent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu by Canonical |Ubuntu Server e Pro. 16. x, 18. x, 20. x<p>Per informazioni sul supporto esteso per Ubuntu 12,04 e 14,04, vedere la pagina relativa alla [manutenzione estesa della sicurezza di Ubuntu](https://www.ubuntu.com/esm). |Nel kernel |Pacchetto: in repo sotto "WALinuxAgent" <br/>Codice sorgente: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -50,14 +50,15 @@ Azure richiede che gli autori delle distribuzioni di Linux approvate aggiornino 
 
 ## <a name="azure-tuned-kernels"></a>Kernel ottimizzati per Azure
 
-Azure collabora a stretto contatto con varie distribuzioni di Linux approvate per ottimizzare le immagini pubblicate in Azure Marketplace. Un aspetto di questa collaborazione è lo sviluppo di kernel Linux "ottimizzati" ottimizzati per la piattaforma Azure e distribuiti come componenti completamente supportati della distribuzione Linux. I kernel ottimizzati per Azure incorporano nuove funzionalità e miglioramenti delle prestazioni e a una cadenza più rapida (in genere trimestrale) rispetto ai kernel predefiniti o generici disponibili nella distribuzione.
+Azure collabora a stretto contatto con varie distribuzioni di Linux approvate per ottimizzare le immagini pubblicate in Azure Marketplace. Un aspetto di questa collaborazione è lo sviluppo di kernel Linux "ottimizzati" ottimizzati per la piattaforma Azure e distribuiti come componenti completamente supportati della distribuzione Linux. I kernel Azure-Tuned incorporano nuove funzionalità e miglioramenti delle prestazioni e a una cadenza più veloce (in genere trimestrale) rispetto ai kernel predefiniti o generici disponibili nella distribuzione.
 
-Nella maggior parte dei casi, questi kernel sono preinstallati nelle immagini predefinite in Azure Marketplace, in modo che i clienti possano ottenere immediatamente il vantaggio di questi kernel ottimizzati. Altre informazioni su questi kernel ottimizzati per Azure sono disponibili nei collegamenti seguenti:
+Nella maggior parte dei casi, questi kernel sono preinstallati nelle immagini predefinite in Azure Marketplace, in modo che i clienti possano ottenere immediatamente il vantaggio di questi kernel ottimizzati. Altre informazioni su questi Azure-Tuned kernel sono disponibili nei collegamenti seguenti:
 
-- [Kernel di CentOS ottimizzato per Azure-disponibile tramite la virtualizzazione CentOS SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+- [CentOS Azure-Tuned kernel-disponibile tramite la virtualizzazione CentOS SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Kernel del cloud Debian-disponibile con l'immagine "backports" di Debian 10 e Debian 9 in Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
-- [Kernel ottimizzato per SLES Azure](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
-- [Kernel di Ubuntu ottimizzato per Azure](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Kernel SLES Azure-Tuned](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+- [Kernel Ubuntu Azure-Tuned](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+- [Pianale contenitore Linux Pro](https://azuremarketplace.microsoft.com/marketplace/apps/kinvolk.flatcar_pro)
 
 ## <a name="partners"></a>Partner
 

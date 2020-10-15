@@ -4,10 +4,10 @@ description: Questo articolo contiene le procedure per il backup e il ripristino
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377999"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
@@ -84,7 +84,7 @@ Questi sono i prerequisiti per il backup di macchine virtuali Hyper-V con MAB:
 
 5. Nella pagina **Seleziona metodo protezione dati** specificare un nome di gruppo di protezione. Selezionare **Protezione dati a breve termine tramite Disco** e **Protezione dati online** se si vuole eseguire il backup in Azure con il servizio Azure Backup.
 
-6. In specificare il periodo di mantenimento degli **obiettivi a breve termine**  >  **Retention range**specificare per quanto tempo si vogliono mantenere i dati del disco. In **frequenza di sincronizzazione**specificare la frequenza con cui eseguire i backup incrementali dei dati. In alternativa, invece di selezionare un intervallo per i backup incrementali, è possibile abilitare **Immediatamente prima di un punto di ripristino**. Se questa impostazione è abilitata, MAB eseguirà un backup completo rapido appena prima di ogni punto di ripristino pianificato.
+6. In **specificare Short-Term obiettivi**del  >  periodo di**mantenimento**dati specificare per quanto tempo si vogliono mantenere i dati del disco. In **frequenza di sincronizzazione**specificare la frequenza con cui eseguire i backup incrementali dei dati. In alternativa, invece di selezionare un intervallo per i backup incrementali, è possibile abilitare **Immediatamente prima di un punto di ripristino**. Se questa impostazione è abilitata, MAB eseguirà un backup completo rapido appena prima di ogni punto di ripristino pianificato.
 
     > [!NOTE]
     >
@@ -132,7 +132,7 @@ Quando è possibile ripristinare una macchina virtuale sottoposto a backup, usar
 
 3. Scegliere **Ripristina** dal menu **azioni** per aprire il ripristino guidato.
 
-    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino**. Selezionare **Next** (Avanti).
+    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino**. Selezionare **Avanti**.
 
 4. Nella schermata **Selezione tipo di ripristino** selezionare la posizione in cui si desidera ripristinare i dati e quindi fare clic su **Avanti**.
 

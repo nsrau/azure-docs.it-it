@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
 ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86224061"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall applicazione Web di Azure e criteri di Azure
@@ -39,12 +39,12 @@ Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di 
 2.  Nel servizio criteri di Azure, in **creazione e modifica**, selezionare **assegnazioni**.
 
 [!div class="mx-imgBorder"]
-![Web Application Firewall di Azure](../media/waf-azure-policy/policy-home.png)
+![web application firewall di Azure](../media/waf-azure-policy/policy-home.png)
 
 3.  Nella pagina assegnazioni selezionare l'icona **assegna criterio** nella parte superiore.
 
 [!div class="mx-imgBorder"]
-![Web Application Firewall di Azure](../media/waf-azure-policy/assign-policy.png)
+![web application firewall di Azure](../media/waf-azure-policy/assign-policy.png)
 
 4.  Nella scheda assegna nozioni di base della pagina dei criteri aggiornare i campi seguenti:
     1.  **Ambito**: selezionare le sottoscrizioni di Azure e i gruppi di risorse che devono essere interessati dai criteri di Azure.
@@ -52,7 +52,7 @@ Sono disponibili diversi criteri predefiniti di Azure per gestire le risorse di 
     3.  **Definizione dei criteri**: selezionare i criteri di Azure da applicare all'ambito con esclusioni. Digitare "Web Application Firewall" nella barra di ricerca per scegliere il criterio di Azure per il Web Application Firewall pertinente.
 
 [!div class="mx-imgBorder"]
-![Web Application Firewall di Azure](../media/waf-azure-policy/policy-listing.png)
+![web application firewall di Azure](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Selezionare la scheda **parametri** e aggiornare i parametri dei criteri. Per chiarire ulteriormente il comportamento del parametro, passare il puntatore del mouse sull'icona delle informazioni accanto al nome del parametro per ulteriori chiarimenti.

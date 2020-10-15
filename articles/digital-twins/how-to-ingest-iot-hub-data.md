@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983366"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048050"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
 
@@ -129,7 +129,7 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Aggiornare il codice della funzione di Azure
 
-Ora che si è compreso il codice degli esempi precedenti, aprire la funzione di Azure dalla sezione [*prerequisiti*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) in Visual Studio. Se non si dispone di una funzione di Azure, visitare il collegamento dei prerequisiti per crearne uno ora.
+Ora che si è compreso il codice degli esempi precedenti, aprire la funzione di Azure dalla sezione [*prerequisiti*](#prerequisites) in Visual Studio. Se non si dispone di una funzione di Azure, visitare il collegamento dei prerequisiti per crearne uno ora.
 
 Sostituire il codice della funzione di Azure con questo codice di esempio.
 
@@ -193,7 +193,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-Salvare il codice della funzione e pubblicare l'app per le funzioni in Azure. Per eseguire questa operazione, fare riferimento alla sezione relativa alla [*pubblicazione del app per le funzioni*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) di [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md).
+Salvare il codice della funzione e pubblicare l'app per le funzioni in Azure. Per eseguire questa operazione, fare riferimento alla sezione relativa alla [*pubblicazione del app per le funzioni*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) di [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md).
 
 Dopo la pubblicazione corretta, l'output viene visualizzato nella finestra di comando di Visual Studio, come illustrato di seguito:
 
@@ -209,14 +209,14 @@ Dopo la pubblicazione corretta, l'output viene visualizzato nella finestra di co
 ```
 È inoltre possibile verificare lo stato del processo di pubblicazione nel [portale di Azure](https://portal.azure.com/). Cercare il _gruppo di risorse_ e passare a _log attività_ e cercare il _profilo di pubblicazione dell'app Web_ nell'elenco e verificare che lo stato sia completato.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Screenshot del portale di Azure che mostra lo stato del processo di pubblicazione.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Connettere la funzione all'hub Internet
 
 Configurare una destinazione evento per i dati dell'hub.
-Nella [portale di Azure](https://portal.azure.com/)passare all'istanza dell'hub Internet delle cose creata nella sezione [*prerequisiti*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . In **eventi**creare una sottoscrizione per la funzione di Azure.
+Nella [portale di Azure](https://portal.azure.com/)passare all'istanza dell'hub Internet delle cose creata nella sezione [*prerequisiti*](#prerequisites) . In **eventi**creare una sottoscrizione per la funzione di Azure.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot del portale di Azure che mostra l'aggiunta di una sottoscrizione di eventi.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Nella pagina **Crea sottoscrizione evento** compilare i campi come indicato di seguito:
   1. In **nome**assegnare un nome alla sottoscrizione come si desidera.
@@ -225,7 +225,7 @@ Nella pagina **Crea sottoscrizione evento** compilare i campi come indicato di s
   4. In **tipo di endpoint**selezionare _funzione di Azure_.
   5. In **endpoint**scegliere _selezionare un collegamento endpoint_ per creare un endpoint.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot della portale di Azure per creare i dettagli della sottoscrizione di eventi":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Nella pagina _Seleziona funzione di Azure_ visualizzata verificare i dettagli seguenti.
  1. **Sottoscrizione**: sottoscrizione di Azure
@@ -236,13 +236,13 @@ Nella pagina _Seleziona funzione di Azure_ visualizzata verificare i dettagli se
 
 Per salvare i dettagli, fare clic sul pulsante _conferma selezione_ .            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot della portale di Azure per selezionare la funzione di Azure":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Selezionare _Crea_ per creare una sottoscrizione di eventi.
 
 ## <a name="send-simulated-iot-data"></a>Inviare dati dell'Internet delle cose simulati
 
-Per testare la nuova funzione di ingresso, usare il simulatore di dispositivi da [*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md). Questa esercitazione è basata su un progetto di esempio scritto in C#. Il codice di esempio è disponibile qui: esempi di dispositivi [gemelli digitali di Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Si userà il progetto **DeviceSimulator** in tale repository.
+Per testare la nuova funzione di ingresso, usare il simulatore di dispositivi da [*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md). Questa esercitazione è basata su un progetto di esempio scritto in C#. Il codice di esempio è disponibile qui: esempi di dispositivi [gemelli digitali di Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Si userà il progetto **DeviceSimulator** in tale repository.
 
 Nell'esercitazione end-to-end completare i passaggi seguenti:
 1. [*Registrare il dispositivo simulato con l'hub IoT*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542956"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Esercitazione: Integrazione di Azure Active Directory con Agiloft
 
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Agiloft, seguire questa
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Agiloft](common/idp-intiated.png)
+    ![Screenshot con le caselle di testo Identificatore e URL di risposta evidenziate.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
 
@@ -150,11 +150,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Agiloft, seguire questa
 
 2. Fare clic su **Setup** (Configura) nel riquadro di sinistra e quindi selezionare **Access** (Accesso).
 
-    ![Configurazione di Agiloft](./media/agiloft-tutorial/setup1.png)
+    ![Screenshot con la sezione Access evidenziata.](./media/agiloft-tutorial/setup1.png)
 
 3. Fare clic sul pulsante **Configure SAML 2.0 Single Sign-On** (Configura accesso Single Sign-On SAML 2.0).
 
-    ![Configurazione di Agiloft](./media/agiloft-tutorial/setup2.png)
+    ![Screenshot con il pulsante Configure SAML 2.0 Single Sign-On evidenziato.](./media/agiloft-tutorial/setup2.png)
 
 4. Viene visualizzata una finestra della procedura guidata. Nella finestra di dialogo fare clic su **Identity Provider Details** (Dettagli del provider di identità) e compilare i campi seguenti:  
 

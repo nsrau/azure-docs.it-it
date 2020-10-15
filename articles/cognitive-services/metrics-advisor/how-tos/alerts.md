@@ -3,19 +3,19 @@ title: Configurare gli avvisi di Advisor metriche
 titleSuffix: Azure Cognitive Services
 description: Come configurare gli avvisi di Advisor per le metriche usando hook per la posta elettronica, il Web e Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977779"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046792"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Procedura: configurare gli avvisi e ricevere notifiche tramite un hook
 
@@ -76,8 +76,8 @@ Per creare un hook di Azure DevOps, è necessario aggiungere le informazioni seg
 |Parametro |Descrizione  |
 |---------|---------|
 | Nome | Nome per l'hook |
-| Organization | L'organizzazione a cui appartiene la DevOps |
-| Progetto | Progetto specifico in DevOps. |
+| Organizzazione | L'organizzazione a cui appartiene la DevOps |
+| Project | Progetto specifico in DevOps. |
 | Token di accesso |  Token per l'autenticazione a DevOps. | 
 
 > [!Note]
@@ -88,11 +88,11 @@ Per creare un hook di Azure DevOps, è necessario aggiungere le informazioni seg
 Passare alla pagina dei dettagli delle metriche per trovare la sezione **Impostazioni avvisi** nell'angolo in basso a sinistra della pagina dei dettagli della metrica. Elenca tutte le impostazioni di avviso che si applicano alla configurazione di rilevamento selezionata. Quando viene creata una nuova configurazione di rilevamento, non viene impostata alcuna impostazione di avviso e non verrà inviato alcun avviso.  
 Per modificare le impostazioni degli avvisi, è possibile usare le icone **Aggiungi**, **modifica** ed **Elimina** .
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Voce di menu impostazioni avvisi.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="finestra di creazione dell'hook Web.":::
 
 Fare clic sui pulsanti **Aggiungi** o **modifica** per ottenere una finestra per aggiungere o modificare le impostazioni di avviso.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Aggiungere o modificare le impostazioni degli avvisi":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="finestra di creazione dell'hook Web.":::
 
 **Nome impostazione avviso**: il nome dell'impostazione di avviso. Verrà visualizzato nel titolo del messaggio di posta elettronica di avviso.
 
@@ -134,7 +134,7 @@ Il selettore dell' **operatore** è la relazione logica di ogni sezione per dete
 |AND     | Invia un avviso solo se una serie corrisponde a ogni sezione di avviso e tutti i punti dati sono anomalie. Se le metriche hanno nomi di dimensione diversi, un avviso non verrà mai attivato.         |
 |OR     | Inviare l'avviso se almeno una sezione contiene anomalie.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operatore per la sezione più impostazioni di avviso":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="finestra di creazione dell'hook Web.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

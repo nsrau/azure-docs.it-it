@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272774"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
@@ -74,7 +74,7 @@ Specificare le informazioni seguenti:
 
 * **Località**: selezionare la località di Azure relativa al cluster e alle risorse.
 
-Al termine, fare clic su **OK** .
+Al termine, fare clic su **OK**.
 
 > [!NOTE]
 > Se si preferisce che il controller del cluster abbia un indirizzo IP pubblico, creare una nuova rete virtuale per il cluster invece di selezionarne una esistente. Questa impostazione si trova nella seconda pagina.

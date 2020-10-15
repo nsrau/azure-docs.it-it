@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 38532fba2be1fedd275ed2e7f9dfc1bf5752499d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86501654"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Spostare le risorse in una configurazione di controllo di manutenzione in un'altra area
@@ -32,7 +32,7 @@ Prima di iniziare a trasferire le risorse associate a una configurazione del con
 - Quando si recuperano le configurazioni per una risorsa:
     - Assicurarsi di usare l'ID sottoscrizione per l'account, non un ID host dedicato di Azure.
     - INTERFACCIA della riga di comando: il parametro--output Table viene usato solo per la leggibilità e può essere eliminato o modificato.
-    - PowerShell: il parametro Format-Table Name viene usato solo per la leggibilità e può essere eliminato o modificato.
+    - PowerShell: il parametro del nome del Format-Table viene usato solo per la leggibilità e può essere eliminato o modificato.
     - Se si usa PowerShell, viene ricevuto un errore se si tenta di elencare le configurazioni per una risorsa che non dispone di configurazioni associate. L'errore sarà simile al seguente: "operazione non riuscita con stato:' non trovato '. Dettagli: 404 errore del client: Impossibile trovare l'URL ".
 
     
@@ -76,7 +76,7 @@ Prima di iniziare a trasferire le risorse associate a una configurazione del con
         ```
 
 
-## <a name="move"></a>Sposta 
+## <a name="move"></a>Spostamento 
 
 1. [Seguire queste istruzioni](../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) per spostare le macchine virtuali di Azure nella nuova area.
 2. Dopo lo spostamento delle risorse, riapplicare le configurazioni di manutenzione alle risorse nella nuova area in base alle esigenze, a seconda che siano state spostate le configurazioni di manutenzione. È possibile applicare una configurazione di manutenzione a una risorsa usando [PowerShell](../virtual-machines/maintenance-control-powershell.md) o l' [interfaccia](../virtual-machines/maintenance-control-cli.md)della riga di comando.

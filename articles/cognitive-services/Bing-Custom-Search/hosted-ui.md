@@ -12,10 +12,10 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319181"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
@@ -135,7 +135,7 @@ Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzat
 |Search box text placeholder (Segnaposto del testo della casella di ricerca)   | Testo visualizzato nella casella di ricerca prima dell'input.        |
 |Title link URL (URL collegamento titolo)    |Destinazione per il collegamento del titolo.         |
 |Logo URL (URL del logo)     | Immagine visualizzata accanto al titolo.         |
-|Favicon (Icona preferita)    | Icona visualizzata nella barra del titolo del browser.          |
+|Favicon    | Icona visualizzata nella barra del titolo del browser.          |
 
 Le configurazioni seguenti si applicano solo se si usa l'interfaccia utente ospitata tramite l'endpoint HTML (non sono applicabili se si usa il frammento JavaScript).
 

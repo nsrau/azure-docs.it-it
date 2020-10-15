@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 6c877690cf27edd73f1d828b8a1dda6f4f34e780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 878e2c233f2171c3c9a6fbd2a8d629d3f3987c3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77918173"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976726"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Non è possibile connettersi in remoto a una macchina virtuale perché la porta RDP non è abilitata in NSG
 
@@ -48,7 +48,7 @@ Per abilitare la porta RDP in un gruppo di sicurezza di rete, seguire questa pro
 
 Se si specifica l'indirizzo IP di origine, questa impostazione consente solo al traffico proveniente da un indirizzo IP o da un intervallo di indirizzi IP specifico di connettersi alla macchina virtuale. Assicurarsi che il computer utilizzato per avviare la sessione RDP sia compreso nell'intervallo.
 
-Per altre informazioni sui gruppi di sicurezza di rete, vedere [gruppo di sicurezza di rete](../../virtual-network/security-overview.md).
+Per altre informazioni sui gruppi di sicurezza di rete, vedere [gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md).
 
 > [!NOTE]
 > La porta RDP 3389 è esposta a Internet. Pertanto è consigliabile usarla solo a scopo di test. Per gli ambienti di produzione si consiglia di usare una connessione privata o VPN.
@@ -56,6 +56,3 @@ Per altre informazioni sui gruppi di sicurezza di rete, vedere [gruppo di sicure
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se la porta RDP è già abilitata nel gruppo di sicurezza di rete, vedere [Risolvere un errore generale RDP in una VM di Azure](./troubleshoot-rdp-general-error.md).
-
-
-

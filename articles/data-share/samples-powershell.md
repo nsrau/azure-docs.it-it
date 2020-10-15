@@ -7,17 +7,17 @@ ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/06/2019
 ms.openlocfilehash: cd7604e33a9f98d9104eecabb20369fe2fcee8a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119634"
 ---
 # <a name="azure-powershell-samples-for-azure-data-share"></a>Esempi di Azure PowerShell per la condivisione di dati di Azure
 
 La tabella seguente include collegamenti a script di esempio Azure PowerShell per la condivisione di dati di Azure.
 
-|Esempi di PowerShell|Description|
+|Esempi di PowerShell|Descrizione|
 |---|---|
 |[Creare un nuovo account di condivisione dati](scripts/powershell/create-new-share-account-powershell.md)| Questo script di PowerShell crea un nuovo account di condivisione dati. |
 |[Creare una nuova condivisione di dati](scripts/powershell/create-new-share-powershell.md)| Questo script di PowerShell crea una nuova condivisione di dati. |

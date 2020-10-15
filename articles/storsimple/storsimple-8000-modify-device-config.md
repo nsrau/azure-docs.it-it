@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514668"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962888"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usare il servizio Gestione dispositivi StorSimple per modificare la configurazione del dispositivo StorSimple
 
@@ -44,7 +44,7 @@ Il pannello **Impostazioni** nella sezione **Impostazioni del dispositivo** del 
 
 A un dispositivo StorSimple connesso al servizio Gestione dispositivi StorSimple viene assegnato un nome predefinito. Il nome predefinito riflette in genere il numero di serie del dispositivo. Ad esempio, un nome di dispositivo predefinito che è composto da 15 caratteri, ad esempio 8600-SHX0991003G44HT indica quanto segue:
 
-* **8600** : indica il modello del dispositivo.
+* **8600**  : indica il modello del dispositivo.
 * **SHX**: sito di produzione.
 * **0991003**: prodotto specifico.
 * **G44HT**: numero di serie univoco, risultante dall'incremento progressivo degli ultimi cinque caratteri. Questo potrebbe non essere un insieme sequenziale.
@@ -61,7 +61,7 @@ Una descrizione del dispositivo in genere consente di identificare il proprietar
 
 Il dispositivo deve sincronizzare l'ora per l'autenticazione con il provider di servizi di archiviazione cloud. Usare il pannello **Impostazioni generali** del dispositivo per modificare le impostazioni ora del dispositivo.
 
-![Descrizione del dispositivo nelle impostazioni generali](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Descrizione dispositivo in impostazioni generali 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  Selezionare il fuso orario dall'elenco a discesa. È possibile specificare fino a due server NTP (Network Time Protocol):
 

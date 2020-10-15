@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 34dc0717b13cb38c4477cc93f23d57d0a8023dae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ae95518bab5ed9bc100a5902acf1fd1db631dbe
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320745"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91617163"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Che cos'è Azure Stack Edge Pro con GPU?
 
@@ -73,7 +73,7 @@ Il dispositivo fisico Azure Stack Edge Pro, la risorsa di Azure e l'account di a
 
 - **Disponibilità delle risorse**: per questa versione di anteprima la risorsa è disponibile nelle aree Stati Uniti orientali, Europa occidentale e Asia sud-orientale.
 
-- **Disponibilità del dispositivo**: per un elenco di tutti i paesi in cui il dispositivo Azure Stack Edge Pro è disponibile, passare alla sezione **Disponibilità** nella scheda **Azure Stack Edge Pro** in [Prezzi di Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Disponibilità del dispositivo**: per un elenco di tutti i paesi/aree in cui il dispositivo Azure Stack Edge Pro è disponibile, passare alla sezione **Disponibilità** nella scheda **Azure Stack Edge Pro** in [Prezzi di Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge Pro devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
 

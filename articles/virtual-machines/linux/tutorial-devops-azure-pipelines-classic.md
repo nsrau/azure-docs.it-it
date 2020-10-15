@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 6cc4fdb82e98c30ca33eec58675f2175dfcc2607
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: f77cc85bd62deb2cb2cb74c42cf245a409904b3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612790"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978306"
 ---
 # <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Esercitazione: Configurare la strategia di distribuzione in sequenza per le macchine virtuali Linux di Azure
 
@@ -29,7 +29,7 @@ Azure DevOps è un servizio integrato di Azure che automatizza ogni parte del pr
 
 Azure Pipelines offre un set completo di strumenti di automazione CI/CD per le distribuzioni in macchine virtuali. È possibile configurare una pipeline di distribuzione continua per una VM di Azure dal portale di Azure.
 
-Questo articolo illustra come configurare una pipeline CI/CD per le distribuzioni in sequenza in più computer dal portale di Azure. Il portale di Azure supporta anche altre strategie, come le distribuzioni [canary](https://aka.ms/AA7jdrz) e [blu-verde](https://aka.ms/AA83fwu).
+Questo articolo illustra come configurare una pipeline CI/CD per le distribuzioni in sequenza in più computer dal portale di Azure. Il portale di Azure supporta anche altre strategie, come le distribuzioni [canary](./tutorial-azure-devops-canary-strategy.md) e [blu-verde](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurare CI/CD nelle macchine virtuali
 
@@ -78,8 +78,8 @@ Con l'opzione della distribuzione continua, è possibile configurare aggiornamen
 
 ## <a name="other-deployment-strategies"></a>Altre strategie di distribuzione
 
-- [Configurare la strategia di distribuzione canary](https://aka.ms/AA7jdrz)
-- [Configurare la strategia di distribuzione blu-verde](https://aka.ms/AA83fwu)
+- [Configurare la strategia di distribuzione canary](./tutorial-azure-devops-canary-strategy.md)
+- [Configurare la strategia di distribuzione blu-verde](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

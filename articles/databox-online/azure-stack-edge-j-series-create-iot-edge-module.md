@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 628dec7f1ba44d81243aeff2657e2311119c566a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891196"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952200"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Azure Stack Edge Pro
 
@@ -77,7 +77,7 @@ Un Registro Azure Container è un registro Docker privato in Azure nel quale è 
 
       ![Creare un registro contenitori](./media/azure-stack-edge-j-series-create-iot-edge-module/create-container-registry-1.png)
  
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
 
     ![Ottenere le chiavi di accesso](./media/azure-stack-edge-j-series-create-iot-edge-module/get-access-keys-1.png)
@@ -259,7 +259,7 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
  
 3. Dopo aver specificato le credenziali, è quindi possibile eseguire il push dell'immagine del modulo in Registro Azure Container. Nello strumento di esplorazione di VS Code fare clic con il pulsante destro del mouse sul file **module.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge).
 
-    ![Compilare ed eseguire il push della soluzione IoT Edge](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![Compilazione e push IoT Edge soluzione 2](./media/azure-stack-edge-j-series-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Quando si richiede di compilare la soluzione, Visual Studio Code esegue due comandi nel terminale integrato: docker build e docker push. Questi due comandi compilano il codice, includono CSharpModule.dll in contenitori e ne eseguono il push nel registro contenitori specificato quando è stata inizializzata la soluzione.
 

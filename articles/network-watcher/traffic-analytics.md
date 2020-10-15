@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: references_regions
+ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90967504"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951571"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -58,62 +59,106 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 ## <a name="supported-regions-nsg"></a>Aree supportate: NSG 
 
 È possibile usare l'analisi del traffico per i gruppi di sicurezza di rete in una qualsiasi delle aree supportate seguenti:
-
-* Canada centrale
-* Stati Uniti centro-occidentali
-* Stati Uniti orientali
-* Stati Uniti orientali 2
-* Stati Uniti centro-settentrionali
-* Stati Uniti centro-meridionali
-* Stati Uniti centrali
-* Stati Uniti occidentali
-* Stati Uniti occidentali 2
-* Francia centrale
-* Europa occidentale
-* Europa settentrionale
-* Brasile meridionale
-* Regno Unito occidentale
-* Regno Unito meridionale
-* Australia orientale
-* Australia sud-orientale
-* Asia orientale
-* Asia sud-orientale
-* Corea centrale
-* India centrale
-* India meridionale
-* Giappone orientale 
-* Giappone occidentale
-* US Gov Virginia
-* Cina orientale 2
+:::row:::
+   :::column span="":::
+      Australia centrale  
+      Australia orientale  
+      Australia sud-orientale  
+      Brasile meridionale  
+      Canada centrale  
+      Canada orientale  
+      India centrale  
+      Stati Uniti centrali  
+      Cina orientale 2  
+      Cina settentrionale 2  
+   :::column-end:::
+   :::column span="":::
+      Asia orientale  
+      Stati Uniti orientali  
+      Stati Uniti orientali 2  
+      Stati Uniti orientali 2 EUAP  
+      Francia centrale  
+      Giappone orientale  
+      Giappone occidentale  
+      Corea centrale  
+      Corea meridionale  
+      Stati Uniti centro-settentrionali  
+   :::column-end:::
+   :::column span="":::
+      Europa settentrionale  
+      Sudafrica settentrionale  
+      Stati Uniti centro-meridionali  
+      India meridionale  
+      Asia sud-orientale  
+      Svizzera settentrionale  
+      Svizzera occidentale  
+      Regno Unito meridionale  
+      Regno Unito occidentale  
+      USGov Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Texas  
+      USGov Virginia  
+      USNat est  
+      USNat ovest  
+      USSec est  
+      USSec ovest  
+      Stati Uniti centro-occidentali  
+      Europa occidentale  
+      Stati Uniti occidentali  
+      Stati Uniti occidentali 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Aree supportate: Aree di lavoro Log Analytics
 
 L'area di lavoro Log Analytics deve esistere nelle aree indicate di seguito:
-* Canada centrale
-* Stati Uniti centro-occidentali
-* Stati Uniti orientali
-* Stati Uniti orientali 2
-* Stati Uniti centro-settentrionali
-* Stati Uniti centro-meridionali
-* Stati Uniti centrali
-* Stati Uniti occidentali
-* Stati Uniti occidentali 2
-* Stati Uniti centrali
-* Francia centrale
-* Europa occidentale
-* Europa settentrionale
-* Brasile meridionale
-* Regno Unito occidentale
-* Regno Unito meridionale
-* Australia orientale
-* Australia sud-orientale
-* Asia orientale
-* Asia sud-orientale
-* Corea centrale
-* India centrale
-* Giappone orientale
-* US Gov Virginia
-* Cina orientale 2
+:::row:::
+   :::column span="":::
+      Australia centrale  
+      Australia orientale  
+      Australia sud-orientale  
+      Brasile meridionale  
+      Canada centrale  
+      India centrale  
+      Stati Uniti centrali  
+      Cina orientale 2  
+      Asia orientale  
+      Stati Uniti orientali  
+   :::column-end:::
+   :::column span="":::
+      Stati Uniti orientali 2  
+      Stati Uniti orientali 2 EUAP  
+      Francia centrale  
+      Germania centro-occidentale  
+      Giappone orientale  
+      Corea centrale  
+      Stati Uniti centro-settentrionali  
+      Europa settentrionale  
+      Sudafrica settentrionale  
+      Stati Uniti centro-meridionali  
+   :::column-end:::
+   :::column span="":::
+      Asia sud-orientale  
+      Svizzera settentrionale  
+      Svizzera occidentale  
+      Emirati Arabi Uniti centrali  
+      Regno Unito meridionale  
+      Regno Unito occidentale  
+      USGov Arizona  
+      USGov Virginia  
+      USNat est  
+      USNat ovest  
+   :::column-end:::
+   :::column span="":::
+      USSec est  
+      USSec ovest  
+      Stati Uniti centro-occidentali  
+      Europa occidentale  
+      Stati Uniti occidentali  
+      Stati Uniti occidentali 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="prerequisites"></a>Prerequisiti
 

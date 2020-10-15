@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719700"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075876"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Inserire le impostazioni nella configurazione dell'app con Azure Pipelines
 
@@ -56,7 +56,7 @@ Assegnare le assegnazioni di ruolo di configurazione dell'app appropriate alle c
 
 Questa sezione illustra come usare l'attività push di configurazione app Azure in una pipeline di compilazione di Azure DevOps.
 
-1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  **Pipelines**. La documentazione per le pipeline di compilazione è disponibile [qui](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
+1. Passare alla pagina della pipeline di compilazione facendo **clic su pipeline pipeline**  >  **Pipelines**. La documentazione per le pipeline di compilazione è disponibile [qui](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
       - Se si sta creando una nuova pipeline di compilazione, selezionare **Mostra Assistente** sul lato destro della pipeline e cercare l'attività push di **configurazione app Azure** .
       - Se si usa una pipeline di compilazione esistente, passare alla scheda **attività** quando si modifica la pipeline e cercare l'attività **Push di configurazione app Azure** .
 2. Configurare i parametri necessari per l'attività per eseguire il push dei valori di chiave dal file di configurazione nell'archivio di configurazione dell'app. Il parametro del **percorso del file di configurazione** inizia dalla radice del repository di file.
@@ -66,10 +66,10 @@ Questa sezione illustra come usare l'attività push di configurazione app Azure 
 
 Questa sezione illustra come usare l'attività push di configurazione app Azure in una pipeline di rilascio di Azure DevOps.
 
-1. Passare alla pagina della pipeline di rilascio selezionando **pipeline**  >  **versioni**. La documentazione per le pipeline di versione è disponibile [qui](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops).
+1. Passare alla pagina della pipeline di rilascio selezionando **pipeline**  >  **versioni**. La documentazione per le pipeline di versione è disponibile [qui](/azure/devops/pipelines/release?view=azure-devops).
 1. Scegliere una pipeline di rilascio esistente. Se non si dispone di un valore, selezionare **+ nuovo** per crearne uno nuovo.
 1. Selezionare il pulsante **modifica** nell'angolo superiore destro per modificare la pipeline di rilascio.
-1. Scegliere la **fase** per aggiungere l'attività. Altre informazioni sulle fasi sono disponibili [qui](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Scegliere la **fase** per aggiungere l'attività. Altre informazioni sulle fasi sono disponibili [qui](/azure/devops/pipelines/release/environments?view=azure-devops).
 1. Selezionare **+** per il processo, quindi aggiungere l'attività **push di configurazione app Azure** nella scheda **Distribuisci** .
 1. Configurare i parametri necessari all'interno dell'attività per eseguire il push dei valori di chiave dal file di configurazione all'archivio di configurazione dell'app. Le spiegazioni dei parametri sono disponibili nella sezione **parametri** riportata di seguito e nelle descrizioni comandi accanto a ogni parametro.
 1. Salvare e accodare una versione. Nel log versione verranno visualizzati tutti gli errori rilevati durante l'esecuzione dell'attività.
@@ -87,7 +87,7 @@ I parametri seguenti vengono usati dall'attività push di configurazione dell'ap
 - **Label**: stringa aggiunta a ogni valore chiave come etichetta all'interno dell'archivio di configurazione dell'app.
 - **Tipo di contenuto**: stringa aggiunta a ogni valore chiave come tipo di contenuto all'interno dell'archivio di configurazione dell'app.
 - **Tags**: un oggetto JSON nel formato `{"tag1":"val1", "tag2":"val2"}` , che definisce i tag aggiunti a ogni chiave-valore inserito nell'archivio di configurazione dell'app.
-- **Elimina tutti gli altri valori chiave nell'archivio con il prefisso e l'etichetta specificati: il**valore predefinito è **deselezionato**.
+- **Elimina tutte le altre Key-Values nell'archivio con il prefisso e l'etichetta specificati: il**valore predefinito è **deselezionato**.
   - **Checked**: rimuove tutti i valori di chiave nell'archivio di configurazione dell'app che corrispondono sia al prefisso specificato che all'etichetta prima di eseguire il push di nuovi valori di chiave dal file di configurazione.
   - **Deselezionato**: inserisce tutti i valori chiave dal file di configurazione nell'archivio di configurazione dell'app e lascia intatto tutto il resto nell'archivio di configurazione dell'app.
 

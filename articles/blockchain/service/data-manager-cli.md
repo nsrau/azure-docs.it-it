@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87023739"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurare Blockchain Data Manager con l'interfaccia della riga di comando di Azure
@@ -27,7 +27,7 @@ Per configurare un'istanza di Data Manager blockchain, è necessario:
 
 * Installare la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) e accedere usando `az login` .
 * [Guida introduttiva completa: usare Visual Studio Code per connettersi a una rete di Azure blockchain Service Consortium](connect-vscode.md). Il livello *standard* del servizio Azure blockchain è consigliato quando si usa blockchain Data Manager.
-* Creare un [argomento di griglia di eventi](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Creare un [argomento di Griglia di eventi](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Informazioni su [Gestori eventi di Griglia di eventi di Azure](../../event-grid/event-handlers.md)
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
@@ -345,9 +345,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 |-----------|-------------|
-| azione | Usare **Start** per eseguire il Watcher. |
+| action | Usare **Start** per eseguire il Watcher. |
 | ids | ID risorsa Watcher. Sostituire \<Subscription ID\> , \<Resource group\> e \<Watcher name\> con i valori per la risorsa Watcher.|
 
 ### <a name="start-instance-example"></a>Esempio di istanza di avvio
@@ -370,9 +370,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 |-----------|-------------|
-| azione | Utilizzare **Interrompi** per arrestare il Watcher. |
+| action | Utilizzare **Interrompi** per arrestare il Watcher. |
 | ids | Nome del Watcher. Sostituire \<Subscription ID\> , \<Resource group\> e \<Watcher name\> con i valori per la risorsa Watcher. |
 
 ### <a name="stop-watcher-example"></a>Esempio di arresta Watcher

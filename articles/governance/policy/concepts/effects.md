@@ -1,14 +1,14 @@
 ---
 title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
-ms.date: 09/15/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252005"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873949"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -98,7 +98,7 @@ Audit viene usato per creare un evento di avviso nel log attività quando viene 
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 
-Audit è l'ultimo effetto controllato da Criteri di Azure durante la creazione o l'aggiornamento di una risorsa. Per una modalità Gestione risorse, i criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività e contrassegna la risorsa come non conforme.
+Audit è l'ultimo effetto controllato da Criteri di Azure durante la creazione o l'aggiornamento di una risorsa. Per una modalità Gestione risorse, i criteri di Azure inviano quindi la risorsa al provider di risorse. Audit funziona allo stesso modo per una richiesta di risorse e un ciclo di valutazione. Per le risorse nuove e aggiornate, i criteri di Azure aggiungono un' `Microsoft.Authorization/policies/audit/action` operazione al log attività e contrassegnano la risorsa come non conforme.
 
 ### <a name="audit-properties"></a>Proprietà di Audit
 
@@ -145,7 +145,7 @@ AuditIfNotExists consente il controllo delle risorse _correlate_ alla risorsa ch
 
 ### <a name="auditifnotexists-evaluation"></a>Valutazione di AuditIfNotExists
 
-AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Criteri di Azure aggiunge un'operazione `Microsoft.Authorization/policies/audit/action` al log attività allo stesso modo dell'effetto Audit. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
+AuditIfNotExists viene eseguito dopo che un provider di risorse ha gestito una richiesta di creazione o aggiornamento di risorse e ha restituito un codice di stato con esito positivo. L'effetto Audit si verifica se non ci sono risorse correlate o se le risorse definite da **ExistenceCondition** non restituiscono true. Per le risorse nuove e aggiornate, i criteri di Azure aggiungono un' `Microsoft.Authorization/policies/audit/action` operazione al log attività e contrassegnano la risorsa come non conforme. Quando è attivato, la risorsa che ha soddisfatto la condizione **if** è la risorsa contrassegnata come non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Proprietà di AuditIfNotExists
 

@@ -13,17 +13,17 @@ author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
 ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372154"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender per SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 
-Azure Defender per SQL è un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. Azure Defender è disponibile per database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics. Include funzionalità per l'individuazione e la classificazione di dati sensibili, il rilevamento e l'attenuazione di potenziali vulnerabilità dei database e il rilevamento di attività anomale che possono indicare una minaccia per il database. Offre una posizione unica per l'abilitazione e la gestione di queste funzionalità.
+Azure Defender per SQL è un pacchetto unificato che include le funzionalità di sicurezza avanzate SQL. Azure Defender è disponibile per database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics. Include funzionalità per l'individuazione e la classificazione di dati sensibili, il rilevamento e l'attenuazione di potenziali vulnerabilità dei database e il rilevamento di attività anomale che possono indicare una minaccia per il database. Offre una posizione unica per l'abilitazione e la gestione di queste funzionalità.
 
 ## <a name="overview"></a>Panoramica
 

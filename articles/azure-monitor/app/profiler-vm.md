@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: f514dd7b54ac091535aeab43a8a7d2a645b50a09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87315836"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profilare le app Web in esecuzione in una macchina virtuale di Azure o un set di scalabilità di macchine virtuali usando Application Insights Profiler
@@ -54,7 +54,7 @@ Questo articolo illustra come eseguire Application Insights Profiler nella macch
 
    Per applicare le modifiche, in genere è necessaria una distribuzione completa del modello o una pubblicazione basata su servizi cloud tramite i cmdlet di PowerShell o Visual Studio.  
 
-   I comandi di PowerShell seguenti rappresentano un approccio alternativo per le macchine virtuali esistenti che toccano solo l'estensione Diagnostica di Azure. Aggiungere il ProfilerSink indicato in precedenza alla configurazione restituita dal comando Get-AzVMDiagnosticsExtension. Passare quindi la configurazione aggiornata al comando set-AzVMDiagnosticsExtension.
+   I comandi di PowerShell seguenti rappresentano un approccio alternativo per le macchine virtuali esistenti che toccano solo l'estensione Diagnostica di Azure. Aggiungere il ProfilerSink indicato in precedenza alla configurazione restituita dal comando Get-AzVMDiagnosticsExtension. Passare quindi la configurazione aggiornata al comando Set-AzVMDiagnosticsExtension.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()

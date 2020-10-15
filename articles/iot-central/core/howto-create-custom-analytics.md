@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660136"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
@@ -31,13 +31,13 @@ In questa guida dettagliata si apprenderà come:
 
 Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ### <a name="iot-central-application"></a>Applicazione IoT Central
 
 Creare un'applicazione IoT Central nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentral) con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Piano tariffario | Standard |
 | Modello di applicazione | Analisi in-Store-monitoraggio delle condizioni |
@@ -59,25 +59,25 @@ Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure
 
 Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome    | Scegliere il nome dello spazio dei nomi |
 | Piano tariffario | Basic |
 | Subscription | Sottoscrizione in uso |
 | Resource group | IoTCentralAnalysis |
-| Location | Stati Uniti orientali |
+| Località | Stati Uniti orientali |
 | Unità elaborate | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Area di lavoro Azure Databricks
 
 Usare il [portale di Azure per creare un servizio Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome dell'area di lavoro    | Scegliere il nome dell'area di lavoro |
 | Subscription | Sottoscrizione in uso |
 | Resource group | IoTCentralAnalysis |
-| Location | Stati Uniti orientali |
+| Località | Stati Uniti orientali |
 | Piano tariffario | Standard |
 
 Quando sono state create le risorse necessarie, il gruppo di risorse **IoTCentralAnalysis** è simile allo screenshot seguente:
@@ -106,10 +106,10 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
 1. Passare alla pagina **esportazione dati** , selezionare **+ nuovo**, quindi **Hub eventi di Azure**.
 1. Usare le impostazioni seguenti per configurare l'esportazione, quindi selezionare **Salva**:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Abilitato | On |
+    | Attivato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
     | Misurazioni | On |
@@ -130,7 +130,7 @@ Nell'elenco delle attività comuni della pagina **Azure Databricks** selezionare
 
 Usare le informazioni nella tabella seguente per creare il cluster:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Cluster Name | centralanalysis |
 | Modalità cluster | Standard |
@@ -158,7 +158,7 @@ La procedura seguente illustra come importare la libreria necessaria per l'esemp
 
 1. Nella pagina **Installa libreria** scegliere **Maven** come origine della libreria.
 
-1. Nella casella di testo **Coordinate** immettere il valore seguente:`com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+1. Nella casella di testo **Coordinate** immettere il valore seguente: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
 
 1. Scegliere **Installa** per installare la libreria nel cluster.
 
@@ -172,7 +172,7 @@ Usare la procedura seguente per importare un notebook di databricks contenente i
 
 1. Passare alla pagina dell' **area di lavoro** nell'ambiente databricks. Selezionare l'elenco a discesa accanto al nome dell'account e quindi scegliere **Importa**.
 
-1. Scegliere di importare da un URL e immettere l'indirizzo seguente:[https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Scegliere di importare da un URL e immettere l'indirizzo seguente: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. Per importare il notebook, scegliere **Importa**.
 

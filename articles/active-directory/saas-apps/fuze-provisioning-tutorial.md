@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 3c6288cd071e7c94026a0eb58c6b60ecd91d9137
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312662"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Esercitazione: configurare il fusibile per il provisioning utenti automatico
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e fusibile](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-fuze-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare la spoletta per supportare il provisioning con Azure AD
+## <a name="step-2-configure-fuze-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare la spoletta per supportare il provisioning con Azure AD
 
 Prima di configurare la funzione di provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di SCIM in spoletta. 
 
@@ -104,7 +104,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti per eseguire il fusibile**.
 

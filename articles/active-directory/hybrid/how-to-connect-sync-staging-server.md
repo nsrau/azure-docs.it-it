@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90090126"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: server di staging e ripristino di emergenza
@@ -49,13 +49,13 @@ Coloro che hanno una conoscenza delle tecnologie di sincronizzazione precedenti 
 ### <a name="verify-the-configuration-of-a-server"></a>Verificare la configurazione di un server
 Per applicare questo metodo, seguire questa procedura:
 
-1. [Preparare](#prepare)
+1. [Preparazione](#prepare)
 2. [Configuration](#configuration)
 3. [Importare e sincronizzare](#import-and-synchronize)
 4. [Verificare](#verify)
 5. [Cambiare il server attivo](#switch-active-server)
 
-#### <a name="prepare"></a>Preparare
+#### <a name="prepare"></a>Preparazione
 1. Installare Azure AD Connect, selezionare **Modalità di gestione temporanea** e deselezionare **Avvia sincronizzazione** nell'ultima pagina dell'installazione guidata. In questo modo è possibile eseguire manualmente il motore di sincronizzazione.
    ![Screenshot mostra la pagina pronto per la configurazione nella finestra di dialogo Azure AD Connect.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Disconnettersi e accedere, quindi dal menu Start selezionare **Synchronization Service**(Servizio di sincronizzazione).

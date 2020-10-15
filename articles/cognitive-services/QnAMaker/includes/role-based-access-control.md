@@ -1,14 +1,14 @@
 ---
-title: includere il file
-description: File di inclusione
+title: includere file
+description: includere file
 ms.topic: include
 ms.custom: include file
 ms.date: 03/11/2020
 ms.openlocfilehash: b34d3ed2481600cde7ffb3275d635b8a57926bd6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83665949"
 ---
 Per la collaborazione sono disponibili i seguenti ruoli:

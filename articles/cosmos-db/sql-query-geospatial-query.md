@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764979"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Esecuzione di query su dati geospaziali con Azure Cosmos DB
@@ -49,7 +49,7 @@ Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità
 
 Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per ulteriori informazioni sull'indicizzazione spaziale, vedere [indicizzazione geospaziale](sql-query-geospatial-index.md). Se non si dispone di un indice spaziale per i percorsi specificati, la query eseguirà un'analisi del contenitore.
 
-`ST_WITHIN`può essere usato per verificare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente usati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
+`ST_WITHIN` può essere usato per verificare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente usati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice.
 
 Gli argomenti Polygon in `ST_WITHIN` possono contenere solo un anello singolo, ovvero i poligoni non devono contenere buchi.
 
@@ -99,7 +99,7 @@ Azure Cosmos DB supporta anche l'esecuzione di query inverse. In altre parole, �
     }]
 ```
 
-`ST_ISVALID`e `ST_ISVALIDDETAILED` possono essere utilizzati per verificare se un oggetto spaziale è valido. Ad esempio, la seguente query controlla la validità di un punto con un valore di latitudine fuori scala (-132,8). `ST_ISVALID`restituisce solo un valore booleano e `ST_ISVALIDDETAILED` restituisce il valore booleano e una stringa contenente il motivo per cui viene considerato non valido.
+`ST_ISVALID` e `ST_ISVALIDDETAILED` possono essere utilizzati per verificare se un oggetto spaziale è valido. Ad esempio, la seguente query controlla la validità di un punto con un valore di latitudine fuori scala (-132,8). `ST_ISVALID` restituisce solo un valore booleano e `ST_ISVALIDDETAILED` restituisce il valore booleano e una stringa contenente il motivo per cui viene considerato non valido.
 
 **Query**
 

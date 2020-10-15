@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
 ms.openlocfilehash: eee32dc7edd4256dd2bd120609504042d7ab78ea
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836884"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
@@ -130,7 +130,7 @@ CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 Il punto e virgola (;) alla fine della riga è essenziale per la conclusione del comando.
 
 
-## <a name="create-a-database"></a>Creare un database
+## <a name="create-a-database"></a>Creazione di un database
 
 
 Creare un database e concedere le autorizzazioni all'utente `mysqluser`.

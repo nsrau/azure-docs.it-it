@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: e43f324a8c32615eded782e75291b575852c4382
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393735"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creare un gateway VPN basato su route usando l'interfaccia della riga di comando
@@ -33,7 +33,7 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Crea rete virtuale
 
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). L'esempio seguente crea una rete virtuale denominata **VNet1** nella posizione **EastUS**:
 

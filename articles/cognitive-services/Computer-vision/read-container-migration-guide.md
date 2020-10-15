@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530460"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973122"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Eseguire la migrazione in contenitori OCR di Read v3.x
 
@@ -65,10 +65,10 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 >[!NOTE]
 > MongoDB non è più supportato nelle versioni 3.x del contenitore. I contenitori supportano invece Archiviazione di Azure e i file system offline.
 
-| Implementazione |  Argomenti di runtime obbligatori |
+| Implementazione |    Argomenti di runtime obbligatori |
 |---------|---------|
-|Livello file (predefinito)   | Non sono richiesti argomenti di runtime. Verrà usata la directory `/share`. |
-|BLOB Azure | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|Livello file (predefinito)    | Non sono richiesti argomenti di runtime. Verrà usata la directory `/share`. |
+|BLOB Azure    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>Implementazioni della coda
 
@@ -78,7 +78,7 @@ Nel contenitore v3.x la coda RabbitMQ non è attualmente supportata. Le implemen
 |---------|---------|-------|
 | In memoria (predefinito) | Non sono richiesti argomenti di runtime. | Sviluppo e test |
 | Code di Azure | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Produzione |
-| RabbitMQ  | Non disponibile | Produzione |
+| RabbitMQ    | Non disponibile | Produzione |
 
 Per una maggiore ridondanza, il contenitore Read v3.x usa un timer di visibilità per garantire che le richieste possano essere elaborate correttamente in caso di arresto anomalo del sistema, durante l'esecuzione in una configurazione a più contenitori. 
 
@@ -86,7 +86,7 @@ Impostare il timer con `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, che i
 
 | Valore predefinito | Valore consigliato |
 |---------|---------|
-| 30000 |   120000 |
+| 30000 |    120000 |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

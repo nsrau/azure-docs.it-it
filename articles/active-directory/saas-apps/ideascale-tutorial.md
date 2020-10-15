@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547495"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Esercitazione: Integrazione di Azure Active Directory con IdeaScale
 
@@ -137,7 +137,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IdeaScale, seguire ques
 
 3. Passare a **Security (Sicurezza) \> Single Signon Settings (Impostazioni di Single Sign-O)** .
 
-    ![Impostazioni di Single Sign-On](./media/ideascale-tutorial/ic790848.png "Impostazioni di Single Sign-O")
+    ![Screenshot che mostra l'opzione Single Signon Settings selezionata dal menu Security.](./media/ideascale-tutorial/ic790848.png "Impostazioni di Single Sign-O")
 
 4. In **Single-Signon Type** (Tipo di accesso Single Sign-On) selezionare **SAML 2.0**.
 
@@ -145,7 +145,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con IdeaScale, seguire ques
 
 5. Nella finestra di dialogo **Impostazioni di Single Sign-O** seguire questa procedura:
 
-    ![Impostazioni di Single Sign-On](./media/ideascale-tutorial/ic790850.png "Impostazioni di Single Sign-O")
+    ![Screenshot che mostra la finestra di dialogo Single Signon Settings.](./media/ideascale-tutorial/ic790850.png "Impostazioni di Single Sign-O")
 
     a. Nella casella di testo **SAML IdP Entity ID** (ID entità provider di identità SAML) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 

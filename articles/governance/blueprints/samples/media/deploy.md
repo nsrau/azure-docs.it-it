@@ -4,10 +4,10 @@ description: Procedura di distribuzione per l'esempio di progetto Media, inclusi
 ms.date: 08/13/2020
 ms.topic: sample
 ms.openlocfilehash: c8ac1726bc5007c1790f5efbc45c72f9712fcdf2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208428"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Distribuire l'esempio di progetto Media

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90085910"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
@@ -256,9 +256,9 @@ Ecco un elenco dei software e delle piattaforme supportate.
 > |  | iOS | Android | Windows 10 | Altro |
 > | --- | --- | --- | --- | --- |
 > | **App nativa** | Sì | Sì | Sì |  |
-> | **Microsoft Edge** | Yes | Sì | Yes |  |
-> | **Internet Explorer** | Yes | Sì | Yes |  |
-> | **Chrome (con estensione)** | Yes | Yes | Sì |  |
+> | **Microsoft Edge** | Sì | Sì | Sì |  |
+> | **Internet Explorer** | Sì | Sì | Sì |  |
+> | **Chrome (con estensione)** | Sì | Sì | Sì |  |
 
 Le condizioni per l'utilizzo per dispositivo hanno i vincoli seguenti:
 

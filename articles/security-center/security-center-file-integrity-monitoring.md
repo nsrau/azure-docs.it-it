@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b64ff51836f8d291acf57b1cd9ca100c4f87ebed
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541170"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946094"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
 Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
@@ -28,29 +28,33 @@ Informazioni su come configurare il monitoraggio dell'integrità dei file nel ce
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
-|Ruoli e autorizzazioni necessari:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
-|Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking.md) |
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|Richiede [Azure Defender per i server](defender-for-servers-introduction.md).<br>Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
+|Autorizzazioni e ruoli obbligatori:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
+|Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking.md).|
 |||
 
-
-
-
-
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?
-Il monitoraggio dell'integrità dei file (FIM), noto anche come monitoraggio delle modifiche, esamina i file e i registri del sistema operativo, il software applicativo e altri per le modifiche che potrebbero indicare un attacco. Viene usato un metodo di confronto per determinare se lo stato corrente del file è diverso rispetto all'ultima analisi. È possibile sfruttare questo confronto per determinare se sono state apportate modifiche sospette o valide ai file.
+Il monitoraggio dell'integrità dei file, detto anche monitoraggio delle modifiche, esamina i file del sistema operativo, i registri di Windows, il software applicativo, i file di sistema Linux e altro ancora per le modifiche che potrebbero indicare un attacco. 
 
-Il monitoraggio dell'integrità dei file del Centro sicurezza convalida l'integrità dei file di Windows, del registro di sistema di Windows e dei file Linux. Selezionare i file che si desidera monitorare, abilitando il monitoraggio dell'integrità dei file. Il Centro sicurezza monitora i file nei quali è abilitato il monitoraggio alla ricerca di attività come:
+Il Centro sicurezza consiglia di eseguire il monitoraggio delle entità con FIM ed è anche possibile definire i propri criteri o entità FIM da monitorare. FIM segnala l'utente per attività sospette, ad esempio:
 
-- Rimozione e creazione di file e registri di sistema
+- Creazione o rimozione di chiavi di file e del registro di sistema
 - Modifiche nei file (modifiche nelle dimensioni dei file, elenchi di controllo degli accessi e hash del contenuto)
 - Modifiche nei registri di sistema (modifiche nelle dimensioni, elenchi di controllo degli accessi, tipi e contenuti)
 
-Il Centro sicurezza consiglia le entità da monitorare, in cui è possibile abilitare facilmente il monitoraggio dell'integrità dei file. È inoltre possibile definire i criteri di monitoraggio dell'integrità dei file o le entità da monitorare. Questa procedura dettagliata illustra come fare.
+In questa esercitazione si apprenderà come:
 
-> [!NOTE]
-> La funzionalità di monitoraggio dell'integrità dei file (FIM) funziona per computer e macchine virtuali Windows e Linux ed è disponibile solo quando **Azure Defender per i server** è abilitato. Per altre informazioni, vedi i [prezzi](security-center-pricing.md) . Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+> [!div class="checklist"]
+> * Esaminare l'elenco delle entità suggerite da monitorare con FIM
+> * Definire regole FIM personalizzate
+> * Controllare le modifiche apportate alle entità monitorate
+> * Usare i caratteri jolly per semplificare il rilevamento tra le directory
+
+
+## <a name="how-does-fim-work"></a>Come funziona FIM?
+
+Confrontando lo stato corrente di questi elementi con lo stato durante l'analisi precedente, FIM avvisa l'utente se sono state apportate modifiche sospette.
 
 Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **rilevamento modifiche** di tipo **soluzione**. Per informazioni dettagliate sulla frequenza di raccolta dati, vedere [Informazioni dettagliate sulla raccolta dei dati di Rilevamento modifiche](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per Rilevamento modifiche di Azure.
 
@@ -58,11 +62,11 @@ Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche 
 > Se si rimuove la risorsa di **rilevamento modifiche** , viene disabilitata anche la funzionalità di monitoraggio dell'integrità dei file nel centro sicurezza.
 
 ## <a name="which-files-should-i-monitor"></a>Quali file è necessario monitorare?
-Quando si scelgono i file da monitorare, è necessario considerare quali sono critici per il sistema e le applicazioni. Prendere in considerazione di scegliere i file che non si prevede di modificare senza pianificazione. Scegliendo i file che vengono modificati di frequente dalle applicazioni o dal sistema operativo (ad esempio file di log e file di testo) si crea molto disturbo, che rende difficile identificare un attacco.
+Quando si scelgono i file da monitorare, considerare quali sono i file critici per il sistema e le applicazioni. Consente di monitorare i file che non si prevede di modificare senza alcuna pianificazione. Se si scelgono i file modificati di frequente dalle applicazioni o dal sistema operativo, ad esempio file di log e file di testo, verranno creati molti rumori, rendendo difficile l'identificazione di un attacco.
 
-Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monitorare in base ai modelli di attacco noti. Inclusi i file e le chiavi del registro di sistema di Windows. Tutte le chiavi sono sotto HKEY_LOCAL_MACHINE ("HKLM" nella tabella).
+Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monitorare in base ai modelli di attacco noti.
 
-|**File Linux**|**File di Windows**|**Chiavi del Registro di sistema di Windows**|
+|File Linux|File di Windows|Chiavi del registro di sistema di Windows (HKLM = HKEY_LOCAL_MACHINE)|
 |:----|:----|:----|
 |/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
 |/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4b59-4E08-B724-D2C6297EF351}|
@@ -97,6 +101,8 @@ Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monito
 
 ## <a name="enable-file-integrity-monitoring"></a>Abilita il monitoraggio dell'integrità dei file 
 
+FIM è disponibile solo dalle pagine del Centro sicurezza nel portale di Azure. Attualmente non è disponibile alcuna API REST per l'uso di FIM.
+
 1. Dall'area **protezione avanzata** del dashboard di **Azure Defender** selezionare **monitoraggio dell'integrità dei file**.
 
    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Avvio di FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
@@ -114,7 +120,7 @@ Il Centro sicurezza fornisce l'elenco seguente di elementi consigliati da monito
 
     - Accedere e visualizzare lo stato e le impostazioni di ogni area di lavoro
 
-    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md)
+    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md).
 
     - ![Icona Abilita][3] Abilitare FIM in tutti i computer nell'area di lavoro e configurare le opzioni FIM. Questa icona indica che FIM non è abilitato per l'area di lavoro.
 

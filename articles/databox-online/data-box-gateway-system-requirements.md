@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82562441"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema Azure Data Box Gateway
@@ -48,7 +48,7 @@ Il sistema host sottostante per Data Box Gateway deve essere in grado di dedicar
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Piattaforme di virtualizzazione supportate per il dispositivo
 
-| **Sistema operativo/piattaforma**  |**Versioni**   |**Note**  |
+| **Sistema operativo/piattaforma**  |**Versions** (Versioni)   |**Note**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6,5 <br> 6.7       |Gli strumenti VMware non sono supportati.         |
@@ -81,7 +81,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 > [!NOTE]
 > - Gli indirizzi IP di origine del dispositivo devono essere sempre impostati su tutte le interfacce di rete abilitate per il cloud.
-> - Gli indirizzi IP di destinazione devono essere impostati sugli [intervalli IP dei data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - Gli IP di destinazione devono essere impostati sugli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 

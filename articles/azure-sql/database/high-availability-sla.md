@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
 ms.openlocfilehash: fd470180e17bd64990c1e657a6614fc2e0ef71d6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335025"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
@@ -108,7 +108,7 @@ La disponibilità elevata è una parte fondamentale del database SQL e della pia
 > [!IMPORTANT]
 > Il comando di failover non è disponibile per le repliche secondarie leggibili dei database con iperscalabilità.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Il database SQL di Azure e Azure SQL Istanza gestita offrono una soluzione di disponibilità elevata incorporata che è strettamente integrata con la piattaforma Azure. Dipende da Service Fabric per il rilevamento e il ripristino degli errori, sull'archiviazione BLOB di Azure per la protezione dei dati e su zone di disponibilità per una maggiore tolleranza di errore (come indicato in precedenza nel documento non applicabile al Istanza gestita SQL di Azure). Inoltre, il database SQL e SQL Istanza gestita sfruttano la tecnologia del gruppo di disponibilità Always On dall'istanza di SQL Server per la replica e il failover. La combinazione di queste tecnologie consente alle applicazioni di realizzare in modo completo i vantaggi di un modello di archiviazione mista e supportare i contratti di servizio più complessi.
 

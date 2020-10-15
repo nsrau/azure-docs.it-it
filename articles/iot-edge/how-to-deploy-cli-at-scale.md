@@ -5,30 +5,33 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/14/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 8b9c8107c102409b717da0a277b7cdd360e9c8ee
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0a73651b11c9ca6f7cb34deb755543c3b5a6d710
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439664"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042984"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 
-Creare una **distribuzione automatica di IoT Edge** usando l'interfaccia della riga di comando di Azure per gestire le distribuzioni in corso per più dispositivi contemporaneamente. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](/azure/iot-hub/iot-hub-automatic-device-management) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, di tenere traccia dello stato e dell'integrità dei moduli, nonché di apportare modifiche all'occorrenza.
+Creare una **distribuzione automatica di IoT Edge** usando l'interfaccia della riga di comando di Azure per gestire le distribuzioni in corso per più dispositivi contemporaneamente. Le distribuzioni automatiche per IoT Edge rientrano nella funzionalità di [gestione automatica dei dispositivi](../iot-hub/iot-hub-automatic-device-management.md) dell'hub IoT. Le distribuzioni sono processi dinamici che consentono di distribuire più moduli in più dispositivi, di tenere traccia dello stato e dell'integrità dei moduli, nonché di apportare modifiche all'occorrenza.
 
 Per altre informazioni, vedere [Informazioni sulle distribuzioni automatiche di IoT Edge per singoli dispositivi o su vasta scala](module-deployment-monitoring.md).
 
 In questo articolo vengono configurate l'interfaccia della riga di comando di Azure e l'estensione IoT. Vengono quindi fornite informazioni su come distribuire moduli in un set di dispositivi IoT Edge e monitorare i progressi usando i comandi disponibili dell'interfaccia della riga di comando.
 
-## <a name="cli-prerequisites"></a>Prerequisiti dell'interfaccia della riga di comando
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure.
-* [Dispositivi IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) con il runtime IoT Edge installato.
+* Uno o più dispositivi IoT Edge.
+
+  Se non si dispone di un dispositivo IoT Edge configurato, è possibile crearne uno in una macchina virtuale di Azure. Per [creare un dispositivo Linux virtuale](quickstart-linux.md) o [creare un dispositivo Windows virtuale](quickstart.md), seguire la procedura descritta in uno degli articoli introduttivi.
+
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nell'ambiente in uso. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az --version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack.
 * [Estensione IoT per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension).
 
@@ -40,13 +43,16 @@ Per distribuire i moduli tramite l'interfaccia della riga di comando di Azure, s
 
 Di seguito è riportato un esempio di manifesto della distribuzione di base con un solo modulo:
 
+>[!NOTE]
+>Questo manifesto di distribuzione di esempio usa la versione dello schema 1,1 per l'agente IoT Edge e l'hub. La versione dello schema 1,1 è stata rilasciata insieme a IoT Edge versione 1.0.10 e Abilita funzionalità come l'ordine di avvio del modulo e la priorità delle route.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -75,7 +81,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",

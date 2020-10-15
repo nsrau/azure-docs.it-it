@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f4eb90cc0e8867230c7fb1a2a169b5ba0126e46a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205876"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071320"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacità di un'istanza di Gestione API di Azure
 
@@ -78,7 +78,7 @@ La **metrica a capacità** ridotta non significa necessariamente che l'istanza d
 ![Metriche di capacità](./media/api-management-capacity/capacity-metric.png)  
 
 1. Passare all'istanza di gestione API nel [portale di Azure](https://portal.azure.com/).
-2. Selezionare **metrica**.
+2. Selezionare **Metriche**.
 3. Dalla sezione viola selezionare la metrica**Capacità** tra le metriche disponibili e lasciare l'aggregazione predefinita **Media**.
 
     > [!TIP]
@@ -107,4 +107,4 @@ La **capacità** è la metrica per prendere decisioni sull'opportunità di ridim
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Aggiornare e ridimensionare un'istanza di Gestione API](upgrade-and-scale.md)
-- [Ottimizza e Risparmia sulla spesa per il cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Ottimizza e Risparmia sulla spesa per il cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

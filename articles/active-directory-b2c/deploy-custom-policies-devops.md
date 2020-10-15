@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388681"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
@@ -131,7 +131,7 @@ Con il repository inizializzato e popolato con i file dei criteri personalizzati
 1. Selezionare la scheda **variabili** .
 1. Aggiungere le variabili seguenti in **variabili pipeline** e impostare i relativi valori come specificato:
 
-    | Nome | valore |
+    | Nome | Valore |
     | ---- | ----- |
     | `clientId` | **ID applicazione (client)** dell'applicazione registrata in precedenza. |
     | `clientSecret` | Valore del **segreto client** creato in precedenza. <br /> Modificare il tipo di variabile in **segreto** (selezionare l'icona di blocco). |

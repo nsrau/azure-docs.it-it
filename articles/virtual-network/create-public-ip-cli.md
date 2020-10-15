@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 4d0934dd30f9738e2a67d4aff23c96a48aaaa61b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d868a2d9bc88be7faea161779c35110f13e2b2ac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89302851"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939070"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Guida introduttiva: creare un indirizzo IP pubblico usando l'interfaccia della riga di comando
 
@@ -95,14 +95,14 @@ Usare il comando [AZ Network Public-IP create](https://docs.microsoft.com/cli/az
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myBasicPublicIP \
-    --sku Standard
+    --sku Basic \
     --allocation-method Static
 ```
 Se è accettabile che l'indirizzo IP cambi nel tempo, è possibile selezionare l'assegnazione IP **dinamica** cambiando il metodo di allocazione in ' Dynamic '.
 
 ---
 
-## <a name="additional-information"></a>Informazioni aggiuntive 
+## <a name="additional-information"></a>Altre informazioni 
 
 Per altri dettagli sulle singole variabili elencate in precedenza, vedere [gestire gli indirizzi IP pubblici](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
 

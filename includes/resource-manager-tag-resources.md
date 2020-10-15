@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: azure-resource-manager
 author: tfitzmac
@@ -9,13 +9,13 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80132254"
 ---
-Se un utente non dispone dell'accesso richiesto per l'applicazione di tag, è possibile assegnare il ruolo di **collaboratore Tag** all'utente. Per altre informazioni, vedere [esercitazione: concedere a un utente l'accesso alle risorse di Azure usando RBAC e il portale di Azure](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).
+Se un utente non ha l'accesso richiesto per l'applicazione di tag, è possibile assegnare all'utente il ruolo **Collaboratore per tag**. Per altre informazioni, vedere [Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il controllo degli accessi in base al ruolo e il portale di Azure](../articles/role-based-access-control/quickstart-assign-role-user-portal.md).
 
 1. Per visualizzare i tag per una risorsa o un gruppo di risorse, cercare i tag esistenti nella panoramica. Se in precedenza non sono stati applicati tag, l'elenco è vuoto.
 
@@ -53,7 +53,7 @@ Per eseguire l'assegnazione in blocco dei tag a più risorse:
 
 Per visualizzare tutte le risorse con un tag:
 
-1. Nel menu portale di Azure cercare i **tag**. Selezionarlo dalle opzioni disponibili.
+1. Nel menu del portale di Azure cercare **tag**. Selezionare il tag tra le opzioni disponibili.
 
    ![Ricerca in base al tag](./media/resource-manager-tag-resources/find-tags-general.png)
 

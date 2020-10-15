@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207134"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074856"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Eseguire il backup automatico degli archivi di configurazione delle app
 
@@ -40,7 +40,7 @@ In questa esercitazione verrà creato un archivio secondario nell' `centralus` a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/). 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro sviluppo di Azure.
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro Sviluppo di Azure.
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
 - Versione più recente dell'interfaccia della riga di comando di Azure (2.3.1 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si usa l'interfaccia della riga di comando di Azure, è necessario prima accedere usando `az login` . Facoltativamente, è possibile usare Azure Cloud Shell.
 
@@ -124,7 +124,7 @@ In questo articolo si useranno le funzioni C# con le proprietà seguenti:
 - Runtime di funzioni di Azure versione 3. x
 - Funzione attivata dal timer ogni 10 minuti
 
-Per semplificare l'avvio del backup dei dati, è stata [testata e pubblicata una funzione](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) che è possibile usare senza apportare alcuna modifica al codice. Scaricare i file di progetto e [pubblicarli nella propria app per le funzioni di Azure da Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+Per semplificare l'avvio del backup dei dati, è stata [testata e pubblicata una funzione](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) che è possibile usare senza apportare alcuna modifica al codice. Scaricare i file di progetto e [pubblicarli nella propria app per le funzioni di Azure da Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Non apportare modifiche alle variabili di ambiente nel codice scaricato. Nella sezione successiva verranno create le impostazioni dell'app necessarie.
@@ -133,13 +133,13 @@ Per semplificare l'avvio del backup dei dati, è stata [testata e pubblicata una
 ### <a name="build-your-own-function"></a>Creare una funzione personalizzata
 
 Se il codice di esempio fornito in precedenza non soddisfa i requisiti, è anche possibile creare una funzione personalizzata. Per completare il backup, la funzione deve essere in grado di eseguire le attività seguenti:
-- Leggere periodicamente il contenuto della coda per verificare se contiene notifiche da griglia di eventi. Per informazioni dettagliate sull'implementazione, vedere l' [SDK della coda di archiviazione](/azure/storage/queues/storage-quickstart-queues-dotnet) .
-- Se la coda contiene [notifiche degli eventi da griglia di eventi](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema), estrarre tutte le informazioni univoche `<key, label>` dai messaggi di evento. La combinazione di chiave ed etichetta è l'identificatore univoco per le modifiche chiave-valore nell'archivio primario.
+- Leggere periodicamente il contenuto della coda per verificare se contiene notifiche da griglia di eventi. Per informazioni dettagliate sull'implementazione, vedere l' [SDK della coda di archiviazione](../storage/queues/storage-quickstart-queues-dotnet.md) .
+- Se la coda contiene [notifiche degli eventi da griglia di eventi](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema), estrarre tutte le informazioni univoche `<key, label>` dai messaggi di evento. La combinazione di chiave ed etichetta è l'identificatore univoco per le modifiche chiave-valore nell'archivio primario.
 - Leggere tutte le impostazioni dall'archivio primario. Aggiornare solo le impostazioni nell'archivio secondario che hanno un evento corrispondente nella coda. Eliminare tutte le impostazioni dall'archivio secondario presenti nella coda ma non nell'archivio primario. È possibile usare [app Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) per accedere agli archivi di configurazione a livello di codice.
 - Eliminare i messaggi dalla coda se non si sono verificate eccezioni durante l'elaborazione.
 - Implementare la gestione degli errori in base alle esigenze. Fare riferimento all'esempio di codice precedente per visualizzare alcune eccezioni comuni che è possibile gestire.
 
-Per altre informazioni sulla creazione di una funzione, vedere: [creare una funzione in Azure attivata da un timer](/azure/azure-functions/functions-create-scheduled-function) e [sviluppare funzioni di Azure con Visual Studio](/azure/azure-functions/functions-develop-vs).
+Per altre informazioni sulla creazione di una funzione, vedere: [creare una funzione in Azure attivata da un timer](../azure-functions/functions-create-scheduled-function.md) e [sviluppare funzioni di Azure con Visual Studio](../azure-functions/functions-develop-vs.md).
 
 
 > [!IMPORTANT]
@@ -167,16 +167,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>Concedere l'accesso all'identità gestita dell'app per le funzioni
 
-Usare il comando seguente o il [portale di Azure](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) per aggiungere un'identità gestita assegnata dal sistema per l'app per le funzioni.
+Usare il comando seguente o il [portale di Azure](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) per aggiungere un'identità gestita assegnata dal sistema per l'app per le funzioni.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> Per eseguire la creazione di risorse e la gestione dei ruoli necessari, l'account deve disporre `Owner` delle autorizzazioni nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [come aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](/azure/role-based-access-control/role-assignments-portal).
+> Per eseguire la creazione di risorse e la gestione dei ruoli necessari, l'account deve disporre `Owner` delle autorizzazioni nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza per l'assegnazione di ruolo, vedere [come aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
-Usare i comandi seguenti o il [portale di Azure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) per concedere all'identità gestita dell'app per le funzioni l'accesso agli archivi di configurazione dell'app. Usare i ruoli seguenti:
+Usare i comandi seguenti o il [portale di Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) per concedere all'identità gestita dell'app per le funzioni l'accesso agli archivi di configurazione dell'app. Usare i ruoli seguenti:
 - Assegnare il `App Configuration Data Reader` ruolo nell'archivio di configurazione delle app primarie.
 - Assegnare il `App Configuration Data Owner` ruolo nell'archivio di configurazione dell'app secondaria.
 
@@ -196,7 +196,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Usare il comando seguente o il [portale di Azure](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) per concedere all'identità gestita dell'app per le funzioni l'accesso alla coda. Assegnare il `Storage Queue Data Contributor` ruolo nella coda.
+Usare il comando seguente o il [portale di Azure](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) per concedere all'identità gestita dell'app per le funzioni l'accesso alla coda. Assegnare il `Storage Queue Data Contributor` ruolo nella coda.
 
 ```azurecli-interactive
 az role assignment create \
@@ -216,7 +216,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 L'evento è stato attivato. In alcuni istanti, griglia di eventi invierà la notifica degli eventi alla coda. *Dopo la successiva esecuzione pianificata della funzione*, visualizzare le impostazioni di configurazione nell'archivio secondario per verificare se contiene il valore chiave aggiornato dell'archivio primario.
 
 > [!NOTE]
-> È possibile [attivare manualmente la funzione](/azure/azure-functions/functions-manually-run-non-http) durante i test e la risoluzione dei problemi senza attendere il trigger timer pianificato.
+> È possibile [attivare manualmente la funzione](../azure-functions/functions-manually-run-non-http.md) durante i test e la risoluzione dei problemi senza attendere il trigger timer pianificato.
 
 Dopo aver verificato che la funzione di backup sia stata eseguita correttamente, è possibile osservare che la chiave è ora presente nell'archivio secondario.
 
@@ -243,9 +243,9 @@ Se la nuova impostazione non viene visualizzata nell'archivio secondario:
 
 - Assicurarsi che la funzione di backup sia stata attivata *dopo aver* creato l'impostazione nell'archivio primario.
 - È possibile che griglia di eventi non sia in grado di inviare la notifica degli eventi alla coda nel tempo. Controllare se la coda contiene ancora la notifica degli eventi dell'archivio primario. In caso contrario, attivare di nuovo la funzione di backup.
-- Controllare i [log di funzioni di Azure](/azure/azure-functions/functions-create-scheduled-function#test-the-function) per eventuali errori o avvisi.
-- Usare il [portale di Azure](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) per assicurarsi che l'app per le funzioni di Azure contenga i valori corretti per le impostazioni dell'applicazione che le funzioni di Azure stanno tentando di leggere.
-- È anche possibile configurare il monitoraggio e gli avvisi per funzioni di Azure usando [applicazione Azure Insights](/azure/azure-functions/functions-monitoring?tabs=cmd). 
+- Controllare i [log di funzioni di Azure](../azure-functions/functions-create-scheduled-function.md#test-the-function) per eventuali errori o avvisi.
+- Usare il [portale di Azure](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) per assicurarsi che l'app per le funzioni di Azure contenga i valori corretti per le impostazioni dell'applicazione che le funzioni di Azure stanno tentando di leggere.
+- È anche possibile configurare il monitoraggio e gli avvisi per funzioni di Azure usando [applicazione Azure Insights](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

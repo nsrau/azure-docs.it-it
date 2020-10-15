@@ -12,10 +12,10 @@ ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
 ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318297"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Attivare un'esecuzione di una pipeline di Machine Learning da un'app per la logica
@@ -67,7 +67,7 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
 
   Usare le impostazioni seguenti per configurare l'azione:
 
-  | Impostazione | valore | 
+  | Impostazione | Valore | 
   |---|---|
   | Azione HTTP | POST |
   | URI |endpoint della pipeline pubblicata che è stato trovato come [prerequisito](#prerequisites) |

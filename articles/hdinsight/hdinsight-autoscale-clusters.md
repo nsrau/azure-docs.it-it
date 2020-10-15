@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 09/14/2020
 ms.openlocfilehash: 385e910befb79daafa532fa816b96d50a46b7d8c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620087"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
@@ -81,7 +81,7 @@ La tabella seguente descrive i tipi di cluster e le versioni compatibili con la 
 
 \* I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 
@@ -225,7 +225,7 @@ Lo stato del cluster elencato nell'portale di Azure consente di monitorare le at
 
 Tutti i messaggi di stato del cluster visualizzati potrebbero essere illustrati nell'elenco seguente.
 
-| Stato del cluster | Descrizione |
+| Stato del cluster | Description |
 |---|---|
 | In esecuzione | Il cluster funziona normalmente. Tutte le attività di ridimensionamento automatico precedenti sono state completate correttamente. |
 | Aggiornamento  | È in corso l'aggiornamento della configurazione di scalabilità automatica del cluster.  |

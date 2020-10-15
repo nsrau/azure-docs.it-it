@@ -2,15 +2,13 @@
 title: Schema delle risorse di Application Insights basate sull'area di lavoro in Monitoraggio di Azure
 description: Informazioni sul nuovo schema e struttura della tabella per monitoraggio di Azure Application Insights risorse basate sull'area di lavoro.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323180"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931054"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Modifiche alle risorse basate sull'area di lavoro (anteprima)
 
@@ -45,43 +43,43 @@ Tabella legacy: disponibilità
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|customDimensions|dinamico|Proprietà|Dinamico|
-|customMeasurements|dinamico|Misurazioni|Dinamico|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dinamico|Proprietà|Dynamic|
+|customMeasurements|dinamico|Misurazioni|Dynamic|
 |duration|real|DurationMs|real|
-|`id`|Stringa|`Id`|Stringa|
-|iKey|Stringa|IKey|Stringa|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|string|
-|posizione|Stringa|Location|Stringa|
-|message|string|Message|Stringa|
-|name|Stringa|Nome|stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|performanceBucket|Stringa|PerformanceBucket|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|posizione|string|Location|string|
+|message|string|Message|string|
+|name|string|Nome|stringa|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |size|real|Dimensione|real|
-|esito positivo|Stringa|Operazione completata|Bool|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+|esito positivo|string|Operazione completata|Bool|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appbrowsertimings"></a>AppBrowserTimings
 
@@ -89,43 +87,43 @@ Tabella legacy: browserTimings
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|customDimensions|dinamico|Proprietà|Dinamico|
-|customMeasurements|dinamico|Misurazioni|Dinamico|
-|iKey|Stringa|IKey|Stringa|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dinamico|Proprietà|Dynamic|
+|customMeasurements|dinamico|Misurazioni|Dynamic|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|Stringa|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|Datetime|
 |networkDuration|real|NetworkDurationMs|real|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|performanceBucket|Stringa|PerformanceBucket|Stringa|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
 |receiveDuration|real|ReceiveDurationMs|real|
-|sdkVersion|Stringa|SdkVersion|Stringa|
+|sdkVersion|string|SdkVersion|string|
 |sendDuration|real|SendDurationMs|real|
-|session_Id|Stringa|SessionId|Stringa|
-|timestamp|Datetime|TimeGenerated|Datetime|
+|session_Id|string|SessionId|string|
+| timestamp|Datetime|TimeGenerated|Datetime|
 |totalDuration|real|TotalDurationMs|real|
-|url|string|URL|Stringa|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+|url|string|URL|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appdependencies"></a>AppDependencies
 
@@ -133,44 +131,44 @@ Tabella legacy: dipendenze
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|customDimensions|dinamico|Proprietà|Dinamico|
-|customMeasurements|dinamico|Misurazioni|Dinamico|
-|data|Stringa|Data|Stringa|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dinamico|Proprietà|Dynamic|
+|customMeasurements|dinamico|Misurazioni|Dynamic|
+|Data|string|Dati|string|
 |duration|real|DurationMs|real|
-|`id`|Stringa|`Id`|Stringa|
-|iKey|Stringa|IKey|Stringa|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|performanceBucket|Stringa|PerformanceBucket|Stringa|
-|resultCode|Stringa|ResultCode|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
-|esito positivo|Stringa|Operazione completata|Bool|
-|target|Stringa|Destinazione|Stringa|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|type|Stringa|TipoDipendenza|Stringa|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|resultCode|string|ResultCode|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|esito positivo|string|Operazione completata|Bool|
+|target|string|Destinazione|string|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|type|string|TipoDipendenza|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appevents"></a>AppEvents
 
@@ -178,36 +176,36 @@ Tabella legacy: customEvents
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|customDimensions|dinamico|Proprietà|Dinamico|
-|customMeasurements|dinamico|Misurazioni|Dinamico|
-|iKey|Stringa|IKey|Stringa|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dinamico|Proprietà|Dynamic|
+|customMeasurements|dinamico|Misurazioni|Dynamic|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|Stringa|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appmetrics"></a>AppMetrics
 
@@ -215,34 +213,34 @@ Tabella legacy: customMetrics
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|customDimensions|dinamico|Proprietà|Dinamico|
-|iKey|Stringa|IKey|Stringa|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|Stringa|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dinamico|Proprietà|Dynamic|
+|iKey|string|IKey|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 |value|real|rimosso||
 |valueCount|INT|ValueCount|INT|
 |valueMax|real|ValueMax|real|
@@ -256,40 +254,40 @@ Tabella legacy: visualizzazioni
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|customDimensions|dinamico|Proprietà|Dinamico|
-|customMeasurements|dinamico|Misurazioni|Dinamico|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dinamico|Proprietà|Dynamic|
+|customMeasurements|dinamico|Misurazioni|Dynamic|
 |duration|real|DurationMs|real|
-|`id`|Stringa|`Id`|Stringa|
-|iKey|Stringa|IKey|Stringa|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|performanceBucket|Stringa|PerformanceBucket|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|url|Stringa|URL|Stringa|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|url|string|URL|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appperformancecounters"></a>AppPerformanceCounters
 
@@ -297,38 +295,38 @@ Tabella legacy: performanceCounters
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|category|string|Categoria|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|counter|Stringa|rimosso||
-|customDimensions|dinamico|Proprietà|Dinamico|
-|iKey|Stringa|IKey|Stringa|
-|instance|Stringa|Istanza|Stringa|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|Stringa|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|category|string|Category|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|counter|string|rimosso||
+|customDimensions|dinamico|Proprietà|Dynamic|
+|iKey|string|IKey|string|
+|instance|string|Istanza|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
 |name|string|Nome|stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
-|value|real|valore|real|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
+|value|real|Valore|real|
 
 ### <a name="apprequests"></a>AppRequests
 
@@ -336,43 +334,43 @@ Tabella legacy: richieste
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
-|customDimensions|dinamico|Proprietà|Dinamico|
-|customMeasurements|dinamico|Misurazioni|Dinamico|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
+|customDimensions|dinamico|Proprietà|Dynamic|
+|customMeasurements|dinamico|Misurazioni|Dynamic|
 |duration|real|DurationMs|Real|
-|`id`|Stringa|`Id`|Stringa|
-|iKey|Stringa|IKey|Stringa|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|string|
-|name|Stringa|Nome|Stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|performanceBucket|Stringa|PerformanceBucket|Stringa|
-|resultCode|Stringa|ResultCode|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
-|source|Stringa|Source (Sorgente)|Stringa|
-|esito positivo|Stringa|Operazione completata|Bool|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|url|string|URL|Stringa|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|name|string|Nome|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|resultCode|string|ResultCode|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|source|string|Source (Sorgente)|string|
+|esito positivo|string|Operazione completata|Bool|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|url|string|URL|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="appsystemevents"></a>AppSystemEvents
 
@@ -380,51 +378,51 @@ Tabella legacy: eccezioni
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|assembly|Stringa|Assembly|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|assembly|string|Assembly|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinamico|Proprietà|dinamico|
 |customMeasurements|dinamico|Misurazioni|dinamico|
 |dettagli|dinamico|Dettagli|dinamico|
-|handledAt|Stringa|HandledAt|Stringa|
-|iKey|Stringa|IKey|Stringa|
-|innermostAssembly|Stringa|InnermostAssembly|Stringa|
-|innermostMessage|Stringa|InnermostMessage|Stringa|
-|innermostMethod|Stringa|InnermostMethod|Stringa|
-|innermostType|Stringa|InnermostType|Stringa|
+|handledAt|string|HandledAt|string|
+|iKey|string|IKey|string|
+|innermostAssembly|string|InnermostAssembly|string|
+|innermostMessage|string|InnermostMessage|string|
+|innermostMethod|string|InnermostMethod|string|
+|innermostType|string|InnermostType|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|Stringa|
-|message|string|Message|Stringa|
-|method|Stringa|Metodo|Stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|outerAssembly|Stringa|OuterAssembly|Stringa|
-|outerMessage|Stringa|OuterMessage|Stringa|
-|outerMethod|Stringa|OuterMethod|Stringa|
-|outerType|Stringa|OuterType|Stringa|
-|problemId|Stringa|ProblemId|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|message|string|Message|string|
+|method|string|Metodo|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|outerAssembly|string|OuterAssembly|string|
+|outerMessage|string|OuterMessage|string|
+|outerMethod|string|OuterMethod|string|
+|outerType|string|OuterType|string|
+|problemId|string|ProblemId|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |severityLevel|INT|SeverityLevel|INT|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|type|stringa|ExceptionType|Stringa|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|type|string|ExceptionType|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ### <a name="apptraces"></a>AppTraces
 
@@ -432,37 +430,37 @@ Tabella legacy: tracce
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
-|appId|Stringa|\_GUID risorsa|Stringa|
-|application_Version|Stringa|AppVersion|Stringa|
-|appName|Stringa|\_ResourceId|Stringa|
-|client_Browser|Stringa|ClientBrowser|Stringa|
-|client_City|Stringa|ClientCity|Stringa|
-|client_CountryOrRegion|Stringa|ClientCountryOrRegion|Stringa|
-|client_IP|Stringa|ClientIP|Stringa|
-|client_Model|Stringa|ClientModel|Stringa|
-|client_OS|Stringa|Clientos|Stringa|
-|client_StateOrProvince|Stringa|ClientStateOrProvince|Stringa|
-|client_Type|Stringa|TipoClient|Stringa|
-|cloud_RoleInstance|Stringa|AppRoleInstance|Stringa|
-|cloud_RoleName|Stringa|AppRoleName|Stringa|
+|appId|string|\_GUID risorsa|string|
+|application_Version|string|AppVersion|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|ClientCountryOrRegion|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|ClientModel|string|
+|client_OS|string|Clientos|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|TipoClient|string|
+|cloud_RoleInstance|string|AppRoleInstance|string|
+|cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dinamico|Proprietà|dinamico|
 |customMeasurements|dinamico|Misurazioni|dinamico|
-|iKey|Stringa|IKey|Stringa|
+|iKey|string|IKey|string|
 |itemCount|INT|ItemCount|INT|
-|itemId|Stringa|\_ItemId|Stringa|
-|itemType|Stringa|Type|Stringa|
-|message|string|Message|Stringa|
-|operation_Id|Stringa|OperationId|Stringa|
-|operation_Name|Stringa|OperationName|Stringa|
-|operation_ParentId|Stringa|OperationParentId|Stringa|
-|operation_SyntheticSource|Stringa|OperationSyntheticSource|Stringa|
-|sdkVersion|Stringa|SdkVersion|Stringa|
-|session_Id|Stringa|SessionId|Stringa|
+|itemId|string|\_ItemId|string|
+|itemType|string|Type|string|
+|message|string|Message|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperationParentId|string|
+|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |severityLevel|INT|SeverityLevel|INT|
-|timestamp|Datetime|TimeGenerated|Datetime|
-|user_AccountId|Stringa|UserAccountId|Stringa|
-|user_AuthenticatedId|Stringa|UserAuthenticatedId|Stringa|
-|user_Id|Stringa|UserId|Stringa|
+| timestamp|Datetime|TimeGenerated|Datetime|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|UserId|string|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

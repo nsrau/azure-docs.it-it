@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 397197c2ab3ba4f135912eab800f1abd7ab73a0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 729427dac174037c8750af7ab0f6cb17fa4d4c1e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531060"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741473"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Esercitazione: Integrazione di Azure Active Directory con BitaBIZ
 
@@ -132,15 +132,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con BitaBIZ, seguire questa
 
 2. Fare clic su **SETUP ADMIN** (CONFIGURA AMMINISTRATORE).
 
-    ![Configurazione di BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Screenshot che mostra parte di una finestra del browser con l'opzione Setup Admin selezionata.](./media/bitabiz-tutorial/settings1.png)
 
 3. Fare clic su **Microsoft integrations** (integrazioni Microsoft) nella sezione **Add value** (Aggiungi valore).
 
-    ![Configurazione di BitaBIZ](./media/bitabiz-tutorial/settings2.png)
+    ![Screenshot che mostra la sezione Add value con l'opzione Microsoft integrations selezionata.](./media/bitabiz-tutorial/settings2.png)
 
 4. Scorrere fino alla sezione **Microsoft Azure AD (Enable single sign on)** (Microsoft Azure AD (Abilita single sign-on)) ed eseguire la procedura seguente:
 
-    ![Configurazione di BitaBIZ](./media/bitabiz-tutorial/settings3.png)
+    ![Screenshot che mostra la sezione Microsoft Azure AD in cui immettere le informazioni descritte in questo passaggio.](./media/bitabiz-tutorial/settings3.png)
 
     a. Copiare il valore della casella di testo **Entity ID (”Identifier” in Azure AD)** (ID entità ("Identificatore" in Azure AD)) e incollarlo nella casella di testo **Identificatore** nella sezione **Configurazione SAML di base** del portale di Azure. 
 
@@ -218,19 +218,19 @@ Nel caso di BitaBIZ, il provisioning è un'attività manuale.
 
 2. Fare clic su **SETUP ADMIN** (CONFIGURA AMMINISTRATORE).
 
-    ![Aggiungi utente BitaBIZ](./media/bitabiz-tutorial/settings1.png)
+    ![Screenshot che mostra parte della finestra del browser con l'opzione Setup Admin selezionata.](./media/bitabiz-tutorial/settings1.png)
 
 3. Fare clic su **Add users** (Aggiungi utenti) nella sezione **Organization** (Organizzazione).
 
-    ![Aggiungi utente BitaBIZ](./media/bitabiz-tutorial/user1.png)
+    ![Screenshot che mostra la sezione Organization con l'opzione Add users selezionata.](./media/bitabiz-tutorial/user1.png)
 
 4. Fare clic su **Add new employee** (Aggiungi nuovo dipendente).
 
-    ![Aggiungi utente BitaBIZ](./media/bitabiz-tutorial/user2.png)
+    ![Screenshot che mostra la sezione Add users con l'opzione Add new employee selezionata.](./media/bitabiz-tutorial/user2.png)
 
 5. Nella finestra di dialogo **Add new employee** (Aggiungi nuovo dipendente) seguire questa procedura:
 
-    ![Aggiungi utente BitaBIZ](./media/bitabiz-tutorial/user3.png)
+    ![Screenshot che mostra la pagina in cui immettere le informazioni descritte in questo passaggio.](./media/bitabiz-tutorial/user3.png)
 
     a. Nella casella di testo **First Name** (Nome) digitare il nome dell'utente, ad esempio Britta.
 

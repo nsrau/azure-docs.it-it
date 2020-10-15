@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319555"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione
@@ -178,11 +178,11 @@ Quando si Visualizza il gruppo di risorse, l'opzione Move è disabilitata.
 
 Per abilitare l'opzione di spostamento, selezionare le risorse che si desidera spostare. Per selezionare tutte le risorse, selezionare la casella di controllo nella parte superiore dell'elenco. In alternativa, selezionare risorse singolarmente. Dopo aver selezionato le risorse, l'opzione di spostamento è abilitata.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="Selezionare le risorse":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="opzione Move disabilitata":::
 
 Selezionare il pulsante **Sposta** .
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opzioni di spostamento":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opzione Move disabilitata":::
 
 Questo pulsante offre tre opzioni:
 
@@ -194,11 +194,11 @@ Selezionare se si desidera spostare le risorse in un nuovo gruppo di risorse o i
 
 Selezionare il gruppo di risorse di destinazione. Confermare di dover aggiornare gli script per queste risorse e selezionare **OK**. Se si è scelto di passare a una nuova sottoscrizione, è necessario selezionare anche la sottoscrizione di destinazione.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="Selezionare la destinazione":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="opzione Move disabilitata":::
 
 Dopo aver convalidato la possibilità di spostare le risorse, viene visualizzata una notifica che indica che l'operazione di spostamento è in esecuzione.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notifica":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="opzione Move disabilitata":::
 
 Al completamento dell'operazione si riceverà la notifica del risultato.
 

@@ -1,25 +1,18 @@
 ---
 title: Panoramica di uno scenario di ripristino di emergenza di Oracle nell'ambiente Azure | Microsoft Docs
 description: Scenario di ripristino di emergenza per un'istanza di Database Oracle 12c nell'ambiente Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 5a162c0683a953399b48aaf627bbff5bc674e9dd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274562"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996177"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Ripristino di emergenza per un'istanza di Database Oracle 12c in un ambiente Azure
 
@@ -100,7 +93,7 @@ Il seguente è un riepilogo della configurazione di Azure:
 - [Progettare e implementare un database Oracle in Azure](oracle-design.md)
 - [Configurare Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configurare Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Backup e ripristino di Oracle](oracle-backup-recovery.md)
+- [Backup e ripristino di Oracle](./oracle-overview.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

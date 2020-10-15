@@ -42,7 +42,7 @@ Assicurarsi che le credenziali vengano salvate correttamente con la scena e che 
 1. Quando si preme **Build** (Compila) o 'Build And Run' (Compila ed esegui), verrà richiesto di selezionare una cartella in cui archiviare la soluzione
 1. Aprire il file **Quickstart.sln** generato con Visual Studio
 1. Impostare la configurazione su **Release** e **ARM64**
-1. Impostare la modalità del debugger su **Remote Machine**\ (Computer remoto)
+1. Impostare la modalità del debugger su **Remote Machine** (Computer remoto)\
     ![Configurazione della soluzione](media/unity-deploy-config.png)
 1. Compilare la soluzione
 1. Per il progetto 'QuickStart' passare a *Properties > Debugging* (Proprietà > Debug)

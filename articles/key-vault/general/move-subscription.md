@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394738"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042406"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
 
@@ -36,6 +36,9 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 * Aggiungere nuove voci dei criteri di accesso associate al tenant B.
 
 ## <a name="limitations"></a>Limitazioni
+
+> [!IMPORTANT]
+> **Non è possibile spostare gli insiemi di credenziali delle chiavi usati per la crittografia del disco** Se si usa Key Vault con la crittografia del disco per una macchina virtuale, l'insieme di credenziali delle chiavi non può essere spostato in un gruppo di risorse diverso o in una sottoscrizione mentre è abilitata la crittografia del disco. Prima di trasferire l'insieme di credenziali delle chiavi in un nuovo gruppo di risorse o una nuova sottoscrizione, è necessario disabilitare la crittografia del disco. 
 
 Alcune entità servizio (utenti e applicazioni) sono associate a un tenant specifico. Se si sposta l'insieme di credenziali delle chiavi in una sottoscrizione in un altro tenant, è probabile che non sia possibile ripristinare l'accesso a un'entità servizio specifica. Verificare che tutte le entità servizio essenziali esistano nel tenant in cui si sta migrando l'insieme di credenziali delle chiavi.
 
@@ -72,7 +75,7 @@ Assicurarsi di passare alla pagina Criteri di Azure nella portale di Azure ed es
 
 ### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Passaggi aggiuntivi se è stato spostato Key Vault in una sottoscrizione in un nuovo tenant
 
-Se l'insieme di credenziali delle chiavi è stato spostato in una sottoscrizione di un nuovo tenant, è necessario aggiornare manualmente l'ID tenant e rimuovere i criteri di accesso precedenti. Ecco le esercitazioni per questi passaggi in PowerShell e nell'interfaccia della riga di comando di Azure. Se si usa PowerShell, potrebbe essere necessario eseguire il comando Clear-AzContext descritto di seguito per consentire di visualizzare le risorse al di fuori dell'ambito selezionato corrente. 
+Se l'insieme di credenziali delle chiavi è stato spostato in una sottoscrizione di un nuovo tenant, è necessario aggiornare manualmente l'ID tenant e rimuovere i criteri di accesso precedenti. Ecco le esercitazioni per questi passaggi in PowerShell e nell'interfaccia della riga di comando di Azure. Se si usa PowerShell, potrebbe essere necessario eseguire il comando Clear-AzContext riportato di seguito per consentire all'utente di visualizzare le risorse al di fuori dell'ambito selezionato corrente. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

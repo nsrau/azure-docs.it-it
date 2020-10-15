@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530562"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Connettersi e indicizzare il contenuto SQL di Azure usando un indicizzatore di Azure ricerca cognitiva
@@ -187,7 +187,7 @@ Se il database SQL supporta il [rilevamento delle modifiche](/sql/relational-dat
 + Nel database [abilitare il rilevamento della modifica](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
 + Nessuna chiave primaria composta, ovvero una chiave primaria che contiene più di una colonna, nella tabella.  
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
 
@@ -224,7 +224,7 @@ Questi criteri di rilevamento delle modifiche si basano su una colonna di "livel
 > [!IMPORTANT] 
 > È consigliabile usare il tipo di dati [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati nel modo seguente:
 

@@ -15,13 +15,13 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: 95c1202fb56e882554d40926e9d5ecec7be49086
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708809"
 ---
-# <a name="display-health-status-of-replication-relationship"></a>Visualizzare lo stato di integrità della relazione di replica 
+# <a name="display-health-status-of-replication-relationship"></a>Visualizzare lo stato integrità della relazione di replica 
 
 È possibile visualizzare lo stato della replica nel volume di origine o nel volume di destinazione.  
 
@@ -58,5 +58,5 @@ ms.locfileid: "90708809"
 * [Replica tra più aree](cross-region-replication-introduction.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Risolvere i problemi di replica tra aree](troubleshoot-cross-region-replication.md)
+* [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 

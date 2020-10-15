@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: f52d684d1e6ef63fdf4287c610608061f30395f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996869"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Come configurare BGP nei gateway VPN di Azure
@@ -45,7 +45,7 @@ In questa sezione viene creata e configurata una rete virtuale, viene creato e c
 
 **Diagramma 2**
 
-:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="Diagramma che mostra le impostazioni per il gateway di rete virtuale" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni" border="false":::
 
 ### <a name="1-create-and-configure-testvnet1"></a>1. creare e configurare TestVNet1
 
@@ -53,11 +53,11 @@ In questo passaggio viene creato e configurato TestVNet1. Usare la procedura des
 
 * Rete virtuale
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="TestVNet1 con prefissi di indirizzo corrispondenti":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 * Subnet:
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="Subnet TestVNet1":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 ### <a name="2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2. creare il gateway VPN per TestVNet1 con i parametri BGP
 
@@ -67,11 +67,11 @@ In questo passaggio viene creato un gateway VPN con i parametri BGP corrisponden
 
 1. Inserire i parametri come illustrato di seguito:
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="Crea VNG1":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 1. Nella sezione di **configurazione BGP** della pagina evidenziata configurare le impostazioni seguenti:
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="Configurare BGP":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
    * Selezionare **Configura BGP**  -  **abilitato** per visualizzare la sezione di configurazione BGP.
 
@@ -96,7 +96,7 @@ Una volta creato il gateway, è possibile ottenere gli indirizzi IP del peer BGP
 
 1. Passare alla risorsa gateway di rete virtuale e selezionare la pagina **configurazione** per visualizzare le informazioni di configurazione BGP, come illustrato nello screenshot seguente. In questa pagina è possibile visualizzare tutte le informazioni di configurazione BGP nel gateway VPN di Azure: ASN, indirizzo IP pubblico e gli indirizzi IP del peer BGP corrispondenti sul lato Azure (predefinito e APIPA).
 
-   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="Gateway BGP":::
+   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 1. Nella pagina **configurazione** è possibile apportare le modifiche di configurazione seguenti:
 
@@ -111,13 +111,13 @@ Per stabilire una connessione cross-premise, è necessario creare un *gateway di
 
 **Diagramma 3**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="Diagramma che mostra IPsec" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni" border="false":::
 
 ### <a name="1-configure-bgp-on-the-local-network-gateway"></a>1. configurare BGP nel gateway di rete locale
 
 In questo passaggio viene configurato BGP nel gateway di rete locale. Usare lo screenshot seguente come esempio. La schermata mostra il gateway di rete locale (Site5) con i parametri specificati nel diagramma 3.
 
-:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="Configurare BGP per il gateway di rete locale":::
+:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 #### <a name="important-configuration-considerations"></a>Considerazioni importanti sulla configurazione
 
@@ -130,7 +130,7 @@ In questo passaggio viene configurato BGP nel gateway di rete locale. Usare lo s
 
 Questo esempio usa un indirizzo APIPA (169.254.100.1) come indirizzo IP del peer BGP locale:
 
-:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="Gateway di rete locale APIPA e BGP":::
+:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 ### <a name="2-configure-a-s2s-connection-with-bgp-enabled"></a>2. configurare una connessione S2S con BGP abilitato
 
@@ -140,13 +140,13 @@ In questo passaggio viene creata una nuova connessione in cui è abilitato BGP. 
 
 Per creare una nuova connessione con BGP abilitato, nella pagina **Aggiungi connessione** compilare i valori, quindi selezionare l'opzione **Abilita BGP** per abilitare BGP sulla connessione. Selezionare **OK** per creare la connessione.
 
-:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="Connessione cross-premise IPsec con BGP":::
+:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 #### <a name="to-update-an-existing-connection"></a><a name ="update"></a>Per aggiornare una connessione esistente
 
 Se si vuole modificare l'opzione BGP in una connessione, passare alla pagina di **configurazione** della risorsa di connessione, quindi impostare l'opzione **BGP** come evidenziato nell'esempio seguente. Selezionare **Salva** per salvare le eventuali modifiche.
 
-:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="Aggiornare BGP per una connessione":::
+:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni":::
 
 ## <a name="part-3-configure-bgp-on-vnet-to-vnet-connections"></a><a name ="v2v"></a>Parte 3: configurare BGP per le connessioni da VNet a VNet
 
@@ -160,7 +160,7 @@ Per il contesto, che fa riferimento al **diagramma 4**, se BGP venisse disabilit
 
 **Diagramma 4**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Diagramma che mostra la rete completa" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Diagramma che mostra l'architettura di rete e le impostazioni" border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

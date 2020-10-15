@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
 ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598200"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurare Replica dei dati in ingresso nel database di Azure per MariaDB
@@ -65,7 +65,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
       ```bash
       mysql> SELECT @@global.redirect_server_host;
       ```
-      Di seguito è riportato un esempio di output:
+      Di seguito è riportato un output di esempio:
       ```bash 
       +-----------------------------------------------------------+
       | @@global.redirect_server_host                             |

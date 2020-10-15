@@ -14,17 +14,17 @@ ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb119ef0ffd4da4dc524c9d3c0a88b94e2251142
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423559"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Scaricare un elenco di utenti nel portale Azure Active Directory
 
 Azure Active Directory (Azure AD) supporta operazioni di importazione (creazione) dell'utente in blocco.
 
-## <a name="required-permissions"></a>Autorizzazioni richieste
+## <a name="required-permissions"></a>Autorizzazioni necessarie
 
 Per scaricare l'elenco di utenti dall'interfaccia di amministrazione di Azure AD, è necessario aver eseguito l'accesso con un utente assegnato a uno o più ruoli di amministratore a livello di organizzazione in Azure AD (l'amministratore utente è il ruolo minimo richiesto). L'invito Guest e lo sviluppatore di applicazioni non sono considerati ruoli di amministratore.
 

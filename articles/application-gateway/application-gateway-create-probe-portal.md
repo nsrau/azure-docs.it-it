@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186792"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
@@ -44,7 +44,7 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
 
 4. Nella pagina **Aggiungi Probe integrità** compilare le informazioni necessarie per il probe e, al termine, selezionare **OK**.
 
-   |**Impostazione** | **Valore** | **Dettagli**|
+   |**Impostazione** | **Valore** | **Informazioni dettagliate**|
    |---|---|---|
    |**Nome**|customProbe|Questo valore è un nome descrittivo assegnato al Probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità. |
@@ -95,7 +95,7 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
 
 4. Nel pannello **Aggiungi Probe integrità** compilare le informazioni necessarie per il probe e, al termine, selezionare **OK**.
 
-   |**Impostazione** | **Valore** | **Dettagli**|
+   |**Impostazione** | **Valore** | **Informazioni dettagliate**|
    |---|---|---|
    |**Nome**|customProbe|Questo valore è un nome descrittivo assegnato al Probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità. |

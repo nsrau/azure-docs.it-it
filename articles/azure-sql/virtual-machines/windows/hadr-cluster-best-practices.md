@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317022"
 ---
-# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle VM di Azure)
+# <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Un cluster viene usato per la disponibilità elevata e il ripristino di emergenza (HADR) con SQL Server in macchine virtuali (VM) di Azure. 
@@ -58,7 +58,7 @@ Configurare un disco condiviso di Azure come disco di controllo.
 Per iniziare, vedere [configurare un disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo.
 
 
-**Sistema operativo supportato**: tutti   
+**Sistemi operativi supportati**: Tutti   
 
 
 ### <a name="cloud-witness"></a>Cloud di controllo
@@ -68,7 +68,7 @@ Un server di controllo del mirroring è un tipo di quorum di controllo del clust
 Per iniziare, vedere [configurare un cloud](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp)di controllo.
 
 
-**Sistema operativo supportato**: Windows Server 2016 e versioni successive   
+**Sistemi operativi supportati**: Windows Server 2016 e versioni successive   
 
 
 ### <a name="file-share-witness"></a>Condivisione file di controllo
@@ -80,7 +80,7 @@ Se si intende usare una condivisione file di Azure, è possibile montarla con lo
 Per iniziare, vedere [configurare una condivisione file](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo.
 
 
-**Sistema operativo supportato**: Windows Server 2012 e versioni successive   
+**Sistemi operativi supportati**: Windows Server 2012 e versioni successive   
 
 ## <a name="connectivity"></a>Connettività
 
@@ -105,8 +105,8 @@ Si verifica un lieve ritardo di failover quando si usa il servizio di bilanciame
 
 Per iniziare, informazioni su come [configurare Azure Load Balancer per un'istanza FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
-**Sistema operativo supportato**: tutti   
-**Versione SQL supportata**: tutti   
+**Sistemi operativi supportati**: Tutti   
+**Versione di SQL supportata**: Tutti   
 **Soluzione HADR supportata**: istanza del cluster di failover e gruppo di disponibilità   
 
 
@@ -125,7 +125,7 @@ La maggior parte delle funzionalità SQL Server funziona in modo trasparente con
 
 Per iniziare, informazioni su come [configurare una risorsa DNN per un'istanza FCI](hadr-distributed-network-name-dnn-configure.md). 
 
-**Sistema operativo supportato**: Windows Server 2016 e versioni successive   
+**Sistemi operativi supportati**: Windows Server 2016 e versioni successive   
 **Versione SQL supportata**: SQL Server 2019 e versioni successive   
 **Soluzione HADR supportata**: solo istanza del cluster di failover
 
@@ -136,9 +136,9 @@ Quando si lavora con la FCI o i gruppi di disponibilità e SQL Server in macchin
 
 ### <a name="msdtc"></a>MSDTC 
 
-Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione in volumi condivisi cluster (CSV) e [azure Load Balancer standard](../../../load-balancer/load-balancer-standard-overview.md) o in macchine virtuali SQL Server che usano dischi condivisi di Azure. 
+Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019, con archiviazione in volumi condivisi del cluster e [Azure Load Balancer Standard](../../../load-balancer/load-balancer-standard-overview.md), oppure nelle VM di SQL Server che usano dischi condivisi di Azure. 
 
-In macchine virtuali di Azure, MSDTC non è supportato per Windows Server 2016 o versioni precedenti con volumi condivisi cluster, perché:
+Nelle macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 o versione precedente con volumi condivisi del cluster per i motivi seguenti:
 
 - La risorsa MSDTC in cluster non può essere configurata per usare la risorsa di archiviazione condivisa. In Windows Server 2016, se si crea una risorsa MSDTC, non verrà visualizzata alcuna risorsa di archiviazione condivisa disponibile per l'uso, anche se lo spazio di archiviazione è disponibile. Questo problema è stato risolto per Windows Server 2019.
 - Il servizio di bilanciamento del carico di base non gestisce le porte RPC.

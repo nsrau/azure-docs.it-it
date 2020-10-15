@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: Kinect, Windows, V2, Kinect di Azure, confronto, SDK, differenze, hardware, software
 ms.openlocfilehash: 0a8d399370f354524858bdd658ffd65c0494dd4d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87031576"
 ---
 # <a name="azure-kinect-and-kinect-windows-v2-comparison"></a>Confronto tra Kinect e Kinect per Windows V2 di Azure
@@ -28,11 +28,11 @@ Nella tabella seguente sono elencate le differenze di alto livello tra il kit di
 | **Sensore di movimento** | Dettagli | 3-asse accelerometro 3-giroscopio asse | accelerometro a 3 assi |
 | **Fotocamera RGB**    | Dettagli | 3840 x 2160 px @30 fps | 1920 x 1080 px @30 fps |
 | **Fotocamera di profondità**  | Metodo   | Ora del volo | Ora del volo |
-|                   | Risoluzione | 640 x 576 px @30 fps | 512 x 424 px @ 30 fps |
+|                   | Soluzione | 640 x 576 px @30 fps | 512 x 424 px @ 30 fps |
 |                   |            | 512 x 512 px @30 fps |                       |
 |                   |            | 1024x1024 px @15 fps |                       |
-| **Connettività** | Data | USB 3.1 gen 1 con tipo USB-C  | USB 3,1 gen 1|
-|  | Elettricità | ALIMENTATORE esterno o USB-C | PSU esterno |
+| **Connettività** | Dati | USB 3.1 gen 1 con tipo USB-C  | USB 3,1 gen 1|
+|  | Alimentazione | ALIMENTATORE esterno o USB-C | PSU esterno |
 |  | Sincronizzazione | Profondità & RGB interna, dispositivo esterno a dispositivo| RGB & Depth solo interno |
 | **Meccanico** | Dimensioni | 103 x 39 x 126 mm | 249 x 66 x 67 mm |
 |  | Massa | 440 g | 970 g |
@@ -57,7 +57,7 @@ La tabella seguente fornisce un confronto delle funzionalità di accesso ai sens
 | **Condividere l'accesso con più client** | | ✔️ | Azure Kinect Sensor SDK si basa su WinUSB/libUSB per accedere al dispositivo e non dispone di un servizio implementato per consentire la condivisione dell'accesso ai dispositivi con più processi |
 | **Strumento di registrazione/riproduzione del flusso** | ✔️ | ✔️ | Azure Kinect DK usa un'implementazione basata su contenitori Matroska Open Source |
 
-## <a name="features"></a>Caratteristiche
+## <a name="features"></a>Funzionalità
 
 Il set di funzionalità di Azure Kinect SDK è diverso da Kinect per Windows V2, come descritto di seguito:
 

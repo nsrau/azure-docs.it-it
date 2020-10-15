@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b0fadcc592f5dd52bf1b72dc9d5658866ffba7f4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008475"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-android-client"></a>Connettersi a desktop virtuale Windows (classico) con il client Android
@@ -37,7 +37,7 @@ Per sottoscrivere un feed:
    - Se si usa un URL, usare quello che l'amministratore ha assegnato, normalmente <https://rdweb.wvd.microsoft.com> .
    - Nel caso dell'e-mail, immetti il tuo indirizzo. Il client eseguirà la ricerca di un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato il server in modo.
 3. Toccare **AVANTI**.
-4. Specifica le credenziali quando richiesto.
+4. Specificare le credenziali quando richiesto.
    - Per **nome utente**, assegnare al nome utente l'autorizzazione per accedere alle risorse.
    - Per **password**, assegnare la password associata al nome utente.
    - È anche possibile che venga richiesto di fornire altri fattori se l'amministratore ha configurato l'autenticazione in questo modo.

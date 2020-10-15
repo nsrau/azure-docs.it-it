@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 819fe5ced6c91819c817065305a31fca456ea5c0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291844"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problemi noti/limitazioni della migrazione con l'uso della modalità ibrida
@@ -61,7 +61,7 @@ Il certificato generato dall'azione GenerateCert è un certificato autofirmato c
 
 Per impostazione predefinita, il servizio ruolo di lavoro ibrido del servizio migrazione del database di Azure viene eseguito come account di sistema locale. È possibile modificare l'account utilizzato per il servizio purché l'account utilizzato disponga delle autorizzazioni di rete. Per modificare l'account ' Esegui come ' del servizio, usare il processo seguente.
 
-1. Arrestare il servizio tramite i servizi Windows o tramite il comando Stop-Service in PowerShell.
+1. Arrestare il servizio tramite i servizi Windows o usando il comando Stop-Service in PowerShell.
 
 2. Aggiornare il servizio per l'utilizzo di un account di accesso diverso.
 

@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370828"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056719"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -21,7 +21,7 @@ Questo articolo risponde a domande comuni sul backup di macchine virtuali di Azu
 
 Quando si crea una macchina virtuale, è possibile abilitare il backup per le macchine virtuali che eseguono [sistemi operativi supportati](backup-support-matrix-iaas.md#supported-backup-actions).
 
-### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Perché il backup iniziale richiede molto tempo?
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Perché il completamento del backup iniziale richiede molto tempo?
 
 Il backup iniziale è sempre un backup completo che dipende dalle dimensioni dei dati e dal momento in cui viene elaborato il backup. <br>
 Per migliorare le prestazioni del backup, vedere [procedure consigliate](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices)per il backup; [Considerazioni sul backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [prestazioni di backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
@@ -79,7 +79,7 @@ Rimuovere il blocco e deselezionare la raccolta di punti di ripristino dal grupp
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Backup di Azure supporta dischi standard gestiti da unità SSD?
 
-Sì, backup di Azure supporta [dischi gestiti SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Sì, backup di Azure supporta [dischi gestiti SSD standard](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>È possibile eseguire il backup di una macchina virtuale con un disco con acceleratore di scrittura?
 

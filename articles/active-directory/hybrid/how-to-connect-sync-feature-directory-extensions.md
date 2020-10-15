@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662480"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Servizio di sincronizzazione Azure AD Connect: estensioni della directory
@@ -87,7 +87,7 @@ Uno degli scenari più utili consiste nell'usare questi attributi nei gruppi di 
 
    ![Screenshot con nuovi attributi visualizzati nell'interfaccia utente](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
 
-   Completare l'espressione in base ai propri requisiti. In questo esempio la regola è impostata su **(User. extension_9d98ed114c4840d298fad781915f27e4_division-EQ "Sales and marketing")**.
+   Completare l'espressione in base ai propri requisiti. In questo esempio la regola è impostata su **(User.extension_9d98ed114c4840d298fad781915f27e4_division-EQ "Sales and marketing")**.
 
 4. Dopo aver creato il gruppo, concedere Azure AD tempo per popolare i membri e quindi esaminare i membri.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
 ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284184"
 ---
 # <a name="add-configurations-to-commands-parameters"></a>Aggiungere configurazioni ai parametri dei comandi
@@ -84,7 +84,7 @@ Selezionare quindi **Salva**.
 > [!IMPORTANT]
 > Non verrà visualizzata un'opzione per configurare un parametro per accettare gli input da un catalogo esterno, a meno che non sia stato impostato l'endpoint Web nella sezione **endpoint Web** del riquadro sinistro.
 
-### <a name="try-it-out"></a>Provare questa operazione
+### <a name="try-it-out"></a>Provare il servizio
 
 Selezionare **Train** e attendere il completamento del training. Al termine del training, selezionare **test** e provare alcune interazioni.
 
@@ -103,7 +103,7 @@ Le **convalide** sono costrutti applicabili a determinati tipi di parametro che 
 Testare le convalide usando il comando **setemperature** . Usare la procedura seguente per aggiungere una convalida per il parametro **temperature** .
 
 1. Selezionare il comando **setemperature** nel riquadro sinistro.
-1. Selezionare **temperatura** nel riquadro centrale.
+1. Selezionare  **temperatura** nel riquadro centrale.
 1. Selezionare **Aggiungi una convalida** presente nel riquadro di destra.
 1. Nella finestra **nuova convalida** configurare la convalida come indicato di seguito e selezionare **Crea**.
 
@@ -112,12 +112,12 @@ Testare le convalide usando il comando **setemperature** . Usare la procedura se
     | ---- | ---- | ---- |
     | Min Value (Valore minimo) | `60` | Per i parametri number, il valore minimo che questo parametro può assumere |
     | Max Value (Valore massimo) | `80` | Per i parametri number, il valore massimo che questo parametro può assumere |
-    | Risposta non riuscita |  Editor semplice > prima variante >`Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Richiedi un nuovo valore se la convalida ha esito negativo |
+    | Risposta non riuscita |  Editor semplice > prima variante > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Richiedi un nuovo valore se la convalida ha esito negativo |
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungere una convalida dell'intervallo](media/custom-commands/add-validations-temperature.png)
 
-### <a name="try-it-out"></a>Provare questa operazione
+### <a name="try-it-out"></a>Provare il servizio
 
 1. Selezionare l'icona del **Training** presente nella parte superiore del riquadro destro.
 

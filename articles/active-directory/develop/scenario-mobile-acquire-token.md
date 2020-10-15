@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141279"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Ottenere un token per un'app per dispositivi mobili che chiama API Web
@@ -207,7 +207,7 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Parametri obbligatori in MSAL.NET
 
-`AcquireTokenInteractive`ha un solo parametro obbligatorio: `scopes` . Il `scopes` parametro enumera le stringhe che definiscono gli ambiti per i quali è richiesto un token. Se il token è per Microsoft Graph, è possibile trovare gli ambiti necessari nel riferimento all'API di ogni API Microsoft Graph. Nel riferimento passare alla sezione "autorizzazioni".
+`AcquireTokenInteractive` ha un solo parametro obbligatorio: `scopes` . Il `scopes` parametro enumera le stringhe che definiscono gli ambiti per i quali è richiesto un token. Se il token è per Microsoft Graph, è possibile trovare gli ambiti necessari nel riferimento all'API di ogni API Microsoft Graph. Nel riferimento passare alla sezione "autorizzazioni".
 
 Per [elencare i contatti dell'utente](/graph/api/user-list-contacts), ad esempio, usare l'ambito "User. Read", "Contacts. Read". Per altre informazioni, vedere le [Informazioni di riferimento per le autorizzazioni dell'API Microsoft Graph](/graph/permissions-reference).
 
@@ -225,19 +225,19 @@ Il `WithPrompt()` parametro controlla l'interattività con l'utente specificando
 
 La classe definisce le costanti seguenti:
 
-- `SelectAccount`impone al servizio token di sicurezza (STS) di presentare la finestra di dialogo di selezione dell'account. Nella finestra di dialogo sono contenuti gli account per i quali l'utente dispone di una sessione. È possibile utilizzare questa opzione quando si desidera consentire all'utente di scegliere tra identità diverse. Questa opzione consente a MSAL di inviare `prompt=select_account` al provider di identità.
+- `SelectAccount` impone al servizio token di sicurezza (STS) di presentare la finestra di dialogo di selezione dell'account. Nella finestra di dialogo sono contenuti gli account per i quali l'utente dispone di una sessione. È possibile utilizzare questa opzione quando si desidera consentire all'utente di scegliere tra identità diverse. Questa opzione consente a MSAL di inviare `prompt=select_account` al provider di identità.
 
     La `SelectAccount` costante è l'impostazione predefinita e fornisce efficacemente la migliore esperienza possibile in base alle informazioni disponibili. Le informazioni disponibili possono includere l'account, la presenza di una sessione per l'utente e così via. Non modificare questa impostazione predefinita a meno che non si disponga di un buon motivo per eseguire questa operazione.
-- `Consent`consente di richiedere il consenso dell'utente anche se è stato concesso il consenso prima. In questo caso, MSAL invia `prompt=consent` al provider di identità.
+- `Consent` consente di richiedere il consenso dell'utente anche se è stato concesso il consenso prima. In questo caso, MSAL invia `prompt=consent` al provider di identità.
 
     Potrebbe essere necessario utilizzare la `Consent` costante nelle applicazioni con stato attivo per la sicurezza, in cui la governance dell'organizzazione richiede agli utenti di visualizzare la finestra di dialogo di consenso ogni volta che viene utilizzata l'applicazione.
-- `ForceLogin`consente al servizio di richiedere all'utente le credenziali anche se il messaggio non è necessario.
+- `ForceLogin` consente al servizio di richiedere all'utente le credenziali anche se il messaggio non è necessario.
 
     Questa opzione può essere utile se l'acquisizione del token ha esito negativo e si vuole consentire all'utente di accedere di nuovo. In questo caso, MSAL invia `prompt=login` al provider di identità. Questa opzione può essere utilizzata nelle applicazioni con stato attivo per la sicurezza, in cui la governance dell'organizzazione richiede che l'utente acceda ogni volta che accede a parti specifiche dell'applicazione.
-- `Never`è solo per .NET 4,5 e Windows Runtime (WinRT). Questa costante non richiede l'intervento dell'utente, ma tenterà di usare il cookie archiviato nella visualizzazione Web incorporata nascosta. Per altre informazioni, vedere [uso di Web browser con MSAL.NET](./msal-net-web-browsers.md).
+- `Never` è solo per .NET 4,5 e Windows Runtime (WinRT). Questa costante non richiede l'intervento dell'utente, ma tenterà di usare il cookie archiviato nella visualizzazione Web incorporata nascosta. Per altre informazioni, vedere [uso di Web browser con MSAL.NET](./msal-net-web-browsers.md).
 
     Se questa opzione ha esito negativo, `AcquireTokenInteractive` genera un'eccezione per notificare che è necessaria un'interazione dell'interfaccia utente. Quindi è necessario usare un altro `Prompt` parametro.
-- `NoPrompt`non invia una richiesta al provider di identità.
+- `NoPrompt` non invia una richiesta al provider di identità.
 
     Questa opzione è utile solo per i criteri di modifica del profilo in Azure Active Directory B2C. Per altre informazioni, vedere [specifiche B2C](https://aka.ms/msal-net-b2c-specificities).
 

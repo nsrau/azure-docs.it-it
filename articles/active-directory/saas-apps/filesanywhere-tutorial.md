@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555111"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Esercitazione: Integrazione di Azure Active Directory con FilesAnywhere
 
@@ -101,7 +101,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FilesAnywhere, seguire 
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di FilesAnywhere](common/both-replyurl.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con il campo "URL di risposta" evidenziato e il pulsante "Salva" selezionato.](common/both-replyurl.png)
 
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
@@ -116,9 +116,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con FilesAnywhere, seguire 
 
 6. L'applicazione FilesAnywhere prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic sull'icona di modifica per aggiungere gli attributi.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la sezione "Attributi utente" con il pulsante "Modifica" selezionato.](common/edit-attribute.png)
 
-    Quando gli utenti si iscrivono a FilesAnywhere ricevono il valore dell'attributo **clientid** dal [team di FilesAnywhere](mailto:support@FilesAnywhere.com). È necessario aggiungere l'attributo "Client Id" con il valore univoco ricevuto da FilesAnywhere.
+    Quando gli utenti si iscrivono a FilesAnywhere ricevono il valore dell'attributo **clientid** dal [team di FilesAnywhere](mailto:support@FilesAnywhere.com). È necessario aggiungere l'attributo "Client ID" con il valore univoco ricevuto da FilesAnywhere.
 
 7. Oltre quelli elencati in precedenza, l'applicazione FilesAnywhere prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FilesAnywhere, seguire 
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot che mostra la finestra di dialogo "Attestazioni utente" con "Aggiungi nuova attestazione" e "Salva" selezionati.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555904"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775623"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Coralogix
 
@@ -95,13 +95,14 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
  1. L'applicazione Coralogix prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare il pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la finestra di dialogo "Attributi utente" con il pulsante "Modifica" evidenziato.](common/edit-attribute.png)
 
 1. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni tramite l'icona **Modifica**. È anche possibile aggiungere le attestazioni usando **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come illustrato nell'immagine precedente. Seguire quindi questa procedura:
     
     a. Selezionare l'**icona Modifica** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](./media/coralogix-tutorial/tutorial_usermail.png) ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![Screenshot che mostra la finestra di dialogo "Attributi utente e attestazioni" con il pulsante "Modifica" evidenziato.](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. Nell'elenco **Scegliere il formato per l'identificatore del nome** selezionare **Indirizzo di posta elettronica**.
 

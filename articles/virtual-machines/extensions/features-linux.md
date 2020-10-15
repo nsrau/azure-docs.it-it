@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336123"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978340"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
@@ -65,7 +65,7 @@ I pacchetti di estensioni vengono scaricati dal repository delle estensioni di A
 > [!IMPORTANT]
 > Se l'accesso a *168.63.129.16* è stato bloccato con il firewall guest, le estensioni non rispettano quanto specificato sopra.
 
-Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del gruppo di sicurezza di rete per [Archiviazione](../../virtual-network/security-overview.md#service-tags).
+Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del gruppo di sicurezza di rete per [Archiviazione](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Per reindirizzare le richieste di traffico dell'agente, l'agente Linux include il supporto del server proxy. Tuttavia, il supporto del server proxy non applica le estensioni. È necessario configurare ogni singola estensione per usare un proxy.
 
@@ -113,7 +113,7 @@ L'immagine seguente illustra l'installazione dell'estensione di script personali
 
 ![Installare l'estensione di script personalizzata](./media/features-linux/installscriptextensionlinux.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
+### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
 
 Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Il codice JSON seguente, ad esempio, è tratto da un modello di Gestione risorse che distribuisce un set di macchine virtuali con carico bilanciato e database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 

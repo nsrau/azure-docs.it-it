@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325690"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932278"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -65,7 +65,7 @@ La funzionalità per i **criteri di snapshot** è attualmente in anteprima. Se s
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-È anche possibile usare i [comandi dell'interfaccia](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` della riga di comando di Azure e `az feature show` registrare la funzionalità e visualizzare lo stato della registrazione. 
+È anche possibile usare i [comandi dell'interfaccia](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` della riga di comando di Azure e `az feature show` registrare la funzionalità e visualizzare lo stato della registrazione. 
 
 ### <a name="create-a-snapshot-policy"></a>Creare un criterio di snapshot 
 
@@ -97,7 +97,7 @@ Un criterio di snapshot consente di specificare la frequenza di creazione dello 
 
     ![Criteri snapshot mensili](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Fare clic su **Salva**.  
+4.  Fare clic su **Save**.  
 
 Se è necessario creare criteri di snapshot aggiuntivi, ripetere il passaggio 3.
 I criteri creati vengono visualizzati nella pagina Criteri snapshot.
@@ -221,6 +221,6 @@ Se è stata selezionata la casella di controllo Nascondi percorso snapshot al mo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi relativi ai criteri snapshot](troubleshoot-snapshot-policies.md)
+* [Risolvere i problemi relativi ai criteri dello snapshot](troubleshoot-snapshot-policies.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Video snapshot di Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

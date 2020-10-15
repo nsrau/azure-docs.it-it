@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: b09176ad8cb93d7710975b67de619b4f58eaa2f0
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142537"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951911"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box nel portale di Azure
 
@@ -29,7 +29,7 @@ La spedizione autogestita è disponibile come opzione quando si [ordina Azure Da
 * Singapore
 * Corea del Sud
 * India
-* Sudafrica
+* Sud Africa
 
 ## <a name="use-self-managed-shipping"></a>Usare la spedizione autogestita
 
@@ -40,8 +40,8 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 
 2. Quando si sceglie il tipo di spedizione, selezionare l'opzione **Spedizione autogestita**. Questa opzione è disponibile solo se ci si trova in una delle aree supportate, come descritto nei prerequisiti.
 
-3. Dopo aver indicato il proprio indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
-   ![Spedizione autogestita](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+3. Dopo aver indicato l'indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
+   ![Spedizione self-Managed 2](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Una volta che il dispositivo è stato preparato e si riceve una notifica tramite posta elettronica, è possibile pianificare un pickup.
 
@@ -78,7 +78,7 @@ Quando si effettua l'ordine di Data Box, è possibile scegliere l'opzione di spe
 
 9. Se è stato ricevuto un appuntamento per la consegna, l'ordine deve essere **Pronto per la ricezione presso il data center di Azure** nel portale di Azure. Per restituire il dispositivo, seguire le istruzioni in **Pianificare la consegna**.
 
-   ![Visualizzazione del codice di autorizzazione](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
+   ![Visualizzazione del codice di autorizzazione 2](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
 10. Dopo che l'ID e il codice di autorizzazione sono stati verificati e il dispositivo è stato consegnato presso il data center, lo stato dell'ordine deve essere **Ricevuto**.
 

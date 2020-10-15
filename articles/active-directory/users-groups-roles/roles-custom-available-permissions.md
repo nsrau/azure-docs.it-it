@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967690"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Autorizzazioni di registrazione dell'applicazione per i ruoli personalizzati in Azure Active Directory
@@ -117,7 +117,7 @@ Possibilità di aggiornare l'URL di risposta, l'URL di disconnessione, il flusso
 
 ![Concede l'accesso all'autenticazione per la registrazione dell'app, ma non ai tipi di conto supportati](./media/roles-custom-available-permissions/supported-account-types.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>Microsoft. directory/Applications. organizzazione/autenticazione/aggiornamento
+#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft.directory/applications.myOrganization/authentication/update
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/Authentication/Update, ma solo per le applicazioni a tenant singolo.
 
@@ -159,7 +159,7 @@ Possibilità di aggiornare le autorizzazioni delegate, le autorizzazioni dell'ap
 
 ![Questa autorizzazione concede l'accesso alla registrazione dell'app esporre una pagina API](./media/roles-custom-available-permissions/app-registration-expose-api.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>Microsoft. directory/Applications. organizzazione/autorizzazioni/aggiornamento
+#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 
 Concede le stesse autorizzazioni di Microsoft. directory/Applications/Permissions/Update, ma solo per le applicazioni a tenant singolo.
 

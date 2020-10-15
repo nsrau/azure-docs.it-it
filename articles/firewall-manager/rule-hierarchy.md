@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893723"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Usare i criteri del firewall di Azure per definire una gerarchia di regole
@@ -48,7 +48,7 @@ Creare criteri per ogni team di applicazioni:
 - Criteri del firewall del database. Il criterio firewall del database eredita i criteri di base del firewall.
 - Criteri del firewall di progettazione. Il criterio del firewall di progettazione eredita anche il criterio del firewall di base.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Gerarchia dei criteri" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Team e requisiti" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Creare ruoli personalizzati per accedere ai gruppi di raccolta regole 
 
@@ -134,9 +134,9 @@ Per elencare tutti i ruoli personalizzati, è possibile usare il comando Get-AzR
 
 È anche possibile visualizzare i ruoli personalizzati nel portale di Azure. Passare alla sottoscrizione, selezionare **controllo di accesso (IAM)**, **ruoli**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Team e requisiti":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Autorizzazione di lettura SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Team e requisiti":::
 
 Per altre informazioni, vedere [esercitazione: creare un ruolo personalizzato di Azure usando Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

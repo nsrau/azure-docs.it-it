@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936946"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
@@ -67,7 +67,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
    Questa regola di memorizzazione nella cache globale imposta una durata di un'ora per la cache e influisce su tutte le richieste per l'endpoint. Esegue l'override di qualsiasi intestazione HTTP `Cache-Control` o `Expires` inviata dal server di origine specificato dall'endpoint.   
 
-1. Seleziona **Salva**.
+1. Selezionare **Salva**.
 
 **Per configurare le intestazioni Cache-Control di un server Web tramite regole di memorizzazione nella cache personalizzate:**
 
@@ -81,7 +81,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
     La prima regola di memorizzazione nella cache personalizzata imposta una durata della cache di quattro ore per qualsiasi file nella cartella `/webfolder1` nel server di origine specificato dall'endpoint. La seconda regola esegue l'override della prima regola solo per il file `file1.txt` e imposta una durata della cache di due ore per tale file.
 
-1. Seleziona **Salva**.
+1. Selezionare **Salva**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Impostazione delle intestazioni Cache-Control tramite dei file di configurazione

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531407"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
@@ -94,7 +94,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Registrazioni singole** e quindi sulla voce dell'ID di registrazione nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
     ![Gestire le registrazioni individuali usando la scadenza del certificato secondario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -177,7 +177,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Gruppi di registrazioni** e quindi sul nome del gruppo nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
 
     Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-x509-attestation.md#x509-certificates).
 

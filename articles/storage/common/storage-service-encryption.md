@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985753"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
@@ -46,7 +46,7 @@ La tabella seguente confronta le opzioni di gestione delle chiavi per la crittog
 | Parametro di gestione delle chiavi | chiavi gestite da Microsoft | Chiavi gestite dal cliente | Chiavi fornite dal cliente |
 |--|--|--|--|
 | Operazioni di crittografia/decrittografia | Azure | Azure | Azure |
-| Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione - BLOB |
+| Servizi di archiviazione di Azure supportati | Tutti | Archiviazione BLOB, File di Azure<sup>1, 2</sup> | Archiviazione BLOB |
 | Archiviazione chiavi | Archivio chiavi Microsoft | Azure Key Vault o Key Vault HSM | Archivio chiavi personalizzato del cliente |
 | Responsabilità della rotazione delle chiavi | Microsoft | Customer | Customer |
 | Controllo chiave | Microsoft | Customer | Customer |

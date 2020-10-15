@@ -3,17 +3,17 @@ title: Concetti relativi alle sessioni di debug (anteprima)
 titleSuffix: Azure Cognitive Search
 description: Le sessioni di debug, accessibili tramite il portale di Azure, forniscono un ambiente di tipo IDE in cui è possibile identificare e correggere gli errori, convalidare le modifiche ed effettuare il push delle modifiche ai set di competenze nella pipeline di arricchimento tramite intelligenza artificiale. Le sessioni di debug sono disponibili in anteprima.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743183"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057621"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessioni di debug in Azure ricerca cognitiva
 

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272012"
 ---
 # <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta
@@ -27,8 +27,8 @@ Recupera lo stato corrente dell'offerta.
 
 |  **Nome**       |   **Descrizione**                            |  **Tipo di dati** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     Stringa     |
-|  offerId        | GUID che identifica in modo univoco l'offerta      |     Stringa     |
+|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     string     |
+|  offerId        | GUID che identifica in modo univoco l'offerta      |     string     |
 |  api-version    | Ultima versione dell'API                        |     Data       |
 |  |  |
 
@@ -130,8 +130,8 @@ Recupera lo stato corrente dell'offerta.
 |  status               | Stato del passaggio. Per l'elenco di valori possibili, vedere [Stato del passaggio](#step-status) di seguito:    |
 |  del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
 |  processPercentage    | Percentuale di completamento del passaggio                                                              |
-|  previewLinks         | *Non attualmente implementato*                                                                    |
-|  liveLinks            | *Non attualmente implementato*                                                                    |
+|  previewLinks         | *Attualmente non implementato*                                                                    |
+|  liveLinks            | *Attualmente non implementato*                                                                    |
 |  notificationEmails   | Deprecato per le offerte migrate al centro per i partner. I messaggi di posta elettronica di notifica per le offerte migrate verranno inviati al messaggio di posta elettronica specificato con le informazioni di contatto del venditore nelle impostazioni dell'account.<br><br>Per le offerte non migrate, elenco delimitato da virgole di indirizzi di posta elettronica a cui notificare lo stato di avanzamento dell'operazione        |
 |  |  |
 
@@ -152,9 +152,9 @@ Recupera lo stato corrente dell'offerta.
 |  NotStarted                  | L'offerta è nuova e non è stata attivata.                            |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.                 |
 |  In esecuzione                     | Invio dell'offerta in corso.                     |
-|  Completato                   | Invio dell'offerta completato.               |
+|  Operazione riuscita                   | Invio dell'offerta completato.               |
 |  Cancellati                    | Invio dell'offerta annullato.                           |
-|  Non riuscito                      | Invio dell'offerta non riuscito.                                 |
+|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                                 |
 |  |  |
 
 ### <a name="step-status"></a>Stato del passaggio
@@ -166,7 +166,7 @@ Recupera lo stato corrente dell'offerta.
 |  WaitingForPublisherReview   | Il passaggio è in attesa di approvazione da parte dell'editore.      |
 |  WaitingForApproval          | Il passaggio è in attesa di approvazione da parte del processo.        |
 |  Bloccato                     | Il passaggio è bloccato.                             |
-|  Rifiutata                    | Il passaggio è stato rifiutato.                            |
+|  Rifiutato                    | Il passaggio è stato rifiutato.                            |
 |  Operazione completata                    | Il passaggio è stato completato.                            |
 |  Cancellati                    | Il passaggio è stato annullato.                           |
 |  |  |

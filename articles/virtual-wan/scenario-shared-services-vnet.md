@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267483"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenario: routing ai servizi condivisi reti virtuali
@@ -28,7 +28,7 @@ Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul 
 
 **Matrice di connettività**
 
-| From             | Con:   |*Reti virtuali isolato*|*VNet condiviso*|*Rami*|
+| Da             | Con:   |*Reti virtuali isolato*|*VNet condiviso*|*Rami*|
 |---|---|---|---|---|
 |**Reti virtuali isolato**|&#8594;|                |        X        |       X      |
 |**Reti virtuali condiviso**  |&#8594;|       X        |        X        |       X      |

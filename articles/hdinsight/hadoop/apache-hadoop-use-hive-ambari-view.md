@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: cc04a891bb32ede6c7bb72a339b728642cf343ed
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207821"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
@@ -60,7 +60,7 @@ Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apac
 
     Queste istruzioni eseguono le azioni seguenti:
 
-    |. | Descrizione |
+    |Istruzione | Descrizione |
     |---|---|
     |DROP TABLE|elimina la tabella e il file di dati, qualora la tabella esista già.|
     |CREATE EXTERNAL TABLE|crea una nuova tabella "esterna" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.|
@@ -83,7 +83,7 @@ Un cluster Hadoop in HDInsight. Vedere [Guida introduttiva: Introduzione ad Apac
     È possibile utilizzare la scheda **log** per visualizzare le informazioni di registrazione create dal processo.
 
    > [!TIP]  
-   > Scaricare o salvare i risultati dalla finestra di dialogo a discesa **azioni** nella scheda **risultati** .
+   > Scaricare o salvare i risultati dalla finestra di dialogo a discesa **azioni** nella scheda  **risultati** .
 
 ### <a name="visual-explain"></a>Visual Explain
 
@@ -148,7 +148,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio, `SELECT myawesomeudf(name) FROM people;`
+Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio: `SELECT myawesomeudf(name) FROM people;`.
 
 Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDInsight, vedere gli articoli seguenti:
 

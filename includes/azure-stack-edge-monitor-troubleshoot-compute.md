@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89272142"
 ---
 In un dispositivo Azure Stack Edge in cui è configurato il ruolo di calcolo, è possibile risolvere i problemi o monitorare il dispositivo utilizzando due diversi set di comandi.
@@ -36,7 +36,7 @@ Commands:
 
 La tabella seguente contiene una breve descrizione dei comandi disponibili per `iotedge` :
 
-|.  |Descrizione |
+|.  |Description |
 |---------|---------|
 |`check`     | Eseguire controlli automatici per problemi comuni di configurazione e connettività       |
 |`list`     | Elencare i moduli         |
@@ -72,7 +72,7 @@ Commands:
 ```
 La tabella seguente contiene una breve descrizione dei comandi disponibili per `dkrdbe` :
 
-|.  |Descrizione |
+|.  |Description |
 |---------|---------|
 |`image`     | Gestire le immagini. Per rimuovere le immagini inutilizzate, usare: `dkrdbe image prune -a -f`       |
 |`images`     | Elencare le immagini         |

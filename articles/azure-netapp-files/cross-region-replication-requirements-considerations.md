@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
 ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708786"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisiti e considerazioni per l'uso della replica tra aree 
@@ -40,10 +40,10 @@ Tenere presente i requisiti e le considerazioni seguenti sull'uso della funziona
 * È possibile eliminare gli snapshot manuali nel volume di origine di una relazione di replica quando la relazione di replica è attiva o interruppe e anche dopo l'eliminazione della relazione di replica. Non è possibile eliminare gli snapshot manuali per il volume di destinazione fino a quando la relazione di replica non viene interruppe.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creazione del peering di replica](cross-region-replication-create-peering.md)
-* [Visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md)
+* [Creare il peering di replica](cross-region-replication-create-peering.md)
+* [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Risolvere i problemi di replica tra aree](troubleshoot-cross-region-replication.md)
+* [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 
 

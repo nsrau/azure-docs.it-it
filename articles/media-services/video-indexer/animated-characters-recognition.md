@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047494"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018883"
 ---
 # <a name="animated-character-detection-preview"></a>Rilevamento di caratteri animati (anteprima)
 
@@ -55,7 +55,7 @@ Poiché negli account della versione di valutazione l'integrazione Visione perso
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Connetti il tuo account di Visione personalizzata (solo account a pagamento)
 
-Se si è proprietari di un account Video Indexer a pagamento, è necessario prima connettere un account di Visione personalizzata. Se non si dispone già di un account Visione personalizzata, crearne uno. Per ulteriori informazioni, vedere [visione personalizzata](../../cognitive-services/custom-vision-service/home.md).
+Se si è proprietari di un account Video Indexer a pagamento, è necessario prima connettere un account di Visione personalizzata. Se non si dispone già di un account Visione personalizzata, crearne uno. Per ulteriori informazioni, vedere [visione personalizzata](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Entrambi gli account devono trovarsi nella stessa area. L'integrazione di Visione personalizzata non è attualmente supportata nell'area Giappone.
@@ -160,7 +160,7 @@ Seguire questa procedura per connettere l'account Visione personalizzata al Vide
 1. Connettere un account Visione personalizzata.
 
     Se si è proprietari di un account Video Indexer a pagamento, è necessario prima connettere un account di Visione personalizzata. <br/>
-    Se non si dispone già di un account Visione personalizzata, crearne uno. Per ulteriori informazioni, vedere [visione personalizzata](../../cognitive-services/custom-vision-service/home.md).
+    Se non si dispone già di un account Visione personalizzata, crearne uno. Per ulteriori informazioni, vedere [visione personalizzata](../../cognitive-services/custom-vision-service/overview.md).
 
     [Connettere l'account visione personalizzata usando l'API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Creare un modello di caratteri animati.
@@ -208,7 +208,7 @@ Vedere i caratteri animati nel file JSON generato.
 
 ## <a name="limitations"></a>Limitazioni
 
-* Attualmente, la funzionalità di identificazione dell'animazione non è supportata nell'area Asia orientale.
+* Attualmente, la funzionalità di identificazione dell'animazione non è supportata in East-Asia area.
 * I caratteri che sembrano essere piccoli o lontani nel video potrebbero non essere identificati correttamente se la qualità del video è insufficiente.
 * Si consiglia di usare un modello per set di caratteri animati, ad esempio per una serie animata.
 

@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
 ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91400809"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
@@ -79,7 +79,7 @@ Per le app per la logica che richiedono l'accesso diretto alle risorse in una re
 
 App per la logica fornisce trigger e azioni predefiniti che consentono di creare flussi di lavoro basati sulla pianificazione, consentire alle app per la logica di comunicare con altre app e servizi, controllare il flusso di lavoro attraverso le app per la logica e gestire o modificare i dati.
 
-| Nome | Descrizione |
+| Nome | Description |
 |------|-------------|
 | [![Pianificare la pianificazione del connettore ][schedule-icon]<br> **Schedule** predefinito][schedule-doc] | -Eseguire un'app per la logica in una ricorrenza specificata, da pianificazioni di base a avanzate con il trigger di [ **ricorrenza** ][schedule-recurrence-doc]. <br>-Eseguire un'app per la logica che deve gestire i dati in blocchi continui con il trigger della [ **finestra temporale scorrevole** ][schedule-sliding-window-doc]. <br>-Sospendere l'app per la logica per una durata specificata con l'azione di [ **ritardo** ][schedule-delay-doc]. <br>-Sospendere l'app per la logica fino alla data e all'ora specificate con il [ **ritardo fino** all'azione][schedule-delay-until-doc]. |
 | [![Batch connettore incorporato batch ][batch-icon]<br> **Batch**][batch-doc] | - Elaborare i messaggi in batch con il trigger **Messaggi batch**. <br>- Richiamare le app per la logica con trigger di batch esistenti tramite l'azione **Invia messaggi al batch**. |
@@ -94,7 +94,7 @@ App per la logica fornisce trigger e azioni predefiniti che consentono di creare
 
 App per la logica offre azioni predefinite per l'esecuzione di codice personalizzato nel flusso di lavoro dell'app per la logica:
 
-| Nome | Descrizione |
+| Nome | Description |
 |------|-------------|
 | [![][azure-functions-icon]<br>**Funzioni di Azure** Connector predefinite di funzioni di Azure][azure-functions-doc] | Richiamare le funzioni Azure che eseguono frammenti di codice personalizzati (C# o Node.js) dalle app per la logica. |
 | [![][inline-code-icon]<br>Codice inline connettore incorporato**del codice** inline][inline-code-doc] | Aggiungere ed eseguire frammenti di codice JavaScript dalle app per la logica. |
@@ -104,7 +104,7 @@ App per la logica offre azioni predefinite per l'esecuzione di codice personaliz
 
 App per la logica offre azioni predefinite per la strutturazione e il controllo delle azioni nel flusso di lavoro dell'app per la logica:
 
-| Nome | Descrizione |
+| Nome | Description |
 |------|-------------|
 | [![Condizione di azione incorporata ][condition-icon]<br> **della condizione**][condition-doc] | Valutare una condizione ed eseguire diverse azioni in base al fatto che la condizione sia true o false. |
 | [![Per ogni azione predefinita ][for-each-icon]<br> **per ogni** azione][for-each-doc] | Eseguire le stesse azioni su ogni elemento in una matrice. |
@@ -118,7 +118,7 @@ App per la logica offre azioni predefinite per la strutturazione e il controllo 
 
 App per la logica offre azioni predefinite per l'uso degli output dei dati e dei relativi formati:
 
-| Nome | Descrizione |
+| Nome | Description |
 |------|-------------|
 | [![][data-operations-icon]<br>**Operazioni sui dati** di azione predefinite delle operazioni dati][data-operations-doc] | Eseguire operazioni con i dati: <p>- **Componi**: crea un singolo output da più input con tipi diversi. <br>- **Crea tabella CSV**: creare una tabella CSV (valore separato da virgole) da una matrice con oggetti JSON. <br>- **Crea tabella HTML**: crea una tabella HTML da una matrice di oggetti JSON. <br>- **Filtra matrice**: creare una matrice da elementi di un'altra matrice che soddisfano i criteri specificati. <br>- **Join**: crea una stringa da tutti gli elementi in una matrice e separa gli elementi con il delimitatore specificato. <br>- **Parse JSON**: creare token semplici da proprietà e i relativi valori nel contenuto JSON in modo che sia possibile usare tali proprietà nel flusso di lavoro. <br>- **Seleziona**: crea una matrice con oggetti JSON trasformando elementi o valori in un’altra matrice ed eseguendo il mapping di tali elementi per proprietà specifiche. |
 | ![Azione predefinita data/ora][date-time-icon]<br>**Data/ora** | Eseguire operazioni con i timestamp: <p>- **Aggiungi a time**: aggiunge il numero di unità specificato a un timestamp. <br>- **Converti fuso orario**: converte un timestamp dal fuso orario di origine al fuso orario di destinazione. <br>- **Tempo corrente**: restituisce il timestamp corrente come stringa. <br>- **Recupera time futuro**: restituisce il timestamp corrente più le unità di tempo specificate. <br>- **Recupera time passato**: restituisce il timestamp corrente meno le unità di tempo specificate. <br>- **Sottrai da time**: sottrae un numero di unità di tempo da un timestamp. |
@@ -131,7 +131,7 @@ App per la logica offre azioni predefinite per l'uso degli output dei dati e dei
 
 App per la logica fornisce questi comuni connettori standard per l'automazione di attività, processi e flussi di lavoro con questi servizi o sistemi:
 
-| Nome | Descrizione |
+| Nome | Description |
 |------|-------------|
 | [![Connettore gestito del bus di servizio di Azure- ][azure-service-bus-icon]<br> **bus di servizio di Azure**][azure-service-bus-doc] | Gestire i messaggi asincroni, le sessioni e le sottoscrizioni agli argomenti con il connettore più utilizzato nelle app per la logica. |
 | [![SQL Server SQL Server Connector ][sql-server-icon]<br> **SQL Server** gestito][sql-server-doc] | Connettersi al SQL Server locale o a un database SQL di Azure nel cloud per poter gestire i record, eseguire stored procedure o eseguire query. |

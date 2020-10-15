@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5346858aa119f11ef34916b24c70c966286ab86
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336157"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089044"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Risolvere i problemi comuni di Azure Spring cloud
 
@@ -68,7 +68,7 @@ Quando si esegue il debug degli arresti anomali dell'applicazione, iniziare cont
 
 
 
-Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md).
 ::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>Nell'applicazione si verifica un uso elevato della CPU o un uso elevato della memoria
@@ -91,7 +91,7 @@ Per altre informazioni, vedere [metriche per il cloud Spring di Azure](spring-cl
 
 Se tutte le istanze sono in esecuzione, passare ad Azure Log Analytics per eseguire una query sui log dell'applicazione ed esaminare la logica del codice. Ciò consentirà di verificare se uno di essi potrebbe influire sul partizionamento di ridimensionamento. Per altre informazioni, vedere [analizzare i log e le metriche con le impostazioni di diagnostica](diagnostic-services.md).
 
-Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Eseguire una query sui log usando il [linguaggio di query kusto](https://docs.microsoft.com/azure/kusto/query/).
+Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md). Eseguire una query sui log usando il [linguaggio di query kusto](/azure/kusto/query/).
 
 ::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Elenco di controllo per la distribuzione dell'applicazione Spring nel cloud Spring di Azure
@@ -113,14 +113,14 @@ Prima di eseguire l'onboarding dell'applicazione, verificare che soddisfi i crit
 
 Quando si configura un'istanza del servizio cloud di Azure Spring usando il portale di Azure, Azure Spring cloud esegue automaticamente la convalida.
 
-Tuttavia, se si tenta di configurare l'istanza del servizio cloud Spring di Azure usando l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) o il [modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), verificare che:
+Tuttavia, se si tenta di configurare l'istanza del servizio cloud Spring di Azure usando l'interfaccia della riga di comando di [Azure](/cli/azure/get-started-with-azure-cli) o il [modello di Azure Resource Manager](../azure-resource-manager/index.yml), verificare che:
 
 * La sottoscrizione è attiva.
 * Il percorso è [supportato](spring-cloud-faq.md) dal cloud Spring di Azure.
 * Il gruppo di risorse per l'istanza è già stato creato.
 * Il nome della risorsa è conforme alla regola di denominazione. Deve contenere solo lettere minuscole, numeri e trattini. Il primo carattere deve essere una lettera. L'ultimo carattere deve essere una lettera o un numero. Il valore deve contenere da 2 a 32 caratteri.
 
-Se si vuole configurare l'istanza del servizio cloud Spring di Azure usando il modello di Gestione risorse, vedere prima di tutto come [comprendere la struttura e la sintassi dei modelli Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+Se si vuole configurare l'istanza del servizio cloud Spring di Azure usando il modello di Gestione risorse, vedere prima di tutto come [comprendere la struttura e la sintassi dei modelli Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Il nome dell'istanza del servizio cloud di Azure Spring verrà usato per richiedere un nome di sottodominio in `azureapps.io` , pertanto l'installazione avrà esito negativo se il nome è in conflitto con uno esistente. È possibile trovare altri dettagli nei log attività.
 
@@ -129,7 +129,7 @@ Il nome dell'istanza del servizio cloud di Azure Spring verrà usato per richied
 
 Non è possibile caricare un file con *estensione zip* per un'app Steeltoe .NET Core usando il portale di Azure o il modello di gestione risorse.
 
-Quando si distribuisce il pacchetto dell'applicazione usando l' [interfaccia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)della riga di comando di Azure, l'interfaccia della riga di comando di Azure esegue periodicamente il polling dello stato della distribuzione e, alla fine, Visualizza il risultato della distribuzione.
+Quando si distribuisce il pacchetto dell'applicazione usando l' [interfaccia](/cli/azure/get-started-with-azure-cli)della riga di comando di Azure, l'interfaccia della riga di comando di Azure esegue periodicamente il polling dello stato della distribuzione e, alla fine, Visualizza il risultato della distribuzione.
 
 Assicurarsi che l'applicazione sia in pacchetto nel formato di file *zip* corretto. Se il pacchetto non viene inserito correttamente, il processo smette di rispondere o viene visualizzato un messaggio di errore.
 ::: zone-end
@@ -139,7 +139,7 @@ Assicurarsi che l'applicazione sia in pacchetto nel formato di file *zip* corret
 
 Non è possibile caricare il pacchetto di file di archivio Java (JAR)/Source usando il portale di Azure o il modello di Gestione risorse.
 
-Quando si distribuisce il pacchetto dell'applicazione usando l' [interfaccia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)della riga di comando di Azure, l'interfaccia della riga di comando di Azure esegue periodicamente il polling dello stato della distribuzione e, alla fine, Visualizza il risultato della distribuzione.
+Quando si distribuisce il pacchetto dell'applicazione usando l' [interfaccia](/cli/azure/get-started-with-azure-cli)della riga di comando di Azure, l'interfaccia della riga di comando di Azure esegue periodicamente il polling dello stato della distribuzione e, alla fine, Visualizza il risultato della distribuzione.
 
 Se il polling viene interrotto, è comunque possibile usare il comando seguente per recuperare i log di distribuzione:
 
@@ -153,7 +153,7 @@ Assicurarsi che l'applicazione sia in pacchetto nel [formato jar eseguibile](htt
 
 Non è possibile caricare il pacchetto JAR/Source usando il portale di Azure o il modello di Gestione risorse.
 
-Quando si distribuisce il pacchetto dell'applicazione usando l' [interfaccia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)della riga di comando di Azure, l'interfaccia della riga di comando di Azure esegue periodicamente il polling dello stato della distribuzione e, alla fine, Visualizza il risultato della distribuzione.
+Quando si distribuisce il pacchetto dell'applicazione usando l' [interfaccia](/cli/azure/get-started-with-azure-cli)della riga di comando di Azure, l'interfaccia della riga di comando di Azure esegue periodicamente il polling dello stato della distribuzione e, alla fine, Visualizza il risultato della distribuzione.
 
 Se il polling viene interrotto, è comunque possibile usare il comando seguente per recuperare i log di progettazione e distribuzione:
 
@@ -171,7 +171,7 @@ Se si esegue la migrazione di una soluzione basata su cloud Spring esistente ad 
 
 È anche possibile controllare i log del client _del registro di sistema del servizio_ in Azure log Analytics. Per altre informazioni, vedere [analizzare i log e le metriche con le impostazioni di diagnostica](diagnostic-services.md)
 
-Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). Eseguire una query sui log usando il [linguaggio di query kusto](https://docs.microsoft.com/azure/kusto/query/).
+Per altre informazioni su Azure Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md). Eseguire una query sui log usando il [linguaggio di query kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Si vuole esaminare le variabili di ambiente dell'applicazione
 
@@ -231,7 +231,7 @@ Verificare `spring-boot-actuator` che la dipendenza sia abilitata nel pacchetto 
 </dependency>
 ```
 
-Se i log dell'applicazione possono essere archiviati in un account di archiviazione ma non inviati ad Azure Log Analytics, verificare se [l'area di lavoro è stata impostata correttamente](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Se si usa un livello gratuito di Azure Log Analytics, si noti che [il livello gratuito non fornisce un contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Se i log dell'applicazione possono essere archiviati in un account di archiviazione ma non inviati ad Azure Log Analytics, verificare se [l'area di lavoro è stata impostata correttamente](../azure-monitor/learn/quick-create-workspace.md). Se si usa un livello gratuito di Azure Log Analytics, si noti che [il livello gratuito non fornisce un contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 ::: zone-end
 
 ## <a name="next-steps"></a>Passaggi successivi

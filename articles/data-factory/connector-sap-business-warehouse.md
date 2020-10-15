@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87534380"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
@@ -57,7 +57,7 @@ Per usare il connettore SAP Business Warehouse, è necessario:
 >- Tutte le librerie di dipendenza estratte da NetWeaver RFC SDK siano disponibili nella cartella %windir%\system32. In genere la cartella contiene icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
 >- Le porte necessarie per la connessione al server SAP siano abilitate nel computer del runtime di integrazione self-hosted. In genere sono le porte 3300 e 3201.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -183,9 +183,9 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | ACCP | Int |
 | CHAR | string |
 | CLNT | string |
-| CURR | Decimal |
+| CURR | Decimale |
 | CUKY | string |
-| DEC | Decimal |
+| DEC | Decimale |
 | FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
@@ -194,7 +194,7 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | LCHR | string |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Decimal |
+| QUAN | Decimale |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | string |

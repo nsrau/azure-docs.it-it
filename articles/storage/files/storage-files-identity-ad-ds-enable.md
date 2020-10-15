@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: b125ae506a9811b8e80a9114e31effc1933c114d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 732f143c9cdc0d8fbfdcf1b24f5e73280e036285
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821211"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042616"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: abilitare l'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure 
 
@@ -32,7 +32,7 @@ I cmdlet nel modulo AzFilesHybrid di PowerShell effettuano le modifiche necessar
 - Installare ed eseguire il modulo in un dispositivo che è aggiunto a un dominio ad DS locale con le credenziali di servizi di dominio Active Directory che dispongono delle autorizzazioni per creare un account di accesso al servizio o un account computer nell'annuncio di destinazione.
 -  Eseguire lo script con una credenziale AD DS locale sincronizzata con la Azure AD. Le credenziali di servizi di dominio Active Directory locali devono avere il proprietario dell'account di archiviazione o le autorizzazioni del ruolo di Azure collaboratore.
 
-### <a name="run-join-azstorageaccountforauth"></a>Eseguire join-AzStorageAccountForAuth
+### <a name="run-join-azstorageaccountforauth"></a>Esegui Join-AzStorageAccountForAuth
 
 Il `Join-AzStorageAccountForAuth` cmdlet esegue l'equivalente di un join di dominio offline per conto dell'account di archiviazione specificato. Lo script usa il cmdlet per creare un [account computer](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) nel dominio ad. Se per qualsiasi motivo non è possibile utilizzare un account computer, è possibile modificare lo script per creare un [account di accesso al servizio](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) . Se si sceglie di eseguire il comando manualmente, è necessario selezionare l'account più appropriato per l'ambiente in uso.
 
@@ -74,7 +74,7 @@ Join-AzStorageAccountForAuth `
         -StorageAccountName $StorageAccountName `
         -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" <# Default is set as ComputerAccount #> `
         -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" <# If you don't provide the OU name as an input parameter, the AD identity that represents the storage account is created under the root directory. #> `
-        -EncryptionType "<AES,RC4/AES/RC4>" <# Specify the encryption agorithm used for Kerberos authentication. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption. #>
+        -EncryptionType "<AES256/RC4/AES256,RC4>" <# Specify the encryption agorithm used for Kerberos authentication. Default is configured as "'RC4','AES256'" which supports both 'RC4' and 'AES256' encryption. #>
 
 #Run the command below if you want to enable AES 256 authentication. If you plan to use RC4, you can skip this step.
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
@@ -132,7 +132,7 @@ Set-AzStorageAccount `
 
 ### <a name="debugging"></a>Debug
 
-È possibile eseguire il cmdlet debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella versione AzFilesHybrid v 0.1.2+. Per ulteriori informazioni sui controlli eseguiti in questo cmdlet, vedere [non è possibile montare file di Azure con le credenziali di Active Directory](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) nella Guida alla risoluzione dei problemi di Windows.
+È possibile eseguire il cmdlet Debug-AzStorageAccountAuth per condurre un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella versione AzFilesHybrid v 0.1.2+. Per ulteriori informazioni sui controlli eseguiti in questo cmdlet, vedere [non è possibile montare file di Azure con le credenziali di Active Directory](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) nella Guida alla risoluzione dei problemi di Windows.
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose

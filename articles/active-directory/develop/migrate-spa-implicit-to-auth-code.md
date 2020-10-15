@@ -13,10 +13,10 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev
 ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87027088"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Eseguire la migrazione di un'app a pagina singola JavaScript da una concessione implicita al flusso del codice di autorizzazione
@@ -48,11 +48,11 @@ Seguire questa procedura per le registrazioni app che sono attualmente configura
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Banner di avviso del flusso implicito nel riquadro dell'app Web nel portale di Azure":::
 1. Selezionare *solo* gli URI di reindirizzamento le cui applicazioni useranno MSAL.js 2.x e quindi selezionare **Configura**.
 
-    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Riquadro di selezione degli URI di reindirizzamento nel riquadro dell'applicazione a pagina singola nel portale di Azure":::
+    :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Banner di avviso del flusso implicito nel riquadro dell'app Web nel portale di Azure":::
 
 Questi URI di reindirizzamento verranno ora visualizzati nel riquadro della piattaforma di tipo **applicazione a pagina singola**, che mostra che il supporto CORS con il flusso del codice di autorizzazione e PKCE sono abilitati per questi URI.
 
-:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Riquadro dell'applicazione a pagina singola nella registrazione app del portale di Azure":::
+:::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Banner di avviso del flusso implicito nel riquadro dell'app Web nel portale di Azure":::
 
 È anche possibile [creare una nuova registrazione app](scenario-spa-app-registration.md) invece di aggiornare gli URI di reindirizzamento nella registrazione esistente.
 

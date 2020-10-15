@@ -4,10 +4,10 @@ description: Vengono descritti gli argomenti personalizzati in griglia di eventi
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 8f48824989c8ec51b766385188ad99e9e59cf621
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86113786"
 ---
 # <a name="custom-topics-in-azure-event-grid"></a>Argomenti personalizzati in griglia di eventi di Azure
@@ -15,7 +15,7 @@ Un argomento di griglia di eventi fornisce un endpoint in cui l'origine invia ev
 
 Gli **argomenti personalizzati** sono argomenti dell'applicazione e di terze parti. Quando l'utente crea o gli viene assegnato l'accesso a un argomento personalizzato, tale argomento personalizzato viene visualizzato nella sottoscrizione. 
 
-Quando si progetta l'applicazione, è possibile decidere il numero di argomenti da creare. Per le soluzioni di grandi dimensioni, creare un **argomento personalizzato** per **ogni categoria di eventi correlati**. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica di account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori di eventi di sottoscrivere all'argomento di interesse. Per le soluzioni di dimensioni ridotte, è preferibile inviare tutti gli eventi a un singolo argomento. I sottoscrittori di eventi possono filtrare in base ai tipi di eventi desiderati.
+Quando si progetta l'applicazione, è possibile decidere il numero di argomenti da creare. Per le soluzioni di grandi dimensioni, creare un **argomento personalizzato** per **ogni categoria di eventi correlati**. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica degli account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori eventi di sottoscrivere l'argomento di interesse. Per le soluzioni di dimensioni ridotte, è preferibile inviare tutti gli eventi a un singolo argomento. I sottoscrittori di eventi possono filtrare in base ai tipi di eventi desiderati.
 
 ## <a name="event-schema"></a>Schema di eventi
 Per una panoramica dettagliata dello schema di eventi, vedere [schema di eventi di griglia di eventi di Azure](event-schema.md). Per gli argomenti personalizzati, l'autore di eventi determina l'oggetto **dati** . I dati di livello principale devono contenere gli stessi campi degli eventi standard definiti dalle risorse.

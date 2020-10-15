@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87003322"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Viste di database di Azure blockchain Workbench
@@ -27,7 +27,7 @@ Questa sezione include una panoramica delle viste di database e dei dati che con
 
 Questa vista fornisce informazioni dettagliate sulle **applicazioni** che sono state caricate in Azure Blockchain Workbench.
 
-| Nome                             | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
+| Nome                             | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
 |----------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                    | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName                  | nvarchar(50)  | No          | Nome dell'applicazione |
@@ -48,7 +48,7 @@ Questa vista fornisce informazioni dettagliate sui ruoli definiti nelle applicaz
 
 In un'applicazione di *trasferimento di asset*, ad esempio, è possibile definire ruoli come *Acquirente* e *Venditore*.
 
-| Nome                   | Tipo             | Può essere Null | Descrizione                                       |
+| Nome                   | Type             | Può essere Null | Descrizione                                       |
 |------------------------|------------------|-------------|---------------------------------------------------|
 | ApplicationId          | int              | No          | Identificatore univoco dell'applicazione           |
 | ApplicationName        | nvarchar(50)     | No          | Nome dell'applicazione                       |
@@ -64,7 +64,7 @@ Questa vista fornisce informazioni dettagliate sui ruoli definiti nelle applicaz
 
 In un'applicazione di *trasferimento degli asset*, ad esempio, *John Smith* può essere associato al ruolo *Acquirente*.
 
-| Nome                       | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                           |
+| Nome                       | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                           |
 |----------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId              | int           | No          | Identificatore univoco dell'applicazione                                                                                                                                                                                               |
 | ApplicationName            | nvarchar(50)  | No          | Nome dell'applicazione                                                                                                                                                                                                           |
@@ -87,7 +87,7 @@ Questa vista fornisce informazioni dettagliate sulle connessioni definite in Azu
 -   Informazioni dettagliate sui libri mastri associati
 -   Informazioni sugli utenti associati
 
-| Nome                     | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                           |
+| Nome                     | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                           |
 |--------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConnectionId             | int           | No          | Identificatore univoco di una connessione in Azure Blockchain Workbench |
 | ConnectionEndpointUrl    | nvarchar(50)  | No          | URL dell'endpoint per una connessione |
@@ -112,7 +112,7 @@ Questa vista fornisce informazioni dettagliate sui contratti distribuiti. Per og
 -   Informazioni dettagliate sull'utente che ha avviato l'azione
 -   Informazioni dettagliate correlate al blocco e alla transazione della blockchain
 
-| Nome                                     | Tipo           | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
+| Nome                                     | Type           | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
 |------------------------------------------|----------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConnectionId                             | int            | No          | Identificatore univoco di una connessione in Azure Blockchain Workbench.                                                                                                                                                                                         |
 | ConnectionEndpointUrl                    | nvarchar(50)   | No          | URL dell'endpoint per una connessione |
@@ -153,7 +153,7 @@ Questa vista rappresenta la maggior parte delle informazioni correlate ad azioni
 -   Informazioni dettagliate sull'utente che ha avviato l'azione
 -   Informazioni dettagliate correlate al blocco e alla transazione della blockchain
 
-| Nome                                     | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                                                                                                    |
+| Nome                                     | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                                                                                                    |
 |------------------------------------------|---------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                            | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName                          | nvarchar(50)  | No          | Nome dell'applicazione |
@@ -212,7 +212,7 @@ Questa vista rappresenta la maggior parte delle informazioni correlate alle prop
 -   Valori di istanza specifici per le proprietà
 -   Informazioni dettagliate per la proprietà di stato del contratto
 
-| Nome                               | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                                                                        |
+| Nome                               | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName                    | nvarchar(50)  | No          | Nome dell'applicazione |
@@ -252,7 +252,7 @@ Questa vista rappresenta la maggior parte delle informazioni correlate allo stat
 -   Definizione della proprietà del contratto intelligente associata
 -   Informazioni dettagliate per la proprietà di stato del contratto
 
-| Nome                               | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                                                                        |
+| Nome                               | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName                    | nvarchar(50)  | No          | Nome dell'applicazione |
@@ -287,7 +287,7 @@ Questa vista rappresenta la maggior parte delle informazioni correlate allo stat
 
 Questa visualizzazione fornisce informazioni dettagliate sui membri del consorzio di cui viene effettuato il provisioning per l'uso di Azure Blockchain Workbench. Per impostazione predefinita, i dati vengono popolati tramite il provisioning iniziale dell'utente.
 
-| Nome               | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                               |
+| Nome               | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                 | int           | No          | Identificatore univoco di un utente |
 | ExternalID         | nvarchar(255) | No          | Identificatore esterno di un utente. Per impostazione predefinita, questo ID è il GUID che rappresenta l'ID Azure Active Directory per l'utente. |
@@ -304,7 +304,7 @@ Questa vista rappresenta informazioni dettagliate sui metadati del flusso di lav
 -   Definizione del flusso di lavoro associato
 -   Informazioni sullo stato iniziale del flusso di lavoro associato
 
-| Nome                              | Tipo          | Può essere Null | Descrizione                                                                                                                                |
+| Nome                              | Type          | Può essere Null | Descrizione                                                                                                                                |
 |-----------------------------------|---------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                     | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName                   | nvarchar(50)  | No          | Nome dell'applicazione |
@@ -331,7 +331,7 @@ Questa vista rappresenta informazioni dettagliate sui metadati del flusso di lav
 -   Definizione del flusso di lavoro associato
 -   Dettagli della funzione del flusso di lavoro
 
-| Nome                                 | Tipo          | Può essere Null | Descrizione                                                                          |
+| Nome                                 | Type          | Può essere Null | Descrizione                                                                          |
 |--------------------------------------|---------------|-------------|--------------------------------------------------------------------------------------|
 | ApplicationId                        | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName                      | nvarchar(50)  | No          | Nome dell'applicazione |
@@ -360,7 +360,7 @@ Questa vista rappresenta le proprietà definite per un flusso di lavoro. Per ogn
 -   Definizione del flusso di lavoro associato
 -   Dettagli della proprietà del flusso di lavoro
 
-| Nome                         | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
+| Nome                         | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName              | nvarchar(50)  | No          | Nome dell'applicazione |
@@ -387,7 +387,7 @@ Questa vista rappresenta le proprietà associate a un flusso di lavoro. Per ogni
 -   Definizione del flusso di lavoro associato
 -   Informazioni sullo stato del flusso di lavoro
 
-| Nome                         | Tipo          | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
+| Nome                         | Type          | Può essere Null | Descrizione                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | No          | Identificatore univoco dell'applicazione |
 | ApplicationName              | nvarchar(50)  | No          | Nome dell'applicazione |

@@ -4,10 +4,10 @@ description: Informazioni su come backup di Azure offre una semantica di tipo na
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378441"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure

@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281388"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari semplifica la gestione e il monitoraggio di un cluster Apache Hadoop. Questa semplificazione viene eseguita offrendo un'interfaccia utente Web e un'API REST di facile utilizzo. Ambari è incluso nei cluster HDInsight e viene usato per monitorare il cluster e apportare modifiche alla configurazione.
+Apache Ambari semplifica la gestione e il monitoraggio di un cluster Apache Hadoop. Questa semplificazione viene eseguita offrendo un'interfaccia utente Web e un'API REST di facile utilizzo. Ambari è incluso nei cluster HDInsight e viene usato per monitorare il cluster e apportare modifiche di configurazione.
 
 Questo documento spiega come usare l'interfaccia utente Web Ambari con un cluster HDInsight.
 
@@ -58,7 +58,7 @@ Quando si apre la pagina, si noti la barra in alto, che contiene le informazioni
 |Servizi|Informazioni e impostazioni di configurazione per i servizi nel cluster.|
 |Hosts|Impostazioni di configurazione e informazioni per i nodi nel cluster.|
 |Avvisi|Log di informazioni, avvisi e avvisi critici.|
-|Amministrativi|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
+|Amministratore|Stack di software/servizi installati nel cluster, informazioni sull'account del servizio e sicurezza Kerberos.|
 |Pulsante amministratore|Gestione Ambari, impostazioni utente e disconnessione.|
 
 ## <a name="monitoring"></a>Monitoraggio
@@ -161,7 +161,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
     |Riavvia tutti i componenti|Arrestare e avviare tutti i componenti nell'host.|
     |Attiva modalità manutenzione|Disattiva gli avvisi per l'host. Questa modalità deve essere abilitata se si stanno eseguendo azioni che generano avvisi. come l'arresto e l'avvio di un servizio.|
     |Disattivare la modalità di manutenzione|Restituisce l'host agli avvisi normali.|
-    |Arresto|Arresta dataNode o NodeManagers nell'host.|
+    |Interrompere|Arresta dataNode o NodeManagers nell'host.|
     |Avvio|Avvia dataNode o NodeManagers nell'host.|
     |Riavvia|Arresta e avvia dataNode o NodeManagers nell'host.|
     |Rimozione delle autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|

@@ -64,8 +64,14 @@
           href: ./hdinsight-capacity-planning.md
         - name: Procedure consigliate per la gestione dei cluster
           href: ./cluster-management-best-practices.md
-        - name: Disponibilità e affidabilità
-          href: ./hdinsight-high-availability-linux.md
+        - name: Continuità aziendale
+          items:
+            - name: Panoramica sulla continuità aziendale
+              href: hdinsight-business-continuity.md
+            - name: Architettura per la continuità aziendale
+              href: ./hdinsight-business-continuity-architecture.md
+            - name: Case study sulla disponibilità elevata
+              href: ./hdinsight-high-availability-case-study.md
         - name: Informazioni sulle identità gestite
           href: ./hdinsight-managed-identities.md
         - name: Confrontare le opzioni di archiviazione
@@ -100,12 +106,16 @@
               iconUrl: null
         - name: Usare l'archiviazione cluster
           items:
-            - name: Uso di Archiviazione di Azure
+            - name: Usare Archiviazione di Azure
               href: hdinsight-hadoop-use-blob-storage.md
-            - name: Uso di Azure Data Lake Storage Gen2
+            - name: Usare Data Lake Storage Gen2
               href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-            - name: Uso di Azure Data Lake Storage Gen1
-              href: hdinsight-hadoop-use-data-lake-store.md
+            - name: Usare Data Lake Storage Gen2 nel portale
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+            - name: Usare Data Lake Storage Gen2 con l'interfaccia della riga di comando di Azure
+              href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+            - name: Usare Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-storage-gen1.md
         - name: Estendere i cluster
           items:
             - name: Installare app HDInsight
@@ -757,6 +767,8 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Linee guida per il ridimensionamento
           href: ./interactive-query/sizing-guidelines.md
+        - name: Replica hive
+          href: ./interactive-query/apache-hive-replication.md
     - name: Guide pratiche
       items:
         - name: Sviluppo

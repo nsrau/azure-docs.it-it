@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450269"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gestire gli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
@@ -145,13 +145,13 @@ Il vantaggio principale di questa opzione è dato dalla possibilità di aggiorna
 
 Lo svantaggio principale consiste invece nella necessità di una doppia ridondanza per ogni componente dell'applicazione, con un conseguente aumento dei costi e un flusso di lavoro più complesso.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I due metodi di aggiornamento descritti nell'articolo differiscono in termini di complessità e di costi, ma sono entrambi finalizzati a ridurre il periodo di tempo in cui gli utenti possono eseguire solo operazioni di sola lettura. Questo periodo di tempo viene definito direttamente dalla durata dello script di aggiornamento. Non dipende dalle dimensioni del database, dal livello di servizio scelto, dalla configurazione del sito Web o da altri fattori difficilmente controllabili. Tutti i passaggi di preparazione sono separati dalle operazioni di aggiornamento e non hanno alcun impatto sull'applicazione di produzione. L'efficienza dello script di aggiornamento è un fattore determinante per l'esperienza degli utenti durante gli aggiornamenti. Il modo ottimale per migliorare questa esperienza consiste quindi nel concentrare gli sforzi sullo script di aggiornamento, per renderlo il più efficiente possibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 * Per informazioni sulla replica geografica attiva del database SQL di Azure, vedere [creare database secondari leggibili usando la replica geografica attiva](active-geo-replication-overview.md).
 * Per altre informazioni sui gruppi di failover del database SQL di Azure, vedere [Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database](auto-failover-group-overview.md).
 * Per altre informazioni sugli ambienti di gestione temporanea nel Servizio app di Azure, vedere [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/deploy-staging-slots.md).

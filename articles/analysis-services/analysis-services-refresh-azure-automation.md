@@ -6,18 +6,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448600"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019138"
 ---
 # <a name="refresh-with-azure-automation"></a>Eseguire l'aggiornamento con Automazione di Azure
 
 Usando automazione di Azure e manuali operativi di PowerShell, è possibile eseguire operazioni automatiche di aggiornamento dei dati nei modelli tabulari di Azure Analysis.  
 
-L'esempio in questo articolo usa il [modulo di PowerShell SqlServer](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
+L'esempio in questo articolo usa il [modulo di PowerShell SqlServer](/powershell/module/sqlserver/?view=sqlserver-ps). Un esempio di Runbook di PowerShell, che illustra l'aggiornamento di un modello, è disponibile più avanti in questo articolo.  
 
 ## <a name="authentication"></a>Authentication
 
@@ -161,7 +161,7 @@ Corpo JSON di esempio:
 
 Questi parametri sono definiti nello script di PowerShell Runbook.  Quando viene eseguita l'attività Web, il payload JSON passato è WEBHOOKDATA.
 
-Questa operazione viene deserializzata e archiviata come parametri PowerShell, che vengono quindi usati dal comando di PowerShell Invoke-ProcesASDatabase.
+Questa operazione viene deserializzata e archiviata come parametri PowerShell, che vengono quindi usati dal comando Invoke-ProcesASDatabase PowerShell.
 
 ![Webhook deserializzato](./media/analysis-services-refresh-azure-automation/20.png)
 
@@ -226,4 +226,4 @@ else
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Esempi](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

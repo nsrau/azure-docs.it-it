@@ -3,12 +3,12 @@ title: Funzioni modello-stringa
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per operare con le stringhe.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962068"
+ms.locfileid: "91874714"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funzioni di stringa per i modelli ARM
 
@@ -27,6 +27,7 @@ Gestione risorse fornisce le funzioni seguenti per l'uso delle stringhe nei mode
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -55,7 +56,7 @@ Restituisce la rappresentazione base64 della stringa di input.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputString |Sì |string |Il valore da restituire come rappresentazione base64. |
 
@@ -250,7 +251,7 @@ Combina più valori stringa e restituisce la stringa concatenata oppure combina 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |Stringa o matrice |Prima stringa o matrice per la concatenazione. |
 | argomenti aggiuntivi |No |Stringa o matrice |Stringhe o matrici aggiuntive in ordine sequenziale per la concatenazione. |
@@ -340,7 +341,7 @@ Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
 | itemToFind |Sì |stringa o numero intero |Valore da trovare. |
@@ -421,7 +422,7 @@ Converte un valore in un URI di dati.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Sì |string |Valore da convertire in un URI di dati. |
 
@@ -476,7 +477,7 @@ Converte un valore formattato come URI di dati in una stringa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Sì |string |Valore dell'URI di dati da convertire. |
 
@@ -531,7 +532,7 @@ Determina se una matrice, un oggetto o una stringa sono vuoti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sì |matrice, oggetto o stringa |Valore per verificare se è vuoto. |
 
@@ -596,7 +597,7 @@ Determina se una stringa termina con un valore. Il confronto non fa distinzione 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
 | stringToFind |Sì |string |Valore da trovare. |
@@ -662,7 +663,7 @@ Restituisce il primo carattere della stringa o il primo elemento della matrice.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
@@ -714,7 +715,7 @@ Crea una stringa formattata dai valori di input.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | formatString | Sì | string | Stringa di formato composito. |
 | arg1 | Sì | stringa, Integer o booleano | Valore da includere nella stringa formattata. |
@@ -771,7 +772,7 @@ Crea un valore con il formato di un identificatore univoco globale in base ai va
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Sì |string |Il valore usato nella funzione hash per creare il GUID. |
 | parametri aggiuntivi in base alle esigenze |No |string |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
@@ -842,7 +843,7 @@ Restituisce la prima posizione di un valore all'interno di una stringa. Il confr
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
 | stringToFind |Sì |string |Valore da trovare. |
@@ -895,6 +896,12 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
+## <a name="json"></a>json
+
+`json(arg1)`
+
+Converte una stringa JSON valida in un tipo di dati JSON. Per altre informazioni, vedere [funzione JSON](template-functions-object.md#json).
+
 ## <a name="last"></a>last
 
 `last (arg1)`
@@ -903,7 +910,7 @@ Restituisce il primo carattere della stringa o l'ultimo elemento della matrice.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
@@ -955,7 +962,7 @@ Restituisce l'ultima posizione di un valore all'interno di una stringa. Il confr
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
 | stringToFind |Sì |string |Valore da trovare. |
@@ -1016,7 +1023,7 @@ Restituisce il numero di caratteri in una stringa, elementi in una matrice o pro
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |Array, String o Object |Matrice da usare per ottenere il numero di elementi, la stringa da usare per ottenere il numero di caratteri o l'oggetto da usare per ottenere il numero di proprietà a livello di radice. |
 
@@ -1191,7 +1198,7 @@ Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a si
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sì |stringa o numero intero |Il valore per eseguire l'allineamento a destra. |
 | totalLength |Sì |INT |Numero totale di caratteri della stringa restituita. |
@@ -1241,7 +1248,7 @@ Restituisce una nuova stringa con tutte le istanze di una stringa sostituita con
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalString |Sì |string |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
 | oldString |Sì |string |Stringa da rimuovere dalla stringa originale. |
@@ -1294,7 +1301,7 @@ Restituisce una stringa con tutti i caratteri dopo il numero specificato di cara
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
 | numberToSkip |Sì |INT |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se è maggiore della lunghezza della matrice o della stringa, viene restituita una matrice o una stringa vuota. |
@@ -1362,7 +1369,7 @@ Restituisce una matrice di stringhe che contiene le sottostringhe della stringa 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | inputString |Sì |string |Stringa da dividere. |
 | delimiter |Sì |Stringa o matrice di stringhe |Il delimitatore da usare per dividere la stringa. |
@@ -1421,7 +1428,7 @@ Determina se una stringa inizia con un valore. Il confronto non fa distinzione t
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sì |string |Valore che contiene l'elemento da cercare. |
 | stringToFind |Sì |string |Valore da trovare. |
@@ -1487,7 +1494,7 @@ Converte il valore specificato in una stringa.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì | Qualsiasi |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
 
@@ -1558,7 +1565,7 @@ Restituisce una sottostringa che inizia nella posizione del carattere specificat
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sì |string |La stringa originale da cui estrarre la sottostringa. |
 | startIndex |No |INT |La posizione del carattere iniziale in base zero della sottostringa. |
@@ -1619,7 +1626,7 @@ Restituisce una stringa con il numero specificato di caratteri dall'inizio della
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
 | numberToTake |Sì |INT |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se è maggiore della lunghezza della stringa o della matrice specificata, vengono restituiti tutti gli elementi della matrice o della stringa. |
@@ -1687,7 +1694,7 @@ Converte la stringa specificata in caratteri minuscoli.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sì |string |Il valore da convertire in lettere minuscole. |
 
@@ -1738,7 +1745,7 @@ Converte la stringa specificata in lettere maiuscole.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sì |string |Il valore da convertire in lettere maiuscole. |
 
@@ -1789,7 +1796,7 @@ Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specifi
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Sì |string |Il valore da tagliare. |
 
@@ -1835,7 +1842,7 @@ Crea una stringa hash deterministica in base ai valori forniti come parametri.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseString |Sì |string |Il valore usato nella funzione hash per creare una stringa univoca. |
 | parametri aggiuntivi in base alle esigenze |No |string |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
@@ -1913,7 +1920,7 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | baseUri |Sì |string |La stringa URI di base. Prestare attenzione a osservare il comportamento relativo alla gestione della barra finale ('/'), come descritto nella tabella seguente.  |
 | relativeUri |Sì |string |La stringa URI relativa da aggiungere alla stringa di URI di base. |
@@ -1993,7 +2000,7 @@ Codifica un URI.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Sì |string |Valore da codificare. |
 
@@ -2048,7 +2055,7 @@ Restituisce una stringa di un valore URI codificato.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatoria | Type | Descrizione |
+| Parametro | Obbligatoria | Type | Description |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Sì |string |Valore URI codificato da convertire in stringa. |
 

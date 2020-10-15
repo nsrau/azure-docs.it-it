@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 9ed46f37c0906fa244d70cd2dea997f19c8bd462
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447403"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91713798"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che intendono usare il Centro sicurezza di Azure.
@@ -120,7 +120,7 @@ I criteri del Centro sicurezza includono i componenti seguenti:
 - [Raccolta di dati](security-center-enable-data-collection.md): provisioning dell'agente e impostazioni della raccolta di dati.
 - [Criteri di sicurezza](tutorial-security-policy.md): un [criterio di Azure](../governance/policy/overview.md) che determina quali controlli vengono monitorati e consigliati dal Centro sicurezza. In alternativa, è possibile usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri nei gruppi di gestione.
 - [Notifiche tramite posta elettronica](security-center-provide-security-contact-details.md): contatti e impostazioni di notifica relativi alla sicurezza.
-- [Piano tariffario](security-center-pricing.md): con o senza Azure Defender, che determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. Questo criterio può essere specificato per sottoscrizioni, gruppi di risorse e aree di lavoro.
+- [Piano tariffario](security-center-pricing.md): con o senza Azure Defender, che determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. Questo criterio può essere specificato per sottoscrizioni e aree di lavoro oppure per gruppi di risorse tramite l'API.
 
 > [!NOTE]
 > Specificando un contatto di sicurezza, Azure potrà raggiungere la persona corretta dell'organizzazione in caso di evento imprevisto relativo alla sicurezza. Per altre informazioni su come abilitare questa raccomandazione, vedere [Specificare i dettagli dei contatti di sicurezza nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md) .
@@ -161,9 +161,9 @@ Per le aree di lavoro create dal Centro sicurezza di Azure, i dati vengono conse
 > Microsoft è fortemente impegnata nella protezione della privacy e della sicurezza dei dati. Microsoft è conforme alle più rigorose linee guida sulla sicurezza e sulla conformità in tutte le fasi, dalla codifica all'esecuzione di un servizio. Per altre informazioni sulla privacy e sulla gestione dei dati, leggere [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md).
 >
 
-## <a name="onboarding-non-azure-resources"></a>Onboarding delle risorse non Azure
+## <a name="onboard-non-azure-resources"></a>Onboarding di risorse non di Azure
 
-Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. Per altre informazioni su come eseguire l'onboarding di risorse non di Azure, vedere [Connettere macchine virtuali non di Azure al Centro sicurezza](quickstart-onboard-machines.md).
+Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. Per altre informazioni su come eseguire l'onboarding di risorse non di Azure, vedere [Onboarding di computer non di Azure](quickstart-onboard-machines.md).
 
 ## <a name="ongoing-security-monitoring"></a>Monitoraggio continuo della sicurezza
 Dopo la configurazione iniziale e l'applicazione delle raccomandazioni del Centro sicurezza, il passaggio successivo consiste nel valutare i processi operativi del Centro sicurezza.
@@ -218,8 +218,6 @@ L'esempio seguente mostra un'attività RDP sospetta in azione:
 ![Attività sospetta](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 Questa pagina include dettagli relativi al momento in cui si è verificato l'attacco, al nome host di origine, alla macchina virtuale di destinazione e ai passaggi necessari per applicare la raccomandazione. In alcune circostanze le informazioni sull'origine dell'attacco potrebbero non essere disponibili. Per altre informazioni su questo tipo di comportamento, vedere [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Informazioni sull'origine mancanti negli avvisi del Centro sicurezza di Azure).
-
-Da questa pagina è anche possibile avviare un'indagine per ottenere una migliore comprensione della sequenza temporale dell'attacco, della modalità in cui è stato effettuato l'attacco, dei sistemi potenzialmente danneggiati e delle credenziali usate e infine per ottenere una rappresentazione grafica dell'intera catena di attacco.
 
 Dopo avere identificato il sistema danneggiato, è possibile eseguire un'[automazione del flusso di lavoro](workflow-automation.md) creata in precedenza. Si tratta di una raccolta di procedure che possono essere eseguite dal Centro sicurezza dopo essere state attivate da un avviso.
 

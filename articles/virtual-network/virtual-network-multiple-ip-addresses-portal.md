@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
 ms.openlocfilehash: 135504ad4956836614bfc0f2cb107e610de17c0c
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543487"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Assegnare più indirizzi IP alle macchine virtuali usando il portale di Azure
@@ -53,7 +53,7 @@ Se si vuole creare una macchina virtuale con più indirizzi IP, o un indirizzo I
 Completare i passaggi seguenti per aggiungere un nuovo indirizzo IP privato:
 
 1. Completare i passaggi descritti nella sezione [passaggi principali](#coreadd) di questo articolo e assicurarsi di trovarsi nella sezione **configurazioni IP** dell'interfaccia di rete VM.  Esaminare la subnet visualizzata come predefinita (ad esempio 10.0.0.0/24).
-2. Fare clic su **Aggiungi**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *ipconfig-4* con un nuovo indirizzo IP privato *statico* selezionando un nuovo numero per l'ottetto finale, quindi fare clic su **OK**.  Per la subnet 10.0.0.0/24, un IP di esempio è *10.0.0.7*.
+2. Scegliere **Aggiungi**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *ipconfig-4* con un nuovo indirizzo IP privato *statico* selezionando un nuovo numero per l'ottetto finale, quindi fare clic su **OK**.  Per la subnet 10.0.0.0/24, un IP di esempio è *10.0.0.7*.
 
     > [!NOTE]
     > Quando si aggiunge un indirizzo IP statico, è necessario specificare un indirizzo valido e inutilizzato nella subnet a cui la scheda di rete è connessa. Se l'indirizzo selezionato non è disponibile, il portale visualizza una X per l'indirizzo IP ed è necessario selezionare un altro indirizzo.
@@ -85,7 +85,7 @@ Un indirizzo IP pubblico consiste in una singola impostazione per una risorsa in
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Associare la risorsa indirizzo IP pubblico a una nuova configurazione IP
 
 1. Completare i passaggi della sezione [Passaggi di base](#coreadd) di questo articolo.
-2. Fare clic su **Aggiungi**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *IPConfig-4*. Attivare l'opzione **Indirizzo IP pubblico** e selezionare una risorsa indirizzo IP pubblico esistente e disponibile dal riquadro **Scegli indirizzo IP pubblico**.
+2. Scegliere **Aggiungi**. Nel riquadro **Aggiungi configurazione IP** che viene visualizzato creare una configurazione IP denominata *IPConfig-4*. Attivare l'opzione **Indirizzo IP pubblico** e selezionare una risorsa indirizzo IP pubblico esistente e disponibile dal riquadro **Scegli indirizzo IP pubblico**.
 
     Dopo aver selezionato la risorsa indirizzo IP pubblico, fare clic su **OK** e il riquadro verrà chiuso. Se non si dispone di un indirizzo IP pubblico esistente, è possibile crearne uno completando la procedura descritta nella sezione [Creare una risorsa indirizzo IP pubblico](#create-public-ip) di questo articolo. 
 

@@ -3,12 +3,12 @@ title: Protocollo di estensione HTTP - Azure
 description: Questo articolo illustra come usare il protocollo di estensione HTTP per inviare messaggi tra il modulo Analisi video live e il modulo di intelligenza artificiale o visione artificiale.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: bfc8672185d284abc8f2985b44cea92000bc73db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89448062"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016655"
 ---
 # <a name="http-extension-protocol"></a>Protocollo di estensione HTTP
 
@@ -100,4 +100,4 @@ Se il modulo restituisce una risposta con tipo di contenuto "application/json", 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Contratto di dati gRPC](grpc-data-contract.md)
+[Contratto di dati gRPC](./grpc-extension-protocol.md)

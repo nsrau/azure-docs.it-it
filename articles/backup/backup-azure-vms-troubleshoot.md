@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 908c7e4bc0ca15d952ef1d4d969c5bf686e0bdc3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316733"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058115"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -31,8 +31,7 @@ Questa sezione descrive l'errore relativo all'operazione di backup della macchin
 * È possibile che nel **registro eventi** vengano visualizzati errori di backup provenienti da altri prodotti di backup, ad esempio Windows Server backup, e che non siano dovuti a backup di Azure. Seguire questa procedura per determinare se il problema è correlato a Backup di Azure:
   * Se si verifica un errore con il **backup** delle voci nell'origine o nel messaggio dell'evento, controllare se i backup di backup delle macchine virtuali IaaS di Azure siano stati completati e se è stato creato un punto di ripristino con il tipo di snapshot desiderato.
   * Se Backup di Azure è in funzione, il problema è probabilmente correlato a un'altra soluzione di backup.
-  * Di seguito è riportato un esempio di Visualizzatore eventi errore 517 in cui backup di Azure funzionava correttamente, ma "Windows Server Backup" ha avuto esito negativo:<br>
-    ![Errore di Windows Server Backup](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+  * Di seguito è riportato un esempio di un errore di Visualizzatore eventi 517 in cui backup di Azure funzionava correttamente, ma "Windows Server Backup" ha avuto esito negativo: ![ Windows Server backup ha esito negativo](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * In caso di errore relativo a Backup di Azure, cercare il codice errore corrispondente nella sezione relativa agli errori comuni di backup delle VM in questo articolo.
 
 ## <a name="common-issues"></a>Problemi comuni
@@ -106,33 +105,35 @@ Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché 
 Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
 
 Passaggio 1: riavviare i writer VSS in uno stato non valido.
-- Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```.
-- L'output contiene tutti i writer VSS con lo stato. Per ogni VSS writer con uno stato non **[1] stabile**, riavviare il rispettivo servizio del VSS writer. 
-- Per riavviare il servizio, eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
+
+* Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```.
+* L'output contiene tutti i writer VSS con lo stato. Per ogni VSS writer con uno stato non **[1] stabile**, riavviare il rispettivo servizio del VSS writer.
+* Per riavviare il servizio, eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
 
 > [!NOTE]
 > Il riavvio di alcuni servizi può avere un impatto sull'ambiente di produzione. Verificare che il processo di approvazione sia seguito e che il servizio venga riavviato al tempo di inattività pianificato.
- 
-   
+
 Passaggio 2: se il riavvio dei writer VSS non è riuscito a risolvere il problema, eseguire il comando seguente da un prompt dei comandi con privilegi elevati, come amministratore, per impedire la creazione dei thread per gli snapshot BLOB.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+
 Passaggio 3: se i passaggi 1 e 2 non hanno risolto il problema, l'errore potrebbe essere dovuto a un timeout dei writer VSS a causa di IOPS limitati.<br>
 
 Per verificare, passare a ***sistema e Visualizzatore eventi registri applicazioni*** e verificare la presenza del seguente messaggio di errore:<br>
 *Si è verificato un timeout del provider della copia shadow durante la scrittura del volume da replicare. Questa operazione è probabilmente dovuta a un'attività eccessiva del volume da parte di un'applicazione o di un servizio di sistema. Riprovare più tardi quando l'attività sul volume è ridotta.*<br>
 
 Soluzione:
-- Verificare la possibilità di distribuire il carico tra i dischi delle macchine virtuali. Ciò ridurrà il carico sui singoli dischi. È possibile [controllare la limitazione IOPS abilitando la metrica di diagnostica a livello di archiviazione](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
-- Modificare i criteri di backup per eseguire i backup durante gli orari di minore traffico, quando il carico della VM è il più basso.
-- Aggiornare i dischi di Azure per supportare IOPs più elevati. [Per altre informazioni, vedi qui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
-### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-operazione di snapshot non riuscita a causa di un servizio VSS (copia shadow del volume) in stato non valido
+* Verificare la possibilità di distribuire il carico tra i dischi delle macchine virtuali. Ciò ridurrà il carico sui singoli dischi. È possibile [controllare la limitazione IOPS abilitando la metrica di diagnostica a livello di archiviazione](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+* Modificare i criteri di backup per eseguire i backup durante gli orari di minore traffico, quando il carico della VM è il più basso.
+* Aggiornare i dischi di Azure per supportare IOPs più elevati. [Per altre informazioni, vedi qui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState - L'operazione di creazione snapshot non è riuscita perché lo stato del servizio Copia Shadow del volume non è valido
 
 Codice di errore: ExtensionFailedVssServiceInBadState <br/>
 Messaggio di errore: l'operazione di snapshot non è riuscita a causa di un servizio VSS (copia shadow del volume) in stato non valido.
@@ -140,31 +141,32 @@ Messaggio di errore: l'operazione di snapshot non è riuscita a causa di un serv
 Questo errore si verifica perché il servizio VSS è in uno stato non valido. Le estensioni di backup di Azure interagiscono con il servizio VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
 
 Riavviare il servizio VSS (copia shadow del volume).
-- Passare a Services. msc e riavviare "Volume Shadow Copy Service".<br>
+
+* Passare a Services. msc e riavviare "Volume Shadow Copy Service".<br>
 (oppure)<br>
-- Eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
+* Eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
- 
 Se il problema persiste, riavviare la macchina virtuale al tempo di inattività pianificato.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-creazione della macchina virtuale non riuscita perché le dimensioni della macchina virtuale selezionate non sono disponibili
 
-Codice di errore: messaggio di errore UserErrorSkuNotAvailable: Impossibile creare la macchina virtuale. la dimensione della macchina virtuale selezionata non è disponibile. 
- 
+Codice di errore: messaggio di errore UserErrorSkuNotAvailable: Impossibile creare la macchina virtuale. la dimensione della macchina virtuale selezionata non è disponibile.
+
 Questo errore si verifica perché le dimensioni della macchina virtuale selezionate durante l'operazione di ripristino non sono supportate. <br>
 
 Per risolvere questo problema, utilizzare l'opzione [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante l'operazione di ripristino. Usare questi dischi per creare una macchina virtuale dall'elenco delle [dimensioni di VM supportate disponibili](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) usando i [cmdlet di PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported-la creazione della macchina virtuale non è riuscita perché la richiesta di acquisto del mercato non è presente
 
-Codice di errore: messaggio di errore UserErrorMarketPlaceVMNotSupported: creazione della macchina virtuale non riuscita a causa di una richiesta di acquisto del mercato non presente. 
- 
+Codice di errore: messaggio di errore UserErrorMarketPlaceVMNotSupported: creazione della macchina virtuale non riuscita a causa di una richiesta di acquisto del mercato non presente.
+
 Backup di Azure supporta il backup e il ripristino di macchine virtuali disponibili in Azure Marketplace. Questo errore si verifica quando si prova a ripristinare una macchina virtuale (con un'impostazione specifica del piano/editore) che non è più disponibile in Azure Marketplace. per [altre informazioni](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal), vedere qui.
-- Per risolvere questo problema, usare l'opzione [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante l'operazione di ripristino e quindi usare i cmdlet di [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) o dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) per creare la VM con le informazioni più recenti sul Marketplace corrispondenti alla macchina virtuale.
-- Se il server di pubblicazione non dispone di informazioni sul Marketplace, è possibile usare i dischi dati per recuperare i dati ed è possibile collegarli a una macchina virtuale esistente.
+
+* Per risolvere questo problema, usare l'opzione [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante l'operazione di ripristino e quindi usare i cmdlet di [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) o dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) per creare la VM con le informazioni più recenti sul Marketplace corrispondenti alla macchina virtuale.
+* Se il server di pubblicazione non dispone di informazioni sul Marketplace, è possibile usare i dischi dati per recuperare i dati ed è possibile collegarli a una macchina virtuale esistente.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Errore durante l'analisi della configurazione per l'estensione di backup
 
@@ -244,7 +246,7 @@ Questo garantirà che gli snapshot vengano creati tramite host invece che guest.
 
 **Passaggio 2**: provare a modificare la pianificazione del backup in un momento in cui la macchina virtuale è sotto carico inferiore (ad esempio meno CPU o IOPS)
 
-**Passaggio 3**: provare ad [aumentare le dimensioni della macchina virtuale](https://azure.microsoft.com/blog/resize-virtual-machines/) e ripetere l'operazione
+**Passaggio 3**: provare ad [aumentare le dimensioni della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) e ripetere l'operazione
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-non è stato possibile eseguire l'operazione perché la macchina virtuale non esiste più/400094, BCMV2VMNotFound-la macchina virtuale non esiste/non è stata trovata una macchina virtuale di Azure
 
@@ -253,7 +255,7 @@ La macchina virtuale di Azure non è stata trovata.
 
 Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue:
 
-* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>oppure
+* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>o
 * Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione
@@ -315,12 +317,12 @@ Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno d
 
 ## <a name="restore"></a>Restore
 
-#### <a name="disks-appear-offline-after-file-restore"></a>I dischi vengono visualizzati offline dopo il ripristino del file
+### <a name="disks-appear-offline-after-file-restore"></a>I dischi vengono visualizzati offline dopo il ripristino del file
 
-Se dopo il ripristino si nota che i dischi sono offline: 
+Se dopo il ripristino si nota che i dischi sono offline:
+
 * Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements)  
 * Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
-
 
 | Dettagli errore | Soluzione alternativa |
 | --- | --- |

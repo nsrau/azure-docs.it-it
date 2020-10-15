@@ -9,10 +9,10 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c6bf296b5173a662b1e9dd7b025648e3f16d23c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556280"
 ---
 # <a name="what-is-msix-app-attach"></a>Che cos'è la connessione all'app MSIX?
@@ -45,7 +45,7 @@ La connessione all'app MSIX deve essere applicabile all'esterno di VDI o SBC.
 
 La tabella seguente mette a confronto la funzionalità chiave della connessione app di MSIX e la sovrapposizione delle app.
 
-| Feature | Sovrapposizione di app tradizionali  | Connessione dell'app MSIX  |
+| Funzionalità | Sovrapposizione di app tradizionali  | Connessione all'app MSIX  |
 |-----|-----------------------------|--------------------|
 | Formato               | Diverse tecnologie di sovrapposizione delle app richiedono formati proprietari diversi. | Funziona con il formato nativo per la creazione di pacchetti MSIX.        |
 | Reimballaggio del sovraccarico | I formati proprietari richiedono la sequenziazione e la creazione di pacchetti per ogni aggiornamento.         | Le app pubblicate come MSIX non richiedono la ricreazione del pacchetto. Tuttavia, se il pacchetto MSIX non è disponibile, viene comunque applicato il sovraccarico di Repackaging. |

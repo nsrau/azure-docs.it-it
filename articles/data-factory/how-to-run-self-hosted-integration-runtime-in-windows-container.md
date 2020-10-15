@@ -1,6 +1,6 @@
 ---
-title: Come eseguire Integration Runtime self-hosted nel contenitore Windows
-description: Informazioni su come eseguire Integration Runtime self-hosted nel contenitore di Windows.
+title: Come eseguire Self-Hosted Integration Runtime nel contenitore Windows
+description: Informazioni su come eseguire Self-Hosted Integration Runtime nel contenitore di Windows.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
 ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927564"
 ---
-# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Come eseguire Integration Runtime self-hosted nel contenitore Windows
+# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Come eseguire Self-Hosted Integration Runtime nel contenitore Windows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Questo articolo illustra come eseguire Integration Runtime self-hosted nel contenitore di Windows.
-Azure Data Factory offrono il supporto ufficiale per i contenitori di Windows di Integration Runtime indipendenti. È possibile scaricare il codice sorgente di compilazione Docker e combinare il processo di compilazione ed esecuzione nella pipeline di recapito continuo. 
+In questo articolo viene illustrato come eseguire Self-Hosted Integration Runtime nel contenitore di Windows.
+Azure Data Factory offrono il supporto ufficiale dei contenitori di Windows per Self-Hosted Integration Runtime. È possibile scaricare il codice sorgente di compilazione Docker e combinare il processo di compilazione ed esecuzione nella pipeline di recapito continuo. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 - [Requisiti dei contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker versione 2,3 e successive 
-- Self-Hosted Integration Runtime versione 4.11.7512.1 e versioni successive 
-## <a name="get-started"></a>Introduzione 
+- Self-Hosted Integration Runtime versione 4.11.7512.1 e successive 
+## <a name="get-started"></a>Operazioni preliminari 
 1.  Installare Docker e abilitare il contenitore Windows 
 2.  Scaricare il codice sorgente da https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
 3.  Scaricare la versione più recente di "cazzi" nella cartella 
@@ -53,7 +53,7 @@ docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATI
 Dopo il periodo di avvio di 120 secondi, il controllo dell'integrità viene eseguito periodicamente ogni 30 secondi. Fornirà lo stato di integrità di IR al motore del contenitore. 
 
 ## <a name="limitations"></a>Limitazioni
-Attualmente non sono supportate le funzionalità seguenti quando si esegue Integration Runtime self-hosted nel contenitore di Windows:
+Attualmente non sono supportate le funzionalità seguenti quando si esegue Self-Hosted Integration Runtime nel contenitore di Windows:
 - Proxy HTTP 
 - Comunicazione nodo-nodo crittografata con certificato TLS/SSL 
 - Generare e importare il backup 

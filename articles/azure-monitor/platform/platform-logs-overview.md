@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6ea960e93dba634573ec1ef594f1d2c49be57ca9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945308"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Panoramica dei log della piattaforma di Azure
@@ -53,7 +53,7 @@ Sono disponibili diverse opzioni per la visualizzazione e l'analisi dei diversi 
 - Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica per log attività o log delle risorse, vedere [creare impostazioni di diagnostica per inviare i log e le metriche della piattaforma a destinazioni diverse](diagnostic-settings.md). 
 - Per informazioni dettagliate sulla creazione di un'impostazione di diagnostica per i log di Azure Active Directory, vedere gli articoli seguenti.
   - [Integrare log di Azure AD con i log di monitoraggio di Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-  - [Esercitazione: trasmettere i log di Azure Active Directory a un hub eventi di Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+  - [Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi di Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
   - [Esercitazione: archiviare i log dei Azure AD in un account di archiviazione di Azure](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 
 

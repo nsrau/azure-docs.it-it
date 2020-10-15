@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543334"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
@@ -265,7 +265,7 @@ Le seguenti azioni eseguite da Analisi archiviazione sono fatturabili:
 
 Vengono registrati i tipi seguenti di richieste autenticate e anonime.
 
-| Autenticata  | Anonimo|
+| Autenticata  | Anonima|
 | :------------- | :-------------|
 | Richieste riuscite | Richieste riuscite |
 |Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo | Richieste tramite una firma di accesso condiviso (SAS), incluse le richieste riuscite e non riuscite |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf39fcbfbde8a81400cd93c7f99b066a99f643bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 715089d40f584fbbaf23f674e4243c92c718e9d1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005379"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093328"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Connettersi e comunicare con i servizi in Service Fabric
 In Service Fabric un servizio viene eseguito in una posizione nel cluster di Service Fabric, in genere distribuito su più macchine virtuali. Può essere spostato da una posizione all'altra, dal proprietario del servizio o automaticamente da Service Fabric. I servizi non sono statisticamente associati a un computer o a un indirizzo specifico.
@@ -30,7 +30,7 @@ In un sistema distribuito è possibile che i servizi si spostino da un computer 
 
 Service Fabric offre un servizio di individuazione e risoluzione denominato servizio Naming. Il servizio Naming gestisce una tabella che esegue il mapping delle istanze del servizio denominato agli indirizzi dell'endpoint su cui rimangono in ascolto. Tutte le istanze del servizio denominato in Service Fabric hanno nomi univoci rappresentati come URI, ad esempio `"fabric:/MyApplication/MyService"`. Il nome del servizio non cambia per tutta la durata del servizio. Solo gli indirizzi dell'endpoint possono essere modificati quando i servizi si spostano. analogamente ai siti Web che hanno URL costanti, ma il cui indirizzo IP può cambiare. Analogamente a DNS sul Web, che risolve URL di siti Web in indirizzi IP, Service Fabric ha un registrar che esegue il mapping dei nomi di servizio ai rispettivi indirizzi di endpoint.
 
-![endpoint di servizio][2]
+![Diagramma che mostra che Service Fabric dispone di un registrar che esegue il mapping dei nomi di servizio all'indirizzo endpoint.][2]
 
 La risoluzione e la connessione ai servizi prevedono l'esecuzione in ciclo dei passaggi seguenti:
 
@@ -47,14 +47,14 @@ Poiché molti servizi, in particolare quelli in contenitori, possono avere un no
 
 Come mostrato nel diagramma seguente, il servizio DNS, in esecuzione sul cluster di Service Fabric, esegue il mapping dei nomi DNS ai nomi dei servizi, che vengono quindi risolti da Naming Service per restituire gli indirizzi degli endpoint a cui connettersi. Il nome DNS per il servizio viene fornito al momento della creazione. 
 
-![endpoint di servizio][9]
+![Diagramma che illustra il modo in cui il servizio DNS, quando è in esecuzione nel cluster Service Fabric, esegue il mapping dei nomi DNS ai nomi dei servizi, che vengono quindi risolti dal Naming Service per restituire gli indirizzi endpoint a cui connettersi.][9]
 
 Per altre informazioni su come usare il servizio DNS, vedere l'articolo [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) (Servizio DNS in Azure Service Fabric).
 
 ### <a name="reverse-proxy-service"></a>Servizio di proxy inverso
 Il proxy inverso indirizza i servizi presenti nel cluster che espongono endpoint HTTP, incluso HTTPS. Il proxy inverso semplifica in misura significativa la chiamata di altri servizi e dei relativi metodi grazie alla disponibilità di un formato URI specifico. Gestisce inoltre i passaggi di risoluzione, connessione e ripetizione necessari per consentire a un servizio di comunicare con un altro servizio mediante Naming Service. In altri termini, durante la chiamata di altri servizi nasconde Naming Service all'utente, rendendo l'operazione semplice quanto la chiamata a un URL.
 
-![endpoint di servizio][10]
+![Diagramma che illustra il modo in cui il proxy inverso indirizza i servizi nel cluster che espone gli endpoint HTTP, incluso HTTPS.][10]
 
 Per altre informazioni su come usare il servizio di proxy inverso, vedere l'articolo [Proxy inverso in Azure Service Fabric](service-fabric-reverseproxy.md).
 
@@ -153,7 +153,7 @@ Ad esempio, per accettare il traffico esterno sulla porta **80**, è necessario 
     ![Apertura di una porta su un tipo di nodo][4]
 3. Dopo la creazione del cluster, configurare il servizio di bilanciamento del carico di Azure nel gruppo di risorse del cluster per inoltrare il traffico sulla porta 80. Quando si crea un cluster tramite il portale di Azure, il cluster viene configurato automaticamente per ogni porta di endpoint personalizzata configurata.
 
-    ![Inoltro di traffico nel servizio di bilanciamento del carico di Azure][5]
+    ![Schermata che evidenzia il campo porta back-end in regole di bilanciamento del carico.][5]
 4. Il servizio di bilanciamento del carico di Azure usa un probe per determinare se inviare o meno il traffico a un nodo specifico. Il probe controlla periodicamente un endpoint su ogni nodo per determinare se il nodo risponde o meno. Se il probe non riesce a ricevere una risposta dopo un numero configurato di volte, il servizio di bilanciamento del carico smette di inviare traffico a quel nodo. Quando si crea un cluster tramite il portale di Azure, viene configurato automaticamente un probe per ogni porta di endpoint personalizzata configurata.
 
     ![Inoltro di traffico nel servizio di bilanciamento del carico di Azure][8]

@@ -1,14 +1,14 @@
 ---
 title: Ottenere le modifiche delle risorse
 description: Informazioni su come capire quando una risorsa è stata modificata, ottenere un elenco delle proprietà modificate e valutare le differenze.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056568"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057570"
 ---
 # <a name="get-resource-changes"></a>Ottenere le modifiche delle risorse
 
@@ -279,7 +279,7 @@ La risposta è simile all'esempio seguente:
 }
 ```
 
-**beforeSnapshot** e **afterSnapshot** forniscono entrambi l'ora in cui lo snapshot è stato acquisito e le proprietà in quel momento. La modifica si è verificata in un determinato punto tra questi snapshot. Esaminando l'esempio precedente, è possibile notare che la proprietà modificata è **supportsHttpsTrafficOnly**.
+**beforeSnapshot** e **afterSnapshot** forniscono entrambi l'ora in cui lo snapshot è stato acquisito e le proprietà in quel momento. La modifica si è verificata in un determinato punto tra questi snapshot. Osservando l'esempio precedente, è possibile notare che la proprietà modificata è **supportsHttpsTrafficOnly**.
 
 Per confrontare i risultati, usare la proprietà **changes** in **resourceChanges** oppure valutare la parte **content** di ogni snapshot in **resourceChangeDetails** per determinare la differenza. Se si confrontano gli snapshot, il valore **timestamp** viene sempre visualizzato come differenza, nonostante sia previsto.
 

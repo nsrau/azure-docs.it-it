@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 7e074bf898667bb0019d4147ec9abaea2c674d74
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: b5249850a572090a32b0d3515cbeaec9bfb112ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400959"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977816"
 ---
 <a name="HOLTop"></a>
 
@@ -175,11 +175,11 @@ Se si usa la versione `3.x` del servizio, è possibile usare un'istanza facoltat
 ## <a name="code-examples"></a>Esempi di codice
 
 * [Analisi del sentiment](#sentiment-analysis)
+* [Opinion mining](#opinion-mining)
 * [Rilevamento della lingua](#language-detection)
 * [Riconoscimento di entità denominate](#named-entity-recognition-ner)
 * [Collegamento di entità](#entity-linking)
 * [Estrazione delle frasi chiave](#key-phrase-extraction)
-
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 

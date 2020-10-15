@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067706"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044378"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unità di query nei dispositivi gemelli digitali di Azure 
 
-Un'unità di query di Azure Digital gemelli **(qu)** è un'unità di calcolo su richiesta usata per eseguire le [query dei dispositivi gemelli digitali di Azure](how-to-query-graph.md) usando l' [API di query](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). 
+Un'unità di query di Azure Digital gemelli **(qu)** è un'unità di calcolo su richiesta usata per eseguire le [query dei dispositivi gemelli digitali di Azure](how-to-query-graph.md) usando l' [API di query](/rest/api/digital-twins/dataplane/query). 
 
 Estrae le risorse di sistema, ad esempio CPU, IOPS e memoria, necessarie per eseguire operazioni di query supportate da dispositivi gemelli digitali di Azure, consentendo di tenere traccia dell'utilizzo nelle unità query.
 
@@ -28,7 +28,7 @@ Questo articolo illustra come comprendere le unità di query e tenere traccia de
 
 ## <a name="find-the-query-unit-consumption-in-azure-digital-twins"></a>Trovare il consumo di unità di query nei dispositivi gemelli digitali di Azure 
 
-Quando si esegue una query con l' [API di query](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query)di Azure Digital gemelli, è possibile esaminare l'intestazione della risposta per tenere traccia del numero di QUs utilizzate dalla query. Cercare "query-charge" nella risposta restituita dai dispositivi gemelli digitali di Azure. 
+Quando si esegue una query con l' [API di query](/rest/api/digital-twins/dataplane/query)di Azure Digital gemelli, è possibile esaminare l'intestazione della risposta per tenere traccia del numero di QUs utilizzate dalla query. Cercare "query-charge" nella risposta restituita dai dispositivi gemelli digitali di Azure. 
 
 Gli [SDK](how-to-use-apis-sdks.md) di dispositivi gemelli digitali di Azure consentono di estrarre l'intestazione di caricamento query dalla risposta paginabile. In questa sezione viene illustrato come eseguire una query per i dispositivi gemelli digitali e come eseguire l'iterazione della risposta paginabile per estrarre l'intestazione di addebito query. 
 
@@ -68,6 +68,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 Per altre informazioni sull'esecuzione di query sui dispositivi gemelli digitali di Azure, vedere:
 * [*Concetti: linguaggio di query*](concepts-query-language.md)
 * [*Procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md)
-* [Documentazione di riferimento dell'API di query](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [Documentazione di riferimento dell'API di query](/rest/api/digital-twins/dataplane/query/querytwins)
 
 È possibile trovare i limiti correlati alle query di Azure Digital gemelli in [*riferimento: limiti dei servizi in anteprima pubblica*](reference-service-limits.md).

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: pafarley
 ms.openlocfilehash: d6bcb5485833fbfaa3eb72191ee54b1ee69bab04
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82594296"
 ---
 # <a name="use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Usare un modello ONNX di Visione personalizzata con Windows ML (anteprima)
@@ -25,7 +25,7 @@ In questa guida si apprenderà come usare un file ONNX esportato dal Servizio vi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Windows 10 versione 1809 o successiva
+* Windows 10, versione 1809 o successive
 * Windows SDK per build 17763 o successiva
 * Visual Studio 2017 15.7 o versioni successive con il carico di lavoro di __sviluppo UWP__ abilitato.
 * Modalità di sviluppo abilitata nel PC. Per altre informazioni, vedere [Abilitare il dispositivo per lo sviluppo](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).

@@ -14,10 +14,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
 ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334910"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizzare l'accesso al database SQL, SQL Istanza gestita e Azure sinapsi Analytics
@@ -42,7 +42,7 @@ Quando un utente tenta di connettersi a un database, fornisce un account utente 
 - [Autenticazione SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Con questo metodo di autenticazione, l'utente invia un nome di account utente e la password associata per stabilire una connessione. Questa password viene archiviata nel database master per gli account utente collegati a un account di accesso o archiviati nel database contenente gli account utente *non* collegati a un account di accesso.
-- [Autenticazione di Azure Active Directory](authentication-aad-overview.md)
+- [Autenticazione Azure Active Directory](authentication-aad-overview.md)
 
   Con questo metodo di autenticazione, l'utente invia un nome di account utente e richiede che il servizio utilizzi le informazioni sulle credenziali archiviate nel Azure Active Directory (Azure AD).
 
@@ -105,7 +105,7 @@ A questo punto, il server o l'istanza gestita viene configurata per l'accesso so
 
 È possibile creare account per utenti non amministrativi usando uno dei due metodi seguenti:
 
-- **Creazione di un account di accesso**
+- **Crea un accesso**
 
   Creare un account di accesso SQL nel database master. Creare quindi un account utente in ogni database a cui l'utente deve accedere e associare l'account utente a tale account. Questo approccio è preferibile quando l'utente deve accedere a più database e si desidera che le password vengano sincronizzate. Questo approccio, tuttavia, presenta complessità quando viene usato con la replica geografica perché è necessario creare l'account di accesso sia nel server primario che nel server secondario. Per altre informazioni, vedere [configurare e gestire la sicurezza del database SQL di Azure per il ripristino geografico o il failover](active-geo-replication-security-configure.md).
 - **Creare un account utente**

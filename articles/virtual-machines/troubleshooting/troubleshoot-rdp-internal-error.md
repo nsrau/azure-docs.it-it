@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: d4736515d8e011ce1e72c51ecb3ce1cfd2e1e1cd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069765"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978527"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto
 
@@ -97,7 +97,7 @@ Per iniziare, connettersi alla [console seriale e aprire un'istanza di PowerShel
         Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
         ```
 
-    3. [Aggiornare il gruppo di sicurezza di rete per la nuova porta](../../virtual-network/security-overview.md) nella porta per RDP del portale di Azure.
+    3. [Aggiornare il gruppo di sicurezza di rete per la nuova porta](../../virtual-network/network-security-groups-overview.md) nella porta per RDP del portale di Azure.
 
 #### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Passaggio 2: Impostare le autorizzazioni corrette per il certificato autofirmato RDP
 
@@ -198,7 +198,7 @@ Il client RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, ciò può esser
 Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (**Esegui come amministratore**).
-2. Eseguire lo script seguente:
+2. Eseguire lo script riportato di seguito:
 
     In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 

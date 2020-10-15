@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717898"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
@@ -80,7 +80,7 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
    * Distribuzione continua: impostare questa impostazione **su on** se si desidera ricevere aggiornamenti automatici quando il team di sviluppo apporta modifiche allo strumento di assegnazione di etichette di esempio.
    * Comando di avvio: impostare questa impostazione su `./run.sh eula=accept`
 
-    # <a name="v21-preview"></a>[versione 2.1 Preview](#tab/v2-1) 
+    # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1) 
    * Opzioni-selezionare un **singolo contenitore**
    * Origine immagine-selezionare il **Registro di sistema privato** 
    * URL server: impostare questa impostazione su `https://mcr.microsoft.com`
@@ -95,7 +95,7 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
    > [!div class="mx-imgBorder"]
    > ![Configurare Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. Questo è tutto. Selezionare quindi **Verifica + crea**e quindi **Crea** per distribuire l'app Web. Al termine, è possibile accedere all'app Web nell'URL fornito nella **Panoramica** della risorsa.
+7. È tutto. Selezionare quindi **Verifica + crea**e quindi **Crea** per distribuire l'app Web. Al termine, è possibile accedere all'app Web nell'URL fornito nella **Panoramica** della risorsa.
 
 > [!NOTE]
 > Quando si crea l'app Web, è anche possibile configurare l'autorizzazione/autenticazione. Questa operazione non è necessaria per iniziare. 
@@ -129,7 +129,7 @@ az container create \
   --memory 8 \
   --command-line "./run.sh eula=accept"
 ``` 
-# <a name="v21-preview"></a>[versione 2.1 Preview](#tab/v2-1)    
+# <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)    
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

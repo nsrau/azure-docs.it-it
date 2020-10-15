@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2f835c270930734bf9963a7c7c3168b873eddaf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84791912"
 ---
 # <a name="list-azure-deny-assignments-using-the-rest-api"></a>Elencare le assegnazioni di Azure Deny usando l'API REST
@@ -33,7 +33,7 @@ Le [assegnazioni di rifiuto di Azure](deny-assignments.md) impediscono agli uten
 
 Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 
-- `Microsoft.Authorization/denyAssignments/read`autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti di Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` autorizzazione, inclusa nella maggior parte dei [ruoli predefiniti di Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Elencare una singola assegnazione di rifiuto
 
@@ -80,7 +80,7 @@ Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 1. Sostituire *{filter}* con la condizione da applicare per filtrare l'elenco delle assegnazioni di rifiuto.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Descrizione |
+    > | Filtra | Descrizione |
     > | --- | --- |
     > | (nessun filtro) | Elenca tutte le assegnazioni Deny in corrispondenza di, sopra e sotto l'ambito specificato. |
     > | `$filter=atScope()` | Elenca le assegnazioni Deny solo per l'ambito specificato e versioni successive. Le assegnazioni di rifiuto nei sottoambiti non sono incluse. |
@@ -102,7 +102,7 @@ Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 1. Sostituire *{filter}* con la condizione da applicare per filtrare l'elenco delle assegnazioni di rifiuto. È obbligatorio applicare un filtro.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Descrizione |
+    > | Filtra | Descrizione |
     > | --- | --- |
     > | `$filter=atScope()` | Elenca le assegnazioni di rifiuto per il solo ambito radice. Le assegnazioni di rifiuto nei sottoambiti non sono incluse. |
     > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Elenca le assegnazioni di rifiuto con il nome specificato. |
@@ -113,4 +113,4 @@ Per ottenere informazioni su un'assegnazione Deny, è necessario disporre di:
 
 - [Informazioni sulle assegnazioni di rifiuto di Azure](deny-assignments.md)
 - [Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure](elevate-access-global-admin.md)
-- [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/)
+- [Informazioni di riferimento sulle API REST](/rest/api/azure/)

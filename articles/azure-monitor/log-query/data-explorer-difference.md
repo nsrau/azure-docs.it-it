@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
-ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfa27b0df7febbfb8c97f11f69f87c352810699b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80585707"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993192"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Differenze nel linguaggio di query di log di Monitoraggio di Azure
 
@@ -56,5 +56,5 @@ Gli operatori seguenti supportano specifiche funzionalità di Monitoraggio di Az
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ottenere i riferimenti a diverse [risorse per la scrittura di query di log di Monitoraggio di Azure](query-language.md).
+- Ottenere i riferimenti a diverse [risorse per la scrittura di query di log di Monitoraggio di Azure](/azure/data-explorer/kusto/query/).
 - Accedere alla [documentazione di riferimento completa per il linguaggio di query Kusto](/azure/kusto/query/).

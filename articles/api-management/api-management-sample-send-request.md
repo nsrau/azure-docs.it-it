@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210346"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093277"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
 I criteri disponibili nel servizio Gestione API di Azure possono essere usati per una vasta gamma di attività basate esclusivamente su richieste in ingresso, risposte in uscita e informazioni di configurazione di base. Tuttavia, la possibilità di interagire con i servizi esterni dai criteri di Gestione API offre molte altre opportunità.
@@ -178,7 +178,7 @@ Il primo passaggio per la creazione della risorsa dashboard consiste nella confi
 ### <a name="making-the-requests"></a>Invio delle richieste
 Dopo aver creato l'operazione, è possibile configurare criteri specifici per tale operazione. 
 
-![Operazione dashboard](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Screenshot che mostra la schermata dell'ambito dei criteri.](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 Il primo passaggio consiste nell'estrarre eventuali parametri di query dalla richiesta in ingresso, in modo da poterli inoltrare al back-end. In questo esempio il dashboard visualizza informazioni basate su un periodo di tempo e dispone quindi dei parametri `fromDate` e `toDate`. È possibile usare i criteri `set-variable` per estrarre le informazioni dall'URL della richiesta.
 

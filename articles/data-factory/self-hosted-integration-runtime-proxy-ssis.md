@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/09/2020
 ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595021"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurare un runtime di integrazione self-hosted come proxy per un Azure-SSIS IR in Azure Data Factory
@@ -72,7 +72,7 @@ Dopo aver preparato il runtime di integrazione self-hosted e il servizio collega
 
 1. Nella sezione **Impostazioni avanzate** eseguire le operazioni seguenti:
 
-   1. Selezionare la casella di controllo **configura Integration Runtime self-hosted come proxy per il Azure-SSIS Integration Runtime** . 
+   1. Selezionare la casella di controllo **imposta Self-Hosted Integration runtime come proxy per il Azure-SSIS Integration Runtime** . 
 
    1. Nell'elenco a discesa **Integration Runtime self-hosted** selezionare il runtime di integrazione self-hosted esistente come proxy per il Azure-SSIS IR.
 

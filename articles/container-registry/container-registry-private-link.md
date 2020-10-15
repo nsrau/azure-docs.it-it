@@ -4,10 +4,10 @@ description: Configurare un endpoint privato in un registro contenitori e abilit
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743642"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure
@@ -209,7 +209,7 @@ Configurare un collegamento privato durante la creazione di un registro o aggiun
 1. In **Connettività di rete**selezionare **Endpoint privato** >  **+ Aggiungi**.
 1. Immettere o selezionare le informazioni seguenti:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Immettere il nome di un gruppo esistente o crearne uno nuovo.|

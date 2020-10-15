@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: 22568c7c23771f143f6cd583114949c380d15e3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc82109c60ac077d9e92e4d4a52abdaf8577771f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80066911"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971184"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
 ## <a name="overview"></a>Panoramica
 
-Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fornire la crittografia completa del disco nelle [distribuzioni di Linux Azure selezionate](https://aka.ms/adelinux).  Questa soluzione è integrata con Azure Key Vault per gestire le chiavi e i segreti di crittografia dei dischi.
+Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fornire la crittografia completa del disco nelle [distribuzioni di Linux Azure selezionate](../linux/disk-encryption-overview.md).  Questa soluzione è integrata con Azure Key Vault per gestire le chiavi e i segreti di crittografia dei dischi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -148,18 +148,18 @@ Utilizzo di `AADClientCertificate`:
 | type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 1,1, 0,1 | INT |
 | (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 0,1) AADClientSecret | password | string |
-| (schema 0,1) AADClientCertificate | thumbprint | string |
-| opzionale (schema 0,1) Passphrase | password | string |
+| (schema 0,1) AADClientSecret | password | Stringa |
+| (schema 0,1) AADClientCertificate | thumbprint | Stringa |
+| opzionale (schema 0,1) Passphrase | password | Stringa |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | Stringa | 
+| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | Stringa |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |
 | opzionale KeyEncryptionKeyURL | url | string |
 | opzionale KekVaultResourceId | url | string |
-| opzionale SequenceVersion | UNIQUEIDENTIFIER | string |
-| VolumeType | Sistema operativo, dati, tutti | string |
+| opzionale SequenceVersion | UNIQUEIDENTIFIER | Stringa |
+| VolumeType | Sistema operativo, dati, tutti | Stringa |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 

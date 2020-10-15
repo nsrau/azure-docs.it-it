@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092746"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070011"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -55,7 +55,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [I tecnici interni Microsoft possono usare desktop remoto per le istanze dei servizi cloud senza autorizzazione?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [Non è possibile usare desktop remoto per la macchina virtuale del servizio cloud tramite il file RDP. Si è verificato l'errore seguente: si è verificato un errore di autenticazione (codice: 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
-**Scalabilità**
+**Ridimensionamento**
 
 - [Impossibile eseguire la scalabilità per un numero di istanze superiore a X](#i-cannot-scale-beyond-x-instances)
 - [Come è possibile configurare la scalabilità automatica in base alle metriche di memoria?](#how-can-i-configure-auto-scale-based-on-memory-metrics)
@@ -77,7 +77,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 
 ### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>Perché la catena di certificati del certificato TLS/SSL del servizio cloud non è completa?
     
-È consigliabile installare la catena di certificati completa (certificato foglia, certificati intermedi e certificato radice) invece che solo il certificato foglia. Quando si installa solo il certificato foglia, ci si basa su Windows per creare la catena di certificati scorrendo l'elenco di scopi consentiti. In caso di problemi intermittenti di rete o DNS in Azure o Windows Update quando Windows tenta di convalidare il certificato, il certificato potrebbe essere considerato non valido. Installando la catena di certificati completa, è possibile evitare questo problema. Il post di blog [How to install a chained SSL Certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) (Come installare un certificato SSL incluso in una catena) spiega come fare.
+È consigliabile installare la catena di certificati completa (certificato foglia, certificati intermedi e certificato radice) invece che solo il certificato foglia. Quando si installa solo il certificato foglia, ci si basa su Windows per creare la catena di certificati scorrendo l'elenco di scopi consentiti. In caso di problemi intermittenti di rete o DNS in Azure o Windows Update quando Windows tenta di convalidare il certificato, il certificato potrebbe essere considerato non valido. Installando la catena di certificati completa, è possibile evitare questo problema. Il post di blog [How to install a chained SSL Certificate](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) (Come installare un certificato SSL incluso in una catena) spiega come fare.
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>Qual è lo scopo del certificato di crittografia degli strumenti di Microsoft Azure per le estensioni?
 
@@ -111,11 +111,11 @@ Get-AzurePublishSettingsFile
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?
 
-Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, vedere [questo avviso](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, vedere [questo avviso](/security-updates/securityadvisories/2018/4092731).
 
 Per altre informazioni, vedere gli articoli seguenti:
-- [Come configurare ed eseguire attività di avvio per un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Attività di avvio comuni del servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [Come configurare ed eseguire attività di avvio per un servizio cloud](./cloud-services-startup-tasks.md)
+- [Attività di avvio comuni del servizio cloud](./cloud-services-startup-tasks-common.md)
 
 ## <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
@@ -139,16 +139,16 @@ Possibilità di monitorare le metriche a livello di istanza. In [Come monitorare
 * Aumentare il limite di quota per le risorse locali.
 
 Per altre informazioni, vedere i documenti seguenti:
-* [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](/azure/storage/common/storage-introduction)
-* [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/) (I log di IIS non vengono più scritti nel servizio cloud)
+* [Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure](../storage/common/storage-introduction.md)
+* [IIS Logs stop writing in Cloud Service](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service) (I log di IIS non vengono più scritti nel servizio cloud)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?
 È possibile abilitare la registrazione di Diagnostica di Microsoft Azure tramite le opzioni seguenti:
-1. [Abilitare da Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Abilita tramite codice .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Abilitare tramite PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Abilitare da Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Abilita tramite codice .NET](./cloud-services-dotnet-diagnostics.md)
+3. [Abilitare tramite PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
+Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
 
 
 ## <a name="network-configuration"></a>Configurazione di rete
@@ -248,7 +248,7 @@ Per altri dettagli su come usare una metrica personalizzata tramite Application 
 
 Per altre informazioni su come integrare Diagnostica di Azure con Application Insights per i servizi cloud, vedere [Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
-Per altre informazioni su come abilitare Application Insights per i servizi cloud, vedere [Application Insights per Servizi cloud di Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+Per altre informazioni su come abilitare Application Insights per i servizi cloud, vedere [Application Insights per Servizi cloud di Azure](../azure-monitor/app/cloudservices.md)
 
 Per altre informazioni su come abilitare la registrazione diagnostica di Azure per i servizi cloud, vedere [Configurare la diagnostica per i servizi cloud e le macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
@@ -313,7 +313,7 @@ L'associazione SNI può essere configurata usando il cmdlet di PowerShell **New-
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslFlags potrebbe assumere uno dei valori seguenti:
+Come descritto [qui](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), $sslFlags potrebbe assumere uno dei valori seguenti:
 
 |valore|Significato|
 ------|------
@@ -324,7 +324,7 @@ Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslF
  
 **Metodo 2: utilizzo del codice**
 
-È possibile configurare l'associazione SNI anche tramite il codice nell'attività di avvio del ruolo, come descritto in questo [post di blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+È possibile configurare l'associazione SNI anche tramite il codice nell'attività di avvio del ruolo, come descritto in questo [post di blog](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service):
 
 ```csharp
 //<code snip> 
@@ -356,7 +356,6 @@ Un servizio cloud già distribuito viene fatturato in base ai servizi di calcolo
 
 Ecco cosa è possibile fare per ridurre la fatturazione senza perdere l'indirizzo IP per il servizio:
 
-1. [Riservare l'indirizzo IP](../virtual-network/virtual-networks-reserved-public-ip.md) prima di eliminare le distribuzioni.  Verrà addebitato solo questo indirizzo IP. Per altre informazioni sulla fatturazione degli indirizzi IP, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
+1. [Riservare l'indirizzo IP](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) prima di eliminare le distribuzioni.  Verrà addebitato solo questo indirizzo IP. Per altre informazioni sulla fatturazione degli indirizzi IP, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 2. Eliminare le distribuzioni. Non eliminare xxx.cloudapp.net, in modo che sia possibile usarla in futuro.
 3. Se si vuole ridistribuire il servizio cloud con lo stesso indirizzo IP riservato nella sottoscrizione, vedere [Reserved IP addresses for Cloud Services and Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/) (Indirizzi IP riservati per i servizi cloud e le macchine virtuali).
-

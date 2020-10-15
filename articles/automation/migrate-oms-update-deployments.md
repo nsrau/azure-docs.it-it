@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987604"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Eseguire la migrazione delle distribuzioni di aggiornamento dei log di Monitoraggio di Azure al portale di Azure
@@ -43,7 +43,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 Tutte le distribuzioni di aggiornamenti create nel portale di OMS hanno una [ricerca salvata](../azure-monitor/platform/computer-groups.md), definita anche gruppo di computer, con lo stesso nome della distribuzione di aggiornamenti esistente. La ricerca salvata contiene l'elenco dei computer per cui è stata pianificata la distribuzione di aggiornamenti.
 
-:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot della pagina distribuzioni di aggiornamento con i campi nome e server evidenziati.":::
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot della pagina Gestione aggiornamenti.":::
 
 Per usare la ricerca salvata esistente, seguire questa procedura:
 

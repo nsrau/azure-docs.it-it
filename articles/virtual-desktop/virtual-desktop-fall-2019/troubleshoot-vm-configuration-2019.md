@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008628"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Configurazione macchina virtuale host sessione desktop virtuale di Windows (classica)
@@ -20,7 +20,7 @@ ms.locfileid: "88008628"
 
 Usare questo articolo per risolvere i problemi che si verificano durante la configurazione delle macchine virtuali (VM) host sessione desktop virtuale di Windows.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -140,7 +140,7 @@ Quando l'agente desktop virtuale di Windows viene installato per la prima volta 
 2. Generare un nuovo token con RDS-NewRegistrationInfo.
 3. Verificare che il parametro-ExpriationHours sia impostato su 72 (il valore massimo è 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Errore: l'agente desktop virtuale di Windows non segnala un heartbeat durante l'esecuzione di Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Errore: l'agente desktop virtuale di Windows non segnala un heartbeat durante l'esecuzione Get-RdsSessionHost
 
 **Cause 1:** Il servizio RDAgentBootLoader è stato arrestato.
 

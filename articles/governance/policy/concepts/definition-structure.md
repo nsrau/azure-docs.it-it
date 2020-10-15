@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330282"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074261"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -104,17 +104,17 @@ Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** s
 
 ### <a name="resource-provider-modes"></a>Modalità del provider di risorse
 
-Il nodo del provider di risorse seguente è completamente supportato:
+La modalità del provider di risorse seguente è completamente supportata:
 
 - `Microsoft.Kubernetes.Data` per la gestione dei cluster Kubernetes all'interno o all'esterno di Azure. Le definizioni che usano questa modalità del provider di risorse usano gli effetti _Audit_, _Deny_e _disabled_. L'uso dell'effetto [EnforceOPAConstraint](./effects.md#enforceopaconstraint) è _deprecato_.
 
 Le modalità del provider di risorse seguenti sono attualmente supportate come **Anteprima**:
 
 - `Microsoft.ContainerService.Data` per la gestione delle regole del controller di ammissione nel [servizio Azure Kubernetes](../../../aks/intro-kubernetes.md). Le definizioni che usano questa modalità del provider di risorse **devono** usare l'effetto [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Questa modalità è _deprecata_.
-- `Microsoft.KeyVault.Data` per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` per la gestione di insiemi di credenziali e certificati in [Azure Key Vault](../../../key-vault/general/overview.md). Per altre informazioni su queste definizioni di criteri, vedere [integrare Azure Key Vault con criteri di Azure](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
-> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite.
+> Le modalità del provider di risorse supportano solo le definizioni dei criteri predefinite e non supportano le [esenzioni](./exemption-structure.md).
 
 ## <a name="metadata"></a>Metadati
 
@@ -189,7 +189,7 @@ Questo esempio fa riferimento al parametro **allowedLocations** illustrato nella
 
 ### <a name="strongtype"></a>strongType
 
-Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **strongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Il formato di un _tipo di risorsa_ **strongType** è `<Resource Provider>/<Resource Type>` . Ad esempio: `Microsoft.Network/virtualNetworks/subnets`.
+Nella proprietà `metadata` è possibile usare **strongType** per fornire un elenco di opzioni di selezione multipla nel portale di Azure. **strongType** può essere un _tipo di risorsa_ supportato o un valore consentito. Per determinare se un _tipo di risorsa_ è valido per **strongType**, usare [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). Il formato di un _tipo di risorsa_ **strongType** è `<Resource Provider>/<Resource Type>` . Ad esempio, `Microsoft.Network/virtualNetworks/subnets`
 
 Alcuni _tipi di risorse_ non restituiti da **Get-AzResourceProvider** sono supportati. Questi tipi sono:
 
@@ -226,7 +226,7 @@ Nel blocco **Then** si definisce l'effetto che si verifica quando le condizioni 
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -306,6 +306,9 @@ Sono supportati i seguenti campi:
 - `type`
 - `location`
   - Usare **global** per le risorse che sono indipendenti dalla posizione.
+- `id`
+  - Restituisce l'ID risorsa della risorsa in fase di valutazione.
+  - Esempio: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Restituisce il tipo di [identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md) abilitata per la risorsa.
 - `tags`
@@ -606,8 +609,20 @@ Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **Range**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
+    - **targetRange proviene**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
+
+    Restituisce un valore che indica se l'intervallo di indirizzi IP specificato contiene l'intervallo di indirizzi IP di destinazione. Gli intervalli vuoti o la combinazione tra famiglie IP non sono consentiti e genera un errore di valutazione.
+
+    Formati supportati:
+    - Singolo indirizzo IP (esempi: `10.0.0.0` , `2001:0DB8::3:FFFE` )
+    - Intervallo CIDR (esempi: `10.0.0.0/24` , `2001:0DB8::/110` )
+    - Intervallo definito dagli indirizzi IP di inizio e fine (esempi: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
+
+
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 
 Questo esempio di regola dei criteri usa la `resourceGroup` funzione risorsa per ottenere la proprietà **name**, in combinazione con la matrice `concat` e la funzione oggetto per creare una condizione `like` che fa in modo che il nome della risorsa inizi con il nome del gruppo di risorse.

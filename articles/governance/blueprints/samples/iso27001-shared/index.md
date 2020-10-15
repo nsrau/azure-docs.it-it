@@ -3,12 +3,12 @@ title: Panoramica dell'esempio di progetto Servizi condivisi ISO 27001
 description: Panoramica e architettura del progetto di esempio Servizi condivisi ISO 27001. Questo esempio di progetto consente ai clienti di valutare specifici controlli ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e02f34c424e3f68e67f2d0dc2f4541c57ce3882f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927352"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950551"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001
 
@@ -27,12 +27,12 @@ Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'i
 
 - [Ruoli di Azure](../../../../role-based-access-control/overview.md) usati per la separazione dei compiti dal punto di vista del piano di controllo. Prima della distribuzione di qualsiasi infrastruttura vengono definiti tre ruoli:
   - Il ruolo NetOps include i diritti per gestire l'ambiente di rete, tra cui le impostazioni del firewall, le impostazioni del gruppo di sicurezza di rete, il routing e altre funzionalità di rete
-  - Il ruolo SecOps include i diritti necessari per distribuire e gestire [Centro sicurezza di Azure](../../../../security-center/security-center-intro.md), definire [criteri di Azure](../../../policy/overview.md) e altri diritti correlati alla sicurezza
-  - Il ruolo SysOps include i diritti necessari per definire i [criteri di Azure](../../../policy/overview.md) all'interno della sottoscrizione, gestire [Log Analytics](../../../../azure-monitor/overview.md) per l'intero ambiente, oltre ad altri diritti operativi
+  - Il ruolo SecOps include i diritti necessari per distribuire e gestire [Centro sicurezza di Azure](../../../../security-center/security-center-introduction.md), impostare definizioni di [Criteri di Azure](../../../policy/overview.md) e altri diritti correlati alla sicurezza
+  - Il ruolo SysOps include i diritti necessari per impostare definizioni di [Criteri di Azure](../../../policy/overview.md) all'interno della sottoscrizione, gestire [Log Analytics](../../../../azure-monitor/overview.md) per l'intero ambiente, oltre ad altri diritti operativi
 - [Log Analytics](../../../../azure-monitor/overview.md) è il primo servizio di Azure a essere distribuito e garantisce la registrazione di tutte le azioni e tutti i servizi in una posizione centrale dal momento in cui viene avviata la distribuzione sicura
 - Una rete virtuale che supporta subnet per la connettività a un data center locale, uno stack in ingresso e in uscita per la connettività Internet e una subnet del servizio condiviso con gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni per la microsegmentazione completa contenente:
   - Un host jumpbox o bastion usato per la gestione, accessibile solo tramite un'istanza di [Firewall di Azure](../../../../firewall/overview.md) distribuita nella subnet dello stack in ingresso
-  - Due macchine virtuali che eseguono Active Directory Domain Services (AD DS) e DNS accessibile solo attraverso il jumpbox e configurabili solo per la replica di Active Directory in una connessione VPN o [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (non distribuita dal progetto)
+  - Due macchine virtuali che eseguono Azure Active Directory Domain Services (Azure AD DS) e DNS accessibile solo attraverso la jumpbox e configurabili solo per la replica di Active Directory in una connessione VPN o [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (non distribuita dal progetto)
   - Uso di [Azure Network Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) e protezione DDoS standard
 - Un'istanza di [Azure Key Vault](../../../../key-vault/general/overview.md) usata per ospitare i segreti per le macchine virtuali distribuite nell'ambiente dei servizi condivisi
 

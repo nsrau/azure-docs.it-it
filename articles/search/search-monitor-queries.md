@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935076"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorare le richieste di query in Azure ricerca cognitiva
@@ -41,8 +41,8 @@ In genere, le query vengono eseguite in millisecondi, quindi solo le query che m
 | Media | Numero medio di secondi in un minuto durante i quali si è verificata l'esecuzione della query.|
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
 | Massimo | Il numero più elevato di query di ricerca al secondo registrate nel corso di un minuto. |
-| Minimo | Il numero più basso di query di ricerca al secondo registrate per un minuto.  |
-| Somma | Somma di tutte le query eseguite entro i minuti.  |
+| Minima | Il numero più basso di query di ricerca al secondo registrate per un minuto.  |
+| SUM | Somma di tutte le query eseguite entro i minuti.  |
 
 Ad esempio, all'interno di un minuto è possibile che si disponga di un modello simile al seguente: un secondo di carico elevato, che rappresenta il valore massimo per SearchQueriesPerSecond, seguito da 58 secondi di carico medio e infine da un secondo con una sola query, che corrisponde al valore minimo.
 
@@ -59,7 +59,7 @@ A livello di servizio, le prestazioni delle query vengono misurate come latenza 
 | Media | Durata media delle query in millisecondi. | 
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
 | Massimo | Query con esecuzione più lunga nell'esempio. | 
-| Minimo | Query con esecuzione più breve nell'esempio.  | 
+| Minima | Query con esecuzione più breve nell'esempio.  | 
 | Totale | Tempo totale di esecuzione di tutte le query nell'esempio, eseguite entro l'intervallo (un minuto).  |
 
 Si consideri l'esempio seguente di metriche di **latenza di ricerca** : sono state campionate 86 query con una durata media di 23,26 millisecondi. Un valore minimo pari a 0 indica che alcune query sono state eliminate. Per il completamento della query con esecuzione più lunga sono necessari 1000 millisecondi. Il tempo di esecuzione totale è di 2 secondi.
@@ -87,7 +87,7 @@ Per confermare le query limitate, usare metrica **query di ricerca limitate** . 
 | Media | Percentuale di query eliminate nell'intervallo. |
 | Conteggio | Numero di metriche emesse nel log entro l'intervallo di un minuto. |
 | Massimo | Percentuale di query eliminate nell'intervallo.|
-| Minimo | Percentuale di query eliminate nell'intervallo. |
+| Minima | Percentuale di query eliminate nell'intervallo. |
 | Totale | Percentuale di query eliminate nell'intervallo. |
 
 Per le **query di ricerca limitate, percentuale**, minimo, massimo, medio e totale, hanno lo stesso valore: la percentuale di query di ricerca che sono state limitate, dal numero totale di query di ricerca in un minuto.

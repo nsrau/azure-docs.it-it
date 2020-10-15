@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89668770"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Crittografia IPSec in transito per Azure HDInsight
@@ -21,7 +21,7 @@ Questo articolo illustra l'implementazione della crittografia in transito per la
 > [!Note]
 > La crittografia in transito è attualmente abilitata per le aree geografiche seguenti: Stati Uniti orientali, Stati Uniti centro-meridionali e Uniti occidentali. 
 
-## <a name="background"></a>Informazioni di base
+## <a name="background"></a>Background
 
 Azure HDInsight offre un'ampia gamma di funzionalità di sicurezza per la protezione dei dati aziendali. Queste soluzioni sono raggruppate in base ai pilastri di sicurezza perimetrale, autenticazione, autorizzazione, controllo, crittografia e conformità. La crittografia può essere applicata ai dati inattivi e in transito.
 
@@ -42,7 +42,7 @@ Per creare un nuovo cluster con la crittografia in transito abilitata usando il 
 
 1. Nella scheda **sicurezza e rete** fare clic sulla casella **di controllo Abilita crittografia in transito** .
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Crea cluster: Abilita la crittografia in transito.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Scheda Crea cluster-sicurezza e rete.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Creare un cluster con la crittografia in transito abilitata tramite l'interfaccia della riga di comando di Azure
 

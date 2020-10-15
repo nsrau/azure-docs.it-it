@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 7cdf095898bfe85e6f3b14fa1dcdb7b0c94ccde6
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88042446"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app iOS con Hub di notifica di Azure
@@ -60,11 +60,11 @@ Generare il file della richiesta di firma del certificato usato da Apple per la 
 
 3. Selezionare **Indirizzo di posta elettronica utente**, immettere il valore di **Nome comune**, assicurarsi di specificare **Saved to disk** (Salvato su disco) e quindi selezionare **Continua**. Lasciare vuoto il campo **CA Email Address** (Indirizzo di posta elettronica CA), in quanto non è obbligatorio.
 
-   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Informazioni sul certificato necessarie":::
+   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Accesso Portachiavi":::
 
 4. Immettere un nome per il file CSR in  **Salva con nome**, selezionare il percorso in  **Where** (Percorso) e quindi selezionare  **Salva**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Scegliere il nome di file":::
+   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Accesso Portachiavi":::
 
    Questa azione consente di salvare il file CSR nel percorso selezionato. Il percorso predefinito è **Desktop**. Tenere a mente il percorso scelto per il file.
 
@@ -76,26 +76,26 @@ Per inviare notifiche push a un'app per iOS, registrare l'applicazione con Apple
 
 1. Se l'app non è stata ancora registrata, passare al [portale di provisioning iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) in Apple Developer Center. Accedere al portale con l'ID Apple e selezionare **Identifiers** (Identificatori). Selezionare quindi **+**  per registrare una nuova app.
 
-   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Pagina ID app":::
+   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="Accesso Portachiavi":::
 
 2. Nella schermata **Register a New Identifier** (Registra un nuovo identificatore) selezionare il pulsante di opzione **App IDs** (ID app). Quindi selezionare **Continue** (Continua).
 
-   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Pagina di registrazione di un nuovo ID":::
+   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="Accesso Portachiavi":::
 
 3. Aggiornare i tre valori seguenti per la nuova app e quindi selezionare **Continue** (Continua).
 
    - **Descrizione**: digitare un nome descrittivo per l'app.
    - **Bundle ID**: immettere un valore di ID bundle nel formato **Identificatore organizzazione.Nome prodotto** come indicato nella [guida alla distribuzione di app](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). I valori **Organization Identifier** (Identificatore organizzazione) e **Product Name** (Nome prodotto) devono corrispondere all'identificatore dell'organizzazione e al nome del prodotto usati per creare il progetto Xcode. Nello screenshot seguente il valore **NotificationHubs** viene usato come identificatore dell'organizzazione e il valore **GetStarted** viene usato come nome del prodotto. Assicurarsi che il valore **Bundle Identifier** (Identificatore bundle) corrisponda al valore nel progetto Xcode, affinché Xcode usi il profilo di pubblicazione corretto.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Registrare un ID app":::
+      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Accesso Portachiavi":::
 
    - **Push Notifications** (Notifiche Push): selezionare l'opzione **Push Notifications** (Notifiche Push) nella sezione **Capabilities** (Funzionalità).
 
-      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Registrazione di un nuovo ID app":::
+      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Accesso Portachiavi":::
 
       Questa azione consente di generare l'ID app e richiede all'utente di confermare le informazioni. Selezionare **Continue** (Continua) e quindi selezionare **Register** (Registra) per confermare il nuovo ID app.
 
-      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Conferma del nuovo ID app":::
+      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="Accesso Portachiavi":::
 
       Dopo aver selezionato **Register** (Registra), il nuovo ID app viene visualizzato come voce nella pagina  **Certificates, Identifiers & Profiles** (Certificati, identificatori e profili).
 
@@ -118,11 +118,11 @@ La seconda opzione presenta diversi vantaggi rispetto all'uso dei certificati, c
 
 1. Scorrere verso il basso fino all'opzione **Push Notifications** (Notifiche push) selezionata, quindi selezionare **Configure** (Configura) per creare il certificato.
 
-   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="ID app":::
+   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="Accesso Portachiavi":::
 
 2. Verrà visualizzata la finestra **Apple Push Notification service SSL Certificates** (Certificati SSL di Apple Push Notification Service). Selezionare il pulsante **Create Certificate** (Crea certificato) nella sezione **Development SSL Certificate** (Certificato SSL per lo sviluppo).
 
-   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Creazione del certificato":::
+   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="Accesso Portachiavi":::
 
    Verrà visualizzata la schermata **Create a new Certificate** (Crea un nuovo certificato).
 
@@ -133,11 +133,11 @@ La seconda opzione presenta diversi vantaggi rispetto all'uso dei certificati, c
 
 4. Dopo che il portale avrà creato il certificato, fare clic sul pulsante **Download** (Scarica). Salvare il certificato e prendere nota del percorso di salvataggio.
 
-   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Download del certificato":::
+   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="Accesso Portachiavi":::
 
    Il certificato viene scaricato e salvato nella cartella  **Download**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Individuazione del file di certificato":::
+   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="Accesso Portachiavi":::
 
    Per impostazione predefinita, il certificato di sviluppo scaricato viene denominato **aps_development.cer**.
 
@@ -149,7 +149,7 @@ La seconda opzione presenta diversi vantaggi rispetto all'uso dei certificati, c
 
 6. In Accesso portachiavi fare clic con il pulsante destro del mouse sul nuovo certificato push creato nella categoria **Certificati**. Selezionare **Esporta**, assegnare un nome al file, selezionare il formato **.p12** e quindi selezionare **Salva**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Esportare il certificato":::
+   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Accesso Portachiavi":::
 
    È facoltativamente possibile scegliere di proteggere il certificato tramite una password. Fare clic su  **OK** se si vuole ignorare la creazione della password. Prendere nota del nome del file e del percorso del certificato con estensione p12 esportato. Verranno usati per abilitare l'autenticazione con il servizio APNS.
 
@@ -201,11 +201,11 @@ Al termine di questa procedura, è necessario disporre delle informazioni seguen
 
 2. In **Development** (Sviluppo) selezionare **iOS App Development** (Sviluppo app iOS) come tipo di profilo di provisioning e quindi selezionare **Continue** (Continua).
 
-   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Elenco profili di provisioning":::
+   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="Accesso Portachiavi":::
 
 3. Selezionare l'ID app creato nell'elenco a discesa **App ID** (ID app) e quindi selezionare **Continue** (Continua).
 
-   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Selezionare l'ID app":::
+   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="Accesso Portachiavi":::
 
 4. Nella finestra **Select certificates** (Seleziona certificati) selezionare il certificato di sviluppo usato per la firma del codice e quindi selezionare **Continue** (Continua). Questo non è il certificato push creato. Se non ne esiste uno, è necessario crearlo. Se esiste un certificato, andare al passaggio successivo. Per creare un certificato di sviluppo, se non ne esiste uno:
 
@@ -224,7 +224,7 @@ Al termine di questa procedura, è necessario disporre delle informazioni seguen
 
 8. Scegliere infine un nome per il profilo in **Provisioning Profile Name** (Nome profilo di provisioning) e selezionare **Generate** (Genera).
 
-   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Scegliere un nome per il profilo di provisioning":::
+   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="Accesso Portachiavi":::
 
 9. Quando viene creato il nuovo profilo di provisioning, selezionare **Download** (Scarica). Prendere nota del percorso in cui viene salvato.
 
@@ -238,11 +238,11 @@ In questa sezione viene creato un hub di notifica e viene configurata l'autentic
 
 2. Selezionare **Tutti i servizi** nel menu a sinistra e quindi **Hub di notifica** nella sezione **Dispositivi mobili** . Selezionare l'icona a forma di stella accanto al nome del servizio per aggiungerlo alla sezione **PREFERITI** nel menu a sinistra. Dopo aver aggiunto **Hub di notifica** a **PREFERITI**, selezionarlo.
 
-   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure portal":::
+   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Accesso Portachiavi":::
 
 3. Nella pagina **Hub di notifica** selezionare **Aggiungi** sulla barra degli strumenti.
 
-   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Pulsante Aggiungi sulla barra degli strumenti":::
+   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="Accesso Portachiavi":::
 
 4. Nella pagina **Hub di notifica** eseguire questa procedura:
 
@@ -252,18 +252,18 @@ In questa sezione viene creato un hub di notifica e viene configurata l'autentic
    4. Selezionare un gruppo di risorse esistente in **Gruppo di risorse** o crearne uno nuovo.
    5. Selezionare **Crea**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Impostare le proprietà":::
+   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="Accesso Portachiavi":::
 
 5. Selezionare **Notifiche** (icona a forma di campana) e quindi **Vai alla risorsa**. È anche possibile aggiornare l'elenco nella pagina **Hub di notifica** e selezionare l'hub.
 
-   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Notifiche del portale":::
+   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Accesso Portachiavi":::
 
 6. Selezionare **Criteri di accesso** nell'elenco. Prendere nota delle due stringhe di connessione disponibili. Sono necessarie in un secondo momento per gestire le notifiche push.
 
    > [!IMPORTANT]
    > Non usare il criterio **DefaultFullSharedAccessSignature** nell'applicazione. Deve essere usato solo nel back-end.
 
-   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Stringhe di connessione":::
+   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Accesso Portachiavi":::
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Configurare l'hub di notifica con le informazioni del servizio APNS
 
@@ -284,7 +284,7 @@ In **Notification Services** (Servizi di notifica) selezionare **Apple (APNS)*
 
 5. Selezionare la modalità **Sandbox**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="Configurare":::
+   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="Accesso Portachiavi":::
 
 6. Selezionare  **Salva**.
 

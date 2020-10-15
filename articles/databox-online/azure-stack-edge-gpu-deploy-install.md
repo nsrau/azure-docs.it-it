@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900020"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743404"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Installare Azure Stack Edge Pro con GPU
 
@@ -124,7 +124,7 @@ Individuare i componenti per l'installazione del gruppo kit di guide:
 3. Fissare le guide di montaggio di sinistra e di destra alle flange verticali anteriori del rack con due coppie di viti.
 4. Far scorrere le staffe posteriori di sinistra e di destra in avanti contro le flange verticali posteriori del rack e fissarle con due coppie di viti.
 
-    ![Installare e rimuovere le guide con utensili](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Installare e rimuovere le guide con utensili 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Installare il sistema in un rack
 
@@ -207,11 +207,11 @@ Per collegare il dispositivo per l'alimentazione e la rete, completare i passagg
 
     - Dispositivo con 3 slot PCI e una GPU
 
-        ![Backplane di un dispositivo cablato](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![Pannello posteriore di un dispositivo cablato 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - Dispositivo con 3 slot PCI e due GPU
 
-        ![Backplane di un dispositivo cablato](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![Pannello posteriore di un dispositivo cablato 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. Individuare gli slot disco e il pulsante di accensione sul pannello anteriore del dispositivo.
 

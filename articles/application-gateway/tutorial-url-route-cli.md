@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595242"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
@@ -97,7 +97,7 @@ az network application-gateway create \
  La creazione del gateway applicazione può richiedere diversi minuti. Dopo aver creato il gateway applicazione, saranno disponibili le nuove funzionalità seguenti:
 
 
-|Feature  |Descrizione  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |appGatewayBackendPool     |Un gateway applicazione deve avere almeno un pool di indirizzi back-end.|
 |appGatewayBackendHttpSettings     |Specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.|

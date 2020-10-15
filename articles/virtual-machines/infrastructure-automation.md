@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
 ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830547"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
@@ -124,9 +124,9 @@ Viene illustrato come:
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) è una famiglia di strumenti che permette di condividere e monitorare il codice, usare compilazioni automatiche e creare una pipeline di sviluppo e integrazione continua completa (CI/CD). Azure DevOps Services si integra con Visual Studio e altri editor di testo per semplificare l'utilizzo. Azure DevOps Services può anche creare e configurare macchine virtuali di Azure e quindi distribuirvi il codice.
 
-Altre informazioni su:
+Sono disponibili altre informazioni su:
 
-- [Servizi di Azure DevOps](/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
@@ -134,7 +134,7 @@ Altre informazioni su:
 
 Viene illustrato come:
 
-- [Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker](/azure/developer/jenkins/pipeline-with-github-and-docker).
+- [Creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker](/azure/developer/jenkins/pipeline-with-github-and-docker).
 
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: c3e914b904b0f6f1d3a4fae6c43c81cdf4eae819
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080013"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978612"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Gestione degli aggiornamenti della piattaforma con il controllo di manutenzione 
 
@@ -28,7 +28,7 @@ Con il controllo di manutenzione, è possibile:
 
 ## <a name="limitations"></a>Limitazioni
 
-- Le macchine virtuali devono trovarsi in un [host dedicato](./linux/dedicated-hosts.md)o essere create con una [dimensione di macchina virtuale isolata](isolation.md).
+- Le macchine virtuali devono trovarsi in un [host dedicato](./dedicated-hosts.md)o essere create con una [dimensione di macchina virtuale isolata](isolation.md).
 - Dopo 35 giorni, verrà applicato automaticamente un aggiornamento.
 - L'utente deve disporre dell'accesso **collaboratore risorse** .
 

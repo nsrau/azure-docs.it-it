@@ -2,19 +2,19 @@
 title: Requisiti dello schema dei dati
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 33bc52d3c334919a9e93d9666a24d85e3fe158b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: c754efef02cdad6edbf047c5de9f1af6d758f137
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376683"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043205"
 ---
 Il servizio di monitoraggio metriche si occupa del rilevamento, della diagnostica e dell'analisi delle anomalie nelle serie temporali. Supportato dall'intelligenza artificiale, usa i dati per eseguire il training del modello usato. Il servizio accetta tabelle di dati aggregati con le colonne seguenti:
 

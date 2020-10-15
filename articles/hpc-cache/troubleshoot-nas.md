@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
 ms.openlocfilehash: efa163a2c10a7dc93bf5d26865a0e7eb43f11dea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082767"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Risolvere i problemi di configurazione NAS e di destinazione archiviazione NFS
@@ -32,7 +32,7 @@ Le porte sono diverse per i sistemi di archiviazione di fornitori diversi. Contr
 
 In generale, la cache deve accedere a queste porte:
 
-| Protocollo | Porta  | Service  |
+| Protocollo | Porta  | Servizio  |
 |----------|-------|----------|
 | TCP/UDP  | 111   | rpcbind  |
 | TCP/UDP  | 2049  | NFS      |
@@ -96,7 +96,7 @@ Per evitare questo possibile conflitto di file per i file in più esportazioni, 
 
 Il NAS deve elencare le esportazioni quando la cache HPC di Azure le esegue una query.
 
-Nella maggior parte dei sistemi di archiviazione NFS è possibile testare questa operazione inviando la query seguente da un client Linux:``showmount -e <storage IP address>``
+Nella maggior parte dei sistemi di archiviazione NFS è possibile testare questa operazione inviando la query seguente da un client Linux: ``showmount -e <storage IP address>``
 
 Usare un client Linux dalla stessa rete virtuale della cache, se possibile.
 
@@ -120,9 +120,9 @@ Non esiste un modo semplice per stabilire se il sistema presenta questo problema
 
   Queste sono le opzioni nel comando:
 
-  * ``-M do``-Non frammento
-  * ``-c 1``-Invia solo un pacchetto
-  * ``-s 1472``-Impostare le dimensioni del payload su 1472 byte. Questo è il payload delle dimensioni massime per un pacchetto di 1500 byte dopo aver contato il sovraccarico Ethernet.
+  * ``-M do`` -Non frammento
+  * ``-c 1`` -Invia solo un pacchetto
+  * ``-s 1472`` -Impostare le dimensioni del payload su 1472 byte. Questo è il payload delle dimensioni massime per un pacchetto di 1500 byte dopo aver contato il sovraccarico Ethernet.
 
   Una risposta con esito positivo ha un aspetto simile al seguente:
 

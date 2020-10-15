@@ -10,18 +10,21 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 30c3fa837f84ff318e9a03a8a11ef6259890f4bb
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653741"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078239"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrazione a nuove versioni dell'API Gen2 Azure Time Series Insights
 
 ## <a name="overview"></a>Panoramica
 
-Se è stato creato un ambiente di Azure Time Series Insights Gen2 quando era disponibile in anteprima pubblica (prima del 16 luglio 2020), aggiornare l'ambiente TSI per usare le nuove versioni di API a livello generale seguendo i passaggi descritti in questo articolo.
+Se è stato creato un ambiente di Azure Time Series Insights Gen2 quando era disponibile in anteprima pubblica (prima del 16 luglio 2020), aggiornare l'ambiente TSI per usare le nuove versioni di API a livello generale seguendo i passaggi descritti in questo articolo. Questa modifica non influisce sugli utenti che utilizzano la versione Gen1 di Azure Time Series Insights.
+
+> [!IMPORTANT]
+> Gli aggiornamenti descritti in questo articolo aggiorneranno solo le versioni dell'API usate dall'ambiente TSI. Questa modifica non è correlata alle nuove [regole di escape e Flat JSON](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) introdotte per gli ambienti Gen2.
 
 La nuova versione dell'API è `2020-07-31` e usa una [sintassi di espressione Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)aggiornata.
 
@@ -60,7 +63,7 @@ Per consentire agli utenti di eseguire la migrazione delle [variabili del modell
 
     [![Aggiornare le query salvate](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Fare clic su **Done**.
+1. Fare clic su **Fine**.
 
     [![Migrazione completata](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 

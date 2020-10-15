@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653597"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978238"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure
 [Zone di disponibilità di Azure](../../../availability-zones/az-overview.md) è una delle funzionalità a disponibilità elevata offerte da Azure. L'uso delle zone di disponibilità migliora la disponibilità generale dei carichi di lavoro SAP in Azure. Questa funzionalità è già disponibile in alcune [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). In futuro sarà disponibile in un numero maggiore di aree.
@@ -30,7 +30,7 @@ Questo elemento grafico illustra l'architettura di base della disponibilità ele
 
 ![Configurazione con disponibilità elevata standard](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-Il livello applicazione SAP viene distribuito in un [set di disponibilità](../../windows/manage-availability.md)di Azure. Per la disponibilità elevata di SAP Central Services è possibile distribuire due macchine virtuali in un set di disponibilità separato. Usare Windows Server Failover Clustering o Pacemaker (Linux) come framework a disponibilità elevata con failover automatico in caso di problemi dell'infrastruttura o del software. Per altre informazioni su queste distribuzioni, vedere:
+Il livello applicazione SAP viene distribuito in un [set di disponibilità](../../manage-availability.md)di Azure. Per la disponibilità elevata di SAP Central Services è possibile distribuire due macchine virtuali in un set di disponibilità separato. Usare Windows Server Failover Clustering o Pacemaker (Linux) come framework a disponibilità elevata con failover automatico in caso di problemi dell'infrastruttura o del software. Per altre informazioni su queste distribuzioni, vedere:
 
 - [Cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite un disco condiviso del cluster](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [Clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows tramite una condivisione file](./sap-high-availability-guide-wsfc-file-share.md)

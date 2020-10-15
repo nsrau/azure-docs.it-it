@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 96daa93c28617bd34f263b11afcd244e3b7bacf0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88214144"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi di Azure per Funzioni di Azure
@@ -407,7 +407,7 @@ Per le funzioni sviluppate nel portale di Azure con il trigger Griglia di eventi
 
 Quando si seleziona questo collegamento, nel portale si apre la pagina **Crea sottoscrizione di eventi** con l'endpoint del trigger corrente già definito.
 
-:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Creare una sottoscrizione di eventi con l'endpoint funzione già definito" :::
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Connettere una nuova sottoscrizione di eventi da attivare nel portale." :::
 
 Per altre informazioni su come creare sottoscrizioni tramite il portale di Azure, vedere [Creare eventi personalizzati con il portale di Azure](../event-grid/custom-event-quickstart-portal.md) nella documentazione relativa a Griglia di eventi.
 

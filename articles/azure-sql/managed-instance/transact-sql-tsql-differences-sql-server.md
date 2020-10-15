@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617877"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973309"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Limitazioni
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 ### <a name="auditing"></a>Controllo
 
@@ -165,7 +165,7 @@ Il Istanza gestita SQL non può accedere ai file, pertanto non è possibile crea
     - Esportare un database da SQL Istanza gestita e importarlo nel database SQL nello stesso dominio Azure AD. 
     - Esportare un database dal database SQL e importarlo in SQL Istanza gestita nello stesso dominio Azure AD.
     - Esportare un database da SQL Istanza gestita e importarlo in SQL Server (versione 2012 o successiva).
-      - In questa configurazione tutti gli utenti Azure AD vengono creati come SQL Server entità di database (utenti) senza account di accesso. Il tipo di utenti è elencato come `SQL` e sono visibili come `SQL_USER` in sys. database_principals). Le autorizzazioni e i ruoli rimangono nei metadati del database SQL Server e possono essere utilizzati per la rappresentazione. Tuttavia, non possono essere usati per accedere e accedere al SQL Server usando le proprie credenziali.
+      - In questa configurazione tutti gli utenti Azure AD vengono creati come SQL Server entità di database (utenti) senza account di accesso. Il tipo di utenti è elencato come `SQL` e sono visibili come `SQL_USER` in sys.database_principals). Le autorizzazioni e i ruoli rimangono nei metadati del database SQL Server e possono essere utilizzati per la rappresentazione. Tuttavia, non possono essere usati per accedere e accedere al SQL Server usando le proprie credenziali.
 
 - Solo l'account di accesso dell'entità di livello server, creato dal processo di provisioning di SQL Istanza gestita, i membri dei ruoli del server, ad esempio `securityadmin` o `sysadmin` , o altri account di accesso con autorizzazione ALTER ANY login a livello di server possono creare Azure ad entità server (account di accesso) nel database master per SQL istanza gestita.
 - Se l'account di accesso è un'entità di sicurezza SQL, solo gli account di accesso che fanno parte del ruolo `sysadmin` possono usare il comando per creare gli account di accesso per un account Azure AD.
@@ -174,11 +174,11 @@ Il Istanza gestita SQL non può accedere ai file, pertanto non è possibile crea
 - È consentita la sovrapposizione di entità server (account di accesso) di Azure AD con un account amministratore di Azure AD. Azure AD entità server (account di accesso) hanno la precedenza sull'amministratore Azure AD quando si risolve l'entità e si applicano le autorizzazioni a SQL Istanza gestita.
 - Durante l'autenticazione, viene applicata la sequenza seguente per risolvere l'entità di autenticazione:
 
-    1. Se l'account Azure AD esiste come mappato direttamente all'entità di Azure AD server (account di accesso), presente in sys. server_principals come tipo "E", concedere l'autorizzazione di accesso e applicare le autorizzazioni dell'entità di Azure AD server (account di accesso).
-    2. Se l'account Azure AD è un membro di un gruppo di Azure AD di cui è stato eseguito il mapping all'entità di Azure AD server (account di accesso), presente in sys. server_principals come tipo "X", concedere l'accesso e applicare le autorizzazioni dell'account di accesso del gruppo di Azure AD.
+    1. Se l'account Azure AD esiste come mappato direttamente all'entità di Azure AD server (account di accesso), presente in sys.server_principals come tipo "E", concedere l'autorizzazione di accesso e applicare le autorizzazioni dell'entità di Azure AD server (account di accesso).
+    2. Se l'account Azure AD è un membro di un gruppo di Azure AD di cui è stato eseguito il mapping all'entità di Azure AD server (account di accesso), presente in sys.server_principals come tipo "X", concedere l'accesso e applicare le autorizzazioni dell'account di accesso del gruppo di Azure AD.
     3. Se l'account Azure AD è uno speciale Azure AD amministratore configurato per il portale per SQL Istanza gestita, che non esiste nelle viste di sistema Istanza gestita SQL, applicare autorizzazioni fisse speciali dell'amministratore Azure AD per SQL Istanza gestita (modalità legacy).
-    4. Se l'account Azure AD esiste come mappato direttamente a un utente di Azure AD in un database, presente in sys. database_principals come tipo "E", concedere l'accesso e applicare le autorizzazioni dell'utente del database Azure AD.
-    5. Se l'account Azure AD è membro di un gruppo di Azure AD di cui è stato eseguito il mapping a un utente Azure AD in un database, presente in sys. database_principals come tipo "X", concedere l'accesso e applicare le autorizzazioni dell'account di accesso del gruppo di Azure AD.
+    4. Se l'account Azure AD esiste come mappato direttamente a un utente di Azure AD in un database, presente in sys.database_principals come tipo "E", concedere l'accesso e applicare le autorizzazioni dell'utente del database Azure AD.
+    5. Se l'account Azure AD è membro di un gruppo di Azure AD di cui è stato eseguito il mapping a un utente Azure AD in un database, che è presente in sys.database_principals come tipo "X", concedere l'accesso e applicare le autorizzazioni dell'account di accesso del gruppo di Azure AD.
     6. Se è presente un account di accesso Azure AD mappato a un account utente Azure AD o a un account di gruppo Azure AD, che viene risolto nell'utente che esegue l'autenticazione, vengono applicate tutte le autorizzazioni da questo Azure AD account di accesso.
 
 ### <a name="service-key-and-service-master-key"></a>Chiave del servizio e chiave master del servizio
@@ -353,7 +353,11 @@ Le istruzioni DBCC non documentate abilitate in SQL Server non sono supportate i
 
 ### <a name="distributed-transactions"></a>Transazioni distribuite
 
-Attualmente [le transazioni MSDTC e elastiche](../database/elastic-transactions-overview.md) non sono supportate in SQL istanza gestita.
+Il supporto parziale per [le transazioni distribuite](../database/elastic-transactions-overview.md) è attualmente disponibile in anteprima pubblica. Gli scenari supportati sono:
+* Le transazioni in cui i partecipanti sono solo istanze gestite da SQL di Azure che fanno parte del [gruppo di attendibilità del server](https://aka.ms/mitrusted-groups).
+* Transazioni avviate da .NET (TransactionScope Class) e Transact-SQL.
+
+Azure SQL Istanza gestita attualmente non supporta altri scenari che sono supportati regolarmente da MSDTC in locale o in macchine virtuali di Azure.
 
 ### <a name="extended-events"></a>Eventi estesi
 

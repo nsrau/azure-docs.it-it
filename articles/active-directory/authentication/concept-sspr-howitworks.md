@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052775"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965098"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -52,7 +52,7 @@ Quando il portale di SSPR viene visualizzato nella lingua richiesta, all'utente 
     * Se i metodi di autenticazione non sono configurati, l'utente è invitato a contattare l'amministratore per reimpostare la password.
   * Se il criterio richiede due metodi, verificare che per l'utente siano stati definiti i dati appropriati per almeno due dei metodi di autenticazione abilitati dai criteri dell'amministratore.
     * Se i metodi di autenticazione non sono configurati, l'utente è invitato a contattare l'amministratore per reimpostare la password.
-  * Se un ruolo di amministratore di Azure viene assegnato all'utente, vengono applicati i criteri di password complessa con due attività di controllo. Per altre informazioni, vedere [differenze tra i criteri di reimpostazione dell'amministratore](concept-sspr-policy.md#administrator-reset-policy-differences).
+  * Se un ruolo di amministratore di Azure viene assegnato all'utente, vengono applicati i criteri di password complessa con due attività di controllo. Per altre informazioni, vedere [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
 * Verifica se la password dell'utente è gestita in locale, ad esempio se il tenant Azure AD usa l'autenticazione federata, pass-through o la sincronizzazione degli hash delle password:
   * Se il writeback SSPR è configurato e la password dell'utente è gestita in locale, l'utente può procedere con l'autenticazione e la reimpostazione della password.
   * Se il writeback del SSPR non viene distribuito e la password dell'utente viene gestita in locale, all'utente viene richiesto di contattare l'amministratore per reimpostare la password.
@@ -106,7 +106,7 @@ Per SSPR sono disponibili i metodi di autenticazione seguenti:
 
 * Notifica dell'app per dispositivi mobili
 * Codice app per dispositivi mobili
-* E-mail
+* Email
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza

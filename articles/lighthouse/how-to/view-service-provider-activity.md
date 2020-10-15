@@ -1,21 +1,21 @@
 ---
 title: Visualizzare l'attività dei provider di servizi
 description: I clienti possono visualizzare le attività registrate per visualizzare le azioni eseguite dai provider di servizi tramite la gestione delle risorse delegate di Azure.
-ms.date: 07/07/2020
+ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131470"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974312"
 ---
 # <a name="view-service-provider-activity"></a>Visualizzare l'attività dei provider di servizi
 
 I clienti che hanno sottoscrizioni delegate per [Azure Lighthouse](../overview.md) possono visualizzare i dati del [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) per visualizzare tutte le azioni eseguite. In questo modo i clienti possono visualizzare in modo completo le operazioni eseguite dai provider di servizi tramite la [gestione delle risorse delegate di Azure](../concepts/azure-delegated-resource-management.md), oltre alle operazioni eseguite dagli utenti all'interno del tenant Azure Active Directory (Azure ad) del cliente.
 
 > [!TIP]
-> Viene anche fornita una definizione dei criteri incorporata in criteri di Azure per controllare la delega degli ambiti a un tenant di gestione. Per ulteriori informazioni, vedere la pagina relativa alle [deleghe di controllo nell'ambiente in uso](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Vengono inoltre fornite le definizioni dei criteri predefiniti di criteri di Azure per [limitare la delega a specifici tenant di gestione](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) e per [controllare la delega degli ambiti a un tenant di gestione](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Per ulteriori informazioni, vedere la pagina relativa alle [deleghe di controllo nell'ambiente in uso](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Visualizzare i dati del log attività
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare Log Analytics area di lavoro per Monitoraggio di Azure per le macchine virtuali
+title: Configurare l'area di lavoro Log Analytics per Monitoraggio di Azure per le macchine virtuali
 description: Viene descritto come creare e configurare l'area di lavoro Log Analytics utilizzata da Monitoraggio di Azure per le macchine virtuali.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,14 +7,14 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828558"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995738"
 ---
-# <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurare Log Analytics area di lavoro per Monitoraggio di Azure per le macchine virtuali
+# <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurare l'area di lavoro Log Analytics per Monitoraggio di Azure per le macchine virtuali
 Monitoraggio di Azure per le macchine virtuali raccoglie i dati da una o più aree di lavoro Log Analytics in monitoraggio di Azure. Prima di caricare gli agenti, è necessario creare e configurare un'area di lavoro. Questo articolo descrive i requisiti dell'area di lavoro e per configurarlo per Monitoraggio di Azure per le macchine virtuali.
 
 ## <a name="overview"></a>Panoramica
@@ -41,7 +41,7 @@ Accedere alle aree di lavoro Log Analytics nel portale di Azure dal menu **log A
 * [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Interfaccia della riga di comando di Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
-* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Aree supportate
 
@@ -97,7 +97,7 @@ Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola 
 ### <a name="resource-manager-template"></a>Modello di Resource Manager
 I modelli di Azure Resource Manager per Monitoraggio di Azure per le macchine virtuali sono disponibili in un file di archivio (con estensione zip) che è possibile [scaricare dal repository GitHub](https://aka.ms/VmInsightsARMTemplates). Questo include un modello denominato **ConfigureWorkspace** che configura un'area di lavoro di Log Analytics per monitoraggio di Azure per le macchine virtuali. Questo modello viene distribuito usando uno dei metodi standard, inclusi i comandi PowerShell e CLI di esempio seguenti: 
 
-# <a name="cli"></a>[Interfaccia della riga di comando](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli
 az deployment group create --name ConfigureWorkspace --resource-group my-resource-group --template-file CreateWorkspace.json  --parameters workspaceResourceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace' workspaceLocation='eastus'

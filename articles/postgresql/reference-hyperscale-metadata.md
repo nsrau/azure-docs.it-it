@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 888f8c96e8c1aa596c76cf09cd95a104821740ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320456"
 ---
 # <a name="system-tables-and-views"></a>Tabelle e viste di sistema
@@ -37,7 +37,7 @@ La \_ tabella di partizione PG dist archivia i \_ metadati relativi alle tabelle
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid | regclass | Tabella distribuita a cui corrisponde questa riga. Questo valore fa riferimento alla colonna relfilenode nella tabella pg_class catalogo di sistema.                                                                                                                   |
 | partmethod   | char     | Metodo utilizzato per il partizionamento/distribuzione. I valori di questa colonna corrispondenti a metodi di distribuzione diversi sono Append:' a', hash:' h ', tabella di riferimento:' n'                                                                          |
-| partkey      | testo     | Informazioni dettagliate sulla colonna di distribuzione, inclusi il numero di colonna, il tipo e altre informazioni rilevanti.                                                                                                                                      |
+| partkey      | text     | Informazioni dettagliate sulla colonna di distribuzione, inclusi il numero di colonna, il tipo e altre informazioni rilevanti.                                                                                                                                      |
 | colocationid | numero intero  | Gruppo di condivisione percorso a cui appartiene la tabella. Le tabelle nello stesso gruppo consentono i join con condivisione percorso e i rollup distribuiti tra le altre ottimizzazioni. Questo valore fa riferimento alla colonna colocationid nella tabella pg_dist_colocation.                      |
 | repmodel     | char     | Metodo utilizzato per la replica dei dati. I valori di questa colonna corrispondenti a metodi di replica diversi sono: replica basata su istruzioni CITUS:' c', replica di streaming PostgreSQL:' s', commit a due fasi (per le tabelle di riferimento):' t' |
 
@@ -59,8 +59,8 @@ Per le tabelle di Accodamento distribuite, queste statistiche corrispondono ai v
 | logicalrelid  | regclass | Tabella distribuita a cui corrisponde questa riga. Questo valore fa riferimento alla colonna relfilenode nella tabella pg_class catalogo di sistema.                                                          |
 | shardid       | bigint   | Identificatore univoco globale assegnato a questa partizione.                                                                                                                                           |
 | shardstorage  | char     | Tipo di archiviazione usato per questa partizione. Nella tabella seguente sono illustrati diversi tipi di archiviazione.                                                                                               |
-| shardminvalue | testo     | Per accodare tabelle distribuite, valore minimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, valore del token hash minimo assegnato a tale partizione (inclusivo). |
-| shardmaxvalue | testo     | Per accodare tabelle distribuite, valore massimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, il valore massimo del token hash assegnato a tale partizione (inclusi). |
+| shardminvalue | text     | Per accodare tabelle distribuite, valore minimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, valore del token hash minimo assegnato a tale partizione (inclusivo). |
+| shardmaxvalue | text     | Per accodare tabelle distribuite, valore massimo della colonna di distribuzione in questa partizione (inclusi). Per le tabelle con distribuzione hash, il valore massimo del token hash assegnato a tale partizione (inclusi). |
 
 ```
 SELECT * from pg_dist_shard;
@@ -126,13 +126,13 @@ La \_ tabella del nodo Dist di PG \_ contiene informazioni sui nodi di lavoro ne
 |------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NodeId           | INT     | Identificatore generato automaticamente per un singolo nodo.                                                                                                                                          |
 | groupid          | INT     | Identificatore utilizzato per indicare un gruppo di un server primario e zero o più server secondari, quando viene utilizzato il modello di replica di flusso. Per impostazione predefinita, è uguale a NodeId.         |
-| nodeName         | testo    | Nome host o indirizzo IP del nodo del ruolo di lavoro PostgreSQL.                                                                                                                                     |
+| nodeName         | text    | Nome host o indirizzo IP del nodo del ruolo di lavoro PostgreSQL.                                                                                                                                     |
 | Deport         | INT     | Numero di porta su cui è in ascolto il nodo del ruolo di lavoro PostgreSQL.                                                                                                                              |
-| noderack         | testo    | Opzionale Informazioni sulla posizione del rack per il nodo di lavoro.                                                                                                                                 |
+| noderack         | text    | Opzionale Informazioni sulla posizione del rack per il nodo di lavoro.                                                                                                                                 |
 | HasMetadata      | boolean | Riservato per utilizzo interno.                                                                                                                                                                 |
 | IsActive         | boolean | Indica se il nodo è attivo accettando posizionamenti di partizionamento.                                                                                                                                     |
-| noderole         | testo    | Indica se il nodo è primario o secondario                                                                                                                                                 |
-| nodecluster      | testo    | Nome del cluster che contiene questo nodo                                                                                                                                               |
+| noderole         | text    | Indica se il nodo è primario o secondario                                                                                                                                                 |
+| nodecluster      | text    | Nome del cluster che contiene questo nodo                                                                                                                                               |
 | shouldhaveshards | boolean | Se false, le partizioni verranno spostate al di fuori del nodo (svuotato) durante il ribilanciamento, né verranno posizionate partizioni dalle nuove tabelle distribuite nel nodo, a meno che non siano condivise con le partizioni già presenti |
 
 ```
@@ -154,7 +154,7 @@ La \_ \_ tabella di oggetti dist CITUS.PG contiene un elenco di oggetti, ad esem
 | ClassID                     | oid     | Classe dell'oggetto distribuito                      |
 | objid                       | oid     | ID oggetto dell'oggetto distribuito                  |
 | objsubid                    | numero intero | ID secondario dell'oggetto distribuito, ad esempio attnum |
-| tipo                        | testo    | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
+| type                        | text    | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
 | object_names                | testo []  | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
 | object_args                 | testo []  | Parte dell'indirizzo stabile usato durante gli aggiornamenti di PG   |
 | distribution_argument_index | numero intero | Valido solo per funzioni/procedure distribuite      |
@@ -334,9 +334,9 @@ Questa vista consente di tenere traccia delle query ai tenant di origine in un'a
 | QueryId       | bigint | identificatore (valido per i join pg_stat_statements)                                   |
 | userid        | oid    | utente che ha eseguito la query                                                           |
 | dbid          | oid    | istanza di database di coordinatore                                                 |
-| query         | testo   | stringa di query resi anonimi                                                          |
-| Executor      | testo   | CITUS Executor usato: Adaptive, Real-Time, Task-Tracker, router o INSERT-SELECT |
-| partition_key | testo   | valore della colonna di distribuzione nelle query eseguite dal router; else NULL               |
+| query         | text   | stringa di query resi anonimi                                                          |
+| Executor      | text   | CITUS Executor usato: Adaptive, Real-Time, Task-Tracker, router o INSERT-SELECT |
+| partition_key | text   | valore della colonna di distribuzione nelle query eseguite dal router; else NULL               |
 | calls         | bigint | numero di volte in cui è stata eseguita la query                                                |
 
 ```sql

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: f9d8970387982e293d3c8495079e7529fac2ccaa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949542"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966934"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
 
@@ -72,7 +72,7 @@ Azure Multi-Factor Authentication offre le tre opzioni di filtro seguenti:
 * **Filtro gruppo di sicurezza** : specificare i criteri di filtro usati per qualificare record gruppi di sicurezza quando si esegue una ricerca di directory.  Per Active Directory e ADAM, in genere si usa (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  Per altre directory LDAP, usare criteri di filtro che qualificano ogni tipo di oggetto gruppo di sicurezza, a seconda dello schema di directory.  <br>Nota: se viene lasciato vuoto, per impostazione predefinita viene usato (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).
 * **Filtro utente** : specificare i criteri di filtro usati per qualificare record utenti quando si esegue una ricerca di directory.  Per Active Directory e ADAM, in genere si usa (&(objectClass=user)(objectCategory=person)).  Per altre directory LDAP, usare (objectClass=inetOrgPerson) o un criterio simile, a seconda dello scherma di directory. <br>Nota: se viene lasciato vuoto, per impostazione predefinita viene usato (&(objectCategory=person)(objectClass=user)).
 
-## <a name="attributes"></a>Attributi
+## <a name="attributes"></a>Attributes
 
 È possibile personalizzare gli attributi per una directory specifica in base alle necessità.  Questo permette di aggiungere attributi personalizzati e perfezionare la sincronizzazione per limitarla solo agli attributi necessari. Usare il nome dell'attributo come definito nello schema di directory per il valore di ogni campo attributo. La tabella seguente contiene informazioni aggiuntive su ognuna delle funzionalità.
 
@@ -111,7 +111,7 @@ Per modificare gli attributi, fare clic su **modifica** nella scheda attributi. 
 
 ![Modifica mapping degli attributi di directory nel server multi-factor authentication](./media/howto-mfaserver-dir-ad/dirint4.png)
 
-## <a name="synchronization"></a>Synchronization
+## <a name="synchronization"></a>Sincronizzazione
 
 La sincronizzazione consente di mantenere il database utenti di Azure MFA sincronizzato con gli utenti di Active Directory o di un'altra directory LDAP (Lightweight Directory Access Protocol). Il processo è simile alla procedura di importazione manuale di utenti da Active Directory, con la differenza che periodicamente viene eseguito il polling delle modifiche apportate ai gruppi di sicurezza e agli utenti di Active Directory da elaborare.  Permette anche di disattivare o rimuovere gli utenti che sono stati rimossi da un contenitore, da un gruppo di sicurezza o da Active Directory.
 

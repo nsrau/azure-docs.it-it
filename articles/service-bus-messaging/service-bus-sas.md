@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/30/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012076"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
@@ -181,7 +181,7 @@ Se un token SAS viene assegnato a un mittente o ad un client, questi ultimi non 
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Usare la firma di accesso condiviso (a livello AMQP)
 
-Nella sezione precedente, è stato illustrato come utilizzare il token SAS con una richiesta HTTP POST per l'invio di dati per il Bus di servizio. Com'è noto, è possibile accedere al bus di servizio usando il protocollo AMQP (Advanced Message Queuing Protocol), ovvero il protocollo preferito da usare per motivi di prestazioni in molti scenari. L'utilizzo dei token di firma di accesso condiviso con AMQP è descritto nel documento [sulla sicurezza basata su attestazioni AMQP versione 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) che si trova nella bozza di lavoro a partire da 2013, ma è attualmente supportata da Azure.
+Nella sezione precedente, è stato illustrato come utilizzare il token SAS con una richiesta HTTP POST per l'invio di dati per il Bus di servizio. Com'è noto, è possibile accedere al bus di servizio usando il protocollo AMQP (Advanced Message Queuing Protocol), ovvero il protocollo preferito da usare per motivi di prestazioni in molti scenari. L'utilizzo dei token di firma di accesso condiviso con AMQP è descritto nel documento [AMQP Claim-Based Security versione 1,0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) che si trova nel Draft di lavoro a partire da 2013, ma è attualmente supportato da Azure.
 
 Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"**. Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
@@ -262,14 +262,14 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | **Service Registry** | | |
 | Enumerare i criteri privati |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | Iniziare l'attesa su uno spazio dei nomi del servizio |Attesa |Qualsiasi indirizzo dello spazio dei nomi |
-| Inviare messaggi a un listener in uno spazio dei nomi |Send |Qualsiasi indirizzo dello spazio dei nomi |
+| Inviare messaggi a un listener in uno spazio dei nomi |Invia |Qualsiasi indirizzo dello spazio dei nomi |
 | **Coda** | | |
 | Creare una coda |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare una coda |Gestione |Qualsiasi indirizzo valido della coda |
 | Enumerare le code |Gestione |/$Resources/Queues |
 | Ottenere la descrizione di una coda |Gestione |Qualsiasi indirizzo valido della coda |
 | Configurare le regole di autorizzazione per una coda |Gestione |Qualsiasi indirizzo valido della coda |
-| Effettuare un invio alla coda |Send |Qualsiasi indirizzo valido della coda |
+| Effettuare un invio alla coda |Invia |Qualsiasi indirizzo valido della coda |
 | Ricevere messaggi da una coda |Attesa |Qualsiasi indirizzo valido della coda |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |Qualsiasi indirizzo valido della coda |
 | Rinviare un messaggio per il successivo recupero |Attesa |Qualsiasi indirizzo valido della coda |
@@ -283,7 +283,7 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Enumerare gli argomenti |Gestione |/$Resources/Topics |
 | Ottenere la descrizione di un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
 | Configurare le regole di autorizzazione per un argomento |Gestione |Qualsiasi indirizzo valido dell'argomento |
-| Effettuare un invio all'argomento |Send |Qualsiasi indirizzo valido dell'argomento |
+| Effettuare un invio all'argomento |Invia |Qualsiasi indirizzo valido dell'argomento |
 | **Sottoscrizione** | | |
 | Creare una sottoscrizione |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | Eliminare una sottoscrizione |Gestione |../myTopic/Subscriptions/mySubscription |

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935756"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
@@ -42,7 +42,7 @@ In questa sezione si creeranno una rete virtuale e una subnet per ospitare la ma
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Sottoscrizione | Selezionare la propria sottoscrizione|
     | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
@@ -67,7 +67,7 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **DETTAGLI DELL'ISTANZA** |  |
     | URL | Immettere un nome univoco. |
-    | Posizione | Selezionare l'area geografica desiderata. |
+    | Location | Selezionare l'area geografica desiderata. |
     | Piano tariffario | Selezionare **Cambia piano tariffario** e scegliere il livello di servizio desiderato. (Non supporta il livello **gratuito** . Deve essere di **base** o superiore. |
     |||
   
@@ -81,11 +81,11 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 
 1. In **Crea endpoint privato**immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
-    | Posizione | selezionare **Stati Uniti occidentali**.|
+    | Location | selezionare **Stati Uniti occidentali**.|
     | Nome | Immettere *myPrivateEndpoint*.  |
     | Sottorisorsa di destinazione | Lasciare il valore predefinito **SearchService**. |
     | **RETE** |  |

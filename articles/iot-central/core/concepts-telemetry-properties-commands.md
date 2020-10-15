@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291609"
 ---
-# <a name="telemetry-property-and-command-payloads"></a>Payload di dati di telemetria, proprietà e comandi
+# <a name="telemetry-property-and-command-payloads"></a>Payload di telemetria, proprietà e comandi
 
 _Questo articolo si applica agli sviluppatori di dispositivi._
 
@@ -37,7 +37,7 @@ Il file JSON che definisce il DCM usa il [linguaggio DTDL (Digital Twin Definiti
 
 Per il codice del dispositivo di esempio che mostra alcuni payload in uso, vedere l'applicazione [creare e connettere un'applicazione client all'applicazione azure IOT Central (Node.js)](tutorial-connect-device-nodejs.md) e [creare e connettere un'applicazione client alle esercitazioni di Azure IOT Central Application (Python)](tutorial-connect-device-python.md) .
 
-## <a name="view-raw-data"></a>Visualizza dati non elaborati
+## <a name="view-raw-data"></a>Visualizzare dati non elaborati
 
 IoT Central consente di visualizzare i dati non elaborati inviati da un dispositivo a un'applicazione. Questa vista è utile per la risoluzione dei problemi relativi al payload inviato da un dispositivo. Per visualizzare i dati non elaborati inviati da un dispositivo:
 
@@ -45,9 +45,9 @@ IoT Central consente di visualizzare i dati non elaborati inviati da un disposit
 
 1. Selezionare la scheda **dati non elaborati** :
 
-    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Visualizzazione dati non elaborati":::
+    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Visualizzazione Dati non elaborati":::
 
-    In questa visualizzazione è possibile selezionare le colonne da visualizzare e impostare un intervallo di tempo da visualizzare. La colonna di **dati non modellata** Mostra i dati del dispositivo che non corrispondono ad alcuna definizione di proprietà o di telemetria nel modello di dispositivo.
+    In questa visualizzazione è possibile selezionare le colonne da visualizzare e impostare un intervallo di tempo da visualizzare. La colonna **Dati senza modello** contiene i dati del dispositivo che non corrispondono ad alcuna definizione di proprietà o di telemetria nel modello di dispositivo.
 
 ## <a name="telemetry"></a>Telemetria
 
@@ -347,7 +347,7 @@ Il frammento di codice seguente da un DCM Mostra la definizione di un `Object` t
 }
 ```
 
-Un client del dispositivo deve inviare i dati di telemetria come JSON, come nell'esempio seguente. `DateTime`i tipi devono essere conformi allo standard ISO 8061. I valori possibili per `Property3` sono `0` , e sono `1` visualizzati in IOT Central come `Item1` , `Item2` e `Item3` :
+Un client del dispositivo deve inviare i dati di telemetria come JSON, come nell'esempio seguente. `DateTime` i tipi devono essere conformi allo standard ISO 8061. I valori possibili per `Property3` sono `0` , e sono `1` visualizzati in IOT Central come `Item1` , `Item2` e `Item3` :
 
 ```json
 {
@@ -531,7 +531,7 @@ Il frammento di codice seguente da un DCM Mostra la definizione di un `date` tip
 }
 ```
 
-Un client del dispositivo deve inviare un payload JSON simile all'esempio seguente come proprietà segnalata nel dispositivo gemello. `Date`i tipi devono essere conformi allo standard ISO 8061:
+Un client del dispositivo deve inviare un payload JSON simile all'esempio seguente come proprietà segnalata nel dispositivo gemello. `Date` i tipi devono essere conformi allo standard ISO 8061:
 
 ```json
 { "DateProperty": "2020-05-17" }
@@ -766,18 +766,18 @@ Questa sezione illustra alcuni esempi di tipi di proprietà scrivibile che un di
 
 IoT Central prevede una risposta dal dispositivo agli aggiornamenti delle proprietà scrivibili. Il messaggio di risposta deve includere `ac` i `av` campi e. Il campo `ad` è facoltativo. Per esempi, vedere i frammenti di codice seguenti.
 
-`ac`è un campo numerico che usa i valori riportati nella tabella seguente:
+`ac` è un campo numerico che usa i valori riportati nella tabella seguente:
 
-| valore | Etichetta | Descrizione |
+| Valore | Etichetta | Descrizione |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completi | L'operazione di modifica della proprietà è stata completata correttamente. |
-| `'ac': 202`o`'ac': 201` | In sospeso | L'operazione di modifica della proprietà è in sospeso o in corso |
+| `'ac': 202`  o `'ac': 201` | Pending | L'operazione di modifica della proprietà è in sospeso o in corso |
 | `'ac': 4xx` | Errore | La modifica della proprietà richiesta non è valida o si è verificato un errore |
 | `'ac': 5xx` | Errore | Si è verificato un errore imprevisto nel dispositivo durante l'elaborazione della modifica richiesta. |
 
-`av`numero di versione inviato al dispositivo.
+`av` numero di versione inviato al dispositivo.
 
-`ad`Descrizione della stringa di opzioni.
+`ad` Descrizione della stringa di opzioni.
 
 Il frammento di codice seguente di un DCM Mostra la definizione di un `string` tipo di proprietà scrivibile:
 
@@ -887,7 +887,7 @@ Il dispositivo deve inviare il payload JSON seguente per IoT Central dopo l'elab
 }
 ```
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 ### <a name="synchronous-command-types"></a>Tipi di comando sincroni
 

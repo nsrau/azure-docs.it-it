@@ -4,10 +4,10 @@ description: Questo articolo illustra come è possibile usare l'aggiornamento au
 ms.topic: how-to
 ms.date: 09/15/2020
 ms.openlocfilehash: 0a72cc991e768a7bed01762d984cc56238ae0ad0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984778"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Aggiornare automaticamente le unità di messaggistica di uno spazio dei nomi del bus di servizio di Azure 
@@ -45,7 +45,7 @@ Questa impostazione consente di impostare un numero fisso di unità di messaggis
 1. Per impostazione **unità di messaggistica** selezionare il numero di unità di messaggistica nell'elenco a discesa.
 1. Selezionare **Salva** sulla barra degli strumenti per salvare l'impostazione. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Ridimensionare manualmente le unità di messaggistica":::       
+    :::image type="content" source="./media/automate-update-messaging-units/manual-scale.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::       
 
 
 ## <a name="custom-autoscale---default-condition"></a>Scalabilità automatica personalizzata-condizione predefinita
@@ -64,14 +64,14 @@ La procedura seguente illustra come aggiungere una condizione per aumentare auto
 1. Selezionare **Ridimensiona in base a una metrica per la** **modalità di ridimensionamento**. 
 1. Selezionare **+ Aggiungi una regola**. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Scalabilità predefinita in base a una metrica":::    
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-add-rule-link.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::    
 1. Nella pagina **regola di scalabilità** , attenersi alla seguente procedura:
     1. Selezionare una metrica dall'elenco a discesa **nome metrica** . In questo esempio, si tratta di una **CPU**. 
     1. Selezionare un operatore e i valori di soglia. In questo esempio sono **maggiori di** e **75** per la **soglia della metrica per attivare un'azione di ridimensionamento**. 
     1. Selezionare un' **operazione** nella sezione **azione** . In questo esempio è impostato su **increase**. 
     1. Selezionare quindi **Aggiungi**
     
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Impostazione predefinita: scalabilità orizzontale se l'utilizzo della CPU è superiore al 75%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::       
 
         > [!NOTE]
         > La funzionalità di scalabilità automatica aumenta le unità di messaggistica per lo spazio dei nomi se l'utilizzo complessivo della CPU supera il 75% in questo esempio. Gli incrementi vengono eseguiti da 1 a 2, da 2 a 4 e da 4 a 8. 
@@ -81,13 +81,13 @@ La procedura seguente illustra come aggiungere una condizione per aumentare auto
     1. Selezionare un' **operazione** nella sezione **azione** . In questo esempio è impostato su **Diminuisci**. 
     1. Selezionare quindi **Aggiungi** 
 
-        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Impostazione predefinita: ridimensionamento se l'utilizzo della CPU è inferiore al 25%":::       
+        :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::       
 
         > [!NOTE]
         > La funzionalità di scalabilità automatica riduce le unità di messaggistica per lo spazio dei nomi se l'utilizzo complessivo della CPU scende al di sotto del 25% in questo esempio. I decrementi vengono eseguiti da 8 a 4, da 4 a 2 e da 2 a 1. 
 1. Impostare il numero **minimo** e **massimo** e il numero **predefinito** di unità di messaggistica.
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regola predefinita in base a una metrica":::
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::
 1. Selezionare **Salva** sulla barra degli strumenti per salvare l'impostazione di scalabilità automatica. 
         
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Scalabilità a un numero specifico di unità di messaggistica
@@ -98,7 +98,7 @@ Attenersi alla procedura seguente per configurare la regola per la scalabilità 
 1. Selezionare **adatta a unità di messaggistica specifiche** per la **modalità di ridimensionamento**. 
 1. Per **unità di messaggistica**selezionare il numero di unità di messaggistica predefinite. 
 
-    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Impostazione predefinita su unità di messaggistica specifiche":::       
+    :::image type="content" source="./media/automate-update-messaging-units/default-scale-messaging-units.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::       
 
 ## <a name="custom-autoscale---additional-conditions"></a>Ridimensionamento automatico personalizzato-condizioni aggiuntive
 La sezione precedente illustra come aggiungere una condizione predefinita per l'impostazione di scalabilità automatica. Questa sezione illustra come aggiungere altre condizioni all'impostazione di scalabilità automatica. Per queste condizioni aggiuntive non predefinite, è possibile impostare una pianificazione basata su giorni specifici di una settimana o un intervallo di date. 
@@ -107,7 +107,7 @@ La sezione precedente illustra come aggiungere una condizione predefinita per l'
 1. Nella pagina **impostazione di scalabilità** automatica selezionare **scalabilità automatica personalizzata** per l'opzione **scegliere la modalità di ridimensionamento della risorsa** . 
 1. Selezionare **Aggiungi una condizione di scala** nel blocco **predefinito** . 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizzata: aggiungere un collegamento a una condizione di scalabilità":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::    
 1. Specificare un **nome** per la condizione. 
 1. Verificare che sia selezionata l'opzione **Ridimensiona in base a una metrica** . 
 1. Selezionare **+ Aggiungi una regola** per aggiungere una regola per aumentare le unità di messaggistica quando l'utilizzo complessivo della CPU supera il 75%. Seguire i passaggi della sezione [condizione predefinita](#custom-autoscale---default-condition) . 
@@ -115,26 +115,26 @@ La sezione precedente illustra come aggiungere una condizione predefinita per l'
 6. È anche possibile impostare una **pianificazione** su una condizione personalizzata, ma non sulla condizione predefinita. È possibile specificare le date di inizio e di fine per la condizione (o) selezionare giorni specifici (lunedì, martedì e così via) di una settimana. 
     1. Se si seleziona **specifica le date di inizio/fine**, selezionare il **fuso orario**, la data e l' **ora di inizio** e la **data e l'ora di fine** (come illustrato nella figura seguente) per applicare la condizione. 
 
-       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Valori minimo, massimo e predefinito per il numero di unità di messaggistica":::
+       :::image type="content" source="./media/automate-update-messaging-units/custom-min-max-default.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::
     1. Se si seleziona **Ripeti giorni specifici**, selezionare i giorni della settimana, il fuso orario, l'ora di inizio e l'ora di fine in cui applicare la condizione. 
 
-        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Ripeti giorni specifici":::
+        :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::
   
 ### <a name="scale-to-specific-number-of-messaging-units"></a>Scalabilità a un numero specifico di unità di messaggistica
 1. Nella pagina **impostazione di scalabilità** automatica selezionare **scalabilità automatica personalizzata** per l'opzione **scegliere la modalità di ridimensionamento della risorsa** . 
 1. Selezionare **Aggiungi una condizione di scala** nel blocco **predefinito** . 
 
-    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Personalizzata: aggiungere un collegamento a una condizione di scalabilità":::    
+    :::image type="content" source="./media/automate-update-messaging-units/add-scale-condition-link.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::    
 1. Specificare un **nome** per la condizione. 
 2. Selezionare l'opzione **adatta a unità di messaggistica specifiche** per la **modalità di ridimensionamento**. 
 1. Selezionare il numero di **unità di messaggistica** nell'elenco a discesa. 
 6. Per la **pianificazione**, specificare le date di inizio e di fine per la condizione (o) selezionare giorni specifici (lunedì, martedì e così via) di una settimana e degli orari. 
     1. Se si seleziona **specifica le date di inizio/fine**, selezionare il **fuso orario**, la data e l' **ora di inizio** e la **data e l'ora di fine** per rendere effettiva la condizione. 
     
-    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="ridimensionare a unità di messaggistica specifiche-date di inizio e di fine":::        
+    :::image type="content" source="./media/automate-update-messaging-units/scale-specific-messaging-units-start-end-dates.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::        
     1. Se si seleziona **Ripeti giorni specifici**, selezionare i giorni della settimana, il fuso orario, l'ora di inizio e l'ora di fine in cui applicare la condizione.
     
-    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scalabilità a unità di messaggistica specifiche-Ripeti giorni specifici":::
+    :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="Spazio dei nomi del bus di servizio-pagina scala":::
 
 > [!IMPORTANT]
 > Per altre informazioni sul funzionamento delle impostazioni di scalabilità automatica, in particolare su come seleziona un profilo o una condizione e valuta più regole, vedere [informazioni sulle impostazioni di scalabilità](../azure-monitor/platform/autoscale-understanding-settings.md)automatica.          

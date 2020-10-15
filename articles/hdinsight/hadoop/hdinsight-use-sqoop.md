@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86076879"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usare Apache Sqoop con Hadoop in HDInsight
@@ -78,7 +78,7 @@ Il cluster, il database SQL e altri oggetti vengono creati tramite il portale di
 
 2. Immettere le proprietà seguenti:
 
-    |Campo |valore |
+    |Campo |Valore |
     |---|---|
     |Subscription |Selezionare la sottoscrizione di Azure dall'elenco a discesa.|
     |Resource group |Selezionare il gruppo di risorse dall'elenco a discesa o crearne uno nuovo.|
@@ -95,7 +95,7 @@ Il cluster, il database SQL e altri oggetti vengono creati tramite il portale di
     |Nome file BACPAC |Usare il valore predefinito a meno che non si desideri usare un file BACPAC personalizzato.|
     |Location |Usare il valore predefinito.|
 
-    Il nome del [server SQL logico](../../azure-sql/database/logical-servers.md) sarà `<ClusterName>dbserver` . Il nome del database sarà `<ClusterName>db` . Il nome dell'account di archiviazione predefinito sarà `e6qhezrh2pdqu` .
+    Il nome del [server SQL logico](../../azure-sql/database/logical-servers.md) sarà  `<ClusterName>dbserver` . Il nome del database sarà `<ClusterName>db` . Il nome dell'account di archiviazione predefinito sarà `e6qhezrh2pdqu` .
 
 3. Selezionare **Accetto le condizioni riportate sopra**.
 

@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 69a47820d2afaf24f413aabf2c59a40c032070c1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231385"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Baseline della sicurezza di Azure per ExpressRoute
@@ -242,7 +242,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 Per configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile usare il riquadro di controllo delle identità e dell'accesso (IAM) nella portale di Azure per la sottoscrizione. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory.
 
-Inoltre, i partner che usano l'API Gestione risorse partner ExpressRoute possono applicare il controllo degli accessi in base al ruolo alla risorsa expressRouteCrossConnection. Questi controlli possono definire le autorizzazioni per le quali gli account utente possono modificare la risorsa expressRouteCrossConnection e aggiungere/aggiornare/eliminare le configurazioni del peering.
+Inoltre, i partner che usano l'API Gestione risorse partner ExpressRoute possono applicare il controllo di accesso Role-Based alla risorsa expressRouteCrossConnection. Questi controlli possono definire le autorizzazioni per le quali gli account utente possono modificare la risorsa expressRouteCrossConnection e aggiungere/aggiornare/eliminare le configurazioni del peering.
 
 * [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -459,7 +459,7 @@ Come configurare IPSEC da sito a sito su ExpressRoute: https://docs.microsoft.co
 
 Azure ExpressRoute dispone anche di ruoli utente del circuito e del circuito. Gli utenti del circuito sono i proprietari dei gateway di rete virtuale, che non sono nella stessa sottoscrizione del circuito ExpressRoute. Il proprietario del circuito ha la facoltà di modificare e revocare le autorizzazioni in qualsiasi momento. La revoca dell'autorizzazione comporterà l'eliminazione di tutti i collegamenti dalla sottoscrizione di cui è stato revocato l'accesso. Gli utenti del circuito possono riscattare le autorizzazioni (un'autorizzazione per ogni rete virtuale).
 
-Inoltre, i partner che usano l'API Gestione risorse partner ExpressRoute possono applicare il controllo degli accessi in base al ruolo alla risorsa expressRouteCrossConnection. Questi controlli possono definire le autorizzazioni per le quali gli account utente possono modificare la risorsa expressRouteCrossConnection e aggiungere/aggiornare/eliminare le configurazioni del peering.
+Inoltre, i partner che usano l'API Gestione risorse partner ExpressRoute possono applicare il controllo di accesso Role-Based alla risorsa expressRouteCrossConnection. Questi controlli possono definire le autorizzazioni per le quali gli account utente possono modificare la risorsa expressRouteCrossConnection e aggiungere/aggiornare/eliminare le configurazioni del peering.
 
 * [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -891,7 +891,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida**: abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
+**Linee guida**: abilitare Soft-Delete in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
 * [Come abilitare l'eliminazione temporanea in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 

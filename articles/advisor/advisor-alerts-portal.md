@@ -4,10 +4,10 @@ description: Creare avvisi di Azure Advisor per nuove raccomandazioni
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90973654"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Creare avvisi di Azure Advisor per nuove raccomandazioni usando il portale di Azure 
@@ -187,11 +187,11 @@ Da Azure Advisor è possibile modificare, eliminare o disabilitare e abilitare g
 
 1. Nel **portale**selezionare **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot del menu portale di Azure che mostra Azure Advisor selezionato.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot della sezione Dettagli avviso.":::
 
 2. Nella sezione **monitoraggio** del menu a sinistra selezionare **avvisi**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot del menu portale di Azure che Mostra gli avvisi selezionati.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot della sezione Dettagli avviso.":::
 
 3. Per modificare un avviso, fare clic sul nome dell'avviso per aprire l'avviso e modificare i campi che si desidera modificare.
 

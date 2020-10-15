@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.openlocfilehash: cd974377637f535383c4e099ac408bea88f887a4
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88853102"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in Windows con Azure NetApp Files (SMB) per le applicazioni SAP
@@ -143,7 +143,7 @@ Per SAP è necessario il seguente software:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Installare un'istanza di ASC/SCS nel primo nodo del cluster ASC/SCS
 
-1. Installare un'istanza di SAP ASC/SCS nel primo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a: **prodotto**  >  **DBMS** > installazione > server applicazioni ABAP (o Java) > sistema a disponibilità elevata > istanza di ASC/SCS > primo nodo del cluster.  
+1. Installare un'istanza di SAP ASC/SCS nel primo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a: **prodotto**  >  **DBMS** > installazione > server applicazioni ABAP (o Java) > High-Availability System > istanza di ASC/SCS > primo nodo del cluster.  
 
 2. Selezionare il **cluster di condivisione file** come configurazione della condivisione del cluster in SWPM.  
 3. Quando vengono richiesti i **parametri del cluster del sistema SAP**, immettere il nome host per la condivisione SMB Azure NetApp files già creata come **nome host della condivisione file**.  In questo esempio, il nome host della condivisione SMB è **anfsmb-9562**. 
@@ -158,7 +158,7 @@ Per SAP è necessario il seguente software:
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Installare un'istanza di ASC/SCS nel secondo nodo del cluster ASC/SCS
 
-1. Installare un'istanza di SAP ASC/SCS nel secondo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a **prodotto**  >  **DBMS** > installazione > server applicazioni ABAP (o Java) > sistema a disponibilità elevata > istanza di ASC/SCS > nodo cluster aggiuntivo.  
+1. Installare un'istanza di SAP ASC/SCS nel secondo nodo del cluster. Avviare lo strumento di installazione di SAP SWPM, quindi passare a **prodotto**  >  **DBMS** > installazione > server applicazioni ABAP (o Java) > High-Availability System > istanza di ASC/SCS > nodo del cluster aggiuntivo.  
 
 ### <a name="install-a-dbms-instance-and-sap-application-servers"></a>Installare un'istanza di DBMS e i server applicazioni SAP
 

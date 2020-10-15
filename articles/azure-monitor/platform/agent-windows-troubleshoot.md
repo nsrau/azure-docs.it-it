@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927318"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Windows 
@@ -61,7 +61,7 @@ Esistono diversi modi per verificare se l'agente è in grado di comunicare corre
 
 - Filtrare il registro eventi *Operations Manager* per **origini evento**  -  *servizio integrità moduli*, *HealthService*e *connettore del servizio* e filtrare per *avviso* a **livello di evento** ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente. In caso affermativo, rivedere i passaggi di risoluzione inclusi per ogni possibile evento.
 
-    |ID evento |Origine |Descrizione |Risoluzione |
+    |ID evento |Source (Sorgente) |Descrizione |Soluzione |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Servizio integrità |Connessione al servizio dall'agente non riuscita |Questo errore può verificarsi quando l'agente non è in grado di comunicare direttamente o tramite un firewall o un server proxy per il servizio monitoraggio di Azure. Verificare le impostazioni del proxy di Agent o che il firewall/proxy di rete consenta il traffico TCP dal computer al servizio.|
     |2138 |Moduli del servizio integrità |Il proxy richiede l'autenticazione |Configurare le impostazioni proxy di Agent e specificare il nome utente e la password necessari per l'autenticazione con il server proxy. |
@@ -99,7 +99,7 @@ Se la query restituisce risultati, è necessario determinare se un particolare t
 
 3. Se dopo alcuni minuti non vengono visualizzati i dati previsti nei risultati della query o nella visualizzazione, a seconda che si stiano visualizzando i dati da una soluzione o da informazioni dettagliate, dal registro eventi *Operations Manager* cercare le **origini evento** *HealthService* e *servizio integrità moduli* e filtrare in base a livello di **evento** *avviso* ed *errore* per verificare se sono stati scritti eventi dalla tabella seguente.
 
-    |ID evento |Origine |Descrizione |Risoluzione |
+    |ID evento |Source (Sorgente) |Descrizione |Soluzione |
     |---------|-------|------------|
     |8000 |Servizio integrità |Questo evento specifica se un flusso di lavoro relativo a prestazioni, eventi o altri tipi di dati raccolti non è in grado di eseguire l'invio al servizio per l'inserimento nell'area di lavoro. | L'ID evento 2136 dall'origine HealthService viene scritto insieme a questo evento e può indicare che l'agente non è in grado di comunicare con il servizio, probabilmente a causa di una configurazione errata del proxy e delle impostazioni di autenticazione, interruzione della rete o il firewall/proxy di rete non consente il traffico TCP dal computer al servizio.| 
     |10102 e 10103 |Moduli del servizio integrità |Impossibile risolvere l'origine dati. |Questo problema può verificarsi se l'istanza o il contatore delle prestazioni specificato non esiste nel computer o non è definito correttamente nelle impostazioni dei dati dell'area di lavoro. Se si tratta di un [contatore delle prestazioni](data-sources-performance-counters.md#configuring-performance-counters)specificato dall'utente, verificare che le informazioni specificate siano successive al formato corretto e che esista nei computer di destinazione. |

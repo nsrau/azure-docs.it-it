@@ -1,26 +1,18 @@
 ---
 title: Panoramica e architettura di monitoraggio di Azure per le soluzioni SAP | Microsoft Docs
 description: Questo articolo fornisce le risposte alle domande frequenti su monitoraggio di Azure per le soluzioni SAP
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 8d97c713dfec574a8ef7f3f0dde4701ddea0e98b
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.reviewer: cynthn
+ms.openlocfilehash: d9730324b2557c8f0bb203f7badbd00e0e7e704e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669016"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994251"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Monitoraggio di Azure per soluzioni SAP (anteprima)
 
@@ -114,5 +106,5 @@ Monitoraggio di Azure per le soluzioni SAP è un prodotto gratuito (nessuna tari
 
 Informazioni sui provider e creare la prima risorsa di monitoraggio di Azure per soluzioni SAP.
  - Altre informazioni sui [provider](./azure-monitor-providers.md)
- - [Distribuire monitoraggio di Azure per le soluzioni SAP con Azure PowerShell](azure-monitor-sap-quickstart-powershell.md)
+ - [Distribuire Monitoraggio di Azure per soluzioni SAP con Azure PowerShell](azure-monitor-sap-quickstart-powershell.md)
  - Hai domande su monitoraggio di Azure per le soluzioni SAP? Vedere la sezione [domande frequenti](./azure-monitor-faq.md)

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939072"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Che cos'è Azure Arc abilitata per l'iperscalabilità di PostgreSQL?
@@ -43,18 +43,18 @@ Questo è il fattore di forma di iperscalabilità del motore di database Postgre
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Iperscalabilità PostgreSQL abilitata per Azure Arc
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Iperscalabilità PostgreSQL abilitata per Azure Arc":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Iperscalabilità di database SQL di Azure per PostgreSQL (CITUS)":::
 
 Questo è il fattore di forma di iperscalabilità del motore di database Postgres disponibile con Azure Arc Enabled Data Services. È anche basato sull'estensione CITUS che consente l'esperienza di iperscalabilità. In questo fattore di forma, i clienti forniscono l'infrastruttura che ospita i sistemi e li gestisce.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - **Creare**
    > **Si desidera fare semplicemente una prova?**  
-   > Inizia rapidamente a usare [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) in Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) o in una VM di Azure.
+   > È possibile iniziare rapidamente a usare [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) nel servizio Azure Kubernetes, in AWS Elastic Kubernetes Service (EKS), in Google Cloud Kubernetes Engine (GKE) o in una macchina virtuale di Azure.
 
    - **Creare**
       - [Installare gli strumenti client](install-client-tools.md)
-      - [Creare il controller dati di Azure Arc](create-data-controller.md) (richiede prima di tutto l'installazione degli strumenti client)
+      - [Creare il controller dati di Azure Arc](create-data-controller.md) (è prima necessario installare gli strumenti client)
       - [Creare un gruppo di server per l'iperscalabilità di database di Azure per PostgreSQL in Azure Arc](create-postgresql-hyperscale-server-group.md) (è necessario creare prima di tutto un controller dati di Azure Arc).
 - [**Scopri di più su Azure Arc Enabled Data Services**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [**Scopri di più su Azure Arc**](https://aka.ms/azurearc)

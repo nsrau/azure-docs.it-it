@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846833"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
@@ -127,9 +127,9 @@ Per impostazione predefinita, PowerShell in DNS di Azure usa gli Etag per blocca
 
 A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le intestazioni HTTP.  Il relativo comportamento è illustrato nella tabella seguente:
 
-| Header | Comportamento |
+| Intestazione | Comportamento |
 | --- | --- |
-| nessuno |PUT riesce sempre (nessun controllo di Etag) |
+| Nessuno |PUT riesce sempre (nessun controllo di Etag) |
 | If-Match \<etag> |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |

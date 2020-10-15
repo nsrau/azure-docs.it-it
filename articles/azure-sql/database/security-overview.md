@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
 ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321425"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Panoramica delle funzionalità di sicurezza del database SQL di Azure e di SQL Istanza gestita
@@ -75,9 +75,9 @@ Come procedura consigliata, creare ruoli personalizzati quando necessario. Aggiu
 
 ### <a name="row-level-security"></a>Sicurezza a livello di riga
 
-La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella del database in base alle caratteristiche dell'utente che esegue una query (ad esempio l'appartenenza al gruppo o il contesto di esecuzione). La sicurezza a livello di riga può essere usata anche per implementare concetti di sicurezza personalizzati basati su etichetta. Per ulteriori informazioni, vedere [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
+La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle righe in una tabella del database in base alle caratteristiche dell'utente che esegue una query (ad esempio l'appartenenza al gruppo o il contesto di esecuzione). Row-Level sicurezza può essere usata anche per implementare concetti di sicurezza personalizzati basati su etichetta. Per ulteriori informazioni, vedere [sicurezza a livello di riga](/sql/relational-databases/security/row-level-security).
 
-![Diagramma che mostra che la sicurezza a livello di riga scherma le singole righe di un database SQL dall'accesso da parte degli utenti tramite un'app client.](./media/security-overview/azure-database-rls.png)
+![Diagramma che mostra che Row-Level sicurezza protegge le singole righe di un database SQL dall'accesso da parte degli utenti tramite un'app client.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Protezione dalle minacce
 

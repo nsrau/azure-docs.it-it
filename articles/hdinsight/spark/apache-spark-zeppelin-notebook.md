@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: a692f4dd86d110f7f0a91a862a7b16ac28345de5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084529"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Apache Zeppelin con cluster Apache Spark in Azure HDInsight
@@ -159,7 +159,7 @@ Come indicato in precedenza, l' `%sh` interprete non è supportato da HDInsight 
 
 Gli utenti con privilegi di dominio possono usare il `Shiro.ini` file per controllare l'accesso all'interfaccia utente dell'interprete. Solo questi utenti possono creare nuovi `%sh` interpreti e impostare le autorizzazioni per ogni nuovo `%sh` interprete. Per controllare l'accesso tramite il `shiro.ini` file, attenersi alla procedura seguente:
 
-1. Definire un nuovo ruolo utilizzando un nome di gruppo di dominio esistente. Nell'esempio seguente `adminGroupName` è un gruppo di utenti con privilegi in AAD. Non usare caratteri speciali o spazi vuoti nel nome del gruppo. I caratteri dopo `=` forniscono le autorizzazioni per questo ruolo. `*`indica che il gruppo dispone delle autorizzazioni complete.
+1. Definire un nuovo ruolo utilizzando un nome di gruppo di dominio esistente. Nell'esempio seguente `adminGroupName` è un gruppo di utenti con privilegi in AAD. Non usare caratteri speciali o spazi vuoti nel nome del gruppo. I caratteri dopo `=` forniscono le autorizzazioni per questo ruolo. `*` indica che il gruppo dispone delle autorizzazioni complete.
 
     ```
     [roles]

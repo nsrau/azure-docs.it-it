@@ -1,23 +1,18 @@
 ---
 title: Ridimensionamento di applicazioni HPC-macchine virtuali di Azure | Microsoft Docs
 description: Informazioni su come ridimensionare le applicazioni HPC nelle VM di Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 72178b61d7033167ed48a8ddbb661daad6081df7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: 2c20fcf2624c1f620b68b46e56e0602f15041348
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020112"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993832"
 ---
 # <a name="scaling-hpc-applications"></a>Ridimensionamento di applicazioni HPC
 
@@ -33,7 +28,7 @@ Il sistema di compilazione AMD Optimizing C/C++ Compiler (AOCC) offre un elevato
 
 ### <a name="clang"></a>Clang
 
-Clang è un compilatore C, C++ e Objective-C che gestisce la pre-elaborazione, l'analisi, l'ottimizzazione, la generazione di codice, l'assembly e il collegamento. Clang supporta il `-march=znver1` flag per abilitare la generazione di codice migliore e l'ottimizzazione per l'architettura x86 basata su Zen di AMD.
+Clang è un compilatore C, C++ e Objective-C che gestisce la pre-elaborazione, l'analisi, l'ottimizzazione, la generazione di codice, l'assembly e il collegamento. Clang supporta il  `-march=znver1` flag per abilitare la generazione di codice migliore e l'ottimizzazione per l'architettura x86 basata su Zen di AMD.
 
 ### <a name="flang"></a>FLANG
 

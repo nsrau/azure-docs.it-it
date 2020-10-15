@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f991e38c184fe44f63af63809deb14eda22f8f4c
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 406b53f833edabafe620b05ccb6acfadffabf5ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716725"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964367"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
@@ -25,7 +25,7 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Procedura per la risoluzione di errori comuni
 
-| Codice errore | Passaggi per la risoluzione dei problemi |
+| Codice di errore | Passaggi per la risoluzione dei problemi |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Contattare il supporto tecnico](#contact-microsoft-support) e segnalare l'elenco dei passaggi per la raccolta dei log. Fornire quante più informazioni possibile sugli eventi che si sono verificati prima dell'errore, inclusi l'ID tenant e il nome dell'entità utente (UPN). |
 | **CLIENT_CERT_INSTALL_ERROR** | Potrebbe esserci un problema con la modalità di installazione del certificato client o con la modalità di associazione al tenant. Per analizzare i problemi del certificato client seguire le istruzioni in [Risoluzione dei problemi dell'estensione NPS MFA](howto-mfa-nps-extension.md#troubleshooting). |
@@ -40,7 +40,7 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 
 ### <a name="alternate-login-id-errors"></a>Errori relativi all'ID di accesso alternativo
 
-| Codice errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
+| Codice di errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Errore: la ricerca di userObjectSid non è riuscita | Verificare che l'utente esista nell'istanza di Active Directory locale. Se si usano i trust tra foreste, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Errore: la ricerca dell'ID di accesso alternativo non è riuscita | Verificare che LDAP_ALTERNATE_LOGINID_ATTRIBUTE sia impostato su un [attributo di Active Directory valido](/windows/win32/adschema/attributes-all). <br><br> Se LDAP_FORCE_GLOBAL_CATALOG è impostata su True o LDAP_LOOKUP_FORESTS è configurato con un valore non vuoto, verificare di avere configurato un catalogo globale e che vi sia stato aggiunto l'attributo AlternateLoginId. <br><br> Se LDAP_LOOKUP_FORESTS è configurato con un valore non vuoto, verificare che il valore sia corretto. Se è presente più di un nome di foresta, i nomi devono essere separati da punti e virgola, non da spazi. <br><br> Se questi passaggi non risolvono il problema, [contattare il supporto tecnico](#contact-microsoft-support) per maggiore assistenza. |
@@ -48,7 +48,7 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 
 ## <a name="errors-your-users-may-encounter"></a>Errori che possono verificarsi per gli utenti
 
-| Codice errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
+| Codice di errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Caller tenant does not have access permissions to do authentication for the user (Il tenant chiamante non dispone delle autorizzazioni di accesso per eseguire l'autenticazione per l'utente) | Controllare che il dominio del tenant e il dominio del nome dell'entità utente (UPN) corrispondano. Ad esempio, assicurarsi che user@contoso.com stia tentando di eseguire l'autenticazione al tenant di Contoso. L'UPN rappresenta un utente valido per il tenant in Azure. |
 | **AuthenticationMethodNotConfigured** | The specified authentication method was not configured for the user (Il metodo di autenticazione specificato non è stato configurato per l'utente) | Richiedere all'utente di aggiungere o verificare i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
@@ -67,7 +67,7 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 
 In alcuni casi, gli utenti possono ricevere messaggi da Multi-Factor Authentication in quanto la richiesta di autenticazione ha esito negativo. Non si tratta di errori del prodotto di configurazione, ma sono avvisi intenzionali che spiegano il motivo per cui una richiesta di autenticazione è stata negata.
 
-| Codice errore | Messaggio di errore | Procedure consigliate |
+| Codice di errore | Messaggio di errore | Procedure consigliate |
 | ---------- | ------------- | ----------------- |
 | **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect (Codice inserito non corretto\Codice OATH errato) | L'utente ha immesso il codice errato. Fare in modo che l'utente ripeta l'operazione richiedendo un nuovo codice o effettuando di nuovo l'accesso. |
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached (Numero massimo di tentativi di inserimento del codice raggiunto) | L'utente ha superato il numero di richieste di verifica consentito. A seconda delle impostazioni, potrebbe essere necessaria una procedura di sblocco da parte dell'amministratore.  |
@@ -77,7 +77,7 @@ In alcuni casi, gli utenti possono ricevere messaggi da Multi-Factor Authenticat
 
 Se si verifica uno di questi errori, è consigliabile [contattare il supporto tecnico](#contact-microsoft-support) per assistenza diagnostica. Non esistono procedure standard che consentono di risolvere questi errori. Quando si contatta il supporto tecnico, assicurarsi di includere più informazioni possibili sui passaggi che hanno causato l'errore e le informazioni del tenant.
 
-| Codice errore | Messaggio di errore |
+| Codice di errore | Messaggio di errore |
 | ---------- | ------------- |
 | **InvalidParameter** | Request must not be null (La richiesta non deve essere null) |
 | **InvalidParameter** | ObjectId must not be null or empty for ReplicationScope:{0} (ObjectId non deve essere null o vuoto per ReplicationScope: {0}) |
@@ -101,7 +101,7 @@ Se gli utenti hanno [Problemi con la verifica in due passaggi](../user-help/mult
 
 Lo [script di controllo integrità dell'estensione NPS di Azure](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/) esegue un controllo di integrità di base per la risoluzione dei problemi relativi all'estensione NPS. Eseguire lo script e scegliere l'opzione 3.
 
-### <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
+### <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
 Se è necessario avere un maggiore supporto, contattare un tecnico del supporto tramite il [supporto del server Multi-Factor Authentication di Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Le informazioni da dare includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico, l'ID dell'utente che visualizza l'errore e i log di debug.
 

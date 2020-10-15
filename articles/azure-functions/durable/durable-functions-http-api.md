@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697844"
 ---
 # <a name="http-api-reference"></a>Informazioni di riferimento sulle API HTTP
@@ -24,7 +24,7 @@ Per tutte le API HTTP implementate dall'estensione sono necessari i parametri se
 | **`connection`** | Stringa di query    | **Nome** della stringa di connessione per l'account di archiviazione. Se non specificato, viene usata la stringa di connessione predefinita dell'app per le funzioni. |
 | **`systemKey`**  | Stringa di query    | Chiave di autorizzazione necessaria per richiamare l'API. |
 
-`systemKey`è una chiave di autorizzazione generata automaticamente dall'host di funzioni di Azure. In particolare, concede l'accesso alle API dell'estensione Durable Task e può essere gestita allo stesso modo di [altre chiavi di autorizzazione](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). È possibile generare URL contenenti i valori corretti `taskHub` della `connection` stringa di query, e `systemKey` usando le API di [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) , ad esempio le `CreateCheckStatusResponse` `CreateHttpManagementPayload` API e in .NET, oppure le `createCheckStatusResponse` `createHttpManagementPayload` API e in JavaScript.
+`systemKey` è una chiave di autorizzazione generata automaticamente dall'host di funzioni di Azure. In particolare, concede l'accesso alle API dell'estensione Durable Task e può essere gestita allo stesso modo di [altre chiavi di autorizzazione](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). È possibile generare URL contenenti i valori corretti `taskHub` della `connection` stringa di query, e `systemKey` usando le API di [associazione del client di orchestrazione](durable-functions-bindings.md#orchestration-client) , ad esempio le `CreateCheckStatusResponse` `CreateHttpManagementPayload` API e in .NET, oppure le `createCheckStatusResponse` `createHttpManagementPayload` API e in JavaScript.
 
 Le prossime sezioni illustrano le specifiche API HTTP supportate dall'estensione e offrono esempi su come possono essere usate.
 
@@ -385,7 +385,7 @@ Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo 
 
 | Campo                  | Tipo di dati | Descrizione |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | Numero di istanze eliminate. Per il caso a istanza singola, questo valore deve essere sempre `1` . |
+| **`instancesDeleted`** | numero intero   | Numero di istanze eliminate. Per il caso a istanza singola, questo valore deve essere sempre `1` . |
 
 Di seguito è riportato un payload di risposta di esempio (formattato per migliorare la leggibilità):
 
@@ -447,7 +447,7 @@ Il payload di risposta per il case **HTTP 200** è un oggetto JSON con il campo 
 
 | Campo                   | Tipo di dati | Descrizione |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | Numero di istanze eliminate. |
+| **`instancesDeleted`**  | numero intero   | Numero di istanze eliminate. |
 
 Di seguito è riportato un payload di risposta di esempio (formattato per migliorare la leggibilità):
 

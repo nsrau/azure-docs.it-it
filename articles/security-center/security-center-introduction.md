@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323675"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742078"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -43,7 +43,8 @@ Per garantire la protezione da questi problemi, Centro sicurezza offre gli strum
 
 -   **Protezione più rapida**: In Centro sicurezza, tutto viene eseguito con la velocità del cloud. Poiché è integrato in modo nativo, la distribuzione di Centro sicurezza è facile e consente di utilizzare il provisioning automatico e la protezione dei servizi di Azure.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+> [!NOTE]
+> Questo servizio supporta [Azure Lighthouse](../lighthouse/overview.md), che consente ai provider di servizi di accedere al proprio tenant per gestire le sottoscrizioni e i gruppi di risorse che i clienti hanno delegato. Per gli scenari del Centro sicurezza di Azure, è necessario delegare un'intera sottoscrizione piuttosto che singoli gruppi di risorse.
 
 ## <a name="architecture"></a>Architecture
 

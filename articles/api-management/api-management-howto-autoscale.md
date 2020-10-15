@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: cbdc81789fcd996774090f12523e7404c0aa0111
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205855"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071303"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Ridimensionare automaticamente un'istanza di Gestione API di Azure  
 
@@ -74,7 +74,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
    Ad esempio, una regola di scalabilità orizzontale consente di attivare un'aggiunta di un'unità di Gestione API di Azure, quando la metrica capacità media negli ultimi 30 minuti supera l'80%. La tabella seguente fornisce la configurazione per tale regola.
 
-    | Parametro             | Valore             | Note                                                                                                                                                                                                                                                                           |
+    | Parametro             | valore             | Note                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origine della metrica         | Risorsa corrente  | Definire la regola in base alle metriche delle risorse di Gestione API di Azure correnti.                                                                                                                                                                                                     |
     | *Criteri*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -101,7 +101,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     Ad esempio, una regola di riduzione consente di rimuovere un'unità di Gestione API di Azure, quando la metrica della capacità media negli ultimi 30 minuti è inferiore al 35%. La tabella seguente fornisce la configurazione per tale regola.
 
-    | Parametro             | Valore             | Note                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parametro             | valore             | Note                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origine della metrica         | Risorsa corrente  | Definire la regola in base alle metriche delle risorse di Gestione API di Azure correnti.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Criteri*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -127,9 +127,9 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     ![Regola di riduzione di Monitoraggio di Azure](media/api-management-howto-autoscale/07.png)
 
-13. Fare clic su **Save** (Salva). La scalabilità automatica è stata configurata.
+13. Fare clic su **Salva**. La scalabilità automatica è stata configurata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure](api-management-howto-deploy-multi-region.md)
-- [Ottimizza e Risparmia sulla spesa per il cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Ottimizza e Risparmia sulla spesa per il cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

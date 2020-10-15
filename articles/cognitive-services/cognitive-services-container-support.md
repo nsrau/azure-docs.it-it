@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: locale, Docker, container, Kubernetes
-ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665413"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999684"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contenitori dei servizi cognitivi di Azure
 
@@ -72,7 +72,7 @@ I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenito
 | [Analisi del testo][ta-containers-language] | F0, S | **Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
 | [Analisi del testo][ta-containers-sentiment] | F0, S | **Analisi del sentiment V3** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. Questa versione dell'analisi dei sentimenti restituisce le etichette del sentimento, ad esempio *positivo* o *negativo*, per ogni documento e frase al suo interno. |
 | [Analisi del testo][ta-containers-health] | F0, S | **Analisi del testo per l'integrità** | Estrarre ed etichettare le informazioni mediche da testo clinico non strutturato. |
-| [Analisi spaziale][spa-containers] | S0 | **Analisi spaziale** | Estrarre ed etichettare le informazioni mediche da testo clinico non strutturato. |
+| [Analisi spaziale][spa-containers] | S0 | **Analisi spaziale** | Analizza i video di streaming in tempo reale per comprendere le relazioni spaziali tra persone, lo spostamento e le interazioni con gli oggetti in ambienti fisici. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|

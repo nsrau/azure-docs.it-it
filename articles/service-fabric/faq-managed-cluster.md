@@ -7,13 +7,13 @@ author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91728999"
 ---
-# <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Domande frequenti sui cluster gestiti Service Fabric
+# <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Domande frequenti sui cluster gestiti di Service Fabric
 
 Sono molte le domande più frequenti sulle operazioni che Service Fabric cluster gestiti (anteprima) possono eseguire e sul modo in cui devono essere usate. In questo documento vengono illustrate molte di queste domande comuni e le relative risposte.
 
@@ -62,7 +62,7 @@ I cluster di zone a disponibilità incrociata non sono attualmente disponibili n
 ### <a name="can-i-select-between-automatic-and-manual-upgrades-for-my-cluster-runtime"></a>È possibile scegliere tra aggiornamenti automatici e manuali per il runtime del cluster? 
 Nell'anteprima tutti gli aggiornamenti del runtime verranno completati automaticamente.
 
-## <a name="applications"></a>Applicazioni
+## <a name="applications"></a>APPLICAZIONI
 
 ### <a name="is-there-a-local-development-experience-for-service-fabric-managed-clusters"></a>Esiste un'esperienza di sviluppo locale per i cluster Service Fabric gestiti?
 

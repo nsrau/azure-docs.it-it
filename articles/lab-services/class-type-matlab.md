@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444999"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Configurare un Lab per insegnare a MATLAB
@@ -34,7 +34,7 @@ Per configurare questo lab, è necessaria una sottoscrizione di Azure per inizia
 
 Per creare un nuovo Lab, seguire [la procedura per configurare un'esercitazione in aula Lab](tutorial-setup-classroom-lab.md).  Applicare le impostazioni seguenti:
 
-| Dimensioni della macchina virtuale | Image |
+| Dimensioni della macchina virtuale | Immagine |
 | -------------------- | ----- |
 | Media | Windows 10 |
 
@@ -102,7 +102,7 @@ Verrà ora trattata una possibile stima dei costi per questa classe.  Questa sti
 
 Di seguito è riportato un esempio di una possibile stima dei costi per questa classe:
 
-25 studenti \* (20 ore pianificate + 10 ore di quota) \* 55 unità Lab \* 0,01 USD all'ora = 412,50 USD
+25 studenti \* (20 ore pianificate + 10 ore di quota) \* 55 unità Lab \*  0,01 USD all'ora = 412,50 USD
 
 >[!IMPORTANT]
 > La stima dei costi è solo a scopo esemplificativo.  Per informazioni aggiornate sui prezzi, vedere [Azure Lab Services prezzi](https://azure.microsoft.com/pricing/details/lab-services/).  

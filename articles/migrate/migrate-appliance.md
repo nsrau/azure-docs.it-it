@@ -4,10 +4,10 @@ description: Fornisce un riepilogo del supporto per Azure Migrate Appliance.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450044"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
@@ -85,7 +85,7 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 1000 di server fisici.
 **Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140334). [Altre informazioni](tutorial-discover-physical.md)<br/><br/> Le dimensioni del download sono pari a 85,8 MB.
-**Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.<br/>_Attualmente la distribuzione del dispositivo è supportata solo in Windows Server 2016._
+**Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.<br/>_Attualmente la distribuzione di appliance è supportata solo in Windows Server 2016._
 **Valore hash** | [Verificare](tutorial-discover-physical.md#verify-security) i valori hash dello script di PowerShell.
 
 ## <a name="url-access"></a>accesso con URL
@@ -215,7 +215,7 @@ L'individuazione applicazioni raccoglie le applicazioni installate e i dati del 
 
 Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-**Dati** | **Percorso del registro** | **Chiave**
+**Dati** | **Percorso del registro** | **Key**
 --- | --- | ---
 Nome applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
@@ -235,7 +235,7 @@ Parent  | Get-WindowsFeature  | Parent
 
 Ecco i metadati di SQL Server raccolti dall'appliance dalle macchine virtuali che eseguono Microsoft SQL Server abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-**Dati**  | **Percorso del registro**  | **Chiave**
+**Dati**  | **Percorso del registro**  | **Key**
 --- | --- | ---
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
 Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione 
@@ -246,17 +246,17 @@ Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \
 
 Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-Data  | classe WMI  | Proprietà della classe WMI
+Dati  | classe WMI  | Proprietà della classe WMI
 --- | --- | ---
-Nome  | Win32_operatingsystem  | Sottotitolo
+Nome  | Win32_operatingsystem  | Didascalia
 Versione  | Win32_operatingsystem  | Versione
-Architecture  | Win32_operatingsystem  | OSArchitecture
+Architettura  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-vm-apps-data"></a>Dati delle app VM Linux
 
 Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. In base al sistema operativo della macchina virtuale, vengono eseguiti uno o più comandi. Questi dati vengono inviati ad Azure.
 
-Data  | Comando
+Dati  | Comando
 --- | --- 
 Nome | rpm, dpkg-query, snap
 Versione | rpm, dpkg-query, snap
@@ -269,7 +269,7 @@ Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtua
 **Dati**  | **Comando** 
 --- | --- | ---
 Nome <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
-Architecture | uname
+Architettura | uname
 
 
 ### <a name="app-dependencies-metadata"></a>Metadati delle dipendenze dell'app

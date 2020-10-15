@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568646"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Esplora Gen1
 
 > [!CAUTION]
-> Questo è un articolo di Gen1.
+> È un articolo di Gen1.
 
 Questo articolo descrive le funzionalità e le opzioni per l' [app web](https://insights.timeseries.azure.com/)Azure Time Series Insights Gen1 Explorer. Esplora Azure Time Series Insights illustra le potenti funzionalità di visualizzazione dei dati fornite dal servizio ed è possibile accedervi all'interno dell'ambiente.
 

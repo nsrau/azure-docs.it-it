@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185909"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limitare Rilevamento modifiche e l'ambito di distribuzione dell'inventario
@@ -30,7 +30,7 @@ Per limitare l'ambito per la distribuzione di Rilevamento modifiche e inventario
 
 3. Selezionare **configurazioni ambito (anteprima)** in **origini dati dell'area di lavoro**.
 
-4. Selezionare i puntini di sospensione a destra della `MicrosoftDefaultScopeConfig-ChangeTracking` configurazione dell'ambito, quindi fare clic su **modifica**. 
+4. Selezionare i puntini di sospensione a destra della  `MicrosoftDefaultScopeConfig-ChangeTracking` configurazione dell'ambito, quindi fare clic su **modifica**. 
 
 5. Nel riquadro di modifica scegliere **Selezionare i gruppi di computer**. Il riquadro Gruppi di computer mostra le ricerche salvate usate per creare la configurazione dell'ambito. La ricerca salvata utilizzata da Rilevamento modifiche e dall'inventario è la seguente:
 

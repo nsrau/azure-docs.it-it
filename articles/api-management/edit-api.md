@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905160"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076930"
 ---
 # <a name="edit-an-api"></a>Modificare un'API
 
@@ -64,5 +64,5 @@ I passaggi di questa esercitazione illustrano come usare Gestione API per modifi
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esempi di criteri di Gestione API](policy-samples.md)
+> [Esempi di criteri di Gestione API](./policy-reference.md)
 > [Trasformare e proteggere un'API pubblicata](transform-api.md)

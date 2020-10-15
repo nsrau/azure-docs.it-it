@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86129910"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurare il ripristino di emergenza di VM VMware in Azure con PowerShell
@@ -36,8 +36,8 @@ Si apprenderà come:
 Prima di iniziare:
 
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](vmware-azure-architecture.md).
-- Esaminare i [requisiti di supporto](./vmware-physical-azure-support-matrix.md) per tutti i componenti.
-- Si dispone del `Az` modulo Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+- Verificare i [requisiti di supporto](./vmware-physical-azure-support-matrix.md) per tutti i componenti.
+- Si dispone del `Az`  modulo Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Accedere ad Azure
 
@@ -118,7 +118,7 @@ Nell'esempio seguente, vengono usati i dettagli dell'insieme di credenziali otte
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-In alternativa al cmdlet Set-ASRVaultContext, è anche possibile usare il cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile per impostare il contesto dell'insieme di credenziali. Specificare il percorso in cui si trova il file della chiave di registrazione dell'insieme di credenziali come parametro-Path del cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Ad esempio:
+In alternativa al cmdlet di Set-ASRVaultContext, è possibile usare anche il cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile per impostare il contesto dell'insieme di credenziali. Specificare il percorso in cui si trova il file della chiave di registrazione dell'insieme di credenziali come parametro-Path del cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Ad esempio:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -351,7 +351,7 @@ Per proteggere una macchina virtuale individuata sono necessari i dettagli segue
 Replicare ora le macchine virtuali seguenti usando le impostazioni specificate in questa tabella
 
 
-|Macchina virtuale  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Criteri di           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
+|Macchina virtuale  |Server di elaborazione        |Account di archiviazione              |Account di archiviazione log  |Policy           |Account per l'installazione del servizio Mobility|Gruppo di risorse di destinazione  | Rete virtuale di destinazione  |Subnet di destinazione  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |CentOSVM1       |ConfigurationServer   |N/D| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   

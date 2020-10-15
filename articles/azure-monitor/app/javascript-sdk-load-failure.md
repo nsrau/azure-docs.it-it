@@ -7,10 +7,10 @@ ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333257"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Risoluzione degli errori di caricamento SDK per app Web JavaScript
@@ -64,7 +64,7 @@ Lo stesso accade anche quando si usa l'SDK tramite la soluzione pacchetti NPM. T
 
 È anche possibile provare a usare i [pacchetti NPM](#use-npm-packages-to-embed-the-application-insight-sdk) per incorporare il Application Insights SDK.
 
-Per ridurre al minimo gli errori di connettività di rete intermittenti, sono state implementate le intestazioni Cache-Control su tutti i file della rete CDN in modo che, una volta che il browser dell'utente finale abbia scaricato la versione corrente dell'SDK, non sarà necessario eseguire di nuovo il download e il browser riutilizzerà la copia precedentemente ottenuta (vedere funzionamento della [memorizzazione nella cache](../../cdn/cdn-how-caching-works.md)). Se il controllo della memorizzazione nella cache ha esito negativo o è presente una nuova versione, il browser dell'utente finale dovrà scaricare la versione aggiornata. Per questo motivo, è possibile che venga visualizzato un livello di _"rumore"_ in background nello scenario di verifica dell'errore o un picco temporaneo quando si verifica una nuova versione e che viene reso disponibile a livello generale (distribuito nella rete CDN).
+Per ridurre al minimo gli errori di connettività di rete intermittenti, sono state implementate Cache-Control intestazioni in tutti i file della rete CDN in modo che, una volta che il browser dell'utente finale abbia scaricato la versione corrente dell'SDK, non sarà necessario eseguire nuovamente il download e il browser riutilizzerà la copia ottenuta in precedenza (vedere funzionamento della [memorizzazione nella cache](../../cdn/cdn-how-caching-works.md)). Se il controllo della memorizzazione nella cache ha esito negativo o è presente una nuova versione, il browser dell'utente finale dovrà scaricare la versione aggiornata. Per questo motivo, è possibile che venga visualizzato un livello di _"rumore"_ in background nello scenario di verifica dell'errore o un picco temporaneo quando si verifica una nuova versione e che viene reso disponibile a livello generale (distribuito nella rete CDN).
  
 ## <a name="application-insights-cdn-outage"></a>Interruzione Application Insights rete CDN
 

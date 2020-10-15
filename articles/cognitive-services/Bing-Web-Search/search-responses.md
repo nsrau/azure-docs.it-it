@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297791"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
@@ -296,9 +296,9 @@ Un'espressione matematica può contenere i simboli seguenti:
 |-|Sottrazione|
 |/|Divisione|
 |*|Moltiplicazione|
-|^|Elettricità|
+|^|Alimentazione|
 |!|Fattoriale|
-|.|Decimal|
+|.|Decimale|
 |()|Raggruppamento con precedenza|
 |[]|Funzione|
 
@@ -480,6 +480,6 @@ Di seguito è riportato un esempio di suggerimento ortografico da parte di Bing.
 
 * Rivedere la documentazione relativa alla [limitazione delle richieste](throttling-requests.md).  
 
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 
 * [Informazioni di riferimento per l'API Ricerca Web Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

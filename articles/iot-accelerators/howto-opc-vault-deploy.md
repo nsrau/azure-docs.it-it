@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282024"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071490"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilare e distribuire il servizio di gestione certificati dell'insieme di credenziali OPC
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 Questo articolo illustra come distribuire il servizio di gestione certificati dell'insieme di credenziali OPC in Azure.
 
@@ -31,7 +31,7 @@ Questo articolo illustra come distribuire il servizio di gestione certificati de
 
 Attualmente, l'operazione di compilazione e distribuzione è limitata a Windows.
 Gli esempi sono tutti scritti per C# .NET Standard, che è necessario compilare il servizio ed esempi per la distribuzione.
-Tutti gli strumenti necessari per .NET Standard sono disponibili con gli strumenti di .NET Core. Vedere [Introduzione a .NET Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+Tutti gli strumenti necessari per .NET Standard sono disponibili con gli strumenti di .NET Core. Vedere [Introduzione a .NET Core](/dotnet/articles/core/getting-started).
 
 1. [Installare .NET Core 2.1 +][dotnet-install].
 2. [Installare Docker][docker-url] (facoltativo, solo se è richiesta la compilazione Docker locale).
@@ -97,7 +97,7 @@ Ecco come:
 2. Passare al gruppo di risorse in cui è stato distribuito il servizio.
 3. Scegliere **Elimina gruppo di risorse** e confermare.
 4. Dopo un breve periodo di tempo, tutti i componenti del servizio distribuiti vengono eliminati.
-5. Passare a **Azure Active Directory**  >  **registrazioni app**.
+5. Passare a **Azure Active Directory** > **Registrazioni per l'app**.
 6. Per ogni gruppo di risorse distribuito dovrebbero essere elencate tre registrazioni. Le registrazioni hanno i nomi seguenti: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Eliminare ogni registrazione separatamente.
 
 Tutti i componenti distribuiti verranno ora rimossi.

@@ -194,7 +194,7 @@
     - name: Percorso di apprendimento
       href: /learn/paths/azure-fundamentals/
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+      href: /answers/topics/azure-cloud-services.html
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Calcolatore prezzi

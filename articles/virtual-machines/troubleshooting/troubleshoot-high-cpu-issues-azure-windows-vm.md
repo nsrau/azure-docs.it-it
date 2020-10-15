@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596841"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977256"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Risolvere i problemi di CPU elevata per le macchine virtuali Windows di Azure
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I problemi di prestazioni si verificano in diversi sistemi operativi o applicazioni. ogni problema richiede un approccio univoco per la risoluzione dei problemi. La maggior parte di questi problemi riguarda CPU, memoria, rete e input/output (I/O) come posizioni chiave in cui si verifica il problema. Ognuna di queste aree genera sintomi diversi (a volte simultaneamente) e richiede una diagnosi e una soluzione diverse.
 
@@ -35,7 +35,7 @@ A parte i problemi di i/O e di latenza di rete, la risoluzione dei problemi di C
 
 La maggior parte degli strumenti esistenti per la risoluzione dei problemi relativi alle prestazioni, ad esempio PerfMon o procmon, usati per i server locali funziona in macchine virtuali Windows di Azure. Tuttavia, PerfInsights è progettato in modo esplicito per le macchine virtuali di Azure per fornire altre informazioni, tra cui le procedure consigliate di Azure, le procedure consigliate di SQL, I grafici di latenza di I/O ad alta risoluzione, le schede CPU e memoria e così via.
 
-Indipendentemente dal fatto che venga eseguito in modalità utente o in modalità kernel, qualsiasi thread di un processo attivo richiede cicli della CPU per eseguire il codice da cui viene compilato. Molti problemi sono direttamente correlati al carico di lavoro. Il tipo di carico di lavoro esistente sul server comporta l'utilizzo delle risorse, inclusa la CPU.
+Se viene eseguito come User-Mode o in modalità kernel, qualsiasi thread di un processo attivo richiede cicli della CPU per eseguire il codice da cui viene compilato. Molti problemi sono direttamente correlati al carico di lavoro. Il tipo di carico di lavoro esistente sul server comporta l'utilizzo delle risorse, inclusa la CPU.
 
 #### <a name="common-factors"></a>Fattori comuni
 
@@ -90,11 +90,11 @@ PerfInsights è lo strumento consigliato dal supporto di Azure per i problemi di
 
 #### <a name="run-perfinsights"></a>Esegui PerfInsights
 
-PerfInsights è disponibile per il sistema operativo [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) e [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) . Per Windows, di seguito sono riportate le opzioni.
+PerfInsights è disponibile per il sistema operativo [Windows](./how-to-use-perfinsights.md) e [Linux](./how-to-use-perfinsights-linux.md) . Per Windows, di seguito sono riportate le opzioni.
 
 #### <a name="run-and-analyze-reports-through-azure-portal"></a>Eseguire e analizzare i report tramite portale di Azure
 
-Quando viene [installato tramite il portale di Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics), installa effettivamente un'estensione nella macchina virtuale. Gli utenti possono anche installare PerfInsights come estensione passando direttamente al pannello [estensioni nel pannello della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension)e quindi scegliendo un'opzione di diagnostica delle prestazioni.
+Quando viene [installato tramite il portale di Azure](./performance-diagnostics.md), installa effettivamente un'estensione nella macchina virtuale. Gli utenti possono anche installare PerfInsights come estensione passando direttamente al pannello [estensioni nel pannello della macchina virtuale](./performance-diagnostics-vm-extension.md)e quindi scegliendo un'opzione di diagnostica delle prestazioni.
 
 #### <a name="azure-portal-option-1"></a>Opzione portale di Azure 1
 
@@ -132,7 +132,7 @@ Il report viene archiviato in uno degli account di archiviazione nella sottoscri
 
 #### <a name="run-perfinsights-from-within-the-vm"></a>Eseguire PerfInsights dall'interno della macchina virtuale
 
-Questo metodo può essere utilizzato se si intende eseguire PerfInsights per periodi di tempo più lunghi. L' [articolo PerfInsights](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) fornisce una procedura dettagliata per i diversi comandi e flag necessari per eseguire PerfInsights come file eseguibile. Ai fini dell'utilizzo elevato della CPU, è necessario disporre di una delle modalità seguenti:
+Questo metodo può essere utilizzato se si intende eseguire PerfInsights per periodi di tempo più lunghi. L' [articolo PerfInsights](./how-to-use-perfinsights.md#how-do-i-run-perfinsights) fornisce una procedura dettagliata per i diversi comandi e flag necessari per eseguire PerfInsights come file eseguibile. Ai fini dell'utilizzo elevato della CPU, è necessario disporre di una delle modalità seguenti:
 
 - Scenario avanzato
 
@@ -184,7 +184,7 @@ Se si espande l'evento **risultati** , verranno visualizzati diversi dettagli ch
 
 In **CPU** è disponibile un sottoscheda dedicato che può essere usato per l'analisi dettagliata dei modelli, per core o per processo.
 
-La scheda **principali consumer di CPU** dispone di due sezioni separate di interesse ed è possibile visualizzare le statistiche per processore qui. La progettazione dell'applicazione è spesso a thread singolo o si blocca a un singolo processore. In questo scenario uno o alcuni core vengono eseguiti al 100%, mentre gli altri core vengono eseguiti a livelli previsti. Questi scenari sono più complessi perché la CPU media sul server sembra essere eseguita come previsto, ma i processi aggiunti in core con utilizzo elevato saranno più lenti del previsto.
+La scheda **principali consumer di CPU** dispone di due sezioni separate di interesse ed è possibile visualizzare le statistiche per processore qui. La progettazione dell'applicazione è spesso Single-Threaded o si blocca a un singolo processore. In questo scenario uno o alcuni core vengono eseguiti al 100%, mentre gli altri core vengono eseguiti a livelli previsti. Questi scenari sono più complessi perché la CPU media sul server sembra essere eseguita come previsto, ma i processi aggiunti in core con utilizzo elevato saranno più lenti del previsto.
 
   ![utilizzo CPU elevato](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 
@@ -289,7 +289,7 @@ Una volta abilitate le impostazioni, è possibile visualizzare questi contatori 
 
   ![Spazio dei nomi metrica](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Per altre informazioni su come usare monitoraggio di Azure per gestire le VM di Azure, vedere [monitoraggio di macchine virtuali di Azure con monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure).
+Per altre informazioni su come usare monitoraggio di Azure per gestire le VM di Azure, vedere [monitoraggio di macchine virtuali di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Risoluzione dei problemi reattivo
 
@@ -311,11 +311,11 @@ Il comando **logman create counter** viene usato per eseguire la raccolta PerfMo
 
 Logman.exe possono anche essere avviate da un computer di macchine virtuali di Azure peer nella stessa VNET.
 
-Per ulteriori informazioni su questi parametri, vedere [logman create counter](https://docs.microsoft.com/windows-server/administration/windows-commands/logman-create-counter).
+Per ulteriori informazioni su questi parametri, vedere [logman create counter](/windows-server/administration/windows-commands/logman-create-counter).
 
 Dopo la raccolta dei dati PerfMon mentre si verifica il problema, i passaggi rimanenti per analizzare i dati sono gli stessi descritti in precedenza.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Per eventuali problemi di prestazioni, la comprensione del carico di lavoro è fondamentale per la risoluzione del problema. Le opzioni in SKU di VM diversi e diverse opzioni di archiviazione su disco devono essere valutate tenendo conto del carico di lavoro di produzione. Il processo di test delle soluzioni in macchine virtuali diverse può aiutare a prendere la decisione migliore.
 

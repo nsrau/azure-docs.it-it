@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
 ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132416"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
@@ -24,7 +24,7 @@ Per capire come eseguire in locale manualmente ed eseguire il debug di uno scrip
 
 È possibile ottenere il Azure Data Lake U-SQL SDK [qui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) in NuGet.org. Prima di usarlo, è necessario assicurarsi di avere dipendenze come indicato di seguito.
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 
@@ -35,7 +35,7 @@ L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 
     ![Windows 10 SDK ad esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-  - Installare [Data Lake Tools per Visual Studio](https://aka.ms/adltoolsvs). È possibile trovare i file di Visual C++ e di Windows SDK preconfezionati in`C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
+  - Installare [Data Lake Tools per Visual Studio](https://aka.ms/adltoolsvs). È possibile trovare i file di Visual C++ e di Windows SDK preconfezionati in `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK.`
 
     In questo caso il compilazione locale di U-SQL non è in grado di trovare le dipendenze automaticamente. È necessario specificare il relativo percorso CppSDK. È possibile copiare i file in un altro percorso o usarli così come sono.
 
@@ -143,15 +143,15 @@ Di seguito sono indicati gli argomenti facoltativi per **run**:
 
 |Argomento|Valore predefinito|Descrizione|
 |--------|-------------|-----------|
-|-CodeBehind|Falso|Lo script ha code-behind con estensione cs|
+|-CodeBehind|False|Lo script ha code-behind con estensione cs|
 |-CppSDK| |Directory CppSDK|
 |-DataRoot| Variabile di ambiente DataRoot|DataRoot per l'esecuzione locale, impostazione predefinita su variabile di ambiente 'LOCALRUN_DATAROOT'|
 |-MessageOut| |Messaggi dump sulla console a un file|
 |-Parallel|1|Esegue il piano con il parallelismo specificato|
 |-References| |Elenco di percorsi agli assembly di riferimento aggiuntivi o a file di dati code-behind, separati da ";"|
-|-UdoRedirect|Falso|Genera la configurazione di reindirizzamento di assembly Udo|
+|-UdoRedirect|False|Genera la configurazione di reindirizzamento di assembly Udo|
 |-UseDatabase|master|Database da usare per la registrazione di assembly temporanei code-behind|
-|-Verbose|Falso|Mostrare gli output dettagliati dal runtime|
+|-Verbose|False|Mostrare gli output dettagliati dal runtime|
 |-WorkDir|Directory corrente|Directory per l'uso del compilatore e gli output|
 |-RunScopeCEP|0|Modalità ScopeCEP da usare|
 |-ScopeCEPTempPath|temp|Percorso temporaneo da usare per lo streaming di dati|
@@ -173,7 +173,7 @@ LocalRunHelper compile -Script path_to_usql_script.usql [optional_arguments]
 
 Di seguito sono indicati gli argomenti facoltativi per il comando **compile**:
 
-|Argomento|Description|
+|Argomento|Descrizione|
 |--------|-----------|
 | -CodeBehind [valore predefinito 'False']|Lo script ha code-behind con estensione cs|
 | -CppSDK [valore predefinito '']|Directory CppSDK|
@@ -337,7 +337,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 ### <a name="properties"></a>Proprietà
 
-|Proprietà|Tipo|Descrizione|
+|Proprietà|Type|Descrizione|
 |--------|----|-----------|
 |AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
 |CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|

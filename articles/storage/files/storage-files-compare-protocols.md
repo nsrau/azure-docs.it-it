@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568472"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolli di condivisione file di Azure
@@ -21,7 +21,7 @@ File di Azure offre due protocolli per la connessione e il montaggio delle condi
 
 ## <a name="differences-at-a-glance"></a>Differenze a colpo d'occhio
 
-|Feature  |NFS (anteprima)  |SMB  |
+|Funzionalità  |NFS (anteprima)  |SMB  |
 |---------|---------|---------|
 |Protocolli di accesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
 |Sistema operativo supportato     |Kernel Linux versione 4.3 +         |Windows 2008 R2 +, versione kernel Linux 4.11 +         |
@@ -57,7 +57,7 @@ NFS con File di Azure è ideale per:
 - Carichi di lavoro che richiedono condivisioni file conformi a POSIX, distinzione maiuscole/minuscole o autorizzazioni di stile UNIX (UID/GID).
 - Carichi di lavoro incentrati su Linux che non richiedono l'accesso a Windows.
 
-### <a name="security"></a>Security
+### <a name="security"></a>Sicurezza
 
 Tutti i dati File di Azure vengono crittografati a riposo. Per la crittografia in transito, Azure offre un livello di crittografia per tutti i dati in transito tra i Data Center di Azure con [MACSec](https://en.wikipedia.org/wiki/IEEE_802.1AE). A questo proposito, la crittografia esiste quando i dati vengono trasferiti tra i Data Center di Azure. A differenza File di Azure usando il protocollo SMB, le condivisioni file che usano il protocollo NFS non offrono l'autenticazione basata sull'utente. L'autenticazione per le condivisioni NFS si basa sulle regole di sicurezza di rete configurate. Per questo motivo, per garantire che alla condivisione NFS vengano stabilite solo connessioni sicure, è necessario usare gli endpoint di servizio o gli endpoint privati. Se si desidera accedere alle condivisioni dall'ambiente locale, oltre a un endpoint privato, è necessario configurare una VPN o ExpressRoute. Le richieste che non provengono dalle origini seguenti verranno rifiutate:
 

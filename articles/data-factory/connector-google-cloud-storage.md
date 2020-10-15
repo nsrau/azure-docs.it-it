@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 24f9b7655398cbd6a2621edb61d67d4fc4edfb52
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a916da121c8ffee1729ede6dd700ca4f6872fbf7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332033"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043494"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copiare dati da Google Cloud Storage usando Azure Data Factory
 
@@ -47,7 +47,11 @@ L'installazione seguente è obbligatoria per l'account di archiviazione cloud di
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per copiare i dati da Google Cloud Storage, assicurarsi di disporre delle autorizzazioni necessarie. Le autorizzazioni definite nell'account del servizio possono contenere `storage.buckets.get` , `storage.buckets.list` o `storage.objects.get` per le operazioni sugli oggetti.
+Per copiare dati da Google Cloud Storage, assicurarsi di disporre delle autorizzazioni seguenti per le operazioni sugli oggetti: ` storage.objects.get` e ` storage.objects.list` .
+
+Se si usa Data Factory interfaccia utente per creare, ` storage.buckets.list` è necessaria un'ulteriore autorizzazione per operazioni quali il test della connessione al servizio collegato e l'esplorazione dalla radice. Se non si vuole concedere questa autorizzazione, è possibile scegliere le opzioni "Test connessione a percorso file" o "Sfoglia da percorso specificato" dall'interfaccia utente.
+
+Per l'elenco completo dei ruoli di archiviazione cloud di Google e delle autorizzazioni associate, vedere [ruoli IAM per l'archiviazione cloud](https://cloud.google.com/storage/docs/access-control/iam-roles) nel sito Google Cloud.
 
 ## <a name="getting-started"></a>Introduzione
 

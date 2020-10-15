@@ -20,7 +20,7 @@
         - name: Accedere all'API
           href: access-api-howto.md
         - name: Configurare Azure Cloud Shell
-          href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
+          href: ../../cloud-shell/overview.md
         - name: Sviluppare con REST
           items:
             - name: Connettersi con Postman
@@ -61,6 +61,8 @@
           href: protect-with-aes128.md
         - name: Crittografare in modo dinamico il contenuto con DRM
           href: protect-with-drm.md
+        - name: Protezione dei contenuti con Azure AD
+          href: azure-ad-content-protection.md
     - name: REST
       items:
         - name: Codificare e trasmettere un file remoto - REST
@@ -188,8 +190,6 @@
           href: streaming-policy-concept.md
         - name: Criteri di chiave simmetrica
           href: content-key-policy-concept.md
-        - name: Protezione dei contenuti con Azure AD
-          href: azure-ad-content-protection.md
     - name: Monitoraggio
       items:
         - name: Eventi con Griglia di eventi
@@ -374,15 +374,15 @@
     - name: REST
       href: /rest/api/media/
     - name: Interfaccia della riga di comando di Azure
-      href: 'https://aka.ms/ams-v3-cli-ref'
+      href: /cli/azure/ams
     - name: SDK
       items:
         - name: .NET
-          href: 'https://aka.ms/ams-v3-dotnet-ref'
+          href: /dotnet/api/overview/azure/mediaservices/management
         - name: Java
-          href: 'https://aka.ms/ams-v3-java-ref'
+          href: /java/api/overview/azure/mediaservices/management
         - name: Python
-          href: 'https://aka.ms/ams-v3-python-ref'
+          href: /python/api/overview/azure/mediaservices/management
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
         - name: Go
@@ -411,7 +411,7 @@
     - name: SDK/Strumenti
       items:
         - name: Interfaccia della riga di comando di Azure
-          href: 'https://aka.ms/ams-v3-cli'
+          href: /cli/azure/install-azure-cli
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-sdk'
         - name: Java

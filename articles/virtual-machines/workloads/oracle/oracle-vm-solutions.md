@@ -1,24 +1,18 @@
 ---
 title: Soluzioni Oracle nelle macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sulle configurazioni supportate e sulle limitazioni delle immagini delle macchine virtuali Oracle in Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: ''
-tags: azure-resource-management
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331370"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993494"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini delle macchine virtuali Oracle e rispettiva distribuzione in Microsoft Azure
 
@@ -132,7 +126,7 @@ Con Oracle Data Guard, la disponibilità elevata può essere ottenuta con un dat
 
 L'esercitazione [Implementare Oracle Golden Gate in Azure](configure-oracle-golden-gate.md) illustra la procedura di configurazione di base in Azure.
 
-Oltre ad avere una soluzione a disponibilità elevata e con ripristino di emergenza in Azure, è consigliabile assicurarsi di avere una strategia di backup attiva per il ripristino del database. L'esercitazione [Eseguire backup e ripristino di un database Oracle](oracle-backup-recovery.md) illustra la procedura di base per la creazione di un backup coerente.
+Oltre ad avere una soluzione a disponibilità elevata e con ripristino di emergenza in Azure, è consigliabile assicurarsi di avere una strategia di backup attiva per il ripristino del database. L'esercitazione [Eseguire backup e ripristino di un database Oracle](./oracle-overview.md) illustra la procedura di base per la creazione di un backup coerente.
 
 ## <a name="support-for-jd-edwards"></a>Supporto per JD Edwards
 

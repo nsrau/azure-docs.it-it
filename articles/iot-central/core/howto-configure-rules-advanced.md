@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398579"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Usare i flussi di lavoro per integrare l'applicazione Azure IoT Central con altri servizi cloud
@@ -75,7 +75,7 @@ Per aggiungere il connettore **Azure IOT Central V3-Preview** come azione in app
 1. Nell'elenco delle azioni selezionare l'azione IoT Central che si intende usare.
 1. Nel passaggio relativo all'azione completare la configurazione per l'azione selezionata. Selezionare quindi **Salva**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Trovare il connettore Azure IoT Central V3 e scegliere un'azione":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Trovare il connettore Azure IoT Central - Preview e scegliere il trigger":::
 
 ## <a name="list-of-actions"></a>Elenco di azioni
 

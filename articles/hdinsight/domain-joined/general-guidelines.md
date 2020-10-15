@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87530266"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informazioni generali e linee guida per la sicurezza aziendale in Azure HDInsight
@@ -95,7 +95,7 @@ Usare un nuovo gruppo di risorse per ogni cluster, in modo da poter distinguere 
 
 * Disabilitare i criteri di accesso condizionale usando i criteri basati sull'indirizzo IP. Per questa operazione è necessario che gli endpoint di servizio siano abilitati nella reti virtuali in cui vengono distribuiti i cluster. Se si usa un servizio esterno per l'autenticazione a più fattori (ad eccezione di AAD), i criteri basati sull'indirizzo IP non funzioneranno
 
-* `AllowCloudPasswordValidation`il criterio è obbligatorio per gli utenti federati. Poiché HDInsight utilizza direttamente il nome utente/password per ottenere i token da Azure AD, questo criterio deve essere abilitato per tutti gli utenti federati.
+* `AllowCloudPasswordValidation` il criterio è obbligatorio per gli utenti federati. Poiché HDInsight utilizza direttamente il nome utente/password per ottenere i token da Azure AD, questo criterio deve essere abilitato per tutti gli utenti federati.
 
 * Abilitare gli endpoint servizio se è necessario il bypass dell'accesso condizionale usando indirizzi IP attendibili.
 

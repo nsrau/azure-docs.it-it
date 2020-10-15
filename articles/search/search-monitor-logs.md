@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935059"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
@@ -23,7 +23,7 @@ La registrazione diagnostica viene abilitata tramite l'integrazione con [monitor
 
 Quando si configura la registrazione diagnostica, verrà richiesto di specificare un meccanismo di archiviazione. Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazione dei dati.
 
-| Risorsa | Utilizzo |
+| Risorsa | Utilizzato per |
 |----------|----------|
 | [Inviare all'area di lavoro Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md) |
 | [Archivia con archiviazione BLOB](../storage/blobs/storage-blobs-overview.md) | Gli eventi e le metriche vengono archiviati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log non elaborato o Power BI per aggregare e visualizzare i dati di log.|
@@ -39,7 +39,7 @@ Creare le risorse in anticipo in modo che sia possibile selezionarne una o più 
 
 + [Creare un hub eventi](../event-hubs/event-hubs-create.md)
 
-## <a name="enable-data-collection"></a>Abilitare la raccolta di dati
+## <a name="enable-data-collection"></a>Abilitare la raccolta dati
 
 Le impostazioni di diagnostica specificano come vengono raccolti gli eventi e le metriche registrate.
 
@@ -51,7 +51,7 @@ Le impostazioni di diagnostica specificano come vengono raccolti gli eventi e le
 
 1. Controllare **log Analytics**, selezionare l'area di lavoro e selezionare **OperationLogs** e **AllMetrics**.
 
-   ![Configurare la raccolta dati](./media/search-monitor-usage/configure-storage.png "Configurare la raccolta dei dati")
+   ![Configurare la raccolta dei dati](./media/search-monitor-usage/configure-storage.png "Configurare la raccolta dei dati")
 
 1. Salvare l'impostazione.
 

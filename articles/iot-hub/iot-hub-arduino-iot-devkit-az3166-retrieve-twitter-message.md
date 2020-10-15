@@ -11,10 +11,10 @@ ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 187e44a40228adb62a1d97f4e0df8a7ad3a7e2d3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356068"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
@@ -152,7 +152,7 @@ Dopo l'inizializzazione dell'app, premere e rilasciare il pulsante A, quindi scu
 - Premere di nuovo il pulsante A, quindi scuotere per visualizzare un nuovo tweet.
 - Premere il pulsante B per scorrere nella parte restante del tweet.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 ![Il diagramma mostra un dispositivo mobile che invia un evento all'hub I o T di Azure che attiva un'app per le funzioni di Azure per richiedere un tweet, che viene inviato all'app e inoltrato all'hub e al dispositivo mobile.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 

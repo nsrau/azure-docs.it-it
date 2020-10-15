@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e202d26574c0fc8adfeb7f73eb150ebb1781af
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 94b8d744c964b07c1ed6a4d7e8b89bca2258c1bc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664122"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963959"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Risolvere i problemi di writeback della reimpostazione della password self-service in Azure Active Directory
 
@@ -104,29 +104,29 @@ Azure AD Connect richiede l'autorizzazione **Reimposta password** di servizi di 
 1. Accedere al server Azure AD Connect e avviare **Synchronization Service Manager** selezionando **Start** > **Synchronization Service**.
 1. Nella scheda **Connettori** selezionare il connettore **Active Directory Domain Services** locale e quindi selezionare **Proprietà**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Modifica delle proprietà in Synchronization Service Manager" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
 1. Nella finestra popup selezionare **Connetti a foresta Active Directory** e annotare la proprietà **Nome utente**. Questa proprietà corrisponde all'account di Active Directory Domain Services usato da Azure AD Connect per eseguire la sincronizzazione della directory.
 
     Per consentire ad Azure AD Connect di eseguire il writeback delle password l'account di Active Directory Domain Services deve avere l'autorizzazione di reimpostazione della password. Si controllano le autorizzazioni per questo account utente nei passaggi seguenti.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Ricerca dell'account utente Active Directory per il servizio di sincronizzazione" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
 1. Accedere a un controller di dominio locale e avviare l'applicazione **Utenti e computer di Active Directory**.
 1. Selezionare **Visualizza** e verificare che l'opzione **Funzionalità avanzate** sia abilitata.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Funzionalità avanzate in Utenti e computer di Active Directory" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
 1. Cercare l'account utente di servizi di dominio Active Directory che si desidera verificare. Fare clic con il pulsante destro del mouse sull'account e scegliere **Proprietà**.  
 1. Nella finestra popup passare alla scheda **Sicurezza** e selezionare **Avanzate**.  
 1. Nella finestra popup **Advanced Security Settings for Administrator** (Impostazioni di sicurezza avanzate per l'amministratore) passare alla scheda **Accesso valido**.
 1. Scegliere **Seleziona un utente**, selezionare l'account Active Directory Domain Services usato da Azure ad Connect, quindi selezionare **Visualizza accesso valido**.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Scheda Accesso valido con account di sincronizzazione" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
 1. Scorrere verso il basso e cercare **Reimposta password**. Se la voce è selezionata, significa che l'account di Active Directory Domain Services ha l'autorizzazione per reimpostare la password dell'account utente di Active Directory selezionato.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Verificare che l'account di sincronizzazione abbia l'autorizzazione Reimposta password" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>Errori comuni di writeback delle password
 
@@ -217,7 +217,7 @@ Per garantire un supporto adeguato, verrà richiesto il maggior numero di dettag
 * **Codice di supporto**: indicare il codice di supporto generato quando è stato visualizzato l'errore.
    * Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento **Codice di supporto** nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Il codice di supporto si trova nella parte inferiore destra della finestra del browser Web.":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica":::
 
   * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
 * **Data, ora e fuso orario**: includere la data e l'ora precise *con il fuso orario* di quando si è verificato l'errore.

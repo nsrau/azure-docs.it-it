@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447319"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977032"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Errore di arresto di Windows-informazioni di configurazione del sistema 0x00000074 non valide
 
@@ -27,7 +27,7 @@ Questo articolo illustra i passaggi per risolvere i problemi che non possono ess
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza il codice di arresto di Windows **#0x00000074** o **BAD_SYSTEM_CONFIG_INFO**.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza il codice di arresto di Windows **#0x00000074** o **BAD_SYSTEM_CONFIG_INFO**.
 
 *Il computer ha riscontrato un problema e deve essere riavviato. È possibile riavviare.* 
  *Per ulteriori informazioni su questo problema e sulle possibili correzioni, http://windows.com/stopcode visitare* 
@@ -58,7 +58,7 @@ Il codice di arresto **BAD_SYSTEM_CONFIG_INFO** si verifica se l'hive del regist
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 1. Verificare il danneggiamento di hive.
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 1. Copiare la `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` cartella e salvarla in una partizione del disco integra o in un'altra posizione sicura. Eseguire il backup di questa cartella come precauzione poiché si modificheranno i file del registro di sistema critici. 
@@ -133,4 +133,4 @@ Le istruzioni seguenti consentono di determinare se la causa è dovuta a un dann
    
 ### <a name="rebuild-the-vm"></a>Ricreare la macchina virtuale
 
-Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) per ricreare la macchina virtuale.
+Usare il [passaggio 5 dei comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) per ricreare la macchina virtuale.

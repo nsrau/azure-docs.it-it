@@ -4,10 +4,10 @@ description: Questo articolo illustra come usare l'interfaccia della riga di com
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 354afb89b145e288f525e40ad700e8f8a67c6dad
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86115044"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Creare, visualizzare e gestire argomenti di sistema di griglia di eventi usando l'interfaccia della riga di comando di Azure
@@ -18,14 +18,14 @@ Per l'interfaccia della riga di comando di Azure, è necessaria l'[estensione Gr
 
 In Cloud Shell:
 
-- Se l'estensione è stata installata in precedenza, aggiornarla:`az extension update -n eventgrid`
-- Se l'estensione non è stata installata in precedenza, installarla:`az extension add -n eventgrid`
+- Se l'estensione è stata installata in precedenza, aggiornarla: `az extension update -n eventgrid`
+- Se l'estensione non è stata installata in precedenza, installarla:  `az extension add -n eventgrid`
 
 Per un'installazione locale:
 
 1. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) Assicurarsi di avere la versione più recente installata controllando con `az --version`.
-2. Disinstallare le versioni precedenti dell'estensione:`az extension remove -n eventgrid`
-3. Installare l'estensione eventgrid con`az extension add -n eventgrid`
+2. Disinstallare le versioni precedenti dell'estensione: `az extension remove -n eventgrid`
+3. Installare l'estensione eventgrid con `az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>Creare un argomento di sistema
 
@@ -60,7 +60,7 @@ Per un'installazione locale:
             -g rg1 --system-topic-name <SYSTEM TOPIC NAME> \
             --endpoint <ENDPOINT URL>         
         ```
-- Per creare un argomento di sistema (in modo implicito) quando si crea una sottoscrizione di eventi per un'origine di Azure, usare il metodo [AZ eventgrid Event-Subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) . Ad esempio:
+- Per creare un argomento di sistema (in modo implicito) quando si crea una sottoscrizione di eventi per un'origine di Azure, usare il metodo [AZ eventgrid Event-Subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription?view=azure-cli-latest#ext-eventgrid-az-eventgrid-event-subscription-create) . Ecco un esempio:
     
     ```azurecli-interactive
     storageid=$(az storage account show --name <AZURE STORAGE ACCOUNT NAME> --resource-group <AZURE RESOURCE GROUP NAME> --query id --output tsv)

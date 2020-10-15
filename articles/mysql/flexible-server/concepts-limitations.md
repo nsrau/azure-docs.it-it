@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
 ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650290"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitazioni nel database di Azure per MySQL-server flessibile (anteprima)
@@ -67,7 +67,7 @@ Gli elementi seguenti non sono supportati:
 - Questa configurazione può essere impostata solo durante la creazione del server.
 - Non supportato nel livello di calcolo in sequenza.
 
-### <a name="networking"></a>Rete
+### <a name="networking"></a>Funzionalità di rete
 - Non è possibile modificare il metodo di connettività dopo la creazione del server. Se il server viene creato con *accesso privato (integrazione VNet)*, non può essere modificato in *accesso pubblico (indirizzi IP consentiti)* dopo la creazione e viceversa
 - TLS/SSL è abilitato per impostazione predefinita e non può essere disabilitato.
 - La versione minima di TLS supportata nel server è TLS 1.2. Per altre informazioni, vedere [connettersi tramite TLS/SSL](./how-to-connect-tls-ssl.md) .

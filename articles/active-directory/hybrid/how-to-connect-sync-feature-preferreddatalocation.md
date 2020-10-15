@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319895"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse Microsoft 365
@@ -140,7 +140,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 3. Per creare una nuova regola in entrata, fare clic sul pulsante **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | valore | Dettagli |
+    | Attributo | Valore | Dettagli |
     | --- | --- | --- |
     | Nome | *Specificare un nome* | Ad esempio, "In entrata da AD - Utente PreferredDataLocation" |
     | Descrizione | *Fornire una descrizione personalizzata* |  |
@@ -169,7 +169,7 @@ La regola di sincronizzazione in uscita consente il flusso del valore dell'attri
 3. Selezionare **Aggiungi nuova regola**.
 4. Nella scheda **Descrizione** inserire la configurazione seguente:
 
-    | Attributo | valore | Dettagli |
+    | Attributo | Valore | Dettagli |
     | ----- | ------ | --- |
     | Nome | *Specificare un nome* | Ad esempio, "In uscita verso AAD - Utente PreferredDataLocation" |
     | Descrizione | *Inserire una descrizione* ||

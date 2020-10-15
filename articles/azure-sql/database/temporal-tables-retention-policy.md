@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/25/2018
 ms.openlocfilehash: 1d68163a9fba3ba3bcd4c0c0f3fb5f442296e781
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619390"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gestire i dati cronologici nelle tabelle temporali con criteri di conservazione
@@ -120,7 +120,7 @@ L'attività di pulizia per le tabelle con indice rowstore in cluster richiede ch
 
 È importante notare che la tabella di cronologia predefinita creata dal database SQL di Azure e da Azure SQL Istanza gestita dispone già di un indice cluster, che è conforme ai criteri di conservazione. Se si tenta di rimuovere l'indice in una tabella con periodo di conservazione definito, l'operazione ha esito negativo con l'errore seguente:
 
-*Il messaggio 13766, livello 16, stato 1 <br> </br> non è in grado di eliminare l'indice cluster ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory ' perché è usato per la pulizia automatica dei dati obsoleti. Se è necessario eliminare l'indice, provare a impostare HISTORY_RETENTION_PERIOD su infinito nella tabella temporale con controllo delle versioni di sistema corrispondente.*
+*Il messaggio 13766, livello 16, stato 1 <br> </br> non è in grado di eliminare l'indice cluster ' WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory ' perché è usato per la pulizia automatica dei dati obsoleti. Se è necessario eliminare l'indice, provare a impostare HISTORY_RETENTION_PERIOD su infinito nella tabella temporale con controllo delle versioni di sistema corrispondente.*
 
 La pulizia dell'indice columnstore in cluster funziona in modo ottimale se vengono inserite righe cronologiche in ordine crescente (ordinate in base alla fine della colonna del periodo); questo viene sempre applicato quando la tabella di cronologia viene popolata esclusivamente dal meccanismo SYSTEM_VERSIONIOING. Se le righe della tabella di cronologia non sono ordinate in base alla fine della colonna del periodo (ad esempio in caso di migrazione dei dati cronologici esistenti), è necessario ricreare un indice columnstore in cluster sull'indice rowstore B-tree ordinato in modo corretto, per ottenere prestazioni ottimali.
 

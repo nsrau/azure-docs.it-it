@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: ce1c7df70bf10280ba642e8ce2cec4864dfbbaec
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85985037"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operazioni del file system in Azure Data Lake Storage Gen1 usando l'API REST
@@ -92,7 +92,7 @@ Se l'operazione viene completata correttamente, verrà visualizzata una risposta
 }
 ```
 
-## <a name="upload-data"></a>Caricare dati
+## <a name="upload-data"></a>Caricare i dati
 Questa operazione si basa sulla chiamata API REST WebHDFS definita [qui](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
 Usare il comando cURL seguente. Sostituire **\<yourstorename>** con il nome dell'account data Lake storage Gen1.

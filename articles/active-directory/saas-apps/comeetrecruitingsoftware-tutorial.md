@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: a47721122456d32cef91de4bd5ef2b92738bf496
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520125"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Esercitazione: Integrazione di Azure Active Directory con Comeet Recruiting Software
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Comeet Recruiting Softw
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Comeet Recruiting Software](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con l'azione "Salva" e i campi "Identificatore" e "URL di risposta" evidenziati.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Comeet Recruiting Softw
 
 5. L'applicazione Comeet Recruiting Software prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la sezione "Attributi utente" con il pulsante "Modifica" selezionato.](common/edit-attribute.png)
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
@@ -127,7 +127,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Comeet Recruiting Softw
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot che mostra la sezione "Attestazioni utente" con le azioni "Aggiungi nuova attestazione" e "Salva" evidenziate.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

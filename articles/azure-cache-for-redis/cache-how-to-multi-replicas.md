@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566789"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Aggiungere repliche alla cache di Azure per Redis (anteprima)
@@ -36,7 +36,7 @@ Per creare una cache, seguire questa procedura:
   
 1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
-    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selezionare cache di Azure per Redis.":::
+    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selezionare Cache di Azure per Redis.":::
    
 1. Nella pagina **nozioni di base** configurare le impostazioni per la nuova cache.
    
@@ -50,7 +50,7 @@ Per creare una cache, seguire questa procedura:
    
 1. Nella pagina **Avanzate** scegliere numero di **repliche**.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Selezionare cache di Azure per Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Selezionare Cache di Azure per Redis.":::
 
 1. Lasciare le impostazioni predefinite per le altre opzioni. 
 

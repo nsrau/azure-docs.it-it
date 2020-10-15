@@ -3,12 +3,12 @@ title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco nei progetti di Azure per proteggere le risorse quando si assegna un progetto.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744016"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095995"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -39,7 +39,7 @@ Questa misura di sicurezza salvaguarda la coerenza del progetto definito e l'amb
 
 ### <a name="assign-at-management-group"></a>Assegna al gruppo di gestione
 
-Un'opzione aggiuntiva per impedire ai proprietari della sottoscrizione di rimuovere l'assegnazione di un progetto consiste nell'assegnare il progetto a un gruppo di gestione. In questo scenario solo i **proprietari** del gruppo di gestione dispongono delle autorizzazioni necessarie per rimuovere l'assegnazione del progetto.
+L'unica opzione che impedisce ai proprietari della sottoscrizione di rimuovere l'assegnazione di un progetto consiste nell'assegnare il progetto a un gruppo di gestione. In questo scenario solo i **proprietari** del gruppo di gestione dispongono delle autorizzazioni necessarie per rimuovere l'assegnazione del progetto.
 
 Per assegnare il progetto a un gruppo di gestione invece che a una sottoscrizione, la chiamata dell'API REST cambia per essere simile alla seguente:
 

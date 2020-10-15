@@ -7,10 +7,10 @@ ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.openlocfilehash: a5f01e81564561fe43ef6e55e6e9b3b67d6e1d77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84945614"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Pianificare ed eseguire attività, processi e flussi di lavoro automatizzati ricorrenti con le app per la logica di Azure
@@ -93,7 +93,7 @@ Ecco alcuni modelli che illustrano come è possibile controllare la ricorrenza c
 
 Si supponga che la data e l'ora correnti siano 8 settembre 2017 alle 1:00. Specificare la data e l'ora di inizio come 7 settembre, 2017 alle 2:00 PM, che è nel passato, e una ricorrenza che viene eseguita ogni due giorni.
 
-| Ora di inizio | Ora corrente | Ricorrenza | Pianificazione |
+| Ora di inizio | Ora corrente | Ricorrenza | Pianifica |
 |------------|--------------|------------|----------|
 | 2017-09-**07**T14:00:00Z <br>(2017-09-**07** alle 2:00 PM) | 2017-09-**08**T13:00:00Z <br>(2017-09-**08** alle 1:00 PM) | Ogni due giorni | {none} |
 |||||

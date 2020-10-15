@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 0a3aa0c26ddb515b8096cce909ca074f6f24a333
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250482"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Aggiungere il caching per migliorare le prestazioni in Gestione API di Azure
@@ -43,7 +43,7 @@ Contenuto dell'esercitazione:
 
 Per completare questa esercitazione:
 
-+ [Creare un'istanza di gestione API di Azure](get-started-create-service-instance.md)
++ [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + [Importare e pubblicare un'API](import-and-publish.md)
 
 ## <a name="add-the-caching-policies"></a><a name="caching-policies"> </a>Aggiungere i criteri di memorizzazione nella cache

@@ -1,14 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione, all'assegnazione e alla rimozione di progetti quali violazioni dei criteri e funzioni di parametri del progetto.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651327"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058285"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
@@ -59,7 +59,7 @@ Il passaggio di un parametro del progetto che usa una funzione, ad esempio `[res
 
 #### <a name="resolution"></a>Soluzione
 
-Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. I progetti inseriscono quindi la funzione sull'artefatto in modo che possa essere dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+Per passare a una funzione come parametro, l'intera stringa con carattere di escape `[` tale che il parametro del progetto è simile a `[[resourceGroup().tags.myTag]`. Il carattere di escape fa sì che i progetti trattino il valore come una stringa durante l'elaborazione di progetto. Il servizio Blueprints posiziona quindi la funzione sull'artefatto, in modo che sia dinamica come previsto. Per altre informazioni, vedere [sintassi ed espressioni nei modelli Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Elimina errori
 
@@ -75,7 +75,7 @@ Un'assegnazione di progetto può rimanere bloccata in uno stato non terminale qu
 
 #### <a name="resolution"></a>Risoluzione
 
-Le assegnazioni di progetto in uno stato non terminale vengono contrassegnate automaticamente come **non riuscite** dopo un timeout di _6 ore_ . Una volta che il timeout ha regolato lo stato dell'assegnazione del progetto, è possibile ritentare l'eliminazione.
+Le assegnazioni di progetto in uno stato non terminale vengono contrassegnate automaticamente come **non riuscite** dopo un timeout di _sei ore_ . Una volta che il timeout ha regolato lo stato dell'assegnazione del progetto, è possibile ritentare l'eliminazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

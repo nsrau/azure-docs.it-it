@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 734d52dadbb849925303febb0d3d1195bbddb0df
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89236687"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usare il firewall di Azure per controllare il traffico destinato a un endpoint privato
@@ -55,7 +55,7 @@ Per ulteriori informazioni sugli addebiti relativi alle connessioni con reti vir
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scenario 2: architettura Hub e spoke-rete virtuale condivisa per endpoint privati e macchine virtuali
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Endpoint privati e macchine virtuali nella stessa rete virtuale" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/shared-spoke.png" alt-text="Rete virtuale dedicata per endpoint privati" border="true":::
 
 Questo scenario viene implementato nei casi seguenti:
 
@@ -78,7 +78,7 @@ Per ulteriori informazioni sugli addebiti relativi alle connessioni con reti vir
 
 ## <a name="scenario-3-single-virtual-network"></a>Scenario 3: rete virtuale singola
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rete virtuale singola" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Rete virtuale dedicata per endpoint privati" border="true":::
 
 Esistono alcune limitazioni all'implementazione: una migrazione a un'architettura Hub e spoke non è possibile. Si applicano le stesse considerazioni dello scenario 2. In questo scenario, gli addebiti per il peering di rete virtuale non sono applicabili.
 
@@ -87,7 +87,7 @@ Esistono alcune limitazioni all'implementazione: una migrazione a un'architettur
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scenario 4: traffico locale verso endpoint privati
 
-:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Traffico locale verso endpoint privati" border="true":::
+:::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="Rete virtuale dedicata per endpoint privati" border="true":::
 
 Questa architettura può essere implementata se è stata configurata la connettività con la rete locale usando: 
 
@@ -174,10 +174,10 @@ Sostituire i parametri seguenti nei passaggi con le informazioni riportate di se
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo di risorse è stato creato nella sezione precedente.  |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM**. |
-    | Area | Selezionare **(Stati Uniti) Stati Uniti centro-meridionali**. |
+    | Region | Selezionare **(Stati Uniti) Stati Uniti centro-meridionali**. |
     | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
     | Immagine | Selezionare **Ubuntu Server 18,04 LTS-Gen1**. |
-    | Dimensioni | Selezionare **Standard_B2s**. |
+    | Dimensione | Selezionare **Standard_B2s**. |
     | **Account amministratore** |  |
     | Tipo di autenticazione | selezionare **Password**. |
     | Username | Immettere un nome utente a scelta. |
@@ -223,7 +223,7 @@ Sostituire i parametri seguenti nei passaggi con le informazioni riportate di se
     | Resource group | Selezionare **myResourceGroup**.  |
     | **Dettagli istanza** |  |
     | Nome | Immettere **myAzureFirewall**. |
-    | Area | Selezionare **Stati Uniti centro-meridionali**. |
+    | Region | Selezionare **Stati Uniti centro-meridionali**. |
     | Zona di disponibilità | Lasciare il valore predefinito **Nessuna**. |
     | Scegliere una rete virtuale    |    Selezionare **Usa esistente**.    |
     | Rete virtuale    |    Selezionare **myAzFwVNet**.    |
@@ -309,7 +309,7 @@ In questa sezione viene creato un endpoint privato per il database SQL di Azure 
     | Resource group | Selezionare **myResourceGroup**. |
     | **Dettagli istanza** | |
     | Nome | Immettere **SQLPrivateEndpoint**. |
-    | Area | Selezionare **(Stati Uniti) Stati Uniti centro-meridionali.** |
+    | Region | Selezionare **(Stati Uniti) Stati Uniti centro-meridionali.** |
 
 6. Selezionare la scheda **risorsa** o selezionare **Avanti: risorsa** nella parte inferiore della pagina.
 
@@ -332,14 +332,14 @@ In questa sezione viene creato un endpoint privato per il database SQL di Azure 
     | **Rete** | |
     | Rete virtuale | Selezionare **myPEVnet**. |
     | Subnet | Selezionare **PrivateEndpointSubnet**. |
-    | **Integrazione di DNS privato** | |
+    | **Integrazione DNS privato** | |
     | Integra con la zona DNS privato | Selezionare **Sì**. |
     | Subscription | Selezionare la propria sottoscrizione. |
     | Zone DNS privato | Lasciare il valore predefinito **privatelink.database.Windows.NET**. |
 
 10. Selezionare la scheda **Verifica + crea** oppure selezionare **Verifica + crea** nella parte inferiore della pagina.
 
-11. Selezionare **Create** (Crea).
+11. Selezionare **Crea**.
 
 12. Dopo aver creato l'endpoint, selezionare **firewall e reti virtuali** in **sicurezza**.
 
@@ -366,7 +366,7 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Subscription | Selezionare la propria sottoscrizione.    |
     | Rete virtuale | Selezionare **myVMVNet**. |
     | Nome del peering dalla rete virtuale remota a myAzFwVNet    |    Immettere **myVMVNet-myAzFwVNet**.    |
-    | **Configurazione** | |
+    | **Configuration** | |
     | **Configurare le impostazioni di accesso alla rete virtuale** | |
     | Consenti accesso alla rete virtuale da myAzFwVNet a rete virtuale remota | Lasciare il valore predefinito, **Abilitata**.    |
     | Consenti accesso alla rete virtuale da una rete virtuale remota a myAzFwVNet    | Lasciare il valore predefinito, **Abilitata**.    |
@@ -374,7 +374,7 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Enabled**. |
     | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Enabled**. |
     | **Configurare le impostazioni di transito del gateway** | |
-    | Consenti transito gateway | Lascia deselezionata |
+    | Consenti transito gateway | Lasciare la casella deselezionata |
     |||
 
 4. Selezionare **OK**.
@@ -392,7 +392,7 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Subscription | Selezionare la propria sottoscrizione.    |
     | Rete virtuale | Selezionare **myPEVNet**. |
     | Nome del peering dalla rete virtuale remota a myAzFwVNet    |    Immettere **myPEVNet-myAzFwVNet**.    |
-    | **Configurazione** | |
+    | **Configuration** | |
     | **Configurare le impostazioni di accesso alla rete virtuale** | |
     | Consenti accesso alla rete virtuale da myAzFwVNet a rete virtuale remota | Lasciare il valore predefinito, **Abilitata**.    |
     | Consenti accesso alla rete virtuale da una rete virtuale remota a myAzFwVNet    | Lasciare il valore predefinito, **Abilitata**.    |
@@ -400,7 +400,7 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Enabled**. |
     | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Enabled**. |
     | **Configurare le impostazioni di transito del gateway** | |
-    | Consenti transito gateway | Lascia deselezionata |
+    | Consenti transito gateway | Lasciare la casella deselezionata |
 
 7. Selezionare **OK**.
 
@@ -497,7 +497,7 @@ La route invia il traffico dalla subnet **myVM** allo spazio degli indirizzi del
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**.  |
     | **Dettagli istanza** |  |
-    | Area | Selezionare **Stati Uniti centro-meridionali**. |
+    | Region | Selezionare **Stati Uniti centro-meridionali**. |
     | Nome | Immettere **elemento vmsubnet-AzureFirewall**. |
     | Propagazione delle route del gateway | Selezionare **No**. |
 

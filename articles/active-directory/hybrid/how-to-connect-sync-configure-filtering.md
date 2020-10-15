@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319980"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
@@ -123,7 +123,7 @@ Per impostare il filtro basato su dominio, seguire questa procedura:
 Per impostare il filtro basato su dominio, seguire questa procedura:
 
 1.  Avviare la procedura guidata di Azure AD Connect
-2.  Fare clic su **Configura**.
+2.  Fare clic su **Configure**.
 3.  Selezionare **Personalizza opzioni di sincronizzazione** e fare clic su **Avanti**.
 4.  Immettere le credenziali di Azure AD
 5.  Nella schermata **directory connesse** fare clic su **Avanti**.
@@ -279,7 +279,7 @@ In questo esempio si modifica il filtro in modo che vengano sincronizzati solo g
 5. Nel popup selezionare **Yes** (Sì) per creare una copia della regola.
 6. Nella pagina **Description** (Descrizione) modificare il campo **Precedence** (Precedenza) su un valore non usato, ad esempio 50.
 7. Fare clic su **Scoping filter** (Filtro ambito) nel riquadro di spostamento a sinistra e quindi fare clic su **Add clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **mail**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **valore**Digitare ** \@ contoso.com**e quindi fare clic su **Aggiungi clausola**. In **Attribute** (Attributo) selezionare **userPrincipalName**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **valore**Digitare ** \@ contoso.com**.
-8. Fare clic su **Salva**.
+8. Fare clic su **Save**.
 9. Per completare la configurazione, è necessario eseguire una **sincronizzazione completa**. Continuare a leggere la sezione [applicare e verificare le modifiche](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Applicare e verificare le modifiche

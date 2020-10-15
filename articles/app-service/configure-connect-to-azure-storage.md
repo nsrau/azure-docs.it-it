@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435610"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057757"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app
+# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad Archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app
 
 ::: zone pivot="container-windows"
 
@@ -65,7 +65,6 @@ Questa guida illustra come aggiungere archiviazione di Azure a un servizio app c
 
 - Archiviazione di Azure nel servizio app è **in anteprima** per il servizio app in Linux e app Web per contenitori. Non è **supportata** per gli **scenari di produzione**.
 - Archiviazione di Azure nel servizio app supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura) e **contenitori BLOB di Azure** (sola lettura)
-- Archiviazione di Azure nel servizio app **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
 - Archiviazione di Azure nel servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
 - L'archiviazione di Azure montata in un'app non è accessibile tramite gli endpoint FTP/FTPs del servizio app. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -91,7 +90,7 @@ az webapp config storage-account add --resource-group <group-name> --name <app-n
 
 Dopo aver creato l' [account di archiviazione di Azure, la condivisione file e la directory](#prerequisites), è ora possibile configurare l'app con archiviazione di Azure.
 
-Per montare un account di archiviazione in una directory nell'app del servizio app, usare il [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Il tipo di archiviazione può essere AzureBlob o AzureFiles. In questo esempio viene usato risorsa. L'impostazione del percorso di montaggio corrisponde alla cartella che si desidera montare dall'archiviazione di Azure. Impostando il valore su'/', viene montato l'intero spazio di archiviazione di Azure.
+Per montare un account di archiviazione in una directory nell'app del servizio app, usare il [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. Il tipo di archiviazione può essere AzureBlob o AzureFiles. In questo esempio viene usato risorsa. L'impostazione del percorso di montaggio corrisponde alla cartella all'interno del contenitore che si vuole montare nell'archiviazione di Azure. Impostando il valore su'/', l'intero contenitore viene montato in archiviazione di Azure.
 
 
 > [!CAUTION]

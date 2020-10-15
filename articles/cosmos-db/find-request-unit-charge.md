@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: thweiss
 ms.custom: devx-track-js
 ms.openlocfilehash: 81660bee32cace458424c9975c74ca7980148e29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316189"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Trovare l'addebito delle unità richiesta in Azure Cosmos DB
@@ -188,7 +188,7 @@ L'addebito delle UR è esposto da un [comando di database](https://docs.mongodb.
 
 1. Fare clic su **Statistiche query** per visualizzare l'addebito effettivo per la richiesta eseguita.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query MongoDB nel portale di Azure":::
+:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot dell'addebito per la richiesta relativa a una query SQL nel portale di Azure":::
 
 ### <a name="use-the-mongodb-net-driver"></a>Usare il driver .NET di MongoDB
 

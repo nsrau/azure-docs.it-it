@@ -12,10 +12,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490089"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
@@ -128,7 +128,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
     *  È possibile copiare dati da un archivio tramite lo [strumento di copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
 *  È possibile usare Gestione dati Gateway per inserire i dati direttamente da un database di SQL Server in Azure Machine Learning.
 
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 
     * Prestazioni di visualizzazione migliorate dello schema e dell'anteprima in SQL Server nello strumento di copia senza codice.
 
@@ -144,7 +144,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 
 *  In caso di errore dell'aggiornamento automatico, il programma di installazione del gateway ritenta l'aggiornamento automatico al massimo tre volte.
 
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 
     * È possibile migliorare le prestazioni in caso di caricamento di tabelle di grandi dimensioni dal server locale in uno scenario di copia senza codice.
 
@@ -152,7 +152,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 
 *  Correzioni di bug
 
@@ -164,34 +164,34 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 *  Possibilità di impostare l'ora di pianificazione dell'aggiornamento
 *  Script di PowerShell per attivare o disattivare l'aggiornamento automatico
 *  Supporto per il formato JSON  
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Miglioramento dell'esperienza di risoluzione dei problemi
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Supporto di origine/sink HDFS in locale
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -208,7 +208,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Supporto del nome di tabella per l'origine dati ODBC per Data factory di Azure
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +229,13 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 
 *  Supporto di cinque database relazionali per Data Factory di Azure (MySQL, PostgreSQL, DB2, Teradata e Sybase)
 *  Supporto della compressione (Gzip e Deflate)
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Aggiunta del supporto dell'origine dati Oracle per Data factory di Azure
-*  Miglioramenti delle prestazioni
+*  Miglioramenti alle prestazioni
 *  Correzioni di bug
 
 ### <a name="1454921"></a>1.4.5492.1

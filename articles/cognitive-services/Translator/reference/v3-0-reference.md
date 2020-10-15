@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
 ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88121018"
 ---
 # <a name="translator-v30"></a>Traduttore v 3.0
@@ -156,7 +156,7 @@ Una volta attivata questa funzionalità, è necessario utilizzare l'endpoint per
 |Intestazioni|Descrizione|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Il valore è la chiave privata di Azure per la sottoscrizione a Translator.|
-|Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa di conversione. Questo valore è facoltativo se la risorsa è`global`|
+|Ocp-Apim-Subscription-Region| Il valore è l'area della risorsa di conversione. Questo valore è facoltativo se la risorsa è `global`|
 
 Ecco una richiesta di esempio per chiamare il traduttore usando l'endpoint personalizzato
 

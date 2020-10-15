@@ -11,10 +11,10 @@ ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-js
 ms.openlocfilehash: 86bc968c922bcfb90da9ae2babd456ce4db81cb7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327477"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
@@ -87,7 +87,7 @@ http.createServer(function (req, res) {
 
 Questo codice è essenzialmente lo stesso dell'esempio "Hello World" nel sito Web [nodejs.org] , si differenzia solo perché usa il numero di porta assegnato dall'ambiente cloud.
 
-## <a name="deploy-the-application-to-azure"></a>Distribuire l'applicazione in Azure
+## <a name="deploy-the-application-to-azure"></a>Distribuzione dell'applicazione in Azure
 
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. È possibile [attivare i benefici per gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o [iscriversi per ottenere un account gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).

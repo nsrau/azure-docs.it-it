@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: ramamill
 ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89424872"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
@@ -115,7 +115,7 @@ Il Blog di Aman Sharma sulla [raccolta di cloud](http://harvestingclouds.com) è
 ## <a name="customize-the-recovery-plan"></a>Personalizzare il piano di ripristino
 
 1. Nell'insieme di credenziali selezionare **piani di ripristino (Site Recovery)**
-2. Per creare un piano di ripristino, fare clic su **+ piano di ripristino**. [Altre informazioni](site-recovery-create-recovery-plans.md). Se si dispone già di un piano di ripristino, selezionare per aprirlo.
+2. Per creare un piano di ripristino, fare clic su **+ piano di ripristino**. [Altre informazioni](site-recovery-create-recovery-plans.md) Se si dispone già di un piano di ripristino, selezionare per aprirlo.
 3. Nella pagina piano di ripristino fare clic su **Personalizza**.
 
     ![Fare clic sul pulsante Personalizza](media/site-recovery-runbook-automation-new/custom-rp.png)
@@ -254,7 +254,7 @@ Questa operazione viene eseguita specificando più valori, usando Azure PowerShe
 
 Per distribuire gli script di esempio nell'account di Automazione, fare clic sul pulsante **Distribuisci in Azure**.
 
-[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Distribuisci in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 Questo video fornisce un altro esempio. che mostra come ripristinare un'applicazione di WordPress a due livelli in Azure:
 

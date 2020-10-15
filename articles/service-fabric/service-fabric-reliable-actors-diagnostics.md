@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86258465"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Actors
@@ -33,7 +33,7 @@ Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Actors definisce le categorie di contatori delle prestazioni seguenti.
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 | --- | --- |
 | Service Fabric Actor |Contatori specifici degli attori di Azure Service Fabric, ad esempio per il tempo necessario per salvare lo stato di un attore |
 | Service Fabric Actor Method |Contatori specifici dei metodi implementati dagli attori di Service Fabric, ad esempio per la frequenza con cui viene richiamato un metodo di un attore |
@@ -83,7 +83,7 @@ Nell'esempio precedente `ivoicemailboxactor.leavemessageasync` è il nome del me
 ### <a name="actor-method-events-and-performance-counters"></a>Eventi dei metodi degli attori e relativi contatori delle prestazioni
 Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi ai [metodi degli attori](service-fabric-reliable-actors-introduction.md).
 
-| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
+| Nome evento | ID evento | Level | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Dettagliato |0x2 |Il runtime di Actors sta per richiamare un metodo di un attore. |
 | ActorMethodStop |8 |Dettagliato |0x2 |È terminata l'esecuzione di un metodo di un attore, ovvero la chiamata asincrona del runtime al metodo ha restituito il controllo e l'attività restituita dal metodo stesso è stata completata. |
@@ -100,7 +100,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="concurrency-events-and-performance-counters"></a>Eventi di concorrenza e relativi contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [concorrenza](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
+| Nome evento | ID evento | Level | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Dettagliato |0x8 |Questo evento viene scritto all'inizio di ogni nuovo turno in un attore. Include il numero di chiamate dell'attore in sospeso, in attesa di acquisire il blocco per attore che applica la concorrenza basata su turni. |
 
@@ -115,7 +115,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="actor-state-management-events-and-performance-counters"></a>Eventi di gestione dello stato degli attori e relativi contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md).
 
-| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
+| Nome evento | ID evento | Level | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Dettagliato |0x4 |Il runtime di Actors sta per salvare lo stato di un attore. |
 | ActorSaveStateStop |11 |Dettagliato |0x4 |Il runtime di Actors ha finito di salvare lo stato di un attore. |
@@ -130,7 +130,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="events-related-to-actor-replicas"></a>Eventi relativi alle repliche di attori
 Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi alle [repliche di attori](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
+| Nome evento | ID evento | Level | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Informativo |0x1 |Il ruolo della replica dell'attore è cambiato e la replica è diventata primaria. Ciò significa che gli attori per questa partizione verranno creati all'interno della replica. |
 | ReplicaChangeRoleFromPrimary |2 |Informativo |0x1 |Il ruolo della replica dell'attore è cambiato e la replica non è più primaria. Ciò significa che gli attori per questa partizione non verranno più creati all'interno della replica. Non verranno recapitate nuove richieste agli attori già creati all'interno della replica. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso. |
@@ -138,7 +138,7 @@ Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi all
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Eventi di attivazione e disattivazione degli attori e contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi all' [attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
 
-| Nome evento | ID evento | Livello | Parola chiave | Descrizione |
+| Nome evento | ID evento | Level | Parola chiave | Descrizione |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Informativo |0x1 |Un attore è stato attivato. |
 | ActorDeactivated |6 |Informativo |0x1 |Un attore è stato disattivato. |

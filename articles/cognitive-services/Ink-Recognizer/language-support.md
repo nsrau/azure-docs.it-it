@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
 ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051084"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Supporto della lingua e dell'area per l'API riconoscimento input penna
@@ -91,7 +91,7 @@ Questo articolo illustra le lingue supportate per l'API di riconoscimento input 
 | Xhosa                                      |     `xh-ZA`     |
 | Zulù                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Informazioni sull'API di Riconoscimento input penna](overview.md)
 * [Invio di tratti di input penna digitali all'API riconoscimento input penna](concepts/send-ink-data.md)

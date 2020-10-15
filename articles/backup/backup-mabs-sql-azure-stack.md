@@ -4,10 +4,10 @@ description: Questo articolo illustra come configurare Backup di Microsoft Azure
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332815"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Eseguire il backup di SQL Server in Azure Stack
@@ -76,7 +76,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Metodo di protezione dei dati - disco a breve termine e online in Azure](./media/backup-azure-backup-sql/pg-name.png)
 
-6. Nella schermata **Specifica obiettivi a breve termine** includere gli input necessari per creare punti di backup su disco e fare clic su **Avanti**.
+6. Nella schermata **Specifica obiettivi Short-Term** includere gli input necessari per creare punti di backup su disco e fare clic su **Avanti**.
 
     Nell'esempio l'**intervallo di conservazione** è **5 giorni**, la **frequenza di sincronizzazione** è una volta ogni **15 minuti**, che è la frequenza di backup. **Backup completo rapido** è impostato su **8.00 PM**.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 736daa8a09a8f08721c7b7d9c20f012f274b384a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87045521"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Esempi di query di log in Monitoraggio di Azure
@@ -18,7 +18,7 @@ Questo articolo include vari esempi di [query](log-query-overview.md) che usano 
 
 Per informazioni dettagliate sulle diverse parole chiave usate in questi esempi, vedere il [materiale di riferimento per il linguaggio Kusto](/azure/kusto/query/). Se non si ha familiarità con Monitoraggio di Azure, seguire una [lezione sulla creazione di query](get-started-queries.md).
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Cercare gli eventi a livello di applicazione descritti come "crittografici"
 Questo esempio cerca nella tabella **Events** (Eventi) i record in cui **EventLog** è _Application_ (Applicazione) e **RenderedDescription** contiene _cryptographic_ (crittografico). La ricerca include i record delle ultime 24 ore.

@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
 ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86037835"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
@@ -46,7 +46,7 @@ Confrontare la chiave condivisa del dispositivo VPN locale con quella del gatewa
 
 Per visualizzare la chiave condivisa per la connessione VPN di Azure, usare uno dei metodi seguenti:
 
-**Azure portal**
+**Portale di Azure**
 
 1. Passare alla connessione gateway VPN di Azure da sito a sito appena creata.
 

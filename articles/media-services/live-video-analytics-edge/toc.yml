@@ -115,3 +115,5 @@
       href: faq.md
     - name: Idoneità e procedure consigliate per la produzione
       href: production-readiness.md
+    - name: Principi di trasparenza e uso responsabile dell'intelligenza artificiale
+      href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'

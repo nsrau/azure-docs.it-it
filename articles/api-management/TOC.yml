@@ -19,6 +19,9 @@
       href: powershell-create-service-instance.md
     - name: Creare un'istanza - Visual Studio Code
       href: vscode-create-service-instance.md
+    - name: Creare un'istanza - Modello di Resource Manager
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: Esercitazioni
   items:
     - name: 1 - Importare la prima API

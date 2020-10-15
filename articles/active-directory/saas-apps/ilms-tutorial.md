@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545209"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826360"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Esercitazione: Integrare iLMS con Azure Active Directory
 
@@ -130,29 +130,29 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 2. Fare clic su **SSO:SAML** nella scheda **Impostazioni** per aprire le impostazioni di SAML ed eseguire la procedura seguente:
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/1.png)
+    ![Screenshot che mostra la scheda Settings di iLMS in cui è possibile selezionare SSO: SAML.](./media/ilms-tutorial/1.png)
 
 3. Espandere la sezione **Provider di servizi** e copiare l'**Identificatore** e il valore **Endpoint (URL)** .
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/2.png) 
+    ![Screenshot che mostra la schermata SAML Settings in cui è possibile ottenere i valori.](./media/ilms-tutorial/2.png) 
 
 4. Nella sezione **Provider di identità** fare clic su **Import metadata** (Importa metadati).
 
 5. Selezionare il file dei **metadati di federazione** scaricato dal portale di Azure dalla sezione **Certificato di firma SAML**.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Screenshot che mostra la schermata SAML Settings in cui è possibile selezionare il file di metadati.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. Se si desidera abilitare il provisioning JIT per creare gli account iLMS per utenti non riconosciuti, seguire questa procedura:
 
     a. Selezionare **Create Un-recognized User Account** (Crea account utente non riconosciuto).
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![Screenshot che mostra l'opzione Create Un-recognized User Account.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Eseguire il mapping degli attributi in Azure AD con gli attributi in iLMS. Nella colonna dell'attributo specificare il nome degli attributi o il valore predefinito.
 
     c. Passare alla scheda **Business Rules** (Regole Business) ed eseguire la procedura seguente:
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/5.png)
+    ![Screenshot che mostra la schermata delle impostazioni di Business Rules in cui è possibile immettere le informazioni in questo passaggio.](./media/ilms-tutorial/5.png)
 
     d. Selezionare **Create Un-recognized Regions, Divisions and Departments** (Crea aree, divisioni e reparti non riconosciuti) per creare aree, divisioni e reparti che non esistono già al momento del Single Sign-on.
 
@@ -164,7 +164,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 7. Fare clic sul pulsante **Save** (Salva) per salvare le impostazioni.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/save.png)
+    ![Screenshot che mostra il pulsante Save.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -206,11 +206,11 @@ Se è necessario creare manualmente un utente, seguire questa procedura:
 
 2. Fare clic su **Register User** (Registra utente) nella scheda **Users** (Utenti) per aprire la pagina **Register User** (Registra utente).
 
-   ![Aggiungere un dipendente](./media/ilms-tutorial/3.png)
+   ![Screenshot che mostra la scheda Settings di iLMS in cui è possibile selezionare Register User.](./media/ilms-tutorial/3.png)
 
 3. Nella pagina **Register User** (Registra utente) seguire questa procedura.
 
-    ![Aggiungere un dipendente](./media/ilms-tutorial/create_testuser_add.png)
+    ![Screenshot che mostra la pagina Register User in cui immettere le informazioni specificate.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. Nella casella di testo **Nome** digitare Britta.
 

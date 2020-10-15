@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706252"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055368"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Microsoft Azure
 
@@ -199,14 +199,14 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 | WIF | Supportato | Supportato ma sono disponibili istruzioni limitate |
 | WS-Federation | Supportato | Supportato |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
-| WS-Trust | Supportato | Non supportate |
+| WS-Trust | Supportato | Non supportato |
 | **Formati di token** | | |
 | Token JSON Web | Supportato nella versione Beta | Supportato |
 | SAML 1.1 | Supportato | Anteprima |
 | SAML 2.0 | Supportato | Supportato |
-| Token Web semplice | Supportato | Non supportate |
+| Token Web semplice | Supportato | Non supportato |
 | **Personalizzazioni** | | |
-| Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Non supportate |
+| Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Non supportato |
 | Caricare certificati per la firma di token personalizzati | Supportato | Supportato |
 | Personalizzare le attestazioni nei token |- Eseguire il pass-through delle attestazioni di input dai provider di identità<br />- Ottenere un token di accesso dal provider di identità come attestazione<br />- Rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- Rilasciare attestazioni di output con valori costanti |- Non è possibile eseguire il pass-through di attestazioni da provider di identità federati<br />- Non è possibile ottenere un token di accesso dal provider di identità come attestazione<br />- Non è possibile rilasciare attestazioni di output in base ai valori delle attestazioni di input<br />- È possibile rilasciare attestazioni di output con valori costanti<br />- È possibile rilasciare attestazioni di output in base alle proprietà degli utenti sincronizzati con Azure AD |
 | **Automazione** | | |
@@ -214,7 +214,7 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 
 Se si decide che Azure AD sia l'approccio di migrazione ottimale per le applicazioni e i servizi in uso, è necessario conoscere le due modalità disponibili per l'integrazione dell'app con Azure AD.
 
-Per utilizzare WS-Federation o WIF per l'integrazione con Azure AD, è consigliabile attenersi all'approccio descritto in [Configurare l'accesso Single Sign-On federato per un'applicazione non della raccolta](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Questo articolo fa riferimento alla configurazione di Azure AD per l'accesso Single Sign-On basato su SAML ma è applicabile anche alla configurazione di WS-Federation. L'uso di questo approccio richiede una licenza di Azure AD Premium. Questo approccio presenta due vantaggi:
+Per utilizzare WS-Federation o WIF per l'integrazione con Azure AD, è consigliabile attenersi all'approccio descritto in [Configurare l'accesso Single Sign-On federato per un'applicazione non della raccolta](../manage-apps/configure-saml-single-sign-on.md). Questo articolo fa riferimento alla configurazione di Azure AD per l'accesso Single Sign-On basato su SAML ma è applicabile anche alla configurazione di WS-Federation. L'uso di questo approccio richiede una licenza di Azure AD Premium. Questo approccio presenta due vantaggi:
 
 - Si ottiene la flessibilità completa della personalizzazione dei token di Azure AD. È possibile personalizzare le attestazioni rilasciate da Azure AD per associarle alle attestazioni generate da Controllo di accesso. In particolare è inclusa l'attestazione di ID utente o Identificatore nome. Per continuare a ricevere identificatori utente coerenti per gli utenti anche dopo il passaggio a tecnologie diverse, assicurarsi che gli ID utente rilasciati da Azure AD corrispondano a quelli rilasciati da Controllo di accesso.
 - È possibile configurare un certificato per la firma di token specifico per l'applicazione e controllarne la durata.
@@ -226,7 +226,7 @@ Un approccio alternativo consiste nell'attenersi a [questo esempio di codice](ht
 
 Se si sceglie questo approccio, è necessario comprendere il [rollover della chiave di firma in Azure AD](../develop/active-directory-signing-key-rollover.md). Questo approccio usa la chiave di firma globale di Azure AD per rilasciare token. Per impostazione predefinita, WIF non aggiorna automaticamente le chiavi di firma. Quando Azure AD ruota le rispettive chiavi di firma globali, l'implementazione di WIF deve essere preparata per l'accettazione delle modifiche. Per altre informazioni, vedere [Important information about signing key rollover in Azure AD](/previous-versions/azure/dn641920(v=azure.100)) (Informazioni importanti sul rollover della chiave di firma in Azure AD).
 
-Se si riesce a eseguire l'integrazione con Azure AD tramite i protocolli OAuth o OpenID Connect, è consigliabile scegliere questo approccio. Documentazione e indicazioni complete sull'integrazione di Azure AD nell'applicazione Web sono disponibili nella [Guida per gli sviluppatori di Azure AD](https://aka.ms/aaddev).
+Se si riesce a eseguire l'integrazione con Azure AD tramite i protocolli OAuth o OpenID Connect, è consigliabile scegliere questo approccio. Documentazione e indicazioni complete sull'integrazione di Azure AD nell'applicazione Web sono disponibili nella [Guida per gli sviluppatori di Azure AD](../develop/index.yml).
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrazione ad Azure Active Directory B2C
 
@@ -247,15 +247,15 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 | Account Microsoft per uso personale | Supportato | Supportato | 
 | Account Facebook, Google, Yahoo | Supportato | Facebook e Google supportati in modalità nativa, Yahoo supportato tramite la federazione di OpenID Connect con criteri personalizzati |
 | **Compatibilità con protocolli e SDK** | | |
-| Windows Identity Foundation (WIF) | Supportato | Non supportate |
-| WS-Federation | Supportato | Non supportate |
+| Windows Identity Foundation (WIF) | Supportato | Non supportato |
+| WS-Federation | Supportato | Non supportato |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
-| WS-Trust | Supportato | Non supportate |
+| WS-Trust | Supportato | Non supportato |
 | **Formati di token** | | |
 | Token JSON Web | Supportato nella versione Beta | Supportato |
-| SAML 1.1 | Supportato | Non supportate |
-| SAML 2.0 | Supportato | Non supportate |
-| Token Web semplice | Supportato | Non supportate |
+| SAML 1.1 | Supportato | Non supportato |
+| SAML 2.0 | Supportato | Non supportato |
+| Token Web semplice | Supportato | Non supportato |
 | **Personalizzazioni** | | |
 | Individuazione dell'area di autenticazione principale/interfaccia utente per la scelta dell'account personalizzabili | Codice scaricabile che può essere incorporato nelle app | Interfaccia utente completamente personalizzabile tramite CSS personalizzati |
 | Caricare certificati per la firma di token personalizzati | Supportato | Chiavi di accesso personalizzate, non certificati, supportati tramite criteri personalizzati |
@@ -266,7 +266,7 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 Se si decide che Azure AD B2C è l'approccio ottimale per le applicazioni e i servizi in uso, iniziare dalle risorse seguenti:
 
 - [Documentazione di Azure AD B2C](../../active-directory-b2c/overview.md)
-- [Azure AD B2C criteri personalizzati](../../active-directory-b2c/custom-policy-overview.md)
+- [Criteri personalizzati di Azure AD B2C](../../active-directory-b2c/custom-policy-overview.md)
 - [Prezzi di Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Eseguire la migrazione a Ping Identity o Auth0
@@ -332,7 +332,7 @@ Azure AD può essere usato anche per l'autenticazione S2S tramite l'implementazi
 
 Per indicazioni sull'implementazione di scenari S2S, vedere le risorse seguenti:
 
-- Sezione da servizio a servizio della Guida per gli [sviluppatori di Azure ad](https://aka.ms/aaddev)
+- Sezione da servizio a servizio della Guida per gli [sviluppatori di Azure ad](../develop/index.yml)
 - [Esempio di codice Daemon che usa credenziali client per password semplice](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Esempio di codice Daemon che usa credenziali client per il certificato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

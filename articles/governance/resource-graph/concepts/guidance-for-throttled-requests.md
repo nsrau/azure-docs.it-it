@@ -1,15 +1,15 @@
 ---
 title: Istruzioni per le richieste con limitazioni
 description: Informazioni per il raggruppamento, la distribuzione, l’impaginazione e l’esecuzione di query in parallelo per evitare che le richieste vengano limitate da Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006007"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056175"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Istruzioni per le richieste con limitazioni in Azure Resource Graph
 
@@ -132,7 +132,7 @@ A causa del modo in cui viene applicata la limitazione, è consigliabile sfalsar
   |---------------------|-----|------|-------|-------|
   | Intervallo di tempo (secondi) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Di seguito è riportato un esempio di come rispettare le intestazioni di limitazione durante l'esecuzione di query in Azure Resource Graph:
+Di seguito è riportato un esempio di come rispettare le intestazioni di limitazione durante l'esecuzione di query su Graph di risorse di Azure:
 
 ```csharp
 while (/* Need to query more? */)
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Query in parallelo
 
-Anche se è consigliabile eseguire il raggruppamento piuttosto che la parallelizzazione, in alcuni casi non è possibile raggruppare facilmente le query. In questi casi, è possibile eseguire query in Azure Resource Graph inviando più query in modo parallelo. Di seguito è riportato un esempio di come eseguire il _backoff_ in base alle intestazioni di limitazione in scenari di questo tipo:
+Anche se è consigliabile eseguire il raggruppamento piuttosto che la parallelizzazione, in alcuni casi non è possibile raggruppare facilmente le query. In questi casi, è possibile eseguire query in Azure Resource Graph inviando più query in modo parallelo. Di seguito è riportato un esempio di come _backoff_ in base alle intestazioni di limitazione in scenari di questo tipo:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -219,7 +219,7 @@ Poiché Azure Resource Graph restituisce al massimo 1000 voci in una singola ris
 
 - Interfaccia della riga di comando di Azure/Azure PowerShell
 
-  Quando si usa l'interfaccia della riga di comando di Azure o Azure PowerShell, le query in Azure Resource Graph vengono impaginate automaticamente per recuperare al massimo 5000 voci. I risultati della query restituiscono un elenco combinato di voci da tutte le chiamate impaginate. In questo caso, a seconda del numero di voci nel risultato della query, una singola query impaginata può utilizzare più di una quota di query. Nell'esempio seguente, una singola esecuzione della query può utilizzare fino a cinque quote di query:
+  Quando si usa l'interfaccia della riga di comando di Azure o Azure PowerShell, le query in Azure Resource Graph vengono impaginate automaticamente per recuperare al massimo 5000 voci. I risultati della query restituiscono un elenco combinato di voci da tutte le chiamate impaginate. In questo caso, a seconda del numero di voci nel risultato della query, una singola query impaginata può utilizzare più di una quota di query. Negli esempi seguenti, ad esempio, una singola esecuzione della query può utilizzare fino a cinque quote di query:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 2dbfc2173f6631aff2d65c770a5204bbd72d3ed1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 3c3dac8c8798b9c56b746a2e4e232f43ef967ebe
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818815"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960304"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -45,7 +45,7 @@ L'estensione dello script personalizzata per Linux verrà eseguita nell'estensio
 È possibile servirsi dell'estensione per usare le credenziali di Archiviazione BLOB di Azure, in modo da accedere alle risorse di archiviazione BLOB di Azure. In alternativa, lo script può trovarsi in qualsiasi posizione, purché la macchina virtuale possa eseguire il routing a tale endpoint, ad esempio GitHub, il file server interno e così via.
 
 ### <a name="internet-connectivity"></a>Connettività Internet
-Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Ad esempio, se lo script si trova in archiviazione di Azure, è possibile consentire l'accesso usando i tag del servizio NSG di Azure per l' [archiviazione](../../virtual-network/security-overview.md#service-tags).
+Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Ad esempio, se lo script si trova in archiviazione di Azure, è possibile consentire l'accesso usando i tag del servizio NSG di Azure per l' [archiviazione](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
@@ -119,8 +119,8 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | type | CustomScript | string |
 | typeHandlerVersion | 2.1 | INT |
 | fileUris (es.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute (es.) | MyPythonScript.py Python \<my-param1> | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| commandToExecute (es.) | MyPythonScript.py Python \<my-param1> | Stringa |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | Stringa |
 | skipDos2Unix  (esempio) | false | boolean |
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
 | storageAccountName (es.) | examplestorageacct | string |

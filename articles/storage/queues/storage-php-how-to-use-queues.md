@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84809211"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Come usare l'archiviazione di accodamento da PHP
@@ -37,7 +37,7 @@ In questa guida vengono usate le funzionalità del servizio di archiviazione di 
 
 ### <a name="install-via-composer"></a>Installazione tramite Composer
 
-1. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
+1. Creare un file denominato **composer.json** nella radice del progetto e aggiungervi il codice seguente:
    
     ```json
     {

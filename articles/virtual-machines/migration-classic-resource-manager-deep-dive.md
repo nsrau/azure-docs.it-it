@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855907"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970011"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 
@@ -135,7 +135,7 @@ Questo è un passaggio facoltativo che permette di annullare le modifiche al mod
 Dopo aver completato la convalida, è possibile eseguire il commit della migrazione. Le risorse non vengono più visualizzate nel modello di distribuzione classica e sono disponibili solo nel modello di distribuzione Resource Manager. Le risorse migrate possono essere gestite solo nel nuovo portale.
 
 > [!NOTE]
-> Si tratta di un'operazione idempotente. In caso di esito negativo, ripetere l'operazione. Se l'errore persiste, creare un ticket di supporto oppure creare un forum nella sezione [Domande e risposte Microsoft](https://docs.microsoft.com/answers/index.html)
+> Si tratta di un'operazione idempotente. In caso di esito negativo, ripetere l'operazione. Se l'errore persiste, creare un ticket di supporto oppure creare un forum nella sezione [Domande e risposte Microsoft](/answers/index.html)
 >
 >
 

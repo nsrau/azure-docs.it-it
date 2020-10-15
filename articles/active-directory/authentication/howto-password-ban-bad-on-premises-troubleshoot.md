@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3508d3942626c319221f4b690aaf444e034195bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116462"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966628"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Risoluzione dei problemi: protezione Azure AD password locale
 
@@ -50,7 +50,7 @@ Il sintomo principale di questo problema è 30018 eventi nel registro eventi di 
 
 1. Verificare che la foresta e tutti i server proxy siano registrati nello stesso tenant di Azure.
 
-   È possibile verificare questo requisito eseguendo i `Get-AzureADPasswordProtectionProxy` cmdlet e di `Get-AzureADPasswordProtectionDCAgent` PowerShell, quindi confrontare la `AzureTenant` proprietà di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
+   È possibile verificare questo requisito eseguendo i  `Get-AzureADPasswordProtectionProxy` cmdlet e di `Get-AzureADPasswordProtectionDCAgent` PowerShell, quindi confrontare la `AzureTenant` proprietà di ogni elemento restituito. Per il corretto funzionamento, il nome del tenant restituito deve essere lo stesso in tutti gli agenti controller di dominio e i server proxy.
 
    Se esiste una condizione di mancata corrispondenza della registrazione del tenant di Azure, questo problema può essere risolto eseguendo i `Register-AzureADPasswordProtectionProxy` cmdlet di e/o `Register-AzureADPasswordProtectionForest` PowerShell in base alle esigenze, assicurandosi di usare le credenziali dello stesso tenant di Azure per tutte le registrazioni.
 

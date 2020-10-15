@@ -4,10 +4,10 @@ description: Questo articolo descrive le diverse modalità di autenticazione del
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: abe16c9598c8c10caa832150aafac997dd7f1624
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87460644"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticare il recapito di eventi a gestori eventi (griglia di eventi di Azure)
@@ -16,7 +16,7 @@ Questo articolo fornisce informazioni sull'autenticazione del recapito di eventi
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Usare le identità assegnate dal sistema per il recapito degli eventi
 È possibile abilitare un'identità gestita assegnata dal sistema per un argomento o un dominio e usare l'identità per l'invio di eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
 
-Seguire questa procedura: 
+Di seguito sono riportati i passaggi necessari: 
 
 1. Creare un argomento o un dominio con un'identità assegnata dal sistema oppure aggiornare un argomento o un dominio esistente per abilitare l'identità. 
 1. Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio.

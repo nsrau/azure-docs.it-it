@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 835369116b07b74c666fba271476f1cba5a708b8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259953"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
@@ -19,7 +19,7 @@ Consente di ottenere ed eliminare le risorse dell'applicazione.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminazione | Elimina la risorsa dell'applicazione. |
+| Elimina | Elimina la risorsa dell'applicazione. |
 | list | Elenca tutte le risorse dell'applicazione. |
 | show | Ottiene la risorsa dell'applicazione con il nome specificato. |
 
@@ -30,13 +30,13 @@ Elimina la risorsa dell'applicazione identificata dal nome.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Il nome dell'applicazione. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -51,7 +51,7 @@ Ottiene le informazioni su tutte le risorse dell'applicazione in un determinato 
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -66,13 +66,13 @@ Ottiene le informazioni sulla risorsa dell'applicazione con il nome specificato.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Il nome dell'applicazione. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

@@ -4,10 +4,10 @@ description: Linee guida e consigli per l'uso di Service Fabric Reliable Collect
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260911"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Linee guida e consigli per Reliable Collections in Azure Service Fabric
@@ -40,17 +40,17 @@ Occorre tenere presente i concetti seguenti:
   Ciò significa che una versione dei dati che viene letta da un singolo secondario potrebbe essere elaborata in modo non corretto.
   Le letture della replica primaria sono sempre stabili: non sono mai elaborate in modo non corretto.
 * La sicurezza e la privacy dei dati resi persistenti tramite l'applicazione in una raccolta affidabile sono decisioni dell'utente e sono soggette a misure di protezione fornite dalla gestione dell'archiviazione, ad esempio la crittografia del disco del sistema operativo potrebbe essere usata per proteggere i dati inattivi.
-* `ReliableDictionary`l'enumerazione usa una struttura di dati ordinata ordinata in base alla chiave. Per rendere efficiente l'enumerazione, i commit vengono aggiunti a una tabella hash temporanea e successivamente spostati nella struttura di dati ordinata principale dopo il checkpoint. Le aggiunte/aggiornamenti/eliminazioni hanno il migliore runtime del caso O (1) e il runtime peggiore di O (log n), nel caso di controlli di convalida sulla presenza della chiave. Può essere o (1) o O (log n) a seconda che si legga da un commit recente o da un commit precedente.
+* `ReliableDictionary` l'enumerazione usa una struttura di dati ordinata ordinata in base alla chiave. Per rendere efficiente l'enumerazione, i commit vengono aggiunti a una tabella hash temporanea e successivamente spostati nella struttura di dati ordinata principale dopo il checkpoint. Le aggiunte/aggiornamenti/eliminazioni hanno il migliore runtime del caso O (1) e il runtime peggiore di O (log n), nel caso di controlli di convalida sulla presenza della chiave. Può essere o (1) o O (log n) a seconda che si legga da un commit recente o da un commit precedente.
 
 ## <a name="volatile-reliable-collections"></a>Raccolte affidabili volatili
 Quando si decide di usare le raccolte affidabili volatili, tenere presente quanto segue:
 
-* ```ReliableDictionary```dispone del supporto volatile
-* ```ReliableQueue```dispone del supporto volatile
-* ```ReliableConcurrentQueue```non dispone del supporto volatile
+* ```ReliableDictionary``` dispone del supporto volatile
+* ```ReliableQueue``` dispone del supporto volatile
+* ```ReliableConcurrentQueue``` non dispone del supporto volatile
 * I servizi salvati in permanenza non possono essere resi volatili. La modifica del ```HasPersistedState``` flag in ```false``` richiede la ricreazione dell'intero servizio da zero
 * Non è possibile rendere permanente i servizi volatili. La modifica del ```HasPersistedState``` flag in ```true``` richiede la ricreazione dell'intero servizio da zero
-* ```HasPersistedState```è una configurazione a livello di servizio. Ciò significa che **tutte le** raccolte saranno rese permanente o volatili. Non è possibile combinare raccolte volatili e rese permanente
+* ```HasPersistedState``` è una configurazione a livello di servizio. Ciò significa che **tutte le** raccolte saranno rese permanente o volatili. Non è possibile combinare raccolte volatili e rese permanente
 * La perdita di quorum di una partizione volatile comporta una perdita di dati completa
 * Il backup e il ripristino non sono disponibili per i servizi volatili
 
@@ -59,7 +59,7 @@ Quando si decide di usare le raccolte affidabili volatili, tenere presente quant
 * [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gestione dei dati
   * [Backup e ripristino](service-fabric-reliable-services-backup-restore.md)
-  * [Notifiche](service-fabric-reliable-services-notifications.md)
+  * [Notifications](service-fabric-reliable-services-notifications.md)
   * [Serializzazione e aggiornamento](service-fabric-application-upgrade-data-serialization.md)
   * [Reliable State Manager configuration (Configurazione di Reliable State Manager)](service-fabric-reliable-services-configuration.md)
 * Altro

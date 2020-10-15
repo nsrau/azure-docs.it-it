@@ -8,10 +8,10 @@ ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 59f68909e2f3704fea5c38e3f1535f5996b284ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099175"
 ---
 # <a name="add-tags-to-digital-twins"></a>Aggiungere tag ai dispositivi gemelli digitali 
@@ -139,7 +139,7 @@ select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scopri di più sulla progettazione e la gestione di modelli di dispositivi gemelli digitali:
-* [*Procedura: Gestire i modelli personalizzati*](how-to-manage-model.md)
+* [*Procedura: Gestire modelli personalizzati*](how-to-manage-model.md)
 
 Altre informazioni sull'esecuzione di query sul grafico gemello:
 * [*Procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md)

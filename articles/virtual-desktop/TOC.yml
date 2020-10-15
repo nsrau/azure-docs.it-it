@@ -36,6 +36,10 @@
           href: connect-ios.md
         - name: Connettersi con il client Microsoft Store
           href: connect-microsoft-store.md
+        - name: Connettersi con dispositivi Linux
+          href: linux-overview.md
+    - name: Configurare i reindirizzamenti dei dispositivi
+      href: configure-device-redirections.md
     - name: Configurare il modulo di PowerShell
       href: powershell-module.md
     - name: Creare un pool di host e host sessione
@@ -102,6 +106,8 @@
       href: azure-advisor.md
     - name: Risolvere le raccomandazioni
       href: azure-advisor-recommendations.md
+    - name: Configurare un piano di ripristino di emergenza
+      href: disaster-recovery.md
 - name: Concetti
   items:
     - name: Authentication

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959792"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044531"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [App Azure servizio](https://go.microsoft.com/fwlink/?LinkId=529714) fornisce funzionalità di monitoraggio predefinite per app Web, per dispositivi mobili e per le app per le API nel [portale di Azure](https://portal.azure.com).
@@ -37,7 +37,7 @@ Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
 | **Memoria** | Quantità totale di memoria consentita per l'app. |
 | **Larghezza di banda** | Quantità totale di larghezza di banda in uscita consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
-| **Filesystem** | Quantità totale di spazio di archiviazione consentito. |
+| **File System** | Quantità totale di spazio di archiviazione consentito. |
 
 L'unica quota applicabile alle app ospitate in *Basic*, *standard*e *Premium* è file System.
 
@@ -58,7 +58,7 @@ Se viene superata la quota Filesystem, tutte le operazioni di scrittura hanno es
 ## <a name="understand-metrics"></a>Informazioni sulle metriche
 
 > [!NOTE]
-> L' **utilizzo del file System** è una nuova metrica che viene implementata a livello globale, non è previsto alcun dato, a meno che non sia stato concesso l'accesso per l'anteprima privata.
+> L' **utilizzo del file System** è una nuova metrica che viene implementata a livello globale, non è previsto alcun dato, a meno che l'app non sia ospitata in un ambiente del servizio app.
 > 
 
 > [!IMPORTANT]

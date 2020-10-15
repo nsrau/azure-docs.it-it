@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87012179"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Spostamento dei dati in SQL Server in una macchina virtuale di Azure
@@ -28,8 +28,8 @@ Nella tabella seguente vengono riepilogate le opzioni per lo spostamento dei dat
 
 | <b>ORIGINE</b> | <b>DESTINAZIONE: SQL Server in VM di Azure</b> |
 | --- | --- |
-| <b>File flat</b> |1. <a href="#insert-tables-bcp">utilità per la copia bulk da riga di comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL </a><br> 3. <a href="#sql-builtin-utilities">utilità predefinite grafiche in SQL Server</a> |
-| <b>Server SQL locale</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuzione di un database di SQL Server in una procedura guidata Microsoft Azure macchina virtuale</a><br> 2. <a href="#export-flat-file">esportare in un file flat</a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br> |
+| <b>File flat</b> |1. <a href="#insert-tables-bcp">utilità per la copia bulk da riga di comando (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Inserimento di massa query SQL </a><br> 3. <a href="#sql-builtin-utilities">utilità predefinite grafiche in SQL Server</a> |
+| <b>Server SQL locale</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuzione di un database di SQL Server in una procedura guidata Microsoft Azure macchina virtuale</a><br> 2. <a href="#export-flat-file">esportare in un file flat </a><br> 3. <a href="#sql-migration">Migrazione guidata database SQL </a> <br> 4. <a href="#sql-backup">Backup e ripristino database </a><br> |
 
 In questo documento si presuppone che i comandi SQL vengano eseguiti da SQL Server Management Studio o Esplora database di Visual Studio.
 

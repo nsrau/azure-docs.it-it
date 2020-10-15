@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9810a34021aa039354aad24f84aff373229c0190
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87021478"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
@@ -151,7 +151,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 26. Nella pagina **Advanced Options** (Opzioni avanzate) accettare il valore predefinito e fare clic su **Next** (Avanti).
 
     ![Screenshot della pagina Opzioni avanzate. Il pulsante Avanti è evidenziato.](./media/storsimple-virtual-array-deploy2-provision-vmware/image27.png)
-27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Controllare **Edit the virtual machine settings before completion**. Fare clic su **Continue**.
+27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Controllare **Edit the virtual machine settings before completion**. Fare clic su **Continua**.
 
     ![Screenshot della pagina pronto per il completamento con un pulsante continua evidenziato. L'opzione modifica le impostazioni della macchina virtuale prima del completamento è selezionata.](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
 28. Nella pagina **Virtual Machines Properties** (Proprietà macchine virtuali) nella scheda **Hardware** individuare l'hardware del dispositivo. Selezionare **New Hard Disk**. Scegliere **Aggiungi**.
@@ -175,7 +175,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Fare clic su **Fine**.
 
     ![Screenshot della pagina delle proprietà della macchina virtuale. L'elenco hardware contiene il nuovo disco rigido e viene evidenziato il pulsante fine.](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. Con la macchina virtuale selezionata nel riquadro di destra, passare alla scheda **Riepilogo** . rivedere le impostazioni della macchina virtuale.
+35. Con la macchina virtuale selezionata nel riquadro di destra, passare alla scheda **Riepilogo** . Esaminare le impostazioni della macchina virtuale.
 
     ![Screenshot della scheda Riepilogo client di vSphere. La nuova macchina virtuale è evidenziata e le relative risorse e proprietà generali sono visibili.](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -196,10 +196,10 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
    ![Screenshot della scheda della console client di vSphere. La casella password è vuota.](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Per motivi di sicurezza, la password amministratore del dispositivo scade al primo accesso. Viene richiesto di modificarla.
 
-   ![Screenshot della scheda della console client di vSphere. il testo nella pagina indica che è necessario modificare la password.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
+   ![Screenshot della scheda della console client di vSphere. Il testo nella pagina indica che è necessario modificare la password.](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
 4. Immettere una password contenente almeno 8 caratteri. La password deve soddisfare 3 di questi 4 requisiti: lettere maiuscole, minuscole, numeri e caratteri speciali. Immettere nuovamente la password per confermarla. Si riceverà una notifica in cui si comunica che la password è stata modificata.
 
-   ![Screenshot della scheda della console client di vSphere. il testo nella pagina indica che la password è stata modificata.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
+   ![Screenshot della scheda della console client di vSphere. Il testo nella pagina indica che la password è stata modificata.](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
 5. Dopo aver modificato correttamente la password, il dispositivo virtuale verrà riavviato. Attendere il completamento dell'operazione di riavvio. La console di Windows PowerShell del dispositivo può essere visualizzata con un indicatore di stato.
 
    ![Screenshot che mostra una finestra della console con un indicatore di stato. Il testo nella finestra indica che la configurazione iniziale è in corso e chiede all'utente di attendere.](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
@@ -215,7 +215,7 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![Screenshot che mostra una finestra della console con l'output del comando Get-Help Set-HcsIpAddress e l'uso corretto del comando set-HcsIpAddress.](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
+    ![Screenshot che mostra una finestra della console con l'output del comando Get-Help Set-HcsIpAddress e l'uso corretto del comando Set-HcsIpAddress.](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
 9. Dopo aver completato l'installazione iniziale e avviato il dispositivo, viene visualizzato il relativo testo intestazione. Prendere nota dell'indirizzo IP e dell'URL visualizzati nel testo intestazione per gestire il dispositivo. Usare questo indirizzo IP per connettersi all'interfaccia utente Web del dispositivo virtuale e completare l'installazione locale e la registrazione.
 
    ![Screenshot che mostra una finestra della console con il testo del banner del dispositivo. Il testo include l'URL e l'indirizzo IP del dispositivo.](./media/storsimple-virtual-array-deploy2-provision-vmware/image45.png)

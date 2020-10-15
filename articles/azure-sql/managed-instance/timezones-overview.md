@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91617921"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978357"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusi orari in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Un set di fusi orari supportati viene ereditato dal sistema operativo sottostant
 
 I [criteri per le modifiche dell'ora legale e del fuso orario](https://aka.ms/time) garantiscono l'accuratezza cronologica da 2010 in poi.
 
-Un elenco con i nomi dei fusi orari supportati viene esposto tramite la vista di sistema [sys. time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
+Un elenco con i nomi dei fusi orari supportati viene esposto tramite la vista di sistema [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 
 ## <a name="set-a-time-zone"></a>Impostare un fuso orario
 
@@ -95,7 +95,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 
 ## <a name="limitations"></a>Limitazioni
 
-- Il fuso orario dell'istanza gestita esistente non può essere modificato.
+- Il fuso orario dell'istanza gestita esistente non può essere modificato. Per risolvere il problema, creare una nuova istanza gestita con il fuso orario appropriato, quindi eseguire un backup manuale e un ripristino o quello che si consiglia di eseguire un [ripristino temporizzato tra istanze](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - I processi esterni avviati dal SQL Server Agent processi non osservano il fuso orario dell'istanza.
 
 ## <a name="list-of-supported-time-zones"></a>Elenco di fusi orari supportati
@@ -144,7 +144,7 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Saint-Pierre | (UTC-03:00) Saint-Pierre e Miquelon |
 | Ora solare Bahia | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Ora UTC (Coordinated Universal Time)-02 |
-| Ora solare metà Atlantico | (UTC-02:00) Mid-Atlantic-vecchio |
+| Ora solare Mid-Atlantic | (UTC-02:00) Mid-Atlantic-vecchio |
 | Ora solare Azzorre | (UTC-01:00) Azzorre |
 | Ora solare Cabo verde | (UTC-01:00) Cabo verde è. |
 | UTC | (UTC) Coordinated Universal Time |
@@ -234,16 +234,16 @@ L'utilizzo dello stesso fuso orario in un'istanza primaria e secondaria in un gr
 | Ora solare Nuova Zelanda | (UTC + 12.00 H) Auckland, Wellington |
 | UTC + 12 | (UTC + 12.00 H) Coordinated Universal Time + 12 |
 | Ora solare Figi | (UTC + 12.00 H) Fiji |
-| Ora solare Kamcatka | (UTC + 12.00 H) Petropavlovsk-Kamchatsky-vecchio |
+| Ora solare Kamcatka | (UTC + 12.00) Petropavlovsk-Kamchatsky-vecchio |
 | Ora solare Isole Chatham | (UTC + 12:45) Isole Chatham |
 | UTC + 13 | (UTC + 13.00) Ora UTC (Coordinated Universal Time) + 13 |
 | Ora solare Tonga | (UTC + 13.00) Nuku ' alofa |
 | Ora solare Samoa | (UTC + 13.00) Samoa |
 | Ora solare isole line | (UTC + 14:00) Isola di Kiritimati |
 
-## <a name="see-also"></a>Vedi anche 
+## <a name="see-also"></a>Vedere anche 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys. time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

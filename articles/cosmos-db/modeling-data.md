@@ -8,10 +8,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88136040"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modellazione dei dati in Azure Cosmos DB
@@ -299,7 +299,7 @@ Nell'esempio precedente, abbiamo eliminato la raccolta illimitata nel documento 
 In un database relazionale le relazioni *molti a molti* vengono spesso modellate con le tabelle join, che creano un join dei record delle altre tabelle.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Unione di tabelle" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Database relazionale" border="false":::
 
 Si potrebbe essere tentati di replicare la stessa cosa con i documenti e di generare un modello di dati simile al seguente.
 
@@ -442,4 +442,4 @@ Per altre informazioni su Azure Cosmos DB, vedere la pagina della [documentazion
 
 Per informazioni su come suddividere i dati in più partizioni, vedere [Partizionamento dei dati in Azure Cosmos DB](sql-api-partition-data.md).
 
-Per informazioni su come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale, vedere [modellazione e partizionamento dei dati: esempio reale](how-to-model-partition-example.md).
+Per informazioni su come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale, vedere [ modellazione e partizionamento dei dati-esempio di Real-World](how-to-model-partition-example.md).

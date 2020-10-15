@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
 ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88650554"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Aree per le macchine virtuali in Azure
@@ -45,7 +45,7 @@ Esempi di coppie di aree includono:
 
 | Primaria | Secondari |
 |:--- |:--- |
-| Stati Uniti occidentali |Stati Uniti orientali |
+| Stati Uniti Occidentali |Stati Uniti orientali |
 | Europa settentrionale |Europa occidentale |
 | Asia sud-orientale |Asia orientale |
 
@@ -68,7 +68,7 @@ Conoscere le aree geografiche di Azure diventa importante quando si considerano 
   * I dati vengono replicati tre volte in due o tre strutture distribuite in un'area sola o in due aree.
 * Archiviazione con ridondanza geografica (GRS)
   * I dati vengono replicati in un'area secondaria a centinaia di chilometri di distanza dall'area primaria.
-* Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)
+* Archiviazione con ridondanza geografica e accesso in lettura
   * I dati vengono replicati in un'area secondaria, come con la ridondanza geografica, ma risultano anche accessibili in sola lettura nell'area secondaria.
 
 La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi di replica di archiviazione:

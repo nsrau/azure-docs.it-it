@@ -4,12 +4,12 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759459"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875606"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -75,7 +75,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Sono supportate le versioni seguenti di .NET Core: ASP.NET Core 2,0, ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0
+Sono supportate le versioni seguenti di .NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
 
 La definizione del Framework completo da .NET Core, la distribuzione autonoma e le applicazioni basate su Linux non sono attualmente **supportate** con il monitoraggio basato su agenti/estensioni. La[Strumentazione manuale](./asp-net-core.md) tramite codice funzionerà in tutti gli scenari precedenti.
 
@@ -90,11 +90,11 @@ La definizione del Framework completo da .NET Core, la distribuzione autonoma e 
 
      ![Instrumentazione dell'App Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Dopo aver specificato la risorsa da usare, è possibile scegliere come si vuole Application Insights raccogliere i dati per piattaforma per l'applicazione. .NET Core offre una **raccolta consigliata** o **disabilitata** per .net core 2,0, 2,1, 2,2 e 3,0.
+2. Dopo aver specificato la risorsa da usare, è possibile scegliere come si vuole Application Insights raccogliere i dati per piattaforma per l'applicazione. .NET Core offre una **raccolta consigliata** o **disabilitata** per ASP.NET Core 2,1, 2,2, 3,0 e 3,1.
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Dall'interno dell'app Web del servizio app in **Impostazioni**  >  **selezionare Application Insights**  >  **Abilita**. Il monitoraggio basato su agente Node.js è attualmente in fase di anteprima.
 
@@ -140,7 +140,7 @@ Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
    * Salvare le impostazioni scegliendo **Salva** e quindi fare clic su **Riavvia** per riavviare l'app.
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Per abilitare il monitoraggio lato client per l'applicazione Node.js, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](./javascript.md).
 
@@ -359,8 +359,8 @@ Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per i
 
     ![Screenshot della https://yoursitename.scm.azurewebsites/applicationinsights pagina risultati](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Verificare che `Application Insights Extension Status` sia `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * Se non è in esecuzione, seguire le [istruzioni per l'abilitazione del monitoraggio Application Insights](#enable-application-insights)
+    * Verificare che `Application Insights Extension Status` sia `Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
+    * Se non è in esecuzione, seguire le [istruzioni per l'abilitazione del monitoraggio Application Insights](#enable-application-insights)
 
     * Verificare che l'origine di stato esista e abbia un aspetto simile al seguente: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Se non è presente un valore simile, significa che l'applicazione non è attualmente in esecuzione o non è supportata. Per assicurarsi che l'applicazione sia in esecuzione, provare a visitare manualmente gli endpoint dell'applicazione/URL dell'applicazione, in modo da rendere disponibili le informazioni di Runtime.
@@ -406,6 +406,10 @@ I siti PHP e WordPress non sono supportati. Attualmente non è disponibile un SD
 ### <a name="connection-string-and-instrumentation-key"></a>Stringa di connessione e chiave di strumentazione
 
 Quando si usa il monitoraggio senza codice, è necessaria solo la stringa di connessione. Tuttavia, è comunque consigliabile impostare la chiave di strumentazione in modo da mantenere la compatibilità con le versioni precedenti dell'SDK quando viene eseguita la strumentazione manuale.
+
+## <a name="release-notes"></a>Note sulla versione
+
+Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla versione](./web-app-extension-release-notes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire il profiler sull'app live](./profiler.md).

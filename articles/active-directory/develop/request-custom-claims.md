@@ -13,10 +13,10 @@ ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477193"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedura: richiedere attestazioni personalizzate usando MSAL per iOS e macOS
@@ -33,7 +33,7 @@ Sono disponibili più scenari in cui è necessario. Ad esempio:
 > [!NOTE]
 > MSAL ignora la cache dei token di accesso ogni volta che viene specificata una richiesta di attestazione. È importante specificare solo `claimsRequest` il parametro quando sono necessarie attestazioni aggiuntive (invece di fornire sempre lo stesso `claimsRequest` parametro in ogni chiamata all'API MSAL).
 
-`claimsRequest`può essere specificato in `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters` :
+`claimsRequest` può essere specificato in `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters` :
 
 ```objc
 /*!
@@ -49,7 +49,7 @@ Sono disponibili più scenari in cui è necessario. Ad esempio:
 
 @end
 ```
-`MSALClaimsRequest`può essere costruito da una rappresentazione NSString della richiesta di attestazioni JSON. 
+`MSALClaimsRequest` può essere costruito da una rappresentazione NSString della richiesta di attestazioni JSON. 
 
 Objective-C:
 
@@ -98,7 +98,7 @@ do {
 
 
 
-`MSALClaimsRequest`deve quindi essere impostato nei parametri del token e fornito a una delle API di acquisizione di token MSAL:
+`MSALClaimsRequest` deve quindi essere impostato nei parametri del token e fornito a una delle API di acquisizione di token MSAL:
 
 Objective-C:
 

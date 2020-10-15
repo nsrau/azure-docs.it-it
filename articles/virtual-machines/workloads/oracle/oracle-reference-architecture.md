@@ -1,23 +1,18 @@
 ---
 title: Architetture di riferimento per database Oracle in Azure | Microsoft Docs
 description: Fa riferimento a architetture per l'esecuzione di database di Oracle Database Enterprise Edition in Macchine virtuali di Microsoft Azure.
-services: virtual-machines-linux
 author: dbakevlar
-manager: ''
-tags: ''
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.custom: ''
-ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274437"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993567"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in Azure
 
@@ -33,7 +28,7 @@ Per ulteriori informazioni sull'ottimizzazione delle prestazioni del database Or
 
 ## <a name="high-availability-for-oracle-databases"></a>Disponibilità elevata per database Oracle
 
-Il raggiungimento della disponibilità elevata nel cloud è una parte importante della pianificazione e della progettazione di ogni organizzazione. Microsoft Azure offre le [zone](../../../availability-zones/az-overview.md) di disponibilità e i set di disponibilità (da usare nelle aree in cui le zone di disponibilità non sono disponibili). Scopri di più sulla [gestione della disponibilità delle tue macchine virtuali](../../../virtual-machines/linux/manage-availability.md) per la progettazione per il cloud.
+Il raggiungimento della disponibilità elevata nel cloud è una parte importante della pianificazione e della progettazione di ogni organizzazione. Microsoft Azure offre le [zone](../../../availability-zones/az-overview.md) di disponibilità e i set di disponibilità (da usare nelle aree in cui le zone di disponibilità non sono disponibili). Scopri di più sulla [gestione della disponibilità delle tue macchine virtuali](../../manage-availability.md) per la progettazione per il cloud.
 
 Oltre agli strumenti e alle offerte native del cloud, Oracle offre soluzioni per la disponibilità elevata, ad esempio [Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7), [Data Guard con FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [partizionamento orizzontale](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)e [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) , che possono essere configurati in Azure. Questa guida illustra le architetture di riferimento per ognuna di queste soluzioni.
 
@@ -43,7 +38,7 @@ Infine, quando si esegue la migrazione o la creazione di applicazioni per il clo
 
 Oracle Real Application cluster (RAC) è una soluzione di Oracle che consente ai clienti di ottenere velocità effettiva elevate, con molte istanze che accedono a una risorsa di archiviazione del database (modello di architettura condivisa-tutti). Sebbene Oracle RAC possa essere usato anche per la disponibilità elevata in locale, non è possibile usare solo Oracle RAC per la disponibilità elevata nel cloud, perché protegge solo da errori a livello di istanza e non da errori a livello di rack o di Data Center. Per questo motivo, Oracle consiglia di usare Oracle Data Guard con il database (a seconda dell'istanza o del RAC) per la disponibilità elevata. Per l'esecuzione delle applicazioni mission-critical, i clienti richiedono in genere un contratto di contratto elevato. Oracle RAC non è attualmente certificato né supportato da Oracle in Azure. Tuttavia, Azure offre funzionalità come Azure offre zone di disponibilità e le finestre di manutenzione pianificate per la protezione da errori a livello di istanza. Oltre a questo, i clienti possono usare tecnologie quali Oracle Data Guard, Oracle GoldenGate e il partizionamento orizzontale Oracle per garantire prestazioni e resilienza elevate proteggendo i database da errori a livello di rack, oltre che a livello di data center e geo-politico.
 
-Quando si eseguono database Oracle in più [zone di disponibilità](../../../availability-zones/az-overview.md) insieme a Oracle Data Guard o GoldenGate, i clienti sono in grado di ottenere un contratto di tempo di uptime del 99,99%. Nelle aree di Azure in cui le zone di disponibilità non sono ancora presenti, i clienti possono usare i [set di disponibilità](../../linux/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e ottenere un contratto di tempo di uptime del 99,95%.
+Quando si eseguono database Oracle in più [zone di disponibilità](../../../availability-zones/az-overview.md) insieme a Oracle Data Guard o GoldenGate, i clienti sono in grado di ottenere un contratto di tempo di uptime del 99,99%. Nelle aree di Azure in cui le zone di disponibilità non sono ancora presenti, i clienti possono usare i [set di disponibilità](../../manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) e ottenere un contratto di tempo di uptime del 99,95%.
 
 >Nota: è possibile avere un valore di destinazione di tempo molto superiore rispetto al contratto di esecuzione di tempo previsto da Microsoft.
 
@@ -71,7 +66,7 @@ Quando si usa Oracle Data Guard, è anche possibile aprire il database secondari
 > Active Data Guard richiede licenze aggiuntive. Questa licenza è necessaria anche per usare la funzionalità di sincronizzazione estrema. Rivolgersi al rappresentante Oracle per discutere le implicazioni relative alle licenze.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>Oracle Data Guard con FSFO
-Oracle Data Guard con failover di avvio rapido (FSFO) può fornire resilienza aggiuntiva impostando il broker in un computer separato. Il broker di Data Guard e il database secondario eseguono entrambi l'Observer e osservano il database primario per i tempi di inattività. Ciò consente anche la ridondanza nell'installazione dell'Observer di Data Guard. 
+Oracle Data Guard con failover di Fast-Start (FSFO) può fornire resilienza aggiuntiva impostando il broker in un computer separato. Il broker di Data Guard e il database secondario eseguono entrambi l'Observer e osservano il database primario per i tempi di inattività. Ciò consente anche la ridondanza nell'installazione dell'Observer di Data Guard. 
 
 Con Oracle Database versione 12,2 e successive, è anche possibile configurare più Observer con una singola configurazione di Service Broker Oracle Data Guard. Questa installazione fornisce disponibilità aggiuntiva, nel caso in cui un osservatore e il database secondario riscontrino tempi di inattività. Data Guard Broker è leggero e può essere ospitato in una macchina virtuale relativamente piccola. Per altre informazioni su Data Guard broker e sui relativi vantaggi, vedere la [documentazione di Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) in questo argomento.
 
@@ -152,7 +147,7 @@ Il partizionamento orizzontale Oracle è costituito principalmente dai component
 
 - **Servizio globale** : il servizio globale è simile al normale servizio di database. Oltre a tutte le proprietà di un servizio di database, un servizio globale dispone di proprietà per i database partizionati, ad esempio l'affinità dell'area tra i client e la tolleranza di ritardo di replica e partizione. È necessario creare un solo servizio globale per leggere/scrivere dati da e verso un database partizionato. Quando si usa Active Data Guard e si configurano le repliche di sola lettura delle partizioni, è possibile creare un altro servizio gGobal per i carichi di lavoro di sola lettura. Il client può utilizzare questi servizi globali per connettersi al database.
 
-- **Database di partizionamento** : i database di partizione sono i database Oracle. Ogni database viene replicato con Oracle Data Guard in una configurazione di Service Broker con failover a avvio rapido (FSFO) abilitato. Non è necessario configurare il failover e la replica di Data Guard in ogni partizione. Questa configurazione viene configurata e distribuita automaticamente quando viene creato il database condiviso. Se una determinata partizione ha esito negativo, la condivisione Oracle esegue automaticamente il failover delle connessioni del database dal database primario a quello standby.
+- **Database di partizionamento** : i database di partizione sono i database Oracle. Ogni database viene replicato con Oracle Data Guard in una configurazione di Service Broker con Fast-Start failover (FSFO) abilitato. Non è necessario configurare il failover e la replica di Data Guard in ogni partizione. Questa configurazione viene configurata e distribuita automaticamente quando viene creato il database condiviso. Se una determinata partizione ha esito negativo, la condivisione Oracle esegue automaticamente il failover delle connessioni del database dal database primario a quello standby.
 
 È possibile distribuire e gestire i database partizionati Oracle con due interfacce: l'interfaccia utente grafica di controllo cloud di Oracle Enterprise Manager e/o l' `GDSCTL` utilità della riga di comando. È anche possibile monitorare le diverse partizioni per la disponibilità e le prestazioni usando il controllo cloud. Il `GDSCTL DEPLOY` comando crea automaticamente le partizioni e i rispettivi listener. Inoltre, questo comando distribuisce automaticamente la configurazione di replica usata per la disponibilità elevata a livello di partizione specificata dall'amministratore.
 
@@ -209,7 +204,7 @@ Durante la richiesta iniziale, il server applicazioni si connette al Director di
 
 ## <a name="patching-and-maintenance"></a>Applicazione di patch e manutenzione
 
-Quando si distribuiscono i carichi di lavoro Oracle in Azure, Microsoft si occupa di tutte le patch a livello di sistema operativo host. Ogni manutenzione pianificata a livello di sistema operativo viene comunicata ai clienti in anticipo per consentire al cliente la manutenzione pianificata. Due server di due zone di disponibilità diversi non vengono mai sottoposti a patch simultaneamente. Vedere [gestire la disponibilità delle macchine virtuali](../../../virtual-machines/linux/manage-availability.md) per altri dettagli sulla manutenzione delle VM e sull'applicazione di patch. 
+Quando si distribuiscono i carichi di lavoro Oracle in Azure, Microsoft si occupa di tutte le patch a livello di sistema operativo host. Ogni manutenzione pianificata a livello di sistema operativo viene comunicata ai clienti in anticipo per consentire al cliente la manutenzione pianificata. Due server di due zone di disponibilità diversi non vengono mai sottoposti a patch simultaneamente. Vedere [gestire la disponibilità delle macchine virtuali](../../manage-availability.md) per altri dettagli sulla manutenzione delle VM e sull'applicazione di patch. 
 
 L'applicazione di patch al sistema operativo della macchina virtuale può essere automatizzata usando [automazione di Azure Gestione aggiornamenti](../../../automation/update-management/update-mgmt-overview.md). Per ridurre al minimo i tempi di inattività, è possibile automatizzare e pianificare l'applicazione di patch e la gestione del database Oracle con [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) o [Gestione aggiornamenti automazione di Azure](../../../automation/update-management/update-mgmt-overview.md) . Vedere [recapito continuo e distribuzioni Blue/Green](/azure/devops/learn/what-is-continuous-delivery) per comprendere come può essere usato nel contesto dei database Oracle.
 

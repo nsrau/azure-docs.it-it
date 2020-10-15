@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
 ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319793"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configurazione dell'infrastruttura del gateway applicazione
@@ -23,7 +23,7 @@ L'infrastruttura del gateway applicazione include la rete virtuale, le subnet, i
 Un gateway applicazione è una distribuzione dedicata nella rete virtuale. All'interno della rete virtuale è necessaria una subnet dedicata per il gateway applicazione. È possibile avere più istanze di una determinata distribuzione del gateway applicazione in una subnet. È anche possibile distribuire altri gateway applicazione nella subnet. Tuttavia, non è possibile distribuire altre risorse nella subnet del gateway applicazione. Non è possibile combinare Standard_v2 e il gateway applicazione Azure standard nella stessa subnet.
 
 > [!NOTE]
-> I [criteri dell'endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoint-policies-overview.md) non sono attualmente supportati in una subnet del gateway applicazione.
+> I [criteri degli endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoint-policies-overview.md) non sono attualmente supportati in una subnet del gateway applicazione.
 
 ### <a name="size-of-the-subnet"></a>Dimensioni della subnet
 

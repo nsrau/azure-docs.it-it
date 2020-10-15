@@ -2,15 +2,15 @@
 title: Risolvere i problemi relativi a Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo mostra come risolvere i problemi relativi alla Gestione aggiornamenti di Automazione di Azure.
 services: automation
-ms.date: 09/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858405"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070334"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -486,6 +486,8 @@ Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\
 La finestra di manutenzione predefinita per gli aggiornamenti è di 120 minuti. È possibile aumentare la finestra di manutenzione fino a un massimo di 6 ore o 360 minuti.
 
 ### <a name="resolution"></a>Risoluzione
+
+Per comprendere il motivo per cui si è verificata durante l'esecuzione di un aggiornamento dopo l'avvio, [controllare l'output del processo](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) dal computer interessato nell'esecuzione. È possibile trovare messaggi di errore specifici generati dai computer che possono essere esaminati per intervenire di conseguenza.  
 
 Modificare le distribuzioni degli aggiornamenti pianificati con errori e aumentare la finestra di manutenzione.
 

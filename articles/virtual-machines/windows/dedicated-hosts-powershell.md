@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370488"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974176"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuire macchine virtuali in host dedicati usando il Azure PowerShell
 
-Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
+Questo articolo illustra come creare un [host dedicato](../dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
 Assicurarsi di aver installato Azure PowerShell versione 2.8.0 o successiva ed è stato effettuato l'accesso a un account Azure in con `Connect-AzAccount` . 
 
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - È disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) un modello di esempio che usa sia le zone che i domini di errore per la resilienza massima in un'area.
 
-- È anche possibile distribuire host dedicati usando il [portale di Azure](dedicated-hosts-portal.md).
+- È anche possibile distribuire host dedicati usando il [portale di Azure](../dedicated-hosts-portal.md).

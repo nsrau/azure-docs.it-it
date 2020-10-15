@@ -4,10 +4,10 @@ description: Questo articolo descrive come abilitare la crittografia del disco p
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78251808"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Abilitare la crittografia del disco per i nodi del cluster Service Fabric di Azure in Windows 
@@ -31,7 +31,7 @@ La guida descrive gli argomenti seguenti:
 
 **Registrazione automatica** 
 
-L'anteprima della crittografia del disco per il set di scalabilità di macchine virtuali richiede la registrazione automatica. Eseguire i passaggi seguenti: 
+L'anteprima della crittografia del disco per il set di scalabilità di macchine virtuali richiede la registrazione automatica. Eseguire la procedura descritta di seguito: 
 
 1. Eseguire prima di tutto il comando seguente:
     ```powershell

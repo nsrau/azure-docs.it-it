@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84696712"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrare i riscontri inclusi nella risposta della ricerca  
@@ -115,9 +115,9 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 
 Per limitare i risultati della risposta Web alle pagine Web individuate da Bing durante un periodo specifico, impostare il parametro di query di [aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) su uno dei seguenti valori senza distinzione tra maiuscole e minuscole:
 
-* `Day`: Restituisce le pagine Web individuate da Bing nelle ultime 24 ore
-* `Week`: Restituisce le pagine Web individuate da Bing negli ultimi 7 giorni
-* `Month`: Restituisce pagine Web individuate negli ultimi 30 giorni
+* `Day` : Restituisce le pagine Web individuate da Bing nelle ultime 24 ore
+* `Week` : Restituisce le pagine Web individuate da Bing negli ultimi 7 giorni
+* `Month` : Restituisce pagine Web individuate negli ultimi 30 giorni
 
 È anche possibile impostare questo parametro su un intervallo di date personalizzato nel formato `YYYY-MM-DD..YYYY-MM-DD` . 
 

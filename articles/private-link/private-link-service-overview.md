@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
 ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87760949"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
@@ -91,7 +91,7 @@ L'alias è costituito da tre parti: *Prefix*. *GUID*. *Suffisso*
 - Il GUID verrà fornito dalla piattaforma. Questo consente di rendere il nome univoco a livello globale. 
 - Il suffisso viene accodato da Azure: *Region*. Azure. privatelinkservice 
 
-Alias completo: *prefisso*. {GUID}. *Region*. Azure. privatelinkservice  
+Alias completo:  *prefisso*. {GUID}. *Region*. Azure. privatelinkservice  
 
 ## <a name="control-service-exposure"></a>Controllare l'esposizione del servizio
 
@@ -115,7 +115,7 @@ Dettagli TLV personalizzati:
 |---------|---------|----------|
 |Type  |1        |PP2_TYPE_AZURE (0xEE)|
 |Length  |2      |Lunghezza del valore|
-|valore  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|Valore  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 byte) che rappresenta il LINKID dell'endpoint privato. Codificato in formato little endian.|
 
  > [!NOTE]

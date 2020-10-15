@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005617"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurare una regola di restrizione IP con un Web Application Firewall per lo sportello anteriore di Azure
 
 Questo articolo illustra come configurare le regole di restrizione IP in un Web Application Firewall (WAF) per il front-end di Azure usando il portale di Azure, l'interfaccia della riga di comando di Azure, Azure PowerShell o un modello di Azure Resource Manager.
 
-Una regola di controllo di accesso basata su indirizzi IP è una regola WAF personalizzata che consente di controllare l'accesso alle applicazioni Web. Questa operazione viene eseguita specificando un elenco di indirizzi IP o intervalli di indirizzi IP nel formato CIDR (Inter-Domain Routing) senza classe.
+Una regola di controllo di accesso basata su indirizzi IP è una regola WAF personalizzata che consente di controllare l'accesso alle applicazioni Web. Questa operazione viene eseguita specificando un elenco di indirizzi IP o intervalli di indirizzi IP nel formato CIDR (Class senza Inter-Domain routing).
 
 Per impostazione predefinita, l'applicazione Web è accessibile da Internet. Se si vuole limitare l'accesso ai client da un elenco di indirizzi IP o intervalli di indirizzi IP noti, è possibile creare una regola di corrispondenza IP che contenga l'elenco di indirizzi IP come valori corrispondenti e imposta Operator su "not" (negazione è true) e l'azione da **bloccare**. Dopo che è stata applicata una regola di restrizione IP, le richieste originate da indirizzi esterni a questo elenco consentito ricevono una risposta 403-accesso negato.
 
@@ -30,7 +30,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
 ### <a name="create-a-waf-policy"></a>Creare un criterio WAF
 
-1. Nella portale di Azure selezionare **Crea una risorsa**, digitare **Web Application Firewall** nella casella di ricerca e quindi selezionare **Web Application Firewall (WAF)**.
+1. Nella portale di Azure selezionare **Crea una risorsa**, digitare  **Web Application Firewall** nella casella di ricerca e quindi selezionare **Web Application Firewall (WAF)**.
 2. Selezionare **Crea**.
 3. Nella pagina **Crea un criterio WAF** usare i valori seguenti per completare la scheda **nozioni di base** :
    
@@ -54,7 +54,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
    |---------|---------|
    |Nome regola personalizzata     |FdWafCustRule|
    |Stato     |Attivato|
-   |Tipo regola     |Corrispondenza|
+   |Tipo regola     |Corrispondente|
    |Priorità    |100|
    |Tipo di corrispondenza     |Indirizzo IP|
    |Variabile corrispondente|IndirizzoRemoto|
@@ -76,7 +76,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 1. Al termine della distribuzione del criterio WAF, passare al nome host front-end.
 2. Verrà visualizzato il messaggio di blocco personalizzato.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Test regola WAF":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Regola personalizzata":::
 
    > [!NOTE]
    > Un indirizzo IP privato è stato intenzionalmente usato nella regola personalizzata per garantire che la regola venga attivata. In una distribuzione effettiva creare regole di *autorizzazione* e di *negazione* usando indirizzi IP per una situazione specifica.

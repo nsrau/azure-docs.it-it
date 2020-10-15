@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
 ms.openlocfilehash: ec80791f9a43dc45d670442ee7b2d0c67d54f582
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803399"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Stimare ur/sec usando Azure Cosmos DB Capacity Planner
@@ -24,7 +24,7 @@ Capacity Planner può essere usato in due modalità.
 |**Modalità**  |**Descrizione**  |
 |---------|---------|
 |Basic|Fornisce una stima dei costi e delle UR veloce, ad alto livello. Questa modalità presuppone le impostazioni predefinite di Azure Cosmos DB per i criteri di indicizzazione, la coerenza e altri parametri. <br/><br/>Utilizzare la modalità di base per una stima rapida e di alto livello quando si valuta un potenziale carico di lavoro da eseguire su Azure Cosmos DB.|
-|Avanzate|Fornisce una stima dei costi e delle UR più dettagliata, con la possibilità di ottimizzare le impostazioni aggiuntive, ovvero i criteri di indicizzazione, il livello di coerenza e altri parametri che influiscono sul costo e sulla velocità effettiva. <br/><br/>Utilizzare la modalità avanzata quando si stimano le UR/sec per un nuovo progetto o si desidera una stima più dettagliata. |
+|Avanzato|Fornisce una stima dei costi e delle UR più dettagliata, con la possibilità di ottimizzare le impostazioni aggiuntive, ovvero i criteri di indicizzazione, il livello di coerenza e altri parametri che influiscono sul costo e sulla velocità effettiva. <br/><br/>Utilizzare la modalità avanzata quando si stimano le UR/sec per un nuovo progetto o si desidera una stima più dettagliata. |
 
 
 ## <a name="estimate-provisioned-throughput-and-cost-using-basic-mode"></a>Stima della velocità effettiva con provisioning e dei costi con la modalità di base

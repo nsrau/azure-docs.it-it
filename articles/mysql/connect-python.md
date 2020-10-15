@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: aad160f8a4ec96a1e0e627684c598062079b57e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a08145ba5ffb5b30eb2c472d3eb8f608703f44a0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896304"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743455"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Python per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 

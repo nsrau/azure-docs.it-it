@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 80473aa494b8fbcea5e43870b7717cd3472dd7d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79480522"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms"></a>Disabilitare il monitoraggio delle macchine virtuali in Monitoraggio di Azure per le macchine virtuali
@@ -24,7 +24,7 @@ Monitoraggio di Azure per le macchine virtuali si basa sui componenti seguenti p
 * Un'area di lavoro Log Analytics, che archivia i dati di monitoraggio da macchine virtuali e altre origini.
 * Raccolta di contatori delle prestazioni configurati nell'area di lavoro. La raccolta aggiorna la configurazione di monitoraggio in tutte le VM connesse all'area di lavoro.
 * `VMInsights`, ovvero una soluzione di monitoraggio configurata nell'area di lavoro. Questa soluzione aggiorna la configurazione di monitoraggio in tutte le VM connesse all'area di lavoro.
-* `MicrosoftMonitoringAgent`e `DependencyAgent` , che sono estensioni di VM di Azure. Queste estensioni raccolgono e inviano dati all'area di lavoro.
+* `MicrosoftMonitoringAgent` e `DependencyAgent` , che sono estensioni di VM di Azure. Queste estensioni raccolgono e inviano dati all'area di lavoro.
 
 Quando si prepara la disabilitazione del monitoraggio delle macchine virtuali, tenere presenti le considerazioni seguenti:
 
@@ -39,7 +39,7 @@ Quando si prepara la disabilitazione del monitoraggio delle macchine virtuali, t
 Se è ancora necessaria l'area di lavoro Log Analytics, attenersi alla procedura seguente per rimuovere completamente Monitoraggio di Azure per le macchine virtuali. La soluzione verrà rimossa `VMInsights` dall'area di lavoro.  
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Quando si inizia a digitare, l'elenco Filtra i suggerimenti in base all'input. Selezionare **log Analytics**.
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Quando si inizia a digitare, l'elenco Filtra i suggerimenti in base all'input. Selezionare **Log Analytics**.
 3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro scelta quando è stata abilitata Monitoraggio di Azure per le macchine virtuali.
 4. A sinistra selezionare **soluzioni**.  
 5. Nell'elenco delle soluzioni selezionare **VMInsights (nome dell'area di lavoro)**. Nella pagina **Overview (panoramica** ) per la soluzione selezionare **Delete (Elimina**). Quando viene richiesto di confermare, selezionare **Sì**.

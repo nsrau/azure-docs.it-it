@@ -6,17 +6,17 @@ author: yunjchoi
 ms.topic: troubleshooting
 ms.date: 08/18/2020
 ms.author: yunjchoi
-ms.openlocfilehash: f830debafb1a9b6b303ee6af987c7cd4fbf34aea
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a409ac944c51d893fc344f82ae83d97559e055ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358254"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070657"
 ---
 # <a name="check-for-resource-health-events-impacting-your-aks-cluster-preview"></a>Verificare la presenza di eventi di Integrità risorse che incidono sul cluster AKS (anteprima)
 
 
-Quando si eseguono i carichi di lavoro del contenitore su AKS, è necessario assicurarsi di poter risolvere i problemi e risolvere i problemi non appena si verificano per ridurre al minimo l'effetto sulla disponibilità dei carichi di lavoro. [Integrità risorse di Azure](https://docs.microsoft.com/azure/service-health/resource-health-overview) offre visibilità sui diversi eventi di integrità che possono causare l'indisponibilità del cluster AKS.
+Quando si eseguono i carichi di lavoro del contenitore su AKS, è necessario assicurarsi di poter risolvere i problemi e risolvere i problemi non appena si verificano per ridurre al minimo l'effetto sulla disponibilità dei carichi di lavoro. [Integrità risorse di Azure](../service-health/resource-health-overview.md) offre visibilità sui diversi eventi di integrità che possono causare l'indisponibilità del cluster AKS.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -49,7 +49,7 @@ Integrità risorse riceve i segnali per il cluster gestito per determinare lo st
 
 - **Danneggiato**: quando si verifica un problema di integrità che richiede l'intervento dell'utente, integrità risorse segnala il cluster come *danneggiato*.
 
-Per ulteriori informazioni su ciò che indica lo stato di integrità, visitare [integrità risorse Panoramica](https://docs.microsoft.com/azure/service-health/resource-health-overview#health-status).
+Per ulteriori informazioni su ciò che indica lo stato di integrità, visitare [integrità risorse Panoramica](../service-health/resource-health-overview.md#health-status).
 
 ### <a name="view-historical-data"></a>Visualizzare i dati cronologici
 
@@ -57,4 +57,4 @@ Per ulteriori informazioni su ciò che indica lo stato di integrità, visitare [
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire i controlli sul cluster per risolvere ulteriormente i problemi del cluster usando la [diagnostica AKS](https://docs.microsoft.com/azure/aks/concepts-diagnostics).
+Eseguire i controlli sul cluster per risolvere ulteriormente i problemi del cluster usando la [diagnostica AKS](./concepts-diagnostics.md).

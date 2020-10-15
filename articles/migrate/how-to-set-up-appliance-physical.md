@@ -5,32 +5,32 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448072"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurare un'appliance per i server fisici
 
 Questo articolo descrive come configurare l'appliance Azure Migrate se si sta valutando server fisici con lo strumento di valutazione Azure Migrate: Server.
 
-Il Azure Migrate Appliance è un'appliance semplice, usata da Azure Migrate Assessment server per eseguire le operazioni seguenti:
+L'appliance di Azure Migrate è un'appliance leggera, usata da Valutazione server di Azure Migrate per eseguire le operazioni seguenti:
 
 - Individuare i server locali.
-- Inviare i metadati e i dati sulle prestazioni per i server individuati a Azure Migrate server assessment.
+- Inviare a Valutazione server di Azure Migrate i metadati e i dati sulle prestazioni relativi ai server individuati.
 
-[Altre](migrate-appliance.md) informazioni sull'appliance Azure migrate.
+[Altre informazioni](migrate-appliance.md) sull'appliance di Azure Migrate.
 
 
-## <a name="appliance-deployment-steps"></a>Passaggi di distribuzione dell'appliance
+## <a name="appliance-deployment-steps"></a>Procedura di distribuzione dell'appliance
 
 Per configurare l'appliance occorre:
-- Specificare un nome per il dispositivo e generare una chiave del progetto Azure Migrate nel portale.
+- Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
 - Scaricare un file compresso con lo script del programma di installazione di Azure Migrate dal portale di Azure.
 - Estrarre il contenuto del file compresso. Avviare la console PowerShell con privilegi amministrativi.
 - Eseguire lo script di PowerShell per avviare l'applicazione Web dell'appliance.
-- Configurare il dispositivo per la prima volta e registrarlo con il progetto Azure Migrate usando la chiave del progetto Azure Migrate.
+- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Generare la chiave del progetto Azure Migrate
 
@@ -152,7 +152,7 @@ Viene avviata l'individuazione. Per la visualizzazione dei metadati del server i
 
 ## <a name="verify-servers-in-the-portal"></a>Verificare i server nel portale
 
-Al termine dell'individuazione, è possibile verificare che i server vengano visualizzati nel portale.
+Dopo l'individuazione, è possibile verificare se i server vengono visualizzati nel portale.
 
 1. Aprire il dashboard di Azure Migrate.
 2. In **Azure Migrate - Server** > **Azure Migrate: Valutazione server** fare clic sull'icona che mostra il numero di **Server individuati**.

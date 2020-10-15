@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439016"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076981"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -31,7 +31,7 @@ I controlli delle applicazioni adattivi sono una soluzione intelligente e automa
 
 Spesso le organizzazioni hanno raccolte di computer che eseguono regolarmente gli stessi processi. Il Centro sicurezza USA Machine Learning per analizzare le applicazioni in esecuzione nei computer e creare un elenco del software sicuro noto. Gli elenchi consentiti sono basati sui carichi di lavoro specifici di Azure ed è possibile personalizzare ulteriormente i consigli seguendo le istruzioni riportate di seguito.
 
-Quando sono stati abilitati e configurati i controlli delle applicazioni adattivi, si otterranno avvisi di sicurezza se un'applicazione viene eseguita oltre a quelle definite come sicure.
+Dopo l'abilitazione e la configurazione dei controlli applicazioni adattivi, si riceveranno avvisi di sicurezza se viene eseguita un'applicazione non inclusa nell'elenco di applicazioni definite come sicure.
 
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>Quali sono i vantaggi dei controlli applicazione adattivi?
@@ -50,11 +50,11 @@ Definendo elenchi di applicazioni sicure e generando avvisi quando viene eseguit
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
 |Computer supportati:|![Sì ](./media/icons/yes-icon.png) macchine virtuali di Azure e non Azure che eseguono Windows e Linux<br>![Sì ](./media/icons/yes-icon.png) computer [Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
-|Ruoli e autorizzazioni necessari:|I ruoli Reader **e Reader di** **sicurezza** possono visualizzare i gruppi e gli elenchi di applicazioni sicure.<br>I ruoli di amministratore di **collaboratore** e **sicurezza** possono sia modificare i gruppi che gli elenchi di applicazioni sicure.|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|Autorizzazioni e ruoli obbligatori:|I ruoli Reader **e Reader di** **sicurezza** possono visualizzare i gruppi e gli elenchi di applicazioni sicure.<br>I ruoli di amministratore di **collaboratore** e **sicurezza** possono sia modificare i gruppi che gli elenchi di applicazioni sicure.|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
 
@@ -149,6 +149,23 @@ Per modificare le regole per un gruppo di computer:
 
 1. Per applicare le modifiche, selezionare **Salva**.
 
+
+## <a name="review-and-edit-a-groups-settings"></a>Esaminare e modificare le impostazioni di un gruppo
+
+1. Per visualizzare i dettagli e le impostazioni del gruppo, selezionare **Impostazioni gruppo**
+
+    Questo riquadro Mostra il nome del gruppo (che può essere modificato), il tipo di sistema operativo, la posizione e altri dettagli pertinenti.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Apertura di controlli applicazione adattivi dal dashboard di Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > L'opzione **applica** , nelle impostazioni della modalità di protezione dei tipi di file, è disattivata in **tutti gli** scenari. Al momento non sono disponibili opzioni di imposizione. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Apertura di controlli applicazione adattivi dal dashboard di Azure":::
+
+1. Facoltativamente, modificare il nome del gruppo o le modalità di protezione dei tipi di file.
+
+1. Selezionare **applica** e **Salva**.
 
 
 

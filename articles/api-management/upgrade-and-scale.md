@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 626f5b67905e5dd89cf8f12460bc2378451614de
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205764"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078307"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -45,7 +45,7 @@ Per eseguire i passaggi in questo articolo è necessario:
 
 ## <a name="upgrade-and-scale"></a>Aggiornare e ridimensionare  
 
-È possibile scegliere tra quattro livelli: **Developer**, **Basic**, **standard**e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
+È possibile scegliere tra quattro livelli: **Developer**, **Basic**,  **standard**e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
 
 **Basic**, **standard**e **Premium** sono livelli di produzione con contratto di contratto e possono essere ridimensionati. Il livello **Basic** è il livello più economico con un contratto di contratto e può essere scalato fino a due unità. il livello **standard** può essere ridotto a un massimo di quattro unità. Al livello **Premium** è possibile aggiungere un numero qualsiasi di unità.
 
@@ -74,7 +74,7 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 1. Passare al servizio gestione API nella [portale di Azure](https://portal.azure.com/).
 2. Fare clic sul piano **tariffario** nel menu.
 3. Selezionare il livello di servizio desiderato nell'elenco a discesa. Usare il dispositivo di scorrimento per specificare la scala del servizio gestione API dopo la modifica.
-4. Fare clic su **Save** (Salva).
+4. Fare clic su **Salva**.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>Tempo di inattività durante il ridimensionamento
 Se si esegue il ridimensionamento da o verso il livello Developer, si verifica un tempo di inattività. In caso contrario, non sono previsti tempi di inattività. 
@@ -84,4 +84,4 @@ Se si esegue il ridimensionamento da o verso il livello Developer, si verifica u
 
 - [Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure](api-management-howto-deploy-multi-region.md)
 - [Come ridimensionare automaticamente un'istanza del servizio di Gestione API di Azure](api-management-howto-autoscale.md)
-- [Ottimizza e Risparmia sulla spesa per il cloud](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Ottimizza e Risparmia sulla spesa per il cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

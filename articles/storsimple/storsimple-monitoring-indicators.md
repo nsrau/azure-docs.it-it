@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85512975"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
@@ -61,7 +61,7 @@ Utilizzare la seguente tabella per identificare lo stato indicato dai LED sul pa
 | Green |ON |N/D |LED di errore PCM, LED di malfunzionamento ventola |Qualsiasi errore PCM, errore delle ventola oppure sotto o sovratemperatura |
 | Green |ON |N/D |LED modulo I/O |Qualsiasi errore del modulo controller |
 | Green |ON |N/D |N/D |Errore logico chassis |
-| Green |Lampeggiante |N/D |LED di stato del modulo sul modulo controller. LED di errore PCM, LED di malfunzionamento ventola |Tipo di modulo controller installato sconosciuto, errore del bus I2C, errore di configurazione del controller del modulo VPD (vital product data) |
+| Green |Flash |N/D |LED di stato del modulo sul modulo controller. LED di errore PCM, LED di malfunzionamento ventola |Tipo di modulo controller installato sconosciuto, errore del bus I2C, errore di configurazione del controller del modulo VPD (vital product data) |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>Indicatori LED del modulo di alimentazione e raffreddamento (PCM)
 Gli indicatori LED del modulo di alimentazione e raffreddamento (PCM) sono disponibili nella parte posteriore dello chassis principale o nello chassis EBOD di ogni modulo PCM. In questo argomento viene descritto come utilizzare i seguenti LED per monitorare lo stato del dispositivo StorSimple.  
@@ -179,9 +179,9 @@ Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Indicatori LED dell’unità disco per lo chassis EBOD
 | Stato | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
 | --- | --- | --- | --- |
-| Nessuna unità installata |OFF |OFF |nessuno |
-| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |nessuno |
-| Set di identità del dispositivo servizi chassis SCSI (SES) |ON |Intermittenza 1 secondo accesa/1 secondo spenta |nessuno |
+| Nessuna unità installata |OFF |OFF |Nessuno |
+| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |Nessuno |
+| Set di identità del dispositivo servizi chassis SCSI (SES) |ON |Intermittenza 1 secondo accesa/1 secondo spenta |Nessuno |
 | Set bit errore dispositivo SES |ON |ON |Errore logico (rosso) |
 | Errore circuito di controllo alimentazione |OFF |ON |Errore del modulo (rosso) |
 
@@ -200,12 +200,12 @@ Un dispositivo StorSimple contiene allarmi acustici associati sia allo chassis p
 Nella tabella seguente vengono descritti i vari stati di allarme.  
 
 ### <a name="alarm-states"></a>Stati di allarme
-| Stato di allarme | Action | Azione con il pulsante di disattivazione audio premuto |
+| Stato di allarme | Azione | Azione con il pulsante di disattivazione audio premuto |
 | --- | --- | --- |
 | S0 |Modalità normale: invisibile all'utente |Doppio segnale acustico |
 | S1 |Modalità errore: 1 secondo accesa/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
-| S2 |Modalità promemoria: segnale acustico intermittente |nessuno |
-| S3 |Modalità disattivato: invisibile all'utente |nessuno |
+| S2 |Modalità promemoria: segnale acustico intermittente |Nessuno |
+| S3 |Modalità disattivato: invisibile all'utente |Nessuno |
 | S4 |Modalità errore critico: allarme continuo |Non disponibile: disattivazione non attiva |
 
 > [!NOTE]
@@ -225,7 +225,7 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Guasto ventola del PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Errore PCM rilevato dal modulo SBB |Errore |S1 |Errore del modulo |
-| PCM rimosso |Errore di configurazione |nessuno |Errore del modulo |
+| PCM rimosso |Errore di configurazione |Nessuno |Errore del modulo |
 | Errore di configurazione dello chassis |Errore - Critico |S1 |Errore del modulo |
 | Allerta temperatura di avviso bassa |Avviso |S1 |Errore del modulo |
 | Allerta temperatura di avviso alta |Avviso |S1 |Errore del modulo |
@@ -235,10 +235,10 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Errore del controller |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB - Moduli funzionanti rimanenti non presenti |Errore - Critico |S4 |Errore del modulo |
-| Modulo interfaccia SBB rimosso |Avviso |nessuno |Errore del modulo |
+| Modulo interfaccia SBB rimosso |Avviso |Nessuno |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Avviso - Interruzione dell'alimentazione dell’unità assente |S1 |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Errore - Critico; interruzione dell'alimentazione unità |S1 |Errore del modulo |
-| Unità rimossa |Avviso |nessuno |Errore del modulo |
+| Unità rimossa |Avviso |Nessuno |Errore del modulo |
 | Disponibilità alimentazione insufficiente |Avviso |Nessuno |Errore del modulo |
 
 ## <a name="next-steps"></a>Passaggi successivi

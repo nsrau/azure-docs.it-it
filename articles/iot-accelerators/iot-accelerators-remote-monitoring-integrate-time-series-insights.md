@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8b6219c82dc23deb467e87a6866839b8eace8b5d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536607"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072646"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrare Azure Time Series Insights con il monitoraggio remoto
 
@@ -62,7 +62,7 @@ Successivamente, distribuire di Azure Time Series Insights come risorsa aggiunti
     | Nome ambiente | Nella schermata seguente viene usato il nome **contorosrmtsi**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Resource group | **Usa esistente**. Selezionare il nome del gruppo di risorse di monitoraggio remoto esistente. |
-    | Location | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
+    | Posizione | In questo esempio viene usata l'area **Stati Uniti orientali**. Creare l'ambiente nella stessa area della soluzione di monitoraggio remoto, se possibile. |
     | Sku |**S1** |
     | Capacità | **1** |
 
@@ -97,7 +97,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
     | Chiave dei criteri dell'hub IoT | Il campo viene popolato automaticamente. |
     | Gruppo di consumer dell'hub IoT | **timeseriesinsights** |
     | Formato di serializzazione eventi | **JSON**     | 
-    | Nome della proprietà Timestamp | Lasciare vuoto il campo |
+    | Nome della proprietà Timestamp | Lasciare vuoto |
 
     ![Creare un'origine evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -126,7 +126,7 @@ Per assicurarsi che tutti gli utenti autorizzati ad accedere alla soluzione di m
 1. Scegliere **Salva** per creare l'assegnazione di ruolo. Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo nei criteri di accesso ai dati.
 
 > [!NOTE]
-> Se è necessario concedere ad altri utenti l'accesso allo strumento di esplorazione di Azure Time Series Insights, eseguire la procedura seguente per [concedere l'accesso ai dati](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
+> Se è necessario concedere ad altri utenti l'accesso allo strumento di esplorazione di Azure Time Series Insights, eseguire la procedura seguente per [concedere l'accesso ai dati](../time-series-insights/concepts-access-policies.md#grant-data-access).
 
 ## <a name="configure-azure-stream-analytics"></a>Configurare Analisi di flusso di Azure 
 
@@ -217,7 +217,7 @@ Configurare l'ambiente della distribuzione `basic` per i microservizi aggiornati
 
 1. Estrarre il [file YAML di Docker compose più recente](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) dal repository GitHub usando il tag più recente. 
 
-1. Collegarsi con una chiave SSH alla macchina virtuale seguendo la procedura descritta in [Come usare le chiavi SSH con Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+1. Collegarsi con una chiave SSH alla macchina virtuale seguendo la procedura descritta in [Come usare le chiavi SSH con Windows in Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 1. Una volta connessi, digitare `cd /app`.
 
@@ -300,4 +300,4 @@ Configurare l'ambiente della distribuzione `standard` per i precedenti microserv
 
 * Per altre informazioni su come esplorare i dati e diagnosticare un avviso generato in Time Series Insights Explorer, vedere l'esercitazione relativa a [condurre un'analisi delle cause principali](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
-* Per altre informazioni su come esplorare i dati ed eseguire query su di essi in Time Series Insights Explorer, vedere [Strumento di esplorazione di Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* Per altre informazioni su come esplorare i dati ed eseguire query su di essi in Time Series Insights Explorer, vedere [Strumento di esplorazione di Azure Time Series Insights](../time-series-insights/time-series-insights-explorer.md).

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecab82e43bff6c0d1d83c9c1cdc38cafd809e277
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236663"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964571"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Risoluzione dei problemi per le distribuzioni ibride di chiavi di sicurezza FIDO2 in Azure AD (anteprima)
 
@@ -46,7 +46,7 @@ Per iniziare a usare le chiavi di sicurezza di FIDO2 e l'accesso ibrido alle ris
 
 Windows Hello Smile è la soluzione ideale per un dispositivo in cui è registrato un utente. Le chiavi di sicurezza di FIDO2 sono destinate all'uso nei dispositivi condivisi o in cui la registrazione di Windows Hello for business è una barriera.
 
-Se Windows Hello-Face impedisce agli utenti di provare lo scenario di accesso alla chiave di sicurezza FIDO2, gli utenti possono disattivare l'accesso Hello-Face rimuovendo la registrazione del viso in **impostazioni > opzioni di accesso**.
+Se Windows Hello-Face impedisce agli utenti di provare lo scenario di accesso alla chiave di sicurezza FIDO2, gli utenti possono disattivare l'accesso Hello-Face rimuovendo la registrazione del viso nelle **impostazioni > opzioni di Sign-In**.
 
 ### <a name="users-arent-able-to-use-fido2-security-keys-immediately-after-they-create-a-hybrid-azure-ad-joined-machine"></a>Gli utenti non sono in grado di usare le chiavi di sicurezza di FIDO2 subito dopo la creazione di un computer ibrido Azure AD aggiunto
 
@@ -86,9 +86,9 @@ Vengono raccolti i registri eventi e le informazioni sulla chiave del registro d
 
 **Chiavi del Registro di sistema**
 
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\FIDO [ \* ]*
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\PasswordForWork \* [ \* ]*
-* *HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Policies\PasswordForWork \* [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FIDO [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PasswordForWork\* [ \* ]*
+* *HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Policies\PasswordForWork\* [ \* ]*
 
 **Informazioni di diagnostica**
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 868ad3d1c6e7e7ef2cf32dcf675bc471a614f3ed
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86243155"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
@@ -56,7 +56,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 -   [Accesso utente](#UseSignIn)  
 -   [Accesso utente](#UserSignUp)  
   
-##  <a name="api"></a><a name="API"></a>API  
+##  <a name="api"></a><a name="API"></a> API  
  L'entità `API` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -70,7 +70,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`authenticationSettings`|[Impostazioni di autenticazione del server di autorizzazione](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Raccolta delle impostazioni di autenticazione incluse in questa API.|  
 |`subscriptionKeyParameterNames`|object|Proprietà facoltativa che può essere usata per specificare nomi personalizzati per i parametri di query e/o intestazione contenenti la chiave di sottoscrizione. Quando è presente, questa proprietà deve contenere almeno una delle due proprietà seguenti.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
-##  <a name="api-summary"></a><a name="APISummary"></a>Riepilogo API  
+##  <a name="api-summary"></a><a name="APISummary"></a> Riepilogo API  
  L'entità `API summary` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -79,7 +79,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`name`|string|Nome dell'API. Non deve essere vuoto. La lunghezza massima consentita è di 100 caratteri.|  
 |`description`|string|Descrizione dell'API. Non deve essere vuoto. Può includere tag di formattazione HTML. La lunghezza massima consentita è di 1000 caratteri.|  
   
-##  <a name="application"></a><a name="Application"></a>Applicazione  
+##  <a name="application"></a><a name="Application"></a> Applicazione  
  L'entità `application` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -97,7 +97,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Attachments`|Raccolta di entità [allegato](#Attachment).|Tutti gli allegati per l'applicazione, ad esempio schermate o icone.|  
 |`Icon`|[Allegato](#Attachment)|Icona per l'applicazione.|  
   
-##  <a name="attachment"></a><a name="Attachment"></a>Allegato  
+##  <a name="attachment"></a><a name="Attachment"></a> Allegato  
  L'entità `attachment` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -107,7 +107,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Type`|string|Tipo di allegato.|  
 |`ContentType`|string|Tipo di supporti dell'allegato.|  
   
-##  <a name="code-sample"></a><a name="Sample"></a>Esempio di codice  
+##  <a name="code-sample"></a><a name="Sample"></a> Esempio di codice  
   
 |Proprietà|Type|Descrizione|  
 |--------------|----------|-----------------|  
@@ -124,7 +124,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`headers`|Raccolta di entità [intestazione](#Header).|Intestazioni per l'operazione.|  
 |`parameters`|Raccolta di entità[parametro](#Parameter).|Parametri definiti per l'operazione.|  
   
-##  <a name="comment"></a><a name="Comment"></a>Commento  
+##  <a name="comment"></a><a name="Comment"></a> Commento  
  L'entità `API` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -134,7 +134,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`DeveloperCompany`|string|Nome della società dello sviluppatore.|  
 |`PostedOn`|Datetime|Data e ora di pubblicazione del commento.|  
   
-##  <a name="issue"></a><a name="Issue"></a>Problema  
+##  <a name="issue"></a><a name="Issue"></a> Problema  
  L'entità `issue` ha le proprietà seguenti.  
   
 |Proprietà|Type|Descrizione|  
@@ -150,7 +150,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Attachments`|Raccolta di entità [allegato](api-management-template-data-model-reference.md#Attachment).|Qualsiasi allegato al problema.|  
 |`Services`|Raccolta di entità [API](#API).|Le API sottoscritte dall'utente che ha registrato il problema.|  
   
-##  <a name="filtering"></a><a name="Filtering"></a>Filtro  
+##  <a name="filtering"></a><a name="Filtering"></a> Filtro  
  L'entità `filtering` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -158,7 +158,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Pattern`|string|Termine di ricerca corrente; o `null` se non è presente alcun termine di ricerca.|  
 |`Placeholder`|string|Il testo da visualizzare nella casella di ricerca quando non è presente alcun termine di ricerca specificato.|  
   
-##  <a name="header"></a><a name="Header"></a>Intestazione  
+##  <a name="header"></a><a name="Header"></a> Intestazione  
  Questa sezione descrive la rappresentazione di `parameter`.  
   
 |Proprietà|Type|Descrizione|  
@@ -171,7 +171,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`required`|boolean|Se l'intestazione è obbligatoria.|  
 |`readOnly`|boolean|Se l'intestazione è di sola lettura.|  
   
-##  <a name="http-request"></a><a name="HTTPRequest"></a>Richiesta HTTP  
+##  <a name="http-request"></a><a name="HTTPRequest"></a> Richiesta HTTP  
  Questa sezione descrive la rappresentazione di `request`.  
   
 |Proprietà|Type|Descrizione|  
@@ -181,7 +181,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`parameters`|matrice di valori [Parametro](#Parameter)|Raccolta di parametri della richiesta dell'operazione.|  
 |`representations`|matrice di valori [Rappresentazione](#Representation)|Raccolta di rappresentazioni della richiesta dell'operazione.|  
   
-##  <a name="http-response"></a><a name="HTTPResponse"></a>Risposta HTTP  
+##  <a name="http-response"></a><a name="HTTPResponse"></a> Risposta HTTP  
  Questa sezione descrive la rappresentazione di `response`.  
   
 |Proprietà|Type|Descrizione|  
@@ -190,7 +190,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`description`|string|Descrizione della risposta dell'operazione.|  
 |`representations`|matrice di valori [Rappresentazione](#Representation)|Raccolta di rappresentazioni della risposta dell'operazione.|  
   
-##  <a name="operation"></a><a name="Operation"></a>Operazione  
+##  <a name="operation"></a><a name="Operation"></a> Operazione  
  L'entità `operation` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -205,7 +205,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`request`|[Richiesta HTTP](#HTTPRequest)|Entità contenente i dettagli della richiesta.|  
 |`responses`|matrice di valori [Risposta HTTP](#HTTPResponse)|Matrice di entità [Risposta HTTP](#HTTPResponse) dell'operazione.|  
   
-##  <a name="operation-menu"></a><a name="Menu"></a>Menu operazione  
+##  <a name="operation-menu"></a><a name="Menu"></a> Menu operazione  
  L'entità `operation menu` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -215,7 +215,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Action`|string|Tipo di menu.|  
 |`MenuItems`|Raccolta di entità [Voce di menu operazione](#MenuItem).|Operazioni per l'API corrente.|  
   
-##  <a name="operation-menu-item"></a><a name="MenuItem"></a>Voce di menu operazione  
+##  <a name="operation-menu-item"></a><a name="MenuItem"></a> Voce di menu operazione  
  L'entità `operation menu item` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -224,7 +224,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`Title`|string|Descrizione dell'operazione.|  
 |`HttpMethod`|string|Metodo HTTP dell'operazione.|  
   
-##  <a name="paging"></a><a name="Paging"></a>Paging  
+##  <a name="paging"></a><a name="Paging"></a> Paging  
  L'entità `paging` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -248,7 +248,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`kind`|d'acquisto|Se questo parametro è un parametro di percorso (1) o un parametro di stringa di query (2).|  
 |`typeName`|string|Tipo di parametro.|  
   
-##  <a name="product"></a><a name="Product"></a>Prodotto  
+##  <a name="product"></a><a name="Product"></a> Prodotto  
  L'entità `product` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -261,7 +261,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`AllowMultipleSubscriptions`|boolean|Specifica se un utente può avere più sottoscrizioni al prodotto nello stesso momento.|  
 |`MultipleSubscriptionsCount`|d'acquisto|Numero massimo di sottoscrizioni per questo prodotto di cui può disporre contemporaneamente un utente.|  
   
-##  <a name="provider"></a><a name="Provider"></a>Provider  
+##  <a name="provider"></a><a name="Provider"></a> Provider  
  L'entità `provider` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -270,7 +270,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`AuthenticationType`|string|Tipo di provider. (Azure Active Directory, account di accesso di Facebook, account Google, account Microsoft, Twitter).|  
 |`Caption`|string|Nome visualizzato del provider.|  
   
-##  <a name="representation"></a><a name="Representation"></a>Rappresentazione  
+##  <a name="representation"></a><a name="Representation"></a> Rappresentazione  
  Questa sezione descrive una `representation`.  
   
 |Proprietà|Type|Descrizione|  
@@ -304,7 +304,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`CancelUrl`|string|URL relativo per annullare la sottoscrizione.|  
 |`RenewUrl`|string|URL relativo per rinnovare la sottoscrizione.|  
   
-##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a>Riepilogo della sottoscrizione  
+##  <a name="subscription-summary"></a><a name="SubscriptionSummary"></a> Riepilogo della sottoscrizione  
  L'entità `subscription summary` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -325,7 +325,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`ProviderName`|string|Nome del provider di autenticazione.|  
 |`IsBasicAccount`|boolean|True se l'account è stato registrato usando posta elettronica e password; false se l'account è stata registrato usando un provider.|  
   
-##  <a name="user-sign-in"></a><a name="UseSignIn"></a>Accesso utente  
+##  <a name="user-sign-in"></a><a name="UseSignIn"></a> Accesso utente  
  L'entità `user sign in` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  
@@ -343,7 +343,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |`UserRegistrationTerms`|string|Condizioni che l'utente deve accettare prima dell'accesso.|  
 |`UserRegistrationTermsEnabled`|boolean|Se le condizioni sono accettate.|  
   
-##  <a name="user-sign-up"></a><a name="UserSignUp"></a>Iscrizione utente  
+##  <a name="user-sign-up"></a><a name="UserSignUp"></a> Iscrizione utente  
  L'entità `user sign up` ha le proprietà seguenti:  
   
 |Proprietà|Type|Descrizione|  

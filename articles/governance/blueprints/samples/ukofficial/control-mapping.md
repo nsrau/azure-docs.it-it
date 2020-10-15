@@ -1,14 +1,14 @@
 ---
 title: Controlli degli esempi di progetti UK OFFICIAL e UK NHS
-description: Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
+description: Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: dd16e6e62e5df3bae083cc4df05207f1f518d560
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540388"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931273"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS
 
@@ -17,7 +17,7 @@ L'articolo seguente illustra in dettaglio il mapping degli esempi di progetti UK
 I mapping seguenti fanno riferimento ai controlli **UK OFFICIAL** e **UK NHS**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\] Verifica controlli UK OFFICIAL e UK NHS e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo**.
 
 > [!IMPORTANT]
-> Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+> Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
 
 ## <a name="1-data-in-transit-protection"></a>1 Protezione dei dati in transito
 
@@ -33,8 +33,7 @@ Il progetto consente di assicurarsi che il trasferimento di informazioni con i s
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Protezione dei dati inattivi
 
-Questo progetto consente di applicare i criteri sull'uso dei controlli crittografici assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che applicano specifici controlli crittografici e controllano l'uso di impostazioni di crittografia meno sicure.
-Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, i criteri assegnati da questo progetto richiedono la crittografia per gli account Data Lake Storage; richiedono l'applicazione di Transparent Data Encryption per i database SQL; controllano se manca la crittografia in account di archiviazione, database SQL, dischi di macchine virtuali e variabili degli account di automazione; controllano le connessioni non sicure ad account di archiviazione e cache Redis; controllano la crittografia poco sicura delle password delle macchine virtuali; infine, controllano le comunicazioni non crittografate con Service Fabric.
+Questo progetto consente di applicare i criteri sull'uso dei controlli crittografici assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che applicano specifici controlli crittografici e controllano l'uso di impostazioni di crittografia meno sicure. Identificando le risorse di Azure le cui configurazioni di crittografia potrebbero non essere ottimali, è possibile adottare azioni correttive per assicurarsi che le risorse siano configurate in conformità ai criteri di sicurezza delle informazioni. In particolare, i criteri assegnati da questo progetto richiedono la crittografia per gli account Data Lake Storage; richiedono l'applicazione di Transparent Data Encryption per i database SQL; controllano se manca la crittografia in account di archiviazione, database SQL, dischi di macchine virtuali e variabili degli account di automazione; controllano le connessioni non sicure ad account di archiviazione e cache Redis; controllano la crittografia poco sicura delle password delle macchine virtuali; infine, controllano le comunicazioni non crittografate con Service Fabric.
 
 - La crittografia del disco deve essere applicata nelle macchine virtuali
 - Le variabili dell'account di automazione devono essere crittografate
@@ -76,7 +75,8 @@ Questo progetto consente di proteggere gli asset dei sistemi informativi assegna
 
 ## <a name="9-secure-user-management"></a>9 Gestione sicura degli utenti 
 
-Il Controllo degli accessi in base al ruolo di Azure consente di gestire l'accesso degli utenti alle risorse in Azure. Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di restringere e controllare i diritti di accesso assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di lettura/scrittura e gli account con autorizzazioni di proprietario, di lettura e/o di scrittura per cui non è abilitata l'autenticazione a più fattori.
+Il Controllo degli accessi in base al ruolo di Azure consente di gestire l'accesso degli utenti alle risorse in Azure.
+Usando il portale di Azure, è possibile verificare chi ha accesso alle risorse di Azure e le relative autorizzazioni. Questo progetto consente di restringere e controllare i diritti di accesso assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) per controllare gli account esterni con autorizzazioni di proprietario e/o di lettura/scrittura e gli account con autorizzazioni di proprietario, di lettura e/o di scrittura per cui non è abilitata l'autenticazione a più fattori.
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
@@ -101,7 +101,8 @@ Questo progetto assegna definizioni di Criteri di Azure per controllare l'uso de
 - È consigliabile effettuare il provisioning di un amministratore di Azure Active Directory per SQL Server
 - I cluster di Service Fabric deve usare solo Azure Active Directory per l'autenticazione client
 
-Questo progetto assegna inoltre definizioni di Criteri di Azure per controllare gli account la cui verifica dovrebbe essere prioritaria, inclusi gli account deprecati e quelli esterni. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure. Questo progetto assegna due definizioni di Criteri di Azure per controllare gli account deprecati che sarebbe preferibile rimuovere.
+Questo progetto assegna inoltre definizioni di Criteri di Azure per controllare gli account la cui verifica dovrebbe essere prioritaria, inclusi gli account deprecati e quelli esterni. Se necessario, è possibile bloccare l'accesso degli account (oppure rimuoverli), rimuovendo immediatamente i diritti di accesso alle risorse di Azure.
+Questo progetto assegna due definizioni di Criteri di Azure per controllare gli account deprecati che sarebbe preferibile rimuovere.
 
 - Gli account deprecati devono essere rimossi dalla sottoscrizione
 - Gli account deprecati con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
@@ -137,7 +138,8 @@ Questo progetto consente inoltre di controllare l'accesso alle risorse di Azure 
 
 ## <a name="11-external-interface-protection"></a>11 Protezione dell'interfaccia esterna
 
-Invece di usare più di 25 criteri per la gestione appropriata e sicura degli utenti, questo progetto consente di proteggere le interfacce del servizio da accessi non autorizzati assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora gli account di archiviazione senza restrizioni. Gli account di archiviazione con accesso senza restrizioni possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo. Questo progetto assegna inoltre un criterio che abilita i controlli delle applicazioni adattivi nelle macchine virtuali.
+Invece di usare più di 25 criteri per la gestione appropriata e sicura degli utenti, questo progetto consente di proteggere le interfacce del servizio da accessi non autorizzati assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora gli account di archiviazione senza restrizioni.
+Gli account di archiviazione con accesso senza restrizioni possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo. Questo progetto assegna inoltre un criterio che abilita i controlli delle applicazioni adattivi nelle macchine virtuali.
 
 - Controlla l'accesso di rete senza restrizioni agli account di archiviazione
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
@@ -151,7 +153,8 @@ Invece di usare più di 25 criteri per la gestione appropriata e sicura degli ut
 
 ## <a name="13-audit-information-for-users"></a>13 Informazioni di controllo per gli utenti
 
-Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log nelle risorse di Azure. Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i log a un'area di lavoro di analisi dei log specificata.
+Questo progetto consente di assicurarsi che gli eventi di sistema vengano registrati assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che controllano le impostazioni dei log nelle risorse di Azure.
+Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i log a un'area di lavoro di analisi dei log specificata.
 
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 - Audit diagnostic setting (Controllare le impostazioni di diagnostica)

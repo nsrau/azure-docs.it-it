@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 86563b0a44bade2cedaf76af3c247821756111fe
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939630"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>Migrate: SQL Server ad Azure Arc abilitato SQL Istanza gestita
@@ -192,6 +192,6 @@ GO
 
 [Altre informazioni sulle funzionalità e sulle funzionalità di Azure Arc abilitate per SQL Istanza gestita](managed-instance-features.md)
 
-[Iniziare creando un controller dati](create-data-controller.md)
+[Iniziare con la creazione di un controller dati](create-data-controller.md)
 
 [Il controller dati è già stato creato? Creare un Istanza gestita SQL abilitato per Azure Arc](create-sql-managed-instance.md)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
 ms.openlocfilehash: 7ce49873b4e59bcf474deaea4420f56a72c9c589
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89085745"
 ---
 La dimensione di VM determina la quantità di risorse di calcolo, come CPU, GPU e memoria, che viene resa disponibile per la VM. Le macchine virtuali dovrebbero essere create usando una dimensione di VM adeguata per il carico di lavoro. Anche se tutti i computer verranno eseguiti sullo stesso hardware, le dimensioni dei computer hanno limiti diversi per l'accesso al disco, che consentono di gestire l'accesso globale al disco tra le macchine virtuali. Se un carico di lavoro aumenta, è possibile ridimensionare anche una macchina virtuale esistente.

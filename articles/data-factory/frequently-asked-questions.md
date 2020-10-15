@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440508"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
@@ -209,7 +209,7 @@ La verifica del flusso di dati è attualmente supportata nelle data factory crea
 
 * Australia orientale
 * Canada centrale
-* India centrale
+* Central India
 * Stati Uniti orientali
 * Stati Uniti orientali 2
 * Giappone orientale
@@ -265,12 +265,12 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * TINYINT
 * bigint
 * long
-* testo
+* text
 * Data
 * Datetime
 * datetime2
 * smalldatetime
-* timestamp
+*  timestamp
 * UNIQUEIDENTIFIER
 * Xml
 

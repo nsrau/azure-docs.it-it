@@ -180,8 +180,10 @@
               href: manage/pay-by-invoice.md
             - name: Creare sottoscrizioni aggiuntive
               href: manage/create-subscription.md
-            - name: Creare sottoscrizioni a livello di codice
+            - name: Creare sottoscrizioni a livello di codice con l'API più recente
               href: manage/programmatically-create-subscription.md
+            - name: Creare sottoscrizioni a livello di codice con l'API in anteprima
+              href: manage/programmatically-create-subscription-preview.md
             - name: Concedere l'accesso per la creazione di sottoscrizioni EA
               href: manage/grant-access-to-create-subscription.md
             - name: Esportare le informazioni sulla sottoscrizione
@@ -338,6 +340,12 @@
               href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
     - name: Risolvere problemi
       items:
+        - name: Problemi di fatturazione del Contratto Enterprise con i file di utilizzo
+          href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+        - name: Problemi di fatturazione del Contratto del cliente Microsoft con i file di utilizzo
+          href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+        - name: Problemi di fatturazione del programma CSP con i file di utilizzo
+          href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
         - name: Non sono state trovate sottoscrizioni
           href: manage/no-subscriptions-found.md
         - name: Problemi di pagamento

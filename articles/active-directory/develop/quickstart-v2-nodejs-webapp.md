@@ -1,6 +1,7 @@
 ---
-title: Aggiungere l'accesso con OIDC a un'app Web Node.js - Microsoft Identity Platform | Azure
-description: Informazioni su come implementare l'autenticazione in un'applicazione Web Node.js con OpenID Connect.
+title: "Avvio rapido: Aggiungere l'accesso degli utenti a un'app Web Node.js | Azure"
+titleSuffix: Microsoft identity platform
+description: Questa guida di avvio rapido illustra come implementare l'autenticazione in un'applicazione Web Node.js con OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257691"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613306"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Avvio rapido: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
 
@@ -24,11 +25,8 @@ Questo avvio rapido illustra come configurare l'autenticazione OpenID Connect in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ecco i prerequisiti per eseguire questo esempio:
-
-* Installare Node.js da http://nodejs.org/
-
-* [Account Microsoft](https://www.outlook.com) o adesione al programma [Microsoft 365 Developer Program](/office/developer-program/office-365-developer-program)
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Registrare l'applicazione
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84711902"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurare il ripristino di emergenza di macchine virtuali VMware locali o server fisici in un sito secondario
@@ -50,9 +50,9 @@ o Per i computer fisici, seguire questa [esercitazione](./physical-azure-disaste
 --|--|--
 **Componenti richiesti** |Servizio Mobility nei computer replicati. Server di configurazione in locale, server di elaborazione, server master di destinazione. Server di elaborazione temporaneo in Azure per il failback.|Servizio Mobility, server di elaborazione, server di configurazione e server di destinazione master
 **Configurazione e orchestrazione** |Insieme di credenziali di Servizi di ripristino nel portale di Azure | Con vContinuum 
-**Replicata** |Disco (Windows e Linux) |Volume-Windows<br> Disco-Linux
+**Tabella replicata** |Disco (Windows e Linux) |Volume-Windows<br> Disco-Linux
 **Cluster di dischi condivisi** |Non supportato|Supportato
-**Limiti di varianza dei dati (media)** |10 MB/s di dati per disco<br> 25 MB/s di dati per VM<br> [Altre informazioni](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s di dati per disco  <br> > 25 MB/s di dati per VM
+**Limiti di varianza dei dati (media)** |10 MB/s di dati per disco<br> 25 MB/s di dati per VM<br> [Scopri di più](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s di dati per disco  <br> > 25 MB/s di dati per VM
 **Monitoring** |Dal portale di Azure|Da CX (server di configurazione)
 **Matrice di supporto** | [Fare clic qui per i dettagli](./vmware-physical-azure-support-matrix.md)|[Scarica la matrice di compatibilità di Azure Site Recovery Scout](https://aka.ms/asr-scout-cm)
 
@@ -60,7 +60,7 @@ o Per i computer fisici, seguire questa [esercitazione](./physical-azure-disaste
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione:
 
-- [Verificare](vmware-physical-secondary-support-matrix.md) i requisiti di supporto per tutti i componenti.
+- [Esaminare](vmware-physical-secondary-support-matrix.md) i requisiti di supporto per tutti i componenti.
 - Assicurarsi che i computer da replicare siano conformi al [supporto del computer replicato](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 

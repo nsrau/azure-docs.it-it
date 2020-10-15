@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009172"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Espandere un pool di host esistente con nuovi host sessione in desktop virtuale di Windows (versione classica)
@@ -64,7 +64,7 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
      >[!NOTE]
      >Se viene visualizzato un errore che indica di selezionare un gruppo di risorse diverso anche se quello immesso è corretto, selezionare un altro gruppo di risorse e quindi selezionare il gruppo di risorse originale.
 
-8. Immettere l'URL seguente per il *_artifactsLocation*:`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
+8. Immettere l'URL seguente per il *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
 9. Immettere il nuovo numero totale di host di sessione che si desidera includere nel *numero di istanze RDSH*. Se, ad esempio, si espande il pool host da cinque host di sessione a otto, immettere **8**.
 10. Immettere la stessa password di dominio esistente utilizzata per il dominio UPN esistente. Non modificare il nome utente, perché in questo caso verrà generato un errore quando si esegue il modello.
 11. Immettere la stessa password di amministratore del tenant usata per l'ID dell'utente o dell'applicazione immesso per l' *UPN amministratore tenant o l'ID applicazione*. Ancora una volta, non modificare il nome utente.
@@ -74,7 +74,7 @@ Di seguito viene illustrato come ridistribuire il modello di Azure Resource Mana
 
 [Per eseguire il provisioning di un nuovo pool host](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool), seguire le istruzioni in [creare un pool di host usando Azure Marketplace](create-host-pools-azure-marketplace-2019.md) fino a quando non si raggiunge l'offerta di Azure Marketplace. Quando si arriva a questo punto, è necessario immettere le informazioni seguenti per ogni scheda:
 
-### <a name="basics"></a>Operazioni di base
+### <a name="basics"></a>Nozioni di base
 
 Tutti i valori in questa sezione devono corrispondere a quanto specificato al momento della creazione del pool host e delle VM host della sessione, ad eccezione degli *utenti desktop predefiniti*:
 

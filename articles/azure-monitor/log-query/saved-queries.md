@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
 ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85959843"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Query salvate in monitoraggio di Azure Log Analytics
@@ -86,7 +86,7 @@ La finestra di dialogo supporta il raggruppamento per:
 
 Anche i valori di raggruppamento fungono da un sommario attivo. Facendo clic su uno dei valori sul lato sinistro dello schermo, la visualizzazione query viene visualizzata a destra dell'elemento selezionato.
 
-### <a name="filter"></a>Filtro
+### <a name="filter"></a>Filtra
 
 È anche possibile filtrare le query in base ai valori di GroupBy citati in precedenza. Nella finestra di dialogo query di esempio, i filtri si trovano nella parte superiore.
 

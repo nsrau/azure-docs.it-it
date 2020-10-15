@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393894"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Baseline della sicurezza di Azure per servizi cognitivi
@@ -948,7 +948,7 @@ Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi
 
 È anche possibile usare la funzionalità di gestione del ciclo di vita per eseguire il backup dei dati nel livello archivio. Inoltre, abilitare l'eliminazione temporanea per i backup archiviati nell'account di archiviazione.
 
-* [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di servizio](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di Service-Level](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 * [Gestire il ciclo di vita di Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
 
@@ -992,13 +992,13 @@ Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro i modelli di Azure Resource Manager. Per proteggere le risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrato con TFS.  Usare il controllo degli accessi in base al ruolo per proteggere le chiavi gestite dal cliente. Abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. 
+**Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro i modelli di Azure Resource Manager. Per proteggere le risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrato con TFS.  Usare il controllo degli accessi in base al ruolo per proteggere le chiavi gestite dal cliente. Abilitare Soft-Delete ed eliminare la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. 
 
 * [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 * [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
 
-* [Come abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Come abilitare Soft-Delete ed eliminare la protezione in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

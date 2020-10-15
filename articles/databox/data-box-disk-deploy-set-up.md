@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 570653d620c5e314db9e6a0bc56d731f8acf9296
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925652"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759905"
 ---
 ::: zone target="docs"
 
@@ -268,7 +268,7 @@ Se si verificano problemi durante lo sblocco dei dischi, vedere come [risolvere 
     
 8. Dopo aver sbloccato il disco, è possibile passare al punto di montaggio e visualizzare il contenuto del disco. Ora si è pronti per copiare i dati nelle cartelle *BlockBlob* o *PageBlob*. 
 
-    ![Contenuto del Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Contenuto del Data Box Disk - 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 Se si verificano problemi durante lo sblocco dei dischi, vedere come [risolvere i problemi relativi allo sblocco](data-box-disk-troubleshoot-unlock.md). 

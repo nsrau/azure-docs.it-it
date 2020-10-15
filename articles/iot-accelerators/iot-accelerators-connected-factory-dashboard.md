@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
 ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261873"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Usare le funzionalità nel dashboard dell'acceleratore di soluzioni di connected factory
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 L'avvio rapido [Deploy a cloud-based solution to manage my industrial IoT devices](quickstart-connected-factory-deploy.md) (Distribuzione di una soluzione basata sul cloud per gestire i dispositivi IoT industriali) ha illustrato come accedere al dashboard e rispondere agli avvisi. Questa guida pratica illustra alcune funzionalità aggiuntive del dashboard che è possibile usare per monitorare e gestire i dispositivi IoT industriali.
 

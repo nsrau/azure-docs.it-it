@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f2724a0ea0aa5f609be5847652973cfa03658c24
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6741d48490cb186b986317f584a4c7b2a11b865c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421526"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91829159"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Esaminare e modificare i file di esempio
 
@@ -110,9 +110,19 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 
 ### <a name="prepare-to-monitor-events"></a>Preparare il monitoraggio degli eventi
 
-Fare clic con il pulsante destro del mouse sul dispositivo di Analisi video live e scegliere **Avvia monitoraggio endpoint eventi predefinito**. Questo passaggio è necessario per monitorare gli eventi dell'hub IoT nella finestra **OUTPUT** di Visual Studio Code.
+1. In Visual Studio Code aprire la scheda **Estensioni** (oppure premere CTRL+MAIUSC+X) e cercare Hub IoT di Azure.
+1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
-![Avviare il monitoraggio](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Impostazioni estensione&quot;:::
+1. Cercare e abilitare &quot;Show Verbose Message" (Visualizza messaggio dettagliato).
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Impostazioni estensione&quot;:::
+1. Cercare e abilitare &quot;Show Verbose Message":::
+1. Fare clic con il pulsante destro del mouse sul dispositivo di Analisi video live e scegliere **Avvia monitoraggio endpoint eventi predefinito**. Questo passaggio è necessario per monitorare gli eventi dell'hub IoT nella finestra **OUTPUT** di Visual Studio Code.
+
+   ![Avviare il monitoraggio](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### <a name="run-the-sample-program"></a>Eseguire il programma di esempio
 

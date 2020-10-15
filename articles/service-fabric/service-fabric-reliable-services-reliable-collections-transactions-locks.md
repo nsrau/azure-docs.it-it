@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 5/1/2017
 ms.custom: sfrev
 ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500283"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transazioni e modalità di blocco delle raccolte Reliable Collections in Azure Service Fabric
@@ -37,7 +37,7 @@ Le raccolte Reliable Collections supportano due livelli di isolamento:
 Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica al momento della creazione della transazione.
 La tabella seguente descrive i valori predefiniti del livello di isolamento per le operazioni Reliable Dictionary e Reliable Queue.
 
-| Operazione\Ruolo | Principale | Secondari |
+| Operazione\Ruolo | Primaria | Secondari |
 | --- |:--- |:--- |
 | Lettura di entità singola |Repeatable Read |Snapshot |
 | Enumerazione, conteggio |Snapshot |Snapshot |
@@ -49,7 +49,7 @@ La tabella seguente descrive i valori predefiniti del livello di isolamento per 
 Il Reliable Dictionary e il supporto della coda affidabile *leggono le Scritture*.
 In altri termini, qualsiasi operazione di scrittura all'interno di una transazione sarà visibile a una lettura successiva appartenente alla stessa transazione.
 
-## <a name="locks"></a>Blocchi
+## <a name="locks"></a>Locks
 
 Nelle raccolte Reliable Collections tutte le transazioni implementano un rigoroso blocco in due fasi: una transazione non rilascia i blocchi acquisiti fino a quando non termina con un'interruzione o un commit.
 
@@ -68,7 +68,7 @@ Il blocco di aggiornamento è asimmetrico e viene usato per impedire una forma c
 
 La matrice di compatibilità dei blocchi è disponibile nella tabella seguente:
 
-| Richiesto\Concesso | nessuno | Condiviso | Aggiornamento | Esclusivo |
+| Richiesto\Concesso | Nessuno | Condiviso | Aggiornamento | Esclusivo |
 | --- |:--- |:--- |:--- |:--- |
 | Condiviso |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |
 | Aggiornamento |Nessun conflitto |Nessun conflitto |Conflitto |Conflitto |

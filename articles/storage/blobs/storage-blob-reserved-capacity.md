@@ -1,19 +1,20 @@
 ---
-title: Ottimizzare i costi per l'archiviazione BLOB con capacità riservata-archiviazione di Azure
+title: Ottimizzare i costi per l'archiviazione BLOB con capacità riservata
+titleSuffix: Azure Storage
 description: Scopri come acquistare la capacità riservata di archiviazione di Azure per risparmiare sui costi per le risorse di BLOB in blocchi e Azure Data Lake Storage Gen2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259202"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874816"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Ottimizzare i costi per l'archiviazione BLOB con capacità riservata
 
@@ -29,7 +30,7 @@ Le sezioni seguenti descrivono i termini di una prenotazione di archiviazione di
 
 ### <a name="reservation-capacity"></a>Capacità prenotazione
 
-È possibile acquistare capacità riservata di archiviazione di Azure in unità di 100 TB e 1 PB al mese per un periodo di un anno o di tre anni.
+È possibile acquistare capacità riservata di archiviazione di Azure in unità di 100 TiB e 1 PiB al mese per un periodo di un anno o di tre anni.
 
 ### <a name="reservation-scope"></a>Ambito prenotazione
 
@@ -62,7 +63,7 @@ Per acquistare la capacità riservata:
 
 Quando si acquista una prenotazione di archiviazione di Azure, è necessario scegliere l'opzione area, livello di accesso e ridondanza per la prenotazione. La prenotazione è valida solo per i dati archiviati in tale area, livello di accesso e livello di ridondanza. Si supponga, ad esempio, di acquistare una prenotazione per i dati negli Stati Uniti occidentali per il livello di accesso frequente tramite l'archiviazione con ridondanza della zona (ZRS). Non è possibile usare la stessa prenotazione per i dati negli Stati Uniti orientali, i dati nel livello archivio o i dati nell'archiviazione con ridondanza geografica (GRS). Tuttavia, è possibile acquistare un'altra prenotazione per le esigenze aggiuntive.  
 
-Sono attualmente disponibili prenotazioni per 100 TB o 1 blocchi PB, con sconti più elevati per 1 blocchi PB. Quando si acquista una prenotazione nel portale di Azure, Microsoft può fornire consigli sulla base dell'utilizzo precedente per determinare la prenotazione da acquistare.
+Sono attualmente disponibili prenotazioni per i blocchi 100 TiB o 1 PiB, con sconti superiori per 1 blocchi PiB. Quando si acquista una prenotazione nel portale di Azure, Microsoft può fornire consigli sulla base dell'utilizzo precedente per determinare la prenotazione da acquistare.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Acquistare la capacità riservata di archiviazione di Azure
 
@@ -86,7 +87,7 @@ Per acquistare la capacità riservata, seguire questa procedura:
    | **Livello di accesso** | Livello di accesso in cui è attiva la prenotazione. Le opzioni *includono accesso*frequente, *ad*accesso sporadico o *Archivio*. Per altre informazioni sui livelli di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](storage-blob-storage-tiers.md). |
    | **Ridondanza** | Opzione di ridondanza per la prenotazione. Le opzioni includono *con ridondanza locale*, *ZRS*, *GRS*, *GZRS*, *RA-GRS*e *ra-GZRS*. Per altre informazioni sulle opzioni di ridondanza, vedere [ridondanza di archiviazione di Azure](../common/storage-redundancy.md). |
    | **Frequenza di fatturazione** | Indica la frequenza con cui l'account viene fatturato per la prenotazione. Le opzioni includono *mensile* o *iniziale*. |
-   | **Dimensione** | Area in cui è attiva la prenotazione. |
+   | **Dimensione** | Quantità di capacità da riservare. |
    |**Termine**  | Un anno o tre anni.   |
 
 1. Dopo aver selezionato i parametri per la prenotazione, il portale di Azure Visualizza il costo. Il portale Mostra anche la percentuale di sconto rispetto alla fatturazione con pagamento in base al consumo.

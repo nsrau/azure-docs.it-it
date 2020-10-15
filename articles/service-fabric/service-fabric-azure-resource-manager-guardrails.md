@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
 ms.openlocfilehash: aa1499c57ead28bfcee90a2f224ef9c3bb1d7f58
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247825"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric Guardrails 
@@ -55,7 +55,7 @@ La sezione seguente contiene un esempio di una mancata corrispondenza di durabil
 }
 ```
 
-### <a name="error-messages"></a>Messaggi di errore
+### <a name="error-messages"></a>messaggi di errore
 * La mancata corrispondenza della durabilità del set di scalabilità di macchine virtuali non corrisponde al livello di durabilità del tipo di nodo Service Fabric corrente
 * La durabilità del set di scalabilità di macchine virtuali non corrisponde al livello di durabilità del tipo di nodo Service Fabric di destinazione
 * La durabilità del set di scalabilità di macchine virtuali corrisponde al livello di durabilità del Service Fabric corrente o al livello di durabilità del tipo di nodo Service Fabric di destinazione 
@@ -70,7 +70,7 @@ Per correggere una mancata corrispondenza di durabilità, indicata da uno dei me
 ### <a name="overview"></a>Panoramica
 Un cluster Service Fabric dispone di una proprietà del [livello di affidabilità](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) che consente di determinare il numero di repliche dei servizi di sistema in esecuzione sul tipo di nodo primario del cluster. Il numero di repliche necessarie determinerà il numero minimo di nodi che devono essere mantenuti nel tipo di nodo primario del cluster. Se il numero di nodi nel tipo di nodo primario scende al di sotto del valore minimo necessario per il livello di affidabilità, il cluster diventerà instabile.  
 
-### <a name="error-messages"></a>Messaggi di errore 
+### <a name="error-messages"></a>messaggi di errore 
 L'operazione di rimozione del nodo di inizializzazione è stata rilevata e verrà rifiutata. 
 * Questa operazione comporterebbe {0} la permanenza solo dei nodi di inizializzazione potenziali nel cluster, mentre {1} sono necessari come minimo.
 * La rimozione dei {0} nodi di inizializzazione da {1} comporterebbe il rallentamento del cluster a causa della perdita del quorum del nodo di inizializzazione. Il numero massimo di nodi di inizializzazione che è possibile rimuovere alla volta è {2} .

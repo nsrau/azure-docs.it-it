@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/06/2020
 ms.author: allensu
 ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89504674"
 ---
 # <a name="azure-cdn-endpoint-multi-origin-preview"></a>Più origini dell'endpoint della rete CDN di Azure (anteprima)
@@ -42,7 +42,7 @@ Configurare uno o più gruppi di origine e scegliere un gruppo di origine predef
 
 4. Per abilitare la funzionalità multiorigine, è necessario almeno un gruppo di origine. Selezionare **Crea gruppo di origine**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="Impostazioni origine" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-2.png" alt-text="Endpoint della rete CDN" border="true":::
 
 5. Nella configurazione **Aggiungi gruppo di origine** immettere o selezionare le informazioni seguenti:
 
@@ -56,7 +56,7 @@ Configurare uno o più gruppi di origine e scegliere un gruppo di origine predef
    | Metodo Probe      | Selezionare **Head** o **Get**.                                           |
    | Gruppo di origine predefinito | Selezionare la casella da impostare come gruppo di origine predefinito.
     
-   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Aggiungi gruppo di origine" border="true":::
+   :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-3.png" alt-text="Endpoint della rete CDN" border="true":::
 
 6. Selezionare **Aggiungi**.
 
@@ -64,7 +64,7 @@ Configurare uno o più gruppi di origine e scegliere un gruppo di origine predef
 
 1. Nelle impostazioni origine per l'endpoint selezionare **+ Crea origine**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="Crea origine" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-5.png" alt-text="Endpoint della rete CDN" border="true":::
 
 2. Immettere o selezionare le informazioni seguenti nella configurazione **Aggiungi origine** :
 
@@ -82,13 +82,13 @@ Configurare uno o più gruppi di origine e scegliere un gruppo di origine predef
     > [!NOTE]
     > Quando un'origine viene creata all'interno di un gruppo di origine, è necessario accordare una priorità e un peso. Se un gruppo di origine ha una sola origine, la priorità e il peso predefiniti vengono impostati su 1. Il traffico viene indirizzato alle origini con la priorità più alta se l'origine è integra. Se un'origine viene determinata come non integra, le connessioni vengono deviate a un'altra origine nell'ordine di priorità. Se due origini hanno la stessa priorità, il traffico viene distribuito in base al peso specificato per l'origine 
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Aggiungi origine aggiuntiva" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-6.png" alt-text="Endpoint della rete CDN" border="true":::
 
 3. Selezionare **Aggiungi**.
 
 4. Selezionare **Configura origine** per impostare il percorso di origine per tutte le origini:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Configurare il percorso di origine" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-7.png" alt-text="Endpoint della rete CDN" border="true":::
 
 5. Selezionare **OK**.
 
@@ -98,27 +98,27 @@ Dopo aver creato diverse origini e un gruppo di origine, è possibile aggiungere
 
 1. Nelle impostazioni di origine dell'endpoint della rete CDN di Azure selezionare il nome del gruppo di origine che si vuole configurare:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Configurare le origini e le impostazioni del gruppo di origine" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Endpoint della rete CDN" border="true":::
 
 2. In **gruppo di origine dell'aggiornamento**selezionare **+ Seleziona origine**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Aggiorna gruppo di origine" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Endpoint della rete CDN" border="true":::
 
 4. Selezionare l'origine da aggiungere al gruppo nella casella a discesa e selezionare **OK**.
 
 5. Verificare che l'origine sia stata aggiunta al gruppo e quindi selezionare **Salva**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="Verifica aggiunta origine aggiuntiva al gruppo" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-10.png" alt-text="Endpoint della rete CDN" border="true":::
 
 ## <a name="remove-origin-from-origin-group"></a>Rimuovi origine dal gruppo di origine
 
 1. Nelle impostazioni di origine dell'endpoint della rete CDN di Azure selezionare il nome del gruppo di origine:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Rimuovi origine dal gruppo" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Endpoint della rete CDN" border="true":::
 
 2. Per rimuovere un'origine dal gruppo di origine, selezionare l'icona del cestino accanto all'origine e selezionare **Salva**:
 
-    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Aggiornare l'origine di eliminazione del gruppo di origine" border="true":::
+    :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Endpoint della rete CDN" border="true":::
 
 ## <a name="override-origin-group-with-rules-engine"></a>Esegui override del gruppo di origine con il motore regole
 
@@ -128,7 +128,7 @@ Distribuire il traffico a un gruppo diverso in base all'URL della richiesta.
 
 1. Nell'endpoint della rete CDN selezionare **motore regole** in **Impostazioni**:
 
-:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Motore regole" border="true":::
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Endpoint della rete CDN" border="true":::
 
 2. Selezionare **+ Aggiungi regola**.
 
@@ -144,7 +144,7 @@ Distribuire il traffico a un gruppo diverso in base all'URL della richiesta.
 
 8. In **gruppo di origine**selezionare il gruppo di origine nella casella a discesa.
 
-:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Condizioni del motore regole" border="true":::
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Endpoint della rete CDN" border="true":::
 
 Per tutte le richieste in ingresso se il percorso URL contiene **/images**, la richiesta verrà assegnata al gruppo di origine nella sezione azione **(myorigingroup)**. 
 

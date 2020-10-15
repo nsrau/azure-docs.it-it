@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898542"
 ---
 # <a name="decision-forest-regression-module"></a>Modulo di regressione della foresta delle decisioni
@@ -38,7 +38,7 @@ Gli alberi delle decisioni offrono i vantaggi seguenti:
 
 Questo modello di regressione è costituito da un insieme di alberi delle decisioni. Ogni albero in una foresta delle decisioni di regressione restituisce una distribuzione gaussiana come stima. Viene eseguita un'aggregazione sull'insieme di alberi per trovare una distribuzione gaussiana più vicina alla distribuzione combinata per tutti gli alberi nel modello.
 
-Per altre informazioni sul framework teorico per questo algoritmo e sulla relativa implementazione, vedere questo articolo: [foreste delle decisioni: un framework unificato per la classificazione, la regressione, la stima della densità, l'apprendimento di manifold e l'apprendimento semi supervisionato](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Per altre informazioni sul framework teorico per questo algoritmo e sulla relativa implementazione, vedere questo articolo: [foreste delle decisioni: un framework unificato per la classificazione, la regressione, la stima della densità, l'apprendimento di varietà e l'apprendimento Semi-Supervised](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Come configurare il modello di regressione della foresta delle decisioni
 

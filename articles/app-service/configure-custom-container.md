@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264576"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurare un contenitore personalizzato per il servizio app Azure
@@ -288,7 +288,7 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"CO
 
 Nella tabella seguente sono indicati i valori possibili:
 
-| valore | Descrizioni |
+| Valore | Descrizioni |
 | - | - |
 | **Ripristinare** | Riavviare il contenitore dopo tre verifiche di disponibilità consecutive |
 | **ReportOnly** | Il valore predefinito. Non riavviare il contenitore ma creare un report nei log di Docker per il contenitore dopo tre controlli di disponibilità consecutivi. |
@@ -350,7 +350,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per consent
 ## <a name="configure-multi-container-apps"></a>Configurare app multicontenitore
 
 - [Usare l'archiviazione persistente in Docker Compose](#use-persistent-storage-in-docker-compose)
-- [Limitazioni di anteprima](#preview-limitations)
+- [Limiti di anteprima](#preview-limitations)
 - [Opzioni di Docker Compose](#docker-compose-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Usare l'archiviazione persistente in Docker Compose

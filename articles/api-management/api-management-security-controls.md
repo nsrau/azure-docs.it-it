@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
 ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902576"
 ---
 # <a name="security-controls-for-api-management"></a>Controlli di sicurezza per gestione API
@@ -66,7 +66,7 @@ Questo articolo descrive i controlli di sicurezza incorporati in gestione API.
 
 Questa sezione documenta le vulnerabilità comuni che non influiscono sulla gestione API di Azure.
 
-| Vulnerabilità               | Description                                                                                                                                                                                                                                                                                                               |
+| Vulnerabilità               | Descrizione                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ticketbleed (CVE-2016-9244) | Ticketbleed è una vulnerabilità nell'implementazione dell'estensione TLS SessionTicket presente in alcuni prodotti F5. Consente la perdita ("emorragia") di un massimo di 31 byte di dati dalla memoria non inizializzata. Questo problema si verifica perché lo stack TLS riempie un ID di sessione, passato dal client, con dati per renderlo 32 bit. |
 

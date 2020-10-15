@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842581"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servizi a disponibilità elevata supportati da Azure HDInsight
@@ -54,9 +54,9 @@ Nelle sezioni seguenti vengono fornite informazioni più dettagliate sul funzion
 
 Microsoft fornisce supporto per i quattro servizi Apache nella tabella seguente nei cluster HDInsight. Per distinguerli dai servizi a disponibilità elevata supportati dai componenti di Apache, sono denominati servizi a disponibilità elevata *HDInsight*.
 
-| Service | Nodi del cluster | Tipi di cluster | Scopo |
+| Servizio | Nodi del cluster | Tipi di cluster | Scopo |
 |---|---|---|---|
-| Server Apache Ambari| Nodo head attivo | All | Monitora e gestisce il cluster.|
+| Server Apache Ambari| Nodo head attivo | Tutti | Monitora e gestisce il cluster.|
 | Server Sequenza temporale applicazione per Apache YARN | Nodo head attivo | Tutti tranne Kafka | Mantiene le informazioni di debug sui processi YARN in esecuzione nel cluster.|
 | Server di cronologia processo per Hadoop MapReduce | Nodo head attivo | Tutti tranne Kafka | Mantiene i dati di debug per i processi MapReduce.|
 | Apache Livy | Nodo head attivo | Spark | Consente una facile interazione con un cluster Spark su un'interfaccia REST |
@@ -64,7 +64,7 @@ Microsoft fornisce supporto per i quattro servizi Apache nella tabella seguente 
 >[!Note]
 > I cluster HDInsight Enterprise Security Package (ESP) attualmente forniscono solo la disponibilità elevata del server Ambari.
 
-### <a name="architecture"></a>Architecture
+### <a name="architecture"></a>Architettura
 
 Ogni cluster HDInsight ha due nodi head in modalità attivo e standby, rispettivamente. I servizi a disponibilità elevata HDInsight vengono eseguiti solo in nodi head. Questi servizi devono essere sempre in esecuzione sul nodo head attivo e arrestati e messi in modalità di manutenzione sulla nodo head di standby.
 

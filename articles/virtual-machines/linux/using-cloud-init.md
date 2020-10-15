@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
-ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869270"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096658"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Supporto di cloud-init per le macchine virtuali in Azure
 Questo articolo descrive il supporto disponibile per [cloud-init](https://cloudinit.readthedocs.io) per configurare una macchina virtuale (VM) o i set di scalabilità di macchine virtuali in fase di provisioning in Azure. Queste configurazioni cloud-init vengono eseguite al primo avvio dopo il provisioning delle risorse da parte di Azure.  
@@ -97,10 +97,10 @@ Queste immagini SLES sono state aggiornate per eseguire il provisioning tramite 
 ### <a name="debian"></a>Debian
 | Editore/versione | Offerta | SKU | Versione | Immagine pronta per cloud-init | Supporto dei pacchetti cloud-init in Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| Debian (Gen1) |Debian-10 | 10-cloudinit |cloud-init-preview| Sì (solo anteprima) | No, in anteprima. |
-| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |cloud-init-preview| Sì (solo anteprima) | No, in anteprima. |
-
-
+| Debian (Gen1) |Debian-10 | 10-cloudinit |cloud-init-preview| Sì (Nota: si tratta di un'immagine di anteprima e non **deve** più essere utilizzata. verrà rimosso il 1 ° gennaio 2021) | No, in anteprima. |
+| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |cloud-init-preview| Sì (Nota: si tratta di un'immagine di anteprima e non **deve** più essere utilizzata. verrà rimosso il 1 ° gennaio 2021) | No, in anteprima. |
+| Debian (Gen1) |Debian-10 | 10-cloudinit |10:0.20201013.422| sì | Sì-supporto dalla versione del pacchetto: `20.2-2~deb10u1` |
+| Debian (Gen2) |Debian-10 | 10-cloudinit-Gen2 |0.20201013.422| sì | Sì-supporto dalla versione del pacchetto: `20.2-2~deb10u1` |
 
 
 Azure Stack supporterà il provisioning delle immagini abilitate per cloud-init.
@@ -152,7 +152,7 @@ az vm create \
 
 Dopo la creazione della macchina virtuale, l'interfaccia della riga di comando di Azure mostra informazioni specifiche della distribuzione. Prendere nota di `publicIpAddress`. Questo indirizzo viene usato per accedere alla VM.  Sono necessari alcuni minuti per creare la macchina virtuale, installare il pacchetto e avviare l'app. Sono presenti attività in background la cui esecuzione continua dopo che l'interfaccia della riga di comando di Azure è tornata al prompt. È possibile eseguire SSH nella macchina virtuale e seguire i passaggi descritti nella sezione della risoluzione dei problemi per visualizzare i log di cloud-init. 
 
-È anche possibile distribuire una macchina virtuale abilitata per cloud-init passando i [parametri nel modello ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli#inline-parameters).
+È anche possibile distribuire una macchina virtuale abilitata per cloud-init passando i [parametri nel modello ARM](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Risoluzione dei problemi relativi a cloud-init
 Al termine del provisioning della macchina virtuale, cloud-init verrà eseguito in tutti i moduli e gli script definiti in `--custom-data` per configurare la macchina virtuale.  Se è necessario correggere eventuali errori o omissioni della configurazione, cercare il nome del modulo (ad esempio, `disk_setup` o `runcmd`) nel log di cloud-init che si trova in **/var/log/cloud-init.log**.
@@ -173,4 +173,3 @@ Per esempi cloud-init di modifiche di configurazione, vedere i documenti seguent
 - [Eseguire uno strumento di gestione di pacchetti per aggiornare pacchetti esistenti al primo avvio](cloudinit-update-vm.md)
 - [Modificare il nome host locale della macchina virtuale](cloudinit-update-vm-hostname.md) 
 - [Installare un pacchetto dell'applicazione, aggiornare i file di configurazione e inserire le chiavi](tutorial-automate-vm-deployment.md)
- 

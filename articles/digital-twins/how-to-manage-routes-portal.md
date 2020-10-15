@@ -8,10 +8,10 @@ ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91252834"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
@@ -37,7 +37,7 @@ Questo articolo illustra il processo di creazione di endpoint e route usando il 
 
 Selezionare l'istanza dai risultati per visualizzare la pagina dei dettagli per l'istanza:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Schermata dei dettagli dell'istanza di ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot della barra di ricerca portale di Azure." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creare un endpoint per i dispositivi gemelli digitali di Azure
 
@@ -62,11 +62,11 @@ Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di 
 
 Quindi, creare l'endpoint colpendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot della creazione di un endpoint di tipo griglia di eventi.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
 
 È possibile verificare che l'endpoint sia stato creato correttamente selezionando l'icona di notifica nella barra portale di Azure superiore: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot della notifica per verificare la creazione dell'endpoint." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot della barra di ricerca portale di Azure." border="false":::
 
 È anche possibile visualizzare l'endpoint che è stato creato nuovamente nella pagina *endpoint* per l'istanza di Azure Digital gemelli.
 
@@ -88,7 +88,7 @@ Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di 
 
 Quindi, creare l'endpoint colpendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot della creazione di un endpoint di tipo hub eventi.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
 
 È possibile verificare che l'endpoint venga creato correttamente selezionando l'icona di notifica nella parte superiore della barra portale di Azure. 
 
@@ -110,7 +110,7 @@ Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di 
 
 Quindi, creare l'endpoint colpendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot della creazione di un endpoint di tipo bus di servizio.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
 
 È possibile verificare che l'endpoint venga creato correttamente selezionando l'icona di notifica nella parte superiore della barra portale di Azure. 
 
@@ -149,7 +149,7 @@ Nella pagina *Crea una route di evento* visualizzata, scegliere almeno:
 
 Per abilitare la route, è necessario **aggiungere anche un filtro di route di un evento** almeno `true` . Se si lascia il valore predefinito `false` , verrà creata la route, ma non verrà inviato alcun evento. A tale scopo, attivare l'opzione _Editor avanzato_ per abilitarla e scrivere `true` nella casella *filtro* .
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot della creazione della route dell'evento per l'istanza." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot della barra di ricerca portale di Azure." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Al termine, fare clic sul pulsante _Salva_ per creare la route dell'evento.
 
@@ -175,7 +175,7 @@ Per usare i filtri di base, espandere l'opzione _tipi di evento_ e selezionare l
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot della creazione di una route di eventi con un filtro di base. Selezione delle caselle di controllo degli eventi.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -185,7 +185,7 @@ La casella di testo filtro verrà popolata automaticamente con il testo del filt
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot della creazione di una route di eventi con un filtro di base. Visualizzazione del testo del filtro popolato automaticamente dopo aver selezionato gli eventi.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -199,7 +199,7 @@ Per creare una route di eventi con opzioni di filtro avanzate, attivare o disatt
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot della creazione di una route di eventi con un filtro avanzato.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
     :::column-end:::
     :::column:::
     :::column-end:::

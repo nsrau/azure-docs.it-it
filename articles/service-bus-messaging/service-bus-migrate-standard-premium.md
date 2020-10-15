@@ -4,10 +4,10 @@ description: Guida per consentire la migrazione degli spazi dei nomi standard de
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85340744"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium
@@ -211,7 +211,7 @@ Tuttavia, se è possibile eseguire la migrazione durante una finestra di manuten
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulle [differenze tra la messaggistica standard e Premium](./service-bus-premium-messaging.md).
-* Informazioni sugli [aspetti di disponibilità elevata e ripristino di emergenza geografico per il bus di servizio Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
+* Informazioni sugli aspetti relativi a [disponibilità elevata e ripristino Geo-Disaster per il bus di servizio Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
 [Pagina di destinazione della migrazione]: ./media/service-bus-standard-premium-migration/1.png
 [Spazio dei nomi di installazione]: ./media/service-bus-standard-premium-migration/2.png

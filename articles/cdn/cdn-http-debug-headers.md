@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
 ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343021"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP X-EC-Debug per il motore regole della rete CDN di Azure
@@ -54,7 +54,7 @@ Le intestazioni di risposta di debug per la cache possono essere richieste inclu
 ## <a name="cache-status-code-information"></a>Informazioni sul codice di stato della cache
 L'intestazione della risposta X-EC-Debug può identificare un server e il modo in cui ha gestito la risposta tramite le direttive seguenti:
 
-Header | Descrizione
+Intestazione | Descrizione
 -------|------------
 X-EC-Debug: x-ec-cache | Questa intestazione viene segnalata ogni volta che viene eseguito il routing di contenuto attraverso la rete CDN. Identifica il server POP che ha soddisfatto la richiesta.
 X-EC-Debug: x-ec-cache-remote | Questa intestazione viene visualizzata solo quando il contenuto richiesto è stato memorizzato nella cache in un server shield di origine o in un server gateway ADN.
@@ -103,7 +103,7 @@ L'intestazione di risposta `X-EC-Debug` che segnala se la richiesta fosse idonea
 
 Il termine usato nella sintassi dell'intestazione della risposta riportata sopra è definito nel modo seguente:
 
-valore  | Description
+Valore  | Descrizione
 -------| --------
 YES    | Indica che il contenuto richiesto era idoneo per la memorizzazione nella cache.
 NO     | Indica che il contenuto richiesto non era idoneo per la memorizzazione nella cache. Questo stato può essere dovuto a una delle cause seguenti: <br /> - Configurazione specifica del cliente: una configurazione specifica del proprio account può impedire ai server POP di memorizzare un asset nella cache. Ad esempio, il motore regole può impedire la memorizzazione di un asset nella cache abilitando la funzionalità Ignora cache per le richieste qualificate.<br /> - Intestazioni di risposta della cache: le intestazioni Cache-Control ed Expires dell'asset richiesto possono impedire ai server POP di memorizzarla nella cache.

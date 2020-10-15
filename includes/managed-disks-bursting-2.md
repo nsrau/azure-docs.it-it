@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: albecker1
@@ -9,15 +9,15 @@ ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102753"
 ---
 ## <a name="common-scenarios"></a>Scenari comuni
 Gli scenari seguenti possono trarre molto vantaggio dall'espansione:
-- **Miglioramento dei tempi di avvio** : con il potenziamento, l'istanza di viene avviata con una velocità notevolmente più veloce. Ad esempio, il disco del sistema operativo predefinito per le macchine virtuali abilitate per Premium è il disco P4, ovvero le prestazioni con provisioning fino a 120 IOPS e 25 MB/s. Con l'espansione, il P4 può raggiungere 3500 IOPS e 170 MB/s, consentendo un tempo di avvio per l'accelerazione di 6X.
+- **Miglioramento dei tempi di avvio**  : con il potenziamento, l'istanza di viene avviata con una velocità notevolmente più veloce. Ad esempio, il disco del sistema operativo predefinito per le macchine virtuali abilitate per Premium è il disco P4, ovvero le prestazioni con provisioning fino a 120 IOPS e 25 MB/s. Con l'espansione, il P4 può raggiungere 3500 IOPS e 170 MB/s, consentendo un tempo di avvio per l'accelerazione di 6X.
 - **Gestione dei processi batch** : alcuni carichi di lavoro di un'applicazione sono di natura ciclica e richiedono prestazioni di base per la maggior parte del tempo e richiedono prestazioni più elevate per un breve periodo di tempo. Un esempio è un programma di contabilità che elabora transazioni giornaliere che richiedono una piccola quantità di traffico su disco. Quindi, alla fine del mese, la riconciliazione dei report che necessitano di una quantità molto maggiore di traffico su disco.
 - **Preparazione per i picchi di traffico** : i server Web e le relative applicazioni possono riscontrare picchi di traffico in qualsiasi momento. Se il server Web è supportato da macchine virtuali o dischi con picchi, i server sono più attrezzati per gestire i picchi di traffico. 
 

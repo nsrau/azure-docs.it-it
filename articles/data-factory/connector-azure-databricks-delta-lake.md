@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/28/2020
 ms.openlocfilehash: 4ff1a793b3e8c4fe642aa304f1aa59bd8edefb8c
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405618"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiare dati da e verso Azure Databricks Delta Lake usando Azure Data Factory
@@ -69,7 +69,7 @@ Durante l'esecuzione dell'attività di copia, se il cluster configurato è stato
 
 Per informazioni dettagliate sulla configurazione del cluster, vedere [configurare i cluster](https://docs.microsoft.com/azure/databricks/clusters/configure).
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -83,7 +83,7 @@ Le proprietà seguenti sono supportate per un servizio collegato Azure Databrick
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | La proprietà Type deve essere impostata su **AzureDatabricksDeltaLake**. | Sì      |
 | dominio      | Specificare l'URL dell'area di lavoro Azure Databricks, ad esempio `https://adb-xxxxxxxxx.xx.azuredatabricks.net` . |          |
-| clusterId   | Specificare l'ID cluster di un cluster esistente. Deve essere un cluster interattivo già creato. <br>È possibile trovare l'ID cluster di un cluster interattivo nell'area di lavoro di Databricks -> Cluster -> Interactive Cluster Name (Nome cluster interattivo) -> Configurazione -> Tag. [Altre informazioni](https://docs.microsoft.com/azure/databricks/clusters/configure#cluster-tags). |          |
+| clusterId   | Specificare l'ID cluster di un cluster esistente. Deve essere un cluster interattivo già creato. <br>È possibile trovare l'ID cluster di un cluster interattivo nell'area di lavoro di Databricks -> Cluster -> Interactive Cluster Name (Nome cluster interattivo) -> Configurazione -> Tag. [Altre informazioni](https://docs.microsoft.com/azure/databricks/clusters/configure#cluster-tags) |          |
 | accessToken | Il token di accesso è obbligatorio per l'autenticazione del data factory con Azure Databricks. Deve essere generato dall'area di lavoro di Databricks. I passaggi più dettagliati per trovare il token di accesso sono disponibili [qui](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
 | connectVia  | [Runtime di integrazione](concepts-integration-runtime.md) usato per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No       |
 
@@ -116,7 +116,7 @@ Per il set di dati Azure Databricks Delta Lake sono supportate le proprietà seg
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La proprietà Type del set di dati deve essere impostata su **AzureDatabricksDeltaLakeDataset**. | Sì                         |
 | database | Nome del database. |No per l'origine, Sì per il sink  |
-| table | Nome della tabella Delta. |No per l'origine, Sì per il sink  |
+| tabella | Nome della tabella Delta. |No per l'origine, Sì per il sink  |
 
 **Esempio:**
 
@@ -152,7 +152,7 @@ Per copiare dati da Azure Databricks Delta Lake, nella sezione **origine** dell'
 | query          | Specificare la query SQL per leggere i dati. Per il controllo Time Travel, seguire il modello seguente:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | No       |
 | exportSettings | Impostazioni avanzate utilizzate per recuperare i dati dalla tabella Delta. | No       |
 | ***In `exportSettings` :*** |  |  |
-| tipo | Tipo di comando Export impostato su **AzureDatabricksDeltaLakeExportCommand**. | Sì |
+| type | Tipo di comando Export impostato su **AzureDatabricksDeltaLakeExportCommand**. | Sì |
 | dateFormat | Formattare il tipo di data in stringa con un formato di data. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd` . | No |
 | timestampFormat | Formattare il tipo di timestamp in stringa con formato timestamp. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 
@@ -266,7 +266,7 @@ Per copiare dati in Azure Databricks Delta Lake, nella sezione **sink** dell'att
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nella tabella Delta di databricks in ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati o aggiungere un'istruzione TRUNCATE TABLE o vacuum. | No       |
 | importSettings | Impostazioni avanzate utilizzate per scrivere dati nella tabella Delta. | No |
 | ***In `importSettings` :*** |                                                              |  |
-| tipo | Tipo di comando Import impostato su **AzureDatabricksDeltaLakeImportCommand**. | Sì |
+| type | Tipo di comando Import impostato su **AzureDatabricksDeltaLakeImportCommand**. | Sì |
 | dateFormat | Formattare la stringa in un tipo di data con un formato di data. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd` . | No |
 | timestampFormat | Formattare la stringa in un tipo timestamp con formato timestamp. I formati di data personalizzati seguono i formati al [modello DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se non è specificato, viene usato il valore predefinito `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 

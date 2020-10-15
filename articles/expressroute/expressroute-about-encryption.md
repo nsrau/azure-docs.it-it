@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 46f0a0e86c5db612f440bcf631329d2800251dab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397798"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996838"
 ---
 # <a name="expressroute-encryption"></a>Crittografia ExpressRoute
  
@@ -37,10 +37,8 @@ La crittografia e la decrittografia MACsec si verificano nell'hardware dei route
 IPsec è uno [standard IETF](https://tools.ietf.org/html/rfc6071). Esegue la crittografia dei dati a livello di protocollo IP (Internet Protocol) o rete 3. È possibile usare IPsec per crittografare una connessione end-to-end tra la rete locale e la rete virtuale (VNET) in Azure. Vedere le domande frequenti più avanti.
 ### <a name="can-i-enable-ipsec-in-addition-to-macsec-on-my-expressroute-direct-ports"></a>È possibile abilitare IPsec oltre a MACsec sulle porte dirette di ExpressRoute?
 Sì. MACsec protegge le connessioni fisiche tra l'utente e Microsoft. IPsec protegge la connessione end-to-end tra l'utente e le reti virtuali in Azure. È possibile abilitarli in modo indipendente. 
-### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-between-my-on-premises-network-and-my-azure-virtual-network"></a>È possibile usare il gateway VPN di Azure per configurare il tunnel IPsec tra la rete locale e la rete virtuale di Azure?
-Sì. È possibile configurare il tunnel IPsec sul peering Microsoft del circuito ExpressRoute. Seguire la [Guida alla configurazione](site-to-site-vpn-over-microsoft-peering.md).
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-over-azure-private-peering"></a>È possibile usare il gateway VPN di Azure per configurare il tunnel IPsec tramite il peering privato di Azure?
-Se si adotta la rete WAN virtuale di Azure, è possibile seguire [questa procedura](../virtual-wan/vpn-over-expressroute.md) per crittografare la connessione end-to-end. Se si dispone di VNET di Azure regolari, è possibile distribuire un gateway VPN di terze parti nella VNET e stabilire un tunnel IPsec tra l'IT e il gateway VPN locale.
+Sì. Se si adotta la rete WAN virtuale di Azure, è possibile seguire [questa procedura](../virtual-wan/vpn-over-expressroute.md) per crittografare la connessione end-to-end. Se si dispone di VNET di Azure regolari, è possibile seguire [questa procedura](../vpn-gateway/site-to-site-vpn-private-peering.md) per stabilire un tunnel IPSec tra il gateway VPN di Azure e il gateway VPN locale.
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Qual è la velocità effettiva che verrà abilitata dopo l'abilitazione di IPsec sulla connessione ExpressRoute?
 Se si usa il gateway VPN di Azure, controllare i [numeri di prestazioni qui](../vpn-gateway/vpn-gateway-about-vpngateways.md). Se viene usato un gateway VPN di terze parti, rivolgersi al fornitore per i numeri relativi alle prestazioni.
 

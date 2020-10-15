@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1bdda60d3b6f5e763bd31b25ab0fd8c2783f978d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd07370c75ac64fa8e3806fed50a64db90122c76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537929"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708306"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con AcquireIO
 
@@ -134,15 +134,15 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 1. Nella parte sinistra del menu fare clic su **App Store**.
 
-     ![Configurazione di AcquireIO](./media/acquireio-tutorial/config01.png)
+     ![Screenshot con l'opzione App Store evidenziata.](./media/acquireio-tutorial/config01.png)
 
 1. Scorrere verso il basso fino ad **Active Directory** e fare clic su **Install** (Installa).
 
-    ![Configurazione di AcquireIO](./media/acquireio-tutorial/config02.png)
+    ![Screenshot con la sezione Active Directory e il pulsante Install evidenziati.](./media/acquireio-tutorial/config02.png)
 
 1. Nella finestra popup di Active Directory seguire questa procedura:
 
-    ![Configurazione di AcquireIO](./media/acquireio-tutorial/config03.png)
+    ![Screnshot che mostra la schermata Active Directory.](./media/acquireio-tutorial/config03.png)
 
     a. Fare clic su **Copy** (Copia) per copiare l'URL di risposta per l'istanza e incollarlo nella casella di testo **URL di risposta** della sezione **Configurazione SAML di base** del portale di Azure.
 
@@ -162,7 +162,7 @@ Per consentire agli utenti di Azure AD di accedere ad AcquireIO, è necessario e
 
 1. Nella parte sinistra del menu fare clic su **Profiles** (Profili) e passare ad **Add Profile** (Aggiungi profilo).
 
-     ![Configurazione di AcquireIO](./media/acquireio-tutorial/config04.png)
+     ![Screenshot con l'opzione Profiles nel menu sul lato sinistro della schermata e l'opzione Add Profile evidenziate.](./media/acquireio-tutorial/config04.png)
 
 1. Nella finestra popup **Add customer** (Aggiungi cliente) seguire questa procedura:
 

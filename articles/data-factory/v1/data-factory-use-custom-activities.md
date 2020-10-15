@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8cd72d34535ac3a2aec60aa3d2369da34dd7194
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997456"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017404"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Usare attività personalizzate in una pipeline Azure Data Factory versione 1
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -31,7 +31,7 @@ ms.locfileid: "88997456"
 In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 
 - [Attività di spostamento dei dati](data-factory-data-movement-activities.md) per spostare i dati tra gli [archivi dati supportati di origine e sink](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) per trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Batch e Azure Machine Learning.
+- [Attività di trasformazione dei dati](data-factory-data-transformation-activities.md) per trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Batch e Azure Machine Learning Studio (classico).
 
 Per spostare dati da e verso un archivio dati non supportato da Azure Data Factory, creare un'**attività personalizzata** contenente la logica di spostamento dei dati richiesta e usarla in una pipeline. Analogamente, per trasformare o elaborare dati in un modo non supportato dalla Data Factory, creare un'attività personalizzata contenente la logica di trasformazione dei dati richiesta e usarla in una pipeline.
 
@@ -50,7 +50,7 @@ La procedura dettagliata seguente riporta le istruzioni complete per creare un'a
 ### <a name="azure-batch-prerequisites"></a>Prerequisiti di Azure Batch
 In questa procedura dettagliata vengono eseguite attività .NET personalizzate usando Azure Batch come risorsa di calcolo. **Azure Batch** è un servizio di piattaforma per eseguire in modo efficiente applicazioni parallele e HPC (High Performance Computing) su larga scala nel cloud. Azure Batch pianifica l'esecuzione del lavoro a elevato utilizzo di calcolo su una **raccolta di macchine virtuali** gestita e può ridimensionare automaticamente le risorse di calcolo in base alle esigenze dei processi. Vedere l'articolo [Nozioni di base di Azure Batch][batch-technical-overview] per una panoramica dettagliata del servizio Azure Batch.
 
-Per l'esercitazione creare un account Batch di Azure con un pool di VM. Seguire questa procedura:
+Per l'esercitazione creare un account Batch di Azure con un pool di VM. Ecco i passaggi necessari:
 
 1. Creare un **account Azure batch** usando il [portale di Azure](https://portal.azure.com). Per istruzioni, vedere l'articolo su come [creare e gestire un account Azure Batch][batch-create-account].
 2. Annotare il nome dell'account Azure Batch, la chiave account, l'URI e il nome del pool. È necessario creare un servizio collegato Azure Batch.
@@ -1025,7 +1025,7 @@ L'esempio relativo all'[ambiente locale di Azure Data Factory](https://github.co
 | Esempio | Funzioni delle attività personalizzate |
 | --- | --- |
 | [HttpDataDownloaderSample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample)(Esempio relativo al downloader dati HTTP). |Scarica i dati da un endpoint HTTP per l'archivio BLOB di Azure usando l'attività personalizzata C# in Data Factory. |
-| [Esempio di analisi del sentimento su Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Chiama un modello di Azure Machine Learning Studio ed esegue l'analisi del sentimento, l'assegnazione dei punteggi, la stima e così via. |
+| [Esempio di analisi del sentimento su Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Richiama un modello di Azure Machine Learning Studio (classico) ed esegue l'analisi dei sentimenti, assegnando punteggi, stime e così via. |
 | [Eseguire lo script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Chiama lo script R eseguendo RScript.exe sul cluster HDInsight in cui è già installato R. |
 | [Attività .NET per dominio app](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Usa versioni di assembly diverse da quelle usate dal servizio di avvio di Data Factory |
 | [Rielaborare un modello in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Rielabora un modello in Azure Analysis Services. |

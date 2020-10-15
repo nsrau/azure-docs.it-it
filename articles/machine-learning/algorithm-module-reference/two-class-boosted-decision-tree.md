@@ -1,7 +1,7 @@
 ---
-title: 'Albero delle decisioni con boosting a due classi: riferimento al modulo'
+title: 'Albero delle decisioni con boosting Two-Class: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo a albero delle decisioni con boosting a due classi in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo degli alberi delle decisioni con boosting.
+description: Informazioni su come usare il modulo di albero delle decisioni con boosting Two-Class in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo degli alberi delle decisioni con boosting.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907732"
 ---
-# <a name="two-class-boosted-decision-tree-module"></a>Modulo di albero delle decisioni con boosting a due classi
+# <a name="two-class-boosted-decision-tree-module"></a>Modulo di albero delle decisioni con boosting Two-Class
 
 Questo articolo descrive un modulo in Azure Machine Learning Designer.
 

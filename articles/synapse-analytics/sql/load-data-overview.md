@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483729"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Progettare una strategia di caricamento dei dati di base per il pool SQL di sinapsi di Azure
@@ -69,10 +69,10 @@ Se si esegue l'esportazione da SQL Server, è possibile usare lo [strumento da r
 |        string         |                           varchar                            |
 |        BINARY         |                            BINARY                            |
 |        BINARY         |                          varbinary                           |
-|       timestamp       |                             Data                             |
-|       timestamp       |                        smalldatetime                         |
-|       timestamp       |                          datetime2                           |
-|       timestamp       |                           Datetime                           |
+|        timestamp       |                             Data                             |
+|        timestamp       |                        smalldatetime                         |
+|        timestamp       |                          datetime2                           |
+|        timestamp       |                           Datetime                           |
 |       timestamp       |                             time                             |
 |       Data            |                             Data                             |
 |        decimal        |                            decimal                           |

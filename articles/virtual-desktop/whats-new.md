@@ -3,17 +3,17 @@ title: Novità di Desktop virtuale Windows - Azure
 description: Nuove funzionalità e aggiornamenti del prodotto per Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319815"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630015"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -25,6 +25,29 @@ Desktop virtuale Windows viene aggiornato regolarmente. Questo articolo include 
 - Correzioni di bug
 
 Questo articolo viene aggiornato ogni mese. Controllare spesso l'articolo per ottenere informazioni sui nuovi aggiornamenti.
+
+## <a name="september-2020"></a>Settembre 2020
+
+Ecco cosa è cambiato a settembre 2020:
+
+- Sono state ottimizzate le prestazioni riducendo la latenza di connessione nelle aree geografiche di Azure seguenti:
+    - Germania
+    - Sudafrica (solo per gli ambienti di convalida)
+
+È ora possibile usare lo [strumento di valutazione dell'esperienza](https://azure.microsoft.com/services/virtual-desktop/assessment/) per stimare la qualità dell'esperienza utente in queste aree.
+
+- È stata rilasciata la versione 1.2.1364 del client Windows Desktop per Desktop virtuale Windows. In questo aggiornamento sono state apportate le modifiche seguenti:
+    - Risoluzione di un problema a causa del quale il processo Single Sign-On (SSO) non funzionava in Windows 7.
+    - È stato risolto un problema che causava la disconnessione del client quando un utente che aveva abilitato l'ottimizzazione del contenuto multimediale per Teams tentava di chiamare o di partecipare a una riunione di Teams mentre un'altra app aveva un flusso audio aperto in modalità esclusiva.
+    - È stato risolto un problema a causa del quale Teams non enumerava i dispositivi audio o video quando era abilitata l'ottimizzazione del contenuto multimediale per Teams.
+    - Aggiunta di un collegamento per ottenere assistenza con le impostazioni nella pagina delle impostazioni desktop.
+    - Risoluzione di un problema relativo al pulsante "Sottoscrivi" che si verificava quando si usavano temi scuri a contrasto elevato.
+    
+- Grazie all'enorme aiuto degli utenti, sono stati risolti due problemi critici per il client Desktop remoto di Microsoft Store. Microsoft continuerà a esaminare il feedback e a risolvere i problemi man mano che il rilascio graduale del client viene esteso a un numero sempre maggiore di utenti in tutto il mondo.
+    
+- È stata aggiunta una nuova funzionalità che consente di modificare la posizione, l'immagine, il gruppo di risorse, il nome del prefisso e la configurazione di rete di una macchina virtuale nell'ambito del flusso di lavoro per l'aggiunta di una VM alla distribuzione nel portale di Azure.
+
+- I professionisti IT possono ora gestire le VM Windows 10 Enterprise aggiunte ad Azure Active Directory ibrido tramite Microsoft Endpoint Manager. Per altre informazioni, vedere il [post di blog](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048).
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -145,4 +168,3 @@ Servizi Desktop remoto, vedere questi articoli:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sui piani futuri, vedere la [roadmap di Desktop virtuale Windows in Microsoft 365](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
-

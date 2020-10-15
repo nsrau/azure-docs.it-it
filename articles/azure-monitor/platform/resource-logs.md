@@ -8,10 +8,10 @@ ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87800501"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
@@ -43,7 +43,7 @@ Si consideri l'esempio seguente in cui le impostazioni di diagnostica vengono ra
 
 La tabella AzureDiagnostics sarà simile alla seguente:  
 
-| ResourceProvider    | Categoria     | Una  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | Una  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | Z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -54,13 +54,13 @@ La tabella AzureDiagnostics sarà simile alla seguente:
 | ... |
 
 ### <a name="resource-specific"></a>Specifico della risorsa
-In questa modalità vengono create singole tabelle nell'area di lavoro selezionata per ogni categoria selezionata nell'impostazione di diagnostica. Questo metodo è consigliato perché rende molto più semplice lavorare con i dati nelle query di log, offre una migliore individuabilità degli schemi e della relativa struttura, migliora le prestazioni in base alla latenza di inserimento e ai tempi di query e alla possibilità di concedere diritti RBAC su una tabella specifica. Alla fine, tutti i servizi di Azure eseguiranno la migrazione alla modalità specifica della risorsa. 
+In questa modalità vengono create singole tabelle nell'area di lavoro selezionata per ogni categoria selezionata nell'impostazione di diagnostica. Questo metodo è consigliato perché rende molto più semplice lavorare con i dati nelle query di log, offre una migliore individuabilità degli schemi e della relativa struttura, migliora le prestazioni in base alla latenza di inserimento e ai tempi di query e alla possibilità di concedere diritti RBAC su una tabella specifica. Alla fine, tutti i servizi di Azure eseguiranno la migrazione alla modalità Resource-Specific. 
 
 L'esempio precedente comporterebbe la creazione di tre tabelle:
  
 - Tabella *Service1AuditLogs* come segue:
 
-    | Provider di risorse | Categoria | Una | b | C |
+    | Provider di risorse | Category | Una | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | Z1 |
     | Service1 | AuditLogs | X5 | Y5 | z5 |
@@ -68,7 +68,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 - Tabella *Service1ErrorLogs* come segue:  
 
-    | Provider di risorse | Categoria | D | E | F |
+    | Provider di risorse | Category | D | E | F |
     | -- | -- | -- | -- | -- | 
     | Service1 | ErrorLogs |  q1 | W1 | E1 |
     | Service1 | ErrorLogs |  q2 | W2 | E2 |
@@ -76,7 +76,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 - Tabella *Service2AuditLogs* come segue:  
 
-    | Provider di risorse | Categoria | G | H | I |
+    | Provider di risorse | Category | G | H | I |
     | -- | -- | -- | -- | -- |
     | Service2 | AuditLogs | J1 | k1 | L1|
     | Service2 | AuditLogs | J3 | K3 | L3|
@@ -85,7 +85,7 @@ L'esempio precedente comporterebbe la creazione di tre tabelle:
 
 
 ### <a name="select-the-collection-mode"></a>Selezionare la modalità di raccolta
-La maggior parte delle risorse di Azure scriverà i dati nell'area di lavoro in modalità **diagnostica di Azure** o **specifica della risorsa** senza alcuna scelta. Per informazioni dettagliate sulla modalità di utilizzo, vedere la [documentazione relativa a ogni servizio](./resource-logs-schema.md) . Tutti i servizi di Azure utilizzeranno la modalità specifica della risorsa. Come parte di questa transizione, alcune risorse consentiranno di selezionare una modalità nell'impostazione di diagnostica. Specificare la modalità specifica della risorsa per tutte le nuove impostazioni di diagnostica, in quanto ciò rende più semplice la gestione dei dati e può essere utile per evitare migrazioni complesse in un secondo momento.
+La maggior parte delle risorse di Azure scriverà i dati nell'area di lavoro in modalità **diagnostica di Azure** o **specifica della risorsa** senza alcuna scelta. Per informazioni dettagliate sulla modalità di utilizzo, vedere la [documentazione relativa a ogni servizio](./resource-logs-schema.md) . Tutti i servizi di Azure utilizzeranno alla fine la modalità Resource-Specific. Come parte di questa transizione, alcune risorse consentiranno di selezionare una modalità nell'impostazione di diagnostica. Specificare la modalità specifica della risorsa per tutte le nuove impostazioni di diagnostica, in quanto ciò rende più semplice la gestione dei dati e può essere utile per evitare migrazioni complesse in un secondo momento.
   
    ![Selettore modalità impostazioni di diagnostica](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
@@ -95,7 +95,7 @@ La maggior parte delle risorse di Azure scriverà i dati nell'area di lavoro in 
 
 È possibile modificare un'impostazione di diagnostica esistente in modalità specifica della risorsa. In questo caso, i dati già raccolti rimarranno nella tabella _AzureDiagnostics_ fino a quando non vengono rimossi in base all'impostazione di conservazione per l'area di lavoro. I nuovi dati verranno raccolti nella tabella dedicata. Utilizzare l'operatore [Union](/azure/kusto/query/unionoperator) per eseguire query sui dati in entrambe le tabelle.
 
-Continua a guardare il Blog sugli [aggiornamenti di Azure per gli](https://azure.microsoft.com/updates/) annunci relativi ai servizi di Azure che supportano la modalità specifica delle risorse.
+Continua a guardare il Blog sugli [aggiornamenti di Azure per gli](https://azure.microsoft.com/updates/) annunci relativi ai servizi di Azure che supportano la modalità Resource-Specific.
 
 ### <a name="column-limit-in-azurediagnostics"></a>Limite di colonne in AzureDiagnostics
 È previsto un limite di proprietà di 500 per qualsiasi tabella nei log di monitoraggio di Azure. Una volta raggiunto questo limite, le righe contenenti dati con qualsiasi proprietà al di fuori della prima 500 verranno eliminate in fase di inserimento. La tabella *AzureDiagnostics* è particolarmente soggetta a questo limite, perché include le proprietà per tutti i servizi di Azure che scrivono.

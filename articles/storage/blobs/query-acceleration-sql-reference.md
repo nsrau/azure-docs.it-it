@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659557"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Informazioni di riferimento sul linguaggio SQL di accelerazione query
@@ -94,7 +94,7 @@ Sono supportati gli operatori SQL standard seguenti:
 |[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Esegue un'operazione con AND logico bit per bit tra due valori integer.|
 |[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Esegue un'operazione con OR logico bit per bit tra due valori integer specificati convertiti in espressioni binarie in istruzioni Transact-SQL.|
 |[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Nega un input booleano.|
-|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Consente di convertire un'espressione da un tipo di dati a un altro.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converte un'espressione da un tipo di dati a un altro.|
 |[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Specifica un intervallo da testare.|
 |[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Determina se il valore specificato corrisponde a un valore in una sottoquery o in un elenco.|
 |[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Restituisce un valore Null se le due espressioni specificate sono uguali.|
@@ -336,7 +336,7 @@ Nella maggior parte dei casi, la dimensione di ogni batch sarà leggermente supe
 >[!NOTE]
 > Il split_size deve essere almeno 10 MB (10485760).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Accelerazione query Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
 - [Filtrare i dati tramite Azure Data Lake Storage accelerazione query](data-lake-storage-query-acceleration-how-to.md)

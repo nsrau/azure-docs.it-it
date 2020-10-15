@@ -1,5 +1,5 @@
 ---
-title: Usare il tipo di contenuto JSON per i valori di chiave
+title: Usare l'intestazione content-type JSON per le coppie chiave-valore
 titleSuffix: Azure App Configuration
 description: Informazioni su come usare il tipo di contenuto JSON per i valori chiave
 services: azure-app-configuration
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
 ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88122039"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Usare Content-Type per archiviare i valori della chiave JSON nella configurazione dell'app

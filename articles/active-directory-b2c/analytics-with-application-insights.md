@@ -12,10 +12,10 @@ ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67ea7324419d86fa5b5c23a2f0aa5f8c057495d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85385978"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Tenere traccia del comportamento degli utenti in Azure Active Directory B2C usando Application Insights
@@ -29,7 +29,7 @@ Azure Active Directory B2C (Azure AD B2C) supporta l'invio diretto di dati di ev
 * Misurare le prestazioni.
 * Creare notifiche da Application Insights.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Il profilo tecnico [Application Insights](application-insights-technical-profile.md) definisce un evento da Azure ad B2C. Il profilo specifica il nome dell'evento, le attestazioni che verranno registrate e la chiave di strumentazione. Per pubblicare un evento, il profilo tecnico viene quindi aggiunto come passaggio di orchestrazione in un [percorso utente](userjourneys.md).
 
@@ -106,7 +106,7 @@ I profili tecnici possono essere considerati funzioni in Framework dell'esperien
 
 | Profilo tecnico | Attività |
 | ----------------- | -----|
-| AppInsights-comune | Set comune di parametri da includere in tutti i profili tecnici di Azure Insights. |
+| AppInsights-Common | Set comune di parametri da includere in tutti i profili tecnici di Azure Insights. |
 | AppInsights-SignInRequest | Registra un `SignInRequest` evento con un set di attestazioni quando è stata ricevuta una richiesta di accesso. |
 | AppInsights-UserSignUp | Registra un `UserSignUp` evento quando l'utente attiva l'opzione di iscrizione in un percorso di iscrizione/accesso. |
 | AppInsights-SignInComplete | Registra un `SignInComplete` evento al completamento di un'autenticazione quando un token è stato inviato all'applicazione relying party. |
@@ -227,7 +227,7 @@ Salvare e caricare il file *TrustFrameworkExtensions.xml*. Chiamare quindi i cri
 
 ## <a name="optional-collect-more-data"></a>Opzionale Raccogli più dati
 
-Aggiungere tipi di attestazioni ed eventi al proprio percorso utente in base alle esigenze. È possibile usare i [resolver di attestazioni](claim-resolver-overview.md) o qualsiasi tipo di attestazione stringa, aggiungere le attestazioni aggiungendo un elemento **Claim di Input** all'evento Application Insights o al profilo tecnico comune AppInsights.
+Aggiungere tipi di attestazioni ed eventi al proprio percorso utente in base alle esigenze. È possibile usare i [resolver di attestazioni](claim-resolver-overview.md) o qualsiasi tipo di attestazione stringa, aggiungere le attestazioni aggiungendo un elemento **Claim di Input** all'evento Application Insights o al profilo tecnico AppInsights-Common.
 
 - **ClaimTypeReferenceId** è il riferimento a un tipo di attestazione.
 - **PartnerClaimType** è il nome della proprietà visualizzato in Azure Insights. Usare la sintassi `{property:NAME}`, dove `NAME` è la proprietà da aggiungere all'evento.

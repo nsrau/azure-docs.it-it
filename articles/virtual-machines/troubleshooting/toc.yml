@@ -241,9 +241,9 @@
 - name: Risolvere i problemi delle raccolte immagini condivise
   items:
     - name: Risolvere i problemi della raccolta immagini condivise - Windows
-      href: ../windows/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
     - name: Risolvere i problemi della raccolta immagini condivise - Linux
-      href: ../linux/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
 - name: Problemi relativi alle estensioni delle macchine virtuali
   items:
     - name: Panoramica delle estensioni di Azure

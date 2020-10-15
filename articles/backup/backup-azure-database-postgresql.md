@@ -1,15 +1,15 @@
 ---
-title: Backup di database di Azure per PostgreSQL
+title: Eseguire il backup di Database di Azure per PostgreSQL
 description: Informazioni sul backup di database di Azure per PostgreSQL con conservazione a lungo termine (anteprima)
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: ae18a5bb40d8993c82b2f3e03f231711ba3beebe
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997313"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093889"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Backup del database di Azure per PostgreSQL con conservazione a lungo termine (anteprima)
 
@@ -17,7 +17,7 @@ Backup di Azure e i servizi di database di Azure sono disponibili per creare una
 
 Oltre alla conservazione a lungo termine, la soluzione presenta anche molte altre funzionalità, come indicato di seguito:
 
-- Accesso basato su RBAC al database tramite l'autenticazione Azure Active Directory e identità del servizio gestita (MSI).
+- Controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per il database tramite l'autenticazione Azure Active Directory e identità del servizio gestita (MSI).
 - Backup pianificato e su richiesta controllati dal cliente a livello di singolo database.
 - Il ripristino a livello di database viene ripristinato in qualsiasi server Postgres o direttamente nell'archivio BLOB.
 - Conservazione a lungo termine.

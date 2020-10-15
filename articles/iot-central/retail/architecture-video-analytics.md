@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 48808f762536390287bae40e8af3849da20b81c2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372205"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874289"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Analisi video-architettura delle applicazioni di rilevamento di oggetti e movimenti
 
@@ -41,4 +41,4 @@ Il grafico multimediale consente di definire il punto in cui acquisire i file mu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il passaggio successivo suggerito consiste nell'apprendere come [creare un'applicazione di analisi video in Azure IOT Central](tutorial-video-analytics-create-app.md).
+Il passaggio successivo suggerito consiste nell'apprendere come [distribuire un'applicazione IoT Central usando il modello applicazione video Analytics-oggetto e rilevamento movimento](tutorial-video-analytics-deploy.md).

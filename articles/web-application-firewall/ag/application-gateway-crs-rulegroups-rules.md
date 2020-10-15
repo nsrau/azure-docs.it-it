@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85052016"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regole e gruppi di regole CRS del Web Application Firewall
@@ -99,7 +99,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 # <a name="owasp-31"></a>[OWASP 3,1](#tab/owasp31)
 
-## <a name="rule-sets"></a><a name="owasp31"></a>Set di regole
+## <a name="rule-sets"></a><a name="owasp31"></a> Set di regole
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">Generale</p>
 
@@ -240,9 +240,9 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |933131|Attacco PHP injection: sono state trovate variabili|
 |933140|Attacco PHP injection: trovato flusso di I/O|
 |933150|Attacco PHP injection: trovato nome funzione PHP ad alto rischio|
-|933151|Attacco PHP injection: trovato nome funzione PHP a medio rischio|
+|933151|Attacco PHP injection: trovato Medium-Risk nome della funzione PHP|
 |933160|Attacco PHP injection: trovata chiamata di funzione PHP ad alto rischio|
-|933161|Attacco PHP injection: trovata chiamata di funzione PHP di basso valore|
+|933161|Attacco PHP injection: trovato Low-Value chiamata di funzione PHP|
 |933170|Attacco PHP injection: inserimento di oggetti serializzati|
 |933180|Attacco PHP injection: trovata chiamata di funzione variabile|
 |933190|Attacco PHP injection: trovato tag di chiusura PHP|
@@ -347,7 +347,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 # <a name="owasp-30"></a>[OWASP 3.0](#tab/owasp30)
 
-## <a name="rule-sets"></a><a name="owasp30"></a>Set di regole
+## <a name="rule-sets"></a><a name="owasp30"></a> Set di regole
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">Generale</p>
 
@@ -547,9 +547,9 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 
 # <a name="owasp-229"></a>[2.2.9 OWASP](#tab/owasp2)
 
-## <a name="rule-sets"></a><a name="owasp229"></a>Set di regole
+## <a name="rule-sets"></a><a name="owasp229"></a> Set di regole
 
-### <a name="crs_20_protocol_violations"></a><a name="crs20"></a>crs_20_protocol_violations
+### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 
 |ID regola|Descrizione|
 |---|---|
@@ -575,7 +575,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |960901|Carattere non valido nella richiesta|
 |960018|Carattere non valido nella richiesta|
 
-### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a> crs_21_protocol_anomalies
 
 |ID regola|Descrizione|
 |---|---|
@@ -588,7 +588,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |960904|Richiesta con contenuto ma senza intestazione Content-Type|
 |960017|Intestazione host costituita da un indirizzo IP numerico|
 
-### <a name="crs_23_request_limits"></a><a name="crs23"></a>crs_23_request_limits
+### <a name="crs_23_request_limits"></a><a name="crs23"></a> crs_23_request_limits
 
 |ID regola|Descrizione|
 |---|---|
@@ -599,7 +599,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |960342|Dimensione file caricato troppo grande|
 |960343|Dimensione totale dei file caricati troppo grande|
 
-### <a name="crs_30_http_policy"></a><a name="crs30"></a>crs_30_http_policy
+### <a name="crs_30_http_policy"></a><a name="crs30"></a> crs_30_http_policy
 
 |ID regola|Descrizione|
 |---|---|
@@ -609,7 +609,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |960035|Estensione file URL limitata da criteri|
 |960038|Intestazione HTTP limitata da criteri|
 
-### <a name="crs_35_bad_robots"></a><a name="crs35"></a>crs_35_bad_robots
+### <a name="crs_35_bad_robots"></a><a name="crs35"></a> crs_35_bad_robots
 
 |ID regola|Descrizione|
 |---|---|
@@ -684,7 +684,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |981253|Rilevamento inserimenti di stored procedure/funzioni MySQL e PostgreSQL|
 |981251|Rilevamento di inserimento di funzioni definite dall'utente MySQL e altri tentativi di manipolazione dati/struttura|
 
-### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a> crs_41_xss_attacks
 
 |ID regola|Descrizione|
 |---|---|
@@ -789,7 +789,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |973329|Filtri XSS IE: rilevato attacco|
 |973328|Filtri XSS IE: rilevato attacco|
 
-### <a name="crs_42_tight_security"></a><a name="crs42"></a>crs_42_tight_security
+### <a name="crs_42_tight_security"></a><a name="crs42"></a> crs_42_tight_security
 
 |ID regola|Descrizione|
 |---|---|

@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: c354c1c9dfacfcb6bf84f1140b58deca60c1874e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86109842"
 ---
 # <a name="scale-migration-of-vms"></a>Ridimensionare la migrazione delle macchine virtuali 
@@ -23,7 +23,7 @@ Sono disponibili script di Site Recovery per il download nel repository [Azure P
 - È possibile specificare l'indirizzo IP statico solo per la scheda di interfaccia di rete primaria della macchina virtuale di destinazione
 - Gli script non accettano gli input correlati al Vantaggio Azure Hybrid ed è necessario aggiornare manualmente le proprietà della macchina virtuale replicata nel portale
 
-## <a name="how-does-it-work"></a>Funzionamento
+## <a name="how-does-it-work"></a>Come funziona?
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, è necessario seguire questi passaggi:

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018859"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653163"
 ---
 # <a name="tutorial-manipulating-models"></a>Esercitazione: Manipolazione dei modelli
 
@@ -161,7 +161,7 @@ A questo punto, quando lo script **RemoteBounds** viene aggiunto allo stesso Gam
 
 1. Eseguire di nuovo l'applicazione. Subito dopo il caricamento del modello, verranno visualizzati i limiti per l'oggetto remoto. Sotto i valori verrà visualizzato qualcosa di simile:
 
-     ![Limiti aggiornati](./media/updated-bounds.png)
+     ![Screenshot che mostra l'esempio per i limiti dell'oggetto remoto.](./media/updated-bounds.png)
 
 A questo punto è disponibile un oggetto **BoxCollider** locale configurato con limiti accurati nell'oggetto Unity. I limiti consentono la visualizzazione e l'interazione usando le stesse strategie applicate per un oggetto sottoposto a rendering in locale, ad esempio script che modificano la trasformazione, la fisica e altro ancora.
 

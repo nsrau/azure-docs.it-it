@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 3366f39f3aca8ad0114244c122d1003b5e9b91a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90929531"
 ---
 # <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>Esercitazione: Distribuire un'app Django con il servizio app e il server flessibile di Database di Azure per PostgreSQL (anteprima)
@@ -270,11 +270,11 @@ Passare a *http:\//\<app-name>.azurewebsites.net* e testare di nuovo l'app nell'
 
 Nel [portale di Azure](https://portal.azure.com) cercare il nome dell'app e quindi selezionare l'app nei risultati.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Passare all'app Python Django nel portale di Azure":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Output di esempio del server di sviluppo Django":::
 
 Per impostazione predefinita, il portale visualizza la pagina di **panoramica** dell'app, che fornisce una visualizzazione generale delle prestazioni. Qui è possibile eseguire attività di gestione di base come esplorazione, arresto, riavvio ed eliminazione. Le schede sul lato sinistro della pagina mostrano le diverse pagine di configurazione che è possibile aprire.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Gestire l'app Python Django nella pagina Panoramica del portale di Azure":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Output di esempio del server di sviluppo Django":::
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

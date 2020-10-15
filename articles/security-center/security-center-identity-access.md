@@ -11,59 +11,83 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2020
+ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894560"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946222"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorare identità e accesso
 
-> [!TIP]
-> Dal 2020 marzo, le raccomandazioni relative a identità e a accesso del Centro sicurezza di Azure sono incluse in tutte le sottoscrizioni del piano tariffario gratuito. Se si hanno sottoscrizioni nel livello gratuito, il punteggio di sicurezza corrispondente sarà influenzato dal fatto che non sono state precedentemente valutate in termini di sicurezza dell'accesso e delle identità. 
+Il perimetro di sicurezza si è evoluto da perimetro di rete a perimetro di identità. Con questo sviluppo, la sicurezza è inferiore alla difesa della rete e altre informazioni sulla gestione della sicurezza di app, dati e utenti.
 
-Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
+Monitorando le attività e le impostazioni di configurazione relative all'identità, è possibile intraprendere azioni proattive prima che avvenga un evento imprevisto oppure azioni reattive per arrestare i tentativi di attacco.
 
-Il perimetro di sicurezza si è evoluto da perimetro di rete a perimetro di identità. La sicurezza consiste sempre meno nel difendere la rete e sempre più nel difendere i dati e nel gestire la sicurezza di app e utenti. Attualmente, con il trasferimento nel cloud di una maggiore quantità di dati e app, l'identità diventa il nuovo perimetro.
+## <a name="what-identity-and-access-safeguards-does-security-center-provide"></a>Quali misure di sicurezza di identità e accesso sono disponibili nel centro sicurezza? 
 
-Il monitoraggio delle attività associate alle identità consente di intraprendere azioni proattive prima che si verifichi un evento imprevisto o azioni reattive per bloccare un tentativo di attacco. Ad esempio, il Centro sicurezza potrebbe contrassegnare per la rimozione gli account deprecati, ovvero gli account che non sono più necessari e a cui Azure Active Directory ha bloccato l'accesso. 
+Il Centro sicurezza di Azure dispone di due controlli di sicurezza dedicati per garantire che i requisiti di sicurezza e identità dell'organizzazione siano soddisfatti: 
 
-Di seguito sono riportati alcuni esempi di raccomandazioni che è possibile vedere nella sezione relativa alla sicurezza delle risorse **Identità e accesso** del Centro sicurezza di Azure:
+ - **Gestire l'accesso e le autorizzazioni** : si consiglia di adottare il [modello di accesso con privilegi minimi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e di garantire agli utenti solo l'accesso necessario per svolgere i propri processi. Questo controllo include anche suggerimenti per l'implementazione del [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/overview.md) per controllare l'accesso alle risorse.
+ 
+ - **Abilitare** l' [autenticazione a più fattori con l'](https://www.microsoft.com/security/business/identity/mfa) autenticazione a più fattori abilitata, gli account sono più sicuri e gli utenti possono ancora eseguire l'autenticazione a quasi tutte le applicazioni con Single Sign-on.
+
+### <a name="example-recommendations-for-identity-and-access"></a>Suggerimenti di esempio per identità e accesso
+
+Esempi di raccomandazioni che è possibile visualizzare in questi due controlli nella pagina delle **raccomandazioni** del Centro sicurezza:
 
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di proprietario per la sottoscrizione
 - Per la sottoscrizione devono essere designati al massimo 3 proprietari
 - Gli account esterni con autorizzazioni di lettura devono essere rimossi dalla sottoscrizione
-- Gli account deprecati devono essere rimossi dalla sottoscrizione
+- Gli account deprecati devono essere rimossi dalla sottoscrizione (gli account deprecati sono account non più necessari e bloccati dall'accesso da Azure Active Directory)
 
-Per altre informazioni e per un elenco completo delle raccomandazioni che potrebbero essere visualizzate, vedere [Raccomandazioni relative a identità e accesso](recommendations-reference.md#recs-identity).
+> [!TIP]
+> Per ulteriori informazioni su questi consigli e sugli altri elementi che possono essere visualizzati in questi controlli, vedere le indicazioni relative a [identità e accesso](recommendations-reference.md#recs-identity).
 
-> [!NOTE]
-> Se la sottoscrizione include più di 600 account, il Centro sicurezza non è in grado di applicare i consigli relativi all'identità per la sottoscrizione. Le raccomandazioni non applicate sono elencate in "valutazioni non disponibili".
-Il Centro sicurezza non è in grado di applicare i consigli relativi all'identità per gli agenti di amministrazione di un partner Cloud Solution Provider (CSP).
->
+### <a name="limitations"></a>Limitazioni
 
+Esistono alcune limitazioni per le protezioni di identità e accesso del Centro sicurezza:
 
-Tutte le raccomandazioni relative a identità e accesso sono disponibili all'interno di due controlli di sicurezza nella pagina **Raccomandazioni**:
+- Le raccomandazioni relative all'identità non sono disponibili per le sottoscrizioni con più di 600 account. In questi casi, queste raccomandazioni verranno elencate in "valutazioni non disponibili".
+- Le raccomandazioni di identità non sono disponibili per gli agenti di amministrazione del partner Cloud Solution Provider (CSP).
+- Le raccomandazioni di identità non identificano gli account gestiti con un sistema di gestione delle identità con privilegi (PIM). Se si usa uno strumento PIM, è possibile che vengano visualizzati risultati non accurati nel controllo **Gestisci accesso e autorizzazioni** .
 
-- Gestire l'accesso e le autorizzazioni 
-- Abilitare MFA
+## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Multi-factor authentication (autenticazione a più fattori) e Azure Active Directory 
 
-![I due controlli di sicurezza con le raccomandazioni relative a identità e accesso](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
-
-
-## <a name="enable-multi-factor-authentication-mfa"></a>Abilitare l'autenticazione a più fattori (MFA)
-
-Per abilitare l'autenticazione a più fattori sono necessarie [autorizzazioni tenant di Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+Per abilitare l'autenticazione a più fattori sono necessarie [autorizzazioni tenant di Azure Active Directory (AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 - Se si ha un'edizione Premium di AD, abilitare l'autenticazione a più fattori usando l'[accesso condizionale](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+- Se si usa AD Free Edition, abilitare le **impostazioni predefinite di sicurezza** come descritto in [Azure Active Directory documentazione](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
-- Se si usa AD Free Edition, abilitare le **impostazioni predefinite di sicurezza** in Azure Active Directory come descritto nella [documentazione di ad](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+## <a name="identify-accounts-without-multi-factor-authentication-mfa-enabled"></a>Identificare gli account senza multi-factor authentication (autenticazione a più fattori abilitata)
+
+Per visualizzare gli account in cui non è abilitata l'autenticazione a più fattori, usare la query di Azure Resource Graph seguente. La query restituisce tutte le risorse non integre-account-della raccomandazione "l'autenticazione a più fattori deve essere abilitata per gli account con autorizzazioni proprietario per la sottoscrizione". 
+
+1. Aprire **Esplora grafico risorse di Azure**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Avvio della pagina consigli di Azure Resource Graph Explorer * *" :::
+
+1. Immettere la query seguente e selezionare **Esegui query**.
+
+    ```kusto
+    securityresources
+     | where type == "microsoft.security/assessments"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.status.code == "Unhealthy"
+    ```
+
+1. La `additionalData` Proprietà rivela l'elenco degli ID oggetto account per gli account che non hanno l'autenticazione a più fattori applicata. 
+
+    > [!NOTE]
+    > Gli account vengono visualizzati come ID oggetto anziché come nomi di account per proteggere la privacy dei titolari dell'account.
+
+> [!TIP]
+> In alternativa, è possibile usare le valutazioni dei metodi dell'API REST del Centro sicurezza [: Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli articoli seguenti:
+Per ulteriori informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere l'articolo seguente:
 
 - [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)

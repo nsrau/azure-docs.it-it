@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987214"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurare Avvio/Arresto di macchine virtuali durante gli orari di minore attività
@@ -143,13 +143,13 @@ Per modificare le notifiche tramite posta elettronica dopo la distribuzione di A
 
 2. Nella pagina StartStop_VM_Notification fare clic su **Modifica dettagli** in **Dettagli**. Si aprirà la pagina Email/SMS/Push/Voice (Posta elettronica/SMS/Push/Voce). Aggiornare l'indirizzo di posta elettronica e fare clic su **OK** per salvare le modifiche.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot della pagina posta elettronica/SMS/push/Voice che mostra un esempio di indirizzo di posta elettronica aggiornato.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot della pagina Monitoraggio-gruppi di azione.":::
 
     In alternativa è possibile aggiungere azioni aggiuntive al gruppo di azione, per altre informazioni sui gruppi di azioni, vedere [gruppi di azioni](../azure-monitor/platform/action-groups.md)
 
 Di seguito è riportato un messaggio di posta elettronica di esempio che viene inviato quando la funzionalità arresta macchine virtuali.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot di un messaggio di posta elettronica di esempio inviato quando la funzionalità arresta le macchine virtuali.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot della pagina Monitoraggio-gruppi di azione.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Aggiungere o escludere macchine virtuali
 

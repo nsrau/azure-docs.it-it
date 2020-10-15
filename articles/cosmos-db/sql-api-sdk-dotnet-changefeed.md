@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.openlocfilehash: e4c2969db560ff20cae2ed7b9ffbe0cea206c7a1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611572"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change Feed Processor SDK: download e note sulla versione
@@ -22,19 +22,19 @@ ms.locfileid: "91611572"
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [SDK di feed di modifiche .NET v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring data V2](sql-api-sdk-java-spring-v2.md)
-> * [Spring data V3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Connettore Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * Rest (/rest/api
-> * [Provider di risorse REST] (/rest/api
+> * [REST](/rest/api
+> * [Provider di risorse REST](/rest/api
 > * [SQL](sql-api-query-reference.md)
-> * [Executor in blocco-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Esecuzione bulk - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
@@ -52,11 +52,11 @@ ms.locfileid: "91611572"
 ### <a name="v2-builds"></a>Build della seconda versione
 
 ### <a name="232"></a><a id="2.3.2"></a>2.3.2
-* Aggiunta della compatibilità dell'archivio lease con [V3 SDK che consente percorsi di migrazione a caldo. Un'applicazione può eseguire la migrazione a V3 SDK ed eseguire nuovamente la migrazione alla libreria del processore dei feed delle modifiche senza perdere alcuno stato.
+* Aggiunta la compatibilità dell'archivio di lease con [l'SDK v3 che consente percorsi di migrazione critici. È possibile eseguire la migrazione all'SDK v3 e ritrasferirla alla libreria del processore del feed di modifiche senza perdere alcuno stato.
 
 ### <a name="231"></a><a id="2.3.1"></a>2.3.1
-* Correzione di un caso `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` in cui il motivo di chiusura è stato inviato a `FeedProcessing.IChangeFeedObserver.CloseAsync` se non è possibile trovare la partizione o se la replica di destinazione non è aggiornata con la sessione di lettura. In questi casi `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` vengono ora usati i motivi di chiusura.
-* È stato aggiunto un nuovo motivo `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` di chiusura che viene inviato per chiudere l'osservatore del feed di modifiche quando la replica di destinazione non è aggiornata con la sessione di lettura.
+* Correzione di un caso per cui viene inviato il motivo di chiusura `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` a `FeedProcessing.IChangeFeedObserver.CloseAsync` se non è possibile trovare la partizione o se la replica di destinazione non è aggiornata con la sessione di lettura. In questi casi vengono ora usati i motivi di chiusura `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` e `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`.
+* Aggiunto un nuovo motivo di chiusura `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` inviato per chiudere l'osservatore del feed di modifiche quando la replica di destinazione non è aggiornata con la sessione di lettura.
 
 ### <a name="230"></a><a id="2.3.0"></a>2.3.0
 * Aggiunta di un nuovo metodo `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` e dell'interfaccia pubblica corrispondente `ICheckpointPartitionProcessorFactory`. In questo modo un'implementazione dell'interfaccia `IPartitionProcessor` può usare il meccanismo di checkpoint incorporato. La nuova factory è simile all'elemento `IPartitionProcessorFactory` esistente, con la differenza che il metodo `Create` accetta anche il parametro `ILeaseCheckpointer`.
@@ -72,9 +72,9 @@ ms.locfileid: "91611572"
   * Aggiunta di un nuovo valore di enumerazione pubblica: `Monitoring.MonitoredOperation.ReadChangeFeed`. Quando il valore di `HealthMonitoringRecord.Operation` è impostato su `Monitoring.MonitoredOperation.ReadChangeFeed`, il problema di integrità è correlato alla lettura del feed di modifiche.
 
 ### <a name="227"></a><a id="2.2.7"></a>2.2.7
-* Strategia di bilanciamento del carico migliorata per lo scenario quando il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza del lease, ad esempio a causa di problemi di rete:
-  * In questo scenario, l'algoritmo di bilanciamento del carico usato per considerare erroneamente i lease come scaduti, causando il furto dei lease dai proprietari attivi. Questo potrebbe causare il ribilanciamento superfluo di molti lease.
-  * Questo problema è stato risolto in questa versione, evitando i tentativi in caso di conflitto durante l'acquisizione del lease scaduto quale proprietario non è stato modificato e posticipando l'acquisizione del lease scaduto alla successiva iterazione del bilanciamento del carico.
+* Migliorata la strategia di bilanciamento del carico per uno scenario in cui il recupero di tutti i lease richiede più tempo rispetto all'intervallo di scadenza dei lease, ad esempio a causa di problemi di rete:
+  * In questo scenario l'algoritmo di bilanciamento del carico considerava erroneamente i lease come scaduti causando il furto dei lease dai proprietari attivi. Questa situazione poteva attivare il ribilanciamento superfluo di un numero elevato di lease.
+  * Questo problema è stato risolto in questa versione, evitando nuovi tentativi in caso di conflitto durante l'acquisizione del lease scaduto che il proprietario non ha cambiato e posticipando l'acquisizione del lease scaduto alla successiva iterazione del bilanciamento del carico.
 
 ### <a name="226"></a><a id="2.2.6"></a>2.2.6
 * Gestione delle eccezioni di Observer migliorata.
@@ -84,7 +84,7 @@ ms.locfileid: "91611572"
 
 ### <a name="225"></a><a id="2.2.5"></a>2.2.5
 * Aggiunta del supporto per la gestione della suddivisione nelle raccolte che usano la velocità effettiva per database condivisi.
-  * Questa versione corregge un problema che può verificarsi durante la suddivisione nelle raccolte usando la velocità effettiva del database condiviso quando il risultato della suddivisione viene ribilanciato nel ribilanciamento delle partizioni con un solo intervallo di chiavi di partizione figlio creato, invece di due. Quando ciò si verifica, il processore dei feed di modifiche può rimanere bloccato durante l'eliminazione del lease per l'intervallo di chiavi di partizione precedente e non creare nuovi lease. Il problema è stato corretto in questa versione.
+  * Questa versione corregge un problema che può verificarsi durante la divisione in raccolte che usano unità elaborate di database condivise, quando la divisione genera un ribilanciamento delle partizioni con la creazione di un solo intervallo di chiavi di partizione figlio, anziché di due. Quando ciò si verifica, il processore dei feed di modifiche può rimanere bloccato durante l'eliminazione del lease per l'intervallo di chiavi di partizione precedente e non creare nuovi lease. Il problema è stato corretto in questa versione.
 
 ### <a name="224"></a><a id="2.2.4"></a>2.2.4
 * Nuova proprietà aggiunta ChangeFeedProcessorOptions.StartContinuation per supportare l'avvio del feed di modifica dal token di continuazione della richiesta. Viene utilizzato solo quando la raccolta di lease è vuota o un lease non ha impostato ContinuationToken. Per i lease nella raccolta di lease con ContinuationToken impostato, viene usato ContinuationToken e viene ignorato ChangeFeedProcessorOptions.StartContinuation.
@@ -100,11 +100,11 @@ ms.locfileid: "91611572"
 * Questa versione corregge un problema che si verifica durante l'elaborazione di una divisione nella raccolta monitorata e l'utilizzo di una raccolta di lease partizionata. Durante l'elaborazione di un lease per partizione divisa, il lease corrispondente a quella partizione non può essere eliminato. Il problema è stato corretto in questa versione.
 
 ### <a name="221"></a><a id="2.2.1"></a>2.2.1
-* Correzione del calcolo di stima per gli account con più aree di scrittura e il nuovo formato del token di sessione.
+* Correzione del calcolo di stima per gli account con più aree di scrittura e nuovo formato di token di sessione.
 
 ### <a name="220"></a><a id="2.2.0"></a>2.2.0
 * Aggiunta del supporto per le raccolte partizionate di lease. La chiave di partizione deve essere definita come /id.
-* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di fornire un'implementazione personalizzata del client di documenti da usare con il processore di feed di modifiche, ad esempio, decorare DocumentClient e intercettare tutte le chiamate ad esso per eseguire analisi aggiuntive, gestione degli errori e così via. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato in modo da includere nuovi parametri nell'implementazione.
+* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzato che consente di offrire un'implementazione personalizzata del client di documenti da usare con il processore dei feed di modifiche, ad esempio per decorare DocumentClient e intercettare tutte le chiamate che riceve per l'esecuzione di operazioni aggiuntive di analisi, gestione degli errori, e così via. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere i nuovi parametri nell'implementazione.
 * Miglioramenti della diagnostica secondari.
 
 ### <a name="210"></a><a id="2.1.0"></a>2.1.0
@@ -191,7 +191,7 @@ ms.locfileid: "91611572"
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata. Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
 
 > [!WARNING]
-> Dopo il 31 agosto 2022, Azure Cosmos DB non effettueranno più correzioni di bug, aggiungono nuove funzionalità e forniranno il supporto per le versioni 1. x dell'Azure Cosmos DB .NET o .NET Core SDK per l'API SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1. x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
+> Dopo il 31 agosto 2022, Azure Cosmos DB non eseguirà più correzioni dei bug, non aggiungerà nuove funzionalità, né fornirà supporto per le versioni 1.x dell'API Azure Cosmos DB .NET o .NET Core SDK per SQL. Se si preferisce non eseguire l'aggiornamento, le richieste inviate dalla versione 1.x dell'SDK continueranno a essere gestite dal servizio Azure Cosmos DB.
 
 <br/>
 

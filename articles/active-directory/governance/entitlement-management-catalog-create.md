@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90980039"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
@@ -71,7 +71,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 
 1. Fare clic su un tipo di risorsa: **gruppi e team**, **applicazioni**o **siti di SharePoint**.
 
-    Se non viene visualizzata una risorsa che si vuole aggiungere o se non si è in grado di aggiungere una risorsa, verificare di avere il ruolo Azure AD della directory e il ruolo di gestione dei diritti richiesti. Potrebbe essere necessario disporre di un utente con i ruoli necessari per aggiungere la risorsa al catalogo. Per ulteriori informazioni, vedere [ruoli obbligatori per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    Se non viene visualizzata una risorsa che si vuole aggiungere o se non si è in grado di aggiungere una risorsa, verificare di avere il ruolo Azure AD della directory e il ruolo di gestione dei diritti richiesti. Potrebbe essere necessario disporre di un utente con i ruoli necessari per aggiungere la risorsa al catalogo. Per altre informazioni, vedere [Ruoli necessari per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Selezionare una o più risorse del tipo che si desidera aggiungere al catalogo.
 
@@ -138,7 +138,7 @@ Per assegnare un utente al ruolo di proprietario del catalogo, attenersi alla pr
 
     ![Modificare le impostazioni del catalogo](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="delete-a-catalog"></a>Eliminare un catalogo
 

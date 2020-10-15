@@ -9,12 +9,12 @@ ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 42d9c418ee6feae7a763b1a2cc76d8edb2fec6ce
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522947"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873711"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Serie di video di procedure per il portale di Azure
 
@@ -22,18 +22,17 @@ Il portale di Azure serie di video illustra come usare i servizi di Azure nel po
 
 ## <a name="featured-video"></a>Video in primo piano
 
-In questo video in primo piano, viene illustrato come distribuire un'app Web statica di Azure.
+In questo video in primo piano, viene illustrato come creare e gestire un dominio del servizio app.
 
-> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
+> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
 
-[Come distribuire un'app Web statica di Azure](https://www.youtube.com/watch?v=H2MPsgujpNk)
+[Come creare e gestire un dominio del servizio app](https://www.youtube.com/watch?v=b1kDT8-6a3g)
 
 Aggiorna i video recenti che potresti perdere:
 
-| [Come monitorare funzioni di Azure](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Come usare il controllo delle versioni dei BLOB](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Connettersi a un account di archiviazione usando il collegamento privato di Azure](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Come aggiungere e proteggere un dominio personalizzato nell'app Web del servizio app](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Miglioramenti dell'esperienza della macchina virtuale Linux](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Come usare il controllo delle versioni dei BLOB](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Immagine del video di YouTube su come monitorare funzioni di Azure](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Immagine del video di YouTube sull'uso del controllo delle versioni BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Immagine del video di YouTube sulla connessione a un account di archiviazione tramite il collegamento privato di Azure](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
-
+| [![Immagine del video di YouTube su come aggiungere e proteggere un dominio personalizzato nell'app Web del servizio app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Immagine del video di YouTube sui miglioramenti apportati all'esperienza della macchina virtuale Linux](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Immagine del video di YouTube sull'uso del controllo delle versioni BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
 
 ## <a name="video-playlist"></a>Playlist video
 

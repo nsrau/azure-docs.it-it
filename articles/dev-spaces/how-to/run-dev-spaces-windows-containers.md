@@ -5,14 +5,16 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Informazioni su come eseguire Azure Dev Spaces in un cluster esistente con i contenitori di Windows
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, contenitori di Windows
-ms.openlocfilehash: 131f69d42795b857a53fc21b760a7275a6826bb8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51a91c9ff74c4d0d1c5bccff2f1033eb14cd9198
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212472"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972935"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagire con i contenitori di Windows usando Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 È possibile abilitare Azure Dev Spaces per gli spazi dei nomi Kubernetes nuovi ed esistenti. Azure Dev Spaces eseguirà e instrumenterà i servizi eseguiti in contenitori Linux. Tali servizi possono anche interagire con le applicazioni eseguite in contenitori Windows nello stesso spazio dei nomi. Questo articolo illustra come usare gli spazi di sviluppo per eseguire i servizi in uno spazio dei nomi con i contenitori di Windows esistenti. A questo punto, non è possibile eseguire il debug o la connessione a contenitori Windows con Azure Dev Spaces.
 

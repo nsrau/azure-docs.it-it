@@ -4,10 +4,10 @@ description: Fornisce un riepilogo delle nuove funzionalità e degli aggiornamen
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 1bf051afaeb61c80e3708a72a4a0605b68533977
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90527344"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novità di Site Recovery
@@ -63,7 +63,7 @@ L' [aggiornamento cumulativo 48](https://support.microsoft.com/help/4573888/upda
 **Correzioni di problemi/miglioramenti** | Una serie di correzioni e miglioramenti, come descritto in dettaglio nell'aggiornamento cumulativo.
 
 > [!NOTE]
-> L'aggiornamento cumulativo 48 presenta un problema noto con l'abilitazione della replica per i computer Linux crittografati tramite ADE. [Altre informazioni](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
+> L'aggiornamento cumulativo 48 presenta un problema noto con l'abilitazione della replica per i computer Linux crittografati tramite ADE. [Altre informazioni](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137)
 
 ### <a name="update-rollup-47"></a>Aggiornamento cumulativo 47
 
@@ -109,7 +109,7 @@ L' [aggiornamento cumulativo 44](https://support.microsoft.com/help/4538187/upda
 
 ### <a name="azure-vmware-disaster-recovery"></a>Ripristino di emergenza di Azure VMware
 
-Le macchine virtuali di Azure supportano ora le VM abilitate per la crittografia inattiva con chiavi gestite dal cliente. [Altre informazioni](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+Le macchine virtuali di Azure supportano ora le VM abilitate per la crittografia inattiva con chiavi gestite dal cliente. [Altre informazioni](azure-to-azure-how-to-enable-replication-cmk-disks.md)
 
 
 ### <a name="update-rollup-43"></a>Aggiornamento cumulativo 43
@@ -188,7 +188,7 @@ Le nuove funzionalità per il ripristino di emergenza delle macchine virtuali di
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Impostazioni del failover di test** | Quando si configura un failover di test, è ora possibile configurare le impostazioni per la rete e la macchina virtuale del failover di test, tra cui indirizzo IP, NSG, bilanciamento del carico interno e indirizzo IP pubblico per ogni scheda di interfaccia di rete del computer. Queste impostazioni sono facoltative e non modificano il comportamento corrente. Se queste impostazioni non vengono configurate, è possibile scegliere una VNet di Azure al momento del failover di test. [Altre informazioni](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
+**Impostazioni del failover di test** | Quando si configura un failover di test, è ora possibile configurare le impostazioni per la rete e la macchina virtuale del failover di test, tra cui indirizzo IP, NSG, bilanciamento del carico interno e indirizzo IP pubblico per ogni scheda di interfaccia di rete del computer. Queste impostazioni sono facoltative e non modificano il comportamento corrente. Se queste impostazioni non vengono configurate, è possibile scegliere una VNet di Azure al momento del failover di test. [Altre informazioni](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/)
 **Piani di ripristino** | I piani di ripristino sono ora limitati alle VM 100, per garantire l'affidabilità del failover.
 
 ### <a name="vmware-to-azure-disaster-recovery"></a>Ripristino di emergenza da VMware ad Azure
@@ -229,7 +229,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-Nuovi avvisi del server di elaborazione | Sono stati aggiunti nuovi avvisi del server di elaborazione. [Altre informazioni](vmware-physical-azure-monitor-process-server.md).
+Nuovi avvisi del server di elaborazione | Sono stati aggiunti nuovi avvisi del server di elaborazione. [Altre informazioni](vmware-physical-azure-monitor-process-server.md)
 
 ### <a name="hyper-v-disaster-recovery"></a>Ripristino di emergenza di Hyper-V
 
@@ -321,8 +321,8 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Replicare dischi aggiunti** | Abilitare la replica per i dischi dati aggiunti a una macchina virtuale di Azure già abilitata per il ripristino di emergenza. [Altre informazioni](azure-to-azure-enable-replication-added-disk.md).
-**Aggiornamenti automatici** | Quando si configurano gli aggiornamenti automatici per l'estensione del servizio Mobility eseguita in macchine virtuali di Azure abilitate per il ripristino di emergenza, è ora possibile selezionare un account di automazione esistente da usare, invece di usare l'account predefinito creato da Site Recovery. [Altre informazioni](azure-to-azure-autoupdate.md).
+**Replicare dischi aggiunti** | Abilitare la replica per i dischi dati aggiunti a una macchina virtuale di Azure già abilitata per il ripristino di emergenza. [Altre informazioni](azure-to-azure-enable-replication-added-disk.md)
+**Aggiornamenti automatici** | Quando si configurano gli aggiornamenti automatici per l'estensione del servizio Mobility eseguita in macchine virtuali di Azure abilitate per il ripristino di emergenza, è ora possibile selezionare un account di automazione esistente da usare, invece di usare l'account predefinito creato da Site Recovery. [Altre informazioni](azure-to-azure-autoupdate.md)
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>Ripristino di emergenza di VMware/server fisici
@@ -331,7 +331,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 **Funzionalità** | **Dettagli**
 --- | ---
-**Monitoraggio del server di elaborazione** | Per il ripristino di emergenza di server fisici e VM VMware locali, monitorare e risolvere i problemi relativi al server di elaborazione con report e avvisi di integrità del server migliorati. [Altre informazioni](vmware-physical-azure-monitor-process-server.md).
+**Monitoraggio del server di elaborazione** | Per il ripristino di emergenza di server fisici e VM VMware locali, monitorare e risolvere i problemi relativi al server di elaborazione con report e avvisi di integrità del server migliorati. [Altre informazioni](vmware-physical-azure-monitor-process-server.md)
 
 
 
@@ -408,7 +408,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) in una macchina virtuale, migliorando le prestazioni di rete. Quando si abilita la replica per una macchina virtuale di Azure, Site Recovery rileva se è abilitata la rete accelerata. In caso affermativo, dopo il failover Site Recovery configura automaticamente la rete accelerata nella macchina virtuale di Azure di replica di destinazione, sia per [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) che per [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-[Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md).
+[Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
 ### <a name="update-rollup-32"></a>Aggiornamento cumulativo 32
 
@@ -476,7 +476,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 
 In Site Recovery è stata aggiunta un'opzione per gli aggiornamenti automatici per l'estensione del servizio Mobility. L'estensione del servizio Mobility viene installata in ogni macchina virtuale di Azure replicata da Site Recovery. Quando si abilita la replica, occorre selezionare se si vuole consentire a Site Recovery di gestire gli aggiornamenti per l'estensione.
 
-Gli aggiornamenti non richiedono un riavvio delle macchine virtuali e non influiscono sulla replica. [Altre informazioni](azure-to-azure-autoupdate.md).
+Gli aggiornamenti non richiedono un riavvio delle macchine virtuali e non influiscono sulla replica. [Altre informazioni](azure-to-azure-autoupdate.md)
 
 ### <a name="pricing-calculator-for-azure-vm-disaster-recovery"></a>Calcolatore dei prezzi per il ripristino di emergenza delle macchine virtuali di Azure
 
@@ -507,7 +507,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 **Funzionalità** | **Dettagli**
 --- | ---
 **Supporto di area** | È stato aggiunto il supporto Site Recovery per l'Australia centrale 1 e l'Australia centrale 2.
-**Supporto per la crittografia del disco** | Aggiunto il supporto per il ripristino di emergenza di VM di Azure crittografate con crittografia dischi di Azure (ADE) con l'app Azure AD. [Altre informazioni](azure-to-azure-how-to-enable-replication-ade-vms.md).
+**Supporto per la crittografia del disco** | Aggiunto il supporto per il ripristino di emergenza di VM di Azure crittografate con crittografia dischi di Azure (ADE) con l'app Azure AD. [Altre informazioni](azure-to-azure-how-to-enable-replication-ade-vms.md)
 **Esclusione disco** | I dischi non inizializzati vengono ora esclusi automaticamente durante la replica delle macchine virtuali di Azure.
 **Archiviazione abilitata al firewall (PowerShell)** | Aggiunto il supporto per gli [account di archiviazione abilitati](../storage/common/storage-network-security.md)per il firewall.<br/><br/> È possibile replicare le macchine virtuali di Azure con dischi non gestiti in account di archiviazione abilitati per il firewall in un'altra area di Azure per il ripristino di emergenza.<br/><br/> È possibile usare account di archiviazione abilitati per il firewall come account di archiviazione di destinazione per i dischi non gestiti.<br/><br/> Supportato solo con PowerShell.
 
@@ -540,7 +540,7 @@ Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.
 --- | ---
 **Supporto di Linux** | Aggiunta supportata per RedHat Enterprise Linux 6,10; CentOS 6,10.<br/><br/>
 **Supporto Cloud** | Ripristino di emergenza supportato per le macchine virtuali di Azure nel cloud Germania.
-**Ripristino di emergenza tra sottoscrizioni** | Supporto per la replica di VM di Azure in un'area in un'altra area in una sottoscrizione diversa, all'interno dello stesso tenant Azure Active Directory. [Altre informazioni](https://aka.ms/cross-sub-blog).
+**Ripristino di emergenza tra sottoscrizioni** | Supporto per la replica di VM di Azure in un'area in un'altra area in una sottoscrizione diversa, all'interno dello stesso tenant Azure Active Directory. [Altre informazioni](https://aka.ms/cross-sub-blog)
 
 ### <a name="vmware-vmphysical-server-disaster-recovery"></a>Ripristino di emergenza di macchine virtuali VMware/server fisici
 Le funzionalità aggiunte a questo mese sono riepilogate nella tabella.

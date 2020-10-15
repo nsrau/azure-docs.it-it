@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
 ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87405127"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Ciclo di vita dell'hosting di Azure Service Fabric
@@ -58,7 +58,7 @@ Quando si verifica un arresto anomalo di un pacchetto di codice, Service Fabric 
 Il valore di back-off è sempre min (RetryTime, **ActivationMaxRetryInterval**) e questo valore può essere costante, lineare o esponenziale in base alla configurazione di **ActivationRetryBackoffExponentiationBase** .
 
 - Costante: se **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = **ActivationRetryBackoffInterval**;
-- Linear: se **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = ContinuousFailureCount * **ActivationRetryBackoffInterval** dove ContinousFailureCount è il numero di volte in cui un CodePackage si arresta o non viene attivato.
+- Linear: se  **ActivationRetryBackoffExponentiationBase** = = 0 Then RetryTime = ContinuousFailureCount * **ActivationRetryBackoffInterval** dove ContinousFailureCount è il numero di volte in cui un CodePackage si arresta o non viene attivato.
 - Esponenziale: RetryTime = (**ActivationRetryBackoffInterval** in secondi) * (**ActivationRetryBackoffExponentiationBase** ^ ContinuousFailureCount);
     
 È possibile controllare il comportamento desiderato, ad esempio i riavvii rapidi. Parliamo di Linear. Ciò significa che se si verifica un arresto anomalo di un CodePackage, l'intervallo di avvio sarà dopo 10, 20, 30 40 sec fino alla disattivazione di CodePackage. 
@@ -81,7 +81,7 @@ Service Fabric usa sempre un back-off lineare quando rileva un errore durante il
 > [!NOTE]
 > Prima di modificare le configurazioni, di seguito sono riportati alcuni esempi da tenere presenti.
 
-* Se il CodePackage continua a bloccarsi e viceversa, ServiceType verrà disabilitato. Tuttavia, se la configurazione delle attivazioni è tale da consentire un riavvio rapido, è possibile che il CodePackage venga aggiornato per alcune volte prima di poter visualizzare la disabilitazione di ServiceType. Per esempio: si supponga che il CodePackage venga visualizzato, registra il ServiceType con Service Fabric e quindi si arresta in modo anomalo. In tal caso, una volta che l'hosting riceve una registrazione del tipo, il periodo **ServiceTypeDisableGraceInterval** viene annullato. Questa operazione può essere ripetuta finché il CodePackage non torna a un valore maggiore di **ServiceTypeDisableGraceInterval** e quindi ServiceType verrà disabilitato nel nodo. Quindi, può trattarsi di un po' prima che il ServiceType venga disabilitato nel nodo.
+* Se il CodePackage continua a bloccarsi e viceversa, ServiceType verrà disabilitato. Tuttavia, se la configurazione delle attivazioni è tale da consentire un riavvio rapido, è possibile che il CodePackage venga aggiornato per alcune volte prima di poter visualizzare la disabilitazione di ServiceType. Per esempio: si supponga che il CodePackage venga visualizzato, registra il ServiceType con Service Fabric e quindi si arresta in modo anomalo. In tal caso, una volta che l'hosting riceve una registrazione del tipo, il periodo **ServiceTypeDisableGraceInterval** viene annullato. Questa operazione può essere ripetuta finché il CodePackage non torna a un valore maggiore di  **ServiceTypeDisableGraceInterval** e quindi ServiceType verrà disabilitato nel nodo. Quindi, può trattarsi di un po' prima che il ServiceType venga disabilitato nel nodo.
 
 * In caso di attivazione, quando Service Fabric sistema deve inserire una replica in un nodo, RA (ReconfigurationAgent) chiede al sottosistema di hosting di attivare l'applicazione e ritenta la richiesta di attivazione ogni 15 sec (**RAPMessageRetryInterval**). Per Service Fabric sistema in grado di capire che ServiceType è stato disabilitato, l'operazione di attivazione nell'hosting deve risiedere per un periodo più lungo di intervallo tra tentativi e **ServiceTypeDisableGraceInterval**. Ad esempio: lasciare che il cluster abbia le configurazioni **ActivationMaxFailureCount** impostate su 5 e **ActivationRetryBackoffInterval** impostato su 1 sec. Ciò significa che l'operazione di attivazione verrà restituita dopo (0 + 1 + 2 + 3 + 4) = 10 sec (il primo tentativo è immediato) e dopo che l'host ha ritentato il tentativo. In questo caso, l'operazione di attivazione verrà completata e non verrà eseguito un nuovo tentativo dopo 15 secondi. Il problema è dovuto al fatto che Service Fabric esaurito tutti i tentativi entro 15 secondi. Quindi, ogni tentativo da ReconfigurationAgent crea una nuova operazione di attivazione nel sottosistema di hosting e il modello continuerà a essere ripetuto e ServiceType non verrà mai disabilitato nel nodo. Poiché il ServiceType non viene disabilitato nel nodo, il componente FM del sistema SF (FailoverManager) non sposterà la replica in un nodo diverso.
 > 
@@ -128,23 +128,23 @@ Configurazioni con impostazioni predefinite che influiscano sull'attivazione/dec
 
 ### <a name="servicetype"></a>ServiceType
 **ServiceTypeDisableFailureThreshold**: valore predefinito 1. Soglia per il conteggio degli errori dopo la quale FM (FailoverManager) riceve una notifica per disabilitare il tipo di servizio su tale nodo e provare un nodo diverso per la selezione host.
-**ServiceTypeDisableGraceInterval**: valore predefinito di 30 secondi. intervallo di tempo dopo il quale il tipo di servizio può essere disabilitato.
+**ServiceTypeDisableGraceInterval**: valore predefinito di 30 secondi. Intervallo di tempo dopo il quale il tipo di servizio può essere disabilitato.
 **ServiceTypeRegistrationTimeout**: valore predefinito 300 sec. Timeout per la registrazione del ServiceType con Service Fabric.
 
-### <a name="activation"></a>Attivazione
-**ActivationRetryBackoffInterval**: valore predefinito di 10 sec. backoff per ogni errore di attivazione.
+### <a name="activation"></a>Activation
+**ActivationRetryBackoffInterval**: valore predefinito di 10 secondi. Intervallo di backoff per ogni errore di attivazione.
 **ActivationMaxFailureCount**: valore predefinito 20. Numero massimo di tentativi di attivazione del sistema non riusciti prima di rinunciare. 
 **ActivationRetryBackoffExponentiationBase**: valore predefinito 1,5.
-**ActivationMaxRetryInterval**: valore predefinito 3600 sec. numero massimo di interruzioni per l'attivazione in caso di errori.
+**ActivationMaxRetryInterval**: valore predefinito 3600 sec. Numero massimo di interruzioni per l'attivazione in caso di errori.
 **CodePackageContinuousExitFailureResetInterval**: valore predefinito 300 sec. Timeout per la reimpostazione del conteggio degli errori di uscita continua per CodePackage.
 
-### <a name="download"></a>Scarica
+### <a name="download"></a>Download
 **DeploymentRetryBackoffInterval**: valore predefinito 10. Intervallo di backoff per l'errore di distribuzione.
-**DeploymentMaxRetryInterval**: valore predefinito 3600 sec. numero massimo di interruzioni per la distribuzione in caso di errori.
+**DeploymentMaxRetryInterval**: valore predefinito 3600 sec. Numero massimo di backup per la distribuzione in caso di errori.
 **DeploymentMaxFailureCount**: valore predefinito 20. Verranno eseguiti altri tentativi di distribuzione dell'applicazione per le volte specificate in DeploymentMaxFailureCount prima di considerare non riuscita la distribuzione dell'applicazione nel nodo.
 
 ### <a name="deactivation"></a>Disattivazione
-**DeactivationScanInterval**: valore predefinito 600 sec. tempo minimo assegnato a ServicePackage per ospitare una replica se non è mai stata ospitata alcuna replica, ad esempio Se non viene utilizzato.
+**DeactivationScanInterval**: valore predefinito 600 sec. Tempo minimo concesso a ServicePackage per ospitare una replica se non è mai stata ospitata alcuna replica, ad esempio Se non viene utilizzato.
 **DeactivationGraceInterval**: valore predefinito 60 sec. Tempo assegnato a un ServicePackage per ospitare nuovamente un'altra replica dopo aver ospitato una replica in caso di modello di processo **condiviso** .
 **ExclusiveModeDeactivationGraceInterval**: valore predefinito di 1 sec. Tempo assegnato a un ServicePackage per ospitare nuovamente un'altra replica dopo aver ospitato una replica in caso di modello di processo **esclusivo** .
 

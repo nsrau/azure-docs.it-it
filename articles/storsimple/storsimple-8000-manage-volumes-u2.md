@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 920f7f2fa6fb6e80b060f0308b124a3a1214cb3f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8fcadb8bdd4862dd95625228e3c190e5fe19a9a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204462"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961681"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
 
@@ -57,8 +57,8 @@ Fare riferimento alla tabella seguente per conoscere la capacità massima di cui
 | 8100 |64 TB |8 TB |
 | 8600 |64 TB |20 TB |
 | **Dispositivi virtuali** | | |
-| 8010 |30 TB |N/A |
-| 8020 |64 TB |N/A |
+| 8010 |30 TB |N/D |
+| 8020 |64 TB |N/D |
 
 ## <a name="the-volumes-blade"></a>Il pannello Volumi
 
@@ -155,11 +155,11 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
    3. Aumentare il valore nel campo **Capacità fornita**. Il valore del campo **Capacità fornita** può essere solo incrementato. Non è possibile ridurre un volume dopo averlo creato.
    4. In **Host connessi** è possibile modificare i record di controllo di accesso. Per modificare un record, il volume deve essere offline.
 
-       ![Esaminare l'impatto del portare un volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+       ![Esaminare l'effetto dell'esecuzione offline del volume 2](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
 5. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì**. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
-    ![Esaminare l'impatto del portare un volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Esaminare l'effetto dell'esecuzione offline del volume 3](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
 7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
    
@@ -215,7 +215,7 @@ Se si desidera convertire più volumi che supportano diversi carichi di lavoro, 
 
 1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Dall'elenco tabulare dei dispositivi, selezionare il dispositivo con il volume che si desidera modificare. Fare clic su **Impostazioni > Volumi**.
 
-    ![Passare al pannello Volumi](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Vai al pannello volumi 2](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. Dall'elenco tabulare dei volumi, selezionare il volume e fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida. Selezionare **Modifica**.
 
@@ -249,7 +249,7 @@ Potrebbe essere necessario portare un volume offline per modificarlo o eliminarl
    
     1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Dall'elenco tabulare dei dispositivi, selezionare il dispositivo con il volume che si desidera modificare. Fare clic su **Impostazioni > Volumi**.
 
-        ![Passare al pannello Volumi](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+        ![Vai al pannello volumi 3](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
     2. Dall'elenco tabulare dei volumi, selezionare il volume e fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida. Selezionare **Take offline** (Mettere offline) per portare offline il volume che verrà modificato.
 
@@ -257,7 +257,7 @@ Potrebbe essere necessario portare un volume offline per modificarlo o eliminarl
 
 3. Nel pannello **Take offline** (Mettere offline), esaminare l'impatto del portare offline il volume e selezionare la casella di controllo corrispondente. Fare clic su **Porta offline**. 
 
-    ![Esaminare l'impatto del portare un volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Esaminare l'effetto dell'esecuzione offline del volume 4](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
       
       Si riceverà una notifica quando il volume è offline. Anche lo stato del volume si aggiorna su Offline.
       
@@ -277,7 +277,7 @@ Completare la procedura seguente per eliminare un volume.
 
 1. Passare al servizio Gestione dispositivi StorSimple, quindi fare clic su **Dispositivi**. Dall'elenco tabulare dei dispositivi, selezionare il dispositivo con il volume che si desidera modificare. Fare clic su **Impostazioni > Volumi**.
 
-    ![Passare al pannello Volumi](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Vai al pannello volumi 4](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
 3. Verificare lo stato del volume che si desidera eliminare. Se il volume da eliminare non è offline, portarlo prima offline. Seguire la procedura illustrata in [Portare un volume offline](#take-a-volume-offline).
 4. Una volta portato il volume offline, selezionarlo, fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida e quindi selezionare **Elimina**.

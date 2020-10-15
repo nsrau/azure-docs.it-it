@@ -2,7 +2,7 @@
 title: Account del servizio gestito del gruppo per Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come creare un account del servizio gestito del gruppo (gMSA) per l'uso con Azure Active Directory Domain Services domini gestiti
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 723b8cf7a71e5af672c8665040645d55645fe9f7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.author: joflore
+ms.openlocfilehash: af1df1dd95d570038c44ea9052db88ae80586c32
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281855"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960984"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-active-directory-domain-services"></a>Creare un account del servizio gestito del gruppo (gMSA) in Azure Active Directory Domain Services
 

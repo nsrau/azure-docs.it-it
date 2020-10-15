@@ -7,10 +7,10 @@ ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208368"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitoraggio di funzioni di Azure con i log di monitoraggio di Azure
@@ -38,7 +38,7 @@ Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/ku
 
 1. Immettere un **nome per le impostazioni di diagnostica**e quindi fare clic su **Salva**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Aggiungere un'impostazione di diagnostica":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Selezionare le impostazioni di diagnostica":::
 
 ## <a name="user-generated-logs"></a>Log generati dall'utente
 
@@ -89,7 +89,7 @@ Per eseguire una query sui log generati:
 
    Funzioni di Azure scrive tutti i log nella tabella **FunctionAppLogs** in **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Finestra query nell'area di lavoro Log Analytics":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Selezionare le impostazioni di diagnostica":::
 
 Ecco alcune query di esempio:
 

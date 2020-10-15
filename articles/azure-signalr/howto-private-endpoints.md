@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84302143"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Usare endpoint privati per il servizio Azure SignalR
@@ -25,7 +25,7 @@ L'uso di endpoint privati per il servizio Azure SignalR consente di:
 - Aumentare la sicurezza per la rete virtuale (VNet), consentendo di bloccare exfiltration di dati da VNet.
 - Connettersi in modo sicuro ai servizi di Azure SignalR da reti locali che si connettono alla VNet tramite [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [delle expressroute](../expressroute/expressroute-locations.md) con peering privato.
 
-## <a name="conceptual-overview"></a>Informazioni generali
+## <a name="conceptual-overview"></a>Panoramica dei concetti
 
 ![Panoramica degli endpoint privati per il servizio Azure SignalR](media/howto-private-endpoints/private-endpoint-overview.png)
 
@@ -89,7 +89,7 @@ Per ulteriori informazioni sulla configurazione del server DNS per supportare en
 
 ### <a name="create-a-private-endpoint-along-with-a-new-azure-signalr-service-in-the-azure-portal"></a>Creare un endpoint privato insieme a un nuovo servizio Azure SignalR nella portale di Azure
 
-1. Quando si crea un nuovo servizio Azure SignalR, selezionare scheda **rete** . scegliere **endpoint privato** come metodo di connettività.
+1. Quando si crea un nuovo servizio Azure SignalR, selezionare scheda **rete** . Scegliere **endpoint privato** come metodo di connettività.
 
     ![Creare il servizio Azure SignalR-scheda rete](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
 

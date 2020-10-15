@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72623d69f9fb0cbc68758a362bb977e5e02d2c00
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637172"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-on-demand-provisioning"></a>Provisioning su richiesta di Azure AD Connect cloud provisioning
@@ -74,7 +74,7 @@ Utilizzando queste informazioni, è possibile verificare se è stata trovata una
 
 ![Informazioni utente](media/how-to-on-demand-provision/on-demand11.png)
 
-Nei dettagli corrispondenti viene visualizzato un messaggio con una delle tre operazioni seguenti.  Ad esempio:
+Nei dettagli corrispondenti viene visualizzato un messaggio con una delle tre operazioni seguenti.  ovvero:
 - Crea: viene creato un utente in Azure AD
 - Aggiornamento: un utente viene aggiornato in base a una modifica apportata alla configurazione
 - Delete: un utente viene rimosso dal Azure AD.

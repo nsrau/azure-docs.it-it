@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498804"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rilevamento e registrazione degli eventi per il Azure Data Box e l'ordine di importazione Azure Data Box Heavy
@@ -297,7 +297,7 @@ Dopo che i dati sono stati cancellati dai dischi Data Box in base alle linee gui
 
 ### <a name="audit-logs"></a>Log di controllo
 
-I log di controllo contengono informazioni su come accendere e accedere alle condivisioni nel Data Box o Data Box Heavy quando si trova all'esterno del Data Center di Azure. Questi log si trovano in:`storage-account/azuredatabox-chainofcustodylogs`
+I log di controllo contengono informazioni su come accendere e accedere alle condivisioni nel Data Box o Data Box Heavy quando si trova all'esterno del Data Center di Azure. Questi log si trovano in: `storage-account/azuredatabox-chainofcustodylogs`
 
 Di seguito è riportato un esempio di log di controllo da un Data Box:
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: eda920640667abc6620c5c90ee7d04a44789353e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996758"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configurare i criteri IPsec/IKE per le connessioni VPN S2S o da VNet a VNet: portale di Azure
@@ -97,7 +97,7 @@ La tabella seguente riporta l'elenco degli algoritmi di crittografia e dei tipi 
 
 * Timeout DPD: il valore predefinito è 45 secondi nei gateway VPN di Azure. Se si imposta il timeout su periodi più brevi, IKE rekey più in modo più aggressivo, causando la disconnessione della connessione in alcune istanze. Questo potrebbe non essere auspicabile se le posizioni locali sono più lontane dall'area di Azure in cui risiede il gateway VPN o la condizione di collegamento fisico potrebbe causare la perdita di pacchetti. Il suggerimento generale è impostare il timeout tra **30 e 45** secondi.
 
-### <a name="diffie-hellman-groups"></a>Gruppi Diffie-Hellman
+### <a name="diffie-hellman-groups"></a>Gruppi di Diffie-Hellman
 
 La tabella seguente elenca i gruppi di Diffie-Hellman corrispondenti supportati dal criterio personalizzato:
 
@@ -116,7 +116,7 @@ Per altre informazioni, vedere [RFC3526](https://tools.ietf.org/html/rfc3526) e 
 
 Questa sezione illustra i passaggi per creare una connessione VPN da sito a sito con criteri IPsec/IKE. La procedura seguente crea la connessione come illustrato nel diagramma seguente:
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Criteri da sito a sito" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Diagramma dei criteri IPsec/IKE" border="false":::
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Passaggio 1: Creare la rete virtuale, il gateway VPN e il gateway di rete locale
 
@@ -124,19 +124,19 @@ Creare le risorse seguenti, come illustrato nelle schermate seguenti. Per la pro
 
 * **Rete virtuale:**  TestVNet1
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="VNet":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 * **Gateway VPN:** VNet1GW
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Gateway":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 * **Gateway di rete locale:** Site6
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Sito":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 * **Connessione:** Da VNet1 a Site6
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Connection":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 ### <a name="step-2---configure-ipsecike-policy-on-the-s2s-vpn-connection"></a><a name="s2sconnection"></a>Passaggio 2: configurare i criteri IPsec/IKE nella connessione VPN S2S
 
@@ -147,15 +147,15 @@ In questa sezione, configurare un criterio IPsec/IKE con gli algoritmi e i param
 
 1. Passare alla risorsa di connessione, **VNet1toSite6**, nella portale di Azure. Selezionare la pagina **configurazione** e selezionare criteri IPSec/IKE **personalizzati** per visualizzare tutte le opzioni di configurazione. La schermata seguente mostra la configurazione in base all'elenco:
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Sito 6":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 1. Se si usa GCMAES per IPsec, è necessario usare lo stesso algoritmo e la stessa lunghezza della chiave GCMAES per la crittografia e l'integrità IPsec. Lo screenshot seguente, ad esempio, specifica GCMAES128 sia per la crittografia IPsec che per l'integrità IPsec:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="GCMAES per IPsec":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 1. Facoltativamente, è possibile selezionare **Abilita** per l'opzione **USA selettori di traffico basati su criteri** per abilitare il gateway VPN di Azure per la connessione a dispositivi VPN basati su criteri in locale, come descritto in precedenza.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Selettore di traffico basato su criteri":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 1. Una volta selezionate tutte le opzioni, selezionare **Salva** per eseguire il commit delle modifiche nella risorsa di connessione. Il criterio verrà applicato tra circa un minuto.
 
@@ -170,13 +170,13 @@ In questa sezione, configurare un criterio IPsec/IKE con gli algoritmi e i param
 
 I passaggi per creare una connessione da VNet a VNet con un criterio IPsec/IKE sono simili a quelli di una connessione VPN S2S.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagramma dei criteri da VNet a VNet" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagramma dei criteri IPsec/IKE" border="false":::
 
 1. Usare la procedura descritta nell'articolo [creare una connessione da VNet a VNet](vpn-gateway-vnet-vnet-rm-ps.md) per creare la connessione da VNet a VNet.
 
 2. Al termine della procedura, vengono visualizzate due connessioni da VNet a VNet, come illustrato nella schermata seguente dalla risorsa VNet2GW:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Connessioni da rete virtuale a rete virtuale":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 3. Passare alla risorsa di connessione e passare alla pagina di **configurazione** nel portale. Selezionare **personalizzato** nei **criteri IPSec/IKE** per visualizzare le opzioni dei criteri personalizzati. Selezionare gli algoritmi di crittografia con le lunghezze di chiave corrispondenti.
 
@@ -184,7 +184,7 @@ I passaggi per creare una connessione da VNet a VNet con un criterio IPsec/IKE s
    * IKE: AES128, SHA1, DHGroup14, timeout DPD 45 secondi
    * IPsec: GCMAES128, GCMAES128, PFS14, durata dell'associazione di sicurezza 14.400 secondi e 1024 KB
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Criteri di connessione":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 4. Selezionare **Save (Salva** ) per applicare le modifiche ai criteri nella risorsa di connessione.
 
@@ -203,7 +203,7 @@ I passaggi per creare una connessione da VNet a VNet con un criterio IPsec/IKE s
 
 2. Selezionare **impostazione predefinita** nell'opzione **criterio IPSec/IKE** . Questa operazione rimuoverà tutti i criteri personalizzati specificati in precedenza nella connessione e ripristinerà le impostazioni IPsec/IKE predefinite della connessione:
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Elimina criteri":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Diagramma dei criteri IPsec/IKE":::
 
 3. Selezionare **Save (Salva** ) per rimuovere i criteri personalizzati e ripristinare le impostazioni IPSec/IKE predefinite per la connessione.
 

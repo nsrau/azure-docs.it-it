@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86078817"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usare il cluster HDInsight Spark per leggere e scrivere dati nel database SQL di Azure
@@ -31,7 +31,7 @@ Informazioni su come connettere un cluster Apache Spark in Azure HDInsight con i
 
 * SQL Server Management Studio (SSMS). Seguire le istruzioni riportate in [Usare SQL Server Management Studio per connettersi ed eseguire query sui dati](../../azure-sql/database/connect-query-ssms.md).
 
-## <a name="create-a-jupyter-notebook"></a>Creare un oggetto Jupyter Notebook
+## <a name="create-a-jupyter-notebook"></a>Creare un notebook di Jupyter Notebook
 
 Iniziare creando una Jupyter Notebook associata al cluster Spark. Usare quindi il notebook per eseguire i frammenti di codice illustrati in questo articolo.
 

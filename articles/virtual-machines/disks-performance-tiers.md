@@ -8,19 +8,19 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743727"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939018"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
 
 Archiviazione su disco di Azure attualmente offre funzionalità di espansione predefinite per offrire prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium offrono la flessibilità necessaria per aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco. Questa funzionalità consente di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. 
 
 > [!NOTE]
-> Questa funzionalità è attualmente disponibile in anteprima. 
+> Questa funzionalità è attualmente in anteprima. 
 
 Questa funzionalità è ideale per gli eventi che richiedono temporaneamente un livello di prestazioni costantemente superiore, ad esempio l'acquisto di festività, il test delle prestazioni o l'esecuzione di un ambiente di training. Per gestire questi eventi, è possibile usare un livello di prestazioni superiore per tutto il tempo necessario. È quindi possibile tornare al livello originale quando non sono più necessarie le prestazioni aggiuntive.
 
@@ -58,7 +58,7 @@ Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://
 
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
-La possibilità di modificare il livello di prestazioni di un disco gestito è attualmente disponibile solo su unità SSD Premium nell'area Stati Uniti centro-occidentali. 
+La possibilità di modificare il livello di prestazioni di un disco gestito è attualmente disponibile solo nelle unità SSD Premium nelle aree Stati Uniti orientali 2, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Australia sud-orientale.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Creare un disco dati vuoto con un livello superiore rispetto al livello di base
 

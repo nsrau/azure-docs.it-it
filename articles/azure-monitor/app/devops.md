@@ -4,10 +4,10 @@ description: Funzione di Application Insights nel ciclo devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324489"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
@@ -47,7 +47,7 @@ Alcune domande da chiedersi durante lo sviluppo di un sistema Web:
 * Qual è la causa radice? L'errore si è verificato al livello di un componente o di una dipendenza? Si tratta di un problema di comunicazione?
 * Quanti sono gli utenti interessati? Se i più problemi da affrontare sono più di uno, qual è il più importante?
 
-## <a name="what-is-application-insights"></a>Informazioni su Application Insights
+## <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
 ![Flusso di lavoro di base di Application Insights](./media/devops/020.png)
 
 1. Application Insights consente di instrumentare l'app, inviandone i dati di telemetria durante l'esecuzione. È possibile compilare l'SDK di Application Insights direttamente nell'applicazione oppure applicare la strumentazione in fase di runtime. Il primo metodo è più flessibile, perché consente di aggiungere i propri dati di telemetria ai normali moduli.

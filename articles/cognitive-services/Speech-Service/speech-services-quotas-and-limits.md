@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: alexeyo
 ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567163"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
@@ -86,7 +86,7 @@ L'aumento del limite di richieste simultanee **non** influisce direttamente sui 
 
 I limiti delle richieste simultanee per i modelli di **base** e **personalizzati** devono essere modificati **separatamente**.
 
-Il valore esistente del parametro del limite della richiesta simultanea **non** è visibile tramite portale di Azure, gli strumenti da riga di comando o le richieste API. Per verificare il valore esistente, creare una richiesta di supporto di Azure.
+Il valore esistente del parametro del limite della richiesta simultanea **non** è visibile tramite portale di Azure, strumenti Command-Line o richieste API. Per verificare il valore esistente, creare una richiesta di supporto di Azure.
 
 >[!NOTE]
 >I [contenitori di sintesi vocale](speech-container-howto.md) non richiedono aumenti di limite di richieste simultanee, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati.
@@ -152,7 +152,7 @@ Per impostazione predefinita, il numero di richieste simultanee per un endpoint 
 
 L'aumento del limite di richieste simultanee **non** influisce direttamente sui costi. Servizi vocali usa il modello "pagamento solo per le risorse usate". Il limite definisce il livello di scalabilità del servizio prima che venga avviata la limitazione delle richieste.
 
-Il valore esistente del parametro del limite della richiesta simultanea **non** è visibile tramite portale di Azure, gli strumenti da riga di comando o le richieste API. Per verificare il valore esistente, creare una richiesta di supporto di Azure.
+Il valore esistente del parametro del limite della richiesta simultanea **non** è visibile tramite portale di Azure, strumenti Command-Line o richieste API. Per verificare il valore esistente, creare una richiesta di supporto di Azure.
 
 >[!NOTE]
 >I [contenitori di sintesi vocale](speech-container-howto.md) non richiedono aumenti di limite di richieste simultanee, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati.

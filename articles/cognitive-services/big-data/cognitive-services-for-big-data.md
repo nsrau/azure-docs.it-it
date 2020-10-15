@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 0001002636362a74915f9dae21a6beff52baea63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 030fb4b4e5fa10304167f8d6bc2307c5b93c6d58
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201778"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776630"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>Servizi cognitivi di Azure per Big Data
 
@@ -125,12 +125,14 @@ L'esempio di Servizi cognitivi per Big Data dimostra come sia possibile integrar
 - [Altre informazioni sul funzionamento di Servizi cognitivi in Apache Spark&trade;](https://azure.microsoft.com/blog/dear-spark-developers-welcome-to-azure-cognitive-services/)
 - [Salvataggio dei leopardi delle nevi con Deep Learning e Visione artificiale in Spark](http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/)
 - [Podcast di Microsoft Research: MMLSpark, supporto di AI for Good con Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
+- [White paper accademico: Large Scale Intelligent Microservices](https://arxiv.org/abs/2009.08044)
 
 ## <a name="webinars-and-videos"></a>Webinar e video
 
 - [Servizi cognitivi di Azure in Spark: cluster con servizi intelligenti incorporati](https://databricks.com/session/the-azure-cognitive-services-on-spark-clusters-with-embedded-intelligent-services)
 - [Intervento al summit su Spark: AI for Good scalabile](https://databricks.com/session_eu19/scalable-ai-for-good)
 - [Servizi cognitivi per Big Data in Cosmos DB](https://medius.studios.ms/Embed/Video-nc/B19-BRK3004?latestplayer=true&l=2571.208093)
+- [Lightning Talk on Large Scale Intelligent Microservices](https://www.youtube.com/watch?v=BtuhmdIy9Fk&t=6s)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

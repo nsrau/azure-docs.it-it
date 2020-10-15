@@ -1,15 +1,15 @@
 ---
 title: 'Avvio rapido: Prima query con .NET Core'
 description: Questo argomento di avvio rapido illustra la procedura per abilitare i pacchetti NuGet di Resource Graph per .NET Core ed eseguire la prima query.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0470f100b6323f760bc48af70e8a6c11b94dfb3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5f825b22712956c0b94531ddb163301167f30f00
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89005871"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057468"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Avvio rapido: Eseguire la prima query di Resource Graph con .NET Core
 

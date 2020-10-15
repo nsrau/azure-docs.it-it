@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86207492"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk in query di log di Monitoraggio di Azure
@@ -25,12 +25,12 @@ La tabella seguente confronta i concetti e le strutture di dati tra Splunk e i l
  | --- | --- | --- | ---
  | Unità di distribuzione  | cluster |  cluster |  Monitoraggio di Azure consente query tra cluster arbitrari. Splunk non lo consente. |
  | Cache di dati |  bucket  |  Memorizzazione nella cache e criteri di conservazione |  Controlla il periodo e il livello di memorizzazione nella cache per i dati. Questa impostazione influisce direttamente sulle prestazioni delle query e sui costi della distribuzione. |
- | Partizione logica dei dati  |  indice  |  database  |  Consente la separazione logica dei dati. Entrambe le implementazioni consentono unioni e join tra le partizioni. |
- | Metadati degli eventi strutturati | N/A | table |  Splunk non dispone del concetto espresso nel linguaggio di ricerca di metadati dell'evento. I log di Monitoraggio di Azure presentano il concetto di una tabella che contiene colonne. Ogni istanza dell'evento è mappata a una riga. |
+ | Partizione logica dei dati  |  index  |  database  |  Consente la separazione logica dei dati. Entrambe le implementazioni consentono unioni e join tra le partizioni. |
+ | Metadati degli eventi strutturati | N/D | tabella |  Splunk non dispone del concetto espresso nel linguaggio di ricerca di metadati dell'evento. I log di Monitoraggio di Azure presentano il concetto di una tabella che contiene colonne. Ogni istanza dell'evento è mappata a una riga. |
  | Record dei dati | event | riga |  Solo modifica terminologica. |
  | Attributo di record di dati | campo |  colonna |  In Monitoraggio di Azure, questo è già definito come parte della struttura della tabella. In Splunk, ogni evento ha un proprio set di campi. |
  | Tipi | tipo di dati |  tipo di dati |  I tipi di dati di Monitoraggio di Azure sono più espliciti poiché vengono impostati nelle colonne. Entrambi sono in grado di lavorare in modo dinamico con i tipi di dati e con i set quasi equivalenti ai tipi di dati che includono il supporto JSON. |
- | Query e ricerca  | cerca | query |  I concetti sono essenzialmente uguali tra Monitoraggio di Azure e Splunk. |
+ | Query e ricerca  | ricerca | query |  I concetti sono essenzialmente uguali tra Monitoraggio di Azure e Splunk. |
  | Tempo di inserimento evento | Ora di sistema | ingestion_time() |  In Splunk, ogni evento ottiene un timestamp di sistema del momento in cui l'evento è stato indicizzato. In Monitoraggio di Azure, è possibile definire un criterio denominato ingestion_time che espone una colonna di sistema a cui è possibile fare riferimento tramite la funzione ingestion_time(). |
 
 ## <a name="functions"></a>Funzioni
@@ -40,7 +40,7 @@ La tabella seguente specifica le funzioni in Monitoraggio di Azure equivalenti a
 |Splunk | Monitoraggio di Azure |Commento
 |---|---|---
 |strcat | strcat()| (1) |
-|split  | split() | (1) |
+|Split  | split() | (1) |
 |if     | iff()   | (1) |
 |tonumber | todouble()<br>tolong()<br>toint() | (1) |
 |upper<br>lower |toupper()<br>tolower()|(1) |
@@ -65,7 +65,7 @@ Nelle sezioni seguenti vengono illustrati esempi dell'uso di diversi operatori t
 > [!NOTE]
 > Ai fini di questo esempio, la _regola_ del campo Splunk esegue il mapping a una tabella in Monitoraggio di Azure, e il timestamp predefinito di Splunk esegue il mapping alla colonna di Log Analytics _ingestion_time()_.
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 In Splunk, è possibile omettere la parola chiave `search` e specificare una stringa senza virgolette. In Monitoraggio di Azure è necessario avviare ogni query con `find`, una stringa senza virgolette è un nome di colonna e il valore di ricerca deve essere una stringa tra virgolette. 
 
 | | Operatore | Esempio |
@@ -74,7 +74,7 @@ In Splunk, è possibile omettere la parola chiave `search` e specificare una str
 | **Monitoraggio di Azure** | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 
 
-### <a name="filter"></a>Filtro
+### <a name="filter"></a>Filtra
 Le query di Monitoraggio di Azure iniziano da un risultato tabulare in cui è impostato il filtro. In Splunk, il filtro è l'operazione predefinita per l'indice corrente. È anche possibile usare l'operatore `where` in Splunk, ma non è consigliato.
 
 | | Operatore | Esempio |
@@ -106,8 +106,8 @@ Splunk ha anche una funzione `eval` che non deve essere confrontabile con l'oper
 | **Splunk** | **EVAL** |  <code>Event.Rule=330009.2<br>&#124; eval state= if(Data.Exception = "0", "success", "error")</code> |
 | **Monitoraggio di Azure** | **extend** | <code>Office_Hub_OHubBGTaskError<br>&#124; extend state = iif(Data_Exception == 0,"success" ,"error")</code> |
 
-### <a name="rename"></a>Rinomina 
-Monitoraggio di Azure usa l' `project-rename` operatore per rinominare un campo. `project-rename`consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk ha un `rename` operatore che esegue la stessa operazione.
+### <a name="rename"></a>Rinominare 
+Monitoraggio di Azure usa l' `project-rename` operatore per rinominare un campo. `project-rename` consente alla query di sfruttare i vantaggi di tutti gli indici predefiniti per un campo. Splunk ha un `rename` operatore che esegue la stessa operazione.
 
 | | Operatore | Esempio |
 |:---|:---|:---|
@@ -127,7 +127,7 @@ Vedere le [Aggregazioni nelle query di log di Monitoraggio di Azure](aggregation
 
 | | Operatore | Esempio |
 |:---|:---|:---|
-| **Splunk** | **stats** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
+| **Splunk** | **Statistiche** |  <code>search (Rule=120502.*)<br>&#124; stats count by OSEnv, Audience</code> |
 | **Monitoraggio di Azure** | **summarize** | <code>Office_Hub_OHubBGTaskError<br>&#124; summarize count() by App_Platform, Release_Audience</code> |
 
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
 ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314719"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
@@ -62,7 +62,7 @@ In Azure ricerca cognitiva la crittografia doppia è un'estensione di CMK. Si tr
 
 La crittografia doppia è attualmente disponibile nei nuovi servizi creati in queste aree dopo il 1 ° agosto:
 
-+ Stati Uniti occidentali 2
++ West US 2
 + Stati Uniti orientali
 + Stati Uniti centro-meridionali
 + US Gov Virginia
@@ -94,7 +94,7 @@ L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costit
 
 Per controllare ulteriormente l'accesso al servizio di ricerca, è possibile creare regole del firewall in ingresso che consentano l'accesso a un indirizzo IP specifico o a un intervallo di indirizzi IP. Tutte le connessioni client devono essere effettuate tramite un indirizzo IP consentito o la connessione viene negata.
 
-:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagramma dell'architettura di esempio per l'accesso con restrizioni IP":::
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagramma che illustra i diversi tipi di sicurezza a ogni livello di coinvolgimento del servizio":::
 
 Per [configurare l'accesso in ingresso](service-configure-firewall.md), è possibile usare il portale.
 
@@ -106,7 +106,7 @@ Un [endpoint privato](../private-link/private-endpoint-overview.md) per ricerca 
 
 L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della rete virtuale per le connessioni al servizio di ricerca. Il traffico di rete tra il client e il servizio di ricerca attraversa la rete virtuale e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Un VNET consente la comunicazione sicura tra le risorse, con la rete locale e Internet.
 
-:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagramma dell'architettura di esempio per l'accesso agli endpoint privati":::
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagramma che illustra i diversi tipi di sicurezza a ogni livello di coinvolgimento del servizio":::
 
 Anche se questa soluzione è la più sicura, l'uso di servizi aggiuntivi è un costo aggiunto, quindi è necessario assicurarsi di avere una chiara comprensione dei vantaggi prima di immergersi in. Per ulteriori informazioni sui costi, vedere la [pagina](https://azure.microsoft.com/pricing/details/private-link/)relativa ai prezzi. Per ulteriori informazioni sull'interazione tra questi componenti, guardare il video nella parte superiore di questo articolo. Il code coverage dell'opzione di endpoint privato inizia da 5:48 nel video. Per istruzioni su come configurare l'endpoint, vedere [creare un endpoint privato per Azure ricerca cognitiva](service-create-private-endpoint.md).
 

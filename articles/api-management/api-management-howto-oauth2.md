@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902259"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
@@ -78,8 +78,8 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     Nel nuovo portale per sviluppatori il suffisso URI è di tipo:
 
-    - `/signin-oauth/code/callback/{authServerName}`per il flusso di concessione del codice di autorizzazione
-    - `/signin-oauth/implicit/callback`per il flusso di concessione implicita
+    - `/signin-oauth/code/callback/{authServerName}` per il flusso di concessione del codice di autorizzazione
+    - `/signin-oauth/implicit/callback` per il flusso di concessione implicita
 
     ![Nuovo server OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
 
@@ -123,7 +123,7 @@ Quando **Authorization code** è selezionato, viene visualizzata una finestra po
 > [!NOTE]
 > Se i popup sono stati disattivati, verrà richiesto di attivarli tramite il browser. Dopo averli attivati, selezionare di nuovo **Authorization code** per visualizzare il modulo di accesso.
 
-![Accesso][api-management-oauth2-signin]
+![Accedi][api-management-oauth2-signin]
 
 Dopo aver effettuato l'accesso, le **intestazioni della richiesta** vengono compilate con un'intestazione `Authorization : Bearer` che autorizza la richiesta.
 

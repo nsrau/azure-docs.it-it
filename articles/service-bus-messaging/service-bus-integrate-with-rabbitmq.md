@@ -8,10 +8,10 @@ ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
 ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91301106"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Come integrare RabbitMQ con il bus di servizio di Azure
@@ -38,27 +38,27 @@ In portale di Azure fare clic sul pulsante con il segno più grande per aggiunge
 
 Quindi selezionare integrazione e fare clic su bus di servizio di Azure per creare uno spazio dei nomi di messaggistica:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Selezionare il bus di servizio di Azure":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Crea risorsa":::
 
 Verrà richiesto di immettere le informazioni sullo spazio dei nomi. Selezionare la sottoscrizione di Azure da usare. Se non si dispone di un [gruppo di risorse](../azure-resource-manager/management/manage-resource-groups-portal.md), è possibile crearne uno nuovo.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Crea spazio dei nomi":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Crea risorsa":::
 
 Usare `rabbitmq` per `Namespace name` , ma potrebbe essere qualsiasi elemento desiderato. Quindi impostare `East US` per il percorso. Scegliere `Basic` come livello di prezzo.
 
 Se tutto è andato bene, viene visualizzata la schermata di conferma seguente:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Conferma creazione spazio dei nomi":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace-confirm.png" alt-text="Crea risorsa":::
 
 Quindi, tornando al portale di Azure verrà visualizzato il nuovo `rabbitmq` spazio dei nomi. Fare clic su di esso per accedere alla risorsa, in modo da potervi aggiungere una coda.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Elenco di risorse con nuovo spazio dei nomi":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/resource-view-with-namespace.png" alt-text="Crea risorsa":::
 
 ## <a name="creating-our-azure-service-bus-queue"></a>Creazione della coda del bus di servizio di Azure
 
 Ora che è disponibile lo spazio dei nomi del bus di servizio di Azure, fare clic sul `Queues` pulsante a sinistra, in `Entities` , per poter aggiungere una nuova coda:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Crea coda":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-queue.png" alt-text="Crea risorsa":::
 
 Il nome della coda sarà `from-rabbitmq` esattamente come un promemoria per la provenienza dei messaggi. È possibile lasciare tutte le altre opzioni come predefinite, ma è possibile modificarle in base alle esigenze dell'app.
 
@@ -78,21 +78,21 @@ rabbitmq-plugins enable rabbitmq_shovel_management
 
 È necessario creare un criterio di [accesso condiviso](../storage/common/storage-sas-overview.md) (SAS) per la coda, in modo che RabbitMQ possa pubblicare messaggi. Un criterio di firma di accesso condiviso consente di specificare quale entità esterna è autorizzata a eseguire con la risorsa. Il concetto è che RabbitMQ è in grado di inviare messaggi, ma non di ascoltare o gestire la coda.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Aggiungi criteri SAS":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Crea risorsa":::
 
 Selezionare la `Send` casella e quindi fare clic su `Create` per applicare i criteri di firma di accesso condiviso.
 
 Una volta creato il criterio, fare clic su di esso per visualizzare la **stringa di connessione primaria**. Verrà usato per consentire a RabbitMQ di comunicare con il bus di servizio di Azure:
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Ottenere i criteri SAS":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Crea risorsa":::
 
 Prima di poter usare la stringa di connessione, è necessario convertirla nel formato di connessione AMQP di RabbitMQ. Quindi, passare allo [strumento di conversione della stringa di connessione](https://red-mushroom-0f7446a0f.azurestaticapps.net/) e incollare la stringa di connessione nel modulo, fare clic su Converti. Si otterrà una stringa di connessione RabbitMQ Ready. Il sito Web esegue tutti gli elementi locali del browser in modo che i dati non vengano inviati in rete. È possibile accedere al codice sorgente in [GitHub](https://github.com/videlalvaro/connstring_to_amqp).
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Converte la stringa di connessione":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Crea risorsa":::
 
 Aprire quindi il plug-in di gestione di RabbitMQ nel browser `http://localhost:15672/#/dynamic-shovels` e passare a `Admin -> Shovel Management` , in cui è possibile aggiungere la nuova paletta che verrà inviata per l'invio di messaggi da una coda di RabbitMQ alla coda del bus di servizio di Azure.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Aggiungi pala RabbitMQ":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Crea risorsa":::
 
 Chiamare la pala `azure` e scegliere `AMQP 0.9.1` come protocollo di origine. Nello screenshot abbiamo `amqp://` , ovvero l'URI predefinito che ci connette a un server RabbitMQ locale. Assicurarsi di adattarlo alla distribuzione corrente.
 
@@ -110,15 +110,15 @@ Nel `Address` campo immettere il nome della coda del bus di **servizio di Azure*
 
 Nell'interfaccia di gestione di RabbitMQ è possibile passare a `Queues` , selezionare la `azure` coda e cercare il `Publish message` pannello. Verrà visualizzato un modulo che consente di pubblicare i messaggi direttamente nella coda. Per questo esempio, aggiungeremo solo `fist message` come `Payload` e hit `Publish Message` :
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Pubblica primo messaggio":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Crea risorsa":::
 
 Tornare ad Azure e controllare la coda. Fare clic `Service Bus Explorer` nel riquadro a sinistra, quindi fare clic sul pulsante _Visualizza_ . Se tutto è andato bene, la coda avrà ora un messaggio. Yay, congratulazioni!
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Coda del bus di servizio di Azure":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Crea risorsa":::
 
 Assicurarsi però che il messaggio sia quello inviato da RabbitMQ. Selezionare la `Peek` scheda e fare clic sul `Peek` pulsante per recuperare gli ultimi messaggi nella coda. Fare clic sul messaggio per esaminarne il contenuto. Verrà visualizzata una schermata simile all'immagine seguente, in cui `first message` è elencato.
 
-:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Visualizzazione della coda":::
+:::image type="content" source="./media/service-bus-integrate-with-rabbitmq/peek.png" alt-text="Crea risorsa":::
 
 ## <a name="lets-recap"></a>Riepilogo
 

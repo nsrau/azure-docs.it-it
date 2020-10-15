@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836735"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091169"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Informazioni sulle differenze tra Servizi cloud e Service Fabric che è opportuno conoscere prima di procedere alla migrazione di applicazioni.
 Microsoft Azure Service Fabric è la piattaforma di applicazioni cloud di nuova generazione per applicazioni distribuite con livelli di scalabilità e affidabilità elevati. Introduce molte nuove funzionalità per la creazione di pacchetti, la distribuzione, l'aggiornamento e la gestione di applicazioni cloud distribuite. 
@@ -69,7 +69,7 @@ Con la comunicazione diretta i livelli possono comunicare direttamente tramite l
 
 Service Fabric fornisce un meccanismo di individuazione del servizio, detto Naming Service, che può essere usato per risolvere gli indirizzi degli endpoint dei servizi. 
 
-![Comunicazione diretta di Service Fabric][6]
+![Diagramma che illustra come Service Fabric fornisce un meccanismo di individuazione dei servizi, denominato Naming Service, che può essere utilizzato per risolvere gli indirizzi degli endpoint dei servizi.][6]
 
 ### <a name="queues"></a>Code
 Un meccanismo di comunicazione comune tra i livelli in ambienti senza stati come Servizi cloud consiste nell'usare una coda di archiviazione esterna per archiviare in modo permanente le attività di lavoro da un livello a un altro. Uno scenario comune è un livello web che invia processi a una coda di Azure o un bus di servizio in cui le istanze del ruolo di lavoro possono rimuovere dalla coda ed elaborare i processi.

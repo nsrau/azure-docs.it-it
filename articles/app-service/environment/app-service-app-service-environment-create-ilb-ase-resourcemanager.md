@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 2a03b791f37868010e107214ddcb7cf42174e4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833554"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager
@@ -119,7 +119,7 @@ Un esempio abbreviato di *azuredeploy.parameters.json* è illustrato di seguito:
 }
 ```
 
-Una volta compilato ilazuredeploy.parameters.jsnel file, il certificato TLS/SSL predefinito può essere configurato usando il frammento di codice *di* PowerShell seguente.  Modificare i percorsi dei file in modo che corrispondano a quelli in cui si trovano i file del modello di Azure Resource Manager nel computer.  Indicare anche i valori per il nome della distribuzione di Azure Resource Manager e il nome del gruppo di risorse.
+Una volta compilato ilazuredeploy.parameters.jsnel file, il certificato TLS/SSL predefinito può essere configurato usando il frammento di codice * di* PowerShell seguente.  Modificare i percorsi dei file in modo che corrispondano a quelli in cui si trovano i file del modello di Azure Resource Manager nel computer.  Indicare anche i valori per il nome della distribuzione di Azure Resource Manager e il nome del gruppo di risorse.
 
 ```azurepowershell-interactive
 $templatePath="PATH\azuredeploy.json"

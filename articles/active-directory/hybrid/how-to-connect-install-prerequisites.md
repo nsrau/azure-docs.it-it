@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662168"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
@@ -132,14 +132,14 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 Per ulteriori informazioni, vedere MSDN sull' [elemento proxy predefinito](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 Facoltativo: usare un account utente di test per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti
 ### <a name="powershell-and-net-framework"></a>PowerShell e .NET Framework
 Azure AD Connect si basa su Microsoft PowerShell e .NET Framework 4.5.1. Nel server deve essere installata questa versione o una versione successiva. A seconda della versione di Windows Server, eseguire le operazioni seguenti:
 
-* Windows Server 2012 R2
+* R2 per Windows Server 2012
   * Microsoft PowerShell viene installato per impostazione predefinita, Non è richiesta alcuna azione.
   * .NET Framework 4.5.1 e versioni successive sono disponibili tramite Windows Update. Assicurarsi di aver installato gli ultimi aggiornamenti di Windows Server nel pannello di controllo.
 * Windows Server 2012

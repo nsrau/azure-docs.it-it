@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 018315b7ed468e24fb922337848d14703ffdcd4d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003627"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
@@ -36,7 +36,7 @@ Una soluzione migliore consiste nell'uso del modello Bus di servizio di Azure - 
 
 Di seguito è descritta l'architettura generale della soluzione, descritta con numerose app per dispositivi mobili ma ugualmente applicabile nel caso in cui ne venga usata una soltanto.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 ![Diagramma dell'architettura aziendale che mostra il flusso attraverso gli eventi, le sottoscrizioni e i messaggi push.][1]
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710559"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
@@ -50,7 +50,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Stati Uniti|Inglese|it-IT|
 |Inglese|generale|en-WW|
 |Inglese|generale|en-XA|
-|Sud Africa|Inglese|en-ZA|
+|Sudafrica|Inglese|en-ZA|
 |Argentina|Spagnolo|es-AR|
 |Cile|Spagnolo|es-CL|
 |Spagna|Spagnolo|es-ES|

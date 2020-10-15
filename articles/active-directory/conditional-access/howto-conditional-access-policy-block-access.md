@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265987"
 ---
 # <a name="conditional-access-block-access"></a>Accesso condizionale: bloccare l'accesso
@@ -58,7 +58,7 @@ Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazio
       1. impostare **Configura** su **Sì**
       1. In **Includi**selezionare **qualsiasi percorso**.
       1. In **Escludi**selezionare **tutti i percorsi attendibili**.
-      1. Selezionare **Fine**.
+      1. Selezionare **Operazione completata**.
    1. In **app client (anteprima)** impostare **Configura** su **Sì**, quindi fare clic su **fine**, quindi su **fine**.
 1. In **controllo di accesso**  >  **concedere**selezionare **Blocca accesso**, quindi selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Attiva criterio** su **Solo report**.

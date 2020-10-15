@@ -3,19 +3,19 @@ title: Come configurare un contenitore per l'API del rilevatore di anomalie
 titleSuffix: Azure Cognitive Services
 description: L'ambiente di runtime del contenitore API del rilevamento anomalie viene configurato usando gli `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: aahi
-ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903538"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019750"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori di Rilevamento anomalie
 
@@ -90,7 +90,7 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 |Facoltativo| Nome | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | Stringa | I contenitori dei rilevatori di anomalie non lo usano.|
+|Non consentito| `Input` | string | I contenitori dei rilevatori di anomalie non lo usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio 

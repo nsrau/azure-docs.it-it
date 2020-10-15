@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261935"
 ---
 # <a name="add-a-bubble-layer"></a>Aggiungere un livello per le bolle
@@ -49,7 +49,7 @@ Se un campo viene passato nel bucket **dimensioni** del riquadro **campi** , le 
 |---------------------|--------------|
 | Dimensioni minime            | Dimensioni minime della bolla durante il ridimensionamento dei dati.|
 | Dimensioni massime            | Dimensioni massime della bolla durante il ridimensionamento dei dati.|
-| Metodo di ridimensionamento delle dimensioni | Algoritmo di ridimensionamento utilizzato per determinare le dimensioni delle bolle relative.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervallo lineare dei dati di input con mapping lineare alle dimensioni minima e massima. (predefinito)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log: intervallo di dati di input logaritmicamente mappato alla dimensione minima e massima.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier: specificare i valori x1, Y1, X2, Y2 di una curva di Bezier cubica per creare un metodo di ridimensionamento personalizzato. |
+| Metodo di ridimensionamento delle dimensioni | Algoritmo di ridimensionamento utilizzato per determinare le dimensioni delle bolle relative.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Intervallo lineare dei dati di input con mapping lineare alle dimensioni minima e massima. (predefinito)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log: intervallo di dati di input logaritmicamente mappato alla dimensione minima e massima.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier: specificare i valori x1, Y1, X2, Y2 di una curva Cubic-Bezier per creare un metodo di ridimensionamento personalizzato. |
 
 Quando il **metodo di ridimensionamento delle dimensioni** è impostato su **log**, verranno rese disponibili le opzioni seguenti.
 
@@ -67,25 +67,25 @@ Quando il **metodo di ridimensionamento delle dimensioni** è impostato su **cub
 | S2      | Parametro Y2 di una curva di Bezier cubica. |
 
 > [!TIP]
-> [https://cubic-bezier.com/](https://cubic-bezier.com/)dispone di uno strumento utile per creare i parametri per le curve di Bezier cubica.
+> [https://cubic-bezier.com/](https://cubic-bezier.com/) dispone di uno strumento utile per creare i parametri per Cubic-Bezier curve.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Modificare la modalità di visualizzazione dei dati sulla mappa:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello grafico a barre](power-bi-visual-add-bar-chart-layer.md)
+> [Aggiungere un livello per il grafico a barre](power-bi-visual-add-bar-chart-layer.md)
 
 Aggiungere altro contesto alla mappa:
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello di riferimento](power-bi-visual-add-reference-layer.md)
+> [Aggiungere un livello per i riferimenti](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello per i riquadri](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
-> [Mostra traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)
+> [Visualizzare il traffico in tempo reale](power-bi-visual-show-real-time-traffic.md)
 
 Personalizzare l'oggetto visivo:
 

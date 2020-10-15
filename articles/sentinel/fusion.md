@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
 ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906278"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Rilevamento avanzato degli attacchi multifase in Sentinel di Azure
@@ -422,7 +422,7 @@ Questo scenario è attualmente disponibile in **anteprima pubblica**.
 
 **Mitre ATT&le tattiche CK:** Accesso iniziale, esecuzione, spostamento laterale, escalation dei privilegi
 
-**Mitre ATT&le tecniche CK:** Exploit di applicazioni pubbliche (T1190), Exploiting for client Execution (T1203), Exploiting of Remote Services (T1210), Exploiting for Privilege escalation (T1068)
+**Mitre ATT&le tecniche CK:** Exploit Public-Facing Application (T1190), exploitation for client Execution (T1203), Exploiting of Remote Services (T1210), Exploiting for Privilege escalation (T1068)
 
 **Origini connettore dati:** Microsoft Defender per endpoint (in precedenza MDATP), Palo Alto Networks 
 

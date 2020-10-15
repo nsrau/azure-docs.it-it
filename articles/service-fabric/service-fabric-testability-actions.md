@@ -7,10 +7,10 @@ ms.date: 06/07/2017
 ms.author: motanv
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022174"
 ---
 # <a name="testability-actions"></a>Azioni di Testabilità
@@ -80,7 +80,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 La schermata seguente mostra il comando di testabilità **Restart-ServiceFabricNode** in azione.
 
-![Screenshot dell'esecuzione del comando restart-ServiceFabricNode in PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
+![Screenshot dell'esecuzione del comando Restart-ServiceFabricNode in PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
 L'output del primo **Get ServiceFabricNode** (un cmdlet dal modulo PowerShell di ServiceFabric) mostra che il cluster locale ha cinque nodi: da Node.1 a Node.5. Dopo l'esecuzione dell'azione di testabilità (cmdlet) **Restart-ServiceFabricNode** sul nodo, denominato Node.4, noteremo che il tempo di attività del nodo è stato reimpostato.
 

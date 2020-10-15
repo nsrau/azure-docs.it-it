@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 149656bebac7e8fab24dc1e1847a4e56bf5f3888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0465d6219f9c9d13b4dd3321beb90af524cade36
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547342"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Esercitazione: Integrazione di Azure Active Directory con Bime
 
@@ -132,7 +132,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bime, seguire questa pr
 
 2. Nella barra degli strumenti fare clic su **Admin** e quindi su **Account**.
   
-    ![Admin](./media/bime-tutorial/ic775558.png "Amministrativi")
+    ![Screenshot che mostra le opzioni Admin e Account selezionate.](./media/bime-tutorial/ic775558.png "Amministrativi")
 
 3. Nella pagina di configurazione dell’account, eseguire la procedura seguente:
   
@@ -207,7 +207,7 @@ Per consentire agli utenti di Azure AD di accedere a Bime, è necessario eseguir
 
 2. Nella barra degli strumenti fare clic su **Admin** e quindi su **Users** (Utenti).
 
-    ![Admin](./media/bime-tutorial/ic775561.png "Amministrativi")
+    ![Screenshot che mostra le opzioni Admin e Users selezionate.](./media/bime-tutorial/ic775561.png "Amministrativi")
 
 3. In **Users List** (Elenco utenti) fare clic su **"+"** per aggiungere un nuovo utente.
 

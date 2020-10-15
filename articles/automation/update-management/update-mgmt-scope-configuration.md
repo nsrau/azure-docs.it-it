@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: aafd284122ca61ba2b668186095b88003be2775c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450104"
 ---
 # <a name="limit-update-management-deployment-scope"></a>Limitare Gestione aggiornamenti ambito di distribuzione
@@ -30,7 +30,7 @@ Per limitare l'ambito per la distribuzione di Gestione aggiornamenti:
 
 3. Selezionare **configurazioni ambito (anteprima)** in **origini dati dell'area di lavoro**.
 
-4. Selezionare i puntini di sospensione a destra della `MicrosoftDefaultScopeConfig-Updates` configurazione dell'ambito, quindi scegliere **modifica**.
+4. Selezionare i puntini di sospensione a destra della  `MicrosoftDefaultScopeConfig-Updates` configurazione dell'ambito, quindi scegliere **modifica**.
 
 5. Nel riquadro di modifica espandere **Seleziona gruppi di computer**. Il riquadro Gruppi di computer mostra le ricerche salvate usate per creare la configurazione dell'ambito. La ricerca salvata usata da Gestione aggiornamenti è la seguente:
 

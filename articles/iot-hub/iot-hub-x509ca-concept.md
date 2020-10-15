@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308113"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Comprensione concettuale dei certificati x.509 nel settore IoT
@@ -71,7 +71,7 @@ Per acquistare un certificato di autorità di certificazione X.509, la Società-
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Creazione di un certificato della CA autofirmato X.509
 
-Il processo di creazione di un certificato della CA autofirmato X. 509 è simile all'acquisto, ad eccezione del coinvolgimento di un firmatario di terze parti come l'autorità di certificazione radice. In questo esempio, la Società-X firmerà il certificato dell'autorità invece che un'autorità di certificazione radice. La Società-X può scegliere questa opzione per verificare fino a che punto è in grado di acquistare un certificato di autorità. La società-X può anche usare un certificato della CA autofirmato X. 509 in produzione, se Smart-X-widget non è destinato a connettersi a servizi di terze parti all'esterno dell'hub Internet.
+Il processo di creazione di un certificato della CA Self-Signed X. 509 è simile all'acquisto, ad eccezione del coinvolgimento di un firmatario di terze parti come l'autorità di certificazione radice. In questo esempio, la Società-X firmerà il certificato dell'autorità invece che un'autorità di certificazione radice. La Società-X può scegliere questa opzione per verificare fino a che punto è in grado di acquistare un certificato di autorità. La società-X può anche usare un certificato della CA autofirmato X. 509 in produzione, se Smart-X-widget non è destinato a connettersi a servizi di terze parti all'esterno dell'hub Internet.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrare il certificato X.509 all'hub IoT
 

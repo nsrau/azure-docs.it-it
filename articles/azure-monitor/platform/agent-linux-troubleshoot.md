@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531191"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
@@ -193,7 +193,7 @@ I bug correlati alle prestazioni non si verificano continuamente e sono molto di
 
 ### <a name="resolution-step-by-step"></a>Risoluzione (procedura dettagliata)
 
-1. Aggiornare il pacchetto NSS-PEM a [v 1.0.3-5. el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
+1. Aggiornare il pacchetto NSS-PEM a [v 1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html). <br/>
 `sudo yum upgrade nss-pem`
 
 2. Se NSS-PEM non è disponibile per l'aggiornamento (si verifica principalmente in CentOS), effettuare il downgrade di curl a 7.29.0-46. Se per errore si esegue "yum update", curl verrà aggiornato a 7.29.0-51 e il problema si verificherà nuovamente. <br/>
@@ -298,7 +298,7 @@ Questo errore indica che l'estensione di diagnostica per Linux (LAD) è installa
 * Il pacchetto OMI è stato aggiornato manualmente a una versione più recente rispetto alla versione installata dal pacchetto dell'agente di Log Analytics per Linux
 * La risorsa DSC registra un errore *class not found* (classe non trovata) nel file di log `omsconfig.log`
 * I dati dell'agente di Log Analytics sono sottoposti a backup
-* *La configurazione corrente dei registri DSC non esiste. Eseguire il comando Start-DscConfiguration con il parametro-Path per specificare un file di configurazione e creare prima una configurazione corrente.* nel file di log `omsconfig.log`, ma non esiste alcun messaggio del log sulle operazioni `PerformRequiredConfigurationChecks`.
+* *La configurazione corrente dei registri DSC non esiste. Eseguire Start-DscConfiguration comando con il parametro-Path per specificare un file di configurazione e creare prima una configurazione corrente.* nel file di log `omsconfig.log`, ma non esiste alcun messaggio del log sulle operazioni `PerformRequiredConfigurationChecks`.
 
 ### <a name="resolution"></a>Soluzione
 1. Installare tutte le dipendenze, ad esempio il pacchetto auditd.

@@ -3,12 +3,12 @@ title: Come creare definizioni dei criteri di configurazione Guest da Criteri di
 description: Informazioni su come convertire Criteri di gruppo dalla linea di base di sicurezza di Windows Server 2019 in una definizione dei criteri.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547769"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893374"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Come creare definizioni dei criteri di configurazione Guest da Criteri di gruppo baseline per Windows
 
@@ -87,7 +87,7 @@ Si convertirà quindi la baseline del server scaricato 2019 in un pacchetto di c
 
 ## <a name="create-azure-policy-guest-configuration"></a>Crea configurazione Guest di criteri di Azure
 
-Il passaggio successivo consiste nel pubblicare il file nell'archiviazione BLOB. 
+Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Azure. 
 
 1. Lo script seguente contiene una funzione che è possibile usare per automatizzare questa attività. Si noti che i comandi usati nella `publish` funzione richiedono il `Az.Storage` modulo.
 

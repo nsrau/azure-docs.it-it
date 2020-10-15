@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825260"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978595"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Salva i costi con le prenotazioni host dedicato di Azure
 
-Quando si esegue il commit in un'istanza riservata di host dedicati di Azure, è possibile risparmiare denaro. Lo sconto relativo alla prenotazione viene applicato automaticamente al numero di host dedicati in esecuzione che corrispondono agli attributi e all'ambito di prenotazione. Non è necessario assegnare una prenotazione a un host dedicato per ottenere gli sconti. Un acquisto di istanze riservate copre solo la parte di calcolo dell'utilizzo e include i costi di licenza software. Vedere la [Panoramica degli host dedicati di Azure per le macchine virtuali](./windows/dedicated-hosts.md).
+Quando si esegue il commit in un'istanza riservata di host dedicati di Azure, è possibile risparmiare denaro. Lo sconto relativo alla prenotazione viene applicato automaticamente al numero di host dedicati in esecuzione che corrispondono agli attributi e all'ambito di prenotazione. Non è necessario assegnare una prenotazione a un host dedicato per ottenere gli sconti. Un acquisto di istanze riservate copre solo la parte di calcolo dell'utilizzo e include i costi di licenza software. Vedere la [Panoramica degli host dedicati di Azure per le macchine virtuali](./dedicated-hosts.md).
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Determinare lo SKU host dedicato corretto prima di acquistare
 
@@ -109,7 +109,7 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 
 - Quantità
 
-- Durata
+- Duration
 
 Tuttavia, *exchange*   se si desidera apportare modifiche, è possibile scambiare una prenotazione.
 
@@ -129,7 +129,7 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 
 - [Informazioni sulle prenotazioni di Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Uso di host dedicati di Azure](./windows/dedicated-hosts.md)
+- [Uso di host dedicati di Azure](./dedicated-hosts.md)
 
 - [Prezzi degli host dedicati](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 

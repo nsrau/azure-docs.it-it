@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 6d0392cd8e94ba8a9026f557b90e740fbed7f50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84809080"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Verificare lo stato della crittografia di un BLOB
@@ -26,7 +26,7 @@ Questo articolo illustra come determinare se un determinato BLOB è stato critto
 
 Usare la portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure per determinare se un BLOB è crittografato senza codice.
 
-### <a name="azure-portal"></a>[Azure portal](#tab/portal)
+### <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per usare il portale di Azure per verificare se un BLOB è stato crittografato, attenersi alla procedura seguente:
 

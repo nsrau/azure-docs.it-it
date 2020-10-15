@@ -1,6 +1,7 @@
 ---
-title: Avvio rapido per l'uso di Microsoft Identity Platform con un'app della piattaforma UWP | Azure
-description: Informazioni su come un'applicazione della piattaforma UWP (Universal Windows Platform) (XAML) può ottenere un token di accesso e chiamare un'API protetta da un endpoint di Microsoft Identity Platform.
+title: "Avvio rapido: Concedere l'accesso agli utenti e chiamare Microsoft Graph in un'app della piattaforma UWP (Universal Windows Platform) | Azure"
+titleSuffix: Microsoft identity platform
+description: Questa guida di avvio rapido illustra come un'applicazione della piattaforma UWP (Universal Windows Platform) può ottenere un token di accesso e chiamare un'API protetta da Microsoft Identity Platform.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +12,23 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 5b954c5eae9c203efa65dc9dc1883d8e00f3937a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553871"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630526"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
 Questo avvio rapido contiene un esempio di codice che illustra come un'applicazione UWP (Universal Windows Platform) può consentire l'accesso a utenti con account personali, aziendali o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph. Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works).
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>Prerequisiti
+>
+> * Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
 > [!div renderon="docs" class="sxs-lookup"]
 > Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni:

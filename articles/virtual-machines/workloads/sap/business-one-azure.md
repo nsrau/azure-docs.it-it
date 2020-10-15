@@ -1,26 +1,18 @@
 ---
 title: SAP Business One nelle macchine virtuali di Azure | Microsoft Docs
 description: SAP Business One in Azure
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.reviewer: cynthn
+ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654651"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994098"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One nelle macchine virtuali di Azure
 Questo documento contiene indicazioni per la distribuzione di SAP Business One nelle macchine virtuali di Azure, ma non sostituisce la documentazione relativa all'installazione di Business One per SAP. Presenta le linee guida di base per la pianificazione e la distribuzione per consentire l'esecuzione di applicazioni Business One nell'infrastruttura di Azure.
@@ -95,7 +87,7 @@ L'infrastruttura di rete da distribuire in Azure varia a seconda che si distribu
 Questa configurazione semplificata presenta diverse istanze di sicurezza che consentono di controllare e limitare il routing. L'istanza iniziale è costituita da: 
 
 - Router o firewall sul lato locale del cliente.
-- L'istanza successiva consiste nel [gruppo di sicurezza di rete di Azure](../../../virtual-network/security-overview.md) che è possibile usare per introdurre le regole di routing e sicurezza per la rete virtuale di Azure in cui viene eseguita la configurazione di SAP Business One.
+- L'istanza successiva consiste nel [gruppo di sicurezza di rete di Azure](../../../virtual-network/network-security-groups-overview.md) che è possibile usare per introdurre le regole di routing e sicurezza per la rete virtuale di Azure in cui viene eseguita la configurazione di SAP Business One.
 - Per evitare che gli utenti del client Business One possano vedere anche il server Business One che esegue il database, è necessario separare la macchina virtuale che ospita il client Business One e il server Business One in due subnet diverse all'interno della rete virtuale.
 - Per limitare l'accesso al server Business One, si usa il gruppo di sicurezza di rete di Azure assegnato alle due diverse subnet.
 
@@ -111,7 +103,7 @@ Per il tipo di database sono disponibili SQL Server e SAP HANA. Indipendentement
 
 Anche se è già stata sottolineata l'importanza di consultare documenti specifici e generici relativi ai database, è consigliabile acquisire familiarità con i concetti riportati nei documenti seguenti:
 
-- [Gestire la disponibilità delle macchine virtuali Windows in Azure](../../windows/manage-availability.md) e [Gestire la disponibilità delle macchine virtuali Linux in Azure](../../linux/manage-availability.md)
+- [Gestire la disponibilità delle macchine virtuali Windows in Azure](../../manage-availability.md) e [Gestire la disponibilità delle macchine virtuali Linux in Azure](../../manage-availability.md)
 - [Contratto di servizio per Macchine virtuali](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Questi documenti consentono di prendere decisioni consapevoli nella scelta dei tipi di archiviazione e della configurazione con disponibilità elevata.

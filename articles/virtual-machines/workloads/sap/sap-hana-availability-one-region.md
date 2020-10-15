@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833318"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978204"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilità di SAP HANA in un'area di Azure
 Questo articolo descrive diversi scenari di disponibilità in un'area di Azure. Azure ha molte aree, distribuite in tutto il mondo. Per l'elenco delle aree di Azure, vedere [Aree di Azure](https://azure.microsoft.com/regions/). Per la distribuzione di SAP HANA in macchine virtuali in un'area di Azure, Microsoft offre la possibilità di distribuire una singola macchina virtuale con un'istanza di HANA. Per una maggiore disponibilità, è possibile distribuire due macchine virtuali con due istanze di HANA in un [set di disponibilità di Azure](../../windows/tutorial-availability-sets.md) che usa la replica di sistema HANA per la disponibilità. 
@@ -29,7 +29,7 @@ Attualmente, Azure offre le [zone di disponibilità di Azure](../../../availabil
 
 Le aree di Azure in cui vengono offerte le zone di disponibilità hanno più data center. I data center sono indipendenti per quanto riguarda la fornitura di risorse di alimentazione, raffreddamento e rete. Il motivo alla base dell'offerta di diverse zone all'interno di una singola area di Azure è quello di consentire la distribuzione delle applicazioni tra due o tre zone di disponibilità offerte. Eseguendo la distribuzione in più zone, in caso di problemi di alimentazione e di rete che interessano una sola infrastruttura delle zone di disponibilità di Azure, la distribuzione dell'applicazione in un'area di Azure rimane pienamente funzionale. Potrebbe verificarsi una riduzione della capacità. Ad esempio, le VM di una zona potrebbero andare perse, ma le VM nelle altre due zone continuerebbero a essere operative. 
  
-Un set di disponibilità di Azure è una funzionalità di raggruppamento logico che consente di garantire che le risorse delle macchine virtuali inserite dall'utente nel set di disponibilità siano isolate tra loro in caso di errore quando vengono distribuite all'interno di un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. In alcuni esempi di documentazione su Azure, queste configurazioni vengono definite come inserimenti in diversi [domini di aggiornamento e di errore](../../windows/manage-availability.md). Questi inserimenti avvengono in genere all'interno di un data center di Azure. Supponendo che i problemi relativi alle fonti di alimentazione e alla rete interessino il data center in cui ha luogo la distribuzione, risulterebbe interessata l'intera capacità in un'area di Azure.
+Un set di disponibilità di Azure è una funzionalità di raggruppamento logico che consente di garantire che le risorse delle macchine virtuali inserite dall'utente nel set di disponibilità siano isolate tra loro in caso di errore quando vengono distribuite all'interno di un data center di Azure. Azure garantisce che le macchine virtuali inserite all'interno di un set di disponibilità vengano eseguite tra più server fisici, rack di calcolo, unità di archiviazione e commutatori di rete. In alcuni esempi di documentazione su Azure, queste configurazioni vengono definite come inserimenti in diversi [domini di aggiornamento e di errore](../../manage-availability.md). Questi inserimenti avvengono in genere all'interno di un data center di Azure. Supponendo che i problemi relativi alle fonti di alimentazione e alla rete interessino il data center in cui ha luogo la distribuzione, risulterebbe interessata l'intera capacità in un'area di Azure.
 
 L'inserimento di data center che rappresentano zone di disponibilità di Azure è un compromesso tra una latenza di rete accettabile tra i servizi distribuiti in zone diverse e una distanza tra i data center. Eventuali catastrofi naturali non avrebbero ripercussioni su alimentazione, fornitura di rete e infrastruttura per tutte le zone di disponibilità in quest'area. Tuttavia, come hanno dimostrato catastrofi naturali di grave entità, non sempre le zone di disponibilità potrebbero fornire la disponibilità desiderata in un'area. Basti pensare all'uragano Maria che ha colpito l'isola di Porto Rico il 20 settembre 2017. L'uragano ha causato un black out quasi totale per tutti i 140 chilometri dell'isola.
 
@@ -127,4 +127,4 @@ Per istruzioni dettagliate sull'impostazione di queste configurazioni in Azure, 
 
 Per altre informazioni sulla disponibilità di SAP HANA tra le aree di Azure, vedere:
 
-- [Disponibilità di SAP HANA tra aree di Azure](./sap-hana-availability-across-regions.md) 
+- [Disponibilità di SAP HANA tra aree di Azure](./sap-hana-availability-across-regions.md)

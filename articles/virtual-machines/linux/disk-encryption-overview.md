@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830445"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996485"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -26,7 +26,7 @@ Se si usa [Centro sicurezza di Azure](../../security-center/index.yml), si viene
 > [!WARNING]
 > - Se in precedenza è stato usato Crittografia dischi di Azure con Azure AD per crittografare una macchina virtuale, sarà necessario continuare a usare questa opzione per crittografare la macchina virtuale. Per altre informazioni, vedere [Crittografia dischi di Azure con Azure AD (versione precedente)](disk-encryption-overview-aad.md). 
 > - Alcune indicazioni possono comportare un maggior utilizzo delle risorse di calcolo, rete o dati con un conseguente aumento dei costi di licenza o sottoscrizione. Per creare le risorse in Azure nella aree geografiche supportate, è necessario avere una sottoscrizione di Azure attiva e valida.
-> - Attualmente le macchine virtuali di seconda generazione non supportano Crittografia dischi di Azure. Per altre informazioni, vedere [Supporto per le macchine virtuali di seconda generazione in Azure](../windows/generation-2.md).
+> - Attualmente le macchine virtuali di seconda generazione non supportano Crittografia dischi di Azure. Per altre informazioni, vedere [Supporto per le macchine virtuali di seconda generazione in Azure](../generation-2.md).
 
 È possibile apprendere in pochi minuti le nozioni di base di Crittografia dischi di Azure per Linux con [Avvio rapido: Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](disk-encryption-cli-quickstart.md) o [Avvio rapido: Creare e crittografare una macchina virtuale Linux con Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -46,7 +46,7 @@ Al termine del processo di crittografia del disco del sistema operativo nelle ma
 
 Crittografia dischi di Azure è disponibile anche per le macchine virtuali con Archiviazione Premium.
 
-Crittografia dischi di Azure non è disponibile nelle [macchine virtuali di seconda generazione](generation-2.md#generation-1-vs-generation-2-capabilities)) e nelle [macchine virtuali della serie Lsv2](../lsv2-series.md)). Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-linux.md#unsupported-scenarios).
+Crittografia dischi di Azure non è disponibile nelle macchine virtuali di [generazione 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e [VM della serie Lsv2](../lsv2-series.md). Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-linux.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -108,8 +108,8 @@ Verificare che le impostazioni /etc/fstab siano configurate correttamente per il
 Di seguito è riportato un esempio dei comandi usati per montare i dischi dati e creare le voci /etc/fstab necessarie:
 
 ```bash
-UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
-UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+UUID0="$(blkid -s UUID -o value /dev/sda1)"
+UUID1="$(blkid -s UUID -o value /dev/sda2)"
 mkdir /data0
 mkdir /data1
 echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab

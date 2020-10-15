@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/13/2020
 ms.author: Zhchia
 ms.openlocfilehash: 73f560ccf7ba910ce9077f2eff2d2bdb90736cc2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361263"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Esercitazione: configurare SAP Analytics cloud per il provisioning utenti automatico
@@ -50,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e SAP Analytics cloud](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-sap-analytics-cloud-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare SAP Analytics cloud per supportare il provisioning con Azure AD
+## <a name="step-2-configure-sap-analytics-cloud-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare SAP Analytics cloud per supportare il provisioning con Azure AD
 
 1. Accedere alla [console di amministrazione di SAP Identity provisioning](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) con l'account amministratore e quindi selezionare **sistemi proxy**.
 

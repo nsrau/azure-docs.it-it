@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 306d3a14d759ac73e78626a4c2ec6abc69d3df85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515027"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978714"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
 
@@ -33,7 +33,7 @@ La sezione **Configurazione** del pannello del servizio Gestione dispositivi Sto
 
 In questa esercitazione viene illustrato come aggiungere, modificare o eliminare le credenziali degli account di archiviazione o ruotare le chiavi di protezione per un account di archiviazione.
 
- ![Elenco di credenziali dell'account di archiviazione](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![Elenco delle credenziali dell'account di archiviazione 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Gli account di archiviazione contengono le credenziali usate dal dispositivo StorSimple per accedere all'account di archiviazione con il provider di servizi cloud. Per gli account di archiviazione di Microsoft Azure, queste sono le credenziali, ad esempio il nome dell'account e la chiave di accesso primaria. 
 
@@ -102,7 +102,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 1. Passare al servizio Gestione dispositivi StorSimple. Nella sezione **Configurazione** fare clic su **Credenziali dell'account di archiviazione**.
 
-    ![Credenziali dell'account di archiviazione](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Credenziali dell'account di archiviazione 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. Nel pannello **Credenziali dell'account di archiviazione** selezionare e fare clic sulle credenziali da modificare nell'elenco. 
 
@@ -159,11 +159,11 @@ Per comunicare la modifica al servizio Gestione dispositivi StorSimple, sarà ne
 
 3. Fare clic su **...Altro** e quindi selezionare **Sincronizza chiave di accesso per ruotare**.   
 
-    ![sincronizzare le chiavi](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![Sincronizza chiavi 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. Nel servizio Gestione dispositivi StorSimple è necessario aggiornare la chiave precedentemente modificata nel servizio Archiviazione di Microsoft Azure. Se la chiave di accesso primaria è stata modificata (rigenerata), selezionare la chiave **primaria**. Se è stata modificata la chiave secondaria, selezionare la chiave **secondaria**. Fare clic su **Sincronizza chiave**.
       
-      ![sincronizzare le chiavi](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![sincronizzare le chiavi 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 Al termine della sincronizzazione della chiave, si riceve una notifica.
 

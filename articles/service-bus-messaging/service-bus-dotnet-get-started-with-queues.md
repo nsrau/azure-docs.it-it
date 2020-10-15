@@ -6,10 +6,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cff2b8a8a0f6aefad43737aeb6fe63d40facac05
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89021664"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
@@ -383,7 +383,7 @@ Eseguire il programma e verificare di nuovo il portale. Il **numero di messaggi 
 
 ![Coda dopo la ricezione dei messaggi][queue-message-receive]
 
-Congratulazioni. A questo punto è stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti i messaggi dalla stessa coda.
+Congratulazioni! A questo punto è stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti i messaggi dalla stessa coda.
 
 > [!NOTE]
 > È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi facilmente a uno spazio dei nomi del bus di servizio e amministrare le entità di messaggistica. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89010019"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi
@@ -67,7 +67,7 @@ Per assegnare un ruolo alle risorse di hub eventi, passare a tale risorsa nel po
 Dopo aver assegnato il ruolo, l'applicazione Web avrà accesso alle risorse di hub eventi nell'ambito definito. 
 
 ### <a name="test-the-web-application"></a>Testare l'applicazione Web
-1. Creare uno spazio dei nomi di hub eventi e un hub eventi. 
+1. Creare uno spazio dei nomi di Hub eventi e un hub eventi. 
 2. Distribuire l'app Web in Azure. Vedere la sezione a schede seguente per i collegamenti all'applicazione Web in GitHub. 
 3. Verificare che SendReceive. aspx sia impostato come documento predefinito per l'app Web. 
 3. Abilitare l' **identità** per l'app Web. 

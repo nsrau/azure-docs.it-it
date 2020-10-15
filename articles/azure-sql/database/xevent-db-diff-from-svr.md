@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619815"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventi estesi nel database SQL di Azure 
@@ -51,12 +51,12 @@ Un’esposizione precedente a quanto riportato di seguito è utile quando si sce
 
 Gli argomenti correlati forniscono due esempi di codice:
 
-- [Codice di destinazione del buffer circolare per gli eventi estesi nel database SQL di Azure](xevent-code-ring-buffer.md)
+- [Codice di destinazione del buffer circolare per eventi estesi nel database SQL di Azure](xevent-code-ring-buffer.md)
 
   - Breve script Transact-SQL semplice.
   - Nell'argomento dell'esempio di codice si evidenzia che, una volta completata la destinazione del buffer circolare, è necessario rilasciarne le risorse tramite l'esecuzione di un'istruzione `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` alter-drop. Successivamente è possibile aggiungere un'altra istanza del buffer circolare da `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`.
 
-- [Codice di destinazione del file di eventi per gli eventi estesi nel database SQL di Azure](xevent-code-event-file.md)
+- [Codice di destinazione del file evento per eventi estesi nel database SQL di Azure](xevent-code-event-file.md)
 
   - Fase 1 è PowerShell per creare un contenitore di Archiviazione di Azure.
   - Fase 2 è Transact-SQL che utilizza il contenitore di Archiviazione di Azure.
@@ -73,7 +73,7 @@ Gli argomenti correlati forniscono due esempi di codice:
 
 La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](https://msdn.microsoft.com/library/ms174365.aspx). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
 
-| Nome della<br/>vista del catalogo | Descrizione |
+| Nome della<br/>vista del catalogo | Description |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Restituisce una riga per ogni azione su ogni evento di una sessione dell'evento. |
 | **sys.database_event_session_events** |Restituisce una riga per ogni evento in una sessione di eventi. |
@@ -87,17 +87,17 @@ In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.
 
 Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 
-| Nome della DMV | Descrizione |
+| Nome della DMV | Description |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Restituisce informazioni sulle azioni di sessione di evento. |
 | **sys.dm_xe_database_session_events** |Restituisce informazioni sugli eventi di sessione. |
 | **sys.dm_xe_database_session_object_columns** |Mostra i valori di configurazione per gli oggetti associati a una sessione. |
-| **sys. dm_xe_database_session_targets** |Restituisce informazioni sulle destinazioni della sessione. |
+| **sys.dm_xe_database_session_targets** |Restituisce informazioni sulle destinazioni della sessione. |
 | **sys.dm_xe_database_sessions** |Restituisce una riga per ogni sessione di eventi con ambito nel database corrente. |
 
 In Microsoft SQL Server, le viste del catalogo simili sono denominate senza la parte del nome del * \_ database* , ad esempio:
 
-- **sys.dm_xe_sessions**, anziché il nome<br/>**sys. dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, anziché il nome<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV comuni a entrambi
 

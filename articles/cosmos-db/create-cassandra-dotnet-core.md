@@ -7,14 +7,14 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d24116701347c7d4b60494219b56877e0b121ea3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 46826319cdd2ba55d469704a09656b61c96ce798
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017468"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743150"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET Core e Azure Cosmos DB
 
@@ -156,6 +156,12 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
+1. Tornare al portale e copiare il valore di PUNTO DI CONTATTO. Incollare il valore di PUNTO DI CONTATTO dal portale su `<PROVIDE>` alla riga 16.
+
+    La riga 16 del file Program.cs dovrà ora essere simile alla seguente 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
+
 1. Salvare il file Program.cs.
     
 ## <a name="run-the-net-core-app"></a>Eseguire l'app .NET Core
@@ -169,13 +175,13 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     ```
 3. Premere CTRL + F5 per eseguire l'applicazione. L'app viene visualizzata nella finestra della console. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visualizzare e verificare l'output":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
 
     Premere CTRL+C per interrompere l'esecuzione del programma e chiudere la finestra della console. 
     
 4. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visualizzare i dati in Esplora dati":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

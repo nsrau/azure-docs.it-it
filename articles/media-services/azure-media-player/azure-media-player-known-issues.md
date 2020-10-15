@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
 ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87043622"
 ---
 # <a name="known-issues"></a>Problemi noti #
@@ -52,7 +52,7 @@ La versione corrente presenta i seguenti problemi noti:
   - Per riprodurre asset senza audio, è possibile eseguire questa operazione inserendo un audio vuoto usando lo [strumento di esplorazione di servizi multimediali di Azure](https://aka.ms/amse)
   - Le istruzioni su come inserire audio invisibile all'utente sono disponibili [qui](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
-## <a name="flash"></a>Lampeggiante ##
+## <a name="flash"></a>Flash ##
 
 - Il contenuto AES non viene riprodotto nella versione Flash 30.0.0.134 a causa di un bug nella logica di memorizzazione nella cache di Adobe. Adobe ha risolto il problema e lo ha rilasciato in 30.0.0.154
 - Errori tecnici e http (ad esempio, i timeout di rete 404), il giocatore riprenderà più tempo per il ripristino rispetto ad altri tecnici.

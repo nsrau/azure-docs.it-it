@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 83725a3839d36fc753bb43803e67acaca7571a6e
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851832"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Concetti e definizioni dei comandi personalizzati
@@ -54,7 +54,7 @@ I comandi personalizzati supportano i tipi di parametro seguenti:
 
 * Datetime
 * Area geografica
-* Number
+* Numero
 * string
 
 Tutti questi tipi di parametro supportano la configurazione del valore predefinito, che è possibile configurare dal portale di Azure.
@@ -72,7 +72,7 @@ Configuration è una proprietà di parametro definita solo per la stringa di tip
 Le convalide sono costrutti applicabili a determinati tipi di parametro che consentono di configurare vincoli sul valore di un parametro. Attualmente, i comandi personalizzati supportano le convalide sui tipi di parametro seguenti:
 
 * Datetime
-* Number
+* Numero
 
 ## <a name="rules-configuration"></a>Configurazione delle regole
 Una regola nei comandi personalizzati è definita da un set di *condizioni* che, quando soddisfatte, eseguono un set di *azioni*. Le regole consentono inoltre di configurare *lo stato di post-esecuzione* e le *aspettative* per la prossima volta.

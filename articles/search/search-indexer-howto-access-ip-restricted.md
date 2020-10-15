@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: c80462707d3dccbb8fccff244017053c25ad46e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f485569caef285601d1dce7acd116f13675da83a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463784"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950194"
 ---
 # <a name="setting-up-ip-firewall-rules-to-enable-indexer-access"></a>Impostazione delle regole del firewall IP per abilitare l'accesso all'indicizzatore
 
@@ -89,6 +89,6 @@ Le regole del firewall impostano 5-10 minuti per l'aggiornamento dopo gli indici
 
 Ora che si è appreso come ottenere i due set di indirizzi IP per consentire l'accesso agli indici, usare i collegamenti seguenti per aggiornare le regole del firewall IP per alcune origini dati comuni.
 
-- [Configurare i firewall di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security)
-- [Configurare il firewall IP per CosmosDB](https://docs.microsoft.com/azure/cosmos-db/firewall-support)
-- [Configurare il firewall IP per il server SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
+- [Configurare i firewall di archiviazione di Azure](../storage/common/storage-network-security.md)
+- [Configurare il firewall IP per CosmosDB](../cosmos-db/firewall-support.md)
+- [Configurare il firewall IP per il server SQL di Azure](../azure-sql/database/firewall-configure.md)

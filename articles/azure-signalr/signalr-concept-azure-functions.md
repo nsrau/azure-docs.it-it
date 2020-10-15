@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74157614"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crea app in tempo reale con funzioni di Azure e il servizio Azure SignalR
@@ -46,7 +46,7 @@ Alcuni scenari comuni per la messaggistica serverless in tempo reale implementab
 
 Le associazioni del servizio SignalR per Funzioni di Azure consentono a un'app di Funzioni di Azure di pubblicare i messaggi ai client connessi al servizio SignalR. I client possono connettersi al servizio usando un client SDK di SignalR che è disponibile in .NET, JavaScript e Java e in altri linguaggi presto disponibili.
 
-### <a name="an-example-scenario"></a>Uno scenario di esempio
+### <a name="an-example-scenario"></a>Scenario di esempio
 
 Un esempio di come usare le associazioni del servizio SignalR è usare Funzioni di Azure per integrarlo con Azure Cosmos DB e il servizio SignalR per inviare i messaggi in tempo reale quando i nuovi eventi vengono visualizzati in un feed di modifiche di Cosmos DB.
 
@@ -73,5 +73,5 @@ Per informazioni dettagliate su come usare funzioni di Azure e il servizio Signa
 
 Per altre informazioni, seguire una di queste guide introduttive.
 
-* [Guida introduttiva al servizio Azure SignalR serverless - C#](signalr-quickstart-azure-functions-csharp.md)
+* [Guida introduttiva senza server del servizio Azure SignalR-C #](signalr-quickstart-azure-functions-csharp.md)
 * [Guida introduttiva al servizio Azure SignalR serverless - JavaScript](signalr-quickstart-azure-functions-javascript.md)

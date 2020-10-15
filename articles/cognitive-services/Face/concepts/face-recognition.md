@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323023"
 ---
 # <a name="face-recognition-concepts"></a>Concetti relativi al riconoscimento del viso
@@ -45,7 +45,7 @@ L'operazione [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/5
 
 L'operazione [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) accetta un ID faccia da DetectedFace o PersistedFace e da un facet o una matrice di altri ID Face. Con un oggetto Facet, viene restituito un facet più piccolo di visi simili alla faccia specificata. Con una matrice di ID viso, restituisce in modo analogo una matrice più piccola.
 
-### <a name="group"></a>Group
+### <a name="group"></a>Gruppo
 
 L'operazione di [raggruppamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) accetta una matrice di ID viso assortiti da DetectedFace o PersistedFace e restituisce gli stessi ID raggruppati in diverse matrici più piccole. Ogni matrice "groups" contiene ID facciali simili. Una singola matrice "messyGroup" contiene ID viso per i quali non sono state trovate analogie.
 
@@ -71,4 +71,4 @@ Usare i suggerimenti seguenti per assicurarsi che le immagini di input forniscan
 
 Ora che si ha familiarità con i concetti relativi al riconoscimento facciale, scrivere uno script che identifichi i visi con un gruppo sottoposto a training.
 
-* [Guida introduttiva alla libreria client Face](../Quickstarts/client-libraries.md)
+* [Avvio rapido della libreria client del servizio Viso](../Quickstarts/client-libraries.md)

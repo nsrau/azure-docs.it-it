@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: ad49db3eb61b77805b0c7a3e1e9583fb22bd4373
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b8f570c2cd5f3939bab0df0c4fefe1becc3c81da
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291971"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893442"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Domande frequenti sull'uso del servizio migrazione del database di Azure
 
@@ -43,7 +43,7 @@ Quando si esegue la migrazione da SQL Server, le origini supportate per il servi
 È possibile usare il servizio migrazione del database di Azure per eseguire migrazioni offline e online. Con una migrazione *offline* , il tempo di inattività dell'applicazione viene avviato all'avvio della migrazione. Con una migrazione in *linea* , il tempo di inattività è limitato al tempo necessario per il superamento al termine della migrazione. È consigliabile testare una migrazione offline per determinare se il tempo di inattività è accettabile. In caso contrario, eseguire una migrazione online.
 
 > [!NOTE]
-> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Per altre informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/database-migration/) del servizio migrazione del database di Azure.
+> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Per altre informazioni, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/database-migration/) di Servizio Migrazione del database di Azure.
 
 **D. Quali sono le differenze tra il servizio migrazione del database di Azure e altri strumenti di migrazione del database Microsoft, ad esempio il database Migration Assistant (DMA) o la SQL Server Migration Assistant (SSMA)?**
 Il servizio migrazione del database di Azure è il metodo preferito per la migrazione dei database Microsoft Azure su larga scala. Per informazioni dettagliate sul confronto tra il servizio migrazione del database di Azure e altri strumenti di migrazione del database Microsoft e per consigli sull'uso del servizio per diversi scenari, vedere il post di Blog relativo alla [differenziazione degli strumenti e dei servizi di migrazione di database di Microsoft](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529).
@@ -58,8 +58,8 @@ Sono necessari alcuni prerequisiti per garantire che il servizio migrazione del 
 
 In base ai prerequisiti del Servizio Migrazione del database di Azure comuni a tutti gli scenari di migrazione supportati, è necessario:
 
-* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione seguenti 443, 53, 9354, 445, 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Creare una rete virtuale di Microsoft Azure per il servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale non blocchino le porte di comunicazione seguenti 443, 53, 5671-5672, 9350-9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 
 Per un elenco di tutti i prerequisiti necessari per competere con scenari di migrazione specifici usando il servizio migrazione del database di Azure, vedere le esercitazioni correlate nella [documentazione](https://docs.microsoft.com/azure/dms/dms-overview) del servizio migrazione del database di azure in docs.Microsoft.com.
@@ -88,7 +88,7 @@ Potrebbe essere necessario includere nell'elenco indirizzi consentiti anche l'or
 **D. Ricerca per categorie configurare una Rete virtuale di Microsoft Azure?**
 Sebbene più esercitazioni di Microsoft possano illustrare il processo di configurazione di una rete virtuale, la documentazione ufficiale viene visualizzata nell'articolo [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 **D. Che cos'è un riepilogo dei passaggi necessari per usare il servizio migrazione del database di Azure per eseguire una migrazione del database?**
 Durante una semplice migrazione di database tipica, è necessario:

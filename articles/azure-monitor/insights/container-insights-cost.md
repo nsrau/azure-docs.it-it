@@ -4,10 +4,10 @@ description: Questo articolo descrive il costo di monitoraggio per le metriche &
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84204651"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informazioni sui costi di monitoraggio per il monitoraggio di Azure per i contenitori
@@ -117,8 +117,8 @@ Se è stato abilitato il monitoraggio di un cluster AKS configurato come segue,
 |KubePodInventory | 1.5 |
 |KubeNodeInventory | 0,75 |
 |KubeServices | 0.13 |
-|ContainerInventory | 3.6 |
-|KubeHealth | 0.1 |
+|ContainerInventory | 3,6 |
+|KubeHealth | 0,1 |
 |KubeMonAgentEvents |0,005 |
 
 Totale = 31 MB/ora = 23,1 GB/mese (un mese = 31 giorni)

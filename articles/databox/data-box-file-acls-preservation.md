@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 74b8bfcd8cfedaa7c5e24b6c29d9229a4db5828a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: e8df77356b6b5b1b40e2abd772e13c2e811413ae
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450722"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950313"
 ---
 # <a name="preserving-file-acls-attributes-and-timestamps-with-azure-data-box"></a>Conservazione degli ACL, degli attributi e dei timestamp dei file con Azure Data Box
 
-Azure Data Box consente di mantenere gli elenchi di controllo di accesso (ACL), i timestamp e gli attributi del file quando si inviano dati ad Azure. Questo articolo descrive i metadati che è possibile trasferire durante la copia dei dati in Data Box tramite Server Message Block (SMB) per caricarli File di Azure. Sono disponibili passaggi specifici per la copia di metadati con gli strumenti di copia dei dati di Windows e Linux.
+Azure Data Box consente di mantenere gli elenchi di controllo di accesso (ACL), i timestamp e gli attributi del file quando si inviano dati ad Azure. Questo articolo descrive i metadati che è possibile trasferire durante la copia dei dati in Data Box tramite Server Message Block (SMB) per caricarli File di Azure. 
+
+Sono disponibili passaggi specifici per la copia di metadati con gli strumenti di copia dei dati di Windows e Linux. I metadati non vengono conservati durante il trasferimento dei dati nell'archivio BLOB.
 
 In questo articolo gli ACL, i timestamp e gli attributi di file trasferiti vengono definiti collettivamente come *metadati*.
 
@@ -82,7 +84,7 @@ Quando si usa `/copyall` l' `/dcopy:DAT` opzione o, assicurarsi che i privilegi 
 robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
 ```
 
-dove
+where
 
 |Opzione |Descrizione |
 |------------------- | ----- |

@@ -4,10 +4,10 @@ description: Questo articolo illustra come preparare i backup di System Center D
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975462"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
@@ -34,7 +34,7 @@ Di seguito sono elencati i vantaggi aziendali derivanti dal backup dei server DP
 - Per DPM locale, Backup di Azure offre un'alternativa alla distribuzione a lungo termine su nastro.
 - Per DPM in esecuzione in una macchina virtuale di Azure, Backup di Azure consente l'offload dell'archiviazione dal disco di Azure. L'archiviazione dei dati meno recenti nell'insieme di credenziali di backup consente di aumentare le prestazioni dell'azienda archiviando i nuovi dati su disco.
 
-## <a name="prerequisites-and-limitations"></a>Prerequisiti e limitazioni
+## <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
 
 **Impostazione** | **Requisito**
 --- | ---
@@ -119,7 +119,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
     ![Apri impostazioni insieme di credenziali](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Nella pagina **Proprietà** scaricare l'agente di Backup di Azure.
 
-    ![Scarica](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Al termine del download eseguire MARSAgentInstaller.exe. per installare l'agente in un computer DPM.
 5. Selezionare una cartella di installazione e una cartella della cache per l'agente. Lo spazio disponibile nel percorso della cache deve essere almeno il 5% dei dati di backup.

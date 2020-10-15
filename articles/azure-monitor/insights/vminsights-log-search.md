@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325186"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
@@ -51,7 +51,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 |:--|:--|
 |Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Computer |FQDN del computer |
-|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+|Processo |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
@@ -130,7 +130,7 @@ Ogni record in VMBoundPort è identificato dai campi seguenti:
 
 | Proprietà | Descrizione |
 |:--|:--|
-|Process | Identità del processo o dei gruppi di processi a cui è associata la porta.|
+|Processo | Identità del processo o dei gruppi di processi a cui è associata la porta.|
 |IP | Indirizzo IP porta (può essere un IP con caratteri jolly, *0.0.0.0*) |
 |Porta |Numero di porta |
 |Protocollo | Protocollo.  Ad esempio *TCP* o *UDP* (attualmente è supportato solo *TCP* ).|
@@ -226,11 +226,11 @@ I record con un tipo di *VMProcess* includono dati di inventario per i processi 
 |Computer | FQDN del computer | 
 |AgentId | ID univoco dell'agente di Log Analytics |
 |Computer | Nome della risorsa Azure Resource Manager per il computer esposto da ServiceMap. Il formato è *m-{GUID}*, dove *GUID* è lo stesso GUID di AgentId. | 
-|Process | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
+|Processo | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
 |Eseguibile | Nome dell'eseguibile del processo | 
 |DisplayName | Nome visualizzato del processo |
 |Ruolo | Ruolo del processo: *webserver*, *appServer*, *databaseserver*, *ldapServer*, *smbServer* |
-|Group | Nome del gruppo di processi. I processi nello stesso gruppo sono correlati logicamente, ad esempio, parte dello stesso prodotto o componente di sistema. |
+|Gruppo | Nome del gruppo di processi. I processi nello stesso gruppo sono correlati logicamente, ad esempio, parte dello stesso prodotto o componente di sistema. |
 |StartTime | Ora di inizio del pool del processo |
 |FirstPid | Primo PID nel pool del processo |
 |Descrizione | Descrizione del processo |
@@ -454,7 +454,7 @@ Nella tabella seguente sono elencati i contatori delle prestazioni attualmente r
 | Spazio dei nomi | Nome | Descrizione | Unità | Tag |
 |:---|:---|:---|:---|:---|
 | Computer    | Heartbeat             | Heartbeat computer                        | | |
-| Memory      | AvailableMB           | Byte disponibili memoria                    | Megabyte      | memorySizeMB-dimensioni totali della memoria|
+| Memoria      | AvailableMB           | Byte disponibili memoria                    | Megabyte      | memorySizeMB-dimensioni totali della memoria|
 | Rete     | WriteBytesPerSecond   | Byte di scrittura di rete al secondo            | Byte al secondo | NetworkDeviceId-ID del dispositivo<br>byte-totale byte inviati |
 | Rete     | ReadBytesPerSecond    | Byte di lettura rete al secondo             | Byte al secondo | networkDeviceId-ID del dispositivo<br>byte-totale byte ricevuti |
 | Processore   | UtilizationPercentage | Percentuale di utilizzo del processore          | Percentuale        | totalCpus-CPU totali |

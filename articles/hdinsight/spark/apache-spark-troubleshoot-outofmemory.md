@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709046"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
@@ -194,7 +194,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Causa
 
-`java.lang.OutOfMemoryError: unable to create new native thread`Highlights OS non può assegnare più thread nativi a JVM. Ha confermato che questa eccezione è causata dalla violazione del limite del numero di thread per processo.
+`java.lang.OutOfMemoryError: unable to create new native thread` Highlights OS non può assegnare più thread nativi a JVM. Ha confermato che questa eccezione è causata dalla violazione del limite del numero di thread per processo.
 
 Quando il server Livio si interrompe in modo imprevisto, vengono interrotte anche tutte le connessioni ai cluster Spark, il che significa che tutti i processi e i dati correlati andranno perduti. In HDP 2,6 è stato introdotto il meccanismo di ripristino della sessione, Livio archivia i dettagli della sessione in Zookeeper da ripristinare dopo che il server Livio è stato ripristinato.
 
@@ -239,7 +239,7 @@ Eliminare tutte le voci usando i passaggi descritti di seguito.
 1. Attendere il completamento del comando precedente e il cursore per restituire la richiesta e quindi riavviare il servizio Livio da Ambari, che dovrebbe avere esito positivo.
 
 > [!NOTE]
-> `DELETE`la sessione di Livio dopo aver completato l'esecuzione. Le sessioni batch di Livio non verranno eliminate automaticamente non appena l'app Spark viene completata, ovvero in base alla progettazione. Una sessione di Livio è un'entità creata da una richiesta POST sul server REST di Livio. `DELETE`È necessaria una chiamata per eliminare l'entità. In alternativa, è necessario attendere l'avvio del GC.
+> `DELETE` la sessione di Livio dopo aver completato l'esecuzione. Le sessioni batch di Livio non verranno eliminate automaticamente non appena l'app Spark viene completata, ovvero in base alla progettazione. Una sessione di Livio è un'entità creata da una richiesta POST sul server REST di Livio. `DELETE`È necessaria una chiamata per eliminare l'entità. In alternativa, è necessario attendere l'avvio del GC.
 
 ---
 

@@ -4,10 +4,10 @@ description: Viene descritto come valutare un numero elevato di macchine virtual
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87171920"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Valutare un numero elevato di macchine virtuali VMware per la migrazione ad Azure
@@ -68,7 +68,7 @@ Se si sta pianificando un ambiente multi-tenant, è possibile definire l'ambito 
 
 - È possibile impostare l'ambito di individuazione dell'appliance su un server vCenter Data Center, cluster o cartella di cluster, host o cartella di host o singole macchine virtuali.
 - Se l'ambiente è condiviso tra i tenant e si vuole individuare separatamente ogni tenant, è possibile definire l'ambito di accesso all'account vCenter usato dall'appliance per l'individuazione. 
-    - Se i tenant condividono gli host, può essere utile definire l'ambito per cartelle VM. Azure Migrate non riesce a individuare le VM se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM. [Altre informazioni](set-discovery-scope.md).
+    - Se i tenant condividono gli host, può essere utile definire l'ambito per cartelle VM. Azure Migrate non riesce a individuare le VM se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. Se si vuole definire l'ambito dell'individuazione in base alle cartelle di VM, è possibile farlo verificando che all'account vCenter sia assegnato l'accesso di sola lettura a livello di VM. [Altre informazioni](set-discovery-scope.md)
 
 ## <a name="prepare-for-assessment"></a>Preparare la valutazione
 
@@ -88,7 +88,7 @@ In conformità ai requisiti di pianificazione, eseguire le operazioni seguenti:
 1. Creare un progetto Azure Migrate.
 2. Aggiungere lo strumento Azure Migrate server assessment ai progetti.
 
-[Altre informazioni](how-to-add-tool-first-time.md)
+[Scopri di più](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>Creare ed esaminare una valutazione
 

@@ -1,17 +1,17 @@
 ---
 title: "Avvio rapido: Aggiungere chiamate VoIP a un'app Web con Servizi di comunicazione di Azure"
-description: Questa esercitazione illustra come usare la libreria client Chiamate di Servizi di comunicazione di Azure per Javascript
+description: Questa esercitazione illustra come usare la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript
 author: ddematheu
 ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d58b4d86936c56a08f27bef59edc1d3cc4ce4617
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b66ee8117e5326a8ed8c1a1ad973fb13e942e0c7
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90944837"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761976"
 ---
 Questa guida di avvio rapido illustra come avviare una chiamata con la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript.
 
@@ -124,10 +124,8 @@ const callClient = new CallClient();
 const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
 let callAgent;
 
-callClient.createCallAgent(tokenCredential).then(agent => {
-  callAgent = agent;
-  callButton.disabled = false;
-});
+callAgent = await callClient.createCallAgent(tokenCredential);
+callButton.disabled = false;
 ```
 
 ## <a name="start-a-call"></a>Avviare una chiamata

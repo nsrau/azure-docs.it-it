@@ -12,19 +12,19 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561602"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072476"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struttura dei dashboard di Azure
 Questo documento descrive dettagliatamente la struttura di un dashboard di Azure usando il dashboard seguente come esempio:
 
 ![Dashboard di esempio](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Poiché i [dashboard di Azure condivisi sono risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), questo dashboard può essere rappresentato come JSON.  Il codice JSON seguente rappresenta il dashboard visualizzato sopra.
+Poiché i [dashboard di Azure condivisi sono risorse](../azure-resource-manager/management/overview.md), questo dashboard può essere rappresentato come JSON.  Il codice JSON seguente rappresenta il dashboard visualizzato sopra.
 
 ```json
 
@@ -303,7 +303,7 @@ Il nome è il segmento dell'ID risorsa che non include le informazioni relative 
 Tutti i dashboard sono di tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Proprietà location
-Diversamente da altre risorse, i dashboard non devono essere un componente di runtime.  Per i dashboard, la posizione indica l'area geografica principale in cui è archiviata la rappresentazione JSON del dashboard. Il valore deve essere uno dei codici località che può essere recuperato con l'[API apposita nella risorsa delle sottoscrizioni](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Diversamente da altre risorse, i dashboard non devono essere un componente di runtime.  Per i dashboard, la posizione indica l'area geografica principale in cui è archiviata la rappresentazione JSON del dashboard. Il valore deve essere uno dei codici località che può essere recuperato con l'[API apposita nella risorsa delle sottoscrizioni](/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Proprietà tags
 I tag sono una caratteristica comune delle risorse di Azure e permettono di organizzare la risorsa in base a coppie arbitrarie di nome-valore. Per i dashboard, è disponibile un tag speciale chiamato __hidden-title__. Se il dashboard contiene questa proprietà, la proprietà viene usata come nome visualizzato per il dashboard nel portale. Gli ID risorsa di Azure non possono essere rinominati, mentre i tag sì. Questo tag permette di includere un nome visualizzato modificabile per il dashboard.

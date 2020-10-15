@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: d7ff32b33a8eab5c6729d84d38fec2e5b2c87449
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777208"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le condivisioni in Azure Stack Edge Pro
@@ -88,7 +88,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 6. Nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**.
 
-7. Selezionare **Create** (Crea). 
+7. Selezionare **Crea**. 
 
    ![Creare una condivisione locale](media/azure-stack-edge-manage-shares/add-local-share-2.png)
 

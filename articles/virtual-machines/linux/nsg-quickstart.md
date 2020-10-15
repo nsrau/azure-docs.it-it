@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c57ec2edf43bf0a710f3c15f30836f751c4d52b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a96c0f7c6fb767b96be273a615149143043e8bc1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500164"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975128"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Aprire porte ed endpoint per una macchina virtuale con l'interfaccia della riga di comando di Azure
 
@@ -89,4 +89,4 @@ Per le applicazioni Web a disponibilità elevata, è consigliabile inserire le m
 In questo esempio viene creata una regola semplice per consentire il traffico HTTP. È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
 
 * [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-* [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/security-overview.md)
+* [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md)

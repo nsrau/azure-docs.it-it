@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450421"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965914"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Che cos'è un token di aggiornamento primario?
 
-Un token di aggiornamento primario (PRT, Primary Refresh Token) è un elemento chiave dell'autenticazione di Azure AD nei dispositivi Windows 10, iOS e Android. Si tratta di un token JSON Web (JWT) rilasciato appositamente per i broker di token proprietari Microsoft per consentire l'accesso Single Sign-On (SSO) nelle applicazioni usate in tali dispositivi. In questo articolo vengono fornite informazioni dettagliate sul modo in cui un token di aggiornamento primario viene rilasciato, usato e protetto nei dispositivi Windows 10.
+Un token di aggiornamento primario (PRT) è un elemento chiave dell'autenticazione Azure AD in Windows 10, Windows Server 2016 e versioni successive, dispositivi iOS e Android. Si tratta di un token JSON Web (JWT) rilasciato appositamente per i broker di token proprietari Microsoft per consentire l'accesso Single Sign-On (SSO) nelle applicazioni usate in tali dispositivi. In questo articolo vengono fornite informazioni dettagliate sul modo in cui un token di aggiornamento primario viene rilasciato, usato e protetto nei dispositivi Windows 10.
 
 Questo articolo presuppone che si abbia già familiarità con i diversi stati dei dispositivi disponibili in Azure AD e con il funzionamento della funzionalità Single Sign-On in Windows 10. Per altre informazioni sui dispositivi in Azure AD, vedere [Informazioni sulla gestione dei dispositivi in Azure Active Directory](overview.md).
 

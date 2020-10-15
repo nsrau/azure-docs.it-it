@@ -4,10 +4,10 @@ description: Configurare il proxy inverso per abilitare la comunicazione end-to-
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.openlocfilehash: b01ce559b3c790164992d6618149afa9df069466
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86256136"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Connettersi a un servizio protetto con il proxy inverso
@@ -32,7 +32,7 @@ La prossima sezione illustra i dettagli di configurazione per ognuna di queste o
 
 ### <a name="service-certificate-validation-options"></a>Opzioni di convalida dei certificati del servizio 
 
-- **None**: il proxy inverso ignora la verifica del certificato del servizio di proxy e stabilisce la connessione sicura. Questo è il comportamento predefinito.
+- **None**: il proxy inverso ignora la verifica del certificato del servizio di proxy e stabilisce la connessione sicura. Comportamento predefinito.
 Specificare **ApplicationCertificateValidationPolicy** con il valore **None** nella sezione [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
@@ -174,7 +174,7 @@ Il proxy inverso consente di selezionare uno degli endpoint per l'inoltro della 
 La terminazione TLS viene eseguita nel proxy inverso e tutti i dati del certificato client vengono persi. Perché i servizi eseguano l'autenticazione del certificato client, specificare l'impostazione **ForwardClientCertificate** nella sezione [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
 1. Quando **ForwardClientCertificate** è impostato su **false**, il proxy inverso non richiede il certificato del client durante l'handshake TLS con il client.
-Questo è il comportamento predefinito.
+Comportamento predefinito.
 
 2. Quando **ForwardClientCertificate** è impostato su **true**, il proxy inverso richiede il certificato del client durante l'handshake TLS con il client.
 I dati del certificato client verranno quindi inviati in un'intestazione HTTP personalizzata denominata **X-Client-Certificate**. Il valore dell'intestazione è la stringa in formato PEM con codifica base64 del certificato del client. Il servizio può eseguire correttamente o meno la richiesta con il codice di stato appropriato dopo aver esaminato i dati del certificato.

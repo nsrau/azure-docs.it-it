@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495739"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015567"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizzare i dati con Azure Machine Learning
 
@@ -90,9 +90,9 @@ Eseguire quindi i passaggi seguenti per la configurazione della finestra di prog
 
 1. Trascinare il set di dati creato in precedenza nell'area di disegno.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Screenshot del modulo del set di dati nell'area di disegno.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
 
-## <a name="clean-the-data"></a>Pulire i dati
+## <a name="clean-the-data"></a>Eseguire la pulizia dei dati
 
 Per pulire i dati, eliminare le colonne che non sono rilevanti per il modello. Seguire la procedura descritta di seguito:
 
@@ -100,13 +100,13 @@ Per pulire i dati, eliminare le colonne che non sono rilevanti per il modello. S
 
 1. Trascinare il modulo **Select Columns in Dataset** in **Trasformazione dati < Manipolazione** nel pannello Canvas. Connettere questo modulo al modulo **DataSet** .
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Screenshot del modulo di selezione delle colonne nell'area di disegno." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. Per aprire il riquadro proprietà, fare clic sul modulo. Fare clic su Modifica colonna per specificare le colonne che si desidera eliminare.
 
 1. Escludere due colonne: CustomerAlternateKey e GeographyKey. Fare clic su **Save** (Salva).
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Screenshot che mostra le colonne che vengono eliminate.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
 
 ## <a name="build-the-model"></a>Creare il modello
 
@@ -116,7 +116,7 @@ I dati sono suddivisi 80-20:80% per eseguire il training di un modello di appren
 
 1. Nel riquadro Proprietà immettere 0,8 per **la frazione di righe nel primo set di dati di output**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Screenshot che mostra il rapporto di divisione 0,8.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
 
 1. Trascinare il modulo **Two-Class Boosted Decision Tree** nell'area di disegno.
 
@@ -124,9 +124,9 @@ I dati sono suddivisi 80-20:80% per eseguire il training di un modello di appren
 
 1. Per Train Model Model selezionare Modifica colonna nell'opzione **colonna etichetta** nel riquadro proprietà. Selezionare la colonna **BikeBuyer** come colonna da stimare e selezionare **Salva**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Screenshot che mostra l'etichetta column, BikeBuyer, Selected.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Screenshot che mostra il modulo Train Model connesso ai moduli di albero delle decisioni con boosting a due classi e Split data.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
 
 ## <a name="score-the-model"></a>Assegnare un punteggio al modello
 
@@ -134,7 +134,7 @@ A questo punto, testare il modo in cui il modello viene eseguito sui dati di tes
 
 1. Trascinare il modulo **Score Model** nel pannello Canvas e connetterlo ai moduli **Train Model** e **Split data**.
 
-1. Trascinare la **media perceptron a due classi Bayes** nell'area di disegno dell'esperimento. Si confronterà il modo in cui questo algoritmo viene eseguito rispetto all'albero delle decisioni con boosting a due classi.
+1. Trascinare la **media perceptron a due classi Bayes** nell'area di disegno dell'esperimento. Si confronterà il modo in cui questo algoritmo viene eseguito rispetto all'albero delle decisioni con boosting Two-Class.
 
 1. Copiare e incollare i moduli **Train Model** e **Score Model** nell'area di disegno.
 
@@ -142,11 +142,11 @@ A questo punto, testare il modo in cui il modello viene eseguito sui dati di tes
 
 1. Fare clic su **Invia** per impostare l'esecuzione della pipeline.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Screenshot di tutti i moduli rimanenti nell'area di disegno." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. Al termine dell'esecuzione, fare clic con il pulsante destro del mouse sul modulo **Evaluate Model** e scegliere **Visualizza risultati valutazione**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Screenshot dei risultati.":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
 
 La metrica fornita include curva ROC, diagramma di precisione/recupero e curva lift. Esaminare queste metriche per verificare che il primo modello sia stato eseguito in modo migliore rispetto al secondo. Per esaminare la stima del primo modello, fare clic con il pulsante destro del mouse sul modulo Score Model e scegliere Visualizza set di dati con punteggio per visualizzare i risultati previsti.
 

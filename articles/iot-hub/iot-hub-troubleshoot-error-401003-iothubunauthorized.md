@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81759585"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
@@ -42,7 +42,7 @@ Le richieste all'hub Internet non riescono con uno dei messaggi di errore seguen
 
 ### <a name="cause-1"></a>Causa 1
 
-Per MQTT, alcuni SDK si basano sull'hub degli oggetti Internet per emettere la disconnessione quando il token di firma di accesso condiviso scade per stabilire quando aggiornarlo. Allora 
+Per MQTT, alcuni SDK si basano sull'hub degli oggetti Internet per emettere la disconnessione quando il token di firma di accesso condiviso scade per stabilire quando aggiornarlo. Quindi 
 
 1. Il token SAS scade
 1. L'hub Internet rileva la scadenza e disconnette il dispositivo con **401003 IoTHubUnauthorized**

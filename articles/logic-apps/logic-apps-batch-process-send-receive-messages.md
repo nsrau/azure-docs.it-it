@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458254"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
@@ -48,7 +48,7 @@ Il ricevitore batch e il mittente batch devono condividere la stessa sottoscrizi
 
 Prima di poter inviare messaggi a un batch, il batch deve esistere come destinazione in cui si inviano i messaggi. Quindi, innanzitutto, è necessario creare l'app per la logica "ricevente il batch", che inizia con il trigger del **batch**. In questo modo, quando si crea l’app per la logica “mittente del batch” è possibile selezionare l’app per la logica ricevente il batch. Il ricevitore del batch continua a raccogliere i messaggi fino a quando non vengono soddisfatti i criteri specificati per il rilascio e l'elaborazione dei messaggi. Anche se non è necessario che i ricevitori di batch conoscano i mittenti di batch, i mittenti di batch devono conoscere la destinazione in cui inviano i messaggi.
 
-1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio creare un'app per la logica con questo nome:`BatchReceiver`
+1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio creare un'app per la logica con questo nome: `BatchReceiver`
 
 1. Nella finestra di progettazione dell'app per la logica aggiungere il trigger **batch** , che avvia il flusso di lavoro dell'app per la logica. Nella casella di ricerca immettere `batch` e selezionare il trigger: **messaggi batch**
 
@@ -126,7 +126,7 @@ A questo punto creare una o più app per la logica mittenti del batch che invian
 
 * Verificare che il ricevitore batch e il mittente del batch condividano la stessa area *di Azure e* la stessa sottoscrizione di Azure. In caso contrario, è possibile selezionare il ricevitore del batch quando si crea il mittente del batch perché non sono visibili tra loro.
 
-1. Creare un'altra app per la logica con questo nome:`BatchSender`
+1. Creare un'altra app per la logica con questo nome: `BatchSender`
 
    1. Nella casella di ricerca immettere `recurrence` come filtro. Nell'elenco di trigger selezionare questo trigger: **Ricorrenza**
 

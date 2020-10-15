@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852804"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gestione e configurazione di progetti in Azure Notebooks anteprima
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Gestione e configurazione di progetti in Azure Notebooks anteprima
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -57,7 +57,7 @@ Il dashboard del progetto illustra i contenuti del sistema di cartelle del proge
 
 Il comando **+ New** (Nuovo) (tasto di scelta rapida: n) consente di creare nuovi file o cartelle. Quando si usa questo comando, selezionare prima il tipo di elemento da creare:
 
-| Tipo elemento | Description | Comportamento del comando |
+| Tipo di elemento | Descrizione | Comportamento del comando |
 | --- | --- | --- |
 | **Notebook** | Un notebook di Jupyter | Visualizza una finestra popup in cui devono essere specificati il nome file e la lingua del notebook. |
 | **Cartella** | Una sottocartella | Crea un campo di modifica nell'elenco di file del progetto in cui è necessario specificare il nome della cartella. |
@@ -74,7 +74,7 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 
 ![Comandi in un menu di scelta rapida di un file](media/project-file-commands.png)
 
-| Comando | Tasto di scelta rapida | Action |
+| Comando | Tasto di scelta rapida | Azione |
 | --- | --- | --- |
 | Esegui | r (o clic) | Esegue un file di notebook. Altri tipi di file sono aperti per la visualizzazione.  |
 | Copy Link (Copia collegamento) | y | Copia un collegamento al file negli Appunti. |
@@ -83,7 +83,7 @@ Ogni elemento nell'elenco di file del progetto offre una serie di comandi tramit
 | Edit file (Modifica file) | i | Apre il file per la modifica. |
 | Download | d | Scarica un file con estensione zip contenente il file o il contenuto di una cartella. |
 | Rinominare | a | Richiede un nuovo nome per il file o la cartella. |
-| Delete | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
+| Elimina | x | Richiede una conferma e quindi rimuove definitivamente il file dal progetto. Non è possibile rimuovere un'eliminazione. |
 | Spostamento | m | Sposta un file in una cartella diversa dello stesso progetto. |
 
 #### <a name="preview"></a>Anteprima
@@ -92,7 +92,7 @@ L'anteprima di un file o un notebook è una visualizzazione di sola lettura del 
 
 La pagina di anteprima supporta vari comandi della barra degli strumenti con tasti di scelta rapida:
 
-| Comando | Tasto di scelta rapida | Action |
+| Comando | Tasto di scelta rapida | Azione |
 | --- | --- | --- |
 | Condivisione | s | Consente di visualizzare la finestra popup di condivisione da cui è possibile ottenere un collegamento, condividere sui social media, ottenere HTML per l'incorporamento e inviare un messaggio di posta elettronica. |
 | Clone | c  | Consente di clonare il notebook nel proprio account. |

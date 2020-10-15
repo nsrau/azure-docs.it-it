@@ -3,19 +3,19 @@ title: 'Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Po
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come usare l'API Rilevamento anomalie e Power BI per visualizzare le anomalie in tutti i dati della serie temporale.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905787"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017625"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI
 
@@ -56,7 +56,7 @@ Power BI convertirà i timestamp nella prima colonna in un tipo di dati `Date/Ti
 
 Fare clic sulla scheda **Trasforma** sulla barra multifunzione nell'editor di Power Query. Nel gruppo **Qualsiasi colonna** aprire l'elenco a discesa **Tipo di dati** e selezionare **Testo**.
 
-![Immagine della schermata "Strumento di navigazione" dell'origine dati in Power BI](../media/tutorials/data-type-drop-down.png)
+![Immagine dell'elenco a discesa del tipo di dati](../media/tutorials/data-type-drop-down.png)
 
 Quando si riceve un avviso sulla modifica del tipo di colonna, fare clic su **Sostituisci corrente**. Quindi fare clic su **Chiudi e applica** o su **Applica** nella scheda **Home** della barra multifunzione.
 
@@ -66,7 +66,7 @@ Per formattare e inviare il file di dati all'API Rilevamento anomalie, è possib
 
 Verificare che la nuova query sia selezionata e quindi fare clic su **Editor avanzato**.
 
-![Immagine del pulsante "Editor avanzato" in Power BI](../media/tutorials/advanced-editor-screen.png)
+![Immagine della schermata "Editor avanzato"](../media/tutorials/advanced-editor-screen.png)
 
 In Editor avanzato usare il frammento di Power Query M seguente per estrarre le colonne dalla tabella e inviarle all'API. La query creerà quindi una tabella dalla risposta JSON e la restituirà. Sostituire la variabile `apiKey` con la chiave API Rilevamento anomalie valida e `endpoint` con l'endpoint. Dopo aver immesso la query in Editor avanzato, fare clic su **Fine**.
 
@@ -80,7 +80,7 @@ In Editor avanzato usare il frammento di Power Query M seguente per estrarre le 
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
@@ -114,7 +114,7 @@ In Editor avanzato usare il frammento di Power Query M seguente per estrarre le 
 
 Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un parametro**, quindi fare clic su **Richiama**.
 
-![Immagine del pulsante "Editor avanzato"](../media/tutorials/invoke-function-screenshot.png)
+![Immagine della funzione Richiama](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Privacy e autenticazione dell'origine dati
 
@@ -148,11 +148,11 @@ Aggiungere i campi seguenti da **Richiamata funzione**  al campo **Valori** del 
 * LowerMargins
 * ExpectedValues
 
-![Immagine della nuova schermata di misura rapida](../media/tutorials/chart-settings.png)
+![Immagine delle impostazioni del grafico](../media/tutorials/chart-settings.png)
 
 Dopo aver aggiunto i campi, fare clic sul grafico e ridimensionarlo per mostrare tutti i punti dati. Il grafico avrà un aspetto simile a quello dello screenshot seguente:
 
-![Immagine della nuova schermata di misura rapida](../media/tutorials/chart-visualization.png)
+![Immagine della visualizzazione del grafico](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Visualizzare i punti dati delle anomalie
 
@@ -162,15 +162,15 @@ Sul lato destro della finestra di Power BI, sotto il riquadro **CAMPI**, fare cl
 
 Nella schermata visualizzata selezionare **Valore filtrato** come calcolo. Impostare **Valore di base** su `Sum of Value`. Quindi trascinare `IsAnomaly` dai campi **Richiamata funzione** al campo **Filtro**. Selezionare `True` dall'elenco a discesa **Filtro**.
 
-![Immagine della nuova schermata di misura rapida](../media/tutorials/new-quick-measure-2.png)
+![Seconda immagine della nuova schermata di misura rapida](../media/tutorials/new-quick-measure-2.png)
 
 Dopo aver fatto clic su **OK** si vedrà un campo `Value for True` in fondo all'elenco dei campi. Fare clic su di esso con il pulsante destro del mouse e rinominarlo in **Anomalia**. Aggiungerlo all'asse **Valori** del grafico. Quindi selezionare lo strumento **Formato** e impostare il tipo di asse delle X su **Categorie**.
 
-![Immagine della nuova schermata di misura rapida](../media/tutorials/format-x-axis.png)
+![Immagine dell'asse x del formato](../media/tutorials/format-x-axis.png)
 
 Applicare i colori al grafico facendo clic sullo strumento **Formato** e su **Colori dati**. Il grafico dovrebbe essere simile al seguente:
 
-![Immagine della nuova schermata di misura rapida](../media/tutorials/final-chart.png)
+![Immagine del grafico finale](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

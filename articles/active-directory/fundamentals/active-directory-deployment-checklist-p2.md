@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318410"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guida alla distribuzione della funzionalità Azure Active Directory
@@ -41,7 +41,7 @@ Altre informazioni sulle licenze sono reperibili nelle pagine seguenti:
 
 In questa fase, gli amministratori abilitano le funzionalità di sicurezza di base per creare una struttura più sicura e facile da usare in Azure AD prima di importare o creare gli account utente normali. Questa fase garantisce l'attivazione di uno stato più sicuro sin all'inizio e che sia necessario presentare i nuovi concetti agli utenti finali una sola volta.
 
-| Attività | Dettagli | Licenza richiesta |
+| Attività | Dettaglio | Licenza richiesta |
 | ---- | ------ | ---------------- |
 | [Designare più di un amministratore globale](../users-groups-roles/directory-emergency-access.md) | Assegnare almeno due account amministratore globale permanenti solo cloud da usare in caso di emergenza. Questi account non sono destinati all'uso quotidiano e devono usare password lunghe e complesse. | Azure AD Free |
 | [Dove possibile, usare ruoli amministrativi non globali](../users-groups-roles/directory-assign-admin-roles.md) | Concedere agli amministratori solo l'accesso necessario esclusivamente alle aree a cui devono accedere. Non tutti gli amministratori devono essere amministratori globali. | Azure AD Free |
@@ -63,7 +63,7 @@ In questa fase, gli amministratori abilitano le funzionalità di sicurezza di ba
 
 Si procede sulla base della struttura definita nella fase 1 con l'importazione degli utenti e l'abilitazione della sincronizzazione, la pianificazione dell'accesso guest e la preparazione per il supporto di funzionalità aggiuntive.
 
-| Attività | Dettagli | Licenza richiesta |
+| Attività | Dettaglio | Licenza richiesta |
 | ---- | ------ | ---------------- |
 | [Installa Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md) | Preparare la sincronizzazione degli utenti dalla directory locale esistente al cloud. | Azure AD Free |
 | [Implementare la sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) | Sincronizzare gli hash delle password per consentire la replica delle modifiche delle password, il rilevamento e la correzione di password non valide e la segnalazione di credenziali perse. | Azure AD Free |
@@ -79,7 +79,7 @@ Si procede sulla base della struttura definita nella fase 1 con l'importazione d
 
 Continuando dalle fasi precedenti, in questa fase vengono identificate le applicazioni candidate per la migrazione e integrazione con Azure AD e viene completata la configurazione di tali applicazioni.
 
-| Attività | Dettagli | Licenza richiesta |
+| Attività | Dettaglio | Licenza richiesta |
 | ---- | ------ | ---------------- |
 | Identificare le applicazioni | Identificare le applicazioni in uso nell'organizzazione: in locale, applicazioni SaaS nel cloud e altre applicazioni line-of-business. Stabilire se queste applicazioni possono e devono essere gestite con Azure AD. | Nessuna licenza richiesta |
 | [Integrare applicazioni SaaS supportate nella raccolta](../manage-apps/add-application-portal.md) | Azure AD offre una raccolta contenente migliaia di applicazioni preintegrate. Alcune applicazioni usate dall'organizzazione sono probabilmente incluse nella raccolta accessibile direttamente dal portale di Azure. | Azure AD Free |
@@ -89,7 +89,7 @@ Continuando dalle fasi precedenti, in questa fase vengono identificate le applic
 
 Nella fase 4 gli amministratori applicano i principi dei privilegi minimi per l'amministrazione, completano le prime verifiche di accesso e abilitano l'automazione delle attività comuni del ciclo di vita degli utenti.
 
-| Attività | Dettagli | Licenza richiesta |
+| Attività | Dettaglio | Licenza richiesta |
 | ---- | ------ | ---------------- |
 | [Imporre l'uso di Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Rimuovere i ruoli amministrativi dagli account utente che devono svolgere normali attività quotidiane. Consentire agli utenti amministratori di usare il proprio ruolo dopo il completamento di un controllo di autenticazione a più fattori, l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte dei responsabili designati. | Azure AD Premium P2 |
 | [Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Collaborare con i dirigenti e i team dedicati alla sicurezza per creare criteri di verifica di accesso per controllare l'accesso amministrativo in base alle politiche dell'organizzazione. | Azure AD Premium P2 |

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: b010a90929a5eb905f21ebe23aa971f05d210941
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/14/2020
+ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282698"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047727"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copiare i dati dal servizio di archiviazione semplice di Amazon usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -47,10 +47,9 @@ In particolare, questo connettore Amazon S3 supporta la copia dei file così com
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per copiare dati da Amazon S3, assicurarsi di avere ottenuto le autorizzazioni seguenti:
+Per copiare dati da Amazon S3, assicurarsi di avere ricevuto le seguenti autorizzazioni per le operazioni sugli oggetti di Amazon S3: `s3:GetObject` e `s3:GetObjectVersion` .
 
-- **Per l'esecuzione dell'attività di copia**: `s3:GetObject` e `s3:GetObjectVersion` per le operazioni di oggetto Amazon S3.
-- **Per data factory la creazione dell'interfaccia utente grafica**: `s3:ListAllMyBuckets` e `s3:ListBucket` / `s3:GetBucketLocation` per le operazioni bucket di Amazon S3. Le autorizzazioni sono necessarie anche per operazioni quali il test delle connessioni e l'esplorazione dei percorsi di file. Se non si desidera concedere queste autorizzazioni, ignorare la connessione di test nella pagina di creazione del servizio collegato e specificare il percorso direttamente nelle impostazioni del set di dati.
+Se si usa Data Factory interfaccia utente per creare, `s3:ListAllMyBuckets` `s3:ListBucket` / `s3:GetBucketLocation` sono necessarie autorizzazioni aggiuntive e per operazioni quali il test della connessione al servizio collegato e l'esplorazione dalla radice. Se non si desidera concedere queste autorizzazioni, è possibile scegliere tra le opzioni "Test connessione a percorso file" o "Sfoglia da percorso specificato" dall'interfaccia utente.
 
 Per l'elenco completo delle autorizzazioni di Amazon S3, vedere [specifica delle autorizzazioni in un criterio](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) nel sito AWS.
 

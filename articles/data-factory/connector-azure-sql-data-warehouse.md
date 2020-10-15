@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.openlocfilehash: 408f58b44bbe1ff8be7498b33a1209f4488c2ccc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332152"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951979"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando Azure Data Factory
 
@@ -564,7 +564,7 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
 
 Quando i dati di origine non sono compatibili in modo nativo con la polibase, abilitare la copia dei dati tramite un BLOB di Azure di staging provvisorio o Azure Data Lake Storage Gen2 (non può essere l'archiviazione Premium di Azure). In questo caso, Azure Data Factory converte automaticamente i dati in modo che soddisfino i requisiti di formato dei dati di PolyBase. Richiama quindi la polibase per caricare i dati in Azure sinapsi Analytics. Infine, pulisce i dati temporanei dall'archiviazione. Per informazioni dettagliate sulla copia di dati tramite una gestione temporanea, vedere [copia](copy-activity-performance-features.md#staged-copy) di staging.
 
-Per usare questa funzionalità, creare un [servizio collegato di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake storage Gen2 servizio collegato](connector-azure-data-lake-storage.md#linked-service-properties) che fa riferimento all'account di archiviazione di Azure con l'archivio provvisorio. Quindi specificare le proprietà `enableStaging` e `stagingSettings` per l'attività di copia come illustrato nel codice seguente.
+Per usare questa funzionalità, creare un [servizio collegato di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake storage Gen2 servizio collegato](connector-azure-data-lake-storage.md#linked-service-properties) con la **chiave dell'account o l'autenticazione dell'identità gestita** che fa riferimento all'account di archiviazione di Azure come archivio provvisorio.
 
 >[!IMPORTANT]
 >Se l'istanza di staging di Archiviazione di Azure è configurata con l'endpoint del servizio VNet, è necessario usare l'autenticazione tramite identità gestita. Vedere [Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Informazioni sulle configurazioni richieste in Data Factory dall'autenticazione di [identità gestita da BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e dall' [autenticazione di identità gestita da Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity).

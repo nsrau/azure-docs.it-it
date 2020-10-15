@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5d8adea95708f4c7bbe3e7113c3e39e0484159ee
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827615"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018050"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -34,7 +34,7 @@ In un ambiente di microservizi, le tracce dai componenti possono finire in eleme
 
 ## <a name="example"></a>Esempio
 
-Di seguito è descritto un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
+Esaminiamo un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
 
 È possibile analizzare i dati di telemetria risultanti eseguendo una query:
 
@@ -62,7 +62,7 @@ Application Insights viene eseguita la transizione a [W3C Trace-context](https:/
 - `traceparent`: Contiene l'ID operazione univoco globale e l'identificatore univoco della chiamata.
 - `tracestate`: Contiene il contesto di traccia specifico del sistema.
 
-La versione più recente di Application Insights SDK supporta il protocollo di contesto della traccia, ma potrebbe essere necessario acconsentire esplicitamente. La compatibilità con il protocollo di correlazione precedente supportato da Application Insights SDK verrà mantenuta.
+La versione più recente di Application Insights SDK supporta il protocollo Trace-Context, ma potrebbe essere necessario acconsentire esplicitamente. La compatibilità con il protocollo di correlazione precedente supportato da Application Insights SDK verrà mantenuta.
 
 Il [protocollo http di correlazione, denominato anche Request-ID](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md), verrà deprecato. Questo protocollo definisce due intestazioni:
 
@@ -84,7 +84,7 @@ Per altre informazioni, vedere [Application Insights modello di dati di telemetr
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Abilitare il supporto per la traccia distribuita W3C per le app .NET
 
-Per impostazione predefinita, la funzionalità di analisi distribuita basata su richiesta W3C di W3C è abilitata in tutti gli SDK di .NET Framework/.NET Core recenti, oltre alla compatibilità con il protocollo legacy Request-ID.
+Per impostazione predefinita, la funzionalità di analisi distribuita basata su TraceContext di W3C è abilitata in tutti gli SDK di .NET Framework/.NET Core recenti, oltre alla compatibilità con il protocollo legacy Request-Id.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app Java
 
@@ -133,34 +133,21 @@ Per impostazione predefinita, la funzionalità di analisi distribuita basata su 
 
 Questa funzionalità è in `Microsoft.ApplicationInsights.JavaScript` . È disabilitata per impostazione predefinita. Per abilitarla, usare `distributedTracingMode` config. AI_AND_W3C viene fornito per la compatibilità con le versioni precedenti di tutti i servizi legacy instrumentati da Application Insights.
 
-- **installazione di NPM (ignora se si usa l'installazione del frammento)**
+- **[configurazione basata su NPM](./javascript.md#npm-based-setup)**
 
-  ```javascript
-  import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
-
-  const appInsights = new ApplicationInsights({ config: {
-    instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+Aggiungere la configurazione seguente:
+  ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
-    /* ...other configuration options... */
-  } });
-  appInsights.loadAppInsights();
   ```
   
-- **Impostazione del frammento (ignora se si usa l'installazione di NPM)**
+- **[Configurazione basata su frammenti](./javascript.md#snippet-based-setup)**
 
+Aggiungere la configurazione seguente:
   ```
-  <script type="text/javascript">
-  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-  (
-    {
-      instrumentationKey:"INSTRUMENTATION_KEY",
       distributedTracingMode: 2 // DistributedTracingModes.W3C
-      /* ...other configuration options... */
-    }
-  );
-  window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-  </script>
   ```
+> [!IMPORTANT] 
+> Per visualizzare tutte le configurazioni necessarie per abilitare la correlazione, vedere la [documentazione correlata a JavaScript](/azure/azure-monitor/app/javascript#enable-correlation).
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlazione di dati di telemetria in OpenCensus Python
 
@@ -170,7 +157,7 @@ Come riferimento, il modello di dati OpenCensus è disponibile [qui](https://git
 
 ### <a name="incoming-request-correlation"></a>Correlazione delle richieste in ingresso
 
-OpenCensus Python mette in correlazione le intestazioni del contesto di traccia W3C dalle richieste in ingresso agli intervalli generati dalle richieste stesse. OpenCensus eseguirà questa operazione automaticamente con integrazioni per questi framework di applicazioni Web comuni: Flask, Django e Pyramid. È sufficiente popolare le intestazioni del contesto di traccia W3C con il [formato corretto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e inviarle con la richiesta. Ecco un'applicazione Flask di esempio che dimostra quanto segue:
+OpenCensus Python mette in correlazione le intestazioni W3C Trace-Context dalle richieste in ingresso agli intervalli generati dalle richieste stesse. OpenCensus eseguirà questa operazione automaticamente con integrazioni per questi framework di applicazioni Web comuni: Flask, Django e Pyramid. È sufficiente popolare le intestazioni W3C Trace-Context con il [formato corretto](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) e inviarle con la richiesta. Ecco un'applicazione Flask di esempio che dimostra quanto segue:
 
 ```python
 from flask import Flask

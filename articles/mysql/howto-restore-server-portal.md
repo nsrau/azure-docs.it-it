@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902791"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
@@ -41,7 +41,7 @@ Per altre informazioni sull'impostazione di questi valori durante la creazione, 
 2. Selezionare il server del Database di Azure per MySQL. Questa azione apre la pagina **Panoramica**.
 3. Selezionare **Piano tariffario** nel menu in **IMPOSTAZIONI**. Con il dispositivo di scorrimento è possibile modificare il **periodo di conservazione dei backup** impostandolo su un numero di giorni compreso tra 7 e 35.
 Nello screenshot seguente, il periodo è stato aumentato a 34 giorni.
-:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Periodo di conservazione dei backup aumentato":::
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
 
 4. Fare clic su **OK** per confermare la modifica.
 
@@ -57,11 +57,11 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 2. Nella barra degli strumenti della pagina **Panoramica** del server selezionare **Ripristina**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Database di Azure per MySQL: Panoramica - Pulsante Ripristina":::
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
 
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
-   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Database di Azure per MySQL - Informazioni di ripristino":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
    - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
    - **Server di destinazione**: specificare un nome per il nuovo server.
    - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
@@ -86,13 +86,13 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale. Selezionare **Database** > **Database di Azure per MySQL**.
 
-   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Passare a database di Azure per MySQL.":::
+   :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
  
 2. Fornire la sottoscrizione, il gruppo di risorse e il nome del nuovo server. 
 
 3. Selezionare **backup** come **origine dati**. Questa azione carica un elenco a discesa che fornisce un elenco di server in cui sono abilitati i backup con ridondanza geografica.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selezionare origine dati.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
     
    > [!NOTE]
    > Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.
@@ -100,21 +100,21 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 4. Selezionare l'elenco a discesa **backup** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selezionare elenco a discesa backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
 
 5. Selezionare il server di origine da cui eseguire il ripristino.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selezionare backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
 
 6. Il server utilizzerà i valori per il numero di **Vcore**, il **periodo di conservazione dei backup**, l'opzione di **ridondanza del backup**, la versione del **motore**e le **credenziali di amministratore**. Selezionare **Continua**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continuare con il backup.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
 
 7. Compilare il resto del modulo con le proprie preferenze. È possibile selezionare qualsiasi **posizione**.
 
     Dopo aver selezionato il percorso, è possibile selezionare **Configura server** per aggiornare **la generazione di calcolo** (se disponibile nell'area scelta), il numero di **Vcore**, il **periodo di conservazione dei backup**e l'opzione di **ridondanza del backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Compila modulo."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Piano tariffario: scegliere la ridondanza del backup"::: 
 
 8. Selezionare **Revisione e creazione** per rivedere le selezioni effettuate. 
 

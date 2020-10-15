@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82207888"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043654"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
 
@@ -40,6 +40,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per tutti i passaggi in questa esercitazione, accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
+## <a name="prerequisites"></a>Prerequisiti
+
+* Una sottoscrizione di Azure.
+
 ## <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 
 Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico in grado di bilanciare il traffico nelle macchine virtuali. Un servizio di bilanciamento del carico standard supporta solo indirizzi IP pubblici standard. Quando si crea un servizio di bilanciamento del carico standard, si crea anche un nuovo indirizzo IP pubblico standard configurato come front-end del bilanciamento del carico, denominato **LoadBalancerFrontEnd** per impostazione predefinita. 
@@ -47,7 +51,7 @@ Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
     | Resource group         | Selezionare **Crea nuovo** e digitare *MyResourceGroupLB* nella casella di testo.|

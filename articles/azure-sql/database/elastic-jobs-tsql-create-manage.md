@@ -12,10 +12,10 @@ author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
 ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803858"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastici (anteprima)
@@ -459,7 +459,7 @@ Numero di identificazione del processo assegnato al processo se creato correttam
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 sp_add_job deve essere eseguito dal database dell'agente processo specificato al momento della creazione dell'agente processo.
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
@@ -526,7 +526,7 @@ Data in cui l'esecuzione del processo può essere arrestata. schedule_end_time �
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 Dopo l'esecuzione di sp_add_job per aggiungere un processo, è possibile usare sp_add_jobstep per aggiungere i passaggi che eseguono le attività per il processo. Il numero di versione iniziale del processo è 0, che verrà incrementato a 1 quando si aggiunge il primo passaggio.
 
@@ -561,7 +561,7 @@ Specifica se eseguire l'eliminazione e annullare le eventuali esecuzioni del pro
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 La cronologia del processo viene eliminata automaticamente quando si elimina un processo.
 
@@ -686,7 +686,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 Quando sp_add_jobstep ha esito positivo, viene incrementato il numero di versione corrente del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione. Se il processo è in esecuzione, l'esecuzione non conterrà il nuovo passaggio.
 
@@ -811,7 +811,7 @@ Livello massimo di parallelismo per ogni pool elastico. Se impostato, il passagg
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp_update_jobstep ha esito positivo, viene incrementato il numero di versione del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione.
 
@@ -854,7 +854,7 @@ Parametro di output che verrà assegnato al nuovo numero di versione del process
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 Le eventuali esecuzioni in corso del processo non saranno interessate. Quando sp_update_jobstep ha esito positivo, viene incrementato il numero di versione del processo. Alla successiva esecuzione del processo, verrà usata la nuova versione.
 
@@ -891,7 +891,7 @@ Parametro di output a cui verrà assegnato l'ID dell'esecuzione del processo. jo
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 No.
 
@@ -922,7 +922,7 @@ Numero di identificazione dell'esecuzione del processo da arrestare. job_executi
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 No.
 
@@ -956,7 +956,7 @@ Nome del gruppo di destinazione da creare. target_group_name è di tipo nvarchar
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
@@ -987,7 +987,7 @@ Nome del gruppo di destinazione da eliminare. target_group_name è di tipo nvarc
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 No.
 
@@ -1047,7 +1047,7 @@ Nome del pool della mappa partizioni da aggiungere al gruppo di destinazione spe
 Numero di identificazione della destinazione assegnato al membro del gruppo di destinazione se viene creato e aggiunto correttamente al gruppo di destinazione. target_id è una variabile di output di tipo uniqueidentifier e il valore predefinito è NULL.
 Valori del codice restituito 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 Un processo viene eseguito in tutti i database singoli all'interno di un server o in un pool elastico al momento dell'esecuzione, quando un server o un pool elastico è incluso nel gruppo di destinazione.
 
@@ -1116,7 +1116,7 @@ Nome del gruppo di destinazione da cui rimuovere il membro del gruppo di destina
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 
@@ -1175,7 +1175,7 @@ Nome del processo di cui si desidera eliminare i record della cronologia. job_na
 
 0 (operazione completata) o 1 (operazione non riuscita)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 I gruppi di destinazione offrono un modo semplice per specificare una raccolta di database come destinazione di un processo.
 

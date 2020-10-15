@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91744220"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998401"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticare i problemi di configurazione dei collegamenti privati nei Azure Key Vault
 
@@ -34,7 +34,7 @@ Se non si ha familiarità con questa funzionalità, vedere [integrare Key Vault 
 ### <a name="problems-not-covered-by-this-article"></a>Problemi non trattati in questo articolo
 
 - Si è verificato un problema di connettività intermittente. In un client specifico, vengono visualizzate alcune richieste che funzionano e alcune non funzionano. *I problemi intermittenti non sono in genere causati da un problema nella configurazione dei collegamenti privati; si tratta di un segno di sovraccarico di rete o client.*
-- Si usa un prodotto Azure che supporta BYOK (Bring Your Own Key) o CMK (chiavi gestite dal cliente) e il prodotto non può accedere all'insieme di credenziali delle chiavi. *Esaminare l'altra documentazione del prodotto. Assicurarsi che specifichi in modo esplicito il supporto per gli insiemi di credenziali delle chiavi con il firewall abilitato. Se necessario, contattare il supporto tecnico per il prodotto specifico.*
+- Si usa un prodotto Azure che supporta BYOK (Bring Your Own Key), CMK (chiavi gestite dal cliente) o l'accesso ai segreti archiviati in Key Vault. Quando si Abilita il firewall nelle impostazioni di Key Vault, il prodotto non può accedere all'insieme di credenziali delle chiavi. *Esaminare la documentazione specifica del prodotto. Assicurarsi che specifichi in modo esplicito il supporto per gli insiemi di credenziali delle chiavi con il firewall abilitato. Se necessario, contattare il supporto tecnico per il prodotto specifico.*
 
 ### <a name="how-to-read-this-article"></a>Come leggere questo articolo
 
@@ -46,9 +46,11 @@ Se non si ha familiarità con i collegamenti privati o si sta valutando una dist
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>Verificare che il client venga eseguito nella rete virtuale
 
-Questa guida è utile per correggere le connessioni a Key Vault che provengono dal codice dell'applicazione. Esempi sono le applicazioni e gli script eseguiti in macchine virtuali di Azure, cluster di Azure Service Fabric, app Azure servizio, Azure Kubernetes Service (AKS) e altri simili.
+Questa guida è utile per correggere le connessioni a Key Vault che provengono dal codice dell'applicazione. Esempi sono le applicazioni e gli script eseguiti in macchine virtuali di Azure, cluster di Azure Service Fabric, app Azure servizio, Azure Kubernetes Service (AKS) e altri simili. Questa guida è applicabile anche agli accessi eseguiti nella portale di Azure interfaccia utente di base Web, in cui il browser accede direttamente all'insieme di credenziali delle chiavi.
 
-Per definizione dei collegamenti privati, l'applicazione o lo script deve essere in esecuzione in un computer, in un cluster o in un ambiente connesso alla rete virtuale in cui è stata distribuita la [risorsa dell'endpoint privato](../../private-link/private-endpoint-overview.md) . Se l'applicazione è in esecuzione in una rete connessa a Internet arbitraria, questa guida non è applicabile e probabilmente non è possibile usare collegamenti privati.
+Per definizione di collegamenti privati, è necessario che l'applicazione, lo script o il portale sia in esecuzione nel computer, nel cluster o nell'ambiente connesso alla rete virtuale in cui è stata distribuita la [risorsa dell'endpoint privato](../../private-link/private-endpoint-overview.md) .
+
+Se l'applicazione, lo script o il portale viene eseguito in una rete connessa a Internet arbitraria, questa guida non è applicabile e probabilmente non è possibile usare collegamenti privati. Questa limitazione è applicabile anche ai comandi eseguiti nell'Azure Cloud Shell, perché vengono eseguiti in un computer Azure remoto fornito su richiesta anziché nel browser utente.
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>Se si usa una soluzione gestita, fare riferimento alla documentazione specifica
 
@@ -74,7 +76,7 @@ I passaggi seguenti convalidano che la connessione all'endpoint privato sia appr
 >[!IMPORTANT]
 > La modifica delle impostazioni del firewall può rimuovere l'accesso da client legittimi che non utilizzano ancora collegamenti privati. Assicurarsi di conoscere le implicazioni di ogni modifica apportata alla configurazione del firewall.
 
-Un concetto importante è che i collegamenti privati *forniscono* solo l'accesso all'insieme di credenziali delle chiavi. Non *rimuove* alcun accesso esistente. Per bloccare efficacemente gli accessi dalla rete Internet pubblica, è necessario abilitare in modo esplicito il firewall di Key Vault:
+Una nozione importante è che la funzionalità dei collegamenti privati *consente* solo di accedere all'insieme di credenziali delle chiavi in una rete virtuale chiusa per impedire i dati exfiltration. Non *rimuove* alcun accesso esistente. Per bloccare efficacemente gli accessi dalla rete Internet pubblica, è necessario abilitare in modo esplicito il firewall di Key Vault:
 
 1. Aprire il portale di Azure e aprire la risorsa di Key Vault.
 2. Nel menu a sinistra selezionare **rete**.
@@ -229,11 +231,11 @@ La sottoscrizione di Azure deve avere una risorsa [DNS privato zona](../../dns/p
 
 È possibile verificare la presenza di questa risorsa passando alla pagina sottoscrizione nel portale e selezionando "risorse" nel menu a sinistra. Il nome della risorsa deve essere `privatelink.vaultcore.azure.net` e il tipo di risorsa deve essere **DNS privato zona**.
 
-Normalmente questa risorsa viene creata automaticamente quando si crea un endpoint privato usando un metodo tipico. In alcuni casi, tuttavia, questa risorsa non viene creata automaticamente ed è necessario eseguire questa operazione manualmente. È possibile che la risorsa sia stata eliminata accidentalmente.
+Questa risorsa viene in genere creata automaticamente quando si crea un endpoint privato utilizzando una procedura comune. In alcuni casi, tuttavia, questa risorsa non viene creata automaticamente ed è necessario eseguire questa operazione manualmente. È possibile che la risorsa sia stata eliminata accidentalmente.
 
 Se questa risorsa non è presente, creare una nuova risorsa DNS privato zona nella sottoscrizione. Tenere presente che il nome deve essere esattamente `privatelink.vaultcore.azure.net` , senza spazi o punti aggiuntivi. Se si specifica il nome errato, la risoluzione dei nomi descritta in questo articolo non funzionerà. Per altre informazioni su come creare questa risorsa, vedere [creare una zona DNS privata di Azure usando il portale di Azure](../../dns/private-dns-getstarted-portal.md). Se si segue questa pagina, è possibile ignorare la creazione della rete virtuale perché a questo punto è necessario avere già una. È anche possibile ignorare le procedure di convalida con le macchine virtuali.
 
-### <a name="confirm-that-the-private-dns-zone-must-be-linked-to-the-virtual-network"></a>Confermare che la zona di DNS privato deve essere collegata alla rete virtuale
+### <a name="confirm-that-the-private-dns-zone-is-linked-to-the-virtual-network"></a>Verificare che la zona di DNS privato sia collegata alla rete virtuale
 
 Non è sufficiente avere una zona DNS privato. Deve anche essere collegato alla rete virtuale che contiene l'endpoint privato. Se la zona di DNS privato non è collegata alla rete virtuale corretta, qualsiasi risoluzione DNS della rete virtuale ignorerà la zona DNS privato.
 
@@ -250,7 +252,7 @@ Usando il portale, aprire la zona DNS privato con nome `privatelink.vaultcore.az
 
 Per il corretto funzionamento della risoluzione dei nomi di Key Vault, è necessario che sia presente un `A` record con il nome dell'insieme di credenziali semplice senza suffisso o punti. Se, ad esempio, il nome host è `fabrikam.vault.azure.net` , deve essere presente un `A` record con il nome `fabrikam` , senza suffissi o punti.
 
-Inoltre, il valore del `A` record (indirizzo IP) deve essere [l'indirizzo IP privato](#find-the-key-vault-private-ip-address-in-the-virtual-network)dell'insieme di credenziali delle chiavi. Se il record viene trovato `A` ma è contenuto nell'indirizzo IP errato, è necessario rimuovere l'indirizzo IP errato e aggiungerne uno nuovo. Si consiglia di rimuovere l'intero `A` record e di aggiungerne uno nuovo.
+Inoltre, il valore del `A` record (indirizzo IP) deve essere [l'indirizzo IP privato](#find-the-key-vault-private-ip-address-in-the-virtual-network)dell'insieme di credenziali delle chiavi. Se il record viene trovato `A` ma contiene un indirizzo IP errato, è necessario rimuovere l'indirizzo IP errato e aggiungerne uno nuovo. Si consiglia di rimuovere l'intero `A` record e di aggiungerne uno nuovo.
 
 >[!NOTE]
 > Ogni volta che si rimuove o si modifica un `A` record, il computer potrebbe comunque risolversi nell'indirizzo IP precedente, perché il valore TTL (time to Live) potrebbe non essere ancora scaduto. Si consiglia di specificare sempre un valore TTL non inferiore a 60 secondi (un minuto) e non più grande di 600 secondi (10 minuti). Se si specifica un valore troppo grande, i client potrebbero richiedere troppo tempo per il ripristino in caso di interruzioni.
@@ -259,9 +261,9 @@ Inoltre, il valore del `A` record (indirizzo IP) deve essere [l'indirizzo IP pri
 
 Se sono presenti più reti virtuali e ognuna ha una risorsa di endpoint privato che fa riferimento allo stesso insieme di credenziali delle chiavi, il nome host dell'insieme di credenziali delle chiavi deve essere risolto in un indirizzo IP privato diverso a seconda della rete. Ciò significa che sono necessarie più zone DNS privato, ciascuna collegata a una rete virtuale diversa e usando un indirizzo IP diverso nel `A` record.
 
-Negli scenari più avanzati sono disponibili più reti virtuali con peering abilitato. In questo caso, solo una rete virtuale necessita della risorsa endpoint privato, sebbene sia necessario che sia collegata alla risorsa DNS privato zona. Questo scenario non è coperto direttamente da questo documento.
+Negli scenari più avanzati, le reti virtuali possono avere un peering abilitato. In questo caso, solo una rete virtuale necessita della risorsa endpoint privato, sebbene sia necessario che sia collegata alla risorsa DNS privato zona. Questo scenario non è coperto direttamente da questo documento.
 
-### <a name="fact-you-have-control-over-dns-resolution"></a>Fact: si ha il controllo sulla risoluzione DNS
+### <a name="understand-that-you-have-control-over-dns-resolution"></a>Comprendere che si ha il controllo sulla risoluzione DNS
 
 Come illustrato nella [sezione precedente](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), un insieme di credenziali delle chiavi con collegamenti privati ha l'alias `{vaultname}.privatelink.vaultcore.azure.net` nella registrazione *pubblica* . Il server DNS usato dalla rete virtuale usa la registrazione pubblica, ma controlla ogni alias per una registrazione *privata* . se ne viene trovato uno, arresterà gli alias seguenti definiti alla registrazione pubblica.
 
@@ -324,7 +326,7 @@ Il `addr` campo nell' `x-ms-keyvault-network-info` intestazione Mostra l'indiriz
 ### <a name="query-the-key-vault-ip-address-directly"></a>Eseguire query direttamente sull'indirizzo IP dell'insieme di credenziali delle chiavi
 
 >[!IMPORTANT]
-> L'accesso all'insieme di credenziali delle chiavi senza la convalida del certificato HTTPS è pericoloso e può essere usato solo a scopo di apprendimento. Il codice di produzione non deve mai accedere all'insieme di credenziali delle chiavi senza questa convalida lato client. Anche in caso di problemi di diagnostica, potrebbe essere soggetto a un tentativo di manomissione in corso che non verrà visualizzato se si disabilita sempre la convalida del certificato HTTPS nelle richieste a Key Vault.
+> L'accesso all'insieme di credenziali delle chiavi senza la convalida del certificato HTTPS è pericoloso e può essere usato solo a scopo di apprendimento. Il codice di produzione non deve mai accedere all'insieme di credenziali delle chiavi senza questa convalida lato client. Anche se si stanno semplicemente diagnosticando problemi, è possibile che si verifichino tentativi di manomissione che non verranno rivelati se si disabilita spesso la convalida del certificato HTTPS nelle richieste all'insieme di credenziali delle chiavi.
 
 Se è stata installata una versione recente di PowerShell, è possibile usare `-SkipCertificateCheck` per ignorare i controlli dei certificati HTTPS, quindi è possibile indirizzare direttamente l' [indirizzo IP](#find-the-key-vault-private-ip-address-in-the-virtual-network) dell'insieme di credenziali delle chiavi:
 
@@ -354,7 +356,7 @@ Molti sistemi operativi consentono di impostare un indirizzo IP fisso esplicito 
 
 ### <a name="promiscuous-proxies-fiddler-etc"></a>Proxy promiscui (Fiddler e così via)
 
-Ad eccezione di quanto specificato in modo esplicito, le opzioni di diagnostica in questo articolo funzionano solo se non sono presenti proxy promiscui nell'ambiente. Sebbene questi proxy siano spesso installati esclusivamente nel computer che viene diagnosticato (Fiddler è l'esempio più comune), gli amministratori avanzati possono sovrascrivere le autorità di certificazione radice e installare un proxy promiscuo nei dispositivi gateway che gestiscono più computer nella rete. Questi proxy possono influenzare in modo sostanziale la sicurezza e l'affidabilità. Microsoft non supporta le configurazioni che utilizzano tali prodotti.
+Eccetto quando specificato in modo esplicito, le opzioni di diagnostica in questo articolo funzionano solo se nell'ambiente non è presente alcun proxy promiscuo. Sebbene questi proxy siano spesso installati esclusivamente nel computer che viene diagnosticato (Fiddler è l'esempio più comune), gli amministratori avanzati possono sovrascrivere le autorità di certificazione radice e installare un proxy promiscuo nei dispositivi gateway che gestiscono più computer nella rete. Questi proxy possono influenzare in modo sostanziale la sicurezza e l'affidabilità. Microsoft non supporta le configurazioni che utilizzano tali prodotti.
 
 ### <a name="other-things-that-may-affect-connectivity"></a>Altre operazioni che possono influire sulla connettività
 

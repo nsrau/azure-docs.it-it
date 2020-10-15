@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 67fc80b5f34cf3a98fd39ddc352cb2dd9a5e7151
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85564925"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Connettere il dispositivo Symantec ICDx 
@@ -50,7 +50,7 @@ Symantec ICDx può integrare ed esportare i log direttamente in Sentinel di Azur
       > [!NOTE]
       > Gli archivi del ricevitore ICDx sono elencati separatamente, in base al nome. 
  
-    - **Filter**: aggiungere un filtro che specifichi il subset di eventi da trasmettere. Eseguire una delle operazioni seguenti:
+    - **Filter**: aggiungere un filtro che specifichi il subset di eventi da trasmettere. Eseguire una di queste operazioni:
         - Per selezionare una condizione di filtro, fare clic su un tipo, un attributo, un operatore e un valore. 
         - Nel campo filtro esaminare la condizione di filtro. È possibile modificarlo direttamente nel campo o eliminarlo, se necessario.
         - Fare clic su AND o OR per aggiungere alla condizione di filtro.

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318620"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856212"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Creare una pipeline CI/CD in Azure Pipelines per Node.js con Azure DevOps Starter
 
@@ -73,7 +73,7 @@ DevOps Starter crea una pipeline CI/CD in Azure Pipelines. È possibile creare u
 
     ![Dashboard di Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. Dal progetto Azure DevOps è possibile invitare i membri del team a collaborare e stabilire una lavagna Kanban per iniziare a monitorare le attività. Per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+1. Dal progetto Azure DevOps è possibile invitare i membri del team a collaborare e stabilire una lavagna Kanban per iniziare a monitorare le attività. Per altre informazioni, vedere [qui](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
 
 ![Panoramica di Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -195,5 +195,4 @@ Quando non servono più, è possibile eliminare il Servizio app di Azure e altre
 Quando si configura il processo di CI/CD, le pipeline di compilazione e versione vengono create automaticamente. È possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. Per altre informazioni sulla pipeline CI/CD, vedere:
 
 > [!div class="nextstepaction"]
-> [Personalizzare il processo di distribuzione continua](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
-
+> [Personalizzare il processo di distribuzione continua](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

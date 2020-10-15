@@ -9,10 +9,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323401"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure
@@ -70,11 +70,11 @@ Da qui è possibile eseguire il drill-through da questo riepilogo dei costi accu
 Per informazioni dettagliate sull'utilizzo, [scaricare l'utilizzo dal portale di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Nel foglio di calcolo scaricato è possibile visualizzare l'utilizzo per ogni risorsa di Azure al giorno. In questo foglio di calcolo di Excel, l'utilizzo delle risorse di Application Insights è disponibile filtrando prima di tutto la colonna "Categoria del contatore" per visualizzare "Application Insights" e "Log Analytics", quindi aggiungendo un filtro alla colonna "ID istanza" che risulta "contiene microsoft.insights/components".  La maggior parte dell'utilizzo di Application Insights viene segnalata nei contatori con la categoria Contatore di Log Analytics, dal momento che è presente un singolo back-end per tutti i componenti di Monitoraggio di Azure.  Solo le risorse Application Insights sui piani tariffari legacy e i test Web in più passaggi vengono riportate con una categoria Contatore di Application Insights.  L'utilizzo viene visualizzato nella colonna "Quantità utilizzata" e l'unità per ogni voce viene visualizzata nella colonna "Unità di misura".  Maggiori dettagli sono disponibili nelle [informazioni sulla fattura di Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
 > [!NOTE]
-> L'uso della **gestione dei costi** in **Gestione costi di Azure** e nell'hub di fatturazione è l'approccio preferito per comprendere in modo esteso i costi di monitoraggio.  Le esperienze di **utilizzo e i costi stimati** per [log Analytics](./manage-cost-storage.md#understand-your-usage-and-estimate-costs) e [Application Insights](../app/pricing.md#understand-your-usage-and-estimate-costs) forniscono informazioni approfondite per ognuna di queste parti di monitoraggio di Azure.
+> L'uso della **gestione dei costi** in **Gestione costi di Azure** e nell'hub di fatturazione è l'approccio preferito per comprendere in modo esteso i costi di monitoraggio.  Le esperienze di **utilizzo e i costi stimati** per [log Analytics](./manage-cost-storage.md#understand-your-usage-and-estimate-costs)  e [Application Insights](../app/pricing.md#understand-your-usage-and-estimate-costs) forniscono informazioni approfondite per ognuna di queste parti di monitoraggio di Azure.
 
 Un'altra opzione per visualizzare l'utilizzo di monitoraggio di Azure è la pagina **utilizzo e costi stimati** nell'hub monitoraggio. Viene illustrato l'utilizzo delle funzionalità di monitoraggio di base, ad esempio [avvisi, metriche, notifiche](https://azure.microsoft.com/pricing/details/monitor/), [Azure log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)e [applicazione Azure Insights](https://azure.microsoft.com/pricing/details/application-insights/). Per i clienti con piani tariffari disponibili prima di aprile 2018, è incluso anche l'utilizzo di Log Analytics acquistato tramite l'offerta Insights e Analytics.
 
-In questa pagina gli utenti possono visualizzare l'utilizzo delle relative risorse per gli ultimi 31 giorni, aggregate per sottoscrizione. `Drill-ins`Mostra le tendenze di utilizzo nel periodo di 31 giorni. Per effettuare questa stima, è necessario assemblare una grande quantità di dati. Attendere con pazienza il caricamento della pagina.
+In questa pagina gli utenti possono visualizzare l'utilizzo delle relative risorse per gli ultimi 31 giorni, aggregate per sottoscrizione. `Drill-ins` Mostra le tendenze di utilizzo nel periodo di 31 giorni. Per effettuare questa stima, è necessario assemblare una grande quantità di dati. Attendere con pazienza il caricamento della pagina.
 
 Questo esempio mostra il monitoraggio dell'utilizzo, con una stima dei costi risultanti:
 

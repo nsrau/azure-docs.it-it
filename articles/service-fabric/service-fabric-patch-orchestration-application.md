@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445893"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
@@ -313,7 +313,7 @@ Per comprendere il modo in cui gli aggiornamenti vengono eseguiti in un nodo, pr
 
    Se vengono rilevati più problemi, accedere alla macchina virtuale (VM) o alle macchine virtuali e ottenere informazioni su di essi usando i registri eventi di Windows. L'attività di ripristino precedentemente indicata può esistere solo nei seguenti sottostati dell'Executor:
 
-      ExecutorSubState | Descrizione
+      ExecutorSubState | Description
     -- | -- 
       Nessuno = 1 |  Implica che non è stata eseguita un'operazione in corso sul nodo. Lo stato potrebbe essere in transizione.
       DownloadCompleted = 2 | Implica che l'operazione di download è stata completata con esito positivo, errore parziale o errore.
@@ -439,7 +439,7 @@ R: POA USA Service Fabric Gestione ripristini per creare attività di ripristino
 
 ## <a name="disclaimers"></a>Dichiarazioni di non responsabilità
 
-- POA accetta il contratto di licenza con l'utente finale per Windows Update per conto dell'utente. Facoltativamente, l'impostazione può essere disattivata nella configurazione dell'applicazione.
+- POA accetta il contratto di licenza End-User per Windows Update per conto dell'utente. Facoltativamente, l'impostazione può essere disattivata nella configurazione dell'applicazione.
 
 - POA raccoglie i dati di telemetria per tenere traccia dell'utilizzo e delle prestazioni. I dati di telemetria dell'applicazione seguono l'impostazione dei dati di telemetria del runtime di Service Fabric (attiva per impostazione predefinita).
 

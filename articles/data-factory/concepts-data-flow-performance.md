@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370879"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874833"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -173,7 +173,7 @@ Mentre i flussi di dati supportano un'ampia gamma di tipi di file, il Azure Data
 
 Se si sta eseguendo lo stesso flusso di dati in un set di file, è consigliabile leggere da una cartella, usando percorsi con caratteri jolly o leggendo da un elenco di file. Una singola esecuzione dell'attività flusso di dati può elaborare tutti i file in batch. Altre informazioni su come impostare queste impostazioni sono disponibili nella documentazione del connettore, ad esempio [archiviazione BLOB di Azure](connector-azure-blob-storage.md#source-transformation).
 
-Se possibile, evitare di utilizzare l'attività for-each per eseguire il flusso di dati in un set di file. In questo modo ogni iterazione di for-each può creare il proprio cluster Spark, che spesso non è necessario e può essere costoso. 
+Se possibile, evitare di utilizzare l'attività For-Each per eseguire i flussi di dati su un set di file. In questo modo ogni iterazione di for-each può creare il proprio cluster Spark, che spesso non è necessario e può essere costoso. 
 
 ## <a name="optimizing-sinks"></a>Ottimizzazione di sink
 
@@ -260,6 +260,10 @@ Se si usano valori letterali nelle condizioni di join o si hanno più corrispond
 #### <a name="sorting-before-joins"></a>Ordinamento prima di join
 
 A differenza di Merge join in strumenti come SSIS, la trasformazione tramite join non rappresenta un'operazione di merge obbligatoria. Le chiavi di join non richiedono l'ordinamento prima della trasformazione. Il team di Azure Data Factory non consiglia di usare le trasformazioni di ordinamento nel mapping di flussi di dati.
+
+### <a name="window-transformation-performance"></a>Prestazioni trasformazione finestra
+
+La [trasformazione finestra](data-flow-window.md) suddivide i dati in base al valore nelle colonne selezionate come parte della ```over()``` clausola nelle impostazioni di trasformazione. Nella trasformazione Windows sono presenti numerose funzioni di aggregazione e analisi molto diffuse. Tuttavia, se il caso d'uso prevede la generazione di una finestra sull'intero set di dati a scopo di rango ```rank()``` o numero di riga ```rowNumber()``` , è consigliabile usare invece la [trasformazione classificazione](data-flow-rank.md) e la [trasformazione chiave surrogata](data-flow-surrogate-key.md). Tali funzioni eseguiranno nuovamente le operazioni complete del set di dati utilizzando tali funzioni.
 
 ### <a name="repartitioning-skewed-data"></a>Ripartizionamento di dati inclinati
 

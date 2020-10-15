@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 2d268c5ced0d427216ce4f6a7e9c97c6b5b8b0f4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893731"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL
 
@@ -44,7 +44,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
 - L'utente deve disporre del ruolo di replica nel server che ospita il database di origine.
 - Gli schemi del database di origine e di destinazione devono corrispondere.
-- Lo schema nel database di Azure di destinazione per PostgreSQL-singolo server non deve avere chiavi esterne. Per rilasciare le chiavi esterne usare la query seguente:
+- Lo schema nel database di Azure di destinazione per PostgreSQL-Single server non deve contenere chiavi esterne. Per rilasciare le chiavi esterne usare la query seguente:
 
     ```
                                 SELECT Queries.tablename
@@ -75,12 +75,14 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
     Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query.
 
-- Lo schema nel database di Azure di destinazione per PostgreSQL-server singolo non deve avere alcun trigger. Per disabilitare i trigger nel database di destinazione:
+- Lo schema nel database di Azure di destinazione per PostgreSQL-Single server non deve avere alcun trigger. Per disabilitare i trigger nel database di destinazione:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
+## <a name="size-limitations"></a>Limitazioni relative alle dimensioni
+- È possibile eseguire la migrazione di un massimo di 2 TB di dati da PostgreSQL a database di Azure per PostgreSQL usando un singolo servizio DMS.
 ## <a name="datatype-limitations"></a>Limitazioni relative ai tipi di dati
 
   **Limitazione**: se non è presente alcuna chiave primaria nelle tabelle, è possibile che le modifiche non vengano sincronizzate con il database di destinazione.

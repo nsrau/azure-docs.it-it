@@ -4,10 +4,10 @@ description: Application Performance Monitoring per le applicazioni Java in esec
 ms.topic: conceptual
 ms.date: 03/29/2020
 ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370035"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights-anteprima pubblica
@@ -166,7 +166,7 @@ private static final TelemetryClient telemetryClient = new TelemetryClient();
 
 e usarlo per l'invio di dati di telemetria personalizzati.
 
-### <a name="events"></a>Eventi
+### <a name="events"></a>Events
 
   ```java
 telemetryClient.trackEvent("WinGame");

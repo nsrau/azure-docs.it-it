@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894581"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945746"
 ---
 # <a name="working-with-security-policies"></a>Uso dei criteri di sicurezza
 
@@ -46,7 +46,7 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 1. Nel dashboard del **Centro sicurezza** selezionare **Criteri di sicurezza**.
 
-    ![Riquadro Gestione dei criteri](./media/security-center-policies/security-center-policy-mgt.png)
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="Pagina di gestione dei criteri&quot;:::
 
    Nella schermata **Gestione dei criteri** è possibile visualizzare il numero dei gruppi di gestione, delle sottoscrizioni e delle aree di lavoro, oltre alla struttura dei gruppi di gestione.
 
@@ -57,7 +57,7 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
    ![pagina dei criteri](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Se è presente un'etichetta "MG ereditato" insieme ai criteri predefiniti, significa che il criterio è stato assegnato a un gruppo di gestione e ereditato dalla sottoscrizione che si sta visualizzando.
+    > Se è presente un'etichetta &quot;MG ereditato" insieme ai criteri predefiniti, significa che il criterio è stato assegnato a un gruppo di gestione e ereditato dalla sottoscrizione che si sta visualizzando.
 
 
 1. Scegliere tra le opzioni disponibili in questa pagina:
@@ -68,8 +68,19 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
     1. Per visualizzare e modificare i criteri predefiniti, selezionare **Visualizza criteri validi** e procedere come descritto di seguito. 
 
-       ![Schermata dei criteri](./media/security-center-policies/policy-screen.png)
-       
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Pagina di gestione dei criteri&quot;:::
+
+   Nella schermata **Gestione dei criteri** è possibile visualizzare il numero dei gruppi di gestione, delle sottoscrizioni e delle aree di lavoro, oltre alla struttura dei gruppi di gestione.
+
+1. Selezionare la sottoscrizione o il gruppo di gestione di cui si vogliono visualizzare i criteri.
+
+1. Verrà visualizzata la pagina Criteri di sicurezza per la sottoscrizione o il gruppo di gestione. Mostra i criteri disponibili e assegnati.
+
+   ![pagina dei criteri](./media/tutorial-security-policy/security-policy-page.png)
+
+    > [!NOTE]
+    > Se è presente un'etichetta &quot;MG ereditato":::
+
        Questa schermata dei **criteri di sicurezza** riflette l'azione eseguita dai criteri assegnati alla sottoscrizione o al gruppo di gestione selezionato.
        
        * Usare i collegamenti nella parte superiore per aprire un' **assegnazione** dei criteri che si applica alla sottoscrizione o al gruppo di gestione. Questi collegamenti consentono di accedere all'assegnazione e modificare o disabilitare i criteri. Se, ad esempio, si nota che un'assegnazione di criteri specifica nega effettivamente Endpoint Protection, utilizzare il collegamento per modificare o disabilitare i criteri.
@@ -86,7 +97,7 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 È possibile modificare i criteri di sicurezza tramite il portale Criteri di Azure, l'API REST o Windows PowerShell.
 
-Il Centro sicurezza usa il controllo degli accessi in base al ruolo (RBAC), che fornisce ruoli predefiniti che è possibile assegnare a utenti, gruppi e servizi di Azure. Quando gli utenti aprono il Centro sicurezza, visualizzano solo le informazioni correlate alle risorse a cui possono accedere. Ciò significa che agli utenti viene assegnato il ruolo di *proprietario*, *collaboratore*o *lettore* alla sottoscrizione della risorsa. Sono inoltre disponibili due ruoli specifici del Centro sicurezza:
+Il Centro sicurezza usa il controllo di accesso di Role-Based (RBAC), che fornisce ruoli predefiniti che è possibile assegnare a utenti, gruppi e servizi di Azure. Quando gli utenti aprono il Centro sicurezza, visualizzano solo le informazioni correlate alle risorse a cui possono accedere. Ciò significa che agli utenti viene assegnato il ruolo di *proprietario*, *collaboratore*o *lettore* alla sottoscrizione della risorsa. Sono inoltre disponibili due ruoli specifici del Centro sicurezza:
 
 - **Lettura**per la sicurezza: dispone dei diritti per visualizzare gli elementi del Centro sicurezza, ad esempio raccomandazioni, avvisi, criteri e integrità. Non è possibile apportare modifiche.
 - **Amministratore della sicurezza**: ha gli stessi diritti di visualizzazione del *lettore di sicurezza*. Può anche aggiornare i criteri di sicurezza e ignorare gli avvisi.
@@ -131,8 +142,7 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo ha illustrato i criteri di sicurezza. Per informazioni correlate, vedere gli articoli seguenti:
 
-* Per istruzioni su come impostare i criteri usando PowerShell, vedere [Guida introduttiva: creare un'assegnazione di criteri per identificare le risorse non conformi usando il modulo Azure PowerShell](../governance/policy/assign-policy-powershell.md)
-
-* Per istruzioni su come modificare i criteri di sicurezza in criteri di Azure, vedere [creare e gestire criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md).
-
-* Per istruzioni su come impostare un criterio tra le sottoscrizioni o i gruppi di gestione usando criteri di Azure, vedere informazioni su [criteri di Azure.](../governance/policy/overview.md)
+- [Informazioni su come impostare i criteri tramite PowerShell](../governance/policy/assign-policy-powershell.md) - 
+- [Informazioni su come modificare i criteri di sicurezza in criteri di Azure](../governance/policy/tutorials/create-and-manage.md) - 
+- [Informazioni su come impostare un criterio tra le sottoscrizioni o i gruppi di gestione usando criteri di Azure](../governance/policy/overview.md).
+- [Informazioni su come abilitare il Centro sicurezza in tutte le sottoscrizioni in un gruppo di gestione](onboard-management-group.md)

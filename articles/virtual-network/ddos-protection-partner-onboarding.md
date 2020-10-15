@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: kumud
 ms.openlocfilehash: 8136ea2a567ac823f03941ebd4a67bed043ada07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84689352"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Partnership con protezione DDoS di Azure standard
 Questo articolo descrive le opportunità di collaborazione abilitate dallo standard di protezione DDoS di Azure. Questo articolo è stato progettato per aiutare i responsabili dei prodotti e i ruoli di sviluppo aziendali a comprendere i percorsi di investimento e fornire informazioni sulle proposte di valore per i partner.
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 Gli attacchi Distributed Denial of Service (DDoS) rappresentano una delle principali problematiche di disponibilità e sicurezza espresse dai clienti che spostano le applicazioni nel cloud. Con estorsione e hacktivism sono le motivazioni comuni dietro gli attacchi DDoS, sono state costantemente aumentate in base a tipo, scalabilità e frequenza di occorrenza poiché sono relativamente semplici e convenienti da avviare.
 
 Protezione DDoS di Azure fornisce contromisure contro le minacce DDoS più sofisticate, sfruttando la scala globale della rete di Azure. Il servizio fornisce funzionalità avanzate di mitigazione DDoS per applicazioni e risorse distribuite in reti virtuali.

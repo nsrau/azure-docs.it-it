@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566076"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
@@ -179,8 +179,8 @@ Configurazione di test:
 
 | ExpressRoute<br/>Location|Azure<br/>Region | Distanza<br/>stimata (km) | Latenza|1 Sessione<br/>Larghezza di banda | Massimo<br/>Larghezza di banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
-| Seattle | Stati Uniti occidentali 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
-| Seattle | Stati Uniti occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
+| Seattle | West US 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
+| Seattle | Stati Uniti Occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
 | Seattle | Stati Uniti centrali       |  2.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
 | Seattle | Stati Uniti centro-meridionali |  2.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |
 | Seattle | Stati Uniti centro-settentrionali |  2.792 km |  55 ms |  27,7 Mbit/sec |  2,19 Gbit/sec |

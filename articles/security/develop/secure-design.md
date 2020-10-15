@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86246810"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
@@ -260,7 +260,7 @@ La classificazione dei dati e l'identificazione delle esigenze di protezione dei
 
 Etichettare tutti i dati applicabili come sensibili quando si progettano i formati di dati. Assicurarsi che l'applicazione consideri i dati applicabili come sensibili. Queste procedure consentono di proteggere i dati sensibili:
 
-- Utilizzare la crittografia.
+- Usare la crittografia.
 - Evitare segreti a livello di codice come chiavi e password.
 - Verificare che i controlli di accesso e il controllo siano disponibili.
 

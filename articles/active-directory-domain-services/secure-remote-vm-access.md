@@ -2,20 +2,20 @@
 title: Accesso protetto alle VM remote in Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come proteggere l'accesso remoto alle macchine virtuali usando server dei criteri di rete e Azure Multi-Factor Authentication con una distribuzione di Servizi Desktop remoto in un dominio gestito da Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 462e0ff8ef8baadf40ba81ed2ae137d8904fbf7a
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722518"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967784"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Proteggere l'accesso remoto alle macchine virtuali in Azure Active Directory Domain Services
 

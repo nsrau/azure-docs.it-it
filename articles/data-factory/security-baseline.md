@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437939"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Baseline della sicurezza di Azure per Azure Data Factory
@@ -30,7 +30,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Linee guida**: quando si crea un Azure-SSIS Integration Runtime (IR), è possibile aggiungerlo a una rete virtuale. Ciò consentirà Azure Data Factory di creare determinate risorse di rete, ad esempio un gruppo di sicurezza di rete (NSG) e un servizio di bilanciamento del carico. È anche possibile fornire il proprio indirizzo IP pubblico statico o Azure Data Factory crearne uno. Nel NSG creato automaticamente da Azure Data Factory la porta 3389 è aperta a tutto il traffico per impostazione predefinita. Bloccarlo per garantire che solo gli amministratori abbiano accesso.
 
-L'IRs self-hosted può essere distribuito in un computer locale o in una macchina virtuale di Azure all'interno di una rete virtuale. Assicurarsi che la distribuzione della subnet della rete virtuale disponga di un NSG configurato per consentire solo l'accesso amministrativo. Per impostazione predefinita, Azure-SSIS IR ha disabilitato la porta 3389 in uscita in base alla regola di Windows Firewall in ogni nodo IR per la protezione. È possibile proteggere le risorse configurate per la rete virtuale associando un NSG di sicurezza di rete alla subnet e impostando regole rigide.
+Self-Hosted IRs può essere distribuito in un computer locale o in una macchina virtuale di Azure all'interno di una rete virtuale. Assicurarsi che la distribuzione della subnet della rete virtuale disponga di un NSG configurato per consentire solo l'accesso amministrativo. Per impostazione predefinita, Azure-SSIS IR ha disabilitato la porta 3389 in uscita in base alla regola di Windows Firewall in ogni nodo IR per la protezione. È possibile proteggere le risorse configurate per la rete virtuale associando un NSG di sicurezza di rete alla subnet e impostando regole rigide.
 
 Se è disponibile un collegamento privato, usare endpoint privati per proteggere le risorse collegate alla pipeline di Azure Data Factory, ad esempio SQL Server di Azure. Con il collegamento privato, il traffico tra la rete virtuale e il servizio attraversa la rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica.
 
@@ -331,7 +331,7 @@ Inoltre, a livello di tenant, Azure Active Directory (AD) include ruoli predefin
 
 Sebbene Azure AD sia il metodo consigliato per amministrare l'accesso utente, tenere presente che se si esegue Integration Runtime in una macchina virtuale (VM) di Azure, è possibile che anche la VM disponga di account locali. Sia gli account locali che quelli di dominio devono essere rivisti e gestiti, in genere con un footprint minimo. Si consiglia inoltre di verificare che Privileged Identity Manager venga esaminato per la funzionalità Just-in-time per ridurre la disponibilità delle autorizzazioni amministrative.
 
-* [Ruoli e autorizzazioni per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Roles and permissions for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions) (Ruoli e autorizzazioni per Azure Data Factory)
 
 * [Informazioni su Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
@@ -370,7 +370,7 @@ Se si esegue la Integration Runtime in una macchina virtuale di Azure, è anche 
 
 * [Informazioni su Privileged Identity Manager](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
-* [Ruoli e autorizzazioni per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Roles and permissions for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions) (Ruoli e autorizzazioni per Azure Data Factory)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -608,7 +608,7 @@ Per le origini dati Data Factory, ad esempio il database SQL di Azure, fare rife
 
 * [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Ruoli e autorizzazioni per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Roles and permissions for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions) (Ruoli e autorizzazioni per Azure Data Factory)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -896,7 +896,7 @@ Si noti che questo vale solo se il Integration Runtime è in esecuzione in una m
 
 * [Informazioni sul firewall di Azure](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Che cos'è il firewall applicazione Web di Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Che cos'è Web Application Firewall di Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
@@ -994,7 +994,7 @@ Il ruolo Collaboratore Data Factory può essere usato per creare e gestire Data 
 
 * [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
-* [Ruoli e autorizzazioni per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
+* [Roles and permissions for Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions) (Ruoli e autorizzazioni per Azure Data Factory)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

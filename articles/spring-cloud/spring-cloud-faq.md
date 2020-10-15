@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888712"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094008"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -45,7 +45,7 @@ Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Unit
 Azure Spring cloud presenta le limitazioni note seguenti:
     
 * `spring.application.name` verrà eseguito l'override del nome dell'applicazione usato per creare ogni applicazione.
-* `server.port` il valore predefinito è la porta 1025. Se viene applicato un altro valore, ne verrà eseguito l'override in 1025.
+* `server.port` il valore predefinito è la porta 1025. Se viene applicato un altro valore, ne verrà eseguito l'override. Osservare anche questa impostazione e non specificare la porta del server nel codice.
 * I modelli portale di Azure e Azure Resource Manager non supportano il caricamento di pacchetti dell'applicazione. È possibile caricare i pacchetti dell'applicazione solo distribuendo l'applicazione tramite l'interfaccia della riga di comando di Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Quali sono i piani tariffari disponibili? 
@@ -54,7 +54,7 @@ Quale si deve usare e quali sono i limiti all'interno di ogni livello?
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Come è possibile fornire feedback e segnalare problemi?
 
-Se si verificano problemi con Azure Spring cloud, creare una [richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Per inviare una richiesta di funzionalità o fornire commenti e suggerimenti, passare a [commenti e suggerimenti su Azure](https://feedback.azure.com/forums/34192--general-feedback).
+Se si verificano problemi con Azure Spring cloud, creare una [richiesta di supporto di Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Per inviare una richiesta di funzionalità o fornire commenti e suggerimenti, passare a [commenti e suggerimenti su Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Sviluppo
 
@@ -70,9 +70,9 @@ Azure Spring Cloud supporta Java 8 e 11. Vedere [le versioni del runtime e del s
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Dove è possibile visualizzare i log e le metriche dell'applicazione Spring cloud?
 
-Le metriche sono disponibili nella scheda di panoramica dell'app e nella scheda [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics).
+Le metriche sono disponibili nella scheda di panoramica dell'app e nella scheda [Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics).
 
-Il cloud Spring di Azure supporta l'esportazione di metriche e log applicazioni di Spring cloud in archiviazione di Azure, EventHub e [log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). Il nome della tabella in Log Analytics è *AppPlatformLogsforSpring*. Per informazioni su come abilitarla, vedere [servizi di diagnostica](diagnostic-services.md).
+Il cloud Spring di Azure supporta l'esportazione di metriche e log applicazioni di Spring cloud in archiviazione di Azure, EventHub e [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Il nome della tabella in Log Analytics è *AppPlatformLogsforSpring*. Per informazioni su come abilitarla, vedere [servizi di diagnostica](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud supporta la traccia distribuita?
 
@@ -106,7 +106,7 @@ Dipende dalla logica dei provider di risorse che possiedono le risorse di estens
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Quali versioni di Java Runtime sono supportate nel cloud Spring di Azure?
 
-Azure Spring cloud supporta le versioni Java LTS con le build più recenti, attualmente il 2020 giugno, Java 8 Build 252 e Java 11 Build 7 sono supportate. Vedere [Install the JDK for Azure and Azure stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring cloud supporta le versioni Java LTS con le build più recenti, attualmente il 2020 giugno, Java 8 Build 252 e Java 11 Build 7 sono supportate. Vedere [Install the JDK for Azure and Azure stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Chi ha creato questi runtime Java?
 
@@ -118,14 +118,14 @@ Le versioni di JDK con supporto a medio e lungo termine includono aggiornamenti 
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Per quanto tempo saranno supportate le versioni Java 8 e Java 11 LTS?
 
-Vedere [supporto a lungo termine Java per Azure e Azure stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Vedere [supporto a lungo termine Java per Azure e Azure stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Java 8 LTS sarà supportato fino al 2030 dicembre.
 * Java 11 LTS sarà supportato fino al 2027 settembre.
 
 ### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Come è possibile scaricare un runtime Java supportato per lo sviluppo locale?
 
-Vedere [Install the JDK for Azure and Azure stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Vedere [Install the JDK for Azure and Azure stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Quali sono i criteri di ritiro per i runtime Java precedenti?
 
@@ -136,7 +136,7 @@ Il preavviso pubblico verrà inviato a 12 mesi prima del ritiro di qualsiasi ver
 
 ### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Come è possibile ottenere supporto per i problemi a livello di runtime Java?
 
-È possibile aprire un ticket di supporto con il supporto tecnico di Azure.  Vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+È possibile aprire un ticket di supporto con il supporto tecnico di Azure.  Vedere [come creare una richiesta di supporto di Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="what-is-the-operation-system-to-run-my-apps"></a>Qual è il sistema operativo per l'esecuzione di app personali?
 

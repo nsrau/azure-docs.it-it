@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964686"
 ---
 # <a name="unsupported-language-deployments"></a>Distribuzioni in lingue non supportate
@@ -45,9 +45,9 @@ Una volta inviato, il modello non sarà più disponibile nella scheda **Training
 
 ![Come eseguire la migrazione da Hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
-## <a name="whats-next"></a>Quali sono le operazioni successive?
+## <a name="whats-next"></a>Passaggi successivi
 
-I modelli selezionati per la distribuzione vengono salvati dopo la rimozione delle autorizzazioni dell'hub e la distribuzione di tutti i modelli.  Si ha fino al 24 maggio per inviare le richieste per la distribuzione di modelli non supportati.  Questi modelli verranno distribuiti a partire dal 15 giugno e saranno accessibili tramite Translator V3.  Inoltre, saranno disponibili tramite Translator V2 fino al 1 ° luglio.  
+I modelli selezionati per la distribuzione vengono salvati dopo la rimozione delle autorizzazioni dell'hub e la distribuzione di tutti i modelli.  Si ha fino al 24 maggio per inviare le richieste per la distribuzione di modelli non supportati.  Questi modelli verranno distribuiti a partire dal 15 giugno e saranno accessibili tramite l'API Translator V3.  Inoltre, saranno disponibili tramite l'API v2 fino al 1 ° luglio.  
 
 Per ulteriori informazioni sulle date importanti per la deprecazione dell'hub, vedere [qui](https://www.microsoft.com/translator/business/hub/).
 Una volta distribuiti, verranno applicati i normali addebiti per l'hosting.  Per informazioni dettagliate, vedere [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) .  
@@ -57,4 +57,4 @@ A differenza dei modelli di conversione personalizzati standard, i modelli di hu
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Eseguire [il training di un modello](how-to-train-model.md).
-- Iniziare a usare il modello di traduzione personalizzata distribuito tramite [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Iniziare a usare il modello di traduzione personalizzata distribuito tramite l'[API Traduzione testuale Microsoft V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

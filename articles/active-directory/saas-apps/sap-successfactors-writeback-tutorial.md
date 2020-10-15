@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286554"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069986"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a SAP SuccessFactors
 L'obiettivo di questa esercitazione è mostrare i passaggi per la scrittura di attributi da Azure AD a SAP SuccessFactors Employee Central. 
@@ -275,7 +275,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
 
 1. Nella sezione **mapping** degli attributi della tabella di mapping è possibile eseguire il mapping degli attributi Azure Active Directory seguenti a SuccessFactors. La tabella seguente fornisce indicazioni su come eseguire il mapping degli attributi write-back. 
 
-   | \# | Attributo di Azure AD | Attributo SuccessFactors | Osservazioni |
+   | \# | Attributo di Azure AD | Attributo SuccessFactors | Commenti |
    |--|--|--|--|
    | 1 | employeeId | personIdExternal | Per impostazione predefinita, questo attributo è l'identificatore corrispondente. Anziché employeeId, è possibile usare qualsiasi altro Azure AD attributo che può archiviare il valore uguale a personIdExternal in SuccessFactors.    |
    | 2 | mail | email | Origine dell'attributo di posta elettronica mappa. A scopo di test, è possibile eseguire il mapping di userPrincipalName alla posta elettronica. |
@@ -324,13 +324,23 @@ Una volta completate le configurazioni dell'app di provisioning di SuccessFactor
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-2. Fare clic su **Salva**.
+1. Selezionare **ambito**. È possibile scegliere una delle opzioni seguenti: 
+   * **Sincronizza tutti gli utenti e i gruppi**: selezionare questa opzione se si prevede di scrivere gli attributi di cui è stato eseguito il mapping di tutti gli utenti da Azure ad a **Mappings**SuccessFactors, in base alle regole di ambito definite nell'  ->  **ambito dell'oggetto di origine**mapping. 
+   * **Sincronizza solo utenti e gruppi assegnati**: selezionare questa opzione se si prevede di scrivere gli attributi di cui è stato eseguito il mapping solo degli utenti assegnati a questa **Application**applicazione nell'  ->  opzione di menu**Gestisci**  ->  **utenti e gruppi** dell'applicazione. Questi utenti sono inoltre soggetti alle regole di ambito definite nell' **Mappings**  ->  **ambito dell'oggetto di origine**dei mapping.
 
-3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant di SuccessFactors. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
+   > [!div class="mx-imgBorder"]
+   > ![Seleziona ambito writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti gli eventi di sincronizzazione singoli eseguiti dal servizio di provisioning, ad esempio quali utenti vengono letti da Employee Central e successivamente aggiunti o aggiornati a Active Directory. 
+   > [!NOTE]
+   > L'app di provisioning del writeback SuccessFactors non supporta l'assegnazione di gruppo. È supportata solo l'assegnazione "utente". 
 
-5. Al termine della sincronizzazione iniziale, verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
+1. Fare clic su **Salva**.
+
+1. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nel tenant Azure AD e dell'ambito definito per l'operazione. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
+
+1. In qualsiasi momento, controllare la scheda **log di provisioning** nel portale di Azure per visualizzare le azioni eseguite dal servizio di provisioning. I log di provisioning elencano tutti gli eventi di sincronizzazione singoli eseguiti dal servizio di provisioning. 
+
+1. Al termine della sincronizzazione iniziale, verrà scritto un report di riepilogo di controllo nella scheda **Provisioning**, come illustrato di seguito.
 
    > [!div class="mx-imgBorder"]
    > ![Indicatore di stato del provisioning](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

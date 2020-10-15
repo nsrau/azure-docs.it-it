@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073472"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
@@ -150,7 +150,7 @@ Una delle molte funzionalità utili di Grafana è la playlist di dashboard. È p
 
 ![Esempio di playlist di Grafana](./media/grafana-plugin/grafana7.png)
 
-## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se è stato configurato un ambiente Grafana in Azure, è previsto un addebito quando le macchine virtuali sono in esecuzione indipendentemente dal fatto che le si usi o meno. Per evitare di dover sostenere costi aggiuntivi, eliminare il gruppo di risorse creato in questo articolo.
 

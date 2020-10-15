@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84697691"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
@@ -44,7 +44,7 @@ Gli hub eventi sono utili per supportare comunicazioni con volumi elevati.
 
 ### <a name="write-functions-to-be-stateless"></a>Scrivere le funzioni in modo che siano senza stato 
 
-Le funzioni devono essere senza stato e idempotenti se possibile. Associare ai dati eventuali informazioni obbligatorie sullo stato. Ad esempio, un ordine in fase di elaborazione probabilmente ha un membro `state` associato. Una funzione può elaborare un ordine basato su tale stato rimanendo però una funzione senza stato. 
+Le funzioni devono essere senza stato e idempotenti se possibile. Associare ai dati le eventuali informazioni di stato necessarie. Ad esempio, un ordine in fase di elaborazione probabilmente ha un membro `state` associato. Una funzione può elaborare un ordine basato su tale stato rimanendo però una funzione senza stato. 
 
 Le funzioni idempotenti sono consigliate in particolare con i trigger timer. Se, ad esempio, si dispone di un elemento che deve essere assolutamente eseguito una volta al giorno, scriverlo in modo che possa essere eseguito in qualsiasi momento durante il giorno con gli stessi risultati. La funzione può essere chiusa quando non è disponibile alcun lavoro per un determinato giorno. Anche se un'esecuzione precedente non è stata completata, l'esecuzione successiva riprenderà da dove era stata interrotta.
 
@@ -114,7 +114,7 @@ Il file `host.json` nell'app per le funzioni consente di configurare i comportam
 
 Le impostazioni nel host.jssu file si applicano a tutte le funzioni all'interno dell'app, all'interno di una *singola istanza* della funzione. Se, ad esempio, si dispone di un'app per le funzioni con due funzioni HTTP e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) richieste impostate su 25, una richiesta a uno dei trigger http viene conteggiata per le 25 richieste simultanee condivise.  Quando l'app per le funzioni viene ridimensionata a 10 istanze, le due funzioni consentono di eseguire in modo efficace 250 richieste simultanee (10 istanze * 25 richieste simultanee per istanza). 
 
-Altre opzioni di configurazione host sono disponibili nell' [articolohost.jsdi configurazione](functions-host-json.md).
+Altre opzioni di configurazione host sono disponibili nell' [ articolohost.jsdi configurazione](functions-host-json.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

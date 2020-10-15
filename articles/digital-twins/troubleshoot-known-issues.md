@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: e152c0227008dd12088660b2390a8d0a5f54de96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290779"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047642"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -30,7 +30,7 @@ Per i dispositivi gemelli digitali di Azure in particolare, questo influisca sui
 
 Per risolvere il problema, eseguire nuovamente il `az login` comando in cloud Shell e completare i passaggi di accesso successivi. Successivamente, dovrebbe essere possibile eseguire di nuovo il comando.
 
-Una soluzione alternativa consiste nell' [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure nel computer in modo da poter eseguire localmente i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
+Una soluzione alternativa consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure nel computer in modo da poter eseguire localmente i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
 
 ### <a name="possible-causes"></a>Possibili cause
 
@@ -60,7 +60,7 @@ Per gli utenti che hanno effettuato l'accesso con un [account Microsoft personal
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problemi con l'autenticazione interattiva del browser
 
-Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) **, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+Quando si scrive il codice di autenticazione nelle applicazioni dei dispositivi gemelli digitali di Azure usando la versione **1.2.0** della **libreria [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet) **, è possibile che si verifichino problemi con il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
 
 Questa non è la versione più recente della libreria. La versione più recente è la **1.2.2**.
 

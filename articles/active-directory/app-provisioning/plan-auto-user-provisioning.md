@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235703"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070368"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) il provisioning utenti automatico semplifica q
 
 Vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md) per comprendere meglio le funzionalità.
 
-## <a name="learn"></a>Informazioni
+## <a name="learn"></a>Learn
 
 Il provisioning degli utenti crea una base per la governance delle identità in corso e migliora la qualità dei processi aziendali basati sui dati di identità autorevoli.
 
@@ -42,7 +42,7 @@ I vantaggi principali dell'abilitazione del provisioning utenti automatico sono:
 
 * **Ridurre i costi**. Il provisioning utenti automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate, script e log di controllo.
 
-### <a name="licensing"></a>Licenza
+### <a name="licensing"></a>Gestione delle licenze
 
 Azure AD fornisce l'integrazione self-service di qualsiasi applicazione usando i modelli forniti nel menu della raccolta di applicazioni. Per un elenco completo dei requisiti di licenza, vedere la pagina relativa alla [gestione delle licenze Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -83,7 +83,7 @@ Il servizio di provisioning Azure AD esegue il provisioning degli utenti nelle a
 
 In questo esempio, gli utenti e i gruppi vengono creati in un database HR connesso a una directory locale. Il servizio di provisioning di Azure AD gestisce il provisioning utenti automatico per le applicazioni SaaS di destinazione.
 
- ![provisioning utenti](./media/plan-auto-user-provisioning/hybridprovisioning.png)
+ ![Provisioning utenti](./media/plan-auto-user-provisioning/hybridprovisioning.png)
 
 **Descrizione del flusso di lavoro:**
 
@@ -129,7 +129,7 @@ Prendere in considerazione le esigenze dell'organizzazione per determinare la st
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-Quando i progetti tecnologici hanno esito negativo, è in genere dovuto a una mancata corrispondenza delle aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans) e che i ruoli della parte interessata nel progetto siano ben comprensibili documentando gli stakeholder e i rispettivi input e responsabilità del progetto.
+Quando i progetti tecnologici hanno esito negativo, è in genere dovuto a una mancata corrispondenza delle aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](../fundamentals/active-directory-deployment-plans.md) e che i ruoli della parte interessata nel progetto siano ben comprensibili documentando gli stakeholder e i rispettivi input e responsabilità del progetto.
 
 ### <a name="plan-communications"></a>Pianificare le comunicazioni
 
@@ -207,7 +207,7 @@ Per implementare il provisioning utenti automatico, è necessario definire gli a
 
 Azure AD supporta il mapping diretto da attributo a attributo, fornendo valori costanti o [scrivendo espressioni per i mapping degli attributi](../app-provisioning/functions-for-customizing-application-data.md). Questa flessibilità offre un controllo accurato degli elementi che verranno popolati nell'attributo del sistema di destinazione. È possibile usare [Microsoft Graph API](../app-provisioning/export-import-provisioning-configuration.md) e Graph Explorer per esportare i mapping degli attributi e lo schema del provisioning degli utenti in un file JSON e importarli di nuovo in Azure ad.
 
-Per altre informazioni, vedere [personalizzazione degli attributi di provisioning dell'utente per le applicazioni SaaS in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
+Per altre informazioni, vedere [personalizzazione del provisioning utenti Attribute-Mappings per applicazioni SaaS in Azure Active Directory](../app-provisioning/customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Considerazioni speciali per il provisioning degli utenti
 
@@ -264,7 +264,7 @@ Il servizio di provisioning archivia lo stato di entrambi i sistemi dopo il cicl
 
 Usare il [portale di Azure](https://portal.azure.com/) per gestire il provisioning e il deprovisioning automatici degli account utente per le applicazioni che lo supportano. Seguire la procedura descritta in [ricerca per categorie configurare il provisioning automatico in un'applicazione?](../app-provisioning/user-provisioning.md)
 
-Il servizio di provisioning utenti di Azure AD può essere configurato e gestito anche con l'[API di Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+Il servizio di provisioning utenti di Azure AD può essere configurato e gestito anche con l'[API di Microsoft Graph](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Gestire il provisioning utenti automatico
 
@@ -274,7 +274,7 @@ Ora che è stato distribuito, è necessario gestire la soluzione.
 
 Dopo un [ciclo iniziale](../app-provisioning/user-provisioning.md)riuscito, il servizio di provisioning di Azure ad eseguirà aggiornamenti incrementali a tempo indeterminato, a intervalli specifici per ogni applicazione, fino a quando non si verifica uno degli eventi seguenti:
 
-* Il servizio viene arrestato manualmente e viene attivato un nuovo ciclo iniziale usando il [portale di Azure](https://portal.azure.com/)o usando il comando [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriato.
+* Il servizio viene arrestato manualmente e viene attivato un nuovo ciclo iniziale usando il [portale di Azure](https://portal.azure.com/)o usando il comando [Microsoft Graph API](/graph/api/resources/synchronization-overview) appropriato.
 
 * Un nuovo ciclo iniziale viene attivato da una modifica nei mapping degli attributi o nei filtri di ambito.
 
@@ -310,7 +310,7 @@ Per risolvere eventuali problemi che possono verificarsi durante il provisioning
 
 * [Scrittura di espressioni per i mapping degli attributi](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)
+* [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)
 
 * [Ignora l'eliminazione di account utente che non rientrano nell'ambito](skip-out-of-scope-deletions.md)
 

@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: eb320cb71de43c40522bf93213fd98247a0d5b59
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436298"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Trasformare i dati in Azure Data Factory versione 1
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
-> * [Maiale](data-factory-pig-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
 > * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
@@ -89,11 +89,11 @@ Azure Data Factory supporta le seguenti attività di trasformazione di dati e i 
 | Attività di trasformazione dei dati | Ambiente di calcolo |
 |:--- |:--- |
 | [Hive](data-factory-hive-activity.md) |HDInsight [Hadoop] |
-| [Maiale](data-factory-pig-activity.md) |HDInsight [Hadoop] |
+| [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
-| [Attività di Machine Learning: Esecuzione batch e Aggiorna risorsa](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
-| [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure sinapsi Analytics o SQL Server |
+| [Attività di Machine Learning: esecuzione batch e aggiornamento risorse](data-factory-azure-ml-batch-execution-activity.md) |Macchina virtuale di Azure |
+| [Stored procedure](data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics o SQL Server |
 | [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md) |Azure Data Lake Analytics. |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Batch di Azure |
 

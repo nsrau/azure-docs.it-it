@@ -3,12 +3,12 @@ title: Opzioni di autenticazione del registro
 description: Opzioni di autenticazione per un registro contenitori di Azure privato, incluso l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1747dfa0664778283d0cea06940ea95982c269a2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657079"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048016"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Eseguire l'autenticazione con un Registro Azure Container
 
@@ -31,13 +31,14 @@ Nella tabella seguente sono elencati i metodi di autenticazione disponibili e gl
 
 ## <a name="individual-login-with-azure-ad"></a>Accesso individuale con Azure AD
 
-Quando si usa direttamente il registro di sistema, ad esempio il pull di immagini e il push di immagini da una workstation di sviluppo a un registro creato, effettuare l'autenticazione con la propria identità di Azure. Eseguire il comando [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) nell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli):
+Quando si usa direttamente il registro di sistema, ad esempio il pull di immagini e il push di immagini da una workstation di sviluppo a un registro creato, effettuare l'autenticazione con la propria identità di Azure. Accedere all'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) con [AZ login](/cli/azure/reference-index#az-login), quindi eseguire il comando [AZ ACR login](/cli/azure/acr#az-acr-login) :
 
 ```azurecli
+az login
 az acr login --name <acrName>
 ```
 
-Quando si accede con `az acr login`, l'interfaccia della riga di comando usa il token creato quando si è eseguito [az login](/cli/azure/reference-index#az-login) per l'autenticazione semplificata della sessione al registro. Per completare il flusso di autenticazione, è necessario che l'interfaccia della riga di comando Docker e il daemon Docker siano installati e in esecuzione nell'ambiente in uso. `az acr login` Usa il client Docker per impostare un token di Azure Active Directory nel `docker.config` file. Dopo aver effettuato l'accesso in questo modo, le credenziali vengono memorizzate nella cache e i successivi comandi `docker` nella sessione non richiedono il nome utente o la password.
+Quando si esegue l'accesso con `az acr login`, l'interfaccia della riga di comando usa il token creato con l'esecuzione di `az login` per l'autenticazione della sessione con il registro. Per completare il flusso di autenticazione, è necessario che l'interfaccia della riga di comando Docker e il daemon Docker siano installati e in esecuzione nell'ambiente in uso. `az acr login` Usa il client Docker per impostare un token di Azure Active Directory nel `docker.config` file. Dopo aver effettuato l'accesso in questo modo, le credenziali vengono memorizzate nella cache e i successivi comandi `docker` nella sessione non richiedono il nome utente o la password.
 
 > [!TIP]
 > Usare anche `az acr login` per autenticare una singola identità quando si desidera effettuare il push o il pull di elementi diversi dalle immagini Docker nel registro di sistema, ad esempio gli [artefatti OCI](container-registry-oci-artifacts.md).  
@@ -105,7 +106,7 @@ docker login myregistry.azurecr.io
 
 Per le procedure consigliate per gestire le credenziali di accesso, vedere le informazioni di riferimento sul comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) .
 
-Per consentire a un utente amministratore di accedere a un registro esistente, è possibile usare il parametro `--admin-enabled` del comando [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) nell'interfaccia della riga di comando di Azure:
+Per consentire a un utente amministratore di accedere a un registro esistente, è possibile usare il parametro `--admin-enabled` del comando [az acr update](/cli/azure/acr#az-acr-update) nell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

@@ -16,10 +16,10 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182361"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacy dell'utente e Azure AD Connect Health 
@@ -89,7 +89,7 @@ Per riabilitare il monitoraggio in Azure AD Connect Health per un servizio monit
 1. Fare clic su **Impostazioni generali** sotto la configurazione nel pannello principale. 
 2. Fare clic sul pulsante **Abilita la raccolta di dati** nella parte superiore del pannello. 
  
-   ![Abilitare la raccolta di dati](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Abilitare la raccolta dati](./media/reference-connect-health-user-privacy/gdpr6.png)
  
 3. Immettere il nome esatto del tenant per attivare il pulsante **Attiva**.
 4. Fare clic sul pulsante **Attiva** per concedere l'autorizzazione per la raccolta di dati nel servizio Connect Health. La modifica verrà applicata a breve. 

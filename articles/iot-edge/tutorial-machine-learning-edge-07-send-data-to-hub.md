@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78d3cbac28a85452f23e4a7c7ba3904fe3d1f488
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997881"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857249"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>Esercitazione: Inviare i dati tramite un gateway trasparente
 
@@ -238,5 +238,8 @@ In questo articolo è stata usata la VM di sviluppo per simulare un dispositivo 
 
 Altre informazioni sono disponibili nelle pagine seguenti:
 
-* [Connettere un dispositivo downstream a un gateway Azure IoT Edge](how-to-connect-downstream-device.md)
-* [Archiviare i dati nella rete perimetrale con Archiviazione BLOB di Azure in IoT Edge (anteprima)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Connettere un dispositivo downstream a un gateway Azure IoT Edge](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Archiviare i dati nella rete perimetrale con Archiviazione BLOB di Azure in IoT Edge (anteprima)](how-to-store-data-blob.md)

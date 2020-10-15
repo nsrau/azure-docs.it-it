@@ -14,10 +14,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087010"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fattori che influenzano le prestazioni di Azure AD Connect
@@ -174,7 +174,7 @@ Le dimensioni della topologia di Active Directory di origine influiranno sulle p
 - A causa dei requisiti di input e output (I/O) elevati su disco del processo di sincronizzazione, usare unità SSD per il database SQL del motore di provisioning per ottenere risultati ottimali. Se non è possibile, prendere in considerazione le configurazioni RAID 0 o RAID 1.
 - Non eseguire preventivamente la sincronizzazione completa. causa la varianza superflua e tempi di risposta più lenti.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Per ottimizzare le prestazioni dell'implementazione di Azure AD Connect, tenere presente quanto segue:
 

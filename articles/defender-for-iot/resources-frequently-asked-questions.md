@@ -4,124 +4,65 @@ description: Trovare le risposte alle domande più frequenti su Azure Defender p
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 97dd4e13754175e9c81ae308b86faae811e4d554
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/07/2020
+ms.author: rkarlin
+ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939759"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089197"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Domande frequenti su Azure Defender
 
 Questo articolo fornisce un elenco di domande frequenti e risposte su Defender for Internet.
 
-## <a name="does-azure-provide-support-for-iot-security"></a>Azure fornisce supporto per la sicurezza per IoT?
-
-Come parte della soluzione di sicurezza complessiva, Azure offre una visualizzazione integrata per il monitoraggio e la gestione della sicurezza per IoT tramite il Centro sicurezza di Azure. Gli sviluppatori di applicazioni possono usare la vista hub IoT per gestire la sicurezza delle applicazioni IoT.
-
 ## <a name="what-is-azures-unique-value-proposition-for-iot-security"></a>Qual è la proposta di valore unica di Azure per la sicurezza per IoT?
 
 Defender for Internet consente alle aziende di estendere la propria vista di sicurezza informatica esistente alla soluzione intera. Azure offre una visione end-to-end della soluzione aziendale che consente di intraprendere azioni e decisioni di business in base all’approccio alla sicurezza scelto e ai dati raccolti. La combinazione delle funzionalità per la sicurezza di Azure IoT, Azure IoT Edge e del Centro sicurezza di Azure consente di creare le soluzioni di scelta con le caratteristiche di sicurezza necessarie.
 
-## <a name="who-is-defender-for-iot-made-for"></a>Chi è Defender per le cose?
+## <a name="our-organization-uses-proprietary-non-standard-industrial-protocols-are-they-supported"></a>L'organizzazione usa protocolli industriali non standard proprietari. Sono supportati? 
 
-Defender for Internet è integrato nell'ambito della sicurezza dell'hub Azure e fornisce la gestione per le operazioni di sicurezza quotidiane della soluzione aziendale. Defender for Internet è integrato anche nelle funzionalità del Centro sicurezza di Azure e offre una visualizzazione integrata per il monitoraggio e la gestione della sicurezza degli stessi come parte della soluzione di sicurezza complessiva.
+Azure Defender per l'it offre un supporto completo del protocollo. Oltre al supporto del protocollo incorporato, è possibile proteggere i dispositivi e i dispositivi che eseguono protocolli proprietari e personalizzati, oppure protocolli che deviano da qualsiasi standard. Utilizzando l'SDK dell'ambiente di sviluppo open Horizon (ODE), gli sviluppatori possono creare plug-in di dissettore che decodificano il traffico di rete in base a protocolli definiti. Il traffico viene analizzato dai servizi per offrire monitoraggio completo, avvisi e report. USA orizzonte per:
+- Espandi visibilità e controllo senza la necessità di eseguire l'aggiornamento a nuove versioni.
+- Proteggere le informazioni proprietarie sviluppando il sito come plug-in esterno. 
+- Localizzare il testo per gli avvisi, gli eventi e i parametri del protocollo.
+
+Questa soluzione univoca per lo sviluppo di protocolli come plug-in non richiede team di sviluppo dedicati o versioni di versione per supportare un nuovo protocollo. Sviluppatori, partner e clienti possono sviluppare protocolli in modo sicuro e condividere informazioni e conoscenze usando Horizon. 
+
+## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>È necessario acquistare appliance hardware dai partner Microsoft?
+Azure Defender per il sensore Internet viene eseguito su specifiche hardware specifiche, come descritto nella [Guida alle specifiche hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), i clienti possono acquistare hardware certificato da partner Microsoft oppure usare la fattura di materiali (BOM) fornita e acquistarla autonomamente. 
+
+L'hardware certificato è stato testato nei nostri laboratori per la stabilità dei driver, le gocce di pacchetti e il dimensionamento di rete.
+
+
+## <a name="regulation-does-not-allow-us-to-connect-our-system-to-the-internet-can-we-still-utilize-defender-for-iot"></a>Il regolamento non ci consente di connettere il sistema a Internet. Possiamo ancora usare Defender per le cose?
+
+Sì, è possibile. La soluzione locale di Azure Defender per la piattaforma Internet viene distribuita come appliance del sensore fisico o virtuale che inserisce passivamente il traffico di rete (via SPAN, RSPAN o TAP) per analizzare, individuare e monitorare continuamente le reti IT, OT e Internet. Per le aziende di grandi dimensioni, più sensori possono aggregare i dati a una console di gestione locale.
+
+## <a name="where-in-the-network-should-i-connect-monitoring-ports"></a>In quale punto della rete è necessario connettere le porte di monitoraggio?
+
+Il sensore Azure Defender per l'it si connette a una porta di intervallo o a un TAP di rete e inizia immediatamente a raccogliere il traffico di rete ICS tramite il monitoraggio passivo (senza agenti). Non ha alcun effetto sulle reti OT perché non è disponibile nel percorso dati e non esegue l'analisi attiva dei dispositivi OT.
+
+Esempio:
+- Una singola appliance (virtuale di fisica) può trovarsi nel livello della rete perimetrale del negozio, in modo che tutto il traffico delle celle del negozio venga indirizzato a questo livello.
+- In alternativa, è possibile individuare piccoli sensori in ogni cella del negozio con la gestione cloud o locale che risiederà nel livello della rete perimetrale del negozio. Un altro dispositivo (virtuale o fisico) può monitorare il traffico nel livello della rete perimetrale del negozio (per SCADA, storico o MES).
 
 ## <a name="how-does-defender-for-iot-compare-to-the-competition"></a>Quali sono le differenze tra Defender e il concorso?
 
 Sebbene altre soluzioni forniscano una serie di funzionalità che consentono ai clienti di creare soluzioni personalizzate, Defender for Internet offre una soluzione di sicurezza per gli elementi End-to-end univoca che offre una panoramica completa della sicurezza di tutte le risorse di Azure correlate. Azure assicura una distribuzione rapida e la piena integrazione con gli elementi gemelli del modulo hub IoT per una facile integrazione con gli strumenti di gestione dei dispositivi esistenti.
 
-## <a name="do-i-have-to-be-an-azure-security-center-customer-to-use-this-service"></a>È necessario essere un cliente del Centro sicurezza di Azure per usare il servizio?
-
-No, ma è consigliabile. Senza il Centro sicurezza di Azure, Defender per l'it riceve dati di risorse connesse limitati e fornisce un'analisi limitata della superficie di attacco potenziale, delle minacce e dei potenziali attacchi.
 
 ## <a name="do-i-have-to-be-an-azure-iot-customer"></a>È necessario essere clienti di Azure?
 
-Sì. Defender for Internet è basato sulla connettività e sull'infrastruttura di Azure.
-
-## <a name="do-i-have-to-install-an-agent"></a>È necessario installare un agente?
-
-L'installazione dell'agente nei dispositivi Internet non è obbligatoria per consentire l'uso di Defender. È possibile scegliere tra le tre opzioni indicate di seguito, che offrono diversi livelli di funzionalità per il monitoraggio e la gestione della sicurezza in base alla selezione:
-
-1. Installare Defender for Internet Security Agent con o senza modifiche. Questa opzione offre il massimo livello di informazioni dettagliate sulla sicurezza rispetto al comportamento e all'accesso del dispositivo.
-
-1. Creare un agente personalizzato e implementare il Defender per lo schema del messaggio di sicurezza. Questa opzione consente l'uso di Defender per gli strumenti di analisi delle cose all'inizio dell'agente di sicurezza del dispositivo.
-
-1. Nessuna installazione dell'agente di sicurezza sui dispositivi IoT. Questa opzione consente il monitoraggio delle comunicazioni dell'hub IoT, con funzionalità di gestione e monitoraggio della sicurezza ridotte.
-
-## <a name="what-does-the-defender-for-iot-agent-do"></a>Che cosa fa il Defender per l'agente Internet?
-
-Defender per l'agente di gestione dei dispositivi it fornisce copertura delle minacce a livello di dispositivo per la configurazione del dispositivo, il comportamento e l'accesso (tramite l'analisi della configurazione), elaborazione & connettività. Il Defender per l'agente sicurezza non esegue l'analisi dell'attività o dei dati correlati all'azienda.
-
-## <a name="where-can-i-get-the-defender-for-iot-security-agent"></a>Dove posso ottenere il Defender per l'agente sicurezza?
-
-Defender for Internet Security Agent è open source ed è disponibile su GitHub nelle versioni di Windows e Linux a 32 bit e a 64 bit: https://github.com/Azure/Azure-IoT-Security .
-
-## <a name="where-does-the-defender-for-iot-agent-get-installed"></a>Dove viene installato il Defender per l'agente Internet?
-
-Informazioni dettagliate sull'installazione e sulla distribuzione degli agente sono disponibili su GitHub: https://github.com/Azure/Azure-IoT-Security.
-
-## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quali sono le dipendenze e i prerequisiti dell'agente?
-
-Defender per Internet delle cose supporta un'ampia gamma di piattaforme. Vedere [Piattaforme per dispositivi supportate](how-to-deploy-agent.md) per verificare il supporto per i dispositivi specifici.
-
-## <a name="which-data-is-collected-by-the-agent"></a>Quali dati vengono raccolti dall'agente?
-
-I dati raccolti dall’agente riguardano: connettività, accesso, configurazione del firewall, elenco dei processi e baseline del sistema operativo.
-
-## <a name="how-much-data-will-the-agent-generate"></a>Quanti dati vengono generati dall'agente?
-
-La generazione dei dati dell'agente è determinata dal dispositivo, dall'applicazione, dal tipo di connettività e dalla configurazione dell'agente del cliente. A causa dell’elevata variabilità tra dispositivi e soluzioni IoT, è consigliabile innanzitutto distribuire l'agente in un lab o in un'impostazione di test per osservare, apprendere e impostare la configurazione specifica adatta alle proprie esigenze, misurando al contempo la quantità di dati generati. Dopo l'avvio del servizio, il Defender per l'agente di gestione delle cose fornisce consigli operativi per ottimizzare la velocità effettiva dell'agente per semplificare il processo di configurazione e personalizzazione.
-
-## <a name="how-can-i-control-my-billing"></a>Come è possibile controllare la fatturazione?
-
-Defender for Internet offre analisi degli agenti configurabili, buffer di dati e la possibilità di creare avvisi personalizzati che aumentano o riducono la quantità di dati generati dall'agente.
-
-## <a name="do-agent-messages-use-up-quota-from-iot-hub"></a>I messaggi dell’agente consumano quote dall'hub IoT?
-
-Sì. I dati trasmessi dall'agente vengono conteggiati nella quota dell'hub IoT.
-
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Come procedere? È stato installato un agente ma non vengono visualizzate attività o log...
-
-1. Verificare che il [tipo di agente corrisponda alla piattaforma del sistema operativo designata del dispositivo](how-to-deploy-agent.md).
-
-1. Verificare che l'[agente sia in esecuzione nel dispositivo](how-to-agent-configuration.md).
-
-1. Verificare che il [servizio sia stato abilitato correttamente](quickstart-onboard-iot-hub.md) per la **sicurezza** nell'hub IoT.
-
-1. Verificare che il dispositivo sia [configurato nell'hub Internet con il modulo Defender for](quickstart-create-security-twin.md)Internet.
-
-Se le attività o i log non sono ancora disponibili, contattare il difensore del partner Internet per ottenere assistenza aggiuntiva.
-
-## <a name="what-happens-when-the-internet-connection-stops-working"></a>Cosa accade quando la connessione Internet si interrompe?
-
-L'agente continua a eseguire e memorizzare i dati fino a quando il dispositivo è in esecuzione. I dati vengono memorizzati nella cache dei messaggi di sicurezza in base alla configurazione delle dimensioni. Quando il dispositivo recupera la connettività, viene ripreso anche l’invio dei messaggi sulla sicurezza.
-
-## <a name="if-the-device-is-restarted-will-the-security-agent-self-recover"></a>Se il dispositivo viene riavviato, viene effettuato il ripristino automatico dell'agente di sicurezza?
-
-L'agente di sicurezza è progettato per essere eseguito di nuovo automaticamente a ogni riavvio del dispositivo.
-
-## <a name="can-the-agent-affect-the-performance-of-the-device-or-other-installed-software"></a>L'agente può influire sulle prestazioni del dispositivo o di altro software installato?
-
-L'agente utilizza le risorse del computer come qualsiasi altra applicazione o processo e non deve compromettere le normali attività del dispositivo. L'utilizzo delle risorse nel dispositivo in cui viene eseguito l'agente viene abbinato all’impostazione e alla configurazione. Prima di tentare la distribuzione in un ambiente di produzione, è consigliabile testare la configurazione dell'agente in un ambiente indipendente, insieme all'interoperabilità con altre applicazioni e funzionalità.
-
-## <a name="im-making-some-maintenance-on-the-device-can-i-turn-off-the-agent"></a>Nel caso di operazioni di manutenzione sul dispositivo, è possibile disattivare l'agente?
-
-L'agente non può essere disattivato.
-
-## <a name="is-there-a-way-to-test-if-the-agent-is-working-correctly"></a>Esiste un modo per verificare se l'agente funziona correttamente?
-
-Se l'agente interrompe la comunicazione o non riesce a inviare messaggi sulla sicurezza, viene generato un avviso che informa che il **dispositivo è invisibile all'utente**.
-
+Sì. Per le distribuzioni connesse al cloud, Azure Defender per l'it si basa sulla connettività e sull'infrastruttura di Azure.
 ## <a name="can-i-create-my-own-alerts"></a>È possibile creare avvisi personalizzati?
 
 Sì. È possibile impostare un avviso personalizzato per un set di comportamenti predefinito, ad esempio l'indirizzo IP e le porte aperte. Vedere la pagina sulla [creazione di avvisi personalizzati](quickstart-create-custom-alerts.md) per ulteriori informazioni sugli avvisi personalizzati e su come crearli.
@@ -132,9 +73,15 @@ Sì. È possibile impostare un avviso personalizzato per un set di comportamenti
 
 - I dati non elaborati dall'agente di sicurezza possono anche essere memorizzati nell'account Log Analytics. Prima di modificare la configurazione di questa opzione, prendere in considerazione le dimensioni, la durata, i requisiti di archiviazione e i costi associati.
 
-## <a name="why-should-i-add-defender-for-iot-to-the-module-identity-what-is-it-used-for"></a>Perché è necessario aggiungere Defender per l'identità del modulo? Scopo
 
-Il modulo Defender for Internet è usato per la configurazione e la gestione degli agenti.
+
+## <a name="what-happens-when-the-internet-connection-stops-working"></a>Cosa accade quando la connessione Internet si interrompe?
+
+I sensori e gli agenti continuano a funzionare e a archiviare i dati finché il dispositivo è in esecuzione. I dati vengono memorizzati nella cache dei messaggi di sicurezza in base alla configurazione delle dimensioni. Quando il dispositivo recupera la connettività, viene ripreso anche l’invio dei messaggi sulla sicurezza.
+
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

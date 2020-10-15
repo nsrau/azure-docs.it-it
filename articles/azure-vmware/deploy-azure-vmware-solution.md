@@ -2,13 +2,14 @@
 title: Distribuire e configurare la soluzione Azure VMware
 description: Informazioni su come usare le informazioni raccolte nella fase di pianificazione per distribuire il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
+ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: af2a9e4fcb4125683342ad739e3890671f64b0bf
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91598184"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776426"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuire e configurare la soluzione Azure VMware
 
@@ -28,17 +29,15 @@ Usare le informazioni raccolte nell'articolo [Pianificazione della distribuzione
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-
+>[!NOTE]
+>Per una panoramica completa di questo passaggio, guardare il video [Soluzione Azure VMware: Distribuzione](https://www.youtube.com/embed/1JLB3L2WDWI). 
 
 ## <a name="create-the-jump-box"></a>Creare una jump box
 
 >[!IMPORTANT]
 >Se l'opzione **Rete virtuale** è stata lasciata vuota durante il passaggio di provisioning iniziale nella schermata **Crea un cloud privato**, completare l'esercitazione [Configurare la rete per il cloud privato VMware](tutorial-configure-networking.md) **prima** di continuare con questa sezione.  
 
-
-
 Dopo la distribuzione della soluzione Azure VMware, verrà creata la jump box della rete virtuale che si connette a vCenter e NSX. Dopo la configurazione dei circuiti ExpressRoute e di Copertura globale ExpressRoute, la jump box non è necessaria.  Risulta tuttavia utile per raggiungere vCenter e NSX nella soluzione Azure VMware.  
-
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Creare la jump box della soluzione Azure VMware" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 

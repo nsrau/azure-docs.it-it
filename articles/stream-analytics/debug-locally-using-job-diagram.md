@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86045400"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Eseguire il debug di query di analisi di flusso di Azure localmente usando il diagramma processi in Visual Studio
@@ -56,7 +56,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |-|-|
 |**TaxiRide**| Nome dell'input.|
 |**Hub eventi** | Tipo di origine di input.|
-|**Events**|Il numero di eventi letti.|
+|**Eventi**|Il numero di eventi letti.|
 |**Origini eventi backlog**|Quanti altri messaggi devono essere letti per gli input di hub eventi e dell'hub Internet.|
 |**Eventi in byte**|Numero di byte letti.|
 | **Eventi declassati**|Il numero di eventi con un problema diverso da quello della deserializzazione.|
@@ -71,7 +71,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |Metrica|Descrizione|
 |-|-|
 |**TaxiRide**| Nome dell'input.|
-|**Row Count**| Numero di righe generate dal passaggio.|
+|**Conteggio righe**| Numero di righe generate dal passaggio.|
 |**Dimensioni dei dati**| Dimensioni dei dati generati da questo passaggio.|
 |**Input locale**| Usare i dati locali come input.|
 
@@ -82,7 +82,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |Metrica|Descrizione|
 |-|-|
 |**TripData**|Nome del set di risultati temporaneo.|
-|**Row Count**| Numero di righe generate dal passaggio.|
+|**Conteggio righe**| Numero di righe generate dal passaggio.|
 |**Dimensioni dei dati**| Dimensioni dei dati generati da questo passaggio.|
   
 #### <a name="output-sinks-live-output"></a>Sink di output (output Live)
@@ -92,7 +92,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |Metrica|Descrizione|
 |-|-|
 |**regionaggEH**|Nome dell'output.|
-|**Events**|Il numero di eventi restituiti a sink.|
+|**Eventi**|Il numero di eventi restituiti a sink.|
 
 #### <a name="output-sinks-local-output"></a>Sink di output (output locale)
 
@@ -102,7 +102,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 |-|-|
 |**regionaggEH**|Nome dell'output.|
 |**Output locale**| Risultato dell'output in un file locale.|
-|**Row Count**| Il numero di righe restituite al file locale.|
+|**Conteggio righe**| Il numero di righe restituite al file locale.|
 |**Dimensioni dei dati**| Dimensioni dell'output dei dati nel file locale.|
 
 ### <a name="close-job-diagram"></a>Chiudi Diagramma processi

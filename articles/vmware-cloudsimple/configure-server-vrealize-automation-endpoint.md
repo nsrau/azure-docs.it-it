@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024841"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>Configurare vCenter nel cloud privato per l'automazione vRealize VMware
@@ -36,9 +36,9 @@ Completare queste attività prima di configurare il server vCenter:
 | Rete | Assegna rete |
 | Autorizzazioni | Modify Permissions |
 | Risorsa | Assegnare una macchina virtuale al pool di risorse<br>Esegui la migrazione della macchina virtuale spenta<br>Esegui la migrazione della macchina virtuale accesa |
-| Inventario macchina virtuale |  Crea da esistente<br>Creazione di un nuovo sito<br>Sposta<br>Rimuovi | 
+| Inventario macchina virtuale |  Crea da esistente<br>Creazione di un nuovo sito<br>Spostamento<br>Rimuovere | 
 | Interazione tra macchine virtuali |  Configurare supporti CD<br>Interazione tra console<br>Connessione del dispositivo<br>Spegnimento<br>Accensione<br>Reset<br>Sospendi<br>Installazione degli strumenti | 
-| Configurazione macchina virtuale |  Aggiungi disco esistente<br>Aggiungi nuovo disco<br>Aggiungi o Rimuovi<br>Rimuovi disco<br>Avanzato<br>Cambia Conteggio CPU<br>Cambia risorsa<br>Estendi disco virtuale<br>Rilevamento modifiche disco<br>Memory<br>Modificare le impostazioni del dispositivo<br>Rinomina<br>Set Annotation (versione 5,0 e successive)<br>Impostazioni<br>Selezione host file |
+| Configurazione macchina virtuale |  Aggiungi disco esistente<br>Aggiungi nuovo disco<br>Aggiungi o Rimuovi<br>Rimuovi disco<br>Avanzate<br>Cambia Conteggio CPU<br>Cambia risorsa<br>Estendi disco virtuale<br>Rilevamento modifiche disco<br>Memoria<br>Modificare le impostazioni del dispositivo<br>Rinominare<br>Set Annotation (versione 5,0 e successive)<br>Impostazioni<br>Selezione host file |
 | Provisioning |  Personalizza<br>Clona modello<br>Clona macchina virtuale<br>Modello di distribuzione<br>Leggi le specifiche di personalizzazione |
 | Stato macchina virtuale | Crea snapshot<br>Rimuovi snapshot<br>Ripristina snapshot |
 

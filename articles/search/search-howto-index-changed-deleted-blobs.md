@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534778"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Come configurare il rilevamento delle modifiche e dell'eliminazione per i BLOB in Azure ricerca cognitiva indicizzazione
@@ -33,7 +33,7 @@ Esistono due modi per implementare l'approccio di eliminazione temporanea. Entra
 
 In questo metodo si userà la funzionalità di [eliminazione temporanea BLOB nativa](../storage/blobs/soft-delete-blob-overview.md) offerta dall'archiviazione BLOB di Azure. Se l'eliminazione temporanea del BLOB nativo è abilitata nell'account di archiviazione, l'origine dati include un set di criteri nativi di eliminazione temporanea e l'indicizzatore trova un BLOB che è stato passato a uno stato di eliminazione temporanea, l'indicizzatore rimuoverà tale documento dall'indice. I criteri di eliminazione temporanea BLOB nativi non sono supportati durante l'indicizzazione di BLOB da Azure Data Lake Storage Gen2.
 
-Eseguire i passaggi seguenti:
+Eseguire la procedura descritta di seguito:
 
 1. Abilitare l' [eliminazione temporanea nativa per l'archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md). È consigliabile impostare i criteri di conservazione su un valore molto superiore rispetto alla pianificazione dell'intervallo dell'indicizzatore. In questo modo, se si verifica un problema durante l'esecuzione dell'indicizzatore o se si dispone di un numero elevato di documenti da indicizzare, l'indicizzatore potrebbe elaborare i BLOB eliminati temporaneamente. Gli indicizzatori di Azure ricerca cognitiva elimineranno un documento dall'indice solo se elabora il BLOB mentre si trova in uno stato di eliminazione temporanea.
 
@@ -66,7 +66,7 @@ Per assicurarsi che un BLOB non eliminato venga reindicizzato, sarà necessario 
 
 In questo metodo verranno utilizzati i metadati di un BLOB per indicare quando è necessario rimuovere un documento dall'indice di ricerca. Questo metodo richiede due azioni separate, eliminando il documento di ricerca dall'indice, seguito dall'eliminazione del BLOB in archiviazione di Azure.
 
-Eseguire i passaggi seguenti:
+Eseguire la procedura descritta di seguito:
 
 1. Aggiungere una coppia chiave-valore dei metadati personalizzata al BLOB per indicare ad Azure ricerca cognitiva che è stata eliminata logicamente.
 

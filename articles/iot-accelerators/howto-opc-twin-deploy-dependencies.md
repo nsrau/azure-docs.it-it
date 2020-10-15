@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42024fc506de7befed7c44ebcc410756b6f43a35
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282103"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078987"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Distribuzione delle dipendenze per lo sviluppo locale
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 Questo articolo illustra come distribuire solo i servizi della piattaforma Azure necessari per lo sviluppo e il debug locali.   Al termine, sarà disponibile un gruppo di risorse che contiene tutto il necessario per lo sviluppo e il debug locale.
 
 ## <a name="deploy-azure-platform-services"></a>Distribuire i servizi della piattaforma Azure
 
-1. Verificare che siano installate le estensioni [PowerShell e AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) .  Aprire un prompt dei comandi o un terminale ed eseguire:
+1. Verificare che siano installate le estensioni [PowerShell e AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) .  Aprire un prompt dei comandi o un terminale ed eseguire:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components

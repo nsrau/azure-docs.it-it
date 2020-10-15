@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74787337"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Ritardare l'esecuzione dell'azione successiva in app per la logica di Azure
@@ -53,7 +53,7 @@ Di seguito sono riportati alcuni esempi di modalità di utilizzo di queste azion
    | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
    |----------|-----------|----------|------|-------------|
    | Conteggio | count | Sì | Integer | Il numero di unità di tempo di ritardo |
-   | Unità | unit | Sì | string | Unità di tempo, ad esempio: `Second` ,, `Minute` `Hour` , `Day` , `Week` o`Month` |
+   | Unità | unit | Sì | string | Unità di tempo, ad esempio: `Second` ,, `Minute` `Hour` , `Day` , `Week` o `Month` |
    ||||||
 
 1. Aggiungere eventuali altre azioni che si desidera eseguire nel flusso di lavoro.
@@ -78,7 +78,7 @@ Di seguito sono riportati alcuni esempi di modalità di utilizzo di queste azion
 
    | Proprietà | Nome JSON | Obbligatoria | Type | Descrizione |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | Sì | string | Data e ora di fine per la ripresa del flusso di lavoro utilizzando il formato seguente: <p>AAAA-MM-GGThh: mm: ssZ <p>Se, ad esempio, si desidera che il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00Z". <p>**Nota:** Questo formato di ora deve seguire la specifica di data e ora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Senza un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. |
+   | Timestamp |  timestamp | Sì | string | Data e ora di fine per la ripresa del flusso di lavoro utilizzando il formato seguente: <p>AAAA-MM-GGThh: mm: ssZ <p>Se, ad esempio, si desidera che il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00Z". <p>**Nota:** Questo formato di ora deve seguire la specifica di data e ora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Senza un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. |
    ||||||
 
 1. Aggiungere eventuali altre azioni che si desidera eseguire nel flusso di lavoro.

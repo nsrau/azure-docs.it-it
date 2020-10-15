@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723997"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Esercitazione: Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
@@ -50,7 +50,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
    - **Gruppo di risorse**: selezionare **myResourceGroupAG** come gruppo di risorse. Se non esiste, selezionare **Crea nuovo** per crearlo.
    - **Nome del gateway applicazione**: immettere *myAppGateway* come nome del gateway applicazione.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Creare un gateway applicazione":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Gateway applicazione multisito":::
 
 2.  Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale. È possibile creare una nuova rete virtuale oppure usarne una esistente. In questo esempio verrà creata una nuova rete virtuale in concomitanza con la creazione del gateway applicazione. Le istanze del gateway applicazione vengono create in subnet separate. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end.
 
@@ -66,7 +66,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
     Selezionare **OK** per chiudere la finestra **Crea rete virtuale** e salvare le impostazioni della rete virtuale.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Creare una rete virtuale":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Gateway applicazione multisito":::
     
 3. Nella scheda **Informazioni di base** accettare i valori predefiniti per le altre impostazioni e quindi selezionare **Successivo: Front-end**.
 
@@ -78,7 +78,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 2. Scegliere **Crea nuovo** per **Indirizzo IP pubblico** e immettere *myAGPublicIPAddress* per il nome dell'indirizzo IP pubblico, quindi selezionare **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Creare un'altra rete virtuale":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Gateway applicazione multisito":::
 
 3. Selezionare **Avanti: Back-end**.
 
@@ -96,7 +96,7 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 3. Nella finestra **Aggiungi un pool back-end** selezionare **Aggiungi** per salvare la configurazione del pool back-end e tornare alla scheda **Back-end**.
 4. Aggiungere ora un altro pool back-end denominato *fabrikamPool*.
 
-    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Creare back-end":::
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Gateway applicazione multisito":::
 
 4. Nella scheda **Back-end** selezionare **Passaggio successivo: Configurazione**.
 
@@ -119,7 +119,7 @@ Nella scheda **Configurazione** verranno connessi i pool front-end e back-end cr
 
    Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
-   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Creare una regola di routing":::
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Gateway applicazione multisito":::
 
 4. Nella scheda **Destinazioni back-end** selezionare **contosoPool** per **Destinazione back-end**.
 
@@ -128,7 +128,7 @@ Nella scheda **Configurazione** verranno connessi i pool front-end e back-end cr
 6. Nella finestra **Aggiungi una regola di routing** selezionare **Aggiungi** per salvare la regola di routing e tornare alla scheda **Configurazione**.
 7. Selezionare **Aggiungi una regola** e aggiungere una regola, un listener, una destinazione back-end e un'impostazione HTTP simili per Fabrikam.
 
-     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Regola per Fabrikam":::
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Gateway applicazione multisito":::
 
 7. Selezionare **Avanti: Tag** e quindi **Passaggio successivo: Rivedi e crea**.
 

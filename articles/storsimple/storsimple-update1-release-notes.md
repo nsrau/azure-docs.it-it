@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 17e20048c4cb4de2be6fe36be100b472f0b8ee73
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89459964"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 1.2 del dispositivo StorSimple serie 8000
@@ -64,7 +64,7 @@ Queste funzionalità sono state rilasciate precedentemente con l'aggiornamento 1
 ## <a name="issues-fixed-in-update-12"></a>Problemi risolti nell'aggiornamento 1.2
 La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 1.2, 1.1 e 1.    
 
-| No. | Feature | Problema | Risolto nell'aggiornamento | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No. | Funzionalità | Problema | Risolto nell'aggiornamento | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell per StorSimple  |Quando un utente accede in remoto al dispositivo StorSimple tramite Windows PowerShell per StorSimple e poi avvia l'installazione guidata, si verifica un arresto anomalo non appena si inserisce l'IP Data 0. Nell'aggiornamento 1, questo bug è stato corretto. |Update 1 |Sì |Sì |
 | 2 |Ripristino delle impostazioni di fabbrica |In alcuni casi, quando si esegue un ripristino delle impostazioni predefinite, il dispositivo StorSimple si blocca e l’utente visualizza il messaggio: **Ripristino delle impostazioni predefinite in corso (fase 8)**. Ciò si verifica se si preme CTRL + C durante l'esecuzione del cmdlet. Il bug è stato corretto. |Update 1 |Sì |No |
@@ -82,7 +82,7 @@ La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornament
 ## <a name="known-issues-in-update-12"></a>Problemi noti nell'aggiornamento 1.2
 Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa versione.
 
-| No. | Feature | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No. | Funzionalità | Problema | Commenti/Soluzione alternativa | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum disco |In rari casi, se la maggior parte dei dischi nello chassis EBOD di un dispositivo 8600 è disconnessa generando un’assenza di quorum disco, il pool di archiviazione sarà offline  e rimarrà in tale stato anche se i dischi vengono riconnessi. |Sarà necessario riavviare il dispositivo. Se il problema persiste, contattare il supporto tecnico Microsoft per i passaggi successivi. |Sì |No |
 | 2 |ID controller non corretto |Quando viene eseguita la sostituzione di un controller, il controller 0 potrebbe essere visualizzato come controller 1. Durante la sostituzione del controller, quando l'immagine viene caricata dal nodo peer, l'ID del controller può presentarsi inizialmente come ID del controller peer. In rari casi, questo comportamento può verificarsi anche dopo un riavvio del sistema. |Non è richiesta alcuna azione da parte dell'utente. Questa situazione si risolverà dopo la sostituzione del controller. |Sì |No |

@@ -1,5 +1,5 @@
 ---
-title: Ambienti curati
+title: Ambienti dedicati
 titleSuffix: Azure Machine Learning
 description: Raccolta di ambienti curati disponibili in Azure Machine Learning
 services: machine-learning
@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: reference
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ae96976f81aab9a0949594551c82d3a3fec4f0a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662073"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Ambienti Azure Machine Learning curati
@@ -311,7 +311,7 @@ In questo articolo vengono elencati gli ambienti curati in Azure Machine Learnin
 * azureml-train-automl-runtime
 * azureml-contrib-automl-DNN-Forecasting
 
-## <a name="azureml-minimal"></a>AzureML-minimo
+## <a name="azureml-minimal"></a>AzureML-Minimal
 
 **Canali del pacchetto:**
 
@@ -937,7 +937,7 @@ In questo articolo vengono elencati gli ambienti curati in Azure Machine Learnin
 * tensorflow-GPU
 * horovod
 
-## <a name="azureml-tutorial"></a>AzureML-esercitazione
+## <a name="azureml-tutorial"></a>AzureML-Tutorial
 
 **Canali del pacchetto:**
 

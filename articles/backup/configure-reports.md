@@ -4,10 +4,10 @@ description: Configurare e visualizzare i report di Backup di Azure usando Log A
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567435"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
@@ -83,7 +83,7 @@ Usare questa scheda per visualizzare le informazioni e le tendenze sull'archivia
 
    ![Scheda Elementi di backup](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-##### <a name="usage"></a>Uso
+##### <a name="usage"></a>Utilizzo
 
 Usare questa scheda per visualizzare i parametri di fatturazione principali per i backup. Le informazioni visualizzate in questa scheda sono a livello di entità di fatturazione (contenitore protetto). Se, ad esempio, viene eseguito il backup di un server DPM in Azure, è possibile visualizzare la tendenza delle istanze protette e dello spazio di archiviazione cloud utilizzato per il server DPM. Analogamente, se si usa SQL in Backup di Azure o SAP HANA in Backup di Azure, questa scheda fornisce informazioni relative all'utilizzo a livello della macchina virtuale che contiene questi database.
 

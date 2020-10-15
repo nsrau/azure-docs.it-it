@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 47ba1af15101ae68cf5311ed73f7078bf9fc7f35
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336429"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
@@ -136,7 +136,7 @@ L'esempio seguente illustra lo schema dell'evento **JobStateChange**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | previousState | string | Stato del processo prima dell'evento. |
 | state | string | Nuovo stato del processo notificato in questo evento. Ad esempio, "pianificato: il processo è pronto per l'avvio" o "completato: il processo è terminato".|
@@ -206,7 +206,7 @@ Per ogni cambiamento finale dello stato del processo (ad esempio, JobFinished, J
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | outputs | Array | Ottiene gli output del processo.|
 
@@ -322,7 +322,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventConnectionRejected*
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |  
@@ -358,7 +358,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventEncoderConnected**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile della specifica di questo ID nell'URL di inserimento. |
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |
@@ -392,7 +392,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventEncoderDisconnected
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | streamId | string | Identificatore del flusso o della connessione. Il codificatore o il cliente è responsabile dell'aggiunta di questo ID nell'URL di inserimento. |  
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |  
@@ -442,12 +442,12 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingDataChunkDr
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia. |
 | bitrate | numero intero | Velocità in bit della traccia. |
-| timestamp | string | Timestamp del blocco di dati eliminato. |
+|  timestamp | string | Timestamp del blocco di dati eliminato. |
 | timescale | string | Scala cronologica del timestamp. |
 | resultCode | string | Motivo dell'eliminazione del blocco di dati. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
 
@@ -482,7 +482,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingStreamRecei
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -490,7 +490,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |
 | encoderIp | string  | Indirizzo IP del codificatore. |
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
-| timestamp | string | Primo timestamp del blocco di dati ricevuto. |
+|  timestamp | string | Primo timestamp del blocco di dati ricevuto. |
 | timescale | string | Scala cronologica in cui è rappresentato il timestamp. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
@@ -521,7 +521,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingStreamsOutO
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | minLastTimestamp | string | Numero minimo dei timestamp più recenti tra le tracce (audio o video). |
 | typeOfTrackWithMinLastTimestamp | string | Tipo di traccia (audio o video) con numero minimo di timestamp più recenti. |
@@ -557,7 +557,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIncomingVideoStream
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | firstTimestamp | string | Timestamp ricevuto per uno dei livelli di traccia/qualità del tipo di video. |
 | firstDuration | string | Durata del blocco di dati con il primo timestamp. |
@@ -599,7 +599,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventIngestHeartbeat**:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |
@@ -643,7 +643,7 @@ L'esempio seguente illustra lo schema dell'evento **LiveEventTrackDiscontinuityD
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | Descrizione |
+| Proprietà | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia (fornito dal codificatore o, in caso di RTMP, generato dal server nel formato *TrackType_Bitrate*). |

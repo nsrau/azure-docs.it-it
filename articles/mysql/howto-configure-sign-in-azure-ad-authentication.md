@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799839"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Usare Azure Active Directory per l'autenticazione con MySQL
@@ -126,7 +126,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 Considerazioni importanti per la connessione:
 
-* `user@tenant.onmicrosoft.com`nome dell'utente o del gruppo Azure AD cui si sta tentando di connettersi
+* `user@tenant.onmicrosoft.com` nome dell'utente o del gruppo Azure AD cui si sta tentando di connettersi
 * Aggiungere sempre il nome del server dopo il nome dell'utente o del gruppo di Azure AD (ad esempio `@mydb` )
 * Assicurarsi di usare il modo esatto in cui è stato digitato il nome dell'utente o del gruppo di Azure AD
 * Azure AD nomi di utenti e gruppi fanno distinzione tra maiuscole e minuscole

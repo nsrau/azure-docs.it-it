@@ -4,10 +4,10 @@ description: Questo articolo illustra la procedura per creare avvisi del log att
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90526358"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Creare avvisi del log attività per i Lab in Azure DevTest Labs
@@ -22,29 +22,29 @@ In questo esempio viene creato un avviso per tutte le operazioni amministrative 
     :::image type="content" source="./media/activity-logs/search-monitor.png" alt-text="Cerca monitoraggio":::        
 1. Selezionare **avvisi** nel menu a sinistra e quindi selezionare **nuova regola di avviso** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/activity-logs/alerts-page.png" alt-text="Pagina degli avvisi":::    
+    :::image type="content" source="./media/activity-logs/alerts-page.png" alt-text="Cerca monitoraggio":::    
 1. Nella pagina **Crea regola di avviso** fare clic su **Seleziona risorsa**. 
 
-    :::image type="content" source="./media/activity-logs/select-resource-link.png" alt-text="Selezionare la risorsa per l'avviso":::        
+    :::image type="content" source="./media/activity-logs/select-resource-link.png" alt-text="Cerca monitoraggio":::        
 1. Selezionare **DevTest Labs** per **filtro per tipo di risorsa**, selezionare il Lab nell'elenco e quindi fare clic su **fine**.
 
-    :::image type="content" source="./media/activity-logs/select-lab-resource.png" alt-text="Selezionare il Lab come risorsa":::
+    :::image type="content" source="./media/activity-logs/select-lab-resource.png" alt-text="Cerca monitoraggio":::
 1. Tornare alla pagina **Crea regola di avviso** , fare clic su **Seleziona condizione**. 
 
-    :::image type="content" source="./media/activity-logs/select-condition-link.png" alt-text="Collegamento selezionare la condizione":::    
+    :::image type="content" source="./media/activity-logs/select-condition-link.png" alt-text="Cerca monitoraggio":::    
 1. Nella pagina **Configura logica** per i segnali selezionare un segnale supportato da DevTest Labs. 
 
-    :::image type="content" source="./media/activity-logs/select-signal.png" alt-text="Seleziona segnale":::
+    :::image type="content" source="./media/activity-logs/select-signal.png" alt-text="Cerca monitoraggio":::
 1. Filtrare in base a **livello di evento** (dettagliato, informativo, avviso, errore, critico, tutti), **stato** (non riuscito, avviato, riuscito) e **chi ha iniziato** l'evento. 
 1. Selezionare **fine** per completare la configurazione della condizione. 
 
-    :::image type="content" source="./media/activity-logs/configure-signal-logic-done.png" alt-text="Configurare la logica del segnale-completato":::
+    :::image type="content" source="./media/activity-logs/configure-signal-logic-done.png" alt-text="Cerca monitoraggio":::
 1. È stato specificato per l'ambito (Lab) e la condizione per l'avviso. A questo punto, è necessario specificare un gruppo di azione con le azioni da eseguire quando viene soddisfatta la condizione. Tornare alla pagina **Crea regola di avviso** , scegliere **Seleziona gruppo di azioni**. 
 
-    :::image type="content" source="./media/activity-logs/select-action-group-link.png" alt-text="Collegamento Seleziona gruppo di azioni":::
+    :::image type="content" source="./media/activity-logs/select-action-group-link.png" alt-text="Cerca monitoraggio":::
 1. Fare clic sul collegamento **Crea gruppo di azioni** sulla barra degli strumenti. 
 
-    :::image type="content" source="./media/activity-logs/create-action-group-link.png" alt-text="Collegamento Crea gruppo di azioni":::
+    :::image type="content" source="./media/activity-logs/create-action-group-link.png" alt-text="Cerca monitoraggio":::
 1. Nella pagina **Aggiungi gruppo di azione** , attenersi alla seguente procedura:
     1. Immettere un **nome** per il gruppo di azioni.
     1. Immettere un **nome breve** per il gruppo di azioni. 
@@ -52,28 +52,28 @@ In questo esempio viene creato un avviso per tutte le operazioni amministrative 
     1. Immettere un **nome per l'azione**. 
     1. Selezionare il **tipo di azione** (in questo esempio, **email Azure Resource Manager role**). 
 
-        :::image type="content" source="./media/activity-logs/add-action-group.png" alt-text="Pagina Aggiungi gruppo di azioni":::
+        :::image type="content" source="./media/activity-logs/add-action-group.png" alt-text="Cerca monitoraggio":::
     1. Nella pagina **ruolo Azure Resource Manager di posta elettronica** selezionare il ruolo. In questo esempio è **proprietario**. Quindi selezionare **OK**. 
 
-        :::image type="content" source="./media/activity-logs/select-role.png" alt-text="Seleziona il ruolo":::            
+        :::image type="content" source="./media/activity-logs/select-role.png" alt-text="Cerca monitoraggio":::            
     1. Selezionare **OK** nella pagina **Aggiungi gruppo di azioni**. 
 1. A questo punto, nella pagina **Crea regola di avviso** , immettere un nome per la regola di avviso e quindi fare clic su **OK**. 
 
-    :::image type="content" source="./media/activity-logs/create-alert-rule-done.png" alt-text="Crea regola di avviso-completato":::
+    :::image type="content" source="./media/activity-logs/create-alert-rule-done.png" alt-text="Cerca monitoraggio":::
 
 ## <a name="view-alerts"></a>Visualizzare gli avvisi 
 1. Gli avvisi vengono visualizzati negli **avvisi** per tutte le operazioni amministrative (in questo esempio). Gli avvisi potrebbero richiedere qualche minuto per la visualizzazione. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="L'acquisizione schermo visualizza gli avvisi nel dashboard.":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Cerca monitoraggio":::
 1. Se si seleziona numero in una colonna (ad esempio, **avvisi totali**), vengono visualizzati gli avvisi che sono stati generati. 
 
-    :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Tutti gli avvisi":::
+    :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Cerca monitoraggio":::
 1. Se si seleziona un avviso, vengono visualizzati i relativi dettagli. 
 
-    :::image type="content" source="./media/activity-logs/alert-details.png" alt-text="Dettagli dell'avviso":::
+    :::image type="content" source="./media/activity-logs/alert-details.png" alt-text="Cerca monitoraggio":::
 1. In questo esempio si riceve anche un messaggio di posta elettronica con contenuto come illustrato nell'esempio seguente: 
 
-    :::image type="content" source="./media/activity-logs/alert-email.png" alt-text="Messaggio di avviso":::
+    :::image type="content" source="./media/activity-logs/alert-email.png" alt-text="Cerca monitoraggio":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sulla creazione di gruppi di azioni con tipi di azione diversi, vedere [creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md).

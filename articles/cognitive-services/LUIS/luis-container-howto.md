@@ -13,10 +13,10 @@ ms.date: 09/28/2020
 ms.author: aahi
 keywords: locale, Docker, contenitore
 ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460986"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Installare ed eseguire contenitori Docker per LUIS
@@ -377,7 +377,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](lui
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati descritti i concetti e il flusso di lavoro per scaricare, installare ed eseguire contenitori Language Understanding (LUIS). In sintesi:
 
@@ -392,10 +392,10 @@ In questo articolo sono stati descritti i concetti e il flusso di lavoro per sca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [Configurare i contenitori](luis-container-configuration.md) per informazioni sulle impostazioni di configurazione.
+* Vedere [configurare i contenitori](luis-container-configuration.md) per le impostazioni di configurazione.
 * Vedere [limitazioni del contenitore Luis](luis-container-limitations.md) per le restrizioni relative alle funzionalità note.
 * Per risolvere i problemi correlati alle funzionalità di LUIS, vedere [Risoluzione dei problemi](troubleshooting.md).
-* Usare più [contenitori di servizi cognitivi](../cognitive-services-container-support.md)
+* Usare altri [contenitori di Servizi cognitivi](../cognitive-services-container-support.md)
 
 <!-- Links - external -->
 [download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip

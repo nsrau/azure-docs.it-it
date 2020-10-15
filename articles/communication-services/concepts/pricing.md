@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460935"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761227"
 ---
 # <a name="pricing-scenarios"></a>Scenari relativi ai prezzi
 
@@ -59,7 +59,7 @@ Con Servizi di comunicazione è possibile potenziare l'applicazione con la funzi
 
 ### <a name="price"></a>Prezzo
 
-- Vengono addebitati 0,0008 USD per ogni messaggio di chat inviato.
+Vengono addebitati $ 0,0008 per ogni messaggio di chat inviato.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Esempio di prezzi: chat tra due utenti 
 
@@ -77,3 +77,46 @@ Rose visualizza i messaggi e inizia a chattare. Nel frattempo, Casey riceve una 
 **Calcoli dei costi** 
 
 - Numero di messaggi inviati (20 + 30 + 18 + 30 + 25 + 35) x 0,0008 USD = 0,1264 USD
+
+
+## <a name="telephony-and-sms"></a>Telefonia e SMS
+
+## <a name="price"></a>Prezzo 
+
+Per i servizi di telefonia i prezzi vengono calcolati al minuto, mentre per gli SMS in base a singolo messaggio. I prezzi vengono determinati in base al tipo e alla località del numero in uso, oltre che alla destinazione delle chiamate e dei messaggi SMS.
+
+### <a name="telephone-calling"></a>Chiamate telefoniche
+
+Le tradizionali chiamate telefoniche, ossia quelle effettuate tramite rete PSTN (Public Switched Telephone Network) sono disponibili con pagamento in base al consumo per i numeri di telefono degli Stati Uniti. Il prezzo è un addebito al minuto basato sul tipo di numero usato e sulla destinazione della chiamata. La tabella seguente include i dettagli relativi ai prezzi per le destinazioni più comuni delle chiamate. Per l'elenco completo di destinazioni, vedere l'[elenco dettagliato dei prezzi](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
+
+
+#### <a name="united-states-calling-prices"></a>Prezzi per le chiamate negli Stati Uniti
+
+I prezzi seguenti includono le imposte e le tariffe richieste per le comunicazioni fino al 30 giugno 2021:
+
+|Tipo di numero   |Per effettuare chiamate   |Per ricevere chiamate|
+|--------------|-----------|------------|
+|Locale     |A partire da $ 0,013/min       |$ 0,0085/min        |
+|Numero verde |$ 0,013/min   |$ 0,0220/min |
+
+#### <a name="other-calling-destinations"></a>Altre destinazioni delle chiamate
+
+I prezzi seguenti includono le imposte e le tariffe richieste per le comunicazioni fino al 30 giugno 2021:
+
+|Per effettuare chiamate a   |Prezzo al minuto|
+|-----------|------------|
+|Canada     |A partire da $ 0,013/min   |
+|Regno Unito     |A partire da $ 0,015/min   |
+|Germania     |A partire da $ 0,015/min   |
+|Francia     |A partire da $ 0,016/min   |
+
+
+### <a name="sms"></a>SMS
+
+Per gli SMS è disponibile il pagamento in base al consumo. Il prezzo è un addebito per messaggio basato sulla destinazione del messaggio. I messaggi possono essere inviati da numeri verdi a numeri di telefono situati all'interno degli Stati Uniti. Si noti che i numeri di telefono locali (geografici) non possono essere usati per l'invio di messaggi SMS.
+
+I prezzi seguenti includono le imposte e le tariffe richieste per le comunicazioni fino al 30 giugno 2021:
+
+|Paese   |Inviare messaggi|Ricevere messaggi|
+|-----------|------------|------------|
+|USA (numero verde)    |$ 0,0075/messaggio   | $ 0,0075/messaggio |

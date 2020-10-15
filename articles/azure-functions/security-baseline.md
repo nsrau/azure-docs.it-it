@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394092"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Baseline della sicurezza di Azure per funzioni di Azure
@@ -1031,7 +1031,7 @@ Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi
 
 **Indicazioni**: usare la funzionalità di backup e ripristino per pianificare backup regolari dell'app. Le app per le funzioni in esecuzione nel piano Premium hanno le stesse funzionalità di hosting di app Web nel servizio app Azure, che include la funzionalità di backup e ripristino.
 
-Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Repos e Azure DevOps per archiviare e gestire il codice in modo sicuro. Azure DevOps Services sfrutta molte delle funzionalità di archiviazione di Azure per garantire la disponibilità dei dati in caso di errori hardware, interruzioni del servizio o situazioni di emergenza. Inoltre, il team di Azure DevOps segue le procedure per proteggere i dati da eliminazioni accidentali o dannose.
+Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Repos e Azure DevOps per archiviare e gestire il codice in modo sicuro. Azure DevOps Services sfrutta molte funzionalità di archiviazione di Azure per garantire la disponibilità dei dati in caso di errori hardware, interruzioni del servizio o situazioni di emergenza nell'area. Per di più, il team di Azure DevOps segue le procedure per proteggere i dati da eliminazioni accidentali o dannose.
 
 - [Eseguire il backup dell'app in Azure](../app-service/manage-backup.md)
 
@@ -1049,7 +1049,7 @@ Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Rep
 
 **Indicazioni**: usare la funzionalità di backup e ripristino per pianificare backup regolari dell'app. Le app per le funzioni in esecuzione nel piano Premium hanno le stesse funzionalità di hosting di app Web nel servizio app Azure, che include la funzionalità di backup e ripristino. Eseguire il backup delle chiavi gestite dal cliente in Azure Key Vault.
 
-Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Repos e Azure DevOps per archiviare e gestire il codice in modo sicuro. Azure DevOps Services sfrutta molte delle funzionalità di archiviazione di Azure per garantire la disponibilità dei dati in caso di errori hardware, interruzioni del servizio o situazioni di emergenza. Inoltre, il team di Azure DevOps segue le procedure per proteggere i dati da eliminazioni accidentali o dannose.
+Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Repos e Azure DevOps per archiviare e gestire il codice in modo sicuro. Azure DevOps Services sfrutta molte funzionalità di archiviazione di Azure per garantire la disponibilità dei dati in caso di errori hardware, interruzioni del servizio o situazioni di emergenza nell'area. Per di più, il team di Azure DevOps segue le procedure per proteggere i dati da eliminazioni accidentali o dannose.
 
 - [Eseguire il backup dell'app in Azure](../app-service/manage-backup.md)
 
@@ -1083,7 +1083,7 @@ Usare anche una soluzione di controllo del codice sorgente, ad esempio Azure Rep
 
 **Linee guida**: i backup della funzionalità di backup e ripristino usano un account di archiviazione di Azure nella sottoscrizione. Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, i dati vengono crittografati con chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente per la crittografia dei dati di archiviazione.
 
-Se si usano chiavi gestite dal cliente, assicurarsi che l'eliminazione temporanea in Key Vault sia abilitata per proteggere le chiavi da eliminazioni accidentali o dannose.
+Se si usano chiavi gestite dal cliente, assicurarsi che Soft-Delete in Key Vault sia abilitato per proteggere le chiavi da eliminazioni accidentali o dannose.
 
 - [Crittografia dei dati inattivi di Archiviazione di Azure](../storage/common/storage-service-encryption.md)
 

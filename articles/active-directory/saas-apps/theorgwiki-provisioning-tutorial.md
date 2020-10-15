@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255835"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Esercitazione: configurare TheOrgWiki per il provisioning utenti automatico
@@ -65,7 +65,7 @@ Prima di configurare TheOrgWiki per il provisioning utenti automatico con Azure 
 
     ![Screenshot della pagina degli account di servizio nella console di amministrazione dell'organizzazione wiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Fare clic su **+ account del servizio**. In **tipo di account del servizio**selezionare **basato su token**. Fare clic su **Salva**.
+4. Fare clic su **+ account del servizio**. In **tipo di account del servizio**selezionare **basato su token**. Fare clic su **Save**.
 
     ![Screenshot della finestra di dialogo nuovo account del servizio con le opzioni tipo di account del servizio, basato su token e Salva.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -147,7 +147,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Salva**.
+8. Fare clic su **Save**.
 
 9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a TheOrgWiki**.
 

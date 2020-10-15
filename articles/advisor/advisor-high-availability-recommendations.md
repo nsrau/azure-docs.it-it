@@ -3,12 +3,12 @@ title: Migliorare l'affidabilità dell'applicazione con Advisor
 description: USA Azure Advisor per garantire e migliorare l'affidabilità nelle tue distribuzioni di Azure cruciali per l'azienda.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405191"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078035"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Migliorare l'affidabilità dell'applicazione usando Azure Advisor
 
@@ -44,7 +44,7 @@ Se un profilo di gestione traffico è configurato per il routing geografico, il 
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Usare l'eliminazione temporanea nell'account di archiviazione di Azure per salvare e ripristinare i dati dopo l'eliminazione o la sovrascrittura accidentale
 
-Abilitare l'[eliminazione temporanea](../storage/blobs/soft-delete-overview.md) nell'account di archiviazione per fare in modo che i BLOB eliminati passino in uno stato di eliminazione temporanea anziché essere definitivamente eliminati. Quando i dati vengono sovrascritti, viene generato uno snapshot eliminato temporaneamente in modo da salvare lo stato dei dati sovrascritti. L'uso dell'eliminazione temporanea consente di eseguire il ripristino da eliminazioni accidentali o sovrascritture. Advisor identifica gli account di archiviazione di Azure per i quali non è abilitata l'eliminazione temporanea e suggerisce di abilitarla.
+Abilitare l'[eliminazione temporanea](../storage/blobs/soft-delete-blob-overview.md) nell'account di archiviazione per fare in modo che i BLOB eliminati passino in uno stato di eliminazione temporanea anziché essere definitivamente eliminati. Quando i dati vengono sovrascritti, viene generato uno snapshot eliminato temporaneamente in modo da salvare lo stato dei dati sovrascritti. L'uso dell'eliminazione temporanea consente di eseguire il ripristino da eliminazioni accidentali o sovrascritture. Advisor identifica gli account di archiviazione di Azure per i quali non è abilitata l'eliminazione temporanea e suggerisce di abilitarla.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurare il gateway VPN in modalità attiva-attiva per garantire la resilienza di connessione
 
@@ -80,23 +80,23 @@ Azure Advisor rileva le regole di avviso del log con query non valide specificat
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurare la modalità di indicizzazione coerente nella raccolta di Azure Cosmos DB
 
-La configurazione di contenitori di Azure Cosmos DB con modalità di indicizzazione differita potrebbe influire sull'aggiornamento dei risultati della query. Advisor rileva i contenitori configurati in questo modo e consiglia di passare alla modalità coerente. [Altre informazioni sui criteri di indicizzazione in Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+La configurazione di contenitori di Azure Cosmos DB con modalità di indicizzazione differita potrebbe influire sull'aggiornamento dei risultati della query. Advisor rileva i contenitori configurati in questo modo e consiglia di passare alla modalità coerente. [Altre informazioni sui criteri di indicizzazione in Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurare i contenitori di Azure Cosmos DB con una chiave di partizione
 
-Azure Advisor identifica Azure Cosmos DB raccolte non partizionate che si avvicinano alla quota di archiviazione di cui è stato effettuato il provisioning. Si consiglia di eseguire la migrazione di queste raccolte a nuove raccolte con una definizione della chiave di partizione in modo che possano essere scalate automaticamente dal servizio. [Altre informazioni sulla scelta di una chiave di partizione.](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor identifica Azure Cosmos DB raccolte non partizionate che si avvicinano alla quota di archiviazione di cui è stato effettuato il provisioning. Si consiglia di eseguire la migrazione di queste raccolte a nuove raccolte con una definizione della chiave di partizione in modo che possano essere scalate automaticamente dal servizio. [Altre informazioni sulla scelta di una chiave di partizione.](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Aggiornare il Azure Cosmos DB .NET SDK alla versione più recente da NuGet
 
-Azure Advisor identifica Azure Cosmos DB account che usano versioni precedenti di .NET SDK. Si consiglia di eseguire l'aggiornamento alla versione più recente da NuGet per le correzioni più recenti, i miglioramenti delle prestazioni e le funzionalità. [Scopri di più su Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifica Azure Cosmos DB account che usano versioni precedenti di .NET SDK. Si consiglia di eseguire l'aggiornamento alla versione più recente da NuGet per le correzioni più recenti, i miglioramenti delle prestazioni e le funzionalità. [Scopri di più su Azure Cosmos DB .NET SDK.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Eseguire l'aggiornamento di Azure Cosmos DB Java SDK alla versione più recente da Maven
 
-Azure Advisor identifica Azure Cosmos DB account che usano versioni precedenti di Java SDK. Si consiglia di eseguire l'aggiornamento alla versione più recente da Maven per le correzioni più recenti, i miglioramenti delle prestazioni e le funzionalità. [Scopri di più su Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor identifica Azure Cosmos DB account che usano versioni precedenti di Java SDK. Si consiglia di eseguire l'aggiornamento alla versione più recente da Maven per le correzioni più recenti, i miglioramenti delle prestazioni e le funzionalità. [Scopri di più su Azure Cosmos DB Java SDK.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Aggiornare il connettore Spark Azure Cosmos DB alla versione più recente da Maven
 
-Azure Advisor identifica Azure Cosmos DB account che usano versioni obsolete del connettore Azure Cosmos DB Spark. Si consiglia di eseguire l'aggiornamento alla versione più recente da Maven per le correzioni più recenti, i miglioramenti delle prestazioni e le funzionalità. [Altre informazioni su Azure Cosmos DB connettore Spark.](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor identifica Azure Cosmos DB account che usano versioni obsolete del connettore Azure Cosmos DB Spark. Si consiglia di eseguire l'aggiornamento alla versione più recente da Maven per le correzioni più recenti, i miglioramenti delle prestazioni e le funzionalità. [Altre informazioni su Azure Cosmos DB connettore Spark.](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>Provare a migrare a Kafka 2,1 in HDInsight 4,0
 
@@ -110,10 +110,10 @@ A partire dal 1 ° luglio 2020, non sarà possibile creare nuovi cluster Spark u
 Le macchine virtuali in cui non è abilitata la replica in un'altra area non sono resilienti per le interruzioni di regione. La replica delle macchine virtuali riduce eventuali conseguenze aziendali negative durante le interruzioni dell'area di Azure. Advisor rileva le VM in cui la replica non è abilitata e consiglia di abilitarla. Quando si Abilita la replica, se si verifica un'interruzione, è possibile visualizzare rapidamente le macchine virtuali in un'area di Azure remota. [Altre informazioni sulla replica delle macchine virtuali.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Eseguire l'aggiornamento alla versione più recente dell'agente di Azure Connected Machine
-L' [agente del computer connesso di Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) viene aggiornato regolarmente con correzioni di bug, miglioramenti della stabilità e nuove funzionalità. Sono state identificate risorse che non funzionano con la versione più recente di Machine Agent e questa raccomandazione di Advisor suggerisce di aggiornare l'agente alla versione più recente per la migliore esperienza di Azure Arc.
+L' [agente del computer connesso di Azure](../azure-arc/servers/manage-agent.md) viene aggiornato regolarmente con correzioni di bug, miglioramenti della stabilità e nuove funzionalità. Sono state identificate risorse che non funzionano con la versione più recente di Machine Agent e questa raccomandazione di Advisor suggerisce di aggiornare l'agente alla versione più recente per la migliore esperienza di Azure Arc.
 
-## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Non eseguire l'override del nome host per garantire l'integrità del sito Web
-Advisor consiglia di evitare di eseguire l'override del nome host quando si configura il gateway applicazione. Avere un dominio diverso sul front-end del gateway applicazione rispetto a quello usato per accedere al back-end può causare l'interruzione dei cookie o degli URL di reindirizzamento. Si noti che questo potrebbe non essere il caso in tutte le situazioni e che alcune categorie di backend (come le API REST) in generale sono meno sensibili a questo. Verificare che il back-end sia in grado di gestire questo problema o aggiornare la configurazione del gateway applicazione in modo che non sia necessario sovrascrivere il nome host nel back-end. Quando usato con il servizio app, associare un nome di dominio personalizzato all'app Web ed evitare di usare il *nome host. azurewebsites.NET verso il back-end.* [Altre informazioni sul dominio personalizzato](https://aka.ms/appgw-advisor-usecustomdomain).
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Non sostituire il nome host per garantire l'integrità del sito Web
+Advisor consiglia di evitare di eseguire l'override del nome host quando si configura il gateway applicazione. L'uso di un dominio diverso sul front-end del gateway applicazione rispetto a quello usato per accedere al back-end può potenzialmente condurre a cookie o URL di reindirizzamento interrotti. Si noti che questa situazione potrebbe verificarsi solo in alcuni casi e che alcune categorie di back-end, quali le API REST, in generale sono meno sensibili. Verificare che il back-end sia in grado di gestire la situazione o di aggiornare la configurazione del gateway applicazione in modo che non sia necessario sovrascrivere il nome host nel back-end. Quando usato con il servizio app, associare un nome di dominio personalizzato all'app Web ed evitare di usare il *nome host. azurewebsites.NET verso il back-end.* [Altre informazioni sul dominio personalizzato](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 

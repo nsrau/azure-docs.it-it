@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
 ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87420227"
 ---
 # <a name="create-or-modify-an-offer"></a>Create o modificare un'offerta
@@ -27,8 +27,8 @@ Questa chiamata crea una nuova offerta o aggiorna una specifica offerta all'inte
 
 |  **Nome**         |  **Descrizione**                      |  **Tipo di dati**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificatore dell'editore, per esempio `contoso` |   Stringa |
-| offerId           |  Identificatore dell'offerta                     |   Stringa        |
+| publisherId       |  Identificatore dell'editore, per esempio `contoso` |   string |
+| offerId           |  Identificatore dell'offerta                     |   string        |
 | api-version       |  Versione più recente dell'API            |   Data           |
 |  |  |  |
 
@@ -413,7 +413,7 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 | Altro | altra collaborazione | altra collaborazione | altro |
 | ***Conformità & legali*** | ***conformità*** | ***conformità*** | ***conformità e validità*** |
 | Controllo imposta & | controllo fiscale | controllo fiscale | Tax-and-audit |
-| Note legali | Note legali | Note legali | legal |
+| Legale | Legale | Legale | legal |
 | Dati, governance & privacy | governance dei dati-privacy | governance dei dati-privacy | governance dei dati e privacy |
 | Sicurezza & integrità | integrità-sicurezza | integrità-sicurezza | integrità e sicurezza |
 | Altro | altro-conformità-legale | altro-conformità-legale | altro |
@@ -453,7 +453,7 @@ Queste categorie e le rispettive chiavi sono applicabili per i tipi di offerta S
 | Altro | Other-it-Management-Tools | Other-it-Management-Tools | altro |
 | ***Marketing*** | ***Marketing*** | ***Marketing*** | ***marketing*** |
 | Annuncio pubblicitario | annuncio | annuncio | annuncio |
-| Analytics | analisi-marketing | analisi-marketing | analisi-marketing |
+| Analisi | analisi-marketing | analisi-marketing | analisi-marketing |
 | Gestione delle campagne & automazione | gestione della campagna-automazione | gestione della campagna-automazione | campagna-gestione e automazione |
 | Marketing tramite posta elettronica | posta elettronica-marketing | posta elettronica-marketing | posta elettronica-marketing |
 | L2-eventi & gestione delle risorse | Eventi-gestione delle risorse | Eventi-gestione delle risorse | gestione eventi e risorse |
@@ -512,7 +512,7 @@ Questi settori e le rispettive chiavi sono applicabili per i tipi di offerta Saa
 | ***Servizi finanziari*** | ***FinancialServices*** | ***Servizi finanziari*** |
 | Settore bancario & mercati finanziari | BankingAndCapitalMarkets | Banking-and-Capital-Markets |
 | Assicurazioni | Assicurazioni | insurance |
-| ***Enti governativi*** | ***Enti governativi*** | ***governo*** |
+| ***Enti pubblici*** | ***Enti pubblici*** | ***governo*** |
 | Difesa & Intelligence | DefenseAndIntelligence | difesa e intelligence |
 | Sicurezza pubblica & giustizia | PublicSafetyAndJustice | Public-Safety-and-Justice |
 | Governo civile | CivilianGovernment | civili pubblici |
@@ -531,7 +531,7 @@ Questi settori e le rispettive chiavi sono applicabili per i tipi di offerta Saa
 | Media & Entertainment | MediaandEntertainment | Media-and-Entertainment |
 | Telecomunicazioni | Telecomunicazioni | telecomunicazioni |
 | ***Servizi professionali*** | ***ProfessionalServices*** | ***Professional-Services*** |
-| Note legali | Note legali | legal |
+| Legale | Legale | legal |
 | Servizi professionali per i partner | PartnerProfessionalServices | partner-Professional-Services |
 | ***Architettura & costruzione*** | ***ArchitectureAndConstruction*** | ***architettura e costruzione*** |
 | Altro-non segmentato | \_OtherUnsegmented ArchitectureAndConstruction | altro-non segmentato |

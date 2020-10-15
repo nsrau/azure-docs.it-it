@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
 ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91344010"
 ---
-# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronizzazione del modello tra i dispositivi gemelli digitali di Azure e Time Series Insights Gen2
+# <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronizzazione dei modelli tra Gemelli digitali di Azure e Time Series Insights Gen2
 
 Questo articolo illustra le procedure consigliate e gli strumenti usati per tradurre il modello di asset in Azure Digital Twins (ADT) in modello di asset in Azure Time Series Insights (STI).  Questo articolo è la seconda parte di una serie di esercitazioni in due parti che illustra l'integrazione dei dispositivi gemelli digitali di Azure con Azure Time Series Insights. L'integrazione dei dispositivi gemelli digitali di Azure con Time Series Insights consente l'archiviazione e il rilevamento della cronologia delle telemetrie e delle proprietà calcolate dei dispositivi gemelli digitali. Questa serie di esercitazioni è destinata agli sviluppatori che lavorano per integrare Time Series Insights con i dispositivi gemelli digitali di Azure. La parte 1 illustra la  [creazione di una pipeline di dati che introduce i dati della serie temporale effettivi dai dispositivi gemelli digitali di Azure a Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) e questa, secondo parte della serie di esercitazioni, spiega la sincronizzazione del modello di asset tra i dispositivi Time Series Insights gemelli digitali di Azure Questa esercitazione illustra le procedure consigliate per la scelta e la definizione della convenzione di denominazione per l'ID della serie temporale (ID TS) e la definizione manuale delle gerarchie nel modello Time Series (TSM).
 

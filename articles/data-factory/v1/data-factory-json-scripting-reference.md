@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e47f82323919f4fec3f28ec2f7698d734ab72ac6
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 497765768c208354f6d2b47dbdda8c30aaed8423
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89490123"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016928"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 > [!NOTE]
@@ -90,7 +90,7 @@ Nella tabella seguente vengono descritte le proprietà all'interno della definiz
 | type |Specifica il tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [ARCHIVIAZIONE DEI DATI](#data-stores) e [ATTIVITÀ DI TRASFORMAZIONE DEI DATI](#data-transformation-activities). |Sì |
 | input |Tabelle di input usate dall'attività<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |No per le attività HDInsightStreaming e SqlServerStoredProcedure <br/> <br/> Sì per tutte le altre |
 | outputs |Tabelle di output usate dall'attività.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Sì |
-| linkedServiceName |Nome del servizio collegato usato dall'attività. <br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. |Sì per attività di HDInsight, attività di Azure Machine Learning e attività delle stored procedure. <br/><br/>No per tutto il resto |
+| linkedServiceName |Nome del servizio collegato usato dall'attività. <br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. |Sì per le attività HDInsight, le attività Azure Machine Learning Studio (classiche) e le attività stored procedure. <br/><br/>No per tutto il resto |
 | typeProperties |Le proprietà nella sezione typeProperties dipendono dal tipo di attività. |No |
 | Criterio |Criteri che influiscono sul comportamento di runtime dell'attività. Se vengono omessi, vengono usati i criteri predefiniti. |No |
 | scheduler |La proprietà "scheduler" viene usata per definire la pianificazione per l'attività. Le relative proprietà secondarie sono quelle indicate nella sezione [Disponibilità dei set di dati](data-factory-create-datasets.md#dataset-availability). |No |
@@ -282,15 +282,15 @@ Un set di dati in Azure Data Factory viene definito come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Valore predefinito |
 | --- | --- | --- | --- |
-| name | Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |N/D |
+| name | Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |ND |
 | type | Tipo del set di dati. Specificare uno dei tipi supportati da Azure Data Factory, ad esempio AzureBlob, AzureSqlTable. Vedere la sezione [Archivi dati](#data-stores) per tutti gli archivi dati e i tipi di set di dati supportati da Data Factory. |
-| structure | Schema del set di dati. Contiene le colonne, i tipi e così via. | No |N/D |
-| typeProperties | Proprietà che corrispondono al tipo selezionato. Vedere la sezione [Archivi dati](#data-stores) per i tipi supportati e le rispettive proprietà. |Sì |N/D |
+| structure | Schema del set di dati. Contiene le colonne, i tipi e così via. | No |ND |
+| typeProperties | Proprietà che corrispondono al tipo selezionato. Vedere la sezione [Archivi dati](#data-stores) per i tipi supportati e le rispettive proprietà. |Sì |ND |
 | external | Flag booleano per specificare se un set di dati è generato o meno in modo esplicito da una pipeline della data factory. |No |false |
-| availability | Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |N/D |
-| Criterio |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione Criteri di set di dati. |No |N/D |
+| availability | Definisce la finestra di elaborazione o il modello di sezionamento per la produzione di set di dati Per informazioni dettagliate sul modello di sezionamento dei set di dati, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md). |Sì |ND |
+| Criterio |Definisce i criteri o la condizione che devono soddisfare i sezionamenti di set di dati. <br/><br/>Per informazioni dettagliate, vedere la sezione Criteri di set di dati. |No |ND |
 
 Ogni colonna della sezione **struttura** contiene le proprietà seguenti:
 
@@ -314,13 +314,13 @@ structure:
 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione **Availability** :
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Valore predefinito |
 | --- | --- | --- | --- |
-| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |N/D |
-| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione <b>Frequenza</b> su <b>Ora</b> e <b>Intervallo</b> su <b>1</b>.<br/><br/><b>Nota</b> : se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15 |Sì |N/D |
+| frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: minuto, ora, giorno, settimana, mese |Sì |ND |
+| interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Intervallo di frequenza x" determina la frequenza con cui viene generata la sezione.<br/><br/>Se è necessario suddividere il set di dati su base oraria, impostare l'opzione <b>Frequenza</b> su <b>Ora</b> e <b>Intervallo</b> su <b>1</b>.<br/><br/><b>Nota</b> : se si specifica frequency come Minute, è consigliabile impostare interval su un valore non inferiore a 15 |Sì |ND |
 | style |Specifica se la sezione deve essere generata all'inizio o alla fine dell'intervallo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se frequency è impostato su Month e style è impostato su EndOfInterval, la sezione viene generata l'ultimo giorno del mese. Se style è impostato su StartOfInterval, la sezione viene generata il primo giorno del mese.<br/><br/>Se l'opzione Frequnza è impostata su Mese e l'opzione Stile è impostata su EndOfInterval, la sezione viene generata l'ultima ora del giorno.<br/><br/>Se frequency è impostato su Hour e style è impostato su EndOfInterval, la sezione viene generata alla fine dell'ora. Ad esempio, una sezione per il periodo 13.00 - 14.00 viene generata alle 14.00. |No |EndOfInterval |
 | anchorDateTime |Definisce la posizione assoluta nel tempo usata dall'utilità di pianificazione per calcolare i limiti della sezione del set di dati. <br/><br/><b>Nota</b>: se AnchorDateTime include parti della data più granulari rispetto alla frequenza, le parti più granulari vengono ignorate. <br/><br/>Ad esempio, se l' <b>intervallo</b> è <b>orario</b> (frequenza: ora e intervallo: 1) e <b>AnchorDateTime</b> contiene <b>minuti e secondi</b> , le parti <b>minuti e secondi</b> di AnchorDateTime vengono ignorate. |No |01/01/0001 |
-| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/><b>Nota:</b> se vengono specificati sia anchorDateTime che offset, il risultato sarà lo spostamento combinato. |No |N/D |
+| offset |Intervallo di tempo in base al quale l'inizio e la fine di tutte le sezioni dei set di dati vengono spostate. <br/><br/><b>Nota:</b> se vengono specificati sia anchorDateTime che offset, il risultato sarà lo spostamento combinato. |No |ND |
 
 La sezione availability seguente specifica che il set di dati di output viene generato ogni ora oppure che il set di dati di input è disponibile ogni ora:
 
@@ -334,10 +334,10 @@ La sezione availability seguente specifica che il set di dati di output viene ge
 
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare.
 
-| Nome criterio | Descrizione | Applicato a | Obbligatoria | Predefinito |
+| Nome criterio | Descrizione | Applicato a | Necessario | Valore predefinito |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Verifica che i dati in un **BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |BLOB Azure |No |N/D |
-| minimumRows |Verifica che i dati nel **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>tabella di Azure</li></ul> |No |N/D |
+| minimumSizeMB |Verifica che i dati in un **BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |BLOB Azure |No |ND |
+| minimumRows |Verifica che i dati nel **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>database SQL di Azure</li><li>tabella di Azure</li></ul> |No |ND |
 
 **Esempio:**
 
@@ -929,7 +929,7 @@ Se si copiano dati in Azure Cosmos DB, impostare il **tipo di sink** dell'attivi
 
 Per altre informazioni, vedere l'articolo [Connettore Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-database"></a>Database SQL di Azure
+## <a name="azure-sql-database"></a>database SQL di Azure
 
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di Database SQL di Azure, impostare il **tipo** di servizio collegato su **AzureSqlDatabase**e specificare le proprietà seguenti nella sezione **typeProperties**:
@@ -1398,7 +1398,7 @@ Per collegare un account di Archiviazione di Azure a una data factory tramite la
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type |La proprietà Type deve essere impostata su: **AzureStorage** |Sì |
+| type |La proprietà type deve essere impostata su: **AzureStorage** |Sì |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Sì |
 
 **Esempio:**
@@ -2230,12 +2230,12 @@ Per definire un servizio collegato di SAP Business Warehouse (BW), impostare il 
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-server | Nome del server in cui si trova l'istanza di SAP BW. | string | Sì
+server | Nome del server in cui si trova l'istanza di SAP BW. | Stringa | Sì
 systemNumber | Numero del sistema SAP BW. | Numero decimale a due cifre rappresentato come stringa. | Sì
 clientId | ID del client nel sistema SAP BW. | Numero decimale a tre cifre rappresentato come stringa. | Sì
-username | Nome dell'utente che ha accesso al server SAP | string | Sì
-password | Password per l'utente. | string | Sì
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | string | Sì
+username | Nome dell'utente che ha accesso al server SAP | Stringa | Sì
+password | Password per l'utente. | Stringa | Sì
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP BW locale. | Stringa | Sì
 encryptedCredential | Stringa di credenziali crittografata. | stringa | No
 
 #### <a name="example"></a>Esempio
@@ -2340,11 +2340,11 @@ Per definire un servizio collegato di SAP HANA, impostare il **tipo** di servizi
 
 Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | string | Sì
+server | Nome del server in cui si trova l'istanza di SAP HANA. Se il server usa una porta personalizzata, specificare `server:port`. | Stringa | Sì
 authenticationType | Tipo di autenticazione. | . "Basic" o "Windows" | Sì
-username | Nome dell'utente che ha accesso al server SAP | string | Sì
-password | Password per l'utente. | string | Sì
-gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | string | Sì
+username | Nome dell'utente che ha accesso al server SAP | Stringa | Sì
+password | Password per l'utente. | Stringa | Sì
+gatewayName | Nome del gateway che il servizio Data factory deve usare per connettersi all'istanza di SAP HANA locale. | Stringa | Sì
 encryptedCredential | Stringa di credenziali crittografata. | stringa | No
 
 #### <a name="example"></a>Esempio
@@ -3151,7 +3151,7 @@ Per definire un servizio collegato di Amazon S3, impostare il **tipo** di serviz
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| accessKeyID |ID della chiave di accesso segreta. |string |Sì |
+| accessKeyID |ID della chiave di accesso segreta. |Stringa |Sì |
 | secretAccessKey |La stessa chiave di accesso segreta. |La stringa segreta crittografata |Sì |
 
 #### <a name="example"></a>Esempio
@@ -3548,7 +3548,7 @@ Per altre informazioni, vedere [Connettore File System](data-factory-onprem-file
 ### <a name="linked-service"></a>Servizio collegato
 Per definire un servizio collegato di FTP, impostare il **tipo** di servizio collegato su **FtpServer** e specificare le proprietà seguenti nella sezione **typeProperties**:
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatoria | Valore predefinito |
 | --- | --- | --- | --- |
 | host |Nome o indirizzo IP del server FTP |Sì |&nbsp; |
 | authenticationType |Specificare il tipo di autenticazione |Sì |Di base, anonimo |
@@ -4382,7 +4382,7 @@ Per altre informazioni, vedere [Connettore OData](data-factory-odata-connector.m
 ### <a name="relational-source-in-copy-activity"></a>Origine relazionale nell'attività di copia
 Se si copiano dati da un'origine OData, impostare il **tipo di origine** dell'attività di copia su **RelationalSource**e specificare le proprietà seguenti nella sezione **source**:
 
-| Proprietà | Descrizione | Esempio | Obbligatoria |
+| Proprietà | Descrizione | Esempio | Necessario |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |"?$select=Name, Description&$top=5" |No |
 
@@ -4824,7 +4824,7 @@ La tabella seguente elenca gli ambienti di calcolo supportati da Data Factory e 
 | --- | --- |
 | [Cluster HDInsight su richiesta](#on-demand-azure-hdinsight-cluster) o [il proprio cluster HDInsight](#existing-azure-hdinsight-cluster) |[Attività personalizzata .NET](#net-custom-activity), [attività hive](#hdinsight-hive-activity), [attività Pig](#hdinsight-pig-activity), [attività MapReduce](#hdinsight-mapreduce-activity), attività di streaming Hadoop, [attività Spark](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[Attività personalizzata .NET](#net-custom-activity) |
-| [Azure Machine Learning](#azure-machine-learning) | [Machine Learning attività di esecuzione batch](#machine-learning-batch-execution-activity), [Machine Learning attività Aggiorna risorsa](#machine-learning-update-resource-activity) |
+| [Azure Machine Learning Studio (versione classica)](#azure-machine-learning-studio-classic) | [Attività di esecuzione Batch Azure Machine Learning Studio (classica)](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classica) attività di aggiornamento delle risorse](#azure-machine-learning-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics.](#azure-data-lake-analytics) |[Attività U-SQL di Data Lake Analytics](#data-lake-analytics-u-sql-activity) |
 | [Database SQL di Azure](#azure-sql-database), [analisi delle sinapsi di Azure](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[Stored procedure](#stored-procedure-activity) |
 
@@ -4931,11 +4931,11 @@ La tabella seguente fornisce le descrizioni delle proprietà usate nella definiz
 }
 ```
 
-## <a name="azure-machine-learning"></a>Azure Machine Learning
-Creare un servizio collegato di Azure Machine Learning per registrare un endpoint di punteggio batch Machine Learning in una data factory. Su questo servizio collegato è possibile eseguire due attività di trasformazione dati: [Attività di esecuzione batch di Machine Learning](#machine-learning-batch-execution-activity), [Attività della risorsa di aggiornamento di Machine Learning](#machine-learning-update-resource-activity).
+## <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (versione classica)
+Si crea un servizio collegato Azure Machine Learning Studio (classico) per registrare un endpoint di Punteggio batch di studio (classico) con una data factory. Due attività di trasformazione dei dati che possono essere eseguite in questo servizio collegato: [Azure Machine Learning Studio (classica) attività di esecuzione batch](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (classica) attività di aggiornamento delle risorse](#azure-machine-learning-studio-classic-update-resource-activity).
 
 ### <a name="linked-service"></a>Servizio collegato
-La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato Azure Machine Learning.
+La tabella seguente fornisce le descrizioni delle proprietà usate nella definizione JSON di Azure di un servizio collegato di studio (classico).
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
@@ -5064,8 +5064,8 @@ Attività | Descrizione
 [Attività MapReduce di HDInsight](#hdinsight-mapreduce-activity) | L'attività HDInsight MapReduce in una pipeline di Data Factory esegue i programmi di MapReduce nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux.
 [Attività di streaming di HDInsight](#hdinsight-streaming-activity) | L'attività HDInsight Streaming Activity in una pipeline di Data Factory esegue i programmi di Hadoop Streaming nei cluster HDInsight personalizzati o su richiesta basati su Windows/Linux.
 [Attività Spark di HDInsight](#hdinsight-spark-activity) | L'attività Spark di HDInsight in una pipeline di Data Factory esegue programmi Spark nel cluster HDInsight personale.
-[Attività di esecuzione batch di Machine Learning](#machine-learning-batch-execution-activity) | Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato di Azure Machine Learning per l'analisi predittiva. Con Attività di esecuzione Batch in una pipeline di Azure Data Factory è possibile richiamare un servizio Web di Machine Learning per eseguire stime dei dati in batch.
-[Attività della risorsa di aggiornamento di Machine Learning](#machine-learning-update-resource-activity) | Nel corso del tempo è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi di Machine Learning usando nuovi set di dati di input. Una volta ripetuto il training, aggiornare il servizio Web di assegnazione dei punteggi con il modello Machine Learning di cui è stato ripetuto il training. È possibile usare l'attività di aggiornamento risorse per aggiornare il servizio Web con il nuovo modello sottoposto a training.
+[Attività di esecuzione batch Azure Machine Learning Studio (classica)](#azure-machine-learning-studio-classic-batch-execution-activity) | Azure Data Factory consente di creare facilmente pipeline che usano un servizio Web pubblicato in studio (classico) per l'analisi predittiva. Utilizzando l'attività di esecuzione batch in una pipeline di Azure Data Factory, è possibile richiamare un servizio Web Studio (classico) per eseguire stime sui dati in batch.
+[Attività della risorsa di aggiornamento Azure Machine Learning Studio (classica)](#azure-machine-learning-studio-classic-update-resource-activity) | Nel corso del tempo, è necessario ripetere il training dei modelli predittivi negli esperimenti di assegnazione dei punteggi Azure Machine Learning Studio (classico) usando nuovi set di dati di input. Al termine della ripetizione del training, si vuole aggiornare il servizio Web di assegnazione dei punteggi con il modello di apprendimento automatico di cui è stato ripetuto il training. È possibile usare l'attività di aggiornamento risorse per aggiornare il servizio Web con il nuovo modello sottoposto a training.
 [Attività stored procedure](#stored-procedure-activity) | È possibile usare l'attività stored procedure in una pipeline di Data Factory per richiamare una stored procedure in uno dei seguenti archivi dati: database SQL di Azure, Azure sinapsi Analytics, SQL Server database nell'azienda o in una VM di Azure.
 [Data Lake Analytics attività U-SQL](#data-lake-analytics-u-sql-activity) | L'attività U-SQL di Data Lake Analytics esegue uno script U-SQL in un cluster di Azure Data Lake Analytics.
 [Attività personalizzata .NET](#net-custom-activity) | Se è necessario trasformare i dati in una modalità non supportata da Data Factory, è possibile creare un'attività personalizzata contenente la logica di elaborazione dei dati richiesta e usarla nella pipeline. È possibile configurare l'attività .NET personalizzata da eseguire usando il servizio Azure Batch o un cluster Azure HDInsight.
@@ -5346,14 +5346,14 @@ Tenere presente quanto segue:
 
 Per altre informazioni sull'attività, vedere l'argomento relativo all'[attività Spark](data-factory-spark.md).
 
-## <a name="machine-learning-batch-execution-activity"></a>Attività di esecuzione batch di Machine Learning
-È possibile specificare le proprietà seguenti in una definizione JSON dell'attività di esecuzione batch di Azure Machine Learning Studio. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLBatchExecution**. È necessario creare prima un servizio collegato Azure Machine Learning e specificarne il nome come valore per la proprietà **linkedServiceName** . Quando il tipo di attività è impostato su AzureMLBatchExecution, nella sezione **typeProperties** sono supportate le proprietà seguenti:
+## <a name="azure-machine-learning-studio-classic-batch-execution-activity"></a>Attività di esecuzione batch Azure Machine Learning Studio (classica)
+È possibile specificare le proprietà seguenti in una definizione JSON dell'attività di esecuzione batch Azure Machine Learning Studio (classica). Il tipo di proprietà dell'attività deve essere impostato su **AzureMLBatchExecution**. È necessario creare prima un servizio collegato di studio (classico) e specificarne il nome come valore per la proprietà **linkedServiceName** . Quando il tipo di attività è impostato su AzureMLBatchExecution, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
 Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
-webServiceInput | Il set di dati da passare come input del servizio Web di Azure Machine Learning Studio. Questo set di dati deve essere incluso anche nella sezione inputs dell'attività. |Usare webServiceInput o webServiceInputs. |
-webServiceInputs | Specificare i set di dati da passare come input del servizio Web di Azure Machine Learning Studio. Se il servizio Web accetta più input, usare la proprietà webServiceInputs invece di webServiceInput. Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività. | Usare webServiceInput o webServiceInputs. |
-webServiceOutputs | I set di dati assegnati come output del servizio Web di Azure Machine Learning Studio. Il servizio Web restituisce i dati di output in questo set di dati. | Sì |
+webServiceInput | Set di dati da passare come input per il servizio Web Studio (classico). Questo set di dati deve essere incluso anche nella sezione inputs dell'attività. |Usare webServiceInput o webServiceInputs. |
+webServiceInputs | Specificare i set di impostazioni da passare come input per il servizio Web Studio (classico). Se il servizio Web accetta più input, usare la proprietà webServiceInputs invece di webServiceInput. Includere anche i set di dati a cui **webServiceInputs** fa riferimento negli **input** dell'attività. | Usare webServiceInput o webServiceInputs. |
+webServiceOutputs | Set di impostazioni assegnati come output per il servizio Web Studio (classico). Il servizio Web restituisce i dati di output in questo set di dati. | Sì |
 globalParameters | Specificare i valori dei parametri del servizio Web in questa sezione. | No |
 
 ### <a name="json-example"></a>Esempio di JSON
@@ -5397,13 +5397,13 @@ In questo esempio, l'attività ha il set di dati **MLSqlInput** come input e **M
 }
 ```
 
-Nell'esempio JSON, il servizio Web di Azure Machine Learning distribuito usa un modulo Reader e un modulo Writer per leggere e scrivere i dati da e in un database SQL di Azure. Il servizio Web espone i quattro parametri seguenti: Database server name, Database name, Server user account name e Server user account password.
+Nell'esempio JSON, il servizio Web distribuito in studio (classico) usa un reader e un modulo writer per leggere/scrivere dati da/in un database SQL di Azure. Il servizio Web espone i quattro parametri seguenti: Database server name, Database name, Server user account name e Server user account password.
 
 > [!NOTE]
 > Possono essere passati come parametri per il servizio Web solo input e output dell'attività AzureMLBatchExecution. Nel precedente snippet JSON, ad esempio, MLSqlInput è un input per l'attività AzureMLBatchExecution e viene passato come input al servizio Web tramite il parametro webServiceInput.
 
-## <a name="machine-learning-update-resource-activity"></a>Attività della risorsa di aggiornamento di Machine Learning
-È possibile specificare le proprietà seguenti in una definizione JSON di attività della risorsa di aggiornamento Azure Machine Learning Studio. Il tipo di proprietà dell'attività deve essere impostato su **AzureMLUpdateResource**. È necessario creare prima un servizio collegato Azure Machine Learning e specificarne il nome come valore per la proprietà **linkedServiceName** . Quando il tipo di attività è impostato su AzureMLUpdateResource, nella sezione **typeProperties** sono supportate le proprietà seguenti:
+## <a name="azure-machine-learning-studio-classic-update-resource-activity"></a>Attività della risorsa di aggiornamento Azure Machine Learning Studio (classica)
+È possibile specificare le proprietà seguenti in una definizione JSON di attività della risorsa di aggiornamento di un Azure Machine Learning Studio (classica). Il tipo di proprietà dell'attività deve essere impostato su **AzureMLUpdateResource**. È necessario creare prima un servizio collegato di studio (classico) e specificarne il nome come valore per la proprietà **linkedServiceName** . Quando il tipo di attività è impostato su AzureMLUpdateResource, nella sezione **typeProperties** sono supportate le proprietà seguenti:
 
 Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
@@ -5411,7 +5411,7 @@ trainedModelName | Nome del modello sottoposto nuovamente a training. | Sì |
 trainedModelDatasetName | Set di dati che punta al file iLearner restituito dall'operazione di ripetizione del training. | Sì |
 
 ### <a name="json-example"></a>Esempio di JSON
-La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. Attività di esecuzione batch di Azure Machine Learning Studio accetta i dati di training come input e genera il file con estensione iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
+La pipeline include due attività: **AzureMLBatchExecution** e **AzureMLUpdateResource**. L'attività di esecuzione batch di studio (classica) accetta i dati di training come input e produce un file iLearner come output. L'attività richiama il servizio Web di training, l'esperimento di training esposto come servizio Web, con i dati di training di input e riceve il file iLearner dal servizio Web. placeholderBlob è solo un set di dati di output fittizio richiesto dal servizio Data factory di Azure per eseguire la pipeline.
 
 
 ```json

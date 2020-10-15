@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
 ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82925423"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrare un'app di Azure AD
@@ -45,4 +45,4 @@ Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD
 1. Selezionare **Aggiungi un'attestazione facoltativa**.
 1. Per il **tipo di token**selezionare **ID**.
 1. Selezionare le attestazioni facoltative da aggiungere, `family_name` e `given_name` .
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.

@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906934"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090829"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrare Azure Spring Cloud con le soluzioni di bilanciamento del carico di Azure
 
-**Questo articolo si applica a:** ✔️ Java ✔️ C #
+**Questo articolo si applica a:** ✔️ Java ✔️ C#
 
 Il cloud Spring di Azure supporta i microservizi in Azure.  L'aumento dell'attività può richiedere più data center con la gestione di più istanze di Azure Spring cloud.
 
@@ -28,10 +28,10 @@ Azure fornisce già diverse soluzioni di bilanciamento del carico. Sono disponib
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Cloud Spring di Azure: [come creare un servizio cloud Spring di Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
-* Gestione traffico di Azure: [come creare un gestore traffico](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* Gateway app Azure: [come creare un gateway applicazione](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* Sportello anteriore di Azure: [come creare una porta anteriore](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* Cloud Spring di Azure: [come creare un servizio cloud Spring di Azure](./spring-cloud-quickstart.md)
+* Gestione traffico di Azure: [come creare un gestore traffico](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Gateway app Azure: [come creare un gateway applicazione](../application-gateway/quick-create-portal.md)
+* Sportello anteriore di Azure: [come creare una porta anteriore](../frontdoor/quickstart-create-front-door.md)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Integrare Azure Spring cloud con gestione traffico di Azure
 
@@ -92,6 +92,6 @@ Per l'integrazione con il servizio cloud Spring di Azure e la configurazione del
     ![Sportello anteriore 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Come creare una gestione traffico](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* [Come creare un gateway applicazione](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* [Come creare una porta anteriore](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* [Come creare una gestione traffico](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [Come creare un gateway applicazione](../application-gateway/quick-create-portal.md)
+* [Come creare una porta anteriore](../frontdoor/quickstart-create-front-door.md)

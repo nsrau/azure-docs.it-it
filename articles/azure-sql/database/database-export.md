@@ -12,10 +12,10 @@ ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
 ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443803"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Esportare in un file BACPAC: database SQL di Azure e Istanza gestita SQL di Azure
@@ -44,7 +44,7 @@ Quando è necessario esportare un database per l'archiviazione o lo spostamento 
 L'esportazione di un BACPAC di un database da [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) usando il portale di Azure non è attualmente supportata. In alternativa, usare SQL Server Management Studio o SqlPackage.
 
 > [!NOTE]
-> I computer che elaborano le richieste di importazione/esportazione inviate tramite il portale di Azure o PowerShell devono archiviare il file BACPAC e i file temporanei generati dal framework dell'applicazione livello dati (DacFX). Lo spazio su disco richiesto varia significativamente tra i database con le stesse dimensioni e può richiedere spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono la richiesta di importazione/esportazione hanno solo spazio su disco locale 450GB. Di conseguenza, alcune richieste potrebbero non riuscire con l'errore `There is not enough space on the disk` . In questo caso, la soluzione alternativa consiste nell'eseguire sqlpackage.exe in un computer con sufficiente spazio su disco locale. Si consiglia di usare [SqlPackage](#sqlpackage-utility) per importare/esportare database di dimensioni superiori a 150 GB per evitare questo problema.
+> Nei computer che elaborano le richieste di importazione ed esportazione inviate tramite il portale di Azure o PowerShell deve essere archiviato il file BACPAC, oltre ai file temporanei generati da Data-Tier Application Framework (DacFX). Lo spazio su disco necessario varia significativamente tra i database con le stesse dimensioni. Potrebbe essere necessario spazio su disco fino a 3 volte la dimensione del database. I computer che eseguono la richiesta di importazione/esportazione hanno solo spazio su disco locale 450GB. Di conseguenza, alcune richieste potrebbero non riuscire restituendo l'errore `There is not enough space on the disk`. È possibile ovviare a questo problema eseguendo sqlpackage.exe in un computer con spazio su disco locale sufficiente. Si consiglia di usare [SqlPackage](#sqlpackage-utility) per importare/esportare database di dimensioni superiori a 150 GB per evitare questo problema.
 
 1. Per esportare un database con il [portale di Azure](https://portal.azure.com), aprire la pagina relativa al database e fare clic su **Esporta** sulla barra degli strumenti.
 

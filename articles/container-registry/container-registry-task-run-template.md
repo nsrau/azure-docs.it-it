@@ -4,10 +4,10 @@ description: Accodare un'attività ACR eseguita per compilare un'immagine usando
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82927769"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Eseguire attività ACR usando modelli di Gestione risorse
@@ -39,7 +39,7 @@ Questo esempio usa un [modello di esempio](https://github.com/Azure/acr/tree/mas
 
 Per questo esempio, specificare i valori per i parametri di modello seguenti:
 
-|Parametro  |valore  |
+|Parametro  |Valore  |
 |---------|---------|
 |registryName     |Nome univoco del registro di sistema creato         |
 |repository     |Repository di destinazione per l'attività di compilazione        |
@@ -179,7 +179,7 @@ az role assignment create \
 
 Per questo esempio, specificare i valori per i parametri di modello seguenti:
 
-|Parametro  |valore  |
+|Parametro  |Valore  |
 |---------|---------|
 |registryName     |Nome del registro in cui viene compilata l'immagine  |
 |repository     |Repository di destinazione per l'attività di compilazione        |

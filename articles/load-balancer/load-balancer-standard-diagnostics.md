@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
 ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88717337"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
@@ -200,7 +200,7 @@ Usare **Totale** come aggregazione per la maggior parte degli scenari.
 
 Per ottenere statistiche relative al conteggio di byte o pacchetti:
 1. Selezionare il tipo di metrica **Conteggio byte** e/o **Conteggio pacchetti** con **Media** come aggregazione. 
-2. Effettuare una delle operazioni seguenti:
+2. Eseguire una delle operazioni seguenti:
    * Applicare un filtro su una specifica porta IP front-end, porta front-end, porta IP back-end o porta back-end.
    * È possibile ottenere statistiche generali per la risorsa di Load Balancer senza applicare filtri.
 

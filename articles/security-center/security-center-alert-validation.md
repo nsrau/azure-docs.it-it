@@ -1,6 +1,6 @@
 ---
-title: Convalida avvisi (file di test EICAR) nel centro sicurezza di Azure | Microsoft Docs
-description: Questo documento illustra come convalidare gli avvisi di sicurezza nel Centro sicurezza di Azure.
+title: Convalida degli avvisi nel centro sicurezza di Azure | Microsoft Docs
+description: Informazioni su come verificare che gli avvisi di sicurezza siano configurati correttamente nel centro sicurezza di Azure
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0c777c2461047f21e8fb413faec6d5f1140fc75f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91438798"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971609"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Convalida degli avvisi nel centro sicurezza di Azure
 Questo documento illustra come verificare che il sistema sia configurato correttamente per gli avvisi del Centro sicurezza di Azure.
@@ -26,12 +26,6 @@ Questo documento illustra come verificare che il sistema sia configurato corrett
 ## <a name="what-are-security-alerts"></a>Informazioni sugli avvisi di sicurezza
 Gli avvisi sono le notifiche generate dal Centro sicurezza quando rileva minacce per le risorse. Assegna priorità ed elenca gli avvisi insieme alle informazioni necessarie per analizzare rapidamente il problema. Il Centro sicurezza offre anche raccomandazioni per la risoluzione di un attacco.
 Per altre informazioni, vedere [avvisi di sicurezza nel centro sicurezza](security-center-alerts-overview.md) e [gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
-
-## <a name="alert-validation"></a>Convalida degli avvisi
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## <a name="validate-alerts-on-windows-vms"></a>Convalidare gli avvisi per le macchine virtuali Windows <a name="validate-windows"></a>
 

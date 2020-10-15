@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007571"
 ---
 # <a name="features"></a>Funzionalità
@@ -39,14 +39,14 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 | Elimina (condizionale)           | No        | No        | No        |                                                     |
 | create                         | Sì       | Sì       | Sì       | Supporto per POST/PUT                               |
 | Crea (condizionale)           | Sì       | Sì       | Sì       |                                                     |
-| ricerca                         | Parziale   | Parziale   | Parziale   | Vedere di seguito                                           |
+| ricerca                         | Partial   | Partial   | Partial   | Vedere di seguito                                           |
 | ricerca concatenata                 | No        | Sì       | No        |                                           |
 | ricerca inversa concatenata         | No        | No        | No        |                                            |
 | capabilities                   | Sì       | Sì       | Sì       |                                                     |
 | o batch                          | Sì       | Sì       | Sì       |                                                     |
 | transaction                    | No        | Sì       | No        |                                                     |
 | history                        | Sì       | Sì       | Sì       |                                                     |
-| paging                         | Parziale   | Parziale   | Parziale   | `self` e `next` sono supportati                     |
+| paging                         | Partial   | Partial   | Partial   | `self` e `next` sono supportati                     |
 | intermediari                 | No        | No        | No        |                                                     |
 
 ## <a name="search"></a>Ricerca
@@ -55,7 +55,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 
 | Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |-----------------------|-----------|-----------|-----------|---------|
-| Number                | Sì       | Sì       | Sì       |         |
+| Numero                | Sì       | Sì       | Sì       |         |
 | Date/DateTime         | Sì       | Sì       | Sì       |         |
 | string                | Sì       | Sì       | Sì       |         |
 | token                 | Sì       | Sì       | Sì       |         |
@@ -98,10 +98,10 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | Operazioni di ricerca       | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
-| `_sort`                 | Parziale        | Parziale   | Parziale        |   `_sort=_lastUpdated` è supportato       |
+| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` è supportato       |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Sì       | Sì       | Sì       |         |
-| `_summary`              | Parziale   | Parziale   | Parziale   | `_summary=count` è supportato |
+| `_summary`              | Parziale   | Partial   | Partial   | `_summary=count` è supportato |
 | `_include`              | No        | Sì       | No        |         |
 | `_revinclude`           | No        | Sì       | No        | Gli elementi inclusi sono limitati a 100. |
 | `_contained`            | No        | No        | No        |         |
@@ -127,7 +127,7 @@ Cosmos DB è un database multimodello distribuito a livello globale (API SQL, AP
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Il server FHIR USA [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per il controllo di accesso. In particolare, viene applicato il controllo degli accessi in base al ruolo (RBAC), se il `FhirServer:Security:Enabled` parametro di configurazione è impostato su `true` e tutte le richieste (eccetto `/metadata` ) al server FHIR devono avere l' `Authorization` intestazione della richiesta impostata su `Bearer <TOKEN>` . Il token deve contenere uno o più ruoli come definito nell' `roles` attestazione. Sarà consentita una richiesta se il token contiene un ruolo che consente l'azione specificata sulla risorsa specificata.
+Il server FHIR USA [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per il controllo di accesso. In particolare, viene applicato il controllo di accesso Role-Based (RBAC), se il `FhirServer:Security:Enabled` parametro di configurazione è impostato su `true` e tutte le richieste (eccetto `/metadata` ) al server FHIR devono avere l' `Authorization` intestazione della richiesta impostata su `Bearer <TOKEN>` . Il token deve contenere uno o più ruoli come definito nell' `roles` attestazione. Sarà consentita una richiesta se il token contiene un ruolo che consente l'azione specificata sulla risorsa specificata.
 
 Attualmente, le azioni consentite per un determinato ruolo vengono applicate a *livello globale* nell'API.
 

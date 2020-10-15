@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505597"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Spostamento dei dati nel cluster vFXT - Inserimento di dati parallelo
@@ -286,7 +286,7 @@ I test preliminari su una macchina virtuale con quattro core hanno indicato la m
 
 È anche possibile usare l' ``--inplace`` argomento con i ``msrsync`` comandi. Se si usa questa opzione, provare a eseguire un secondo comando (come con [rsync](#use-a-two-phase-rsync-process), descritto in precedenza) per garantire l'integrità dei dati.
 
-``msrsync``può scrivere solo da e verso volumi locali. L'origine e la destinazione devono essere accessibili montaggi locali nella rete virtuale del cluster.
+``msrsync`` può scrivere solo da e verso volumi locali. L'origine e la destinazione devono essere accessibili montaggi locali nella rete virtuale del cluster.
 
 Per usare ``msrsync`` per popolare un volume cloud di Azure con un cluster di inserimento, seguire queste istruzioni:
 

@@ -4,10 +4,10 @@ description: Creare un token con autorizzazioni con ambito in repository specifi
 ms.topic: article
 ms.date: 05/27/2020
 ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84509407"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creare un token con autorizzazioni con ambito repository
@@ -149,7 +149,7 @@ L'output Mostra i dettagli sul token. Per impostazione predefinita, vengono gene
 
 Nell'esempio seguente vengono creati un token e un mapping di ambito con le seguenti autorizzazioni per il repository `samples/hello-world`: `content/write` e `content/read`.
 
-1. Nel portale passare al registro contenitori.
+1. Passare al registro contenitori nel portale.
 1. In **autorizzazioni repository**selezionare **token (anteprima) > + Aggiungi**.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Creare il token nel portale":::
@@ -159,7 +159,7 @@ Nell'esempio seguente vengono creati un token e un mapping di ambito con le segu
     1. Immettere un nome e una descrizione per il mapping di ambito. 
     1. In **Repository** immettere `samples/hello-world` e in **Autorizzazioni** selezionare `content/read` e `content/write`. Quindi selezionare **+Aggiungi**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Creare un mapping di ambito nel portale":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Creare il token nel portale":::
 
     1. Dopo l'aggiunta di repository e autorizzazioni, selezionare **Aggiungi** per aggiungere il mapping di ambito.
 1. Accettare lo **stato** predefinito del token **Abilitato** e quindi selezionare **Crea**.
@@ -176,7 +176,7 @@ Per usare un token creato nel portale, è necessario generare una password. È p
 1. Nella schermata della password, se necessario impostare una data di scadenza per la password e selezionare **Genera**. È consigliabile impostare una data di scadenza.
 1. Dopo aver generato una password, copiarla e salvarla in una posizione sicura. Non è possibile recuperare una password generata dopo aver chiuso la schermata, ma è possibile generarne una nuova.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Creare la password del token nel portale":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Creare il token nel portale":::
 
 ## <a name="authenticate-with-token"></a>Eseguire l'autenticazione con un token
 

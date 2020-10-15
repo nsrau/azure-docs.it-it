@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89229005"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Baseline della sicurezza di Azure per analisi di flusso
@@ -260,7 +260,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Indicazioni**: creare un piano di sicurezza per la gestione delle identità e i ruoli, seguendo le procedure consigliate, incluso il principio dell'accesso con privilegi minimi per i ruoli di amministratore. Usare Azure Privileged Identity Management (PIM) per fornire accesso con privilegi JIT per Azure AD e risorse di Azure. Usare gli avvisi e la cronologia di controllo di Azure PIM per monitorare l'attività degli account amministrativi. Utilizzare Azure AD report di sicurezza per identificare gli account amministrativi che potrebbero essere stati compromessi.
 
-* [Altre informazioni](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+* [Scopri di più](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -856,7 +856,7 @@ I dati nell'account di archiviazione Microsoft Azure vengono sempre replicati au
 
 * [Protezione dei dati in analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/data-protection#private-data-assets-that-are-stored)
 
-* [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di servizio](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Informazioni sulla ridondanza di archiviazione di Azure e sui contratti di Service-Level](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 * [Gestire il ciclo di vita di Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)
 

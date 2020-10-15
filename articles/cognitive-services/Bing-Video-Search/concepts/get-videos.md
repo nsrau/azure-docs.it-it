@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79220303"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
@@ -120,10 +120,10 @@ Per informazioni dettagliate sull'uso di [videoId](https://docs.microsoft.com/re
 
 Per impostazione predefinita, l'API Ricerca video riporta tutti i video pertinenti alla query. Se si ricercano solo video gratuiti o video di lunghezza inferiore a cinque minuti, è possibile utilizzare i seguenti parametri di filtro per la query:
 
-- [i prezzi](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing)&mdash;filtrano i video per i prezzi (ad esempio, video gratuiti o per i quali è necessario pagare)
-- [filtrare i video per risoluzione (](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution)ad esempio, video con una risoluzione 720p o successiva)&mdash;
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength)&mdash;filtra i video per lunghezza video (ad esempio, video di lunghezza inferiore a cinque minuti)
-- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness)&mdash;video del filtro di aggiornamento per età (ad esempio, video rilevati da Bing nell'ultima settimana)
+- [prezzi](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; di Filtrare i video in base ai prezzi (ad esempio, video gratuiti o per i quali è necessario pagare)
+- [risoluzione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; dei problemi Filtra i video per risoluzione (ad esempio, video con una risoluzione 720p o superiore)
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrare i video in base alla lunghezza del video (ad esempio, video di lunghezza inferiore a cinque minuti)
+- [aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtra i video per età (ad esempio, video rilevati da Bing nell'ultima settimana)
 
 Per ottenere risultati di ricerca da un dominio specifico, includere il [sito:](https://msdn.microsoft.com/library/ff795613.aspx) dell'operatore query, nella stringa di query.
 

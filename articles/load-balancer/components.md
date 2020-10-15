@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589708"
+ms.locfileid: "91930952"
 ---
 # <a name="azure-load-balancer-components"></a>Componenti di Azure Load Balancer
 
@@ -125,6 +125,13 @@ Una regola in uscita configura il processo NAT (Network Address Translation) in 
 Leggere altre informazioni su [connessioni e regole in uscita](load-balancer-outbound-connections.md).
 
 Il servizio Load Balancer Basic non supporta le regole in uscita.
+
+## <a name="limitations"></a>Limitazioni
+
+- Load Balancer fornisce funzionalità di bilanciamento del carico e il port forwarding per protocolli TCP o UDP specifici. Le regole di bilanciamento del carico e le regole NAT in ingresso supportano TCP e UDP, ma non altri protocolli IP, ad esempio ICMP.
+- Il flusso in uscita da una macchina virtuale back-end a un front-end di un servizio Load Balancer interno non verrà eseguito.
+- Una regola di bilanciamento del carico non può estendersi a due reti virtuali.  I front-end e le relative istanze di back-end devono trovarsi nella stessa rete virtuale.  
+- L'inoltro di frammenti IP non è supportato nelle regole di bilanciamento del carico. né lo è frammentazione IP dei pacchetti UDP e TCP. È possibile usare le regole di bilanciamento del carico per le porte a disponibilità elevata per l'inoltro di frammenti IP esistenti. Per altre informazioni, vedere [Panoramica delle porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

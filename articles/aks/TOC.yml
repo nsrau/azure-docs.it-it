@@ -6,13 +6,13 @@
       href: intro-kubernetes.md
     - name: Architetture delle soluzioni
       href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un cluster del servizio Azure Kubernetes
       expanded: true
       items:
-        - name: Utilizzare l’interfaccia della riga di comando di Azure
+        - name: Usare l'interfaccia della riga di comando di Azure
           href: kubernetes-walkthrough.md
         - name: Usare Azure PowerShell
           href: kubernetes-walkthrough-powershell.md
@@ -154,7 +154,7 @@
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
           items:
-            - name: Utilizzare l’interfaccia della riga di comando di Azure
+            - name: Usare l'interfaccia della riga di comando di Azure
               href: virtual-nodes-cli.md
             - name: Usare il portale di Azure
               href: virtual-nodes-portal.md
@@ -171,7 +171,7 @@
             - name: Usare i pool di nodi di sistema
               href: use-system-pools.md
         - name: Distribuire servizio Azure Kubernetes con Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
         - name: Usare il visualizzatore di risorse di Kubernetes (anteprima)
           href: kubernetes-portal.md
@@ -358,10 +358,10 @@
     - name: DevOps
       items:
         - name: Usare Ansible per creare cluster servizio Azure Kubernetes
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Distribuzione continua di Jenkins
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Progetto DevOps di Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true

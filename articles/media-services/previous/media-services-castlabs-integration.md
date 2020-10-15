@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
 ms.openlocfilehash: 17b54b2adb21419de61d2309752987f6e4a48e41
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264488"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure
@@ -71,7 +71,7 @@ La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure
 
 La tabella seguente descrive il token JWT usato in castLabs. 
 
-| Nome | Descrizione |
+| Nome | Description |
 | --- | --- |
 | optData |Stringa JSON contenente informazioni relative all'utente. |
 | crt |Stringa JSON contenente informazioni sull'asset, sulla relativa licenza e sui diritti di riproduzione. |

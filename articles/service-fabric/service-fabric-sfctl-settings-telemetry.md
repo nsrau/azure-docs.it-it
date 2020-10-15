@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: ef720a14617b4131474d50875701d0ef27df4151
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245509"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
@@ -28,14 +28,14 @@ Attiva o disattiva la telemetria.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --off | Disattiva la telemetria. |
-| --on | Attiva la telemetria. Si tratta del valore predefinito. |
+| --on | Attiva la telemetria. Rappresenta il valore predefinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -43,7 +43,7 @@ Attiva o disattiva la telemetria.
 | --query | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http\://jmespath.org/. |
 | --verbose | Aumenta il livello di dettaglio della registrazione. Usare --debug per log di debug completi. |
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 Disattiva la telemetria.
 

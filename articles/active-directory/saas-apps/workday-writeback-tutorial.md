@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017473"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072034"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a giornata lavorativa
 L'obiettivo di questa esercitazione è mostrare i passaggi da eseguire per gli attributi di writeback da Azure AD a giornata lavorativa. L'app di provisioning writeback dei giorni lavorativi supporta l'assegnazione di valori agli attributi di giornata lavorativi seguenti:
@@ -144,16 +144,31 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
+1. Nell'elenco a discesa **ambito** selezionare **Sincronizza tutti gli utenti e i gruppi**. Con questa opzione, l'app writeback eseguirà la scrittura degli attributi mappati di tutti gli utenti da Azure ad a giornata lavorativa, in **Mappings**base alle regole di ambito definite nell'  ->  **ambito dell'oggetto di origine**dei mapping. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Seleziona ambito writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > L'app di provisioning writeback dei giorni lavorativi non supporta l'opzione **Sincronizza solo utenti e gruppi assegnati**.
+ 
+
 2. Fare clic su **Salva**.
 
 3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nella directory di origine. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
 
-4. In qualsiasi momento è possibile controllare la scheda **Log di controllo** nel portale di Azure per vedere le azioni che sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti gli eventi di sincronizzazione singoli eseguiti dal servizio di provisioning, ad esempio gli utenti importati dall'origine e esportati nell'applicazione di destinazione.  
+4. In qualsiasi momento, controllare la scheda **log di provisioning** nel portale di Azure per visualizzare le azioni eseguite dal servizio di provisioning. I log di controllo elencano tutti gli eventi di sincronizzazione singoli eseguiti dal servizio di provisioning, ad esempio gli utenti importati dall'origine e esportati nell'applicazione di destinazione.  
 
 5. Una volta completata la sincronizzazione iniziale, viene scritto un report riepilogativo nella scheda **provisioning** , come illustrato di seguito.
 
      > [!div class="mx-imgBorder"]
      > ![Indicatore di stato del provisioning](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+
+* L'app writeback usa un valore predefinito per i parametri **Communication_Usage_Type_ID** e **Phone_Device_Type_ID**. Se il tenant della giornata lavorativa usa un valore diverso per questi attributi, l'operazione di writeback avrà esito negativo. Una soluzione alternativa consigliata consiste nell'aggiornare il Type_IDs nel giorno lavorativo. 
+* Quando l'app writeback è configurata per l'aggiornamento dei numeri di telefono secondari, non sostituisce il numero di telefono secondario esistente nella giornata lavorativa. Aggiunge un altro numero di telefono secondario al record di lavoro. Non esiste alcuna soluzione alternativa a questo comportamento. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

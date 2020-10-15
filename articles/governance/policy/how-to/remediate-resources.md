@@ -1,14 +1,14 @@
 ---
 title: Correggere le risorse non conformi
 description: Questa guida descrive come correggere le risorse che non sono conformi ai criteri di Criteri di Azure.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269846"
+ms.locfileid: "91876329"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -17,7 +17,7 @@ Le risorse che non sono conformi ai criteri **deployIfNotExists** o **modify** p
 ## <a name="how-remediation-security-works"></a>Funzionamento della sicurezza della correzione
 
 Quando il servizio Criteri di Azure esegue il modello nella definizione dei criteri **deployIfNotExists**, usa un'[identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md).
-Il servizio Criteri di Azure crea un'identità gestita per ogni assegnazione, ma è necessario specificare i dettagli su quali ruoli concedere all'identità gestita. Se all'identità gestita non sono assegnati ruoli, viene visualizzato questo errore durante l'assegnazione dei criteri o un'iniziativa. Quando si usa il portale, il servizio Criteri di Azure concede automaticamente all'identità gestita i ruoli elencati dopo l'inizio dell'assegnazione. Quando si usa l'SDK, i ruoli devono essere concessi manualmente all'identità gestita. Il _percorso_ dell'identità gestita non ha alcun effetto sull'operazione con i criteri di Azure.
+Il servizio Criteri di Azure crea un'identità gestita per ogni assegnazione, ma è necessario specificare i dettagli su quali ruoli concedere all'identità gestita. Se nell'identità gestita mancano i ruoli, viene visualizzato un errore durante l'assegnazione del criterio o di un'iniziativa. Quando si usa il portale, il servizio Criteri di Azure concede automaticamente all'identità gestita i ruoli elencati dopo l'inizio dell'assegnazione. Quando si usa l'SDK, i ruoli devono essere concessi manualmente all'identità gestita. Il _percorso_ dell'identità gestita non ha alcun effetto sull'operazione con i criteri di Azure.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot di un criterio deployIfNotExists in cui manca un'autorizzazione definita per l'identità gestita." border="false":::
 

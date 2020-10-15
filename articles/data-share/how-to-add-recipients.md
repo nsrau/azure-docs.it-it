@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 999966192d92481a9d3eec68cfe804566a27f71e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513469"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share"></a>Come aggiungere un destinatario a una condivisione dati esistente in una condivisione dati di Azure
@@ -21,7 +21,7 @@ Per informazioni su come aggiungere i destinatari quando si crea una condivision
 
 ## <a name="navigate-to-a-sent-data-share"></a>Passare a una condivisione dati inviata
 
-In condivisione dati di Azure passare alla condivisione inviata e selezionare la scheda **inviti** . elencati di seguito sono tutti i destinatari degli inviti a questa condivisione di dati. Per aggiungerne una nuova, fare clic su **Aggiungi destinatario**.
+In condivisione dati di Azure passare alla condivisione inviata e selezionare la scheda **inviti** . Di seguito sono elencati tutti i destinatari degli inviti a questa condivisione di dati. Per aggiungerne una nuova, fare clic su **Aggiungi destinatario**.
 
 ![Aggiungi destinatario](./media/how-to/how-to-add-recipients/add-recipient.png)
 

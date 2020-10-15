@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 4f40a821a0a639fa117dc0844146f28d887166e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102752"
 ---
 Gli snapshot incrementali sono backup temporizzati per i dischi gestiti che, quando vengono eseguiti, sono costituiti solo dalle modifiche apportate dopo l'ultimo snapshot. Quando si ripristina un disco da uno snapshot incrementale, il sistema ricostruisce il disco completo che rappresenta il backup temporizzato del disco quando è stato creato lo snapshot incrementale. Questa nuova funzionalità per gli snapshot dei dischi gestiti può potenzialmente essere più conveniente, dal momento che, a meno che non si scelga di, non è necessario archiviare l'intero disco con ogni singolo snapshot. Analogamente agli snapshot completi, gli snapshot incrementali possono essere usati per creare un disco gestito completo o uno snapshot completo.

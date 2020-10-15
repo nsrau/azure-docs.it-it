@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9a2345dce542f941df0122acd12b4acedd3b49a3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561432"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047235"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -32,7 +32,7 @@ I valori seguenti sono necessari più avanti in questo articolo quando si config
 * **_Nome host_** dell'istanza di Gemelli digitali di Azure ([trova nel portale](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * **_Stringa_** di connessione della stringa di connessione di hub eventi di Azure ([trova nel portale](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
-Questo esempio usa anche un **simulatore di dispositivi** che include il provisioning usando il servizio Device provisioning. Il simulatore di dispositivi è disponibile qui: [esempio di integrazione di Azure Digital gemells e dell'hub](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)Internet. Ottenere il progetto di esempio nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo. Decomprimere la cartella scaricata.
+Questo esempio usa anche un **simulatore di dispositivi** che include il provisioning usando il servizio Device provisioning. Il simulatore di dispositivi è disponibile qui: [esempio di integrazione di Azure Digital gemells e dell'hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)Internet. Ottenere il progetto di esempio nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo. Decomprimere la cartella scaricata.
 
 Il simulatore del dispositivo si basa su **Node.js**, versione 10.0. x o successiva. [*Preparare l'ambiente di sviluppo*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
@@ -69,7 +69,7 @@ Quando viene effettuato il provisioning di un nuovo dispositivo usando il serviz
 
 Creare un'istanza del servizio Device provisioning, che verrà usata per eseguire il provisioning dei dispositivi. È possibile usare le istruzioni dell'interfaccia della riga di comando di Azure riportate di seguito oppure usare la portale di Azure: [*Guida introduttiva: configurare il servizio Device provisioning in hub Internet con l'portale di Azure*](../iot-dps/quick-setup-auto-provision.md).
 
-Il comando dell'interfaccia della riga di comando di Azure seguente creerà un servizio Device provisioning. Sarà necessario specificare un nome, un gruppo di risorse e un'area. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
+Il comando dell'interfaccia della riga di comando di Azure seguente creerà un servizio Device provisioning. Sarà necessario specificare un nome, un gruppo di risorse e un'area. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
 
 ```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -258,7 +258,7 @@ Durante l'esecuzione di tale flusso, si collegherà la registrazione alla funzio
 
 ### <a name="set-up-the-device-simulator"></a>Configurare il simulatore di dispositivi
 
-Questo esempio usa un simulatore di dispositivi che include il provisioning tramite il servizio Device provisioning. Il simulatore di dispositivi è disponibile qui: [esempio di integrazione di Azure Digital gemells e dell'hub](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)Internet. Se l'esempio non è ancora stato scaricato, scaricarlo ora passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo. Decomprimere la cartella scaricata.
+Questo esempio usa un simulatore di dispositivi che include il provisioning tramite il servizio Device provisioning. Il simulatore di dispositivi è disponibile qui: [esempio di integrazione di Azure Digital gemells e dell'hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)Internet. Se l'esempio non è ancora stato scaricato, scaricarlo ora passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo. Decomprimere la cartella scaricata.
 
 Aprire una finestra di comando e passare alla cartella scaricata, quindi alla directory *Device-Simulator* . Installare le dipendenze per il progetto usando il comando seguente:
 
@@ -447,7 +447,7 @@ Salvare il progetto, quindi pubblicare di nuovo l'app per le funzioni. Per istru
 
 A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenente il riferimento all'istanza di Azure Digital Twins creata e all'hub eventi. Se è stata usata l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)), la prima impostazione sarà già configurata.
 
-Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
+Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
 
 ```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -480,7 +480,7 @@ Per attivare il processo di ritiro, è necessario eliminare manualmente il dispo
 
 Nella [prima metà di questo articolo](#auto-provision-device-using-device-provisioning-service)è stato creato un dispositivo nell'hub Internet e un dispositivo gemello digitale corrispondente. 
 
-A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
+A questo punto, passare all'hub Internet e quindi eliminare il dispositivo. è possibile eseguire questa operazione con un [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs). 
 
 Il dispositivo verrà rimosso automaticamente dai dispositivi gemelli digitali di Azure. 
 
@@ -497,7 +497,7 @@ Si noterà che il gemello del dispositivo non è più disponibile nell'istanza d
 
 Se le risorse create in questo articolo non sono più necessarie, attenersi alla procedura seguente per eliminarle.
 
-Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Il gruppo di risorse verrà rimosso. istanza di Azure Digital Twins; l'hub Internet delle cose e la registrazione del dispositivo hub; argomento di griglia di eventi e sottoscrizioni associate; lo spazio dei nomi di hub eventi e entrambe le app di funzioni di Azure, incluse le risorse associate come l'archiviazione.
+Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale è possibile eliminare tutte le risorse di Azure in un gruppo di risorse con il comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Il gruppo di risorse verrà rimosso. istanza di Azure Digital Twins; l'hub Internet delle cose e la registrazione del dispositivo hub; argomento di griglia di eventi e sottoscrizioni associate; lo spazio dei nomi di hub eventi e entrambe le app di funzioni di Azure, incluse le risorse associate come l'archiviazione.
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 

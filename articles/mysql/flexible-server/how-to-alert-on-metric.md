@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: d4385ccda665e9acd2d2f9fd340e675b8a9dfe6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940518"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Usare il portale di Azure per configurare gli avvisi relativi alle metriche per database di Azure per MySQL-server flessibili 
@@ -44,7 +44,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
     - Se si usa una soglia **statica** , continuare a definire un **valore soglia** (ad esempio, 85%). Il grafico delle metriche può essere utile per determinare quale sia una soglia ragionevole.
     - Se si usa una soglia **dinamica** , continuare a definire la **sensibilità della soglia**. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti. [Altre informazioni sulle opzioni di sensibilità e i tipi di condizione delle soglie dinamiche](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. Perfezionare la condizione modificando l'intervallo di **granularità (periodo) di aggregazione** su cui vengono raggruppati i punti dati utilizzando la funzione del tipo di aggregazione (ad esempio, "30 minuti") e **frequenza** (ad esempio "ogni 15 minuti").
-10. Fare clic su **Done**.
+10. Fare clic su **Fine**.
 11. Aggiungere un gruppo di azione. Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Nella sezione **gruppi di azione** scegliere **Seleziona gruppo di azioni** per selezionare un gruppo di azioni già esistente da allineare alla regola di avviso.
 12. È anche possibile creare un nuovo gruppo di azioni per ricevere le notifiche relative all'avviso. Per ulteriori informazioni, vedere [creare e gestire il gruppo di azioni](../../azure-monitor/platform/action-groups.md) .
 13. Per creare un nuovo gruppo di azioni, scegliere **+ Crea gruppo di azioni**. Compilare il modulo "Crea gruppo di azioni" con una **sottoscrizione**, un **gruppo di risorse**, il nome del gruppo di **azioni** e il **nome visualizzato**.

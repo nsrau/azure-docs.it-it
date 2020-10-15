@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1883ffdff20bbbef8efec1440854f01a21a281dc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297046"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045721"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizzare Visual Studio 2019 per sviluppare ed eseguire il debug di moduli per Azure IoT Edge
 
@@ -32,7 +32,7 @@ Questo articolo illustra come usare gli strumenti Azure IoT Edge per Visual Stud
 
 Questo articolo presuppone che si usi un computer o una macchina virtuale Windows come computer di sviluppo. Nei computer Windows è possibile sviluppare moduli Windows o Linux. Per sviluppare moduli Windows, usare un computer Windows che esegue la versione 1809/Build 17763 o successiva. Per sviluppare moduli Linux, usare un computer Windows che soddisfi i [requisiti per il desktop Docker](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-Poiché in questo articolo viene usato Visual Studio 2019 come strumento di sviluppo principale, installare Visual Studio. Assicurarsi di includere i carichi di lavoro sviluppo di **Azure** e **sviluppo di applicazioni desktop con C++** nell'installazione di Visual Studio 2019. È possibile [modificare Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) per aggiungere i carichi di lavoro necessari.
+Poiché in questo articolo viene usato Visual Studio 2019 come strumento di sviluppo principale, installare Visual Studio. Assicurarsi di includere i carichi di lavoro sviluppo di **Azure** e **sviluppo di applicazioni desktop con C++** nell'installazione di Visual Studio 2019. È possibile [modificare Visual Studio 2019](/visualstudio/install/modify-visual-studio?view=vs-2019) per aggiungere i carichi di lavoro necessari.
 
 Quando Visual Studio 2019 è pronto, sono necessari anche gli strumenti e i componenti seguenti:
 
@@ -62,7 +62,7 @@ Quando Visual Studio 2019 è pronto, sono necessari anche gli strumenti e i comp
   vcpkg.exe --triplet x64-windows integrate install
   ```
 
-- [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) o [hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
+- [Registro Azure Container](../container-registry/index.yml) o [hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags).
 
   > [!TIP]
   > Per prototipi e test è possibile usare un registro Docker locale anziché un registro nel cloud.
@@ -232,7 +232,7 @@ Nell'articolo della guida introduttiva usato per configurare il dispositivo IoT 
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-1. Per monitorare il messaggio D2C per uno specifico dispositivo Edge-Edge, selezionarlo nell'hub Internet in **Cloud Explorer** e quindi fare clic su **Avvia monitoraggio endpoint di evento predefinito** nella finestra **azione** .
+1. Per monitorare il messaggio D2C per uno specifico dispositivo di IoT-Edge, selezionarlo nell'hub di Internet delle cose in **Cloud Explorer** e quindi fare clic su **Avvia monitoraggio endpoint evento predefinito** nella finestra **azione** .
 
 1. Per arrestare il monitoraggio dei dati, selezionare **Interrompi monitoraggio endpoint evento predefinito** nella finestra **azione** .
 

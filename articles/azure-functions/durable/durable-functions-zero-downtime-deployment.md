@@ -7,10 +7,10 @@ ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87093069"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Distribuzione senza tempi di inattività per Durable Functions
@@ -54,7 +54,7 @@ Per configurare questo scenario, attenersi alla procedura riportata di seguito.
 
 1. Per ogni slot, creare una nuova impostazione di app, ad esempio `DurableManagementStorage` . Impostarne il valore sulla stringa di connessione di account di archiviazione diversi. Questi account di archiviazione vengono usati dall'estensione Durable Functions per l' [esecuzione affidabile](./durable-functions-orchestrations.md). Usare un account di archiviazione separato per ogni slot. Non contrassegnare questa impostazione come impostazione dello slot di distribuzione.
 
-1. Nella [sezione durableTask dell'host.jsapp per](durable-functions-bindings.md#hostjson-settings)le funzioni specificare `azureStorageConnectionStringName` come nome dell'impostazione dell'app creata nel passaggio 3.
+1. Nella [ sezione durableTask dell'host.jsapp per](durable-functions-bindings.md#hostjson-settings)le funzioni specificare `azureStorageConnectionStringName` come nome dell'impostazione dell'app creata nel passaggio 3.
 
 Il diagramma seguente illustra la configurazione descritta degli slot di distribuzione e degli account di archiviazione. In questo potenziale scenario di pre-distribuzione, la versione 2 di un'app per le funzioni è in esecuzione nello slot di produzione, mentre la versione 1 rimane nello slot di staging.
 

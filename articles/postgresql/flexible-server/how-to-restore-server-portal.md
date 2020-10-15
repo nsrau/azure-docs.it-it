@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938865"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>Ripristino temporizzato di un server flessibile
@@ -40,7 +40,7 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 4.  Selezionare il **punto di ripristino meno recente** e specificare un nuovo nome del server nel campo Ripristina nel **nuovo server** . Viene visualizzato il timestamp meno recente in cui è possibile eseguire il ripristino. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Tempo di ripristino più recente":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="Panoramica sul ripristino":::
 
 5.  Fare clic su **OK**.
 
@@ -61,7 +61,7 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 5.  Selezionare data e ora e specificare un nuovo nome del server nel campo **Ripristina nel nuovo server** . 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Ora ripristino personalizzato":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="Panoramica sul ripristino":::
  
 6.  Fare clic su **OK**.
 

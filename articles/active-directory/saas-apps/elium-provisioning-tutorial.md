@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544231"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Esercitazione: configurare Elium per il provisioning utenti automatico
@@ -49,7 +49,7 @@ Quando si assegna un utente a Elium, è necessario selezionare un ruolo valido s
 
 ## <a name="set-up-elium-for-provisioning"></a>Configurare Elium per il provisioning
 
-Prima di configurare Elium per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di sistema per la gestione delle identità tra domini (SCIM) su Elium. Attenersi ai passaggi descritti di seguito.
+Prima di configurare Elium per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di sistema per la gestione delle identità tra domini (SCIM) su Elium. Seguire questa procedura:
 
 1. Accedere a Elium e passare alle impostazioni del **profilo**  >  **Settings**.
 
@@ -65,7 +65,7 @@ Prima di configurare Elium per il provisioning utenti automatico con Azure AD, �
 
 ## <a name="add-elium-from-the-gallery"></a>Aggiungere Elium dalla raccolta
 
-Per configurare Elium per il provisioning utenti automatico con Azure AD, è anche necessario aggiungere Elium dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS (software-as-a-Service) gestite. Attenersi ai passaggi descritti di seguito.
+Per configurare Elium per il provisioning utenti automatico con Azure AD, è anche necessario aggiungere Elium dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS (software-as-a-Service) gestite. Seguire questa procedura:
 
 1. Nel riquadro di spostamento a sinistra del [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**.
 
@@ -116,7 +116,7 @@ Per configurare il provisioning utenti automatico per Elium in Azure AD, seguire
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 1. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Elium**.
 

@@ -4,10 +4,10 @@ description: Descrive le funzioni disponibili per l'uso con gli artefatti del pr
 ms.date: 08/27/2020
 ms.topic: reference
 ms.openlocfilehash: fe984ee7664b0d50fb891d946f9f40a200ccce09
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89050761"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funzioni da usare con Azure Blueprints

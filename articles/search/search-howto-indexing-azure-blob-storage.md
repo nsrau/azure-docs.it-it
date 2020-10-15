@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: e3419711c9a7358914f85574f6dbd5af29def1cf
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403612"
 ---
 # <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Come configurare un indicizzatore BLOB in Azure ricerca cognitiva
@@ -31,7 +31,7 @@ L'indicizzatore BLOB può estrarre il testo dai formati di documento seguenti:
 
 È possibile impostare un indicizzatore dell'Archiviazione BLOB di Azure usando:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portale di Azure](https://ms.portal.azure.com)
 * [API REST](/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
 * Azure ricerca cognitiva [.NET SDK](/dotnet/api/overview/azure/search)
 
@@ -163,7 +163,7 @@ A seconda della relativa [configurazione](#PartsOfBlobToIndex), l'indicizzatore 
 
   * **metadata\_storage\_name** (Edm.String): nome file del BLOB. Se, ad esempio, è presente un BLOB /my-container/my-folder/subfolder/resume.pdf, il valore di questo campo è `resume.pdf`.
 
-  * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio, usare `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path** (Edm.String): URI completo del BLOB, incluso l'account di archiviazione. Ad esempio: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
   * **metadata\_storage\_content\_type** (Edm.String): tipo di contenuto specificato dal codice usato per caricare il BLOB. Ad esempio: `application/octet-stream`.
 
@@ -296,7 +296,7 @@ Il parametro di configurazione `dataToExtract` permette di controllare quali par
 
 * `storageMetadata`: specifica che vengono indicizzati solo [i metadati specificati dall'utente e le proprietà BLOB standard](../storage/blobs/storage-blob-container-properties-metadata.md).
 * `allMetadata`: specifica che vengono indicizzati i metadati di archiviazione e i [metadati specifici del tipo di contenuto](#ContentSpecificMetadata) estratti dal contenuto BLOB.
-* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Si tratta del valore predefinito.
+* `contentAndMetadata`: specifica che vengono indicizzati tutti i metadati e il contenuto di testo estratti dal BLOB. Rappresenta il valore predefinito.
 
 Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
 
@@ -315,7 +315,7 @@ Ad esempio, per indicizzare solo i metadati di archiviazione, usare:
 
 I parametri di configurazione descritti in precedenza si applicano a tutti i BLOB. In alcuni casi è consigliabile controllare il modo in cui vengono indicizzati i *singoli BLOB*. A tale scopo è possibile aggiungere i valori e le proprietà seguenti dei metadati del BLOB:
 
-| Nome della proprietà | Valore proprietà | Spiegazione |
+| Nome proprietà | Valore proprietà | Spiegazione |
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |Indica all'indicizzatore BLOB di ignorare completamente il BLOB. Non verrà tentata l'estrazione dei metadati né del contenuto. È utile quando un determinato BLOB ha ripetutamente esito negativo e interrompe il processo di indicizzazione. |
 | AzureSearch_SkipContent |"true" |Equivale all'impostazione `"dataToExtract" : "allMetadata"` descritta [in precedenza](#PartsOfBlobToIndex) nell'ambito di un BLOB specifico. |

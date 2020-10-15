@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: d8a480481e47995f9f819122a3e8cc0b0a21a254
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851881"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091441"
 ---
 # <a name="create-an-azure-support-request"></a>Creare una richiesta di supporto in Azure
 
@@ -39,7 +39,7 @@ Azure offre un supporto illimitato per la gestione delle sottoscrizioni, che inc
 
 Selezionare **Guida e supporto** nel portale di Azure. È disponibile dal menu del portale di Azure, dall'intestazione globale o dal menu delle risorse per un servizio. Prima di poter archiviare una richiesta di supporto, è necessario disporre delle autorizzazioni appropriate.
 
-### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+### <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
 Per creare una richiesta di supporto, è necessario essere [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) o essere assegnato al ruolo di [Collaboratore richieste di supporto](../../role-based-access-control/built-in-roles.md#support-request-contributor) a livello di sottoscrizione. Per creare una richiesta di supporto senza una sottoscrizione, ad esempio uno scenario di Azure Active Directory, è necessario essere un [amministratore](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -114,5 +114,5 @@ Per ulteriori informazioni, seguire i collegamenti seguenti:
 * [API REST dei ticket di supporto di Azure](/rest/api/support)
 * [Inviare feedback e suggerimenti](https://feedback.azure.com/forums/266794-support-feedback)
 * Interagire con Microsoft su [Twitter](https://twitter.com/azuresupport)
-* Ottenere assistenza dai peer sulla [pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/azure)
+* Ottenere assistenza dai peer sulla [pagina delle domande di Domande e risposte Microsoft](/answers/products/azure)
 * Altre informazioni sono disponibili in [Domande frequenti relative al supporto di Azure](https://azure.microsoft.com/support/faq)

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89077909"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
@@ -22,7 +22,7 @@ AzCopy è un'utilità da riga di comando che è possibile usare per copiare i da
 > [!TIP]
 > Gli esempi in questo articolo racchiudono gli argomenti del percorso con virgolette singole (''). Usare le virgolette singole in tutte le shell dei comandi eccetto la shell dei comandi di Windows (cmd.exe). Se si usa una shell dei comandi di Windows (cmd.exe), racchiudere gli argomenti del percorso con virgolette doppie ("") anziché virgolette singole ('').
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e informazioni sui modi in cui è possibile fornire le credenziali di autorizzazione al servizio di archiviazione.
 
@@ -60,7 +60,7 @@ Questa sezione contiene gli esempi seguenti:
 > [!TIP]
 > È possibile modificare l'operazione di caricamento usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Caricare i file come BLOB di accodamento o BLOB di pagine.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
 > |Effettuare il caricamento in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
@@ -168,7 +168,7 @@ Questa sezione contiene gli esempi seguenti:
 > [!TIP]
 > È possibile modificare l'operazione di download usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Decomprime automaticamente i file.|**--Decomprimi**|
 > |Specificare il modo in cui si desidera che le voci di log relative alla copia siano disponibili.|**--livello** = \[ di log informazioni sull'errore di avviso \| \| \| nessuno\]|
@@ -303,7 +303,7 @@ Questi esempi funzionano anche con gli account che hanno uno spazio dei nomi ger
 > [!TIP]
 > È possibile modificare l'operazione di copia usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Copiare i BLOB come blocchi, pagine o BLOB di Accodamento.|**--BLOB-type** = \[ BlockBlob \| PageBlob \| AppendBlob\]|
 > |Copiare in un livello di accesso specifico, ad esempio il livello archivio.|**--Block-BLOB-Tier** = \[ Nessun \| \| Archivio Hot Cool \|\]|
@@ -368,7 +368,7 @@ Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file sen
 > [!TIP]
 > È possibile modificare l'operazione di sincronizzazione usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Consente di specificare il modo in cui devono essere convalidati gli hash MD5 durante il download.|**--Check-MD5** = \[ NOCHECK \| loginly \| FailIfDifferent \| FailIfDifferentOrMissing\]|
 > |Escludere i file in base a un modello.|**--Exclude-Path**|

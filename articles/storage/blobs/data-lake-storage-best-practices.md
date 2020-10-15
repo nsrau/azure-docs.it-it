@@ -9,17 +9,17 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: e008bad2043d8cd633f0849aefc62c4ed7a7e89d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86104878"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen2
 
 Questo articolo illustra le procedure consigliate e alcune considerazioni sul funzionamento di Azure Data Lake Storage Gen2. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Storage Gen2. Prima di Data Lake Storage Gen2, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Storage Gen2 supporta le dimensioni dei singoli file, ad esempio 5 TB, e la maggior parte dei limiti rigidi per le prestazioni sono stati rimossi. Tuttavia, in questo articolo sono comunque illustrate alcune considerazioni che aiutano a ottenere prestazioni ottimali con Data Lake Storage Gen2.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Azure Data Lake Storage Gen2 offre controlli di accesso POSIX per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e directory esistenti. I controlli di accesso possono essere usati anche per creare autorizzazioni predefinite che possono essere applicate automaticamente a nuovi file o directory. Altri dettagli sugli elenchi di controllo di accesso di Data Lake Storage Gen2 sono disponibili in [Controllo di accesso di Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
 

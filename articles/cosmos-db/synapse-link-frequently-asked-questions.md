@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 9eb1f9162f0546e08f59391af1042becad25cf3b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803994"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014563"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
 
@@ -35,7 +35,9 @@ Nella versione di anteprima, quando il collegamento sinapsi di Azure è abilitat
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Il backup e il ripristino sono supportati per gli account abilitati per il collegamento sinapsi di Azure?
 
-In anteprima, per gli account di database abilitati per il collegamento sinapsi di Azure, il backup e il ripristino di contenitori non sono supportati. Se si dispone di carichi di lavoro di produzione che richiedono funzionalità di backup e ripristino, è consigliabile non abilitare il collegamento sinapsi per gli account di database. 
+Per i contenitori con l'archivio analitico attivato, il backup automatico e il ripristino dei dati nell'archivio analitico non sono supportati in questo momento. 
+
+Quando il collegamento sinapsi è abilitato in un account di database, Azure Cosmos DB continuerà a eseguire automaticamente i [backup](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) dei dati nell'archivio transazionale (solo) dei contenitori all'intervallo di backup pianificato, come sempre. È importante notare che quando un contenitore con archivio analitico attivato viene ripristinato in un nuovo account, il contenitore verrà ripristinato solo con l'archivio transazionale e non è abilitato alcun archivio analitico. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>È possibile disabilitare la funzionalità di collegamento di Azure sinapsi per l'account Azure Cosmos DB?
 

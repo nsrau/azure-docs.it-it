@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2020
 ms.author: damendo
 ms.openlocfilehash: 4d308b8a1a589308e2481c8bb9e0dc9ec64be25b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996698"
 ---
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Introduzione alla diagnostica della configurazione di rete in Azure Network Watcher
@@ -25,7 +25,7 @@ Lo strumento di diagnostica della configurazione di rete aiuta i clienti a compr
 ## <a name="pre-requisites"></a>Prerequisiti
 Per usare la diagnostica della configurazione di rete, è necessario abilitare Network Watcher nella sottoscrizione. Per abilitare, vedere [creare un'istanza di Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create) .
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 - Le risorse in Azure sono connesse tramite reti virtuali (reti virtuali) e subnet. È possibile gestire la sicurezza di questi reti virtuali e subnet usando un gruppo di sicurezza di rete (NSG).
 - Un NSG contiene un elenco di regole di sicurezza che consentono o negano il traffico di rete alle risorse a cui è connessa. Gruppi può essere associato a subnet, singole VM o singole interfacce di rete collegate alle macchine virtuali. 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767630"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
@@ -44,7 +44,7 @@ Le metriche sono abilitate per impostazione predefinita. È possibile visualizza
 
 L'hub IoT offre diverse metriche per fornire una panoramica dell'integrità dell'hub e il numero totale di dispositivi connessi. È possibile combinare le informazioni da più metriche per disegnare un quadro generale dello stato dell'hub IoT. La tabella seguente descrive le metriche che ogni hub IoT rileva e la correlazione di ognuna con lo stato generale dell'hub IoT.
 
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Description|Dimensioni|
 |---|---|---|---|---|---|
 |RoutingDeliveries | Tentativi di recapito routing (anteprima) | Conteggio | Totale |Si tratta della metrica per il recapito del routing. Utilizzare le dimensioni per identificare lo stato di recapito di un endpoint specifico o per un'origine di routing specifica.| ResourceId<br>Risultato:<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Altre informazioni sulle dimensioni [**here**](#dimensions)* sono disponibili qui. |
 |RoutingDeliveryLatency| Latenza routing (anteprima) | Millisecondi | Media |Si tratta della metrica della latenza di recapito del routing. Utilizzare le dimensioni per identificare la latenza per un endpoint specifico o per un'origine di routing specifica.| ResourceId<br>RoutingSource,<br>EndpointType<br>EndpointName<br>*Altre informazioni sulle dimensioni [**here**](#dimensions)* sono disponibili qui.|

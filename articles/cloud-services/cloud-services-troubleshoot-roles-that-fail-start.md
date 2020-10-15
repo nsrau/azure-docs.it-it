@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460117"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076573"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
@@ -69,7 +69,7 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 7. Digitare `IPconfig`.
 8. Annotare il valore dell'indirizzo IPV4.
 9. Aprire Internet Explorer.
-10. Digitare l'indirizzo e il nome dell'applicazione Web, Ad esempio: `http://<IPV4 Address>/default.aspx`.
+10. Digitare l'indirizzo e il nome dell'applicazione Web, Ad esempio, `http://<IPV4 Address>/default.aspx`
 
 Se si passa al sito Web, ora verranno restituiti messaggi di errore più espliciti:
 
@@ -122,6 +122,6 @@ Per risolvere errori di assembly e DLL mancanti, seguire questa procedura:
 Dopo avere verificato che tutti gli errori sono stati corretti, è possibile distribuire il servizio senza selezionare la casella di controllo **Abilita IntelliTrace per ruoli .NET 4** .
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altri [articoli sulla risoluzione dei problemi](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](../index.yml?product=cloud-services&tag=top-support-issue) per i servizi cloud.
 
-Per informazioni su come risolvere i problemi dei ruoli del servizio cloud utilizzando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Per informazioni su come risolvere i problemi dei ruoli del servizio cloud utilizzando i dati di diagnostica del calcolo Azure PaaS, vedere la [serie di blog di Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1aef238ec0b947dda1417b567b343ae9d92754d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249513"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelli di profilo utente in Gestione API di Azure
@@ -40,7 +40,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>Profilo  
+##  <a name="profile"></a><a name="Profile"></a> Profilo  
  Il modello **Profilo** consente di personalizzare la sezione profili utente della pagina del profilo utente nel portale per sviluppatori.  
   
  ![Pagina del profilo utente](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Pagina del profilo utente gestione API")  
@@ -185,7 +185,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="subscriptions"></a><a name="Subscriptions"></a>Sottoscrizioni  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a> Sottoscrizioni  
  Il modello **Sottoscrizioni** consente di personalizzare la sezione sottoscrizioni della pagina del profilo utente nel portale per sviluppatori.  
   
  ![Pagina sottoscrizione utente](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Pagina sottoscrizione utente gestione API")  
@@ -406,7 +406,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a>Applicazioni  
+##  <a name="applications"></a><a name="Applications"></a> Applicazioni  
  Il modello **Applicazioni** consente di personalizzare la sezione applicazioni della pagina del profilo utente nel portale per sviluppatori.  
   
  ![Pagina applicazioni account utente](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Pagina applicazioni account utente gestione API")  

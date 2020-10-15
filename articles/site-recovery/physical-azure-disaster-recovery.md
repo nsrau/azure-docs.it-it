@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 9b05d9952628e550beae5cedc49e051936a9d633
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927284"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
@@ -32,7 +32,7 @@ In questa esercitazione viene illustrato come configurare il ripristino di emerg
 Per completare questa esercitazione:
 
 - Assicurarsi di aver compreso [l'architettura e i componenti](physical-azure-architecture.md) di questo scenario.
-- Esaminare i [requisiti di supporto](vmware-physical-secondary-support-matrix.md) per tutti i componenti.
+- Verificare i [requisiti di supporto](vmware-physical-secondary-support-matrix.md) per tutti i componenti.
 - Assicurarsi che i server da replicare siano conformi ai [requisiti di Azure per le macchine virtuali](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Preparare Azure. Sono necessari una sottoscrizione di Azure, una rete virtuale di Azure e un account di archiviazione di Azure.
 - Preparare un account per l'installazione automatica del servizio Mobility su ogni server da replicare.
@@ -58,8 +58,8 @@ Ottenere un [account Microsoft Azure](https://azure.microsoft.com/).
 
 Verificare che l'account di Azure disponga delle autorizzazioni per la replica di macchine virtuali in Azure.
 
-- Verificare le [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necessarie per replicare i computer in Azure.
-- Verificare e modificare le autorizzazioni di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md) . 
+- Rivedere le [autorizzazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) necessarie per la replica di macchine in Azure.
+- Verificare e modificare le autorizzazioni di [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md). 
 
 
 
@@ -84,7 +84,7 @@ Configurare un [account di archiviazione di Azure](../storage/common/storage-acc
 Il servizio Mobility deve essere installato in ogni server da replicare. Site Recovery installa il servizio automaticamente quando si abilita la replica per il server. Per l'installazione automatica è necessario preparare un account che Site Recovery userà per accedere al server.
 
 - È possibile usare un account di dominio o locale
-- Per le macchine virtuali Windows, se non si usa un account di dominio, disabilitare il Controllo dell'accesso utente remoto nel computer locale. A tale scopo, nel registro in **HKEY_LOCAL_MACHINE \software\microsoft\windows\currentversion\policies\system**aggiungere la voce DWORD **LocalAccountTokenFilterPolicy**con un valore pari a 1.
+- Per le macchine virtuali Windows, se non si usa un account di dominio, disabilitare il Controllo dell'accesso utente remoto nel computer locale. A questo scopo, aggiungere la voce DWORD **LocalAccountTokenFilterPolicy** con un valore di 1 nel Registro di sistema in **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**.
 - Per aggiungere la voce di registro per disabilitare l'impostazione da CLI, digitare:       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - Per Linux, l'account deve essere radice nel server Linux di origine.
 
@@ -105,7 +105,7 @@ Selezionare l'elemento da replicare e la posizione in cui replicarlo.
 
 Configurare il server di configurazione, registrarlo nell'insieme di credenziali e individuare le VM.
 
-1. Fare clic su **Site Recovery**  >  **preparare l'infrastruttura**  >  **origine**.
+1. Fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Origine**.
 2. Se non è disponibile un server di configurazione, fare clic su **+Server di configurazione**.
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
 4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
@@ -131,7 +131,7 @@ Le regole del firewall basate sull'indirizzo IP dovrebbero consentire la comunic
 - **IP commerciali**: è necessario consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443). Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione per supportare gli URL di Azure Active Directory, backup, replica e archiviazione.  
 - **IP di enti pubblici**: consentire gli [intervalli IP del data center di Azure per enti pubblici](https://www.microsoft.com/en-us/download/details.aspx?id=57063) e la porta HTTPS (443) per tutte le aree US Gov (Virginia, Texas, Arizona e Iowa) per supportare gli URL di Azure Active Directory, backup, replica e archiviazione.  
 
-#### <a name="run-setup"></a>Eseguire l'installazione
+#### <a name="run-setup"></a>Eseguire l'installazione.
 Eseguire l'installazione unificata come amministratore locale per installare il server di configurazione. Per impostazione predefinita, sul server di configurazione vengono installati anche il server di elaborazione e il server di destinazione master.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
@@ -170,19 +170,19 @@ Abilitare la replica per ogni server.
 
 1. Fare clic su **Eseguire la replica dell'applicazione** > **Origine**.
 2. In **Origine** selezionare il server di configurazione.
-3. In **tipo di computer**selezionare **computer fisici**.
-4. Selezionare il server di elaborazione (server di configurazione). Quindi fare clic su **OK**.
-5. In **destinazione**selezionare la sottoscrizione e il gruppo di risorse in cui si vogliono creare le VM di Azure dopo il failover. Scegliere il modello di distribuzione (classica o Resource Manager) da usare in Azure.
+3. In **Tipo di computer**, selezionare **Computer fisici**.
+4. Selezionare il server di elaborazione (server di configurazione). Fare quindi clic su **OK**.
+5. In **Destinazione** selezionare la sottoscrizione e il gruppo di risorse in cui si vuole creare le VM di Azure dopo il failover. Scegliere il modello di distribuzione (classica o Resource Manager) da usare in Azure.
 6. Selezionare l'account di archiviazione di Azure da usare per la replica dei dati. 
 7. Selezionare la rete di Azure e la subnet a cui dovranno connettersi le VM di Azure create dopo il failover.
-8. Selezionare **Configura ora per le macchine virtuali selezionate**per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. 
+8. Scegliere **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutti i computer selezionati per la protezione. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer. 
 9. In **Computer fisici**, fare clic su **+Computer fisico**. Specificare il nome e l'indirizzo IP. Selezionare il sistema operativo del computer da replicare. Sono necessari alcuni minuti per individuare ed elencare i server. 
-10. In **Proprietà**  >  **Configura proprietà**selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
+10. In **Proprietà** > **Configura proprietà** selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
 11. In **Impostazioni della replica** > **Configurare le impostazioni di replica** verificare che siano stati selezionati i criteri di replica corretti. 
-12. Fare clic su **Abilita replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **finalizza protezione** , la macchina virtuale è pronta per il failover.
+12. Fare clic su **Abilita la replica**. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 
 
-Per monitorare i server aggiunti, è possibile controllare l'ora dell'ultima individuazione nei **server di configurazione**  >  **ultimo contatto all'indirizzo**. Per aggiungere computer senza attendere l'individuazione pianificata, evidenziare il server di configurazione, senza selezionarlo, e fare clic su **Aggiorna**.
+Per monitorare i server aggiunti, è possibile controllare l'ora dell'ultima individuazione in **Server di configurazione** > **Ora ultimo contatto**. Per aggiungere computer senza attendere l'individuazione pianificata, evidenziare il server di configurazione, senza selezionarlo, e fare clic su **Aggiorna**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

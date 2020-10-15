@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292966"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093719"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -376,7 +376,7 @@ Questa funzionalità è stata creata per accedere ai dati della macchina virtual
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Selezionare il punto di ripristino (che può generare lo script)
 
-Lo script consente di accedere ai dati della macchina virtuale, quindi è importante definire in primo luogo chi possa generarlo. È necessario accedere al portale di Azure e disporre dell'[autorizzazione di Controllo degli accessi in base al ruolo](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) per generare lo script.
+Lo script consente di accedere ai dati della macchina virtuale, quindi è importante definire in primo luogo chi possa generarlo. È necessario accedere al portale di Azure ed essere un controllo degli accessi in base al ruolo di [Azure autorizzato](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) a generare lo script.
 
 Il ripristino dei file richiede lo stesso livello di autorizzazione necessario per il ripristino di macchine virtuali e dischi. In altre parole, solo gli utenti autorizzati possono visualizzare i dati della macchina virtuale e generare lo script.
 

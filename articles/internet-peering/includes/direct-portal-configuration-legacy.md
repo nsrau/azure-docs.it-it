@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 titleSuffix: Azure
 description: includere file
 services: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 632490498b8dd13414657edb9518cd543ac07af6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81678847"
 ---
 1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato qui.
@@ -31,7 +31,7 @@ ms.locfileid: "81678847"
 1. Se è necessario aggiornare la larghezza di banda, selezionare il pulsante modifica per una riga per modificare le impostazioni di connessione.
 
     > [!div class="mx-imgBorder"]
-    > ![Pulsante Modifica](../media/setup-directlegacy-conf-tab-edit.png)
+    > ![Pulsante modifica](../media/setup-directlegacy-conf-tab-edit.png)
 
     > [!NOTE]
     > Se si desidera aggiungere ulteriori connessioni peering con Microsoft nella località **metro** selezionata, selezionare **Crea nuovo**. Per altre informazioni, vedere [creare o modificare un peering diretto usando il portale](../howto-direct-portal.md).

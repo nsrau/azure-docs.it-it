@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Esercitazione: integrazione di Azure Active Directory con Amazon Web Services (AWS) (esercitazione legacy)
@@ -116,7 +116,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione di **configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure e fare clic su **Salva**.
 
-5. L'applicazione Amazon Web Services (AWS) si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **Configura accesso Single Sign-on con SAML** fare clic sul pulsante **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
+5. L'applicazione Amazon Web Services (AWS) si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **configura Sign-On singolo con SAML** fare clic sul pulsante **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
     ![Screenshot Mostra gli attributi utente con il controllo di modifica denominato out.](common/edit-attribute.png)
 

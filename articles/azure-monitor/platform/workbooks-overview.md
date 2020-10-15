@@ -1,19 +1,17 @@
 ---
 title: Panoramica di Cartelle di lavoro di Monitoraggio di Azure
 description: Informazioni su come le cartelle di lavoro forniscono un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure.
-author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
-ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825787"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932397"
 ---
 # <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
 
@@ -53,7 +51,7 @@ Le cartelle di lavoro di offrono un set completo di funzionalità per la visuali
 
 ![Visualizzazioni di cartelle di lavoro di esempio](./media/workbooks-overview/visualizations.png)
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 

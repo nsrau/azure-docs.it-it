@@ -1,25 +1,18 @@
 ---
 title: Implementare Oracle Golden Gate in una VM Linux di Azure | Microsoft Docs
 description: Implementare rapidamente Oracle Golden Gate nell'ambiente Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274793"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996672"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
 
@@ -68,7 +61,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
-Il passaggio seguente è facoltativo ma consigliato. Per altre informazioni, vedere [Linee guida per i set di disponibilità di Azure](../../windows/infrastructure-example.md).
+Il passaggio seguente è facoltativo ma consigliato. Per altre informazioni, vedere [Linee guida per i set di disponibilità di Azure](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
@@ -781,7 +774,7 @@ La replica è iniziata ed è possibile testarla inserendo nuovi record nelle tab
 
 ### <a name="view-job-status-and-troubleshooting"></a>Visualizzare lo stato del processo e le informazioni di risoluzione dei problemi
 
-#### <a name="view-reports"></a>Visualizzazione di report
+#### <a name="view-reports"></a>Visualizzare i report
 Per visualizzare i report in myVM1, eseguire questi comandi:
 
   ```bash

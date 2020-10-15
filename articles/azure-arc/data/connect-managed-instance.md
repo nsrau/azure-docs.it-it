@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939195"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Connettersi ad Azure Arc Istanza gestita SQL abilitato
@@ -82,7 +82,7 @@ Per impostare una regola, è necessario conoscere il nome del NSG, che è possib
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
-Una volta ottenuto il nome del NSG, è possibile aggiungere una regola del firewall usando il comando seguente. I valori di esempio qui creano una regola NSG per la porta 30913 e consentono la connessione da **qualsiasi** indirizzo IP di origine.  Non si tratta di una procedura consigliata per la sicurezza.  È possibile bloccare meglio gli elementi specificando un valore-Source-prefix-prefissi specifico per l'indirizzo IP del client o un intervallo di indirizzi IP che includa gli indirizzi IP del team o dell'organizzazione.
+Una volta ottenuto il nome del NSG, è possibile aggiungere una regola del firewall usando il comando seguente. I valori di esempio qui creano una regola NSG per la porta 30913 e consentono la connessione da **qualsiasi** indirizzo IP di origine.  Non si tratta di una procedura consigliata per la sicurezza.  È possibile applicare un blocco specificando un valore -source-address-prefixes specifico per l'indirizzo IP del client o un intervallo di indirizzi IP che includa gli indirizzi IP del team o dell'organizzazione.
 
 Sostituire il valore del `--destination-port-ranges` parametro seguente con il numero di porta ottenuto nel `azdata sql instance list` comando F riportato sopra.
 

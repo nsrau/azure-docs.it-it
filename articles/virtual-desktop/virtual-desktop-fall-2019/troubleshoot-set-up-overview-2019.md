@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 7b2220ffe92446338e1b9db9b329847d93830334
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88005432"
 ---
 #  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Panoramica sulla risoluzione dei problemi di desktop virtuale Windows (classico), commenti e suggerimenti e supporto
@@ -20,7 +20,7 @@ ms.locfileid: "88005432"
 
 Questo articolo fornisce una panoramica dei problemi che possono verificarsi durante la configurazione di un ambiente tenant di desktop virtuali Windows e fornisce modi per risolvere i problemi.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -41,8 +41,8 @@ Usare la tabella seguente per identificare e risolvere i problemi che possono ve
 | Gestione dell'ambiente host sessione desktop virtuale Windows dal portale di Azure    | [Aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/). <br> <br> Per problemi di gestione quando si usa PowerShell per desktop virtuale Servizi Desktop remoto/Windows, vedere [PowerShell per desktop virtuale Windows](troubleshoot-powershell-2019.md) o [aprire una richiesta di supporto tecnico di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, selezionare **configurazione e gestione** per il tipo di problema, quindi selezionare **problemi configurazione tenant con PowerShell** per il sottotipo di problema. |
 | Gestione della configurazione del desktop virtuale di Windows associata ai pool di host e ai gruppi di applicazioni (gruppi di app)      | Vedere [desktop virtuale di Windows PowerShell](troubleshoot-powershell-2019.md)o [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, quindi selezionare il tipo di problema appropriato.|
 | Distribuzione e gestione di contenitori di profili FSLogix | Vedere la [Guida alla risoluzione dei problemi per i prodotti FSLogix](/fslogix/fslogix-trouble-shooting-ht/) e se il problema persiste, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, selezionare **FSLogix** per il tipo di problema, quindi selezionare il sottotipo di problema appropriato. |
-| Malfunzionamento dei client desktop remoto all'avvio                                                 | Vedere [risolvere i problemi relativi al client di desktop remoto](../troubleshoot-client.md) e, se il problema persiste, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio e quindi selezionare **Desktop remoto client** per il tipo di problema.  <br> <br> Se si tratta di un problema di rete, gli utenti devono contattare l'amministratore di rete. |
-| Connessione senza feed                                                                 | Risolvere i problemi relativi all'utilizzo delle connessioni [utente, ma non viene visualizzata alcuna sezione (nessun feed)](troubleshoot-service-connection-2019.md#user-connects-but-nothing-is-displayed-no-feed) delle [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection-2019.md). <br> <br> Se gli utenti sono stati assegnati a un gruppo di app, [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, quindi selezionare **Desktop remoto client** per il tipo di problema. |
+| Malfunzionamento dei client desktop remoto all'avvio                                                 | Vedere [risolvere i problemi relativi al client di desktop remoto](../troubleshoot-client.md) e, se il problema persiste,  [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio e quindi selezionare **Desktop remoto client** per il tipo di problema.  <br> <br> Se si tratta di un problema di rete, gli utenti devono contattare l'amministratore di rete. |
+| Connessione senza feed                                                                 | Risolvere i problemi relativi all'utilizzo delle connessioni [utente, ma non viene visualizzata alcuna sezione (nessun feed)](troubleshoot-service-connection-2019.md#user-connects-but-nothing-is-displayed-no-feed) delle [connessioni al servizio desktop virtuale di Windows](troubleshoot-service-connection-2019.md). <br> <br> Se gli utenti sono stati assegnati a un gruppo di app,  [aprire una richiesta di supporto di Azure](https://azure.microsoft.com/support/create-ticket/), selezionare **desktop virtuale Windows** per il servizio, quindi selezionare **Desktop remoto client** per il tipo di problema. |
 | Problemi di individuazione dei feed dovuti alla rete                                            | Gli utenti devono contattare l'amministratore di rete. |
 | Connessione dei client                                                                    | Vedere [connessioni al servizio desktop virtuale Windows](troubleshoot-service-connection-2019.md) . se il problema persiste, vedere [configurazione della macchina virtuale host sessione](troubleshoot-vm-configuration-2019.md). |
 | Velocità di risposta delle applicazioni remote o del desktop                                      | Se i problemi sono collegati a un'applicazione o a un prodotto specifico, contattare il team responsabile del prodotto. |

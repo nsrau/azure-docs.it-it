@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0dfcf74ef07ff2bde7921860c6e13a59b0ccf023
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7c5fa5ae54c7aea520a2346cba8feca294585b0d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962537"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875734"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -122,7 +122,7 @@ Se l'ambiente del servizio app ILB è il nome di dominio *contoso.appserviceenvi
 
 ## <a name="ase-ip-addresses"></a>Indirizzi IP dell'ambiente del servizio app ##
 
-Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. I peering sono i seguenti:
+Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. ovvero:
 
 - **Indirizzo IP in ingresso pubblico**: usato per il traffico di app in un ambiente del servizio app esterno e per il traffico di gestione sia per un ambiente del servizio app esterno che con bilanciamento del carico interno.
 - **IP pubblico in uscita**: usato come indirizzo IP di origine per le connessioni in uscita dall'ambiente del servizio app che lasciano la rete virtuale e non vengono indirizzate su una VPN.
@@ -161,7 +161,7 @@ Per il funzionamento di un ambiente del servizio app, è necessario che le voci 
 * Da UDP a tutti gli indirizzi IP sulla porta 53
 * Da UDP a tutti gli indirizzi IP sulla porta 123
 * Da TCP a tutti gli IP sulle porte 80, 443
-* TCP al tag del servizio IP AzureSQL sulle porte 1433
+* Da TCP al tag del servizio IP `Sql` sulle porte 1433
 * Da TCP a tutti gli indirizzi IP sulla porta 12000
 * alla subnet dell'ambiente del servizio app in tutte le porte
 

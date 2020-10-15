@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/10/2020
 ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986866"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Crittografia basata su host in Azure Kubernetes Service (AKS) (anteprima)
@@ -29,7 +29,7 @@ Questa funzionalità può essere impostata solo in fase di creazione del cluster
 - Assicurarsi che sia stato `EncryptionAtHost` abilitato il flag funzionalità `Microsoft.Compute` .
 - Assicurarsi che sia stato `EnableEncryptionAtHostPreview` abilitato il flag funzionalità `Microsoft.ContainerService` .
 
-### <a name="register-encryptionathost--preview-features"></a>Registrare le `EncryptionAtHost` funzionalità di anteprima
+### <a name="register-encryptionathost--preview-features"></a>Registrare le `EncryptionAtHost`  funzionalità di anteprima
 
 Per creare un cluster AKS che usa la crittografia basata su host, è necessario abilitare `EnableEncryptionAtHostPreview` i `EncryptionAtHost` flag della funzionalità e nella sottoscrizione.
 

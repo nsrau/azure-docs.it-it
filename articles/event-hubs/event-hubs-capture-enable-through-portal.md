@@ -4,10 +4,10 @@ description: Questo articolo descrive come abilitare l'acquisizione di eventi in
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 2381bfa627d00a78ed91af0ba81579588ee016ce
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613578"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Abilitare l'acquisizione di eventi in streaming tramite Hub eventi di Azure

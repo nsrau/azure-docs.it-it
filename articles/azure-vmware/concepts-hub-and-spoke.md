@@ -2,17 +2,18 @@
 title: "Concetto: integrare una distribuzione della soluzione VMware di Azure in un'architettura Hub e spoke"
 description: Informazioni sulle raccomandazioni per l'integrazione di una distribuzione della soluzione VMware di Azure in una nuova architettura di hub e spoke in Azure.
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: bfd0da4f03eedaf215ddb55facffc2296a9d0b85
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.date: 10/14/2020
+ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580279"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058472"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrare la soluzione VMware di Azure in un'architettura Hub e spoke
 
 Questo articolo fornisce consigli per l'integrazione di una distribuzione della soluzione VMware di Azure in una nuova [architettura di hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/shared-services) in Azure. 
+
 
 Lo scenario Hub e spoke presuppone un ambiente cloud ibrido con carichi di lavoro in:
 
@@ -20,15 +21,18 @@ Lo scenario Hub e spoke presuppone un ambiente cloud ibrido con carichi di lavor
 * Soluzione Azure VMware 
 * vSphere locale
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 L' *Hub* è una rete virtuale di Azure che funge da punto centrale di connettività al cloud privato della soluzione VMware locale e di Azure. I *spoke* sono reti virtuali con peering con l'hub per abilitare la comunicazione tra reti virtuali.
 
 Il traffico tra il Data Center locale, il cloud privato della soluzione VMware di Azure e l'hub passa attraverso le connessioni di Azure ExpressRoute. Le reti virtuali spoke contengono in genere carichi di lavoro basati su IaaS, ma possono avere servizi PaaS come [ambiente del servizio app](../app-service/environment/intro.md), che ha l'integrazione diretta con la rete virtuale o altri servizi PaaS con [collegamento privato di Azure](../private-link/index.yml) abilitato.
 
+>[!IMPORTANT]
+>È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure, purché non superi il limite di quattro circuiti ExpressRoute per ogni rete virtuale.  Tuttavia, per accedere alla soluzione VMware di Azure dall'ambiente locale tramite ExpressRoute, è necessario avere ExpressRoute Copertura globale perché il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.
+
 Il diagramma mostra un esempio di una distribuzione Hub e spoke in Azure connessa alla soluzione VMware locale e Azure tramite ExpressRoute Copertura globale.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 L'architettura include i componenti principali seguenti:
 
@@ -65,12 +69,12 @@ Poiché un gateway ExpressRoute non fornisce il routing transitivo tra i circuit
 
 * **Flusso del traffico della soluzione VMware da sito locale ad Azure**
 
-  :::image type="content" source="media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Flusso del traffico di VNET di Azure da soluzione VMware a hub**
 
-  :::image type="content" source="media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Per ulteriori informazioni sui concetti relativi alla rete e alla connettività della soluzione VMware di Azure, vedere la [documentazione del prodotto della soluzione VMware di Azure](./concepts-networking.md).
@@ -105,14 +109,17 @@ Per informazioni dettagliate e requisiti, vedere l'articolo specifico della solu
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false":::
 
 
-### <a name="jumpbox-and-azure-bastion"></a>JumpBox e Azure Bastion
+### <a name="jump-box-and-azure-bastion"></a>Jump box e Azure Bastion
 
-Accedere all'ambiente della soluzione VMware di Azure con JumpBox, ovvero una macchina virtuale Windows 10 o Windows Server distribuita nella subnet del servizio condiviso all'interno della rete virtuale dell'hub.
+Accedere all'ambiente della soluzione VMware di Azure con jump box, ovvero una macchina virtuale Windows 10 o Windows Server distribuita nella subnet del servizio condiviso all'interno della rete virtuale dell'hub.
 
-Come procedura di sicurezza consigliata, distribuire [Microsoft Azure servizio Bastion](../bastion/index.yml) all'interno della rete virtuale dell'hub. Azure Bastion offre accesso RDP e SSH semplice alle macchine virtuali distribuite in Azure senza la necessità di effettuare il provisioning di indirizzi IP pubblici a tali risorse. Dopo aver effettuato il provisioning del servizio Azure Bastion, è possibile accedere alla macchina virtuale selezionata dalla portale di Azure. Dopo aver stabilito la connessione, viene visualizzata una nuova scheda, che mostra il desktop di JumpBox e da tale desktop, è possibile accedere al piano di gestione del cloud privato della soluzione VMware di Azure.
+>[!IMPORTANT]
+>Azure Bastion è il servizio consigliato per connettersi alla casella di salto per impedire l'esposizione della soluzione VMware di Azure a Internet. Non è possibile usare Azure Bastion per connettersi alle macchine virtuali della soluzione VMware di Azure perché non sono oggetti IaaS di Azure.  
+
+Come procedura di sicurezza consigliata, distribuire [Microsoft Azure servizio Bastion](../bastion/index.yml) all'interno della rete virtuale dell'hub. Azure Bastion offre accesso RDP e SSH semplice alle macchine virtuali distribuite in Azure senza la necessità di effettuare il provisioning di indirizzi IP pubblici a tali risorse. Dopo aver effettuato il provisioning del servizio Azure Bastion, è possibile accedere alla macchina virtuale selezionata dalla portale di Azure. Dopo aver stabilito la connessione, viene visualizzata una nuova scheda che mostra il desktop di Jump box e da tale desktop è possibile accedere al piano di gestione del cloud privato della soluzione VMware di Azure.
 
 > [!IMPORTANT]
-> Non assegnare un indirizzo IP pubblico alla VM JumpBox o esporre la porta 3389/TCP alla rete Internet pubblica. 
+> Non assegnare un indirizzo IP pubblico alla macchina virtuale jump box o esporre la porta 3389/TCP alla rete Internet pubblica. 
 
 
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Distribuzione dell'hub della soluzione VMware e dell'integrazione spoke di Azure" border="false":::

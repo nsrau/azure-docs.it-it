@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87533904"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
@@ -54,7 +54,7 @@ Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le riso
 
 - Gli utenti di Azure AD non hanno accesso a posizioni o risorse fisiche e non possono quindi ignorare le verifiche dei criteri del controllo degli accessi in base al ruolo indicate di seguito.
 
-Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. In Azure AD Privileged Identity Management (PIM) è stato introdotto il concetto di amministratore idoneo. Gli [amministratori idonei](../../active-directory/privileged-identity-management/pim-configure.md) devono essere utenti che necessitano di accesso con privilegi ora, ma non tutti i giorni. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
+Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. Azure AD Privileged Identity Management (PIM) introduce il concetto di amministratore idoneo. gli [amministratori idonei](../../active-directory/privileged-identity-management/pim-configure.md) devono essere utenti che necessitano di accesso con privilegi ora e quindi, ma non tutti i giorni. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
 
 ![Gestione identità con privilegi di Azure AD](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -64,7 +64,7 @@ Il concetto dei contenitori di tenant è profondamente radicato nel servizio dir
 
 Anche quando i metadati di più tenant di Azure Active Directory vengono archiviati nello stesso disco fisico, non esistono relazioni tra i contenitori tranne quelle definite dal servizio directory, a sua volta determinato dall'amministratore tenant.
 
-### <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
+### <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
 Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) consente di condividere i vari componenti disponibili all'interno di una sottoscrizione di Azure fornendo una gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo di Azure consente di separare i compiti all'interno dell'organizzazione e di concedere l'accesso in base alle attività che i singoli utenti devono svolgere. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni.
 
@@ -74,9 +74,9 @@ Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di bas
 
 - Il **collaboratore** può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri utenti.
 
-- **Lettore** può visualizzare le risorse di Azure esistenti.
+- Il **lettore** può visualizzare le risorse di Azure esistenti.
 
-![Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](./media/isolation-choices/azure-isolation-fig3.png)
+![Controllo degli accessi in base al ruolo di Azure](./media/isolation-choices/azure-isolation-fig3.png)
 
 Il resto dei ruoli di Azure in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale di Azure o alla subnet a cui la macchina virtuale si connette.
 

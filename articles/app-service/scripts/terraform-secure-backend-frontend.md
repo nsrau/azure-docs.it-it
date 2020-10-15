@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c1de8ebbd9ad381628cfeb19413baa295b42b3db
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962231"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739834"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Creare due app Web connesse in modo sicuro con l'endpoint privato e l'integrazione rete virtuale
 
@@ -21,7 +21,7 @@ Questo articolo illustra un esempio dell'uso dell'[endpoint privato](../networki
 - Distribuire una rete virtuale
 - Creare la prima subnet per l'integrazione
 - Creare la seconda subnet per l'endpoint privato; è necessario impostare un parametro specifico per disabilitare i criteri di rete
-- Distribuire un piano di servizio app di tipo PremiumV2, ovvero lo SKU minimo richiesto per la funzionalità di endpoint privato
+- Distribuire un piano di servizio app di tipo PremiumV2 o Premium V3, necessario per la funzionalità Endpoint privato
 - Creare l'app Web front-end con impostazioni specifiche dell'app per utilizzare la zona DNS privata, [altri dettagli](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Connettere l'app Web front-end alla subnet di integrazione
 - Creare l'app Web di back-end

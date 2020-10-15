@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
 ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291008"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
@@ -190,7 +190,7 @@ Esiste un limite al numero di route per tabella di route che è possibile creare
 
 1. Immettere un **nome di route** univoco per la route all'interno della tabella di route.
 
-1. Immettere il **prefisso dell'indirizzo**, nella notazione CIDR (Inter-Domain Routing) a cui si vuole indirizzare il traffico. Il prefisso non può essere duplicato in più di una route all'interno della tabella di route, sebbene il prefisso possa trovarsi all'interno di un altro prefisso. Se ad esempio è stato definito *10.0.0.0/16* come prefisso in una route, è comunque possibile definire un'altra route con il prefisso dell'indirizzo *10.0.0.0/22* . Azure seleziona una route per il traffico in base all'algoritmo LPM (Longest Prefix Match). Per altre informazioni, vedere [come Azure seleziona una route](virtual-networks-udr-overview.md#how-azure-selects-a-route).
+1. Immettere il **prefisso dell'indirizzo**, nella notazione CIDR (classy Inter-Domain routing) a cui si vuole indirizzare il traffico. Il prefisso non può essere duplicato in più di una route all'interno della tabella di route, sebbene il prefisso possa trovarsi all'interno di un altro prefisso. Se ad esempio è stato definito *10.0.0.0/16* come prefisso in una route, è comunque possibile definire un'altra route con il prefisso dell'indirizzo *10.0.0.0/22* . Azure seleziona una route per il traffico in base all'algoritmo LPM (Longest Prefix Match). Per altre informazioni, vedere [come Azure seleziona una route](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
 1. Scegliere un **tipo di hop successivo**. Per altre informazioni sui tipi di hop successivi, vedere [routing del traffico di rete virtuale](virtual-networks-udr-overview.md).
 

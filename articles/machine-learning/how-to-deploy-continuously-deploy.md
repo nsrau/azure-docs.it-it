@@ -9,15 +9,16 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 08/03/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: c95e1012decf1e3ae4ee3fbab8aae1a4c1a71be9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.reviewer: larryfr
+ms.custom: how-to, tracking-python, deploy
+ms.openlocfilehash: ab4551f64919dad711967b33f85962a5c607d1c5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544619"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999149"
 ---
-# <a name="continuously-deploy-models"></a>Distribuzione continua di modelli
+# <a name="continuously-deploy-models"></a>Modelli di distribuzione continua
 
 Questo articolo illustra come usare la distribuzione continua in Azure DevOps per verificare automaticamente la presenza di nuove versioni dei modelli registrati ed effettuare il push di tali nuovi modelli nell'ambiente di produzione.
 
@@ -25,7 +26,7 @@ Questo articolo illustra come usare la distribuzione continua in Azure DevOps pe
 
 Questo articolo presuppone che sia già stato registrato un modello nell'area di lavoro Azure Machine Learning. Vedere [questa esercitazione](how-to-train-scikit-learn.md) per un esempio di formazione e registrazione di un modello Scikit-learn.
 
-## <a name="continuously-deploy-models"></a>Distribuzione continua di modelli
+## <a name="continuously-deploy-models"></a>Modelli di distribuzione continua
 
 È possibile distribuire i modelli in modo continuo usando l'estensione Machine Learning per [Azure DevOps](https://azure.microsoft.com/services/devops/). È possibile usare l'estensione Machine Learning per Azure DevOps per attivare una pipeline di distribuzione quando viene registrato un nuovo modello di apprendimento automatico in un'area di lavoro di Azure Machine Learning.
 

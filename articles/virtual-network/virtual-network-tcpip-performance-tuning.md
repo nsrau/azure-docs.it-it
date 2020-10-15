@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068515"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Ottimizzazione delle prestazioni TCP/IP per macchine virtuali di Azure
@@ -164,7 +164,7 @@ Questa tabella mostra la velocità effettiva massima in megabyte/al secondo di u
 | Dimensioni finestra TCP (byte) | Latenza RTT (MS) | Velocità effettiva massima di megabyte/secondo | Velocità effettiva massima di megabit/secondo |
 | ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65.535|1|65,54|524,29|
-|65.535|30|2,18|17,48|
+|65.535|30|2.18|17,48|
 |65.535|60|1.09|8,74|
 |65.535|90|73|5,83|
 |65.535|120|55|4.37|
@@ -179,7 +179,7 @@ Questa tabella illustra le relazioni seguenti:
 
 | Dimensioni finestra TCP (byte) | Latenza RTT (MS) | Velocità effettiva massima di megabyte/secondo | Velocità effettiva massima di megabit/secondo |
 | ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
-|65.535|30|2,18|17,48|
+|65.535|30|2.18|17,48|
 |131.070|30|4.37|34,95|
 |262.140|30|8,74|69,91|
 |524.280|30|17,48|139,81|
@@ -210,7 +210,7 @@ Get-NetTCPConnection
 Get-NetTCPSetting
 ```
 
-È possibile impostare le dimensioni iniziali della finestra TCP e il fattore di scalabilità TCP in Windows tramite il `Set-NetTCPSetting` comando di PowerShell. Per ulteriori informazioni, vedere [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+È possibile impostare le dimensioni iniziali della finestra TCP e il fattore di scalabilità TCP in Windows tramite il `Set-NetTCPSetting` comando di PowerShell. Per ulteriori informazioni, vedere  [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
@@ -220,7 +220,7 @@ Queste sono le impostazioni TCP valide per `AutoTuningLevel` :
 
 | AutoTuningLevel | Fattore di scala | Moltiplicatore di scala | Formula per<br/>Calcola dimensioni massime della finestra |
 | --------------- | -------------- | ------------------ | -------------------------------------------- |
-|Disabled|Nessuna|Nessuna|Dimensioni finestra|
+|Disabled|nessuno|nessuno|Dimensioni finestra|
 |Con restrizioni|4|2 ^ 4|Dimensioni finestra * (2 ^ 4)|
 |Con restrizioni elevata|2|2 ^ 2|Dimensioni finestra * (2 ^ 2)|
 |Normale|8|2 ^ 8|Dimensioni finestra * (2 ^ 8)|

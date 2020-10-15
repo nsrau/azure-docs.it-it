@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: a48b30d83e3e7e1667552d107cb457e49494c575
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578513"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrare i dati di Azure Data Lake Storage Gen1 in Azure Data Catalog
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     ![Schermata iniziale](./media/data-lake-store-with-data-catalog/welcome.screen.png "Schermata iniziale")
 1. Nella pagina Selezionare un'origine dati selezionare **Azure Data Lake Store** e quindi fare clic su **Avanti**.
 
-    ![Selezionare l'origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezionare l'origine dati")
+    ![Seleziona origine dati](./media/data-lake-store-with-data-catalog/select-source.png "Selezionare l'origine dati")
 1. Nella pagina successiva specificare il nome dell'account Data Lake Storage Gen1 che si vuole registrare in Data Catalog. Lasciare l'impostazione predefinita per le altre opzioni e quindi fare clic su **Connetti**.
 
     ![Connessione a un'origine dati](./media/data-lake-store-with-data-catalog/connect-to-source.png "Connessione a un'origine dati")
@@ -71,7 +71,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
     * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrare Data Lake Storage Gen1 con altri servizi di Azure](data-lake-store-integrate-with-other-services.md)

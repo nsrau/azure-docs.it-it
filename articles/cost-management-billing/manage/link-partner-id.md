@@ -4,16 +4,16 @@ description: Tener traccia degli engagement con i clienti di Azure collegando un
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 03953e210f1c4caf1541db272ce4c02c271dafaa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371831"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772720"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
@@ -43,7 +43,7 @@ Quando si ha accesso alle risorse del cliente, usare il portale di Azure, PowerS
 
 2. Accedere al portale di Azure.
 
-3. Immettere l'ID partner Microsoft. L'ID partner è l'ID [Microsoft Partner Network](https://partner.microsoft.com/) dell'organizzazione.
+3. Immettere l'ID partner Microsoft. L'ID partner è l'ID [Microsoft Partner Network](https://partner.microsoft.com/) dell'organizzazione. Assicurarsi di usare l'**ID MPN associato** visualizzato nel profilo del partner.
 
    ![Screenshot che mostra Collega a un ID partner](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ Quando si ha accesso alle risorse del cliente, usare il portale di Azure, PowerS
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Creare il collegamento al nuovo ID partner. L'ID partner è l'ID [Microsoft Partner Network](https://partner.microsoft.com/) dell'organizzazione.
+3. Creare il collegamento al nuovo ID partner. L'ID partner è l'ID [Microsoft Partner Network](https://partner.microsoft.com/) dell'organizzazione. Assicurarsi di usare l'**ID MPN associato** visualizzato nel profilo del partner.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ Il collegamento è associato a livello di account utente. Solo il titolare dell'
 
 **Quale ID MPN è necessario usare se l'azienda ne ha più di uno?**
 
-Per collegare l'ID partner, è necessario usare gli account Partner Location e gli ID MPN associati.  Altre informazioni sugli [account dei partner](https://docs.microsoft.com/partner-center/account-structure)
+Assicurarsi di usare l'**ID MPN associato** visualizzato nel profilo partner.
 
 **Dove è possibile trovare report sui ricavi influenzati per l'ID partner collegato?**
 

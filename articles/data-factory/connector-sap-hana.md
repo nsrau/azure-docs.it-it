@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
 ms.openlocfilehash: 92cc94170a01aceaa3e6bd058f4ae6628db04f18
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529586"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiare dati da SAP HANA usando Azure Data Factory
@@ -189,8 +189,8 @@ Per copiare dati da SAP HANA, nella sezione **origine** dell'attività di copia 
 |:--- |:--- |:--- |
 | type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapHanaSource** | Sì |
 | query | Specifica la query SQL che consente di leggere i dati dall'istanza di SAP HANA. | Sì |
-| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per inserire dati da SAP HANA. Per ulteriori informazioni, vedere la sezione [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) .<br>Consenti valori: **None**   (impostazione predefinita), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Per ulteriori informazioni, vedere la sezione [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable`può essere utilizzato solo per la copia di dati da una tabella, ma non da query. <br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da SAP Hana è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | Falso |
-| partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati.<br>Si applica quando l'opzione di partizione è `SapHanaDynamicRange`. | Falso |
+| partitionOptions | Specifica le opzioni di partizionamento dei dati utilizzate per inserire dati da SAP HANA. Per ulteriori informazioni, vedere la sezione  [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) .<br>Consenti valori: **None**   (impostazione predefinita), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Per ulteriori informazioni, vedere la sezione  [copia parallela dalla SAP Hana](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable` può essere utilizzato solo per la copia di dati da una tabella, ma non da query. <br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da SAP Hana è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | False |
+| partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati.<br>Si applica quando l'opzione di partizione è `SapHanaDynamicRange`. | False |
 | partitionColumnName | Consente di specificare il nome della colonna di origine che verrà utilizzata dalla partizione per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Applicare quando l'opzione di partizione è  `SapHanaDynamicRange` . Se si utilizza una query per recuperare i dati di origine, associare la  `?AdfHanaDynamicRangePartitionCondition` clausola WHERE. Vedere l'esempio in [copia parallela dalla sezione SAP Hana](#parallel-copy-from-sap-hana) . | Sì quando si usa la `SapHanaDynamicRange` partizione. |
 | packetSize | Specifica le dimensioni del pacchetto di rete (in kilobyte) per suddividere i dati in più blocchi. Se è presente una grande quantità di dati da copiare, l'aumento delle dimensioni del pacchetto può aumentare la velocità di lettura da SAP HANA nella maggior parte dei casi. Il test delle prestazioni è consigliato per la regolazione delle dimensioni del pacchetto. | No.<br>Il valore predefinito è 2048 (2MB). |
 
@@ -279,7 +279,7 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 | BOOL               | Byte                           |
 | CLOB               | string                         |
 | DATE               | Datetime                       |
-| DECIMAL            | Decimal                        |
+| DECIMAL            | Decimale                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
@@ -288,7 +288,7 @@ Quando si copiano dati da SAP HANA, vengono usati i mapping seguenti tra i tipi 
 | REAL               | Single                         |
 | SECONDDATE         | Datetime                       |
 | SHORTTEXT          | string                         |
-| SMALLDECIMAL       | Decimal                        |
+| SMALLDECIMAL       | Decimale                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |

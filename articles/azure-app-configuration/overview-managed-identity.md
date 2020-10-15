@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82981222"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072799"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Come usare le identità gestite per la configurazione di app Azure
 
@@ -27,13 +27,13 @@ All'applicazione possono essere concessi due tipi di identità:
 
 La creazione di un archivio di configurazione dell'app con un'identità assegnata dal sistema richiede l'impostazione di una proprietà aggiuntiva nell'archivio.
 
-### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+### <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 Per configurare un'identità gestita usando l'interfaccia della riga di comando di Azure, usare il comando [AZ appconfig Identity Assign] per un archivio di configurazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
 - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", situato nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
-- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2,1 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
+- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2,1 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 La procedura seguente illustra la creazione di un archivio di configurazione dell'app e l'assegnazione di un'identità usando l'interfaccia della riga di comando:
 
@@ -60,13 +60,13 @@ La procedura seguente illustra la creazione di un archivio di configurazione del
 
 Per creare un archivio di configurazione dell'app con un'identità assegnata dall'utente, è necessario creare l'identità e quindi assegnare il relativo identificatore di risorsa all'archivio.
 
-### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+### <a name="using-the-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 Per configurare un'identità gestita usando l'interfaccia della riga di comando di Azure, usare il comando [AZ appconfig Identity Assign] per un archivio di configurazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
 - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", situato nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
-- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
+- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.31 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 La procedura seguente illustra come creare un'identità assegnata dall'utente e un archivio di configurazione dell'app e quindi assegnare l'identità all'archivio usando l'interfaccia della riga di comando:
 
@@ -107,4 +107,4 @@ Un'identità assegnata dal sistema può essere rimossa disabilitando la funziona
 > [Creare un'app ASP.NET Core con la configurazione app Azure](quickstart-aspnet-core-app.md)
 
 [AZ appconfig Identity Assign]: /cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-assign
-[AZ login]: /cli/azure/reference-index#az-login
+[az login]: /cli/azure/reference-index#az-login

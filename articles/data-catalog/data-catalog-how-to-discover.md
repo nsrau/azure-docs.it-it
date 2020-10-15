@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081203"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Come trovare le origini dati in Azure Data Catalog
@@ -37,7 +37,7 @@ Anche se la ricerca di testo libero predefinita è semplice e intuitiva, è poss
 | --- | --- | --- |
 | Ricerca di base |Ricerca di base che usa uno o più termini di ricerca. I risultati sono gli asset che corrispondono alle proprietà di uno o più termini specificati. |`sales data` |
 | Ambito della proprietà |Restituire solo le origini dati dove il termine di ricerca corrisponde alla proprietà specificata. |`name:finance` |
-| operatori booleani |Ampliare o restringere una ricerca usando operazioni booleane. |`finance NOT corporate` |
+| Operatori booleani |Ampliare o restringere una ricerca usando operazioni booleane. |`finance NOT corporate` |
 | Raggruppamento con parentesi |Usare le parentesi per raggruppare parti della query per ottenere l'isolamento logico, soprattutto in combinazione con gli operatori booleani. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Operatori di confronto |Usare confronti invece di uguaglianze per le proprietà che hanno dati di tipo numero e data. |`modifiedTime > "11/05/2014"` |
 

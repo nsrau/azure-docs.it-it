@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445767"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione Wire Data 2.0 (anteprima) in monitoraggio di Azure
@@ -116,7 +116,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per Dependency Agent
 | Versione sistema operativo | Versione del kernel |
 |:--|:--|
 | 7.4 | 3.10.0-693 |
-| 7,5 | 3.10.0-862 |
+| 7.5 | 3.10.0-862 |
 | 7.6 | 3.10.0-957 |
 
 ##### <a name="red-hat-linux-6"></a>Red Hat Linux 6
@@ -193,7 +193,7 @@ Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga 
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Bandiera** | **Descrizione** |
+| **Contrassegno** | **Descrizione** |
 | --- | --- |
 | <code>/?</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>/S</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -218,7 +218,7 @@ Per visualizzare un elenco dei flag di installazione, eseguire il programma di i
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Bandiera** | **Descrizione** |
+| **Contrassegno** | **Descrizione** |
 | --- | --- |
 | <code>-help</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>-s</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |

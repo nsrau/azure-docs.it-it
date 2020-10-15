@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b7324115c880fb1ee4d5a1730a3b84a289cee4b0
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89490140"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Copiare dati da e verso Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando Azure Data Factory
@@ -47,7 +47,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 ## <a name="supported-authentication-type"></a>Tipo di autenticazione supportato
 Il connettore Azure sinapsi Analytics supporta l'autenticazione di base.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 È possibile creare una pipeline con un'attività di copia che sposta i dati da e verso un'analisi delle sinapsi di Azure usando diversi strumenti/API.
 
 Il modo più semplice per creare una pipeline che copia i dati da e verso Azure sinapsi Analytics consiste nell'usare la procedura guidata copia dati. Vedere [esercitazione: caricare i dati in sinapsi Analytics con data factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) per una rapida procedura dettagliata sulla creazione di una pipeline con la copia guidata dati.
@@ -320,7 +320,7 @@ Data Factory crea la tabella nell'archivio di destinazione con lo stesso nome de
 | Ora | Ora |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Text | Varchar (fino a 8000) |
+| Testo | Varchar (fino a 8000) |
 | NText | NVarChar (fino a 4000) |
 | Immagine | VarBinary (fino a 8000) |
 | UniqueIdentifier | UniqueIdentifier |
@@ -368,9 +368,9 @@ Il mapping è uguale al [mapping del tipo di dati SQL Server per ADO.NET](https:
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Object * |
-| testo |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |

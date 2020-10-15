@@ -3,12 +3,12 @@ title: Panoramica degli insiemi di credenziali di backup
 description: Panoramica degli insiemi di credenziali di backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 773152212ed831c0083cfdf912f45ece578d079f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997262"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091288"
 ---
 # <a name="backup-vaults-overview"></a>Panoramica degli insiemi di credenziali di backup
 
@@ -16,7 +16,7 @@ Questo articolo descrive le funzionalità di un insieme di credenziali per il ba
 
 - **Funzionalità ottimizzate per la protezione dei dati di backup**: con gli insiemi di credenziali di backup, backup di Azure offre funzionalità di sicurezza per proteggere i backup nel cloud. Queste funzionalità di sicurezza garantiscono la protezione dei backup e ripristinano i dati in modo sicuro anche se i server di produzione e di backup vengono compromessi. [Scopri di più](backup-azure-security-feature.md)
 
-- **Controllo degli accessi in base al ruolo o RBAC **: il controllo degli accessi in base al ruolo consente un controllo della gestione degli accessi con granularità fine in Azure. [Azure offre diversi ruoli predefiniti](../role-based-access-control/built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali di backup sono compatibili con il controllo degli accessi in base al ruolo, che limita l'accesso di backup e ripristino al set definito di ruoli utente. [Scopri di più](backup-rbac-rs-vault.md)
+- **Controllo degli accessi in base al ruolo di Azure (RBAC**di Azure): il controllo degli accessi in base al ruolo di Azure offre un controllo di gestione degli accessi [Azure offre diversi ruoli predefiniti](../role-based-access-control/built-in-roles.md) mentre Backup di Azure dispone di tre [ruoli predefiniti per la gestione dei punti di ripristino](backup-rbac-rs-vault.md). Gli insiemi di credenziali di backup sono compatibili con il controllo degli accessi in base al ruolo di Azure, che limita l'accesso di backup e ripristino al set definito di ruoli utente. [Scopri di più](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>Impostazioni di archiviazione nell'insieme di credenziali per il backup
 

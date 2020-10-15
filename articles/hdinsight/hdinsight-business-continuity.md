@@ -8,12 +8,12 @@ keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 49f1f475ba4169ea6943dec161577a15e76657f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857776"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893646"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuità aziendale di Azure HDInsight
 
@@ -68,7 +68,7 @@ I servizi seguenti sono progettati per essere a disponibilità elevata:
 * Tre nodi quorum Zookeeper
 * Nodi di lavoro distribuiti da domini di errore e di aggiornamento
 
-#### <a name="service"></a>Service
+#### <a name="service"></a>Servizio
 
 * Server Apache Ambari
 * Sequenza temporale applicazione per YARN
@@ -84,7 +84,7 @@ Non è sempre necessario un evento irreversibile per influito sulle funzionalit�
 
 ### <a name="hdinsight-metastore"></a>Metastore HDInsight
 
-HDInsight usa il [database SQL di Azure](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) come Metastore, che fornisce un contratto di contratto del 99,99%. Tre repliche dei dati vengono mantenute all'interno di un data center con la replica asincrona. Se si verifica una perdita di replica, una replica alternativa viene gestita in modo uniforme. La [replica geografica attiva](../azure-sql/database/active-geo-replication-overview.md) è supportata in modo predefinito, con un massimo di quattro Data Center. Quando si verifica un failover, manuale o data center, la prima replica nella gerarchia diventerà automaticamente in grado di eseguire la lettura e scrittura. Per altre informazioni, vedere [continuità aziendale del database SQL di Azure](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+HDInsight usa il [database SQL di Azure](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) come Metastore, che fornisce un contratto di contratto del 99,99%. Tre repliche dei dati vengono mantenute all'interno di un data center con la replica sincrona. Se si verifica una perdita di replica, una replica alternativa viene gestita in modo uniforme. La [replica geografica attiva](../azure-sql/database/active-geo-replication-overview.md) è supportata in modo predefinito, con un massimo di quattro Data Center. Quando si verifica un failover, manuale o data center, la prima replica nella gerarchia diventerà automaticamente in grado di eseguire la lettura e scrittura. Per altre informazioni, vedere [continuità aziendale del database SQL di Azure](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ### <a name="hdinsight-storage"></a>Archiviazione HDInsight
 
@@ -112,7 +112,7 @@ Il miglioramento della continuità aziendale tramite il ripristino di emergenza 
 |----|------------------------|-----------------------|
 |Archiviazione dati|Duplicazione di dati/tabelle primari in un'area secondaria|Replicare solo i dati curati|
 |Dati in uscita|I trasferimenti di dati in uscita tra aree sono a prezzo. Esaminare le linee guida sui prezzi|Replicare solo i dati curati per ridurre il footprint in uscita dell'area|
-|Calcolo cluster|Cluster HDInsight aggiuntivi nell'area secondaria|Usare gli script automatizzati per distribuire le risorse di calcolo secondarie dopo l'errore primario. < \br>< \br>usare la scalabilità automatica per ridurre al minimo le dimensioni del cluster secondario. < \br>< \br>usare SKU di VM più convenienti. < \br>< \br> creare database secondari nelle aree in cui gli SKU delle VM possono essere scontati.|
+|Calcolo cluster|Cluster HDInsight aggiuntivi nell'area secondaria|Usare gli script automatici per distribuire il calcolo secondario dopo l'errore primario. Usare la scalabilità automatica per ridurre al minimo le dimensioni del cluster secondario. Usare SKU di VM più convenienti. Creare database secondari nelle aree in cui gli SKU delle VM possono essere scontati.|
 |Authentication |Gli scenari multiutente nell'area secondaria comporteranno ulteriori configurazioni di Azure AD DS|Evitare le configurazioni multiutente nell'area secondaria.|
 
 ### <a name="complexity-optimizations"></a>Ottimizzazioni di complessità

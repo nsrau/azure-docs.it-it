@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 titleSuffix: Azure
 description: includere file
 services: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: fda22346a44388248e37473bc7891b8a130569c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81681045"
 ---
 1. Nella scheda **configurazione** della pagina **Crea un peering** compilare le caselle come illustrato qui.
@@ -31,7 +31,7 @@ ms.locfileid: "81681045"
     * Per configurare o modificare le impostazioni di connessione, selezionare il pulsante modifica per una riga.
 
         > [!div class="mx-imgBorder"]
-        > ![Pulsante Modifica](../media/setup-direct-conf-tab-edit.png)
+        > ![Pulsante modifica](../media/setup-direct-conf-tab-edit.png)
     
     * Per eliminare una riga, selezionare **...**  >  **Eliminare**.
 

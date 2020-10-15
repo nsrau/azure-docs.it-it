@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 149a82526263f5e372db81b5a92a9ee90a2c76f3
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089973"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91928980"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Riavviare le macchine virtuali per i cluster HDInsight
 
@@ -31,8 +31,8 @@ Quando un nodo viene riavviato, il cluster potrebbe diventare non integro e i pr
 - Il disco temporaneo è pieno nel nodo.
 - La tabella di processo nella macchina virtuale include molte voci in cui il processo è stato completato, ma è elencato con "stato terminato".
 
-> [!WARNING]
-> Prestare attenzione quando si riavviano le macchine virtuali per i cluster **HBase** e **Kafka** perché il riavvio potrebbe causare la perdita di dati.
+> [!NOTE]
+> Il riavvio delle macchine virtuali non è supportato per i cluster **HBase** e **Kafka** perché il riavvio potrebbe causare la perdita di dati.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Usare PowerShell per riavviare le macchine virtuali
 

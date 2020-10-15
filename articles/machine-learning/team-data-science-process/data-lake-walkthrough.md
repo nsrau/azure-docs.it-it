@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440406"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
@@ -299,7 +299,7 @@ TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_e
 USING Outputters.Csv();
 ```
 
-### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dati
+### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dei dati
 Per ottenere una migliore comprensione dei dati, è possibile esplorarli usando gli script seguenti.
 
 È possibile trovare la distribuzione di corse associate o non associate alla mancia:

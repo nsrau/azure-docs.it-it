@@ -202,6 +202,48 @@ groups:
     title: JavaScript
   - id: programming-language-curl
     title: REST
+- id: programming-languages-set-twenty-three
+  title: Linguaggi di programmazione
+  prompt: Scegliere un'interfaccia della riga di comando o un linguaggio di programmazione
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
+- id: programming-languages-set-twenty-four
+  title: Linguaggi di programmazione
+  prompt: Scegliere un'interfaccia della riga di comando o un linguaggio di programmazione
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
 - id: cogsvcs-text-analytics-features
   title: Funzionalità di Analisi del testo
   prompt: Scegliere un'offerta di funzionalità di Analisi del testo
@@ -784,10 +826,18 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
+- id: non-azure-machines
+  title: Computer non Azure
+  prompt: Come si connette il computer non Azure?
+  pivots:
+  - id: azure-arc
+    title: Azure Arc
+  - id: azure-portal
+    title: Pagine del portale di Centro sicurezza
 metadata:
-  ms.openlocfilehash: a931ef1b1a4a4c5f107c66187d44a74f2eb5bcde
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 0aaa233c097bbd87f7b1b7df6e931d5fa768821f
+  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91825124"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92055580"

@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 596374d4f3f188e08a10bd25b36b178cc79a6e57
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808947"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Monitoraggio e registrazione del firewall applicazione Web di Azure
@@ -24,7 +24,7 @@ WAF con il log FrontDoor è integrato con [monitoraggio di Azure](../../azure-mo
 
 Da portale di Azure passare al tipo di risorsa porta anteriore. Dalla **Monitoring** / scheda**metriche** di monitoraggio a sinistra è possibile aggiungere **WebApplicationFirewallRequestCount** per tenere traccia del numero di richieste corrispondenti alle regole di WAF. I filtri personalizzati possono essere creati in base ai tipi di azione e ai nomi delle regole.
 
-:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics":::
+:::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="WAFMetrics ":::
 
 ## <a name="logs-and-diagnostics"></a>Log e diagnostica
 
@@ -36,7 +36,7 @@ WAF con sportello anteriore fornisce report dettagliati su ogni minaccia rilevat
 
 | Proprietà  | Descrizione |
 | ------------- | ------------- |
-|Action|Azione eseguita sulla richiesta|
+|Azione|Azione eseguita sulla richiesta|
 | ClientIp | Indirizzo IP del client che ha eseguito la richiesta. Se nella richiesta è presente un'intestazione X-Inoltred-for, l'indirizzo IP del client viene selezionato dal campo di intestazione. |
 | ClientPort | Porta IP del client che ha effettuato la richiesta. |
 | Dettagli|Ulteriori dettagli sulla richiesta corrispondente |

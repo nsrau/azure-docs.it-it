@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336206"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
@@ -146,7 +146,7 @@ Di seguito sono elencati alcuni dei problemi più comuni
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Problema noto in SQL Server 2016 e 2017
 **Come correggere**: Fare riferimento a questo [articolo della Knowledge Base](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
-#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Motivo 4: coerenza delle app non abilitata nei server Linux
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Motivo 4: non App-Consistency abilitata nei server Linux
 **Come risolvere il** problema: Azure Site Recovery per il sistema operativo Linux supporta gli script personalizzati dell'applicazione per la coerenza delle app. Lo script personalizzato con le opzioni pre e post verrà usato dall'agente di Azure Site Recovery Mobility per la coerenza delle app. [Ecco](./site-recovery-faq.md#replication) i passaggi per abilitarla.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Altre cause derivanti da problemi correlati al servizio Copia Shadow del volume:

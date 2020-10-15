@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.openlocfilehash: 332d6da35af0eaae9d9d15258a152734f0a9eba6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88033632"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Come usare l'archivio BLOB da C++
@@ -31,8 +31,8 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
-- **Linux:** Seguire le istruzioni fornite nella pagina del [file Leggimi della libreria client di archiviazione di Azure per C++: introduzione in Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) .
-- **Windows:** In Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire la [Guida introduttiva](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
+- **Linux:** seguire le istruzioni fornite nella pagina [Libreria client di Archiviazione di Azure per C++ - README: Introduzione a Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
+- **Windows:** in Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come utilità di gestione dipendenze. Seguire la [Guida introduttiva](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp

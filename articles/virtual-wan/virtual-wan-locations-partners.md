@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801461"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014028"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Posizioni dei partner e degli hub virtuali della rete WAN virtuale di Azure
 
@@ -40,7 +40,7 @@ Alcuni partner di connettività possono estendere l'automazione in modo da inclu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-I partner seguenti sono disponibili sulla nostra roadmap per il prossimo futuro: 128 Technologies, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN e SharpLink.
+I partner seguenti sono disponibili sulla roadmap in base a un foglio di termini firmato tra le società che indica l'ambito di lavoro per automatizzare la connettività IPsec tra il dispositivo partner e i gateway VPN WAN virtuali di Azure: tecnologie 128, Arista, F5 reti, Oracle SD-WAN (Tino) e SharpLink.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>Partner con offerte di hub virtuale integrate
 Oltre a avere la connettività IPSec automatizzata per le succursali, alcuni partner offrono **appliance virtuali di rete (appliance virtuali)** che possono essere integrate direttamente nell'hub WAN virtuale di Azure.  Ciò consente ai clienti di terminare le connessioni di Branch in un'appliance di terze parti compatibile nell'hub virtuale.  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888474"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090710"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurare un ambiente di staging nel cloud Spring di Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra come configurare una distribuzione di gestione temporan
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'applicazione PiggyMetrics sia già stata distribuita dall' [esercitazione sull'avvio di un'applicazione Azure Spring cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprende tre applicazioni: "gateway", "account-Service" e "auth-Service".  
+Questo articolo presuppone che l'applicazione PiggyMetrics sia già stata distribuita dall' [esercitazione sull'avvio di un'applicazione Azure Spring cloud](./spring-cloud-quickstart.md). PiggyMetrics comprende tre applicazioni: "gateway", "account-Service" e "auth-Service".  
 
 Se si vuole usare un'applicazione diversa per questo esempio, è necessario apportare una semplice modifica in una parte pubblica dell'applicazione.  Questa modifica differenzia la distribuzione di staging dalla produzione.
 

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f2cf1011db37892f71bdd06f409cec1a76463507
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257158"
 ---
 # <a name="sfctl-node"></a>sfctl node
@@ -41,7 +41,7 @@ Questa API consente di aggiungere tutti gli override di configurazione esistenti
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --config-Parameter-override-list [obbligatorio] | Descrizione per l'aggiunta di un elenco di override della configurazione. |
 | --Node-Name [obbligatorio] | Il nome del nodo. |
@@ -50,7 +50,7 @@ Questa API consente di aggiungere tutti gli override di configurazione esistenti
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -65,7 +65,7 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --node-name [Required] | Il nome del nodo. |
 | --deactivation-intent | Viene descritto lo scopo o il motivo per la disattivazione del nodo. I valori possibili sono i seguenti. |
@@ -73,7 +73,7 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

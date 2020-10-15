@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530154"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
-Informazioni su come usare Apache Spark & strumenti hive per Visual Studio Code. Usare gli strumenti per creare e inviare Apache Hive processi batch, query hive interattive e script PySpark per Apache Spark. Prima di tutto viene descritto come installare gli strumenti hive di Spark & in Visual Studio Code. Verrà quindi illustrato come inviare processi a Spark & gli strumenti hive.  
+Informazioni su come usare Spark & Hive Tools per Visual Studio Code. Usare gli strumenti per creare e inviare processi batch Apache Hive, query Hive interattive e script PySpark per Apache Spark. Verrà prima di tutto descritto come installare Spark & Hive Tools in Visual Studio Code. Quindi verrà illustrato come inviare processi a tali strumenti.  
 
-Spark & gli strumenti hive possono essere installati su piattaforme supportate da Visual Studio Code. Si notino i prerequisiti seguenti per le diverse piattaforme.
+È possibile installare Spark & Hive Tools nelle piattaforme supportate da Visual Studio Code. Si notino i prerequisiti seguenti per le diverse piattaforme.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,34 +28,34 @@ Per completare i passaggi in questo articolo, è necessario quanto segue:
 - Disporre di un cluster HDInsight di Azure. Per creare un cluster, vedere [Introduzione a HDInsight](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md). In alternativa, usare un cluster Spark e hive che supporta un endpoint Apache Livio.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono è necessario solo per Linux e macOS.
-- [Ambiente interattivo PySpark per Visual Studio Code](set-up-pyspark-interactive-environment.md).
+- [Un ambiente interattivo PySpark per Visual Studio Code](set-up-pyspark-interactive-environment.md).
 - Una directory locale. Questo articolo usa **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Installare Spark & Hive Tools
 
-Dopo aver soddisfatto i prerequisiti, è possibile installare Spark & hive Tools for Visual Studio Code attenendosi alla procedura seguente:
+Dopo aver soddisfatto i prerequisiti, è possibile installare Spark & Hive Tools per Visual Studio Code seguendo questa procedura:
 
 1. Aprire Visual Studio Code.
 
-2. Dalla barra dei menu passare a **Visualizza**  >  **estensioni**.
+2. Dalla barra dei menu passare a **Visualizza** > **Estensioni**.
 
 3. Nella casella di ricerca immettere **Spark & Hive**.
 
-4. Selezionare **Spark & hive Tools** nei risultati della ricerca e quindi selezionare **Install (installa**):
+4. Selezionare **Spark & Hive Tools** nei risultati della ricerca e quindi selezionare **Installa**:
 
-   ![Spark & hive per l'installazione di Visual Studio Code Python](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
+   ![Installazione di Spark & Hive per Visual Studio Code in Python](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-5. Selezionare **ricarica** quando necessario.
+5. Selezionare **Ricarica** quando è necessario.
 
 ## <a name="open-a-work-folder"></a>Aprire una cartella di lavoro
 
-Per aprire una cartella di lavoro e creare un file in Visual Studio Code, attenersi alla seguente procedura:
+Per aprire una cartella di lavoro e creare un file in Visual Studio Code, seguire questa procedura:
 
 1. Dalla barra dei menu passare a **file**  >  **Apri cartella...**  >  **C:\HD\HDexample**, quindi selezionare il pulsante **Seleziona cartella** . La cartella verrà visualizzata nella visualizzazione **Explorer** a sinistra.
 
 2. Nella visualizzazione **Esplora risorse** selezionare la cartella **HDexample** , quindi selezionare l'icona **nuovo file** accanto alla cartella di lavoro:
 
-   ![icona del nuovo file di Visual Studio Code](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
+   ![Icona Nuovo file in Visual Studio Code](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. Assegnare un nome al nuovo file usando l' `.hql` estensione di file (query hive) o `.py` (script Spark). Questo esempio usa **HelloWorld.hql**.
 
@@ -71,13 +71,13 @@ Per un utente del cloud nazionale, attenersi alla procedura seguente per imposta
 
 ## <a name="connect-to-an-azure-account"></a>Connettersi a un account Azure
 
-Prima di poter inviare script ai cluster da Visual Studio Code, l'utente può accedere alla sottoscrizione di Azure o [collegare un cluster HDInsight](#link-a-cluster). Usare il nome utente/password di Ambari o le credenziali aggiunti a un dominio per il cluster ESP per la connessione al cluster HDInsight. Per connettersi ad Azure, seguire questa procedura:
+Prima di poter inviare script ai cluster da Visual Studio Code, l'utente può accedere alla sottoscrizione di Azure o [collegare un cluster HDInsight](#link-a-cluster). Usare il nome utente/password di Ambari o le credenziali aggiunti a un dominio per il cluster ESP per la connessione al cluster HDInsight. Seguire questa procedura per connettersi ad Azure:
 
-1. Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: accedi**:
+1. Sulla barra dei menu scegliere **Visualizza** > **Riquadro comandi** e immettere **Azure: Accedi**:
 
-    ![Strumenti di Spark & hive per Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
+    ![Accesso a Spark & Hive Tools per Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Seguire le istruzioni di accesso per accedere ad Azure. Dopo la connessione, il nome dell'account Azure viene visualizzato sulla barra di stato nella parte inferiore della finestra di Visual Studio Code.  
+2. Seguire le istruzioni per accedere ad Azure. Dopo essersi connessi, il nome dell'account Azure viene visualizzato sulla barra di stato nell'angolo in basso a sinistra della finestra di Visual Studio Code.  
 
 ## <a name="link-a-cluster"></a>Collegare un cluster
 
@@ -140,7 +140,7 @@ Prima di poter inviare script ai cluster da Visual Studio Code, l'utente può ac
 
 4. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
-5. Selezionare un cluster come predefinito per il file di script corrente. Gli strumenti aggiornano automaticamente il **.VSCode\settings.jsnel file di** configurazione:
+5. Selezionare un cluster come predefinito per il file di script corrente. Gli strumenti aggiornano automaticamente il file di configurazione **.VSCode\settings.json**:
 
    ![Impostare la configurazione del cluster predefinito](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
@@ -175,11 +175,11 @@ Con Spark & gli strumenti hive per Visual Studio Code è possibile inviare query
 Gli utenti possono eseguire PySpark Interactive nei modi seguenti:
 
 ### <a name="using-the-pyspark-interactive-command-in-py-file"></a>Uso del comando interattivo PySpark nel file PY
-Utilizzando il comando interattivo PySpark per inviare le query, attenersi alla procedura seguente:
+Per usare il comando interattivo di PySpark per inviare le query, seguire questa procedura:
 
 1. Riaprire la cartella **HDexample** descritta in [precedenza](#open-a-work-folder), se chiusa.  
 
-2. Creare un nuovo file **HelloWorld.py** , seguendo i passaggi [precedenti](#open-a-work-folder) .
+2. Creare un nuovo file **HelloWorld.py** seguendo la procedura illustrata [in precedenza](#open-a-work-folder).
 
 3. Copiare e incollare il codice seguente nel file di script:
 
@@ -201,12 +201,12 @@ Utilizzando il comando interattivo PySpark per inviare le query, attenersi alla 
 
    ![Screenshot mostra un'opzione che consente di ignorare l'installazione di PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. Se è necessario installarlo in un secondo momento, è possibile **File**passare a  >  **Preference**  >  **Impostazioni**preferenza file, quindi deselezionare **HDInsight: Enable ignora Pyspark Installation** nelle impostazioni. 
+5. Se è necessario installarlo in un secondo momento, è possibile passare a **File** > **Preferenza** > **Impostazioni**, quindi deselezionare **HDInsight: Enable Skip Pyspark Installation** (Consenti di ignorare l'installazione di Pyspark). 
     
     ![Screenshot mostra l'opzione per abilitare l'installazione di Skip Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
-6. Se l'installazione ha avuto esito positivo nel passaggio 4, la finestra di messaggio "PySpark installato correttamente" viene visualizzata nell'angolo inferiore destro della finestra. Fare clic sul pulsante **ricarica** per ricaricare la finestra.
-    ![installazione di pyspark completata](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
+6. Se l'installazione ha avuto esito positivo nel passaggio 4, la finestra di messaggio "PySpark installato correttamente" viene visualizzata nell'angolo inferiore destro della finestra. Fare clic sul pulsante **Ricarica** per ricaricare la finestra.
+    ![Installazione di pyspark completata](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
 7. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
@@ -214,7 +214,7 @@ Utilizzando il comando interattivo PySpark per inviare le query, attenersi alla 
 
     ![Menu di scelta rapida PySpark Interactive (PySpark interattivo)](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. Fare clic su PySpark per passare dal kernel a **PySpark**e che il codice venga eseguito correttamente. Gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
+9. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. Fare clic su PySpark per passare dal kernel a **PySpark**e che il codice venga eseguito correttamente. Gli strumenti consentono anche di inviare un blocco di codice invece dell'intero file di script usando il menu di scelta rapida:
 
    ![Finestra di Python interattivo per PySpark interattivo](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -231,33 +231,33 @@ Lo strumento supporta anche la query **SQL Spark** :
 
 1. Aggiungere **#%%** prima del codice py per ottenere l'esperienza del notebook.
 
-    ![Aggiungi #%%](./media/hdinsight-for-vscode/run-cell.png)
+    ![Aggiungere #%%](./media/hdinsight-for-vscode/run-cell.png)
 
-2. Fare clic su **Run Cell**. Dopo alcuni istanti, i risultati di Python interattivo verranno visualizzati in una nuova scheda.
+2. Fare clic su **Esegui cella**. Dopo alcuni istanti, i risultati di Python interattivo verranno visualizzati in una nuova scheda.
 
-   ![Risultati della cella di esecuzione](./media/hdinsight-for-vscode/run-cell-get-results.png)
+   ![Risultati dell'esecuzione della cella](./media/hdinsight-for-vscode/run-cell-get-results.png)
 
    > [!NOTE]  
    > Quando si verificano problemi nel kernel o nelle impostazioni, usare **Python: selezionare l'interprete per avviare il comando server Jupyter** e **riavviare il kernel IPython**, quindi ricaricare il VSCode, che può essere risolto.
 
-## <a name="leverage-ipynb-support-from-python-extension"></a>Usare il supporto di IPYNB dall'estensione Python
+## <a name="leverage-ipynb-support-from-python-extension"></a>Sfruttare il supporto per IPYNB dell'estensione Python
 
-1. È possibile creare un comando Jupyter Notebook by dal riquadro comandi o creando un nuovo file con estensione ipynb nell'area di lavoro. Per altre informazioni, vedere [uso di notebook di Jupyter in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
+1. È possibile creare un notebook di Jupyter in base a comando dal riquadro comandi oppure creando un nuovo file con estensione ipynb nell'area di lavoro. Per altre informazioni, vedere [Uso di notebook di Jupyter in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
 
 2. Fare clic su PySpark per passare dal kernel al **PySpark**e quindi fare clic su **Esegui cella**, dopo un periodo di tempo, il risultato verrà visualizzato.
 
-   ![Esegui risultati ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
+   ![Risultati dell'esecuzione di ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
 > [!NOTE]
 >
->MS-Python >= la versione 2020.5.78807 non è supportata in questa estensione è un [problema noto](#known-issues).
+>La versione di Ms-python maggiore o uguale a 2020.5.78807 non è supportata in questa estensione e si tratta di un [problema noto](#known-issues).
 
 ## <a name="submit-pyspark-batch-job"></a>Inviare il processo batch PySpark
 
 1. Riaprire la cartella **HDexample** illustrata in [precedenza](#open-a-work-folder), se chiusa.  
 
-2. Creare un nuovo file **batchfile.py** seguendo i passaggi [precedenti](#open-a-work-folder) .
+2. Creare un nuovo file **BatchFile.py** seguendo la procedura descritta [in precedenza](#open-a-work-folder).
 
 3. Copiare e incollare il codice seguente nel file di script:
 
@@ -288,7 +288,7 @@ Lo strumento supporta anche la query **SQL Spark** :
 
 6. Selezionare un cluster a cui inviare il processo PySpark:
 
-   ![Inviare l'output del risultato del processo Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
+   ![Output del risultato dell'invio del processo Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
 Dopo aver inviato un processo Python, i log di invio vengono visualizzati nella finestra **OUTPUT** in Visual Studio Code. Vengono visualizzati anche l'URL dell'interfaccia utente di Spark e l'URL dell'interfaccia utente di Yarn. È possibile aprire l'URL in un Web browser per tenere traccia dello stato del processo.
 
@@ -331,7 +331,7 @@ Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta aut
 
     **Post/Batches** Corpo della richiesta
 
-    | name | description | tipo |
+    | name | description | type |
     | --- | --- | --- |
     | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
     | proxyUser | Utente da rappresentare quando si esegue il processo | string |
@@ -352,7 +352,7 @@ Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta aut
 
     Corpo della risposta l'oggetto batch creato.
 
-    | name | description | tipo |
+    | name | description | type |
     | --- | ---| --- |
     | ID | ID sessione | Int |
     | appId | ID applicazione della sessione | string |
@@ -367,7 +367,7 @@ Il metodo 2 Invia un file e si noti che la `.vscode` cartella viene aggiunta aut
 
 È possibile visualizzare in anteprima la tabella hive nei cluster direttamente tramite **Azure HDInsight** Explorer:
 
-1. [Connettersi](#connect-to-an-azure-account) all'account Azure, se non è ancora stato fatto.
+1. [Connettersi](#connect-to-an-azure-account) all'account Azure, se ancora non è stato fatto.
 
 2. Selezionare l'icona di **Azure** dalla colonna più a sinistra.
 
@@ -467,9 +467,9 @@ Inviare un processo a un cluster HDInsight usando Data Lake Storage Gen2. Viene 
 Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e quindi immettere **Azure: disconnettersi**.
 
 ## <a name="known-issues"></a>Problemi noti
-### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>MS-Python >= la versione 2020.5.78807 non è supportata in questa estensione 
+### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>La versione di ms-python maggiore o uguale a 2020.5.78807 non è supportata in questa estensione 
 
-"Impossibile connettersi al notebook di Jupyter". è un problema noto per Python Version >= 2020.5.78807. È consigliabile che gli utenti usino la versione **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** di MS-Python per evitare questo problema.
+L'errore "Non è stato possibile connettersi a Jupyter Notebook" è un problema noto per Python versione maggiore o uguale a 2020.5.78807. Per evitare questo problema, è consigliabile usare la versione **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** di ms-pyton.
 
 ![Problemi noti di](./media/hdinsight-for-vscode/known-issue.png)
 

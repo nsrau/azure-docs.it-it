@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
 ms.openlocfilehash: 868a8eb6cf38d471eb9dc1f47c903404d05ffc0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294513"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Eseguire l'aggiornamento all'API per gli avvisi del log corrente dall'API Log Analytics Alert legacy
@@ -38,7 +38,7 @@ In passato, gli utenti usavano l' [API log Analytics Alert legacy](api-alerts.md
 - Tutte le nuove regole devono essere create o modificate con l'API corrente. Vedere l' [esempio di utilizzo tramite il modello di risorsa di Azure](alerts-log-create-templates.md) e l'uso di [esempio tramite PowerShell](alerts-log.md#managing-log-alerts-using-powershell).
 - Poiché le regole diventano Azure Resource Manager risorse rilevate nell'API corrente e devono essere univoche, l'ID risorsa regole verrà modificato in questa struttura: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . I nomi visualizzati della regola di avviso rimarranno invariati.
 
-## <a name="process"></a>Process
+## <a name="process"></a>Processo
 
 Il processo di cambio non è interattivo e non richiede passaggi manuali, nella maggior parte dei casi. Le regole di avviso non vengono arrestate o bloccate, durante o dopo l'opzione.
 Eseguire questa chiamata per cambiare tutte le regole di avviso associate all'area di lavoro Log Analytics specifica:

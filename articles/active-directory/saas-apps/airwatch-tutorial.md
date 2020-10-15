@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 049066ffc5ce0aea2af956343dfa7ba97b6b5bb4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542820"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758145"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Esercitazione: Integrare AirWatch con Azure Active Directory
 
@@ -125,7 +125,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic sulla scheda **User** (Utente), digitare il proprio nome di dominio nella casella di testo **Base DN** (Nome distinto di base) e quindi fare clic su **Save** (Salva).
 
-   ![Utente](./media/airwatch-tutorial/ic791922.png "Utente")
+   ![Screenshot con la casella di testo Base DN evidenziata.](./media/airwatch-tutorial/ic791922.png "Utente")
 
 1. Fare clic sulla scheda **Server** .
 
@@ -133,7 +133,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Seguire questa procedura nella sezione **LDAP**:
 
-    ![Upload](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Screenshot che mostra le modifiche da apportare alla sezione LDAP.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. Per **Directory Type** selezionare **None**.
 
@@ -223,7 +223,7 @@ Per consentire agli utenti di Azure AD di accedere ad AirWatch, è necessario ef
 
 3. Dal menu **Users** (Utenti) scegliere **List View** (Visualizzazione elenco) e quindi fare clic su **Add > Add User** (Aggiungi > Aggiungi utente).
   
-   ![Add User](./media/airwatch-tutorial/ic791930.png "Aggiunta di un utente")
+   ![Screenshot con i pulsanti Add e Add User evidenziati.](./media/airwatch-tutorial/ic791930.png "Aggiunta di un utente")
 
 4. Nella finestra di dialogo **Add / Edit User** seguire questa procedura:
 

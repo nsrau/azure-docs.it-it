@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d0dffe602aef01af2fb2ef8ee9462a0bb99c1ae0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 401b1ef4e057d145574c0a8fcbfce8c9f586c266
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555689"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775066"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Druva
 
@@ -146,7 +146,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nella scheda **Single Sign-On** fare clic su **Edit** (Modifica).
 
-    ![Impostazioni per l'accesso Single Sign-On](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
+    ![Screenshot che mostra la scheda "Access Settings - Single Sign-On" con il pulsante "Edit" selezionato.](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
 
 1. Nella pagina **Edit Single Sign-On Settings** (Modifica impostazioni per l'accesso Single Sign-On) seguire questa procedura:
 

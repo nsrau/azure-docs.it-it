@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181494"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Avviso di monitoraggio di backup di Azure-Domande frequenti
@@ -48,7 +48,7 @@ Sì, è possibile visualizzare i report negli insiemi di credenziali e nelle sot
 
 Se si è un utente di [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) con accesso delegato alle sottoscrizioni dei clienti o alle aree di lavoro di la, è possibile usare i report di backup per visualizzare i dati in tutti i tenant.
 
-## <a name="recovery-services-vault"></a>Insieme di credenziali di Servizi di ripristino
+## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo è necessario per la reflection dello stato del processo dell'agente di backup di Azure nel portale?
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
 ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86201805"
 ---
 # <a name="how-caching-works"></a>Funzionamento della memorizzazione nella cache
@@ -76,8 +76,8 @@ La rete CDN di Azure supporta le seguenti intestazioni di direttive della cache 
 - Se usato in una risposta HTTP dal client al POP della rete CDN:
      - La **rete CDN Standard/Premium di Azure con tecnologia Verizon** e la **rete CDN Standard di Azure con tecnologia Microsoft** supportano tutte le direttive `Cache-Control`.
      - La **rete CDN Standard/Premium di Azure con tecnologia Akamai** supporta solo le direttive `Cache-Control` seguenti e tutte le altre vengono ignorate:
-         - `max-age`: una cache può archiviare il contenuto per il numero di secondi specificato, Ad esempio, `Cache-Control: max-age=5` Questa direttiva specifica il tempo massimo per il quale il contenuto viene considerato aggiornato.
-         - `no-cache`: il contenuto viene memorizzato nella cache, ma è necessario convalidarlo ogni volta prima di inviarlo dalla cache. È equivalente a `Cache-Control: max-age=0`.
+         - `max-age`: una cache può archiviare il contenuto per il numero di secondi specificato, Ad esempio: `Cache-Control: max-age=5`. Questa direttiva specifica il tempo massimo per il quale il contenuto viene considerato aggiornato.
+         - `no-cache`: il contenuto viene memorizzato nella cache, ma è necessario convalidarlo ogni volta prima di inviarlo dalla cache. Equivalente a `Cache-Control: max-age=0`.
          - `no-store`: il contenuto non viene mai memorizzato nella cache e viene rimosso se è stato archiviato in precedenza.
 
 **Expires:**
@@ -98,14 +98,14 @@ Quando la cache non è aggiornata, vengono usati validator della cache HTTP per 
 
 **ETag**
 - La **rete CDN Standard/Premium di Azure con tecnologia Verizon** supporta `ETag` per impostazione predefinita, a differenza della **rete CDN Standard/Premium di Azure con tecnologia Microsoft** e della **rete CDN Standard di Azure con tecnologia Akamai**.
-- `ETag` definisce una stringa univoca per ogni file e versione di un file, Ad esempio, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`
+- `ETag` definisce una stringa univoca per ogni file e versione di un file, Ad esempio: `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introdotta nella specifica HTTP 1.1 ed è più recente di `Last-Modified`. È utile quando è difficile determinare la data dell'ultima modifica.
 - Supporta sia la convalida avanzata che la convalida debole. La rete CDN di Azure supporta tuttavia solo la convalida avanzata. Per la convalida avanzata, le due rappresentazioni della risorsa devono essere identiche byte per byte. 
-- La cache convalida un file che usa `ETag` inviando un'intestazione `If-None-Match` con uno o più validator `ETag` nella richiesta, Ad esempio, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"` Se la versione del server corrisponde a un validator `ETag` nell'elenco, il server invia il codice di stato 304 (Non modificato) nella risposta. Se la versione è diversa, il server risponde con il codice di stato 200 (OK) e la risorsa aggiornata.
+- La cache convalida un file che usa `ETag` inviando un'intestazione `If-None-Match` con uno o più validator `ETag` nella richiesta, Ad esempio: `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Se la versione del server corrisponde a un validator `ETag` nell'elenco, il server invia il codice di stato 304 (Non modificato) nella risposta. Se la versione è diversa, il server risponde con il codice di stato 200 (OK) e la risorsa aggiornata.
 
 **Ultima modifica:**
 - Solo per la **rete CDN Standard/Premium di Azure con tecnologia Verizon**, `Last-Modified` è usato se `ETag` non fa parte della risposta HTTP. 
-- Specifica la data e ora dell'ultima modifica della risorsa secondo quanto determinato dal server, Ad esempio, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`
+- Specifica la data e ora dell'ultima modifica della risorsa secondo quanto determinato dal server, Ad esempio: `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - La cache convalida un file che usa `Last-Modified` inviando un'intestazione `If-Modified-Since` con la data e ora nella richiesta. Il server di origine confronta tale data con l'intestazione `Last-Modified` della risorsa più recente. Se la risorsa non è stata modificata dopo la data e ora specificate, il server restituisce il codice di stato 304 (Non modificato) nella risposta. Se la risorsa è stata modificata, il server restituisce il codice di stato 200 (OK) e la risorsa aggiornata.
 
 ## <a name="determining-which-files-can-be-cached"></a>Determinazione dei file che possono essere memorizzati nella cache

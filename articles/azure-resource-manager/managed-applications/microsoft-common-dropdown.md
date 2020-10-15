@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87474343"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento Microsoft.Common.DropDown dell'interfaccia utente
@@ -26,19 +26,19 @@ Quando per la selezione è consentito un solo elemento, il controllo viene visua
 
 Quando vengono incluse le descrizioni, il controllo viene visualizzato come:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selezione singola di Microsoft. Common. DropDown con le descrizioni":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-2.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
 
 Quando è abilitata la funzionalità di selezione più, il controllo aggiunge un'opzione **Seleziona tutto** e le caselle di controllo per selezionare più elementi:
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selezione multifunzione Microsoft. Common. DropDown":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-3.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
 
 Le descrizioni possono essere incluse con la selezione MultiSelect abilitata.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Microsoft. Common. DropDown MultiSelect con le descrizioni":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-4.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
 
 Quando il filtro è abilitato, il controllo include una casella di testo per l'aggiunta del valore di filtro.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft. Common. DropDown MultiSelect con le descrizioni":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Selezione singola Microsoft. Common. DropDown":::
 
 ## <a name="schema"></a>SCHEMA
 
@@ -81,7 +81,7 @@ Quando il filtro è abilitato, il controllo include una casella di testo per l'a
 "two"
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - Consente `multiselect` di specificare se gli utenti possono selezionare più di un elemento.
 - Per impostazione predefinita, il valore di `selectAll` è `true` quando è abilitata la selezione MultiSelect.

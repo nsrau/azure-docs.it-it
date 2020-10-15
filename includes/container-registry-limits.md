@@ -9,17 +9,17 @@ ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86512615"
 ---
 | Risorsa | Basic | Standard | Premium |
 |---|---|---|---|
-| Archiviazione inclusa<sup>1</sup> (GIB) | 10 | 100 | 500 |
+| Spazio di archiviazione incluso<sup>1</sup> (GiB) | 10 | 100 | 500 |
 | Limite di archiviazione (TiB) | 20| 20 | 20 |
-| Dimensioni massime livello immagine (GiB) | 200 | 200 | 200 |
+| Dimensioni massime livello immagini (GiB) | 200 | 200 | 200 |
 | Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3,000 | 10,000 |
 | Operazioni di scrittura al minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
 | MBps di larghezza di banda per il download<sup>2</sup> | 30 | 60 | 100 |
@@ -28,7 +28,7 @@ ms.locfileid: "86512615"
 | Replica geografica | N/D | N/D | [Supportato][geo-replication] |
 | Attendibilità del contenuto | N/D | N/D | [Supportato][content-trust] |
 | Collegamento privato con endpoint privati | N/D | N/D | [Supportato][plink] |
-| &bull;Endpoint privati | N/D | N/D | 10 |
+| &bull; Endpoint privati | N/D | N/D | 10 |
 | Accesso alla rete virtuale dell'endpoint servizio | N/D | N/D | [Anteprima][vnet] |
 | Chiavi gestite dal cliente | N/D | N/D | [Supportato][cmk] |
 | Autorizzazioni con ambito repository | N/D | N/D | [Anteprima][token]|
@@ -37,7 +37,7 @@ ms.locfileid: "86512615"
 | &bull; repository per mapping di ambito | N/D | N/D | 500 |
 
 
-<sup>1</sup> archiviazione inclusa nella tariffa giornaliera per ogni livello. Per una risorsa di archiviazione aggiuntiva, viene addebitata una tariffa giornaliera aggiuntiva per GiB, fino al limite di archiviazione. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
+<sup>1</sup> Spazio di archiviazione incluso nella tariffa giornaliera per ogni livello. Per lo spazio di archiviazione aggiuntivo viene addebitata una tariffa giornaliera aggiuntiva per GiB fino al limite di archiviazione. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
 
 <sup>2</sup> I dati delle *operazioni di lettura*, *operazioni di scrittura* e *larghezza di banda* sono stime minime. Registro Azure Container migliora le prestazioni in base alle necessità d'uso.
 

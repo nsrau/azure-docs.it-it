@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260768"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91651718"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Avvio rapido: Creare un pool di Apache Spark in Azure Synapse Analytics con gli strumenti Web
 
@@ -85,7 +85,7 @@ Un notebook è un ambiente interattivo che supporta diversi linguaggi di program
 
     ![Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione")
 
-    ![Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione")
+    ![Screenshot con il percorso default > demodata > demo_df evidenziato.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Visualizzazione dell'output nello strumento di esplorazione dell'archiviazione")
 
 ## <a name="run-spark-sql-statements"></a>Eseguire le istruzioni Spark SQL
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961976"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997033"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
@@ -31,7 +31,7 @@ In combinazione, offre:
 
 * **Possibilità di personalizzazione**, per modificare le metriche da visualizzare, modificare o impostare soglie allineate ai propri limiti e salvare come cartella di lavoro personalizzata. I grafici nelle cartelle di lavoro possono essere aggiunti ai dashboard di Azure.  
 
-Per questa funzionalità non è necessario abilitare o configurare alcunché, le metriche di archiviazione degli account di archiviazione vengono raccolte per impostazione predefinita. Se non si ha familiarità con le metriche disponibili in Archiviazione di Azure, vedere la descrizione e la definizione delle metriche in [Metriche di archiviazione di Azure](../../storage/common/monitor-storage.md).
+Per questa funzionalità non è necessario abilitare o configurare alcunché, le metriche di archiviazione degli account di archiviazione vengono raccolte per impostazione predefinita. Se non si ha familiarità con le metriche disponibili in Archiviazione di Azure, vedere la descrizione e la definizione delle metriche in [Metriche di archiviazione di Azure](../../storage/blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >Non sono previsti addebiti per accedere a questa funzionalità. Verranno addebitate solo le funzionalità essenziali di Monitoraggio di Azure configurate o abilitate, come descritto nella pagina relativa ai [dettagli sui prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
@@ -67,7 +67,7 @@ Il riquadro contatore sotto gli elenchi a discesa riepiloga il numero totale di 
 Selezionare un valore nelle colonne **Disponibilità**, **Latenza end-to-end**, **Latenza server** e **tipo di errore transazione/Errori** per accedere a un report basato sul tipo specifico di metrica di archiviazione corrispondente alla colonna selezionata per l'account di archiviazione. Per altre informazioni sulle cartelle di lavoro per ogni categoria, vedere la sezione [Cartelle di lavoro sull'archiviazione dettagliate](#detailed-storage-workbooks) più avanti. 
 
 >[!NOTE]
->Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere lo [schema dei tipi di risposta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errore, tutti gli altri errori sono rappresentati nella categoria **Altro**.
+>Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere lo [schema dei tipi di risposta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errore, tutti gli altri errori sono rappresentati nella categoria **Altro**.
 
 La soglia di **Disponibilità** predefinita è:
 
@@ -274,4 +274,3 @@ Ogni cartella di lavoro viene salvata nell'account di archiviazione in cui è st
 * Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare nuovi report e personalizzare report esistenti e altro ancora sono disponibili nell'articolo [Creare report interattivi con le cartelle di lavoro di Monitoraggio di Azure](../platform/workbooks-overview.md).
 
 * Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
-

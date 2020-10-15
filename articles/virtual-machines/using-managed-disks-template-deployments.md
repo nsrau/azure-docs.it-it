@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 298c6e4f33fff99fff01b6b911ec77c78f1fbd26
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91666552"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976665"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Uso di dischi nei modelli di Azure Resource Manager
 
@@ -266,5 +266,4 @@ Per informazioni complete sulle specifiche dell'API REST, vedere la [documentazi
 * Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](managed-disks-overview.md).
 * La documentazione di riferimento del modello per le risorse macchina virtuale è disponibile alla pagina [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines).
 * La documentazione di riferimento del modello per le risorse disco è disponibile alla pagina [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks).
-* Per informazioni su come usare i dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, vedere [Usare dischi dati con set di scalabilità](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).
-
+* Per informazioni su come usare i dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, vedere [Usare dischi dati con set di scalabilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md).

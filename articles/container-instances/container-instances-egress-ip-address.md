@@ -4,10 +4,10 @@ description: Configurare il firewall di Azure e le route definite dall'utente pe
 ms.topic: article
 ms.date: 07/16/2020
 ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566569"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>Configurare un singolo indirizzo IP pubblico per il traffico in uscita e in ingresso verso un gruppo di contenitori

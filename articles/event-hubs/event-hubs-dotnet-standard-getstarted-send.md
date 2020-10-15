@@ -2,14 +2,14 @@
 title: Inviare o ricevere eventi da Hub eventi di Azure tramite .NET (ultima versione)
 description: Questo articolo illustra come creare un'applicazione .NET Core che invia/riceve eventi a/da Hub eventi di Azure usando il pacchetto Azure.Messaging.EventHubs più recente.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1bf41eb5ef5b43a59330d1735086ca595d7604b5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 170484b5a24367eb19e69f0a72918d99b6595fca
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334226"
+ms.locfileid: "91728506"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Inviare e ricevere eventi da Hub eventi di Azure - .NET (Azure.Messaging.EventHubs) 
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con la libreria .NET **Azure.Messaging.EventHubs**. 
@@ -19,7 +19,7 @@ Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub e
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti 
 Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi](event-hubs-about.md) prima di procedere con questa guida di avvio rapido. 
 
 Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
@@ -109,8 +109,11 @@ Questa sezione illustra come creare un'applicazione console .NET Core per inviar
 Questa sezione mostra come scrivere un'applicazione console .NET Core che riceve i messaggi da un hub eventi tramite un processore di eventi. Il processore di eventi semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Un processore di eventi è associato a un hub eventi specifico e a un gruppo di consumer. Riceve gli eventi da più partizioni nell'hub eventi, passandoli a un delegato del gestore per l'elaborazione tramite il codice fornito. 
 
 
-> [!NOTE]
-> Se il codice viene eseguito in Hub di Azure Stack, questa piattaforma potrebbe supportare una versione diversa dell'SDK di archiviazione BLOB rispetto a quelle disponibili in Azure. Se ad esempio l'esecuzione avviene nell'[hub di Azure Stack versione 2002](/azure-stack/user/event-hubs-overview), la versione più recente disponibile per il servizio di archiviazione è 2017-11-09. In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice destinato alla versione 2017-11-09 dell'API del servizio di archiviazione. Per informazioni su come definire come destinazione una versione specifica dell'API di archiviazione, vedere [questo esempio in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). Per altre informazioni sulle versioni del servizio di archiviazione di Azure supportate in Hub di Azure Stack, vedere [Archiviazione nell'hub di Azure Stack: differenze e considerazioni](/azure-stack/user/azure-stack-acs-differences).
+> [!WARNING]
+> Se si esegue questo codice nell'hub di Azure Stack, si verificheranno errori di runtime a meno che non si scelga una versione specifica dell'API di archiviazione come destinazione. Il motivo è che Event Hubs SDK usa l'ultima versione disponibile in Azure dell'API di archiviazione di Azure, che potrebbe non essere presente nella piattaforma dell'hub di Azure Stack. L'hub di Azure Stack potrebbe supportare una versione di Storage Blob SDK diversa da quelle solitamente disponibili in Azure. Se si usa Archiviazione BLOB di Azure come archivio di checkpoint, verificare la [versione dell'API di archiviazione di Azure supportata per la build dell'hub di Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) e scegliere tale versione come destinazione nel codice. 
+>
+> Se ad esempio l'esecuzione avviene nell'hub di Azure Stack versione 2005, la versione più recente disponibile per il servizio di archiviazione è 2019-02-02. Per impostazione predefinita, la libreria client di Event Hubs SDK usa la versione più recente disponibile in Azure (2019-07-07 al momento del rilascio dell'SDK). In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice destinato alla versione 2019-02-02 dell'API del servizio di archiviazione. Per informazioni su come definire come destinazione una versione specifica dell'API di archiviazione, vedere [questo esempio in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+ 
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Creare un account di archiviazione di Azure e un contenitore BLOB
 In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure come archivio di checkpoint. Seguire questa procedura per creare un account di archiviazione di Azure. 
@@ -125,7 +128,7 @@ In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure
 ### <a name="create-a-project-for-the-receiver"></a>Creare un progetto per l'app ricevente
 
 1. Nella finestra Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **EventHubQuickStart**, scegliere **Aggiunti** e selezionare **Nuovo progetto**. 
-1. Selezionare **App console (.NET Core)** , quindi **Avanti**. 
+1. Selezionare **App console (.NET Core)**, quindi **Avanti**. 
 1. Immettere **EventHubsReceiver** per **Nome progetto** e selezionare **Crea**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi

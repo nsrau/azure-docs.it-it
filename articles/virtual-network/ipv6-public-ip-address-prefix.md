@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666784"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefisso dell'indirizzo IPv6 pubblico riservato
@@ -38,7 +38,7 @@ Sono disponibili le seguenti dimensioni del prefisso IP pubblico:
 -  Dimensioni minime prefisso IPv6:/127 = 2 indirizzi
 -  Dimensioni massime prefisso IPv6:/124 = 16 indirizzi
 
-La dimensione del prefisso viene specificata come una maschera CIDR (Inter-Domain Routing) senza classi. Ad esempio, una maschera di/128 rappresenta un singolo indirizzo IPv6 poiché gli indirizzi IPv6 sono costituiti da 128 bit.
+La dimensione del prefisso è specificata come una maschera CIDR (Class senza Inter-Domain routing). Ad esempio, una maschera di/128 rappresenta un singolo indirizzo IPv6 poiché gli indirizzi IPv6 sono costituiti da 128 bit.
 
 ## <a name="pricing"></a>Prezzi
  

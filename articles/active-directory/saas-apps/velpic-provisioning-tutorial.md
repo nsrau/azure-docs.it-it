@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
 ms.openlocfilehash: fbed4b888c48a518d9f10a91ff0494aa7bdc1843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88532365"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Esercitazione: configurazione di Velpic per il provisioning utenti automatico
@@ -52,7 +52,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 Questa sezione illustra la connessione del Azure AD all'API di provisioning degli account utente di Velpic e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Velpic in base all'assegnazione di utenti e gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare l'accesso Single Sign-on basato su SAML per Velpic, seguendo le istruzioni fornite in [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
+> È anche possibile scegliere di abilitare il Sign-On Single basato su SAML per Velpic, seguendo le istruzioni fornite in [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-velpic-in-azure-ad"></a>Per configurare il provisioning automatico degli account utente in Velpic in Azure AD:
 
@@ -74,7 +74,7 @@ Questa sezione illustra la connessione del Azure AD all'API di provisioning degl
 
 7. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
 
-8. Fare clic su **Salva**.
+8. Fare clic su **Save**.
 
 9. Nella sezione Mapping selezionare **sincronizza Azure Active Directory utenti a Velpic**.
 
@@ -82,7 +82,7 @@ Questa sezione illustra la connessione del Azure AD all'API di provisioning degl
 
 11. Per abilitare il servizio di provisioning Azure AD per Velpic, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
 
-12. Fare clic su **Salva**.
+12. Fare clic su **Save**.
 
 Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Velpic nella sezione utenti e gruppi. La sincronizzazione iniziale richiederà più tempo delle sincronizzazioni successive, che saranno eseguite ogni 40 minuti circa per tutto il tempo in cui il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning che descrivono tutte le azioni eseguite dal servizio di provisioning.
 

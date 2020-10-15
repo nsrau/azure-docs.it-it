@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 260125b5e7aa4537c6e204d93263b65be042793a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540745"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalizzare le proprietà Remote Desktop Protocol per un pool di host di desktop virtuali Windows (classico)
@@ -49,7 +49,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Uno screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato per modificare una proprietà R D P personalizzata.](../media/singlecustomrdpproperty.png)
+> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato per modificare una proprietà R D P personalizzata.](../media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Aggiungere o modificare più proprietà RDP personalizzate
 
@@ -61,7 +61,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Uno screenshot del cmdlet di PowerShell set-RDSRemoteApp con Name e FriendlyName evidenziato per modificare una proprietà R D P personalizzata.](../media/multiplecustomrdpproperty.png)
+> ![Screenshot del cmdlet di PowerShell Set-RDSRemoteApp con Name e FriendlyName evidenziato per modificare una proprietà R D P personalizzata.](../media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>Reimposta tutte le proprietà RDP personalizzate
 
@@ -72,7 +72,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con Name e FriendlyName evidenziato.](../media/resetcustomrdpproperty.png)
+> ![Screenshot del cmdlet di PowerShell Get-RDSRemoteApp con nome e FriendlyName evidenziato.](../media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

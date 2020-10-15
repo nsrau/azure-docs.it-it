@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 7e298afa7efa6035b24f689d1163308ac6b14bff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233330"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855453"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Distribuire app ASP.NET Core nel servizio Azure Kubernetes usando Azure DevOps Starter
 
@@ -24,7 +24,7 @@ DevOps Starter consente inoltre di effettuare le seguenti operazioni:
 * Creare automaticamente risorse di Azure, ad esempio un servizio Azure Kubernetes.
 * Creare e configurare una pipeline di versione in Azure DevOps per configurare una compilazione e pipeline di versione per CI/CD.
 * Creare una risorsa di Azure Application Insights per il monitoraggio.
-* Consente a [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) di monitorare le prestazioni per i carichi di lavoro dei contenitori nel cluster del servizio Azure Kubernetes
+* Consente a [Monitoraggio di Azure per i contenitori](../azure-monitor/insights/container-insights-overview.md) di monitorare le prestazioni per i carichi di lavoro dei contenitori nel cluster del servizio Azure Kubernetes
 
 In questa esercitazione si apprenderà come:
 
@@ -171,4 +171,4 @@ Facoltativamente, è possibile modificare queste pipeline di compilazione e di v
 Per altre informazioni sull'uso del dashboard di Kubernetes vedere:
 
 > [!div class="nextstepaction"]
-> [Usare il dashboard Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
+> [Usare il dashboard Kubernetes](../aks/kubernetes-dashboard.md)

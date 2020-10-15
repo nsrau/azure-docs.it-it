@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
 ms.openlocfilehash: 507ef3cffb2570ad759445fd80c513ea2b08d994
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333473"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Esercitazione: configurare Rollbar per il provisioning utenti automatico
@@ -45,7 +45,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e rollbar](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Rollbar per supportare il provisioning con Azure AD
+## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Rollbar per supportare il provisioning con Azure AD
 
 Prima di configurare Rollbar per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in rollbar.
 

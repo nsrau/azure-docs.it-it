@@ -4,10 +4,10 @@ description: Usare Azure Advisor per ottimizzare le distribuzioni di Azure.
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405208"
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
@@ -24,7 +24,7 @@ Con Advisor, è possibile:
 
 È possibile accedere ad Advisor attraverso il [portale di Azure](https://aka.ms/azureadvisordashboard). Accedere al [portale](https://portal.azure.com), individuare **Advisor** nel menu di spostamento oppure cercarlo nel menu **Tutti i servizi**.
 
-Nel dashboard di Advisor vengono visualizzati consigli personalizzati per tutte le sottoscrizioni disponibili.  È possibile applicare filtri per visualizzare i consigli in base a sottoscrizioni e tipi di risorse specifici.  Le indicazioni sono suddivise in cinque categorie: 
+Nel dashboard di Advisor vengono visualizzati consigli personalizzati per tutte le sottoscrizioni disponibili.  È possibile applicare filtri per visualizzare i consigli in base a sottoscrizioni e tipi di risorse specifici.  Le raccomandazioni si dividono in cinque categorie: 
 
 * **Affidabilità (in precedenza denominata disponibilità elevata)**: per garantire e migliorare la continuità delle applicazioni cruciali per l'azienda. Per ulteriori informazioni, vedere [consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md).
 * **Sicurezza**: per rilevare le minacce e le vulnerabilità che potrebbero causare violazioni della sicurezza. Per altre informazioni, vedere [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza).

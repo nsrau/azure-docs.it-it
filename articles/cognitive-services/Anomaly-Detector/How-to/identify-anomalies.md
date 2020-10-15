@@ -3,19 +3,19 @@ title: Come usare l'API del rilevatore di anomalie nei dati delle serie temporal
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come rilevare le anomalie nei dati come batch o in streaming di dati.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: aahi
-ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: b2cd5e32503953de874ab470ca3f9413d2b37d59
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71840231"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014648"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedura: usare l'API del rilevatore di anomalie nei dati delle serie temporali  
 
@@ -26,7 +26,7 @@ L' [API rilevatore di anomalie](https://westus2.dev.cognitive.microsoft.com/docs
 L'API rilevatore di anomalie fornisce le modalità di rilevamento: batch e flusso.
 
 > [!NOTE]
-> Gli URL di richiesta seguenti devono essere combinati con l'endpoint appropriato per la sottoscrizione. ad esempio `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> Gli URL di richiesta seguenti devono essere combinati con l'endpoint appropriato per la sottoscrizione. Ad esempio: `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>Rilevamento in batch

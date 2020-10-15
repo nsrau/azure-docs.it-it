@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401742"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
@@ -50,10 +50,10 @@ Nel diagramma precedente i numeri indicano i punti principali delle reti. Questo
 
 Se si usano i modelli di condivisione percorso per cloud Exchange, Ethernet da punto a punto o di connettività diretta, CEs (2) stabilisce il peering BGP con MSEE (5). 
 
-Se viene usato il modello di connettività any-to-any (IPVPN), PE-MSEE (4) stabilisce il peering BGP con MSEE (5). PE-MSEE propaga le route ricevute da Microsoft alla rete del cliente tramite la rete del provider di servizi IPVPN.
+Se viene usato il modello di connettività any-to-any (IPVPN), PE-MSEEs (4) stabilire il peering BGP con MSEE (5). PE-MSEEs propagare le route ricevute da Microsoft alla rete del cliente tramite la rete del provider di servizi IPVPN.
 
 > [!NOTE]
->Per la disponibilità elevata, Microsoft stabilisce una connettività parallela completamente ridondante tra le coppie MSEE (5) e PE-MSEE (4). Viene inoltre suggerito un percorso di rete parallela completamente ridondante tra la rete del cliente e la coppia PE-CEs. Per altre informazioni sulla disponibilità elevata, vedere l'articolo [progettazione per la disponibilità elevata con ExpressRoute][HA]
+>Per la disponibilità elevata, Microsoft stabilisce una connettività parallela completamente ridondante tra le coppie MSEE (5) e PE-MSEEs (4). Un percorso di rete parallelo completamente ridondante viene inoltre consigliato tra la rete del cliente e la coppia di PE-CEs. Per altre informazioni sulla disponibilità elevata, vedere l'articolo [progettazione per la disponibilità elevata con ExpressRoute][HA]
 >
 >
 
@@ -319,7 +319,7 @@ StatusCode: 400
 ## <a name="next-steps"></a>Passaggi successivi
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:
 
-- [Supporto tecnico Microsoft][Support]
+- [supporto tecnico Microsoft][Support]
 - [Creare e modificare un circuito ExpressRoute][CreateCircuit]
 - [Creare e modificare il routing per un circuito ExpressRoute][CreatePeering]
 

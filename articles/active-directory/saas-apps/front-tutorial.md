@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550980"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Esercitazione: Integrazione di Azure Active Directory con Front
 
@@ -128,23 +128,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con Front, seguire questa p
 
 2. Passare a **Impostazioni (l'icona dell'ingranaggio in fondo all'intestazione laterale a sinistra) > Preferenze**.
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/front-tutorial/tutorial_front_000.png)
+    ![Screenshot che mostra l'icona "Settings" (ingranaggio) selezionata con l'opzione "Preferences" evidenziata.](./media/front-tutorial/tutorial_front_000.png)
 
 3. Fare clic sul collegamento **Single Sign On** .
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/front-tutorial/tutorial_front_001.png)
+    ![Screenshot che mostra la sezione "Company preferences" con il collegamento "Single Sign On" selezionato.](./media/front-tutorial/tutorial_front_001.png)
 
 4. Selezionare **SAML** nell'elenco a discesa **Single Sign On**.
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/front-tutorial/tutorial_front_002.png)
+    ![Screenshot che mostra l'elenco a discesa "Single Sign On" con la voce "SAML" selezionata.](./media/front-tutorial/tutorial_front_002.png)
 
 5. Nella casella di testo **Entry Point** (Punto di ingresso) inserire il valore di **URL di accesso** dalla configurazione guidata dell'applicazione di Azure AD.
     
-    ![Configurazione accesso Single Sign-On sul lato app](./media/front-tutorial/tutorial_front_003.png)
+    ![Screenshot che mostra la casella di testo "Entry Point".](./media/front-tutorial/tutorial_front_003.png)
 
 6. Aprire il file del **certificato (Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato di firma**.
     
-    ![Configurazione accesso Single Sign-On sul lato app](./media/front-tutorial/tutorial_front_004.png)
+    ![Screenshot che mostra l'opzione "Signing certificate" evidenziata con la casella di testo visualizzata in grigio.](./media/front-tutorial/tutorial_front_004.png)
 
 7. Nella sezione **Service provider settings** (Impostazioni provider di servizi) seguire questa procedura:
 

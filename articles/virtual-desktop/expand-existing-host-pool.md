@@ -3,15 +3,15 @@ title: Espandi pool host esistente con nuovi host sessione-Azure
 description: Come espandere un pool di host esistente con nuovi host di sessione nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b65560a3b10d04887040c4da1e137912810b3095
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002439"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929592"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Espandi un pool di host esistente con nuovi host sessione
 
@@ -26,7 +26,7 @@ In questo articolo viene illustrato come espandere un pool di host esistente con
 
 Prima di iniziare, assicurarsi di aver creato un pool host e le macchine virtuali (VM) host sessione usando uno dei metodi seguenti:
 
-- [Azure portal](./create-host-pools-azure-marketplace.md)
+- [Portale di Azure](./create-host-pools-azure-marketplace.md)
 - [Creare un pool di host con PowerShell](./create-host-pools-powershell.md)
 
 Al momento della creazione delle VM host della sessione e del pool host sono necessarie anche le informazioni seguenti:
@@ -56,7 +56,7 @@ Per espandere il pool di host aggiungendo macchine virtuali:
 8. Immettere il numero di host di sessione che si desidera aggiungere al pool host in **numero di macchine virtuali**. Se, ad esempio, si espande il pool host di cinque host, immettere **5**.
 
     >[!NOTE]
-    >Non è possibile modificare le dimensioni o l'immagine delle macchine virtuali perché è importante assicurarsi che tutte le macchine virtuali nel pool host abbiano le stesse dimensioni.
+    >Sebbene sia possibile modificare l'immagine e il prefisso delle macchine virtuali, non è consigliabile modificarli se si dispone di macchine virtuali con immagini diverse nello stesso pool host. Modificare l'immagine e il prefisso solo se si prevede di rimuovere le macchine virtuali con immagini precedenti dal pool host interessato.
 
 9. Per **informazioni sulle reti virtuali**, selezionare la rete virtuale e la subnet a cui si desidera creare un join delle macchine virtuali. È possibile selezionare la stessa rete virtuale attualmente usata dai computer esistenti oppure sceglierne una diversa più adatta all'area selezionata al passaggio 7.
 
@@ -67,7 +67,7 @@ Per espandere il pool di host aggiungendo macchine virtuali:
 
 11. Selezionare la scheda **tag** se sono presenti tag con i quali si desidera raggruppare le macchine virtuali. In caso contrario, ignorare questa scheda.
 
-12. Selezionare la scheda **Verifica + crea** . rivedere le scelte effettuate e, se il tutto sembra corretto, selezionare **Crea**.
+12. Selezionare la scheda **Verifica + crea** . Verificare le scelte effettuate e, se il tutto sembra corretto, selezionare **Crea**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

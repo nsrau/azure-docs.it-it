@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
 ms.openlocfilehash: 9a781fd48b30ccb32b0a733e5aa1ac054b96dc12
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323656"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
@@ -77,7 +77,7 @@ Selezionare **Visualizza** per ulteriori informazioni e opzioni, ad esempio:
 
    - **Console soluzione** : apre l'esperienza di gestione per questa soluzione.
    - **Collega macchina virtuale** : apre la pagina collega applicazioni. In questo pannello è possibile connettere risorse alla soluzione del partner.
-   - **Elimina soluzione**
+   - **Eliminare la soluzione**
    - **Configurare**
 
    ![Dettagli della soluzione di un partner](./media/security-center-partner-integration/partner-solutions-detail.png)

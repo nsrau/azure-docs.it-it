@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396689"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello Windows in Azure Lab Services
@@ -216,7 +216,7 @@ Windows 10 è dotato di molte applicazioni predefinite che potrebbero non essere
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name
 ```
 
-Per rimuovere un'applicazione, usare il cmdlet Remove-appx.  Nell'esempio seguente viene illustrato come rimuovere tutti gli elementi correlati a XBox.
+Per rimuovere un'applicazione, usare il cmdlet Remove-Appx.  Nell'esempio seguente viene illustrato come rimuovere tutti gli elementi correlati a XBox.
 
 ```powershell
 Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-AppxPackage $_} }
@@ -226,7 +226,7 @@ Get-AppxPackage -Name *xbox* | foreach { if (-not $_.NonRemovable) { Remove-Appx
 
 Installare altre app comunemente usate per l'insegnamento tramite l'app di Windows Store. I suggerimenti includono applicazioni come [Microsoft whiteboard app](https://www.microsoft.com/store/productId/9MSPC6MP8FM4), [Microsoft teams](https://www.microsoft.com/store/productId/9MSPC6MP8FM4)e [Minecraft Education Edition](https://education.minecraft.net/). Queste applicazioni devono essere installate manualmente tramite Windows Store o tramite i rispettivi siti Web nella macchina virtuale del modello.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Questo articolo ha illustrato i passaggi facoltativi per preparare la VM modello di Windows per una classe efficace.  I passaggi includono l'installazione di OneDrive e l'installazione di Microsoft 365, l'installazione degli aggiornamenti per Windows e l'installazione degli aggiornamenti per Microsoft Store app.  È stato inoltre illustrato come impostare gli aggiornamenti di una pianificazione più adatta per la classe.  
 

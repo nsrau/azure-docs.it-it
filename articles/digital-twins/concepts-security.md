@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331880"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015005"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -80,6 +80,14 @@ Se un utente tenta di eseguire un'azione non consentita dal ruolo, può ricevere
 ## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 
 I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inattivi e in transito come sono scritti nei data center e li decrittografa per l'accesso. Questa crittografia viene eseguita usando una chiave di crittografia gestita da Microsoft.
+
+## <a name="cross-origin-resource-sharing-cors"></a>Condivisione risorse tra le origini (CORS)
+
+I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
+
+Per risolvere questo errore, esegui una delle operazioni seguenti:
+* Rimuovere l'intestazione CORS `Access-Control-Allow-Origin` dal messaggio. Questa intestazione indica se la risposta può essere condivisa. 
+* In alternativa, creare un proxy CORS ed eseguire la richiesta dell'API REST di Azure Digital gemelli. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 2b2b2c444bb492fa6c6b945a82090e91963fb1a8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245861"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
@@ -19,7 +19,7 @@ Consente di ottenere ed eliminare le risorse di rete mesh.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminazione | Elimina la risorsa di rete. |
+| Elimina | Elimina la risorsa di rete. |
 | list | Elimina tutte le risorse di rete. |
 | show | Ottiene la risorsa di rete con il nome specificato. |
 
@@ -30,13 +30,13 @@ Elimina la risorsa di rete identificata dal nome.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della rete. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -51,7 +51,7 @@ Ottiene le informazioni su tutte le risorse di rete in un determinato gruppo di 
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -66,13 +66,13 @@ Ottiene le informazioni sulla risorsa di rete con il nome specificato. Le inform
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --name -n [Obbligatorio] | Nome della rete. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

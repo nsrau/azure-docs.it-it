@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75648678"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948953"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurare Funzioni di Azure per i provider personalizzati di Azure
 
@@ -51,7 +51,7 @@ Per configurare la funzione di Azure in modo da includere i metodi di richiesta 
 > [!NOTE]
 > Se il file di progetto C# non è presente nella directory di progetto, è possibile aggiungerlo manualmente. Oppure comparirà dopo l'installazione dell'estensione Microsoft.Azure.WebJobs.Extensions.Storage nell'app per le funzioni.
 
-Aggiornare quindi il file di progetto C# per includere alcune utili librerie NuGet. Queste librerie facilitano l'analisi delle richieste in ingresso provenienti dai provider personalizzati. Seguire la procedura per [aggiungere estensioni dal portale](../../azure-functions/install-update-binding-extensions-manual.md) e aggiornare il file di progetto C# per includere i riferimenti ai pacchetti seguenti:
+Aggiornare quindi il file di progetto C# per includere alcune utili librerie NuGet. Queste librerie facilitano l'analisi delle richieste in ingresso provenienti dai provider personalizzati. Seguire la procedura per [aggiungere estensioni dal portale](../../azure-functions/functions-bindings-register.md) e aggiornare il file di progetto C# per includere i riferimenti ai pacchetti seguenti:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -80,4 +80,3 @@ L'elemento XML seguente è un esempio di file di progetto C#:
 In questa esercitazione è stata configurata un'app per le funzioni di Azure da usare come endpoint di provider personalizzati di Azure.
 
 Per informazioni su come creare un endpoint RESTful per provider personalizzati, vedere [Esercitazione: Creazione di un endpoint RESTful per provider personalizzati](./tutorial-custom-providers-function-authoring.md).
-

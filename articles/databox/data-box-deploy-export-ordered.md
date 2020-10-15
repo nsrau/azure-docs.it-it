@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575572"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
@@ -60,7 +60,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    ![Crea risorsa](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 
    ![Crea Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
@@ -82,7 +82,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti**.
 
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
@@ -119,12 +119,12 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    ![Dettagli del contatto](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
 
-1. In **sicurezza**, se si desidera abilitare la crittografia doppia basata su software, selezionare **Abilita crittografia doppia per l'ordine**. 
+1. In **Sicurezza**, se si vuole abilitare la crittografia doppia basata su software, selezionare **Abilita crittografia doppia per l'ordine**. 
 
-   La crittografia basata su software viene eseguita oltre alla crittografia AES-256 bit dei dati nel Data Box.
+   La crittografia basata su software viene eseguita oltre alla crittografia AES a 256 bit dei dati nel Data Box.
 
    > [!NOTE]
-   > Se si abilita questa opzione, l'elaborazione degli ordini e la copia dei dati potrebbero richiedere più tempo. Non è possibile modificare questa opzione dopo aver creato l'ordine.
+   > Se si abilita questa opzione, l'elaborazione dll'ordine e la copia dei dati potrebbero richiedere più tempo. Non è possibile modificare questa opzione dopo aver creato l'ordine.
 
    ![Schermata di sicurezza per l'importazione di data box, crittografia doppia](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
 
@@ -168,7 +168,7 @@ Se si seleziona **Usa file XML**, è possibile specificare contenitori e BLOB sp
 
    ![Screenshot della scheda nuovo contenitore che mostra l'opzione privata (nessun accesso anonimo) selezionata.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 
    ![Screenshot della scheda nuovo contenitore con l'opzione Crea denominata.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 

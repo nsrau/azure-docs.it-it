@@ -4,10 +4,10 @@ description: Questo articolo illustra la scadenza e l'ora di vita dei messaggi d
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569914"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)

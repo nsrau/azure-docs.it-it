@@ -1,28 +1,22 @@
 ---
-title: Importare e pubblicare la prima API in Gestione API di Azure
-description: Informazioni su come importare un'API Specifica OpenAPI in Gestione API di Azure e quindi testare l'API nel portale di Azure.
-services: api-management
-documentationcenter: ''
+title: 'Esercitazione: Importare e pubblicare la prima API in Gestione API di Azure'
+description: Questa esercitazione descrive come importare un'API Specifica OpenAPI in Gestione API di Azure e quindi testare l'API nel portale di Azure.
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 71a239393c61dccf39ed505aa2b08d7612b7e370
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905551"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91626963"
 ---
-# <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API
+# <a name="tutorial-import-and-publish-your-first-api"></a>Esercitazione: Importare e pubblicare la prima API
 
-Questa esercitazione illustra come importare un'API back-end Specifica OpenAPI in formato JSON in Gestione API di Azure. Microsoft fornisce l'API back-end e la ospita in Azure all'indirizzo [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json).
+Questa esercitazione illustra come importare un'API back-end Specifica OpenAPI in formato JSON in Gestione API di Azure. Microsoft fornisce l'API back-end usata in questo esempio e la ospita in Azure all'indirizzo [https://conferenceapi.azurewebsites.net?format=json](https://conferenceapi.azurewebsites.net?format=json).
 
 Dopo l'importazione dell'API back-end in Gestione API, l'API di Gestione API diventa una facciata per l'API back-end. Gestione API consente di personalizzare la facciata in base alle proprie esigenze senza modificare l'API back-end. Per altre informazioni, vedere [Trasformare e proteggere l'API](transform-api.md).
 
@@ -32,7 +26,9 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Importare un'API in Gestione API
 > * Testare l'API nel portale di Azure
 
-![Nuova API](./media/api-management-import-and-publish/created-api.png)
+Dopo l'importazione, è possibile gestire l'API nel portale di Azure.
+
+:::image type="content" source="media/import-and-publish/created-api.png" alt-text="Nuova API in Gestione API":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,30 +37,32 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="import-and-publish-a-backend-api"></a><a name="create-api"> </a>Importare e pubblicare un'API back-end
+## <a name="import-and-publish-a-backend-api"></a>Importare e pubblicare un'API back-end
 
 Questa sezione illustra come importare e pubblicare un'API back-end Specifica OpenAPI.
 
-1. Nel riquadro di spostamento a sinistra dell'istanza di Gestione API selezionare **API** nella sezione **Gestione API**.
-1. Selezionare il riquadro **OpenAPI**, quindi selezionare **Completa** nella schermata popup.
-1. Nella schermata **Crea dalla specifica OpenAPI** usare i valori della tabella seguente per creare l'API.
+1. Nel riquadro di spostamento a sinistra dell'istanza di Gestione API selezionare **API**.
+1. Selezionare il riquadro **OpenAPI**.
+1. Nella finestra **Crea dalla specifica OpenAPI** selezionare **Completa**.
+1. Immettere i valori dalla tabella seguente. Fare quindi clic su **Crea** per creare l'API.
 
-   L'asterisco rosso accanto a un campo nel modulo indica che il campo è obbligatorio. È possibile impostare i valori dell'API durante la creazione o successivamente dalla scheda **Impostazioni**.
+   È possibile impostare i valori dell'API durante la creazione o successivamente dalla scheda **Impostazioni**.
 
-   ![Creare un'API](./media/api-management-import-and-publish/create-api.png)
+   :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Nuova API in Gestione API":::
+
 
    |Impostazione|valore|Descrizione|
    |-------|-----|-----------|
-   |**Specifica OpenAPI**|*https:\//conferenceapi.azurewebsites.net?format=json*|Servizio che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.|
-   |**Nome visualizzato**|Dopo aver immesso l'URL del servizio precedente, Gestione API compila questo campo in base al codice JSON.|Nome visualizzato nel portale per sviluppatori.|
+   |**Specifica OpenAPI**|*https:\//conferenceapi.azurewebsites.net?format=json*|Servizio che implementa l'API Gestione API inoltra le richieste a questo indirizzo.|
+   |**Nome visualizzato**|Dopo aver immesso l'URL del servizio precedente, Gestione API compila questo campo in base al codice JSON.|Nome visualizzato nel [portale per sviluppatori](api-management-howto-developer-portal.md).|
    |**Nome**|Dopo aver immesso l'URL del servizio precedente, Gestione API compila questo campo in base al codice JSON.|Nome univoco per l'API.|
    |**Descrizione**|Dopo aver immesso l'URL del servizio precedente, Gestione API compila questo campo in base al codice JSON.|Descrizione facoltativa per l'API.|
-   |**Schema URL**|**HTTPS**|Protocolli che è possibile usare per l'accesso all'API.|
+   |**Schema URL**|**HTTPS**|Protocolli che possono accedere all'API.|
    |**Suffisso dell'URL dell'API**|*conference*|Suffisso aggiunto all'URL di base per il servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ogni API di un editore specifico.|
    |**Tag**| |Tag per l'organizzazione delle API per la ricerca, il raggruppamento o il filtro.|
-   |**Prodotti**|**Illimitato**|Associazione di una o più API. Con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Senza limiti**. Per pubblicare l'API, associarla a un prodotto (in questo esempio, **Senza limiti**).<br/>È possibile includere numerose API in un prodotto e offrirle agli sviluppatori tramite il portale per sviluppatori. Per aggiungere questa API a un altro prodotto, digitare o selezionare il nome del prodotto. Ripetere questo passaggio per aggiungere l'API a più prodotti. È anche possibile aggiungere API ai prodotti in un secondo momento dalla pagina **Impostazioni**.<br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. <br/>Se l'istanza di Gestione API è stata creata, si è già un amministratore e quindi tutti i prodotti dell'istanza sono già stati sottoscritti.|
-   |**Gateway**|**Gestiti**|Gateway API che espongono l'API. Questo campo è disponibile solo nei servizi di livello **Developer** e **Premium**.<br/>Per gateway **gestito** si intende il gateway integrato nel servizio Gestione API e ospitato da Microsoft in Azure. Altri gateway sono [gateway self-hosted](self-hosted-gateway-overview.md), sono disponibili solo nei livelli di servizio Premium e Developer e possono essere distribuiti in locale o in altri cloud.<br/>Se non è selezionato alcun gateway, l'API non sarà disponibile e le richieste API non verranno eseguite.|
-   |**Assegnare un numero di versione a questa API?**|Selezionare o deselezionare|Per altre informazioni sul controllo delle versioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).|
+   |**Prodotti**|**Illimitato**|Associazione di una o più API. Con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Senza limiti**. Per pubblicare l'API, associarla a un prodotto (in questo esempio, **Senza limiti**).<br/><br/> È possibile includere numerose API in un prodotto e offrirle agli sviluppatori tramite il portale per sviluppatori. Per aggiungere questa API a un altro prodotto, digitare o selezionare il nome del prodotto. Ripetere questo passaggio per aggiungere l'API a più prodotti. È anche possibile aggiungere API ai prodotti in un secondo momento dalla pagina **Impostazioni**.<br/><br/>  Per altre informazioni sui prodotti, vedere [Creare e pubblicare un prodotto](api-management-howto-add-products.md).|
+   |**Gateway**|**Gestiti**|Gateway API che espongono l'API. Questo campo è disponibile solo nei servizi di livello **Developer** e **Premium**.<br/><br/>**Gestito** indica il gateway integrato nel servizio Gestione API e ospitato da Microsoft in Azure. I [gateway self-hosted](self-hosted-gateway-overview.md) sono disponibili solo nei livelli di servizio Premium e Developer e possono essere distribuiti in locale o in altri cloud.<br/><br/> Se non è selezionato alcun gateway, l'API non sarà disponibile e le richieste API non verranno eseguite.|
+   |**Assegnare un numero di versione a questa API?**|Selezionare o deselezionare|Per altre informazioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).|
 
    > [!NOTE]
    > Per pubblicare l'API in consumer API, è necessario associarla a un prodotto.
@@ -77,15 +75,15 @@ In caso di problemi durante l'importazione della definizione API, vedere l'[elen
 
 È possibile chiamare le operazioni API direttamente dal portale di Azure, che rappresenta una soluzione pratica per visualizzare e testare le operazioni.
 
-1. Nel riquadro di spostamento a sinistra dell'istanza di Gestione API selezionare **API** nella sezione **Gestione API** e quindi scegliere **Demo Conference API**.
+1. Nel riquadro di spostamento a sinistra dell'istanza di Gestione API selezionare **API** > **Demo Conference API**.
 1. Selezionare la scheda **Test** e quindi selezionare **GetSpeakers**. Nella pagina vengono visualizzati i **Parametri di query** e le **Intestazioni**, se presenti. La chiave **Ocp-Apim-Subscription-Key** viene compilata automaticamente per la chiave di sottoscrizione associata a questa API.
 1. Selezionare **Send** (Invia).
 
-   ![Mappa di test API](./media/api-management-import-and-publish/01-import-first-api-01.png)
+   :::image type="content" source="media/import-and-publish/01-import-first-api-01.png" alt-text="Nuova API in Gestione API":::
 
    Il back-end risponde con **200 OK** e alcuni dati.
 
-## <a name="next-steps"></a><a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono state illustrate le procedure per:
 

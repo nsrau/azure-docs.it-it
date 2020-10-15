@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808719"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Spostare un servizio di bilanciamento del carico esterno in un'altra area usando il portale di Azure
@@ -182,7 +182,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
     1. In un'altra scheda o finestra del browser accedere alla [portale di Azure](https://portal.azure.com) e selezionare **gruppi di risorse**.
     2. Individuare il gruppo di risorse di destinazione che contiene l'indirizzo IP pubblico che è stato spostato nei passaggi precedenti. Selezionarla.
-    3. Selezionare **Settings**  >  **proprietà**impostazioni.
+    3. Selezionare **Impostazioni** > **Proprietà**.
     4. Nel pannello a destra evidenziare l' **ID risorsa** e copiarlo negli Appunti. In alternativa, è possibile selezionare **copia negli Appunti** a destra del percorso dell' **ID risorsa** .
     5. Incollare l'ID risorsa nella proprietà **value** nell'editor **modifica parametri** aperto nell'altra finestra o scheda del browser:
 

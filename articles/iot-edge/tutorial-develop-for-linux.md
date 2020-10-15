@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 23ca4be9387754c84dc256dd72b131bd5b76b458
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056228"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876465"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Esercitazione: Sviluppare moduli IoT Edge per dispositivi Linux
 
@@ -177,19 +177,19 @@ Il modello di soluzione creato include codice di esempio per un modulo IoT Edge.
 
 Per ogni modulo nel codice possono essere dichiarate più code di *input* e *output*. L'hub di IoT Edge in esecuzione nel dispositivo instrada i messaggi dall'output di un modulo all'input di uno o più moduli. Il codice specifico per la dichiarazione di input e output varia a seconda dei linguaggi, ma il concetto è lo stesso per tutti i moduli. Per altre informazioni sul routing tra moduli, vedere [Dichiarare le route](module-composition.md#declare-routes).
 
-L'esempio di codice C# disponibile con il modello di progetto usa la [classe ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) da IoT Hub SDK per .NET.
+L'esempio di codice C# disponibile con il modello di progetto usa la [classe ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) da IoT Hub SDK per .NET.
 
 1. Aprire il file **Program.cs**, all'interno della cartella **modules/SampleModule/** .
 
 2. In program.cs individuare il metodo **SetInputMessageHandlerAsync**.
 
-3. Il metodo [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) consente di configurare una coda di input per la ricezione di messaggi in arrivo. Esaminare questo metodo e vedere in che modo inizializza una coda di input denominata **input1**.
+3. Il metodo [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) consente di configurare una coda di input per la ricezione di messaggi in arrivo. Esaminare questo metodo e vedere in che modo inizializza una coda di input denominata **input1**.
 
    ![Trovare il nome di input nel costruttore SetInputMessageCallback](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
 4. Individuare quindi il metodo **SendEventAsync**.
 
-5. Il metodo [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) consente di elaborare i messaggi ricevuti e di configurare una coda di output per passarli. Esaminare questo metodo e notare che inizializza una coda di output denominata **output1**.
+5. Il metodo [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) consente di elaborare i messaggi ricevuti e di configurare una coda di output per passarli. Esaminare questo metodo e notare che inizializza una coda di output denominata **output1**.
 
    ![Trovare il nome di output in SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 

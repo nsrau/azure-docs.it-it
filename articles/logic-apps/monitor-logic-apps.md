@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87078196"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorare lo stato di esecuzione, rivedere la cronologia dei trigger e configurare gli avvisi per le app per la logica di Azure
@@ -52,7 +52,7 @@ Ogni volta che il trigger viene attivato per un elemento o un evento, il motore 
    | **Non riuscito** | Almeno un'azione non è riuscita e non è stata configurata alcuna azione successiva nel flusso di lavoro per gestire l'errore |
    | **Running** | Il flusso di lavoro è attualmente in esecuzione, <p>Questo stato può essere visualizzato anche per i flussi di lavoro limitati o a causa del piano tariffario corrente. Per altre informazioni vedere i [limiti delle azioni sulla pagina dei prezzi](https://azure.microsoft.com/pricing/details/logic-apps/). Se si configura la [registrazione diagnostica](../logic-apps/monitor-logic-apps.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
    | **Completato** | Tutte le azioni hanno avuto esito positivo. <p>**Nota**: se si sono verificati errori in un'azione specifica, un'azione successiva nel flusso di lavoro ha gestito l'errore. |
-   | **In attesa** | Il flusso di lavoro non è stato avviato o è sospeso, ad esempio, a causa di un flusso di lavoro precedente ancora in esecuzione. |
+   | **Attesa** | Il flusso di lavoro non è stato avviato o è sospeso, ad esempio, a causa di un flusso di lavoro precedente ancora in esecuzione. |
    |||
 
 1. Per esaminare i passaggi e altre informazioni per un'esecuzione specifica, in **Cronologia esecuzioni**selezionare Esegui.

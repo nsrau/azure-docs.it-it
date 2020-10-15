@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534183"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entità predefinita DatetimeV2 per un'app LUIS
@@ -111,10 +111,10 @@ Di seguito è riportato il seguente enunciato e la relativa risposta JSON parzia
 ]
  ```
 
-|Nome della proprietà |Tipo e descrizione proprietà|
+|Nome proprietà |Tipo e descrizione proprietà|
 |---|---|
 |Entità|**stringa** - Testo estratto dall'espressione con tipo di data, ora, intervallo di date o intervallo di tempo.|
-|tipo|**string** - Uno dei [sottotipi di datetimeV2](#subtypes-of-datetimev2)
+|type|**string** - Uno dei [sottotipi di datetimeV2](#subtypes-of-datetimev2)
 |startIndex|**int** - L'indice nell'espressione dove inizia l'entità.|
 |endIndex|**int** - L'indice nell'espressione dove termina l'entità.|
 |resolution|Dispone di una matrice `values` con uno, due o quattro [valori di risoluzione](#values-of-resolution).|
@@ -141,11 +141,11 @@ L'entità predefinita **datetimeV2** include i sottotipi seguenti. Nella tabella
 
 Ogni elemento della matrice `values` può contenere i campi seguenti:
 
-|Nome della proprietà|Descrizione della proprietà|
+|Nome proprietà|Descrizione della proprietà|
 |--|--|
 |timex|Ora, data o intervallo di date espressi nel formato TIMEX che segue lo [standard ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e gli attributi TIMEX3 per l'annotazione con il linguaggio TimeML.|
 |mod|termine usato per descrivere come usare il valore, ad esempio `before` , `after` .|
-|tipo|Sottotipo, che può essere uno degli elementi seguenti: `datetime` , `date` , `time` , `daterange` , `timerange` , `datetimerange` , `duration` , `set` .|
+|type|Sottotipo, che può essere uno degli elementi seguenti: `datetime` , `date` , `time` , `daterange` , `timerange` , `datetimerange` , `duration` , `set` .|
 |value|**Opzionale.** Un oggetto DateTime nel formato AAAA-MM-GG (date), HH: mm: SS (Time) aaaa-MM-GG HH: mm: SS (DateTime). Se `type` è `duration`, il valore è il numero di secondi (durata) <br/> Usato solo se `type` è `datetime` oppure `date`, `time` o `duration.|
 
 ## <a name="valid-date-values"></a>Valori di daae validi

@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
-ms.openlocfilehash: e585bc52121943102522f8c44291a4f9453d6214
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e54cd0e3c5b9499a3bc1a499ae4cef62c73160e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318399"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070708"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere una pagina personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto
 
@@ -155,7 +155,7 @@ Facoltativamente, è possibile connettere la copia in esecuzione locale dell'int
 
 1. Distribuire un'istanza **base** dell'acceleratore di soluzioni usando l'interfaccia della riga di comando **pcs**. Prendere nota del nome della distribuzione e delle credenziali specificate per la macchina virtuale. Per altre informazioni, vedere [Deploy using the CLI](iot-accelerators-remote-monitoring-deploy-cli.md) (Distribuire usando l'interfaccia della riga di comando).
 
-1. Usare il portale di Azure o l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando AZ per abilitare l'accesso SSH alla macchina virtuale che ospita i microservizi nella soluzione. Ad esempio:
+1. Usare il portale di Azure o l' [interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando AZ per abilitare l'accesso SSH alla macchina virtuale che ospita i microservizi nella soluzione. Ad esempio:
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -163,7 +163,7 @@ Facoltativamente, è possibile connettere la copia in esecuzione locale dell'int
 
     Attivare l'accesso SSH solo durante il test e lo sviluppo. Se si Abilita SSH, [è necessario disabilitarlo di nuovo il prima possibile](../security/fundamentals/network-best-practices.md).
 
-1. Usare il portale di Azure o [l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio:
+1. Usare il portale di Azure o [l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio:
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

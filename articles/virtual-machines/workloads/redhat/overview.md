@@ -1,20 +1,18 @@
 ---
 title: Panoramica dei carichi di lavoro Red Hat in Azure | Microsoft Docs
 description: Informazioni sulle offerte di prodotti Red Hat disponibili in Azure.
-services: virtual-machines-linux
 author: asinn826
-manager: borisb2015
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 61f7461633aba18a21fcc18709055dc790ffee7b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87052122"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993228"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Carichi di lavoro Red Hat in Azure
 
@@ -45,7 +43,7 @@ Azure offre anche immagini Red Hat Gold (`rhel-byos`). Queste immagini possono e
 
 ### <a name="generation-2-images"></a>Immagini di seconda generazione
 
-Le macchine virtuali di seconda generazione offrono alcune funzionalità più recenti rispetto a quelle di prima generazione. Per altre informazioni, vedere la [documentazione sulla seconda generazione](../../linux/generation-2.md). La principale differenza dal punto di vista delle immagini RHEL è che le VM di seconda generazione usano un'interfaccia UEFI invece di un'interfaccia firmware del BIOS. Usano inoltre una tabella di partizione GUID (GPT) invece di un record di avvio master (MBR) in fase di avvio. L'uso di GPT consente, tra l'altro, di avere dimensioni del disco del sistema operativo superiori a 2 TB. In più, le [macchine virtuali della serie Mv2](../../mv2-series.md) vengono eseguite solo su immagini di seconda generazione.
+Le macchine virtuali di seconda generazione offrono alcune funzionalità più recenti rispetto a quelle di prima generazione. Per altre informazioni, vedere la [documentazione sulla seconda generazione](../../generation-2.md). La principale differenza dal punto di vista delle immagini RHEL è che le VM di seconda generazione usano un'interfaccia UEFI invece di un'interfaccia firmware del BIOS. Usano inoltre una tabella di partizione GUID (GPT) invece di un record di avvio master (MBR) in fase di avvio. L'uso di GPT consente, tra l'altro, di avere dimensioni del disco del sistema operativo superiori a 2 TB. In più, le [macchine virtuali della serie Mv2](../../mv2-series.md) vengono eseguite solo su immagini di seconda generazione.
 
 Le immagini RHEL di seconda generazione sono disponibili in Azure Marketplace. Cercare "gen2" nello SKU nell'elenco di tutte le immagini visualizzato quando si usa l'interfaccia della riga di comando di Azure. Passare alla scheda **Avanzate** nel processo di distribuzione della macchina virtuale per distribuire una VM di seconda generazione.
 

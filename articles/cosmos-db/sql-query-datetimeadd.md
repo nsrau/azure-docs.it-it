@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 0b2741a3d2b013ba7bd97038eb4ba4512f36af11
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262065"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
@@ -36,7 +36,7 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 | Giorno          | "Day", "dd", "d"     |
 | Ora         | "hour", "HH"         |
 | Minuto       | "minute", "Mi", "n"  |
-| Secondo       | "Second", "SS", "s"  |
+| Second       | "Second", "SS", "s"  |
 | Millisecond  | "millisecondo", "MS"  |
 | Microsecondi  | "microsecond", "MCS" |
 | Nanosecondo   | "nanosecond", "NS"   |
@@ -47,11 +47,11 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 *DateTime*  
    Valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
   
-  |Format|Descrizione|
+  |Formato|Descrizione|
   |-|-|
   |AAAA|anno a quattro cifre|
   |MM|mese a due cifre (01 = gennaio e così via)|
-  |DD|giorno del mese a due cifre (da 01 a 31)|
+  |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
   |MM|minuti a due cifre (da 00 a 59)|
@@ -65,11 +65,11 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 
 Restituisce un valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
   
-  |Format|Descrizione|
+  |Formato|Descrizione|
   |-|-|
   |AAAA|anno a quattro cifre|
   |MM|mese a due cifre (01 = gennaio e così via)|
-  |DD|giorno del mese a due cifre (da 01 a 31)|
+  |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
   |MM|minuti a due cifre (da 00 a 59)|
@@ -85,9 +85,9 @@ DateTimeAdd restituirà `undefined` per i motivi seguenti:
 - Il numeric_expr specificato non è un numero intero valido
 - Il valore DateTime nell'argomento o nel risultato non è un valore DateTime ISO 8601 valido.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
-Nell'esempio seguente viene aggiunto un mese a DateTime:`2020-07-09T23:20:13.4575530Z`
+Nell'esempio seguente viene aggiunto un mese a DateTime: `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
@@ -101,7 +101,7 @@ SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
 ]
 ```  
 
-Nell'esempio seguente vengono sottratte 2 ore da DateTime:`2020-07-09T23:20:13.4575530Z`
+Nell'esempio seguente vengono sottratte 2 ore da DateTime: `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("hh", -2, "2020-07-09T23:20:13.4575530Z") AS TwoHoursEarlier

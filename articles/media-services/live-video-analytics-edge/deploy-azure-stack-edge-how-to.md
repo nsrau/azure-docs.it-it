@@ -3,12 +3,12 @@ title: Distribuire Analisi video live in Azure Stack Edge
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937715"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019597"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Distribuire Analisi video live in Azure Stack Edge
 
@@ -21,27 +21,27 @@ Per l'analisi di video in tempo reale, si distribuirà tramite l'hub tutto, ma l
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
-* Una risorsa [Azure stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep)
+* Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](../../role-based-access-control/built-in-roles.md#owner).
+* Una risorsa [Azure stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md)
    
-* [Un hub Internet delle cose](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* Un' [entità servizio](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) per il modulo Live Video Analytics.
+* [Un hub Internet delle cose](../../iot-hub/iot-hub-create-through-portal.md)
+* Un' [entità servizio](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) per il modulo Live Video Analytics.
 
    Usare una di queste aree in cui è disponibile l'hub Internet: Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali, Giappone orientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.
 * Account di archiviazione
 
     Si consiglia di usare gli account di archiviazione per utilizzo generico V2 (GPv2).  
-    Altre informazioni su un [account di archiviazione per utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal).
+    Altre informazioni su un [account di archiviazione per utilizzo generico V2](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
 * [Visual Studio Code](https://code.visualstudio.com/) nel computer di sviluppo. Assicurarsi che sia presente l'[estensione Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Verificare che la rete a cui è connesso il computer di sviluppo accetti il protocollo AMQP (Advanced Message Queueing Protocol) sulla porta 5671. Questa configurazione consente la comunicazione tra Azure IoT Tools e l'hub IoT di Azure.
 
 ## <a name="configuring-azure-stack-edge-for-using-live-video-analytics"></a>Configurazione di Azure Stack Edge per l'uso di analisi video in tempo reale
 
-Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di calcolo Edge abilitato per intelligenza artificiale con funzionalità di trasferimento dei dati di rete. Per altre informazioni [, vedere Azure stack Edge e istruzioni dettagliate sulla configurazione](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep). Per iniziare, seguire le istruzioni riportate nei collegamenti seguenti:
+Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di calcolo Edge abilitato per intelligenza artificiale con funzionalità di trasferimento dei dati di rete. Per altre informazioni [, vedere Azure stack Edge e istruzioni dettagliate sulla configurazione](../../databox-online/azure-stack-edge-deploy-prep.md). Per iniziare, seguire le istruzioni riportate nei collegamenti seguenti:
 
-* [Creazione di risorse Azure Stack Edge/Data Box Gateway](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)
-* [Installazione e configurazione](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-install)
-* [Connessione e attivazione](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate)
+* [Creazione di risorse Azure Stack Edge/Data Box Gateway](../../databox-online/azure-stack-edge-deploy-prep.md)
+* [Installazione e configurazione](../../databox-online/azure-stack-edge-deploy-install.md)
+* [Connessione e attivazione](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
 
 ### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Alleghi un hub Internet all'Azure Stack Edge
 
@@ -58,11 +58,11 @@ Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di cal
     |Nome|Immettere un nome per la risorsa hub IoT.|
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Introduzione a Azure Stack Edge":::
-1. Selezionare **Crea**. La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza calcolo** nel riquadro **Configura calcolo**.
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-get-started.png" alt-text="Azure Stack Edge":::
+1. Selezionare **Create** (Crea). La creazione della risorsa hub IoT richiede qualche minuto. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo** viene aggiornato per mostrare la configurazione di calcolo. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza calcolo** nel riquadro **Configura calcolo**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Creazione di risorse dell'hub Internet":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/edge-compute-config.png" alt-text="Azure Stack Edge":::
 
     > [!NOTE]
     > Se la finestra di dialogo Configura calcolo viene chiusa prima che l'hub Internet sia associato alla risorsa Azure Stack Edge, l'hub Internet viene creato, ma non viene visualizzato nella configurazione di calcolo. Ricaricare la pagina dopo alcuni minuti e visualizzarne la visualizzazione.
@@ -72,7 +72,7 @@ Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di cal
     Una volta completate tutte le informazioni, verrà visualizzata la scheda Configura bordo di calcolo simile alla seguente:
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Configurare la scheda di calcolo Edge ":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/configure-edge-compute.png" alt-text="Azure Stack Edge":::
  
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Abilitare i prerequisiti di calcolo nell'interfaccia utente locale di Azure Stack Edge
 
@@ -80,7 +80,7 @@ Prima di continuare, verificare che:
 
 * È stata attivata la risorsa Azure Stack Edge.
 * È possibile accedere a un sistema client Windows che esegue PowerShell 5,0 o versione successiva per accedere alla risorsa Azure Stack Edge.
-* Per distribuire un cluster Kubernetes, è necessario configurare la risorsa Azure Stack Edge tramite l' [interfaccia utente Web locale](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup). 
+* Per distribuire un cluster Kubernetes, è necessario configurare la risorsa Azure Stack Edge tramite l' [interfaccia utente Web locale](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
     
     * Per abilitare il calcolo, nell'interfaccia utente Web locale del dispositivo andare alla pagina calcolo.
     
@@ -89,7 +89,7 @@ Prima di continuare, verificare che:
         * Selezionare Applica. questa operazione dovrebbe richiedere circa 2 minuti.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text=" Prerequisiti di calcolo nell'interfaccia utente locale di Azure Stack Edge":::
+        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge":::
 
         * Se DNS non è configurato per l'API Kubernetes e la risorsa Azure Stack Edge, è possibile aggiornare il file host della finestra.
         
@@ -185,7 +185,7 @@ Questi passaggi illustrano la creazione di un utente del gateway e la configuraz
     1. Fare clic su **Crea**.
         
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Condivisione locale":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/local-share.png" alt-text="Azure Stack Edge":::
     
 1. Creare una condivisione remota per l'archiviazione di sincronizzazione file.
 
@@ -203,36 +203,7 @@ Questi passaggi illustrano la creazione di un utente del gateway e la configuraz
     1. Fare clic su **Crea**.    
     
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Condivisione remota":::
-    
-    > [!TIP]
-    > Utilizzando il client Windows connesso al Azure Stack Edge, connettersi alle condivisioni SMB attenendosi alla procedura descritta [in questo documento](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share).
-    
-1. Aggiornare le opzioni di creazione del contenitore del modulo Edge di analisi video in tempo reale (vedere il punto 4 in [aggiungere il documento moduli](deploy-iot-edge-device.md#add-modules)) per usare i montaggi del volume.
-
-   ```json
-    // Original (Bind Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Binds": [
-                "/var/lib/azuremediaservices:/var/lib/azuremediaservices",
-                "/var/media:/var/media"
-            ]
-        }
-    }
-    // Updated (Volume Mounts)
-    "createOptions": {
-        "HostConfig": {
-            "Mounts": [
-            {
-                "Target": "/var/lib/azuremediaservices",
-                "Source": "lva",
-                "Type": "volume"
-            },
-            {
-                "Target": "/var/media",
-                "Source": "media",
-                "Type": "volume"
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/remote-share.png" alt-text="Azure Stack Edge"
             }]
         }
     }
@@ -248,7 +219,7 @@ Per verificare che il modulo sia in esecuzione, eseguire queste operazioni:
 1. Selezionare il riquadro moduli. Verrà visualizzato il pannello Moduli. Nell'elenco dei moduli identificare il modulo che è stato distribuito. Lo stato di runtime del modulo aggiunto sarà in esecuzione.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Modulo personalizzato":::
+    > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/iot-edge-custom-module.png" alt-text="Azure Stack Edge":::
 
 ### <a name="configure-the-azure-iot-tools-extension"></a>Configurare l'estensione Azure IoT Tools
 

@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
 ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283208"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replica transazionale con Istanza gestita SQL di Azure (anteprima)
@@ -43,7 +43,7 @@ I componenti principali della replica transazionale sono **server di pubblicazio
 
 ![Replica con database SQL](./media/replication-transactional-overview/replication-to-sql-database.png)
 
-| Ruolo | Database SQL di Azure | Istanza gestita di SQL di Azure |
+| Ruolo | database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | **Autore** | No | Sì |
 | **Database di distribuzione** | No | Sì|
@@ -72,7 +72,7 @@ Istanza gestita SQL di Azure può supportare l'esecuzione di un Sottoscrittore d
 
 Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
-| Replica | Database SQL di Azure | Istanza gestita di SQL di Azure |
+| Replica | database SQL di Azure | Istanza gestita di SQL di Azure |
 | :----| :------------- | :--------------- |
 | [**Transazionale standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sì (solo come sottoscrittore) | Sì |
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sì (solo come sottoscrittore) | Sì|

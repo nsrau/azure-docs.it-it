@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a788134f64066b0469d34fbfbacacd8c45438bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 295c6376d555585d58f7c0b57c3ac4ba682e9bd5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203147"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948273"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -84,8 +84,8 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
 | Dominio | 0:1 | Il nome di dominio per il profilo tecnico. Ad esempio, se il profilo tecnico specifica il provider di identità Facebook, il nome di dominio è Facebook.com. |
-| DisplayName | 1:1 | Il nome del profilo tecnico che può essere visualizzato dagli utenti. |
-| Descrizione | 0:1 | La descrizione del profilo tecnico che può essere visualizzato dagli utenti. |
+| DisplayName | 1:1 | Nome visualizzato del profilo tecnico. |
+| Descrizione | 0:1 | Descrizione del profilo tecnico. |
 | Protocollo | 0:1 | Il protocollo usato per la comunicazione con altre entità. |
 | Metadati | 0:1 | Una raccolta di coppie di chiavi/valori che vengono usate dal protocollo per comunicare con l'endpoint durante la transazione. |
 | InputTokenFormat | 0:1 | Il formato del token di input. I valori possibili sono: `JSON`, `JWT`, `SAML11` o `SAML2`. Il valore `JWT` rappresenta un Token JSON Web in base alla specifica IETF. Il valore `SAML11` rappresenta un token di sicurezza SAML 1.1 in base alla specifica di OASIS.  Il valore `SAML2` rappresenta un token di sicurezza SAML 2.0 in base alla specifica di OASIS. |
@@ -122,7 +122,7 @@ L'elemento **Metadata** contiene gli elementi seguenti:
 | ------- | ----------- | ----------- |
 | Elemento | 0:n | I metadati che riguardano il profilo tecnico. Ogni tipo di profilo tecnico dispone di un diverso set di elementi di metadati. Per altre informazioni, vedere la sezione dedicata ai tipi di profilo tecnico. |
 
-### <a name="item"></a>Item
+### <a name="item"></a>Elemento
 
 L'elemento **Elemento** di **Metadati** contiene gli attributi seguenti:
 

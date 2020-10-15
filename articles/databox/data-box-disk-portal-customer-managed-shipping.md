@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
 ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575164"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box Disk nel portale di Azure
@@ -43,7 +43,7 @@ Quando si effettua l'ordine di Data Box Disk, è possibile scegliere l'opzione d
 
 3. Dopo aver indicato l'indirizzo di spedizione, sarà necessario convalidarlo e completare l'ordine.
 
-   ![Screenshot della finestra di dialogo Aggiungi indirizzo di spedizione con le opzioni Ship using e l'opzione Add Shipping Address denominata out.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Screenshot della finestra di dialogo per l'aggiunta dell'indirizzo di spedizione, con le opzioni di spedizione e il pulsante per l'aggiunta dell'indirizzo evidenziati.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Una volta che il dispositivo è stato preparato ed è stata ricevuta una notifica di posta elettronica, è possibile pianificare un pickup. Nell'ordine di Azure Data Box Disk passare a **Panoramica**, quindi selezionare **Pianifica ritiro**.
 

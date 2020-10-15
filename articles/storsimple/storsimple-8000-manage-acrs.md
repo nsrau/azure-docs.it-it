@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f92a6277765447cbc1a9b12f06c3ec49548f4d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513450"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949905"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utilizzare il servizio StorSimple Manager per gestire li record di controllo di accesso
 
@@ -63,11 +63,11 @@ Attenersi alla seguente procedura per aggiungere un record di controllo di acces
 
     3. Fare clic su **Aggiungi** per creare il record di controllo di accesso.
 
-        ![Clic su Aggiungi record di controllo di accesso](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![Fare clic su Aggiungi ACR 2](./media/storsimple-8000-manage-acrs/createacr2.png)
 
 4.  Il record di controllo di accesso appena aggiunto verrà visualizzato nel relativo elenco tabulare.
 
-    ![Clic su Aggiungi record di controllo di accesso](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![Fare clic su Aggiungi ACR 3](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
 ## <a name="edit-an-access-control-record"></a>Modificare un record di controllo di accesso
@@ -89,11 +89,11 @@ Seguire questa procedura per modificare un record di controllo di accesso.
 
 3. Nel pannello **Modifica record di controllo di accesso**, fornire un nome IQN diverso, corrispondente a un altro host.
 
-    ![Modificare i record di controllo di accesso](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![Modificare i record di controllo di accesso 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Fare clic su **Salva**. Quando viene richiesta la conferma, fare clic su **Sì**. 
+4. Fare clic su **Save**. Quando viene richiesta la conferma, fare clic su **Sì**. 
 
-    ![Modificare i record di controllo di accesso](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![Modificare i record di controllo di accesso 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
 5. Quando un record di controllo di accesso viene aggiornato l'utente riceve una notifica. Anche l'elenco tabulare viene aggiornato per riflettere le modifiche.
 
@@ -109,23 +109,23 @@ Attenersi alla procedura seguente per eliminare un record di controllo di access
 #### <a name="to-delete-an-access-control-record"></a>Per eliminare un record di controllo di accesso
 1.  Nel servizio, fare doppio clic sul nome del servizio e nella sezione **Configurazione** fare clic su **Record di controllo di accesso**.
 
-    ![Passare ai record di controllo di accesso](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Passa a record di controllo di accesso 1B](./media/storsimple-8000-manage-acrs/createacr1.png)
 
 2. Nell'elenco tabulare dei record di controllo di accesso, fare clic e selezionare il record di controllo di accesso da eliminare.
 
-    ![Passare ai record di controllo di accesso](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![Passa a record di controllo di accesso 2](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
 3. Fare clic con il pulsante destro del mouse per richiamare il menu di scelta rapida e quindi selezionare **Elimina**.
 
-    ![Passare ai record di controllo di accesso](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![Passa a record di controllo di accesso 3](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
 4. Quando viene richiesta la conferma, esaminare le informazioni e quindi fare clic su **Elimina**.
 
-    ![Passare ai record di controllo di accesso](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![Passa a record di controllo di accesso 4](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
 5. Quando un record di controllo di accesso viene eliminato l'utente riceve una notifica. L'elenco tabulare viene aggiornato per riflettere l'eliminazione.
 
-    ![Passare ai record di controllo di accesso](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![Passa a record di controllo di accesso 5](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sulla [gestione di volumi StorSimple](storsimple-8000-manage-volumes-u2.md).

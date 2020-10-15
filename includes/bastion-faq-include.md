@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -9,10 +9,10 @@ ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
-ms.translationtype: MT
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "86276116"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quali aree sono disponibili?
@@ -49,9 +49,9 @@ Al momento, è supportata solo la funzionalità di copia e incolla del testo. Fu
 
 Usare il browser Microsoft Edge o Google Chrome in Windows. Per Apple Mac, usare il browser Google Chrome. Anche Microsoft Edge Chromium è supportato sia in Windows sia in Mac.
 
-### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Dove Azure Bastion archivia i dati dei clienti?
+### <a name="where-does-azure-bastion-store-customer-data"></a><a name="data"></a>Dove archivia i dati dei clienti Azure Bastion?
 
-Azure Bastion non sposta o archivia i dati del cliente all'esterno dell'area in cui è distribuito.
+Azure Bastion non sposta o archivia i dati dei clienti al di fuori dell'area in cui è distribuito.
 
 ### <a name="are-any-roles-required-to-access-a-virtual-machine"></a><a name="roles"></a>Sono necessari ruoli specifici per accedere alla macchina virtuale?
 

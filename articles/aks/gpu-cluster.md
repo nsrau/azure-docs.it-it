@@ -7,10 +7,10 @@ ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443059"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Azure Kubernetes
@@ -32,13 +32,13 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 Se occorre un cluster del servizio Azure Kubernetes che soddisfi i requisiti minimi (nodo abilitato per la GPU e Kubernetes versione 1.10 o versioni successive), completare i passaggi seguenti. Se si dispone già di un cluster AKS che soddisfa questi requisiti, [passare alla sezione successiva](#confirm-that-gpus-are-schedulable).
 
-Creare prima di tutto un gruppo di risorse per il cluster usando il comando [az group create][az-group-create]. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *EastUS*:
+Per prima cosa, creare un gruppo di risorse per il cluster usando il comando [AZ Group create][az-group-create] . L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *EastUS*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un cluster servizio Azure Kubernetes usando il comando [az servizio Azure Kubernetes create][az-aks-create]. Nell'esempio seguente viene creato un cluster con un singolo nodo di dimensioni `Standard_NC6` :
+Creare ora un cluster AKS usando il comando [AZ AKS create][az-aks-create] . Nell'esempio seguente viene creato un cluster con un singolo nodo di dimensioni `Standard_NC6` :
 
 ```azurecli-interactive
 az aks create \
@@ -48,7 +48,7 @@ az aks create \
     --node-count 1
 ```
 
-Ottenere le credenziali per il cluster servizio Azure Kubernetes usando il comando [az servizio Azure Kubernetes get-credentials][az-aks-get-credentials]:
+Ottenere le credenziali per il cluster AKS usando il comando [AZ AKS Get-credentials][az-aks-get-credentials] :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -152,7 +152,7 @@ Per installare l'estensione dell'interfaccia della riga di comando AKS-Preview, 
 az extension add --name aks-preview
 ```
 
-Per aggiornare l'estensione della CLI AKS-Preview, usare i comandi dell'interfaccia della riga di comando di Azure seguenti:
+Per aggiornare l'estensione aks-preview dell'interfaccia della riga di comando, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az extension update --name aks-preview

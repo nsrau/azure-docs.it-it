@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443675"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Connettersi al database SQL tramite C e C++
@@ -81,7 +81,7 @@ In alternativa, è possibile creare un file DSN mediante la procedura guidata av
 
 ![Creare un file DSN](./media/develop-cplusplus-simple/datasource.png)
 
-Congratulazioni! È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux.
+A questo punto, È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>Passaggio 5: Connessione da un'applicazione C/C++ per Linux
 
@@ -131,7 +131,7 @@ Se la connessione è stata stabilita correttamente, viene visualizzato il nome d
 
 ![Output della finestra della console Linux](./media/develop-cplusplus-simple/linuxconsolewindow.png)
 
-Congratulazioni! L'esercitazione è stata completata ed è ora possibile connettersi al database SQL di Azure da C++ in piattaforme Windows e Linux.
+A questo punto, L'esercitazione è stata completata ed è ora possibile connettersi al database SQL di Azure da C++ in piattaforme Windows e Linux.
 
 ## <a name="get-the-complete-cc-tutorial-solution"></a><a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su C/C++
 

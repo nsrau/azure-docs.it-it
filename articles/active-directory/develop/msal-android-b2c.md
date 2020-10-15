@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119879"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usare MSAL per Android con B2C
@@ -30,9 +30,9 @@ In MSAL per Android i criteri B2C (percorsi utente) sono configurati come singol
 
 Data un'applicazione B2C con due criteri:
 - Iscrizione/accesso
-    * Chiamato`B2C_1_SISOPolicy`
+    * Chiamato `B2C_1_SISOPolicy`
 - Modifica profilo
-    * Chiamato`B2C_1_EditProfile`
+    * Chiamato `B2C_1_EditProfile`
 
 Il file di configurazione per l'app dichiarerebbe due `authorities` . Uno per ogni criterio. La `type` proprietà di ogni autorità è `B2C` .
 
@@ -54,11 +54,11 @@ Il file di configurazione per l'app dichiarerebbe due `authorities` . Uno per og
 }
 ```
 
-Il `redirect_uri` deve essere registrato nella configurazione dell'app e anche in `AndroidManifest.xml` per supportare il reindirizzamento durante il flusso di [concessione del codice di autorizzazione](../../active-directory-b2c/authorization-code-flow.md).
+Il `redirect_uri` deve essere registrato nella configurazione dell'app e anche in  `AndroidManifest.xml` per supportare il reindirizzamento durante il flusso di [concessione del codice di autorizzazione](../../active-directory-b2c/authorization-code-flow.md).
 
 ## <a name="initialize-ipublicclientapplication"></a>Inizializzare IPublicClientApplication
 
-`IPublicClientApplication`viene costruito da un metodo factory per consentire l'analisi asincrona della configurazione dell'applicazione.
+`IPublicClientApplication` viene costruito da un metodo factory per consentire l'analisi asincrona della configurazione dell'applicazione.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -235,7 +235,7 @@ B2C considera ogni criterio come un'autorità separata. Pertanto, i token di acc
 
 Ogni criterio aggiunge un `IAccount` alla cache per ogni utente. Se un utente accede a un'applicazione e richiama due criteri, avranno due `IAccount` . Per rimuovere l'utente dalla cache, è necessario chiamare `removeAccount()` per ogni criterio.
 
-Quando si rinnovano i token per un criterio con `acquireTokenSilent` , specificare lo stesso valore `IAccount` restituito dalle chiamate precedenti del criterio a `AcquireTokenSilentParameters` . Se si specifica un account restituito da un altro criterio, verrà generato un errore.
+Quando si rinnovano i token per un criterio con `acquireTokenSilent` , specificare lo stesso valore `IAccount` restituito dalle chiamate precedenti del criterio a  `AcquireTokenSilentParameters` . Se si specifica un account restituito da un altro criterio, verrà generato un errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

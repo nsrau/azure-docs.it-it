@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319428"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usare le repliche di sola lettura per l'offload dei carichi di lavoro di query di sola lettura
@@ -89,14 +89,14 @@ Le visualizzazioni di uso comune sono:
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Fornisce metriche di utilizzo delle risorse per l'ultima ora, tra cui CPU, i/o dati e utilizzo di scrittura log rispetto ai limiti degli obiettivi di servizio.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Fornisce le statistiche di attesa aggregate per l'istanza del motore di database. |
-|[sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fornisce le statistiche di sincronizzazione e lo stato di integrità della replica. Le dimensioni della coda di rollforward e la velocità di rollforward vengono utilizzate come indicatori di latenza dei dati nella replica di sola lettura. |
+|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Fornisce le statistiche di sincronizzazione e lo stato di integrità della replica. Le dimensioni della coda di rollforward e la velocità di rollforward vengono utilizzate come indicatori di latenza dei dati nella replica di sola lettura. |
 |[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Fornisce contatori delle prestazioni del motore di database.|
 |[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Fornisce le statistiche di esecuzione per query, ad esempio il numero di esecuzioni, il tempo di CPU usato e così via.|
-|[sys. dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fornisce piani di query memorizzati nella cache. |
-|[sys. dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fornisce il testo della query per un piano di query memorizzato nella cache.|
+|[sys.dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Fornisce piani di query memorizzati nella cache. |
+|[sys.dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Fornisce il testo della query per un piano di query memorizzato nella cache.|
 |[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornisce lo stato di avanzamento delle query in tempo reale durante l'esecuzione delle query.|
-|[sys. dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornisce l'ultimo piano di esecuzione effettivo noto, incluse le statistiche di runtime per una query.|
-|[sys. dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fornisce le statistiche relative a IOPS, velocità effettiva e latenza di archiviazione per tutti i file di database. |
+|[sys.dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Fornisce l'ultimo piano di esecuzione effettivo noto, incluse le statistiche di runtime per una query.|
+|[sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Fornisce le statistiche relative a IOPS, velocità effettiva e latenza di archiviazione per tutti i file di database. |
 
 > [!NOTE]
 > `sys.resource_stats`E `sys.elastic_pool_resource_stats` DMV nel database master logico restituiscono i dati di utilizzo delle risorse della replica primaria.
@@ -123,7 +123,7 @@ Se una query con esecuzione prolungata su una replica di sola lettura causa ques
 > Se viene visualizzato l'errore 3961 o l'errore 1219 durante l'esecuzione di query su una replica di sola lettura, riprovare a eseguire la query.
 
 > [!TIP]
-> Nei livelli di servizio Premium e business critical, quando si è connessi a una replica di sola lettura, le `redo_queue_size` `redo_rate` colonne e nella DMV [sys. dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) possono essere utilizzate per monitorare il processo di sincronizzazione dei dati, fungendo da indicatori della latenza dei dati nella replica di sola lettura.
+> Nei livelli di servizio Premium e business critical, quando si è connessi a una replica di sola lettura, le `redo_queue_size` `redo_rate` colonne e nella DMV [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) possono essere utilizzate per monitorare il processo di sincronizzazione dei dati, fungendo da indicatori della latenza dei dati nella replica di sola lettura.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Abilitare e disabilitare la scalabilità in lettura

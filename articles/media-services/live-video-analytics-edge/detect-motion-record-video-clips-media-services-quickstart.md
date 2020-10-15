@@ -3,12 +3,12 @@ title: Rilevare il movimento, registrare video in Servizi multimediali di Azure
 description: Questo avvio rapido illustra come usare l'analisi di video live in IoT Edge per rilevare il movimento in un flusso video live e registrare clip video in Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 861351e16120c3f46612ba35518135fbfaf4c81b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569008"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776477"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Avvio rapido: Rilevare il movimento, registrare video in Servizi multimediali
 
@@ -39,6 +39,15 @@ Nel corso della procedura descritta di seguito si userà l'analisi di video live
 ## <a name="use-direct-method-calls"></a>Usare chiamate dei metodi diretti
 
 È possibile usare il modulo per analizzare i flussi video live richiamando metodi diretti. Leggere [Metodi diretti per Analisi di video live in IoT Edge](direct-methods.md) per conoscere tutti i metodi diretti forniti dal modulo. 
+
+1. In Visual Studio Code aprire la scheda **Estensioni** (oppure premere CTRL+MAIUSC+X) e cercare Hub IoT di Azure.
+1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Registrazione video basata su eventi per asset basati su eventi di movimento" (Visualizza messaggio dettagliato).
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Registrazione video basata su eventi per asset basati su eventi di movimento":::
 
 ### <a name="invoke-graphtopologylist"></a>Richiamare GraphTopologyList
 In questo passaggio vengono enumerate tutte le [topologie del grafo](media-graph-concept.md#media-graph-topologies-and-instances) presenti nel modulo.

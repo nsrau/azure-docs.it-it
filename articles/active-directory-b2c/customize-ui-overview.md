@@ -12,12 +12,12 @@ ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4566e3d40a67a9cd9d61f78884df11536c0809bc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91259544"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949293"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
 
@@ -178,7 +178,6 @@ Tenere presente queste considerazioni quando si configura la personalizzazione d
 
 * Il marchio dell'azienda in Azure AD B2C è attualmente limitato all' **immagine di sfondo**, al **logo banner**e alla personalizzazione del **colore di sfondo** . Le altre proprietà del riquadro branding aziendale, ad esempio quelle in **Impostazioni avanzate**, non sono *supportate*.
 * Nelle pagine del flusso utente, il colore di sfondo viene visualizzato prima del caricamento dell'immagine di sfondo. È consigliabile scegliere un colore di sfondo che corrisponda strettamente ai colori nell'immagine di sfondo per un'esperienza di caricamento più uniforme.
-* Il logo del banner viene visualizzato nei messaggi di posta elettronica di verifica inviati agli utenti quando avviano un flusso utente di iscrizione.
 
 ### <a name="enable-branding-in-user-flow-pages"></a>Abilitare la personalizzazione nelle pagine flusso utente
 

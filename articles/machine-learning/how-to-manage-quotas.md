@@ -8,117 +8,127 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 09/30/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: troubleshooting,contperfq4, contperfq2
+ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629591"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019393"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
+Azure usa limiti e quote per impedire il superamento delle esecuzioni del budget a causa di frodi e per rispettare i vincoli di capacità di Azure. Considerare questi limiti durante la scalabilità per i carichi di lavoro di produzione. In questo articolo vengono fornite informazioni su:
 
-In questo articolo vengono illustrati i limiti preconfigurati per le risorse di Azure per la sottoscrizione di [Azure Machine Learning](overview-what-is-azure-ml.md) e le quote che è possibile gestire. Questi limiti vengono applicati per evitare lo sforamento del budget a causa di illeciti e per rispettare i vincoli di capacità di Azure. 
-
-Come con altri servizi di Azure, sono previsti limiti per determinate risorse associate ad Azure Machine Learning. Questi limiti vanno dal limite applicato al numero delle [aree di lavoro](concept-workspace.md) ai limiti relativi al calcolo effettivo sottostante usato per il training o l'inferenza/assegnazione del punteggio dei modelli. 
-
-Tenere presenti questi limiti quando si progettano e si ridimensionano le risorse di Azure Machine Learning per i carichi di lavoro di produzione. Ad esempio, se il cluster non raggiunge il numero previsto di nodi, è possibile che sia stato raggiunto un limite di core dell'ambiente di calcolo di Azure Machine Learning per la sottoscrizione. Per aumentare il limite o la quota oltre il valore del limite predefinito, è possibile aprire una richiesta di assistenza clienti online senza alcun addebito. Non è possibile aumentare i limiti oltre il valore massimo indicato nelle tabelle seguenti a causa dei vincoli di capacità di Azure. Se non è presente una colonna Limite massimo, la risorsa specificata non è associata a limiti modificabili.
-
+> [!div class="checklist"]
+> + Limiti predefiniti per le risorse di Azure correlate ai [Azure Machine Learning](overview-what-is-azure-ml.md).
+> + Visualizzare le quote e i limiti.
+> + Creare quote a livello di area di lavoro.
+> + Aumento della quota della richiesta.
+> + Endpoint privati e quote DNS.
 
 Insieme alla gestione delle quote, è anche possibile scoprire come [pianificare & gestire i costi per Azure Machine Learning](concept-plan-manage-cost.md).
 
 ## <a name="special-considerations"></a>Considerazioni speciali
 
-+ Una quota è un limite di credito, non una garanzia di capacità. Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure. È anche possibile [aumentare le quote](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
++ Una quota è un limite di credito, non una garanzia di capacità. Se si hanno esigenze di capacità su larga scala, [contattare il supporto tecnico di Azure per aumentare la quota](#request-quota-increases).
 
-+ La quota viene condivisa fra tutti i servizi nelle sottoscrizioni, incluso Azure Machine Learning. L'unica eccezione è data dall'ambiente di calcolo di Azure Machine Learning che ha una quota separata rispetto alla quota dei core. Nel valutare le esigenze di capacità, assicurarsi di calcolare l'utilizzo della quota in tutti i servizi.
++ La quota è condivisa tra tutti i servizi nelle sottoscrizioni, incluso Azure Machine Learning. Calcola l'utilizzo in tutti i servizi durante la valutazione della capacità.
+    + Azure Machine Learning calcolo è un'eccezione e ha una quota separata dalla quota di calcolo di base. 
 
-+ I limiti predefiniti variano in base al tipo di categoria dell'offerta, ad esempio Versione di valutazione gratuita o Pagamento in base al consumo, e alle serie delle macchine virtuali, ad esempio Dv2, F, G e così via.
++ I limiti predefiniti variano in base al tipo di categoria di offerta, ad esempio versione di valutazione gratuita, pagamento in base al consumo e serie di macchine virtuali (VM), ad esempio dv2, F, G e così via.
 
 ## <a name="default-resource-quotas"></a>Quote predefinite per le risorse
 
-Ecco un riepilogo dei limiti di quota per i vari tipi di risorsa all'interno della sottoscrizione di Azure.
+In questa sezione vengono illustrati i limiti di quota predefiniti e massimi per le risorse seguenti:
+
++ Macchine virtuali
++ Ambiente di calcolo di Azure Machine Learning
++ Pipeline di Azure Machine Learning
++ Istanze di contenitore
++ Archiviazione
 
 > [!IMPORTANT]
 > I limiti sono soggetti a modifiche. I limiti più aggiornati sono sempre disponibili nel [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) sulle quote a livello di servizio per tutti i servizi di Azure.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
-Per ogni sottoscrizione di Azure è previsto un limite al numero di macchine virtuali nei servizi o in autonomia. I core delle macchine virtuali devono rispettare un limite totale per l'area e un limite di serie per dimensione (Dv2, F e così via) per l'area, entrambi applicati separatamente. Si consideri ad esempio una sottoscrizione con limite di core di VM totale per gli Stati Uniti orientali pari a 30, un limite di core di serie A pari a 30 e un limite di core di serie D pari a 30. Questa sottoscrizione sarà autorizzata a distribuire 30 VM A1 o 30 VM D1 o una combinazione delle due che non superi un totale di 30 core, ad esempio 10 VM A1 e 20 VM D1.
+Ogni sottoscrizione di Azure ha un limite per il numero di macchine virtuali in tutti i servizi. I core delle macchine virtuali hanno un limite totale a livello di area e un limite a livello di area per ogni serie di dimensioni (dv2, F e così via). Entrambi i limiti vengono applicati separatamente.
+
+Si consideri ad esempio una sottoscrizione con limite di core di VM totale per gli Stati Uniti orientali pari a 30, un limite di core di serie A pari a 30 e un limite di core di serie D pari a 30. Questa sottoscrizione sarà autorizzata a distribuire 30 VM a1 o 30 VM D1 o una combinazione dei due che non superi un totale di 30 core.
+
+Non è possibile aumentare i limiti per le macchine virtuali sopra il valore indicato nella tabella seguente.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Ambiente di calcolo di Azure Machine Learning
-Nell'[ambiente di calcolo di Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) è previsto un limite di quota predefinito per il numero di core e per il numero di risorse di calcolo consentite per ogni area in una sottoscrizione. Questa quota è separata dalla quota di core della VM precedente e i limiti di core non vengono condivisi tra i due tipi di risorse poiché AmlCompute è un servizio gestito che distribuisce le risorse in un modello ospitato.
+[Azure Machine Learning calcolo](concept-compute-target.md#azure-machine-learning-compute-managed) ha un limite di quota predefinito sia per il numero di core che per il numero di risorse di calcolo univoche consentito per area in una sottoscrizione. Questa quota è separata dalla quota di core della VM della sezione precedente.
+
+[Richiedere un aumento della quota](#request-quota-increases) per aumentare i limiti di questa sezione fino al **limite massimo** indicato nella tabella.
 
 Risorse disponibili:
-+ I core dedicati per area hanno un limite predefinito di 24-300, a seconda del tipo di offerta di sottoscrizione con valori predefiniti maggiori per i tipi di offerta EA e CSP.  Il numero di core dedicati per ogni sottoscrizione può essere aumentato ed è diverso per ogni famiglia di macchine virtuali. Alcune famiglie di macchine virtuali specializzate come le serie NCv2, NCv3 o ND iniziano con un valore predefinito di zero core. Contattare il supporto di Azure inviando una richiesta di quota per ottenere informazioni sulle opzioni di aumento.
++ I **Core dedicati per area** hanno un limite predefinito di 24-300 a seconda del tipo di offerta di sottoscrizione.  Il numero di core dedicati per ogni sottoscrizione può essere aumentato per ogni famiglia di macchine virtuali. Le famiglie di macchine virtuali specializzate come NCv2, NCv3 o ND iniziano con un valore predefinito di zero core.
 
-+ I core a bassa priorità per area hanno un limite predefinito di 100-3000 a seconda del tipo di offerta di sottoscrizione con impostazioni predefinite maggiori per i tipi di offerta EA e CSP. Il numero di core a bassa priorità per ogni sottoscrizione può essere aumentato ed è un valore singolo per le famiglie di macchine virtuali. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
++ I **core a bassa priorità per area** hanno un limite predefinito di 100-3000 a seconda del tipo di offerta di sottoscrizione. Il numero di core a bassa priorità per ogni sottoscrizione può essere aumentato ed è un valore singolo per le famiglie di macchine virtuali.
 
-+ I cluster per ogni area hanno un limite predefinito di 200. Questi sono condivisi tra un cluster di training e un'istanza di calcolo, che viene considerata come un cluster a nodo singolo per finalità di quota. Contattare il supporto di Azure se si vuole richiedere un aumento oltre questo limite.
++ I **cluster per area** hanno un limite predefinito di 200. Questi sono condivisi tra un cluster di training e un'istanza di calcolo, che viene considerata come un cluster a nodo singolo per finalità di quota.
 
-+ Sono presenti altri limiti rigidi che non possono essere superati una volta raggiunti.
+La tabella seguente illustra i limiti aggiuntivi che non possono essere superati.
 
 | **Risorsa** | **Limite massimo** |
 | --- | --- |
-| Aree di lavoro massime per gruppo di risorse | 800 |
-| Numero massimo di nodi in una singola risorsa dell'ambiente di calcolo di Azure Machine Learning (AmlCompute) | 100 nodi |
-| Processi MPI GPU massimi per nodo | 1-4 |
-| Numero massimo di ruoli di lavoro GPU per nodo | 1-4 |
-| Durata massima del processo | 21 giorni<sup>1</sup> |
-| Durata massima del processo in un nodo a priorità bassa | 7 giorni<sup>2</sup> |
-| Parametri massimi dei server per nodo | 1 |
+| Aree di lavoro per gruppo di risorse | 800 |
+| Nodi in una singola risorsa di calcolo di Azure Machine Learning (AmlCompute) | 100 nodi |
+| Processi MPI GPU per nodo | 1-4 |
+| Thread di lavoro GPU per nodo | 1-4 |
+| Durata dei processi | 21 giorni<sup>1</sup> |
+| Durata del processo in un nodo Low-Priority | 7 giorni<sup>2</sup> |
+| Server di parametri per nodo | 1 |
 
-<sup>1</sup> La durata massima equivale al tempo che trascorre tra l'inizio e il termine dell'esecuzione di un processo. Le esecuzioni completate persistono per un tempo illimitato. I dati relativi alle esecuzioni non completate entro la durata massima non sono accessibili.
-<sup>2</sup> I processi in un nodo a priorità bassa possono essere interrotti in presenza di un vincolo di capacità. Si consiglia di implementare il checkpoint nel processo.
+<sup>1</sup> durata massima indica la durata compresa tra l'inizio e il completamento di un'esecuzione. Esecuzioni completate vengono mantenute per un periodo illimitato. I dati per le esecuzioni non completate entro la durata massima non sono accessibili.
+<sup>2</sup> I processi in un nodo a priorità bassa possono essere interrotti in presenza di un vincolo di capacità. Si consiglia di implementare i punti di controllo nel processo.
 
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning Pipelines
-Per le [pipeline di Azure Machine Learning](concept-ml-pipelines.md) esiste un limite di quota per il numero di passaggi in una pipeline e per il numero di esecuzioni basate su pianificazione di pipeline pubblicate per area in una sottoscrizione.
-- Il numero massimo di passaggi consentiti in una pipeline è 30.000
-- Il numero massimo della somma delle esecuzioni basate su pianificazione e dei pull di BLOB per le pianificazioni attivate tramite blog di pipeline pubblicate per ogni sottoscrizione al mese è 100.000
+[Azure Machine Learning pipeline](concept-ml-pipelines.md) presentano i limiti seguenti.
+
+| **Risorsa** | **Limite** |
+| --- | --- |
+| Passaggi in una pipeline | 30.000 |
+| Aree di lavoro per gruppo di risorse | 800 |
 
 ### <a name="container-instances"></a>Istanze di Container
 
-È anche previsto un limite sul numero di istanze di contenitore che è possibile attivare in un determinato periodo di tempo (su base oraria con ambito) o nell'intera sottoscrizione.
-Per informazioni sui limiti, vedere [limiti delle istanze del contenitore](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Per altre informazioni, vedere [limiti delle istanze del contenitore](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Archiviazione
-È previsto un limite sul numero di account di archiviazione per ogni area, nonché in una sottoscrizione specifica. Il limite predefinito è 250 e include sia l'account di archiviazione Standard sia l'account di archiviazione Premium. Se sono necessari più di 250 account di archiviazione in una determinata area, inviare una richiesta tramite il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione per una determinata area.
+Gli account di archiviazione di Azure hanno un limite di 250 account di archiviazione per ogni area, per sottoscrizione. Sono inclusi gli account di archiviazione standard e Premium.
+
+Per aumentare il limite, effettuare una richiesta tramite il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Il team di archiviazione di Azure esaminerà il caso e potrà approvare fino a 250 account di archiviazione per un'area.
 
 
 ## <a name="workspace-level-quota"></a>Quota a livello di area di lavoro
 
-Per gestire meglio le allocazioni delle risorse per l'ambiente di calcolo di destinazione di Azure Machine Learning (Amlcompute) tra [aree di lavoro](concept-workspace.md) diverse, è stata introdotta una funzionalità che consente di distribuire le quote a livello di sottoscrizione (per famiglia di VM) e di configurarle a livello di area di lavoro. Il comportamento predefinito prevede che tutte le aree di lavoro abbiano una quota corrispondente alla quota a livello di sottoscrizione per tutte le famiglie di macchine virtuali. Tuttavia, man mano che il numero di aree di lavoro aumenta e i carichi di lavoro con priorità variabile iniziano a condividere le stesse risorse, gli utenti richiedono un metodo per condividere meglio la capacità ed evitare problemi di contesa delle risorse. Azure Machine Learning offre una soluzione con l'offerta di calcolo gestito consentendo agli utenti di impostare una quota massima per una particolare famiglia di macchine virtuali in ogni area di lavoro. Ciò equivale a distribuire la capacità tra le aree di lavoro e gli utenti possono scegliere anche l'allocazione in eccesso per ottenere il massimo utilizzo. 
+Usare le quote a livello di area di lavoro per gestire Azure Machine Learning l'allocazione delle destinazioni di calcolo tra più [aree di lavoro](concept-workspace.md) nella stessa sottoscrizione.
 
-Per impostare le quote a livello di area di lavoro, passare a qualsiasi area di lavoro nella sottoscrizione e fare clic su **Usages + quotas** (Utilizzi + quote) nel riquadro sinistro. Selezionare quindi la scheda **Configure quotas** (Configura quote) per visualizzare le quote, espandere qualsiasi famiglia di macchine virtuali e impostare un limite di quota per qualsiasi area di lavoro elencata nella famiglia di macchine virtuali. Tenere presente che non è possibile impostare un valore negativo o un valore superiore a quello della quota a livello di sottoscrizione. Inoltre, come si può osservare, per impostazione predefinita a tutte le aree di lavoro viene assegnata l'intera quota di sottoscrizione per consentire un utilizzo completo della quota allocata.
+Per impostazione predefinita, tutte le aree di lavoro condividono la stessa quota della quota a livello di sottoscrizione per le famiglie di macchine virtuali. Tuttavia, è possibile impostare una quota massima per le singole famiglie di macchine virtuali nelle aree di lavoro di una sottoscrizione. Ciò consente di condividere la capacità ed evitare problemi di conflitto di risorse:
+
+1. Passare a qualsiasi area di lavoro nella sottoscrizione.
+1. Nel riquadro sinistro selezionare **utilizzi + quote**.
+1. Selezionare la scheda **Configura quote** per visualizzare le quote.
+1. Espandere una famiglia di macchine virtuali.
+1. Impostare un limite di quota per qualsiasi area di lavoro elencata in tale famiglia di macchine virtuali.
+
+Non è possibile impostare un valore negativo o un valore superiore a quello della quota a livello di sottoscrizione.
 
 [![Quota a livello di area di lavoro di Azure Machine Learning](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)
 
-
 > [!NOTE]
-> È necessario avere le autorizzazioni a livello di sottoscrizione per impostare la quota a livello di area di lavoro. Questa impostazione viene applicata in modo che i proprietari delle singole aree di lavoro non modifichino o aumentino le quote e inizino a usare le risorse riservate a un'altra area di lavoro. Per questa ragione, è consigliabile che un amministratore della sottoscrizione esegua l'allocazione e la distribuzione delle quote tra le aree di lavoro.
-
-
+> È necessario avere le autorizzazioni a livello di sottoscrizione per impostare la quota a livello di area di lavoro.
 
 ## <a name="view-your-usage-and-quotas"></a>Visualizzare le quote e l'uso
 
-Azure Machine Learning quota di calcolo nella sottoscrizione viene gestita separatamente da altre quote di risorse di Azure. Per visualizzare questa quota, è necessario eseguire il drill-down nei servizi Machine Learning.  
-
-1. Nel riquadro di sinistra selezionare il **servizio Machine Learning** e quindi selezionare un'area di lavoro dall'elenco visualizzato.
-
-2. Nel pannello successivo, nella sezione **Supporto e risoluzione dei problemi**, selezionare **Utilizzo e quote** per visualizzare i limiti di quota correnti e l'utilizzo.
-
-3. Selezionare una sottoscrizione per visualizzare i limiti di quota. Ricordare di filtrare i dati in base all'area a cui si è interessati.
-
-4. È ora possibile passare da una vista a livello di sottoscrizione e una vista a livello di area di lavoro:
-    + **Vista sottoscrizioni:** questa vista consente di visualizzare l'utilizzo della quota di core per famiglia di macchine virtuali, espanderlo per area di lavoro ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. Questa vista è ottimale per ottenere rapidamente informazioni dettagliate sull'utilizzo di core per una particolare famiglia di macchine virtuali in modo da visualizzare la suddivisione per aree di lavoro e per cluster sottostanti per ognuna delle aree di lavoro. La convenzione generale in questa vista è (utilizzo/quota) dove l'utilizzo è il numero corrente di core aumentati e la quota è il numero massimo logico di core a cui la risorsa può essere ridimensionata. Per ogni **area di lavoro**, la quota è la quota a livello di area di lavoro (come illustrato sopra) che indica il numero massimo di core del ridimensionamento per una particolare famiglia di macchine virtuali. Analogamente, per un **cluster**, la quota corrisponde ai core corrispondenti al numero massimo di nodi a cui può essere ridimensionato il cluster in base a quanto definito dalla proprietà max_nodes.
-    
-    + **Vista area di lavoro:** questa vista consente di visualizzare l'utilizzo della quota di core per area di lavoro, espanderlo per famiglia di macchine virtuali ed espanderlo ulteriormente in base ai nomi dei cluster effettivi. Questa vista è ottimale per ottenere rapidamente informazioni dettagliate sull'utilizzo di core per una area di lavoro in modo da visualizzare la suddivisione per famiglie di macchine virtuali e per cluster sottostanti per ognuna delle famiglie.
-
-La visualizzazione delle quote per le altre risorse di Azure, ad esempio Macchine virtuali, Archiviazione e Rete, è facile tramite il portale di Azure.
+Per visualizzare la quota per le varie risorse di Azure, ad esempio macchine virtuali, archiviazione, rete, usare la portale di Azure:
 
 1. Nel riquadro a sinistra selezionare **Tutti i servizi** e quindi **Sottoscrizioni** nella categoria Generale.
 
@@ -126,20 +136,34 @@ La visualizzazione delle quote per le altre risorse di Azure, ad esempio Macchin
 
 3. Selezionare **utilizzo e quote** per visualizzare i limiti e l'utilizzo correnti della quota. Utilizzare i filtri per selezionare il provider e le posizioni. 
 
+La quota di calcolo Azure Machine Learning nella sottoscrizione viene gestita separatamente dalle altre quote di Azure. 
+
+1. Passare all'area di lavoro **Azure Machine Learning** nel portale di Azure.
+
+2. Nel riquadro sinistro, nella **sezione supporto e risoluzione dei problemi** selezionare **utilizzo + quote** per visualizzare i limiti e l'utilizzo correnti della quota.
+
+3. Selezionare una sottoscrizione per visualizzare i limiti di quota. Ricordare di filtrare i dati in base all'area a cui si è interessati.
+
+4. È possibile passare da una visualizzazione a livello di sottoscrizione a una vista a livello di area di lavoro e viceversa.
+
 ## <a name="request-quota-increases"></a>Richiedere aumenti di quota
 
-Per aumentare il limite o la quota oltre il valore del limite predefinito, è possibile [aprire una richiesta di assistenza clienti online](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) senza alcun addebito.
+Per aumentare il limite o la quota superiore al limite predefinito, [aprire una richiesta di assistenza clienti online](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) senza alcun addebito.
 
-I limiti non possono essere aumentati oltre il valore del limite massimo indicato nelle tabelle. Se non è indicato alcun limite massimo, la risorsa non è associata a limiti modificabili. [Vedere le istruzioni dettagliate per aumentare la quota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
+I limiti non possono essere aumentati oltre il valore limite massimo indicato nelle tabelle precedenti. Se non esiste alcun limite massimo, non è possibile modificare il limite per la risorsa.
 
-Quando si richiede un aumento di quota, è necessario selezionare il servizio per cui si richiede l'aumento, che può essere Machine Learning, Istanze di Container o Archiviazione. Con l'ambiente di calcolo di Azure Machine Learning è anche possibile fare clic sul pulsante **Richiedi quota** quando è visualizzata la quota seguendo i passaggi precedenti.
+Quando si richiede un aumento della quota, selezionare il servizio su cui si richiede di aumentare la quota. Ad esempio Azure Machine Learning, istanze di contenitore, archiviazione e così via. Per Azure Machine Learning calcolo, è possibile selezionare il pulsante **Richiedi quota** durante la visualizzazione della quota attenendosi alla procedura descritta sopra.
 
 > [!NOTE]
 > Le [sottoscrizioni per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non hanno i requisiti necessari per un aumento dei limiti o delle quote. Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per ulteriori informazioni, vedere [Aggiornare la versione di valutazione gratuita alla sottoscrizione con pagamento in base al consumo](../billing/billing-upgrade-azure-subscription.md) e [Domande frequenti sulla sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>Aumenta la quota di endpoint privati e DNS privati
 
-Esistono limitazioni al numero di endpoint privati e di zone DNS private che è possibile creare in una sottoscrizione. Sebbene Azure Machine Learning crei risorse nella sottoscrizione (Customer), esistono alcuni scenari in cui le risorse vengono create in una sottoscrizione di proprietà di Microsoft. Negli scenari seguenti potrebbe essere necessario richiedere una quota di quote nella sottoscrizione di proprietà di Microsoft:
+Esistono limitazioni al numero di endpoint privati e di zone DNS private che è possibile creare in una sottoscrizione.
+
+Sebbene Azure Machine Learning crei risorse nella sottoscrizione (Customer), esistono alcuni scenari in cui le risorse vengono create in una sottoscrizione di proprietà di Microsoft.
+
+ Negli scenari seguenti potrebbe essere necessario richiedere una quota di quote nella sottoscrizione di proprietà di Microsoft:
 
 * __Area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente (CMK)__
 * __Container Registry di Azure per l'area di lavoro dietro la rete virtuale__
@@ -151,14 +175,14 @@ Per richiedere una concessione per questi scenari, attenersi alla procedura segu
 
     | Campo | Selezione |
     | ----- | ----- |
-    | Tipo di problema | Informazioni tecniche |
+    | Tipo di problema | Prerequisiti tecnici |
     | Servizio | Servizi personali. Selezionare __Machine Learning__ nell'elenco a discesa. |
     | Tipo di problema | Configurazione dell'area di lavoro, SDK e CLI |
     | Sottotipo di problema | Problemi di provisioning o gestione dell'area di lavoro |
 
 2. Nella sezione __Dettagli__ usare il campo __Description (Descrizione__ ) per specificare l'area di Azure che si vuole usare e lo scenario che si prevede di usare. Se è necessario richiedere aumenti di quota per più sottoscrizioni, elencare anche gli ID sottoscrizione in questo campo.
 
-3. Usare __create__ per creare la richiesta.
+3. Selezionare __Crea__ per creare la richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

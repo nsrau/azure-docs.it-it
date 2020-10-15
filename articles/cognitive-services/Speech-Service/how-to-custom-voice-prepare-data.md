@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74805978"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparare i dati per creare una voce personalizzata
@@ -53,7 +53,7 @@ Per produrre un tipo di carattere vocale appropriato, creare le registrazioni in
 
 ### <a name="audio-files"></a>File audio
 
-Ogni file audio deve contenere un singolo enunciato, ovvero una singola frase o un solo turno di un sistema di dialogo, con una lunghezza inferiore a 15 secondi. Tutti i file devono trovarsi nella stessa lingua parlata. Le voci di sintesi vocale personalizzate multi-linguaggio non sono supportate, ad eccezione della lingua inglese cinese (BI). Ogni file audio deve avere un nome di file numerico univoco con il nome file Extension. wav.
+Ogni file audio deve contenere un singolo enunciato, ovvero una singola frase o un solo turno di un sistema di dialogo, con una lunghezza inferiore a 15 secondi. Tutti i file devono trovarsi nella stessa lingua parlata. Le voci di sintesi vocale personalizzate in più lingue non sono supportate, ad eccezione del Chinese-English bi-lingua. Ogni file audio deve avere un nome di file numerico univoco con il nome file Extension. wav.
 
 Seguire queste linee guida durante la preparazione dell'audio.
 
@@ -112,7 +112,7 @@ Seguire queste linee guida durante la preparazione dell'audio per la segmentazio
 | Formato di archiviazione | zip |
 | Dimensione massima dell'archivio | 2048 MB |
 
-Tutti i file audio devono essere raggruppati in un file zip. È possibile inserire i file con estensione wav e MP3 in un unico file ZIP audio. Ad esempio, è possibile caricare un file zip contenente un file audio denominato ' kingstory. wav ', 45-second-Long e un altro audio denominato ' queenstory. mp3', 200-Second-Long. Tutti i file con estensione mp3 verranno trasformati nel formato WAV dopo l'elaborazione.
+Tutti i file audio devono essere raggruppati in un file zip. È possibile inserire i file con estensione wav e MP3 in un unico file ZIP audio. Ad esempio, è possibile caricare un file zip contenente un file audio denominato ' kingstory. wav ', 45-second-Long e un altro audio denominato ' queenstory.mp3', 200-Second-Long. Tutti i file con estensione mp3 verranno trasformati nel formato WAV dopo l'elaborazione.
 
 ### <a name="transcripts"></a>Trascrizioni
 
@@ -126,7 +126,7 @@ Le trascrizioni devono essere preparate alle specifiche elencate in questa tabel
 | N. di espressioni per riga | Nessun limite |
 | Dimensione massima dei file | 2048 MB |
 
-Tutti i file delle trascrizioni in questo tipo di dati devono essere raggruppati in un file zip. Ad esempio, è stato caricato un file zip contenente un file audio denominato ' kingstory. wav ', 45 secondi e un altro denominato ' queenstory. mp3', 200 secondi di lunghezza. Sarà necessario caricare un altro file zip contenente due trascrizioni, una con il nome "kingstory. txt", l'altra "queenstory. txt". All'interno di ogni file di testo normale, viene fornita la trascrizione completa corretta per l'audio corrispondente.
+Tutti i file delle trascrizioni in questo tipo di dati devono essere raggruppati in un file zip. Ad esempio, è stato caricato un file zip contenente un file audio denominato ' kingstory. wav ', 45 secondi di lunghezza e un altro denominato ' queenstory.mp3', 200 secondi. Sarà necessario caricare un altro file zip contenente due trascrizioni, una con il nome ' kingstory.txt', l'altra ' queenstory.txt'. All'interno di ogni file di testo normale, viene fornita la trascrizione completa corretta per l'audio corrispondente.
 
 Dopo che il set di dati è stato caricato correttamente, sarà possibile segmentare il file audio in espressioni basate sulla trascrizione fornita. È possibile controllare le espressioni segmentate e le trascrizioni corrispondenti scaricando il set di dati. Gli ID univoci verranno assegnati automaticamente agli enunciati segmentati. È importante assicurarsi che le trascrizioni fornite siano accurate al 100%. Gli errori nelle trascrizioni possono ridurre la precisione durante la segmentazione audio e introdurre ulteriore perdita di qualità nella fase di training che verrà rilevata in un secondo momento.
 

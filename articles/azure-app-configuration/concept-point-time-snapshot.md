@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23f613584638026a2b371849c7d1014b3bb1f136
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601079"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073071"
 ---
 # <a name="point-in-time-snapshot"></a>Snapshot temporizzato
 
@@ -23,7 +23,7 @@ App Azure configurazione mantiene un record delle modifiche apportate ai valori 
 
 È possibile usare portale di Azure o l'interfaccia della riga di comando per recuperare i valori di chiave passati. Nell'interfaccia della riga di comando di Azure usare `az appconfig revision list` , aggiungendo i parametri appropriati per recuperare i valori richiesti.  Specificare l'istanza di configurazione app Azure fornendo il nome dell'archivio ( `--name <app-config-store-name>` ) o utilizzando una stringa di connessione ( `--connection-string <your-connection-string>` ). Limitare l'output specificando un punto nel tempo specifico ( `--datetime` ) e specificando il numero massimo di elementi da restituire ( `--top` ).
 
-Se l'interfaccia della riga di comando di Azure non è installata localmente, è possibile usare facoltativamente [Azure cloud Shell](/azure/cloud-shell/overview).
+Se l'interfaccia della riga di comando di Azure non è installata localmente, è possibile usare facoltativamente [Azure cloud Shell](../cloud-shell/overview.md).
 
 Recuperare tutte le modifiche registrate apportate ai valori di chiave.
 
@@ -58,4 +58,4 @@ az appconfig revision list --name <your-app-config-store-name> --top 10 --fields
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un'app Web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+> [Creare un'app Web ASP.NET Core](./quickstart-aspnet-core-app.md)

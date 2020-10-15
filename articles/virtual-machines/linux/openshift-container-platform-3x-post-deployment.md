@@ -11,10 +11,10 @@ ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
 ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373573"
 ---
 # <a name="post-deployment-tasks"></a>Attività di post-distribuzione
@@ -86,7 +86,7 @@ Nel portale di Azure:
 
    ![Accesso alla registrazione dell'app](media/openshift-post-deployment/app-registration-access.png)
 
-8. Selezionare **Fine**.
+8. Selezionare **Operazione completata**.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Configurare OpenShift per l'autenticazione di Azure AD
 

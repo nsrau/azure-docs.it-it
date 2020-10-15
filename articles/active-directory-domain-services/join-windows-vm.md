@@ -1,20 +1,20 @@
 ---
 title: Aggiungere una macchina virtuale Windows Server a un dominio gestito di Azure AD Domain Services | Microsoft Docs
 description: In questa esercitazione si apprenderà come aggiungere una macchina virtuale Windows Server a un dominio gestito di Azure Active Directory Domain Services.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 259b27528779c9934da6d69ca46f2794e2257d24
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: 3df96f5576829694b5eb12fd1811de112279884d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723028"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963228"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Esercitazione: Aggiungere una macchina virtuale Windows a un dominio gestito di Azure Active Directory Domain Services
 

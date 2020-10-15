@@ -43,7 +43,19 @@
         - name: Repository di esempi di Batch
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Interfaccia della riga di comando di Azure
-      href: cli-samples.md
+      items:
+        - name: Creare un account Batch in modalità servizio Batch
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: Creare un account Batch in modalità sottoscrizione utente
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Aggiungere un'applicazione a un account Azure Batch
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Creare e gestire un pool Linux
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Creare e gestire un pool Windows
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: Eseguire un processo e le attività
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: Concetti
   items:
     - name: Sicurezza
@@ -257,12 +269,16 @@
           href: batch-pool-resize-start-event.md
         - name: Evento di completamento ridimensionamento pool
           href: batch-pool-resize-complete-event.md
+        - name: Evento di scalabilità automatica del pool
+          href: batch-pool-autoscale-event.md
         - name: Evento di avvio attività
           href: batch-task-start-event.md
         - name: Evento di completamento attività
           href: batch-task-complete-event.md
         - name: Evento di attività non riuscita
           href: batch-task-fail-event.md
+        - name: Evento di pianificazione attività non riuscita
+          href: batch-task-schedule-fail-event.md
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

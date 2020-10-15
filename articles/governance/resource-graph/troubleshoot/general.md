@@ -1,14 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi ai vari SDK durante l'esecuzione di query sulle risorse di Azure con Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 052c3e1c10f1b0ca94653f086e2df4f3d395070e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 13c5d5ffde8b0b82fcafa5e8149400555a0b18a6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056942"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056958"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Risolvere errori con Azure Resource Graph
 

@@ -12,10 +12,10 @@ ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383598"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico Azure AD SSPR in un criterio personalizzato Azure AD B2C
@@ -49,7 +49,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico Azure AD SSPR:
     ...
 ```
 
-## <a name="send-email"></a>Invia messaggio di posta elettronica
+## <a name="send-email"></a>Invio di un messaggio di posta elettronica
 
 La prima modalità di questo profilo tecnico consiste nel generare un codice e inviarlo. Per questa modalità è possibile configurare le opzioni seguenti.
 
@@ -103,7 +103,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico Azure AD SSPR usato pe
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Verificare il codice
+## <a name="verify-code"></a>Verifica il codice
 
 La seconda modalità di questo profilo tecnico consiste nel verificare un codice. Per questa modalità è possibile configurare le opzioni seguenti.
 

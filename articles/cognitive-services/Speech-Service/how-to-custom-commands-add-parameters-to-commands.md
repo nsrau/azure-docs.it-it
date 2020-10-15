@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284150"
 ---
 # <a name="add-parameters-to-commands"></a>Aggiungere parametri ai comandi
@@ -36,7 +36,7 @@ Modificare il comando **accendere** esistente per attivare e disattivare più di
    1. Selezionare **Rinomina**. Nella finestra **Rinomina comando** modificare **nome** in **TurnOnOff**.
 
 1. Successivamente, si aggiunge un nuovo parametro a questo comando che indica se l'utente vuole attivare o disattivare il dispositivo.
-   1. Selezionare **Aggiungi** presente nella parte superiore del riquadro centrale. Dall'elenco a discesa selezionare Parameter ( **parametro**).
+   1. Selezionare  **Aggiungi** presente nella parte superiore del riquadro centrale. Dall'elenco a discesa selezionare Parameter ( **parametro**).
    1. Nel riquadro di destra, nella sezione **parametri** , aggiungere il valore nella casella **nome** come **OnOff**.
    1. Selezionare **required**. Nella finestra **Aggiungi risposta per un parametro obbligatorio** selezionare **Editor semplice**. Nella **prima variante**aggiungere
         ```
@@ -54,14 +54,14 @@ Modificare il comando **accendere** esistente per attivare e disattivare più di
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | Nome               | `OnOff`           | Nome descrittivo per il parametro                                                                           |
        | È globale          | unchecked       | Casella di controllo che indica se un valore per questo parametro viene applicato globalmente a tutti i comandi nell'applicazione|
-       | Richiesto           | checked         | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando |
-       | Risposta per il parametro obbligatorio      |Editor semplice >`On or Off?`      | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto |
+       | Obbligatoria           | checked         | Casella di controllo che indica se è necessario un valore per questo parametro prima di completare il comando |
+       | Risposta per il parametro obbligatorio      |Editor semplice > `On or Off?`      | Messaggio di richiesta per richiedere il valore di questo parametro quando non è noto |
        | Type               | string          | Tipo di parametro, ad esempio numero, stringa, data/ora o geografia   |
        | Configurazione      | Accetta valori di input predefiniti dal catalogo interno | Per le stringhe, questo limita gli input a un set di valori possibili. |
        | Valori di input predefiniti     | `on`, `off`           | Set di valori possibili e relativi alias         |
        
         
-   1. Per aggiungere valori di input predefiniti, selezionare **Aggiungi un input predefinito** e nella finestra **nuovo elemento** digitare **nome** come indicato nella tabella precedente. In questo caso, gli alias non vengono usati, quindi è possibile lasciarli vuoti.
+   1. Per aggiungere valori di input predefiniti, selezionare **Aggiungi un input predefinito** e nella finestra **nuovo elemento**  digitare **nome** come indicato nella tabella precedente. In questo caso, gli alias non vengono usati, quindi è possibile lasciarli vuoti.
    
       > [!div class="mx-imgBorder"]
       > ![Crea parametro](media/custom-commands/create-on-off-parameter.png)
@@ -77,8 +77,8 @@ Modificare il comando **accendere** esistente per attivare e disattivare più di
        | ------------------ | --------------------- |
        | Nome               | `SubjectDevice`         |
        | È globale          | unchecked             |
-       | Richiesto           | checked               |
-       | Risposta per il parametro obbligatorio     | Editor semplice >`Which device do you want to control?`    | 
+       | Obbligatoria           | checked               |
+       | Risposta per il parametro obbligatorio     | Editor semplice > `Which device do you want to control?`    | 
        | Type               | string                |          |
        | Configurazione      | Accetta valori di input predefiniti dal catalogo interno | 
        | Valori di input predefiniti | `tv`, `fan`               |
@@ -90,9 +90,9 @@ Modificare il comando **accendere** esistente per attivare e disattivare più di
 
 Per i comandi con parametri, è utile aggiungere frasi di esempio che coprono tutte le possibili combinazioni. Ad esempio:
 
-* Informazioni complete sui parametri-`turn {OnOff} the {SubjectDevice}`
-* Informazioni sui parametri parziali-`turn it {OnOff}`
-* Nessuna informazione sui parametri-`turn something`
+* Informazioni complete sui parametri- `turn {OnOff} the {SubjectDevice}`
+* Informazioni sui parametri parziali- `turn it {OnOff}`
+* Nessuna informazione sui parametri- `turn something`
 
 Le frasi di esempio con diversi livelli di informazioni consentono all'applicazione di comandi personalizzati di risolvere sia le risoluzioni unidirezionali sia le risoluzioni a più turni con informazioni parziali.
 
@@ -109,7 +109,7 @@ turn something
 Selezionare **Salva**.
 
 > [!TIP]
-> Nell'editor frasi di esempio usare le parentesi graffe per fare riferimento ai parametri. - `turn {OnOff} the {SubjectDevice}`Usare TAB per il completamento automatico supportato da parametri creati in precedenza.
+> Nell'editor frasi di esempio usare le parentesi graffe per fare riferimento ai parametri. - `turn {OnOff} the {SubjectDevice}` Usare TAB per il completamento automatico supportato da parametri creati in precedenza.
 
 ### <a name="modify-completion-rules-to-include-parameters"></a>Modificare le regole di completamento per includere i parametri
 
@@ -126,7 +126,7 @@ Modificare la regola di completamento esistente **ConfirmationResponse**.
     ```
 1. Selezionare **Salva**.
 
-### <a name="try-it-out"></a>Provare questa operazione
+### <a name="try-it-out"></a>Provare il servizio
 1. Selezionare l'icona del **Training** nella parte superiore del riquadro destro.
 
 1. Al termine del training, selezionare **test**. Verrà visualizzato un test della finestra **dell'applicazione** .
@@ -150,9 +150,9 @@ Aggiungere la **temperatura** del nuovo parametro con la configurazione seguente
 | Configurazione      | Valore consigliato     |
 | ------------------ | ----------------|
 | Nome               | `Temperature`           |
-| Richiesto           | checked         |
-| Risposta per il parametro obbligatorio      | Editor semplice >`What temperature would you like?`
-| Type               | Number          |
+| Obbligatoria           | checked         |
+| Risposta per il parametro obbligatorio      | Editor semplice > `What temperature would you like?`
+| Type               | Numero          |
 
 
 Modificare le espressioni di esempio con i valori seguenti.
@@ -169,9 +169,9 @@ Modificare le regole di completamento esistenti in base alla configurazione segu
 | Configurazione      | Valore consigliato     |
 | ------------------ | ----------------|
 | Condizioni         | Temperatura > parametro obbligatorio           |
-| Azioni           | Invia risposta vocale >`Ok, setting temperature to {Temperature} degrees` |
+| Azioni           | Invia risposta vocale > `Ok, setting temperature to {Temperature} degrees` |
 
-### <a name="try-it-out"></a>Provare questa operazione
+### <a name="try-it-out"></a>Provare il servizio
 
 Eseguire il **Training** e il **test** delle modifiche con alcune interazioni.
 
@@ -187,8 +187,8 @@ Aggiungere un parametro denominato **DateTime** con la configurazione seguente.
    | Impostazione                           | Valore consigliato                     | 
    | --------------------------------- | ----------------------------------------|
    | Nome                              | `DateTime`                               |
-   | Richiesto                          | checked                                 |
-   | Risposta per il parametro obbligatorio   | Editor semplice >`For what time?`            | 
+   | Obbligatoria                          | checked                                 |
+   | Risposta per il parametro obbligatorio   | Editor semplice > `For what time?`            | 
    | Type                              | Datetime                                |
    | Impostazioni predefinite data                     | Se la data non è presente, usare oggi            |
    | Impostazioni predefinite temporali                     | Se l'ora non è presente, usare l'inizio della giornata     |
@@ -210,10 +210,10 @@ Modificare le regole di completamento esistenti in base alla configurazione segu
 
    | Impostazione    | Valore consigliato                               |
    | ---------- | ------------------------------------------------------- |
-   | Azioni    | Invia risposta vocale-`Ok, alarm set for {DateTime}`  |
+   | Azioni    | Invia risposta vocale- `Ok, alarm set for {DateTime}`  |
 
 
-### <a name="try-it-out"></a>Provare questa operazione
+### <a name="try-it-out"></a>Provare il servizio
 
 Eseguire il **Training** e **testare** le modifiche.
 - Input: impostare la sveglia per domani a mezzogiorno

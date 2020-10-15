@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718918"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965149"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
 
@@ -51,7 +51,7 @@ Se si vuole forzare una lingua specifica, è possibile aggiungere `?lng=<languag
 
 La registrazione combinata supporta le azioni e i metodi di autenticazione seguenti:
 
-| Metodo | Registrazione | Modifica | Elimina |
+| Metodo | Register | Modifica | Eliminazione |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sì (massimo 5) | No | Sì |
 | Altra app di autenticazione | Sì (massimo 5) | No | Sì |
@@ -59,7 +59,7 @@ La registrazione combinata supporta le azioni e i metodi di autenticazione segue
 | Telefono | Sì | Sì | Sì |
 | Telefono alternativo | Sì | Sì | Sì |
 | Telefono ufficio | No | No | No |
-| E-mail | Sì | Sì | Sì |
+| Email | Sì | Sì | Sì |
 | Domande di sicurezza | Sì | No | Sì |
 | Password dell'app | Sì | No | Sì |
 | Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| Sì | Sì | Sì |

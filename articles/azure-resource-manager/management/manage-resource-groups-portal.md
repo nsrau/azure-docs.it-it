@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371253"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse Azure Resource Manager usando il portale di Azure
@@ -27,7 +27,7 @@ Altri articoli sulla gestione dei gruppi di risorse:
 
 Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione. È in genere consigliabile aggiungere risorse che condividono lo stesso ciclo di vita allo stesso gruppo di risorse per poterle distribuire, aggiornare ed eliminare facilmente come gruppo.
 
-Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità può essere necessario garantire che i dati vengano archiviati in una determinata area.
+Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità potrebbe essere necessario assicurarsi che i dati siano archiviati in una determinata area.
 
 
 ## <a name="create-resource-groups"></a>Creare gruppi di risorse
@@ -39,7 +39,7 @@ Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un p
 3. Selezionare **Aggiungi**.
 4. Immettere i valori seguenti:
 
-   - **Sottoscrizione**: selezionare la sottoscrizione di Azure. 
+   - **Sottoscrizione** Selezionare la sottoscrizione di Azure. 
    - **Gruppo di risorse**: Immettere un nuovo nome del gruppo di risorse. 
    - **Area**: selezionare una località di Azure, ad esempio **Stati Uniti centrali**.
 

@@ -4,10 +4,10 @@ description: Viene descritto come eseguire il backup e il ripristino di VM di Az
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89014915"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Eseguire il backup e il ripristino di macchine virtuali di Azure crittografate
@@ -71,7 +71,7 @@ In alcune circostanze può anche essere necessario eseguire alcune operazioni:
 
       ![Riquadro scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. In **criteri di backup**  >  **scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Selezionare **OK**.
+1. In **criteri di backup**  >  **scegliere criteri di backup**, selezionare i criteri che si desidera associare all'insieme di credenziali. Quindi scegliere **OK**.
     - Un criterio di backup specifica quando vengono eseguiti i backup e per quanto tempo vengono archiviati.
     - I dettagli dei criteri predefiniti vengono elencati nel menu a discesa.
 
@@ -107,7 +107,7 @@ Il backup iniziale verrà eseguito in base alla pianificazione, ma è possibile 
 2. In **elementi di backup**selezionare **macchina virtuale di Azure**.
 3. Nell'elenco **elementi di backup selezionare i puntini** di sospensione (...).
 4. Selezionare **Esegui backup ora**.
-5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Selezionare **OK**.
+5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Quindi scegliere **OK**.
 6. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="provide-permissions"></a>Fornire le autorizzazioni

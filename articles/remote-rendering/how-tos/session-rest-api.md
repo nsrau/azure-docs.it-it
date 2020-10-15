@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023755"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usare l'API REST di gestione delle sessioni
@@ -77,7 +77,7 @@ Questo comando crea una sessione. Restituisce l'ID della nuova sessione. È nece
 
 **Risposte**
 
-| Codice stato | payload JSON | Commenti |
+| Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 202 | -sessionId: GUID | Operazione completata |
 
@@ -141,7 +141,7 @@ Questo comando Aggiorna i parametri di una sessione. Attualmente è possibile es
 
 **Risposte**
 
-| Codice stato | payload JSON | Commenti |
+| Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 200 | | Operazione completata |
 
@@ -177,7 +177,7 @@ Questo comando restituisce un elenco di sessioni attive.
 
 **Risposte**
 
-| Codice stato | payload JSON | Commenti |
+| Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 200 | -Sessions: matrice di proprietà della sessione | vedere la sezione "ottenere le proprietà della sessione" per una descrizione delle proprietà della sessione |
 
@@ -220,7 +220,7 @@ Questo comando restituisce informazioni su una sessione, ad esempio il nome host
 
 **Risposte**
 
-| Codice stato | payload JSON | Commenti |
+| Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 200 | -Message: stringa<br/>-sessionElapsedTime: TimeSpan<br/>-sessionHostname: stringa<br/>-sessionId: stringa<br/>-sessionMaxLeaseTime: TimeSpan<br/>-sessionSize: enumerazione<br/>-sessionStatus: enumerazione | enum sessionStatus {starting, Ready, stoping, Stopped, expired, Error}<br/>Se lo stato è' Error ' o ' expired ', il messaggio conterrà ulteriori informazioni |
 
@@ -263,7 +263,7 @@ Questo comando Arresta una sessione. La macchina virtuale allocata verrà recupe
 
 **Risposte**
 
-| Codice stato | payload JSON | Commenti |
+| Codice di stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 204 | | Operazione completata |
 

@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171602"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Esercitazione: eseguire la trasmissione di eventi al cloud di griglia di eventi
@@ -36,8 +36,8 @@ Creare un argomento e una sottoscrizione di griglia di eventi nel cloud seguendo
 
 Ad esempio, se è stato creato un argomento denominato `testegcloudtopic` negli Stati Uniti occidentali, i valori avranno un aspetto simile al seguente:
 
-* **TopicUrl**:`https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
-* **TopicName**:`testegcloudtopic`
+* **TopicUrl**: `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
+* **TopicName**: `testegcloudtopic`
 * **SasKey**: disponibile in **AccessKey** dell'argomento. Usare **Key1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Creare un argomento di griglia di eventi al perimetro
@@ -103,7 +103,7 @@ Ad esempio, se è stato creato un argomento denominato `testegcloudtopic` negli 
    >[!NOTE]
    > **EndpointUrl** specifica che l'URL dell'argomento della griglia di eventi nel cloud. **SasKey** fa riferimento alla chiave dell'argomento cloud di griglia di eventi. Il valore in **topicName** verrà usato per contrassegnare tutti gli eventi in uscita in griglia di eventi. Questa operazione può essere utile quando si esegue la pubblicazione in un argomento di dominio di griglia di eventi. Per ulteriori informazioni sull'argomento relativo al dominio di griglia di eventi, vedere [domini eventi](../event-domains.md)
 
-    ad esempio:
+    Ad esempio,
   
     ```json
         {

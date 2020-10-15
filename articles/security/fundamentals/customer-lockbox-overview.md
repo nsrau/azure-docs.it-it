@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
 ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331659"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox per Microsoft Azure
@@ -20,15 +20,15 @@ ms.locfileid: "91331659"
 > [!NOTE]
 > Per usare questa funzionalità, è necessario che l'organizzazione disponga di un [piano di supporto di Azure](https://azure.microsoft.com/support/plans/) con un livello minimo di **sviluppatore**.
 
-Customer Lockbox per Microsoft Azure fornisce un'interfaccia che consente ai clienti di esaminare e approvare o rifiutare le richieste di accesso ai dati del cliente. Viene usato nei casi in cui un tecnico Microsoft deve accedere ai dati dei clienti durante una richiesta di supporto.
+Customer Lockbox per Microsoft Azure fornisce un'interfaccia che consente ai clienti di esaminare e approvare oppure rifiutare le richieste di accesso ai loro dati. Viene usato nei casi in cui un tecnico Microsoft deve accedere ai dati dei clienti durante una richiesta di supporto.
 
 Questo articolo illustra il modo in cui le richieste Customer Lockbox vengono avviate, rilevate e archiviate per verifiche e controlli successivi.
 
-Customer Lockbox è ora disponibile a livello generale e attualmente abilitata per l'accesso desktop remoto alle macchine virtuali.
+Customer Lockbox è ora disponibile a livello generale e abilitato per l'accesso da desktop remoto alle macchine virtuali.
 
 ## <a name="supported-services-and-scenarios-in-preview"></a>Servizi e scenari supportati in anteprima
 
-I servizi seguenti sono ora attualmente disponibili in anteprima per Customer Lockbox:
+I servizi seguenti sono attualmente disponibili in anteprima per Customer Lockbox:
 
 - Gestione API
 - Servizio app di Azure
@@ -48,7 +48,7 @@ I servizi seguenti sono ora attualmente disponibili in anteprima per Customer Lo
 - Database SQL di Azure
 - Trasferimenti di sottoscrizioni di Azure
 - Azure Synapse Analytics
-- Macchine virtuali (ora che copre anche l'accesso ai dump della memoria e ai dischi gestiti)
+- Macchine virtuali (ora copre anche l'accesso ai dump della memoria e ai dischi gestiti)
 
 Per abilitare Customer Lockbox per queste offerte di anteprima per l'organizzazione, iscriversi per [Customer Lockbox per l'anteprima pubblica di Azure](https://aka.ms/customerlockbox/insiderprogram).
 
@@ -56,19 +56,19 @@ Per abilitare Customer Lockbox per queste offerte di anteprima per l'organizzazi
 
 I servizi e gli scenari seguenti sono attualmente disponibili a livello generale per Customer Lockbox.
 
-### <a name="remote-desktop-access-to-virtual-machines"></a>Accesso desktop remoto alle macchine virtuali
+### <a name="remote-desktop-access-to-virtual-machines"></a>Accesso da desktop remoto alle macchine virtuali
 
-Customer Lockbox è attualmente abilitata per le richieste di accesso desktop remoto alle macchine virtuali. Sono supportati i carichi di lavoro seguenti:
-- Piattaforma distribuita come servizio (PaaS)-servizi cloud di Azure (ruolo Web e ruolo di lavoro)
-- Infrastruttura distribuita come servizio (IaaS)-Windows e Linux (solo Azure Resource Manager)
-- Set di scalabilità di macchine virtuali: Windows e Linux
+Customer Lockbox è attualmente abilitato per l'accesso da desktop remoto alle macchine virtuali. Sono supportati i carichi di lavoro seguenti:
+- Piattaforma distribuita come servizio (PaaS) - Servizi cloud di Azure (ruolo Web e ruolo di lavoro)
+- Infrastruttura distribuita come servizio (IaaS) - Windows e Linux (solo Azure Resource Manager)
+- Set di scalabilità di macchine virtuali - Windows e Linux
 
 > [!NOTE]
-> Le istanze classiche di IaaS non sono supportate da Customer Lockbox. Se si dispone di carichi di lavoro in esecuzione in istanze IaaS classiche, è consigliabile eseguire la migrazione da modelli di distribuzione classica a Gestione risorse. Per istruzioni, vedere [migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+> Le istanze classiche di IaaS non sono supportate da Customer Lockbox. Se si dispone di carichi di lavoro in esecuzione in istanze IaaS classiche, è consigliabile eseguire la migrazione da modelli di distribuzione classica a Gestione risorse. Per istruzioni, vedere [Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 #### <a name="detailed-audit-logs"></a>Log di controllo dettagliati
 
-Per gli scenari che prevedono l'accesso desktop remoto, è possibile utilizzare i registri eventi di Windows per esaminare le azioni eseguite dal tecnico Microsoft. Provare a usare il Centro sicurezza di Azure per raccogliere i log eventi e copiare i dati nell'area di lavoro per l'analisi. Per altre informazioni, vedere [raccolta dati nel centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md).
+Per gli scenari che prevedono l'accesso da desktop remoto, è possibile usare i registri eventi di Windows per esaminare le azioni eseguite dal tecnico Microsoft. Considerare la possibilità di usare il Centro sicurezza di Azure per raccogliere i registri eventi e copiare i dati nell'area di lavoro per l'analisi. Per altre informazioni, vedere [Raccolta dati nel Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -125,10 +125,10 @@ Ai fini del controllo, le azioni eseguite in questo flusso di lavoro vengono reg
 
 ## <a name="auditing-logs"></a>Log di controllo
 
-I log di Customer Lockbox vengono archiviati nei log attività. Nella portale di Azure selezionare **log attività** per visualizzare le informazioni di controllo relative alle richieste di Customer Lockbox. È possibile filtrare per azioni specifiche, ad esempio:
-- **Nega richiesta di archivio protetto**
-- **Crea richiesta di archivio protetto**
-- **Approva richiesta di archivio protetto**
+I log di Customer Lockbox vengono archiviati nei log attività. Nella portale di Azure selezionare **log attività** per visualizzare le informazioni di controllo relative alle richieste di Customer Lockbox. È possibile filtrare in base ad azioni specifiche, ad esempio:
+- **Nega richiesta di Lockbox**
+- **Crea richiesta di Lockbox**
+- **Approva richiesta di Lockbox**
 - **Scadenza richiesta archivio protetto**
 
 Ad esempio:
@@ -141,11 +141,11 @@ Ad esempio:
 
 ## <a name="exclusions"></a>Esclusioni
 
-Customer Lockbox richieste non vengono attivate negli scenari di supporto tecnico seguenti:
+Le richieste di Customer Lockbox non vengono attivate negli scenari di supporto tecnico seguenti:
 
-- Un tecnico Microsoft deve eseguire un'attività che esula dalle procedure operative standard. Ad esempio, per ripristinare o ripristinare servizi in scenari imprevisti o imprevedibili.
+- Un tecnico Microsoft deve eseguire un'attività che esula dalle procedure operative standard. Ad esempio, per recuperare o ripristinare i servizi in scenari imprevisti o imprevedibili.
 
-- Un tecnico Microsoft accede alla piattaforma Azure come parte della risoluzione dei problemi e ha inavvertitamente accesso ai dati dei clienti. Ad esempio, il team di rete di Azure esegue la risoluzione dei problemi che genera un'acquisizione di pacchetti in un dispositivo di rete. Tuttavia, se il cliente ha crittografato i dati durante il transito, il tecnico non può leggere i dati.
+- Un tecnico Microsoft accede alla piattaforma Azure nell'ambito della risoluzione dei problemi e accede inavvertitamente ai dati dei clienti. Ad esempio, il team di rete di Azure esegue la risoluzione dei problemi che genera un'acquisizione di pacchetti in un dispositivo di rete. Tuttavia, se il cliente ha crittografato i dati durante il transito, il tecnico non può leggere i dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
 ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360940"
 ---
 # <a name="what-is-a-voice-assistant"></a>Che cos'è un assistente vocale?
@@ -47,7 +47,7 @@ I [comandi personalizzati](custom-commands.md) semplificano la creazione di app 
 
 Indipendentemente dal fatto che [si scelgano](direct-line-speech.md) i [comandi personalizzati](custom-commands.md) per la creazione di interazioni con gli assistenti, è possibile usare un set completo di funzionalità di personalizzazione per personalizzare l'assistente per il proprio marchio, il prodotto e la personalità.
 
-| Category | Funzionalità |
+| Category | Caratteristiche |
 |----------|----------|
 |[Parola chiave Custom](speech-devices-sdk-create-kws.md) | Gli utenti possono avviare conversazioni con gli assistenti con una parola chiave personalizzata, ad esempio "Hey contoso". Un'app esegue questa operazione con un motore di parole chiave personalizzato nell'SDK di riconoscimento vocale, che può essere configurato con una parola chiave personalizzata [che è possibile generare qui](speech-devices-sdk-create-kws.md). Gli assistenti vocali possono usare la verifica delle parole chiave sul lato servizio per migliorare l'accuratezza dell'attivazione della parola chiave (rispetto al dispositivo da solo).
 |[Riconoscimento vocale](speech-to-text.md) | Gli assistenti vocali convertono l'audio in tempo reale in testo riconosciuto usando il [riconoscimento vocale](speech-to-text.md) dal servizio di riconoscimento vocale. Questo testo è disponibile, in quanto viene trascritto, sia per l'implementazione dell'assistente che per l'applicazione client.

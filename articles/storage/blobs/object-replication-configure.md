@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715634"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055971"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurare la replica di oggetti per i BLOB in blocchi
 
@@ -45,7 +45,7 @@ Se si ha accesso a entrambi gli account di archiviazione di origine e di destina
 
 Prima di configurare la replica di oggetti nel portale di Azure, creare i contenitori di origine e di destinazione nei rispettivi account di archiviazione, se non esistono già. Abilitare anche il controllo delle versioni dei BLOB e il feed delle modifiche nell'account di origine e abilitare il controllo delle versioni dei BLOB nell'account di destinazione.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Il portale di Azure crea automaticamente i criteri nell'account di origine dopo la configurazione per l'account di destinazione.
 
@@ -272,7 +272,7 @@ Nell'esempio seguente viene definito un criterio di replica nell'account di dest
 }
 ```
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per configurare la replica di oggetti nell'account di destinazione con un file JSON nel portale di Azure, attenersi alla procedura seguente:
 
@@ -345,6 +345,49 @@ az storage account or-policy create \
     -resource-group <resource-group> \
     --source-account <source-account-name> \
     --policy @policy.json
+```
+
+---
+
+## <a name="check-the-replication-status-of-a-blob"></a>Verificare lo stato di replica di un BLOB
+
+È possibile controllare lo stato di replica di un BLOB nell'account di origine usando l'interfaccia della riga di comando di portale di Azure, PowerShell o Azure. Le proprietà di replica degli oggetti non vengono popolate fino a quando la replica non viene completata o non riesce.
+
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+
+Per controllare lo stato di replica di un BLOB nell'account di origine nella portale di Azure, attenersi alla seguente procedura:
+
+1. Passare all'account di origine nella portale di Azure.
+1. Individuare il contenitore che include il BLOB di origine.
+1. Selezionare il BLOB per visualizzarne le proprietà. Se il BLOB è stato replicato correttamente, nella sezione **replica oggetti** si noterà che lo stato è impostato su *completato*. Sono elencati anche l'ID dei criteri di replica e l'ID della regola che governa la replica di oggetti per questo contenitore.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Per controllare lo stato della replica per un BLOB nell'account di origine con PowerShell, ottenere il valore della proprietà **ReplicationStatus** della replica degli oggetti, come illustrato nell'esempio seguente. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per verificare lo stato di replica di un BLOB nell'account di origine con l'interfaccia della riga di comando di Azure, ottenere il valore della proprietà **stato** replica oggetti, come illustrato nell'esempio seguente:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
 ```
 
 ---

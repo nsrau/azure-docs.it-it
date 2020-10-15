@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85856828"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Valutare l'accuratezza di Riconoscimento vocale personalizzato
@@ -33,7 +33,7 @@ Le parole identificate in modo errato rientrano in tre categorie:
 * Eliminazione (D): parole che non sono state rilevate nella trascrizione dell'ipotesi
 * Sostituzioni: parole sostituite tra i riferimenti e le ipotesi
 
-Ad esempio:
+Ecco un esempio:
 
 ![Esempio di parole erroneamente identificate](./media/custom-speech/custom-speech-dis-words.png)
 

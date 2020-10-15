@@ -4,10 +4,10 @@ description: Informazioni su come usare l'API REST per ripristinare condivisioni
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88761798"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Ripristinare le condivisioni file di Azure usando l'API REST

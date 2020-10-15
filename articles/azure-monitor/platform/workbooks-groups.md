@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b6377cdcdb5816426eba62fdbef79eeb42659dcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82892082"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Come usare i gruppi nelle cartelle di lavoro
@@ -68,7 +68,7 @@ Il gruppo verrà caricato solo quando l'elemento è visibile. In questo modo, un
 
 Per i gruppi creati da un modello, il contenuto del modello non viene recuperato e gli elementi del gruppo non vengono creati finché il gruppo non diventa visibile. Quando il contenuto viene recuperato, l'utente visualizzerà gli spinner di avanzamento per l'intero gruppo.
 
-### <a name="explicit"></a>Esplicito
+### <a name="explicit"></a>Esplicita
 
 In questa modalità viene visualizzato un pulsante in cui si trova il gruppo e non viene recuperato o creato alcun contenuto finché l'utente non fa clic esplicitamente sul pulsante per caricare il contenuto. Questa operazione è utile negli scenari in cui il contenuto potrebbe essere costoso per il calcolo o per uso raro. L'autore può specificare il testo da visualizzare sul pulsante.
 
@@ -98,8 +98,8 @@ Quando un modello viene caricato in un gruppo, la cartella di lavoro tenta di un
 
 Si consideri un modello con due parametri nella parte superiore.
 
-- `TimeRange`: parametro di intervallo di tempo.
-- `Filter`: parametro di testo.
+- `TimeRange` : parametro di intervallo di tempo.
+- `Filter` : parametro di testo.
 
 ![Modifica dell'elemento Parameters: "parametri di primo livello"](./media/workbooks-groups/groups-top-level-params.png)
 
@@ -113,12 +113,12 @@ Quando il secondo modello viene caricato nel gruppo, i parametri duplicati verra
 
 Si consideri il modello di un gruppo che dispone di due parametri nella parte superiore.
 
-- `TimeRange`: parametro di intervallo di tempo.
-- `FilterB`-un parametro di testo. si noti che non è `Filter` simile al modello principale.
+- `TimeRange` : parametro di intervallo di tempo.
+- `FilterB` -un parametro di testo. si noti che non è `Filter` simile al modello principale.
 
 ![Modifica di un elemento di gruppo con il risultato dei parametri Uniti](./media/workbooks-groups/groups-wont-merge-away.png)
 
-Quando il modello item's del gruppo viene caricato, il `TimeRange` parametro viene unito al di fuori del gruppo. La cartella di lavoro avrà quindi il passaggio parametri iniziali con `TimeRange` e e `Filter` il passaggio del parametro del gruppo includerà solo`FilterB`
+Quando il modello item's del gruppo viene caricato, il `TimeRange` parametro viene unito al di fuori del gruppo. La cartella di lavoro avrà quindi il passaggio parametri iniziali con `TimeRange` e e `Filter` il passaggio del parametro del gruppo includerà solo `FilterB`
 
 ![risultato dei parametri che non si unirà](./media/workbooks-groups/groups-wont-merge-away-result.png)
 

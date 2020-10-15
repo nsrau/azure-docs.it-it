@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087255"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091611"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurare le stringhe di connessione di Archiviazione di Azure
 
@@ -110,9 +110,10 @@ I valori degli endpoint in una stringa di connessione vengono usati per costruir
 
 Se un endpoint di archiviazione è stato mappato su un dominio personalizzato e tale endpoint viene omesso da una stringa di connessione, non sarà possibile usare la stringa di connessione per accedere ai dati in quel servizio dal codice.
 
+Per altre informazioni sulla configurazione di un dominio personalizzato per archiviazione di Azure, vedere [eseguire il mapping di un dominio personalizzato a un endpoint di archiviazione BLOB di Azure](../blobs/storage-custom-domain-name.md).
+
 > [!IMPORTANT]
-> I valori degli endpoint di servizio nelle stringhe di connessione devono essere URI formulati correttamente e includere `https://` (opzione consigliata) o `http://`. Dato che l'archiviazione di Azure non supporta ancora HTTPS per i domini personalizzati, *è necessario* specificare `http://` per gli URI di endpoint che fanno riferimento a domini personalizzati.
->
+> I valori degli endpoint di servizio nelle stringhe di connessione devono essere URI formulati correttamente e includere `https://` (opzione consigliata) o `http://`.
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Creare una stringa di connessione con un suffisso dell'endpoint
 

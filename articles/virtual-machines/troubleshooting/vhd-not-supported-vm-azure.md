@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
 ms.openlocfilehash: 23f31e8d36d6ba615b21a4043c7d39716fc6d89a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653495"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>VHD non è supportato quando si crea una macchina virtuale in Azure
@@ -41,7 +41,7 @@ Questo problema si verifica per uno dei motivi seguenti:
 - Il disco rigido virtuale non è conforme all'allineamento di 1 MB (offset). Le dimensioni del disco supportate devono essere pari a 1 MB * N. Ad esempio, il disco deve essere 102.401 MB.
 - Il disco rigido virtuale è danneggiato o non è supportato. 
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 > [!NOTE]
 > Per eseguire la correzione seguente, il cliente dovrà eseguire questi passaggi prima di caricare il disco rigido virtuale in Azure.

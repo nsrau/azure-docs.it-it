@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299421"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
@@ -79,7 +79,7 @@ Ecco i passaggi per iniziare a scrivere query per gli avvisi:
 
 1. Facoltativamente, è anche possibile impostare il [numero di violazioni per attivare un avviso](alerts-unified-log.md#number-of-violations-to-trigger-alert) utilizzando **violazioni totali o consecutive**.
 
-1. Selezionare **Fine**. 
+1. Selezionare **Operazione completata**. 
 
 1. Definire il **nome**e la **Descrizione**della regola di avviso e selezionare la **gravità**dell'avviso. Questi dettagli vengono usati in tutte le azioni di avviso. Inoltre, è possibile scegliere di non attivare la regola di avviso durante la creazione selezionando **Abilita regola al momento della creazione**.
 

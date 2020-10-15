@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
 ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91369094"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Esercitazione: caricare dati nel pool SQL di Azure sinapsi Analytics
@@ -83,7 +83,7 @@ Per creare un pool SQL vuoto, seguire questa procedura.
 
 1. Selezionare **Verifica + crea** per rivedere le impostazioni e quindi selezionare **Crea** per creare il data warehouse. È possibile monitorare lo stato di avanzamento aprendo la pagina **distribuzione in corso** dal menu **notifiche** .
 
-     ![Screenshot che mostra le notifiche con la distribuzione in corso.](./media/load-data-wideworldimportersdw/notification.png)
+     ![Screenshot che illustra Notifiche con la distribuzione in corso.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
@@ -536,7 +536,7 @@ Questa sezione usa le tabelle esterne definite per caricare i dati di esempio da
 
 Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, i dati vengono importati in una tabella relazionale nel data warehouse.
 
-Questo script non carica i dati nella prima guerra. dimension_Date e la prima guerra. fact_Sale tabelle. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
+Questo script non carica i dati nelle tabelle wwi.dimension_Date e wwi.fact_Sale. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
 
 1. Eseguire lo script seguente per caricare i dati nelle nuove tabelle nel data warehouse.
 
@@ -732,7 +732,7 @@ Questo script non carica i dati nella prima guerra. dimension_Date e la prima gu
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Creare tabelle e procedure per generare le tabelle delle date e delle vendite
 
-Questa sezione Crea il dimension_Date e la prima guerra. fact_Sale tabelle. Vengono inoltre create stored procedure in grado di generare milioni di righe nella prima guerra. dimension_Date e la prima guerra fact_Sale tabelle.
+In questa sezione vengono create le tabelle wwi.dimension_Date e wwi.fact_Sale. Vengono inoltre create stored procedure in grado di generare milioni di righe nelle tabelle wwi.dimension_Date e wwi.fact_Sale.
 
 1. Creare le tabelle dimension_Date e fact_Sale.  
 
@@ -876,7 +876,7 @@ Questa sezione Crea il dimension_Date e la prima guerra. fact_Sale tabelle. Veng
     END;
     ```
 
-4. Creare questa procedura per popolare la prima guerra. dimension_Date e la prima guerra. fact_Sale tabelle. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
+4. Creare questa procedura per popolare le tabelle wwi.dimension_Date e wwi.fact_Sale. La procedura chiama [wwi].[PopulateDateDimensionForYear] per popolare wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -933,7 +933,7 @@ Questa sezione Crea il dimension_Date e la prima guerra. fact_Sale tabelle. Veng
 
 ## <a name="generate-millions-of-rows"></a>Generare milioni di righe
 
-Usare le stored procedure create per generare milioni di righe nella prima guerra. fact_Sale tabella e i dati corrispondenti nella tabella della prima guerra dimension_Date.
+Utilizzare le stored procedure create per generare milioni di righe nella tabella wwi.fact_Sale e i dati corrispondenti nella tabella wwi.dimension_Date.
 
 1. Eseguire questa procedura per inizializzare [wwi].[seed_Sale] con più righe.
 
@@ -941,7 +941,7 @@ Usare le stored procedure create per generare milioni di righe nella prima guerr
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Eseguire questa procedura per popolare la prima guerra. fact_Sale con 100.000 righe al giorno per ogni giorno nell'anno 2000.
+2. Eseguire questa procedura per popolare wwi.fact_Sale con 100.000 righe al giorno per ogni giorno nell'anno 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000

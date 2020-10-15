@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f9f56967c03556def3aa221f84ccd290c6090fd1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ff6ba71f4606b3caf51007a9d75f3ca36bc99cda
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551150"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826478"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EZOfficeInventory
 
@@ -151,7 +151,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nell'angolo in alto a destra della pagina fare clic su **Profile** (Profilo) e quindi passare a **Settings** (Impostazioni)  > **Add Ons** (Componenti aggiuntivi).
 
-    ![Configurazione di EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
+    ![Screenshot che mostra la pagina "Settings" con l'azione "Add Ons" selezionata.](./media/ezofficeinventory-tutorial/configure01.png)
 
 1. Scorrere verso il basso fino alla sezione **SAML Integration** (Integrazione SAML) e seguire questa procedura:
 

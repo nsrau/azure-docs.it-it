@@ -9,24 +9,24 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9ae3e9b4bb69bf0c85054b5d6144633923cac947
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282069"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071507"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 Il modulo OPC gemello viene eseguito su IoT Edge e fornisce diversi servizi perimetrali ai servizi OPC e del registro di sistema del dispositivo OPC. 
 
 Sono disponibili diverse opzioni per distribuire i moduli nel gateway [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/) , tra cui
 
-- [Distribuzione dal pannello IoT Edge di portale di Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Distribuzione tramite AZ CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Distribuzione dal pannello IoT Edge di portale di Azure](../iot-edge/how-to-deploy-modules-portal.md)
+- [Distribuzione tramite AZ CLI](../iot-edge/how-to-deploy-cli-at-scale.md)
 
 > [!NOTE]
 > Per ulteriori informazioni sui dettagli e le istruzioni per la distribuzione, vedere il [repository](https://github.com/Azure/azure-iiot-components)github.
@@ -86,7 +86,7 @@ Tutti i moduli vengono distribuiti usando un manifesto della distribuzione.  Di 
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/iotedge/opc-publisher:latest",
-                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--to\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--tm\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
               }
             }
           }
@@ -117,7 +117,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) del dispositivo OPC gemello e ottenere il `.env` file risultante. Si noti la distribuzione `hub name` della `PCS_IOTHUBREACT_HUB_NAME` variabile nel file risultante `.env` .
 
-2. Registrare e avviare un gateway di IoT Edge [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e prendere nota del relativo `device id` .
+2. Registrare e avviare un gateway di IoT Edge [Linux](../iot-edge/how-to-install-iot-edge-linux.md) o [Windows](../iot-edge/how-to-install-iot-edge-windows.md) e prendere nota del relativo `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Eseguire la distribuzione in un dispositivo perimetrale
 
@@ -143,7 +143,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](../iot-edge/module-edgeagent-edgehub.md#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 7. Selezionare **Save (Salva** ) e ripetere il passaggio **5**.  
 
@@ -156,7 +156,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    Per le *Opzioni di creazione di contenitori*, usare il codice JSON seguente:
 
    ```json
-   {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--to","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
+   {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--tm","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
    ```
 
 9. Selezionare **Save (Salva** ) e quindi **Avanti** per passare alla sezione Routes (Route).
@@ -182,7 +182,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la versione più recente dell' [interfaccia della riga di comando di Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) da [qui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Installare la versione più recente dell' [interfaccia della riga di comando di Azure (AZ)](/cli/azure/?view=azure-cli-latest) da [qui](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Avvio rapido
 
@@ -195,7 +195,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    ```
 
    Il `device id` parametro fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
-    ![AZ IoT Edge set-Modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![AZ IoT Edge set-Modules output](/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti con il comando seguente:
 
@@ -203,7 +203,7 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   Per il parametro ID dispositivo viene fatta distinzione tra maiuscole e minuscole. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   Per il parametro ID dispositivo viene fatta distinzione tra maiuscole e minuscole. ![az iot hub module-identity list output](/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

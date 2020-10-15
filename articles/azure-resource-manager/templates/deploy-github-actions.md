@@ -3,12 +3,13 @@ title: Distribuire modelli di Resource Manager tramite GitHub Actions
 description: Viene illustrato come distribuire modelli di Azure Resource Manager tramite GitHub Actions.
 ms.topic: conceptual
 ms.date: 07/02/2020
-ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.custom: github-actions-azure
+ms.openlocfilehash: cea099088005fa91e1b3e9a793105df4796a66ee
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854741"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018577"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuire modelli di Azure Resource Manager tramite GitHub Actions
 

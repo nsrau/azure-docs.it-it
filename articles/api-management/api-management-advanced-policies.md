@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851682"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071371"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 
-Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
 
 ## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Criteri avanzati
 
@@ -358,8 +358,8 @@ Il criterio `log-to-eventhub` invia messaggi nel formato specificato a un Hub ev
 | Attributo     | Descrizione                                                               | Obbligatoria                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | ID del logger registrato con il servizio gestione API.         | Sì                                                                  |
-| partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | Facoltativa. Questo attributo non può essere usato se si usa `partition-key`. |
-| partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | Facoltativa. Questo attributo non può essere usato se si usa `partition-id`.  |
+| partition-id  | Specifica l'indice della partizione a cui i messaggi vengono inviati.             | facoltativo. Questo attributo non può essere usato se si usa `partition-key`. |
+| partition-key | Specifica il valore usato per l'assegnazione della partizione quando vengono inviati i messaggi. | facoltativo. Questo attributo non può essere usato se si usa `partition-id`.  |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -521,7 +521,7 @@ Il criterio `return-response` interrompe l'esecuzione della pipeline e restituis
 
 | Attributo              | Descrizione                                                                                                                                                                          | Obbligatoria  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | Facoltativa. |
+| response-variable-name | Nome della variabile di contesto a cui fa riferimento, ad esempio, un criterio di upstream [send-request](api-management-advanced-policies.md#SendRequest) e contenente un oggetto `Response`. | facoltativo. |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -867,7 +867,7 @@ L'esempio seguente illustra un criterio di impostazione della variabile nella se
 | Attributo | Descrizione                                                              | Obbligatoria |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nome della variabile.                                                | Sì      |
-| value     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
+| Valore     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -955,7 +955,7 @@ Il `trace` criterio aggiunge una traccia personalizzata nell'output di controllo
 | source    | Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.                                   | Sì      | N/D     |
 | severity  | Specifica il livello di gravità della traccia. I valori consentiti sono `verbose` , `information` , `error` (dal più basso al più alto). | No       | Dettagliato |
 | name      | Nome della proprietà.                                                                                                     | Sì      | N/D     |
-| value     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
+| Valore     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -1041,4 +1041,4 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 -   [Criteri di Gestione API](api-management-howto-policies.md)
 -   [Espressioni di criteri](api-management-policy-expressions.md)
 -   [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
--   [Esempi di criteri](policy-samples.md)
+-   [Esempi di criteri](./policy-reference.md)

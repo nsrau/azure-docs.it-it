@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: c43cac4d599753ecc3486ef7b86aa54b5697b0f6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: db5384f843173bdc795fba64f277ff8bf85dc4f5
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435644"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827132"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integrazione dei dati con Azure Data Factory e Condivisione dati di Azure
 
@@ -105,7 +105,7 @@ Per attivare il debug, fare clic sul dispositivo di scorrimento **Data flow debu
 
 ## <a name="ingest-data-using-the-copy-activity"></a>Inserire i dati usando l'attività di copia
 
-In questa sezione verrà creata una pipeline con un'attività di copia che inserisce una tabella di un database SQL di Azure in un account di archiviazione di ADLS Gen2. Verrà illustrato come aggiungere una pipeline, configurare un set di dati ed eseguire il debug della pipeline tramite l'esperienza utente di ADF. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati relazionale a un archivio dati basato su file.
+In questa sezione verrà creata una pipeline con un'attività di copia che inserisce una tabella di un database SQL di Azure in un account di archiviazione di ADLS Gen2. Verrà illustrato come aggiungere una pipeline, configurare un set di dati ed eseguire il debug della pipeline tramite l'esperienza utente di ADF. Il modello di configurazione di questa esercitazione può essere applicato alla copia da un archivio dati relazionale a un archivio dati basato su file.
 
 In Azure Data Factory una pipeline è un raggruppamento logico di attività che insieme eseguono un'azione. L'attività definisce un'operazione da eseguire sui dati. Il set di dati punta ai dati da usare in un servizio collegato.
 

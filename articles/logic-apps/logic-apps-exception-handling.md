@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
 ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84704523"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
@@ -69,7 +69,7 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Richiesto*
 
-| valore | Type | Descrizione |
+| Valore | Type | Descrizione |
 |-------|------|-------------|
 | <*tipo di criteri di ripetizione*> | string | Il tipo di criteri di ripetizione da usare: `default`, `none`, `fixed` o `exponential` |
 | <*intervallo tra tentativi*> | string | L'intervallo di ripetizione in cui il valore deve usare il [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L'intervallo minimo predefinito è `PT5S`, l'intervallo massimo è `PT1D`. Quando si usano i criteri a intervallo esponenziale, è possibile specificare valori minimi e massimi diversi. |
@@ -78,7 +78,7 @@ In alternativa, è possibile specificare manualmente i criteri di ripetizione ne
 
 *Facoltativo*
 
-| valore | Type | Descrizione |
+| Valore | Type | Descrizione |
 |-------|------|-------------|
 | <*intervallo minimo*> | string | Per i criteri a intervallo esponenziale, l'intervallo più piccolo per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervallo massimo*> | string | Per i criteri a intervallo esponenziale, l'intervallo più grande per l'intervallo selezionato casualmente in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -112,7 +112,7 @@ Anche se non è espressamente definito nell'azione o nel trigger, qui sotto vien
 }
 ```
 
-### <a name="none"></a>nessuno
+### <a name="none"></a>Nessuno
 
 Per specificare che l'azione o il trigger non ripete richieste con esito negativo, impostare <*retry-policy-type*> su `none`.
 

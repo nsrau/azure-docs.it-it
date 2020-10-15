@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
-ms.openlocfilehash: ecaeea625bc4891c95614292a44d31b616d39eb2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549293"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743081"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BeyondTrust Remote Support
 
@@ -155,7 +155,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic sul menu **STATUS** (STATO) e copiare i valori di **Identifier** (Identificatore), **Reply URL** (URL di risposta) e **Sign on URL** (URL di accesso), quindi usare questi valori nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    ![Configurare BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![Screenshot che mostra il menu Status di BeyondTrust Remote Support in cui è possibile raccogliere queste informazioni.](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
 1. Passare all'interfaccia /login di BeyondTrust Remote Support all'indirizzo `https://support.example.com/login`, in cui **support.example.com** è il nome host primario dell'appliance, ed eseguire l'autenticazione usando le credenziali amministrative.
 
@@ -165,20 +165,20 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nella sezione delle impostazioni del provider di identità è disponibile un'opzione per caricare i metadati del provider di identità. Individuare il file XML dei metadati scaricato dal portale di Azure e fare clic sul pulsante **Upload** (Carica). I valori di **Entity ID** (ID entità), **Single Sign-On Service URL** (URL del servizio SSO) e il certificato verranno caricati automaticamente e sarà necessario impostare **Protocol Binding** (Binding protocollo) su **HTTP POST**. Vedere lo screenshot seguente:
 
-    ![Configurare BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![Screenshot che mostra la sezione Identity Provider Settings in cui eseguire queste azioni.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>Creare l'utente di test di BeyondTrust Remote Support
 
 In questa sezione verranno configurate le impostazioni di provisioning utenti. Ai valori usati in questa sezione verrà fatto riferimento nella sezione **Attributi utente e attestazioni** del portale di Azure. La sezione è stata configurata in modo da usare i valori predefiniti già importati al momento della creazione, ma, se necessario, i valori sono personalizzabili.
 
-![Creazione dell'utente](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Screenshot che mostra la schermata User Provision Settings in cui è possibile configurare i valori utente.](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
 > Gli attributi groups ed e-mail non sono necessari per questa implementazione. Se si usano gruppi di Azure AD e li si assegna ai criteri di gruppo di BeyondTrust Remote Support per le autorizzazioni, è necessario fare riferimento all'ID oggetto del gruppo tramite le relative proprietà nel portale di Azure e inserirlo nella sezione Available Groups (Gruppi disponibili). Dopo aver completato questa operazione, l'ID oggetto o il gruppo di Azure AD sarà disponibile per l'assegnazione ai criteri di gruppo per le autorizzazioni.
 
-![Creazione dell'utente](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Screenshot che mostra la sezione IT con le opzioni Membership type, Source, Type e Object ID.](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Creazione dell'utente](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Screenshot che mostra la pagina Basic Settings per i criteri di gruppo.](./media/bomgarremotesupport-tutorial/config-user3.png)
 
 > [!NOTE]
 > In alternativa, è possibile impostare criteri di gruppo predefiniti per il provider di sicurezza SAML2. Definendo questa opzione, a tutti gli utenti che eseguono l'autenticazione tramite SAML verranno assegnate le autorizzazioni specificate nei criteri di gruppo. I criteri per membri generali sono inclusi in BeyondTrust Remote Support/Privileged Remote Access con autorizzazioni limitate e possono essere usati per testare l'autenticazione e assegnare gli utenti ai criteri corretti. Gli utenti non vengono inseriti nell'elenco di utenti di SAML2 tramite /login > Users & Security (Utenti e sicurezza) fino al primo tentativo di autenticazione riuscito. Per altre informazioni sui criteri di gruppo, vedere la pagina all'indirizzo seguente: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`

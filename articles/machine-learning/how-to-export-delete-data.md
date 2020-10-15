@@ -12,10 +12,10 @@ ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: e847f62c2ae3d1d68c39685a38b67e1d0ada8c2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91251015"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Esportare o eliminare i dati dell'area di lavoro nel servizio Machine Learning
@@ -50,7 +50,7 @@ Queste risorse possono essere eliminate selezionandola dall'elenco e scegliendo 
 
 I documenti della cronologia di esecuzione, che possono contenere informazioni utente personali, vengono archiviati nell'account di archiviazione nell'archivio BLOB, nelle sottocartelle di `/azureml` . È possibile scaricare ed eliminare i dati dal portale.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot della directory azureml nell'account di archiviazione, all'interno del portale":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot del portale con l'icona di eliminazione evidenziata":::
 
 ## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Esportare ed eliminare risorse di Machine Learning con Azure Machine Learning Studio
 
@@ -62,7 +62,7 @@ I set di dati possono essere annullati e gli esperimenti possono essere archivia
 
 È possibile scaricare un modello registrato passando al **modello** desiderato e scegliendo **Scarica**. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot della pagina modello studio con l'opzione di download evidenziata":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot del portale con l'icona di eliminazione evidenziata":::
 
 ## <a name="export-and-delete-resources-using-the-python-sdk"></a>Esportare ed eliminare risorse con Python SDK
 

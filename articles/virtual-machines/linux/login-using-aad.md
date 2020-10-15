@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
 ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002317"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Anteprima: accedere a una macchina virtuale Linux in Azure usando l'autenticazione Azure Active Directory
@@ -47,7 +47,7 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le distr
 | Debian | Debian 9 |
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
-| SuSE Linux Enterprise Server | SLES 12 |
+| SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 e Ubuntu Server 18.04 |
 
 
@@ -158,7 +158,7 @@ Viene richiesto di accedere a Azure AD con un codice di utilizzo monouso all'ind
 
 Quando richiesto, immettere le credenziali di accesso di Azure AD nella pagina di accesso. 
 
-Il messaggio seguente viene visualizzato nel Web browser dopo che è stata eseguita l'autenticazione:`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+Il messaggio seguente viene visualizzato nel Web browser dopo che è stata eseguita l'autenticazione: `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 Chiudere la finestra del browser, tornare al prompt di SSH e premere il tasto **Invio**. 
 

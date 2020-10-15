@@ -14,10 +14,10 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434470"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
@@ -62,7 +62,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
 - La funzionalità è disponibile solo per le reti virtuali distribuite con il modello di distribuzione Azure Resource Manager.
 - Gli endpoint vengono abilitati nelle subnet configurate nelle reti virtuali di Azure. Gli endpoint non possono essere usati per il traffico dalla propria sede ai servizi di Azure. Per altre informazioni, vedere [proteggere l'accesso ai servizi di Azure dall'ambiente locale](#secure-azure-services-to-virtual-networks)
-- Per SQL di Azure, un endpoint di servizio si applica solo al traffico del servizio di Azure nell'area della rete virtuale. Per archiviazione di Azure, gli endpoint si estendono anche per includere aree abbinate in cui si distribuisce la rete virtuale per supportare l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e il traffico di archiviazione con ridondanza geografica (GRS). Per altre informazioni, vedere [Aree abbinate di Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Per SQL di Azure, un endpoint di servizio si applica solo al traffico del servizio di Azure nell'area della rete virtuale. Per archiviazione di Azure, gli endpoint si estendono anche per includere le aree abbinate in cui si distribuisce la rete virtuale per supportare il traffico di archiviazione Read-Access Geo-Redundant (RA-GRS) e archiviazione Geo-Redundant (GRS). Per altre informazioni, vedere [Aree abbinate di Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 - Per Azure Data Lake Storage (ADLS) gen 1, la funzionalità di integrazione VNet è disponibile solo per le reti virtuali all'interno della stessa area. Si noti anche che l'integrazione della rete virtuale per ADLS Gen1 usa la sicurezza degli endpoint di servizio della rete virtuale tra la rete virtuale e la Azure Active Directory (Azure AD) per generare attestazioni di sicurezza aggiuntive nel token di accesso. Queste attestazioni vengono quindi usate per autenticare la rete virtuale nell'account Data Lake Storage Gen1 e consentire l'accesso. Il tag *Microsoft. AzureActiveDirectory* elencato in servizi che supportano gli endpoint servizio viene usato solo per supportare gli endpoint di servizio per ADLS generazione 1. Azure AD non supporta gli endpoint di servizio in modo nativo. Per ulteriori informazioni sull'integrazione di Azure Data Lake Store generazione 1 VNet, vedere [sicurezza di rete in Azure Data Lake storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>Proteggere i servizi di Azure in reti virtuali

@@ -4,10 +4,10 @@ description: Informazioni su servizi di monitoraggio Azure, metriche, log di dia
 ms.topic: how-to
 ms.date: 04/05/2018
 ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86144940"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch

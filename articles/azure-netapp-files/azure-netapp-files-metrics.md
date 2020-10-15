@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 80746d7cef4bb0a70c6bb9eb6ff2e053ea6c7a0a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824687"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017523"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Metriche per Azure NetApp Files
 
@@ -86,6 +86,9 @@ Azure NetApp Files fornisce la metrica sull'archiviazione allocata, sull'utilizz
 
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Metriche di replica del volume
+
+> [!NOTE] 
+> Le dimensioni di trasferimento di rete (ad esempio, le metriche di *trasferimento totali* per la replica del volume) potrebbero differire dai volumi di origine o di destinazione di una replica tra aree. Questo comportamento è il risultato di un motore di replica efficiente utilizzato per ridurre al minimo i costi di trasferimento di rete.
 
 - *Stato replica del volume integro*   
     Condizione della relazione di replica. Uno stato integro è indicato da `1` . Uno stato di tipo non integro è indicato da `0` .

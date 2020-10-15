@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764894"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie settings for accessing on-premises applications in Azure Active Directory (Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory)
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) dispone di cookie di sessione e accesso per ac
 
 | Impostazione dei cookie | Predefinito | Descrizione | Consigli |
 | -------------- | ------- | ----------- | --------------- |
-| Usa cookie solo HTTP | **No** | **Sì** consente ad Application Proxy di includere il contrassegno HTTPOnly nelle intestazioni di risposta HTTP. Questo contrassegno offre vantaggi aggiuntivi di sicurezza, ad esempio, impedisce agli scripting del client (CSS) di copiare o modificare i cookie.<br></br><br></br>Prima di supportare l'impostazione solo HTTP, il proxy di applicazione crittografato e trasmesso cookie su un canale TLS protetto per proteggersi da eventuali modifiche. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.<br></br><br></br>Usare **No** per i client o gli agenti utente che richiedono l'accesso per il cookie di sessione. Ad esempio, usare **No** per un client RDP o MTSC che si connette a un server Gateway Desktop remoto tramite Application Proxy.|
+| Usa cookie solo HTTP | **No** | **Sì** consente ad Application Proxy di includere il contrassegno HTTPOnly nelle intestazioni di risposta HTTP. Questo contrassegno offre vantaggi aggiuntivi di sicurezza, ad esempio, impedisce agli scripting del client (CSS) di copiare o modificare i cookie.<br></br><br></br>Prima di supportare l'impostazione di HTTP-Only, il proxy di applicazione crittografato e trasmesso cookie su un canale TLS protetto per proteggersi da eventuali modifiche. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.<br></br><br></br>Usare **No** per i client o gli agenti utente che richiedono l'accesso per il cookie di sessione. Ad esempio, usare **No** per un client RDP o MTSC che si connette a un server Gateway Desktop remoto tramite Application Proxy.|
 | Usa cookie protetti | **No** | **Sì** consente ad Application Proxy di includere il contrassegno Protetto nelle intestazioni di risposta HTTP. Cookie protetti migliorano la sicurezza mediante la trasmissione di cookie su un canale TLS protetto, ad esempio HTTPS. Ciò impedisce che i cookie vengano esaminati da parti non autorizzate dovuta alla trasmissione di cookie in testo non crittografato. | Usare **Sì** per i vantaggi aggiuntivi di sicurezza.|
 | Usa cookie permanenti | **No** | **Sì** consente ad Application Proxy di impostare i cookie di accesso per non scadere quando il Web browser viene chiuso. La permanenza dura fino alla scadenza del token di accesso o fino a quando non si consente di eliminare manualmente i cookie permanenti. | Usare **No** a causa del rischio di sicurezza associato al mantenere gli utenti autenticati.<br></br><br></br>È consigliabile usare solo **Sì** per le applicazioni meno recenti che non possono condividere cookie tra processi. È preferibile aggiornare l'applicazione per gestire la condivisione dei cookie tra processi anziché utilizzare i cookie permanenti. Ad esempio, potrebbero essere necessari cookie permanenti per consentire a un utente di aprire i documenti di Office in visualizzazione Esplora da un sito di SharePoint. Senza i cookie permanenti, questa operazione potrebbe non riuscire se i cookie di accesso non vengono condivisi tra il browser, il processo Esplora e il processo Office. |
 
@@ -41,7 +41,7 @@ A partire dalla versione Chrome 80 e infine nei browser che usano Chromium, i co
 
 Queste modifiche ai cookie del proxy di applicazione vengono implementate nel corso delle prossime settimane successive alla data di rilascio di Chrome 80.
 
-Inoltre, se l'applicazione back-end presenta cookie che devono essere disponibili in un contesto di terze parti, è necessario acconsentire esplicitamente modificando l'applicazione per l'uso di navigava sullostesso sito = None per questi cookie. Il proxy di applicazione converte l'intestazione set-cookie nei relativi URL e rispetta le impostazioni per questi cookie impostati dall'applicazione back-end.
+Inoltre, se l'applicazione back-end presenta cookie che devono essere disponibili in un contesto di terze parti, è necessario acconsentire esplicitamente modificando l'applicazione per l'uso di navigava sullostesso sito = None per questi cookie. Il proxy di applicazione converte l'intestazione Set-Cookie nei relativi URL e rispetta le impostazioni per questi cookie impostati dall'applicazione back-end.
 
 
 

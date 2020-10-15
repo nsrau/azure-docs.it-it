@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227713"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Baseline della sicurezza di Azure per Service Fabric
@@ -1038,7 +1038,7 @@ Se non si usa Windows Defender, fare riferimento alla documentazione dell'antima
 
 **Linee guida**: i backup da Service Fabric servizio ripristino backup usano un account di archiviazione di Azure nella sottoscrizione. Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, i dati vengono crittografati con chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile fornire chiavi gestite dal cliente per la crittografia dei dati di archiviazione.
 
-Se si usano chiavi gestite dal cliente, assicurarsi che l'eliminazione temporanea in Key Vault sia abilitata per proteggere le chiavi da eliminazioni accidentali o dannose.
+Se si usano chiavi gestite dal cliente, assicurarsi che Soft-Delete in Key Vault sia abilitato per proteggere le chiavi da eliminazioni accidentali o dannose.
 
 * [Crittografia dei dati inattivi di Archiviazione di Azure](../storage/common/storage-service-encryption.md)
 

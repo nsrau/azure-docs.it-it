@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni sulla risoluzione dei problem
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566228"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Risolvere i problemi di autenticazione e autorizzazione-Hub eventi di Azure

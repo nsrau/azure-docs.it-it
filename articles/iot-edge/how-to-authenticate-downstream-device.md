@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447842"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046724"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -47,7 +47,7 @@ Scegliere il modo in cui si vuole che il dispositivo downstream esegua l'autenti
 
 Dopo aver registrato il dispositivo con uno di questi tre metodi, passare alla sezione successiva per [recuperare e modificare la stringa di connessione](#retrieve-and-modify-connection-string) per il dispositivo downstream.
 
-### <a name="symmetric-key-authentication"></a>Autenticazione con chiave simmetrica
+### <a name="symmetric-key-authentication"></a>Autenticazione con chiavi simmetriche
 
 L'autenticazione tramite chiave simmetrica, o autenticazione tramite chiave di accesso condiviso, è il modo più semplice per eseguire l'autenticazione nell'hub IoT. Con l'autenticazione tramite chiave simmetrica, una chiave Base64 viene associata all'ID dispositivo IoT nell'hub IoT. Questa chiave viene inclusa nelle applicazioni IoT, in modo che il dispositivo possa presentarla quando si connette all'hub IoT.
 
@@ -59,7 +59,7 @@ Quando si crea la nuova identità del dispositivo, fornire le informazioni segue
 
 * Selezionare **Chiave simmetrica** come tipo di autenticazione.
 
-* Facoltativamente, scegliere **Imposta un dispositivo padre** e selezionare il dispositivo gateway IoT Edge tramite cui si connetterà il dispositivo downstream. Questo passaggio è facoltativo per l'autenticazione tramite chiave simmetrica, ma è consigliato perché l'impostazione di un dispositivo padre abilita le [funzionalità offline](offline-capabilities.md) per il dispositivo downstream. È sempre possibile aggiornare i dati del dispositivo per aggiungere o modificare l'elemento padre in un secondo momento.
+* Selezionare **imposta un dispositivo padre** e selezionare il dispositivo gateway IOT Edge a cui si connetterà il dispositivo downstream. Questo passaggio consente di abilitare le [funzionalità offline](offline-capabilities.md) per il dispositivo downstream. È sempre possibile modificare l'elemento padre in un secondo momento.
 
    ![Creare l'ID dispositivo con l'autenticazione tramite chiave simmetrica nel portale](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -110,7 +110,7 @@ Per l'autenticazione autofirmata X. 509, a volte definita autenticazione con ide
 
 4. Copiare i certificati del dispositivo primario e secondario e le rispettive chiavi in qualsiasi posizione nel dispositivo downstream. Spostare inoltre una copia del certificato CA radice condiviso che ha generato sia il certificato del dispositivo gateway che i certificati dei dispositivi downstream.
 
-   Si farà riferimento a questi file di certificato in tutte le applicazioni sul dispositivo downstream che si connettono all'hub Internet. È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
+   Si farà riferimento a questi file di certificato in tutte le applicazioni sul dispositivo downstream che si connettono all'hub Internet. È possibile usare un servizio come [Azure Key Vault](../key-vault/index.yml) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
 
 5. A seconda del linguaggio preferito, vedere gli esempi di come fare riferimento ai certificati X.509 nelle applicazioni IoT:
 
@@ -156,7 +156,7 @@ Questa sezione si basa sulle istruzioni illustrate nell'articolo relativo all'hu
 
 5. Copiare il certificato e le chiavi del dispositivo in qualsiasi posizione nel dispositivo downstream. Spostare inoltre una copia del certificato CA radice condiviso che ha generato sia il certificato del dispositivo gateway che i certificati dei dispositivi downstream.
 
-   Si farà riferimento a questi file in qualsiasi applicazione nel dispositivo downstream che si connette all'hub Internet. È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
+   Si farà riferimento a questi file in qualsiasi applicazione nel dispositivo downstream che si connette all'hub Internet. È possibile usare un servizio come [Azure Key Vault](../key-vault/index.yml) o una funzione come il [protocollo Secure Copy](https://www.ssh.com/ssh/scp/) per spostare i file di certificato.
 
 6. A seconda del linguaggio preferito, vedere gli esempi di come fare riferimento ai certificati X.509 nelle applicazioni IoT:
 
@@ -201,7 +201,7 @@ Oppure:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-Se è stata stabilita una relazione padre/figlio per questo dispositivo downstream, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Le relazioni padre/figlio sono necessarie per l'autenticazione X.509, ma facoltative per l'autenticazione tramite chiave simmetrica. Ad esempio:
+Grazie alla relazione padre/figlio, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Ad esempio:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

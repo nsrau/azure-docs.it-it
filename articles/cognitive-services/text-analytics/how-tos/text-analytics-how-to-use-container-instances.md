@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: f7dbb79e2d9009b00b21d4c12663d8e6c855a4c0
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88243752"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuire un contenitore Analisi del testo in istanze di contenitore di Azure
@@ -23,7 +23,7 @@ Informazioni su come distribuire il contenitore [analisi del testo][install-and-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Usare una sottoscrizione di Azure. Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services) prima di iniziare.
+* Usare una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services) prima di iniziare.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
@@ -41,7 +41,7 @@ Informazioni su come distribuire il contenitore [analisi del testo][install-and-
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-#### <a name="text-analytics-for-health"></a>[Analisi del testo per la sanità](#tab/health)
+#### <a name="text-analytics-for-health"></a>[Analisi del testo per l'integrità](#tab/health)
 
 [!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
 
@@ -49,7 +49,7 @@ Informazioni su come distribuire il contenitore [analisi del testo][install-and-
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-* Usare più [contenitori di servizi cognitivi](../../cognitive-services-container-support.md)
+* Usare altri [contenitori di Servizi cognitivi](../../cognitive-services-container-support.md)
 * Usare il [servizio analisi del testo connesso](../vs-text-connected-service.md)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md

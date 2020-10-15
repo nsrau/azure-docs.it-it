@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588059"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078052"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
 
@@ -42,7 +42,7 @@ Le *etichette* sono un attributo delle chiavi. Sono usati per creare varianti di
 
 La configurazione dell'app considera tutte le chiavi archiviate come entità indipendenti. La configurazione dell'app non tenta di dedurre alcuna relazione tra le chiavi o di ereditare i valori delle chiavi in base alla gerarchia. È possibile aggregare più insiemi di chiavi, tuttavia, usando etichette abbinate al corretto stack di configurazione nel codice dell'applicazione.
 
-Di seguito è descritto un esempio. Si supponga di avere un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Si crea una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Development". Nella prima etichetta si inserisce il valore predefinito per **Asset1**e si inserisce un valore specifico per "Development" nel secondo.
+Esaminiamo un esempio. Si supponga di avere un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Si crea una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Development". Nella prima etichetta si inserisce il valore predefinito per **Asset1**e si inserisce un valore specifico per "Development" nel secondo.
 
 Nel codice è necessario innanzitutto recuperare i valori della chiave senza alcuna etichetta e quindi recuperare la stessa serie di valori di chiave una seconda volta con l'etichetta "Development". Quando si recuperano i valori la seconda volta, i valori precedenti delle chiavi vengono sovrascritti. Il sistema di configurazione di .NET Core consente di "stack" più set di dati di configurazione uno sull'altro. Se una chiave è presente in più di un set, viene usato l'ultimo set che lo contiene. Con un Framework di programmazione moderno, ad esempio .NET Core, questa funzionalità di stacking è disponibile gratuitamente se si usa un provider di configurazione nativo per accedere alla configurazione dell'app. Il frammento di codice seguente mostra come è possibile implementare lo stack in un'applicazione .NET Core:
 
@@ -69,7 +69,7 @@ Un'opzione migliore consiste nell'usare la funzionalità identità gestite in Az
 È possibile fornire l'accesso alla configurazione dell'app per le app Web o le funzioni usando uno dei metodi seguenti:
 
 * Tramite il portale di Azure, immettere la stringa di connessione all'archivio di configurazione dell'app nelle impostazioni dell'applicazione del servizio app.
-* Archiviare la stringa di connessione nell'archivio di configurazione dell'app in Key Vault e [farvi riferimento dal servizio app](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Archiviare la stringa di connessione nell'archivio di configurazione dell'app in Key Vault e [farvi riferimento dal servizio app](../app-service/app-service-key-vault-references.md).
 * Usare le identità gestite di Azure per accedere all'archivio di configurazione dell'app. Per altre informazioni, vedere [integrazione con le identità gestite di Azure](howto-integrate-azure-managed-service-identity.md).
 * Eseguire il push della configurazione dalla configurazione dell'app al servizio app. La configurazione dell'app fornisce una funzione di esportazione (in portale di Azure e l'interfaccia della riga di comando di Azure) che invia i dati direttamente nel servizio app. Con questo metodo non è necessario modificare il codice dell'applicazione.
 
@@ -85,7 +85,7 @@ Richieste eccessive alla configurazione dell'app possono comportare una limitazi
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importazione dei dati di configurazione nella configurazione dell'app
 
-La configurazione dell'app offre la possibilità di [importare](https://aka.ms/azconfig-importexport1) in blocco le impostazioni di configurazione dai file di configurazione correnti usando il portale di Azure o l'interfaccia della riga di comando. È anche possibile usare le stesse opzioni per esportare i valori dalla configurazione dell'app, ad esempio tra archivi correlati. Se si vuole configurare una sincronizzazione continuativa con il repository GitHub, è possibile usare l' [azione GitHub](https://aka.ms/azconfig-gha2) per poter continuare a usare le procedure di controllo del codice sorgente esistenti sfruttando al contempo i vantaggi della configurazione dell'app.
+La configurazione dell'app offre la possibilità di [importare](./howto-import-export-data.md) in blocco le impostazioni di configurazione dai file di configurazione correnti usando il portale di Azure o l'interfaccia della riga di comando. È anche possibile usare le stesse opzioni per esportare i valori dalla configurazione dell'app, ad esempio tra archivi correlati. Se si vuole configurare una sincronizzazione continuativa con il repository GitHub, è possibile usare l' [azione GitHub](./concept-github-action.md) per poter continuare a usare le procedure di controllo del codice sorgente esistenti sfruttando al contempo i vantaggi della configurazione dell'app.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Distribuzione in più aree nella configurazione dell'app
 

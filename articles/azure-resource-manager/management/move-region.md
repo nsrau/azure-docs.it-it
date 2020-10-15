@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007639"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Trasferimento di risorse di Azure tra aree
@@ -22,28 +22,28 @@ Le aree geografiche, le aree e le zone di disponibilità di Azure costituiscono 
 Dopo la distribuzione delle risorse in un'area specifica di Azure, è possibile che si voglia spostare le risorse in un'area diversa.
 
 - **Allinea a un'area di avvio**: spostare le risorse in un'area di Azure appena introdotta che non era disponibile in precedenza.
-- **Allinea per servizi/funzionalità**: spostare le risorse per sfruttare i vantaggi dei servizi o delle funzionalità disponibili in un'area specifica.
-- **Rispondere agli sviluppi aziendali**: spostare le risorse in un'area in risposta alle modifiche aziendali, ad esempio fusioni o acquisizioni.
-- **Allinea per prossimità**: sposta le risorse in un'area locale nell'azienda.
-- **Soddisfare i requisiti dei dati**: spostare le risorse per allinearli ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Altre informazioni](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
-- **Rispondere ai requisiti di distribuzione**: spostare le risorse distribuite in errore o spostarle in risposta alle esigenze di capacità. 
+- **Usufruire di servizi/funzionalità**: spostare le risorse per sfruttare servizi o funzionalità disponibili in un'area specifica.
+- **Rispondere a sviluppi aziendali**: spostare le risorse in un'area in risposta a modifiche aziendali, ad esempio fusioni o acquisizioni.
+- **Allinearsi per prossimità**: spostare le risorse in un'area in cui si trova l'azienda.
+- **Soddisfare i requisiti dei dati**: spostare le risorse per allinearli ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Altre informazioni](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf)
+- **Rispondere a requisiti di distribuzione**: spostare le risorse distribuite per errore o spostarle in risposta a esigenze di capacità. 
 - **Rispondere alla rimozione delle autorizzazioni**: spostare le risorse dovute alla rimozione delle autorizzazioni delle aree.
 
 ## <a name="move-resources-with-resource-mover"></a>Spostare le risorse con il motore di risorse
 
-È possibile spostare le risorse in un'area diversa con [Azure Resource Mover](../../resource-mover/overview.md). Il motore di risorse fornisce:
+È possibile spostare le risorse in un'area diversa con [Azure Resource Mover](../../resource-mover/overview.md). Spostamento risorse offre quanto segue:
 
-- Hub singolo per lo stato di trasferimento delle risorse tra le aree.
-- Tempi di spostamento e complessità ridotti. Tutto quello che ti serve si trova in un'unica posizione.
-- Un'esperienza semplice e coerente per lo stato di trasferimento di diversi tipi di risorse di Azure.
-- Un modo semplice per identificare le dipendenze tra le risorse che si desidera spostare. Ciò consente di spostare insieme le risorse correlate, in modo che tutto funzioni come previsto nell'area di destinazione, dopo lo spostamento.
-- Pulizia automatica delle risorse nell'area di origine, se si desidera eliminarle dopo lo spostamento.
-- Test. È possibile provare lo spostamento e quindi rimuoverlo se non si vuole eseguire uno spostamento completo.
+- Un singolo hub per lo spostamento di risorse tra aree.
+- Riduzione dei tempi richiesti e della complessità degli spostamenti. Tutto il necessario in un'unica posizione.
+- Un'esperienza semplice e coerente per spostare diversi tipi di risorse di Azure.
+- Un modo semplice per identificare le dipendenze tra le risorse da spostare. È quindi possibile spostare contemporaneamente le risorse correlate in modo che dopo lo spostamento tutto funzioni come previsto nell'area di destinazione.
+- Pulizia automatica delle risorse nell'area di origine, se si preferisce eliminarle dopo lo spostamento.
+- Test È possibile provare a eseguire uno spostamento e quindi annullarlo se non si vuole procedere a uno spostamento completo.
 
 È possibile spostare le risorse in un'altra area usando un paio di metodi diversi:
 
-- **Avviare lo spostamento delle risorse da un gruppo di risorse**: con questo metodo è possibile avviare lo spostamento dell'area dall'interno di un gruppo di risorse. Dopo aver selezionato le risorse che si desidera spostare, il processo continua nell'hub di Resource Mover, per verificare le dipendenze delle risorse e orchestrare il processo di spostamento. [Altre informazioni](../../resource-mover/move-region-within-resource-group.md).
-- **Iniziare a spostare le risorse direttamente dall'hub di Resource Mover**: con questo metodo è possibile avviare il processo di spostamento dell'area direttamente nell'hub. [Altre informazioni](../../resource-mover/tutorial-move-region-virtual-machines.md).
+- **Avviare lo spostamento delle risorse da un gruppo di risorse**: con questo metodo è possibile avviare lo spostamento dell'area dall'interno di un gruppo di risorse. Dopo aver selezionato le risorse che si desidera spostare, il processo continua nell'hub di Resource Mover, per verificare le dipendenze delle risorse e orchestrare il processo di spostamento. [Altre informazioni](../../resource-mover/move-region-within-resource-group.md)
+- **Iniziare a spostare le risorse direttamente dall'hub di Resource Mover**: con questo metodo è possibile avviare il processo di spostamento dell'area direttamente nell'hub. [Altre informazioni](../../resource-mover/tutorial-move-region-virtual-machines.md)
 
 
 ## <a name="support-for-region-move"></a>Supporto per lo spostamento nell'area
@@ -55,8 +55,8 @@ Dopo la distribuzione delle risorse in un'area specifica di Azure, è possibile 
 - Set di disponibilità
 - Reti virtuali di Azure
 - Indirizzi IP pubblici
-- Gruppi di sicurezza di rete (NSG)
-- Bilanciamento del carico interno e pubblico
+- Gruppi di sicurezza di rete:
+- Servizi di bilanciamento del carico interni e pubblici
 - Database SQL di Azure e pool elastici
 
 ## <a name="region-move-process"></a>Processo di spostamento dell'area

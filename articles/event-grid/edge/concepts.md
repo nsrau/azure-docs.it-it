@@ -8,17 +8,17 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171738"
 ---
 # <a name="event-grid-concepts"></a>Concetti relativi a Griglia di eventi
 
 Questo articolo illustra i concetti principali di Griglia di eventi di Azure.
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 
 Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema. Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco. Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Il supporto per un evento di dimensioni fino a 1 MB è attualmente in fase di anteprima.
 
@@ -58,6 +58,6 @@ Griglia di eventi fornisce la sicurezza per la sottoscrizione e la pubblicazione
 
 Se Griglia di eventi non è in grado di confermare che un evento è stato ricevuto dall'endpoint del sottoscrittore, esegue di nuovo il recapito dell'evento. Per altre informazioni, vedere [Recapito di messaggi di Griglia di eventi e nuovi tentativi](delivery-retry.md).
 
-## <a name="batching"></a>Batch
+## <a name="batching"></a>Creazione di batch
 
 Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Per gli scenari con velocità effettiva bassa, la matrice avrà un solo valore. Per i casi di utilizzo elevato dei volumi, è consigliabile raggruppare in batch più eventi per ogni pubblicazione per ottenere una maggiore efficienza. Le dimensioni dei batch possono arrivare fino a 1 MB. Ogni evento non deve ancora essere maggiore di 1 MB (anteprima).

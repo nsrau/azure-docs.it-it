@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a97142e0c512f4f95235ad08c94c852906d3efd8
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660862"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095857"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federazione
 Azure Active Directory (Azure AD) consente di configurare la federazione con Active Directory Federation Services (ADFS) locale e Azure AD. Grazie all'accesso federato, gli utenti possono accedere ai servizi basati su Azure AD con le proprie password locali e, se usano la rete aziendale, senza dover immettere di nuovo le password. Usando l'opzione di federazione con ADFS, è possibile distribuire una nuova installazione di ADFS oppure specificare un'installazione esistente in una farm di Windows Server 2012 R2.
@@ -34,7 +34,7 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 | **Opzioni di accesso utente di Azure AD Connect** | |
 | [Informazioni sulle opzioni di accesso utente](plan-connect-user-signin.md) |Informazioni sulle diverse opzioni di accesso utente e del modo in cui influiscono sull'esperienza utente di accesso di Azure. |
 | **Installare ADFS con Azure AD Connect** | |
-| [Prerequisiti](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Vedere i prerequisiti per una corretta installazione di ADFS con Azure AD Connect. |
+| [Prerequisiti](how-to-connect-install-custom.md#ad-fs-configuration-prerequisites) |Vedere i prerequisiti per una corretta installazione di ADFS con Azure AD Connect. |
 | [Configurare una farm ADFS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installare una nuova farm ADFS tramite Azure AD Connect. |
 | [Federazione con Azure AD utilizzando un ID di accesso alternativo](how-to-connect-fed-management.md#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
 | **Modifica della configurazione di ADFS** | |

@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
 ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84783761"
 ---
-# <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Applicare DevOps per lo sviluppo di app LUIS usando le azioni di GitHub
+# <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Applicare DevOps per lo sviluppo di app LUIS usando GitHub Actions
 
 Passare al [repository del modello Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) per una soluzione completa che implementi le procedure consigliate per la progettazione software e DEVOPS per Luis. È possibile usare questo repository di modelli per creare un repository personalizzato con supporto incorporato per flussi di lavoro e procedure di integrazione continua/recapito continuo che consentono il [controllo del codice sorgente](luis-concept-devops-sourcecontrol.md), le [compilazioni automatizzate](luis-concept-devops-automation.md), i [test](luis-concept-devops-testing.md)e la [gestione delle versioni](luis-concept-devops-automation.md#release-management) con Luis per il proprio progetto.
 
@@ -38,6 +38,6 @@ Il [repository di modelli Luis DevOps](https://github.com/Azure-Samples/LUIS-Dev
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Usare il [repository di modelli Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) per applicare DevOps con il proprio progetto.
-* [Strategie di controllo del codice sorgente e rami per LUIS](luis-concept-devops-sourcecontrol.md)
-* [Test per LUIS DevOps](luis-concept-devops-testing.md)
+* [Strategie di controllo del codice sorgente e gestione rami per LUIS](luis-concept-devops-sourcecontrol.md)
+* [Test per DevOps LUIS](luis-concept-devops-testing.md)
 * [Flussi di lavoro di automazione per LUIS DevOps](luis-concept-devops-automation.md)

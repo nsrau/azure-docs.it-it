@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87446383"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
@@ -31,7 +31,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 
 | DateTimePart | abbreviazioni        |
 | ------------ | -------------------- |
-| Anno         | "Year", "aaaa", "yy" |
+| Year         | "Year", "aaaa", "yy" |
 | Month        | "month", "mm", "m"   |
 | Giorno          | "Day", "dd", "d"     |
 | Ora         | "hour", "HH"         |
@@ -44,11 +44,11 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 *StartDate*  
     Valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM-DDThh:mm:ss.fffffffZ` cui:
   
-  |Format|Descrizione|
+  |Formato|Descrizione|
   |-|-|
   |AAAA|anno a quattro cifre|
   |MM|mese a due cifre (01 = gennaio e così via)|
-  |DD|giorno del mese a due cifre (da 01 a 31)|
+  |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
   |MM|minuti a due cifre (da 00 a 59)|
@@ -59,13 +59,13 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   Per ulteriori informazioni sul formato ISO 8601, vedere [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 *EndDate*  
-   Valore stringa ISO 8601 di data e ora UTC nel formato`YYYY-MM-DDThh:mm:ss.fffffffZ`
+   Valore stringa ISO 8601 di data e ora UTC nel formato `YYYY-MM-DDThh:mm:ss.fffffffZ`
 
 ## <a name="return-types"></a>Tipi restituiti
 
 Restituisce un valore intero con segno.
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 DateTimeDiff restituirà `undefined` per i motivi seguenti:
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281457"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045840"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connettere un dispositivo downstream a un gateway Azure IoT Edge
 
@@ -77,7 +77,7 @@ Per altre informazioni sui certificati di IoT Edge e su alcune implicazioni corr
 
 ## <a name="provide-the-root-ca-certificate"></a>Fornire il certificato CA radice
 
-Per verificare i certificati del dispositivo gateway, il dispositivo downstream necessita di una copia del certificato CA radice. Se sono stati usati gli script forniti nel repository git IoT Edge per creare certificati di test, il certificato CA radice è denominato **Azure-IOT-Test-only. root. ca. cert. pem**. Se non è già stato fatto parte degli altri passaggi di preparazione del dispositivo downstream, spostare questo file di certificato in qualsiasi directory del dispositivo downstream. È possibile usare un servizio come [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) o una funzione come [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) per spostare il file del certificato.
+Per verificare i certificati del dispositivo gateway, il dispositivo downstream necessita di una copia del certificato CA radice. Se sono stati usati gli script forniti nel repository git IoT Edge per creare certificati di test, il certificato CA radice è denominato **Azure-IOT-Test-only. root. ca. cert. pem**. Se non è già stato fatto parte degli altri passaggi di preparazione del dispositivo downstream, spostare questo file di certificato in qualsiasi directory del dispositivo downstream. È possibile usare un servizio come [Azure Key Vault](../key-vault/index.yml) o una funzione come [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) per spostare il file del certificato.
 
 ## <a name="install-certificates-in-the-os"></a>Installare i certificati nel sistema operativo
 
@@ -98,7 +98,7 @@ Verrà visualizzato un messaggio che indica che l'aggiornamento dei certificati 
 
 I passaggi seguenti offrono un esempio di come installare un certificato della CA in un host Windows. Questo esempio presuppone che si usi il certificato **Azure-IOT-Test-only. root. ca. cert. pem** dagli articoli sui prerequisiti e che il certificato sia stato copiato in un percorso nel dispositivo downstream.
 
-È possibile installare i certificati usando il [certificato di importazione](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) di PowerShell come amministratore:
+È possibile installare i certificati usando il [certificato di importazione](/powershell/module/pkiclient/import-certificate?view=win10-ps) di PowerShell come amministratore:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -113,7 +113,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 È anche possibile installare certificati a livello di codice tramite API .NET, come mostrato nell'esempio .NET più avanti in questo articolo.
 
-In genere le applicazioni usano lo stack TLS fornito da Windows denominato [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) per la connessione sicura tramite TLS. Schannel *richiede* che tutti i certificati siano installati nell'archivio certificati di Windows prima di tentare di stabilire una connessione TLS.
+In genere le applicazioni usano lo stack TLS fornito da Windows denominato [Schannel](/windows/desktop/com/schannel) per la connessione sicura tramite TLS. Schannel *richiede* che tutti i certificati siano installati nell'archivio certificati di Windows prima di tentare di stabilire una connessione TLS.
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Usare i certificati con gli SDK di Azure IoT
 
@@ -125,7 +125,7 @@ Prima di usare gli esempi a livello di applicazione, preparare due elementi:
 
 * Percorso completo del certificato della CA radice copiato e salvato in una posizione nel dispositivo downstream.
 
-    Ad esempio: `<path>/azure-iot-test-only.root.ca.cert.pem`.
+    Ad esempio, `<path>/azure-iot-test-only.root.ca.cert.pem`
 
 ### <a name="nodejs"></a>NodeJS
 

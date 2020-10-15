@@ -9,10 +9,10 @@ ms.date: 06/10/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 87af50c5b5e5b69fd175ac4a570c4b6f659b97e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84731017"
 ---
 Funzioni di Azure semplifica l'aggiunta dell'integrazione di Application Insights a un'app per le funzioni dal [portale di Azure].
@@ -30,7 +30,7 @@ Funzioni di Azure semplifica l'aggiunta dell'integrazione di Application Insight
     | **Nuovo nome risorsa** | Nome app univoco | È più facile usare lo stesso nome dell'app per le funzioni, che deve essere univoco nella sottoscrizione. | 
     | **Posizione** | Europa occidentale | Se possibile, usare la stessa [area](https://azure.microsoft.com/regions/) dell'app per le funzioni oppure una vicina a tale area. |
 
-    :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Creare una risorsa di Application Insights":::
+    :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Abilitare Application Insights nel portale":::
 
 1. Selezionare **Applica**. 
 

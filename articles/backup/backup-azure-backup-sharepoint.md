@@ -4,10 +4,10 @@ description: Questo articolo offre una panoramica sulla protezione del server DP
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254432"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Eseguire il backup di una farm di SharePoint in Azure con DPM
@@ -71,7 +71,7 @@ Per informazioni su come ripristinare un elemento di SharePoint da un disco con 
 
 ## <a name="switching-the-front-end-web-server"></a>Cambio del server Web front-end
 
-Se si dispone di più di un server Web front-end e si desidera cambiare il server utilizzato da DPM per proteggere la farm, seguire le istruzioni riportate in [commutazione del server Web front-end](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
+Se si dispone di più di un server Web front-end e si desidera cambiare il server utilizzato da DPM per proteggere la farm, seguire le istruzioni riportate in [cambio del server web Front-End](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

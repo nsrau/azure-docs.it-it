@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053542"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766316"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
 1. Innanzitutto è necessario autenticare e avviare una sessione. Selezionare **Connetti e copia**. Selezionare **SMB** per ottenere le credenziali di accesso per le condivisioni associate all'account di archiviazione. 
 
-    ![Ottenere le credenziali delle condivisioni 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Recuperare le credenziali per le condivisioni SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. Nella finestra di dialogo Accedi alla condivisione e copia i dati copiare il **nome utente** e la **password** corrispondenti alla condivisione. Selezionare **OK**.
     
-    ![Ottenere le credenziali delle condivisioni 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Recuperare il nome utente e la password per una condivisione](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. Per accedere alle condivisioni associate all'account di archiviazione (*utsac1* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
 
@@ -97,11 +97,11 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
 4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Scegliere **OK** per aprire Esplora file.
     
-    ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connettersi a una condivisione tramite Esplora file](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     Le condivisioni verranno ora visualizzate come cartelle.
     
-    ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Condivisioni visualizzate in Esplora file](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. La cartella creata nelle condivisioni di BLOB in blocchi e BLOB di pagine rappresenta un contenitore in cui i dati vengono caricati come BLOB. Non è possibile copiare direttamente i file nella cartella *root* dell'account di archiviazione.
     
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Dopo aver stabilito la connessione alle condivisioni Data Box, il passaggio successivo consiste nel copiare i dati. Prima di procedere alla copia dei dati, tenere conto delle considerazioni seguenti:
 
 * Assicurarsi di copiare i dati nelle condivisioni corrispondenti al formato dei dati appropriato. Ad esempio, copiare i dati del BLOB in blocchi nella condivisione per i BLOB in blocchi. Copiare i dischi rigidi virtuali nel BLOB di pagine. Se il formato dei dati non corrisponde al tipo di condivisione appropriato, il caricamento dei dati in Azure non riuscirà.
-* Durante la copia dei dati, assicurarsi che le dimensioni dei dati siano conformi ai limiti di dimensione descritti in [Limiti per l'archiviazione di Azure e per Azure Data Box](data-box-limits.md).
+* Durante la copia dei dati assicurarsi che le dimensioni dei dati siano conformi ai valori descritti nei [limiti per le dimensioni dell'account di archiviazione di Azure](data-box-limits.md#azure-storage-account-size-limits).
 * Se i dati caricati dal Data Box vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box, è possibile che si verifichino errori del processo di caricamento e il danneggiamento dei dati.
 * È consigliabile:
   * Non usare contemporaneamente SMB e NFS.
@@ -225,15 +225,15 @@ Per altre informazioni sul comando Robocopy, vedere [Robocopy and a few examples
 
 Se vengono riscontrati errori durante il processo di copia, verrà visualizzata una notifica.
 
-![Scaricare e visualizzare gli errori del processo Connetti e copia](media/data-box-deploy-copy-data/view-errors-1.png)
+![Notifica di errore di copia in Connetti e copia](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Selezionare **Scarica elenco problemi**.
 
-![Scaricare e visualizzare gli errori del processo Connetti e copia](media/data-box-deploy-copy-data/view-errors-2.png)
+![Scaricare e visualizzare gli errori del processo Connetti e copia - 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Aprire l'elenco per visualizzare i dettagli dell'errore e selezionare l'URL di risoluzione per visualizzare la risoluzione consigliata.
 
-![Scaricare e visualizzare gli errori del processo Connetti e copia](media/data-box-deploy-copy-data/view-errors-3.png)
+![Scaricare e visualizzare gli errori del processo Connetti e copia - 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Per altre informazioni, vedere [Visualizzare i log degli errori durante la copia dei dati in Data Box](data-box-logs.md#view-error-log-during-data-copy). Per un elenco dettagliato degli errori durante la copia dei dati, vedere [Risolvere i problemi di Data Box](data-box-troubleshoot.md).
 

@@ -12,10 +12,10 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360124"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Eseguire l'integrazione con un'applicazione client tramite Speech SDK
@@ -404,7 +404,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
 
 1. Dalla barra dei menu scegliere **file**  >  **Salva tutto** per salvare le modifiche
 
-## <a name="try-it-out"></a>Procedura
+## <a name="try-it-out"></a>Provare il servizio
 
 1. Dalla barra dei menu scegliere **Compila** > **Compila soluzione** per compilare l'applicazione. Il codice dovrebbe risultare compilato senza errori.
 

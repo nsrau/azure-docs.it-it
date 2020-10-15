@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326168"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurare lo sviluppo locale per App Web statiche di Azure (anteprima)
@@ -75,7 +75,7 @@ L'estensione Live Server per Visual Studio Code fornisce un server Web di svilup
 
 1. Digitare **clone** nella casella di ricerca e selezionare **Git: Clone**.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Opzione git clone in Visual Studio Code":::
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Finestra nuovo repository GitHub":::
 
 1. Immettere il valore seguente per **URL del repository**.
 
@@ -87,7 +87,7 @@ L'estensione Live Server per Visual Studio Code fornisce un server Web di svilup
 
 1. Quando viene richiesto di aprire il repository clonato, selezionare **Apri**.
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Apri in un'altra finestra":::
+    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Finestra nuovo repository GitHub":::
 
 Visual Studio Code apre il progetto clonato nell'editor.
 
@@ -99,7 +99,7 @@ Visual Studio Code apre il progetto clonato nell'editor.
 
     Verrà visualizzata una scheda del browser per visualizzare l'applicazione.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Sito statico semplice in esecuzione nel browser":::
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Finestra nuovo repository GitHub":::
 
     Questa applicazione invia una richiesta HTTP all'endpoint `api/message`. In questo momento, la richiesta ha esito negativo perché la parte API dell'applicazione deve essere avviata.
 
@@ -113,13 +113,13 @@ Come parte del processo di creazione dell'API, viene creata una configurazione d
 
 1. Verrà aperta una nuova finestra del terminale che mostra l'output del processo di compilazione dell'API.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API in esecuzione nel terminale in Visual Studio Code":::
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="Finestra nuovo repository GitHub":::
 
    La barra di stato in Visual Studio Code è ora arancione. Questo colore indica che l'API è in esecuzione e che il debugger è collegato.
 
 1. Premere quindi **CTRL/CMD** e fare clic sull'URL nel terminale per aprire una finestra del browser che chiama l'API.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Risultato della chiamata API visualizzato nel browser":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Finestra nuovo repository GitHub":::
 
 ### <a name="debugging-the-api"></a>Debug dell'API
 
@@ -127,19 +127,19 @@ Come parte del processo di creazione dell'API, viene creata una configurazione d
 
 1. Fare clic sul margine sinistro nella riga 2 per impostare un punto di interruzione. Viene visualizzato un punto rosso che indica che il punto di interruzione è impostato.
 
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Punto di interruzione in Visual Studio Code":::
+    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Finestra nuovo repository GitHub":::
 
 1. Nel browser aggiornare la pagina in esecuzione in <http://127.0.0.1:7071/api/message>.
 
 1. Il punto di interruzione viene raggiunto in Visual Studio Code e l'esecuzione del programma viene sospesa.
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Punto di interruzione raggiunto in Visual Studio Code":::
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Finestra nuovo repository GitHub":::
 
    Un'[esperienza di debug completa è disponibile in Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) per l'API.
 
 1. Premere il pulsante **Continua** nella barra di debug per continuare l'esecuzione.
 
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Pulsante Continua in Visual Studio Code":::
+    :::image type="content" source="media/local-development/continue-button.png" alt-text="Finestra nuovo repository GitHub":::
 
 ### <a name="calling-the-api-from-the-application"></a>Chiamata dell'API dall'applicazione
 
@@ -192,7 +192,7 @@ Per altre informazioni sulla configurazione dei file di ambiente per le librerie
 
 1. Digitare **Live Server** e selezionare **Live Server: Stop Live Server** (Arresta Live Server).
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Comando Arresta Live Server nel riquadro comandi di Visual Studio":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Finestra nuovo repository GitHub":::
 
 1. Premere **F1** per aprire il riquadro comandi.
 
@@ -200,7 +200,7 @@ Per altre informazioni sulla configurazione dei file di ambiente per le librerie
 
 1. Aggiornare l'applicazione in esecuzione in `http://locahost:3000`. Il browser ora visualizza il messaggio restituito dall'API.
 
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Messaggio Hello dall'API visualizzato nel browser":::
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Finestra nuovo repository GitHub":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

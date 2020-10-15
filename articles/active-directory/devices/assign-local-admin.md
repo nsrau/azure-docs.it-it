@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419819"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
@@ -24,7 +24,7 @@ Per gestire un dispositivo Windows, è necessario essere un membro del gruppo di
 
 Questo articolo illustra il funzionamento dell'aggiornamento dell'appartenenza degli amministratori locali e il modo in cui è possibile personalizzarlo durante un Azure AD join. Il contenuto di questo articolo non si applica a dispositivi **ibridi Azure ad aggiunti** .
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si connette un dispositivo Windows con Azure AD usando un join Azure AD, Azure AD aggiunge le entità di sicurezza seguenti al gruppo Administrators locale nel dispositivo:
 

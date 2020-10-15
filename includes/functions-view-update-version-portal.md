@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: functions
 author: ggailey777
@@ -9,10 +9,10 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: aa9a715fdafc143a116458691965087b016dec1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83343355"
 ---
 Eseguire la procedura seguente per visualizzare e aggiornare la versione del runtime usata attualmente da un'app per le funzioni.
@@ -27,4 +27,4 @@ Eseguire la procedura seguente per visualizzare e aggiornare la versione del run
 
 1. Quando si modifica la versione del runtime, tornare alla scheda **Panoramica** e scegliere **Riavvia** per riavviare l'app.  L'app per le funzioni viene riavviare e usa la versione 1.x del runtime e quando si creano funzioni vengono usati i modelli della versione 1.x.
 
-    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="Riavviare l'app per le funzioni." border="true":::
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="Visualizzare la versione di Runtime." border="true":::

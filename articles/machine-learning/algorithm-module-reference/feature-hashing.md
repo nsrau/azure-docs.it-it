@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907927"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
@@ -80,7 +80,7 @@ Gli output numerici consentono anche di usare metodi di apprendimento automatico
     > [!TIP]
     > Poiché l'hashing delle funzionalità non esegue operazioni lessicali come lo stemming o il troncamento, è talvolta possibile ottenere risultati migliori tramite la pre-elaborazione del testo prima di applicare l'hashing delle funzionalità. 
 
-1. Impostare le **colonne di destinazione** sulle colonne di testo che si desidera convertire in funzionalità con hash. Tenere presente quanto segue:
+1. Impostare le **colonne di destinazione** sulle colonne di testo che si desidera convertire in funzionalità con hash. Occorre ricordare che:
 
     * Il tipo di dati delle colonne deve essere String.
     

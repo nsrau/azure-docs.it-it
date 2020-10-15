@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450305"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Risolvere i problemi relativi alle prestazioni del database SQL di Azure e di Azure SQL Istanza gestita con Intelligent Insights
@@ -32,7 +32,7 @@ Questa pagina contiene informazioni sui problemi di prestazioni del database SQL
 
 Intelligent Insights rileva automaticamente i problemi di prestazioni in base ai tempi di attesa, agli errori o ai timeout di esecuzione delle query. Intelligent Insights output ha rilevato modelli di prestazioni nel log delle risorse. La tabella seguente riepiloga i modelli di prestazioni rilevabili.
 
-| Modelli di prestazioni rilevabili | Database SQL di Azure | Istanza gestita di SQL di Azure |
+| Modelli di prestazioni rilevabili | database SQL di Azure | Istanza gestita di SQL di Azure |
 | :------------------- | ------------------- | ------------------- |
 | [Raggiungimento dei limiti delle risorse](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Il consumo di risorse disponibili (DTU), dei thread di lavoro del database o delle sessioni di accesso al database disponibili nella sottoscrizione monitorata ha raggiunto i limiti delle risorse. Questa operazione influisce sulle prestazioni. | Il consumo di risorse della CPU sta raggiungendo i limiti delle risorse. Questo influisce sulle prestazioni del database. |
 | [Aumento del carico di lavoro](intelligent-insights-troubleshoot-performance.md#workload-increase) | È stato rilevato un aumento o un accumulo continuo di carico di lavoro nel database. Questa operazione influisce sulle prestazioni. | È stato rilevato un aumento del carico di lavoro. Questo influisce sulle prestazioni del database. |

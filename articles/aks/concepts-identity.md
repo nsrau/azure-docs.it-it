@@ -7,10 +7,10 @@ ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
 ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88007081"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
@@ -24,7 +24,7 @@ Questo articolo introduce i principali concetti utili per l'autenticazione e l'a
   - [RoleBinding e ClusterRoleBinding](#rolebindings-and-clusterrolebindings) 
   - [Account del servizio Kubernetes](#kubernetes-service-accounts)
 - [Integrazione di Azure Active Directory](#azure-active-directory-integration)
-- [Controllo degli accessi in base al ruolo Azure](#azure-role-based-access-control-azure-rbac)
+- [Controllo degli accessi in base al ruolo di Azure](#azure-role-based-access-control-azure-rbac)
   - [Controllo RBAC di Azure per autorizzare l'accesso alla risorsa AKS](#azure-rbac-to-authorize-access-to-the-aks-resource)
   - [Controllo RBAC di Azure per l'autorizzazione Kubernetes (anteprima)](#azure-rbac-for-kubernetes-authorization-preview)
 
@@ -95,7 +95,7 @@ Come illustrato nell'immagine precedente, il server API chiama il server del web
  
 **Informazioni su come integrare AKS con AAD [qui](managed-aad.md).**
 
-## <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
 Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) che garantisce una gestione con granularità fine degli accessi delle risorse di Azure.
 

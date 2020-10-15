@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542207"
 ---
 # <a name="patternany-entity"></a>Entità pattern.any
@@ -25,7 +25,7 @@ Le entità Pattern.any devono essere contrassegnate negli esempi di modello [Pat
 
 * La fine dell'entità può essere confusa con il testo rimanente dell'espressione.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Data un'applicazione client che esegue la ricerca di libri in base al titolo, l'entità pattern.any estrae il titolo completo. Un'espressione di criterio con pattern.any per questa ricerca è `Was {BookTitle} written by an American this year[?]`.
 

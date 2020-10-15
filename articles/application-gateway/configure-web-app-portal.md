@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
 ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323379"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
@@ -56,7 +56,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 3. In **nome host Sostituisci**selezionare Seleziona **nome host dalla destinazione back-end**.
 4. Selezionare **Salva**.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Selezionare il nome host da impostazioni http back-end":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Back-end del servizio app":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configurazione aggiuntiva in caso di reindirizzamento al percorso relativo del servizio app
 

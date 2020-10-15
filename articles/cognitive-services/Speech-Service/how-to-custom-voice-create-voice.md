@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319062"
 ---
 # <a name="create-a-custom-voice"></a>Creare una voce personalizzata
@@ -44,7 +44,7 @@ I set di impostazioni vengono convalidati automaticamente quando si preme il pul
 
 Nella tabella seguente sono indicati gli stati di elaborazione per i set di dati importati:
 
-| Stato | Significato |
+| State | Significato |
 | ----- | ------- |
 | Elaborazione in corso | Il set di dati è stato ricevuto ed è in corso l'elaborazione. |
 | Operazione riuscita | Il set di dati è stato convalidato e può ora essere usato per compilare un modello vocale. |
@@ -86,7 +86,7 @@ Nella tabella training viene visualizzata una nuova voce che corrisponde al mode
 
 Lo stato illustrato riflette il processo di conversione del set di dati in un modello vocale, come illustrato di seguito.
 
-| Stato | Significato |
+| State | Significato |
 | ----- | ------- |
 | Elaborazione in corso | È in corso la creazione del modello vocale. |
 | Operazione riuscita | Il modello vocale è stato creato e può essere distribuito. |

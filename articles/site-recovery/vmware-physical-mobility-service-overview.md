@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
 ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530064"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
@@ -85,15 +85,15 @@ Durante un'installazione push del servizio Mobility, vengono eseguiti i passaggi
 
 1. Monitorare il processo di installazione in **Stato dell'installazione**. Al termine dell'installazione, selezionare **Proceed to Configuration** (Procedi con la configurazione) per registrare il servizio nel server di configurazione.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Pagina di registrazione del servizio Mobility.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Pagina delle opzioni di installazione del servizio Mobility.":::
 
 1. In **Dettagli del server di configurazione**specificare l'indirizzo IP e la passphrase configurati.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Pagina di registrazione del servizio Mobility.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Pagina delle opzioni di installazione del servizio Mobility.":::
 
 1. Selezionare **Registra** per completare la registrazione.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Pagina finale per la registrazione del servizio Mobility.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Pagina delle opzioni di installazione del servizio Mobility.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Installare il servizio Mobility usando il prompt dei comandi
 
@@ -135,7 +135,7 @@ Log di installazione | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 `/InstallLocation`| Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility (qualsiasi cartella).
 `/Platform` | Mandatory. Specifica la piattaforma in cui è installato il servizio Mobility: <br/> **VMware** per macchine virtuali VMware/server fisici. <br/> **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware**.
-`/Silent`| facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+`/Silent`| Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 
@@ -175,7 +175,7 @@ Sintassi | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 `-d` | Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility: `/usr/local/ASR` .
 `-v` | Mandatory. Specifica la piattaforma in cui è installato il servizio Mobility. <br/> **VMware** per macchine virtuali VMware/server fisici. <br/> **Azure** per macchine virtuali di Azure.
-`-q` | facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+`-q` | Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 

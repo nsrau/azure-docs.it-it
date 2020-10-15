@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
 ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84634518"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualizzare i dati del sensore in tempo reale da IoT Hub di Azure tramite Power BI
@@ -70,7 +70,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 1. Aprire il processo di analisi di flusso.
 
-2. In **topologia processo**selezionare **input**.
+2. In **Topologia processo** selezionare **Input**.
 
 3. Nel riquadro **input** selezionare **Aggiungi input flusso**, quindi selezionare **Hub** tutto dall'elenco a discesa. Nel riquadro nuovo input immettere le informazioni seguenti:
 
@@ -78,7 +78,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
    **Selezionare Hub tutto dalla sottoscrizione**: selezionare questo pulsante di opzione.
 
-   **Sottoscrizione**: selezionare la sottoscrizione di Azure che si sta usando per questa esercitazione.
+   **Sottoscrizione** selezionare la sottoscrizione usata per questa esercitazione.
 
    **Hub**Internet delle cose: selezionare l'hub Internet che si sta usando per questa esercitazione.
 
@@ -98,7 +98,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
 
-1. In **topologia processo**selezionare **output**.
+1. In **Topologia processo** selezionare **Output**.
 
 2. Nel riquadro **output** selezionare **Aggiungi** e **Power bi**.
 
@@ -122,7 +122,7 @@ Iniziare creando un processo di Analisi di flusso. Dopo aver creato il processo,
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di Analisi di flusso
 
-1. In **topologia processo**selezionare **query**.
+1. In **Topologia processo** selezionare **Query**.
 
 2. Sostituire `[YourInputAlias]` con l'alias di input del processo.
 

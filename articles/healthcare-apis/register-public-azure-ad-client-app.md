@@ -8,18 +8,20 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 6671b8aa60690bc1915e297bc31b19299be2b1da
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629081"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975910"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registrare un'applicazione client pubblica in Azure Active Directory
 
 Questo articolo illustra come registrare un'applicazione pubblica in Azure Active Directory.  
 
 Le registrazioni delle applicazioni client sono Azure Active Directory rappresentazioni di applicazioni in grado di autenticare e richiedere autorizzazioni API per conto di un utente. I client pubblici sono applicazioni come applicazioni per dispositivi mobili e applicazioni JavaScript a pagina singola che non possono rimanere riservati ai segreti. La procedura è simile alla [registrazione di un client riservato](register-confidential-azure-ad-client-app.md), ma poiché i client pubblici non possono essere considerati attendibili per contenere un segreto dell'applicazione, non è necessario aggiungerne uno.
+
+La Guida introduttiva fornisce informazioni generali su come [registrare un'applicazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ## <a name="app-registrations-in-azure-portal"></a>Registrazioni app in portale di Azure
 
@@ -38,6 +40,18 @@ Le registrazioni delle applicazioni client sono Azure Active Directory rappresen
 2. Fornire un URL di risposta. L'URL di risposta è il punto in cui i codici di autenticazione verranno restituiti all'applicazione client. È possibile aggiungere altri URL di risposta e modificare quelli esistenti in un secondo momento.
 
     ![portale di Azure. Nuova registrazione dell'app pubblica.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+
+
+Per configurare un'applicazione [Desktop](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), per [dispositivi mobili](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) o a [singola pagina](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) come applicazione pubblica:
+
+1. Nel [portale di Azure](https://portal.azure.com), in **registrazioni app**Selezionare l'app e quindi selezionare **autenticazione**.
+
+2. Selezionare **Impostazioni avanzate**  >  **tipo di client predefinito**. Per **considera applicazione come client pubblico**, selezionare **Sì**.
+
+3. Per un'applicazione a singola pagina, selezionare **token di accesso** e **token ID** per abilitare il flusso implicito.
+
+   - Se l'applicazione consente l'accesso agli utenti, selezionare **Token ID**.
+   - Se l'applicazione deve anche chiamare un'API Web protetta, selezionare **Token di accesso**.
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996866"
 ---
-# <a name="managed-hsm-access-control"></a>Controllo di accesso HSM gestito
+# <a name="managed-hsm-access-control"></a>Controllo di accesso per il modulo di protezione hardware gestito
 
 > [!NOTE]
 > Il **provider di risorse** Key Vault supporta due tipi di risorse: insiemi di credenziali e **HSM gestiti**. Il controllo di accesso descritto in questo articolo si applica solo a **HSM gestiti**. Per altre informazioni sul controllo di accesso per il modulo di protezione hardware gestito, vedere [fornire l'accesso alle chiavi Key Vault, ai certificati e ai segreti con il controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md).
 
-Azure Key Vault HSM gestito è un servizio cloud che protegge le chiavi di crittografia. Poiché questi dati sono sensibili e cruciali per l'azienda, è necessario proteggere l'accesso alla HSM gestita consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo articolo fornisce una panoramica del modello di controllo di accesso HSM gestito. Viene illustrata l'autenticazione e l'autorizzazione e viene descritto come proteggere l'accesso ai HSM gestiti.
+Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud che consente di proteggere le chiavi di crittografia. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere i moduli di protezione hardware gestiti consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo articolo offre una panoramica del modello di controllo di accesso del modulo di protezione hardware gestito. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso ai moduli di protezione hardware gestiti.
 
 ## <a name="access-control-model"></a>Modello di controllo di accesso
 
@@ -87,6 +87,6 @@ Si concede a un'entità di sicurezza l'accesso per eseguire operazioni chiave sp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per un'esercitazione introduttiva su un amministratore, vedere che cos'è un modulo di protezione [hardware gestito?](overview.md).
+- Per un'esercitazione introduttiva per gli amministratori, vedere [Che cos'è il modulo di protezione hardware gestito?](overview.md).
 - Per un'esercitazione sulla gestione dei ruoli, vedere [HSM gestito locale RBAC](role-management.md)
-- Per altre informazioni sulla registrazione dell'utilizzo per la registrazione HSM gestita, vedere la pagina relativa alla [registrazione di HSM gestiti](logging.md).
+- Per altre informazioni sulla registrazione dell'utilizzo per il modulo di protezione hardware gestito, vedere [Registrazione del modulo di protezione hardware gestito](logging.md).

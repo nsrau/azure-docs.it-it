@@ -4,10 +4,10 @@ description: Informazioni su come eseguire il backup delle condivisioni file di 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378084"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
@@ -23,7 +23,7 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
 * Avvisi **e report**: è possibile configurare avvisi per gli errori di backup e ripristino e usare la soluzione di creazione di report fornita da backup di Azure per ottenere informazioni dettagliate sui backup nelle condivisioni file.
 * **Protezione da eliminazioni accidentali delle condivisioni file**: backup di Azure consente la [funzionalità di eliminazione](../storage/files/storage-files-prevent-file-share-deletion.md) temporanea a livello di account di archiviazione con un periodo di memorizzazione di 14 giorni. Anche se un attore malintenzionato Elimina la condivisione file, il contenuto e i punti di ripristino della condivisione file (snapshot) vengono conservati per un periodo di conservazione configurabile, consentendo il ripristino corretto e completo del contenuto di origine e degli snapshot senza perdita di dati.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 ![Architettura di backup di condivisione file di Azure](./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png)
 

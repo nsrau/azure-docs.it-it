@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549612"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con ArcGIS Enterprise
 
@@ -104,7 +104,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio ArcGIS Enterprise per l'accesso Single Sign-On](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `<EXTERNAL_DNS_NAME>.portal`
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     c. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio ArcGIS Enterprise per l'accesso Single Sign-On](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -138,19 +138,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 1. Selezionare **Organization >EDIT SETTINGS** (Organizzazione > MODIFICA IMPOSTAZIONI).
 
-    ![Configurazione di ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
+    ![Screenshot che mostra la scheda ArcGIS Enterprise Organization con l'opzione Edit settings evidenziata.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. Selezionare la scheda **Security** (Sicurezza).
 
-    ![Configurazione di ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
+    ![Screenshot che mostra la scheda Security selezionata.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. Scorrere verso il basso alla sezione **Enterprise Logins via SAML** e selezionare **SET ENTERPRISE LOGIN** (IMPOSTA ACCESSO ENTERPRISE).
 
-    ![Configurazione di ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
+    ![Screenshot che mostra la sezione Enterprise Logins via SAML in cui è possibile selezionare Set Enterprise Login.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. Nella sezione **Set Identity Provider** (Imposta provider di identità) eseguire questa procedura:
 
-    ![Configurazione di ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
+    ![Screenshot che mostra la sezione Set Identity Provider in cui eseguire i passaggi descritti qui.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. Specificare un nome simile a **Test di Azure Active Directory** nella casella di testo **Nome**.
 
@@ -158,7 +158,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     c. Fare clic su **Mostra impostazioni avanzate**, copiare il valore **ID entità**e incollarlo nella casella di testo **Identificatore** nella sezione **URL e dominio ArcGIS Enterprise** nel portale di Azure.
     
-    ![Configurazione di ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure5.png)
+    ![Screenshot che mostra dove ottenere l'ID entità e pulsante Aggiorna provider di identità.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. Fare clic su **AGGIORNA PROVIDER DI IDENTITÀ**.
 

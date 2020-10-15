@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433909"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>La nuova esperienza Registrazioni app per Azure Active Directory B2C
@@ -63,7 +63,7 @@ Nell'esperienza legacy, le app sono state create sempre come applicazioni rivolt
 > [!NOTE]
 > Questa opzione è necessaria per poter eseguire Azure AD B2C flussi utente per autenticare gli utenti per questa applicazione. Informazioni [su come registrare un'applicazione per l'uso con i flussi utente.](tutorial-register-applications.md)
 
-È anche possibile usare questa opzione per usare Azure AD B2C come provider di servizi SAML. [Altre informazioni](identity-provider-adfs2016-custom.md).
+È anche possibile usare questa opzione per usare Azure AD B2C come provider di servizi SAML. [Altre informazioni](identity-provider-adfs2016-custom.md)
 
 ## <a name="applications-for-devops-scenarios"></a>Applicazioni per scenari DevOps
 È possibile usare gli altri tipi di account per creare un'app per gestire gli scenari DevOps, ad esempio l'uso di Microsoft Graph per caricare i criteri del Framework dell'esperienza di identità o il provisioning degli utenti. Informazioni [su come registrare un'applicazione Microsoft Graph per gestire le risorse Azure ad B2C](microsoft-graph-get-started.md).

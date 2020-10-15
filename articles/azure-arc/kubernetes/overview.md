@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Questo articolo offre una panoramica di Kubernetes con abilitazione di per Azure Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
 ms.custom: references_regions
-ms.openlocfilehash: 61317f7f5f2bf17c88fc019294574993c1854e59
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540643"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858422"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Che cos'è Kubernetes con abilitazione di Azure Arc (anteprima)?
 
@@ -70,7 +70,7 @@ Kubernetes con abilitazione di Azure Arc è attualmente supportato in queste are
 
 * È necessario connettere ad Azure Arc i cluster del servizio Azure Kubernetes in esecuzione in Azure?
 
-    No. Tutte le funzionalità di Kubernetes con abilitazione di Azure Arc, come Monitoraggio di Azure e Criteri di Azure (Gatekeeper) sono disponibili in modalità nativa nel servizio Azure Kubernetes, che include già una rappresentazione di risorse in Azure. Anche la configurazione del cluster (GitOps) è disponibile in modalità nativa nel servizio Azure Kubernetes ed è attualmente in fase di anteprima privata. Usare questo [modulo di iscrizione](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5acO18Lmx5Bk_qao2CrOcFUQ0UyRllDR1BEV1BPNENYRERYN1pFWTQ4WC4u) per ottenere l'accesso a questa funzionalità.
+    No. Tutte le funzionalità di Kubernetes con abilitazione di Azure Arc, come Monitoraggio di Azure e Criteri di Azure (Gatekeeper) sono disponibili in modalità nativa nel servizio Azure Kubernetes, che include già una rappresentazione di risorse in Azure.
     
 * È necessario connettere ad Azure Arc il cluster del servizio Azure Kubernetes in Azure Stack HCI? E lo stesso vale per i cluster Kubernetes in esecuzione nell'hub di Azure Stack o nel motore di Azure Stack?
 

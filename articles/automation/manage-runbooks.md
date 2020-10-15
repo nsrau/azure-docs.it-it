@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987574"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
@@ -301,7 +301,7 @@ Se si fa clic sul riquadro, viene visualizzata la pagina Processi, che include u
 
 In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per un runbook specifico selezionandolo nella pagina Runbook nel proprio account di Automazione e quindi selezionare il riquadro **Processi**. Viene visualizzata la pagina Processi. In tale pagina è possibile fare clic su un record del processo per visualizzarne i dettagli e l'output.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot della pagina processi con il pulsante errori evidenziato.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot della pagina processi.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperare gli stati del processo tramite PowerShell
 

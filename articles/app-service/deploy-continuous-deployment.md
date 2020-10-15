@@ -7,10 +7,10 @@ ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90984403"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
@@ -114,7 +114,7 @@ Per app Azure servizio per la creazione di recapito continuo con Azure Pipelines
    
 1. Nella pagina **provider di compilazione** selezionare **Azure Pipelines (anteprima)**, quindi selezionare **continua**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Screenshot che mostra la pagina di centro distribuzione con Azure Pipelines (anteprima) selezionata.":::
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Screenshot della pagina Centro distribuzione servizio app.":::
    
 1. Nella sezione **codice** della pagina **Configura** selezionare l' **organizzazione**, il **repository**e il **ramo** che si desidera distribuire in modo continuo e selezionare **continua**.
      
@@ -123,11 +123,11 @@ Per app Azure servizio per la creazione di recapito continuo con Azure Pipelines
        
     Nella sezione **Build (compila** ) specificare l'organizzazione, il progetto e il Framework del linguaggio Azure DevOps che Azure Pipelines deve usare per eseguire le attività di compilazione e quindi selezionare **continue (continua**).
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot della sezione Build con testo di esempio nei campi.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot della pagina Centro distribuzione servizio app.":::
 
 1. Dopo aver configurato il provider di compilazione, rivedere le impostazioni nella pagina **Riepilogo** e quindi fare clic su **fine**.
 
-   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Screenshot della pagina del centro distribuzione che mostra i commit e le distribuzioni con il pulsante Aggiorna evidenziato.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Screenshot della pagina Centro distribuzione servizio app.":::
    
 1. I nuovi commit nel repository e nel ramo selezionati ora vengono distribuiti continuamente nel servizio app. È possibile tenere traccia di commit e distribuzioni nella pagina **Centro distribuzione**.
    
@@ -141,11 +141,11 @@ Per app Azure servizio per la creazione di recapito continuo con Azure Pipelines
 
 1. Selezionare **Azure Repos** come provider del controllo del codice sorgente nella pagina **centro distribuzione** e selezionare **continua**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot della pagina del centro distribuzione che mostra le selezioni di distribuzione continua (CI/CD).":::
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot della pagina Centro distribuzione servizio app.":::
 
 1. Nella pagina **provider di compilazione** selezionare **Azure Pipelines (anteprima)**, quindi selezionare **continua**.
 
-    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Screenshot del centro distribuzione che mostra Azure Pipelines (anteprima).":::
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Screenshot della pagina Centro distribuzione servizio app.":::
 
 1. Nella sezione **codice** della pagina **Configura** selezionare l' **organizzazione**, il **repository**e il **ramo** che si desidera distribuire in modo continuo e selezionare **continua**.
 
@@ -154,11 +154,11 @@ Per app Azure servizio per la creazione di recapito continuo con Azure Pipelines
 
    Nella sezione **Build (compila** ) specificare l'organizzazione, il progetto e il Framework del linguaggio Azure DevOps che Azure Pipelines deve usare per eseguire le attività di compilazione e quindi selezionare **continue (continua**).
 
-   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot della sezione di compilazione che mostra i campi dell'organizzazione e del progetto di Azure DevOps riempiti con esempi.":::
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot della pagina Centro distribuzione servizio app.":::
 
 1. Dopo aver configurato il provider di compilazione, rivedere le impostazioni nella pagina **Riepilogo** e quindi fare clic su **fine**.  
      
-   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Screenshot che mostra le impostazioni selezionate nella pagina di riepilogo.":::
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Screenshot della pagina Centro distribuzione servizio app.":::
 
 1. I nuovi commit nel repository e nel ramo selezionati ora vengono distribuiti continuamente nel servizio app. È possibile tenere traccia di commit e distribuzioni nella pagina **Centro distribuzione**.
 

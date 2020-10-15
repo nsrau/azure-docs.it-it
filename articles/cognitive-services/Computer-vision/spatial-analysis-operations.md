@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628214"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
-L'analisi spaziale consente di analizzare il video in streaming in tempo reale dai dispositivi della fotocamera. Per ogni dispositivo della fotocamera configurato, le operazioni per l'analisi spaziale genereranno un flusso di output di messaggi JSON inviati all'istanza dell'hub Azure. 
+L'analisi spaziale consente di analizzare video in streaming in tempo reale da dispositivi con videocamera. Per ogni dispositivo con videocamera configurato, le operazioni per l'analisi spaziale genereranno un flusso di output di messaggi JSON inviati all'istanza dell'hub IoT di Azure. 
 
 Il contenitore di analisi spaziale implementa le operazioni seguenti:
 
-| Identificatore dell'operazione| Descrizione|
+| Identificatore dell'operazione| Description|
 |---------|---------|
 | cognitiveservices. Vision. spatialanalysis-PersonCount | Conta le persone in una zona designata nel campo di visualizzazione della fotocamera. <br> Genera un evento _personCountEvent_ iniziale e quindi _personCountEvent_ gli eventi quando il conteggio viene modificato.  |
 | cognitiveservices. Vision. spatialanalysis-personcrossingline | Tiene traccia del momento in cui un utente incrocia una riga designata nel campo di visualizzazione della fotocamera. <br>Genera un evento _personLineEvent_ quando la persona attraversa la riga e fornisce informazioni direzionali. 
@@ -32,7 +32,7 @@ Il contenitore di analisi spaziale implementa le operazioni seguenti:
 
 Tutte le operazioni sopra elencate sono disponibili anche nella `.debug` versione, che hanno la possibilità di visualizzare i fotogrammi video durante l'elaborazione. Sarà necessario eseguire `xhost +` nel computer host per abilitare la visualizzazione di fotogrammi video ed eventi.
 
-| Identificatore dell'operazione| Descrizione|
+| Identificatore dell'operazione| Description|
 |---------|---------|
 | cognitiveservices. Vision. spatialanalysis-PersonCount. debug | Conta le persone in una zona designata nel campo di visualizzazione della fotocamera. <br> Genera un evento _personCountEvent_ iniziale e quindi _personCountEvent_ gli eventi quando il conteggio viene modificato.  |
 | cognitiveservices. Vision. spatialanalysis-personcrossingline. debug | Tiene traccia del momento in cui un utente incrocia una riga designata nel campo di visualizzazione della fotocamera. <br>Genera un evento _personLineEvent_ quando la persona attraversa la riga e fornisce informazioni direzionali. 
@@ -43,7 +43,7 @@ L'analisi spaziale può essere eseguita anche con analisi [video in tempo reale]
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| Identificatore dell'operazione| Descrizione|
+| Identificatore dell'operazione| Description|
 |---------|---------|
 | cognitiveservices. Vision. spatialanalysis-PersonCount. livevideoanalytics | Conta le persone in una zona designata nel campo di visualizzazione della fotocamera. <br> Genera un evento _personCountEvent_ iniziale e quindi _personCountEvent_ gli eventi quando il conteggio viene modificato.  |
 | cognitiveservices. Vision. spatialanalysis-personcrossingline. livevideoanalytics | Tiene traccia del momento in cui un utente incrocia una riga designata nel campo di visualizzazione della fotocamera. <br>Genera un evento _personLineEvent_ quando la persona attraversa la riga e fornisce informazioni direzionali. 
@@ -57,7 +57,7 @@ Le operazioni di analisi video in tempo reale sono disponibili anche nella `.deb
 
 Questi sono i parametri richiesti da ognuna di queste operazioni di analisi spaziale.
 
-| Parametri delle operazioni| Descrizione|
+| Parametri delle operazioni| Description|
 |---------|---------|
 | ID operazione | Identificatore dell'operazione della tabella precedente.|
 | Enabled | Booleano: true o false|
@@ -88,7 +88,7 @@ Questi sono i parametri richiesti da ognuna di queste operazioni di analisi spaz
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Description|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -121,7 +121,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Description|
 |---------|---------|---------|
 | `lines` | list| Elenco di righe.|
 | `name` | string| Nome descrittivo per questa riga.|
@@ -152,7 +152,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Description|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -184,7 +184,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Description|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -206,7 +206,7 @@ Questo è un esempio di input JSON per il parametro DETECTOR_NODE_CONFIG che con
 }
 ```
 
-| Nome | Tipo| Descrizione|
+| Nome | Type| Descrizione|
 |---------|---------|---------|
 | `gpu_index` | string| Indice GPU in cui verrà eseguita l'operazione.|
 | `do_calibration` | string | Indica che la taratura è attivata. `do_calibration` deve essere true per il corretto funzionamento di **cognitiveservices. Vision. spatialanalysis-persondistance** .|
@@ -304,7 +304,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 }
 ```
 
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -316,7 +316,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 | `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -325,7 +325,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -338,7 +338,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `focalLength` | float | Lunghezza focale della fotocamera in pixel. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `tiltUpAngle` | float | Angolo di inclinazione della fotocamera verticale. Questa operazione viene dedotta dalla calibrazione automatica.|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -399,7 +399,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
     "schemaVersion": "1.0"
 }
 ```
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -409,7 +409,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `status` | string| Direzione delle incrociate di riga, ovverò CrossLeft ' o ' CrossRight '|
 | `zone` | string | Il campo "nome" della riga che è stata superata|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -418,7 +418,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -484,7 +484,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 }
 ```
 
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -494,7 +494,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `status` | string| Direzione degli incroci del poligono, ovverò Enter ' o ' Exit '|
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -595,7 +595,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 }
 ```
 
-| Nome campo evento | Tipo| Descrizione|
+| Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -610,7 +610,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona monitorata per l'allontanamento tra le persone|
 | `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
-| Nome campo rilevamento | Tipo| Descrizione|
+| Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -620,7 +620,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `confidence` | float| Confidenza degli algoritmi|
 | `centerGroundPoint` | 2 valori float| `x`, `y` i valori con le coordinate della posizione dedotta della persona sulla superficie in piedi. `x` distanza dalla fotocamera perpendicolare al piano dell'immagine della fotocamera proiettato sulla superficie in piedi. `y` distanza tra la fotocamera e il piano dell'immagine proiettata sulla superficie in piedi.|
 
-| Nome campo SourceInfo | Tipo| Descrizione|
+| Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -725,7 +725,7 @@ Per ottenere le migliori prestazioni e l'utilizzo delle GPU, è possibile distri
       }
   }
   ```
-| Nome | Tipo| Descrizione|
+| Nome | Type| Description|
 |---------|---------|---------|
 | `batch_size` | INT | Indica il numero di fotocamere che verranno utilizzate nell'operazione. |
 

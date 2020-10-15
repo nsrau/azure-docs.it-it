@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441774"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876125"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Le API BLOB e le API di Data Lake Storage Gen2 possono operare sugli stessi dati
 
 Questa sezione descrive i problemi e le limitazioni delle API BLOB e delle API di Data Lake Storage Gen2 quando vengono usate per operare sugli stessi dati.
 
-* Non è possibile usare sia le API BLOB che le API di Data Lake Storage per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API di Data Lake Storage Gen2, i blocchi di tale file non saranno visibili alle chiamate all'API BLOB [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list). È possibile sovrascrivere un file usando le API di Data Lake Storage Gen2 o le API BLOB. Questa operazione non avrà effetto sulle proprietà del file.
+* Non è possibile usare API e API Data Lake Storage per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API di Data Lake Storage Gen2, i blocchi di tale file non saranno visibili alle chiamate all'API BLOB [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list). L'unica eccezione è quando si usa la sovrascrittura. È possibile sovrascrivere un file o un BLOB usando una delle due API.
 
 * Quando si usa l'operazione [Elenca BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) senza specificare un delimitatore, i risultati includeranno sia le directory che i BLOB. Se si sceglie di specificare un delimitatore, usare solo una barra (`/`). Si tratta dell'unico delimitatore supportato.
 

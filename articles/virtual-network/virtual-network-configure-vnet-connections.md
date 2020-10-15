@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: d6532747c50311ada4df6a0038bd0e05f4d9ce31
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400707"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089691"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configurare e convalidare la rete virtuale o le connessioni VPN
 
@@ -122,7 +122,7 @@ Per verificare che la connessione VPN sia configurata correttamente, seguire que
 
 Per configurare una connessione tra una rete virtuale classica e una rete virtuale Gestione risorse, vedere [connettere reti virtuali da modelli di distribuzione diversi usando il portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
 
-![Connessione alla rete virtuale classica a una rete virtuale Azure Resource Manager](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Diagramma che mostra una connessione di rete virtuale classica a una rete virtuale Azure Resource Manager.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 Per controllare la configurazione quando si connette una rete virtuale classica a una rete virtuale Azure Resource Manager, seguire queste istruzioni.
 
@@ -258,7 +258,7 @@ Per l'oggetto Connection deve essere abilitato BGP. È possibile impostare il `-
 
 ### <a name="validate-the-bgp-configuration"></a>Convalidare la configurazione BGP
 
-Per verificare se BGP è configurato correttamente, è possibile eseguire `get-AzureRmVirtualNetworkGateway` e `get-AzureRmLocalNetworkGateway` cmdlet. Si noterà quindi l'output correlato a BGP nella `BgpSettingsText` parte. Ad esempio:
+Per verificare se BGP è configurato correttamente, è possibile eseguire `get-AzureRmVirtualNetworkGateway` e `get-AzureRmLocalNetworkGateway` cmdlet. Si noterà quindi l'output correlato a BGP nella `BgpSettingsText` parte. Esempio:
 
 ```
 {

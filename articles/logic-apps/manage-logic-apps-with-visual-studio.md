@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87280767"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
@@ -53,11 +53,11 @@ Sebbene sia possibile creare, modificare, gestire e distribuire app per la logic
 
     È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o [installare questa estensione da Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Assicurarsi di riavviare Visual Studio al termine dell'installazione.
 
-  * Per usare le sottoscrizioni di Azure per enti pubblici con Visual Studio, vedere gli argomenti seguenti per la configurazione aggiuntiva:
+  * Per usare le sottoscrizioni di Azure per enti pubblici con Visual Studio, vedere gli argomenti seguenti per le operazioni di configurazione aggiuntive:
 
-    * Visual Studio 2019: [Guida introduttiva: connettersi ad Azure per enti pubblici con Visual Studio](../azure-government/documentation-government-connect-vs.md)
+    * Visual Studio 2019: [Avvio rapido: Connettersi ad Azure per enti pubblici con Visual Studio](../azure-government/documentation-government-connect-vs.md)
 
-    * Visual Studio 2017: [Introduzione all'estensione del selettore dell'ambiente di Azure per Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), che è possibile scaricare e installare dal [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+    * Visual Studio 2017: [Presentazione dell'estensione Azure Environment Selector di Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), che è possibile scaricare e installare da [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
 * Accesso al Web mentre si usa la finestra integrata Progettazione app per la logica
 
@@ -127,7 +127,7 @@ Per creare app per la logica per scenari di integrazione aziendale B2B (business
 
 1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
 
-1. In Esplora soluzioni aprire il menu di scelta rapida **<Logic-app-name # C1.jsnel** menu di scelta rapida del file e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
+1. In Esplora soluzioni aprire il menu di scelta rapida **<Logic-app-name # C1.jsnel** menu di scelta rapida del file e selezionare **Apri con progettazione app per la logica**. (scelta rapida da tastiera: CTRL + L)
 
    ![Apri il file con estensione JSON dell'app per la logica con progettazione app per la logica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -162,7 +162,7 @@ Per modificare il tipo o il percorso dell'app per la logica, è necessario aprir
 
 1. In Visual Studio aprire il progetto gruppo di risorse di Azure che contiene l'app per la logica.
 
-1. In Esplora soluzioni aprire il `<logic-app-name>.json` menu di scelta rapida del file e selezionare **Apri con progettazione app per la logica**. (Tastiera: CTRL + L)
+1. In Esplora soluzioni aprire il `<logic-app-name>.json` menu di scelta rapida del file e selezionare **Apri con progettazione app per la logica**. (scelta rapida da tastiera: CTRL + L)
 
    ![Apri il file con estensione JSON dell'app per la logica con progettazione app per la logica](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 

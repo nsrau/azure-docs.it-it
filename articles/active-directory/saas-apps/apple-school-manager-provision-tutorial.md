@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91757453"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Esercitazione: configurare Apple School Manager per il provisioning utenti automatico
@@ -50,7 +50,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Apple School Manager](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
-## <a name="step-2-configure-apple-school-manager-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Apple School Manager per supportare il provisioning con Azure AD
+## <a name="step-2-configure-apple-school-manager-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Apple School Manager per supportare il provisioning con Azure AD
 
 1. In Apple School Manager accedere con un account con il ruolo di amministratore, gestione sito o People Manager.
 2. Fare clic su impostazioni nella parte inferiore della barra laterale fare clic su origine dati sotto Impostazioni organizzazione, quindi fare clic su Connetti a origine dati.
@@ -103,7 +103,7 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti in Apple School Manager**.
 

@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: aece7278d134145e00b027c184f3817d5566e1e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81408370"
 ---
 # <a name="security-control-inventory-and-asset-management"></a>Controllo di sicurezza: inventario e gestione delle risorse
@@ -142,7 +142,7 @@ Implementare una soluzione di terze parti se non soddisfa il requisito.
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 6.11 | 2.9 | Customer |
+| 6.11 | 2,9 | Customer |
 
 Usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con gestione risorse di Azure configurando "blocca l'accesso" per l'app "gestione Microsoft Azure".
 
@@ -152,7 +152,7 @@ Usare l'accesso condizionale di Azure per limitare la capacità degli utenti di 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 6.12 | 2.9 | Customer |
+| 6.12 | 2,9 | Customer |
 
 A seconda del tipo di script, è possibile usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure.  È anche possibile usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure per assicurarsi che venga eseguito solo il software autorizzato e che l'esecuzione di tutto il software non autorizzato venga bloccata in macchine virtuali di Azure.
 
@@ -164,7 +164,7 @@ A seconda del tipo di script, è possibile usare configurazioni specifiche del s
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 6.13 | 2.9 | Customer |
+| 6.13 | 2,9 | Customer |
 
 Il software necessario per le operazioni aziendali, ma può comportare un rischio maggiore per l'organizzazione, deve essere isolato all'interno della propria macchina virtuale e/o della rete virtuale e sufficientemente protetto con un firewall di Azure o un gruppo di sicurezza di rete.
 

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87058756"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure
@@ -29,7 +29,7 @@ Questo articolo fornisce informazioni di riferimento per la risoluzione dei prob
 
 *   La disabilitazione di tutti i profili firewall è un modo più sicuro di risolvere i problemi rispetto all'impostazione della regola del firewall specifica di RDP.
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 
 La modalità di configurazione delle regole del firewall dipende dal livello di accesso alla macchina virtuale necessario. Gli esempi seguenti usano regole RDP. Gli stessi metodi possono tuttavia essere applicati a qualsiasi altro tipo di traffico specificando la chiave del Registro di sistema corretta.
 

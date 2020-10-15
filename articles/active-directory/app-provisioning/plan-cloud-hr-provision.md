@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706356"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070385"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
@@ -31,7 +31,7 @@ Azure AD usa questa integrazione per abilitare i flussi di lavoro delle applicaz
 - **Scrivere nuovamente nell'app Cloud HR:** Scrivere gli indirizzi di posta elettronica e gli attributi del nome utente dal Azure AD di nuovo all'app HR cloud.
 
 > [!NOTE]
-> Questo piano di distribuzione illustra come distribuire i flussi di lavoro delle app HR cloud con Azure AD provisioning degli utenti. Per informazioni su come distribuire il provisioning utenti automatico in app SaaS (Software as a Service), vedere [pianificare una distribuzione automatica del provisioning utenti](https://aka.ms/deploymentplans/provisioning).
+> Questo piano di distribuzione illustra come distribuire i flussi di lavoro delle app HR cloud con Azure AD provisioning degli utenti. Per informazioni su come distribuire il provisioning utenti automatico in app SaaS (Software as a Service), vedere [pianificare una distribuzione automatica del provisioning utenti](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Scenari HR abilitati
 
@@ -73,7 +73,7 @@ Questa funzionalità del provisioning IT basato su HR offre i vantaggi aziendali
 - **Conformità e governance degli indirizzi:** Azure AD supporta i log di controllo nativi per le richieste di provisioning degli utenti eseguite dalle app del sistema di origine e di destinazione. Con il controllo è possibile tenere traccia degli utenti che hanno accesso alle app da un'unica schermata.
 - **Gestione dei costi:** Il provisioning automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate sviluppate nel tempo usando piattaforme legacy e obsolete.
 
-### <a name="licensing"></a>Licenza
+### <a name="licensing"></a>Gestione delle licenze
 
 Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degli utenti, è necessario disporre di una [licenza Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/) valida e di una licenza per l'app HR cloud, ad esempio giornata lavorativa o SuccessFactors.
 
@@ -126,7 +126,7 @@ Considerare le esigenze organizzative quando si determina la strategia per la di
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-Quando i progetti tecnologici hanno esito negativo, in genere lo fanno a causa di una mancata corrispondenza delle aspettative su conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans). Assicurarsi inoltre che i ruoli stakeholder nel progetto siano ben noti. Documentare le parti interessate e i rispettivi input e responsabilità del progetto.
+Quando i progetti tecnologici hanno esito negativo, in genere lo fanno a causa di una mancata corrispondenza delle aspettative su conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](../fundamentals/active-directory-deployment-plans.md). Assicurarsi inoltre che i ruoli stakeholder nel progetto siano ben noti. Documentare le parti interessate e i rispettivi input e responsabilità del progetto.
 
 Includere un rappresentante dell'organizzazione HR che può fornire input sui processi aziendali HR esistenti e sull'identità del ruolo di lavoro, oltre ai requisiti di elaborazione dei dati dei processi.
 
@@ -255,7 +255,7 @@ Per impostazione predefinita, l'attributo nell'app Cloud HR che rappresenta l'ID
 
 Per impostazione predefinita, l'app del connettore di provisioning esegue il mapping dello stato del profilo utente HR allo stato dell'account utente in Active Directory o Azure AD per determinare se abilitare o disabilitare l'account utente.
 
-Quando si avvia il processo di Joiner-Leavers, raccogliere i requisiti seguenti.
+Quando si avvia il processo di Joiners-Leavers, raccogliere i requisiti seguenti.
 
 | Processo | Requisiti |
 | - | - |
@@ -378,7 +378,7 @@ Azure AD possibile fornire informazioni aggiuntive sull'utilizzo del provisionin
 
 Dopo un [ciclo iniziale](../app-provisioning/how-provisioning-works.md#initial-cycle)riuscito, il servizio di provisioning Azure ad continua a eseguire aggiornamenti incrementali back-to-back a tempo indeterminato, a intervalli definiti nelle esercitazioni specifiche per ogni app, fino a quando non si verifica uno degli eventi seguenti:
 
-- Il servizio è stato arrestato manualmente. Un nuovo ciclo iniziale viene attivato usando il [portale di Azure](https://portal.azure.com/) o il comando [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriato.
+- Il servizio è stato arrestato manualmente. Un nuovo ciclo iniziale viene attivato usando il [portale di Azure](https://portal.azure.com/) o il comando [API Microsoft Graph](/graph/api/resources/synchronization-overview) appropriato.
 - Un nuovo ciclo iniziale viene attivato a causa di una modifica nei mapping degli attributi o nei filtri di ambito.
 - Il processo di provisioning entra in quarantena a causa di una frequenza di errore elevata. Rimane in quarantena per più di quattro settimane, a quel punto viene disabilitata automaticamente.
 
@@ -416,6 +416,6 @@ Per risolvere eventuali problemi che potrebbero verificarsi durante il provision
 ### <a name="next-steps"></a>Passaggi successivi
 
 - [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
-- [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)
+- [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)
 - [Ignora l'eliminazione di account utente che non rientrano nell'ambito](skip-out-of-scope-deletions.md)
 - [Agente di provisioning di Azure AD Connect: cronologia delle versioni](provisioning-agent-release-version-history.md)

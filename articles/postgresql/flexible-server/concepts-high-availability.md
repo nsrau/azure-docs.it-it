@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937050"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Concetti relativi alla disponibilità elevata in database di Azure per PostgreSQL-server flessibile
@@ -18,7 +18,7 @@ ms.locfileid: "90937050"
 > [!IMPORTANT]
 > Il server flessibile di Database di Azure per PostgreSQL è disponibile in anteprima
 
-Database di Azure per PostgreSQL: il server flessibile offre una configurazione a disponibilità elevata con funzionalità di failover automatico tramite la distribuzione del server con **ridondanza della zona** . Quando viene distribuito in una configurazione con ridondanza della zona, server flessibile esegue automaticamente il provisioning e la gestione di una replica standby in una zona di disponibilità diversa Usando la replica di streaming PostgreSQL, i dati vengono replicati nel server di replica di standby in modalità **sincrona** . 
+Database di Azure per PostgreSQL: il server flessibile offre una configurazione a disponibilità elevata con funzionalità di failover automatico tramite la distribuzione del server con **ridondanza della zona** . Quando viene distribuito in una configurazione con ridondanza della zona, il server flessibile esegue automaticamente il provisioning e la gestione di una replica standby in una zona di disponibilità diversa. Usando la replica di streaming PostgreSQL, i dati vengono replicati nel server di replica di standby in modalità **sincrona** . 
 
 La configurazione con ridondanza della zona consente la funzionalità di failover automatico senza perdita di dati durante gli eventi pianificati, ad esempio l'operazione di calcolo con scalabilità avviata dall'utente e anche durante gli eventi non pianificati, ad esempio errori hardware e software sottostanti, errori di rete e guasti delle zone di disponibilità 
 
@@ -26,7 +26,7 @@ La configurazione con ridondanza della zona consente la funzionalità di failove
 
 ## <a name="zone-redundant-high-availability-architecture"></a>Architettura a disponibilità elevata con ridondanza della zona
 
-È possibile scegliere l'area geografica e la zona di disponibilità per distribuire il server di database primario. Viene eseguito il provisioning di un server di replica standby in una zona di disponibilità diversa con la stessa configurazione del server primario, inclusi il livello di calcolo, le dimensioni di calcolo, le dimensioni di archiviazione e la configurazione di rete. I log delle transazioni vengono replicati in modalità sincrona nella replica di standby usando la replica di flusso PostgreSQL. I backup automatici vengono eseguiti periodicamente dal server di database primario, mentre i log delle transazioni vengono archiviati continuamente nell'archivio di backup dalla replica di standby. 
+È possibile scegliere l'area e la zona di disponibilità per la distribuzione del server di database primario. Viene eseguito il provisioning di un server di replica standby in una zona di disponibilità diversa con la stessa configurazione del server primario, inclusi il livello di calcolo, le dimensioni di calcolo, le dimensioni della risorsa archiviazione e la configurazione di rete. I log delle transazioni vengono replicati in modalità sincrona nella replica di standby usando la replica di flusso PostgreSQL. I backup automatici vengono eseguiti periodicamente dal server di database primario, mentre i log delle transazioni vengono archiviati continuamente nell'archivio di backup dalla replica di standby. 
 
 L'integrità della configurazione della disponibilità elevata viene monitorata e segnalata continuamente nel portale. Gli Stati di disponibilità elevata con ridondanza della zona sono elencati di seguito:
 
@@ -43,7 +43,7 @@ L'integrità della configurazione della disponibilità elevata viene monitorata 
 
 Le applicazioni client PostgreSQL sono connesse al server primario utilizzando il nome del server di database. Le letture dell'applicazione vengono gestite direttamente dal server primario, mentre i commit e le scritture vengono confermati nell'applicazione solo dopo che i dati sono stati salvati nel server primario e nella replica di standby. A causa di questo requisito di round trip aggiuntivo, le applicazioni possono prevedere una latenza elevata per scritture e commit. È possibile monitorare l'integrità della disponibilità elevata nel portale.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="disponibilità elevata con ridondanza della zona-stato stabile"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="disponibilità elevata con ridondanza della zona"::: 
 
 1. I client si connettono al server flessibile ed eseguono operazioni di scrittura.
 2. Le modifiche vengono replicate nel sito di standby.
@@ -64,7 +64,7 @@ Per le altre operazioni avviate dall'utente, ad esempio l'archiviazione con scal
 
 Interruzioni non pianificate includono bug software o errori dei componenti dell'infrastruttura che incidono sulla disponibilità del database. Se il sistema di monitoraggio rileva la mancata disponibilità del server, la replica per la replica standby viene interrotta e la replica standby viene attivata come server di database primario. I client possono riconnettersi al server di database usando la stessa stringa di connessione e riprendere le operazioni. Si prevede che il tempo di failover complessivo imprenda 60-120S. Tuttavia, a seconda dell'attività nel server di database primario al momento del failover, ad esempio transazioni di grandi dimensioni e tempi di ripristino, il failover potrebbe richiedere più tempo.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="disponibilità elevata con ridondanza della zona-failover"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="disponibilità elevata con ridondanza della zona"::: 
 
 1. Il server di database primario non è attivo e i client perdono la connettività del database. 
 2. Il server di standby viene attivato per diventare il nuovo server primario. Il client si connette al nuovo server primario utilizzando la stessa stringa di connessione. L'applicazione client nella stessa zona del server di database primario riduce la latenza e migliora le prestazioni.
@@ -111,7 +111,7 @@ Server flessibili configurati con disponibilità elevata, replicare i dati in te
 
 -   La configurazione delle attività di gestione avviate dal cliente non può essere pianificata durante la finestra di manutenzione gestita.
 
--   Gli eventi pianificati, ad esempio la scalabilità delle risorse di calcolo e di archiviazione, si verificano prima in standby e quindi nel server primario. Il servizio non viene sottoposta a failover. 
+-   Gli eventi pianificati, ad esempio il calcolo e l'archiviazione della scalabilità, si verificano prima in standby e quindi nel server primario. Il servizio non viene sottoposto a failover. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

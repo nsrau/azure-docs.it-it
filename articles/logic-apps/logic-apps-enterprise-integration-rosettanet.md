@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: f02cbdc7ca8822c5fcc91b106856d7f8f547536b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565106"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Scambiare messaggi RosettaNet per l'integrazione aziendale B2B in app per la logica di Azure
@@ -201,7 +201,7 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Messaggio** | Sì | Messaggio RosettaNet da decodificare  |
+   | **Message** | Sì | Messaggio RosettaNet da decodificare  |
    | **Intestazioni** | Sì | Intestazioni HTTP che forniscono i valori per la versione, ovvero la versione RNIF, e il tipo di risposta, che indica il tipo di comunicazione tra i partner e può essere sincrono o asincrono |
    | **Ruolo** | Sì | Ruolo del partner host nel PIP |
    ||||
@@ -230,7 +230,7 @@ Per accelerare lo sviluppo e consigliare modelli di integrazione, è possibile u
 
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
-   | **Messaggio** | Sì | Messaggio RosettaNet da codificare  |
+   | **Message** | Sì | Messaggio RosettaNet da codificare  |
    | **Partner host** | Sì | Nome del partner host |
    | **Partner Guest** | Sì | Nome del partner Guest |
    | **Codice PIP** | Sì | Codice PIP |

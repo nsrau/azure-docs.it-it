@@ -11,10 +11,10 @@ ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326814"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
@@ -162,7 +162,7 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Node.js](#tab/node-js)
+# <a name="nodejs"></a>[Node.JS](#tab/node-js)
 
 Per ulteriori informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
@@ -201,7 +201,7 @@ NSString* value =
 
 Customer Lockbox è disponibile per questo servizio cognitivo:
 
-* Funzione di conversione
+* Traduttore
 
 Per i servizi seguenti, i tecnici Microsoft non accederanno ai dati dei clienti nel livello E0: 
 

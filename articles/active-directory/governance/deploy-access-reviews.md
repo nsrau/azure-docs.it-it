@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306566"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
@@ -75,7 +75,7 @@ I video seguenti possono essere utili quando si apprenderanno le verifiche di ac
 
 * [Come verificare l'accesso tramite My Access](https://youtu.be/tIKdQhdHLXU)
 
-### <a name="licenses"></a>Licenze
+### <a name="licenses"></a>Licenses
 
 È necessaria una licenza di Azure AD Premium (P2) valida per ogni persona, ad eccezione degli amministratori globali o degli amministratori utenti, che creeranno o eseguiranno verifiche di accesso. Per altre informazioni, vedere [Access reviews License requirements](access-reviews-overview.md).
 
@@ -241,12 +241,12 @@ Per creare un criterio di verifica di accesso, è necessario disporre delle info
 
 **Piano di verifica di accesso di esempio**
 
-| Componente| valore |
+| Componente| Valore |
 | - | - |
 | **Risorse da rivedere**| Accesso a Microsoft Dynamics |
 | **Frequenza di Revisione**| Mensilmente |
 | **Chi esegue la revisione**| Responsabili del programma di Dynamics Business Group |
-| **Notifica**| Invia un messaggio di posta elettronica 24 ore prima della revisione ad alias Dynamics-PMS<p>Includere un messaggio personalizzato incoraggiante ai revisori per proteggere l'acquisto |
+| **Notifica**| Invia un messaggio di posta elettronica 24 ore prima della revisione all'alias Dynamics-Pms<p>Includere un messaggio personalizzato incoraggiante ai revisori per proteggere l'acquisto |
 | **Sequenza temporale**| 48 ore dalla notifica |
 |**Azioni automatiche**| Rimuovere l'accesso da qualsiasi account senza accesso interattivo entro 90 giorni, rimuovendo l'utente dal gruppo di sicurezza Dynamics-Access. <p>*Eseguire le azioni se non vengono esaminate nella sequenza temporale.* |
 | **Azioni manuali**| Se lo si desidera, i revisori possono eseguire l'approvazione delle rimozioni prima dell'azione automatica. |
@@ -361,7 +361,7 @@ Le verifiche di accesso non possono modificare l'appartenenza al gruppo dei grup
 
 * Utilizzo di Microsoft Graph per accedere a livello di codice ai risultati e alle decisioni nelle verifiche di accesso completate.
 
-Per accedere ai risultati per un gruppo gestito da Windows AD, ad esempio, usare questo [script di esempio di PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). Lo script descrive le chiamate al grafo richieste ed Esporta i comandi di Windows AD-PowerShell per eseguire le modifiche.
+Per accedere ai risultati per un gruppo gestito da Windows AD, ad esempio, usare questo [script di esempio di PowerShell](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). Lo script illustra le chiamate al grafo richieste ed Esporta i comandi di Windows AD-PowerShell per eseguire le modifiche.
 
 ## <a name="plan-access-reviews-for-applications"></a>Pianificare le verifiche di accesso per le applicazioni 
 
@@ -419,7 +419,7 @@ Dopo aver preparato una strategia e un piano per esaminare l'accesso alle risors
 
 Per ridurre il rischio di accesso non aggiornato, gli amministratori possono abilitare le verifiche periodiche degli utenti che hanno assegnazioni attive a un pacchetto di accesso. Seguire le istruzioni riportate nel collegamento seguente:
 
-| Procedure| Descrizione |
+| Procedure| Description |
 | - | - |
 | [Creazione di verifiche di accesso](entitlement-management-access-reviews-create.md)| Abilita le verifiche del pacchetto di accesso. |
 | [Eseguire verifiche di accesso](entitlement-management-access-reviews-review-access.md)| Eseguire verifiche di accesso per altri utenti assegnati a un pacchetto di accesso. |
@@ -433,7 +433,7 @@ Per ridurre il rischio di accesso non aggiornato, gli amministratori possono abi
 
 Le esigenze di accesso ai gruppi e alle applicazioni per i dipendenti e ai Guest cambiano probabilmente nel tempo. Per ridurre i rischi associati alle assegnazioni di accesso obsolete, gli amministratori possono creare verifiche di accesso per i membri del gruppo o l'accesso alle applicazioni. Seguire le istruzioni riportate nel collegamento seguente:
 
-| Procedure| Descrizione |
+| Procedure| Description |
 | - | - |
 | [Creazione di verifiche di accesso](create-access-review.md)| Creare una o più verifiche di accesso per i membri del gruppo o l'accesso alle applicazioni. |
 | [Eseguire verifiche di accesso](perform-access-review.md)| Eseguire una verifica di accesso per i membri di un gruppo o gli utenti con accesso a un'applicazione. |
@@ -450,7 +450,7 @@ Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessari
 
 Seguire le istruzioni riportate nei collegamenti seguenti:
 
-| Procedure | Descrizione |
+| Procedure | Description |
 | - | - |
  [Creazione di verifiche di accesso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Creare verifiche di accesso per i ruoli di Azure AD con privilegi in PIM |
 | [Verifica autonoma dell'accesso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se si è assegnati a un ruolo amministrativo, approvare o negare l'accesso al ruolo |
@@ -465,7 +465,7 @@ Per ridurre i rischi associati alle assegnazioni di ruolo obsolete, è necessari
 
 Seguire le istruzioni riportate nei collegamenti seguenti:
 
-| Procedure| Descrizione |
+| Procedure| Description |
 | - | -|
 | [Creazione di verifiche di accesso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Creare verifiche di accesso per i ruoli delle risorse di Azure con privilegi in PIM |
 | [Verifica autonoma dell'accesso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se si è assegnati a un ruolo amministrativo, approvare o negare l'accesso al ruolo |

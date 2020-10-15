@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292684"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044599"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -446,7 +446,7 @@ Ecco una revisione dello scenario creato in questa esercitazione.
 
 Se le risorse create in questa esercitazione non sono più necessarie, seguire questa procedura per eliminarle. 
 
-Usando [Azure Cloud Shell](https://shell.azure.com), è possibile eliminare tutte le risorse di Azure di un gruppo di risorse con il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete). Questo comando rimuove il gruppo di risorse, l'istanza di Gemelli digitali di Azure, l'hub IoT e la registrazione del dispositivo hub, l'argomento di Griglia di eventi e le sottoscrizioni associate, nonché l'app di Funzioni di Azure, incluse entrambe le funzioni e le risorse associate, come l'archiviazione.
+Usando [Azure Cloud Shell](https://shell.azure.com), è possibile eliminare tutte le risorse di Azure di un gruppo di risorse con il comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Questo comando rimuove il gruppo di risorse, l'istanza di Gemelli digitali di Azure, l'hub IoT e la registrazione del dispositivo hub, l'argomento di Griglia di eventi e le sottoscrizioni associate, nonché l'app di Funzioni di Azure, incluse entrambe le funzioni e le risorse associate, come l'archiviazione.
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 

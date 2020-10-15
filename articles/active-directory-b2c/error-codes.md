@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91664852"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Codici di errore: Azure Active Directory B2C
@@ -101,7 +101,7 @@ Il servizio Azure Active Directory B2C può restituire gli errori seguenti.
 | `AADB2C90159` | Una richiesta di verifica autocertificata non è riuscita con motivo ' {0} '. |
 | `AADB2C90161` | Una risposta di invio autocertificata non è riuscita. motivo {0} :''. |
 | `AADB2C90165` | Impossibile trovare il messaggio di inizializzazione SAML con ID ' {0} ' nello stato. |
-| `AADB2C90168` | La richiesta di reindirizzamento HTTP non contiene il parametro obbligatorio ' {0} ' per una richiesta firmata. |
+| `AADB2C90168` | La richiesta di HTTP-Redirect non contiene il parametro obbligatorio ' {0} ' per una richiesta firmata. |
 | `AADB2C90178` | Il certificato di firma ' {0} ' non ha una chiave privata. |
 | `AADB2C90182` | Il code_verifier fornito non corrisponde code_challenge associato |
 | `AADB2C90183` | Il code_verifier fornito non è valido |

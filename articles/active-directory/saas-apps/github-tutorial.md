@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b26ee6d6e82903a3dad91ae931885f62daf5d15b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985900"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821170"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub
 
@@ -91,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 5. L'applicazione GitHub prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti in cui **Identificatore utente univoco (ID nome)** è associato a **user.userprincipalname**. L'applicazione GitHub prevede che **Identificatore utente univoco (ID nome)** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping dell'attributo.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la sezione "Attributi utente" con l'icona "Modifica" selezionata.](common/edit-attribute.png)
 
 6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -149,11 +149,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Passare a **Settings** (Impostazioni) e fare clic su **Security** (Sicurezza).
 
-    ![Impostazioni](./media/github-tutorial/security.png)
+    ![Screenshot che mostra il menu "Organization settings" di GitHub con l'opzione "Security" selezionata.](./media/github-tutorial/security.png)
 
 3. Selezionare la casella **Enable SAML authentication** (Abilita autenticazione SAML) mostrando i campi di configurazione dell'accesso Single Sign-On. Seguire questa procedura:
 
-    ![Impostazioni](./media/github-tutorial/saml-sso.png)
+    ![Screenshot che mostra la sezione "SAML single sign-on" con "Enable SAML authentication" e le caselle di testo degli URL evidenziate.](./media/github-tutorial/saml-sso.png)
 
     a. Copiare il valore di **Single sign-on URL** (URL di accesso SSO) e incollarlo nella casella di testo **URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
     
@@ -161,7 +161,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Configurare i campi seguenti:
 
-    ![Impostazioni](./media/github-tutorial/configure.png)
+    ![Screenshot che mostra le caselle di testo "Sign on URL", "Issuer" e "Public certificate".](./media/github-tutorial/configure.png)
 
     a. Nella casella di testo **URL di accesso** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -208,7 +208,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in GitHub. G
 
     b. Fare clic su **Send Invitation** (Invia invito).
 
-    ![Invitare persone](./media/github-tutorial/send-invitation.png "Invitare persone")
+    ![Screenshot che mostra la pagina "Invite member" con l'opzione "Member" e il pulsante "Send invitation" selezionati.](./media/github-tutorial/send-invitation.png "Invitare persone")
 
     > [!NOTE]
     > Il titolare dell'account Azure Active Directory riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.

@@ -45,7 +45,7 @@
       href: whats-new.md
     - name: Componenti
       href: components.md
-    - name: Concetti
+    - name: Algoritmo di bilanciamento del carico
       href: concepts.md
     - name: SKU
       href: skus.md
@@ -63,9 +63,12 @@
       href: load-balancer-ha-ports-overview.md
     - name: Più front-end
       href: load-balancer-multivip-overview.md
-    - name: Connessioni in uscita
+    - name: Proxy in uscita
       href: load-balancer-outbound-connections.md
     - name: Reimpostazione di TCP e timeout di inattività di TCP
+    - name: Regole in uscita
+      href: outbound-rules.md
+    - name: TCP Reset in caso di timeout di inattività
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Standard e zone di disponibilità
       href: load-balancer-standard-availability-zones.md

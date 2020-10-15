@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85955489"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
@@ -98,17 +98,17 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Disco logico | Scritture disco/sec |
 | Disco logico | Free Megabytes |
 | Disco logico | Logical Disk Bytes/sec |
-| Memory | % Available Memory |
-| Memory | % Available Swap Space |
-| Memory | % Used Memory |
-| Memory | % Used Swap Space |
-| Memory | Available MBytes Memory |
-| Memory | Available MBytes Swap |
-| Memory | Page Reads/sec |
-| Memory | Page Writes/sec |
-| Memory | Pages/sec |
-| Memory | Used MBytes Swap Space |
-| Memory | Used Memory MBytes |
+| Memoria | % Available Memory |
+| Memoria | % Available Swap Space |
+| Memoria | % Used Memory |
+| Memoria | % Used Swap Space |
+| Memoria | Available MBytes Memory |
+| Memoria | Available MBytes Swap |
+| Memoria | Page Reads/sec |
+| Memoria | Page Writes/sec |
+| Memoria | Pages/sec |
+| Memoria | Used MBytes Swap Space |
+| Memoria | Used Memory MBytes |
 | Rete | Total Bytes Transmitted |
 | Rete | Total Bytes Received |
 | Rete | Total Bytes |
@@ -133,13 +133,13 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Processore | % Privileged Time |
 | Processore | % di tempo processore |
 | Processore | % User Time |
-| System | Free Physical Memory |
-| System | Free Space in Paging Files |
-| System | Free Virtual Memory |
-| System | Processi |
-| System | Size Stored In Paging Files |
-| System | Uptime |
-| System | Utenti |
+| Sistema | Free Physical Memory |
+| Sistema | Free Space in Paging Files |
+| Sistema | Free Virtual Memory |
+| Sistema | Processi |
+| Sistema | Size Stored In Paging Files |
+| Sistema | Uptime |
+| Sistema | Utenti |
 
 
 Di seguito è illustrata la configurazione predefinita per le metriche delle prestazioni.

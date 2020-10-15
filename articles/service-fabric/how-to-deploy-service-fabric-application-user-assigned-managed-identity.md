@@ -4,13 +4,13 @@ description: Questo articolo illustra come distribuire Service Fabric applicazio
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260080"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Distribuire Service Fabric applicazione con un'identità gestita assegnata dall'utente
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>Distribuire Service Fabric applicazione con un'identità gestita User-Assigned
 
 Per distribuire un'applicazione Service Fabric con identità gestita, l'applicazione deve essere distribuita tramite Azure Resource Manager, in genere con un modello di Azure Resource Manager. Per altre informazioni su come distribuire Service Fabric applicazione tramite Azure Resource Manager, vedere [gestire le applicazioni e i servizi come risorse di Azure Resource Manager](service-fabric-application-arm-resource.md).
 
@@ -21,9 +21,9 @@ Per distribuire un'applicazione Service Fabric con identità gestita, l'applicaz
 > Service Fabric distribuzione di applicazioni con identità gestita è supportata con la versione dell'API `"2019-06-01-preview"` . È anche possibile usare la stessa versione API per il tipo di applicazione, la versione del tipo di applicazione e le risorse del servizio.
 >
 
-## <a name="user-assigned-identity"></a>Identità assegnata dall'utente
+## <a name="user-assigned-identity"></a>Identità User-Assigned
 
-Per abilitare l'applicazione con l'identità assegnata dall'utente, aggiungere prima di tutto la proprietà **Identity** alla risorsa dell'applicazione con il tipo **userAssigned** e le identità assegnate dall'utente a cui si fa riferimento. Aggiungere quindi una sezione **managedIdentities** all'interno della sezione **Properties (proprietà** ) per la risorsa **dell'applicazione** contenente un elenco di nomi descrittivi per il mapping di PrincipalId per ogni identità assegnata dall'utente. Per altre informazioni sulle identità assegnate dall'utente [, vedere creare, elencare o eliminare un'identità gestita assegnata dall'utente](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+Per abilitare l'applicazione con User-Assigned identità, aggiungere prima di tutto la proprietà **Identity** alla risorsa dell'applicazione con il tipo **userAssigned** e le identità assegnate dall'utente a cui si fa riferimento. Aggiungere quindi una sezione **managedIdentities** all'interno della sezione **Properties (proprietà** ) per la risorsa **dell'applicazione** contenente un elenco di nomi descrittivi per il mapping di PrincipalId per ogni identità assegnata dall'utente. Per altre informazioni sulle identità assegnate dall'utente [, vedere creare, elencare o eliminare un'identità gestita assegnata dall'utente](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 ### <a name="application-template"></a>Modello di applicazione
 

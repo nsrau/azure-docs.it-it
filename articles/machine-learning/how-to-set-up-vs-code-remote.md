@@ -11,10 +11,10 @@ ms.author: jmartens
 author: j-martens
 ms.date: 09/03/2020
 ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708374"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code (anteprima)
@@ -130,7 +130,7 @@ Host azmlci1
 
 Di seguito sono riportati alcuni dettagli sui campi:
 
-|Campo|Descrizione|
+|Campo|Description|
 |----|---------|
 |Host|Usa qualsiasi abbreviazione che preferisci per l'istanza di calcolo |
 |HostName|Si tratta dell'indirizzo IP dell'istanza di calcolo |

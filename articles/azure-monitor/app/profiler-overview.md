@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499393"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
@@ -91,7 +91,7 @@ Metodi come **SqlCommand.Execute** indicano che il codice è in attesa del compl
 
 ### <a name="unmanaged-async"></a>Asincrono non gestito
 
-.NET Framework genera eventi ETW e passa gli ID attività tra i thread in modo che sia possibile tenere traccia delle chiamate asincrone tra i thread. Nel codice non gestito (codice nativo) e in alcuni stili precedenti del codice asincrono mancano questi eventi e ID attività, quindi il profiler non è in grado di stabilire quale thread e quali funzioni sono in esecuzione sul thread. Questa operazione è denominata "asincrono non gestito" nello stack di chiamate. Se si Scarica il file ETW, è possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere informazioni più approfondite su ciò che accade.
+.NET Framework genera eventi ETW e passa gli ID attività tra i thread in modo che sia possibile tenere traccia delle chiamate asincrone tra i thread. Nel codice non gestito (codice nativo) e in alcuni stili precedenti del codice asincrono mancano questi eventi e ID attività, quindi il profiler non è in grado di stabilire quale thread e quali funzioni sono in esecuzione sul thread. Questa operazione è denominata "asincrono non gestito" nello stack di chiamate. Se si Scarica il file ETW, è possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)  per ottenere informazioni più approfondite su ciò che accade.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>Tempo CPU
 

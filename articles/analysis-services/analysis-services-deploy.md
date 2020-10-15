@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697602"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018777"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Distribuire un modello da Visual Studio
 
@@ -23,7 +23,7 @@ Dopo aver creato un server nella sottoscrizione di Azure, si è pronti per distr
 Per iniziare, è necessario:
 
 * Un **server Analysis Services** in Azure. Per altre informazioni, vedere [Creare un server Azure Analysis Services](analysis-services-create-server.md).
-* Un **progetto di modello tabulare** in Visual Studio o un modello tabulare esistente con livello di compatibilità 1200 o superiore. Se non è mai stato creato un progetto simile, Vedere [Adventure Works Internet sales tabular modeling tutorial](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) (Esercitazione sul modello tabulare di vendite Internet per Adventure Works).
+* Un **progetto di modello tabulare** in Visual Studio o un modello tabulare esistente con livello di compatibilità 1200 o superiore. Se non è mai stato creato un progetto simile, Vedere [Adventure Works Internet sales tabular modeling tutorial](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) (Esercitazione sul modello tabulare di vendite Internet per Adventure Works).
 * Un **gateway locale**: se una o più origini dati si trovano nella rete locale dell'organizzazione, è necessario installare un [gateway dati locale](analysis-services-gateway.md). Il gateway è necessario affinché il server nel cloud possa connettersi alle origini dati locali per elaborare e aggiornare i dati nel modello.
 
 > [!TIP]
@@ -63,7 +63,4 @@ Se la distribuzione non riesce in una tabella, probabilmente è dovuto al fatto 
 
 Ora che il modello tabulare è stato distribuito nel server, si è pronti per la connessione. È possibile [connettersi con SQL Server Management Studio (SSMS)](analysis-services-manage.md) per gestirlo. Ed è anche possibile [connettersi al modello usando uno strumento client](analysis-services-connect.md) come Power BI, Power BI Desktop o Excel e avviare la creazione di report.   
 
-Per informazioni sui metodi di distribuzione avanzati, vedere [Distribuzione della soluzione di modello tabulare](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
-
-
-
+Per informazioni sui metodi di distribuzione avanzati, vedere [Distribuzione della soluzione di modello tabulare](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).

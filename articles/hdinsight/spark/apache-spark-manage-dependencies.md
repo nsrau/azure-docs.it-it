@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: dafb4485ae9b10d89fa36bd790dcf3a799054de3
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90064137"
 ---
 # <a name="manage-spark-application-dependencies"></a>Gestire le dipendenze dell'applicazione Spark
@@ -23,7 +23,7 @@ Usare i collegamenti rapidi per passare alla sezione in base al caso dell'utente
 * [Configurare le dipendenze jar del processo Spark usando Jupyter notebook](#use-jupyter-notebook)
 * [Configurare le dipendenze jar del processo Spark con use Azure Toolkit for IntelliJ](#use-azure-toolkit-for-intellij)
 * [Configurare le dipendenze jar per il cluster Spark](#jar-libs-for-cluster)
-* [Gestisci in modo sicuro le dipendenze jar](#safely-manage-jar-dependencies)
+* [Gestire in modo sicuro le dipendenze JAR](#safely-manage-jar-dependencies)
 * [Configurare i pacchetti Python del processo Spark usando Jupyter notebook](#use-jupyter-notebook-1)
 * [Gestire in modo sicuro i pacchetti Python per il cluster Spark](#python-packages-for-cluster)
 
@@ -98,7 +98,7 @@ In alcuni casi, può essere necessario configurare le dipendenze jar a livello d
 
 È possibile automatizzare i passaggi usando le [azioni script](../hdinsight-hadoop-customize-cluster-linux.md). L'azione script per l' [aggiunta di librerie personalizzate hive](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) è un riferimento valido. Quando si modificano le configurazioni dei servizi Spark, assicurarsi di usare le API Ambari anziché modificare direttamente i file di configurazione. 
 
-## <a name="safely-manage-jar-dependencies"></a>Gestisci in modo sicuro le dipendenze jar
+## <a name="safely-manage-jar-dependencies"></a>Gestire in modo sicuro le dipendenze JAR
 Il cluster HDInsight include dipendenze jar predefinite e gli aggiornamenti per queste versioni jar si verificano di tanto in tanto. Per evitare conflitti di versione tra i file jar incorporati e i file jar di riferimento, provare a [ombreggiare le dipendenze dell'applicazione](./safely-manage-jar-dependency.md).
 
 ## <a name="python-packages-for-one-spark-job"></a>Pacchetti Python per un processo Spark

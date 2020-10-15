@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: d424cccc0a50198f3ca8c6c040afb87f44282d47
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86508900"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Non è possibile stabilire una connessione RDP a una macchina virtuale perché questa viene avviata in modalità provvisoria
@@ -54,7 +54,7 @@ Per risolvere questo problema, usare il controllo seriale per configurare la mac
     Se la macchina virtuale è configurata per l'avvio in modalità provvisoria, nella sezione **Windows Boot Loader** verrà visualizzato un flag aggiuntivo denominato **safeboot**. Se il flag **safeboot** non viene visualizzato, la macchina virtuale non è in modalità provvisoria. Questo articolo non si applica allo specifico scenario.
 
     Il flag **safeboot** può avere uno dei valori seguenti:
-   - Minimal
+   - Minime
    - Rete
 
      In entrambe queste modalità, la connessione RDP non viene avviata e pertanto la correzione è la stessa.

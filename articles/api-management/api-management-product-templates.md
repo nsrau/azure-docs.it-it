@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86249904"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelli di prodotto in Gestione API di Azure
@@ -37,7 +37,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="product-list"></a><a name="ProductList"></a>Elenco prodotti  
+##  <a name="product-list"></a><a name="ProductList"></a> Elenco prodotti  
  Il modello **Elenco prodotti** consente di personalizzare il corpo della pagina di elenco prodotti nel portale per sviluppatori.  
   
  ![Elenco di prodotti](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -83,7 +83,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 |--------------|----------|-----------------|  
 |Paging|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di prodotti.|  
 |Filtro|Entità [Filtri](api-management-template-data-model-reference.md#Filtering).|Le informazioni dei filtri per la pagina di elenco proodtti.|  
-|Products|Raccolta di entità [Prodotto](api-management-template-data-model-reference.md#Product).|I prodotti visibili all'utente corrente.|  
+|Prodotti|Raccolta di entità [Prodotto](api-management-template-data-model-reference.md#Product).|I prodotti visibili all'utente corrente.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   
@@ -123,7 +123,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 }  
 ```  
   
-##  <a name="product"></a><a name="Product"></a>Prodotto  
+##  <a name="product"></a><a name="Product"></a> Prodotto  
  Il modello **Prodotto** consente di personalizzare il corpo della pagina prodotto nel portale per sviluppatori.  
   
  ![Pagina del prodotto del portale per sviluppatori](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  

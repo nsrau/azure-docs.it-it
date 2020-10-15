@@ -4,10 +4,10 @@ description: Informazioni su come integrare Gestione traffico con la soluzione V
 ms.topic: how-to
 ms.date: 08/14/2020
 ms.openlocfilehash: d461cc444c60e1907a34a08c68139446301c133c
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580150"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Distribuire Gestione traffico per il bilanciamento dei carichi di lavoro di soluzione VMware (AVS) di Azure

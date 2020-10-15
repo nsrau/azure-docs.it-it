@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a3a7cad8399146834eed0282e0655a551bc083a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652849"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977273"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Spostare l'archiviazione mainframe in Azure
 
@@ -57,7 +57,7 @@ Archiviazione di Azure è disponibile come Azure [disks](../../../managed-disks-
 <tr><td>File di Azure
 </td>
 <td>
-Fornisce un'interfaccia SMB, librerie client e un'interfaccia <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">Rest</a> che consente l'accesso da qualsiasi posizione ai file archiviati.
+Fornisce un'interfaccia SMB, librerie client e un'interfaccia <a href="/rest/api/storageservices/file-service-rest-api">Rest</a> che consente l'accesso da qualsiasi posizione ai file archiviati.
 </td>
 <td><ul>
 <li>È possibile spostare un'applicazione nel cloud quando l'applicazione usa le API file system native per condividere i dati tra l'applicazione e altre applicazioni in esecuzione in Azure.</li>
@@ -67,7 +67,7 @@ Fornisce un'interfaccia SMB, librerie client e un'interfaccia <a href="https://d
 </tr>
 <tr><td>BLOB di Azure
 </td>
-<td>Fornisce librerie client e un'interfaccia <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">Rest</a> che consente di archiviare e accedere ai dati non strutturati su vasta scala nei BLOB in blocchi. Supporta anche <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> per le soluzioni aziendali di analisi di Big Data.
+<td>Fornisce librerie client e un'interfaccia <a href="/rest/api/storageservices/blob-service-rest-api">Rest</a> che consente di archiviare e accedere ai dati non strutturati su vasta scala nei BLOB in blocchi. Supporta anche <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> per le soluzioni aziendali di analisi di Big Data.
 </td>
 <td><ul>
 <li>Supportare scenari di streaming e accesso casuale in un'applicazione.</li>
@@ -77,7 +77,7 @@ Fornisce un'interfaccia SMB, librerie client e un'interfaccia <a href="https://d
 </tr>
 <tr><td>Dischi di Azure
 </td>
-<td>Fornisce librerie client e un'interfaccia <a href="https://docs.microsoft.com/rest/api/compute/disks">Rest</a> che consente di archiviare e accedere in modo permanente ai dati da un disco rigido virtuale collegato.
+<td>Fornisce librerie client e un'interfaccia <a href="/rest/api/compute/disks">Rest</a> che consente di archiviare e accedere in modo permanente ai dati da un disco rigido virtuale collegato.
 </td>
 <td><ul>
 <li>Applicazioni Lift-and-Shift che usano API file system native per leggere e scrivere dati in dischi permanenti.</li>

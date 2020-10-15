@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449387"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978255"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -75,7 +75,7 @@ Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione c
 L'acceleratore di scrittura di Azure è una funzionalità disponibile esclusivamente per le VM di Azure della serie M. Come indicato dal nome, lo scopo della funzionalità è migliorare la latenza di I/O delle Scritture per l'archiviazione Premium di Azure. Per SAP HANA, l'uso dell'acceleratore di scrittura è previsto solo sul volume **/hana/log**. Pertanto, **/hana/data** e **/hana/log** sono volumi separati con l'acceleratore di scrittura di Azure che supporta solo il volume **/hana/log**. 
 
 > [!IMPORTANT]
-> Quando si usa archiviazione Premium di Azure, l'uso di [acceleratore di scrittura](../../how-to-enable-write-accelerator.md) di Azure per il volume **/Hana/log** è obbligatorio. Acceleratore di scrittura è disponibile solo per le macchine virtuali di archiviazione Premium e serie M e Mv2. Acceleratore di scrittura non funziona in combinazione con altre famiglie di macchine virtuali di Azure, ad esempio Esv3 o Edsv4.
+> Quando si usa archiviazione Premium di Azure, l'uso di [acceleratore di scrittura](../../how-to-enable-write-accelerator.md) di Azure per il volume **/Hana/log** è obbligatorio. Acceleratore di scrittura è disponibile solo per le macchine virtuali di archiviazione Premium e serie M e Mv2-Series. Acceleratore di scrittura non funziona in combinazione con altre famiglie di macchine virtuali di Azure, ad esempio Esv3 o Edsv4.
 
 Le raccomandazioni relative alla memorizzazione nella cache per i dischi Premium di Azure riportati di seguito presuppongono le caratteristiche di I/O per SAP HANA elenco, ad esempio:
 
@@ -88,7 +88,7 @@ Le raccomandazioni relative alla memorizzazione nella cache per i dischi Premium
 **Raccomandazione: in seguito a questi modelli di I/O osservati SAP HANA, la memorizzazione nella cache per i diversi volumi con archiviazione Premium di Azure deve essere impostata come segue:**
 
 - **/Hana/data** -No caching o Read Caching
-- **/Hana/log** -No caching-Exception per le VM serie M e Mv2 in cui deve essere abilitato Azure acceleratore di scrittura 
+- **/Hana/log** -nessun caching-eccezione per le macchine virtuali M-e Mv2-Series in cui deve essere abilitato Azure acceleratore di scrittura 
 - **/hana/shared**: lettura della cache
 - **Disco del sistema operativo** : non modificare la memorizzazione nella cache predefinita impostata da Azure al momento della creazione della macchina virtuale
 
@@ -147,7 +147,7 @@ Configurazione per il volume **/Hana/data** di SAP:
 | --- | --- | --- | --- | --- | --- | --- | 
 | M32ts | 192 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14.000 |
 | M32ls | 256 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14.000 |
-| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 |  680 MBps | 2\.000 | 14.000 |
+| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 |  680 MBps | 2.000 | 14.000 |
 | M64s | 1\.000 GiB | 1\.000 MBps | 4 x P15 | 680 MBps | 4.400 | 14.000 |
 | M64ms | 1\.750 GiB | 1\.000 MBps | 4 x P20 | 680 MBps | 9.200 | 14.000 |  
 | M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 680 MBps | 9.200| 14.000 | 
@@ -229,7 +229,7 @@ Il disco Ultra consente di definire un singolo disco che soddisfi le dimensioni,
 Altri vantaggi di ultra disk possono essere la latenza di lettura migliore rispetto all'archiviazione Premium. La latenza di lettura più veloce può avere vantaggi quando si vogliono ridurre i tempi di avvio di HANA e il caricamento dei dati in memoria. I vantaggi dell'archiviazione nel disco Ultra si hanno anche quando HANA scrive punti di salvataggio. 
 
 > [!NOTE]
-> Il disco Ultra non è ancora presente in tutte le aree di Azure e non supporta ancora tutti i tipi di VM elencati di seguito. Per informazioni dettagliate sulla disponibilità del disco Ultra e sulle famiglie di VM supportate, vedere l'articolo [Tipi di disco disponibili in Azure](../../windows/disks-types.md#ultra-disk).
+> Il disco Ultra non è ancora presente in tutte le aree di Azure e non supporta ancora tutti i tipi di VM elencati di seguito. Per informazioni dettagliate sulla disponibilità del disco Ultra e sulle famiglie di VM supportate, vedere l'articolo [Tipi di disco disponibili in Azure](../../disks-types.md#ultra-disk).
 
 ### <a name="production-recommended-storage-solution-with-pure-ultra-disk-configuration"></a>Soluzione di archiviazione consigliata per la produzione con configurazione disco Ultra puro
 In questa configurazione i volumi **/Hana/data** e **/Hana/log** vengono conservati separatamente. I valori suggeriti sono derivati dagli indicatori KPI che SAP ha per certificare i tipi di VM per le configurazioni SAP HANA e di archiviazione come consigliato nel documento [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Withepaper sull'archiviazione SAP TDI).
@@ -252,8 +252,8 @@ Le raccomandazioni spesso superano i requisiti minimi di SAP indicati in precede
 | M64ls | 512 GiB | 1\.000 MB/s | 620 GB | 400 MBps | 3\.500 | 256 GB | 250 MBps  | 1.800 |
 | M64s | 1\.000 GiB | 1\.000 MB/s |  1\.200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
 | M64ms | 1\.750 GiB | 1\.000 MB/s | 2\.100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
-| M128s | 2\.000 GiB | 2\.000 MB/s |2\.400 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
-| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |9.600 | 512 GB | 250 MBps  | 2\.500 | 
+| M128s | 2\.000 GiB | 2\.000 MB/s |2\.400 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |9.600 | 512 GB | 250 MBps  | 2,500 | 
 | M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 3\.500 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
 | M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.200 GB | 750 MBps | 14.400 | 512 GB | 250 MBps  | 2\.500 | 
 | M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.200 GB | 1\.000 MBps | 14.400 | 512 GB | 400 MBps  | 4.000 | 
@@ -272,7 +272,7 @@ Per informazioni dettagliate su e per HANA, vedere il documento relativo ai [vol
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Soluzione di costo cosciente con archiviazione Premium di Azure
-Fino ad ora, la soluzione di archiviazione Premium di Azure descritta in questo documento nella sezione [soluzioni con archiviazione Premium e azure acceleratore di scrittura per le macchine virtuali della serie M](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) di Azure è stata concepita per SAP Hana scenari di produzione supportati. Una delle caratteristiche delle configurazioni supportate per l'ambiente di produzione è la separazione dei volumi per i dati SAP HANA e il rollforward log in due volumi diversi. Il motivo di tale separazione è che le caratteristiche del carico di lavoro sui volumi sono diverse. Con le configurazioni di produzione suggerite, potrebbe essere necessario un tipo diverso di memorizzazione nella cache o anche tipi diversi di archiviazione a blocchi di Azure. Le configurazioni supportate per la produzione che usano la destinazione di archiviazione blocchi di Azure devono essere conformi al [contratto di Service VM singolo per le macchine virtuali di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) .  Per gli scenari non di produzione, alcune considerazioni adottate per i sistemi di produzione potrebbero non essere valide per i sistemi non di produzione più bassi. Di conseguenza, è possibile combinare i dati e il volume di log di HANA. Anche se alla fine con alcuni colpevoli, come alla fine non soddisfano determinati indicatori KPI di velocità effettiva o latenza richiesti per i sistemi di produzione. Un altro aspetto per ridurre i costi in questi ambienti può essere l'utilizzo dell' [archiviazione di Azure SDD standard](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). Tuttavia, si tratta di una scelta che invalida il [contratto di Service per macchina virtuale di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+Fino ad ora, la soluzione di archiviazione Premium di Azure descritta in questo documento nella sezione [soluzioni con archiviazione Premium e azure acceleratore di scrittura per le macchine virtuali della serie M](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) di Azure è stata concepita per SAP Hana scenari di produzione supportati. Una delle caratteristiche delle configurazioni supportate per l'ambiente di produzione è la separazione dei volumi per i dati SAP HANA e il rollforward log in due volumi diversi. Il motivo di tale separazione è che le caratteristiche del carico di lavoro sui volumi sono diverse. Con le configurazioni di produzione suggerite, potrebbe essere necessario un tipo diverso di memorizzazione nella cache o anche tipi diversi di archiviazione a blocchi di Azure. Le configurazioni supportate per la produzione che usano la destinazione di archiviazione blocchi di Azure devono essere conformi al [contratto di Service VM singolo per le macchine virtuali di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) .  Per gli scenari non di produzione, alcune considerazioni adottate per i sistemi di produzione potrebbero non essere valide per i sistemi non di produzione più bassi. Di conseguenza, è possibile combinare i dati e il volume di log di HANA. Anche se alla fine con alcuni colpevoli, come alla fine non soddisfano determinati indicatori KPI di velocità effettiva o latenza richiesti per i sistemi di produzione. Un altro aspetto per ridurre i costi in questi ambienti può essere l'utilizzo dell' [archiviazione di Azure SDD standard](./planning-guide-storage.md#azure-standard-ssd-storage). Tuttavia, si tratta di una scelta che invalida il [contratto di Service per macchina virtuale di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
 
 Un'alternativa meno costosa per queste configurazioni potrebbe essere simile alla seguente:
 

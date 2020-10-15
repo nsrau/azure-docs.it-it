@@ -11,10 +11,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84324394"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostica per la risoluzione dei problemi delle prestazioni di scalabilità SQL
@@ -26,7 +26,7 @@ Per risolvere i problemi di prestazioni in un database con iperscalabilità, le 
 
 Ogni livello di servizio del database SQL di Azure ha limiti di velocità di generazione del log applicati tramite la [governance della frequenza dei log](resource-limits-logical-server.md#transaction-log-rate-governance). In iperscalabilità, il limite di generazione dei log è attualmente impostato su 100 MB/sec, indipendentemente dal livello di servizio. In alcuni casi, tuttavia, la velocità di generazione del log nella replica di calcolo primaria deve essere limitata per mantenere i contratti di ripristino. Questa limitazione si verifica quando un [server di pagine o un'altra replica di calcolo](service-tier-hyperscale.md#distributed-functions-architecture) è significativamente alla base dell'applicazione di nuovi record di log dal servizio di log.
 
-I tipi di attesa seguenti (in [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrivono i motivi per cui la frequenza dei log può essere limitata alla replica di calcolo primaria:
+I tipi di attesa seguenti (in [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) descrivono i motivi per cui la frequenza dei log può essere limitata alla replica di calcolo primaria:
 
 |Tipo di attesa    |Descrizione                         |
 |-------------          |------------------------------------|
@@ -67,11 +67,11 @@ Diverse viste gestite dinamiche (DMV) ed eventi estesi contengono colonne e camp
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>Statistiche di file virtuali e accounting IO
 
-Nel database SQL di Azure, la DMF [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) è il modo principale per monitorare i/o del database SQL. Le caratteristiche di i/o in iperscala sono diverse a causa dell' [architettura distribuita](service-tier-hyperscale.md#distributed-functions-architecture). Questa sezione è incentrata sulle operazioni di i/o (letture e scritture) in file di dati, come illustrato in questa DMF. In iperscalabilità ogni file di dati visibile in questa DMF corrisponde a un server di pagina remoto. La cache di RBPEX indicata qui è una cache locale basata su SSD, ovvero una cache non coprente nella replica di calcolo.
+Nel database SQL di Azure, il [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF è il modo principale per monitorare i/o del database SQL. Le caratteristiche di i/o in iperscala sono diverse a causa dell' [architettura distribuita](service-tier-hyperscale.md#distributed-functions-architecture). Questa sezione è incentrata sulle operazioni di i/o (letture e scritture) in file di dati, come illustrato in questa DMF. In iperscalabilità ogni file di dati visibile in questa DMF corrisponde a un server di pagina remoto. La cache di RBPEX indicata qui è una cache locale basata su SSD, ovvero una cache non coprente nella replica di calcolo.
 
 ### <a name="local-rbpex-cache-usage"></a>Utilizzo locale della cache RBPEX
 
-La cache RBPEX locale è presente nella replica di calcolo, nell'archivio SSD locale. Quindi, i/o su questa cache sono più veloci rispetto ai i/o nei server di pagine remote. Attualmente, [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) in un database con iperscalabilità ha una riga speciale che segnala l'i/o sulla cache RBPEX locale nella replica di calcolo. Questa riga ha il valore 0 per le `database_id` colonne e `file_id` . Ad esempio, la query seguente restituisce le statistiche di utilizzo di RBPEX dall'avvio del database.
+La cache RBPEX locale è presente nella replica di calcolo, nell'archivio SSD locale. Quindi, i/o su questa cache sono più veloci rispetto ai i/o nei server di pagine remote. Attualmente, [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) in un database con iperscalabilità ha una riga speciale che segnala l'i/o sulla cache RBPEX locale nella replica di calcolo. Questa riga ha il valore 0 per le `database_id` colonne e `file_id` . Ad esempio, la query seguente restituisce le statistiche di utilizzo di RBPEX dall'avvio del database.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -92,16 +92,16 @@ Un rapporto tra le letture eseguite su RBPEX e le letture aggregate eseguite su 
 
 ### <a name="log-writes"></a>Scritture log
 
-- Nel calcolo primario, una scrittura di log viene rappresentata in file_id 2 di sys. dm_io_virtual_file_stats. Una scrittura di log nel calcolo primario è una scrittura nell'area di destinazione del log.
+- Nel calcolo primario, una scrittura di log viene rappresentata in file_id 2 di sys.dm_io_virtual_file_stats. Una scrittura di log nel calcolo primario è una scrittura nell'area di destinazione del log.
 - I record di log non vengono finalizzati alla replica secondaria su un commit. In iperscalabilità, log viene applicato in modo asincrono dal servizio di log alle repliche secondarie. Poiché le scritture dei log non si verificano effettivamente nelle repliche secondarie, qualsiasi accounting del log IOs sulle repliche secondarie è solo a scopo di rilevamento.
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>IO dati nelle statistiche di utilizzo delle risorse
 
-In un database non iperscalato, le operazioni di i/o in lettura e scrittura combinate sui file di dati, in relazione al limite di IOPS dei dati di [governance delle risorse](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) , vengono segnalate nelle viste [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) nella `avg_data_io_percent` colonna. Lo stesso valore viene segnalato nel portale di Azure come percentuale di i/o _dati_.
+In un database non iperscalato, le operazioni di i/o in lettura e scrittura combinate sui file di dati, rispetto al limite di IOPS dei dati di [governance delle risorse](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) , vengono segnalate in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) viste nella `avg_data_io_percent` colonna. Lo stesso valore viene segnalato nel portale di Azure come percentuale di i/o _dati_.
 
 In un database con iperscalabilità, in questa colonna viene segnalato l'utilizzo di IOPS dei dati rispetto al limite per l'archiviazione locale solo per la replica di calcolo, in particolare IO in RBPEX e `tempdb` . Un valore 100% in questa colonna indica che la governance delle risorse limita gli IOPS di archiviazione locale. Se questo è correlato a un problema di prestazioni, ottimizzare il carico di lavoro per generare un minor tempo di i/o o aumentare l'obiettivo di servizio del database per aumentare il [limite](resource-limits-vcore-single-databases.md) _massimo di IOPS_ per la governance delle risorse Per la governance delle risorse delle letture e scritture di RBPEX, il sistema conta singoli IOs da 8 KB, anziché IOs di dimensioni maggiori che possono essere rilasciati dal motore di database SQL Server.
 
-L'i/o dei dati nei server della pagina remota non viene segnalato nelle viste di utilizzo delle risorse o nel portale, ma viene segnalato nella DMF [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) , come indicato in precedenza.
+L'i/o dei dati nei server della pagina remota non viene segnalato nelle viste di utilizzo delle risorse o nel portale, ma viene segnalato nella DMF [sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) , come indicato in precedenza.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

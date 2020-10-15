@@ -9,10 +9,10 @@ ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90020311"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Baseline della sicurezza di Azure per Sentinel di Azure
@@ -551,7 +551,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida**: abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Nel caso in cui un utente revochi la chiave di crittografia della chiave, eliminando o rimuovendo l'accesso per Azure Sentinel, entro un'ora, Azure Sentinel rispetta la modifica e si comporta come se i dati non fossero più disponibili. A questo punto, verranno impedite eventuali operazioni eseguite che usano risorse di archiviazione persistenti, ad esempio l'inserimento dati, le modifiche persistenti alla configurazione e la creazione di eventi imprevisti. I dati precedentemente archiviati non vengono eliminati, ma rimangono inaccessibili. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati in base a tali criteri.
+**Linee guida**: abilitare Soft-Delete in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Nel caso in cui un utente revochi la chiave di crittografia della chiave, eliminando o rimuovendo l'accesso per Azure Sentinel, entro un'ora, Azure Sentinel rispetta la modifica e si comporta come se i dati non fossero più disponibili. A questo punto, verranno impedite eventuali operazioni eseguite che usano risorse di archiviazione persistenti, ad esempio l'inserimento dati, le modifiche persistenti alla configurazione e la creazione di eventi imprevisti. I dati precedentemente archiviati non vengono eliminati, ma rimangono inaccessibili. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati in base a tali criteri.
 
 L'unica operazione possibile quando la chiave di crittografia è stata revocata o eliminata è l'eliminazione dell'account.
 

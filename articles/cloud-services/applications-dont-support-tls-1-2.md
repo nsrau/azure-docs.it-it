@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683801"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075672"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Risoluzione dei problemi causati da applicazioni che non supportano TLS 1.2
 Questo articolo descrive come abilitare i protocolli TLS precedenti (TLS 1.0 e 1.1), nonché come applicare pacchetti di crittografia legacy per supportare i protocolli aggiuntivi nei ruoli Web e di lavoro del servizio cloud di Windows Server 2019. 
@@ -25,7 +25,7 @@ Questo articolo descrive come abilitare i protocolli TLS precedenti (TLS 1.0 e 1
 Microsoft comprende che, pur con i vari passaggi previsti e annunciati per deprecare TLS 1.0 e TLS 1.1, è possibile che i clienti debbano supportare i protocolli e i pacchetti di crittografia precedenti fino a quando non potranno pianificarne la deprecazione.  Sebbene non sia consigliabile riabilitare questi valori legacy, vengono fornite indicazioni a riguardo per aiutare i clienti. Si consiglia ai clienti di valutare il rischio di regressione prima di implementare le modifiche descritte in questo articolo. 
 
 > [!NOTE]
-> La versione 6 della famiglia di sistemi operativi guest impone TLS 1.2 disabilitando in modo esplicito TLS 1.0 e 1.1 e definendo un set specifico di pacchetti di crittografia. Per altre informazioni sulle famiglie di sistemi operativi guest, vedere [Novità sulla versione del sistema operativo guest](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> La versione 6 della famiglia di sistemi operativi guest impone TLS 1.2 disabilitando in modo esplicito TLS 1.0 e 1.1 e definendo un set specifico di pacchetti di crittografia. Per altre informazioni sulle famiglie di sistemi operativi guest, vedere [Novità sulla versione del sistema operativo guest](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
 
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Eliminazione del supporto per TLS 1.0, TLS 1.1 e pacchetti di crittografia precedenti 
@@ -362,4 +362,3 @@ Ora che i passaggi precedenti sono stati completati, pubblicare l'aggiornamento 
 
 È possibile usare [SSLLabs](https://www.ssllabs.com/) per convalidare lo stato TLS degli endpoint 
 
- 

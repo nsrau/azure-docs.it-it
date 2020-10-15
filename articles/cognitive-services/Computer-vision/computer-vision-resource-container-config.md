@@ -12,10 +12,10 @@ ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536240"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurare i contenitori Docker di lettura OCR
@@ -120,7 +120,7 @@ Sostituire {_nome_argomento_} con i propri valori:
 Gli esempi di Docker seguenti sono per il contenitore di lettura.
 
 
-# <a name="version-31-preview"></a>[Versione 3,1-Preview](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-1)
 
 ### <a name="basic-example"></a>Esempio di base
 

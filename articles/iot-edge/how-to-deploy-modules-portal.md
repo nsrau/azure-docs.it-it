@@ -4,17 +4,16 @@ description: Usare l'hub Internet delle cose nel portale di Azure per eseguire i
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/30/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef3f09648e0d9101d07c6d8941ee7f79ae97b2b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82133927"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048033"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuire i moduli di Azure IoT Edge dal portale di Azure
 
@@ -25,13 +24,20 @@ Questo articolo illustra come il portale di Azure consente di creare un manifest
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) nella sottoscrizione di Azure.
-* Un [dispositivo IoT Edge](how-to-register-device.md#register-in-the-azure-portal) con il runtime di IoT Edge installato.
+* Un dispositivo IoT Edge.
+
+  Se non si dispone di un dispositivo IoT Edge configurato, è possibile crearne uno in una macchina virtuale di Azure. Per [creare un dispositivo Linux virtuale](quickstart-linux.md) o [creare un dispositivo Windows virtuale](quickstart.md), seguire la procedura descritta in uno degli articoli introduttivi.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
 Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
 
 Nel portale di Azure è disponibile una procedura guidata che consente di creare il manifesto dell'applicazione anziché creare il documento JSON manualmente. Sono previsti tre passaggi: **Add modules** (Aggiungere moduli), **Specify routes** (Specificare route) e **Review deployment** (Verificare la distribuzione).
+
+>[!NOTE]
+>I passaggi descritti in questo articolo riflettono la versione dello schema più recente dell'agente e dell'hub IoT Edge. La versione dello schema 1,1 è stata rilasciata insieme a IoT Edge versione 1.0.10 e Abilita le funzionalità per l'ordine di avvio e la definizione delle priorità del modulo.
+>
+>Se si esegue la distribuzione in un dispositivo che esegue la versione 1.0.9 o precedente, modificare le **impostazioni di runtime** nel passaggio **moduli** della procedura guidata per usare la versione dello schema 1,0.
 
 ### <a name="select-device-and-add-modules"></a>Selezionare il dispositivo e aggiungere i moduli
 
@@ -41,21 +47,30 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 1. Sulla barra superiore selezionare **Imposta moduli**.
 1. Nella sezione **impostazioni container Registry** della pagina fornire le credenziali per accedere ai registri di contenitori privati contenenti le immagini del modulo.
 1. Nella sezione **moduli IOT Edge** della pagina selezionare **Aggiungi**.
-1. Esaminare i tipi di moduli dal menu a discesa:
+1. Scegliere uno dei tre tipi di moduli dal menu a discesa:
 
    * **Modulo IOT Edge** : specificare il nome del modulo e l'URI dell'immagine del contenitore. Ad esempio, l'URI dell'immagine per il modulo SimulatedTemperatureSensor di esempio è `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` . Se l'immagine del modulo è archiviata in un registro contenitori privato, aggiungere le credenziali in questa pagina per accedere all'immagine.
    * **Modulo Marketplace** : moduli ospitati in Azure Marketplace. Alcuni moduli del Marketplace richiedono una configurazione aggiuntiva, quindi esaminare i dettagli del modulo nell'elenco dei [moduli IOT Edge di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) .
    * **Modulo di analisi di flusso di Azure** : moduli generati da un carico di lavoro di analisi di flusso di Azure.
 
-1. Dopo aver aggiunto un modulo, selezionare il nome del modulo nell'elenco per aprire le impostazioni del modulo. Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
-1. Se necessario, ripetere i passaggi da 5 a 8 per aggiungere altri moduli alla distribuzione.
+1. Dopo aver aggiunto un modulo, selezionare il nome del modulo nell'elenco per aprire le impostazioni del modulo. Specificare i campi facoltativi, se necessario.
+
+   Per ulteriori informazioni sulle impostazioni dei moduli disponibili, vedere [configurazione e gestione dei moduli](module-composition.md#module-configuration-and-management).
+
+   Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](module-composition.md#define-or-update-desired-properties).
+
+1. Ripetere i passaggi da 6 a 8 per aggiungere altri moduli alla distribuzione.
 1. Selezionare **Avanti: Route** per passare alla sezione route.
 
 ### <a name="specify-routes"></a>Specificare le route
 
-Nella scheda **Route** è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore. Per impostazione predefinita, una route viene chiamata **Route** e definita **da/messages/ \* in $upstream**, il che significa che tutti i messaggi restituiti da qualsiasi modulo vengono inviati all'hub Internet.  
+Nella scheda **Route** è possibile definire come vengono passati i messaggi tra i moduli e l'hub IoT. I messaggi vengono costruiti mediante coppie nome/valore. Per impostazione predefinita, la prima distribuzione per un nuovo dispositivo include una route denominata **Route** e definita **da/messages/ \* in $upstream**, il che significa che tutti i messaggi restituiti da qualsiasi modulo vengono inviati all'hub Internet.  
 
-Aggiungere o aggiornare le route con le informazioni provenienti da [Declare Routes](module-composition.md#declare-routes), quindi selezionare **Next: Review + create** per passare al passaggio successivo della procedura guidata.
+I parametri **Priority** e **time to Live** sono parametri facoltativi che è possibile includere in una definizione di route. Il parametro Priority consente di scegliere le route di cui devono essere elaborati i messaggi prima o le route da elaborare per ultime. La priorità viene determinata impostando un numero 0-9, dove 0 è la priorità più alta. Il parametro time to Live consente di dichiarare per quanto tempo i messaggi in tale route devono essere conservati fino a quando non vengono elaborati o rimossi dalla coda.
+
+Per altre informazioni su come creare route, vedere [dichiarare le route](module-composition.md#declare-routes).
+
+Dopo aver impostato le route, fare clic su **Avanti: verifica + crea** per continuare con il passaggio successivo della procedura guidata.
 
 ### <a name="review-deployment"></a>Verificare la distribuzione
 

@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d508e2e24ac35171d87cdba9cb79981dfb8764e3
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 69a2bc002b2ccccba90bde5b6c92d162b6e78815
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757470"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952251"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Caricare i dati di utilizzo, le metriche e i log in monitoraggio di Azure
 
 Periodicamente è possibile esportare le informazioni di utilizzo per finalità di fatturazione, monitoraggio delle metriche e log e quindi caricarle in Azure.  L'esportazione e il caricamento di uno di questi tre tipi di dati creeranno e aggiorneranno anche le risorse del gruppo di server per il controller di dati, l'istanza gestita di SQL e l'iperscalabilità PostgreSQL in Azure.
 
 > [!NOTE] 
-Durante il periodo di anteprima, non è previsto alcun costo per l'uso di Azure Arc Enabled Data Services.
+> Durante il periodo di anteprima, non è previsto alcun costo per l'uso di Azure Arc Enabled Data Services.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

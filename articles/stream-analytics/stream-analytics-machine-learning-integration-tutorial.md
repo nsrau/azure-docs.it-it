@@ -1,6 +1,6 @@
 ---
-title: Integrazione di Analisi di flusso di Azure con Azure Machine Learning
-description: Questo articolo descrive come configurare rapidamente un semplice processo di analisi di flusso di Azure che integra Azure Machine Learning, usando una funzione definita dall'utente.
+title: Integrazione di analisi di flusso di Azure con Azure Machine Learning Studio (versione classica)
+description: Questo articolo descrive come configurare rapidamente un semplice processo di analisi di flusso di Azure che integra Azure Machine Learning Studio (classico), usando una funzione definita dall'utente.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 26a1208131f1d9d3df7dccd8e27bda37992f043f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 529b1ce8026d9880bbc8caf87ab59148baf92df3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236675"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019461"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Analisi dei sentimenti con analisi di flusso e Azure Machine Learning Studio di Azure (versione classica)
 
-Questo articolo illustra come configurare un semplice processo di analisi di flusso di Azure che usa Azure Machine Learning Studio (classico) per l'analisi dei sentimenti. Si usa un modello di analisi dei sentimenti Machine Learning dal Cortana Intelligence Gallery per analizzare i dati di flusso di testo e determinare il punteggio del sentimento.
+Questo articolo illustra come configurare un semplice processo di analisi di flusso di Azure che usa Azure Machine Learning Studio (classico) per l'analisi dei sentimenti. Si usa un modello di analisi dei sentimenti di studio (classico) dalla Cortana Intelligence Gallery per analizzare i dati di flusso di testo e determinare il punteggio del sentimento.
 
 > [!TIP]
 > Per migliorare le prestazioni e l'affidabilità, è consigliabile usare [funzioni definite dall'utente di Azure Machine Learning](machine-learning-udf.md) anziché le funzioni definite dall'utente di Azure Machine Learning Studio (versione classica).
@@ -47,11 +47,11 @@ In questo passaggio si carica un file CSV nel contenitore di archiviazione.
 
 2. Compilare la scheda *nozioni di base* con i dettagli seguenti e lasciare i valori predefiniti per i campi rimanenti:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    |Subscription|Scegliere la propria sottoscrizione.|
    |Resource group|Scegliere il gruppo di risorse.|
-   |Nome dell'account di archiviazione|Immettere un nome per l'account di archiviazione. Il nome deve essere univoco in Azure.|
+   |Nome account di archiviazione|Immettere un nome per l'account di archiviazione. Il nome deve essere univoco in Azure.|
    |Location|Scegliere un paese. Tutte le risorse devono usare la stessa località.|
    |Tipo di account|BlobStorage|
 
@@ -79,31 +79,31 @@ Ora che i dati di esempio sono in un BLOB, è possibile abilitare il modello di 
 
 2. Selezionare **Apri in studio (classico)**.  
    
-   ![Analisi di flusso e Machine Learning, aprire Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Analisi di flusso Azure Machine Learning Studio (versione classica), Open Studio (classico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Effettuare l'accesso per passare all'area di lavoro. Selezionare una località.
 
 4. Selezionare **Run (Esegui** ) nella parte inferiore della pagina. Il processo viene eseguito e richiede circa un minuto.
 
-   ![eseguire l'esperimento in Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
+   ![Eseguire l'esperimento in studio (classico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
 
 5. Al termine dell'esecuzione del processo, selezionare **Deploy Web Service** (Distribuisci servizio Web) nella parte inferiore della pagina.
 
-   ![distribuire l'esperimento in Machine Learning Studio come servizio Web](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
+   ![Distribuire l'esperimento in studio (classico) come servizio Web](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
 
 6. Per verificare che il modello di analisi dei sentimenti sia pronto per l'uso, selezionare il pulsante **test** . Immettere testo, ad esempio "Mi piace Microsoft".
 
-   ![testare l'esperimento in Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
+   ![Esperimento di test in studio (classico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
 
    Se il test funziona, viene visualizzato un risultato simile all'esempio seguente:
 
-   ![risultati del test in Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
+   ![Risultati dei test in studio (versione classica)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
 7. Nella colonna **app** selezionare il collegamento **cartella di lavoro Excel 2010 o versione precedente** per scaricare una cartella di lavoro di Excel. La cartella di lavoro contiene la chiave API e l'URL necessari in seguito per configurare il processo di Analisi di flusso.
 
-    ![Analisi di flusso e Machine Learning, panoramica rapida](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Analisi di flusso Azure Machine Learning Studio (classico), Quick Glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
-## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Creare un processo di Analisi di flusso che usi il modello di Machine Learning
+## <a name="create-a-stream-analytics-job-that-uses-the-studio-classic-model"></a>Creare un processo di analisi di flusso che usa il modello di studio (classico)
 
 È ora possibile creare un processo di Analisi di flusso che legge i tweet di esempio dal file CSV nell'archivio BLOB.
 
@@ -119,7 +119,7 @@ Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BL
 
 2. Compilare i dettagli di **archiviazione BLOB** con i valori seguenti:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    |Alias di input|Assegnare un nome all'input. Ricordare questo alias quando si scrive la query.|
    |Subscription|Selezionare la propria sottoscrizione.|
@@ -137,7 +137,7 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
 2. Compilare il modulo di **archiviazione BLOB** con questi valori:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    |Alias di input|Assegnare un nome all'input. Ricordare questo alias quando si scrive la query.|
    |Subscription|Selezionare la propria sottoscrizione.|
@@ -147,9 +147,9 @@ Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input.
 
 3. Selezionare **Salva**.
 
-### <a name="add-the-machine-learning-function"></a>Aggiungere la funzione di Machine Learning
+### <a name="add-the-studio-classic-function"></a>Aggiungere la funzione Studio (classica)
 
-In precedenza è stato pubblicato un modello di Machine Learning in un servizio Web. In questo scenario, quando si esegue il processo di Analisi di flusso, il processo invia ogni tweet di esempio dall'input al servizio Web per l'analisi del sentiment. Il servizio Web di Machine Learning restituisce un sentiment (`positive`, `neutral` o `negative`) e la probabilità che il tweet sia positivo.
+In precedenza è stato pubblicato un modello di studio (classico) in un servizio Web. In questo scenario, quando si esegue il processo di Analisi di flusso, il processo invia ogni tweet di esempio dall'input al servizio Web per l'analisi del sentiment. Il servizio Web Studio (classico) restituisce un sentimento ( `positive` , `neutral` o `negative` ) e la probabilità che il tweet sia positivo.
 
 In questa sezione si definisce una funzione nel processo di analisi dei flussi. La funzione può essere richiamata per inviare un tweet al servizio Web e ottenere la risposta.
 
@@ -159,7 +159,7 @@ In questa sezione si definisce una funzione nel processo di analisi dei flussi. 
 
 3. Compilare il form della **funzione Azure Machine Learning** con i valori seguenti:
 
-   |Campo  |Valore  |
+   |Campo  |valore  |
    |---------|---------|
    | Alias di funzione | Usare il nome `sentiment` e selezionare **specificare le impostazioni della funzione Azure Machine Learning manualmente**, che offre un'opzione per immettere l'URL e la chiave.      |
    | URL| Incollare l'URL del servizio Web.|
@@ -169,7 +169,7 @@ In questa sezione si definisce una funzione nel processo di analisi dei flussi. 
 
 ### <a name="create-a-query-to-transform-the-data"></a>Creare una query per trasformare i dati
 
-Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input ed elaborarlo. In questa sezione si creerà una query che legge ogni tweet dall'input e quindi richiama la funzione di Machine Learning per eseguire l'analisi del sentiment. La query invia quindi il risultato all'output definito (archivio BLOB).
+Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input ed elaborarlo. In questa sezione viene creata una query che legge ogni tweet dall'input e quindi richiama la funzione Studio (classica) per eseguire l'analisi dei sentimenti. La query invia quindi il risultato all'output definito (archivio BLOB).
 
 1. Tornare alla panoramica del processo di analisi di flusso.
 
@@ -215,18 +215,18 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 
 3. Aprire il file CSV generato. Il contenuto visualizzato sarà simile al seguente:  
 
-   ![Analisi di flusso e Machine Learning, visualizzazione CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Analisi di flusso Azure Machine Learning Studio (classica), visualizzazione CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ### <a name="view-metrics"></a>Visualizzare le metriche
 
-È possibile osservare anche le metriche correlate alla funzione Azure Machine Learning. Le metriche correlate alla funzione seguenti vengono visualizzate nella casella **monitoraggio** della panoramica del processo:
+È anche possibile visualizzare le metriche correlate alle funzioni di studio (classiche). Le metriche correlate alla funzione seguenti vengono visualizzate nella casella **monitoraggio** della panoramica del processo:
 
-* **Richieste della funzione** indica il numero di richieste inviate al servizio Web di Machine Learning.  
-* **Eventi della funzione** indica il numero di eventi nella richiesta. Per impostazione predefinita, ogni richiesta a un servizio Web di Machine Learning contiene fino a 1.000 eventi.
+* **Richieste di funzioni** indica il numero di richieste inviate a un servizio Web di studio (classico).  
+* **Eventi della funzione** indica il numero di eventi nella richiesta. Per impostazione predefinita, ogni richiesta a un servizio Web Studio (classico) contiene fino a 1.000 eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Integrare API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
+* [Integrare l'API REST e la Machine Learning Studio (classica)](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

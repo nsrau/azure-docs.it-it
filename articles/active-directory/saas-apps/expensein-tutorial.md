@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7d0b0a6c935182737a7f207b7c7831fefcd491ea
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ccdfddd3ea76eddea2ab672fe07a092c9b1f1b62
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555308"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817061"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Esercitazione: Integrazione di ExpenseIn con Azure Active Directory
 
@@ -135,11 +135,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Admin** (Amministrazione) nella parte superiore della pagina, quindi passare a **Single Sign-On** e fare clic su **Add provider** (Aggiungi provider).
 
-     ![Configurazione di ExpenseIn](./media/expenseIn-tutorial/config01.png)
+     ![Screenshot che mostra la scheda "Admin" e la pagina "Single Sign-On - Providers" e l'opzione "Add Provider" selezionata.](./media/expenseIn-tutorial/config01.png)
 
 1. Nella finestra popup **New Identity Provider** (Nuovo provider di identità) seguire questa procedura:
 
-    ![Configurazione di ExpenseIn](./media/expenseIn-tutorial/config02.png)
+    ![Screenshot che mostra il popup "Edit Identity Provider" con i valori immessi.](./media/expenseIn-tutorial/config02.png)
 
     a. Nella casella di testo **Provider Name** (Nome provider) digitare il nome, ad esempio Azure.
 
@@ -163,7 +163,7 @@ Per consentire agli utenti di Azure AD di accedere a ExpenseIn, è necessario ef
 
 2. Fare clic su **Admin** (Amministrazione) nella parte superiore della pagina, quindi passare a **Users** (Utenti) e fare clic su **New User** (Nuovo utente).
 
-     ![Configurazione di ExpenseIn](./media/expenseIn-tutorial/config03.png)
+     ![Screenshot che mostra la scheda "Admin" e la pagina "Manage Users" con l'opzione "New User" selezionata.](./media/expenseIn-tutorial/config03.png)
 
 3. Nella pagina **Details** (Dettagli) completare i passaggi seguenti:
 

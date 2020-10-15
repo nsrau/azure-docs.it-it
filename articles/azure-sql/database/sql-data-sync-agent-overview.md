@@ -15,7 +15,7 @@ ms.openlocfilehash: e91fd0d94d6f6d87b5e554e27bf9c2a2ba6ccabd
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858473"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agente di sincronizzazione dati per sincronizzazione dati SQL
@@ -226,7 +226,7 @@ Se un endpoint locale, ovvero un database, registrato con un agente client di si
 
 ### <a name="ping-the-service"></a>Eseguire il ping del servizio
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -240,7 +240,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>Visualizzare i database registrati
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -254,7 +254,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>Inviare la chiave dell'agente
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -268,7 +268,7 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>Registrare un database
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
@@ -287,7 +287,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 Quando si usa questo comando per annullare la registrazione di un database, si effettua il deprovisioning completo del database. Se il database fa parte di altri gruppi di sincronizzazione, questa operazione li interrompe.
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -301,7 +301,7 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>Aggiornare le credenziali
 
-#### <a name="usage"></a>Uso
+#### <a name="usage"></a>Utilizzo
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]

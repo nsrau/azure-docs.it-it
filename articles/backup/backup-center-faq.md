@@ -3,12 +3,12 @@ title: Centro di backup-domande frequenti
 description: Questo articolo risponde a domande frequenti su Backup Center
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: b10a9e73e65cf12c43ce28b429a8f12e0b960a76
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7e227eb6a14d06791e52ec33e090afdcb01bab61
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997685"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094042"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Centro di backup-domande frequenti
 
@@ -34,7 +34,7 @@ No. Il centro di backup è pronto per l'uso. Tuttavia, per visualizzare i [repor
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>È necessario disporre di autorizzazioni speciali per usare il centro di backup?
 
-Il centro di backup non necessita di nuove autorizzazioni. Fino a quando si dispone del livello corretto di accesso RBAC per le risorse gestite, è possibile usare il centro di backup per queste risorse. Per visualizzare le informazioni sui backup, ad esempio, è necessario l'accesso in **lettura** agli insiemi di credenziali. Per configurare il backup ed eseguire altre azioni correlate al backup, saranno necessari i ruoli **collaboratore backup** o **operatore di backup** . Altre informazioni sui [ruoli RBAC per backup di Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Il centro di backup non necessita di nuove autorizzazioni. Fino a quando si dispone del livello corretto di accesso RBAC di Azure per le risorse gestite, è possibile usare il centro di backup per queste risorse. Per visualizzare le informazioni sui backup, ad esempio, è necessario l'accesso in **lettura** agli insiemi di credenziali. Per configurare il backup ed eseguire altre azioni correlate al backup, saranno necessari i ruoli **collaboratore backup** o **operatore di backup** . Altre informazioni sui [ruoli di Azure per backup di Azure](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## <a name="pricing"></a>Prezzi
 

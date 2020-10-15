@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 9247ae6e6cfc276c871689df826935c519620573
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e73a02c93807072e30c8ce2a1a7feb30e9d3c8c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908134"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978969"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda nel Azure Stack Edge Pro  
 
@@ -66,7 +66,7 @@ Eseguire la procedura seguente per modificare una pianificazione della larghezza
 
 4. Dopo aver modificato la pianificazione, l'elenco di pianificazioni viene aggiornato per riflettere la pianificazione modificata.
 
-    ![Modificare un utente](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modifica utente 2](media/azure-stack-edge-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## <a name="delete-a-schedule"></a>Eliminare una pianificazione

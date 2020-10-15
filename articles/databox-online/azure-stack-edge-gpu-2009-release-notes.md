@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460476"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047302"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Note sulla versione di Azure Stack Edge Pro con disponibilità generale GPU
 
@@ -21,11 +21,11 @@ Le note sulla versione seguenti identificano i problemi critici aperti e i probl
 
 Le note sulla versione vengono aggiornate continuamente e i problemi che richiedono una soluzione alternativa vengono aggiunti man mano che vengono individuati. Prima di distribuire il dispositivo Azure Stack Edge Pro, esaminare attentamente le informazioni contenute nelle note sulla versione.
 
-Questo articolo si applica alla versione **Pro 2009 di Azure stack Edge** , che esegue il mapping al numero di versione del software **2.1.1364.2110**.
+Questo articolo si applica alla versione **Pro 2010 di Azure stack Edge** , che esegue il mapping al numero di versione del software **2.1.1377.2170**.
 
 ## <a name="whats-new"></a>Novità
 
-Nella versione di Azure Stack Edge 2009 sono disponibili le nuove funzionalità seguenti. 
+Nella versione di Azure Stack Edge 2010 sono disponibili le nuove funzionalità seguenti. 
 
 - **Classi di archiviazione** : in questa versione sono disponibili classi di archiviazione che consentono di eseguire il provisioning dinamico dell'archiviazione. Per altre informazioni, vedere [gestione dell'archiviazione Kubernetes nel dispositivo GPU Pro Azure stack Edge](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Dashboard di Kubernetes con server delle metriche** : in questa versione viene aggiunto un dashboard di Kubernetes con un componente aggiuntivo per il server di metriche. È possibile usare il dashboard per ottenere una panoramica delle applicazioni in esecuzione sul dispositivo Azure Stack Edge Pro, visualizzare lo stato delle risorse del cluster Kubernetes e visualizzare gli eventuali errori verificatisi nel dispositivo. Il server delle metriche aggrega l'utilizzo di CPU e memoria tra le risorse Kubernetes nel dispositivo. Per altre informazioni, vedere [usare il dashboard di Kubernetes per monitorare il dispositivo GPU Pro Azure stack Edge](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
@@ -35,7 +35,7 @@ Nella versione di Azure Stack Edge 2009 sono disponibili le nuove funzionalità 
 
 La tabella seguente fornisce un riepilogo dei problemi noti relativi al dispositivo Azure Stack Edge Pro.
 
-| No. | Feature | Problema | Soluzione alternativa/commenti |
+| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 |**1.**|Funzionalità di anteprima |Per questa versione GA, le funzionalità seguenti: Azure Resource Manager locali, VM, Kubernetes, Azure Arc Enabled Kubernetes, servizio multiprocesso (MP) per GPU-sono tutte disponibili in anteprima per il dispositivo Pro Azure Stack Edge.  |Queste funzionalità saranno disponibili a livello generale in una versione successiva. |
 | **2.** |Azure Stack Edge Pro e Azure SQL | Per la creazione del database SQL è necessario l'accesso amministratore.   |Eseguire i passaggi seguenti anziché i passaggi 1-2 in [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>Nell'interfaccia utente locale del dispositivo abilitare l'interfaccia di calcolo. Selezionare **calcolo > porta # > Abilita per calcolo > applica.**</li><li>Scarica `sqlcmd` dal computer client da https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Connettersi all'indirizzo IP dell'interfaccia di calcolo (la porta abilitata), aggiungendo ", 1401" alla fine dell'indirizzo.</li><li>Il comando finale sarà simile al seguente: sqlcmd-S {Interface IP}, 1401-U SA-P "Strong! Passw0rd ".</li>Al termine di questa operazione, i passaggi 3-4 dalla documentazione corrente devono essere identici. </li></ul> |

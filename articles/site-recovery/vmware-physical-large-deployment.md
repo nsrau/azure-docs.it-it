@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89047082"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
@@ -127,7 +127,7 @@ Dopo il failover in Azure, è necessario che i carichi di lavoro funzionino come
  
 La capacità del server di configurazione è interessata dal numero di computer che eseguono la replica e non dalla frequenza della varianza dei dati. Per determinare se sono necessari server di configurazione aggiuntivi, usare questi limiti di VM definiti.
 
-**CPU** | **Memoria** | **Disco della cache** | **Limite di computer replicati**
+**CPU** | **Memoria** | **Disco cache** | **Limite di computer replicati**
  --- | --- | --- | ---
 8 vCPU<br> 2 socket * 4 core a 2,5 GHz | 16 GB | 600 GB | Fino a 550 computer<br> Presuppone che ogni computer disponga di tre dischi di 100 GB ciascuno.
 
@@ -153,7 +153,7 @@ La capacità del server di elaborazione è interessata dalle percentuali di vari
 - Si consiglia di aggiungere un server con la specifica più elevata. 
 
 
-**CPU** | **Memoria** | **Disco della cache** | **Frequenza di varianza**
+**CPU** | **Memoria** | **Disco cache** | **Frequenza di varianza**
  --- | --- | --- | --- 
 12 vCPU<br> 2 socket * 6 core a 2,5 GHz | 24 GB | 1 GB | Fino a 2 TB al giorno
 

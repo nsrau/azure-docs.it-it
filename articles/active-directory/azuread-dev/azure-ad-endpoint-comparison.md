@@ -13,19 +13,16 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116394"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055291"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Perché eseguire l'aggiornamento a Microsoft Identity Platform (v2.0)?
 
 Quando si sviluppa una nuova applicazione, è importante comprendere le differenze tra gli endpoint di Microsoft Identity Platform (v 2.0) e Azure Active Directory (v 1.0). Questo articolo illustra le principali differenze tra gli endpoint e alcune limitazioni esistenti per la piattaforma di identità Microsoft.
-
-> [!NOTE]
-> L'endpoint della piattaforma Microsoft Identity non supporta tutti gli scenari e le funzionalità di Azure AD. Per determinare se è necessario usare l'endpoint della piattaforma Microsoft Identity, vedere le informazioni sulle [limitazioni della piattaforma di identità Microsoft](#limitations).
 
 ## <a name="who-can-sign-in"></a>Utenti autorizzati a effettuare l'accesso
 
@@ -35,7 +32,7 @@ Quando si sviluppa una nuova applicazione, è importante comprendere le differen
 * L'endpoint della piattaforma Microsoft Identity consente agli account aziendali e dell'Istituto di istruzione di Azure AD e personal account Microsoft (MSA), ad esempio hotmail.com, outlook.com e msn.com, di eseguire l'accesso.
 * Entrambi gli endpoint accettano anche gli accessi degli *[utenti Guest](../external-identities/what-is-b2b.md)* di una directory Azure ad per le applicazioni configurate come *[tenant singolo](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o per le applicazioni *multi-tenant* configurate in modo da puntare all'endpoint specifico del tenant ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-L'endpoint della piattaforma Microsoft Identity consente di scrivere app che accettano accessi da account Microsoft personali e account aziendali o dell'Istituto di istruzione. Questo consente di scrivere l'app senza tenere conto dell'account utilizzato per l'accesso. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, come i siti di SharePoint o i dati delle directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](/graph/api/user-list-messages?view=graph-rest-1.0), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
+L'endpoint della piattaforma Microsoft Identity consente di scrivere app che accettano accessi da account Microsoft personali e account aziendali o dell'Istituto di istruzione. Questo consente di scrivere l'app senza tenere conto dell'account utilizzato per l'accesso. Se, ad esempio, l'app chiama [Microsoft Graph](https://graph.microsoft.io), per gli account aziendali saranno disponibili funzionalità e dati aggiuntivi, come i siti di SharePoint o i dati delle directory. Per numerose azioni, ad esempio la [lettura di un messaggio di posta elettronica dell'utente](/graph/api/user-list-messages), lo stesso codice può tuttavia accedere al messaggio di posta elettronica sia per gli account personali che per quelli aziendali e dell'istituto di istruzione.
 
 Per l'endpoint della piattaforma di identità Microsoft, è possibile usare Microsoft Authentication Library (MSAL) per ottenere l'accesso ai mondi utente, didattici ed aziendali. L'endpoint v1.0 di Azure AD accetta gli accessi solo da account aziendali e dell'istituto di istruzione.
 
@@ -114,7 +111,7 @@ Questi ambiti permettono di creare il codice dell'app in modo che la divulgazion
 Per impostazione predefinita, l'endpoint della piattaforma di identità Microsoft rilascia un set più piccolo di attestazioni nei token per evitare che i payload siano ridotti. Se sono presenti app e servizi che hanno una dipendenza da un'attestazione specifica in un token v 1.0 che non è più disponibile per impostazione predefinita in un token della piattaforma di identità Microsoft, è consigliabile usare la funzionalità di [attestazione facoltativa](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per includere tale attestazione.
 
 > [!IMPORTANT]
-> i token v 1.0 e v 2.0 possono essere emessi sia dagli endpoint v 1.0 che dalla versione 2.0. id_tokens corrisponde *sempre* all'endpoint da cui sono stati richiesti e i token di accesso corrispondono *sempre* al formato previsto dall'API Web che il client chiamerà usando tale token.  Quindi, se l'app usa l'endpoint v 2.0 per ottenere un token per chiamare Microsoft Graph, che prevede i token di accesso in formato v 1.0, l'app riceverà un token nel formato v 1.0.  
+> i token v 1.0 e v 2.0 possono essere emessi sia dagli endpoint v 1.0 che dalla versione 2.0. id_tokens corrisponde *sempre* all'endpoint da cui sono stati richiesti e i token di accesso corrispondono *sempre* al formato previsto dall'API Web che il client chiamerà usando tale token.  Quindi, se l'app usa l'endpoint v 2.0 per ottenere un token per chiamare Microsoft Graph, che prevede i token di accesso in formato v 1.0, l'app riceverà un token nel formato v 1.0.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -153,18 +150,22 @@ Attualmente, il supporto delle librerie per l'endpoint della piattaforma Microso
 * Se si sta creando un'applicazione desktop o per dispositivi mobili, è possibile usare una delle librerie di autenticazione Microsoft (MSAL). Queste librerie sono disponibili a livello generale o in un'anteprima supportata in produzione, pertanto è possibile usarle in applicazioni di produzione. Per altre informazioni sui termini e condizioni dell'anteprima e sulle librerie disponibili, vedere le [informazioni di riferimento sulle librerie di autenticazione](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * Per le piattaforme non coperte da Microsoft Libraries, è possibile eseguire l'integrazione con l'endpoint della piattaforma Microsoft Identity inviando e ricevendo direttamente i messaggi di protocollo nel codice dell'applicazione. I protocolli OpenID Connect e OAuth [sono documentati in modo esplicito](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) per facilitare l'integrazione.
 * Infine, è possibile usare OpenID Connect e librerie OAuth open source per l'integrazione con l'endpoint della piattaforma di identità Microsoft. L'endpoint della piattaforma di identità Microsoft dovrebbe essere compatibile con molte librerie di protocollo Open Source senza modifiche. La disponibilità di questi tipi di librerie varia in base a linguaggio e piattaforma. Nei siti Web di [OpenID Connect](https://openid.net/connect/) e [OAuth 2.0](https://oauth.net/2/) è disponibile un elenco delle implementazioni più diffuse. Per altre informazioni, vedere [Microsoft Identity Platform and Authentication Libraries](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)e l'elenco di librerie client open source ed esempi testati con l'endpoint della piattaforma di identità Microsoft.
-* Come riferimento, l' `.well-known` endpoint per l'endpoint comune Microsoft Identity Platform è `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Sostituire `common` con l'ID tenant per ottenere i dati specifici del tenant.  
+* Come riferimento, l' `.well-known` endpoint per l'endpoint comune Microsoft Identity Platform è `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Sostituire `common` con l'ID tenant per ottenere i dati specifici del tenant.
 
 ### <a name="protocol-changes"></a>Modifiche al protocollo
 
-L'endpoint della piattaforma Microsoft Identity non supporta SAML o WS-Federation. supporta solo OpenID Connect e OAuth 2,0.  Le modifiche degne di nota ai protocolli OAuth 2.0 dall'endpoint v1.0 sono: 
+L'endpoint della piattaforma Microsoft Identity non supporta SAML o WS-Federation. supporta solo OpenID Connect e OAuth 2,0.  Le modifiche degne di nota ai protocolli OAuth 2.0 dall'endpoint v1.0 sono:
 
-* Viene restituita l'attestazione `email` se si configura un'attestazione facoltativa **o** è stato specificato scope=email nella richiesta. 
-* Ora il parametro `scope` è supportato al posto del parametro `resource`.  
-* Molte risposte sono state modificate in modo da renderle più conformi alla specifica OAuth 2.0, ad esempio per ottenere la corretta restituzione di `expires_in` come valore intero anziché come valore stringa.  
+* Viene restituita l'attestazione `email` se si configura un'attestazione facoltativa **o** è stato specificato scope=email nella richiesta.
+* Ora il parametro `scope` è supportato al posto del parametro `resource`.
+* Molte risposte sono state modificate in modo da renderle più conformi alla specifica OAuth 2.0, ad esempio per ottenere la corretta restituzione di `expires_in` come valore intero anziché come valore stringa.
 
 Per comprendere meglio l'ambito della funzionalità del protocollo supportata nell'endpoint della piattaforma di identità Microsoft, vedere informazioni di [riferimento sul protocollo OpenID Connect e OAuth 2,0](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### <a name="saml-restrictions"></a>Restrizioni relative a SAML
+#### <a name="saml-usage"></a>Utilizzo SAML
 
-Se è stato usato Active Directory Authentication Library (ADAL) nelle applicazioni Windows, è possibile che sia stata sfruttata l'autenticazione integrata di Windows, che usa la concessione di asserzione Security Assertion Markup Language (SAML). Tale concessione consente agli utenti dei tenant di Azure AD federati di eseguire automaticamente l'autenticazione all'istanza di Active Directory locale senza immettere le credenziali. La concessione dell'asserzione SAML non è supportata nell'endpoint della piattaforma di identità Microsoft.
+Se è stato usato Active Directory Authentication Library (ADAL) nelle applicazioni Windows, è possibile che sia stata sfruttata l'autenticazione integrata di Windows, che usa la concessione di asserzione Security Assertion Markup Language (SAML). Tale concessione consente agli utenti dei tenant di Azure AD federati di eseguire automaticamente l'autenticazione all'istanza di Active Directory locale senza immettere le credenziali. Mentre [SAML è ancora un protocollo supportato](../develop/active-directory-saml-protocol-reference.md) per l'uso con gli utenti aziendali, l'endpoint v 2.0 è solo per l'uso con le applicazioni OAuth 2,0.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni, vedere la [documentazione della piattaforma Microsoft Identity](../develop/index.yml).

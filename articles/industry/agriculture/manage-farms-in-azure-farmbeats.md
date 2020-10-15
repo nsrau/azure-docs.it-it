@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847486"
 ---
 # <a name="manage-farms"></a>Gestire aziende agricole
@@ -18,7 +18,7 @@ ms.locfileid: "85847486"
 
 ## <a name="create-farms"></a>Creazione di farm
 
-Eseguire i passaggi seguenti:
+Eseguire la procedura descritta di seguito:
 
 1. Accedere all'acceleratore farm. verrà visualizzata la pagina **Farm** .
     Nella pagina **Farm** viene visualizzato l'elenco delle farm nel caso in cui siano già state create nella sottoscrizione.
@@ -33,7 +33,7 @@ Eseguire i passaggi seguenti:
 
 Ecco i due modi per definire un limite della farm:
 
-1. **Contrassegno sulla mappa**: usare lo strumento di controllo della mappa per tracciare e contrassegnare il limite della farm. Per contrassegnare i limiti, la ![ farm ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) del progetto batte e contrassegna i limiti esatti.
+1. **Contrassegno sulla mappa**: usare lo strumento di controllo della mappa per tracciare e contrassegnare il limite della farm. Per contrassegnare i limiti, la  ![ farm ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) del progetto batte e contrassegna i limiti esatti.
 
     ![Progetto FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 

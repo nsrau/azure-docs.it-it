@@ -13,10 +13,10 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: 6780942d922f885c7afebd8e64f4f28654c3800e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87042549"
 ---
 # <a name="deploy-micro-focus-enterprise-server-50-to-aks"></a>Distribuire Micro Focus Enterprise Server 5,0 ad AKS
@@ -35,7 +35,7 @@ Si tratta di un processo in tre fasi. È necessario:
 
 In questo modo è possibile aumentare e ridurre i carichi di lavoro di modernizzazione del mainframe in Azure, sfruttando il vero vantaggio della piattaforma cloud.
 
-Pronto? Iniziamo!
+Pronto? Ora si può iniziare.
 
 ## <a name="create-the-azure-container-registry"></a>Creare il Container Registry di Azure
 
@@ -119,4 +119,4 @@ Verrà visualizzato es-acctdemo come pod in esecuzione, come illustrato nella fi
 
 ![Screenshot es-acctdemo come pod in esecuzione](media/deploy-image-9.png)
 
-A questo punto, Si sta ora eseguendo Enterprise Server nel servizio Azure Kubernetes. Nel prossimo articolo verrà illustrato come accedere alla console di amministrazione di Enterprise Server e come sfruttare i Kubernetes per scalare la distribuzione.
+Congratulazioni! Si sta ora eseguendo Enterprise Server nel servizio Azure Kubernetes. Nel prossimo articolo verrà illustrato come accedere alla console di amministrazione di Enterprise Server e come sfruttare i Kubernetes per scalare la distribuzione.

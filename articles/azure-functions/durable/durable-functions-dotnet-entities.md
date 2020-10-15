@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88055174"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guida per gli sviluppatori di entità durevoli in .NET
@@ -267,7 +267,7 @@ Vengono inoltre applicate alcune regole aggiuntive:
 * Le interfacce di entità devono definire solo metodi.
 * Le interfacce di entità non devono contenere parametri generici.
 * I metodi dell'interfaccia di entità non devono avere più di un parametro.
-* I metodi dell'interfaccia di entità devono restituire `void` , `Task` o`Task<T>` 
+* I metodi dell'interfaccia di entità devono restituire `void` , `Task` o `Task<T>` 
 
 Se una di queste regole viene violata, `InvalidOperationException` viene generata un'eccezione in fase di esecuzione quando l'interfaccia viene usata come argomento di tipo per `SignalEntity` o `CreateProxy` . Il messaggio di eccezione spiega quale regola è stata interrotta.
 

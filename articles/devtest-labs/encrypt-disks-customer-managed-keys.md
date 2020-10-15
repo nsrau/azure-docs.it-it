@@ -4,10 +4,10 @@ description: Informazioni su come crittografare i dischi del sistema operativo u
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 257894c6318c9ca083c72daf3c888f7d509ae683
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89489833"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Crittografare i dischi del sistema operativo usando chiavi gestite dal cliente in Azure DevTest Labs
@@ -39,14 +39,14 @@ La sezione seguente illustra come un proprietario del Lab può configurare la cr
     1. Nella pagina **Set Encryption disk** selezionare controllo di **accesso (IAM)** nel menu a sinistra. 
     1. Selezionare **+ Aggiungi** sulla barra degli strumenti e selezionare **Aggiungi un'assegnazione di ruolo**.  
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Aggiungi gestione ruoli-menu":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Chiavi gestite":::
     1. Nella pagina **Aggiungi assegnazione ruolo** selezionare il ruolo **lettore** o un ruolo che consente un maggiore accesso. 
     1. Digitare il nome del Lab per il quale verrà usato il set di crittografia del disco e selezionare il nome del Lab (identità assegnata dal sistema per il Lab) nell'elenco a discesa. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Selezionare l'identità gestita dal sistema del Lab":::        
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Chiavi gestite":::        
     1. Sulla barra degli strumenti selezionare **Salva**. 
 
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Salva assegnazione ruolo":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Chiavi gestite":::
 3. Aggiungere l' **identità assegnata dal sistema** Lab al ruolo **collaboratore macchina virtuale** utilizzando la pagina controllo di accesso della **sottoscrizione**  ->  **(IAM)** . I passaggi sono simili a quelli descritti nei passaggi precedenti. 
 
     
@@ -54,7 +54,7 @@ La sezione seguente illustra come un proprietario del Lab può configurare la cr
     1. Selezionare **Controllo di accesso (IAM)** . 
     1. Selezionare **+ Aggiungi** sulla barra degli strumenti e selezionare **Aggiungi un'assegnazione di ruolo**. 
     
-        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Sottoscrizione-pagina controllo di accesso > (IAM)":::
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Chiavi gestite":::
     1. Nella pagina **Aggiungi assegnazione ruolo** selezionare **collaboratore macchina virtuale** per il ruolo.
     1. Digitare il nome del Lab e selezionare il **nome del Lab** (identità assegnata dal sistema per il Lab) nell'elenco a discesa. 
     1. Sulla barra degli strumenti selezionare **Salva**. 
@@ -64,12 +64,12 @@ La sezione seguente illustra come un proprietario del Lab può configurare la cr
 1. Nella portale di Azure home page per il Lab selezionare **configurazione e criteri** dal menu a sinistra. 
 1. Nella pagina **configurazione e criteri** selezionare **dischi (anteprima)** nella sezione **crittografia** . Per impostazione predefinita, il **tipo di crittografia** è impostato su crittografia dei componenti inattivi **con una chiave gestita dalla piattaforma**.
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Scheda dischi della pagina configurazione e criteri":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Chiavi gestite":::
 1. Per **tipo di crittografia**selezionare **crittografia dei componenti inattivi con una chiave gestita dal cliente** dall'elenco a discesa. 
 1. Per la **crittografia del disco impostata**selezionare il set di crittografia del disco creato in precedenza. Si tratta dello stesso set di crittografia del disco a cui può accedere l'identità assegnata dal sistema del Lab.
 1. Sulla barra degli strumenti selezionare **Salva**. 
 
-    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Abilitare la crittografia con la chiave gestita dal cliente":::
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Chiavi gestite":::
 1. Nella finestra di messaggio con il testo seguente: *questa impostazione verrà applicata ai computer appena creati nel Lab. Il disco del sistema operativo precedente resterà crittografato con il vecchio set di crittografia del disco*, selezionare **OK**. 
 
     Una volta configurata, i dischi del sistema operativo Lab verranno crittografati con la chiave gestita dal cliente fornita tramite il set di crittografia del disco. 
@@ -79,15 +79,15 @@ La sezione seguente illustra come un proprietario del Lab può configurare la cr
 1. Passare a una macchina virtuale Lab creata dopo aver abilitato la crittografia del disco con una chiave gestita dal cliente nel Lab.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="VM con crittografia del disco abilitata":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/enabled-encryption-vm.png" alt-text="Chiavi gestite":::
 1. Fare clic sul gruppo di risorse della macchina virtuale e fare clic sul disco del sistema operativo.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Gruppo di risorse VM":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/vm-resource-group.png" alt-text="Chiavi gestite":::
 1. Passare a crittografia e verificare se la crittografia è impostata su chiave gestita dal cliente con il set di crittografia del disco selezionato.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Convalida crittografia":::
+    > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/validate-encryption.png" alt-text="Chiavi gestite":::
   
 ## <a name="next-steps"></a>Passaggi successivi
 

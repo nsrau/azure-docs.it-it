@@ -2,35 +2,35 @@
 title: La replica imposta i concetti per Azure AD Domain Services | Microsoft Docs
 description: Informazioni sui set di repliche in Azure Active Directory Domain Services e sul modo in cui forniscono la ridondanza per le applicazioni che richiedono servizi di identità.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
-ms.openlocfilehash: 698009ee8a57ed5d30e01376b4f2c63b0a27ead8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: joflore
+ms.openlocfilehash: 499f4df303993d97ebb4eb38de98828b085aff00
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505731"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961069"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>La replica imposta i concetti e le funzionalità per Azure Active Directory Domain Services (anteprima)
 
-Quando si crea un dominio gestito Azure Active Directory Domain Services (Azure AD DS), si definisce uno spazio dei nomi univoco. Questo spazio dei nomi è il nome di dominio, ad esempio *aaddscontoso.com*, e due controller di dominio (DCS) vengono quindi distribuiti nell'area di Azure selezionata. Questa distribuzione di controller di dominio è nota come set di repliche.
+Quando si crea un dominio gestito Azure Active Directory Domain Services (Azure AD DS), si definisce uno spazio dei nomi univoco. Questo spazio dei nomi è il nome di dominio, ad esempio *aaddscontoso.com* e quindi nell'area di Azure selezionata vengono distribuiti due controller di dominio. Questa distribuzione di controller di dominio è nota come set di repliche.
 
-È possibile espandere un dominio gestito per avere più di un set di repliche per ogni tenant Azure AD. I set di repliche possono essere aggiunti a qualsiasi rete virtuale con peering in qualsiasi area di Azure che supporta Azure AD DS. Set di repliche aggiuntivi in diverse aree di Azure forniscono il ripristino di emergenza geografico per le applicazioni legacy se un'area di Azure passa alla modalità offline.
+È possibile espandere un dominio gestito in modo che ogni tenant di Azure AD contenga più di un set di repliche. È possibile aggiungere i set di repliche a qualsiasi rete virtuale con peering in qualsiasi area di Azure che supporti Azure AD DS. I set di replica aggiuntivi in aree di Azure diverse forniscono il ripristino di emergenza geografico per le applicazioni legacy se un'area di Azure passa offline.
 
-I set di repliche sono attualmente in anteprima.
+I set di repliche sono attualmente disponibili in anteprima.
 
 > [!NOTE]
 > I set di repliche non consentono di distribuire più domini gestiti univoci in un singolo tenant di Azure. Ogni set di repliche contiene gli stessi dati.
 
 ## <a name="how-replica-sets-work"></a>Funzionamento del set di repliche
 
-Quando si crea un dominio gestito, ad esempio *aaddscontoso.com*, viene creato un set di repliche iniziale. I set di repliche aggiuntivi condividono lo stesso spazio dei nomi e la stessa configurazione. Le modifiche apportate a Azure AD DS, inclusi configurazione, identità utente e credenziali, gruppi, oggetti Criteri di gruppo, oggetti computer e altre modifiche vengono applicate a tutti i set di repliche nel dominio gestito tramite la replica di servizi di dominio Active Directory.
+Quando si crea un dominio gestito, ad esempio *aaddscontoso.com*, viene creato un set di repliche iniziale. I set di repliche aggiuntivi condividono lo stesso spazio dei nomi e la stessa configurazione. Le modifiche apportate ad Azure AD DS, ad esempio alla configurazione, a identità utente e credenziali, ai gruppi, agli oggetti Criteri di gruppo e agli oggetti computer e le modifiche di altro tipo, vengono applicate a tutti i set di repliche nel dominio gestito con la replica di AD DS.
 
 Ogni set di repliche viene creato in una rete virtuale. Ogni rete virtuale deve essere sottoposta a peering in tutte le altre reti virtuali che ospitano il set di repliche di un dominio gestito. Questa configurazione crea una topologia di rete mesh che supporta la replica della directory. Una rete virtuale può supportare più set di repliche, purché ogni set di repliche si trovi in un'altra subnet virtuale.
 
@@ -64,7 +64,7 @@ La fatturazione per ogni set di repliche è basata sullo SKU di configurazione d
 
 ### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>È possibile usare il dominio gestito di produzione con questa anteprima?
 
-I set di repliche sono una funzionalità di anteprima pubblica in Azure AD Domain Services. È possibile usare un dominio gestito di produzione, ma tenere presente le differenze di supporto esistenti per le funzionalità ancora in anteprima. Per ulteriori informazioni sulle anteprime, [Azure Active Directory SLA di anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+I set di repliche sono una funzionalità in anteprima pubblica di Azure AD Domain Services. È possibile usare un dominio gestito di produzione, ma tenere presente le differenze di supporto esistenti per le funzionalità ancora in anteprima. Per altre informazioni sulle anteprime, vedere il [contratto di servizio per le anteprime di Azure Active Directory](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>È possibile creare un set di repliche in una sottoscrizione diversa dal dominio gestito?
 

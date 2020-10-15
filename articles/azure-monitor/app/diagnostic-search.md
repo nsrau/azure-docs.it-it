@@ -4,10 +4,10 @@ description: Ricercare e filtrare elementi di telemetria non elaborata inviata d
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324455"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
@@ -92,7 +92,7 @@ Per trovare tutti gli elementi con lo stesso valore della proprietà, digitarli 
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| Stringa | *Non* trovato | Trovato |
+| string | *Non* trovato | Trovato |
 | --- | --- | --- |
 | ControllerHome.Info |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stati Uniti|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
@@ -133,7 +133,7 @@ Oltre la telemetria predefinita inviata da Application Insights SDK, è possibil
 
 [Informazioni su come inviare log e telemetria personalizzata ad Application Insights](./asp-net-trace-logs.md).
 
-## <a name="q--a"></a><a name="questions"></a>Domande e risposte
+## <a name="q--a"></a><a name="questions"></a>D & A
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>Quanti dati vengono conservati?
 

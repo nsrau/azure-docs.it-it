@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071211"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Ripristino di emergenza e distribuzione geografica in Azure Durable Functions
@@ -20,7 +20,7 @@ In Durable Functions, per impostazione predefinita, tutto lo stato viene reso pe
 
 Le orchestrazioni e le entità possono essere attivate usando le [funzioni client](durable-functions-types-features-overview.md#client-functions) che vengono avviate tramite http o uno degli altri tipi di trigger di funzioni di Azure supportate. Possono anche essere attivati usando le [API HTTP predefinite](durable-functions-http-features.md#built-in-http-apis). Per semplicità, questo articolo è incentrato sugli scenari che coinvolgono l'archiviazione di Azure e i trigger di funzione basati su HTTP e le opzioni per aumentare la disponibilità e ridurre al minimo i tempi di inattività durante le attività di ripristino di emergenza Altri tipi di trigger, ad esempio il bus di servizio o Cosmos DB trigger, non verranno analizzati in modo esplicito.
 
-Gli scenari seguenti sono basati sulle configurazioni attive-passive, perché sono guidate dall'uso di archiviazione di Azure. Questo modello prevede la distribuzione di un'app per le funzioni di backup (passiva) in un'altra area. Gestione traffico eseguirà il monitoraggio dell'app per le funzioni primaria (attiva) per la disponibilità HTTP. In caso di errore dell'app primaria, verrà effettuato il failover all'app per le funzioni di backup. Per altre informazioni, vedere Metodo di routing del [traffico prioritario](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) di [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/).
+Gli scenari seguenti sono basati sulle configurazioni di Active-Passive, perché sono guidate dall'uso di archiviazione di Azure. Questo modello prevede la distribuzione di un'app per le funzioni di backup (passiva) in un'altra area. Gestione traffico eseguirà il monitoraggio dell'app per le funzioni primaria (attiva) per la disponibilità HTTP. In caso di errore dell'app primaria, verrà effettuato il failover all'app per le funzioni di backup. Per altre informazioni, vedere [priorità Traffic-Routing metodo](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method) di [Gestione traffico di Azure](https://azure.microsoft.com/services/traffic-manager/).
 
 > [!NOTE]
 > - La configurazione attiva-passiva proposta assicura che un client sia sempre in grado di attivare nuove orchestrazioni tramite HTTP. Tuttavia, come conseguenza della presenza di due app per le funzioni che condividono lo stesso hub attività nell'archivio, alcune transazioni di archiviazione in background verranno distribuite tra di esse. Questa configurazione comporta pertanto alcuni costi aggiuntivi in uscita per l'app per le funzioni secondarie.

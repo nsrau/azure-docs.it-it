@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749097"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018815"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -79,7 +79,7 @@ Le origini dati e i connettori visualizzati per l'opzione Recupera dati o l'Impo
 **Note:**  
 <a name="tab1400b">6</a> - Solo modelli tabulari 1400 e superiori.  
 <a name="sqlim">7</a> - Quando l'origine dati viene specificata come origine dati del *provider* nei modelli tabulari 1200 e superiori, specificare Microsoft OLE DB Driver per SQL Server MSOLEDBSQL (consigliato), SQL Server Native Client 11.0 o il provider di dati .NET Framework per SQL Server.  
-<a name="instgw">8</a> - Se si specifica MSOLEDBSQL come provider di dati, può essere necessario scaricare e installare [Microsoft OLE DB Driver per SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) nello stesso computer del gateway dati locale.  
+<a name="instgw">8</a> - Se si specifica MSOLEDBSQL come provider di dati, può essere necessario scaricare e installare [Microsoft OLE DB Driver per SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server) nello stesso computer del gateway dati locale.  
 <a name="oracle">9</a> - Per i modelli tabulari 1200 o come origine dati del *provider* nei modelli tabulari 1400 o superiori, specificare Oracle Data Provider for .NET. Se specificato come origine dati strutturata, assicurarsi di [abilitare il provider gestito Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - Per i modelli tabulari 1200 o come origine dati del *provider* nei modelli tabulari 1400 o superiori, specificare Teradata Data Provider for .NET.  
 <a name="filesSP">11</a> - I file nelle istanze locali di SharePoint non sono supportati.

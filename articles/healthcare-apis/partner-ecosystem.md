@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 10/22/2019
 ms.author: chrupa
 ms.openlocfilehash: edc337849b53cb8e818114d3dd100d30cf00b895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84871381"
 ---
 # <a name="partner-ecosystem-for-azure-api-for-fhir"></a>Ecosistema di partner per l'API di Azure per FHIR
@@ -32,4 +32,4 @@ Quando si crea una soluzione end-to-end basata sull'API di Azure per FHIR, è po
 | CitiusTech       | Sviluppo di applicazioni, integratori di sistemi | STATI UNITI, UAE, REGNO UNITO                | [Contact](https://azuremarketplace.microsoft.com/marketplace/apps/citiustech.ics?tab=Overview)                                         |
 | FIRELY           | Sviluppo di applicazioni, integratori di sistemi | USA, EU                     | [Contact](https://fire.ly/contact/)                                                                                                    |
 | Perspecta        | Sviluppo di applicazioni, integratori di sistemi | USA                         | [Contact](https://perspecta.com/contact)                                                                                               |
-| Aridhia          | Analytics                                  | USA, EU                     | [Contact](https://azuremarketplace.microsoft.com/marketplace/apps/aridhiainformatics.analytixagility_workspace_123?tab=Overview)       |
+| Aridhia          | Analisi                                  | USA, EU                     | [Contact](https://azuremarketplace.microsoft.com/marketplace/apps/aridhiainformatics.analytixagility_workspace_123?tab=Overview)       |

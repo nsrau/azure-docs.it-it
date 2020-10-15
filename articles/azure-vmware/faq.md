@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8868f86f0cf46ff82e37cd433d7b5bca0d69567d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530477"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078936"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -65,7 +65,22 @@ Microsoft e Red Hat condividono un team di supporto integrato con percorso condi
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition è disponibile e, in caso affermativo, qual è il costo?
 
-VMware HCX Enterprise Edition (EE) è disponibile con la soluzione VMware di Azure come funzione/servizio in *Anteprima* . Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Una volta che il servizio VMware HCX EE passa a GA, si riceverà un avviso di 30 giorni per il passaggio della fatturazione. È anche possibile disattivare o rifiutare esplicitamente il servizio.
+VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Durante l'anteprima, VMware HCX EE per la soluzione Azure VMware è una funzione/un servizio gratuito ed è soggetto alle condizioni del servizio. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. Sarà anche possibile disattivare/rifiutare esplicitamente il servizio.
+
+#### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Le macchine virtuali della soluzione VMware di Azure possono essere gestite da VMRC?
+Sì, a condizione che il sistema su cui è installato possa accedere al cloud privato vCenter e che usi il DNS pubblico (in modo che possa risolvere i nomi host ESXi).
+
+#### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Sono disponibili istruzioni speciali per l'installazione e l'uso di VMRC con le VM della soluzione VMware di Azure?
+No, usare le [istruzioni fornite da VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e soddisfare i prerequisiti della macchina virtuale specificati in tali istruzioni. 
+
+#### <a name="is-vmware-hcx-supported-on-vpns"></a>VMware HCX è supportato nelle VPN?
+No, a causa dei requisiti di larghezza di banda e latenza.
+
+#### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>È possibile usare Azure Bastion per la connessione alle macchine virtuali AVS?
+Azure Bastion è il servizio consigliato per connettersi alla casella di salto per impedire l'esposizione della soluzione VMware di Azure a Internet. Non è possibile usare Azure Bastion per connettersi alle macchine virtuali della soluzione VMware di Azure perché non sono oggetti IaaS di Azure.
+
+#### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure?
+Sì, è possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure, purché non superi il limite di quattro circuiti ExpressRoute per ogni rete virtuale.  Tuttavia, per accedere alla soluzione VMware di Azure dall'ambiente locale tramite ExpressRoute, è necessario avere ExpressRoute Copertura globale perché il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.
 
 ## <a name="compute-network-storage-and-backup"></a>Calcolo, rete, archiviazione e backup
 
@@ -100,6 +115,14 @@ Per quanto sappiamo, qualsiasi soluzione di backup che usa VMware VADP con la mo
 #### <a name="what-about-support-for-isv-backup-solutions"></a>Per quanto riguarda il supporto per le soluzioni di backup ISV?
 
 Poiché queste soluzioni di backup sono installate e gestite dai clienti, possono contattare il rispettivo ISV per il supporto. 
+
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Quali sono i criteri di archiviazione corretti per la configurazione di deduplicazione?
+
+Usare i criteri di archiviazione *thin_provision* per il modello di macchina virtuale.  Il valore predefinito è *thick_provision*.
+
+#### <a name="are-the-snmp-infrastructure-logs-shared"></a>I log dell'infrastruttura SNMP sono condivisi?
+
+No.
 
 ## <a name="hosts-clusters-and-private-clouds"></a>Host, cluster e cloud privati
 
@@ -174,6 +197,8 @@ No. Il traffico di rete in ingresso diretto da Internet ai cloud privati non è 
 
 Sì. Sarà necessario usare NSX-T Manager per creare un firewall che limiti l'accesso delle VM a Internet.
 
+
+
 ## <a name="accounts-and-privileges"></a>Account e privilegi
 
 #### <a name="what-accounts-and-privileges-will-i-get-with-my-new-azure-vmware-solution-private-cloud"></a>Quali account e privilegi si ottengono con il nuovo cloud privato della soluzione VMware di Azure?
@@ -211,10 +236,10 @@ Sarà necessario un account Azure in una sottoscrizione di Azure.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Ricerca per categorie richiedere un aumento della quota host per la soluzione VMware di Azure?
 
-* È necessario un [Enterprise Agreement di Azure (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) con Microsoft.
+* È necessario un [Enterprise Agreement di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 * Sarà necessario un account Azure in una sottoscrizione di Azure.
 
-Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviare un ticket di supporto per l'allocazione dei nodi. Una volta ricevuta la richiesta, il team di supporto richiede fino a cinque giorni lavorativi per confermare la richiesta e allocare i nodi. Se si dispone di un cloud privato della soluzione VMware di Azure esistente e si vogliono allocare più nodi, si procederà nello stesso processo.
+Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo.
 
 
 1. Nella portale di Azure in Guida e **supporto tecnico**creare una **[nuova richiesta di supporto](https://rc.portal.azure.com/#create/Microsoft.Support)** e fornire le informazioni seguenti per il ticket:

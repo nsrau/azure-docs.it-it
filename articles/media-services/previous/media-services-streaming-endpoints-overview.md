@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89265916"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
@@ -52,7 +52,7 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}.streaming.mediaservi
 A partire dalla versione gennaio 2017 di servizi multimediali, sono disponibili due tipi di streaming: **standard** (anteprima) e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
 
 
-|Type|Description|
+|Type|Descrizione|
 |--------|--------|  
 |**Standard**|L'endpoint di streaming predefinito è un tipo **standard** , può essere modificato nel tipo Premium regolando le unità di streaming.|
 |**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si passa a un tipo **Premium** modificando le unità di streaming.<br/>Gli endpoint di streaming dedicati si trovano in un ambiente isolato e non competono per le risorse.|
@@ -79,10 +79,10 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 |Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Classic|1.0|0|ND|Livello gratuito|
-|Endpoint di streaming standard (anteprima)|2,0|0|Sì|Paid|
+|Classic|1.0|0|N/D|Gratuito|
+|Endpoint di streaming standard (anteprima)|2.0|0|Sì|Paid|
 |Unità di streaming Premium|1.0|>0|Sì|Paid|
-|Unità di streaming Premium|2,0|>0|Sì|Paid|
+|Unità di streaming Premium|2.0|>0|Sì|Paid|
 
 ### <a name="features"></a>Funzionalità
 
@@ -104,7 +104,7 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 
 ## <a name="migration-between-types"></a>Migrazione tra le tipologie
 
-Da | To | Action
+Da | To | Azione
 ---|---|---
 Classico|Standard|È necessario fornire il consenso esplicito
 Classic|Premium| Scalabilità (unità di streaming aggiuntive)

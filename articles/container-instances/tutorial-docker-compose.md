@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: ''
 ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708273"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando Docker Compose 
@@ -212,7 +212,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 Per vedere l'applicazione in esecuzione nel cloud, immettere l'indirizzo IP visualizzato in un Web browser locale. In questo esempio immettere `52.179.23.131`. L'applicazione di esempio viene caricata, come illustrato nell'esempio seguente:
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Immagine dell'app di voto in Istanze di Azure Container":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Immagine dell'app di voto":::
 
 Per visualizzare i log del contenitore front-end, eseguire il comando [docker logs](https://docs.docker.com/engine/reference/commandline/logs). Esempio:
 

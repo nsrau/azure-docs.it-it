@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598278"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016826"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
 
@@ -30,7 +30,7 @@ Servizi multimediali di Microsoft Azure può essere usato per codificare molti f
 In Servizi multimediali un [endpoint di streaming](streaming-endpoint-concept.md) (origine) rappresenta un servizio di generazione e creazione di pacchetti dinamici (just-in-time) in grado di distribuire contenuti live e on demand direttamente a un'app di riproduzione client. Usa uno dei protocolli multimediali comuni di streaming indicati nella sezione seguente. La *creazione dinamica dei pacchetti* è una funzionalità standard di tutti gli endpoint di streaming.
 
 > [!NOTE]
-> È possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) v3, visualizzare gli [asset](assets-concept.md) v3 e ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> È possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) v3, visualizzare gli [asset](assets-concept.md) v3 e ottenere informazioni sull'accesso alle API. Per tutte le altre attività di gestione, ad esempio trasformazioni e processi, usare l'[API REST](/rest/api/media/), l'[interfaccia della riga di comando](/cli/azure/ams) oppure uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Per preparare i file di origine per la distribuzione
 
@@ -88,7 +88,7 @@ I passaggi seguenti indicano un flusso di lavoro comune di streaming di Servizi 
 1. [Caricare un file di input](job-input-from-http-how-to.md), ad esempio MP4, QuickTime/MOV o un altro formato di file supportato. Questo tipo di file è anche detto file di origine o mezzanine. Per l'elenco di formati supportati, vedere [Formati supportati dal codificatore standard](media-encoder-standard-formats.md).
 1. [Codificare](#encode-to-adaptive-bitrate-mp4s) il file mezzanine in un set di file MP4 H.264/AAC a bitrate adattivo.
 
-    Se sono già presenti file codificati da copiare e trasmettere in streaming, usare le API [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio). Verrà quindi creato un nuovo file MP4 con un manifesto di streaming (file con estensione ism).
+    Se sono già presenti file codificati da copiare e trasmettere in streaming, usare le API [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio). Verrà quindi creato un nuovo file MP4 con un manifesto di streaming (file con estensione ism).
 1. Pubblicare l'asset di output contenente il set MP4 a bitrate adattivo. La pubblicazione avviene creando un [localizzatore di streaming](streaming-locators-concept.md).
 1. Creare URL destinati a formati diversi (HLS, MPEG-DASH e Smooth Streaming). L'*endpoint di streaming* si occupa di gestire il manifesto corretto e le richieste per tutti questi formati diversi.
     

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526528"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996341"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -79,7 +79,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
    Alcuni trigger, ad esempio **quando uno o più messaggi arrivano in un trigger di coda (completamento automatico)** , possono restituire uno o più messaggi. Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificato dalla proprietà numero **massimo messaggi** del trigger.
 
     > [!NOTE]
-    > Il trigger di completamento automatico completa automaticamente un messaggio, ma il completamento si verifica solo alla successiva esecuzione del trigger. Questo comportamento può influire sulla progettazione dell'app per la logica. Ad esempio, evitare di modificare la concorrenza nel trigger di completamento automatico perché questa modifica potrebbe generare messaggi duplicati se l'app per la logica entra in uno stato limitato. La modifica del controllo della concorrenza crea queste condizioni: i trigger limitati vengono ignorati con il `WorkflowRunInProgress` codice, l'operazione di completamento non viene eseguita e l'esecuzione del trigger successiva si verifica dopo l'intervallo di polling. È necessario impostare la durata del blocco del bus di servizio su un valore più lungo dell'intervallo di polling. Tuttavia, nonostante questa impostazione, il messaggio potrebbe ancora non essere completato se l'app per la logica rimane in uno stato limitato all'intervallo di polling successivo.
+    > Il trigger di completamento automatico completa automaticamente un messaggio, ma il completamento si verifica solo alla successiva chiamata al bus di servizio. Questo comportamento può influire sulla progettazione dell'app per la logica. Ad esempio, evitare di modificare la concorrenza nel trigger di completamento automatico perché questa modifica potrebbe generare messaggi duplicati se l'app per la logica entra in uno stato limitato. La modifica del controllo della concorrenza crea queste condizioni: i trigger limitati vengono ignorati con il `WorkflowRunInProgress` codice, l'operazione di completamento non viene eseguita e l'esecuzione del trigger successiva si verifica dopo l'intervallo di polling. È necessario impostare la durata del blocco del bus di servizio su un valore più lungo dell'intervallo di polling. Tuttavia, nonostante questa impostazione, il messaggio potrebbe ancora non essere completato se l'app per la logica rimane in uno stato limitato all'intervallo di polling successivo.
 
 1. Se il trigger si connette allo spazio dei nomi del bus di servizio per la prima volta, seguire questa procedura quando la finestra di progettazione dell'app per la logica richiede le informazioni di connessione.
 
@@ -162,6 +162,10 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
 Quando è necessario inviare messaggi correlati in un ordine specifico, è possibile usare il modello di serie di istruzioni [ *sequenziali* ](/azure/architecture/patterns/sequential-convoy) usando il [connettore del bus di servizio di Azure](../connectors/connectors-create-api-servicebus.md). I messaggi correlati hanno una proprietà che definisce la relazione tra tali messaggi, ad esempio l'ID della [sessione](../service-bus-messaging/message-sessions.md) nel bus di servizio.
 
 Quando si crea un'app per la logica, è possibile selezionare il modello **di recapito correlato nell'ordine usando le sessioni del bus di servizio** , che implementa il modello di serie di istruzioni sequenziali. Per ulteriori informazioni, vedere [inviare messaggi correlati in ordine](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Ritardi negli aggiornamenti dell'app per la logica in corso
+
+Se l'intervallo di polling di un trigger del bus di servizio è ridotto, ad esempio 10 secondi, gli aggiornamenti dell'app per la logica potrebbero non essere effettivi per un massimo di 10 minuti. Per ovviare a questo problema, è possibile aumentare temporaneamente l'intervallo di polling a un valore più grande, ad esempio 30 secondi o 1 minuto, prima di aggiornare l'app per la logica. Dopo aver effettuato l'aggiornamento, è possibile reimpostare l'intervallo di polling sul valore originale. 
 
 <a name="connector-reference"></a>
 

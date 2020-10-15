@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82997447"
 ---
 # <a name="voice-assistants-on-windows"></a>Assistenti vocali in Windows
@@ -43,11 +43,11 @@ Si noti che questo significa che un'applicazione non può essere attivata da Voi
 
 ### <a name="receiving-an-activation"></a>Ricezione di un'attivazione
 
-Quando riceve la richiesta da AAR, il servizio in background avvia l'applicazione. L'applicazione riceve un segnale tramite il metodo del ciclo di vita OnBackgroundActivated `App.xaml.cs` in con un argomento di evento univoco. Questo argomento indica all'applicazione che è stata attivata da AAR e che deve avviare la verifica delle parole chiave.
+Quando riceve la richiesta da AAR, il servizio in background avvia l'applicazione. L'applicazione riceve un segnale tramite il metodo del ciclo di vita OnBackgroundActivated in `App.xaml.cs` con un argomento di evento univoco. Questo argomento indica all'applicazione che è stata attivata da AAR e che deve avviare la verifica delle parole chiave.
 
 Se la parola chiave viene verificata correttamente, l'applicazione può eseguire una richiesta di visualizzazione in primo piano. Quando la richiesta ha esito positivo, l'applicazione Visualizza l'interfaccia utente e continua l'interazione con l'utente.
 
-AAR segnala ancora le applicazioni attive quando la parola chiave viene pronunciata. Anziché segnalare il metodo del ciclo di vita in `App.xaml.cs`, tuttavia, segnala un evento nelle API ConversationalAgent.
+AAR segnala ancora le applicazioni attive quando la parola chiave viene pronunciata. Anziché segnalare il metodo del ciclo di vita in `App.xaml.cs` , tuttavia, segnala un evento nelle API ConversationalAgent.
 
 ### <a name="keyword-verification"></a>Verifica parole chiave
 

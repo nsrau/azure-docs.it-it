@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 206768604c6d08a32c0caaf9b53a1417cfa1344b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385332"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089537"
 ---
 # <a name="secure-your-restful-services"></a>Proteggere i servizi RESTful 
 
@@ -312,7 +312,7 @@ Dopo aver aggiunto i frammenti di codice riportati sopra, il profilo tecnico dov
 
 ### <a name="add-the-oauth2-bearer-token-policy-key"></a>Aggiungere la chiave dei criteri del token di connessione OAuth2
 
-Creare una chiave dei criteri in cui archiviare il valore del token di connessione.
+Per configurare un profilo tecnico dell'API REST con un bearer token OAuth2, ottenere un token di accesso dal proprietario dell'API REST. Quindi, creare la seguente chiave crittografica per archiviare il bearer token.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory Azure AD B2C.

@@ -2,7 +2,7 @@
 title: Verificare lo stato di Azure Active Directory Domain Services | Microsoft Docs
 description: Informazioni su come verificare l'integrità di un dominio gestito di Azure Active Directory Domain Services (Azure AD DS) e conoscere i messaggi di stato tramite il portale di Azure.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 34f4ecfd4cc3432babbd26d65bd37ea4d1fb882c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: bf65657ea60e94f167bfbb6585026702b64e9658
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040419"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962735"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Verificare l'integrità di un dominio gestito Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ Questo articolo illustra come visualizzare lo stato di integrità di Azure AD DS
 
 Lo stato di integrità di un dominio gestito viene visualizzato utilizzando il portale di Azure. È possibile visualizzare le informazioni relative all'ora dell'ultimo backup e alla sincronizzazione con Azure AD insieme a tutti gli avvisi che indicano un problema relativo all'integrità del dominio gestito. Per visualizzare lo stato di integrità di un dominio gestito, attenersi alla procedura seguente:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**.
 1. Selezionare il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Sul lato sinistro della finestra Azure AD DS Resource selezionare **Health (integrità**). La schermata di esempio seguente mostra un dominio gestito integro e lo stato dell'ultimo backup e Azure AD sincronizzazione:
 

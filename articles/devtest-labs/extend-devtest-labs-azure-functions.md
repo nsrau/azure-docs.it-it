@@ -4,10 +4,10 @@ description: Informazioni su come estendere Azure DevTest Labs usando funzioni d
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: bcd12d77065d231198e992fa5c459f0fc210855a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476309"
 ---
 # <a name="use-azure-functions-to-extend-devtest-labs"></a>Usare Funzioni di Azure per estendere DevTest Labs
@@ -33,7 +33,7 @@ Il codice sorgente per queste funzioni di esempio si trova nel [repository GitHu
 - **UpdateInternalSupportPage**: questa funzione esegue una query su DevTest Labs e aggiorna la pagina del supporto interno direttamente con i dettagli sulle macchine virtuali.
 - **ApplyWindowsUpdateArtifact**: per una macchina virtuale in un Lab, questa funzione applica l'artefatto di **Windows Update** .
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 Quando gli utenti selezionano la pagina di **supporto interna** in DevTest Labs, hanno una pagina già popolata con informazioni su macchine virtuali, proprietari di Lab e contatti di supporto.  
 
 Quando si seleziona il pulsante **Seleziona qui per aggiornare** , la pagina chiama la prima funzione di Azure: **UpdateInternalSupportPage**. La funzione esegue una query su DevTest Labs per informazioni e quindi riscrive la pagina di **supporto interna** con le nuove informazioni.
@@ -87,7 +87,7 @@ In Visual Studio, dopo la pubblicazione della funzione di Azure, selezionare le 
 - ServicePrincipal_Key
 - ServicePrincipal_Tenant
 
-    ![Impostazioni dell'applicazione](./media/extend-devtest-labs-azure-functions/application-settings.png)
+    ![Impostazioni applicazione](./media/extend-devtest-labs-azure-functions/application-settings.png)
 
 ### <a name="step-6-test-the-azure-function"></a>Passaggio 6: testare la funzione di Azure
 L'ultimo passaggio di questa procedura dettagliata consiste nel testare la funzione di Azure.  

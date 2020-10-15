@@ -15,7 +15,7 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Introduzione all'uso di Python
+    - name: Introduzione a Python (giorno 1)
       expanded: true
       items:
         - name: 1. Configurare il computer locale
@@ -128,7 +128,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Dati
+    - name: Data
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -166,6 +166,8 @@
               href: how-to-setup-authentication.md
             - name: Gestione di utenti e ruoli
               href: how-to-assign-roles.md
+            - name: Usare identità gestite per il controllo di accesso
+              href: how-to-use-managed-identities.md
             - name: Usare l'identità di Azure AD nelle distribuzioni del servizio Azure Kubernetes
               href: how-to-use-azure-ad-identity.md
         - name: Sicurezza di rete
@@ -188,6 +190,8 @@
             - name: Usare Collegamento privato
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Usare DNS personalizzato
+              href: how-to-custom-dns.md
             - name: Configurare servizi Web sicuri
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

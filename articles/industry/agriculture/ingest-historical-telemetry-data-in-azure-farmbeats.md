@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88510267"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Inserire dati di telemetria cronologici
@@ -33,7 +33,7 @@ Prima di procedere con questo articolo, assicurarsi di aver installato FarmBeats
 - Segreto client
 - Stringa di connessione all’Hub eventi
 
-Attenersi ai passaggi descritti di seguito.
+Seguire questa procedura:
 
 > [!NOTE]
 > Per eseguire la procedura seguente, è necessario essere un amministratore.
@@ -193,7 +193,7 @@ access_token = token_response.get('access_token')
 Di seguito sono riportate le intestazioni di richiesta più comuni che è necessario specificare quando si effettua una chiamata API a FarmBeats datahub:
 
 - **Content-Type**: Application/JSON
-- **Autorizzazione**: bearer <Access-token>
+- **Autorizzazione**: portar <Access-Token>
 - **Accept**: Application/JSON
 
 ### <a name="input-payload-to-create-metadata"></a>Payload di input per la creazione di metadati

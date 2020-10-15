@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0dfc86503f1b3aa648cb8c7cefe14fbd123f1459
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320771"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047506"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (CLI)
 
@@ -78,7 +78,7 @@ Il risultato di questo comando è l'output delle informazioni sull'assegnazione 
 >
 > Utilizzare la [pagina portale di Azure di Azure Active Directory utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) per selezionare l'account utente e aprirne i dettagli. Copiare il valore *ObjectID*dell'utente:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Visualizzazione della pagina utente in portale di Azure evidenziando il GUID nel campo ' ID oggetto '" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="finestra di comando con la creazione corretta del gruppo di risorse e dell'istanza di Azure Digital Twins" lightbox="media/includes/user-id.png":::
 >
 > Quindi, ripetere il comando elenco assegnazione ruolo usando l' *ID oggetto* dell'utente per il `assignee` parametro precedente.
 
@@ -115,7 +115,7 @@ Salvare il file come _**manifest.js**_.
 
 Successivamente, il file verrà caricato nel Cloud Shell. Nella finestra di Cloud Shell fare clic sull'icona "Carica/Scarica file" e scegliere "carica".
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'opzione di caricamento":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="finestra di comando con la creazione corretta del gruppo di risorse e dell'istanza di Azure Digital Twins":::
 Passare almanifest.jsappena creato e fare clic * su* "Apri".
 
 Eseguire quindi il comando seguente per creare una registrazione dell'app con un URL di risposta *client/nativo (mobile & desktop)* di `http://localhost` . Sostituire i segnaposto in base alle esigenze:
@@ -126,7 +126,7 @@ az ad app create --display-name <name-for-your-app-registration> --native-app --
 
 Di seguito è riportato un estratto dell'output di questo comando, che mostra le informazioni sulla registrazione creata:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell l'output della nuova registrazione dell'app Azure AD":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="finestra di comando con la creazione corretta del gruppo di risorse e dell'istanza di Azure Digital Twins":::
 
 ### <a name="verify-success"></a>Verificare l'esito positivo
 
@@ -140,7 +140,7 @@ Verificare quindi che le impostazioni del *manifest.js* caricato siano state imp
 
 Selezionare quindi *Panoramica* dalla barra dei menu per visualizzare i dettagli della registrazione dell'app:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Visualizzazione del portale dei valori importanti per la registrazione dell'app":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="finestra di comando con la creazione corretta del gruppo di risorse e dell'istanza di Azure Digital Twins":::
 
 Prendere nota dell'ID dell' *applicazione (client)* e della *Directory (tenant)* visualizzati nella **pagina.** Questi valori saranno necessari in un secondo momento per [autenticare un'app client sulle API dei dispositivi gemelli digitali di Azure](how-to-authenticate-client.md). Se non si è la persona che scriverà il codice per tali applicazioni, sarà necessario condividere questi valori con la persona che lo sarà.
 
@@ -151,7 +151,7 @@ Prendere nota dell'ID dell' *applicazione (client)* e della *Directory (tenant)*
 ## <a name="next-steps"></a>Passaggi successivi
 
 Testare le singole chiamate API REST nell'istanza usando i comandi dell'interfaccia della riga di comando di Azure Digital gemelli: 
-* [riferimento AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [riferimento AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
 
 In alternativa, vedere come connettere l'applicazione client all'istanza scrivendo il codice di autenticazione dell'app client:

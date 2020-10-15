@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: df691f5b9e74432f683e52fbb896dd4d44efe2aa
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91622087"
 ---
 # <a name="media-reserved-units"></a>Unità riservate multimediali
@@ -54,6 +54,6 @@ L'addebito è basato sul numero di minuti in cui viene effettuato il provisionin
 [Ridimensionare media reserved Unit con CLI](media-reserved-units-cli-how-to.md) 
  [Analizzare i video](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Quote e limiti](limits-quotas-constraints.md)

@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601365"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
@@ -105,7 +105,7 @@ Per comprendere meglio le opzioni di autenticazione, vedere [scegliere il metodo
 
 ### <a name="programmatic-usage-of-credentials"></a>Utilizzo di credenziali a livello di codice
 
-Azure AD script che usano PowerShell o le applicazioni che usano l'API Microsoft Graph richiedono l'autenticazione protetta. Una gestione delle credenziali scadente che esegue gli script e gli strumenti aumenta il rischio di furto di credenziali. Se si usano script o applicazioni che si basano su password hardcoded o richieste di password, è necessario prima esaminare le password nei file di configurazione o nel codice sorgente, quindi sostituire tali dipendenze e usare le identità gestite di Azure, l'autenticazione integrata di Windows o i [certificati](../reports-monitoring/tutorial-access-api-with-certificates.md) , quando possibile. Per le applicazioni in cui le soluzioni precedenti non sono possibili, provare a usare [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Azure AD script che usano PowerShell o le applicazioni che usano l'API Microsoft Graph richiedono l'autenticazione protetta. Una gestione delle credenziali scadente che esegue gli script e gli strumenti aumenta il rischio di furto di credenziali. Se si usano script o applicazioni che si basano su password hardcoded o richieste di password, è necessario prima esaminare le password nei file di configurazione o nel codice sorgente, quindi sostituire tali dipendenze e usare le identità gestite di Azure, Integrated-Windows l'autenticazione o i [certificati](../reports-monitoring/tutorial-access-api-with-certificates.md) , quando possibile. Per le applicazioni in cui le soluzioni precedenti non sono possibili, provare a usare [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Se si determina che esistono entità servizio con credenziali password e non si è certi del modo in cui le credenziali password sono protette da script o applicazioni, contattare il proprietario dell'applicazione per comprendere meglio i modelli di utilizzo.
 
@@ -115,7 +115,7 @@ Microsoft consiglia inoltre di contattare i proprietari dell'applicazione per co
 
 ### <a name="on-premises-authentication"></a>Autenticazione locale
 
-L'autenticazione federata con autenticazione integrata di Windows (IWA) o l'autenticazione gestita con accesso Single Sign-on (SSO) semplice con sincronizzazione dell'hash delle password o autenticazione pass-through è la migliore esperienza utente all'interno della rete aziendale con i controller di dominio locali. Riduce al minimo i tempi di richiesta delle credenziali e riduce il rischio di attacchi di phishing da parte degli utenti. Se si sta già usando l'autenticazione gestita dal cloud con pH o PTA, ma gli utenti devono ancora digitare la password durante l'autenticazione in locale, è necessario [distribuire immediatamente SSO](../hybrid/how-to-connect-sso.md)facile. D'altra parte, se si è attualmente federati con piani per la migrazione all'autenticazione gestita dal cloud, è necessario implementare l'accesso SSO facile come parte del progetto di migrazione.
+L'autenticazione federata con autenticazione integrata di Windows (IWA) o l'autenticazione gestita Single Sign-On (SSO) semplice con sincronizzazione dell'hash delle password o autenticazione pass-through è la migliore esperienza utente all'interno della rete aziendale con i controller di dominio locali. Riduce al minimo i tempi di richiesta delle credenziali e riduce il rischio di attacchi di phishing da parte degli utenti. Se si sta già usando l'autenticazione gestita dal cloud con pH o PTA, ma gli utenti devono ancora digitare la password durante l'autenticazione in locale, è necessario [distribuire immediatamente SSO](../hybrid/how-to-connect-sso.md)facile. D'altra parte, se si è attualmente federati con piani per la migrazione all'autenticazione gestita dal cloud, è necessario implementare l'accesso SSO facile come parte del progetto di migrazione.
 
 ### <a name="device-trust-access-policies"></a>Criteri di accesso attendibilità dispositivo
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289416"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creare un assistente vocale con comandi personalizzati
@@ -23,14 +23,14 @@ Questa Guida introduttiva illustra come creare e testare un'applicazione di coma
 
 ## <a name="region-availability"></a>Disponibilità a livello di area
 A questo punto, i comandi personalizzati supportano le sottoscrizioni vocali create in queste aree:
-* Stati Uniti occidentali
+* Stati Uniti Occidentali
 * Stati Uniti occidentali 2
 * Stati Uniti orientali
 * Stati Uniti Orientali 2
 * Europa settentrionale
 * Europa occidentale
 * Stati Uniti centro-occidentali
-* India centrale
+* Central India
 * Asia orientale
 * Asia sud-orientale
 
@@ -66,7 +66,7 @@ A questo punto, i comandi personalizzati supportano le sottoscrizioni vocali cre
     > [!div class="mx-imgBorder"]
     > ![Creare un progetto](media/custom-commands/import-project.png)
 
-1.  Nell'elenco di risorse per la **creazione di Luis** selezionare una risorsa di creazione. Se non sono presenti risorse di creazione valide, crearne una selezionando **Crea nuova risorsa**di creazione Luis.
+1.  Nell'elenco di risorse per la **creazione di Luis** selezionare una risorsa di creazione. Se non sono presenti risorse di creazione valide, crearne una selezionando  **Crea nuova risorsa**di creazione Luis.
 
     > [!div class="mx-imgBorder"]
     > ![Creare una risorsa](media/custom-commands/create-new-luis-resource.png)
@@ -101,7 +101,7 @@ Prima di poter accedere a questa applicazione dall'esterno di speech studio, è 
 ### <a name="update-prediction-luis-resource"></a>Aggiorna risorsa LUIS di stima
 
 
-1. Selezionare **Settings (impostazioni** ) nel riquadro sinistro e selezionare **risorse Luis** nel riquadro centrale.
+1. Selezionare **Settings (impostazioni** ) nel riquadro sinistro e selezionare  **risorse Luis** nel riquadro centrale.
 1. Selezionare una risorsa di stima o crearne una selezionando **Crea nuova risorsa**.
 1. Selezionare **Salva**.
     
@@ -113,7 +113,7 @@ Prima di poter accedere a questa applicazione dall'esterno di speech studio, è 
 
 ### <a name="publish-the-application"></a>Pubblicare l'applicazione
 
-Selezionare **pubblica** nella parte superiore del riquadro destro. Una volta completata la pubblicazione, verrà visualizzata una nuova finestra. Annotare il valore dell' **ID applicazione** e della **chiave della risorsa vocale** . Questi due valori saranno necessari per poter accedere all'applicazione dall'esterno di speech studio.
+Selezionare  **pubblica** nella parte superiore del riquadro destro. Una volta completata la pubblicazione, verrà visualizzata una nuova finestra. Annotare il valore dell' **ID applicazione** e della **chiave della risorsa vocale** . Questi due valori saranno necessari per poter accedere all'applicazione dall'esterno di speech studio.
 
 In alternativa, è anche possibile ottenere questi valori selezionando **Impostazioni**  >  **generale** .
 

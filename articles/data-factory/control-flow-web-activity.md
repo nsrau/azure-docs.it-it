@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87280801"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Attività Web in Azure Data Factory
@@ -25,7 +25,7 @@ ms.locfileid: "87280801"
 L'attività Web può essere usata per chiamare un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi.
 
 > [!NOTE]
-> L'attività Web è supportata per richiamare URL ospitati anche in una rete virtuale privata, sfruttando il runtime di integrazione self-hosted. Il runtime di integrazione deve avere una linea di visibilità per l'endpoint dell'URL. 
+> L'attività Web è supportata per chiamare gli URL ospitati in una rete virtuale privata nonché per sfruttare il runtime di integrazione self-hosted. Il runtime di integrazione deve avere una linea di visibilità per l'endpoint dell'URL. 
 
 ## <a name="syntax"></a>Sintassi
 
@@ -88,9 +88,9 @@ connectVia | [Runtime di integrazione](https://docs.microsoft.com/azure/data-fac
 
 La tabella seguente indica i requisiti per il contenuto JSON:
 
-| Tipo di valore | Corpo della richiesta | Corpo della risposta |
+| Tipo valore | Corpo della richiesta | Corpo della risposta |
 |---|---|---|
-|Oggetto JSON | Funzionalità supportata | Supportato |
+|Oggetto JSON | Supportato | Supportato |
 |Matrice JSON | Supportato <br/>Al momento, le matrici JSON non funzionano per via di un bug. È in corso una correzione. | Non supportato |
 | Valore JSON | Supportato | Non supportato |
 | Tipo non JSON | Non supportato | Non supportato |

@@ -9,22 +9,22 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 59c00b06f1fef613b00ade13c7cacc0b88e61bf1
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: ca01397959aa50c77218742320f8ced128876bad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91649547"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018679"
 ---
 # <a name="dv4-and-dsv4-series"></a>Serie Dv4 e Dsv4
 
-La serie DV4 e Dsv4 viene eseguita sui processori Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) in una configurazione con Hyper-Threading, garantendo una proposta di valore migliore per la maggior parte dei carichi di lavoro per uso generico. Questa funzionalità è stata sostenuta per tutte le velocità di clock di base del Turbo di 3,4 GHz. 
+La serie DV4 e Dsv4 viene eseguita sui processori Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) in una configurazione con Hyper-Threading, garantendo una proposta di valore migliore per la maggior parte dei carichi di lavoro per uso generico. Offre una velocità di clock di tutti i core di 3,4 GHz. 
 
 > [!NOTE]
 > Per le domande frequenti, vedere  [dimensioni delle macchine virtuali di Azure senza disco temporaneo locale](azure-vms-no-temp-disk.md).
 ## <a name="dv4-series"></a>Serie DV4
 
-Le dimensioni della serie DV4 vengono eseguite su Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake). Le dimensioni della serie DV4 offrono una combinazione di opzioni di vCPU, memoria e archiviazione remota per la maggior parte dei carichi di lavoro di produzione. Le macchine virtuali serie DV4 includono la [ &reg; tecnologia Hyper-Threading Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
+Le dimensioni della serie DV4 vengono eseguite su Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake). Le dimensioni della serie DV4 offrono una combinazione di opzioni di vCPU, memoria e archiviazione remota per la maggior parte dei carichi di lavoro di produzione. Le macchine virtuali serie DV4 includono la [ &reg; tecnologia Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html).
 
 L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchine virtuali. Per usare i dischi di archiviazione Premium, usare le dimensioni Dsv4. I prezzi e i contatori di fatturazione per le dimensioni Dsv4 sono uguali a quelli della serie DV4.
 
@@ -48,7 +48,7 @@ L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchin
 
 ## <a name="dsv4-series"></a>Serie Dsv4
 
-Le dimensioni della serie Dsv4 vengono eseguite su Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake). Le dimensioni della serie DV4 offrono una combinazione di opzioni di vCPU, memoria e archiviazione remota per la maggior parte dei carichi di lavoro di produzione. Le macchine virtuali serie Dsv4 includono la [ &reg; tecnologia Hyper-Threading Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchine virtuali.
+Le dimensioni della serie Dsv4 vengono eseguite su Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake). Le dimensioni della serie DV4 offrono una combinazione di opzioni di vCPU, memoria e archiviazione remota per la maggior parte dei carichi di lavoro di produzione. Le macchine virtuali serie Dsv4 includono la [ &reg; tecnologia Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html). L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchine virtuali.
 
 [ACU](acu.md): 195-210<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>

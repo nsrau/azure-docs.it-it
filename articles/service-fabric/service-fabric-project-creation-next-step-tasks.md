@@ -4,17 +4,17 @@ description: Informazioni sul progetto di applicazione appena creato in Visual S
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75349405"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Applicazione dell'infrastruttura di servizi e fasi successive
 L'applicazione Service Fabric di Azure è stata creata. In questo articolo vengono descritte alcune esercitazioni per provare la struttura del progetto, altre informazioni utili e possibili passaggi successivi.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>Introduzione a esercitazioni, procedure ed esempi
-Informazioni introduttive  
+Pronto per iniziare?  
 
 Usare l'esercitazione per l'applicazione .NET. Informazioni su come [compilare un'app](service-fabric-tutorial-create-dotnet-app.md) con un front-end ASP.NET Core e un back-end con stato, [distribuire l'applicazione](service-fabric-tutorial-deploy-app-to-party-cluster.md) in un cluster, [configurare CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md), e [impostare monitoraggio e diagnostica](service-fabric-tutorial-monitoring-aspnet.md).
 

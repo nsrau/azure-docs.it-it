@@ -493,6 +493,8 @@
                   items:
                     - name: Generalizzata
                       href: ../vm-generalized-image-version-cli.md
+                    - name: Specializzata
+                      href: ../vm-specialized-image-version-cli.md
                 - name: Aggiornare le risorse immagini
                   href: ../update-image-resources-cli.md
                 - name: Registrazione delle app per la condivisione
@@ -577,6 +579,8 @@
           href: build-image-with-packer.md
         - name: Scaricare un disco esistente
           href: download-vhd.md
+        - name: Disco gestito da una versione dell'immagine
+          href: ../managed-disk-from-image-version.md
     - name: Proteggere le macchine virtuali
       items:
         - name: Consigli

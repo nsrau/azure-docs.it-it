@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
 ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89182038"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
@@ -57,7 +57,7 @@ Backup di Azure usa l'estensione di snapshot VM per eseguire un backup coerente 
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **Controllare se è necessario l'accesso alla rete**: i pacchetti di estensione vengono scaricati dal repository dell'estensione di archiviazione di Azure e i caricamenti dello stato dell'estensione vengono inseriti in archiviazione di Azure. [Altre informazioni](../virtual-machines/extensions/features-windows.md#network-access).
+- **Controllare se è necessario l'accesso alla rete**: i pacchetti di estensione vengono scaricati dal repository dell'estensione di archiviazione di Azure e i caricamenti dello stato dell'estensione vengono inseriti in archiviazione di Azure. [Altre informazioni](../virtual-machines/extensions/features-windows.md#network-access)
   - Se si usa una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad archiviazione di Azure in tale area dalla macchina virtuale.
   - Se è stato bloccato l'accesso a `168.63.129.16` tramite il firewall Guest o con un proxy, le estensioni avranno esito negativo indipendentemente da quanto sopra. Sono necessarie le porte 80, 443 e 32526, [altre informazioni](../virtual-machines/extensions/features-windows.md#network-access).
 
@@ -249,10 +249,10 @@ Se è necessaria la registrazione dettagliata per waagent, attenersi alla proced
 2. Modificare il valore di **Logs.Verbose** da *n* a *y*.
 3. Salvare la modifica e quindi riavviare waagent seguendo la procedura descritta in precedenza in questa sezione.
 
-### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Le opzioni di configurazione dell'agente VM non sono impostate (per le macchine virtuali Linux)
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Le opzioni di configurazione VM-Agent non sono impostate (per le macchine virtuali Linux)
 
 Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente waagent. Estensioni per le opzioni del file di configurazione **. abilitare** deve essere impostato su **y** e sul **provisioning. Agent** deve essere impostato su **auto** per consentire il funzionamento del backup.
-Per un elenco completo delle opzioni del file di configurazione dell'agente VM, vedere <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+Per un elenco completo delle opzioni del file di configurazione VM-Agent, vedere <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>La soluzione di controllo delle applicazioni sta bloccando IaaSBcdrExtension.exe
 

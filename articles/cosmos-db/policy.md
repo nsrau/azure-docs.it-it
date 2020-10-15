@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320898"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso di Criteri di Azure per implementare governance e controlli delle risorse di Azure Cosmos DB
@@ -126,7 +126,7 @@ Lo screenshot mostra i risultati della valutazione di conformità seguenti per g
 - Nessuno dei due account è conforme a un criterio che richiede la configurazione dell'account per più percorsi di scrittura
 - Nessuno dei due account è conforme a un criterio in cui le risorse sono state distribuite nelle aree di Azure consentite.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Risultati di conformità per le assegnazioni di criteri di Azure elencate":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Ricerca delle definizioni di criteri predefinite per Azure Cosmos DB":::
 
 Per correggere le risorse non conformi, vedere [How to remediate Resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 

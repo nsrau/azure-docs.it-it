@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85480134"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Aggiungere o rimuovere interfacce di rete da macchine virtuali
@@ -117,7 +117,7 @@ Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificar
 
 5. Dalla barra dei menu della macchina virtuale scegliere **rete**  >  **Scollega interfaccia di rete**.
 
-6. Nella finestra di dialogo **Scollega interfaccia di rete** selezionare l'interfaccia di rete che si desidera scollegare. Selezionare **OK**.
+6. Nella finestra di dialogo **Scollega interfaccia di rete** selezionare l'interfaccia di rete che si desidera scollegare. Quindi scegliere **OK**.
 
     >[!NOTE]
     >Se è elencata una sola interfaccia di rete, non è possibile scollegarla perché a una macchina virtuale deve essere sempre associata almeno un'interfaccia di rete.

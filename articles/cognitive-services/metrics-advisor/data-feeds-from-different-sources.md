@@ -3,19 +3,19 @@ title: Come aggiungere feed di dati da origini diverse a metrica Advisor
 titleSuffix: Azure Cognitive Services
 description: aggiungere feed di dati diversi a metrica Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/12/2020
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324468"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046911"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Aggiungere feed di dati da origini dati diverse a metrica Advisor
 
@@ -40,7 +40,7 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 |[**Azure Application Insights**](#appinsights)|  Basic |
 |[**Archiviazione BLOB di Azure (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
-|[**Azure Esplora dati (kusto)**](#kusto) | Basic<br>ManagedIdentity|
+|[**Esplora dati di Azure (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Entità servizio<br>Entità servizio da Key Vault<br> |
 |[**Database SQL di Azure/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Entità servizio<br>Entità servizio da Key Vault<br>AzureSQLConnectionString
 |[**Archiviazione tabelle di Azure**](#table) | Basic | 
@@ -131,9 +131,9 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Esplora dati (kusto)</span>
+## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Esplora dati di Azure (Kusto)</span>
 
-* **Stringa di connessione**: per informazioni su come recuperare la stringa di connessione da Azure Esplora dati (kusto), vedere [visualizzare e copiare una stringa](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) di connessione.
+* **Stringa di connessione**: metrica Advisor supporta l'accesso ad Azure Esplora dati (kusto) utilizzando Azure ad l'autenticazione dell'applicazione. Sarà necessario creare e registrare un'applicazione Azure AD e quindi autorizzarla ad accedere a un database di Esplora dati di Azure. Per ottenere la stringa di connessione, vedere la documentazione di [Azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) .
 
 * **Query**: vedere il [linguaggio di query kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query) per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile utilizzare le `@StartTime` `@EndTime` variabili e nella query. Devono essere formattati: `yyyy-MM-dd HH:mm:ss` .
 

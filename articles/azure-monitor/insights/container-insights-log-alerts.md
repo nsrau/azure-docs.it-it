@@ -3,12 +3,12 @@ title: Registrare gli avvisi da monitoraggio di Azure per i contenitori | Micros
 description: Questo articolo descrive come creare avvisi di log personalizzati per l'utilizzo della memoria e della CPU da monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294547"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995261"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Come creare avvisi di log da monitoraggio di Azure per i contenitori
 
@@ -307,4 +307,4 @@ Questa sezione illustra la creazione di una regola di avviso di misurazione dell
 
 - Visualizzare gli [esempi di query di log](container-insights-log-search.md#search-logs-to-analyze-data) per visualizzare query e esempi predefiniti per valutare o personalizzare gli avvisi, la visualizzazione o l'analisi dei cluster.
 
-- Per altre informazioni su monitoraggio di Azure e su come monitorare altri aspetti del cluster Kubernetes, vedere [visualizzare le prestazioni del cluster Kubernetes](container-insights-analyze.md) e [visualizzare l'integrità del cluster Kubernetes](container-insights-health.md).
+- Per altre informazioni su monitoraggio di Azure e su come monitorare altri aspetti del cluster Kubernetes, vedere [visualizzare le prestazioni del cluster Kubernetes](container-insights-analyze.md) e [visualizzare l'integrità del cluster Kubernetes](./container-insights-overview.md).

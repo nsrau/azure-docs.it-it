@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440593"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995346"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -129,7 +129,7 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 | Proprietà | Descrizione | Necessaria? |
 |:--- |:--- |:--- |
-| type | Per un'attività di copia, impostare su `Copy` | Sì |
+| tipo | Per un'attività di copia, impostare su `Copy` | Sì |
 | input | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
 | typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
@@ -186,10 +186,11 @@ Per informazioni sul modo in cui l'attività di copia esegue il mapping dei dati
 Oltre a copiare i dati dall'archivio dati di origine al sink, è anche possibile configurare per aggiungere ulteriori colonne di dati da copiare insieme a sink. Ad esempio:
 
 - Quando si esegue la copia da un'origine basata su file, archiviare il percorso del file relativo come colonna aggiuntiva per tracciare da quale file provengono i dati.
+- Duplicare la colonna di origine specificata come altra colonna. 
 - Aggiungere una colonna con l'espressione ADF, per associare le variabili di sistema ADF, ad esempio l'ID pipeline o il nome della pipeline, oppure archiviare altro valore dinamico dall'output dell'attività upstream.
 - Aggiungere una colonna con valore statico per soddisfare le esigenze di utilizzo a valle.
 
-È possibile trovare la configurazione seguente nella scheda origine dell'attività di copia: 
+È possibile trovare la configurazione seguente nella scheda origine dell'attività di copia. È anche possibile eseguire il mapping delle colonne aggiuntive nel [mapping dello schema](copy-activity-schema-and-type-mapping.md#schema-mapping) dell'attività di copia come di consueto usando i nomi di colonna definiti. 
 
 ![Aggiungere altre colonne nell'attività di copia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`** -una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **Espressione**<br>- **Valore statico** | No |
+| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`** -una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **`$$COLUMN:<source_column_name>`** -un modello di variabile riservata indica di duplicare la colonna di origine specificata come altra colonna<br>- **Espressione**<br>- **Valore statico** | No |
 
 **Esempio:**
 
@@ -218,6 +219,10 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

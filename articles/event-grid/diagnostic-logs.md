@@ -4,10 +4,10 @@ description: Questo articolo fornisce informazioni concettuali sui log di diagno
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: c8f6734d9d43887d0eb0bb90bb08f727732feac3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86116744"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Log di diagnostica per argomenti/domini di griglia di eventi di Azure
@@ -18,11 +18,11 @@ Le impostazioni di diagnostica consentono agli utenti di griglia di eventi di ac
 
 | Nome proprietà | Tipo di dati | Descrizione |
 | ------------- | --------- | ----------- | 
-| Tempo | Datetime | Ora di generazione della voce di log <p>**Valore di esempio:** 01-29-2020 09:52:02.700</p> |
+| Tempo | Datetime | Ora di generazione della voce di log <p>**Valore di esempio:**  01-29-2020 09:52:02.700</p> |
 | EventSubscriptionName | string | Nome della sottoscrizione di eventi <p>**Valore di esempio:** "EVENTSUB1"</p> <p>Questa proprietà esiste solo per i log degli errori di recapito.</p>  |
 | Category | string | Nome della categoria di log. <p>**Valori di esempio:** "DeliveryFailures" o "PublishFailures" | 
 | OperationName | string | Nome dell'operazione eseguita durante l'errore.<p>**Valori di esempio:** "Recapita" per gli errori di recapito. |
-| Messaggio | string | Messaggio di log per l'utente che descrive il motivo dell'errore e altri dettagli aggiuntivi. |
+| Message | string | Messaggio di log per l'utente che descrive il motivo dell'errore e altri dettagli aggiuntivi. |
 | ResourceId | string | ID risorsa per la risorsa argomento/dominio<p>**Valori di esempio:**`/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
 
 ## <a name="example"></a>Esempio

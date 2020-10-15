@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 07/30/2020
 ms.openlocfilehash: ceb4a3356ef78d2129f76bd11f555a9ca5206d51
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505835"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Esempio di script CLI di Azure-creare un'app per la logica
@@ -19,13 +19,13 @@ ms.locfileid: "87505835"
 Questo script crea un'app per la logica di esempio tramite l' [estensione app](/cli/azure/ext/logic/logic?view=azure-cli-latest)per la logica dell'interfaccia della riga di comando di Azure `az logic` . Per una guida dettagliata alla creazione e gestione di app per la logica tramite l'interfaccia della riga di comando di Azure, vedere la Guida [introduttiva alle app per la logica per l'interfaccia](quickstart-logic-apps-azure-cli.md)
 
 > [!WARNING]
-> L'estensione dell'interfaccia della riga di comando di Azure è attualmente *sperimentale* e *non è coperta dal supporto*tecnico. Usare questa estensione dell'interfaccia della riga di comando con cautela, soprattutto se si sceglie di usare l'estensione negli ambienti di produzione.
+> L'estensione app per la logica dell'interfaccia della riga di comando di Azure è attualmente *sperimentale* e non è *coperta dall'assistenza clienti*. Usare questa estensione dell'interfaccia della riga di comando con cautela, soprattutto se si sceglie di usare l'estensione negli ambienti di produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un account Azure con una sottoscrizione attiva. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* INTERFACCIA della riga di comando di [Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) installata nel computer locale.
-* Estensione dell'interfaccia della riga di comando di [Azure per app](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) per la logica installata nel computer. Per installare questa estensione, usare il comando seguente:`az extension add --name logic`
+* L'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) installata nel computer locale.
+* L'[estensione app per la logica dell'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) installata nel computer. Per installare questa estensione, usare il comando seguente: `az extension add --name logic`
 * [Definizione del flusso di lavoro](quickstart-logic-apps-azure-cli.md#workflow-definition) per l'app per la logica. Questo file JSON deve seguire lo [schema del linguaggio di definizione del flusso di lavoro](logic-apps-workflow-definition-language.md).
 * Una connessione API a un account di posta elettronica tramite un [connettore di app](../connectors/apis-list.md) per la logica supportato nello stesso gruppo di risorse dell'app per la logica. Questo esempio usa il connettore [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) , ma è anche possibile usare altri connettori, ad esempio [Outlook.com](../connectors/connectors-create-api-outlook.md).
 
@@ -33,11 +33,11 @@ Questo script crea un'app per la logica di esempio tramite l' [estensione app](/
 
 Prima di iniziare, convalidare l'ambiente:
 
-* Accedere al portale di Azure e verificare che la sottoscrizione sia attiva eseguendo `az login` .
+* Accedere al portale di Azure e verificare che la sottoscrizione sia attiva eseguendo `az login`.
 
-* Controllare la versione dell'interfaccia della riga di comando di Azure in un terminale o una finestra di comando eseguendo `az --version` . Per la versione più recente, vedere le [Note sulla versione più recenti](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest).
+* Controllare la versione dell'interfaccia della riga di comando di Azure in una finestra terminale o di comando eseguendo `az --version`. Per la versione più recente, vedere le [ultime note sulla versione](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest).
 
-  * Se non si dispone della versione più recente, aggiornare l'installazione seguendo la [Guida all'installazione per il sistema operativo o la piattaforma](/cli/azure/install-azure-cli?view=azure-cli-latest).
+  * Se non si dispone della versione più recente, aggiornare l'installazione seguendo la [guida all'installazione per il sistema operativo o la piattaforma in uso](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sample-workflow-explanation"></a>Esempio di spiegazione del flusso di lavoro
 
@@ -205,4 +205,4 @@ Questo script di esempio usa i comandi seguenti per creare un nuovo gruppo di ri
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/?view=azure-cli-latest).
 
-Per altre app per la logica, vedere esempi di script dell'interfaccia della riga di comando nel [browser degli esempi di codice Microsoft](/samples/browse/?products=azure-logic-apps)
+Per altri esempi di script dell'interfaccia della riga di comando di App per la logica, vedere [Esplora gli esempi di codice](/samples/browse/?products=azure-logic-apps).

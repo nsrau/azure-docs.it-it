@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182016"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973870"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Creare e gestire un pacchetto di supporto StorSimple serie 8000
 
@@ -43,7 +43,7 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
    2. Nella finestra di dialogo visualizzata immettere la password dell'amministratore del dispositivo. La password predefinita è _Password1_.
      
       ![Finestra di dialogo Credenziali PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
-   3. Selezionare **OK**.
+   3. Scegliere **OK**.
    4. Al prompt dei comandi immettere:
      
       `Enter-PSSession $MS`
@@ -67,7 +67,7 @@ Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 | Parametro | Obbligatorio/facoltativo | Descrizione |
 | --- | --- | --- |
 | `-Path` |Obbligatoria |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
-| `-EncryptionPassphrase` |Obbligatorio |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
+| `-EncryptionPassphrase` |Obbligatoria |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
 | `-Credential` |Facoltativo |Consente di specificare le credenziali di accesso per la cartella di rete condivisa. |
 | `-Force` |Facoltativo |Consente di ignorare il passaggio di conferma della passphrase di crittografia. |
 | `-PackageTag` |Facoltativo |Consente di specificare una directory in cui inserire il pacchetto per il supporto in *Percorso* . Il valore predefinito è [nome dispositivo]-[data e ora correnti:aaaa-MM-gg-HH-mm-ss]. |
@@ -108,7 +108,7 @@ Per modificare un pacchetto per il supporto prima di caricarlo nel sito del supp
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![Modificare il pacchetto per il supporto](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![Modificare il pacchetto di supporto 2](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Quando richiesto, specificare una passphrase di crittografia del pacchetto per il supporto modificato.
    
     ```powershell

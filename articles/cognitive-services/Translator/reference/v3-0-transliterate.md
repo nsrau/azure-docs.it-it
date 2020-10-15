@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 8b811c57eb163931c39a311418ac9f1513e9393a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83592254"
 ---
 # <a name="translator-30-transliterate"></a>Translator 3,0: transliterate
@@ -60,7 +60,7 @@ Le intestazioni della richiesta includono:
   <th width="20%">Intestazioni</th>
   <th>Descrizione</th>
   <tr>
-    <td>Intestazione/e di autenticazione</td>
+    <td>Intestazioni di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
@@ -77,7 +77,7 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Testo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento di matrice è un oggetto JSON con una proprietà di stringa denominata `Text`, che rappresenta la stringa da convertire.
 
@@ -111,7 +111,7 @@ Una risposta JSON di esempio è:
 ]
 ```
 
-## <a name="response-headers"></a>Intestazioni della risposta
+## <a name="response-headers"></a>Intestazioni di risposta
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
@@ -161,7 +161,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Se si verifica un errore, la richiesta restituisce anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 L'esempio seguente illustra come convertire due stringhe in lingua giapponese in giapponese romanizzato.
 

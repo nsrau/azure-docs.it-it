@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
 ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081844"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>Aggiungere dati ai log di controllo usando intestazioni HTTP personalizzate
@@ -24,7 +24,7 @@ Ad esempio, quando l'utente dell'API viene autenticato da un sistema esterno, qu
 
 È possibile visualizzare questo flusso di dati nel diagramma seguente:
 
-:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagramma delle intestazioni personalizzate":::
+:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="Diagramma delle intestazioni personalizzate&quot;:::
 
 È possibile usare le intestazioni personalizzate per acquisire diversi tipi di informazioni. Ad esempio:
 
@@ -47,9 +47,9 @@ Queste intestazioni HTTP sono incluse in un elenco di proprietà aggiunto al log
 Queste informazioni vengono quindi serializzate in JSON quando vengono aggiunte alla colonna di proprietà nel log. Ad esempio:
 
 ```json
-{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
-"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
-"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERID&quot; : &quot;1234&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;XXXX&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-XYZ&quot; : &quot;1234&quot; }
 ```
  
 Come per qualsiasi intestazione HTTP, lo stesso nome di intestazione può essere ripetuto con valori diversi. Ad esempio:
@@ -59,7 +59,7 @@ Come per qualsiasi intestazione HTTP, lo stesso nome di intestazione può essere
 
 Quando vengono aggiunti al log, i valori vengono combinati con un elenco delimitato da virgole. Ad esempio:
 
-{ "X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "HospitalA, Emergency" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;HospitalA, Emergency" }
  
 È possibile aggiungere un massimo di 10 intestazioni univoche (le ripetizioni della stessa intestazione con valori diversi vengono conteggiate come una). La lunghezza massima totale del valore per qualsiasi intestazione è 2048 caratteri.
 

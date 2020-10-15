@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: 251b15f72c3216ad3ff4b2983c8cbbd2d9ec6579
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618251"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Elenco di controllo della distribuzione per il dispositivo GPU Pro Azure Stack Edge  
@@ -37,7 +37,7 @@ Usare l'elenco di controllo seguente per assicurarsi di avere queste informazion
 | Consigliabile Impostazioni temporali       | Configurare il fuso orario, il server NTP primario, il server NTP secondario. | Configurare il server NTP primario e secondario nella rete locale.<br>Se il server locale non è disponibile, è possibile configurare i server NTP pubblici.                                                    |
 | Opzionale Aggiornare le impostazioni del server | <li>Richiedi indirizzo IP del server di aggiornamento nella rete locale, percorso del server WSUS. </li> | Per impostazione predefinita, viene usato il server pubblico di Windows Update.|
 | Impostazioni del dispositivo | <li>Nome di dominio completo (FQDN) del dispositivo </li><li>Dominio DNS</li> | |
-| Opzionale Certificati  | Per testare i carichi di lavoro non di produzione, usare l' [opzione genera certificati](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) <br><br> Se si importano certificati personalizzati, tra cui le catene di firma, [aggiungere i certificati](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) nel formato appropriato.| Configurare i certificati solo se si modifica il nome del dispositivo e/o il dominio DNS. |
+| Opzionale Certificati  | Per testare i carichi di lavoro non di produzione, usare l' [opzione genera certificati](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates) <br><br> Se si usano certificati personalizzati, incluse le catene di firma, [aggiungere i certificati](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) nel formato appropriato.| Configurare i certificati solo se si modifica il nome del dispositivo e/o il dominio DNS. |
 | Activation  | Richiedere la chiave di attivazione dalla risorsa Pro/Data Box Gateway di Azure Stack Edge.    | Una volta generato, la chiave scade tra 3 giorni. |
 
 <!--

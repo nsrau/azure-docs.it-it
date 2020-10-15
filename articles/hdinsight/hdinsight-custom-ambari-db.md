@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1858e06567a0ab0907e6d2cb60358ff4ac00f9a2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086348"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>Configurare cluster HDInsight con un database Ambari personalizzato
 
-Apache Ambari semplifica la gestione e il monitoraggio di un cluster Apache Hadoop. Ambari offre un'interfaccia utente Web e un'API REST di facile utilizzo. Ambari è incluso nei cluster HDInsight e viene usato per monitorare il cluster e apportare modifiche alla configurazione.
+Apache Ambari semplifica la gestione e il monitoraggio di un cluster Apache Hadoop. Ambari offre un'interfaccia utente Web e un'API REST di facile utilizzo. Ambari è incluso nei cluster HDInsight e viene usato per monitorare il cluster e apportare modifiche di configurazione.
 
 Nella normale creazione del cluster, come descritto in altri articoli come la [configurazione di cluster in HDInsight](hdinsight-hadoop-provision-linux-clusters.md), Ambari viene distribuito in un [database SQL di Azure S0](../azure-sql/database/resource-limits-dtu-single-databases.md#standard-service-tier) gestito da HDInsight e non è accessibile agli utenti.
 

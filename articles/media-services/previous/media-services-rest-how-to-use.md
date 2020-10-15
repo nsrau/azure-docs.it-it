@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264284"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
@@ -66,8 +66,8 @@ Per ogni chiamata effettuata in Servizi multimediali, è necessario includere ne
 | --- | --- | --- |
 | Autorizzazione |Bearer |Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da Azure Active Directory. |
 | x-ms-version |Decimale |2.17 (o versione più recente)|
-| DataServiceVersion |Decimale |3,0 |
-| MaxDataServiceVersion |Decimale |3,0 |
+| DataServiceVersion |Decimale |3.0 |
+| MaxDataServiceVersion |Decimale |3.0 |
 
 > [!NOTE]
 > Poiché Servizi multimediali usa OData per esporre le API REST, le intestazioni DataServiceVersion e MaxDataServiceVersion devono essere incluse in tutte le richieste. Se non vengono incluse, Servizi multimediali suppone che il valore di DataServiceVersion in uso sia 3.0.
@@ -78,23 +78,23 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 
 | Intestazione | Type | valore |
 | --- | --- | --- |
-| Date |Data RFC 1123 |Timestamp della richiesta. |
+| Data |Data RFC 1123 |Timestamp della richiesta. |
 | Accetta |Tipo di contenuto |Tipo di contenuto richiesto per la risposta, ad esempio:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Nelle risposte può essere presente un tipo di contenuto diverso, ad esempio di recupero BLOB. In questo caso, una risposta corretta deve contenere il flusso BLOB come payload. |
 | Accept-Encoding |Gzip, deflate |Codifica GZIP e DEFLATE, se applicabile. Nota: in caso di risorse di grandi dimensioni, Servizi multimediali può ignorare questa intestazione e restituire dati non compressi. |
 | Accept-Language |"en", "es" e così via. |Lingua preferita per la risposta. |
 | Accept-Charset |Tipo di set di caratteri, ad esempio "UTF-8" |L'impostazione predefinita è UTF-8. |
 | X-HTTP-Method |Metodo HTTP |Consente ai client o ai firewall che non supportano metodi HTTP come PUT o DELETE di usarli, con tunneling tramite una chiamata GET. |
 | Content-Type |Tipo di contenuto |Tipo di contenuto del corpo delle richieste PUT o POST. |
-| client-request-id |Stringa |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
+| client-request-id |string |Valore definito dal chiamante che identifica la richiesta fornita. Se specificato, questo valore viene incluso nel messaggio di risposta per consentire il mapping della richiesta. <p><p>**Importante**<p> Le dimensioni di questi valori dovrebbero essere limitate a 2096 b (2 k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Intestazioni delle risposte HTTP standard supportate da Servizi multimediali
 Nella seguente tabella è riportato un set di intestazioni che possono essere restituite a seconda della risorsa richiesta e dell'azione che si intende eseguire.
 
 | Intestazione | Type | valore |
 | --- | --- | --- |
-| request-id |Stringa |Identificatore univoco per l'operazione corrente, generato dal servizio. |
-| client-request-id |Stringa |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
-| Date |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
+| request-id |string |Identificatore univoco per l'operazione corrente, generato dal servizio. |
+| client-request-id |string |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
+| Data |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
 | Content-Type |Varia |Tipo di contenuto del corpo della risposta. |
 | Content-Encoding |Varia |Gzip o deflate, a seconda delle esigenze. |
 

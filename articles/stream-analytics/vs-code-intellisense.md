@@ -7,10 +7,10 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
 ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903727"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense negli strumenti di analisi di flusso di Azure per Visual Studio Code
@@ -34,7 +34,7 @@ Le funzionalità di IntelliSense negli strumenti di analisi di flusso per VS Cod
 
 Strumenti di analisi di flusso per VS Code IntelliSense offre diversi tipi di completamenti, tra cui suggerimenti per i server di linguaggio, frammenti di codice e semplici completamenti testuali basati su parole.
 
-|Completion     |  Tipo       |
+|Completion     |  Type       |
 | ----- | ------- |
 | Parole chiave | `keyword`
 | Funzioni | `build-in function`, `user defined function`  |

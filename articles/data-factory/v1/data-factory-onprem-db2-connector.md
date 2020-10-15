@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74931793"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Spostare dati da DB2 mediante l'attività di copia di Azure Data Factory
@@ -105,7 +105,7 @@ Per le attività di copia con origine di tipo **RelationalSource** (che comprend
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| **query** |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from "MySchema"."MyTable""` |No (se è specificata la proprietà **tableName** di un set di dati) |
+| **query** |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. ad esempio `"query": "select * from "MySchema"."MyTable""` |No (se è specificata la proprietà **tableName** di un set di dati) |
 
 > [!NOTE]
 > I nomi di schemi e tabelle fanno distinzione tra maiuscole e minuscole. Nell'istruzione della query racchiudere i nomi di proprietà fra virgolette doppie ("").
@@ -317,7 +317,7 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Data |Datetime |
-| Tempo |TimeSpan |
+| Ora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
 | Char |string |
@@ -343,7 +343,7 @@ Quando l'attività di copia converte i dati da un tipo DB2 in un tipo .NET, veng
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Data |Datetime |
-| Tempo |TimeSpan |
+| Ora |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
 | Char |string |

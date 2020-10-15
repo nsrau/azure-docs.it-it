@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86999497"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usare il servizio Gestione dispositivi StorSimple per monitorare i componenti hardware e lo stato
@@ -79,7 +79,7 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure principale del dispositivo StorSimple
 La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure principale, presente nei dispositivi 8100 e 8600, del dispositivo StorSimple in locale.
 
-| Componente | Modulo | Tipo | Location | Unità sostituibile sul campo (FRU)? | Descrizione |
+| Componente | Modulo | Type | Location | Unità sostituibile sul campo (FRU)? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
@@ -120,7 +120,7 @@ La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure EBOD del dispositivo StorSimple
 Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell'enclosure EBOD (presente solo nel modello 8600) del dispositivo StorSimple in locale.
 
-| Componente | Modulo | Tipo | Location | FRU? | Descrizione |
+| Componente | Modulo | Type | Location | FRU? | Descrizione |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |

@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali della soluzione VMware di Azure c
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali usando server di Backup di Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: a62bccb729cfa6aec89a3ce6de7283f5d9412428
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91580314"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893017"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure
 
@@ -105,36 +105,6 @@ In VMware 6,7 in poi è stato abilitato TLS come protocollo di comunicazione.
 
 1. Fare clic con il pulsante destro del mouse su TLS. REG file e selezionare **merge** o **Open** per aggiungere le impostazioni al registro di sistema.
 
-## <a name="add-the-provisioning-ip-address"></a>Aggiungere l'indirizzo IP del provisioning 
-
-Durante l'anteprima, la soluzione VMware di Azure non risolve l'host ESX dalla macchina virtuale distribuita nella rete virtuale. È necessario eseguire passaggi aggiuntivi per aggiungere la voce del file host nella macchina virtuale server di Backup di Azure.
-
-### <a name="identify-the-ip-address-for-esxi-hosts"></a>Identificare l'indirizzo IP per gli host ESXi
-
-1. Aprire il browser e accedere agli URL di vCenter. 
-
-   > [!TIP]
-   > È possibile trovare gli URL in [Connetti al vCenter locale del cloud privato](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud).
-
-1. Nel client di vSphere selezionare il cluster per il quale si intende abilitare il backup.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vsphere-client-select-host.png" alt-text="Client Web vSphere":::
-
-1. Selezionare **Configura**  >  schede di**rete**  >  **VMKernel**. Nell'elenco dei dispositivi identificare la scheda di rete in cui è abilitato il ruolo di **provisioning** . Prendere nota dell' **indirizzo IP** e del nome host ESXi.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vmkernel-adapters-provisioning-enabled.png" alt-text="Client Web vSphere":::
-
-1. Ripetere il passaggio precedente per ogni host ESXi in ogni cluster per cui si intende abilitare il backup.
-
-### <a name="update-the-host-file-on-azure-backup-server"></a>Aggiornare il file host in server di Backup di Azure
-
-1. Aprire Blocco note come amministratore.
-
-1. Selezionare **file**  >  **aperto**e cercare c:\Windows\System32\Drivers\etc\hosts.
-
-1. Aggiungere la voce per ogni host ESXi insieme all'indirizzo IP identificato nella sezione precedente.
-
-1. Salvare le modifiche e chiudere il blocco note.
 
 ## <a name="add-the-account-on-azure-backup-server"></a>Aggiungere l'account nel server di Backup di Azure
 

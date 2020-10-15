@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: tomfitz
 ms.openlocfilehash: 04f86883a75110985d1cbe050fe3fd3e0582986a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893772"
 ---
 # <a name="microsoftcommoneditablegrid-ui-element"></a>Elemento Microsoft. Common. EditableGrid dell'interfaccia utente
@@ -122,7 +122,7 @@ Controllo per la raccolta di input tabulari. Tutti i campi all'interno della gri
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - Gli unici controlli validi all'interno della matrice Columns sono la [casella di testo](microsoft-common-textbox.md), [OptionsGroup](microsoft-common-optionsgroup.md)e l'elenco a [discesa](microsoft-common-dropdown.md).
 - La `$rowIndex` variabile è valida solo nelle espressioni contenute all'interno di elementi figlio delle colonne della griglia. Si tratta di un numero intero che rappresenta l'indice di riga relativo dell'elemento e il conteggio inizia da uno e viene incrementato di uno. Come illustrato nella sezione dello schema `"columns":` , `$rowIndex` viene usato per la convalida.

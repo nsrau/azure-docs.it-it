@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266701"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069875"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -129,7 +129,7 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
 - **Multivalore?** : specifica se l'attributo supporta più valori.
 - **Maiuscole/minuscole esatte?** : specifica se i valori degli attributi vengono valutati facendo distinzione tra maiuscole e minuscole.
 - **Espressione API**: non usare questa opzione a meno che non sia specificato nella documentazione per un determinato connettore di provisioning, ad esempio Workday.
-- **Attributo oggetto di riferimento**: se l'attributo è di tipo Riferimento, in questo menu è possibile selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati tramite il portale di Azure, ma possono essere modificati usando l'[API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+- **Attributo oggetto di riferimento**: se l'attributo è di tipo Riferimento, in questo menu è possibile selezionare la tabella e l'attributo nell'applicazione di destinazione che contiene il valore associato all'attributo. Ad esempio, in presenza di un attributo denominato "Reparto" il cui valore archiviato fa riferimento a un oggetto in una tabella "Reparti" separata, sarà necessario selezionare "Reparti.Nome". Le tabelle di riferimento e i campi degli ID primari supportati per un'applicazione specifica sono preconfigurati e attualmente non possono essere modificati tramite il portale di Azure, ma possono essere modificati usando l'[API Microsoft Graph](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisioning di un attributo di estensione personalizzato in un'applicazione conforme a SCIM
 SCIM RFC definisce uno schema di utenti e gruppi centrale, consentendo anche estensioni dello schema per soddisfare le esigenze dell'applicazione. Per aggiungere un attributo personalizzato a un'applicazione SCIM:
@@ -321,7 +321,7 @@ La selezione di questa opzione forza una nuova sincronizzazione di tutti gli ute
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
-- [Scrittura di espressioni per i mapping degli attributi](../app-provisioning/functions-for-customizing-application-data.md)
-- [Ambito dei filtri per il Provisioning utente](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
+- [Ambito dei filtri per il Provisioning utente](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](use-scim-to-provision-users-and-groups.md)
 - [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)

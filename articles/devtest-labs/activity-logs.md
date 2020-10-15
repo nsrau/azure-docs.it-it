@@ -4,10 +4,10 @@ description: Questo articolo illustra la procedura per visualizzare i log attivi
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 24b5eb25f1c8c9044ad6e77545381a43a11714f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097857"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Visualizzare i log attività per i Lab in Azure DevTest Labs 
@@ -27,24 +27,24 @@ Questo articolo illustra come visualizzare i log attività per un Lab in Azure D
     :::image type="content" source="./media/activity-logs/configuration-policies-link.png" alt-text="Selezionare configurazione e criteri nel menu a sinistra.":::
 1. Nella pagina **configurazione e criteri** selezionare **log attività** nel menu a sinistra in **Gestisci**. Verranno visualizzate le voci per le operazioni eseguite nel Lab. 
 
-    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Log attività":::    
+    :::image type="content" source="./media/activity-logs/activity-log.png" alt-text="Selezionare configurazione e criteri nel menu a sinistra.":::    
 1. Selezionare un evento per visualizzarne i dettagli. Nella pagina **Riepilogo** vengono visualizzate informazioni quali il nome dell'operazione, il timestamp e l'utente che ha eseguito l'operazione. 
     
-    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Arresta evento VM-Riepilogo":::        
+    :::image type="content" source="./media/activity-logs/stop-vm-event.png" alt-text="Selezionare configurazione e criteri nel menu a sinistra.":::        
 1. Passare alla scheda **JSON** per visualizzare altri dettagli. Nell'esempio seguente è possibile visualizzare il nome della macchina virtuale e l'operazione eseguita nella macchina virtuale (arrestata).
 
-    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Arresta evento VM-JSON":::           
+    :::image type="content" source="./media/activity-logs/stop-vm-event-json.png" alt-text="Selezionare configurazione e criteri nel menu a sinistra.":::           
 1. Passare alla scheda **cronologia modifiche (anteprima)** per visualizzare la cronologia delle modifiche. Nell'esempio seguente viene visualizzata la modifica apportata alla macchina virtuale. 
 
-    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Arresta evento VM-cronologia modifiche":::             
+    :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Selezionare configurazione e criteri nel menu a sinistra.":::             
 1. Selezionare la modifica nell'elenco cronologia modifiche per visualizzare altri dettagli sulla modifica. 
 
-    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Arresta evento VM-modifica dettagli":::             
+    :::image type="content" source="./media/activity-logs/change-details.png" alt-text="Selezionare configurazione e criteri nel menu a sinistra.":::             
 
 Per altre informazioni sui log attività, vedere [log attività di Azure](../azure-monitor/platform/activity-log.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sull'impostazione degli **avvisi** nei log attività, vedere [creare avvisi](create-alerts.md).
-- Per altre informazioni sui log attività, vedere [log attività di Azure](../azure-monitor/platform/activity-log.md).
+- Per altre informazioni sui log attività, vedere  [log attività di Azure](../azure-monitor/platform/activity-log.md).
 

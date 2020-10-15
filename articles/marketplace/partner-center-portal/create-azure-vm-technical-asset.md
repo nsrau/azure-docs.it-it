@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: ec043c97da8056fee4af8f6ead84f4df05c0f304
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803518"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079021"
 ---
 # <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Crea risorse tecniche per un'offerta di macchina virtuale di Azure Marketplace
 
@@ -146,7 +146,7 @@ Questo articolo illustra come usare il supporto di Windows RDP incorporato per c
 
 ### <a name="connect-to-a-linux-based-vm"></a>Connettersi a una macchina virtuale basata su Linux
 
-Per connettersi a una macchina virtuale basata su Linux, è necessario disporre di un client con protocollo Secure Shell (SSH). I passaggi seguenti usano il terminale SHH [PuTTY](https://www.ssh.com/ssh/putty/) gratuito.
+Per connettersi a una macchina virtuale basata su Linux, è necessario disporre di un client con protocollo Secure Shell (SSH). La procedura seguente usa il terminale ssh [Putty](https://www.ssh.com/ssh/putty/) gratuito.
 
 1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
 2. Cercare e selezionare Macchine virtuali.

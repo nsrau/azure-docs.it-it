@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 706379649b47846b5c020dc76493a98e346c4a8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317685"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
@@ -42,7 +42,7 @@ Per la maggior parte delle organizzazioni, non √® necessaria la creazione di pi√
 3. Selezionare **Crea**.
 4. Immettere o selezionare i valori personalizzati, oppure immettere o selezionare i valori di esempio seguenti, quindi selezionare **Crea**:
 
-    |Impostazione        |valore                                              |
+    |Impostazione        |Valore                                              |
     |---------      |---------                                          |
     |Nome           | myDdosProtectionPlan                              |
     |Subscription   | Selezionare la propria sottoscrizione.                         |
@@ -55,7 +55,7 @@ Per la maggior parte delle organizzazioni, non √® necessaria la creazione di pi√
 2. Selezionare **rete e quindi** **rete virtuale**.
 3. Immettere o selezionare i valori personalizzati, oppure immettere o selezionare i valori di esempio seguenti, accettare i risultati predefiniti restanti e quindi selezionare **Crea**:
 
-    | Impostazione         | valore                                                        |
+    | Impostazione         | Valore                                                        |
     | ---------       | ---------                                                    |
     | Nome            | myVirtualNetwork                                             |
     | Subscription    | Selezionare la propria sottoscrizione.                                    |
@@ -104,7 +104,7 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, √® possibile sel
 3. Selezionare **Metriche** in **SERVIZI CONDIVISI**.
 4. Immettere o selezionare i valori personalizzati, oppure immettere i valori di esempio seguenti, accettare i risultati predefiniti restanti e quindi selezionare **OK**:
 
-    |Impostazione                  |valore                                                                                               |
+    |Impostazione                  |Valore                                                                                               |
     |---------                |---------                                                                                           |
     |Nome                     | myDdosAlert                                                                                        |
     |Subscription             | Selezionare la sottoscrizione che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.        |
@@ -229,7 +229,7 @@ Gli avvisi includono informazioni generali sull'indirizzo IP pubblico che si tro
 
 Per lavorare con i piani di protezione DDoS, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Action                                            | Nome                                     |
+| Azione                                            | Nome                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Leggere un piano di protezione DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Creare o aggiornare un piano di protezione DDoS  |

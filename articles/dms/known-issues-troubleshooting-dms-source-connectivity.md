@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: 2db941edef93b1e836e82753a6d6016adb977e65
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322598"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Risolvere gli errori del Servizio Migrazione del database di Azure durante la connessione a database di origine
@@ -58,7 +58,7 @@ Nella tabella seguente sono riportati i potenziali problemi associati alla conne
 | Errore         | Dettagli su cause e risoluzione dei problemi |
 | ------------- | ------------- |
 | **Errore [101]**[08001]-connessione non riuscita. ERRORE [08001] timeout scaduto. | Questo errore si verifica se il driver Postgres non riesce a connettersi al server di origine. Per risolvere il problema, fare riferimento ai documenti di risoluzione dei problemi elencati nella nota sotto questa tabella, quindi riprovare. |
-| **Errore: il valore del parametro wal_level è' {value}'. Impostarla su "Logical" per consentire la replica.** | Questo errore si verifica se il valore del parametro wal_level non è corretto. Per risolvere il problema, modificare RDS. logical_replication nel gruppo di parametri in 1, quindi riavviare l'istanza. Per altre informazioni, vedere la pagina relativa ai [prerequisiti per la migrazione ad Azure PostgreSQL con DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) o [PostgreSQL in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
+| **Errore: il valore del parametro wal_level è' {value}'. Impostarla su "Logical" per consentire la replica.** | Questo errore si verifica se il valore del parametro wal_level non è corretto. Per risolvere il problema, modificare il rds.logical_replication nel gruppo di parametri in 1, quindi riavviare l'istanza. Per altre informazioni, vedere la pagina relativa ai [prerequisiti per la migrazione ad Azure PostgreSQL con DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#prerequisites) o [PostgreSQL in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html). |
 
 > [!NOTE]
 > Per ulteriori informazioni sulla risoluzione dei problemi relativi alla connessione a un database PostgreSQL RDS di origine, vedere le risorse seguenti:

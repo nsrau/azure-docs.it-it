@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449010"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Informazioni sull'accesso alla VM JIT (just-in-Time)
@@ -24,7 +24,7 @@ Per informazioni su come applicare JIT alle macchine virtuali usando il portale 
 
 ## <a name="the-risk-of-open-management-ports-on-a-virtual-machine"></a>Il rischio di aprire porte di gestione in una macchina virtuale
 
-Gli attori minacciano attivamente la ricerca di computer accessibili con porte di gestione aperte, ad esempio RDP o SSH. Tutte le macchine virtuali sono potenziali destinazioni per un attacco. Quando una macchina virtuale viene compromessa correttamente, viene usata come punto di ingresso per attaccare ulteriori risorse all'interno dell'ambiente.
+Gli attori minacciano attivamente la ricerca di computer accessibili con porte di gestione aperte, ad esempio RDP o SSH. Tutte le macchine virtuali sono obiettivi potenziali per un attacco. Quando una VM viene compromessa, viene usata come punto di ingresso per attaccare altre risorse nell'ambiente.
 
 
 

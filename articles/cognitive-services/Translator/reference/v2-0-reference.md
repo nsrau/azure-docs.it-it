@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
 ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83588616"
 ---
 # <a name="translator-v20"></a>Traduttore v 2.0
@@ -52,7 +52,7 @@ Se si desidera impedire la volgarità nella traduzione anche quando si trova nel
 |ProfanityAction    |Azione |Esempio di origine (giapponese)  |Esempio di traduzione (Inglese)  |
 |:--|:--|:--|:--|
 |NoAction   |Valore predefinito. Equivale a non impostare l'opzione. Il contenuto volgare passerà dall'origine alla destinazione.        |彼はジャッカスです。     |È un cretino.   |
-|Marked     |Le parole profane saranno racchiuse tra tag XML \<> e \< /Profanity>.       |彼はジャッカスです。 |È un \< volgare>Jackass \< /Profanity>.  |
+|Marked     |Le parole volgari verranno racchiuse tra i tag XML \<profanity> e \</profanity>.       |彼はジャッカスです。 |È un \<profanity>cretino\</profanity>.  |
 |Eliminata    |Le parole volgari verranno rimosse dall'output senza sostituzione.     |彼はジャッカスです。 |È un.   |
 
     
@@ -85,11 +85,11 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione    |Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid  |(vuoto)    |Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|testo|(vuoto)   |Obbligatoria. Stringa che rappresenta il testo da tradurre. Il testo non può contenere più di 10.000 caratteri.|query|string|
+|appid  |(vuoto)    |Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|text|(vuoto)   |Obbligatorio. Stringa che rappresenta il testo da tradurre. Il testo non può contenere più di 10.000 caratteri.|query|string|
 |da|(vuoto)   |Facoltativa. Stringa che rappresenta il codice della lingua del testo da tradurre. ad esempio en per "Inglese".|query|string|
-|to|(vuoto) |Obbligatoria. Stringa che rappresenta il codice del linguaggio in cui tradurre il testo.|query|string|
-|contentType|(vuoto)    |Facoltativa. Formato del testo da tradurre. I formati supportati sono `text/plain` (impostazione predefinita) e `text/html` . È necessario che gli elementi HTML siano in formato corretto e completi.|query|string|
+|to|(vuoto) |Obbligatorio. Stringa che rappresenta il codice del linguaggio in cui tradurre il testo.|query|string|
+|contentType|(vuoto)    |Facoltativa. Formato del testo da tradurre. I formati supportati sono `text/plain` (impostazione predefinita) e  `text/html` . È necessario che gli elementi HTML siano in formato corretto e completi.|query|string|
 |category|(vuoto)   |Facoltativa. Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.|query|string|
 |Autorizzazione|(vuoto)  |Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
@@ -97,7 +97,7 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -195,7 +195,7 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP   |Motivo|
+|Codice di stato HTTP   |Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata. Di seguito sono riportati gli errori più comuni. <ul><li>L'elemento della matrice non può essere vuoto.</li><li>Categoria non valida.</li><li>Il linguaggio from non è valido.</li><li>Il linguaggio non è valido.</li><li>La richiesta contiene troppi elementi.</li><li>Il linguaggio from non è supportato.</li><li>Il linguaggio to non è supportato.</li><li>La richiesta translate contiene troppi dati.</li><li>Il formato del codice HTML non è corretto.</li><li>Troppe stringhe passate nella richiesta translate.</li></ul>|
 |401    |Credenziali non valide.|
@@ -231,14 +231,14 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|locale|(vuoto) |Obbligatoria. Stringa che rappresenta uno dei seguenti elementi utilizzati per localizzare i nomi di lingua: <ul><li>La combinazione di un codice di impostazioni cultura minuscole ISO 639 2-lettera associato a una lingua e a un codice di sottocultura in lettere maiuscole ISO 3166 2. <li>Codice delle impostazioni cultura minuscole ISO 639.|query|string|
+|appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|locale|(vuoto) |Obbligatorio. Stringa che rappresenta uno dei seguenti elementi utilizzati per localizzare i nomi di lingua: <ul><li>La combinazione di un codice di impostazioni cultura minuscole ISO 639 2-lettera associato a una lingua e a un codice di sottocultura in lettere maiuscole ISO 3166 2. <li>Codice delle impostazioni cultura minuscole ISO 639.|query|string|
 |Autorizzazione|(vuoto)  |Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -265,13 +265,13 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |Autorizzazione|(vuoto)  |Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -298,13 +298,13 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
  
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401|Credenziali non valide.|
@@ -330,17 +330,17 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|testo|(vuoto)   |Obbligatoria. Stringa che contiene una o più frasi da pronunciare per il flusso, nella lingua specificata. Il testo non deve superare i 2.000 caratteri.|query|string|
-|Linguaggio|(vuoto)   |Obbligatoria. Stringa che rappresenta il codice di lingua supportato della lingua in cui pronunciare il testo. Il codice deve essere uno dei codici restituiti dal metodo `GetLanguagesForSpeak` .|query|string|
+|appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|text|(vuoto)   |Obbligatorio. Stringa che contiene una o più frasi da pronunciare per il flusso, nella lingua specificata. Il testo non deve superare i 2.000 caratteri.|query|string|
+|Linguaggio|(vuoto)   |Obbligatorio. Stringa che rappresenta il codice di lingua supportato della lingua in cui pronunciare il testo. Il codice deve essere uno dei codici restituiti dal metodo `GetLanguagesForSpeak` .|query|string|
 |format|(vuoto)|Facoltativa. Stringa che specifica l'ID del tipo di contenuto. Attualmente, sono disponibili `audio/wav` e `audio/mp3`. Il valore predefinito è `audio/wav`.|query|string|
-|opzioni|(vuoto)    |Facoltativa. Stringa che specifica le proprietà della voce sintetizzata:<ul><li>`MaxQuality`e `MinSize` specificano la qualità del segnale audio. `MaxQuality`fornisce la qualità più elevata. `MinSize`fornisce le dimensioni più piccole del file. Il valore predefinito è `MinSize` .</li><li>`female`e `male` specificano il sesso desiderato della voce. Il valore predefinito è `female`. Utilizzare la barra verticale ( <code>\|</code> ) per includere più opzioni. Ad esempio, `MaxQuality|Male`.</li></li></ul>  |query|string|
+|opzioni|(vuoto)    |Facoltativa. Stringa che specifica le proprietà della voce sintetizzata:<ul><li>`MaxQuality` e `MinSize` specificano la qualità del segnale audio. `MaxQuality` fornisce la qualità più elevata. `MinSize` fornisce le dimensioni più piccole del file. Il valore predefinito è  `MinSize` .</li><li>`female` e `male` specificano il sesso desiderato della voce. Il valore predefinito è `female`. Utilizzare la barra verticale ( <code>\|</code> ) per includere più opzioni. Ad esempio, `MaxQuality|Male`.</li></li></ul>  |query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -366,14 +366,14 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)  |Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|testo|(vuoto)|Obbligatoria. Stringa che contiene il testo di cui è necessario identificare la lingua. Il testo non deve superare i 10.000 caratteri.|query|  string|
+|appid|(vuoto)  |Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|text|(vuoto)|Obbligatorio. Stringa che contiene il testo di cui è necessario identificare la lingua. Il testo non deve superare i 10.000 caratteri.|query|  string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key  |(vuoto)    |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -412,7 +412,7 @@ Ecco il formato del corpo della risposta:
 ```
 
 ### <a name="response-class-status-200"></a>Classe Response (stato 200)
-`DetectArray`ha avuto esito positivo. Restituisce una matrice di stringhe che contiene un codice di lingua di due caratteri per ogni riga della matrice di input.
+`DetectArray` ha avuto esito positivo. Restituisce una matrice di stringhe che contiene un codice di lingua di due caratteri per ogni riga della matrice di input.
 
 string
 
@@ -422,13 +422,13 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti.  Token di autorizzazione: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -456,22 +456,22 @@ Tipo di contenuto della risposta: applicazione: XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati   |
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|originalText|(vuoto)|Obbligatoria. Stringa che contiene il testo da tradurre. La lunghezza massima della stringa è 1.000 caratteri.|query|string|
-|translatedText|(vuoto) |Obbligatoria. Stringa che contiene il testo tradotto nella lingua di destinazione. La lunghezza massima della stringa è 2.000 caratteri.|query|string|
-|da|(vuoto)   |Obbligatoria. Stringa che rappresenta il codice della lingua originale del testo. Ad esempio, en per la lingua inglese e de per il tedesco.|query|string|
-|to|(vuoto)|Obbligatoria. Stringa che rappresenta il codice lingua della lingua in cui tradurre il testo.|query|string|
-|rating|(vuoto) |Facoltativa. Intero che rappresenta la classificazione di qualità per la stringa. Il valore è compreso tra-10 e 10. Il valore predefinito è 1.|query|integer|
+|appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|originalText|(vuoto)|Obbligatorio. Stringa che contiene il testo da tradurre. La lunghezza massima della stringa è 1.000 caratteri.|query|string|
+|translatedText|(vuoto) |Obbligatorio. Stringa che contiene il testo tradotto nella lingua di destinazione. La lunghezza massima della stringa è 2.000 caratteri.|query|string|
+|da|(vuoto)   |Obbligatorio. Stringa che rappresenta il codice della lingua originale del testo. Ad esempio, en per la lingua inglese e de per il tedesco.|query|string|
+|to|(vuoto)|Obbligatorio. Stringa che rappresenta il codice lingua della lingua in cui tradurre il testo.|query|string|
+|rating|(vuoto) |Facoltativa. Intero che rappresenta la classificazione di qualità per la stringa. Il valore è compreso tra-10 e 10. Il valore predefinito è 1.|query|numero intero|
 |contentType|(vuoto)    |Facoltativa. Formato del testo da tradurre. I formati supportati sono `text/plain` e `text/html` . È necessario che gli elementi HTML siano in formato corretto e completi.    |query|string|
 |category|(vuoto)|Facoltativa. Stringa che contiene la categoria (dominio) della traduzione. Il valore predefinito è `general`.|query|string|
-|utente|(vuoto)|Obbligatoria. Stringa utilizzata per tenere traccia del creatore dell'invio.|query|string|
+|utente|(vuoto)|Obbligatorio. Stringa utilizzata per tenere traccia del creatore dell'invio.|query|string|
 |Uri|(vuoto)|Facoltativa. Stringa che contiene il percorso del contenuto della traduzione.|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti.  Token di autorizzazione: `"Bearer" + " " + "access_token"`.  |header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -523,7 +523,7 @@ Questi elementi sono disponibili in `AddtranslationsRequest` :
 * `Options`: richiesto. Set di opzioni, tra cui `Category` , `ContentType` , `Uri` e `User` . `User` è obbligatorio. `Category`, `ContentType` e `Uri` sono facoltativi. Gli elementi specificati devono essere elencati in ordine alfabetico.
 
 ### <a name="response-class-status-200"></a>Classe Response (stato 200)
-`AddTranslationArray`il metodo è riuscito. 
+`AddTranslationArray` il metodo è riuscito. 
 
 Dopo il 31 gennaio 2018, gli invii di frasi non verranno accettati. Il servizio risponderà con un codice di errore 410.
 
@@ -540,7 +540,7 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -560,7 +560,7 @@ L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/BreakS
 ### <a name="response-class-status-200"></a>Classe Response (stato 200)
 Matrice di numeri interi che rappresenta le lunghezze delle frasi. La lunghezza della matrice rappresenta il numero di frasi. I valori rappresentano la lunghezza di ogni frase.
 
-integer
+numero intero
 
 Tipo di contenuto della risposta: Application/XML
 
@@ -568,15 +568,15 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)  |Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query| string|
-|testo|(vuoto)   |Obbligatoria. Stringa che rappresenta il testo da suddividere in frasi. La dimensione massima del testo è di 10.000 caratteri.|query|string|
-|Linguaggio   |(vuoto)    |Obbligatoria. Stringa che rappresenta il codice della lingua del testo di input.|query|string|
+|appid|(vuoto)  |Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query| string|
+|text|(vuoto)   |Obbligatorio. Stringa che rappresenta il testo da suddividere in frasi. La dimensione massima del testo è di 10.000 caratteri.|query|string|
+|Linguaggio   |(vuoto)    |Obbligatorio. Stringa che rappresenta il codice della lingua del testo di input.|query|string|
 |Autorizzazione|(vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.   |header|string|
 |Ocp-Apim-Subscription-Key|(vuoto)|Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400|Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401|Credenziali non valide.|
@@ -586,7 +586,7 @@ Tipo di contenuto della risposta: Application/XML
 ## <a name="post-gettranslations"></a>POST /GetTranslations
 
 ### <a name="implementation-notes"></a>Note sull'implementazione
-Recupera una matrice di traduzioni per una coppia di lingue specificata dall'archivio e dal motore MT. `GetTranslations`si differenzia da `Translate` in quanto restituisce tutte le traduzioni disponibili.
+Recupera una matrice di traduzioni per una coppia di lingue specificata dall'archivio e dal motore MT. `GetTranslations` si differenzia da `Translate` in quanto restituisce tutte le traduzioni disponibili.
 
 L'URI della richiesta è `https://api.microsofttranslator.com/V2/Http.svc/GetTranslations`.
 
@@ -665,17 +665,17 @@ Tipo di contenuto della risposta: Application/XML
 
 |Parametro|Valore|Descrizione|Tipo di parametro|Tipo di dati|
 |:--|:--|:--|:--|:--|
-|appid|(vuoto)|Obbligatoria. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
-|testo|(vuoto)|Obbligatoria. Stringa che rappresenta il testo da tradurre. La dimensione massima del testo è di 10.000 caratteri.|query|string|
-|da|(vuoto)|Obbligatoria. Stringa che rappresenta il codice della lingua del testo da tradurre.|query|string|
-|to |(vuoto)    |Obbligatoria. Stringa che rappresenta il codice lingua della lingua in cui tradurre il testo.|query|string|
-|maxTranslations|(vuoto)|Obbligatoria. Intero che rappresenta il numero massimo di conversioni da restituire.|query|integer|
+|appid|(vuoto)|Obbligatorio. Se `Authorization` `Ocp-Apim-Subscription-Key` si utilizza l'intestazione o, lasciare `appid` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .|query|string|
+|text|(vuoto)|Obbligatorio. Stringa che rappresenta il testo da tradurre. La dimensione massima del testo è di 10.000 caratteri.|query|string|
+|da|(vuoto)|Obbligatorio. Stringa che rappresenta il codice della lingua del testo da tradurre.|query|string|
+|to |(vuoto)    |Obbligatorio. Stringa che rappresenta il codice lingua della lingua in cui tradurre il testo.|query|string|
+|maxTranslations|(vuoto)|Obbligatorio. Intero che rappresenta il numero massimo di conversioni da restituire.|query|numero intero|
 |Autorizzazione| (vuoto)|Obbligatorio se il `appid` campo e l' `Ocp-Apim-Subscription-Key` intestazione vengono lasciati vuoti. Token di autorizzazione: `"Bearer" + " " + "access_token"`.|string|  header|
 |Ocp-Apim-Subscription-Key|(vuoto)  |Obbligatorio se il `appid` campo e l' `Authorization` intestazione vengono lasciati vuoti.|header|string|
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|
@@ -711,7 +711,7 @@ Ecco il formato del corpo della richiesta:
 </GetTranslationsArrayRequest>
 ```
 
-`GetTranslationsArrayRequest`include gli elementi seguenti:
+`GetTranslationsArrayRequest` include gli elementi seguenti:
 
 * `AppId`: richiesto. Se `Authorization` viene utilizzata l'intestazione, lasciare `AppId` vuoto il campo. In caso contrario, includere una stringa che contiene `"Bearer" + " " + "access_token"` .
 * `From`: richiesto. Stringa che rappresenta il codice della lingua del testo da tradurre.
@@ -793,7 +793,7 @@ Tipo di contenuto della risposta: Application/XML
 
 ### <a name="response-messages"></a>Messaggi di risposta
 
-|Stato codice HTTP|Motivo|
+|Codice di stato HTTP|Motivo|
 |:--|:--|
 |400    |Richiesta non valida. Controllare i parametri di input e la risposta di errore dettagliata.|
 |401    |Credenziali non valide.|

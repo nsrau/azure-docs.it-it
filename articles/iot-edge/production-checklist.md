@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669613"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
@@ -219,7 +219,7 @@ Inoltre, il **motore del contenitore** effettua chiamate ai registri contenitori
 
 Questo elenco di controllo è un punto di partenza per le regole del firewall:
 
-   | URL (\* = carattere jolly) | Porte TCP in uscita | Uso |
+   | URL (\* = carattere jolly) | Porte TCP in uscita | Utilizzo |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Registro Container Microsoft |
    | global.azure-devices-provisioning.net  | 443 | Accesso DPS (facoltativo) |

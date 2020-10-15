@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 137a077ac73b5dd5ca9c68c6be2b30beb8e92ce0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521876"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Esercitazione: Integrazione di Azure Active Directory con Hosted Graphite
 
@@ -100,7 +100,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hosted Graphite, seguir
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Hosted Graphite](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.hostedgraphite.com/metadata/<user id>`
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hosted Graphite, seguir
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Hosted Graphite](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://www.hostedgraphite.com/login/saml/<user id>/`
 
@@ -135,23 +135,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hosted Graphite, seguir
 
 2. Accedere alla **pagina SAML Setup** (Configurazione SAML) dalla barra laterale, facendo clic su **Accesso -> SAML Setup (Configurazione SAML)** .
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![Screenshot che mostra il menu Access con l'opzione SAML Setup selezionata.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. Verificare che gli URL corrispondano alla configurazione eseguita nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. Nelle caselle di testo **Entity or Issuer ID** (ID entità o autorità di certificazione) e **SSO Login URL** (URL di accesso SSO) incollare il valore di **Identificatore Azure AD** e **URL di accesso** copiato dal portale di Azure.
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![Screenshot che mostra le voci relative al provider di identità.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. Selezionare **Read-only** (Sola lettura) come valore di **Default User Role** (Ruolo utente predefinito).
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![Screenshot che mostra l'opzione Default User Role, impostata su Read-only.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Aprire nel Blocco note il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato X.509**.
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![Screenshot che mostra la casella X.509 Certificate.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. Fare clic sul pulsante **Salva** .
 

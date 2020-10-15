@@ -3,12 +3,12 @@ title: Ottimizzare i carichi di lavoro di Azure usando il Punteggio di Advisor
 description: Usa il Punteggio di Advisor per sfruttare al meglio Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335620"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074023"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Ottimizzare i carichi di lavoro di Azure usando il Punteggio di Advisor
 
@@ -17,11 +17,11 @@ ms.locfileid: "91335620"
 Azure Advisor fornisce consigli sulle procedure consigliate per i carichi di lavoro. Questi consigli sono personalizzati e possono essere utili per eseguire le operazioni seguenti:
 * Migliorare la postura dei carichi di lavoro e ottimizzare le distribuzioni di Azure
 * Prevenire in modo proattivo i problemi principali seguendo le procedure consigliate
-* Valutazione dei carichi di lavoro di Azure rispetto ai cinque pilastri della [Microsoft Azure Framework ben progettato](https://docs.microsoft.com/azure/architecture/framework/)
+* Valutazione dei carichi di lavoro di Azure rispetto ai cinque pilastri del [Framework Microsoft Azure Well-Architected](/azure/architecture/framework/)
 
 Come caratteristica principale di Advisor, il **Punteggio di Advisor** è concepito per aiutare a raggiungere questi obiettivi in modo efficace ed efficiente. 
 
-Per ottenere il massimo da Azure, è fondamentale comprendere dove si trova il percorso di ottimizzazione del carico di lavoro, quali servizi/risorse vengono utilizzati bene e quali no. Inoltre, è necessario essere in grado di definire le priorità delle azioni, in base alle raccomandazioni, per massimizzare il risultato. È anche importante tenere traccia e segnalare lo stato di avanzamento in questo percorso di ottimizzazione. Con il **Punteggio di Advisor**, è possibile eseguire facilmente tutte queste operazioni con la nuova esperienza di gamification. Come consulente cloud personalizzato, Azure Advisor valuta continuamente la telemetria di utilizzo e la configurazione delle risorse per verificare la presenza di procedure consigliate per il settore. Advisor quindi aggrega i risultati in un unico punteggio, in modo da poter dare un'occhiata, se si esegue la procedura necessaria per creare soluzioni affidabili, sicure ed efficienti in termini di costi. Il Punteggio di Advisor è costituito da un punteggio complessivo, che può essere suddiviso ulteriormente in cinque punteggi di categoria, uno per ogni categoria di Azure Advisor che rappresenta i cinque pilastri del Framework ben architettato. È possibile tenere traccia dello stato di avanzamento nel tempo visualizzando il punteggio complessivo e il Punteggio di categoria con la tendenza giornaliera, settimanale e mensile ed è possibile impostare i benchmark per consentire il raggiungimento degli obiettivi. 
+Per ottenere il massimo da Azure, è fondamentale comprendere dove si trova il percorso di ottimizzazione del carico di lavoro, quali servizi/risorse vengono utilizzati bene e quali no. Inoltre, è necessario essere in grado di definire le priorità delle azioni, in base alle raccomandazioni, per massimizzare il risultato. È anche importante tenere traccia e segnalare lo stato di avanzamento in questo percorso di ottimizzazione. Con il **Punteggio di Advisor**, è possibile eseguire facilmente tutte queste operazioni con la nuova esperienza di gamification. Come consulente cloud personalizzato, Azure Advisor valuta continuamente la telemetria di utilizzo e la configurazione delle risorse per verificare la presenza di procedure consigliate per il settore. Advisor quindi aggrega i risultati in un unico punteggio, in modo da poter dare un'occhiata, se si esegue la procedura necessaria per creare soluzioni affidabili, sicure ed efficienti in termini di costi. Il Punteggio di Advisor è costituito da un punteggio complessivo, che può essere suddiviso ulteriormente in cinque punteggi di categoria, uno per ogni categoria di Azure Advisor che rappresenta i cinque pilastri della Well-Architected Framework. È possibile tenere traccia dello stato di avanzamento nel tempo visualizzando il punteggio complessivo e il Punteggio di categoria con la tendenza giornaliera, settimanale e mensile ed è possibile impostare i benchmark per consentire il raggiungimento degli obiettivi. 
 
  ![Esperienza di valutazione di Advisor](./media/advisor-score-1.png)
 
@@ -56,7 +56,7 @@ Il calcolo del Punteggio di Advisor può essere riepilogato in quattro passaggi:
   * Le risorse con raccomandazioni di lunga durata vengono conteggiate più in base al punteggio.
   * Le risorse rimandate o ignorate in Advisor vengono rimosse dal calcolo del punteggio. 
     
-Advisor applica questo modello a livello di categoria Advisor (sicurezza usa il modello di [Punteggio sicuro](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) ), assegnando il Punteggio di Advisor per ogni categoria e una media più semplice produce il punteggio finale di Advisor.
+Advisor applica questo modello a livello di categoria Advisor (sicurezza usa il modello di [Punteggio sicuro](../security-center/secure-score-security-controls.md#introduction-to-secure-score) ), assegnando il Punteggio di Advisor per ogni categoria e una media più semplice produce il punteggio finale di Advisor.
 
 
 ## <a name="advisor-score-faq"></a>Domande frequenti sul punteggio di Advisor

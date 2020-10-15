@@ -14,17 +14,17 @@ ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116972"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Gestire le modifiche ai cookie SameSite nel browser Chrome
 
 ## <a name="what-is-samesite"></a>Che cos'è navigava sullostesso sito?
 
-`SameSite`è una proprietà che può essere impostata in cookie HTTP per evitare attacchi di richiesta intersito falsa (CSRF) nelle applicazioni Web:
+`SameSite` è una proprietà che può essere impostata in cookie HTTP per evitare attacchi di richiesta intersito falsa (CSRF) nelle applicazioni Web:
 
 - Quando `SameSite` è impostato su **LAX**, il cookie viene inviato nelle richieste all'interno dello stesso sito e in richieste Get da altri siti. Non viene inviato nelle richieste GET che sono tra domini.
 - Il valore **strict** garantisce che il cookie venga inviato nelle richieste solo all'interno dello stesso sito.
@@ -88,4 +88,4 @@ Altre informazioni su navigava sullostesso sito e sullo scenario dell'app Web:
 > [Pagina navigava sullostesso sito di Chromium](https://www.chromium.org/updates/same-site)
 
 > [!div class="nextstepaction"]
-> [Scenario: app Web che accede agli utenti](scenario-web-app-sign-user-overview.md)
+> [Scenario: App Web per l'accesso degli utenti](scenario-web-app-sign-user-overview.md)

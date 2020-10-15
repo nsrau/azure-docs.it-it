@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 883cf48fd38d79544d08a68f2c18fc2d2efb4706
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776290"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078834"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -71,7 +71,7 @@ I runbook devono includere la logica per gestire le [risorse](/rest/api/resource
 
 ## <a name="security"></a>Sicurezza
 
-Automazione di Azure usa il [Centro sicurezza di Azure](../security-center/security-center-intro.md) per garantire la sicurezza delle risorse e rilevare i compromessi nei sistemi Linux. La sicurezza viene garantita tra i carichi di lavoro, indipendentemente dal fatto che le risorse si trovino in Azure o meno. Vedere [Introduzione all'autenticazione in Automazione di Azure](automation-security-overview.md).
+Automazione di Azure usa il [Centro sicurezza di Azure](../security-center/security-center-introduction.md) per garantire la sicurezza delle risorse e rilevare i compromessi nei sistemi Linux. La sicurezza viene garantita tra i carichi di lavoro, indipendentemente dal fatto che le risorse si trovino in Azure o meno. Vedere [Introduzione all'autenticazione in Automazione di Azure](automation-security-overview.md).
 
 Il Centro sicurezza di Azure pone vincoli agli utenti che possono eseguire qualsiasi script, firmato o meno, in una macchina virtuale. Se si ha accesso alla radice di una macchina virtuale, è necessario configurare in modo esplicito la macchina con una firma digitale oppure disattivarla. Altrimenti, è possibile eseguire solo uno script per applicare gli aggiornamenti del sistema operativo dopo aver creato un account di Automazione e aver abilitato la funzionalità appropriata.
 

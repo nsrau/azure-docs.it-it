@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 53e1daca47a2917a19cbc30db5348e4fcc06b325
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039076"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963126"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>La macchina virtuale non risponde durante l'applicazione dei criteri dei controller di dominio predefiniti
 
@@ -28,7 +28,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui i criteri 
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza il sistema operativo che smette di rispondere durante l'avvio con il **criterio controller di dominio predefinito**del messaggio.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza il sistema operativo che smette di rispondere durante l'avvio con il **criterio controller di dominio predefinito**del messaggio.
 
   ![Nella figura 1 viene visualizzato il sistema operativo bloccato con il messaggio "criterio controller di dominio predefinito"](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -46,7 +46,7 @@ Per risolvere questo problema, è necessario innanzitutto raccogliere il file di
 
 ### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Connetti il disco del sistema operativo a una nuova macchina virtuale di ripristino
 
-1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) per preparare una macchina virtuale di ripristino.
+1. Usare i passaggi da 1 a 3 dei [comandi di ripristino della macchina virtuale](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) per preparare una macchina virtuale di ripristino.
 
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 
@@ -56,4 +56,4 @@ Per risolvere questo problema, è necessario innanzitutto raccogliere il file di
 
 1. Individuare il file Memory. dmp, quindi [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) con il file di dump della memoria.
 
-1. Se si verificano problemi durante l'individuazione del file Memory. dmp, è possibile usare invece le [chiamate di interrupt non mascherabili (NMI) nella console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) . Seguire la guida per [generare un file di dump di arresto anomalo](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump)del sistema usando le chiamate a NMI.
+1. Se si verificano problemi durante l'individuazione del file Memory. dmp, è possibile usare invece le [chiamate di interrupt non mascherabili (NMI) nella console seriale](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) . Seguire la guida per [generare un file di dump di arresto anomalo](/windows/client-management/generate-kernel-or-complete-crash-dump)del sistema usando le chiamate a NMI.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532551"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Esentare una risorsa dalle raccomandazioni e dal punteggio sicuro
@@ -20,7 +20,7 @@ Una priorità di base di ogni team di sicurezza consiste nel provare a garantire
 
 Quando si esamina una raccomandazione per la sicurezza nel centro sicurezza di Azure, una delle prime informazioni esaminate è l'elenco delle risorse interessate.
 
-In alcuni casi, una risorsa viene elencata e non deve essere inclusa. È possibile che sia stata risolta da un processo non rilevato dal centro sicurezza. O forse l'organizzazione ha deciso di accettare il rischio per la risorsa specifica. 
+In alcuni casi, una risorsa viene elencata e non deve essere inclusa. È possibile che sia stata corretta da un processo non rilevato dal Centro sicurezza o che l'organizzazione abbia deciso di accettare il rischio per tale risorsa specifica. 
 
 In questi casi, è possibile creare una regola di esenzione e assicurarsi che la risorsa non sia elencata con le risorse non integre in futuro e non influisca sul punteggio sicuro. 
 
@@ -30,10 +30,10 @@ La risorsa sarà elencata come non applicabile e il motivo verrà visualizzato c
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Anteprima|
-|Prezzi|Si tratta di una funzionalità di criteri di Azure Premium offerta per i clienti di Azure Defender senza costi aggiuntivi. Per gli altri utenti potrebbero essere applicati addebiti in futuro.|
-|Ruoli e autorizzazioni necessari:|**Proprietario della sottoscrizione** o **collaboratore dei criteri** per creare un'esenzione<br>Per creare una regola, è necessario disporre delle autorizzazioni per modificare i criteri in criteri di Azure.<br>Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|Stato della versione:|Anteprima|
+|Prezzi:|Si tratta di una funzionalità di criteri di Azure Premium offerta per i clienti di Azure Defender senza costi aggiuntivi. Per gli altri utenti potrebbero essere applicati addebiti in futuro.|
+|Autorizzazioni e ruoli obbligatori:|**Proprietario della sottoscrizione** o **collaboratore dei criteri** per creare un'esenzione<br>Per creare una regola, è necessario disporre delle autorizzazioni per modificare i criteri in criteri di Azure.<br>Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
 

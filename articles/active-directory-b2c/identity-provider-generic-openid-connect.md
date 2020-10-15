@@ -12,10 +12,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8b71a7b8ab29e8083a5f119a41ef6de312518301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388273"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con OpenID Connect tramite Azure Active Directory B2C
@@ -27,7 +27,7 @@ ms.locfileid: "85388273"
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C facendo clic sul filtro **directory + sottoscrizione** nel menu in alto e scegliendo la directory che contiene il tenant.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
-1. Selezionare **provider di identità**e quindi fare clic su **nuovo provider OpenID Connect**.
+1. Selezionare **Provider di identità** e quindi selezionare **Nuovo provider di OpenID Connect**.
 
 ## <a name="configure-the-identity-provider"></a>Configurare il provider di identità
 

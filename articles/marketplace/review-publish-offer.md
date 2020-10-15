@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375882"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976456"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Come rivedere e pubblicare un'offerta nel Marketplace commerciale
 
@@ -170,6 +170,84 @@ Ora che si è scelto di partecipare all'offerta, che lo rende disponibile nel Ma
     Assicuriamo che l'offerta diventi disponibile pubblicamente nel Marketplace.
 
 Al termine di questi controlli di convalida, l'offerta sarà disponibile nel Marketplace.
+
+## <a name="publishing-history"></a>Cronologia di pubblicazione
+
+La pagina **cronologia** nel centro per i partner Mostra gli eventi di pubblicazione per le offerte del Marketplace commerciale. Per ogni evento, nella pagina viene visualizzato l'utente che ha avviato l'azione, il tipo di evento e la data e l'ora dell'evento. I [passaggi di convalida e pubblicazione](#validation-and-publishing-steps) sono elencati con la data e l'ora di completamento.
+
+Per visualizzare la cronologia dell'offerta:
+
+1.    Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
+2.    Nel menu di navigazione a sinistra selezionare **Commercial Marketplace**  >  **Overview**.
+3.    Selezionare l'offerta.
+4.    Selezionare la scheda **cronologia** nel menu di navigazione a sinistra. La pagina fornisce informazioni dettagliate per gli eventi seguenti, in modo applicabile all'offerta:
+
+|Event    |Descrizione    |
+|---------|---------------|
+|Offerta creata    |L'offerta è stata creata nel centro per i partner. Un utente ha selezionato il tipo di offerta, l'ID offerta e l'alias offerta in panoramica sul **Marketplace commerciale**  >  **Overview**.    |
+|Piano creato: *nome del piano*    |Un utente ha creato un nuovo piano immettendo l'ID del piano e il nome del piano nella scheda **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
+|Piano eliminato    |Un utente ha eliminato un piano bozza che non è stato pubblicato selezionando **Elimina bozza** dalla pagina **panoramica piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
+|Piano di interruzione vendita avviato: *nome del piano*    |Un utente ha avviato un piano stop-sell selezionando **stop selling** dalla pagina di **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
+|Annulla piano di interruzione vendita: *nome piano*    |Un utente ha annullato un piano stop-sell selezionando **Annulla la vendita** dalla pagina **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
+|Offerta inviata all'anteprima    |Un utente ha inviato l'offerta all'anteprima selezionando **pubblica** nella pagina **Verifica e pubblica** .    |
+|Invio avviato per l'annullamento dell'anteprima    |Un utente ha richiesto di annullare la pubblicazione dell'offerta in anteprima selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'invio in anteprima.</br>*Questo evento viene visualizzato durante l'elaborazione della richiesta di annullamento*.    |
+|L'invio all'anteprima è stato annullato    |Un utente ha annullato la pubblicazione dell'offerta in anteprima selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'invio all'anteprima.</br>*Questo evento viene visualizzato dopo l'elaborazione corretta della richiesta di annullamento*.    |
+|Accedi per andare in diretta    |Un utente ha pubblicato l'offerta nel Marketplace commerciale selezionando **Go Live** dalla pagina **Panoramica dell'offerta** .    |
+|Annullamento della pubblicazione nel Marketplace avviato    |Un utente ha richiesto di annullare la pubblicazione dell'offerta selezionando **Annulla pubblicazione** dalla pagina **Panoramica offerta** dopo l'accesso.</br>*Questo evento viene visualizzato durante l'elaborazione della richiesta di annullamento*.    |
+|Pubblicazione annullata nel Marketplace commerciale    |Un utente ha annullato la pubblicazione dell'offerta selezionando **Annulla pubblicazione** nella pagina **Panoramica offerta** dopo l'approvazione.</br>*Questo evento viene visualizzato dopo l'elaborazione corretta della richiesta di annullamento*.    |
+|Sincronizzare i destinatari privati    |Un utente ha aggiornato e sincronizzato il pubblico privato selezionando **Sincronizza destinatari privati** dalla pagina **panoramica piano** o dalla pagina di **disponibilità piano prezzi &** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani privati*.    |
+|Interrompi vendita offerta    |Un utente ha smesso di vendere l'offerta selezionando **Interrompi la vendita** dalla pagina **Panoramica dell'offerta** .    |
+
+> [!NOTE]
+> La pagina Cronologia non dice quando è stata salvata una bozza dell'offerta.
+
+### <a name="filter-options"></a>Opzioni di filtro
+
+È possibile utilizzare i filtri per limitare la cronologia completa dell'offerta a eventi di pubblicazione specifici:
+
+1.    Selezionare il pulsante filtro nell'angolo superiore destro della pagina.
+2.    Scegliere un filtro, quindi fare clic su **applica** per vedere quali eventi della cronologia corrispondono ai criteri selezionati.
+3.    Selezionare **Cancella filtri** per tornare alla cronologia completa dell'offerta.
+
+Sono disponibili quattro filtri:
+* Eventi
+* Utenti
+* Data
+* Pagine
+
+Quando si sceglie il filtro **pagine** , è possibile selezionare qualsiasi pagina del centro per i partner applicabile al tipo di offerta. Quando applicato, il filtro **pagine** Mostra tutta l' **offerta inviata per visualizzare in anteprima** gli eventi con le modifiche apportate alla pagina selezionata.
+
+* Per tutte le offerte, la pagina **installazione offerta** è inclusa per impostazione predefinita per ogni evento di invio.
+* Per le offerte che supportano i piani, la pagina **Panoramica del piano** è inclusa per ogni evento di invio.
+* Per le offerte che supportano test drive, la pagina **test drive** viene inclusa per ogni evento di invio.
+
+### <a name="users"></a>Utenti
+
+Se un evento è stato avviato da un utente, la pagina della cronologia mostrerà l'utente in base agli scenari seguenti:
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>L'evento è stato avviato dal server di pubblicazione
+
+Agli utenti con autorizzazioni di pubblicazione per un'offerta verrà visualizzato il nome per gli eventi di pubblicazione che avviano.
+
+[![Nella pagina Cronologia viene visualizzato il nome degli utenti con autorizzazioni di pubblicazione.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>L'evento è stato avviato da Microsoft
+
+È possibile concedere agli amministratori Microsoft autorizzazioni per avviare azioni per conto dell'utente o intraprendere azioni correttive dopo un errore di sistema imprevisto. Il nome e il logo Microsoft vengono visualizzati per la pubblicazione di eventi avviati da Microsoft per conto dell'account.
+
+[![Esempio di come la pagina della cronologia Visualizza gli eventi avviati da Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>L'evento è stato avviato da un utente non identificato
+
+Gli utenti che non sono più associati a un account avranno il nome rimosso dalla colonna **avviata da** dopo il ritiro delle autorizzazioni di pubblicazione.
+
+[![Esempio di come la pagina della cronologia Visualizza gli eventi avviati da utenti non identificati.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>Passaggi di convalida e pubblicazione
+
+Nessun utente viene visualizzato per i processi di sistema che corrispondono ai [passaggi di convalida e pubblicazione](#validation-and-publishing-steps). Questi eventi sono codificati a colori in base allo stato di completamento dell'evento.
+
+[![Esempio di come la pagina della cronologia Visualizza i passaggi di convalida e pubblicazione.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

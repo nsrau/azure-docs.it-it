@@ -5,7 +5,7 @@
   items:
     - name: Cos'è Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Guide introduttive
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Avviare la prima app

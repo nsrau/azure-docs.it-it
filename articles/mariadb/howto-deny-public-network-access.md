@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 03/10/2020
 ms.openlocfilehash: f33dbfa0b96d7f6d85443005ff7e8b1a780c75a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86104385"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mariadb-using-azure-portal"></a>Negare l'accesso alla rete pubblica nel database di Azure per MariaDB usando portale di Azure
@@ -35,7 +35,7 @@ Attenersi alla procedura seguente per impostare il server MariaDB per negare l'a
 
     ![Accesso alla rete negato per database di Azure per MariaDB](./media/howto-deny-public-network-access/deny-public-network-access.PNG)
 
-1. È consigliabile fare clic su **Salva** per salvare le modifiche.
+1. Fare clic su **Salva** per salvare le modifiche.
 
 1. Una notifica conferma che l'impostazione di sicurezza della connessione è stata abilitata correttamente.
 

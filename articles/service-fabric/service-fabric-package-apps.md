@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89012399"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
@@ -53,7 +53,7 @@ Per altre informazioni su come configurare **SetupEntryPoint**, vedere [configur
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Configura
+## <a name="configure"></a>Configurare
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 

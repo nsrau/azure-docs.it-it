@@ -4,10 +4,10 @@ description: Registrare e analizzare gli eventi del log delle risorse per Contai
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553377"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Log di Azure Container Registry per la valutazione diagnostica e il controllo
@@ -37,7 +37,7 @@ Sono attualmente registrati gli eventi a livello di repository seguenti per imma
 
 I log delle risorse contengono informazioni emesse dalle risorse di Azure che descrivono l'operazione interna. Per un registro contenitori di Azure, i log contengono gli eventi di autenticazione e a livello di repository archiviati nelle tabelle seguenti. 
 
-* **ContainerRegistryLoginEvents** -eventi e stato di autenticazione del registro di sistema, inclusi l'identità e l'indirizzo IP in ingresso
+* **ContainerRegistryLoginEvents**  -eventi e stato di autenticazione del registro di sistema, inclusi l'identità e l'indirizzo IP in ingresso
 * **ContainerRegistryRepositoryEvents** -operazioni come push e pull per immagini e altri artefatti nei repository del registro di sistema
 * **AzureMetrics**  -  [Metriche del registro contenitori](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) , ad esempio i conteggi aggregati per push e pull.
 

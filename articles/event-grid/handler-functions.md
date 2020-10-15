@@ -3,20 +3,29 @@ title: Funzione di Azure come gestore dell'evento per gli eventi di Griglia di e
 description: Spiega in che modo usare le funzioni di Azure come gestori degli eventi di Griglia di eventi.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: db06962c020eb954bf0c595e5a4019b1df774898
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629689"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873728"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Funzione di Azure come gestore dell'evento per gli eventi di Griglia di eventi
 
 Un gestore eventi è la posizione in cui l'evento viene inviato. Il gestore esegue un'azione per elaborare l'evento. Diversi servizi di Azure vengono configurati automaticamente per gestire eventi, uno dei quali è **Funzioni di Azure**. 
 
-Usare **Funzioni di Azure** in un'architettura serverless per rispondere agli eventi da Griglia di eventi. Quando si usa una funzione di Azure come gestore, l'uso del trigger della Griglia di eventi è consigliato rispetto al trigger HTTP generico. Griglia di eventi convalida automaticamente i trigger di Griglia di eventi. Con i trigger HTTP generici è necessario implementare autonomamente la [risposta di convalida](webhook-event-delivery.md).
 
-Per altre informazioni, vedere [Trigger Griglia di eventi per Funzioni di Azure](../azure-functions/functions-bindings-event-grid.md) per una panoramica dell'uso del trigger di Griglia di eventi nelle funzioni.
+Per usare una funzione di Azure come gestore per gli eventi, seguire uno degli approcci seguenti: 
+
+-   Usare il [trigger griglia di eventi](../azure-functions/functions-bindings-event-grid-trigger.md).  Specificare la **funzione di Azure** come tipo di **endpoint**. Specificare quindi l'app per le funzioni di Azure e la funzione che gestirà gli eventi. 
+-   Usare il [trigger http](../azure-functions/functions-bindings-http-webhook.md).  Specificare l' **hook Web** come **tipo di endpoint**. Specificare quindi l'URL per la funzione di Azure che gestirà gli eventi. 
+
+Si consiglia di utilizzare il primo approccio (trigger griglia di eventi) in quanto presenta i vantaggi seguenti rispetto al secondo approccio:
+-   Griglia di eventi convalida automaticamente i trigger di Griglia di eventi. Con i trigger HTTP generici è necessario implementare autonomamente la [risposta di convalida](webhook-event-delivery.md).
+-   Griglia di eventi regola automaticamente la velocità con cui gli eventi vengono recapitati a una funzione attivata da un evento di griglia di eventi in base alla frequenza percepita in cui la funzione può elaborare gli eventi. Questa funzionalità di corrispondenza della velocità evita gli errori di recapito derivanti dall'impossibilità di una funzione di elaborare gli eventi in quanto la velocità di elaborazione degli eventi della funzione può variare nel tempo. Per migliorare l'efficienza a una velocità effettiva elevata, abilitare l'invio in batch alla sottoscrizione di eventi. Per altre informazioni, vedere [abilitare](#enable-batching)la suddivisione in batch.
+
+    > [!NOTE]
+    > Attualmente, non è possibile usare un trigger di griglia di eventi per un'app funzioni di Azure quando l'evento viene recapitato nello schema **CloudEvents** . È necessario usare invece un trigger HTTP.
 
 ## <a name="tutorials"></a>Esercitazioni
 
@@ -48,7 +57,7 @@ Per altre informazioni, vedere [Trigger Griglia di eventi per Funzioni di Azure]
 }
 ```
 
-## <a name="enable-batching"></a>Abilita batch
+## <a name="enable-batching"></a>Abilita l'invio in batch
 Per una velocità effettiva più elevata, abilitare la suddivisione in batch nella sottoscrizione. Se si usa il portale di Azure, è possibile impostare il numero massimo di eventi per batch e le dimensioni del batch preferite, in chili byte, al momento della creazione di una sottoscrizione o dopo la creazione. 
 
 È possibile configurare le impostazioni di batch usando il portale di Azure, PowerShell, l'interfaccia della riga di comando o il modello di Gestione risorse. 

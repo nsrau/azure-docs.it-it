@@ -3,12 +3,12 @@ title: Come eseguire query sui log da monitoraggio di Azure per i contenitori | 
 description: Il monitoraggio di Azure per i contenitori raccoglie le metriche e i dati di log e in questo articolo vengono descritti i record e sono incluse le query di esempio.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254891"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994012"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
 
@@ -18,7 +18,7 @@ Monitoraggio di Azure per i contenitori raccoglie le metriche delle prestazioni,
 
 Nella tabella seguente vengono forniti i dettagli dei record raccolti da monitoraggio di Azure per i contenitori. 
 
-| Data | Origine dati | Tipo di dati | Campi |
+| Dati | Origine dati | Tipo di dati | Campi |
 |------|-------------|-----------|--------|
 | Inventario contenitori | Kubelet | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | Log contenitori | Docker | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
@@ -110,5 +110,4 @@ L'output Mostra risultati simili a quelli dell'esempio seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il monitoraggio di Azure per i contenitori non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina [relativa alla creazione di avvisi di prestazioni con monitoraggio di Azure per i contenitori](container-insights-alerts.md) . 
-
+Il monitoraggio di Azure per i contenitori non include un set predefinito di avvisi. Per informazioni su come creare avvisi consigliati per un utilizzo elevato della CPU e della memoria per supportare le procedure e i processi operativi, vedere la pagina [relativa alla creazione di avvisi di prestazioni con monitoraggio di Azure per i contenitori](./container-insights-log-alerts.md) .

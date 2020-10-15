@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89319543"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966322"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Importazione e creazione di immagini Linux in Azure
 
@@ -46,7 +46,7 @@ Azure offre due tipi principali di immagine, ovvero generalizzata e specializzat
 
 ### <a name="generalized-images"></a>Immagini generalizzate
 
-Un'immagine generalizzata richiede il completamento della configurazione al primo avvio. Ad esempio, al primo avvio è possibile impostare il nome host, l'utente amministratore e altre configurazioni specifiche della macchina virtuale. Questa opzione è utile se si vuole riutilizzare l'immagine più volte e passare i parametri durante la creazione. Se l'immagine generalizzata lo contiene, l'agente di Azure elaborerà i parametri e segnalerà alla piattaforma che la configurazione iniziale è stata completata. Questo processo è detto [provisioning](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
+Un'immagine generalizzata richiede il completamento della configurazione al primo avvio. Ad esempio, al primo avvio è possibile impostare il nome host, l'utente amministratore e altre configurazioni specifiche della macchina virtuale. Questa opzione è utile se si vuole riutilizzare l'immagine più volte e passare i parametri durante la creazione. Se l'immagine generalizzata lo contiene, l'agente di Azure elaborerà i parametri e segnalerà alla piattaforma che la configurazione iniziale è stata completata. Questo processo è detto [provisioning](./provisioning.md). 
 
 Il provisioning richiede l'inclusione di uno strumento di provisioning nell'immagine. Sono disponibili due strumenti di provisioning:
 - [Agente Linux di Azure](../extensions/agent-linux.md)
@@ -94,7 +94,7 @@ A livello generale, si crea una raccolta immagini condivise costituita da:
 
 ## <a name="hyper-v-generation"></a>Generazione di Hyper-V
 
-Azure supporta Hyper-V generazione 1 (Gen1) e generazione 2 (Gen2). Gen2 è la generazione più recente e offre funzionalità aggiuntive rispetto a Gen1, ad esempio una quantità maggiore di memoria, la tecnologia Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM). Le macchine virtuali di seconda generazione eseguite in locale hanno alcune funzionalità che non sono ancora supportate in Azure. Per altre informazioni, vedere la sezione Funzionalità e caratteristiche. Per altre informazioni, vedere questo [articolo](../windows/generation-2.md). Creare immagini Gen2 se le funzionalità aggiuntive sono necessarie.
+Azure supporta Hyper-V generazione 1 (Gen1) e generazione 2 (Gen2). Gen2 è la generazione più recente e offre funzionalità aggiuntive rispetto a Gen1, ad esempio una quantità maggiore di memoria, la tecnologia Intel Software Guard Extensions (Intel SGX) e la memoria persistente virtuale (vPMEM). Le macchine virtuali di seconda generazione eseguite in locale hanno alcune funzionalità che non sono ancora supportate in Azure. Per altre informazioni, vedere la sezione Funzionalità e caratteristiche. Per altre informazioni, vedere questo [articolo](../generation-2.md). Creare immagini Gen2 se le funzionalità aggiuntive sono necessarie.
 
 Se è comunque necessario creare un'immagine personalizzata, assicurarsi che soddisfi i [prerequisiti delle immagini](./create-upload-generic.md) e il caricamento in Azure. Requisiti specifici per la distribuzione:
 

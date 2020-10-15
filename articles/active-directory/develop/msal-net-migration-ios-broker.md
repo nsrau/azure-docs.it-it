@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: b4eff5910ff5230902d497b55b2afbe6d605365a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89177432"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
@@ -28,7 +28,7 @@ Da dove iniziare? Questo articolo illustra come eseguire la migrazione dell'app 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che sia già presente un'app Novell iOS integrata con il broker iOS. In caso contrario, passare direttamente a MSAL.NET e iniziare l'implementazione del broker. Per informazioni su come richiamare il broker iOS in MSAL.NET con una nuova applicazione, vedere [questa documentazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
-## <a name="background"></a>Informazioni di base
+## <a name="background"></a>Background
 
 ### <a name="what-are-brokers"></a>Che cosa sono i broker?
 
@@ -152,7 +152,7 @@ ADAL.NET e MSAL.NET usano gli URL per richiamare il broker e restituire la rispo
 <tr><td>
 Lo schema URL è univoco per l'app.
 </td><td>
-Il valore di
+Alla classe
 
 `CFBundleURLSchemes` il nome deve includere
 
@@ -160,7 +160,7 @@ Il valore di
 
 come prefisso, seguito dal `CFBundleURLName`
 
-Ad esempio: `$"msauth.(BundleId")`
+ad esempio `$"msauth.(BundleId")`
 
 ```csharp
  <key>CFBundleURLTypes</key>

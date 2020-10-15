@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570197"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082241"
 ---
 | Risorsa | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -39,7 +39,7 @@ ms.locfileid: "89570197"
 <sup>2</sup>Le dimensioni della cache per unità dipendono dal piano tariffario. Per vedere i piani tariffari e i relativi limiti di dimensionamento, vedere [Prezzi di Gestione API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup>Le connessioni vengono raggruppate in pool e riutilizzate, a meno che non vengano chiuse esplicitamente dal back-end.<br/>
 <sup>4</sup>Questo limite è per unità dei livelli Basic, Standard e Premium. Per il livello Developer il limite è 1.024. Questo limite non si applica al livello A consumo.<br/>
-<sup>5</sup>Questo limite si applica ai livelli Basic, Standard e Premium. Nei criteri per il livello A consumo le dimensioni dei documenti sono limitate a 4 KiB.<br/>
+<sup>5</sup>Questo limite si applica ai livelli Basic, Standard e Premium. Nei criteri per il livello A consumo le dimensioni dei documenti sono limitate a 16 KiB.<br/>
 <sup>6</sup>Più domini personalizzati sono supportati solo nei livelli Developer e Premium.<br/>
 <sup>7</sup>I certificati CA non sono supportati nel livello A consumo.<br/>
 <sup>8</sup>Questo limite si applica solo al livello A consumo. Per gli altri livelli non sono previsti limiti in queste categorie.<br/>

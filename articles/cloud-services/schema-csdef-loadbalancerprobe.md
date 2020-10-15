@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79537347"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di Servizi cloud di Azure
@@ -47,10 +47,10 @@ L'elemento `LoadBalancerProbes` del file di definizione del servizio include gli
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>Elemento LoadBalancerProbes
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
 L'elemento `LoadBalancerProbes` descrive la raccolta di probe di bilanciamento del carico. Questo è l'elemento padre dell'[elemento LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>Elemento LoadBalancerProbe
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
 L'elemento `LoadBalancerProbe` definisce il probe di integrità per un modello. È possibile definire più probe di bilanciamento del carico. 
 
 La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:

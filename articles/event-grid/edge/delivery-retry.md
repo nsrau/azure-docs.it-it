@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171619"
 ---
 # <a name="delivery-and-retry"></a>Recapito e nuovo tentativo
@@ -25,14 +25,14 @@ Griglia di eventi fornisce il recapito durevole. Tenta di recapitare ogni messag
 
 Griglia di eventi attende fino a 60 secondi per una risposta dopo il recapito di un messaggio. Se l'endpoint del Sottoscrittore non ACK la risposta, il messaggio verrà accodato in una delle code di back-off per i tentativi successivi.
 
-Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. I peering sono i seguenti:
+Sono presenti due code di backup preconfigurate che determinano la pianificazione in base alla quale verrà effettuato un nuovo tentativo. ovvero:
 
 | Pianifica | Descrizione |
 | ---------| ------------ |
 | 1 minuto | I messaggi che terminano qui vengono tentati ogni minuto.
 | 10 minuti | I messaggi che terminano qui vengono tentati ogni 10 minuti.
 
-### <a name="how-it-works"></a>Come funziona
+### <a name="how-it-works"></a>Funzionamento
 
 1. Il messaggio arriva al modulo di griglia di eventi. Si è tentato di recapitare immediatamente il prodotto.
 1. Se il recapito non riesce, il messaggio viene accodato in una coda di 1 minuto e viene eseguito un nuovo tentativo dopo un minuto.
@@ -41,7 +41,7 @@ Sono presenti due code di backup preconfigurate che determinano la pianificazion
 
 ## <a name="retry-policy-limits"></a>Limiti dei criteri di ripetizione
 
-Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. I peering sono i seguenti:
+Sono disponibili due configurazioni che determinano i criteri di ripetizione dei tentativi. ovvero:
 
 * Numero massimo di tentativi
 * Time-to-Live (TTL) evento

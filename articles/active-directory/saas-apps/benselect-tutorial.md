@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 98740153def94742a8bbba1ee6f4f022b614ecfa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 12c0647e0244464966c52bafe8c976eb4a35ddda
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537108"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741211"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BenSelect
 
@@ -89,15 +89,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione BenSelect prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la schermata Attributi utente con gli attributi predefiniti, come givenname user.givenname e emailaddress user.mail.](common/edit-attribute.png)
 
 1. Fare clic sull'icona **Modifica** per modificare il **valore dell'identificatore Nome**.
 
-    ![image](media/benselect-tutorial/mail-prefix1.png)
+    ![Screenshot che mostra il riquadro Attributi utente e attestazioni con l'icona di modifica evidenziata.](media/benselect-tutorial/mail-prefix1.png)
 
 1. Nella sezione **Gestisci attestazioni utente** seguire questa procedura:
 
-    ![image](media/benselect-tutorial/mail-prefix2.png)
+    ![Screenshot che mostra la finestra di dialogo Gestisci attestazioni utente in cui è possibile immettere i valori descritti in questo passaggio.](media/benselect-tutorial/mail-prefix2.png)
 
     a. Selezionare **Trasformazione** come **Origine**.
 

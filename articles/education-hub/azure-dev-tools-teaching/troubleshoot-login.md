@@ -8,10 +8,10 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
 ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87097678"
 ---
 # <a name="troubleshooting-student-login-issues"></a>Risoluzione dei problemi di accesso degli studenti
@@ -39,16 +39,16 @@ Se uno studente ha un account Microsoft esistente (ad esempio, Xbox), potrà con
 
 1. Fare clic su **Gestisci come si accede a Microsoft**. Verrà richiesto di verificare la propria identità. Verrà inviato un messaggio di posta elettronica con un codice di sicurezza.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Gestire l'accesso." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Messaggio di errore di accesso." border="false":::
 
 1. Immettere il codice di sicurezza inviato tramite posta elettronica.
 
-    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Immettere il codice di accesso." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Messaggio di errore di accesso." border="false":::
 
 1. Fare clic su **Aggiungi messaggio di posta elettronica** all'account e immettere l'indirizzo di posta elettronica dell'Università.
 Al successivo accesso, è possibile usare l'indirizzo di posta elettronica dell'Università per accedere agli strumenti di sviluppo di Azure per l'insegnamento.
 
-    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Consente di gestire la modalità di accesso a Microsoft." border="false":::
+    :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Messaggio di errore di accesso." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Domande frequenti](program-faq.md)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261513"
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
@@ -41,7 +41,7 @@ Definisce un set di impostazioni per la codifica.
 
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **Versione**<br/><br/> Obbligatorio |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
+| **Versione**<br/><br/> Obbligatoria |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
 
 ## <a name="encoding"></a><a name="Encoding"></a> Codifica
 Contiene una sequenza degli elementi seguenti:  
@@ -185,7 +185,7 @@ Codec audio|Dettagli
 | --- | --- | --- |
 | **Inizia** |**xs:string** | |
 | **Step** |**xs:string** | |
-| **Range** |**xs:string** | |
+| **Intervallo** |**xs:string** | |
 | **PreserveResolutionAfterRotation** |**xs:boolean** |Per informazioni dettagliate, vedere la sezione seguente: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="preserveresolutionafterrotation"></a><a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation

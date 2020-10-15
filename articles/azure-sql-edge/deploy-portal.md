@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445721"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973581"
 ---
 # <a name="deploy-azure-sql-edge"></a>Distribuire SQL Edge di Azure 
 
@@ -25,8 +25,7 @@ SQL Edge di Azure è un motore di database relazionale ottimizzato per distribuz
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
 * Accedere al [portale di Azure](https://portal.azure.com/).
 * Creare un [hub IoT di Azure](../iot-hub/iot-hub-create-through-portal.md).
-* Registrare un [dispositivo IoT Edge dal portale di Azure](../iot-edge/how-to-register-device-portal.md).
-* Preparare il dispositivo IoT Edge per la [distribuzione del modulo IoT Edge dal portale di Azure](../iot-edge/how-to-deploy-modules-portal.md).
+* Creare un [dispositivo Azure IOT Edge](../iot-edge/how-to-install-iot-edge.md).
 
 > [!NOTE]   
 > Per distribuire una macchina virtuale Azure Linux come dispositivo IoT Edge, consultare questa [guida introduttiva](../iot-edge/quickstart-linux.md).

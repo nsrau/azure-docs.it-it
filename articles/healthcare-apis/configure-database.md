@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: be3cf7d946e7502147942fa8954ade70dd47bedf
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91839929"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042491"
 ---
 # <a name="configure-database-settings"></a>Configurare le impostazioni del database 
 
@@ -41,7 +41,7 @@ Se la velocità effettiva del database è superiore a 10.000 UR/sec o se i dati 
 In questo articolo si è appreso come aggiornare le UR per l'API di Azure per FHIR. Per informazioni sulla configurazione delle chiavi gestite dal cliente come impostazione del database:
 
 >[!div class="nextstepaction"]
->[Configurare le chiavi gestite dal cliente](bring-your-own-key.md)
+>[Configurare le chiavi gestite dal cliente](customer-managed-key.md)
 
 In alternativa, è possibile distribuire un'API di Azure completamente gestita per FHIR:
  

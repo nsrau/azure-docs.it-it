@@ -1,7 +1,7 @@
 ---
-title: 'Riferimento medio a due classi perceptron: module'
+title: 'Two-Class mediad perceptron: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Two-Class averaged perceptron in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo perceptron medio.
+description: Informazioni su come usare il modulo Two-Class mediad perceptron in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo perceptron medio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907749"
 ---
-# <a name="two-class-averaged-perceptron-module"></a>Modulo perceptron medio a due classi
+# <a name="two-class-averaged-perceptron-module"></a>Two-Class modulo perceptron mediato
 
 Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
@@ -30,7 +30,7 @@ Il *Metodo perceptron mediato* è una versione iniziale e semplice di una rete n
 
 I modelli più semplici di percettrone sono adatti per l'apprendimento di modelli separabili in modo lineare, mentre le reti neurali, specialmente quelle profonde, consentono di modellare limiti di classe più complessi. I percettroni sono tuttavia più rapidi e poiché elaborano i casi in serie, possono essere usati con il training continuo.
 
-## <a name="how-to-configure-two-class-averaged-perceptron"></a>Come configurare la media con due classi perceptron
+## <a name="how-to-configure-two-class-averaged-perceptron"></a>Come configurare Two-Class perceptron mediato
 
 1.  Aggiungere il modulo **Two-Class averaged perceptron** alla pipeline.  
 

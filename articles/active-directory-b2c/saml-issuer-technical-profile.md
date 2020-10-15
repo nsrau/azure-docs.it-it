@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521213"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961239"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token SAML nei criteri personalizzati di Azure Active Directory B2C
 
@@ -37,6 +37,7 @@ Nell'esempio seguente viene illustrato un profilo tecnico per `Saml2AssertionIss
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -58,6 +59,7 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 | --------- | -------- | ----------- |
 | IssuerUri | No | Nome dell'autorità emittente visualizzato nella risposta SAML. Questo valore deve corrispondere al nome configurato nell'applicazione basata su attestazioni. |
 | XmlSignatureAlgorithm | No | Metodo che Azure AD B2C utilizza per firmare l'asserzione SAML. I valori possibili sono: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. Per configurare la risposta SAML, vedere [metadati SAML della relying party](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| No| Specifica l'inclinazione, come numero intero, per il timestamp che contrassegna l'inizio del periodo di validità. Maggiore è questo numero, più avanti nel tempo il periodo di validità inizia per quanto riguarda l'ora in cui vengono emesse le attestazioni per l'relying party. Ad esempio, quando TokenNotBeforeSkewInSeconds è impostato su 60 secondi, se il token viene emesso a 13:05:10 UTC, il token è valido da 13:04:10 UTC. Il valore predefinito è 0. Il valore massimo è 3600 (un'ora). |
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 

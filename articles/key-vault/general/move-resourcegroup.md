@@ -11,18 +11,22 @@ ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another resource group.
-ms.openlocfilehash: fe8051d551077666c06ac033f22303fd643ac602
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea152e1d78ab1ea610eee5420394c89524673993
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585734"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042383"
 ---
 # <a name="moving-an-azure-key-vault-across-resource-groups"></a>Trasferimento di una Azure Key Vault tra gruppi di risorse
 
 ## <a name="overview"></a>Panoramica
 
 Lo stato di un insieme di credenziali delle chiavi tra gruppi di risorse è una funzionalità di Key Vault supportata. Lo stato di un insieme di credenziali delle chiavi tra gruppi di risorse non influirà sul firewall di Key Vault o sulle configurazioni dei criteri di accesso Le applicazioni connesse e le entità servizio devono continuare a funzionare come previsto.
+
+> [!IMPORTANT]
+> **Gli insiemi di credenziali delle chiavi usati per la crittografia del disco non possono essere spostati.**
+> Se si usa Key Vault con la crittografia del disco per una macchina virtuale, l'insieme di credenziali delle chiavi non può essere spostato in un gruppo di risorse diverso o in una sottoscrizione mentre è abilitata la crittografia del disco. Prima di trasferire l'insieme di credenziali delle chiavi in un nuovo gruppo di risorse o una nuova sottoscrizione, è necessario disabilitare la crittografia del disco. 
 
 ## <a name="design-considerations"></a>Considerazioni sulla progettazione
 

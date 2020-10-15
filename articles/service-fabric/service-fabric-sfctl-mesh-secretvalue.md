@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 985fb505aae96f4ebd1ba8aeb61679081f303243
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245773"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
@@ -19,7 +19,7 @@ Consente di ottenere ed eliminare le risorse secretvalue mesh.
 
 |Comando|Descrizione|
 | --- | --- |
-| eliminazione | Elimina il valore specificato della risorsa di segreto denominata. |
+| Elimina | Elimina il valore specificato della risorsa di segreto denominata. |
 | list | Elenca i nomi di tutti i valori della risorsa di segreto specificata. |
 | show | Elenca il valore specificato della risorsa segreta. |
 
@@ -30,14 +30,14 @@ Elimina la risorsa di valore di segreto identificata dal nome. Il nome della ris
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --secret-name -n [Obbligatorio] | Nome della risorsa di segreto. |
 | --version -v     [Obbligatorio] | Il nome della versione del segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -52,13 +52,13 @@ Ottiene informazioni su tutte le risorse di valore del segreto della risorsa di 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --secret-name -n [Obbligatorio] | Nome della risorsa di segreto. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -71,7 +71,7 @@ Elenca il valore specificato della risorsa segreta.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --secret-name -n [Obbligatorio] | Nome della risorsa di segreto. |
 | --version -v     [Obbligatorio] | Il nome della versione del segreto. |
@@ -79,7 +79,7 @@ Elenca il valore specificato della risorsa segreta.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

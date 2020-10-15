@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328641"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047421"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91328641"
 
 Questo articolo illustra i passaggi per **configurare una nuova istanza di Azure Digital Twins**, inclusa la creazione dell'istanza e la configurazione dell'autenticazione. Al termine dell'articolo, si disporrà di un'istanza di gemelli digitali di Azure pronta per iniziare la programmazione.
 
-Questa versione di questo articolo completa questa procedura eseguendo un esempio di [ **script di distribuzione automatizzato** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) che semplifica il processo. 
+Questa versione di questo articolo completa questa procedura eseguendo un esempio di [ **script di distribuzione automatizzato** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) che semplifica il processo. 
 * Per visualizzare i passaggi dell'interfaccia della riga di comando manuali eseguiti dallo script dietro le quinte, vedere la versione dell'interfaccia della riga di comando di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (CLI)*](how-to-set-up-instance-cli.md).
 * Per visualizzare i passaggi manuali in base alla portale di Azure, vedere la versione del portale di questo articolo: [*procedura: configurare un'istanza e l'autenticazione (portale)*](how-to-set-up-instance-portal.md).
 
@@ -28,7 +28,7 @@ Questa versione di questo articolo completa questa procedura eseguendo un esempi
 
 ## <a name="prerequisites-download-the-script"></a>Prerequisiti: scaricare lo script
 
-Lo script di esempio è scritto in PowerShell. Fa parte degli esempi di [**Azure Digital Twins**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo.
+Lo script di esempio è scritto in PowerShell. Fa parte degli esempi di [**Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo.
 
 Il progetto di esempio verrà scaricato nel computer come _**Azure_Digital_Twins_samples.zip**_. Passare alla cartella del computer e decomprimerla per estrarre i file.
 
@@ -49,11 +49,13 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
  
 2. Nella barra delle icone Cloud Shell verificare che il Cloud Shell sia impostato in modo da eseguire la versione di PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell finestra che mostra la selezione della versione di PowerShell":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Cloud Shell finestra che mostra la selezione della versione di PowerShell&quot;:::
 
-1. Selezionare l'icona "Carica/Scarica file" e scegliere "carica".
+1. Selezionare l'icona &quot;Carica/Scarica file" e scegliere "carica".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'icona di caricamento":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione della versione di PowerShell&quot;:::
+
+1. Selezionare l'icona &quot;Carica/Scarica file":::
 
     Passare al file di _**deploy.ps1**_ nel computer (in _Azure_Digital_Twins_samples > script > **deploy.ps1** _) e premere "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
 
@@ -82,7 +84,9 @@ Lo script creerà un'istanza di Azure Digital Twins, assegna all'utente di Azure
 
 Di seguito è riportato un estratto del log di output dello script:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell finestra che mostra il log di input e output tramite l'esecuzione dello script di distribuzione" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell finestra che mostra la selezione della versione di PowerShell&quot;:::
+
+1. Selezionare l'icona &quot;Carica/Scarica file" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Se lo script viene completato correttamente, la stampa finale dirà `Deployment completed successfully` . In caso contrario, risolvere il messaggio di errore ed eseguire nuovamente lo script. Ignorerà i passaggi già completati e inizierà a richiedere nuovamente l'input nel momento in cui è stato interrotto.
 
@@ -103,7 +107,9 @@ Nella [portale di Azure](https://portal.azure.com)trovare l'istanza di Azure Dig
 
 Se la si seleziona, verrà visualizzata la pagina *Panoramica* dell'istanza. Annotare il *nome*, il *gruppo di risorse*e il *nome host*. Potrebbero essere necessari in seguito per identificare e connettersi all'istanza di.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Evidenziazione dei valori importanti dalla pagina Panoramica dell'istanza":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Cloud Shell finestra che mostra la selezione della versione di PowerShell&quot;:::
+
+1. Selezionare l'icona &quot;Carica/Scarica file":::
 
 ### <a name="collect-app-registration-values"></a>Raccogliere i valori di registrazione delle app 
 
@@ -113,7 +119,9 @@ Per trovarli, seguire [questo collegamento](https://portal.azure.com/#blade/Micr
 
 Verrà visualizzata la registrazione dell'app appena creata in questo elenco. Selezionarlo per aprirne i dettagli:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Visualizzazione del portale dei valori importanti per la registrazione dell'app":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Cloud Shell finestra che mostra la selezione della versione di PowerShell&quot;:::
+
+1. Selezionare l'icona &quot;Carica/Scarica file":::
 
 Prendere nota dell'ID dell' *applicazione (client)* e della *Directory (tenant)* visualizzati nella **pagina.** Se non si è la persona che scriverà il codice per le applicazioni client, sarà necessario condividere questi valori con la persona che sarà.
 
@@ -157,7 +165,7 @@ Se uno o entrambi i passaggi di verifica hanno esito negativo, riprovare a crear
 ## <a name="next-steps"></a>Passaggi successivi
 
 Testare le singole chiamate API REST nell'istanza usando i comandi dell'interfaccia della riga di comando di Azure Digital gemelli: 
-* [riferimento AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [riferimento AZ DT](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
 
 In alternativa, vedere come connettere l'applicazione client all'istanza scrivendo il codice di autenticazione dell'app client:

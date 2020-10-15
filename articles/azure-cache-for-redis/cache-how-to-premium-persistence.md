@@ -5,16 +5,16 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/24/2017
-ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 10/09/2020
+ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004803"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000007"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Come configurare la persistenza dei dati per una Cache Redis Premium di Azure
-Cache Redis di Azure include diverse offerte di cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. In questo articolo viene descritto come configurare la persistenza in un'istanza Cache Redis Premium di Azure.
+In questo articolo si apprenderà come configurare la persistenza in una cache di Azure Premium per l'istanza di redis tramite il portale di Azure. Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. 
 
 ## <a name="what-is-data-persistence"></a>Che cos'è la persistenza dei dati?
 La [persistenza Redis](https://redis.io/topics/persistence) consente di rendere persistenti i dati archiviati in Redis. È inoltre possibile creare snapshot ed eseguire il backup dei dati, per consentirne il caricamento in caso di errore hardware. Si tratta di un enorme vantaggio rispetto al livello Basic o Standard in cui tutti i dati vengono archiviati in memoria ed esiste il rischio di potenziali perdite di dati in caso di errore quando i nodi della cache sono inattivi. 
@@ -32,54 +32,62 @@ La persistenza scrive i dati Redis in un account di archiviazione di Azure di cu
 > 
 > 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. Per creare una cache Premium, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**. Oltre a creare cache nel portale di Azure, è possibile crearle usando modelli di Resource Manager, PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni sulla creazione di un'istanza di Cache Redis di Azure, vedere [Creare una cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Dopo aver selezionato un piano tariffario Premium, fare clic su **Persistenza Redis**.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Creare una risorsa.":::
+   
+2. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
-![Persistenza Redis][redis-cache-persistence]
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Creare una risorsa.":::
 
-La procedura illustrata nella sezione che segue descrive come configurare la persistenza Redis per la nuova cache premium. Una volta configurata la persistenza di Redis, fare clic su **Crea** per creare la nuova cache premium con persistenza di Redis.
+3. Nella pagina **nuova cache Redis** configurare le impostazioni per la nuova cache Premium.
+   
+   | Impostazione      | Valore consigliato  | Descrizione |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa di lunghezza compresa tra 1 e 63 caratteri che contengono solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net*. | 
+   | **Sottoscrizione** | A discesa e selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
+   | **Gruppo di risorse** | A discesa e selezionare un gruppo di risorse oppure selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
+   | **Posizione** | A discesa e selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
+   | **Tipo di cache** | A discesa e selezionare una cache Premium per configurare le funzionalità Premium. Per informazioni dettagliate, vedere [cache di Azure per i prezzi di redis](https://azure.microsoft.com/pricing/details/cache/). |  Il piano tariffario determina le dimensioni, le prestazioni e le funzionalità disponibili per la cache. Per altre informazioni, vedere la [panoramica su Cache Redis di Azure](cache-overview.md). |
 
-## <a name="enable-redis-persistence"></a>Abilitare la persistenza Redis
+4. Selezionare la scheda **Rete** o fare clic sul pulsante **Rete** nella parte inferiore della pagina.
 
-La persistenza di redis è abilitata nel pannello **persistenza dei dati** scegliendo la persistenza **RDB** o **aof** . Per le nuove cache, questo pannello è accessibile durante il processo di creazione della cache, come descritto nella sezione precedente. Per le cache esistenti, è possibile accedere al pannello di **persistenza dei dati** dal **menu delle risorse** per la cache.
+5. Nella scheda **Rete** selezionare il metodo di connettività. Per le istanze di cache Premium è possibile connettersi pubblicamente, tramite indirizzi IP pubblici o endpoint di servizio, oppure privatamente, usando un endpoint privato.
 
-![Impostazioni di Redis][redis-cache-settings]
+6. Fare clic sul pulsante **Avanti: Avanzate** oppure fare clic sulla scheda **Avanti: Avanzate** nella parte inferiore della pagina.
 
+7. Nella scheda **Avanzate** per un'istanza di cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati. Per la persistenza dei dati, è possibile scegliere la persistenza **RDB** o **aof** . 
 
-## <a name="configure-rdb-persistence"></a>Configurare la persistenza RDB
+8. Per abilitare la persistenza RDB, fare clic su **RDB** e configurare le impostazioni. 
+   
+   | Impostazione      | Valore consigliato  | Descrizione |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Frequenza di backup** | A discesa e selezionare un intervallo di backup, le scelte includono **15 minuti**, **30 minuti**, **60 minuti**, **6 ore**, **12 ore**e **24 ore**. | Il conto alla rovescia per l'intervallo inizia dopo il corretto completamento dell'operazione di backup precedente e al termine viene avviato un nuovo backup. | 
+   | **Storage Account** | A discesa e selezionare l'account di archiviazione. | È necessario scegliere un account di archiviazione nella stessa area della cache ed è consigliato un account **Archiviazione Premium** , poiché archiviazione premium ha una velocità effettiva maggiore.  | 
+   | **Chiave di archiviazione** | A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**. | 
 
-Per abilitare la persistenza RDB, fare clic su **RDB**. Per disabilitare la persistenza RDB in una cache premium precedentemente abilitata, fare clic su **Disabilita**.
+    Il primo backup viene avviato una volta trascorso l'intervallo di frequenza di backup.
 
-![Persistenza RDB di Redis][redis-cache-rdb-persistence]
+9. Per abilitare la persistenza AOF, fare clic su **aof** e configurare le impostazioni. 
+   
+   | Impostazione      | Valore consigliato  | Descrizione |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Primo account di archiviazione** | A discesa e selezionare l'account di archiviazione. | Questo account deve trovarsi nella stessa area della cache e deve essere preferibilmente un account di **Archiviazione Premium** perché questo tipo di archiviazione offre una velocità effettiva superiore. | 
+   | **Prima chiave di archiviazione** | A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**. | 
+   | **Secondo account di archiviazione** | Opzionale A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Facoltativamente, è possibile configurare un account di archiviazione aggiuntivo. Se si configura un secondo account di archiviazione, è qui che vengono scritte le operazioni di scrittura alla cache di replica. | 
+   | **Seconda chiave di archiviazione** | Opzionale A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**. | 
 
-Per configurare l'intervallo di backup, selezionare una **Frequenza di Backup** dall'elenco a discesa. Le opzioni disponibili includono **15 minuti**, **30 minuti**, **60 minuti**, **6 ore**, **12 ore** e **24 ore**. Il conto alla rovescia per l'intervallo inizia dopo il corretto completamento dell'operazione di backup precedente e al termine viene avviato un nuovo backup.
+    Quando la persistenza AOF è abilitata, le operazioni di scrittura alla cache vengono salvate nell'account di archiviazione designato (o negli account se è stato configurato un secondo account di archiviazione). In caso di un errore irreversibile che danneggia sia la cache primaria che quella di replica, viene usato il log AOF archiviato per ricreare la cache.
 
-Fare clic su **Account di archiviazione** per selezionare l'account di archiviazione da usare e scegliere la **Chiave primaria** o la **Chiave secondaria** da usare dall'elenco a discesa **Chiave di archiviazione**. È necessario scegliere un account di archiviazione nella stessa area della cache ed è consigliato un account **Archiviazione Premium** , poiché archiviazione premium ha una velocità effettiva maggiore. 
+10. Fare clic sul pulsante **Avanti: Tag** o fare clic sulla scheda **Avanti: Tag** nella parte inferiore della pagina.
 
-> [!IMPORTANT]
-> Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**.
-> 
-> 
+11. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-Fare clic su **OK** per salvare la configurazione della persistenza.
+12. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
-Una volta trascorso l'intervallo di frequenza di backup, viene avviato il backup successivo (o il primo backup per le nuove cache).
+13. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-## <a name="configure-aof-persistence"></a>Configurare la persistenza AOF
-
-Per abilitare la persistenza AOF, fare clic su **AOF**. Per disabilitare la persistenza AOF in una cache premium precedentemente abilitata, fare clic su **Disabilita**.
-
-![Persistenza AOF di Redis][redis-cache-aof-persistence]
-
-Per configurare la persistenza AOF, specificare un **primo account di archiviazione**. Questo account deve trovarsi nella stessa area della cache e deve essere preferibilmente un account di **Archiviazione Premium** perché questo tipo di archiviazione offre una velocità effettiva superiore. Facoltativamente, è possibile configurare un account di archiviazione aggiuntivo denominato **secondo account di archiviazione**. Se si configura un secondo account di archiviazione, è qui che vengono scritte le operazioni di scrittura alla cache di replica. Per ogni account di archiviazione configurato, scegliere la **Chiave primaria** o la **Chiave secondaria** da usare dall'elenco a discesa **Chiave di archiviazione**. 
-
-> [!IMPORTANT]
-> Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**.
-> 
-> 
-
-Quando la persistenza AOF è abilitata, le operazioni di scrittura alla cache vengono salvate nell'account di archiviazione designato (o negli account se è stato configurato un secondo account di archiviazione). In caso di un errore irreversibile che danneggia sia la cache primaria che quella di replica, viene usato il log AOF archiviato per ricreare la cache.
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina  **Panoramica**  della cache di Azure per Redis. Quando la voce  **Stato**  indica  **In esecuzione**, la cache è pronta per l'uso. 
 
 ## <a name="persistence-faq"></a>Domande frequenti sulla persistenza
 Nell'elenco seguente sono fornite risposte a domande frequenti sulla persistenza di Cache Redis di Azure.
@@ -148,7 +156,7 @@ La persistenza AOF influisce sulla velocità effettiva di circa il 15-20% quando
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Come si rimuove il secondo account di archiviazione?
 
-È possibile rimuovere l'account di archiviazione secondario della persistenza AOF impostandolo come il primo account di archiviazione. Per istruzioni, vedere [Configurare la persistenza AOF](#configure-aof-persistence).
+È possibile rimuovere l'account di archiviazione secondario della persistenza AOF impostandolo come il primo account di archiviazione. Per le cache esistenti, è possibile accedere al pannello di **persistenza dei dati** dal **menu delle risorse** per la cache. Per disabilitare la persistenza AOF, fare clic su **disabilitato**.
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>Che cos'è un'operazione di riscrittura e in che modo influisce sulla cache?
 

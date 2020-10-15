@@ -1,24 +1,24 @@
 ---
 title: 'Avvio rapido: Ottenere un numero di telefono da Servizi di comunicazione di Azure'
 description: Informazioni su come acquistare un numero di telefono di Servizi di comunicazione di Azure tramite il portale di Azure.
-author: ddematheu2
-manager: nimag
+author: prakulka
+manager: nmurav
 services: azure-communication-services
-ms.author: dademath
-ms.date: 07/09/2020
+ms.author: prakulka
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: f5cf8f8ef004dacc9fe2bbdd1b815f2ae5275311
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298117"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756919"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Avvio rapido: Ottenere un numero di telefono tramite il portale di Azure
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Introduzione a Servizi di comunicazione di Azure, con l'acquisto di un numero di telefono tramite il portale di Azure.
 
@@ -41,7 +41,7 @@ Passare al pannello Numeri di telefono nel menu della risorsa.
 
 Premere il pulsante `Get` per avviare la procedura guidata. La procedura guidata del pannello `Phone numbers` include una serie di domande che aiutano a scegliere il numero di telefono più adatto allo specifico scenario. 
 
-Sarà prima di tutto necessario scegliere il `Country/region` in cui effettuare il provisioning del numero di telefono. Dopo aver selezionato il paese/area geografica, è necessario selezionare il `phone plan` più adatto alle esigenze. 
+Sarà prima di tutto necessario scegliere il `Country/region` in cui effettuare il provisioning del numero di telefono. Dopo aver selezionato il paese/area geografica, è necessario selezionare il `use case` più adatto alle esigenze. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot che mostra la pagina principale della risorsa di Servizi di comunicazione.":::
 
@@ -50,23 +50,13 @@ Sarà prima di tutto necessario scegliere il `Country/region` in cui effettuare 
 La selezione di un piano telefonico è divisa in due passaggi: 
 
 1. Selezione di [Tipo di numero](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. Selezione di [Piano](../../concepts/telephony-sms/plan-solution.md#plans)
+2. Selezione di [Piano](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
 
 Sono attualmente disponibili due tipi di numeri: `Geographic` e `Toll-free`. Dopo aver selezionato un tipo di numero, verranno offerti diversi piani tra cui scegliere.
 
-> [!NOTE]
-> Attualmente è supportata solo la selezione di numeri di telefono con chiamate in ingresso OPPURE in uscita. È tuttavia possibile acquistare un numero di telefono con le chiamate in ingresso abilitate, quindi configurare l'ID chiamante in uscita in modo che corrisponda al numero di telefono abilitato per le chiamate in ingresso (quello che gli utenti vedono quando ricevono una chiamata dall'applicazione Servizi di comunicazione).
-> Questo vale solo per le chiamate bidirezionali. L'SMS bidirezionale è supportato a livello nativo.
-
-In questo esempio è stato scelto un tipo di numero `Toll-free` con il piano `Outbound calling`.
+In questo esempio è stato scelto un tipo di numero `Toll-free` con i piani `Outbound calling` e `Inbound and Outbound SMS`.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot che mostra la pagina principale della risorsa di Servizi di comunicazione.":::
-
-### <a name="declare-purpose"></a>Dichiarare lo scopo
-
-Successivamente, la procedura guidata chiederà lo scopo per cui usare il numero. Questa informazione viene raccolta per applicare le normative corrette per le imposte e le chiamate di emergenza.
-
-:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Screenshot che mostra la pagina principale della risorsa di Servizi di comunicazione.":::
 
 Da qui, fare clic sul pulsante `Next: Numbers` nella parte inferiore della pagina per personalizzare i numeri di telefono di cui effettuare il provisioning.
 
@@ -106,12 +96,19 @@ Passare alla risorsa di Servizi di comunicazione di Azure nel [portale di Azure]
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot che mostra la pagina principale della risorsa di Servizi di comunicazione.":::
 
-Selezionare la scheda Numeri di telefono nel menu per gestire i numeri di telefono.
+Selezionare il pannello Numeri di telefono nel menu per gestire i numeri di telefono.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot che mostra la pagina principale della risorsa di Servizi di comunicazione.":::
 
 > [!NOTE]
 > Potrebbero essere necessari alcuni minuti prima che i numeri di cui è stato effettuato il provisioning vengano visualizzati in questa pagina.
+
+### <a name="customizing-phone-number-plans"></a>Personalizzare i piani dei numeri di telefono
+Nella pagina `Numbers` è possibile selezionare il numero di telefono facendo clic sul numero per cui personalizzare il piano.
+
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot che mostra la pagina principale della risorsa di Servizi di comunicazione.":::
+
+Selezionare le funzionalità nell'elenco di quelle disponibili per chiamate e SMS, quindi fare clic su `Confirm` per applicare la selezione.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -119,7 +116,7 @@ Domande e problemi comuni:
 
 - Al momento, l'acquisto di numeri di telefono è supportato solo negli Stati Uniti. La località viene ricavata dall'indirizzo di fatturazione della sottoscrizione a cui è associata la risorsa. Al momento, non è possibile spostare una risorsa in un'altra sottoscrizione.
 
-- Quando un numero di telefono viene eliminato, non verrà rilasciato e non potrà essere riacquistato fino alla fine del periodo di fatturazione.
+- I numeri di telefono rilasciati non potranno essere rilasciati o riacquistati fino al termine del ciclo di fatturazione.
 
 - Quando una risorsa di Servizi di comunicazione viene eliminata, i numeri di telefono associati verranno rilasciati automaticamente allo stesso tempo.
 

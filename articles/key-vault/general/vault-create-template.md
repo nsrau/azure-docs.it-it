@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
 ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804396"
 ---
 # <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>Come creare criteri di accesso a Azure Key Vault e insieme di credenziali usando un modello di Gestione risorse

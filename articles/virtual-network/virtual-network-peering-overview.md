@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531871"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
@@ -110,7 +110,7 @@ Il transito del gateway è una proprietà di peering che consente a una rete vir
 
 * È possibile creare un peering tra due reti virtuali. Le reti possono appartenere alla stessa sottoscrizione, a modelli di distribuzione diversi nella stessa sottoscrizione o a sottoscrizioni diverse. Completare un'esercitazione per uno degli scenari seguenti:
 
-    |Modello di distribuzione di Azure             | Sottoscrizione  |
+    |Modello di distribuzione di Azure             | Subscription  |
     |---------                          |---------|
     |Entrambi Resource Manager              |[Uguale](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diversa](create-peering-different-subscriptions.md)|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645752"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019733"
 ---
 # <a name="data-encryption-models"></a>Modelli di crittografia dei dati
 
@@ -143,13 +143,13 @@ Quando si usa la crittografia lato server con chiavi gestite dal servizio nell'h
 ## <a name="supporting-services"></a>Servizi di supporto
 I servizi di Azure che supportano ogni modello di crittografia:
 
-| Prodotto, funzionalità o servizio | Lato server con chiave gestita dal servizio   | Lato server con chiave gestita dal cliente | Lato client con chiave gestita dal client  |
+| Prodotto, funzionalità o servizio | Lato server con chiave gestita dal servizio   | Server-Side uso della chiave Customer-Managed | Client-Side uso della chiave Client-Managed  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **Intelligenza artificiale e Machine Learning**      |                    |                    |                    |
 | Ricerca cognitiva di Azure           | Sì                | Sì                | -                  |
 | Servizi cognitivi di Azure         | Sì                | Sì                | -                  |
 | Azure Machine Learning           | Sì                | Sì                | -                  |
-| Azure Machine Learning Studio    | Sì                | Anteprima, RSA a 2048 bit | -               |
+| Azure Machine Learning Studio (versione classica) | Sì         | Anteprima, RSA a 2048 bit | -               |
 | Content Moderator                | Sì                | Sì                | -                  |
 | Viso                             | Sì                | Sì                | -                  |
 | Language Understanding           | Sì                | Sì                | -                  |
@@ -164,7 +164,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | Funzioni                        | Sì                | Sì                | -                  |
 | Azure Analysis Services          | Sì                | -                  | -                  |
 | Azure Data Catalog               | Sì                | -                  | -                  |
-| Azure HDInsight                  | Sì                | Tutti                | -                  |
+| Azure HDInsight                  | Sì                | All                | -                  |
 | Application Insights di monitoraggio di Azure | Sì                | Sì                | -                  |
 | Log Analytics di monitoraggio di Azure      | Sì                | Sì                | -                  |
 | Esplora dati di Azure              | Sì                | Sì                | -                  |
@@ -203,7 +203,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | Azure Repos                      | Sì                | -                  | Sì                |
 | **Identità**                     |                    |                    |                    |
 | Azure Active Directory           | Sì                | -                  | -                  |
-| Azure Active Directory Domain Services | Sì          | Sì                | -                  |
+| Servizi di dominio Azure Active Directory | Sì          | Sì                | -                  |
 | **Integrazione**                  |                    |                    |                    |
 | Bus di servizio                      | Sì                | Sì                | Sì                |
 | Griglia di eventi                       | Sì                | -                  | -                  |
@@ -240,7 +240,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 
 \* Questo servizio non rende persistenti i dati. Le cache temporanee, se presenti, vengono crittografate con una chiave Microsoft.
 
-\*\* Questo servizio supporta l'archiviazione dei dati nel proprio Key Vault, nell'account di archiviazione o in un altro servizio di mantenimento dei dati che supporta già la crittografia lato server con chiave gestita dal cliente.
+\*\* Questo servizio supporta l'archiviazione dei dati nel Key Vault, nell'account di archiviazione o in un altro servizio di mantenimento dei dati che supporta già la crittografia Server-Side con Customer-Managed chiave.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

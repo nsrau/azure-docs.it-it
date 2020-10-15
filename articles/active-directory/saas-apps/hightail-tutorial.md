@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d39f46469d80b3e2d7bf361bd349a39afb16bd2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297304"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826180"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Hightail
 
@@ -155,15 +155,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic sull'**icona Utente** nell'angolo superiore destro della pagina. 
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/configure1.png)
+    ![Screenshot che mostra l'icona dell'utente.](./media/hightail-tutorial/configure1.png)
 
 1. Fare clic sulla scheda **View Admin Console** (Visualizza console di amministrazione).
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/configure2.png)
+    ![Screenshot che mostra il pulsante View Admin Console per l'utente.](./media/hightail-tutorial/configure2.png)
 
 1. Nel menu nella parte superiore, fare clic sulla scheda **SAML** ed la procedura seguente:
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/configure3.png)
+    ![Screenshot che mostra la scheda SAML in cui è possibile immettere l'URL di accesso e il certificato SAML.](./media/hightail-tutorial/configure3.png)
 
     a. Nella casella di testo **Login URL** (URL di accesso) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e64586ced7a619de02ae3a9d6beda35660ca04a9
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577578"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019155"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
 
@@ -36,7 +36,7 @@ Per usare lo strumento Azure Internet Explorer, è necessario:
 Passare ad [Azure Internet Explorer releases](https://github.com/Azure/azure-iot-explorer/releases) ed espandere l'elenco degli asset per la versione più recente. Scaricare e installare la versione più recente dell'applicazione.
 
 >[!Important]
->Dalla versione 0.11.0 Internet Explorer Explorer supporta solo la versione GA Plug and Play (dal 2020 settembre). Per usare le funzionalità disponibili nella versione di anteprima precedente, da agosto 2019, installare una versione 0.10. x.
+> Eseguire l'aggiornamento alla versione 0.13. x per risolvere i modelli da qualsiasi repository basato su [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## <a name="use-azure-iot-explorer"></a>Usare Esplora risorse di Azure
 
@@ -136,4 +136,4 @@ Per visualizzare i dati di telemetria per l'interfaccia selezionata, passare all
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sulle procedure si è appreso come installare e usare Azure Internet Explorer Explorer per interagire con i dispositivi Plug and Play. Un passaggio successivo suggerito consiste nell'apprendere come usare i comandi dell'interfaccia della riga di [comando di Azure plug and Play](./howto-use-iot-pnp-cli.md).
+In questo articolo sulle procedure si è appreso come installare e usare Azure Internet Explorer Explorer per interagire con i dispositivi Plug and Play. Un passaggio successivo suggerito consiste nell'apprendere come [installare e usare gli strumenti di creazione di DTDL](howto-use-dtdl-authoring-tools.md).

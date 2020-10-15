@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450156"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876159"
 ---
 # <a name="monitor-module-twins"></a>Monitorare i moduli gemelli
 
@@ -100,7 +100,7 @@ Le seguenti proprietà sono importanti da esaminare per la risoluzione dei probl
 
 * **runtimeStatus** può essere uno dei valori seguenti:
 
-    | valore | Descrizione |
+    | Valore | Description |
     | --- | --- |
     | unknown | Stato predefinito fino alla creazione della distribuzione. |
     | backoff | Il modulo è pianificato per l'avvio, ma non è attualmente in esecuzione. Questo valore è utile per un modulo che sta per essere sottoposto a modifiche di stato nel riavvio. Quando un modulo in errore è in attesa del riavvio durante il periodo di raffreddamento, il modulo si troverà in uno stato backoff. |
@@ -168,15 +168,15 @@ Se si verificano problemi con i dispositivi downstream, l'analisi di questi dati
 
 Le informazioni sulla connettività dei moduli personalizzati vengono gestite nel modulo gemello di IoT Edge Agent. Il modulo gemello per il modulo personalizzato viene usato principalmente per la manutenzione dei dati per la soluzione. Le proprietà desiderate definite nella deployment.jssu file si riflettono nel modulo gemello e il modulo può aggiornare i valori delle proprietà segnalati in base alle esigenze.
 
-È possibile usare il linguaggio di programmazione preferito con gli [SDK per dispositivi dell'hub Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) per aggiornare i valori delle proprietà segnalate nel modulo gemello, in base al codice dell'applicazione del modulo. La procedura seguente usa Azure SDK per .NET a tale scopo, usando il codice del modulo [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
+È possibile usare il linguaggio di programmazione preferito con gli [SDK per dispositivi dell'hub Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) per aggiornare i valori delle proprietà segnalate nel modulo gemello, in base al codice dell'applicazione del modulo. La procedura seguente usa Azure SDK per .NET a tale scopo, usando il codice del modulo [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) :
 
-1. Creare un'istanza di [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) con il metodo [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
+1. Creare un'istanza di [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) con il metodo [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) .
 
-1. Ottenere una raccolta delle proprietà del modulo gemello con il metodo [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) .
+1. Ottenere una raccolta delle proprietà del modulo gemello con il metodo [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) .
 
-1. Creare un listener (passando un callback) per rilevare le modifiche apportate alle proprietà desiderate con il metodo [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) .
+1. Creare un listener (passando un callback) per rilevare le modifiche apportate alle proprietà desiderate con il metodo [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) .
 
-1. Nel metodo di callback aggiornare le proprietà segnalate nel modulo gemello con il metodo [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) , passando un oggetto [gemello](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) dei valori di proprietà che si desidera impostare.
+1. Nel metodo di callback aggiornare le proprietà segnalate nel modulo gemello con il metodo [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) , passando un oggetto [gemello](/dotnet/api/microsoft.azure.devices.shared.twincollection) dei valori di proprietà che si desidera impostare.
 
 ## <a name="access-the-module-twins"></a>Accedere ai moduli gemelli
 

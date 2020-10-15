@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564362"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045126"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure
 
@@ -64,7 +64,7 @@ Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo 
     >[!NOTE]
     >Esiste attualmente un **problema noto** in Cloud Shell che interessa questi gruppi di comandi: `az dt route`, `az dt model`, `az dt twin`.
     >
-    >Per risolverlo, eseguire `az login` in Cloud Shell prima di eseguire il comando oppure usare l'[interfaccia della riga di comando locale](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) anziché Cloud Shell. Per informazioni dettagliate, vedere [*Risoluzione dei problemi: problemi noti in Gemelli digitali di Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Per risolverlo, eseguire `az login` in Cloud Shell prima di eseguire il comando oppure usare l'[interfaccia della riga di comando locale](/cli/azure/install-azure-cli?view=azure-cli-latest) anziché Cloud Shell. Per informazioni dettagliate, vedere [*Risoluzione dei problemi: problemi noti in Gemelli digitali di Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -74,7 +74,7 @@ Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo 
 
 Verrà creata una funzione attivata da griglia di eventi all'interno dell'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza. 
 
-Vedere il documento seguente per informazioni di riferimento: [*trigger di griglia di eventi di Azure per funzioni di Azure*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+Vedere il documento seguente per informazioni di riferimento: [*trigger di griglia di eventi di Azure per funzioni di Azure*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
 Sostituire il codice della funzione con il codice seguente. Escluderà solo gli aggiornamenti agli spazi gemelli, leggerà la temperatura aggiornata e invierà le informazioni a Maps di Azure.
 
@@ -152,7 +152,7 @@ Per visualizzare la temperatura di aggiornamento Live, attenersi alla procedura 
 
 Entrambi gli esempi inviano la temperatura in un intervallo compatibile, quindi dovrebbe essere visualizzato il colore della stanza 121 aggiornamento sulla mappa ogni 30 secondi.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Mappa di Office che mostra la stanza 121 arancione colorato":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end, in cui è evidenziata l'integrazione delle mappe interne":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Archiviare le informazioni sulle mappe nei dispositivi gemelli digitali di Azure
 

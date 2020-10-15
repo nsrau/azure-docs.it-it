@@ -4,10 +4,10 @@ description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub e
 ms.topic: article
 ms.date: 09/16/2020
 ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729101"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
@@ -274,9 +274,9 @@ Per altre informazioni sul Contratto di servizio, visitare la pagina [Contratti 
 ## <a name="azure-stack-hub"></a>Hub di Azure Stack
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Come è possibile fare riferimento a una versione specifica di Azure Storage SDK quando si usa l'archiviazione BLOB di Azure come archivio di checkpoint?
-Se si esegue questo codice nell'hub Azure Stack, si verificheranno errori di runtime, a meno che non si abbia come destinazione una specifica versione dell'API di archiviazione. Questo perché l'SDK di hub eventi usa la versione più recente dell'API di archiviazione di Azure disponibile in Azure che potrebbe non essere disponibile nella piattaforma Azure Stack Hub. Hub Azure Stack può supportare una versione diversa di storage BLOB SDK rispetto a quelli disponibili in genere in Azure. Se si usa l'archiviazione BLOB di Azure come archivio di checkpoint, controllare la [versione dell'API di archiviazione di Azure supportata per la compilazione dell'Hub Azure stack](/azure-stack/user/azure-stack-acs-differences?#api-version) e destinare tale versione nel codice. 
+Se si esegue questo codice nell'hub di Azure Stack, si verificheranno errori di runtime a meno che non si scelga una versione specifica dell'API di archiviazione come destinazione. Il motivo è che Event Hubs SDK usa l'ultima versione disponibile in Azure dell'API di archiviazione di Azure, che potrebbe non essere presente nella piattaforma dell'hub di Azure Stack. L'hub di Azure Stack potrebbe supportare una versione di Storage Blob SDK diversa da quelle solitamente disponibili in Azure. Se si usa Archiviazione BLOB di Azure come archivio di checkpoint, verificare la [versione dell'API di archiviazione di Azure supportata per la build dell'hub di Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) e scegliere tale versione come destinazione nel codice. 
 
-Ad esempio, se si esegue in Azure Stack Hub versione 2005, la versione più recente disponibile per il servizio di archiviazione è la versione 2019-02-02. Per impostazione predefinita, la libreria client di hub eventi SDK usa la versione più recente disponibile in Azure (2019-07-07 al momento del rilascio dell'SDK). In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice per la destinazione dell'API del servizio di archiviazione versione 2019-02-02. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere gli esempi seguenti per C#, Java, Python e JavaScript/TypeScript.  
+Se ad esempio l'esecuzione avviene nell'hub di Azure Stack versione 2005, la versione più recente disponibile per il servizio di archiviazione è 2019-02-02. Per impostazione predefinita, la libreria client di Event Hubs SDK usa la versione più recente disponibile in Azure (2019-07-07 al momento del rilascio dell'SDK). In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice destinato alla versione 2019-02-02 dell'API del servizio di archiviazione. Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione, vedere gli esempi seguenti per C#, Java, Python e JavaScript/TypeScript.  
 
 Per un esempio su come definire come destinazione una versione specifica dell'API di archiviazione dal codice, vedere gli esempi seguenti su GitHub: 
 

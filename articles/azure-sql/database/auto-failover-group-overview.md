@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
 ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627228"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
@@ -235,7 +235,7 @@ Per ulteriori informazioni sulla creazione di Istanza gestita SQL secondari nell
 
 ### <a name="using-geo-paired-regions"></a>Uso di aree con associazione geografica
 
-Distribuire entrambe le istanze gestite in [aree abbinate](../../best-practices-availability-paired-regions.md) per motivi di prestazioni. Le istanze gestite che si trovano in aree geografiche abbinate offrono prestazioni molto migliori rispetto alle aree non abbinate. 
+Distribuire entrambe le istanze gestite in [aree associate](../../best-practices-availability-paired-regions.md) per motivi di prestazioni. Le istanze gestite che si trovano in aree geografiche associate hanno prestazioni di gran lunga migliori di quelle che si trovano in aree non associate. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Abilitazione del traffico di replica tra due istanze
 
@@ -423,7 +423,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-| Comando | Descrizione |
+| Comando | Description |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
 | [AZ SQL failover-Group Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Rimuove un gruppo di failover dal server |
@@ -433,7 +433,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 # <a name="rest-api"></a>[API REST](#tab/rest-api)
 
-| API | Descrizione |
+| API | Description |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o aggiorna un gruppo di failover. |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Rimuove un gruppo di failover dal server |
@@ -461,7 +461,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-| Comando | Descrizione |
+| Comando | Description |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
 | [AZ SQL failover-Group Delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Rimuove un gruppo di failover dal server |
@@ -471,7 +471,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 # <a name="rest-api"></a>[API REST](#tab/rest-api)
 
-| API | Descrizione |
+| API | Description |
 | --- | --- |
 | [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o aggiorna la configurazione di un gruppo di failover |
 | [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Rimuove un gruppo di failover dall'istanza di. |
@@ -492,7 +492,7 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
   - [Usare PowerShell per configurare la replica geografica attiva per il database SQL di Azure](scripts/setup-geodr-and-failover-database-powershell.md)
   - [Usare PowerShell per configurare la replica geografica attiva per un database in pool nel database SQL di Azure](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
   - [Usare PowerShell per aggiungere un database SQL di Azure a un gruppo di failover](scripts/add-database-to-failover-group-powershell.md)
-- Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - Per informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQL](automated-backups-overview.md).
 - Per informazioni sull'uso dei backup automatici per il ripristino, vedere [ripristinare un database dai backup avviati dal servizio](recovery-using-backups.md).
 - Per ulteriori informazioni sui requisiti di autenticazione per un nuovo database e server primario, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md).

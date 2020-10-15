@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772788"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015156"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
 
@@ -37,7 +37,7 @@ Le autorizzazioni per chiavi, segreti e certificati singoli devono essere usate 
 
 -   Applicazioni a più livelli che devono separare il controllo degli accessi tra livelli
 
--   Insieme di credenziali delle chiavi condiviso con segreti comuni, quando le applicazioni devono accedere a subset di segreti nell'insieme di credenziali delle chiavi
+-   Condivisione di singoli segreti tra più applicazioni
 
 Per ulteriori informazioni sulle linee guida per la gestione di Azure Key Vault, vedere:
 
@@ -70,7 +70,7 @@ Il nuovo modello di autorizzazione RBAC di Azure per Key Vault fornisce un'alter
 Per aggiungere assegnazioni di ruolo, è necessario disporre di
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-- autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) o [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+- autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) o [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Abilitare le autorizzazioni RBAC di Azure per Key Vault
 

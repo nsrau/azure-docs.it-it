@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 9d6acdcf9487b2d1a5964d4ec686cd23666275b0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923093"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Domande frequenti su Azure ricerca cognitiva
@@ -105,4 +105,4 @@ La domanda riguarda una funzione o una funzionalità mancante? Richiedere la fun
 
  [StackOverflow: Azure ricerca cognitiva](https://stackoverflow.com/questions/tagged/azure-search)   
  [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)  
- [Che cos'è la ricerca cognitiva di Azure?](search-what-is-azure-search.md)
+ [Informazioni su Azure ricerca cognitiva](search-what-is-azure-search.md)

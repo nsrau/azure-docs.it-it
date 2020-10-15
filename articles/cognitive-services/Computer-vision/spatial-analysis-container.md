@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277292"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
@@ -65,7 +65,7 @@ In questo articolo vengono scaricati e installati i pacchetti software seguenti.
 
 | Requisito | Descrizione |
 |--|--|
-| Fotocamera | Il contenitore di analisi spaziale non è associato a un marchio della fotocamera specifico. Il dispositivo della fotocamera deve: supportare il protocollo RTSP (Real-Time Streaming Protocol) e la codifica H. 264, essere accessibile al computer host e essere in grado di eseguire lo streaming a 15FPS e risoluzione 1080p. |
+| Fotocamera | Il contenitore di analisi spaziale non è associato a un marchio della fotocamera specifico. Il dispositivo della fotocamera deve: supportare Real-Time Streaming Protocol (RTSP) e la codifica H. 264, essere accessibile al computer host e essere in grado di eseguire lo streaming a 15FPS e risoluzione 1080p. |
 | Sistema operativo Linux | [Ubuntu Desktop 18,04 LTS](http://releases.ubuntu.com/18.04/) deve essere installato nel computer host.  |
 
 
@@ -178,7 +178,7 @@ Riavviare il computer ed eseguire il comando seguente.
 nvidia-smi
 ```
 
-Viene visualizzato l'output seguente.
+Verrà visualizzato l'output seguente.
 
 ![Output driver NVIDIA](media/spatial-analysis/nvidia-driver-output.png)
 
@@ -318,7 +318,7 @@ Per semplificare la distribuzione di contenitori in più computer host, è possi
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | valore | Descrizione|
+| Nome dell'impostazione | Valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|
@@ -419,7 +419,7 @@ Il contenitore di analisi spaziale Invia le informazioni di fatturazione ad Azur
 I contenitori di servizi cognitivi di Azure non sono concessi in licenza per l'esecuzione senza essere connessi all'endpoint di misurazione/fatturazione. È necessario consentire ai contenitori di comunicare sempre le informazioni di fatturazione all'endpoint di fatturazione. I contenitori di servizi cognitivi non inviano dati del cliente, ad esempio il video o l'immagine da analizzare, a Microsoft.
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione del contenitore di analisi spaziale. In sintesi:
 

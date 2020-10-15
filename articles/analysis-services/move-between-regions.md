@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 4844f3e34a6b49559affbb4d4ed7bc5b5e38e538
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f7ecf960ae94fae4d829e73daf051b9062e478d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050362"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018195"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Spostare Analysis Services in un'area diversa
 
@@ -54,7 +54,7 @@ Prima di trasferire un server in un'area diversa, è consigliabile creare un pia
 - **SQL Server Management Studio (SSMS)**: obbligatorio per il backup e il ripristino dei database modello.
 - **Azure PowerShell**. Obbligatorio solo se si sceglie di completare questa attività usando PowerShell.
 
-## <a name="prepare"></a>Preparare
+## <a name="prepare"></a>Preparazione
 
 ### <a name="backup-model-databases"></a>Database modello di backup
 
@@ -88,7 +88,7 @@ Per esportare un modello con il portale di Azure:
 
 Per esportare un modello usando PowerShell:
 
-1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
+1. Accedere alla propria sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e seguire le istruzioni visualizzate:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -177,7 +177,7 @@ Per modificare il modello:
 
 #### <a name="regions"></a>Regioni
 
-Per ottenere le aree di Azure, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Per ottenere le aree usando PowerShell, eseguire il comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+Per ottenere le aree di Azure, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Per ottenere le aree usando PowerShell, eseguire il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
 
 ```azurepowershell-interactive
    Get-AzLocation | format-table 
@@ -195,7 +195,7 @@ Per distribuire una nuova risorsa server in un'area diversa, si userà il **temp
 
 3. Selezionare **distribuzione modelli**.
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 
@@ -278,9 +278,9 @@ Facoltativo: dopo il ripristino del database modello, elaborare il modello e le 
 
 Facoltativo: [Alm Toolkit](http://alm-toolkit.com/) è uno strumento *Open Source* per il confronto e la gestione di set di dati Power bi *e* Analysis Services database modello tabulare. Usare il Toolkit per connettersi ai database del server di origine e di destinazione e confrontare. Se la migrazione del database ha esito positivo, gli oggetti modello utilizzeranno la stessa definizione. 
 
-:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="ALM Toolkit":::
+:::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Ottenere una firma di accesso condiviso":::
 
-## <a name="clean-up-resources"></a>Eseguire la pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Dopo la verifica, le applicazioni client possono connettersi al nuovo server e gli script di automazione sono in esecuzione correttamente, eliminare il server di origine. 
 
@@ -301,4 +301,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 ---
 
 > [!NOTE]
-> Dopo aver completato lo spostamento di un'area, è consigliabile che il nuovo server di destinazione usi un contenitore di archiviazione nella stessa area per i backup, anziché il contenitore di archiviazione nell'area del server di origine. 
+> Dopo aver completato lo spostamento di un'area, è consigliabile che il nuovo server di destinazione usi un contenitore di archiviazione nella stessa area per i backup, anziché il contenitore di archiviazione nell'area del server di origine.

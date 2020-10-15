@@ -4,10 +4,10 @@ description: Informazioni su come abilitare un criterio di conservazione in Regi
 ms.topic: article
 ms.date: 10/02/2019
 ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83683451"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Impostare un criterio di conservazione per i manifesti senza tag

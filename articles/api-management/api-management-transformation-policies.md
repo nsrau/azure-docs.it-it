@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249604"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078494"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
-Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
 
-##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a>Criteri di trasformazione
+##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Criteri di trasformazione
 
 -   [Converti JSON in XML](api-management-transformation-policies.md#ConvertJSONtoXML): converte il corpo della richiesta o della risposta da JSON a XML.
 
@@ -44,7 +44,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 -   [Trasforma XML usando una trasformazione XSLT](api-management-transformation-policies.md#XSLTransform): si applica una trasformazione da XSL a XML nel corpo della richiesta o della risposta.
 
-##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a>Converti JSON in XML
+##  <a name="convert-json-to-xml"></a><a name="ConvertJSONtoXML"></a> Converti JSON in XML
  Il criterio `json-to-xml` converte il corpo della richiesta o della risposta da JSON a XML.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -69,13 +69,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - applica sempre la conversione.<br />-   content-type-json - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di JSON.|Sì|N/D|
 |consider-accept-header|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   true - applica la conversione se XML è richiesto nell'intestazione Accept della richiesta.<br />-   false - applica sempre la conversione.|No|true|
@@ -88,7 +88,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a>Converti XML in JSON
+##  <a name="convert-xml-to-json"></a><a name="ConvertXMLtoJSON"></a> Converti XML in JSON
  Il criterio `xml-to-json` converte il corpo della richiesta o della risposta da XML a JSON. Il criterio può essere applicato per modernizzare le API basate su servizi Web back-end solo di tipo XML.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -113,13 +113,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |xml-to-json|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |kind|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   javascript-friendly - il JSON convertito ha un formato intuitivo per gli sviluppatori JavaScript.<br />-   direct - il JSON convertito riflette la struttura del documento XML originario.|Sì|N/D|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - esegue sempre la conversione.<br />-   content-type-xml - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di XML.|Sì|N/D|
@@ -132,7 +132,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a>Trova e Sostituisci stringa nel corpo
+##  <a name="find-and-replace-string-in-body"></a><a name="Findandreplacestringinbody"></a> Trova e Sostituisci stringa nel corpo
  Il criterio `find-and-replace` trova una sottostringa di richiesta o risposta e la sostituisce con una sottostringa diversa.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -149,13 +149,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |find-and-replace|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |da|Stringa da cercare.|Sì|N/D|
 |to|Stringa di sostituzione. Specificare una stringa di sostituzione con lunghezza zero per rimuovere la stringa di ricerca.|Sì|N/D|
@@ -167,7 +167,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a>Maschera URL nel contenuto
+##  <a name="mask-urls-in-content"></a><a name="MaskURLSContent"></a> Maschera URL nel contenuto
  Il criterio `redirect-content-urls` riscrive (maschera) i collegamenti nel corpo della risposta, in modo che facciano riferimento al collegamento equivalente tramite il gateway. Usare la sezione outbound per riscrivere i collegamenti al corpo della risposta affinché facciano riferimento al gateway. Usare la sezione inbound per ottenere l'effetto opposto.
 
 > [!NOTE]
@@ -187,7 +187,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |redirect-content-urls|Elemento radice.|Sì|
 
@@ -198,7 +198,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="set-backend-service"></a><a name="SetBackendService"></a>Imposta servizio back-end
+##  <a name="set-backend-service"></a><a name="SetBackendService"></a> Imposta servizio back-end
  Usare il criterio `set-backend-service` per reindirizzare una richiesta in ingresso a un back-end diverso da quello specificato nelle impostazioni dell'API per l'operazione. Questo criterio cambia l'URL di base del servizio back-end della richiesta in arrivo con quello specificato nel criterio.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -207,7 +207,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
-oppure
+o
 
 ```xml
 <set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
@@ -260,20 +260,20 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-backend-service|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
-|base-url|Nuovo URL di base del servizio back-end.|`base-url` `backend-id` È necessario che sia presente uno di o.|N/A|
-|backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).|`base-url` `backend-id` È necessario che sia presente uno di o.|N/A|
-|sf-partition-key|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Usato per risolvere una partizione specifica dal servizio di risoluzione del nome.|No|N/A|
-|sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No|N/A|
-|sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No|N/A|
-|sf-service-instance-name|Applicabile solo quando il back-end è un servizio di Service Fabric. Consente di modificare le istanze del servizio durante il runtime. |No|N/A|
+|base-url|Nuovo URL di base del servizio back-end.|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
+|backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
+|sf-partition-key|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Usato per risolvere una partizione specifica dal servizio di risoluzione del nome.|No|N/D|
+|sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No|N/D|
+|sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No|N/D|
+|sf-service-instance-name|Applicabile solo quando il back-end è un servizio di Service Fabric. Consente di modificare le istanze del servizio durante il runtime. |No|N/D|
 |sf-listener-name|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Reliable Services di Service Fabric consente di creare più listener in un servizio. Questo attributo viene usato per selezionare un listener specifico quando un'istanza di Reliable Services back-end ha più di un listener. Se questo attributo non viene specificato, il servizio Gestione API tenterà di usare un listener senza nome. Un listener senza nome è tipico di un'istanza di Reliable Services con un solo listener. |No|N/D|
 
 ### <a name="usage"></a>Utilizzo
@@ -283,7 +283,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="set-body"></a><a name="SetBody"></a>Imposta corpo
+##  <a name="set-body"></a><a name="SetBody"></a> Imposta corpo
  Il criterio `set-body` consente di impostare il corpo del messaggio per le richieste in ingresso e in uscita. Per accedere al corpo del messaggio è possibile usare la proprietà `context.Request.Body` o `context.Response.Body`, a seconda che il criterio sia nella sezione inbound o outbound.
 
 > [!IMPORTANT]
@@ -304,7 +304,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 <set-body>new body value as text</set-body>
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="literal-text-example"></a>Esempio di testo letterale
 
@@ -396,13 +396,13 @@ Il criterio `set-body` può essere configurato per l'uso del linguaggio di model
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-body|Elemento radice. Contiene il testo del corpo o un'espressione che restituisce un corpo.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |template|Consente di modificare la modalità di modello in cui verrà eseguito il criterio del corpo impostato. Al momento, l'unico valore supportato è:<br /><br />-liquid - i criteri del corpo impostati useranno il motore del modello liquidi |No||
 
@@ -453,7 +453,7 @@ OriginalUrl.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="set-http-header"></a><a name="SetHTTPheader"></a>Imposta intestazione HTTP
+##  <a name="set-http-header"></a><a name="SetHTTPheader"></a> Imposta intestazione HTTP
  Il criterio `set-header` assegna un valore a un'intestazione di risposta e/o di richiesta esistente oppure aggiunge una nuova intestazione di risposta e/o di richiesta.
 
  Inserisce un elenco di intestazioni HTTP in un messaggio HTTP. Se inserito in una pipeline in entrata, questo criterio imposta le intestazioni HTTP per la richiesta passata al servizio di destinazione. Se inserito in una pipeline in uscita, questo criterio imposta le intestazioni HTTP per la risposta inviata al client del gateway.
@@ -466,7 +466,7 @@ OriginalUrl.
 </set-header>
 ```
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="example---adding-header-override-existing"></a>Esempio: aggiunta di un'intestazione, override esistente
 
@@ -497,27 +497,27 @@ OriginalUrl.
  Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-expressions.md) e [Variabile di contesto](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Più valori di un'intestazione vengono concatenati a una stringa CSV, ad esempio:`headerName: value1,value2,value3`
+> Più valori di un'intestazione vengono concatenati a una stringa CSV, ad esempio: `headerName: value1,value2,value3`
 >
 > Le eccezioni includono le intestazioni standard, i cui valori:
 > - Possono contenere virgole (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - Possono contenere date (`Cookie`, `Set-Cookie`, `Warning`),
 > - Contengono date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> In caso di queste eccezioni, più valori di intestazione non saranno concatenati in un'unica stringa e verranno passati come intestazioni separate, ad esempio:`User-Agent: value1`
+> In caso di queste eccezioni, più valori di intestazione non saranno concatenati in un'unica stringa e verranno passati come intestazioni separate, ad esempio: `User-Agent: value1`
 >`User-Agent: value2`
 >`User-Agent: value3`
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-header|Elemento radice.|Sì|
-|value|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
+|Valore|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |exists-action|Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore dell'intestazione esistente.<br />-   skip - non sostituisce il valore dell'intestazione esistente.<br />-   append - aggiunge il valore dell'intestazione esistente.<br />-   delete - elimina l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No|override|
 |name|Specifica il nome dell'intestazione da impostare.|Sì|N/D|
@@ -529,7 +529,7 @@ OriginalUrl.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a>Impostare il parametro della stringa di query
+##  <a name="set-query-string-parameter"></a><a name="SetQueryStringParameter"></a> Impostare il parametro della stringa di query
  Il criterio `set-query-parameter` aggiunge, sostituisce il valore di o elimina il parametro di stringa della query di richiesta. Può essere usato per passare i parametri di query previsti dal servizio back-end che sono facoltativi o non sono mai presenti nella richiesta.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -568,7 +568,7 @@ OriginalUrl.
 |Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento radice.|Sì|
-|value|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
+|Valore|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
@@ -584,7 +584,7 @@ OriginalUrl.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="rewrite-url"></a><a name="RewriteURL"></a>Riscrivi URL
+##  <a name="rewrite-url"></a><a name="RewriteURL"></a> Riscrivi URL
  Il criterio `rewrite-uri` converte un URL di richiesta dal formato pubblico al formato previsto dal servizio Web, come mostrato nell'esempio seguente.
 
 - URL pubblico - `http://api.example.com/storenumber/ordernumber`
@@ -662,7 +662,7 @@ OriginalUrl.
 
 -   **Ambiti del criterio:** tutti gli ambiti
 
-##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a>Trasformare XML usando un XSLT
+##  <a name="transform-xml-using-an-xslt"></a><a name="XSLTransform"></a> Trasformare XML usando un XSLT
  Il criterio `Transform XML using an XSLT` applica una trasformazione XSL all'XML nel corpo della richiesta o della risposta.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -713,10 +713,10 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento radice.|Sì|
-|parametro|Consente di definire le variabili usate nella trasformazione|No|
+|parameter|Consente di definire le variabili usate nella trasformazione|No|
 |xsl:stylesheet|Elemento del foglio di stile principale. Tutti gli elementi e gli attributi definiti rispettano le [specifiche XSLT](https://www.w3.org/TR/xslt) standard|Sì|
 
 ### <a name="usage"></a>Utilizzo
@@ -732,4 +732,4 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
-+ [Esempi di criteri](policy-samples.md)
++ [Esempi di criteri](./policy-reference.md)

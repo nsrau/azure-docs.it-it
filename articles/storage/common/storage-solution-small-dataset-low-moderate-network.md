@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504305"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Trasferimento dei dati per set di dati di piccole dimensioni con larghezza di banda di rete da bassa a moderata
@@ -51,7 +51,7 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 
 | Funzionalità | Esplora archivi Azure | Portale di Azure | AzCopy<br>Azure PowerShell<br>Interfaccia della riga di comando di Azure | API REST o SDK di Archiviazione di Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
-| Disponibilità | Download e installazione <br>Strumento autonomo | Strumenti di esplorazione basati sul Web nel portale di Azure | Strumento da riga di comando |Interfacce programmabili in .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
+| Disponibilità | Scaricare e installare <br>Strumento autonomo | Strumenti di esplorazione basati sul Web nel portale di Azure | Strumento da riga di comando |Interfacce programmabili in .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
 | Interfaccia grafica | Sì | Sì | No | No |
 | Piattaforme supportate | Windows, Mac, Linux | Basate sul Web |Windows, Mac, Linux |Tutte le piattaforme |
 | Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Caricamento<br>Scarica<br>Gestione | Caricamento<br>Scarica<br>Gestione |Caricamento<br>Scarica<br>Gestione | Sì, personalizzabili |

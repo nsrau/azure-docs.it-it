@@ -4,10 +4,10 @@ description: Configurare l'ambiente della soluzione VMware di Azure per eseguire
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: 37fd74f9859813061ff5653fd2c2b0b6cad319e3
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91580513"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurare server di Backup di Azure per la soluzione VMware di Azure
@@ -140,7 +140,7 @@ Un insieme di credenziali di servizi di ripristino è un'entità di archiviazion
 
 1. Nel menu a sinistra selezionare **Tutti i servizi**.
 
-   ![Nel menu a sinistra selezionare Tutti i servizi.](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![Nel menu a sinistra selezionare tutti i servizi.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. Nella finestra di dialogo **tutti i servizi** immettere **servizi di ripristino** e selezionare insiemi di credenziali **dei servizi di ripristino** dall'elenco.
 

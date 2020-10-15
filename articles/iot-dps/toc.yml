@@ -38,15 +38,17 @@
 - name: Esercitazioni
   items:
     - name: 1 - Effettuare il provisioning di set di dispositivi con i gruppi di registrazione
-      href: how-to-legacy-device-symm-key.md
+      items:
+        - name: Effettuare il provisioning di dispositivi con chiavi simmetriche
+          href: how-to-legacy-device-symm-key.md
+        - name: Usare criteri di allocazione personalizzati
+          href: tutorial-custom-allocation-policies.md
     - name: 2 - Effettuare il provisioning di dispositivi in più hub
       items:
         - name: Collegare più hub al servizio Device Provisioning
           href: tutorial-provision-multiple-hubs.md
         - name: Effettuare il provisioning per la multi-tenancy
           href: how-to-provision-multitenant.md
-        - name: Usare criteri di allocazione personalizzati
-          href: tutorial-custom-allocation-policies.md
 - name: Esempi
   items:
     - name: Esempio di attestazione del dispositivo TPM simulato

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
 ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359614"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
@@ -1057,7 +1057,7 @@ La nuova estensione VM per SAP usa un'identità gestita assegnata alla VM per ac
    az login
    ```
 
-1. Seguire i passaggi nell'articolo [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando l'interfaccia][qs-configure-cli-windows-vm] della riga di comando di Azure per abilitare un'identità gestita assegnata dal sistema alla macchina virtuale. Le identità gestite assegnate dall'utente non sono supportate dall'estensione della macchina virtuale per SAP. Tuttavia, è possibile abilitare sia l'identità assegnata dal sistema che quella assegnata dall'utente.
+1. Seguire i passaggi nell'articolo [configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure usando l'interfaccia][qs-configure-cli-windows-vm] della riga di comando di Azure per abilitare una System-Assigned identità gestita per la macchina virtuale. User-Assigned identità gestite non sono supportate dall'estensione della macchina virtuale per SAP. Tuttavia, è possibile abilitare sia l'identità assegnata dal sistema che quella assegnata dall'utente.
 
    Esempio:
    ```azurecli
@@ -1495,7 +1495,7 @@ Seguire i passaggi nel capitolo [configurare l'estensione di Azure per SAP][depl
 
 Se gli errori non vengono rimossi, [contattare il supporto tecnico][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contattare il supporto tecnico
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contatta il supporto tecnico
 
 Errore imprevisto oppure nessuna soluzione nota. Raccogliere il file AzureEnhancedMonitoring_service. log che si trova nella cartella C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) o/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) e contattare il supporto SAP per ulteriore assistenza.
 

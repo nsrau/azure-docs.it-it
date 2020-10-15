@@ -1,26 +1,20 @@
 ---
 title: Cosa sono le soluzioni per l'esecuzione di Oracle WebLogic Server in macchine virtuali di Azure
 description: Informazioni su come eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: rezar
-manager: gwallace
-tags: azure-resource-management
-ms.assetid: ''
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: rezar
-ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: cynthn
+ms.openlocfilehash: c19d6d2513d1bf266d10e90dfb1d6fe79c9410d1
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274368"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993454"
 ---
-# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Che cosa sono le soluzioni per l'esecuzione di Oracle WebLogic Server in macchine virtuali di Azure?
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quali sono le soluzioni per eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure?
 
 Questa pagina descrive le soluzioni per l'esecuzione di Oracle WebLogic Server (WLS) in macchine virtuali di Azure. Queste soluzioni sono sviluppate congiuntamente da Oracle e Microsoft.
 
@@ -56,7 +50,7 @@ Questa offerta crea un cluster dinamico scalabile e a disponibilità elevata di 
 
 Le soluzioni consentiranno un'ampia gamma di architetture di distribuzione pronte per la produzione con la relativa facilità. È possibile soddisfare la maggior parte dei casi di migrazione nel modo più produttivo possibile consentendo di concentrarsi sullo sviluppo di applicazioni aziendali.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Le distribuzioni di WebLogic Server complesse sono abilitate in Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="È possibile usare la portale di Azure per distribuire WebLogic Server in Azure":::
 
 Oltre a ciò di cui viene effettuato automaticamente il provisioning dalle soluzioni, i clienti hanno la massima flessibilità per personalizzare ulteriormente le distribuzioni. È probabile che, in base alla distribuzione di applicazioni, i clienti integrino altre risorse di Azure con le relative distribuzioni. I clienti sono invitati a fornire commenti e suggerimenti su come migliorare ulteriormente le soluzioni.
 

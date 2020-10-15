@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532602"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usare Azure Defender per registri contenitori per analizzare le vulnerabilità delle immagini
@@ -26,15 +26,15 @@ Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicur
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|**Azure Defender per i registri contenitori** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|**Azure Defender per i registri contenitori** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
 |Registri e immagini supportati:|![Sì ](./media/icons/yes-icon.png) registri ACR ospitati da Linux accessibili dalla rete Internet pubblica e offrono l'accesso alla Shell.<br>![Nessun ](./media/icons/no-icon.png) Registro ACR ospitato da Windows.<br>![Nessun ](./media/icons/no-icon.png) registro ' privato '-il Centro sicurezza richiede che i registri siano accessibili dalla rete Internet pubblica. Il Centro sicurezza non è attualmente in grado di connettersi o analizzare i registri con accesso limitato con un firewall, un endpoint del servizio o endpoint privati come il collegamento privato di Azure.<br>![Non ci sono ](./media/icons/no-icon.png) Immagini con minimalista, ad esempio immagini [Scratch di Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo.|
-|Ruoli e autorizzazioni necessari:|Ruolo lettore di **sicurezza** e [lettore di container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|Autorizzazioni e ruoli obbligatori:|Ruolo lettore di **sicurezza** e [lettore di container Registry di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
 
-## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificare le vulnerabilità nelle immagini nei registri contenitori di Azure 
+## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificare le vulnerabilità nelle immagini dei registri contenitori di Azure 
 
 1. Per abilitare le analisi delle vulnerabilità delle immagini archiviate nel Container Registry Azure basato su Azure Resource Manager:
 
@@ -43,7 +43,7 @@ Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicur
         Il Centro sicurezza è ora pronto per l'analisi delle immagini nei registri.
 
         >[!NOTE]
-        > Questa funzionalità viene addebitata per ogni immagine.
+        > Questa funzionalità prevede un addebito per ogni immagine.
 
 1. Le analisi delle immagini vengono attivate a ogni push o importazione e se l'immagine è stata ritirata negli ultimi 30 giorni. 
 
@@ -115,9 +115,9 @@ Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicur
 
 ## <a name="disable-specific-findings-preview"></a>Disabilita risultati specifici (anteprima)
 
-Se è necessario che l'organizzazione ignori una ricerca, anziché risolverla, è possibile disabilitarla. I risultati disabilitati non incidono sul punteggio sicuro o generano rumore indesiderato.
+Se l'organizzazione deve ignorare un risultato invece di correggerlo, è possibile disabilitarlo facoltativamente. I risultati disabilitati non influiscono sul punteggio di sicurezza e non generano elementi non significativi.
 
-Quando una ricerca corrisponde ai criteri definiti nelle regole di disabilitazione, non verrà visualizzata nell'elenco di risultati. Gli scenari tipici includono:
+Quando un risultato corrisponde ai criteri definiti nelle regole di disabilitazione, non verrà visualizzato nell'elenco di risultati. Gli scenari tipici includono:
 
 - Disabilitare i risultati con gravità inferiore al medio
 - Disabilitare i risultati non patchable
@@ -157,4 +157,4 @@ Per creare una regola:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Scopri di più su Azure Defender](azure-defender.md)
+> [Altre informazioni su Azure Defender](azure-defender.md)

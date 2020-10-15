@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514004"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Usare il servizio Gestione dispositivi StorSimple per gestire i modelli di larghezza di banda StorSimple
@@ -136,23 +136,23 @@ A questo punto, la pianificazione composta viene avviata a un orario scelto dall
 
 **D**. Cosa accade ai controlli della larghezza di banda nei periodi tra pianificazioni, ossia quando una pianificazione è terminata e un'altra non è ancora stata avviata?
 
-**Oggetto**. In questi casi, non verranno utilizzati controlli relativi alla larghezza di banda. Ciò significa che il dispositivo può usare una larghezza di banda illimitata, quando si suddividono su livelli i dati nel cloud.
+**A**. In questi casi, non verranno utilizzati controlli relativi alla larghezza di banda. Ciò significa che il dispositivo può usare una larghezza di banda illimitata, quando si suddividono su livelli i dati nel cloud.
 
 **D**. È possibile modificare i modelli di larghezza di banda in un dispositivo offline?
 
-**Oggetto**. Non è possibile modificare i modelli di larghezza di banda nei contenitori di volume, se il dispositivo corrispondente è offline.
+**A**. Non è possibile modificare i modelli di larghezza di banda nei contenitori di volume, se il dispositivo corrispondente è offline.
 
 **D**. È possibile modificare un modello di larghezza di banda associato a un contenitore di volume, quando i volumi associati sono offline?
 
-**Oggetto**. È possibile modificare un modello di larghezza di banda associato a un contenitore di volume, i cui volumi sono offline. Tenere presente che quando i volumi sono offline, nessun dato viene suddiviso in livelli dal dispositivo al cloud.
+**A**. È possibile modificare un modello di larghezza di banda associato a un contenitore di volume, i cui volumi sono offline. Tenere presente che quando i volumi sono offline, nessun dato viene suddiviso in livelli dal dispositivo al cloud.
 
 **D**. È possibile eliminare un modello predefinito?
 
-**Oggetto**. Sebbene sia possibile eliminare un modello predefinito, non si consiglia di effettuare tale operazione. L'utilizzo di questo modello predefinito (comprese le versioni modificate) viene monitorato. I dati di rilevamento vengono analizzati nel tempo e utilizzati al fine di migliorare il modello predefinito.
+**A**. Sebbene sia possibile eliminare un modello predefinito, non si consiglia di effettuare tale operazione. L'utilizzo di questo modello predefinito (comprese le versioni modificate) viene monitorato. I dati di rilevamento vengono analizzati nel tempo e utilizzati al fine di migliorare il modello predefinito.
 
 **D**. Come si determina la necessità di modificare i modelli di larghezza di banda?
 
-**Oggetto**. Quando si assiste a un rallentamento o una riduzione delle prestazioni per più volte al giorno, vuol dire che è necessario modificare i modelli di larghezza di banda. In questo caso, monitorare l'archiviazione e l'utilizzo della rete controllando i grafici di input e output relativi alle prestazioni e alla produttività della rete.
+**A**. Quando si assiste a un rallentamento o una riduzione delle prestazioni per più volte al giorno, vuol dire che è necessario modificare i modelli di larghezza di banda. In questo caso, monitorare l'archiviazione e l'utilizzo della rete controllando i grafici di input e output relativi alle prestazioni e alla produttività della rete.
 
 Dai dati relativi alla produttività della rete, identificare l'orario e i contenitori di volume in cui si verifica il collo di bottiglia della rete. In questo caso, quando i dati vengono suddivisi in livelli nel cloud (informazioni disponibili nelle prestazioni di I/O per tutti i contenitori di volume da dispositivo a cloud), sarà necessario modificare i modelli di larghezza di banda associati con i contenitori di volume.
 
@@ -160,7 +160,7 @@ Quando i modelli modificati sono in uso, è necessario monitorare di nuovo la re
 
 **D**. Cosa accade se in più contenitori di volume del dispositivo sono presenti pianificazioni che si sovrappongono, ma alle quali vengono applicati limitazioni differenti?
 
-**Oggetto**. Si consideri la situazione in cui un utente dispone di un dispositivo con 3 contenitori di volume. Le pianificazioni associate a questi contenitori si sovrappongono completamente. Per ognuno di questi contenitori, i limiti di larghezza di banda usati corrispondo a 5, 10 e 15 Mbps. Quando gli input/output si verificano su tali contenitori contemporaneamente, è possibile che si applichino i 3 limiti di larghezza di banda. In questo caso, 5 Mbps poiché le richieste I/O in uscita condividono la stessa coda.
+**A**. Si consideri la situazione in cui un utente dispone di un dispositivo con 3 contenitori di volume. Le pianificazioni associate a questi contenitori si sovrappongono completamente. Per ognuno di questi contenitori, i limiti di larghezza di banda usati corrispondo a 5, 10 e 15 Mbps. Quando gli input/output si verificano su tali contenitori contemporaneamente, è possibile che si applichino i 3 limiti di larghezza di banda. In questo caso, 5 Mbps poiché le richieste I/O in uscita condividono la stessa coda.
 
 ## <a name="best-practices-for-bandwidth-templates"></a>Procedure consigliate per i modelli di larghezza di banda
 

@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433705"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
@@ -125,7 +125,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### <a name="disable-storage-sense"></a>Disabilitare il rilevamento dell'archiviazione
 
-Per gli host sessione desktop virtuale Windows che usano Windows 10 Enterprise o Windows 10 Enterprise Multisession, è consigliabile disabilitare il senso di archiviazione. È possibile disabilitare il rilevamento dell'archiviazione nel menu impostazioni sotto **archiviazione**, come illustrato nello screenshot seguente:
+Per gli host sessione Desktop virtuale Windows che usano Windows 10 Enterprise o Windows 10 Enterprise multisessione è consigliabile disabilitare Sensore memoria. È possibile disabilitare il rilevamento dell'archiviazione nel menu impostazioni sotto **archiviazione**, come illustrato nello screenshot seguente:
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot del menu archiviazione in impostazioni. L'opzione "rilevamento archiviazione" è disattivata.](media/storagesense.png)

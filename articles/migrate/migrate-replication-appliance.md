@@ -4,10 +4,10 @@ description: Informazioni sull'appliance di replica di Azure Migrate per la migr
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532121"
 ---
 # <a name="replication-appliance"></a>Appliance di replica
@@ -58,10 +58,10 @@ TLS | TLS 1,2 deve essere abilitato.
 MySQL | MySQL deve essere installato nell'appliance.<br/> MySQL deve essere installato. È possibile eseguire l'installazione manualmente oppure Site Recovery possibile installarla durante la distribuzione dell'appliance.
 Altre app | Non eseguire altre app nell'appliance di replica.
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Scopri di più](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
 IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443 <br>- Abilitare l'[autenticazione anonima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Abilitare l'impostazione di [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))
 **Impostazioni di rete** |
-Tipo di indirizzo IP | Static
+Tipo di indirizzo IP | Statico
 Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati)
 Tipo di scheda di interfaccia di rete | VMXNET3
 
@@ -88,8 +88,8 @@ Il dispositivo di replica deve accedere a questi URL nel cloud pubblico di Azure
 https:\//management.azure.com | Usato per il coordinamento e le operazioni di gestione della replica
 *.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
 time.windows.com | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.NET <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | L'installazione dell'appliance richiede l'accesso a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | L'installazione dell'appliance richiede l'accesso a questi URL. Vengono usati per la gestione di identità e controllo di accesso da Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
 
 
 ## <a name="azure-government-url-access"></a>Accesso all'URL di Azure per enti pubblici
@@ -105,8 +105,8 @@ L'appliance di replica deve accedere a questi URL in Azure per enti pubblici.
 https:\//management.usgovcloudapi.net | Usato per il coordinamento e le operazioni di gestione della replica
 *.services.visualstudio.com | Utilizzato per scopi di telemetria (Facoltativo)
 time.nist.gov | Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https: \/ /login.Live.com <br/> https: \/ /Graph.Windows.NET <br/> https:\//login.windows.net <br/> https: \/ /www.Live.com <br/> https: \/ /www.Microsoft.com  | Per la configurazione dell'appliance con OVA è necessario l'accesso a questi URL. Vengono usati per il controllo di accesso e la gestione delle identità per Azure Active Directory.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree, il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Per la configurazione dell'appliance con OVA è necessario l'accesso a questi URL. Vengono usati per il controllo di accesso e la gestione delle identità per Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Per completare il download di MySQL. In alcune aree il download potrebbe essere reindirizzato all'URL della rete CDN. Verificare che l'URL della rete CDN sia consentito anche se necessario.
 
 ## <a name="port-access"></a>Accesso alla porta
 

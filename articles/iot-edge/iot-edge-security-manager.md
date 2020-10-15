@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548697"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043001"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestore sicurezza di Azure IoT Edge
 
@@ -75,7 +75,7 @@ Il daemon di sicurezza IoT Edge sfrutta qualsiasi radice hardware disponibile de
 
 #### <a name="cloud-interface"></a>Interfaccia cloud
 
-L'interfaccia cloud consente al daemon di sicurezza IoT Edge di accedere ai servizi cloud, ad esempio i complimenti del cloud alla sicurezza del dispositivo come il rinnovo della sicurezza.  Ad esempio, il daemon di sicurezza di IoT Edge usa attualmente questa interfaccia per accedere al [servizio Device provisioning](https://docs.microsoft.com/azure/iot-dps/) in hub Azure Azure per la gestione del ciclo di vita delle identità dei dispositivi.  
+L'interfaccia cloud consente al daemon di sicurezza IoT Edge di accedere ai servizi cloud, ad esempio i complimenti del cloud alla sicurezza del dispositivo come il rinnovo della sicurezza.  Ad esempio, il daemon di sicurezza di IoT Edge usa attualmente questa interfaccia per accedere al [servizio Device provisioning](../iot-dps/index.yml) in hub Azure Azure per la gestione del ciclo di vita delle identità dei dispositivi.  
 
 #### <a name="management-api"></a>API di gestione
 

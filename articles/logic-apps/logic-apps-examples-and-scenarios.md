@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 207b597bc865c8234d447759ab8b0f53dc35413c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87090281"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
@@ -43,8 +43,8 @@ Ecco alcuni esempi che descrivono i trigger usati di frequente:
 
     Per altre informazioni, vedere gli argomenti seguenti:<p>
 
-    * [Esercitazione: creare flussi di lavoro automatizzati basati sull'approvazione usando app per la logica di Azure](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
-    * [Esercitazione: automatizzare le attività per elaborare i messaggi di posta elettronica usando app per la logica di Azure, funzioni di Azure e archiviazione di Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
+    * [Esercitazione: Creare flussi di lavoro automatizzati basati su approvazione tramite App per la logica di Azure](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [Esercitazione: Automatizzare le attività per elaborare i messaggi di posta elettronica con App per la logica di Azure, Funzioni di Azure e Archiviazione di Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
   * Il [trigger **http** ](../connectors/connectors-native-http.md) può chiamare un endpoint di servizio su http o HTTPS. Per altre informazioni, vedere [chiamare, attivare o annidare flussi di lavoro usando endpoint HTTP](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -99,7 +99,7 @@ A volte, le app per la logica e gli account di integrazione devono accedere alle
 
 È possibile sviluppare e distribuire interamente app per la logica con Visual Studio, Azure DevOps o qualsiasi altro strumento di controllo del codice sorgente e compilazione automatica. Per supportare la distribuzione per i flussi di lavoro e le connessioni dipendenti in un modello di risorse, le app per la logica usano i modelli di distribuzione delle risorse di Azure. Gli strumenti di Visual Studio generano automaticamente questi modelli, che è possibile archiviare per il controllo del codice sorgente finalizzato al controllo delle versioni. Per i log di notifica e di diagnostica per lo stato di esecuzione dei flussi di lavoro, le app per la logica di Azure forniscono inoltre monitoraggio e avvisi.
 
-### <a name="deploy"></a>Distribuisci
+### <a name="deploy"></a>Distribuire
 
 * [Guida introduttiva: creare attività, processi e flussi di lavoro automatizzati usando app per la logica di Azure-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Panoramica: automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
@@ -128,7 +128,7 @@ A volte, le app per la logica e gli account di integrazione devono accedere alle
 
 È possibile accedere, convertire e trasformare più tipi di contenuto usando le numerose funzioni del [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs) delle app per la logica di Azure. Ad esempio, è possibile eseguire la conversione tra una stringa, il formato JSON e il formato XML con le espressioni del flusso di lavoro `@json()` e `@xml()`. Il motore delle app per la logica mantiene i tipi di contenuto per supportare il trasferimento del contenuto senza perdita di dati tra i servizi.
 
-* [Gestire i tipi di contenuto nelle app per la logica di Azure](../logic-apps/logic-apps-content-type.md), ad esempio `application/` , `application/octet-stream` e`multipart/formdata`
+* [Gestire i tipi di contenuto nelle app per la logica di Azure](../logic-apps/logic-apps-content-type.md), ad esempio `application/` , `application/octet-stream` e `multipart/formdata`
 * [Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Schema del linguaggio di definizione del flusso di lavoro per App per la logica di Azure](../logic-apps/logic-apps-workflow-definition-language.md)
 

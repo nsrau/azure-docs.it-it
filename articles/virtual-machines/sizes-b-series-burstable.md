@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 43e19df24de2f2c4e8e5334010ee788129cee68b
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91666637"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968923"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -21,7 +21,7 @@ Le macchine virtuali della serie B sono ideali per i carichi di lavoro che non n
 
 La serie B è dotata delle dimensioni seguenti per le macchine virtuali:
 
-[Unità di calcolo di Azure](https://docs.microsoft.com/azure/virtual-machines/acu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json): varia *<br>
+[Unità di calcolo di Azure](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): varia *<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
 [Live Migration](maintenance-and-updates.md): supportato<br>

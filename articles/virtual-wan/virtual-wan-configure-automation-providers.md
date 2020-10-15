@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88208339"
 ---
-# <a name="automation-guidelines-for-virtual-wan-partners"></a>Linee guida di automazione per partner WAN virtuali
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Linee guida dell'automazione per i partner della rete WAN virtuale
 
 Questo articolo descrive come configurare l'ambiente di automazione per connettere e configurare un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN) per la rete WAN virtuale di Azure. L'articolo è rivolto ai provider che forniscono dispositivi di branch in grado di supportare la connettività VPN tramite IPsec/IKEv2 o IPsec/IKEv1.
 
@@ -31,7 +31,7 @@ Un dispositivo di branch (un dispositivo VPN locale di un cliente o un CPE SDWAN
   * Caricamento delle informazioni sul dispositivo di branch nella rete WAN virtuale di Azure
   * Download della configurazione di Azure e configurazione della connettività dal dispositivo di branch alla rete WAN virtuale di Azure
 
-### <a name="additional-information"></a><a name ="additional"></a>Informazioni aggiuntive
+### <a name="additional-information"></a><a name ="additional"></a>Altre informazioni
 
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) per automatizzare la creazione dell'hub virtuale
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) per automatizzare il gateway VPN di Azure per la rete WAN virtuale

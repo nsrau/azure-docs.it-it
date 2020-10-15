@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833250"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Come eseguire il backup e il ripristino di un server di Database di Azure per MariaDB con PowerShell
@@ -121,7 +121,7 @@ Il set di parametri **Georestore** del `Restore-AzMariaDbServer` cmdlet richiede
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
 |Nome | mydemoserver-georestored | Nome del nuovo server. |
-|Percorso | eastus | Posizione del nuovo server. |
+|Location | eastus | Posizione del nuovo server. |
 |UseGeoRestore | `<SwitchParameter>` | Usare la modalità geografica per il ripristino. |
 
 Quando si crea un nuovo server con il ripristino geografico, esso eredita le stesse dimensioni di archiviazione e il piano tariffario del server di origine, a meno che non venga specificato il parametro **SKU** .
@@ -133,4 +133,4 @@ Il nuovo server creato durante un ripristino non include gli endpoint servizio d
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Come generare una stringa di connessione di database di Azure per MariaDB con PowerShell](howto-connection-string-powershell.md)
+> [Come generare una stringa di connessione di Database di Azure per MariaDB con PowerShell](howto-connection-string-powershell.md)

@@ -7,12 +7,12 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato, ges
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448062"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715975"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -64,7 +64,7 @@ Automazione di Azure è costituito da un set di risorse condivise che semplifica
 
 ### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Automazione di Azure supporta il controllo degli accessi in base al ruolo per regolare l'accesso all'account di Automazione e alle relative risorse. Per altre informazioni sulla configurazione del controllo degli accessi in base al ruolo nell'account di Automazione, in runbook e processi, vedere [Controllo degli accessi in base al ruolo per Automazione di Azure](automation-role-based-access-control.md).
+Automazione di Azure supporta il controllo degli accessi in base al ruolo di Azure per regolare l'accesso all'account di Automazione e alle relative risorse. Per altre informazioni sulla configurazione del controllo degli accessi in base al ruolo di Azure nell'account di Automazione, in runbook e processi, vedere [Controllo degli accessi in base al ruolo per Automazione di Azure](automation-role-based-access-control.md).
 
 ### <a name="source-control-integration"></a>Integrazione del controllo del codice sorgente
 
@@ -86,7 +86,7 @@ Automazione di Azure supporta la gestione per tutto il ciclo di vita dell'infras
 * **Trovare modifiche**: identificare le modifiche che possono causare errori di configurazione e migliorare la conformità operativa.
 * **Monitorare**: isolare le modifiche apportate al computer che causano problemi e correggere o inoltrare il problema ai sistemi di gestione.
 * **Proteggere**: mettere in quarantena i computer se vengono generati avvisi di sicurezza. Definire i requisiti nel guest.
-* **Governare**: configurare il controllo degli accessi in base al ruolo per i team. Recuperare le risorse inutilizzate.
+* **Regolamentare**: configurare il controllo degli accessi in base al ruolo per i team. Recuperare le risorse inutilizzate.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84760049"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Application Proxy e Qlik Sense 
@@ -59,7 +59,7 @@ Seguire gli stessi passaggi usati per l'applicazione n°1, con le eccezioni segu
 ## <a name="testing"></a>Test 
 L'applicazione è ora pronta per il test. Accedere all'URL esterno usato per pubblicare Qlik Sense nell'applicazione n°1 e accedere come utente assegnato a entrambe le applicazioni.  
 
-## <a name="additional-references"></a>Riferimenti aggiuntivi
+## <a name="additional-references"></a>Altri riferimenti
 Per altre informazioni sulla pubblicazione di Qlik Sense con il proxy di applicazione, vedere gli articoli della community di Qlik seguenti: 
 - [Azure AD con autenticazione integrata di Windows tramite una delega vincolata Kerberos con Qlik Sense](https://community.qlik.com/docs/DOC-20183)
 - [Integrazione di Qlik Sense con Azure AD proxy di applicazione](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)

@@ -4,10 +4,10 @@ description: Sintomi, cause e risoluzione dei problemi comuni relativi alle pres
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227478"
 ---
 # <a name="troubleshoot-registry-performance"></a>Risolvere i problemi relativi alle prestazioni del registro
@@ -115,7 +115,7 @@ Se non si risolve il problema, vedere le opzioni seguenti.
   * [Risolvere i problemi di accesso al registro](container-registry-troubleshoot-login.md)
   * [Risolvere i problemi di rete con il registro di sistema](container-registry-troubleshoot-access.md)
 * Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
-* [Domane e risposte Microsoft](https://docs.microsoft.com/answers/products/)
+* [Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/)
 
 

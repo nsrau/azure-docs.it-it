@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
 ms.openlocfilehash: 3578cda1b51dbb70b0bdfebf92b98c3fa7aa2842
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085957"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Risolvere i problemi usando Azure HDInsight
@@ -31,7 +31,7 @@ ms.locfileid: "86085957"
 | --- | --- |
 | HDInsight in Linux e ottimizzazione | - [Informazioni sull'uso di HDInsight in Linux](hdinsight-hadoop-linux-information.md)<br>- [Risoluzione dei problemi di memoria e prestazioni di Apache Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Prestazioni delle query Apache Hive](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Log e dump | - [Accedere ai log applicazioni di Apache Hadoop YARN in Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Abilitare i dump dell'heap per i servizi Apache Hadoop in Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analizzare i log di HDInsight](hdinsight-debug-jobs.md)|
-| Errori | - [Comprendere e risolvere gli errori di WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Impostazioni di Apache Hive per la risoluzione dell'errore OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
+| Errors | - [Comprendere e risolvere gli errori di WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Impostazioni di Apache Hive per la risoluzione dell'errore OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Strumenti | - [Ottimizza query Apache Hive](hdinsight-hadoop-optimize-hive-query.md)<br>- [Strumento IntelliJ per HDInsight](./spark/apache-spark-intellij-tool-plugin.md)<br>- [Strumento Eclipse per HDInsight](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [Strumento VSCode per HDInsight](hdinsight-for-vscode.md)<br>- [Strumento Visual Studio per HDInsight](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555166"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817213"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Esercitazione: Integrazione di Azure Active Directory con FileCloud
 
@@ -130,19 +130,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con FileCloud, seguire ques
 
 2. Nella barra di spostamento a sinistra fare clic su **Settings**(Impostazioni). 
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Screenshot che mostra l'opzione "Settings" evidenziata nel riquadro di spostamento sinistro.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Fare clic sulla scheda **SSO** nella sezione Settings (Impostazioni). 
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Screenshot che mostra la sezione "Settings" con la scheda "SSO" selezionata.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Impostare **SAML** come **Default SSO Type** (Tipo SSO predefinito) nel riquadro **Single Sign On (SSO) Settings** (Impostazioni Single Sign-On - SSO).
    
-    ![Configurazione accesso Single Sign-On sul lato app](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Screenshot che mostra il pannello "Single Sign On (SSO) Settings" con l'opzione "SAML" selezionata.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. Nella casella di testo **IdP End Point URL** (URL endpoint IdP) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Screenshot che mostra la sezione "SAML Settings" con l'opzione "IdP End Point URL" evidenziata.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Aprire il file di metadati scaricato in Blocco note, copiare i contenuti negli Appunti, quindi incollarli nella casella di testo **IdP Meta Data** (Metadati IdP) nel riquadro **SAML Settings** (Impostazioni SAML).
 

@@ -77,7 +77,7 @@
         - name: Configurare le impostazioni del database
           href: configure-database.md
         - name: Configurare le chiavi gestite dal cliente
-          href: bring-your-own-key.md
+          href: customer-managed-key.md
         - name: Configurare CORS
           href: configure-cross-origin-resource-sharing.md
         - name: Configurare l'esportazione
@@ -87,6 +87,8 @@
       items:
         - name: Esporta dati
           href: export-data.md
+        - name: Esportazione per cui è stata annullata l'identificazione
+          href: de-identified-export.md
     - name: Trovare ID oggetto identità
       href: find-identity-object-ids.md
     - name: Abilitare la registrazione diagnostica nell'API di Azure per FHIR®

@@ -17,10 +17,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763687"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opzioni avanzate di firma del certificato nel token SAML per le app della raccolta in Azure Active Directory
@@ -62,10 +62,10 @@ Per modificare le opzioni di firma del certificato SAML di un'applicazione e l'a
 Modificare quindi le opzioni di firma del certificato nel token SAML per l'applicazione:
 
 1. Nel riquadro sinistro della pagina Panoramica applicazione selezionare **Single Sign-on**.
-1. Se viene visualizzata la pagina **Configura accesso Single Sign-on con SAML-Preview** , andare al passaggio 5.
+1. Se viene visualizzata la pagina **Configura singolo Sign-On con SAML-Preview** , andare al passaggio 5.
 1. Se la pagina **selezionare un metodo di Single Sign-on** non viene visualizzata, selezionare **modifica modalità Single Sign-on** per visualizzare la pagina.
 1. Nella pagina **selezionare un metodo di Single Sign-on** selezionare **SAML** , se disponibile. Se **SAML** non è disponibile, l'applicazione non supporta SAML ed è possibile ignorare il resto di questa procedura e di questo articolo.
-1. Nella pagina **Configura accesso Single Sign-on con SAML-Preview** trovare l'intestazione **certificato di firma SAML** e selezionare l'icona di **modifica** (matita). Viene visualizzata la pagina **certificato di firma SAML** .
+1. Nella pagina **Configura singolo Sign-On con SAML-Preview** trovare l'intestazione del **certificato di firma SAML** e selezionare l'icona di **modifica** (matita). Viene visualizzata la pagina **certificato di firma SAML** .
 
    ![Esempio: pagina certificato di firma SAML](./media/certificate-signing-options/saml-signing-page.png)
 

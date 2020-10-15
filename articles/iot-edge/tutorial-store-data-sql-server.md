@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 3d5ca648b149fa85b28f695956a438cdac9e67e8
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a8d09f762002c89d225ccc00eac83da336850a3c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086624"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047948"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati sul perimetro con database di SQL Server
 
@@ -42,7 +42,7 @@ Prima di iniziare questa esercitazione è necessario aver completato l'esercitaz
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
 * Un [dispositivo Linux AMD64 che esegue Azure IoT Edge](quickstart-linux.md).
   * I dispositivi ARM, ad esempio Raspberry Pis, non possono eseguire SQL Server. Se si vuole usare SQL in un dispositivo ARM, è possibile eseguire l'iscrizione per provare l'anteprima di [SQL Edge di Azure](https://azure.microsoft.com/services/sql-edge/).
-* Un registro contenitori, ad esempio [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/).
+* Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
 
@@ -228,7 +228,7 @@ Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che 
 7. Individuare la sezione **modules**. Dovrebbero essere visualizzati tre moduli. Il modulo *SimulatedTemperatureSensor* è incluso per impostazione predefinita nelle nuove soluzioni e fornisce i dati di test da usare con gli altri moduli. Il modulo *sqlFunction* è quello che è stato creato inizialmente e aggiornato con il nuovo codice. Infine, il modulo *sql* è stato importato da Azure Marketplace.
 
    >[!Tip]
-   >Il modulo di SQL Server include una password predefinita impostata nelle variabili di ambiente del manifesto della distribuzione. Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >Il modulo di SQL Server include una password predefinita impostata nelle variabili di ambiente del manifesto della distribuzione. Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](/sql/linux/quickstart-install-connect-docker).
 
 8. Chiudere il file **deployment.template.json**.
 
@@ -331,9 +331,9 @@ In caso contrario, è possibile eliminare le risorse di Azure e le configurazion
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Passaggi successivi
+In questa esercitazione è stato creato un modulo di Funzioni di Azure contenente il codice per filtrare i dati non elaborati generati dal dispositivo IoT Edge. Quando si è pronti per compilare moduli personalizzati, sono disponibili altre informazioni sullo [sviluppo di Funzioni di Azure con Azure IoT Edge per Visual Studio Code](./how-to-vs-code-develop-module.md).
 
-In questa esercitazione è stato creato un modulo di Funzioni di Azure contenente il codice per filtrare i dati non elaborati generati dal dispositivo IoT Edge. Quando si è pronti per compilare moduli personalizzati, sono disponibili altre informazioni sullo [sviluppo di Funzioni di Azure con Azure IoT Edge per Visual Studio Code](how-to-develop-csharp-function.md).
+## <a name="next-steps"></a>Passaggi successivi
 
 Se si vuole provare un altro metodo di archiviazione nei dispositivi perimetrali, leggere l'articolo su come usare Archiviazione BLOB di Azure in IoT Edge.
 

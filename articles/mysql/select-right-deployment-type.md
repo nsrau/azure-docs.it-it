@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: a1b66528bee63fb123271e4277e122603ced2e75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906516"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Scegliere l'opzione del server MySQL corretta in Azure
@@ -48,7 +48,7 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 | Scalabilità dell'archiviazione online | Supportato| Supportato| Non supportato|
 | Ridimensionamento automatico dell'archiviazione | Supportato| Non supportato nella versione di anteprima| Non supportato|
 | Connettività di rete | -Endpoint pubblici con firewall del server.<br/> -Accesso privato con supporto del collegamento privato.|-Endpoint pubblici con firewall del server.<br/> -Accesso privato con l'integrazione della rete virtuale.| -Endpoint pubblici con firewall del server.<br/> -Accesso privato con supporto del collegamento privato.|
-| Contratto di servizio (SLA) | CONTRATTO di disponibilità del 99,99% |Nessun contratto di contratto in anteprima| 99,99% con zone di disponibilità|
+| Contratto di servizio | CONTRATTO di disponibilità del 99,99% |Nessun contratto di contratto in anteprima| 99,99% con zone di disponibilità|
 | Applicazione di patch al sistema operativo| Automatico  | Automatico con controllo finestra di manutenzione personalizzata | Gestito dagli utenti finali |
 | Patch di MySQL     | Automatico  | Automatico con controllo finestra di manutenzione personalizzata | Gestito dagli utenti finali |
 | Disponibilità elevata | Disponibilità elevata incorporata all'interno di una singola zona di disponibilità| Disponibilità elevata incorporata all'interno e tra le zone di disponibilità | Gestione personalizzata mediante clustering, replica e così via|
@@ -131,4 +131,4 @@ Poiché non è necessario modificare i livelli di presentazione, applicazione e 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedi [i prezzi di database di Azure per MySQL](https://azure.microsoft.com/pricing/details/MySQL/).
-* Per iniziare, [creare il primo server](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
+* Iniziare [creando il primo server](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).

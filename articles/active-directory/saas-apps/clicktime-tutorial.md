@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549334"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Esercitazione: Integrazione di Azure Active Directory con ClickTime
 
@@ -207,7 +207,7 @@ Nel caso di ClickTime, il provisioning è un'attività manuale.
 
 1. Nel barra degli strumenti in alto fare clic su **Company** (Azienda) e quindi su **People** (Persone).
    
-    ![People](./media/clicktime-tutorial/tic777282.png "Persone")
+    ![Screenshot che mostra il tenant ClickTime con le opzioni Company e People selezionate.](./media/clicktime-tutorial/tic777282.png "Persone")
 
 1. Fare clic su **Add Person**.
    
@@ -215,7 +215,7 @@ Nel caso di ClickTime, il provisioning è un'attività manuale.
 
 1. Nella sezione New Person seguire questa procedura:
    
-    ![People](./media/clicktime-tutorial/tic777284.png "Persone")
+    ![Screenshot che mostra la sezione Add Person in cui è possibile aggiungere le informazioni in questo passaggio.](./media/clicktime-tutorial/tic777284.png "Persone")
    
     a.  Nella casella di testo **full name** (Nome completo) digitare il nome e cognome dell'utente, ad esempio **Britta Simon**. 
   

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alkohli
 ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320830"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Usare il dashboard di Kubernetes per monitorare il dispositivo GPU Pro Azure Stack Edge
@@ -51,7 +51,7 @@ Il dashboard Kubernetes è di sola *lettura* e viene eseguito nel nodo master Ku
     
     1. Selezionare **kubeconfig**. 
         ![Selezionare l'opzione kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
-    1. Selezionare i puntini di sospensione **...**. Individuare e selezionare il `kubeconfig` scaricato in precedenza nel sistema locale. Selezionare **Accedi**.
+    1. Selezionare i puntini di sospensione **...**. Individuare e selezionare il `kubeconfig` scaricato in precedenza nel sistema locale. Fare clic su **Accedi**.
         ![Passare al file kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. È ora possibile visualizzare il dashboard di Kubernetes per il dispositivo Azure Stack Edge Pro in modalità di sola lettura.

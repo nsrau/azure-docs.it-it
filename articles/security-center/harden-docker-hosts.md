@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
-ms.sourcegitcommit: 5b69ba21787c07547edfbfd5254eaf34315cfadd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91712273"
 ---
 # <a name="harden-your-docker-hosts"></a>Proteggere in modo avanzato gli host Docker
@@ -30,7 +30,7 @@ Quando vengono rilevate vulnerabilità, vengono raggruppate all'interno di un'un
 |Aspetto|Dettagli|
 |----|:----|
 |Stato della versione:|Disponibile a livello generale|
-|Prezzi:|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
+|Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
 |Autorizzazioni e ruoli obbligatori:|**Reader** nell'area di lavoro a cui si connette l'host|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||

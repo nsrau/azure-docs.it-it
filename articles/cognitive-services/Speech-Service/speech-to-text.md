@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento vocale, software di riconoscimento vocale
 ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359937"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
@@ -34,7 +34,7 @@ Con il testo di riferimento aggiuntivo come input, il servizio riconoscimento vo
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 Per iniziare a usare la sintesi vocale, vedere la [Guida introduttiva](get-started-speech-to-text.md) . Il servizio è disponibile tramite l' [SDK vocale](speech-sdk.md), l' [API REST](rest-speech-to-text.md#pronunciation-assessment-parameters)e l'interfaccia della riga di comando [vocale](spx-overview.md).
 
@@ -50,7 +50,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 Oltre al modello di servizio vocale standard, è possibile creare modelli personalizzati. La personalizzazione consente di superare gli ostacoli al riconoscimento vocale, ad esempio lo stile di pronuncia, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md). Opzioni di personalizzazione variano in base a lingua/impostazioni locali, vedere le [lingue supportate](supported-languages.md) per verificare il supporto.
 
-## <a name="batch-transcription"></a>Trascrizione batch
+## <a name="batch-transcription"></a>Trascrizione Batch
 
 La trascrizione batch è un set di operazioni API REST che consentono di trascrivere una grande quantità di audio nell'archivio. È possibile puntare a file audio con un URI di firma di accesso condiviso (SAS) e ricevere in modo asincrono i risultati della trascrizione. Vedere le [procedure](batch-transcription.md) per altre informazioni su come usare l'API di trascrizione batch.
 

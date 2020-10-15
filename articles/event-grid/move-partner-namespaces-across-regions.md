@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
 ms.openlocfilehash: 6783db6b9bb1c7d48b308234a179925d6f30e281
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89086212"
 ---
 # <a name="move-azure-event-grid-partner-namespaces-to-another-region"></a>Spostare gli spazi dei nomi del partner griglia di eventi di Azure in un'altra area
@@ -59,7 +59,7 @@ Distribuire il modello per creare uno spazio dei nomi partner nell'area di desti
 1. Nella portale di Azure selezionare **Crea una risorsa**.
 2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
 3. Selezionare **distribuzione modelli**.
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 7. Selezionare **Save (Salva** ) per salvare il modello. 

@@ -4,10 +4,10 @@ description: Riferimento per l’evento di avvio eliminazione del pool di batch.
 ms.topic: reference
 ms.date: 04/20/2017
 ms.openlocfilehash: d4fac833b6c77258e48b38838f6b7b133738a6e8
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83723936"
 ---
 # <a name="pool-delete-start-event"></a>Evento di avvio eliminazione pool

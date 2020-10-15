@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f349ff62fe211f0610341864a4c7528ee6bfe9c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080132"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961528"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Esercitazione: Configurare la strategia di distribuzione blu-verde per le macchine virtuali Linux di Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "87080132"
 
 Azure Pipelines offre un set completo di strumenti di automazione CI/CD per le distribuzioni in macchine virtuali. È possibile configurare una pipeline di distribuzione continua per una VM di Azure dal portale di Azure.
 
-Questo articolo illustra come configurare una pipeline CI/CD basata sulla strategia blu-verde per le distribuzioni in più computer. Il portale di Azure supporta anche altre strategie, come le distribuzioni [in sequenza](https://aka.ms/AA7jlh8) e [canary](https://aka.ms/AA7jdrz).
+Questo articolo illustra come configurare una pipeline CI/CD basata sulla strategia blu-verde per le distribuzioni in più computer. Il portale di Azure supporta anche altre strategie, come le distribuzioni [in sequenza](./tutorial-devops-azure-pipelines-classic.md) e [canary](./tutorial-azure-devops-canary-strategy.md).
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configurare CI/CD nelle macchine virtuali
 
@@ -73,8 +73,8 @@ Con l'opzione della distribuzione continua, è possibile configurare le distribu
 
 ## <a name="other-deployment-strategies"></a>Altre strategie di distribuzione
 
-- [Configurare la strategia di distribuzione in sequenza](https://aka.ms/AA7jlh8)
-- [Configurare la strategia di distribuzione canary](https://aka.ms/AA7jdrz)
+- [Configurare la strategia di distribuzione in sequenza](./tutorial-devops-azure-pipelines-classic.md)
+- [Configurare la strategia di distribuzione canary](./tutorial-azure-devops-canary-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: a8172b63039d2d247f30fca4099254cb8fca068e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87073404"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento dell'interfaccia utente Microsoft.Storage.MultiStorageAccountCombo
@@ -58,7 +58,7 @@ Gruppo di controlli per la creazione di più account di archiviazione, con nomi 
 }
 ```
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - Il valore per `defaultValue.prefix` viene concatenato a uno o più numeri interi per generare la sequenza di nomi di account di archiviazione. Se ad esempio `defaultValue.prefix` è **sa** e `count` è **2**, vengono generati i nomi degli account di archiviazione **sa1** e **sa2**. L'unicità dei nomi degli account di archiviazione generati viene convalidata automaticamente.
 - I nomi degli account di archiviazione vengono generati in modo lessicografico in base a `count`. Se ad esempio `count` è 10, i nomi degli account di archiviazione terminano con numeri interi a due cifre (01, 02, 03).

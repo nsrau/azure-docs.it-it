@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b4e79a2aab5ca72ff8263bfc5734757bbff41005
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297740"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017744"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -44,8 +44,8 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
 *  v3 si basa su una superficie API unificata, che espone funzionalità operative e di gestione basate su Azure Resource Manager. I modelli di Azure Resource Manager possono essere usati per creare e distribuire trasformazioni, endpoint di streaming, eventi live e altro ancora.
 * Documento di [specifica openapi (noto in precedenza come spavalderia)](https://aka.ms/ams-v3-rest-sdk) .
     Espone lo schema per tutti i componenti del servizio, tra cui la codifica basata su file.
-* SDK disponibili per [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) e Ruby.
-* Integrazione dell'[interfaccia della riga di comando di Azure](https://aka.ms/ams-v3-cli-ref) per semplificare il supporto di scripting.
+* SDK disponibili per [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://aka.ms/ams-v3-go-ref) e Ruby.
+* Integrazione dell'[interfaccia della riga di comando di Azure](/cli/azure/ams) per semplificare il supporto di scripting.
 
 ### <a name="new-features"></a>Nuove funzionalità
 
@@ -69,7 +69,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
     * visualizzare (non gestire) gli [Asset](assets-concept.md)V3, 
     * [ottenere informazioni sull'accesso alle API](./access-api-howto.md). 
 
-    Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md)), usare l' [API REST](/rest/api/media/), l' [interfaccia](https://aka.ms/ams-v3-cli-ref)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
+    Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md)), usare l' [API REST](/rest/api/media/), l' [interfaccia](/cli/azure/ams)della riga di comando o uno degli [SDK](media-services-apis-overview.md#sdks)supportati.
 * È necessario effettuare il provisioning di unità riservate di codifica nell'account per controllare la concorrenza e le prestazioni dei processi, in particolare quelli che includono l'analisi audio o video. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). È possibile gestire MRU usando l' [interfaccia della riga di comando 2,0 per Media Services V3](media-reserved-units-cli-how-to.md), usando il [portale di Azure](../previous/media-services-portal-scale-media-processing.md)o le [API v2](../previous/media-services-dotnet-encoding-units.md). È necessario effettuare il provisioning delle unità riservate di codifica, indipendentemente dall'uso di Servizi multimediali v2 o delle API v3.
 * Le entità di Servizi multimediali create con l'API v3 non possono essere gestite dall'API v2.  
 * Non tutte le entità nell'API v2 vengono visualizzate automaticamente nell'API V3.  Di seguito sono riportati esempi di entità nelle due versioni incompatibili:  
@@ -85,4 +85,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esercitazione: codificare un file remoto in base all'URL e trasmettere il video-.NET](stream-files-dotnet-quickstart.md)
+[Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - .NET](stream-files-dotnet-quickstart.md)

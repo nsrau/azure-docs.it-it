@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
 ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761550"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Guida di riferimento all'SDK per JavaScript immersive (v 1.1)
@@ -48,9 +48,9 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | `token` | string | Token di autenticazione Azure AD. Per altri dettagli, vedere [How-to create a immersive Reader Resource](./how-to-create-immersive-reader.md) . |
 | `subdomain` | string | Sottodominio personalizzato della risorsa Reader immersiva in Azure. Per altri dettagli, vedere [How-to create a immersive Reader Resource](./how-to-create-immersive-reader.md) . |
 | `content` | [Contenuto](#content) | Oggetto contenente il contenuto da visualizzare nel lettore immersivo. |
-| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. Facoltativo. |
+| `options` | [Opzioni](#options) | Opzioni per la configurazione di determinati comportamenti del lettore immersivo. Facoltativa. |
 
-#### <a name="returns"></a>Risultati restituiti
+#### <a name="returns"></a>Restituisce
 
 Restituisce un oggetto `Promise<LaunchResponse>` , che viene risolto quando il lettore immersivo viene caricato. Viene `Promise` risolto in un [`LaunchResponse`](#launchresponse) oggetto.
 
@@ -115,9 +115,9 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>Parametri renderButtons
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | ---- | ---- |------------ |
-| `options` | [opzioni di renderButtons](#renderbuttons-options) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. Facoltativo. |
+| `options` | [opzioni di renderButtons](#renderbuttons-options) | Opzioni per la configurazione di determinati comportamenti della funzione renderButtons. Facoltativa. |
 
 ### <a name="renderbuttons-options"></a>Opzioni di renderButtons
 
@@ -131,7 +131,7 @@ Opzioni per il rendering dei pulsanti Reader immersivi.
 
 #### <a name="renderbuttons-options-parameters"></a>Parametri delle opzioni di renderButtons
 
-| Impostazione | Type | Descrizione |
+| Impostazione | Type | Description |
 | ------- | ---- | ----------- |
 | Elementi figlio | HTMLDivElement [] | Elementi per il rendering dei pulsanti del lettore immersivi in. |
 
@@ -174,7 +174,7 @@ Contiene informazioni su un errore.
 
 #### <a name="error-parameters"></a>Parametri di errore
 
-| Impostazione | Type | Descrizione |
+| Impostazione | Type | Description |
 | ------- | ---- | ----------- |
 | codice | string | Uno di un set di codici di errore. Vedere i [codici di errore](#error-codes). |
 | message | string | Rappresentazione leggibile dell'errore. |
@@ -192,7 +192,7 @@ Contiene informazioni su un errore.
 
 ## <a name="types"></a>Tipi
 
-### <a name="content"></a>Contenuto
+### <a name="content"></a>Content
 
 Contiene il contenuto da visualizzare nel lettore immersivo.
 
@@ -205,7 +205,7 @@ Contiene il contenuto da visualizzare nel lettore immersivo.
 
 #### <a name="content-parameters"></a>Parametri di contenuto
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | ---- | ---- |------------ |
 | title | string | Testo del titolo visualizzato nella parte superiore del lettore immersivo (facoltativo) |
 | blocchi | [Blocco []](#chunk) | Matrice di blocchi |
@@ -240,7 +240,7 @@ Singolo blocco di dati, che verrà passato al contenuto del lettore immersivo.
 
 #### <a name="chunk-parameters"></a>Parametri del blocco
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | ---- | ---- |------------ |
 | contenuto | string | Stringa che contiene il contenuto inviato al lettore immersivo. |
 | lang | string | Lingua del testo, il valore è nel formato di tag del linguaggio IETF BCP 47, ad esempio en, es-ES. La lingua verrà rilevata automaticamente se non è specificata. Vedere le [lingue supportate](#supported-languages). |
@@ -272,7 +272,7 @@ Default value: "text/plain"
 | Tipo MIME | Descrizione |
 | --------- | ----------- |
 | text/plain | Testo normale. |
-| text/html | Contenuto HTML. [Altre informazioni](#html-support)|
+| text/html | Contenuto HTML. [Scopri di più](#html-support)|
 | Application/MathML + XML | Linguaggio di markup matematico (MathML). [Altre informazioni](./how-to/display-math.md)
 | applicazione/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento di formato Microsoft Word. docx.
 
@@ -305,7 +305,7 @@ Contiene proprietà che configurano comportamenti specifici del lettore immersiv
 
 #### <a name="options-parameters"></a>Parametri delle opzioni
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | ---- | ---- |------------ |
 | uiLang | string | Lingua dell'interfaccia utente, il valore è nel formato di tag del linguaggio IETF BCP 47, ad esempio en, es-ES. Se non è specificato, il valore predefinito è lingua del browser. |
 | timeout | Numero | Durata (in millisecondi) prima che [launchAsync](#launchasync) abbia esito negativo con un errore di timeout (il valore predefinito è 15000 MS). Questo timeout si applica solo all'avvio iniziale della pagina Reader, in cui l'operazione viene eseguita quando si apre la pagina Reader e viene avviata la casella di selezione. Non è necessario rettificare il timeout. |
@@ -390,7 +390,7 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>Parametri ReadAloudOptions
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | ---- | ---- |------------ |
 | voice | string | Voice, "Female" o "male". Si noti che non tutti i linguaggi supportano entrambi i sessi. |
 | velocità | Numero | La velocità di riproduzione deve essere compresa tra 0,5 e 2,5 inclusi. |
@@ -457,7 +457,7 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>Parametri DisplayOptions
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | ---- | ---- |------------ |
 | textSize | Numero | Imposta la dimensione del testo scelta. |
 | increaseSpacing | Boolean | Imposta un valore che indica se la spaziatura del testo viene attivata o disattivata. |
@@ -491,7 +491,7 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="settings-parameters"></a>Parametri delle impostazioni
 
-| Impostazione | Type | Descrizione |
+| Impostazione | Type | Description |
 | ------- | ---- | ----------- |
 | textSize | Numero | Imposta la dimensione del testo scelta. |
 | fontFamily | string | Imposta il tipo di carattere scelto ("calibri", "ComicSans" o "Sitka"). |
@@ -526,7 +526,7 @@ Quando è abilitata la formattazione, il rendering del contenuto seguente verrà
 | --------- | ----------- |
 | Stili dei tipi di carattere | Grassetto, corsivo, sottolineato, codice, barrato, apice, pedice |
 | Elenchi non ordinati | Disco, cerchio, quadrato |
-| Elenchi ordinati | Decimale, superiore-alfa, inferiore-alfa, superiore-romana, minore-romana |
+| Elenchi ordinati | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
 
 I tag non supportati verranno sottoposti a rendering in modo paragonabile. Le immagini e le tabelle non sono attualmente supportate.
 

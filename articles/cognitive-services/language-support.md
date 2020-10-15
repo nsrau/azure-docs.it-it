@@ -11,10 +11,10 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869882"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
@@ -31,7 +31,7 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 ## <a name="vision"></a>Visione
 
 * [Visione artificiale](./computer-vision/language-support.md)
-* [Riconoscimento modulo (anteprima)](./form-recognizer/language-support.md)
+* [Riconoscimento moduli (anteprima)](./form-recognizer/language-support.md)
 * [Riconoscimento input penna (anteprima)](./ink-recognizer/language-support.md)
 * [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 

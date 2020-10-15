@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: f20302a4993da1754255254ce6d69c000750d4ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84806770"
 ---
 # <a name="how-to-upgrade-application-gateway-ingress-controller-using-helm"></a>Come aggiornare il controller di ingresso del gateway applicazione usando Helm 
@@ -56,7 +56,7 @@ Prima di iniziare la procedura di aggiornamento, verificare di aver aggiunto il 
     application-gateway-kubernetes-ingress/ingress-azure    0.6.0           0.6.0           Use Azure Application Gateway as the ingress for an Azure...
     ```
 
-    La versione più recente disponibile nell'elenco precedente è la seguente:`0.7.0-rc1`
+    La versione più recente disponibile nell'elenco precedente è la seguente: `0.7.0-rc1`
 
 1. Visualizza i grafici Helm attualmente installati:
 
@@ -100,7 +100,7 @@ Se la distribuzione Helm ha esito negativo, è possibile eseguire il rollback a 
     2               Fri Jun 21 15:56:06 2019        FAILED          ingress-azure-xx        xxxx
     ```
 
-    Dall'output di esempio del `helm history` comando è simile all'ultima distribuzione riuscita della `odd-billygoat` Revisione was`1`
+    Dall'output di esempio del `helm history` comando è simile all'ultima distribuzione riuscita della `odd-billygoat` Revisione was `1`
 
 1. Eseguire il rollback all'ultima revisione riuscita:
 

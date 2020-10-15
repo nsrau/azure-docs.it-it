@@ -10,21 +10,21 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87298870"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Creare una risorsa cluster del servizio Kubernetes di Azure
 
 1. Passare al [servizio Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks)e selezionare **Crea**.
 
-1. Nella scheda informazioni di **base** immettere le informazioni seguenti:
+1. Nella scheda **Informazioni di base** digitare le informazioni seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |--|--|
-    |Sottoscrizione|Scegliere la sottoscrizione appropriata.|
+    |Subscription|Scegliere la sottoscrizione appropriata.|
     |Gruppo di risorse|Selezionare un gruppo di risorse disponibile.|
     |Nome del cluster Kubernetes|Immettere un nome (minuscolo).|
     |Region|Selezionare una località limitrofa.|
@@ -37,10 +37,10 @@ ms.locfileid: "87298870"
 1. Nella scheda **autenticazione** lasciare l' **entità servizio** e **abilitare RBAC** impostato sui valori predefiniti.
 1. Nella scheda **rete** immettere le selezioni seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |--|--|
     |Routing di applicazioni HTTP|No|
-    |Configurazione delle impostazioni di rete|Basic|
+    |Configurazione della rete|Basic|
 
 1. Nella scheda **Integrations (integrazioni** ) assicurarsi che il **monitoraggio dei contenitori** sia impostato su **abilitato**e lasciare **log Analytics area di lavoro** come valore predefinito.
 1. Nella scheda **tag** lasciare vuote le coppie nome/valore per il momento.

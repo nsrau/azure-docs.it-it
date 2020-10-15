@@ -3,12 +3,12 @@ title: Esercitazione - Associare gli ambienti locali a un cloud privato
 description: Informazioni su come creare il peering di Copertura globale ExpressRoute a un cloud privato in una soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9de6cbe177ac8d2ca4957e80c7ca1072a0d7985e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576728"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948307"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Esercitazione: Associare gli ambienti locali a un cloud privato
 
@@ -83,7 +83,7 @@ Ora che è stata creata una chiave di autorizzazione per il circuito ExpressRout
 I [comandi dell'interfaccia della riga di comando](../expressroute/expressroute-howto-set-global-reach-cli.md) sono stati ampliati con dettagli specifici ed esempi che consentono di configurare il peering Copertura globale ExpressRoute tra ambienti locali a un cloud privato della soluzione Azure VMware.  
 
 > [!TIP]  
-> Per brevità, nell'output del comando dell'interfaccia della riga di comando di Azure queste istruzioni possono usare un argomento [`–query` per eseguire una query JMESPath per visualizzare solo i risultati necessari](https://docs.microsoft.com/cli/azure/query-azure-cli).
+> Per brevità, nell'output del comando dell'interfaccia della riga di comando di Azure queste istruzioni possono usare un argomento [`–query` per eseguire una query JMESPath per visualizzare solo i risultati necessari](/cli/azure/query-azure-cli).
 
 
 1. Accedere al portale di Azure usando la stessa sottoscrizione del circuito ExpressRoute locale e aprire un'istanza di Cloud Shell. Lasciare la shell come Bash.

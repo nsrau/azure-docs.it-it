@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
 ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997841"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Panoramica di macchine virtuali (VM) di Azure computing riservato
@@ -48,5 +48,5 @@ Quando si sviluppano applicazioni, è possibile usare [strumenti software](appli
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Leggere le procedure consigliate](virtual-machine-solutions.md) per la distribuzione di soluzioni in macchine virtuali di Azure Confidential computing.
-- [Distribuire una macchina virtuale della serie DCsv2](quick-create-portal.md)
+- [Distribuire una macchina virtuale DCsv2-Series](quick-create-portal.md)
 - [Sviluppare un'applicazione in grado di riconoscere l'enclave](application-development.md) usando l'SDK di OE

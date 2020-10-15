@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e401fb35e6524e8a32cbe09bf5b9c7feafbf5da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331268"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974737"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -55,9 +55,9 @@ Per informazioni sui prodotti SAP e sui tipi di VM di Azure supportati, vedere l
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Linee guida per la configurazione di IBM Db2 per Linux, UNIX e Windows per le installazioni di SAP nelle VM di Azure
 ### <a name="storage-configuration"></a>Configurazione dell'archiviazione
-Per una panoramica dei tipi di archiviazione di Azure per il carico di lavoro SAP, vedere l'articolo [tipi di archiviazione di Azure per carichi di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) tutti i file di database devono essere archiviati in dischi montati di archiviazione a blocchi di Azure (Windows: NFFS, Linux: XFS, ext4 o ext3). Per i file di database **non** sono supportati qualsiasi tipo di unità di rete o condivisioni remote come i servizi di Azure seguenti: 
+Per una panoramica dei tipi di archiviazione di Azure per il carico di lavoro SAP, vedere l'articolo [tipi di archiviazione di Azure per carichi di lavoro SAP](./planning-guide-storage.md) tutti i file di database devono essere archiviati in dischi montati di archiviazione a blocchi di Azure (Windows: NFFS, Linux: XFS, ext4 o ext3). Per i file di database **non** sono supportati qualsiasi tipo di unità di rete o condivisioni remote come i servizi di Azure seguenti: 
 
-* [Servizio file di Microsoft Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+* [Servizio file di Microsoft Azure](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 

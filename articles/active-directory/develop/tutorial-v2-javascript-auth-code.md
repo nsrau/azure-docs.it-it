@@ -1,7 +1,7 @@
 ---
-title: Esercitazione sull'app a pagina singola JavaScript - Flusso del codice di autenticazione | Azure
+title: "Esercitazione: Creare un'app a pagina singola JavaScript che usa il flusso del codice di autenticazione | Azure"
 titleSuffix: Microsoft identity platform
-description: Informazioni su come le applicazioni a pagina singola JavaScript possono usare il flusso di Codice di autorizzazione per chiamare un'API che richiede token di accesso generati dall'endpoint di Azure Active Directory v2.0
+description: In questa esercitazione si creerà un'app a pagina singola JavaScript che consente agli utenti di accedere e usa il flusso del codice di autenticazione per ottenere un token di accesso da Microsoft Identity Platform e chiamare l'API Microsoft Graph.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256807"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665872"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a pagina singola JavaScript usando il flusso del codice di autenticazione
 
@@ -32,6 +32,11 @@ Questa esercitazione illustra come creare un'applicazione a pagina singola JavaS
 MSAL.js 2.0 rappresenta un miglioramento rispetto a MSAL.js 1.0 in quanto supporta il flusso del codice di autorizzazione nel browser invece del flusso di concessione implicita. MSAL.js 2.0 **NON** supporta il flusso implicito.
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* [Node.js](https://nodejs.org/en/download/) per l'esecuzione di un server Web locale
+* [Visual Studio Code](https://code.visualstudio.com/download) o un altro editor di codice
 
 ## <a name="how-the-tutorial-app-works"></a>Funzionamento dell'app dell'esercitazione
 
@@ -52,11 +57,6 @@ Si preferisce invece scaricare il progetto di esempio completo di questa esercit
 Quindi, per configurare l'esempio di codice prima di eseguirlo, procedere con il [passaggio di configurazione](#register-your-application).
 
 Per continuare con l'esercitazione e compilare l'applicazione manualmente, passare alla sezione successiva, [Prerequisiti](#prerequisites).
-
-## <a name="prerequisites"></a>Prerequisiti
-
-* [Node.js](https://nodejs.org/en/download/) per l'esecuzione di un server Web locale
-* [Visual Studio Code](https://code.visualstudio.com/download) o un altro editor di codice
 
 ## <a name="create-your-project"></a>Creare il progetto
 
@@ -551,7 +551,9 @@ Quando un utente seleziona il pulsante **Accedi** per la prima volta, il metodo 
 
 A questo punto, un codice di autorizzazione protetto da PKCE viene inviato all'endpoint token protetto da CORS e viene sostituito con i token. L'applicazione riceve un token ID, un token di accesso e un token di aggiornamento, che vengono quindi elaborati da *msal.js*, quindi le informazioni contenute nei token vengono memorizzate nella cache.
 
-Il token ID contiene informazioni di base sull'utente, ad esempio il nome visualizzato. Se si prevede di usare i dati forniti dal token ID, il server back-end *deve* convalidarlo per garantire che sia stato emesso a un utente valido per l'applicazione. Il token di aggiornamento ha una durata limitata e scade dopo 24 ore. Il token di aggiornamento può essere usato per acquisire automaticamente nuovi token di accesso.
+Il token ID contiene informazioni di base sull'utente, ad esempio il nome visualizzato. Se si prevede di usare i dati forniti dal token ID, il server back-end *deve* convalidarlo per garantire che sia stato emesso a un utente valido per l'applicazione.
+
+Il token di accesso ha una durata limitata e scade dopo 24 ore. Il token di aggiornamento può essere usato per acquisire automaticamente nuovi token di accesso.
 
 L'applicazione a pagina singola creata in questa esercitazione chiama `acquireTokenSilent` e/o `acquireTokenPopup` per acquisire un *token di accesso* usato per eseguire una query sull'API Microsoft Graph e trovare le informazioni del profilo utente. Se è necessario un esempio che convalidi il token ID, vedere l'applicazione di esempio [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) in GitHub. Nell'esempio viene usata un'API Web ASP.NET per la convalida dei token.
 
@@ -649,14 +651,7 @@ Se per un'API back-end non è richiesto alcun ambito (non consigliabile), è pos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata creata un'applicazione a pagina singola JavaScript che usa Microsoft Authentication Library (MSAL) per JavaScript v2.0 per:
+Se si vuole approfondire lo sviluppo di applicazioni a pagina singola JavaScript con Microsoft Identity Platform, vedere la serie di scenari in più parti:
 
-> [!div class="checklist"]
-> * Eseguire il flusso del codice di autorizzazione OAuth 2.0 con PKCE
-> * Accedere agli account Microsoft personali, oltre che agli account aziendali e dell'istituto di istruzione
-> * Acquisire un token di accesso
-> * Chiamare l'API Microsoft Graph o le proprie API che richiedono token di accesso ottenuti dall'endpoint di Microsoft Identity Platform
-
-Per altre informazioni sul flusso del codice di autorizzazione, incluse le differenze tra i flussi di codice implicito e di autenticazione, vedere [Flusso del codice di autorizzazione di Microsoft Identity Platform e OAuth 2.0](v2-oauth2-auth-code-flow.md).
-
-Se si vuole approfondire lo sviluppo di applicazioni a pagina singola JavaScript con Microsoft Identity Platform, la serie di articoli in più parti [Scenario: applicazione a pagina singola](scenario-spa-overview.md) può essere utile per iniziare.
+> [!div class="nextstepaction"]
+> [Scenario: Applicazione a pagina singola](scenario-spa-overview.md)

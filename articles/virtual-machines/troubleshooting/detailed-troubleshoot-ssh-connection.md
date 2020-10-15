@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0b4890181721d08b741d327adb74bd097be5c9f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c117f9697299b94a54d9184093e65c56822b8bd2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069161"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975672"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Procedura dettagliata di risoluzione dei problemi di connessione SSH a una macchina virtuale Linux in Azure
 Se il client SSH non riesce a raggiungere il servizio SSH nella VM, i motivi possono essere molti. Se è stata eseguita la [procedura generica di risoluzione dei problemi SSH](troubleshoot-ssh-connection.md), per risolvere il problema di connessione è necessario ricorrere una procedura dettagliata. Questo articolo descrive i passaggi dettagliati per individuare e risolvere gli eventuali errori della connessione SSH.
@@ -39,7 +39,7 @@ I passaggi seguenti sono utili per isolare l'origine dell'errore e individuare l
 
 2. Selezionare **Impostazioni** per esaminare gli endpoint, gli indirizzi IP, i gruppi di sicurezza di rete e altre impostazioni.
 
-   La macchina virtuale deve disporre di un endpoint definito per il traffico SSH che è possibile visualizzare in **Endpoint** o in **[Gruppo di sicurezza di rete](../../virtual-network/security-overview.md)**. Gli endpoint nelle VM create tramite Resource Manager vengono archiviati in un gruppo di sicurezza di rete. Verificare che le regole siano state applicate al gruppo di sicurezza di rete e che vi si faccia riferimento nella subnet.
+   La macchina virtuale deve disporre di un endpoint definito per il traffico SSH che è possibile visualizzare in **Endpoint** o in **[Gruppo di sicurezza di rete](../../virtual-network/network-security-groups-overview.md)**. Gli endpoint nelle VM create tramite Resource Manager vengono archiviati in un gruppo di sicurezza di rete. Verificare che le regole siano state applicate al gruppo di sicurezza di rete e che vi si faccia riferimento nella subnet.
 
 Per verificare la connettività di rete, controllare gli endpoint configurati e determinare se è possibile connettersi alla macchina virtuale tramite un altro protocollo, ad esempio HTTP, o un altro servizio.
 
@@ -114,7 +114,7 @@ Per escludere l'endpoint come origine del problema, rimuovere l'endpoint corrent
 
 ## <a name="source-4-network-security-groups"></a>Origine 4: Gruppi di sicurezza di rete
 I gruppi di sicurezza di rete consentono di avere un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Controllare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico SSH da Internet.
-Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
+Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../../virtual-network/network-security-groups-overview.md).
 
 È anche possibile usare la funzione di verifica IP per convalidare la configurazione del gruppo di sicurezza di rete. Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](../../network-watcher/network-watcher-monitoring-overview.md). 
 

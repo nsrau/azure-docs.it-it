@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
 ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358662"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Usare lo strumento di migrazione volontaria per eseguire la migrazione delle regole di avviso classiche
@@ -83,7 +83,7 @@ Quando una sottoscrizione diventa pronta per la migrazione, il proprietario dell
 
 ### <a name="who-can-trigger-the-migration"></a>Chi può attivare la migrazione?
 
-Gli utenti a cui è assegnato il ruolo Collaboratore monitoraggio a livello di sottoscrizione possono attivare la migrazione. [Altre informazioni sul controllo degli accessi in base al ruolo per il processo di migrazione](alerts-understand-migration.md#who-can-trigger-the-migration).
+Gli utenti a cui è assegnato il ruolo Collaboratore monitoraggio a livello di sottoscrizione possono attivare la migrazione. [Altre informazioni sul controllo di accesso Role-Based per il processo di migrazione](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>Quanto tempo richiede la migrazione?
 

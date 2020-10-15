@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
 ms.openlocfilehash: 7257246f618e3028534f3ebd60eaf6f94a3a4720
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87092508"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilità di Azure Cosmos DB Gremlin
@@ -25,7 +25,7 @@ Il motore di Azure Cosmos DB Graph segue strettamente la specifica dei passaggi 
 
 * ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non lo supporta ancora. Usare `GremlinClient.SubmitAsync()` e passare l'attraversamento come stringa di testo.
 
-* ***`property(set, 'xyz', 1)`*** la cardinalità impostata non è attualmente supportata. Usare invece `property(list, 'xyz', 1)`. Per altre informazioni, vedere [Proprietà Vertex con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
+* ***`property(set, 'xyz', 1)`*** la cardinalità impostata non è attualmente supportata. In alternativa, utilizzare `property(list, 'xyz', 1)`. Per altre informazioni, vedere [Proprietà Vertex con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
 * Il *** `match()` passaggio*** non è attualmente disponibile. Questo passaggio fornisce funzionalità di query dichiarative.
 
@@ -33,7 +33,7 @@ Il motore di Azure Cosmos DB Graph segue strettamente la specifica dei passaggi 
 
 * ***Ordinamento in base alle proprietà*** `order().by(<array property>)` della matrice non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-* I ***tipi JSON non primitivi*** non sono supportati. Usare `string` i `number` tipi, o `true` / `false` . `null`i valori non sono supportati. 
+* I ***tipi JSON non primitivi*** non sono supportati. Usare `string` i `number` tipi, o `true` / `false` . `null` i valori non sono supportati. 
 
 * Il serializzatore ***GraphSONv3*** non è attualmente supportato. Utilizzare le `GraphSONv2` classi serializer, Reader e writer nella configurazione della connessione. I risultati restituiti dall'API Azure Cosmos DB Gremlin non hanno lo stesso formato del formato GraphSON. 
 

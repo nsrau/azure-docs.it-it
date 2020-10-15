@@ -1,6 +1,6 @@
 ---
-title: Condividere i dashboard portale di Azure usando il controllo degli accessi in base al ruolo
-description: Questo articolo illustra come condividere un dashboard nel portale di Azure tramite il Controllo degli accessi in base al ruolo.
+title: Condividere i dashboard portale di Azure usando il controllo degli accessi in base al ruolo di Azure
+description: Questo articolo illustra come condividere un dashboard nella portale di Azure usando il controllo degli accessi in base al ruolo di Azure.
 services: azure-portal
 documentationcenter: ''
 author: mgblythe
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923884"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092206"
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Condividere i dashboard di Azure tramite il Controllo degli accessi in base al ruolo
+# <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Condividere i dashboard di Azure tramite il controllo degli accessi in base al ruolo di Azure
 
 Dopo aver configurato un dashboard, è possibile pubblicarlo e condividerlo con altri utenti nell'organizzazione. Si consente ad altri utenti di visualizzare il dashboard usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md). Assegnare un utente o un gruppo di utenti a un ruolo. Tale ruolo definisce se gli utenti possono visualizzare o modificare il dashboard pubblicato.
 
@@ -33,7 +33,7 @@ Tutti i dashboard pubblicati vengono implementati come risorse di Azure. Esiston
 
 ## <a name="understanding-access-control-for-dashboards"></a>Informazioni sul controllo di accesso per i dashboard
 
-Con il Controllo degli accessi in base al ruolo è possibile assegnare utenti ai ruoli a tre diversi livelli di ambito:
+Con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile assegnare utenti ai ruoli a tre diversi livelli di ambito:
 
 * sottoscrizione
 * gruppo di risorse
@@ -88,4 +88,4 @@ Il dashboard viene pubblicato. Se le autorizzazioni ereditate dalla sottoscrizio
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un elenco dei ruoli, vedere [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md).
-* Per informazioni sulla gestione delle risorse, vedere [gestire le risorse di Azure usando il portale di Azure](resource-group-portal.md).
+* Per informazioni sulla gestione delle risorse, vedere [gestire le risorse di Azure usando il portale di Azure](../azure-resource-manager/management/manage-resources-portal.md).

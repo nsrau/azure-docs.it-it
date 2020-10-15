@@ -13,10 +13,10 @@ ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
 ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325386"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure sinapsi Analytics
@@ -118,8 +118,8 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Regno Unito occidentale              | 51.141.8.11        |
 | Stati Uniti centro-occidentali      | 13.78.145.25, 13.78.248.43        |
 | Europa occidentale          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
-| Stati Uniti occidentali              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| Stati Uniti occidentali 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
+| Stati Uniti Occidentali              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d026cd94ba5e51b64a136359ffc76fb59efef2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84727909"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Uso di un gruppo per gestire l'accesso ad applicazioni SaaS
@@ -45,5 +45,5 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestione dell'accesso alle risorse con gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md)
-* [Informazioni su Azure Active Directory](../fundamentals/active-directory-whatis.md)
+* [Che cos'è Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

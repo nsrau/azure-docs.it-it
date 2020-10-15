@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.openlocfilehash: c5c6836c2d68036bf2b9c5abe191943537349b8d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540966"
 ---
 # <a name="add-entities-to-extract-data"></a>Aggiungere entità per estrarre i dati
@@ -70,7 +70,7 @@ Questo processo funziona per entità, elenco ed entità di espressioni regolari 
 1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella sezione **Build** selezionare **entità** nel pannello a sinistra e quindi selezionare **+ Crea**.
-1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità e selezionare **computer appreso**, quindi selezionare. Per aggiungere sottoentità, selezionare **Aggiungi struttura**. Selezionare **Create** (Crea).
+1. Nella finestra di dialogo **Crea un tipo di entità** immettere il nome dell'entità e selezionare **computer appreso**, quindi selezionare. Per aggiungere sottoentità, selezionare **Aggiungi struttura**. Selezionare **Crea**.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot della creazione di un'entità Machine Learned.](media/add-entities/machine-learned-entity-with-structure.png)
@@ -116,7 +116,7 @@ Nell'elenco seguente vengono illustrati il nome canonico e i sinonimi.
 
 |Nome elemento elenco colori|Colori-sinonimi|
 |--|--|
-|Red|Crimson, Blood, Apple, Fire-Engine|
+|Rosso|Crimson, Blood, Apple, Fire-Engine|
 |Blu|Sky, cobalto|
 |Green|Kelly, limone|
 

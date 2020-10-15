@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
-ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.date: 10/14/2020
+ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803467"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044497"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Problemi comuni durante la certificazione delle immagini di macchine virtuali per Azure Marketplace
 
@@ -189,7 +189,7 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 |Windows Server 2012|6.2.9200.22099|
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
-|Windows Server 2019|N/D|
+|Windows Server 2019|ND|
 
 ## <a name="sack-vulnerability-patch-verification"></a>Verifica della patch della vulnerabilità di SACK
 
@@ -338,7 +338,7 @@ Passaggio 3. Al termine dell'esecuzione del comando, riavviare la macchina virtu
 
 Passaggio 4. Generalizzare la VM, estrarre il disco rigido virtuale dell'immagine e arrestare la macchina virtuale.
 
-Passaggio 5.     Inviare nuovamente l'immagine generalizzata.
+Passaggio 5.     Re-Submit l'immagine generalizzata.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Richiesta di eccezioni (modelli personalizzati) sulle immagini di VM per i test selettivi
 
@@ -372,6 +372,61 @@ Gli editori devono rivolgersi al supporto tecnico di [Marketplace Publisher](htt
    7. Sequenza temporale-data fino alla quale è stata richiesta questa eccezione 
    8.   Allegato: collegare eventuali documenti di evidenza di importanza. Per le VM bloccate, collegare il report di test e per i modelli personalizzati, fornire il modello ARM personalizzato come allegato. La mancata connessione del report per le VM bloccate e il modello ARM personalizzato per i modelli personalizzati determinerà un attacco Denial of request
 
+## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Come risolvere una vulnerabilità o sfruttare gli exploit in un'offerta di macchina virtuale
+
+Queste domande frequenti consentono di fornire un'immagine di macchina virtuale (VM) quando viene individuata una vulnerabilità o un exploit con una delle immagini di macchina virtuale. Queste domande frequenti si applicano solo alle offerte di macchine virtuali di Azure pubblicate in Azure Marketplace.
+
+> [!NOTE]
+> Non è possibile rimuovere l'ultima immagine di macchina virtuale da un piano e non è possibile smettere di vendere l'ultimo piano per un'offerta.
+
+Eseguire una delle operazioni seguenti:
+
+1. Se si dispone di una nuova immagine di macchina virtuale per sostituire l'immagine di macchina virtuale vulnerabile, passare a [come specificare un'immagine di macchina virtuale fissa](#how-to-provide-a-fixed-vm-image).
+1. Se non si ha una nuova immagine di macchina virtuale per sostituire l'unica immagine di macchina virtuale in un piano e, al termine del piano, è possibile [interrompere la vendita del piano](update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. Se non si prevede di sostituire l'unica immagine di macchina virtuale nell'offerta, è consigliabile smettere di [vendere l'offerta](update-existing-offer.md#stop-selling-an-offer-or-plan).
+
+### <a name="how-to-provide-a-fixed-vm-image"></a>Come fornire un'immagine di macchina virtuale fissa
+
+Per fornire un'immagine di macchina virtuale fissa per sostituire un'immagine di macchina virtuale con vulnerabilità o exploit, è necessario eseguire le operazioni seguenti:
+
+1. Fornire una nuova immagine di macchina virtuale per risolvere le vulnerabilità o gli exploit di sicurezza.
+1. Rimuovere l'immagine di macchina virtuale con vulnerabilità o exploit di sicurezza.
+1. Ripubblicare l'offerta.
+
+#### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Fornire una nuova immagine di macchina virtuale per risolvere le vulnerabilità della sicurezza o sfruttare gli exploit
+
+Per completare questi passaggi, è necessario preparare l'asset tecnico per l'immagine di macchina virtuale che si vuole aggiungere. Per altre informazioni, vedere [creare risorse tecniche per un'offerta di macchina virtuale di Azure Marketplace](create-azure-vm-technical-asset.md) e [ottenere un URI di firma di accesso condiviso per l'immagine di VM](get-sas-uri.md).
+
+1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
+1. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
+1. Nella colonna **alias offerta** selezionare l'offerta.
+1. Nella colonna **nome** della scheda **panoramica piano** selezionare il piano a cui si vuole aggiungere la macchina virtuale.
+1. Nella scheda **configurazione tecnica** , in **Immagini VM**, selezionare **+ Aggiungi immagine macchina virtuale**.
+   > [!NOTE]
+   > È possibile aggiungere una sola immagine di macchina virtuale a un piano alla volta. Per aggiungere più immagini di VM, pubblicare il primo e attendere che raggiunga la fase di _conclusione dell'editore_ prima di aggiungere la successiva immagine di macchina virtuale.
+1. Nelle caselle visualizzate specificare una nuova versione del disco e l'immagine della macchina virtuale.
+1. Selezionare **Salva bozza**.
+1. Passare alla sezione successiva per rimuovere l'immagine della macchina virtuale con la vulnerabilità di sicurezza.
+
+#### <a name="remove-the-vm-image-that-has-the-security-vulnerability-or-exploit"></a>Rimuovere l'immagine di macchina virtuale con vulnerabilità o exploit di sicurezza
+
+Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
+1. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
+1. Nella colonna **alias offerta** selezionare l'offerta.
+1. Nella colonna **nome** della scheda **panoramica piano** selezionare il piano con la macchina virtuale che si desidera rimuovere.
+1. Nella scheda **configurazione tecnica** , in **Immagini VM**, accanto all'immagine di macchina virtuale che si vuole rimuovere selezionare **Rimuovi immagine VM**.
+1. Nella finestra di dialogo visualizzata selezionare **continua**.
+1. Selezionare **Salva bozza**.
+1. Passare alla sezione successiva per ripubblicare l'offerta.
+
+#### <a name="republish-the-offer"></a>Ripubblicare l'offerta
+
+Una volta rimossa o sostituita l'immagine di macchina virtuale, è necessario ripubblicare l'offerta.
+1. Selezionare **revisione e pubblicazione**.
+1. Se è necessario fornire informazioni al team di certificazione, aggiungerlo alla casella **Note per la certificazione** .
+1. Selezionare **Pubblica**.
+
+Per ulteriori informazioni sul processo di pubblicazione, vedere [How to Review and publish an offer to the Commercial Marketplace](../review-publish-offer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

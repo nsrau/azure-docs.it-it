@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8110b98c055a211203fb937990e860fc8dea74f4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88520463"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualizzare lo stato dei processi di Importazione/Esportazione di Azure
@@ -60,7 +60,7 @@ Questa immagine dal portale di Azure consente di visualizzare lo stato dell'unit
 
 La tabella seguente descrive gli stati di errore delle unità e le azioni intraprese corrispondenti.
 
-| Stato dell'unità | Event | Risoluzione/Passaggio successivo |
+| Stato dell'unità | Evento | Risoluzione/Passaggio successivo |
 |:--- |:--- |:--- |
 | MaiRicevuta | Un'unità contrassegnata come **mairicevuta** (perché non è stata ricevuta come parte della spedizione del processo) arriva in un'altra spedizione. | Il team delle operazioni modifica lo stato in **Ricevuta**. |
 | N/D | Un'unità che non fa parte di alcun processo arriva al Data Center come parte di un altro processo. | L'unità è contrassegnata come unità aggiuntiva. Viene restituito all'utente quando il processo associato al pacchetto originale viene completato. |

@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056056"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072714"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Supporto di Integrità risorse check (RHC) per servizi cloud di Azure (versione classica)
 Questo articolo illustra il supporto di Integrità risorse check (RHC) per [servizi cloud di Microsoft Azure (versione classica)](https://azure.microsoft.com/services/cloud-services)
 
-[Integrità risorse di Azure](https://docs.microsoft.com/azure/service-health/resource-health-overview) per i servizi cloud consente di diagnosticare e ottenere supporto per i problemi del servizio che interessano la distribuzione del servizio cloud, i ruoli & le istanze del ruolo. Segnala l'integrità corrente e passata dei servizi cloud in fase di distribuzione, ruolo & livello di istanza del ruolo.
+[Integrità risorse di Azure](../service-health/resource-health-overview.md) per i servizi cloud consente di diagnosticare e ottenere supporto per i problemi del servizio che interessano la distribuzione del servizio cloud, i ruoli & le istanze del ruolo. Segnala l'integrità corrente e passata dei servizi cloud in fase di distribuzione, ruolo & livello di istanza del ruolo.
 
 Azure status segnala i problemi che interessano un'ampia gamma di clienti di Azure. Integrità risorse offre un dashboard personalizzato dell'integrità delle risorse. Integrità risorse Mostra tutte le volte in cui le risorse non sono state disponibili a causa di problemi dei servizi di Azure. Questi dati semplificano la verifica della violazione di un contratto di contratto.
 
@@ -30,7 +30,7 @@ Integrità risorse viene segnalato a livello di distribuzione o di ruolo. Il con
 I controlli di integrità delle risorse funzionano solo per la distribuzione degli slot di produzione. La distribuzione dello slot di gestione temporanea non è ancora supportata. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>Integrità risorse verifica anche l'integrità dell'applicazione?
-No, il controllo dell'integrità si verifica solo per le istanze del ruolo e non monitora l'integrità dell'applicazione. ad esempio Anche se 1 di tre istanze del ruolo non sono integre, l'applicazione può essere ancora disponibile. RHC non usa [Probe](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) del servizio di bilanciamento del carico o probe dell'agente guest. I clienti devono quindi continuare a usare i probe del servizio di bilanciamento del carico per monitorare l'integrità dell'applicazione. 
+No, il controllo dell'integrità si verifica solo per le istanze del ruolo e non monitora l'integrità dell'applicazione. ad esempio Anche se 1 di tre istanze del ruolo non sono integre, l'applicazione può essere ancora disponibile. RHC non usa [Probe](../load-balancer/load-balancer-custom-probe-overview.md) del servizio di bilanciamento del carico o probe dell'agente guest. I clienti devono quindi continuare a usare i probe del servizio di bilanciamento del carico per monitorare l'integrità dell'applicazione. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Quali sono le annotazioni per i servizi cloud?
 Le annotazioni sono lo stato di integrità della distribuzione o dei ruoli. Sono presenti annotazioni diverse in base allo stato di integrità, motivo della modifica dello stato e così via. 
@@ -45,7 +45,7 @@ Unknown indica che non è possibile determinare l'integrità aggregata della dis
 Poiché le istanze del ruolo sono fondamentalmente macchine virtuali e il controllo dell'integrità delle macchine virtuali viene riutilizzato per le istanze del ruolo, per rappresentare le istanze del ruolo viene usato il termine della macchina virtuale. 
 
 ## <a name="cloud-services-deployment-level-annotations--their-meanings"></a>Annotazioni di servizi cloud (livello di distribuzione) & il significato
-| Annotazione | Descrizione | 
+| Annotazione | Description | 
 | --- | --- | 
 | Disponibile| Non sono presenti problemi noti della piattaforma Azure che influiscono sulla distribuzione del servizio cloud |
 | Sconosciuto | Non è possibile determinare lo stato di integrità della distribuzione del servizio cloud in questo momento | 
@@ -58,7 +58,7 @@ Poiché le istanze del ruolo sono fondamentalmente macchine virtuali e il contro
 | Sconosciuto e probabilmente interessato | Non è possibile determinare lo stato di integrità della distribuzione del servizio cloud in questo momento. Il problema potrebbe essere causato da un'interruzione del servizio di Azure in corso che potrebbe avere un effetto su questa macchina virtuale, che verrà ripristinata automaticamente quando viene risolta l'interruzione |
 
 ## <a name="cloud-services-role-instance-level-annotations--their-meanings"></a>Annotazioni dei servizi cloud (a livello di istanza del ruolo) & il significato
-| Annotazione | Descrizione | 
+| Annotazione | Description | 
 | --- | --- | 
 | Disponibile | Non sono presenti problemi noti della piattaforma Azure che hanno effetto su questa macchina virtuale | 
 | Sconosciuto | Non è possibile determinare lo stato di integrità della macchina virtuale in questo momento |

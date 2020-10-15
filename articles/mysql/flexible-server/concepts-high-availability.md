@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937134"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concetti relativi alla disponibilità elevata nel server flessibile database di Azure per MySQL (anteprima)
@@ -18,7 +18,7 @@ ms.locfileid: "90937134"
 > [!IMPORTANT] 
 > Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
 
-Il server flessibile database di Azure per MySQL (anteprima) consente di configurare la disponibilità elevata con failover automatico usando l'opzione di disponibilità elevata con **ridondanza della zona** . Quando viene distribuito in una configurazione con ridondanza della zona, server flessibile esegue automaticamente il provisioning e la gestione di una replica standby in una zona di disponibilità diversa Usando la replica a livello di archiviazione, i dati vengono **replicati in modo sincrono** nel server di standby nella zona secondaria per consentire la perdita di dati dopo un failover. Il failover è completamente trasparente dall'applicazione client e non richiede alcuna azione da parte dell'utente. Il server di standby non è disponibile per le operazioni di lettura o scrittura, ma è un standby passivo per abilitare il failover rapido. I tempi di failover variano in genere da 60-120 secondi.
+Il server flessibile database di Azure per MySQL (anteprima) consente di configurare la disponibilità elevata con failover automatico usando l'opzione di disponibilità elevata con **ridondanza della zona** . Quando viene distribuito in una configurazione con ridondanza della zona, il server flessibile esegue automaticamente il provisioning e la gestione di una replica standby in una zona di disponibilità diversa. Usando la replica a livello di archiviazione, i dati vengono **replicati in modo sincrono** nel server di standby nella zona secondaria per consentire la perdita di dati dopo un failover. Il failover è completamente trasparente dall'applicazione client e non richiede alcuna azione da parte dell'utente. Il server di standby non è disponibile per le operazioni di lettura o scrittura, ma è un standby passivo per abilitare il failover rapido. I tempi di failover variano in genere da 60-120 secondi.
 
 La configurazione della disponibilità elevata con ridondanza della zona consente il failover automatico durante gli eventi pianificati, ad esempio le operazioni di calcolo con scalabilità avviata dall'utente e gli eventi non pianificati, ad esempio errori hardware e software sottostanti, errori di rete e anche errori della zona di disponibilità.
 

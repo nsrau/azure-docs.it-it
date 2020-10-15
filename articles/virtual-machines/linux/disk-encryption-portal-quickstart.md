@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 563b9c03141357eeacf9a7d890c386faae52c6df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2a5588940d4efacc08d89b72bde4433d725a4994
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88510700"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978408"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure
 
@@ -38,7 +38,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
 
     > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
+    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
     >
     > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
 
@@ -47,7 +47,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
 
     > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
+    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
     >
     > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
 
@@ -68,7 +68,7 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
     :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
 
     > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
+    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
     >
     > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
 
@@ -80,7 +80,7 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
     :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
 
     > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
+    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
     >
     > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
 
@@ -94,7 +94,7 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
     :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
 
     > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
+    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
     >
     > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
 

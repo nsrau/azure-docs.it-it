@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/27/2020
-ms.openlocfilehash: feb186fbe216305039fcc0a23a10419c44fd0483
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.date: 10/07/2020
+ms.openlocfilehash: 616e3e6c37faa3c085b8531173b557973e09fbf8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91535611"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974567"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -23,31 +23,20 @@ Questo articolo include informazioni sugli aggiornamenti di versione di Azure HD
 
 Azure HDInsight è uno dei servizi più diffusi fra i clienti enterprise per analisi open source in Azure.
 
-## <a name="release-date-09282020"></a>Data di rilascio: 09/28/2020
+## <a name="release-date-10082020"></a>Data di rilascio: 10/08/2020
 
 Questa versione è valida sia per HDInsight 3,6 che per HDInsight 4,0. La versione di HDInsight è resa disponibile per tutte le aree in diversi giorni. La data di release riportata indica la data di rilascio di release della prima area. Se non vengono visualizzate le modifiche riportate di seguito, attendere che la versione risieda nella propria area in diversi giorni.
 
 ## <a name="new-features"></a>Nuove funzionalità
-### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>La scalabilità automatica per la query interattiva con HDInsight 4,0 è ora disponibile a livello generale
-La scalabilità automatica per il tipo di cluster Interactive query è ora disponibile a livello generale (GA) per HDInsight 4,0. Tutti i cluster Interactive query 4,0 creati dopo il 27 agosto 2020 avranno il supporto per la scalabilità automatica.
-
-### <a name="hbase-cluster-supports-premium-adls-gen2"></a>Il cluster HBase supporta ADLS Gen2 Premium
-HDInsight supporta ora ADLS Gen2 Premium come account di archiviazione primario per i cluster HDInsight HBase 3,6 e 4,0. Insieme alle [Scritture accelerate](./hbase/apache-hbase-accelerated-writes.md), è possibile ottenere prestazioni migliori per i cluster HBase.
-
-### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Distribuzione della partizione Kafka nei domini di errore di Azure
-Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un data center di Azure. Ogni dominio di errore condivide una fonte di alimentazione e un commutatore di rete comuni. Prima che HDInsight Kafka possa archiviare tutte le repliche di partizione nello stesso dominio di errore. A partire da questa versione, HDInsight supporta ora la distribuzione automatica delle partizioni Kafka basate sui domini di errore di Azure. 
-
-### <a name="encryption-in-transit"></a>Crittografia in transito
-I clienti possono abilitare la crittografia in transito tra i nodi del cluster usando la crittografia IPSec con chiavi gestite dalla piattaforma. Questa opzione può essere abilitata al momento della creazione del cluster. Vedere altri dettagli su [come abilitare la crittografia in transito](./domain-joined/encryption-in-transit.md).
-
-### <a name="encryption-at-host"></a>Crittografia a livello di host
-Quando si Abilita la crittografia in host, i dati archiviati nell'host della macchina virtuale vengono crittografati a riposo e i flussi vengono crittografati nel servizio di archiviazione. Da questa versione, è possibile **abilitare la crittografia nell'host nel disco dati temporaneo** durante la creazione del cluster. La crittografia nell'host è supportata solo in [determinati SKU di macchine virtuali in aree limitate](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal). HDInsight supporta la [configurazione e gli SKU del nodo seguenti](./hdinsight-supported-node-configuration.md). Vedere altri dettagli su [come abilitare la crittografia nell'host](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys).
+### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>HDInsight i cluster privati senza indirizzo IP pubblico e collegamento privato (anteprima)
+HDInsight supporta ora la creazione di cluster senza indirizzo IP pubblico e collegamento privato ai cluster in anteprima. I clienti possono usare le nuove impostazioni di rete avanzate per creare un cluster completamente isolato senza IP pubblico e usare i propri endpoint privati per accedere al cluster. 
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passaggio a set di scalabilità di macchine virtuali
 HDInsight usa ora macchine virtuali di Azure per eseguire il provisioning del cluster. A partire da questa versione, il servizio eseguirà gradualmente la migrazione ai [set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). L'intero processo può richiedere mesi. Dopo la migrazione delle aree e delle sottoscrizioni, i cluster HDInsight appena creati verranno eseguiti nei set di scalabilità di macchine virtuali senza azioni del cliente. Non è prevista alcuna modifica di rilievo.
 
 ## <a name="deprecation"></a>Deprecazione
-Nessuna deprecazione per questa versione.
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Deprecazione del cluster di servizi HDInsight 3,6 ML
+Il tipo di cluster di HDInsight 3,6 ML Services sarà la fine del supporto di Dec 31 2020. I clienti non creeranno nuovi cluster di 3,6 ML Services. I cluster esistenti verranno eseguiti così come sono, senza il supporto di Microsoft. Verificare la scadenza del supporto per le versioni di HDInsight e i tipi di cluster [qui](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions).
 
 ## <a name="behavior-changes"></a>Modifiche del comportamento
 Nessuna modifica del comportamento per questa versione.
@@ -55,8 +44,8 @@ Nessuna modifica del comportamento per questa versione.
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 Nelle versioni future verranno apportate le modifiche seguenti.
 
-### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Possibilità di selezionare uno SKU Zookeeper diverso per i servizi Spark, Hadoop e ML
-HDInsight attualmente non supporta la modifica dello SKU Zookeeper per i tipi di cluster Spark, Hadoop e ML Services. USA A2_v2 SKU/a2 per i nodi Zookeeper e i clienti non vengono addebitati. Nella prossima versione i clienti possono modificare lo SKU Zookeeper per i servizi Spark, Hadoop e ML in base alle esigenze. Verranno addebitati i nodi Zookeeper con SKU diversi da A2_v2/a2. Lo SKU predefinito sarà ancora A2_V2/a2 e senza costi aggiuntivi.
+### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Possibilità di selezionare diverse dimensioni delle macchine virtuali Zookeeper per i servizi Spark, Hadoop e ML
+HDInsight attualmente non supporta la personalizzazione delle dimensioni del nodo Zookeeper per i tipi di cluster Spark, Hadoop e ML Services. Il valore predefinito è A2_v2 dimensioni della macchina virtuale/a2, che vengono fornite gratuitamente. Nella prossima versione è possibile selezionare le dimensioni della macchina virtuale Zookeeper più appropriate per il proprio scenario. Verranno addebitati i nodi Zookeeper con dimensioni della macchina virtuale diverse da A2_v2/a2. Le macchine virtuali A2_v2 e a2 sono ancora disponibili gratuitamente.
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 HDInsight continua a migliorare l'affidabilità e le prestazioni del cluster. 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818347"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
@@ -115,7 +115,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Phone | Microsoft Edge, Internet Explorer |
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
-| Windows Server 2012 R2 | Internet Explorer |
+| R2 per Windows Server 2012 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
@@ -132,14 +132,14 @@ Per il supporto di Chrome in **Windows 10 Creators Update (versione 1703)** o ve
 
 Per distribuire automaticamente questa estensione ai browser Chrome, creare la chiave del Registro di sistema seguente:
 
-- Percorso HKEY_LOCAL_MACHINE \Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist percorso
 - Nome 1
 - Tipo REG_SZ (stringa)
 - Ppnbnpeolgkicgegkbkbjmhlideopiji di dati; HTTPS \: //clients2.Google.com/service/update2/crx
 
 Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
 
-- Percorso HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
+- HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls percorso
 - Nome 1
 - Tipo REG_SZ (stringa)
 - Data {"pattern": " https://device.login.microsoftonline.com ", "Filter": {"Issuer": {"CN": "MS-Organization-Access"}}}

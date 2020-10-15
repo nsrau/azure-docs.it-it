@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295549"
 ---
 # <a name="input-metadata"></a>Metadati di input
@@ -43,11 +43,11 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 > 
 > 
 
-| Nome  | Descrizione |
+| Nome  | Description |
 | --- | --- | 
 | **VideoTracks**|Ogni file di asset fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Per ulteriori informazioni, vedere [VideoTracks](#videotracks). |
 | **AudioTrack**|Ogni file di asset fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. Per ulteriori informazioni, vedere [AudioTracks](#audiotracks) |
-| **Metadata**  |Metadati del file di asset rappresentati come stringhe chiave-valore. <br />Ad esempio: `<Metadata key="language" value="eng" />` |
+| **Metadata**  |Metadati del file di asset rappresentati come stringhe chiave-valore. <br />ad esempio `<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>Altri elementi figlio
 
@@ -65,7 +65,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Nome |  | Descrizione |
+| Nome |  | Description |
 | --- | --- |
 | **FourCC**<br />Obbligatoria |Codec video FourCC codice riportato da ffmpeg.<br /><br />Esempio: `"FourCC": "avc1"` |
 | **Profilo** |Profilo della traccia video. <br /><br />Esempio: `"Profile": "Main"`|
@@ -92,7 +92,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 
 ## <a name="audiotracks"></a>AudioTrack
 
-| Nome  | Descrizione |
+| Nome  | Description |
 | --- | --- | 
 | **SampleFormat** |Formato del campione. <br /><br />Esempio: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Layout del canale. <br /><br />Esempio: `"ChannelLayout": "stereo"`|

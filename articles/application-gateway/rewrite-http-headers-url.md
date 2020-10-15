@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281192"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Riscrivere le intestazioni HTTP e l'URL con il gateway applicazione
 
- Il gateway applicazione consente di riscrivere il contenuto selezionato di richieste e risposte. Con questa funzionalità è possibile tradurre URL, parametri di stringa di query, nonché modificare le intestazioni di richiesta e risposta. Consente inoltre di aggiungere condizioni per garantire che l'URL o le intestazioni specificate vengano riscritte solo quando vengono soddisfatte determinate condizioni. Queste condizioni sono basate sulle informazioni sulla richiesta e sulla risposta.
+ Il gateway applicazione consente di riscrivere il contenuto selezionato di richieste e risposte. Con questa funzionalità è possibile tradurre URL, parametri di stringa di query, nonché modificare le intestazioni di richiesta e risposta. Consente inoltre di aggiungere condizioni per garantire che l'URL o le intestazioni specificate vengano riscritte solo quando vengono soddisfatte determinate condizioni. Queste condizioni sono basate sulle informazioni della richiesta e della risposta.
 
 >[!NOTE]
 >Le funzionalità di intestazione HTTP e riscrittura URL sono disponibili solo per lo [SKU del gateway applicazione V2](application-gateway-autoscaling-zone-redundant.md)
@@ -113,21 +113,21 @@ Il gateway applicazione supporta le variabili server seguenti:
 | client_port               | Porta client.                                             |
 | client_tcp_rtt            | Informazioni sulla connessione TCP del client. Disponibile nei sistemi che supportano l'opzione socket TCP_INFO. |
 | client_user               | Quando si usa l'autenticazione HTTP, il nome utente specificato per l'autenticazione. |
-| host                      | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , il valore dell'host sarà`contoso.com` |
+| host                      | In questo ordine di precedenza: il nome host dalla riga della richiesta, il nome host dal campo dell'intestazione della richiesta host o il nome del server corrispondente a una richiesta. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , il valore dell'host sarà `contoso.com` |
 | *nome* cookie_             | Cookie del *nome* .                                           |
 | http_method               | Metodo utilizzato per effettuare la richiesta dell'URL. Ad esempio, GET o POST. |
 | http_status               | Stato della sessione. Ad esempio, 200, 400 o 403.           |
 | http_version              | Protocollo della richiesta. In genere HTTP/1.0, HTTP/1.1 o HTTP/2.0. |
-| query_string              | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING valore sarà`id=123&title=fabrikam` |
+| query_string              | Elenco di coppie variabile/valore che seguono "?" nell'URL richiesto. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` QUERY_STRING valore sarà `id=123&title=fabrikam` |
 | received_bytes            | Lunghezza della richiesta, incluse la riga della richiesta, l'intestazione e il corpo della richiesta. |
 | request_query             | Argomenti nella riga della richiesta.                           |
 | request_scheme            | Schema di richiesta: http o HTTPS.                           |
-| request_uri               | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` REQUEST_URI valore sarà`/article.aspx?id=123&title=fabrikam` |
+| request_uri               | URI completo della richiesta originale (con argomenti). Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` REQUEST_URI valore sarà `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | Numero di byte inviati a un client.                        |
 | server_port               | Porta del server che ha accettato una richiesta.              |
 | ssl_connection_protocol   | Protocollo di una connessione TLS stabilita.               |
 | ssl_enabled               | "On" se la connessione funziona in modalità TLS. In caso contrario, una stringa vuota. |
-| uri_path                  | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path valore sarà`/article.aspx` |
+| uri_path                  | Identifica la risorsa specifica nell'host a cui il client Web vuole accedere. Questa è la parte dell'URI della richiesta senza gli argomenti. Esempio: nella richiesta `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path valore sarà `/article.aspx` |
 
  
 
@@ -211,17 +211,17 @@ Per eseguire scenari in cui si vuole scegliere il pool back-end in base al valor
 
 * La terza regola presenta una condizione che controlla la variabile di *QUERY_STRING* per *Category = Accessories* e ha un'azione che riscrive il percorso URL in/*listing3* ed è abilitata la mappa di **percorso di nuova valutazione.**
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenario di riscrittura URL 1-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="Scenario di riscrittura URL 1-1.":::
 
  
 
 **Passaggio 2 (b):** Associa questo set di riscrittura al percorso predefinito della regola basata sul percorso precedente
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenario di riscrittura URL 1-3.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="Scenario di riscrittura URL 1-1.":::
 
 A questo punto, se l'utente richiede *contoso.com/Listing?Category=any*, viene confrontato con il percorso predefinito, perché nessuno dei modelli di percorso nella mappa di percorso (/listing1,/listing2,/listing3) corrisponderà. Poiché il set di riscrittura precedente è stato associato a questo percorso, questo set di riscrittura verrà valutato. Poiché la stringa di query non corrisponderà alla condizione in nessuna delle 3 regole di riscrittura in questo set di riscrittura, non verrà eseguita alcuna azione di riscrittura e, di conseguenza, la richiesta verrà instradata senza modifiche al back-end associato al percorso predefinito (ovvero *generics*).
 
- Se l'utente richiede *contoso.com/Listing?Category=Shoes,* viene nuovamente stabilita la corrispondenza con il percorso predefinito. Tuttavia, in questo caso la condizione nella prima regola corrisponderà e quindi verrà eseguita l'azione associata alla condizione che riscriverà il percorso URL in/*listing1* e valuterà nuovamente la mappa di percorso. Quando la mappa percorso viene rivalutata, la richiesta corrisponderà al percorso associato al modello */listing1* e la richiesta verrà indirizzata al back-end associato a questo modello, ovvero ShoesListBackendPool
+ Se l'utente richiede *contoso.com/Listing?Category=Shoes,* viene nuovamente stabilita la corrispondenza con il percorso predefinito. Tuttavia, in questo caso la condizione nella prima regola corrisponderà e quindi verrà eseguita l'azione associata alla condizione che riscriverà il percorso URL in/*listing1*  e valuterà nuovamente la mappa di percorso. Quando la mappa percorso viene rivalutata, la richiesta corrisponderà al percorso associato al modello */listing1* e la richiesta verrà indirizzata al back-end associato a questo modello, ovvero ShoesListBackendPool
 
 >[!NOTE]
 >Questo scenario può essere esteso a qualsiasi valore di intestazione o di cookie, a un percorso URL, a una stringa di query o a variabili del server in base alla condizione definita e in sostanza consente di instradare le richieste in base a tali condizioni.
@@ -232,13 +232,13 @@ Si consideri uno scenario di un sito Web di acquisti in cui il collegamento visi
 
 In tal caso, il gateway applicazione può acquisire parametri dall'URL e aggiungere coppie chiave-valore della stringa di query da quelle dell'URL. Si immagini, ad esempio, che l'utente desideri riscrivere, `https://www.contoso.com/fashion/shirts` in `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` , può essere eseguito tramite la configurazione di riscrittura URL seguente.
 
-**Condition** -se la variabile server `uri_path` è uguale al modello`/(.+)/(.+)`
+**Condition** -se la variabile server `uri_path` è uguale al modello `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenario di riscrittura URL 2-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="Scenario di riscrittura URL 1-1.":::
 
-**Azione** : impostare il percorso dell'URL su `buy.aspx` e la stringa di query su`category={var_uri_path_1}&product={var_uri_path_2}`
+**Azione** : impostare il percorso dell'URL su `buy.aspx` e la stringa di query su `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenario di riscrittura URL 2-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="Scenario di riscrittura URL 1-1.":::
 
 Per una guida dettagliata per ottenere lo scenario descritto in precedenza, vedere [riscrivere l'URL con il gateway applicazione usando portale di Azure](rewrite-url-portal.md)
 
@@ -248,11 +248,11 @@ In caso di riscrittura URL, il gateway applicazione riscrive l'URL prima che la 
 
 In caso di reindirizzamento URL, il gateway applicazione invia una risposta di reindirizzamento al client con il nuovo URL. Che, a sua volta, richiede al client di inviare nuovamente la richiesta al nuovo URL fornito nel reindirizzamento. L'URL visualizzato dall'utente nel browser viene aggiornato al nuovo URL
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Riscrivere il reindirizzamento di Visual Studio.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Scenario di riscrittura URL 1-1.":::
 
 ## <a name="limitations"></a>Limitazioni
 
-- Se una risposta ha più di un'intestazione con lo stesso nome, la riscrittura del valore di una di queste intestazioni comporterà la rimozione delle altre intestazioni nella risposta. Questo problema si verifica in genere con l'intestazione set-cookie poiché è possibile avere più di un'intestazione set-cookie in una risposta. Uno di questi scenari è quando si usa un servizio app con un gateway applicazione e si è configurata l'affinità di sessione basata su cookie nel gateway applicazione. In questo caso, la risposta conterrà due intestazioni set-cookie: una usata dal servizio app, ad esempio: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e un'altra per l'affinità del gateway applicazione, ad esempio `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . La riscrittura di una delle intestazioni set-cookie in questo scenario può causare la rimozione dell'altra intestazione set-cookie dalla risposta.
+- Se una risposta ha più di un'intestazione con lo stesso nome, la riscrittura del valore di una di queste intestazioni comporterà la rimozione delle altre intestazioni nella risposta. Questo problema si verifica in genere con Set-Cookie intestazione poiché è possibile avere più di un'intestazione di Set-Cookie in una risposta. Uno di questi scenari è quando si usa un servizio app con un gateway applicazione e si è configurata l'affinità di sessione basata su cookie nel gateway applicazione. In questo caso la risposta conterrà due intestazioni Set-Cookie: una usata dal servizio app, ad esempio: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e un'altra per l'affinità del gateway applicazione, ad esempio `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . La riscrittura di una delle intestazioni Set-Cookie in questo scenario può causare la rimozione dell'altra intestazione Set-Cookie dalla risposta.
 - Le riscritture non sono supportate quando il gateway applicazione è configurato per reindirizzare le richieste o per visualizzare una pagina di errore personalizzata.
 - I nomi delle intestazioni possono contenere qualsiasi carattere alfanumerico e simboli specifici, come definito nella [specifica RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Al momento non è supportato il carattere speciale di sottolineatura (_) nei nomi di intestazione.
 - Non è possibile riscrivere le intestazioni di connessione e di aggiornamento

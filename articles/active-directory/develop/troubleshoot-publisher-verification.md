@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256892"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073734"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -33,7 +33,7 @@ Se non si riesce a completare il processo o si verifica un comportamento imprevi
 ## <a name="common-issues"></a>Problemi comuni
 Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante il processo. 
 
-- **Non si conosce l'ID di Microsoft Partner Network (MPN ID) o non si sa chi è il contatto principale per l'account** 
+- **Non conosco il mio ID Microsoft Partner Network (MPN ID) o non so chi è il contatto principale per l'account** 
     1. Accedere alla [pagina di registrazione di MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Accedere con un account utente nel tenant di Azure AD primario dell'organizzazione 
     1. Se esiste già un account MPN, verrà riconosciuto e l'utente verrà aggiunto all'account 
@@ -58,7 +58,7 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
     È possibile che le registrazioni dell'app siano state create usando un account utente diverso in questo tenant, un account personale/utente o un tenant diverso. Assicurarsi di aver eseguito l'accesso con l'account corretto nel tenant in cui sono state create le registrazioni dell'app.
 
 - **Si verifica un errore relativo all'autenticazione a più fattori. Cosa dovrei fare?** 
-    Assicurarsi che la [funzionalità autenticazione](../fundamentals/concept-fundamentals-mfa-get-started.md) a più fattori sia abilitata e necessaria per l'utente con cui si esegue l'accesso e per questo scenario. Ad esempio, l'autenticazione a più fattori può essere:
+    Assicurarsi che la [funzionalità autenticazione](../fundamentals/concept-fundamentals-mfa-get-started.md) a più fattori sia abilitata e **necessaria** per l'utente con cui si esegue l'accesso e per questo scenario. Ad esempio, l'autenticazione a più fattori può essere:
     - Sempre necessario per l'utente con cui si esegue l'accesso
     - [Obbligatorio per gestione di Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Obbligatorio per il tipo di amministratore](../conditional-access/howto-conditional-access-policy-admin-mfa.md) con cui si esegue l'accesso.
@@ -226,7 +226,9 @@ Questa funzionalità non è supportata per gli account utente Microsoft. Sono su
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Si verifica quando non è stata eseguita l'autenticazione a più fattori prima di tentare di aggiungere un server di pubblicazione verificato all'app. Per ulteriori informazioni, vedere [problemi comuni](#common-issues) .
+Si verifica quando non è stata eseguita l'autenticazione a più fattori prima di tentare di aggiungere un server di pubblicazione verificato all'app. Per ulteriori informazioni, vedere [problemi comuni](#common-issues) . Nota: è necessario eseguire l'autenticazione a più fattori nella stessa sessione quando si tenta di aggiungere un server di pubblicazione verificato. Se l'autenticazione a più fattori è abilitata ma non è necessaria per essere eseguita nella sessione, la richiesta avrà esito negativo.   
+
+Il messaggio di errore visualizzato sarà: "a causa di una modifica della configurazione effettuata dall'amministratore o perché è stato spostato in una nuova posizione, è necessario usare l'autenticazione a più fattori per continuare".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

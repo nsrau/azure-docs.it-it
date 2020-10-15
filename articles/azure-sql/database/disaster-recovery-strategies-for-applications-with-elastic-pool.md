@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357786"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per le applicazioni che usano i pool elastici del database SQL di Azure
@@ -179,14 +179,14 @@ Ecco gli svantaggi principali:
 * Richiede una progettazione più complessa per il database di gestione. Ogni record dei tenant, ad esempio, ha un tag di posizione che deve essere modificato durante il failover e il failback.  
 * I clienti della versione a pagamento potrebbero notare prestazioni inferiori al consueto fino al completamento dell'aggiornamento del pool nell'area B.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La strategia scelta si basa sulle esigenze dell'applicazione, ad esempio il modello aziendale, il contratto di contratto che si vuole offrire ai clienti, il vincolo di budget e così via. Ogni strategia descritta illustra i vantaggi e i compromessi per poter prendere una decisione consapevole. È anche probabile che l'applicazione specifica includa altri componenti di Azure. Esaminare quindi le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con tali componenti. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere l'articolo relativo alla [progettazione di soluzioni cloud per il ripristino di emergenza](designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sui backup automatici del database SQL di Azure, vedere [backup automatici del database SQL di Azure](automated-backups-overview.md).
-* Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 * Per informazioni sull'uso dei backup automatici per il ripristino, vedere [ripristinare un database dai backup avviati dal servizio](recovery-using-backups.md).
 * Per altre informazioni su opzioni di ripristino più veloci, vedere [Replica geografica attiva](active-geo-replication-overview.md) e [Gruppi di failover automatico](auto-failover-group-overview.md).
 * Per informazioni sull'uso dei backup automatici per l'archiviazione, vedere [copia del database](database-copy.md).

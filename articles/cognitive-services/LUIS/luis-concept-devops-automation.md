@@ -6,13 +6,13 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.openlocfilehash: a74ad7b995f0112346e2212866655107f72c03e7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324808"
 ---
-# <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flussi di lavoro di integrazione continua e recapito continuo per LUIS DevOps
+# <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flussi di lavoro di integrazione continua e recapito continuo per DevOps LUIS
 
 I tecnici software che stanno sviluppando un'app Language Understanding (LUIS) possono applicare procedure DevOps per il [controllo del codice sorgente](luis-concept-devops-sourcecontrol.md), [compilazioni automatizzate](luis-concept-devops-automation.md), [test](luis-concept-devops-testing.md)e [Release Management](luis-concept-devops-automation.md#release-management). Questo articolo descrive i concetti relativi all'implementazione di compilazioni automatiche per LUIS.
 

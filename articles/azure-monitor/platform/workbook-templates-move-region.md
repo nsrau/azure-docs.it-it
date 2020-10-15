@@ -11,10 +11,10 @@ ms.custom: subject-moving-resources
 ms.date: 08/12/2020
 ms.author: jgardner
 ms.openlocfilehash: f37550d914cf7efb0c75ed3dfa8854e1ec7be7e0
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88875681"
 ---
 # <a name="move-an-azure-workbook-template-to-another-region"></a>Spostare un modello di cartella di lavoro di Azure in un'altra area
@@ -31,7 +31,7 @@ Attualmente non è disponibile un'interfaccia utente del portale per la creazion
 
 * Identificare il modello ARM usato in precedenza per il modello di cartella di lavoro.
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 
 1. Aggiornare il modello usato in precedenza per fare riferimento alla nuova area.
 

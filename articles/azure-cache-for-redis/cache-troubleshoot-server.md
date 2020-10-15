@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008917"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Risolvere i problemi del lato server di cache di Azure per Redis
@@ -35,12 +35,12 @@ L'utilizzo elevato di memoria sul lato server causa tutti i tipi di problemi di 
 
 Redis espone due statistiche tramite il comando [info](https://redis.io/commands/info) che consentono di identificare il problema: "used_memory" e "used_memory_rss". È possibile [visualizzare queste metriche](cache-how-to-monitor.md#view-metrics-with-azure-monitor) usando il portale.
 
-Esistono diverse possibili modifiche che è possibile apportare per garantire l'integrità dell'utilizzo della memoria:
+È possibile apportare diverse modifiche che consentono di mantenere integro l'utilizzo della memoria:
 
-- [Configurare un criterio per la memoria](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) e impostare scadenze per le chiavi. Questo criterio potrebbe non essere sufficiente in caso di frammentazione.
-- [Configurare un valore maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) abbastanza grande da compensare la frammentazione della memoria.
+- [Configurare un criterio di memoria](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) e impostare le ore di scadenza sulle chiavi. Questo criterio potrebbe non essere sufficiente in caso di frammentazione.
+- [Configurare un valore MaxMemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) sufficientemente grande da compensare la frammentazione della memoria.
 - Suddividere gli oggetti di grandi dimensioni memorizzati nella cache in oggetti correlati più piccoli.
-- [Creare avvisi](cache-how-to-monitor.md#alerts) sulle metriche, ad esempio la memoria usata, per ricevere notifiche tempestive sugli effetti potenziali.
+- [Creare avvisi](cache-how-to-monitor.md#alerts) sulle metriche, ad esempio la memoria usata, per ricevere notifiche tempestive sui possibili effetti.
 - [Ridimensionare](cache-how-to-scale.md) le dimensioni della cache con una maggiore capacità di memoria.
 
 ## <a name="high-cpu-usage-or-server-load"></a>Utilizzo CPU elevato o carico server
@@ -70,10 +70,10 @@ Per visualizzare la quantità di larghezza di banda sul lato server in uso, è p
 Per attenuare le situazioni in cui l'utilizzo della larghezza di banda di rete è prossimo alla capacità massima:
 
 - Modificare il comportamento della chiamata client per ridurre la richiesta di rete.
-- [Creare avvisi](cache-how-to-monitor.md#alerts) sulle metriche come la lettura della cache o la scrittura nella cache per ricevere notifiche tempestive sugli effetti potenziali.
+- [Creare avvisi](cache-how-to-monitor.md#alerts) sulle metriche, ad esempio la lettura della cache o la scrittura nella cache, per ricevere notifiche tempestive sui possibili effetti.
 - [Scalabilità](cache-how-to-scale.md) a dimensioni della cache maggiori con maggiore capacità della larghezza di banda di rete.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
+## <a name="additional-information"></a>Altre informazioni
 
 - [Risolvere i problemi relativi al lato client di cache di Azure per Redis](cache-troubleshoot-client.md)
 - [Scelta del livello appropriato](cache-overview.md#choosing-the-right-tier)

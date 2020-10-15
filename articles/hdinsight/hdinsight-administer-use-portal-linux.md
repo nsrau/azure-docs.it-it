@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82598499"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
@@ -25,11 +25,11 @@ Con la [portale di Azure](https://portal.azure.com)è possibile gestire i cluste
 
 Un cluster Apache Hadoop esistente in HDInsight.  Vedere [Creare cluster basati su Linux in HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 Accedere a [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="list-and-show-clusters"></a><a name="showClusters"></a>Elencare e visualizzare i cluster
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> Elencare e visualizzare i cluster
 
 I cluster esistenti vengono visualizzati nella pagina **Cluster HDInsight**.  Dal portale:
 1. Selezionare **Tutti i servizi** dal menu a sinistra.
@@ -45,7 +45,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
 
 | Elemento| Descrizione |
 |---|---|
-|Sposta|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
+|Spostamento|sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.|
 |Elimina|elimina il cluster. |
 |Aggiorna|Aggiorna la vista.|
 
@@ -72,7 +72,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Accesso SSH + cluster|visualizza le istruzioni per la connessione al cluster tramite la connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
     |Data Lake Storage Gen1|consente di configurare l'accesso a Data Lake Storage Gen1.  Vedere [Guida introduttiva: impostare i cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Account di archiviazione|visualizza gli account di archiviazione e le chiavi. Gli account di archiviazione vengono configurati durante il processo di creazione dei cluster.|
-    |Applicazioni|consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).|
+    |APPLICAZIONI|consente di aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).|
     |Azioni script|esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).|
     |Metastore esterni|visualizza i metastore [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). I metastore possono essere configurati solo durante il processo di creazione dei cluster.|
     |Partner HDInsight|consente di aggiungere/rimuovere il partner HDInsight corrente.|
@@ -96,7 +96,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Resource Health|vedere [Panoramica di Integrità risorse di Azure](../service-health/resource-health-overview.md).|
     |Nuova richiesta di supporto|consente di creare un ticket di supporto con il supporto Microsoft.|
 
-## <a name="cluster-properties"></a><a name="properties"></a>Proprietà del cluster
+## <a name="cluster-properties"></a><a name="properties"></a> Proprietà del cluster
 
 Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impostazioni**.
 
@@ -225,7 +225,7 @@ La password viene modificata in tutti i nodi del cluster.
 > " ' ` / \ < % ~ | $ & ! 
 > ```
 
-   | Campo | valore |
+   | Campo | Valore |
    | --- | --- |
    | Tipo di script | Selezionare **- Custom** dall'elenco a discesa.|
    | Nome |"Modifica credenziali SSH" |

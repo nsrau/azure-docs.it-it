@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704729"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
@@ -109,11 +109,11 @@ Ecco alcune opzioni:
 
 ## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Usare macchine virtuali con priorità bassa
 
-Azure consente di usare una capacità superflua non utilizzata come VM con priorità bassa tra set di scalabilità di macchine virtuali, batch e il servizio Machine Learning. Queste allocazioni sono pre-emptible, ma hanno un prezzo ridotto rispetto alle VM dedicate. In generale, è consigliabile usare VM con priorità bassa per i carichi di lavoro di batch. È consigliabile usarli anche per recuperare le interruzioni tramite i reinvii (per l'inferenza del batch) o i riavvii (per un training di apprendimento approfondito con Checkpoint).
+Azure ti permette di usare capacità inutilizzate in eccesso come Low-Priority macchine virtuali tra set di scalabilità di macchine virtuali, batch e il servizio Machine Learning. Queste allocazioni sono pre-emptible, ma hanno un prezzo ridotto rispetto alle VM dedicate. In generale, è consigliabile usare Low-Priority VM per i carichi di lavoro batch. È consigliabile usarli anche per recuperare le interruzioni tramite i reinvii (per l'inferenza del batch) o i riavvii (per un training di apprendimento approfondito con Checkpoint).
 
-Le macchine virtuali con priorità bassa hanno una singola quota separata dal valore della quota dedicata, ovvero dalla famiglia di macchine virtuali. [Altre informazioni sulle quote AmlCompute](how-to-manage-quotas.md).
+Low-Priority VM hanno una singola quota separata dal valore della quota dedicata, ovvero dalla famiglia di macchine virtuali. [Altre informazioni sulle quote AmlCompute](how-to-manage-quotas.md).
 
- Le macchine virtuali con priorità bassa non funzionano per le istanze di calcolo, perché devono supportare esperienze interattive del notebook.
+ Le macchine virtuali Low-Priority non funzionano per le istanze di calcolo, perché devono supportare esperienze interattive dei notebook.
 
 ## <a name="use-reserved-instances"></a>Usare le istanze riservate
 

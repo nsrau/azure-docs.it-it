@@ -4,10 +4,10 @@ description: Informazioni su come usare la portale di Azure per eseguire il back
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88890349"
 ---
 # <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
@@ -37,7 +37,7 @@ I passaggi seguenti illustrano come configurare il backup per più condivisioni 
 
 1. Nel riquadro dell'insieme di credenziali di **servizi di ripristino** selezionare **+ backup** dal menu in alto.
 
-   ![Insieme di credenziali di Servizi di ripristino](./media/backup-afs/recovery-services-vault.png)
+   ![Insieme di credenziali dei servizi di ripristino](./media/backup-afs/recovery-services-vault.png)
 
     1. Nel riquadro **obiettivo del backup** impostare il percorso in **cui è in esecuzione il carico di lavoro?** in **Azure** selezionando l'opzione **Azure** dall'elenco a discesa.
 
@@ -67,7 +67,7 @@ I passaggi seguenti illustrano come configurare il backup per più condivisioni 
 
 1. Si apre il riquadro del contesto **Seleziona condivisioni file** a destra. Azure Cerca nell'account di archiviazione le condivisioni file di cui è possibile eseguire il backup. Se le condivisioni file sono state aggiunte di recente e non vengono visualizzate nell'elenco, attendere il tempo necessario per visualizzare le condivisioni file.
 
-1. Dall'elenco **Seleziona condivisioni file** selezionare una o più condivisioni file di cui si vuole eseguire il backup. Fare clic su **OK**.
+1. Dall'elenco **Seleziona condivisioni file** selezionare una o più condivisioni file di cui si vuole eseguire il backup. Selezionare **OK**.
 
    ![Selezionare le condivisioni file](./media/backup-afs/select-file-shares.png)
 

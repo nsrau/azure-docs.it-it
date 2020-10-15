@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 9a07c6ae48cdca68a95db7770d90076eb8f10f95
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653690"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929457"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>Domande frequenti sulle prestazioni SMB per Azure NetApp Files
 
@@ -39,7 +39,7 @@ Con SMB multicanale abilitato, un client SMB3 stabilisce più connessioni TCP al
 
 ## <a name="which-windows-versions-support-smb-multichannel"></a>Quali versioni di Windows supportano SMB multicanale?
 
-Windows supporta SMB multicanale a partire da Windows 2012 per garantire prestazioni ottimali.  Per informazioni dettagliate, vedere [distribuire SMB multicanale](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [le nozioni di base di SMB multicanale](https://blogs.technet.microsoft.com/josebda/2012/06/28/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0/) . 
+Windows supporta SMB multicanale a partire da Windows 2012 per garantire prestazioni ottimali.  Per informazioni dettagliate, vedere [distribuire SMB multicanale](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn610980(v%3Dws.11)) e [le nozioni di base di SMB multicanale](/archive/blogs/josebda/the-basics-of-smb-multichannel-a-feature-of-windows-server-2012-and-smb-3-0) . 
 
 
 ## <a name="does-my-azure-virtual-machine-support-rss"></a>La macchina virtuale di Azure supporta RSS?
@@ -132,7 +132,7 @@ Dopo aver eseguito il traffico dei dati nei volumi, è possibile monitorare le s
 
 ## <a name="is-accelerated-networking-recommended"></a>La rete accelerata è consigliata?
 
-Per ottenere prestazioni ottimali, è consigliabile configurare la [rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) laddove possibile. Tenere presenti le considerazioni seguenti:  
+Per ottenere prestazioni ottimali, è consigliabile configurare la [rete accelerata](../virtual-network/create-vm-accelerated-networking-powershell.md) laddove possibile. Tenere presenti le considerazioni seguenti:  
 
 * Il portale di Azure Abilita la rete accelerata per impostazione predefinita per le macchine virtuali che supportano questa funzionalità.  Tuttavia, potrebbero non essere disponibili altri metodi di distribuzione, ad esempio Ansible e strumenti di configurazione analoghi.  La mancata abilitazione della rete accelerata può ostacolare le prestazioni di un computer.  
 * Se la rete accelerata non è abilitata nell'interfaccia di rete di una macchina virtuale a causa della mancanza di supporto per un tipo di istanza o una dimensione, rimarrà disabilitata con i tipi di istanza più grandi. In questi casi sarà necessario un intervento manuale.

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399534"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
@@ -78,7 +78,7 @@ Di seguito sono riportate le principali funzionalità di gestione delle identit�
 
 - Privileged Identity Management
 
-- Identity Protection
+- Protezione dell'identità
 
 #### <a name="single-sign-on"></a>Single sign-on
 
@@ -140,7 +140,7 @@ Azure AD Privileged Identity Management consente di effettuare le operazioni seg
 
 - Ricevere avvisi relativi all'accesso a un ruolo con privilegi
 
-#### <a name="identity-protection"></a>Identity Protection
+#### <a name="identity-protection"></a>Protezione dell'identità
 
 [Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) è un servizio di sicurezza che offre una visualizzazione consolidata dei rilevamenti dei rischi e potenziali vulnerabilità che interessano le identità dell'organizzazione. Identity Protection usa le funzionalità di rilevamento anomalie di Azure Active Directory esistenti (disponibili tramite i report di attività anomale di Azure AD) e introduce nuovi tipi di rilevamento dei rischi in grado di rilevare le anomalie in tempo reale.
 
@@ -339,7 +339,7 @@ Il [Centro sicurezza di Azure](../../security-center/security-center-intro.md) c
 
 Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Un elenco di suggerimenti illustra in dettaglio il processo di configurazione dei controlli necessari.
 
-Ecco alcuni esempi:
+Tra gli esempi sono inclusi:
 
 - Provisioning di antimalware per identificare e rimuovere il software dannoso
 

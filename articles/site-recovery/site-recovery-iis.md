@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083770"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
@@ -133,7 +133,7 @@ Un sito Web potrebbe disporre di un certificato TLS/SSL associato che consente d
 Il certificato TLS/SSL può essere emesso in base a questi componenti:
 
 * Nome di dominio completo del sito Web
-* Nome del server
+* Nome del server.
 * Certificato con caratteri jolly per il nome di dominio  
 * Indirizzo IP. Se il certificato TLS/SSL viene emesso per l'indirizzo IP del server IIS, è necessario emettere un altro certificato TLS/SSL per l'indirizzo IP del server IIS nel sito di Azure. È necessario creare un'associazione TLS aggiuntiva per questo certificato. Per questo motivo, è consigliabile non usare un certificato TLS/SSL emesso per l'indirizzo IP. Questa opzione viene usata meno e verrà presto deprecata in base alle nuove modifiche del forum dell'autorità/browser di certificazione.
 

@@ -4,10 +4,10 @@ description: Introduzione ad Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85117863"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
@@ -123,7 +123,7 @@ L'opzione di download rispetta tutti i filtri che sono stati applicati al dashbo
 
 Per altre informazioni su Advisor, vedere:
 
-- [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
+- [Introduzione ad Azure Advisor](advisor-overview.md)
 - [Consigli sull'affidabilità di Advisor](advisor-high-availability-recommendations.md)
 - [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 - [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)

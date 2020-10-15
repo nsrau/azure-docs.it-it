@@ -10,10 +10,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 86fcdde72145cf25ee289ef3869976fecd628707
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362045"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Come creare un'applicazione Java che usa l'API SQL di Azure Cosmos DB e il processore del feed di modifiche
@@ -78,7 +78,7 @@ mvn clean package
     * **InventoryContainer-PKType**: una vista materializzata del record di inventario, ottimizzata per le query sull'elemento ```type```
     * **InventoryContainer-leases**: un contenitore di lease è sempre necessario per il feed delle modifiche. I lease tengono traccia dello stato dell'app durante la lettura del feed di modifiche.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Contenitori vuoti":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Account Azure Cosmos DB":::
 
 1. Nel terminale verrà visualizzato il messaggio seguente
 
@@ -96,7 +96,7 @@ mvn clean package
 
     Tornare alla pagina del browser di Esplora dati nel portale di Azure. Nel contenitore **InventoryContainer-leases** fare clic su **items** (elementi) per visualizzarne il contenuto. Si noterà che il processore del feed di modifiche ha popolato il contenitore di lease, ovvero il processore ha assegnato il ruolo di lavoro ```SampleHost_1``` a un lease in alcune partizioni di **InventoryContainer**.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Lease":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Account Azure Cosmos DB":::
 
 1. Premere di nuovo INVIO nel terminale. Verranno attivati 10 documenti per l'inserimento in **InventoryContainer**. Ogni inserimento di documento viene visualizzato nel feed di modifiche come JSON. Il codice di callback seguente gestisce questi eventi eseguendo il mirroring dei documenti JSON in una vista materializzata:
 
@@ -106,15 +106,15 @@ mvn clean package
 
 1. Attendere 5-10 secondi mentre viene eseguito il codice. Tornare quindi a Esplora dati nel portale di Azure e passare a **InventoryContainer > items** (InventoryContainer > elementi). Si può osservare che gli elementi vengono inseriti nel contenitore di inventario. Prendere nota della chiave di partizione (```id```).
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Contenitore feed":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_items.JPG" alt-text="Account Azure Cosmos DB":::
 
 1. A questo punto, in Esplora dati passare a **InventoryContainer-PKType > items** (InventoryContainer-pktype > elementi). Questa è la vista materializzata. È stato eseguito il mirroring degli elementi di **InventoryContainer** in questo contenitore perché sono stati inseriti a livello di codice dal feed di modifiche. Si noti la chiave di partizione (```type```). Questa vista materializzata è quindi ottimizzata per le query che filtrano in base a ```type```, operazione che non risulterebbe efficiente in **InventoryContainer** perché è partizionato su ```id```.
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Screenshot mostra la pagina Esplora dati per un account Azure Cosmos D B con gli elementi selezionati.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG" alt-text="Account Azure Cosmos DB":::
 
 1. Verrà ora eliminato un documento da **InventoryContainer** e **InventoryContainer-PKType** usando solo una singola chiamata a ```upsertItem()```. Osservare Esplora dati nel portale di Azure. Verrà eliminato il documento per cui ```/type == "plums"``` è cerchiato in rosso sotto
 
-    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Screenshot mostra la pagina di Esplora dati per un account Azure Cosmos D B con un determinato elemento I D selezionato.":::
+    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG" alt-text="Account Azure Cosmos DB":::
 
     Premere di nuovo INVIO per chiamare la funzione ```deleteDocument()``` nel codice di esempio. Questa funzione, mostrata sotto, esegue l'upsert di una nuova versione del documento con ```/ttl == 5```, che imposta il valore della durata TTL del documento su 5 secondi. 
     

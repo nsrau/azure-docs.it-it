@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0a4866db463dcf4ff17b2f7b25806806a700e8fa
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91282120"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071643"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuire un dispositivo OPC gemello a un progetto esistente
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 Il modulo OPC gemello viene eseguito su IoT Edge e fornisce diversi servizi perimetrali ai servizi OPC gemello e registro di sistema.
 
@@ -33,7 +33,7 @@ Il nucleo del modulo è l'identità del supervisore. Il supervisore gestisce l'e
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Verificare che siano installate le estensioni [PowerShell e AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) . Se non è già stato fatto, clonare questo repository GitHub. Eseguire i comandi seguenti in PowerShell:
+Verificare che siano installate le estensioni [PowerShell e AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) . Se non è già stato fatto, clonare questo repository GitHub. Eseguire i comandi seguenti in PowerShell:
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git

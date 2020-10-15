@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70d1caacfd655c956d4fcc36e3f0d3848d8f0fe
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230569"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055954"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare log di Azure AD con i log di monitoraggio di Azure
 
@@ -46,6 +46,7 @@ Questo articolo illustra come integrare i log di Azure Active Directory (Azure A
 
 * **Log di controllo**: il [report attività log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
 * **Log di accesso**: con il [report attività di accesso](concept-sign-ins.md)è possibile determinare chi ha eseguito le attività segnalate nei log di controllo.
+* **Log di provisioning**: con i [log di provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)è possibile monitorare quali utenti sono stati creati, aggiornati ed eliminati in tutte le applicazioni di terze parti. 
 
 > [!NOTE]
 > I log attività di controllo e di accesso correlati a B2C non sono al momento supportati.
@@ -57,7 +58,7 @@ Per usare questa funzionalità, sono necessari:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Un tenant di Azure AD.
-* Utente che è un amministratore *globale* o un *amministratore della sicurezza* per il tenant del Azure ad.
+* Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
 * Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="licensing-requirements"></a>Requisiti di licenza

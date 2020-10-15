@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132773"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
@@ -54,7 +54,7 @@ Personalizza esperienze accetta caratteristiche organizzate in spazi dei nomi. �
 Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dalle applicazioni:
 
 * User_Profile_from_CRM
-* Tempo
+* Ora
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -131,7 +131,7 @@ Le sezioni seguenti descrivono le procedure comuni per migliorare i set di carat
 
 Ad esempio, un timestamp misurato in secondi è una caratteristica molto diradata. Per renderla più densa, e quindi efficace, è possibile classificare il tempo suddividendolo in "mattina", "mezzogiorno", "pomeriggio" e così via.
 
-Anche le informazioni sulla posizione sono in genere utili per la creazione di classificazioni più ampie. Ad esempio, una coordinata di longitudine latitudine, ad esempio Lat: 47,67402 ° N, Long: 122,12154 ° W è troppo precisa e impone al modello di apprendere la latitudine e la longitudine come dimensioni distinte. Quando si prova a personalizzare in base alle informazioni sulla posizione, è possibile raggruppare le informazioni sulla posizione in settori più grandi. Un modo semplice per eseguire questa operazione consiste nel scegliere una precisione di arrotondamento appropriata per i numeri con lunghezza Lat e combinare Latitudine e Longitudine in "aree" inserendoli in una sola stringa. Ad esempio, un modo efficace per rappresentare 47,67402 ° N, Long: 122,12154 ° W in Regions circa pochi chilometri di larghezza sarebbe "location": "34.3, 12,1".
+Anche le informazioni sulla posizione sono in genere utili per la creazione di classificazioni più ampie. Ad esempio, un Latitude-Longitude coordinata, ad esempio Lat: 47,67402 ° N, Long: 122,12154 ° W è troppo preciso e impone al modello di apprendere Latitudine e longitudine come dimensioni distinte. Quando si prova a personalizzare in base alle informazioni sulla posizione, è possibile raggruppare le informazioni sulla posizione in settori più grandi. Un modo semplice per eseguire questa operazione consiste nel scegliere una precisione di arrotondamento appropriata per i numeri Lat-Long e combinare Latitudine e Longitudine in "aree" inserendoli in una sola stringa. Ad esempio, un modo efficace per rappresentare 47,67402 ° N, Long: 122,12154 ° W in Regions circa pochi chilometri di larghezza sarebbe "location": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Espandere i set di caratteristiche con le informazioni estrapolate
@@ -177,9 +177,9 @@ Non inviare più di 50 azioni per la classificazione delle azioni. Può trattars
 
 Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a personalizzare.
 
-Di seguito sono riportati alcuni esempi:
+Ecco alcuni esempi:
 
-|Scopo|Operazione|
+|Scopo|Azione|
 |--|--|
 |Personalizzare l'articolo da evidenziare in un sito Web di notizie.|Ogni azione è un potenziale articolo di notizie.|
 |Ottimizzare il posizionamento degli annunci in un sito Web.|Ogni azione sarà costituita da un layout o da regole per creare un layout per gli annunci (ad esempio in alto, a destra, immagini piccole, immagini grandi).|

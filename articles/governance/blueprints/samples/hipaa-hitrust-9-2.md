@@ -4,10 +4,10 @@ description: Panoramica dell'esempio di progetto HIPAA HITRUST 9.2. Questo esemp
 ms.date: 09/04/2020
 ms.topic: sample
 ms.openlocfilehash: 4df6f05019976b3de1172cc5127c27ac00fe3c44
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89493229"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Esempio di progetto HIPAA HITRUST 9.2

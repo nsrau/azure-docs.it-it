@@ -3,18 +3,18 @@ title: Come creare distribuzioni di aggiornamenti per Gestione aggiornamenti di 
 description: Questo articolo descrive come pianificare le distribuzioni degli aggiornamenti e controllarne lo stato.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: fa5cabd5410f0cbe7382db0289d98bc69d4a01fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5f7d86ff668a151bdf83908c3199d01a0a53246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91294717"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073751"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
-Questo articolo descrive come pianificare una distribuzione degli aggiornamenti ed esaminare il processo dopo il completamento della distribuzione. È possibile configurare una distribuzione degli aggiornamenti da una macchina virtuale di Azure selezionata, dal server abilitato per l'arco selezionato o dall'account di automazione in tutti i computer e i server configurati. 
+Questo articolo descrive come pianificare una distribuzione degli aggiornamenti ed esaminare il processo dopo il completamento della distribuzione. È possibile configurare una distribuzione degli aggiornamenti da una macchina virtuale di Azure selezionata, dal server abilitato per l'arco selezionato o dall'account di automazione in tutti i computer e i server configurati.
 
 In ogni scenario, la distribuzione creata ha come destinazione il computer o il server selezionato oppure, nel caso in cui venga creata una distribuzione dall'account di automazione, è possibile fare riferimento a uno o più computer. Quando si pianifica una distribuzione degli aggiornamenti da una macchina virtuale di Azure o da un server abilitato per Arc, i passaggi sono gli stessi della distribuzione dall'account di automazione, con le eccezioni seguenti:
 
@@ -59,7 +59,7 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
     > [!NOTE]
     > Questa opzione non è disponibile se è stata selezionata una macchina virtuale di Azure o un server abilitato per l'arco. Il computer viene indirizzato automaticamente alla distribuzione pianificata.
 
-6. Nell'area **Computer da aggiornare** selezionare una ricerca salvata o un gruppo importato oppure scegliere **Computer** dall'elenco a discesa e selezionare computer singoli. Con questa opzione è possibile visualizzare l'idoneità dell'agente di Log Analytics per ogni computer. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md).
+6. Nell'area **Computer da aggiornare** selezionare una ricerca salvata o un gruppo importato oppure scegliere **Computer** dall'elenco a discesa e selezionare computer singoli. Con questa opzione è possibile visualizzare l'idoneità dell'agente di Log Analytics per ogni computer. Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md). È possibile includere fino a un massimo di 500 computer in una distribuzione di aggiornamenti pianificati.
 
     > [!NOTE]
     > Questa opzione non è disponibile se è stata selezionata una macchina virtuale di Azure o un server abilitato per l'arco. Il computer viene indirizzato automaticamente alla distribuzione pianificata.
@@ -89,7 +89,7 @@ Per pianificare una nuova distribuzione degli aggiornamenti, seguire questa proc
 
     * Le finestre di manutenzione controllano la quantità di aggiornamenti che vengono installati.
     * Gestione aggiornamenti non interrompe l'installazione di nuovi aggiornamenti se si avvicina la fine di una finestra di manutenzione.
-    * Gestione aggiornamenti non termina gli aggiornamenti in corso se viene superata la finestra di manutenzione.
+    * Gestione aggiornamenti non termina gli aggiornamenti in corso se viene superata la finestra di manutenzione. Gli eventuali aggiornamenti rimanenti da installare non vengono tentati. Se questa situazione si verifica in modo coerente, è necessario rivalutare la durata della finestra di manutenzione.
     * Se la finestra di manutenzione viene superata in Windows, il motivo è in genere dovuto all'aggiornamento di un Service Pack la cui installazione impiega molto tempo.
 
     > [!NOTE]

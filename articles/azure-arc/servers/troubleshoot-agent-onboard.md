@@ -4,10 +4,10 @@ description: Questo articolo illustra come risolvere i problemi relativi all'age
 ms.date: 09/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90900683"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Risolvere i problemi di connessione dell'agente computer connesso
@@ -67,7 +67,7 @@ azcmagent connect \
 
 Nella tabella seguente sono elencati alcuni degli errori noti e i suggerimenti su come risolverli e risolverli.
 
-|Messaggio |Errore |Possibile causa |Soluzione |
+|Message |Errore |Possibile causa |Soluzione |
 |--------|------|---------------|---------|
 |Non è stato possibile acquisire il flusso del dispositivo token di autorizzazione |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Impossibile raggiungere l' `login.windows.net` endpoint | Verificare la connettività all'endpoint. |
 |Non è stato possibile acquisire il flusso del dispositivo token di autorizzazione |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Il proxy o il firewall blocca l'accesso all' `login.windows.net` endpoint. | Verificare la connettività all'endpoint e non è bloccata da un firewall o un server proxy. |

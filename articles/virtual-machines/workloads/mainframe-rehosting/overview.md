@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87835528"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Riallocazione del mainframe in macchine virtuali di Azure
@@ -33,7 +33,7 @@ Le macchine virtuali di Azure possono eseguire ambienti di emulazione mainframe 
 
 ## <a name="mainframe-migration"></a>Migrazione dei mainframe
 
-Riallocare, ricompilare, sostituire o ritirare? Soluzioni IaaS o PaaS? Per determinare la strategia di migrazione appropriata per l'applicazione mainframe, vedere la guida alla [migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) nell'centro architetture di Azure.
+Riallocare, ricompilare, sostituire o ritirare? Soluzioni IaaS o PaaS? Per determinare la strategia di migrazione appropriata per l'applicazione mainframe, vedere la guida alla [migrazione del mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  nell'centro architetture di Azure.
 
 ## <a name="micro-focus-rehosting-platform"></a>Piattaforma di riallocazione dello stato attivo micro
 
@@ -92,7 +92,7 @@ Con Azure IaaS, ad esempio una macchina virtuale, funzioni di sistema specifiche
 
 I mainframe vengono in genere scalati verso l'alto, mentre gli ambienti cloud si ridimensionano. Azure offre una gamma di dimensioni di [Linux](../../sizes.md) e [Windows](../../sizes.md) per soddisfare le tue esigenze. Il cloud viene inoltre ridimensionato in base alle specifiche utente esatte. Calcolo della potenza, dell'archiviazione e dei servizi [scalabile](/azure/architecture/best-practices/auto-scaling) su richiesta con un modello di fatturazione basato sull'utilizzo.
 
-### <a name="storage"></a>Archiviazione:
+### <a name="storage"></a>Archiviazione
 
 Nel cloud è possibile disporre di una gamma di opzioni di archiviazione flessibili e scalabili e si paga solo per gli elementi necessari. [Archiviazione di Azure](../../../storage/common/storage-introduction.md) offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica affidabile e un archivio NoSQL. Per le macchine virtuali, i dischi gestiti e non gestiti offrono risorse di archiviazione su disco persistenti e sicure.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 91e62cae242279e1923fc31970c233ec70bf7f11
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e6f28da37980717e15b05ab94c582aa5c77e9e0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87461341"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856863"
 ---
 # <a name="overview-of-azure-devops-starter"></a>Panoramica di Azure DevOps Starter
 
@@ -74,7 +74,7 @@ Dopo aver creato il progetto DevOps Starter, è possibile:
 
 ## <a name="getting-started-with-devops-starter"></a>Introduzione a DevOps Starter
 
-* [Introduzione a DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
+* [Introduzione a DevOps Starter](./azure-devops-project-github.md)
 
 ##  <a name="devops-starter-videos"></a>Video su DevOps Starter
 

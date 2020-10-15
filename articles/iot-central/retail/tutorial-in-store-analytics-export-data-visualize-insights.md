@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999571"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651446"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Esercitazione: Esportare i dati da Azure IoT Central e visualizzare le informazioni dettagliate in Power BI
 
@@ -409,7 +409,7 @@ Per aggiungere la logica alla progettazione dell'app per la logica, selezionare 
     * Selezionare il campo **Timestamp** e quindi **x-opt-enqueuedtime** dall'elenco **Contenuto dinamico**.
     * Selezionare il campo **Tempo di attesa 1** e quindi **Mostra dettagli** accanto ad **Analizza dati di telemetria**. Quindi selezionare **Tempo di attesa 1**.
     * Selezionare il campo **Tempo di attesa 2** e quindi **Mostra dettagli** accanto ad **Analizza dati di telemetria**. Quindi selezionare **Tempo di attesa 2**.
-    * Fare clic su **Salva** per salvare le modifiche. L'azione **Interfaccia tempo di attesa** è simile alla schermata seguente: ![Azione di occupazione](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Fare clic su **Salva** per salvare le modifiche. L'azione **Interfaccia tempo di attesa** è simile alla schermata seguente: ![Screenshot che mostra l'azione "Interfaccia tempo di attesa".](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Selezionare l'**interfaccia numero di persone** e selezionare **Aggiungi un'azione**.
 1. In **Cerca connettori e azioni**, immettere **Power BI** e quindi premere **Invio**.
 1. Selezionare l'azione **Aggiungi righe a un set di dati (anteprima)** .
@@ -484,7 +484,7 @@ Aggiungere quattro riquadri alla scheda per mostrare la lunghezza della coda e i
 
 Ridimensionare e ridisporre i riquadri nel dashboard per ottenere un aspetto simile alla schermata seguente:
 
-![Dashboard di Power BI](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Screenshot che mostra il dashboard di Power BI con i riquadri ridimensionati e ridisposti.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 È possibile aggiungere altre risorse grafiche per personalizzare ulteriormente il dashboard:
 

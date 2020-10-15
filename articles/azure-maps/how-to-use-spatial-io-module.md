@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335297"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Come usare il modulo di i/o spaziale di Maps di Azure
 
 Azure Maps Web SDK fornisce il modulo di i/o **spaziale**, che integra i dati spaziali con Azure Maps Web SDK usando JavaScript o typescript. Le funzionalità affidabili di questo modulo consentono agli sviluppatori di:
 
-- [Leggere e scrivere file di dati spaziali comuni](spatial-io-read-write-spatial-data.md). I formati di file supportati sono i file KML, KMZ, GPX, GeoRSS, GML, GeoJSON e CSV contenenti colonne con informazioni spaziali. Supporta anche WKT (Well-Known Text).
+- [Leggere e scrivere file di dati spaziali comuni](spatial-io-read-write-spatial-data.md). I formati di file supportati sono i file KML, KMZ, GPX, GeoRSS, GML, GeoJSON e CSV contenenti colonne con informazioni spaziali. Supporta anche Well-Known testo (WKT).
 - [Connettersi ai servizi di Open Geospatial Consortium (OGC) ed eseguire l'integrazione con Azure Maps Web SDK. Sovrapposizione dei servizi di Web Map Services (WMS) e delle tessere mappa Web (WMTS) come livelli sulla mappa](spatial-io-add-ogc-map-layer.md).
 - [Eseguire query sui dati in un servizio funzionalità Web (WFS)](spatial-io-connect-wfs-service.md).
 - [Sovrapporre set di dati complessi che contengono informazioni sullo stile e visualizzarli automaticamente usando il codice minimo](spatial-io-add-simple-data-layer.md).

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015222"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Distribuire nel servizio Azure Kubernetes
@@ -23,7 +23,7 @@ Questo articolo illustra la procedura per la distribuzione del componente gatewa
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Creare un'istanza di gestione API di Azure](get-started-create-service-instance.md)
+- [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 - [Creare un cluster Azure Kubernetes](../aks/kubernetes-walkthrough-portal.md)
 - Effettuare il [provisioning di una risorsa gateway nell'istanza di gestione API](api-management-howto-provision-self-hosted-gateway.md).
 

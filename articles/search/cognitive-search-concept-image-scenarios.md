@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020219"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Come elaborare ed estrarre informazioni dalle immagini negli scenari di arricchimento di intelligenza artificiale
@@ -63,7 +63,7 @@ Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *no
 
 | Membro immagine       | Descrizione                             |
 |--------------------|-----------------------------------------|
-| data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
+| Data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
 | altezza             | Altezza dell'immagine normalizzata in pixel. |
 | originalWidth      | Larghezza originale dell'immagine prima della normalizzazione. |

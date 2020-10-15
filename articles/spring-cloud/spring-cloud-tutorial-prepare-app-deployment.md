@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906836"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092801"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparare un'applicazione per la distribuzione nel cloud Spring di Azure
 
@@ -23,7 +23,7 @@ Azure Spring cloud offre servizi affidabili per l'hosting, il monitoraggio, la s
 Questo articolo illustra le dipendenze, la configurazione e il codice necessari per eseguire un'app Steeltoe .NET Core nel cloud Spring di Azure. Per informazioni su come distribuire un'applicazione nel cloud Spring di Azure, vedere [distribuire la prima applicazione Azure Spring cloud](spring-cloud-quickstart.md).
 
 >[!Note]
-> Il supporto di Steeltoe per Azure Spring cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per ulteriori informazioni sul supporto tecnico durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o il file a [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Il supporto di Steeltoe per Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ##  <a name="supported-versions"></a>Versioni supportate
 
@@ -99,7 +99,7 @@ Questo articolo descrive le dipendenze necessarie e spiega come aggiungerle al f
 
 In Azure Spring Cloud è possibile eseguire solo applicazioni Spring/Java.
 
-Azure Spring Cloud supporta Java 8 e 11. L'ambiente di hosting contiene almeno la versione più recente di Azul Zulu OpenJDK per Azure. Per altre informazioni su Azul Zulu OpenJDK per Azure, vedere [Installare JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Cloud supporta Java 8 e 11. L'ambiente di hosting contiene almeno la versione più recente di Azul Zulu OpenJDK per Azure. Per altre informazioni su Azul Zulu OpenJDK per Azure, vedere [Installare JDK](/azure/developer/java/fundamentals/java-jdk-install).
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Versioni di Spring Boot e Spring Cloud
 
@@ -198,8 +198,8 @@ La tabella seguente elenca le versioni di Azure Spring Cloud corrette per l'app 
 Versione di Spring Boot | Versione di Spring Cloud | Versione iniziale del client Azure Spring cloud
 ---|---|---
 2.1.x | Greenwich.RELEASE | 2.1.2
-2.2. x | Hoxton. SR8 | Non necessaria
-2.3. x | Hoxton. SR8 | Non necessaria
+2.2. x | Hoxton. SR8 | Non necessario
+2.3. x | Hoxton. SR8 | Non necessario
 
 Se si usa Spring Boot 2,1, includere il dependenciy seguente nel file di pom.xml.
 
@@ -210,6 +210,8 @@ Se si usa Spring Boot 2,1, includere il dependenciy seguente nel file di pom.xml
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> Non specificare `server.port` nella configurazione. Azure Spring cloud Sostituisci questa impostazione a un numero di porta fisso. Osservare anche questa impostazione e non specificare la porta del server nel codice.
 
 ## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Altre dipendenze consigliate per abilitare le funzionalità di Azure Spring Cloud
 
@@ -227,6 +229,7 @@ Per usare il servizio Registro servizi di Azure gestito, includere la dipendenza
 ```
 
 L'endpoint del server Service Registry verrà inserito automaticamente come variabile di ambiente nell'app. Le applicazioni potranno quindi registrarsi con il server Service Registry e individuare altri microservizi dipendenti.
+
 
 #### <a name="enablediscoveryclient-annotation"></a>Annotazione EnableDiscoveryClient
 
@@ -302,9 +305,9 @@ Includere le dipendenze `spring-cloud-starter-sleuth` e `spring-cloud-starter-zi
  È anche necessario abilitare un'istanza di Azure Application Insights da usare con l'istanza del servizio Azure Spring Cloud. Per informazioni sull'uso di Application Insights con Azure Spring cloud, vedere la [documentazione relativa alla traccia distribuita](spring-cloud-tutorial-distributed-tracing.md).
 
 ## <a name="see-also"></a>Vedere anche
-* [Analizzare i log e le metriche dell'applicazione](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [Configurare Config Server](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Usare la traccia distribuita con Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Analizzare i log e le metriche dell'applicazione](./diagnostic-services.md)
+* [Configurare Config Server](./spring-cloud-tutorial-config-server.md)
+* [Usare la traccia distribuita con Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Guida di avvio rapido per Spring](https://spring.io/quickstart)
 * [Documentazione di Spring Boot](https://spring.io/projects/spring-boot)
 

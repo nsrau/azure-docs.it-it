@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
 ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90891375"
 ---
 # <a name="certificate-requirements"></a>Requisiti per i certificati
@@ -53,7 +53,7 @@ I certificati devono avere il nome soggetto e i requisiti dei nomi alternativi d
 
 * Usare la tabella seguente per la creazione di un certificato dell'endpoint:
 
-    |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+    |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Archiviazione BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -70,7 +70,7 @@ I certificati PFX installati nel dispositivo Azure Stack Edge Pro devono soddisf
 
 * Quando si esporta un certificato PFX, verificare di aver selezionato l'opzione **Includi tutti i certificati nella catena, se possibile** .
 
-* Usare un certificato PFX per endpoint, interfaccia utente locale, nodo, VPN e Wi-Fi in quanto le chiavi pubbliche e private sono necessarie per Azure Stack Edge Pro. Per la chiave privata deve essere impostato l'attributo chiave del computer locale.
+* Usare un certificato PFX per endpoint, interfaccia utente locale, nodo, VPN e Wi-Fi perché sono necessarie entrambe le chiavi pubbliche e private per Azure Stack Edge Pro. Per la chiave privata deve essere impostato l'attributo chiave del computer locale.
 
 * La crittografia PFX del certificato deve essere 3DES. Si tratta della crittografia predefinita utilizzata durante l'esportazione da un Windows 10 client o da un archivio certificati Windows Server 2016. Per ulteriori informazioni correlate a 3DES, vedere [triple des](https://en.wikipedia.org/wiki/Triple_DES).
 

@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85201362"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -66,14 +66,14 @@ PredicateValidationReference| 0:1 | Riferimento a un elemento **PredicateValidat
 
 L'elemento **DataType** supporta i valori seguenti:
 
-| Type | Description |
+| Type | Descrizione |
 | ------- | ----------- |
 |boolean|Rappresenta un valore booleano (`true` o `false`).|
 |Data| Rappresenta un istante di tempo, in genere espresso come data di un giorno. Il valore della data segue la convenzione ISO 8601.|
 |dateTime|Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Il valore della data segue la convenzione ISO 8601.|
-|duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS` , dove `P` indica positivo o `N` per un valore negativo. `nY`numero di anni seguito da un valore letterale `Y` . `nMo`numero di mesi seguito da un valore letterale `Mo` . `nD`numero di giorni seguito da un valore letterale `D` . Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo`rappresenta un anno e due mesi. `P1Y2Mo5D`rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S`rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
+|duration|Rappresenta un intervallo di tempo in anni, mesi, giorni, ore, minuti e secondi. Il formato di è `PnYnMnDTnHnMnS` , dove `P` indica positivo o `N` per un valore negativo. `nY` numero di anni seguito da un valore letterale `Y` . `nMo` numero di mesi seguito da un valore letterale `Mo` . `nD` numero di giorni seguito da un valore letterale `D` . Esempi: `P21Y` rappresenta 21 anni. `P1Y2Mo` rappresenta un anno e due mesi. `P1Y2Mo5D` rappresenta un anno, due mesi e cinque giorni.  `P1Y2M5DT8H5M620S` rappresenta un anno, due mesi, cinque giorni, otto ore, cinque minuti e venti secondi.  |
 |phoneNumber|Rappresenta un numero di telefono. |
-|INT| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
+|int| Rappresenta il numero compreso tra-2.147.483.648 e 2.147.483.647|
 |long| Rappresenta il numero compreso tra-9.223.372.036.854.775.808 e 9.223.372.036.854.775.807 |
 |string| Rappresenta il testo come sequenza di unità di codice UTF-16.|
 |stringCollection|Rappresenta una raccolta di oggetti `string`.|
@@ -184,8 +184,8 @@ L'elemento **Enumeration** contiene gli attributi seguenti:
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Text | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
-|valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
+| Testo | Sì | Stringa di visualizzazione che viene mostrata all'utente nell'interfaccia utente per questa opzione. |
+|Valore | Sì | Valore di attestazione che viene associato alla selezione di questa opzione. |
 | SelectByDefault | No | Indica se questa opzione deve essere selezionata o meno per impostazione predefinita nell'interfaccia utente. I valori possibili sono: True o False. |
 
 L'esempio seguente configura un'attestazione di elenco a discesa di **città** con il valore predefinito impostato su `New York`:

@@ -1,25 +1,18 @@
 ---
 title: Configurare IBM DB2 HADR in macchine virtuali (VM) di Azure | Microsoft Docs
 description: Stabilire la disponibilità elevata di IBM DB2 LUW in macchine virtuali (VM) di Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: SAP
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
-ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: cynthn
+ms.openlocfilehash: 17df60cd039601d3f8036125c5c0098a8000667c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051989"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993309"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker
 
@@ -478,7 +471,7 @@ Se è stata eseguita l'installazione prima di creare la configurazione di DB2 HA
 
 Usare lo strumento di configurazione J2EE per controllare o aggiornare l'URL JDBC. Poiché lo strumento di configurazione J2EE è uno strumento grafico, è necessario installare il server X:
  
-1. Accedere al server applicazioni primario dell'istanza di J2EE ed eseguire:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Accedere al server applicazioni primario dell'istanza di J2EE ed eseguire:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. Nel riquadro a sinistra scegliere **Archivio sicurezza**.
 1. Nel riquadro destro scegliere la chiave JDBC/pool/ \<SAPSID> /URL.
 1. Modificare il nome host nell'URL JDBC per il nome host virtuale.

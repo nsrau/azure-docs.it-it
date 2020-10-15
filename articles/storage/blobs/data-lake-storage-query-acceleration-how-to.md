@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89659872"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrare i dati tramite Azure Data Lake Storage accelerazione query
@@ -51,7 +51,7 @@ L'accelerazione delle query consente alle applicazioni e ai Framework di analisi
 
   [Python](https://www.python.org/downloads/) 3,8 o versione successiva.
 
-  ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+  ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
   Non sono previsti prerequisiti aggiuntivi per l'uso di Node.js SDK.
 
@@ -221,7 +221,7 @@ Installare la libreria client di Azure Data Lake Storage per Python usando [PIP]
 pip install azure-storage-blob==12.4.0
 ```
 
-#### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+#### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Installare Data Lake libreria client per JavaScript aprendo una finestra del terminale e digitando il comando seguente.
 
@@ -286,7 +286,7 @@ import sys, csv
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Includere il `storage-blob` modulo inserendo questa istruzione all'inizio del file di codice. 
 
@@ -435,7 +435,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
         print("*".join(row))
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Questo esempio Invia la query all'API di accelerazione della query e quindi trasmette i risultati.
 
@@ -526,7 +526,7 @@ def query_bibnum(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 async function queryBibNum(blob)
@@ -597,7 +597,7 @@ def query_dvds(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 async function queryDvds(blob)

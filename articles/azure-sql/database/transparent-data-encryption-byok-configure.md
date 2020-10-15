@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619118"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e l'interfaccia della riga di comando di Azure: abilitare Transparent Data Encryption con chiave gestita dal cliente da Azure Key Vault
@@ -45,7 +45,7 @@ Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerS
 Per informazioni specifiche su Key Vault, vedere [istruzioni di PowerShell da Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [come usare Key Vault soft-delete con PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell (RM) è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Il modulo AzureRM continuerà a ricevere correzioni di bug fino ad almeno il 2020 dicembre.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione al nuovo Azure PowerShell AZ Module](/powershell/azure/new-azureps-module-az).
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 ## <a name="assign-an-azure-active-directory-azure-ad-identity-to-your-server"></a>Assegnare un'identità di Azure Active Directory (Azure AD) al server
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per installare la versione richiesta dell'interfaccia della riga di comando di Azure (versione 2,0 o successiva) e connettersi alla sottoscrizione di Azure, vedere [installare e configurare l'interfaccia della riga di comando multipiattaforma di azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Per installare la versione richiesta dell'interfaccia della riga di comando di Azure (versione 2,0 o successiva) e connettersi alla sottoscrizione di Azure, vedere [installare e configurare l'interfaccia di Command-Line multipiattaforma di azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Per informazioni specifiche su Key Vault, vedere [gestire Key Vault usando l'interfaccia della riga](../../key-vault/general/manage-with-cli2.md) di comando 2,0 e [come usare Key Vault soft-delete con l'interfaccia della](../../key-vault/general/soft-delete-cli.md)riga di comando.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: creare una pipeline di integrazione continua/recapito continuo per Ruby on Rails usando Azure DevOps Starter'
+title: 'Avvio rapido: Creare una pipeline CI/CD per Ruby on Rails con Azure DevOps Starter'
 description: Azure DevOps Starter consente di iniziare a usare Azure senza difficoltà. Con pochi rapidi passaggi, è possibile avviare un'app Web Ruby in un servizio di Azure.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cde959d8e075b55cb6cbb37479ca49cdd8a8c0c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7ab2fb13be10d5992f1b26973e9735ac238090a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233738"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856059"
 ---
-# <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Creare una pipeline di integrazione continua/recapito continuo per Ruby on Rails usando Azure DevOps Starter
+# <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Creare una pipeline CI/CD per Ruby on Rails con Azure DevOps Starter
 
-Configurare l'integrazione continua (CI) e il recapito continuo (CD) per l'app Ruby on Rails usando Azure DevOps Starter. DevOps Starter semplifica la configurazione iniziale di una pipeline di compilazione e rilascio di Azure DevOps.
+Configurare l'integrazione continua (CI, Continuous Integration) e il recapito continuo (CD, Continuous Delivery) per l'app Ruby on Rails con Azure DevOps Starter. DevOps Starter semplifica la configurazione iniziale di una pipeline di compilazione e di versione di Azure DevOps.
 
 Se non si ha ancora una sottoscrizione di Azure, è possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -53,7 +53,7 @@ Azure DevOps Starter crea una pipeline CI/CD in Azure Repos. È possibile creare
 1. Immettere un nome per il progetto Azure DevOps. 
 
 1. Selezionare la sottoscrizione di Azure e la posizione, immettere un nome per l'app, quindi selezionare **Fine**.  
-    Dopo alcuni minuti, il dashboard iniziale di DevOps viene visualizzato nella portale di Azure. Viene configurata un'app di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'app viene distribuita in Azure. 
+    Dopo alcuni minuti, il dashboard di DevOps Starter viene visualizzato nel portale di Azure. Viene configurata un'app di esempio in un repository nell'organizzazione Azure DevOps, viene eseguita una compilazione e l'app viene distribuita in Azure. 
     
     Il dashboard fornisce visibilità su repository di codice, pipeline CI/CD e l'app in Azure. A destra, selezionare **Sfoglia** per visualizzare l'app in esecuzione.
 
@@ -61,9 +61,9 @@ Azure DevOps Starter crea una pipeline CI/CD in Azure Repos. È possibile creare
 
 ## <a name="commit-your-code-changes-and-execute-the-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline CI/CD
 
-Azure DevOps Starter crea un repository git in Azure Pipelines o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'app, seguire questa procedura:
+Azure DevOps Starter crea un repository Git in Azure Pipelines o GitHub. Per visualizzare il repository e apportare modifiche al codice nell'app, seguire questa procedura:
 
-1. Sul dashboard iniziale di DevOps, a sinistra, selezionare il collegamento per il ramo master. Il collegamento apre una visualizzazione del repository Git appena creato.
+1. Sul lato sinistro del dashboard di DevOps Starter selezionare il collegamento per il ramo master. Il collegamento apre una visualizzazione del repository Git appena creato.
 
 1. Per visualizzare l'URL clone del repository, selezionare **Clona** in alto a destra. È possibile clonare il repository Git nell'IDE preferito. Nei passaggi successivi, è possibile usare il Web browser per apportare modifiche al codice ed eseguirne il commit direttamente nel ramo master.
 
@@ -77,7 +77,7 @@ Azure DevOps Starter crea un repository git in Azure Pipelines o GitHub. Per vis
 
 ## <a name="examine-the-azure-pipelines-cicd-pipeline"></a>Esaminare la pipeline CI/CD di Azure Pipelines
 
-Azure DevOps Starter configura automaticamente una pipeline di integrazione continua/recapito continuo completa nell'organizzazione DevOps di Azure. Esplorare e personalizzare la pipeline in base alle esigenze. Per acquisire familiarità con le pipeline di compilazione e di versione di Azure DevOps, eseguire questa procedura:
+Azure DevOps Starter configura automaticamente una pipeline CI/CD completa nell'organizzazione di Azure DevOps. Esplorare e personalizzare la pipeline in base alle esigenze. Per acquisire familiarità con le pipeline di compilazione e di versione di Azure DevOps, eseguire questa procedura:
 
 1. Passare al dashboard di DevOps Starter.
 
@@ -126,4 +126,4 @@ Quando non sono più necessarie, è possibile eliminare l'istanza del Servizio a
 Per altre informazioni sulla modifica delle pipeline di compilazione e di versione in base alle esigenze del team, vedere:
 
 > [!div class="nextstepaction"]
-> [Definire la pipeline di distribuzione continua (CD) in più fasi](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definire la pipeline di distribuzione continua (CD) in più fasi](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

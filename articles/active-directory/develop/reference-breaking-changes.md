@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115034"
 ---
 # <a name="whats-new-for-authentication"></a>Novità per l'autenticazione
@@ -69,9 +69,9 @@ Gli utenti con password con una lunghezza superiore a 256 caratteri che effettua
 
 L'errore nei log di accesso sarà AADSTS 50052: InvalidPasswordExceedsMaxLength
 
-Messaggio:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+Messaggio: `The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
 
-Correzione
+Correzione:
 
 L'utente non è in grado di eseguire l'accesso perché la password supera la lunghezza massima consentita. È necessario contattare l'amministratore per reimpostare la password. Se SSPR è abilitato per il tenant, è possibile reimpostare la password seguendo il collegamento "password dimenticata".
 
@@ -127,7 +127,7 @@ Per risolvere questo problema, usare l'esperienza di consenso dell'amministrator
 
 #### <a name="example-request"></a>Richiesta di esempio
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`In questo esempio, il tenant di risorse (Authority) è contoso.com, l'app per le risorse è un'app a tenant singolo chiamata `gateway.contoso.com/api` per il tenant Contoso e l'app client è `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Se l'app client dispone di un'entità servizio all'interno di Contoso.com, questa richiesta può continuare.  In caso contrario, la richiesta avrà esito negativo con l'errore precedente.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` In questo esempio, il tenant di risorse (Authority) è contoso.com, l'app per le risorse è un'app a tenant singolo chiamata `gateway.contoso.com/api` per il tenant Contoso e l'app client è `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Se l'app client dispone di un'entità servizio all'interno di Contoso.com, questa richiesta può continuare.  In caso contrario, la richiesta avrà esito negativo con l'errore precedente.
 
 Se l'app del gateway contoso era un'applicazione multi-tenant, tuttavia, la richiesta continuerà indipendentemente dall'app client con un'entità servizio all'interno di Contoso.com.
 

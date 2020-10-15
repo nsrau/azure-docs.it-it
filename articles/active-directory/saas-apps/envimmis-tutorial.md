@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551745"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Esercitazione: Integrazione di Azure Active Directory con Envi MMIS
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Envi MMIS, seguire ques
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Envi MMIS](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le opzioni "Identificatore" e "URL di risposta" e il pulsante "Salva" evidenziati.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
@@ -134,23 +134,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con Envi MMIS, seguire ques
 
 2. Fare clic sulla scheda **My Domain** (Dominio personale).
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/envimmis-tutorial/configure1.png)
+    ![Screenshot che mostra il menu "User" con l'opzione "My Domain" selezionata.](./media/envimmis-tutorial/configure1.png)
 
 3. Fare clic su **Modifica**.
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/envimmis-tutorial/configure2.png)
+    ![Screenshot che mostra il pulsante "Edit" selezionato.](./media/envimmis-tutorial/configure2.png)
 
 4. Selezionare la casella di controllo **Use remote authentication** (Usa autenticazione remota) e quindi selezionare **HTTP Redirect** (Reindirizzamento HTTP) dall'elenco a discesa **Authentication Type** (Tipo di autenticazione).
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/envimmis-tutorial/configure3.png)
+    ![Screenshot che mostra la scheda "Details" con la casella "Use remote authentication" e l'opzione "HTTP Redirect" selezionate.](./media/envimmis-tutorial/configure3.png)
 
 5. Selezionare la scheda **Resources** (Risorse) e quindi fare clic su **Upload Metadata** (Carica metadati).
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/envimmis-tutorial/configure4.png)
+    ![Screenshot che mostra la scheda "Resources" con l'azione "Upload Metadata" selezionata.](./media/envimmis-tutorial/configure4.png)
 
 6. Nel popup **Upload Metadata** (Carica metadati) seguire questa procedura:
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/envimmis-tutorial/configure5.png)
+    ![Screenshot che mostra il popup "Upload Metadata" con l'opzione "File" selezionata e l'icona "choose file" e il pulsante "OK" evidenziati.](./media/envimmis-tutorial/configure5.png)
 
     a. Selezionare l'opzione **File** dall'elenco a discesa **Upload From** (Carica da).
 
@@ -223,11 +223,11 @@ Per consentire agli utenti di Azure AD di accedere a Envi MMIS, è necessario ef
 
 2. Fare clic sulla scheda **User Access** (Accesso utente).
 
-    ![Aggiungere un dipendente](./media/envimmis-tutorial/user1.png)
+    ![Screenshot che mostra il menu "User" con l'opzione "User List" selezionata.](./media/envimmis-tutorial/user1.png)
 
 3. Fare clic sul pulsante **Add User** (Aggiungi utente).
 
-    ![Aggiungere un dipendente](./media/envimmis-tutorial/user2.png)
+    ![Screenshot che mostra la sezione "Users" con il pulsante "Add User" selezionato.](./media/envimmis-tutorial/user2.png)
 
 4. Nella sezione **Add User** seguire questa procedura:
 

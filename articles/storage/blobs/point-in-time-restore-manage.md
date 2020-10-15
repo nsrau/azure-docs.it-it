@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91280471"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Eseguire un ripristino temporizzato sui dati BLOB in blocchi
@@ -36,7 +36,7 @@ Prima di abilitare e configurare il ripristino temporizzato, abilitare i relativ
 > [!IMPORTANT]
 > L'abilitazione dell'eliminazione temporanea, del feed delle modifiche e del controllo delle versioni BLOB può comportare addebiti aggiuntivi. Per altre informazioni, vedere [eliminazione temporanea per i BLOB](soft-delete-blob-overview.md), [supporto del feed delle modifiche nell'archivio BLOB di Azure](storage-blob-change-feed.md)e [controllo delle versioni dei BLOB](versioning-overview.md).
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per configurare il ripristino temporizzato con il portale di Azure, attenersi alla procedura seguente:
 
@@ -112,7 +112,7 @@ Vengono ripristinati solo i BLOB in blocchi. I BLOB di pagine e i BLOB di Accoda
 
 È possibile ripristinare tutti i contenitori nell'account di archiviazione per ripristinarne lo stato precedente in un determinato momento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con la portale di Azure, attenersi alla procedura seguente:
 
@@ -122,7 +122,7 @@ Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con 
 1. Confermare che si desidera procedere selezionando la casella.
 1. Selezionare **Ripristina** per avviare l'operazione di ripristino.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot che illustra come ripristinare tutti i contenitori in un punto di ripristino specificato":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot che illustra come configurare il ripristino temporizzato nel portale di Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -158,7 +158,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 È possibile ripristinare uno o più intervalli di lessicografico di BLOB all'interno di un singolo contenitore o tra più contenitori per restituire tali BLOB allo stato precedente in un determinato momento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 Per ripristinare un intervallo di BLOB in uno o più contenitori con la portale di Azure, attenersi alla seguente procedura:
 
@@ -169,14 +169,14 @@ Per ripristinare un intervallo di BLOB in uno o più contenitori con la portale 
 1. Specificare gli intervalli da ripristinare. Usare una barra (/) per delineare il nome del contenitore dal prefisso del BLOB.
 1. Per impostazione predefinita, il riquadro **Ripristina contenitori selezionati** specifica un intervallo che include tutti i BLOB nel contenitore. Eliminare questo intervallo se non si desidera ripristinare l'intero contenitore. L'intervallo predefinito è illustrato nell'immagine seguente.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot che mostra l'intervallo di BLOB predefinito da eliminare prima di specificare un intervallo personalizzato":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot che illustra come configurare il ripristino temporizzato nel portale di Azure":::
 
 1. Confermare che si desidera procedere selezionando la casella.
 1. Selezionare **Ripristina** per avviare l'operazione di ripristino.
 
 Nell'immagine seguente viene illustrata un'operazione di ripristino in un set di intervalli.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot che illustra come ripristinare intervalli di BLOB in uno o più contenitori":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot che illustra come configurare il ripristino temporizzato nel portale di Azure":::
 
 L'operazione di ripristino mostrata nell'immagine esegue le azioni seguenti:
 

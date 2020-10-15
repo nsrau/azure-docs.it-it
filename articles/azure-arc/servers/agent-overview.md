@@ -3,12 +3,12 @@ title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 248604884cf1b7592b382a3490aab60102e12faf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91822198"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979156"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -23,7 +23,7 @@ Il pacchetto agente computer connesso di Azure contiene diversi componenti logic
 
 * Il servizio metadati dell'istanza ibrida (HIMDS) gestisce la connessione ad Azure e all'identità di Azure del computer connesso.
 
-* L'agente di configurazione Guest fornisce la funzionalità di configurazione Guest e criteri in-Guest, ad esempio la valutazione della conformità del computer ai criteri richiesti.
+* L'agente di configurazione Guest fornisce funzionalità di configurazione dei criteri e Guest di In-Guest, ad esempio la valutazione della conformità del computer ai criteri richiesti.
 
     Si noti il comportamento seguente con la [configurazione Guest](../../governance/policy/concepts/guest-configuration.md) di criteri di Azure per un computer disconnesso:
 
@@ -85,6 +85,7 @@ Tag del servizio:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureResourceManager
 * AzureArcInfrastructure
 
 URL:
@@ -94,10 +95,15 @@ URL:
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`agentserviceapi.azure-automation.net`|Configurazione guest|
-|`*-agentservice-prod-1.azure-automation.net`|Configurazione guest|
 |`*.guestconfiguration.azure.com` |Configurazione guest|
 |`*.his.arc.azure.com`|Servizio ibrido di gestione delle identità|
+
+Gli agenti di anteprima (versione 0,11 e inferiore) richiedono anche l'accesso agli URL seguenti:
+
+| Risorsa dell'agente | Descrizione |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|Configurazione guest|
+|`*-agentservice-prod-1.azure-automation.net`|Configurazione guest|
 
 Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](../../virtual-network/security-overview.md#service-tags).
 
@@ -173,7 +179,7 @@ Dopo l'installazione dell'agente Connected Machine per Windows, vengono applicat
     |Nome servizio |Nome visualizzato |Nome del processo |Descrizione |
     |-------------|-------------|-------------|------------|
     |himds |Servizio metadati dell'istanza di Azure Hybrid |himds.exe |Questo servizio implementa il servizio metadati dell'istanza di Azure (IMDS) per gestire la connessione ad Azure e l'identità di Azure del computer connesso.|
-    |DscService |Servizio di configurazione guest |dsc_service.exe |Codebase DSC (Desired state Configuration) usato in Azure per implementare i criteri nel guest.|
+    |DscService |Servizio di configurazione guest |dsc_service.exe |La codebase DSC (Desired state Configuration) usata all'interno di Azure per implementare i criteri di In-Guest.|
 
 * Durante l'installazione dell'agente, vengono create le variabili di ambiente seguenti.
 

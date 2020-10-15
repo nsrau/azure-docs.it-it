@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330826"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949123"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -42,10 +42,10 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Blockchain | [Servizio Azure Blockchain](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Token di blockchain di Azure](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft.Blueprint | [Azure Blueprint](../../governance/blueprints/index.yml) |
-| Microsoft.BotService | [Servizio Azure Bot](/azure/bot-service/) |
+| Microsoft.BotService | [servizio Azure Bot](/azure/bot-service/) |
 | Microsoft.Cache | [Cache Redis di Azure](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
-| Microsoft.Cdn | [Rete per la distribuzione di contenuti (CDN)](../../cdn/index.yml) |
+| Microsoft.Cdn | [Rete CDN](../../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [Certificati del servizio app](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
 | Microsoft.ChangeAnalysis | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Macchina virtuale del modello di distribuzione classica |
@@ -56,12 +56,12 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.CognitiveServices | [Servizi cognitivi](../../cognitive-services/index.yml) |
 | Microsoft. Commerce<sup>1</sup> | core |
 | Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. consumo<sup>1</sup> | [Gestione dei costi](/azure/cost-management/) |
-| Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
+| Microsoft. consumo<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
+| Microsoft.ContainerInstance | [Istanze di contenitore](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
-| Microsoft. CostManagement<sup>1</sup> | [Gestione dei costi](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gestione dei costi](/azure/cost-management/) |
+| Microsoft. CostManagement<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gestione costi](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Customer Lockbox per Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
@@ -110,7 +110,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Kusto | [Esplora dati di Azure](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [App per la logica](../../logic-apps/index.yml) |
-| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/studio/index.yml) |
+| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
 | Microsoft.Maintenance | [Manutenzione di Azure](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft.ManagedIdentity | [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/index.yml) |
@@ -135,7 +135,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.OperationsManagement | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Servizio di peering di Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Criteri di Azure](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft. Portal<sup>1</sup> | [Portale di Azure](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
@@ -167,7 +167,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.StorageCache | [Cache HPC di Azure](../../hpc-cache/index.yml) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
-| Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
+| Microsoft.StreamAnalytics | [Analisi di flusso di Azure](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
 | Microsoft. support<sup>1</sup> | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |

@@ -10,13 +10,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275133"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurare una connessione a un account di archiviazione di Azure usando un'identità gestita
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurare una connessione a un account di Archiviazione di Azure usando un'identità gestita
 
 Questa pagina descrive come configurare una connessione dell'indicizzatore a un account di Archiviazione di Azure usando un'identità gestita invece di immettere le credenziali nella stringa di connessione dell'oggetto origine dati.
 

@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: eab509e389c074232526aa93fcebb72f3bc986c0
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185603"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gestire il rilevamento modifiche e l'inventario
@@ -143,8 +143,8 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 
 |Query  |Descrizione  |
 |---------|---------|
-|`ConfigurationData`<br>&#124;`where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124;`where SvcState == "Stopped"`<br>&#124;`summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra i record dell'inventario più recenti per i servizi Microsoft che sono stati impostati su Auto (Automatico) ma sono stati segnalati come Stopped (Interrotto). I risultati sono limitati al record più recente per il nome software e il computer specificati.    |
-|`ConfigurationChange`<br>&#124;`where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124;`order by TimeGenerated desc`|Mostra i record di modifica per il software rimosso.|
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra i record dell'inventario più recenti per i servizi Microsoft che sono stati impostati su Auto (Automatico) ma sono stati segnalati come Stopped (Interrotto). I risultati sono limitati al record più recente per il nome software e il computer specificati.    |
+|`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Mostra i record di modifica per il software rimosso.|
 
 ## <a name="create-alerts-on-changes"></a>Creare avvisi relativi alle modifiche
 

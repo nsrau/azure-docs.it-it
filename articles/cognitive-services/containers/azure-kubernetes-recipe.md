@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: b53476bcb05d6e91b157c24795c963c04e6f4bb4
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88244492"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuire il contenitore di rilevamento della lingua Analisi del testo nel servizio Azure Kubernetes
@@ -313,17 +313,17 @@ Questa sezione usa l'interfaccia della riga di comando di **kubectl** per comuni
 
     Impostazioni di distribuzione del contenitore language-frontend|Scopo|
     |--|--|
-    |Riga 32<br> Proprietà `image`|Percorso dell'immagine di language-frontend nel registro contenitori<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Riga 44<br> Proprietà `name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|
+    |Riga 32<br> Proprietà`image`|Percorso dell'immagine di language-frontend nel registro contenitori<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Riga 44<br> Proprietà`name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|
 
 1. Modificare le righe nella sezione deployment del contenitore language in `language.yml` sulla base della tabella seguente per aggiungere il nome della propria immagine del registro contenitori, il segreto client e le impostazioni di analisi del testo.
 
     |Impostazioni di distribuzione del contenitore language|Scopo|
     |--|--|
-    |Riga 78<br> Proprietà `image`|Percorso dell'immagine di language nel registro contenitori<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Riga 95<br> Proprietà `name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|
-    |Riga 91<br> Proprietà `apiKey`|Chiave della risorsa di analisi del testo|
-    |Riga 92<br> Proprietà `billing`|Endpoint di fatturazione per la risorsa di analisi del testo.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |Riga 78<br> Proprietà`image`|Percorso dell'immagine di language nel registro contenitori<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Riga 95<br> Proprietà`name`|Segreto del registro contenitori per l'immagine, definito `<client-secret>` in una sezione precedente.|
+    |Riga 91<br> Proprietà`apiKey`|Chiave della risorsa di analisi del testo|
+    |Riga 92<br> Proprietà`billing`|Endpoint di fatturazione per la risorsa di analisi del testo.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Poiché **chiave API** ed **endpoint di fatturazione** vengono impostati nell'ambito della definizione di orchestrazione Kubernetes, il contenitore del sito Web non ha bisogno di conoscere questi valori o passarli come parte della richiesta. Il contenitore del sito Web fa riferimento al contenitore di rilevamento della lingua in base al nome dell'agente di orchestrazione `language`.
 

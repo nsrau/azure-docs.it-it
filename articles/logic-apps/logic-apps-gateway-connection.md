@@ -7,10 +7,10 @@ ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
 ms.date: 08/18/2020
 ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88661198"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
@@ -83,7 +83,7 @@ Dopo aver installato il gateway in un computer locale, creare la risorsa di Azur
    | **Nome risorsa** | Specificare un nome per la risorsa del gateway che contenga solo lettere, numeri, trattini ( `-` ), caratteri di sottolineatura ( `_` ), parentesi ( `(` , `)` ) o punti ( `.` ). |
    | **Sottoscrizione** | Selezionare la sottoscrizione di Azure per l'account Azure usato per l'installazione del gateway. La sottoscrizione predefinita si basa sull'account di Azure usato per accedere. |
    | **Gruppo di risorse** | Il [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) che si vuole usare |
-   | **Località** | La stessa area o la stessa località selezionata per il servizio cloud gateway durante l' [installazione del gateway](../logic-apps/logic-apps-gateway-install.md). In caso contrario, l'installazione del gateway non verrà visualizzata nell'elenco **nome installazione** . Il percorso dell'app per la logica può essere diverso da quello delle risorse del gateway. |
+   | **Posizione** | La stessa area o la stessa località selezionata per il servizio cloud gateway durante l' [installazione del gateway](../logic-apps/logic-apps-gateway-install.md). In caso contrario, l'installazione del gateway non verrà visualizzata nell'elenco **nome installazione** . Il percorso dell'app per la logica può essere diverso da quello delle risorse del gateway. |
    | **Nome installazione** | Selezionare un'installazione del gateway che viene visualizzata nell'elenco solo quando vengono soddisfatte le condizioni seguenti: <p><p>-L'installazione del gateway usa la stessa area della risorsa del gateway che si vuole creare. <br>-L'installazione del gateway non è collegata a un'altra risorsa del gateway di Azure. <br>-L'installazione del gateway è collegata allo stesso account Azure usato per creare la risorsa del gateway. <br>-L'account Azure appartiene a un singolo [tenant o a una singola Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md#terminology) ed è lo stesso account usato per l'installazione del gateway. <p><p>Per ulteriori informazioni, vedere la sezione [domande frequenti](#faq) . |
    |||
 
@@ -116,7 +116,7 @@ Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azur
 
    Un nome di connessione univoco consente di individuare facilmente la connessione in un secondo momento, soprattutto se si creano più connessioni. Se applicabile, è necessario includere anche il dominio completo per il proprio nome utente.
 
-   Ecco un esempio:
+   Esempio:
 
    ![Creare una connessione tra l'app per la logica e il gateway dati](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 

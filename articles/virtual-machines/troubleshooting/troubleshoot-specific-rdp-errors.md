@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f3e4c411223a3e8fc0602602cd941a00f7a19cca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87028244"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Risoluzione dei problemi relativi a specifici messaggi di errore RDP inviati a una VM Windows in Azure
@@ -53,7 +53,7 @@ Per altre informazioni, vedere il post di blog relativo all' [errore della VM di
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>Desktop remoto: impossibile rilevare il "nome" del computer.
 Causa: il client Desktop remoto del computer non è in grado di risolvere il nome del computer nelle impostazioni del file RDP.
 
-Possibili soluzioni:
+Soluzioni possibili:
 
 * Se si usa una rete Intranet aziendale, assicurarsi che il computer abbia accesso al server proxy e sia in grado di inviare a quest'ultimo traffico HTTPS.
 * Se si usa un file RDP archiviato localmente, provare a usare il file generato dal portale. Questo passaggio consente di verificare di usare il nome DNS corretto per la macchina virtuale o il servizio cloud e la porta dell'endpoint della VM. Di seguito viene riportato un esempio di file RDP generato dal portale:
@@ -75,7 +75,7 @@ Causa: la macchina virtuale di destinazione non è in grado di individuare l'aut
 
 Quando il nome utente è nel formato *autoritàsicurezza* \\ *nomeutente* (ad esempio: corp\user1.), la parte *autoritàsicurezza* è il nome del computer della macchina virtuale (per l'autorità di sicurezza locale) o un nome di dominio Active Directory.
 
-Possibili soluzioni:
+Soluzioni possibili:
 
 * Se l'account è locale nella macchina virtuale, verificare che il nome della macchina virtuale sia stato digitato correttamente.
 * Se l'account è in un dominio di Active Directory, controllare l'ortografia del nome di dominio.

@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.author: b-juche
 ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483466"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Risolvere i problemi del provider di risorse di Azure NetApp Files 
@@ -126,7 +126,7 @@ Rimuovere i caratteri che non sono lettere alfabetiche, numeri o trattini ("-") 
 Questo errore si verifica quando si tenta di modificare `FileSystemId` .  `FileSystemdId`La modifica non è un'operazione supportata. 
 
 * Causa:   
-L'ID del file system viene impostato al momento della creazione del volume. `FileSystemId`non può essere modificato successivamente.
+L'ID del file system viene impostato al momento della creazione del volume. `FileSystemId` non può essere modificato successivamente.
 * Soluzione:   
 Non includere `FileSystemId` in una richiesta patch e Update (put).  In alternativa, verificare che `FileSystemId` sia uguale nella richiesta.
 
@@ -259,7 +259,7 @@ Questo errore indica che un errore interno impedisce il completamento dell'opera
 * Causa:   
 Si è verificato un errore interno che ha impedito il completamento dell'operazione.
 * Soluzione:   
-Questo errore è probabile che sia temporaneo. Attendere alcuni minuti e riprovare. Se il problema persiste, creare un ticket per il supporto tecnico per esaminare il problema.
+Questo errore è probabile che sia temporaneo. Attendere qualche minuto e riprovare. Se il problema persiste, creare un ticket per il supporto tecnico per esaminare il problema.
 * Soluzione alternativa:   
 Attendere alcuni minuti e verificare se il problema persiste.
 
@@ -439,7 +439,7 @@ No.  Vedere la soluzione sopra.
 
 ***SubnetId non può essere modificato.***
 
-Questo errore si verifica quando si tenta di modificare il `subnetId` dopo che il volume è stato creato.  `SubnetId`è necessario impostare quando il volume viene creato e non può essere modificato in un secondo momento.
+Questo errore si verifica quando si tenta di modificare il `subnetId` dopo che il volume è stato creato.  `SubnetId` è necessario impostare quando il volume viene creato e non può essere modificato in un secondo momento.
 
 * Causa:   
 Si sta provando a modificare il `subnetId` dopo che il volume è stato creato, che non è un'operazione supportata. 

@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019998"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creare un contenitore in Azure Cosmos
@@ -53,7 +53,7 @@ Questo articolo illustra i diversi modi per creare un contenitore di Azure Cosmo
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
    * Selezionare **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot dell'API Azure Cosmos DB per MongoDB, finestra di dialogo Aggiungi contenitore":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot del riquadro Esplora dati con il nuovo contenitore evidenziato":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>API Cassandra
 
@@ -69,7 +69,7 @@ Questo articolo illustra i diversi modi per creare un contenitore di Azure Cosmo
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
    * Selezionare **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot dell'API Cassandra con la finestra di dialogo Aggiungi tabella":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot del riquadro Esplora dati con il nuovo contenitore evidenziato":::
 
 > [!NOTE]
 > Per l'API Cassandra, la chiave primaria viene usata come chiave di partizione.
@@ -89,7 +89,7 @@ Questo articolo illustra i diversi modi per creare un contenitore di Azure Cosmo
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
    * Selezionare **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot dell'API Gremlin con la finestra di dialogo Aggiungi Graph":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot del riquadro Esplora dati con il nuovo contenitore evidenziato":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>API di tabella
 
@@ -103,7 +103,7 @@ Questo articolo illustra i diversi modi per creare un contenitore di Azure Cosmo
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
    * Selezionare **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Screenshot dell'API Tabella con la finestra di dialogo Aggiungi tabella":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Screenshot del riquadro Esplora dati con il nuovo contenitore evidenziato":::
 
 > [!Note]
 > Per l'API Tabella, la chiave di partizione viene specificata ogni volta che si aggiunge una nuova riga.

@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450730"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973632"
 ---
-# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumi NFS v 4.1 su Azure NetApp Files per SAP HANA
+# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumi NFS v4.1 in Azure NetApp Files per SAP HANA
 
 Azure NetApp Files fornisce condivisioni NFS native che possono essere usate per i volumi **/Hana/Shared**, **/Hana/data**e **/Hana/log** . L'uso di condivisioni NFS basate su e per i volumi **/Hana/data** e **/Hana/log** richiede l'utilizzo del protocollo NFS v 4.1. Il protocollo NFS v3 non è supportato per l'utilizzo di volumi **/Hana/data** e **/Hana/log** quando si basano le condivisioni su e. 
 
@@ -131,7 +131,7 @@ Lo stesso vale per il volume utilizzato per scrivere backup completo del databas
  
 
 ## <a name="backup"></a>Backup
-Oltre ai backup di streaming e al servizio di backup di Azure che eseguono il backup SAP HANA database, come descritto nell'articolo [relativo alla guida di backup per SAP Hana in macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide), Azure NetApp Files consente di eseguire backup di snapshot basati sull'archiviazione. 
+Oltre ai backup di streaming e al servizio di backup di Azure che eseguono il backup SAP HANA database, come descritto nell'articolo [relativo alla guida di backup per SAP Hana in macchine virtuali di Azure](./sap-hana-backup-guide.md), Azure NetApp Files consente di eseguire backup di snapshot basati sull'archiviazione. 
 
 SAP HANA supporta:
 
@@ -195,4 +195,4 @@ root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytes
 ## <a name="next-steps"></a>Passaggi successivi
 Leggi l'articolo:
 
-- [Disponibilità elevata di SAP HANA per macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [Disponibilità elevata di SAP HANA per macchine virtuali di Azure](./sap-hana-availability-overview.md)

@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: a1fafdf1db29917982bbf136de45237459712bcd
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368856"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073462"
 ---
-# <a name="secure-pods-with-azure-policy"></a>Proteggere i pod con criteri di Azure
+# <a name="secure-pods-with-azure-policy"></a>Proteggere i pod con Criteri di Azure
 
 Per migliorare la sicurezza del cluster AKS, è possibile controllare quali funzioni vengono concesse ai pod e se qualsiasi elemento viene eseguito in base ai criteri aziendali. Questo accesso viene definito tramite criteri predefiniti forniti dal [componente aggiuntivo criteri di Azure per AKS][kubernetes-policy-reference]. Garantendo un ulteriore controllo sugli aspetti di sicurezza della specifica del Pod, ad esempio i privilegi radice, consente una maggiore conformità alla sicurezza e la visibilità di ciò che viene distribuito nel cluster. Se un pod non soddisfa le condizioni specificate nei criteri, i criteri di Azure possono impedire al pod di avviare o contrassegnare una violazione. Questo articolo illustra come usare criteri di Azure per limitare la distribuzione di pod in AKS.
 
@@ -336,7 +336,7 @@ Per altre informazioni sulla limitazione del traffico di rete Pod, vedere [prote
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
-[policy-samples]: policy-samples.md#microsoftcontainerservice
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

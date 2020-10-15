@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890645"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell script
@@ -27,7 +27,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
 ### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>Per Azure Stack dispositivo Edge Pro tramite l'interfaccia utente Web locale
 
-1. Sono state completate le impostazioni di rete nel dispositivo Azure Stack Edge Pro, come descritto in [passaggio 1: configurare Azure stack dispositivo Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Sono state completate le impostazioni di rete nel dispositivo Azure Stack Edge Pro, come descritto in [Passaggio 1: Configurare il dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. È stata abilitata un'interfaccia di rete per il calcolo. L'indirizzo IP di questa interfaccia di rete viene usato per creare uno switch virtuale per la distribuzione della VM. I passaggi seguenti illustrano il processo:
 
@@ -36,7 +36,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
         > [!IMPORTANT] 
         > È possibile configurare una sola porta per il calcolo.
 
-    2. Abilitare il calcolo nell'interfaccia di rete. Azure Stack Edge Pro crea e gestisce un commutire virtuale corrispondente a tale interfaccia di rete.
+    2. Abilitare il calcolo nell'interfaccia di rete. Azure Stack Edge Pro crea e gestisce una rete virtuale corrispondente a tale interfaccia di rete.
 
 3. Sono stati creati e installati tutti i certificati sul dispositivo Azure Stack Edge Pro e nell'archivio radice attendibile del client. Seguire la procedura descritta in [Passaggio 2: Creare e installare i certificati](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 

@@ -5,9 +5,14 @@
     - name: Che cos'è Azure Bastion?
       href: bastion-overview.md
 - name: Avvi rapidi
+  expanded: true
   items:
-    - name: Creare un host bastion dalle impostazioni della VM
+    - name: Creare un host usando le impostazioni della macchina virtuale
       href: quickstart-host-portal.md
+- name: Esercitazioni
+  items:
+    - name: Creare l'host e connettersi alla macchina virtuale Windows
+      href: tutorial-create-host-portal.md
 - name: Concetti
   items:
     - name: Supporto per il lavoro remoto
@@ -16,10 +21,10 @@
       href: work-remotely-support.md
 - name: Guide pratiche
   items:
-    - name: Creare un host Bastion
+    - name: Creare un host
       items:
         - name: Portale di Azure
-          href: bastion-create-host-portal.md
+          href: tutorial-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
         - name: Interfaccia della riga di comando di Azure
@@ -65,7 +70,7 @@
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Contratto di servizio in anteprima
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: Contratto di servizio

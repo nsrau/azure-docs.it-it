@@ -4,10 +4,10 @@ description: Offre una panoramica dell'appliance di Azure Migrate usata per la v
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322258"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
@@ -62,7 +62,7 @@ I dati raccolti dal client per tutti gli scenari di distribuzione sono riepiloga
 
 ## <a name="discovery-and-collection-process"></a>Processo di individuazione e raccolta
 
-![Architecture](./media/migrate-appliance-architecture/architecture1.png)
+![Architettura](./media/migrate-appliance-architecture/architecture1.png)
 
 L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il processo seguente.
 
@@ -85,7 +85,7 @@ L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il p
 
 L'appliance viene aggiornata quando vengono aggiornati gli agenti di Azure Migrate in esecuzione nell'appliance. Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance. È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
 
-Per disattivare l'aggiornamento automatico nel registro di sistema, impostare la chiave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" su 0 (DWORD).
+Per disattivare l'aggiornamento automatico nel registro di sistema, impostare il HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance chiave "AutoUpdate" su 0 (DWORD).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -6,17 +6,17 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a85f5cb9cc519b180354445ca9ca2f8dd0354c23
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370200"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975282"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Distribuire in host dedicati usando l'interfaccia della riga di comando di Azure
  
 
-Questo articolo illustra come creare un [host dedicato](dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
+Questo articolo illustra come creare un [host dedicato](../dedicated-hosts.md) di Azure per ospitare le macchine virtuali (VM). 
 
 Assicurarsi di aver installato l'interfaccia della riga di comando di Azure nella versione 2.0.70 o successiva e di aver eseguito l'accesso a un account Azure usando `az login`. 
 
@@ -319,8 +319,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni, vedere la panoramica [Host dedicati](dedicated-hosts.md).
+- Per ulteriori informazioni, vedere la panoramica [Host dedicati](../dedicated-hosts.md).
 
-- È anche possibile creare host dedicati usando il [portale di Azure](dedicated-hosts-portal.md).
+- È anche possibile creare host dedicati usando il [portale di Azure](../dedicated-hosts-portal.md).
 
 - È disponibile [qui](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md) un modello di esempio che usa sia le zone che i domini di errore per la resilienza massima in un'area.

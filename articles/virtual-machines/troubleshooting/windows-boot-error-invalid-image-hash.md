@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447888"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969603"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Errore di Windows Boot Manager-0xC0000428 stato dell'hash dell'immagine non valido
 
@@ -28,7 +28,7 @@ Questo articolo illustra la procedura per risolvere i problemi relativi all'uso 
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato Windows Boot Manager con il messaggio:
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che nella schermata viene visualizzato Windows Boot Manager con il messaggio:
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -66,7 +66,7 @@ Non è possibile estendere la data di scadenza di un'immagine di anteprima. Una 
 
 ## <a name="solution"></a>Soluzione
 
-Se l'immagine è un'immagine di anteprima, non è possibile estendere la data di scadenza per l'immagine usata, quindi è necessario [distribuire una nuova macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) usando un'immagine non di anteprima. La procedura seguente consente di identificare se è stata usata un'immagine di anteprima, oltre a fornire le risorse necessarie per il trasferimento dei dati da questa macchina virtuale a una nuova VM. Se l'immagine è stata identificata in modo positivo come immagine di anteprima, l'immagine non è recuperabile, perché ora è scaduta.
+Se l'immagine è un'immagine di anteprima, non è possibile estendere la data di scadenza per l'immagine usata, quindi è necessario [distribuire una nuova macchina virtuale](../windows/quick-create-portal.md) usando un'immagine non di anteprima. La procedura seguente consente di identificare se è stata usata un'immagine di anteprima, oltre a fornire le risorse necessarie per il trasferimento dei dati da questa macchina virtuale a una nuova VM. Se l'immagine è stata identificata in modo positivo come immagine di anteprima, l'immagine non è recuperabile, perché ora è scaduta.
 
 A seconda delle preferenze, è possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per eseguire query sull'immagine per determinare se si tratta di un'immagine di anteprima. È possibile usare questi comandi per confermare che l'immagine è un'immagine di anteprima.
 
@@ -103,7 +103,7 @@ A seconda delle preferenze, è possibile usare Azure PowerShell o l'interfaccia 
 
 ### <a name="query-using-the-azure-cli"></a>Eseguire query con l'interfaccia della riga di comando di Azure
 
-1. Se non è già stato fatto, sarà necessario [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando di Azure.
+1. Se non è già stato fatto, sarà necessario [installare l'interfaccia della](/cli/azure/install-azure-cli)riga di comando di Azure.
 1. Al termine del download, usare il prompt dei comandi o PowerShell per immettere il `az login` comando e quindi accedere con le credenziali dell'account.
 1. Una volta effettuato l'accesso, immettere i comandi seguenti:
 

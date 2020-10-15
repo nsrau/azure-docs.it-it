@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851223"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092784"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
 
@@ -66,10 +66,10 @@ Ora che il gruppo è stato creato, può essere associato a prodotti e sviluppato
 3. Premere **Controllo di accesso**.
 4. Fare clic su **+ Aggiungi gruppo**.
 
-    ![Associare un gruppo a un prodotto](./media/api-management-howto-create-groups/groups002.png)
+    ![Schermata che evidenzia il pulsante Aggiungi gruppo.](./media/api-management-howto-create-groups/groups002.png)
 5. Selezionare il gruppo a cui che si vuole aggiungere.
 
-    ![Associare un gruppo a un prodotto](./media/api-management-howto-create-groups/groups003.png)
+    ![Screenshot che mostra il gruppo selezionato ed evidenzia il pulsante Seleziona.](./media/api-management-howto-create-groups/groups003.png)
 
     Per rimuovere un gruppo dal prodotto, fare clic su **Elimina**.
 
@@ -90,7 +90,7 @@ In questa sezione viene illustrato come associare gruppi ai membri.
     ![Aggiungere un membro](./media/api-management-howto-create-groups/groups005.png)
 3. Premere **+Aggiungi** e selezionare un membro.
 
-    ![Aggiungere un membro](./media/api-management-howto-create-groups/groups006.png)
+    ![Schermata che evidenzia il pulsante Aggiungi, l'utente selezionato e il pulsante Seleziona.](./media/api-management-howto-create-groups/groups006.png)
 4. Fare clic su **Seleziona**.
 
 Dopo l'aggiunta dell'associazione tra sviluppatore e gruppo, è possibile visualizzarla nella scheda **Utenti** .

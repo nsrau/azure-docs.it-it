@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527830"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972017"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Ripristinare un volume StorSimple da un set di backup
 
@@ -115,7 +115,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
    
 4. Tornare alla scheda **Catalogo di backup** e selezionare un set di backup. Fare clic con il pulsante destro del mouse e scegliere **Ripristina** dal menu di scelta rapida.
 
-    ![Elenco di set di backup](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Elenco set di backup 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. Verrà richiesto di confermare. Esaminare le informazioni di ripristino e quindi selezionare la casella di controllo di conferma.
    
@@ -123,7 +123,7 @@ I set di backup filtrati vengono quindi catalogati in base ai seguenti attributi
 
 7. Fare clic su **Ripristina**. In questo modo viene avviato un processo di ripristino che è possibile visualizzare accedendo alla pagina **Processi**.
 
-   ![Pagina di conferma](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Pagina di conferma 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Dopo aver completato il ripristino, verificare che i contenuti dei volumi siano sostituiti dai volumi dal backup.
 

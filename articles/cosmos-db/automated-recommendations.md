@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450838"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Suggerimenti automatici per Azure Cosmos DB
@@ -28,7 +28,7 @@ Tutti i servizi cloud, tra cui Azure Cosmos DB ricevere aggiornamenti frequenti 
 
 - È anche possibile trovare le raccomandazioni tramite [Azure Advisor](../advisor/advisor-overview.md) categorizzate in base a bucket diversi, ad esempio costi, sicurezza, affidabilità, prestazioni e eccellenza operativa. È possibile selezionare sottoscrizioni specifiche e filtrare in base al tipo di risorsa, che è **Azure Cosmos DB account**.  Quando si seleziona una raccomandazione specifica, vengono visualizzate le azioni che è possibile eseguire per trarre vantaggio dai carichi di lavoro.
 
-   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Visualizzare le raccomandazioni dal riquadro Azure Advisor":::
+   :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Visualizzare le raccomandazioni dal riquadro Azure Cosmos DB":::
 
 Non tutte le raccomandazioni visualizzate nel riquadro Azure Cosmos DB sono disponibili nell'Azure Advisor e viceversa. Ciò è dovuto al fatto che in base al tipo di raccomandazione rientrano nel riquadro Azure Advisor, Azure Cosmos DB riquadro o entrambi.
 

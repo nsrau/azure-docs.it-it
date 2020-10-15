@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84782813"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestione tra tenant nel centro sicurezza
@@ -43,7 +43,7 @@ Dalla barra dei menu in alto fare clic sull'icona del filtro e selezionare le so
 
   ![Filtra tenant](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Le visualizzazioni e le azioni sono fondamentalmente le stesse. Di seguito sono riportati alcuni esempi:
+Le visualizzazioni e le azioni sono fondamentalmente le stesse. Ecco alcuni esempi:
 
 - **Gestire i criteri di sicurezza**: da una visualizzazione, gestire il comportamento di sicurezza di molte risorse con [criteri](tutorial-security-policy.md), intraprendere azioni con consigli per la sicurezza e raccogliere e gestire i dati relativi alla sicurezza.
 - **Miglioramento del Punteggio sicuro e della conformità**: la visibilità tra tenant consente di visualizzare il comportamento di sicurezza complessivo di tutti i tenant e dove e come migliorare il [Punteggio sicuro](secure-score-security-controls.md) e la [conformità](security-center-compliance-dashboard.md) per ognuno di essi.

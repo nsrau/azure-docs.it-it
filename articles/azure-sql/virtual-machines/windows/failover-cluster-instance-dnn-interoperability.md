@@ -13,10 +13,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272617"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilità delle funzionalità con SQL Server FCI & DNN
@@ -86,7 +86,7 @@ Si supponga, ad esempio, di disporre di un server di pubblicazione configurato c
 
 Usare il nome completo dell'istanza per un'istanza denominata, come nell'esempio di immagine seguente: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Utilizzare il nome completo dell'istanza quando si configura un alias di rete per un'istanza denominata." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="Configurare il nome DNS di DNN come alias di rete usando Gestione configurazione SQL Server." :::
 
 ## <a name="database-mirroring"></a>Mirroring del database
 
@@ -177,5 +177,5 @@ Quindi, creare un alias di rete a cui eseguire il mapping `vnnname\insta1` `dnnl
 Per altre informazioni, vedere: 
 
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server istanze del cluster di failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Istanze del cluster di failover di SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

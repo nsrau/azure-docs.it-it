@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904695"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952268"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire le condivisioni nella versione Pro di Azure Stack Edge
+# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Usare portale di Azure per gestire le condivisioni nella versione Pro di Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -59,13 +59,13 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 7. Per accedere facilmente alle condivisioni dai moduli di calcolo Edge, usare il punto di montaggio locale. Selezionare **Usa la condivisione con il calcolo Edge** per montare automaticamente la condivisione dopo che è stata creata. Quando questa opzione è selezionata, inoltre, il modulo Edge può usare il calcolo con il punto di montaggio locale.
 
-8. Fare clic su **Crea** per creare la condivisione. Viene ricevuta una notifica che indica che la creazione della condivisione è in corso. Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** viene aggiornato per includere la nuova condivisione.
+8. Fare clic su **Crea** per creare la condivisione. Viene ricevuta una notifica che indica che la creazione della condivisione è in corso. Dopo la creazione della condivisione con le impostazioni specificate, il pannello **condivisioni** viene aggiornato per riflettere la nuova condivisione.
 
 ## <a name="add-a-local-share"></a>Aggiungere una condivisione locale
 
 1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**. Selezionare **+ Aggiungi condivisione** sulla barra dei comandi.
 
-    ![Selezionare Aggiungi condivisione](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
+    ![Selezionare Aggiungi condivisione 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
 2. In **Aggiungi condivisione** specificare le impostazioni della condivisione. Specificare un nome univoco per la condivisione.
     
@@ -82,11 +82,11 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 6. Nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**.
 
-7. Selezionare **Crea**. 
+7. Selezionare **Create** (Crea). 
 
     ![Creare una condivisione locale](media/azure-stack-edge-j-series-manage-shares/add-local-share-2.png)
 
-    Viene visualizzata una notifica per indicare che la creazione della condivisione è in corso. Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** viene aggiornato per includere la nuova condivisione.
+    Viene visualizzata una notifica per indicare che la creazione della condivisione è in corso. Dopo la creazione della condivisione con le impostazioni specificate, il pannello **condivisioni** viene aggiornato per riflettere la nuova condivisione.
 
     ![Visualizzare gli aggiornamenti del pannello Condivisioni](media/azure-stack-edge-j-series-manage-shares/add-local-share-3.png)
     
@@ -125,7 +125,7 @@ Per smontare una condivisione, seguire questa procedura nel portale di Azure.
 
 1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Gateway > condivisioni**.
 
-    ![Selezionare condivisione](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
+    ![Selezionare Condividi 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
 2. Nell'elenco delle condivisioni selezionare la condivisione da smontare. È opportuno assicurarsi che la condivisione che si smonta non venga usata da alcun modulo. Se la condivisione viene usata da un modulo, verranno rilevati problemi con il modulo corrispondente. Selezionare **Smonta**.
 
@@ -145,7 +145,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare una condivisione
 
 1. Nell'elenco delle condivisioni fare clic sulla condivisione da eliminare.
 
-    ![Selezionare condivisione](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
+    ![Selezionare Condividi 3](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
 
 2. Fare clic su **Elimina**.
 
@@ -169,7 +169,7 @@ Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivision
 
 1.  Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
 
-    ![Selezionare condivisione](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
+    ![Selezionare la condivisione 4](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
 
 2.  Fare clic su **Aggiorna**. 
 

@@ -9,18 +9,61 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 954962d4f0f16cb35035527d4cb81d0e13495a86
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631835"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996747"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2020-10-12"></a>2020-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v1160"></a>SDK di Azure Machine Learning per Python v 1.16.0
++ **Correzioni di bug e miglioramenti**
+  + **azure-cli-ml**
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-interpret**
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-contrib-K8S**
+    + Aggiunta del supporto per il fissaggio del calcolo ArcKubernetes
+  + **azureml-contrib-Mir**
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-server**
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Questi limiti facoltativi possono essere definiti tramite 1. Impostazione `cpu_cores_limit` `memory_gb_limit` dei parametri e nel `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` Metodo 2. Impostazione `--cpu-cores-limit` e `--memory-gb-limit` flag in CLI applicabili chiamate 3. Impostazione `cpuLimit` `memoryInGBLimit` di e nel `containerResourceRequirements` file di configurazione della distribuzione. JSON/. yml altre informazioni sulle risorse e sui limiti di Kubernetes sono reperibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-core**
+    + Aggiungere le versioni principali delle dipendenze dirette di azureml-Core
+    + AKSWebservice e AKSEndpoints supportano ora i limiti delle risorse di CPU e memoria a livello di Pod. Altre informazioni sulle risorse e sui limiti di Kubernetes sono disponibili all'indirizzo https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + Aggiornamento run.log_table per consentire la registrazione di singole righe.
+    + Aggiunto metodo statico `Run.get(workspace, run_id)` per recuperare un'esecuzione solo usando un metodo di istanza aggiunto `Workspace.get_run(run_id)` per l'area di lavoro per recuperare un'esecuzione nell'area di lavoro
+    + Introduzione alla proprietà Command in Run Configuration, che consente agli utenti di inviare il comando anziché gli argomenti & di script.
+  + **azureml-dataprep-nativo**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-explain-Model**
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-interpret**
+    + correzione del comportamento del flag di is_raw client in azureml-interpreta
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-pipeline-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-sdk**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-tensorboard**
+    + correzione delle descrizioni dei pacchetti causando un errore di caricamento in pypi per azureml-interpretate, azureml-explain-Model, azureml-contrib-interpretate e azureml-tensorboard
+  + **azureml-Training**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+  + **azureml-train-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` supporta ufficialmente Python 3,8.
+    + Aggiunta dell'ambiente curato TensorFlow 2,3
+    + Introduzione alla proprietà Command in Run Configuration, che consente agli utenti di inviare il comando anziché gli argomenti & di script.
+  + **azureml-widgets**
+    + Interfaccia riprogettata per il widget di esecuzione dello script.
+
 
 ## <a name="2020-09-28"></a>2020-09-28
 
@@ -36,7 +79,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Aggiunta di parametri al costruttore TensorflowConfiguration e MpiConfiguration per consentire un'inizializzazione più semplificata degli attributi della classe senza richiedere all'utente di impostare ogni singolo attributo. Aggiunta di una classe PyTorchConfiguration per la configurazione dei processi PyTorch distribuiti in ScriptRunConfig.
     + Aggiungere la versione di Azure-Mgmt-Resource per correggere l'errore di autenticazione.
     + Supporto Triton senza distribuzione del codice
-    + le directory degli output specificate in Run. start_logging () verranno ora rilevate quando si usa l'esecuzione in scenari interattivi. I file rilevati saranno visibili in ML Studio al momento della chiamata di run. complete ()
+    + le directory degli output specificate in Run.start_logging () verranno ora rilevate quando si usa l'esecuzione in scenari interattivi. I file rilevati saranno visibili in ML Studio al momento della chiamata di run. complete ()
     + È ora possibile specificare la codifica dei file durante la creazione del set di dati con `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_json_lines_files` passando l' `encoding` argomento. Le codifiche supportate sono ' UTF8',' iso88591',' Latin1',' ASCII ', UTF16',' UTF32',' utf8bom ' è windows1252'.
     + Correzione di bug quando l'oggetto Environment non viene passato al costruttore ScriptRunConfig.
     + Aggiornamento di run. Cancel () per consentire l'annullamento di un'esecuzione locale da un altro computer.
@@ -90,10 +133,10 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Aggiornamento della documentazione di AzureML MLflow e degli esempi di notebook 
     + Nuovo supporto per i progetti MLflow con backend AzureML
     + Supporto del registro di sistema del modello MLflow
-    + Aggiunto il supporto RBAC per le operazioni AzureML-MLflow 
+    + Aggiunto il supporto RBAC per operazioni di AzureML-MLflow 
     
   + **azureml-pipeline-core**
-    + È stata migliorata la documentazione dei metodi PipelineOutputFileDataset. parse_ *.
+    + È stata migliorata la documentazione dei metodi PipelineOutputFileDataset.parse_ *.
     + New kusto Step e kusto Compute target.
     + La proprietà Swaggerurl fornita per l'entità endpoint della pipeline tramite tale utente può visualizzare la definizione dello schema per l'endpoint della pipeline pubblicata.
   + **azureml-pipeline-steps**
@@ -136,7 +179,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Aggiunta page_count predefinita/documentazione per l'elenco dei modelli ().
     + Modificare CLI&SDK per prendere il parametro adbworkspace e aggiungere l'area di lavoro ADB Lin/unlink Runner.
     + Correzione del bug nel set di dati. aggiornare che ha causato l'aggiornamento della versione più recente del set di dati, non la versione dell'aggiornamento del set di dati è stata chiamata. 
-    + Correzione del bug nel set di dati. get_by_name che Visualizza i tag per la versione più recente del set di dati anche quando è stata recuperata una versione precedente specifica.
+    + Correzione del bug in Dataset.get_by_name che Visualizza i tag per la versione più recente del set di dati anche quando è stata recuperata una versione precedente specifica.
   + **azureml-interpret**
     + Sono stati aggiunti output di probabilità ai Explainer per il Punteggio Shap in azureml-interpretate in base al parametro shap_values_output dal Explainer originale.
   + **azureml-pipeline-core**
@@ -227,8 +270,8 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Le eccezioni non gestite in AutoML ora puntano a una pagina HTTP relativa ai problemi noti, in cui è possibile trovare altre informazioni sugli errori.
   + **azureml-core**
     + I nomi dei modelli possono avere una lunghezza di 255 caratteri.
-    + Environment. get_image_details () restituisce il tipo di oggetto modificato. `DockerImageDetails` classe sostituita `dict` , i dettagli dell'immagine sono disponibili dalle nuove proprietà della classe. Le modifiche sono compatibili con le versioni precedenti.
-    + Correzione del bug per Environment. from_pip_requirements () per mantenere la struttura delle dipendenze
+    + Il tipo di oggetto restituito Environment.get_image_details () è stato modificato. `DockerImageDetails` classe sostituita `dict` , i dettagli dell'immagine sono disponibili dalle nuove proprietà della classe. Le modifiche sono compatibili con le versioni precedenti.
+    + Correzione di un bug per Environment.from_pip_requirements () per mantenere la struttura delle dipendenze
     + Correzione di un bug in cui log_list avrebbe esito negativo se nella stessa lista sono inclusi int e Double.
     + Quando si Abilita il collegamento privato in un'area di lavoro esistente, tenere presente che se sono presenti destinazioni di calcolo associate all'area di lavoro, tali destinazioni non funzioneranno se non si trovano dietro la stessa rete virtuale dell'endpoint privato dell'area di lavoro.
     + Reso `as_named_input` facoltativo quando si usano i set di impostazioni negli esperimenti e si aggiungono `as_mount` e `as_download` a `FileDataset` . Il nome di input verrà generato automaticamente `as_mount` se `as_download` viene chiamato o.
@@ -303,16 +346,16 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Aggiunta del supporto per il flag Enable-App-Insights in ManagedInferencing
   + **azureml-core**
     + Un parametro Validate per queste API consentendo la convalida da ignorare quando l'origine dati non è accessibile dal calcolo corrente.
-      + TabularDataset. time_before (end_time, include_boundary = true, Validate = true)
-      + TabularDataset. time_after (start_time, include_boundary = true, Validate = true)
-      + TabularDataset. time_recent (time_delta, include_boundary = true, Validate = true)
-      + TabularDataset. time_between (start_time, end_time, include_boundary = true, Validate = true)
+      + TabularDataset.time_before (end_time, include_boundary = true, Validate = true)
+      + TabularDataset.time_after (start_time, include_boundary = true, Validate = true)
+      + TabularDataset.time_recent (time_delta, include_boundary = true, Validate = true)
+      + TabularDataset.time_between (start_time, end_time, include_boundary = true, Validate = true)
     + Aggiunta del supporto per il filtro del Framework per l'elenco dei modelli e aggiunta dell'esempio NCD AutoML nel notebook indietro
-    + Per datastore. register_azure_blob_container e datastore. register_azure_file_share (solo opzioni che supportano il token SAS), sono state aggiornate le stringhe del documento per il `sas_token` campo in modo da includere i requisiti minimi per le autorizzazioni per gli scenari di lettura e scrittura tipici.
-    + Deprecazione di _with_auth param in WS. get_mlflow_tracking_uri ()
+    + Per Datastore.register_azure_blob_container e Datastore.register_azure_file_share (solo le opzioni che supportano il token SAS), sono state aggiornate le stringhe del documento per il `sas_token` campo in modo da includere i requisiti minimi per le autorizzazioni per gli scenari di lettura e scrittura tipici.
+    + Deprecazione di _with_auth param in ws.get_mlflow_tracking_uri ()
   + **azureml-mlflow**
-    + Aggiungere il supporto per la distribuzione di modelli file://locali con AzureML-MLflow
-    + Deprecazione di _with_auth param in WS. get_mlflow_tracking_uri ()
+    + Aggiunta del supporto per la distribuzione di modelli file://locali con AzureML-MLflow
+    + Deprecazione di _with_auth param in ws.get_mlflow_tracking_uri ()
   + **azureml-opendatasets**
     + I set di impostazioni di rilevamento Covid-19 pubblicati di recente sono ora disponibili con l'SDK
   + **azureml-pipeline-core**
@@ -729,7 +772,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Accetta nomi di calcolo stringa da passare a ParallelRunConfig
   + **azureml-core**
     +  Aggiunta dell'API Environment. Clone (new_name) per creare una copia dell'oggetto ambiente
-    +  Environment.docKer. base_dockerfile accetta FilePath. Se è possibile risolvere un file, il contenuto verrà letto nella proprietà dell'ambiente base_dockerfile
+    +  Environment.docker.base_dockerfile accetta FilePath. Se è possibile risolvere un file, il contenuto verrà letto nella proprietà dell'ambiente base_dockerfile
     + Reimposta automaticamente i valori che si escludono a vicenda per base_image e base_dockerfile quando l'utente imposta manualmente un valore in Environment.docKer
     + Aggiunto user_managed flag in RSection che indica se l'ambiente è gestito dall'utente o da AzureML.
     + DataSet: errore di download del set di dati fisso se il percorso dati contiene caratteri Unicode.
@@ -998,7 +1041,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + La spiegazione del testo rimossa da azureml-contrib-interpretate come spiegazione del testo è stata spostata nel repository di lettura-testo che verrà rilasciato a breve.
   + **azureml-core**
     + Set di dati: gli utilizzi per il set di dati del file non dipendono più da numpy e Pandas da installare in Python ENV.
-    + È stato modificato LocalWebservice. wait_for_deployment () per controllare lo stato del contenitore Docker locale prima di provare a effettuare il ping dell'endpoint di integrità, riducendo notevolmente la quantità di tempo necessaria per segnalare una distribuzione non riuscita.
+    + È stato modificato LocalWebservice.wait_for_deployment () per controllare lo stato del contenitore Docker locale prima di provare a effettuare il ping dell'endpoint di integrità, riducendo notevolmente la quantità di tempo necessaria per segnalare una distribuzione non riuscita.
     + Correzione dell'inizializzazione di una proprietà interna utilizzata in LocalWebservice. Reload () quando l'oggetto servizio viene creato da una distribuzione esistente utilizzando il costruttore LocalWebservice ().
     + Messaggio di errore modificato per chiarimenti.
     + È stato aggiunto un nuovo metodo denominato get_access_token () a AksWebservice che restituirà l'oggetto AksServiceAccessToken, che contiene il token di accesso, l'aggiornamento dopo il timestamp, la scadenza del timestamp e il tipo di token. 
@@ -1029,7 +1072,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + Aggiunta dei messaggi di deprecazione per tutti i percorsi di codice della classe Image
     + Correzione della costruzione di Gestione modelli URL per l'area 21Vianet di Azure China.
     + Correzione del problema per cui non è stato possibile creare un pacchetto di modelli che usano source_dir per funzioni di Azure.    
-    + Aggiunta di un'opzione a [Environment. build_local ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) per eseguire il push di un'immagine nel registro contenitori dell'area di lavoro AzureML
+    + Aggiunta di un'opzione per [Environment.build_local ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) per eseguire il push di un'immagine nel registro contenitori dell'area di lavoro AzureML
     + Aggiornamento dell'SDK per l'uso della nuova libreria di token in sinapsi di Azure in modo compatibile.
   + **azureml-interpret**
     + Correzione del bug in cui non è stato restituito alcuno se non sono disponibili spiegazioni per il download. Genera ora un'eccezione e un comportamento di corrispondenza altrove.
@@ -1050,7 +1093,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     + rinvia la dipendenza Shap a interpretate-community da azureml-interpreta
   + **azureml-core**
     + È ora possibile specificare la destinazione di calcolo come parametro per gli oggetti di configurazione della distribuzione corrispondenti. Si tratta in particolare del nome della destinazione di calcolo in cui eseguire la distribuzione, non dell'oggetto SDK.
-    + Aggiunta di informazioni CreatedBy a oggetti modello e servizio. È possibile accedere a tramite. created_by
+    + Aggiunta di informazioni CreatedBy a oggetti modello e servizio. È possibile accedere through.created_by
     + Correzione di ContainerImage. Run (), che non stava impostando correttamente la porta HTTP del contenitore docker.
     + Make `azureml-dataprep` facoltativo per il `az ml dataset register` comando CLI
     + Correzione di un bug `TabularDataset.to_pandas_dataframe` in cui verrebbe erroneamente eseguito il fallback a un lettore alternativo e viene stampato un avviso.
@@ -1158,7 +1201,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
   + **azureml-core**
     + Corregge un bug che ha causato la produzione di 500 per i modelli distribuiti in funzioni di Azure.
     + È stato risolto un problema per cui il file amlignore non è stato applicato agli snapshot.
-    + È stata aggiunta una nuova API amlcompute. get_active_runs che restituisce un generatore per l'esecuzione e le esecuzioni in coda in un determinato amlcompute.
+    + È stato aggiunto un nuovo amlcompute.get_active_runs API che restituisce un generatore per l'esecuzione e l'esecuzione in coda in un determinato amlcompute.
     + Aggiunto Load Balancer tipo a MLC per i tipi AKS.
     + Aggiunta append_prefix parametro bool per download_files in run.py e download_artifacts_from_prefix in artifacts_client. Questo flag viene usato per appiattire selettivamente il FilePath di origine in modo che al output_directory venga aggiunto solo il nome del file o della cartella.
     + Correzione del problema di deserializzazione per `run_config.yml` con utilizzo del set di dati.
@@ -1355,8 +1398,8 @@ Azure Machine Learning è ora un provider di risorse per griglia di eventi, è p
     + La possibilità di utilizzare [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset) e [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset) come input per [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep)e [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyperdrivestep) nella pipeline Azure Machine Learning.
     + Prestazioni del set di dati. [Mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset#mount-mount-point-none----kwargs-) è stato migliorato per le cartelle con un numero elevato di file
     + Aggiunta dell'URL alle raccomandazioni degli errori noti nei dettagli dell'esecuzione.
-    + Correzione di un bug nell'esecuzione. get_metrics in cui le richieste avrebbero esito negativo se un'esecuzione avesse troppi elementi figlio
-    + Correzione di un bug nell' [esecuzione. get_metrics](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run#get-metrics-name-none--recursive-false--run-type-none--populate-false-) in cui le richieste avrebbero esito negativo se un'esecuzione avesse troppi elementi figlio
+    + Correzione di un bug in run.get_metrics in cui le richieste avrebbero esito negativo se un'esecuzione aveva troppi elementi figlio
+    + Correzione di un bug in [Run.get_metrics](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run#get-metrics-name-none--recursive-false--run-type-none--populate-false-) in cui le richieste avrebbero esito negativo se un'esecuzione aveva troppi elementi figlio
     + Aggiunta del supporto per l'autenticazione nel cluster Arcadia.
     + La creazione di un oggetto esperimento Ottiene o crea l'esperimento nell'area di lavoro Azure Machine Learning per il rilevamento della cronologia di esecuzione. L'ID dell'esperimento e l'ora di archiviazione vengono popolati nell'oggetto esperimento durante la creazione. Esempio: esperimento = esperimento (area di lavoro, "nuovo esperimento") experiment_id = experiment.id archivio () e riattivazione () sono funzioni che possono essere chiamate su un esperimento per nascondere e ripristinare l'esperimento dall'esperienza utente o restituite per impostazione predefinita in una chiamata per elencare gli esperimenti. Se viene creato un nuovo esperimento con lo stesso nome di un esperimento archiviato, è possibile rinominare l'esperimento archiviato durante la riattivazione passando un nuovo nome. Può essere presente un solo esperimento attivo con un determinato nome. Esempio: experiment1 = Experiment (area di lavoro, "esperimento attivo") experiment1. Archive () # Crea nuovo esperimento attivo con lo stesso nome del file archiviato. experiment2. = Experiment (area di lavoro, "esperimento attivo") experiment1. reactivate (new_name = "esperimento attivo precedente") l'elenco di metodi statici () nell'esperimento può assumere un filtro nome e un filtro ViewType. I valori di ViewType sono "ACTIVE_ONLY", "ARCHIVED_ONLY" e "tutti" esempio: archived_experiments = Experiment. List (Workspace, view_type = "ARCHIVED_ONLY") all_first_experiments = Experiment. List (Workspace, Name = "primo esperimento", view_type = "ALL")
     + Supporto per l'uso dell'ambiente per la distribuzione dei modelli e per l'aggiornamento del servizio
@@ -1468,7 +1511,7 @@ La scheda Experiment (esperimento) del [nuovo portale dell'area di lavoro](https
     + Correzione del messaggio di errore relativo all'indice duplicato nell'esecuzione remota nelle attività di previsione.
     + È stata aggiunta una barriera per verificare se un set di dati è sbilanciato o meno. In caso contrario, viene scritto un messaggio di barriera nella console.
   + **azureml-core**
-    + Aggiunta della possibilità di recuperare l'URL di firma di accesso condiviso nel modello nell'archiviazione tramite l'oggetto modello. Esempio: Model. get_sas_url ()
+    + Aggiunta della possibilità di recuperare l'URL di firma di accesso condiviso nel modello nell'archiviazione tramite l'oggetto modello. Ad esempio: model.get_sas_url ()
     + Introduci `run.get_details()['datasets']` per ottenere i set di impostazioni associati all'esecuzione inviata
     + Aggiungere `Dataset.Tabular.from_json_lines_files` un'API per creare un TabularDataset da file di righe JSON. Per informazioni su questi dati tabulari nei file di righe JSON in TabularDataset, vedere [questo articolo](how-to-create-register-datasets.md) per la documentazione.
     + Aggiunta di campi di dimensioni di VM aggiuntivi (disco del sistema operativo, numero di GPU) alla funzione supported_vmsizes ()
@@ -1600,7 +1643,7 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
     + I modelli AutoML ora restituiscono AutoMLExceptions
     + Questa versione migliora le prestazioni di esecuzione delle esecuzioni locali automatiche di machine learning.
   + **azureml-core**
-    + Introduce DataSet. get_all (area di lavoro), che restituisce un dizionario di `TabularDataset` `FileDataset` oggetti e con chiave in base al nome di registrazione.
+    + Introduce Dataset.get_all (area di lavoro), che restituisce un dizionario di `TabularDataset` `FileDataset` oggetti e con chiave in base al nome di registrazione.
 
     ```py
     workspace = Workspace.from_config()
@@ -1667,23 +1710,23 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
     + Correzione del problema relativo all'ordinamento dei parametri blob_cache_timeout.
     + Aggiunta di tipi di eccezione Fit e Transform esterni agli errori di sistema.
     + Aggiunta del supporto per i segreti Key Vault per le esecuzioni remote. Aggiungere una classe azureml. Core. Vault. chiave Vault per aggiungere, ottenere ed elencare i segreti dall'insieme di credenziali delle chiavi associato all'area di lavoro. Sono supportate le operazioni seguenti:
-      + azureml. Core. Workspace. Workspace. get_default_keyvault ()
-      + azureml. Core. chiave Vault. insieme di credenziali. set_secret (nome, valore)
-      + azureml. Core. chiave Vault. set_secrets (secrets_dict)
-      + azureml. Core. chiave Vault. get_secret (nome)
-      + azureml. Core. chiave Vault. get_secrets (secrets_list)
-      + azureml. Core. chiave Vault. list_secrets ()
+      + azureml.core.workspace.Workspace.get_default_keyvault ()
+      + azureml.core.keyvault.Keyvault.set_secret (nome, valore)
+      + azureml.core.keyvault.Keyvault.set_secrets (secrets_dict)
+      + azureml.core.keyvault.Keyvault.get_secret (nome)
+      + azureml.core.keyvault.Keyvault.get_secrets (secrets_list)
+      + azureml.core.keyvault.Keyvault.list_secrets ()
     + Metodi aggiuntivi per ottenere l'insieme di credenziali delle chiavi predefinito e ottenere i segreti durante l'esecuzione remota:
-      + azureml. Core. Workspace. Workspace. get_default_keyvault ()
-      + azureml. Core. Run. Run. get_secret (nome)
-      + azureml. Core. Run. Run. get_secrets (secrets_list)
+      + azureml.core.workspace.Workspace.get_default_keyvault ()
+      + azureml.core.run.Run.get_secret (nome)
+      + azureml.core.run.Run.get_secrets (secrets_list)
     + Aggiunta di parametri di override aggiuntivi al comando Invia-iperguida CLI.
     + Per migliorare l'affidabilità delle chiamate API, è necessario espandere i nuovi tentativi per le eccezioni comuni della libreria.
     + Aggiunta del supporto per l'invio di esecuzioni da un'esecuzione inviata.
     + Correzione del problema del token di firma di accesso condiviso in FileWatcher, che ha causato l'interruzione del caricamento dei file dopo la scadenza del token iniziale.
     + È supportata l'importazione di file CSV/TSV HTTP nel set di dati Python SDK.
     + Il Metodo Workspace. Setup () è stato deprecato. Un messaggio di avviso visualizzato dagli utenti suggerisce di usare Create () o Get ()/from_config ().
-    + È stato aggiunto Environment. add_private_pip_wheel (), che consente di caricare pacchetti Python personalizzati privati nell' `whl` area di lavoro e di usarli in modo sicuro per compilare/materializzare l'ambiente.
+    + Aggiunta Environment.add_private_pip_wheel (), che consente di caricare pacchetti Python personalizzati privati nell' `whl` area di lavoro e di usarli in modo sicuro per compilare/materializzare l'ambiente.
     + È ora possibile aggiornare il certificato TLS/SSL per l'endpoint di assegnazione dei punteggi distribuito nel cluster AKS per Microsoft e per il certificato del cliente.
   + **azureml-explain-Model**
     + Aggiunta del parametro per aggiungere un ID modello alle spiegazioni al caricamento.
@@ -1744,8 +1787,8 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
     + Aggiunto il metodo Model. Package () per creare immagini Docker e Dockerfile che incapsulano i modelli e le relative dipendenze.
     + Aggiornamento di servizi WebService locali per accettare InferenceConfigs contenenti oggetti ambiente.
     + Correzione del modello. Register () che produce modelli non validi quando ' .' (per la directory corrente) viene passato come parametro model_path.
-    + Aggiungere Run. submit_child, la funzionalità Mirrors Experiment. Submit, specificando l'esecuzione come elemento padre dell'esecuzione figlio inviata.
-    + Supporta le opzioni di configurazione da Model. Register in Run. register_model.
+    + Aggiungere Run.submit_child, la funzionalità esegue il mirroring di Experiment. Submit, specificando l'esecuzione come elemento padre dell'esecuzione figlio inviata.
+    + Supporta le opzioni di configurazione da Model. Register in Run.register_model.
     + Possibilità di eseguire processi JAR nel cluster esistente.
     + Sono ora supportati instance_pool_id e cluster_log_dbfs_path parametri.
     + Aggiunta del supporto per l'utilizzo di un oggetto Environment quando si distribuisce un modello in un WebService. È ora possibile fornire l'oggetto Environment come parte dell'oggetto InferenceConfig.
@@ -1754,13 +1797,13 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
     + Aggiunto blob_cache_timeout parametro a `Datastore.register_azure_blob_container` .
     + Aggiunta di save_to_directory e load_from_directory metodi a azureml. Core. Environment. Environment.
     + Sono stati aggiunti i comandi "AZ ml Environment download" e "AZ ml Environment Register" all'interfaccia della riga di comando.
-    + Aggiunta del metodo Environment. add_private_pip_wheel.
+    + Aggiunta Environment.add_private_pip_wheel metodo.
   + **azureml-explain-Model**
     + Aggiunta del rilevamento del set di dati alle spiegazioni tramite il servizio DataSet (anteprima).
     + Riduzione delle dimensioni batch predefinite durante il flusso di spiegazioni globali da 10.000 a 100.
     + Aggiunta del flag model_task ai Explainer per consentire all'utente di eseguire l'override della logica di inferenza automatica predefinita per il tipo di modello.
   + **azureml-mlflow**
-    + Correzione del bug in mlflow. azureml. build_image in cui le directory nidificate vengono ignorate.
+    + Correzione del bug in mlflow.azureml.build_image in cui le directory nidificate vengono ignorate.
   + **azureml-pipeline-steps**
     + Aggiunta della possibilità di eseguire processi JAR in un cluster di Azure Databricks esistente.
     + Aggiunta del instance_pool_id di supporto e dei parametri cluster_log_dbfs_path per il passaggio DatabricksStep.
@@ -1785,7 +1828,7 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
 + **Nuove funzionalità**
   + Machine Learning automatizzato supporta ora i modelli ONNX di training nella destinazione di calcolo remota
   + Azure Machine Learning ora offre la possibilità di riprendere il training da un'esecuzione precedente, un checkpoint o un file di modello.
-    + Informazioni su come [usare gli estimatori per riprendere il training da un'esecuzione precedente](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+    + Informazioni su come [usare gli estimatori per riprendere il training da un'esecuzione precedente](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Correzioni di bug e miglioramenti**
   + **azure-cli-ml**
@@ -1843,11 +1886,11 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
     + per la libreria di spiegazione del modello, i Explainer di Blackbox fissi dove è richiesto l'input dei frame di dati Pandas per la stima
     + Correzione di un bug `explanation.expected_values` in cui talvolta verrebbe restituito un valore float anziché un elenco con un valore float.
   + **azureml-mlflow**
-    + Migliorare le prestazioni di mlflow. set_experiment (experiment_name)
+    + Migliorare le prestazioni di mlflow.set_experiment (experiment_name)
     + Correzione di un bug nell'uso di InteractiveLoginAuthentication per mlflow tracking_uri
     + Migliorare l'utilizzo delle risorse delle esecuzioni remote con azureml. mlflow.
     + Migliorare la documentazione del pacchetto azureml-mlflow
-    + Patch bug where mlflow. log_artifacts ("my_dir") Salva gli artefatti in "my_dir/<artefatto-percorsi>" anziché "<artefatto-percorsi>"
+    + Bug patch dove mlflow.log_artifacts ("my_dir") Salva gli artefatti in "my_dir/<artefatto-percorsi>" anziché "<artefatti-percorsi>"
   + **azureml-opendatasets**
     + Pin `pyarrow` di `opendatasets` a versioni precedenti (<0.14.0) a causa di un problema di memoria appena introdotto.
     + Spostare azureml-contrib-opendatasets in azureml-opendatasets.
@@ -1921,7 +1964,7 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
   + **azureml-mlflow**
     + Miglioramento dell'utilizzo delle risorse delle esecuzioni remote che usano azureml. mlflow.
     + È stata migliorata la documentazione del pacchetto azureml-mlflow.
-    + È stato risolto il problema per cui mlflow. log_artifacts ("my_dir") avrebbe salvato gli artefatti in "my_dir/Artifact-paths" invece di "artefatti-percorsi".
+    + È stato risolto il problema per cui mlflow.log_artifacts ("my_dir") avrebbe salvato gli artefatti in "my_dir/Artifact-paths" invece di "artefatti-percorsi".
   + **azureml-pipeline-core**
     + Il parametro hash_paths per tutti i passaggi della pipeline è deprecato e verrà rimosso in futuro. Per impostazione predefinita, viene eseguito l'hashing del contenuto della source_directory (eccetto i file elencati in `.amlignore` o `.gitignore` )
     + Continuando a migliorare il modulo e ModuleStep per supportare i moduli specifici del tipo di calcolo, per preparare l'integrazione con RunConfiguration e altre modifiche per sbloccare l'utilizzo del modulo specifico del tipo di calcolo nelle pipeline.
@@ -2015,7 +2058,7 @@ Rilasciata Azure Machine Learning SDK per Python v 1.0.30.
 ### <a name="azure-machine-learning-sdk-for-python-v1021"></a>SDK di Azure Machine Learning per Python v 1.0.21
 
 + **Nuove funzionalità**
-  + Il metodo *azureml. Core. Run. create_children* consente la creazione a bassa latenza di più esecuzioni figlio con una singola chiamata.
+  + Il *azureml.Core.Run.create_children* metodo consente la creazione a bassa latenza di più esecuzioni figlio con una singola chiamata.
 
 ## <a name="2019-03-11"></a>2019-03-11
 
@@ -2046,7 +2089,7 @@ Rilasciata Azure Machine Learning SDK per Python v 1.0.30.
 
 + **Nuove funzionalità**
   + Azure Machine Learning offre ora il supporto di primo livello per il famoso Chainer DNN Framework. L'uso delle [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) classi consente di eseguire facilmente il training e la distribuzione di modelli di Chainer.
-    + Informazioni su come [eseguire il training distribuito con ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
+    + Informazioni su come [eseguire il training distribuito con ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
     + Informazioni su come [eseguire l'ottimizzazione di iperparametri con il Chainer usando](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) l'iperguida
   + Azure Machine Learning pipeline ha aggiunto la possibilità di attivare un'esecuzione della pipeline in base alle modifiche dell'archivio dati. Il [notebook della pianificazione](https://aka.ms/pl-schedule) della pipeline è stato aggiornato per illustrare questa funzionalità.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400382"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978021"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Windows
 
@@ -32,7 +32,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 In alternativa, se si dispone di un caso d'uso specifico per un firewall centralizzato, è possibile usare il firewall di Azure anche per soddisfare tali requisiti.
 
-* [Reti virtuali e macchine virtuali in Azure](./network-overview.md)
+* [Reti virtuali e macchine virtuali in Azure](../network-overview.md)
 
 * [Come creare una rete virtuale](../../virtual-network/quick-create-portal.md)
 
@@ -80,7 +80,7 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 * [Come distribuire il firewall di Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../../security-center/threat-protection.md)
+* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../../security-center/azure-defender.md)
 
 * [Informazioni sul centro sicurezza di Azure Adaptive Network hardening](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed De
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/#network)
+* [Esempi di criteri di Azure per la rete](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Come creare un progetto di Azure](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Usare i criteri di Azure per convalidare e/o correggere le configurazioni per le
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/#network)
+* [Esempi di criteri di Azure per la rete](../../governance/policy/samples/built-in-policies.md#network)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -252,7 +252,7 @@ Se l'organizzazione desidera conservare i dati del registro eventi di sicurezza 
 
 **Linee guida**: assicurarsi che gli account di archiviazione o le aree di lavoro di log Analytics usati per archiviare i log delle macchine virtuali dispongano del periodo di memorizzazione dei log impostato in base alle normative di conformità dell'organizzazione.
 
-* [Come monitorare macchine virtuali in Azure](./monitor.md)
+* [Come monitorare macchine virtuali in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Come configurare il periodo di conservazione dell'area di lavoro Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -458,7 +458,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Come eseguire query personalizzate in Monitoraggio di Azure](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Come monitorare macchine virtuali in Azure](./monitor.md)
+* [Come monitorare macchine virtuali in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -508,7 +508,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 **Indicazioni**: seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle macchine virtuali di Azure. Usare la sicurezza di Azure consigliata o una soluzione di terze parti per l'esecuzione di valutazioni delle vulnerabilità per le macchine virtuali.
 
-* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -692,7 +692,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
 
@@ -775,7 +775,7 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Come negare un tipo di risorsa specifico con Criteri di Azure](../../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -817,13 +817,13 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 
 **Linee guida**: le applicazioni ad alto rischio distribuite nell'ambiente Azure possono essere isolate usando rete virtuale, subnet, sottoscrizioni, gruppi di gestione e così via e sufficientemente protette con un firewall di Azure, un Web Application Firewall (WAF) o un gruppo di sicurezza di rete (NSG).
 
-* [Reti virtuali e macchine virtuali in Azure](./network-overview.md)
+* [Reti virtuali e macchine virtuali in Azure](../network-overview.md)
 
 * [Panoramica del Firewall di Azure](../../firewall/overview.md)
 
 * [Panoramica di Web Application Firewall](../../web-application-firewall/overview.md)
 
-* [Panoramica della sicurezza di rete](../../virtual-network/security-overview.md)
+* [Panoramica della sicurezza di rete](../../virtual-network/network-security-groups-overview.md)
 
 * [Panoramica di rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md)
 
@@ -969,7 +969,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione dei segreti per le applicazioni cloud.
 
-* [Come eseguire l'integrazione con le identità gestite da Azure](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+* [Come eseguire l'integrazione con Azure-Managed identità](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
 * [Come creare una Key Vault](../../key-vault/secrets/quick-create-portal.md)
 

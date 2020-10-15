@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a278204da556b41bd663b8b5c9ff5152e16017cc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522339"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715870"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Esercitazione: Integrare AlertOps con Azure Active Directory
 
@@ -108,11 +108,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 4. Fare clic su **Account settings** (Impostazioni account) dal pannello di spostamento sinistro.
 
-    ![Configurazione di AlertOps](./media/alertops-tutorial/configure1.png)
+    ![Screenshot che mostra il menu AlertOps con l'opzione Account Settings evidenziata.](./media/alertops-tutorial/configure1.png)
 
 5. Nella pagina **Subscription Settings** (Impostazioni sottoscrizione) selezionare **SSO** e seguire questa procedura:
 
-    ![Configurazione di AlertOps](./media/alertops-tutorial/configure2.png)
+    ![Screenshot che mostra la finestra Subscription Settings per SSO con i valori immessi come descritto in questo passaggio.](./media/alertops-tutorial/configure2.png)
 
     a. Selezionare la casella di controllo **Use Single Sign-On(SSO)** (Usa Single Sign-On (SSO)).
 
@@ -164,15 +164,15 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 2. Fare clic su **Users** (Utenti) nel pannello di spostamento sinistro.
 
-    ![Configurazione di AlertOps](./media/alertops-tutorial/user1.png)
+    ![Screenshot che mostra il menu AlertOps con l'opzione Users evidenziata.](./media/alertops-tutorial/user1.png)
 
 3. Selezionare **Add User** (Aggiungi utente).
 
-    ![Configurazione di AlertOps](./media/alertops-tutorial/user2.png)
+    ![Screenshot che mostra la finestra Users con il pulsante Add User.](./media/alertops-tutorial/user2.png)
 
 4. Nella finestra di dialogo **Aggiungi utente** seguire questa procedura:
 
-    ![Configurazione di AlertOps](./media/alertops-tutorial/user3.png)
+    ![Screenshot che mostra il riquadro Add Users con i valori immessi come descritto in questo passaggio.](./media/alertops-tutorial/user3.png)
 
     a. Nella casella di testo **Login User Name** (Nome utente di accesso) immettere il nome utente dell'utente, ad esempio **Brittasimon**.
 

@@ -12,10 +12,10 @@ ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90084312"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggerimenti e procedure consigliate per Azure Active Directory B2C
@@ -43,8 +43,8 @@ Definire l'architettura del servizio e dell'applicazione, inventariare i sistemi
 | Creare un piano di migrazione |La pianificazione in anticipo può rendere la migrazione più agevole. Altre informazioni sulla [migrazione degli utenti](user-migration.md).|
 | Usabilità rispetto alla sicurezza | La soluzione deve raggiungere il giusto equilibrio tra l'usabilità dell'applicazione e il livello di rischio accettabile per l'organizzazione. |
 | Spostare le dipendenze locali nel cloud | Per garantire una soluzione resiliente, provare a trasferire le dipendenze delle applicazioni esistenti nel cloud. |
-| Eseguire la migrazione di app esistenti a b2clogin.com | La deprecazione di login.microsoftonline.com diviene valida per tutti i tenant Azure AD B2C il 04 dicembre 2020. [Altre informazioni](b2clogin.md). |
-| Usare la protezione delle identità e l'accesso condizionale | Usare queste funzionalità per un controllo significativamente maggiore sulle autenticazioni rischiose e sui criteri di accesso. Azure AD B2C Premium P2 è obbligatorio. [Altre informazioni](conditional-access-identity-protection-overview.md). |
+| Eseguire la migrazione di app esistenti a b2clogin.com | La deprecazione di login.microsoftonline.com diviene valida per tutti i tenant Azure AD B2C il 04 dicembre 2020. [Altre informazioni](b2clogin.md) |
+| Usare la protezione delle identità e l'accesso condizionale | Usare queste funzionalità per un controllo significativamente maggiore sulle autenticazioni rischiose e sui criteri di accesso. Azure AD B2C Premium P2 è obbligatorio. [Altre informazioni](conditional-access-identity-protection-overview.md) |
 
 ## <a name="implementation"></a>Implementazione
 
@@ -90,5 +90,5 @@ Gestire l'ambiente di Azure AD B2C.
 | Procedura consigliata | Descrizione |
 |--|--|
 | [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  È possibile rimanere sempre aggiornati sugli annunci e gli aggiornamenti del prodotto Azure AD B2C. |
-| [Supporto tecnico Microsoft](support-options.md) | Archiviare una richiesta di supporto per Azure AD B2C problemi tecnici. Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente. |
+| [supporto tecnico Microsoft](support-options.md) | Archiviare una richiesta di supporto per Azure AD B2C problemi tecnici. Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente. |
 | [Stato di Azure](https://status.azure.com/status) | Visualizza lo stato di integrità corrente di tutti i servizi di Azure. |

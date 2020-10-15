@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235299"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965183"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminare le password non valide usando la protezione Azure Active Directory password
 
@@ -125,7 +125,7 @@ La normalizzazione presenta le due parti seguenti:
    | $               | s                  |
    | \@              | a                  |
 
-Prendere in considerazione gli esempi seguenti:
+Si consideri l'esempio seguente:
 
 * La password "blank" è vietata.
 * Un utente tenta di modificare la password in " Bl@nK ".
@@ -140,7 +140,7 @@ Viene quindi esaminata una password per altri comportamenti di corrispondenza e 
 
 Sulla password normalizzata viene applicata la corrispondenza fuzzy per verificare che non contenga una password presente nell'elenco globale o nell'elenco personalizzato di password escluse. Il processo di corrispondenza è basato su una distanza di edit di un (1) confronto.
 
-Prendere in considerazione gli esempi seguenti:
+Si consideri l'esempio seguente:
 
 * La password "abcdef" è vietata.
 * Un utente tenta di modificare la password in uno dei seguenti elementi:
@@ -161,7 +161,7 @@ La corrispondenza della sottostringa viene usata nella password normalizzata per
 > [!IMPORTANT]
 > La corrispondenza della sottostringa viene applicata solo ai nomi e ad altri termini, che hanno una lunghezza di almeno quattro caratteri.
 
-Prendere in considerazione gli esempi seguenti:
+Si consideri l'esempio seguente:
 
 * Un utente denominato poll che desidera reimpostare la password su "p0LL23fb".
 * Dopo la normalizzazione, questa password diventerebbe "poll23fb".

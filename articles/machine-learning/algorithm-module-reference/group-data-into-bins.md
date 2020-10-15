@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/19/2020
-ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/13/2020
+ms.openlocfilehash: 392cb9b4c2ded1b98b79ce8dcd780ac59e96b78a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907034"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998489"
 ---
 # <a name="group-data-into-bins-module"></a>Raggruppare i dati nel modulo bin
 
@@ -44,7 +44,8 @@ La suddivisione in *contenitori* o il raggruppamento dei dati (talvolta denomina
 
 Il diagramma seguente illustra la distribuzione di valori numerici prima e dopo il binning con il metodo dei *quantili*. Si noti che, rispetto ai dati non elaborati a sinistra, i dati sono stati sottoposti a binning e trasformati in una scala normale.  
 
-È possibile trovare un [esempio dal risultato dell'esecuzione di questa pipeline](https://ml.azure.com/visualinterface/authoring/Normal/87270db9-4651-448e-bd28-8ef7428084dc?wsid=%2Fsubscriptions%2Fe9b2ec51-5c94-4fa8-809a-dc1e695e4896%2Fresourcegroups%2Fmodule-ws-rg%2Fworkspaces%2Fmodule-prerelease-119&flight=cm&tid=72f988bf-86f1-41af-91ab-2d7cd011db47&smtendpoint=https%3A%2F%2Fsmt-test1.azureml-test.net).
+> [!div class="mx-imgBorder"]
+> ![Visualizzazione risultati](media/module/group-data-into-bins-result-example.png)
 
 Poiché esistono moltissimi modi per raggruppare i dati, e tutti sono personalizzabili, è consigliabile sperimentare metodi e valori diversi. 
 
@@ -65,6 +66,9 @@ Poiché esistono moltissimi modi per raggruppare i dati, e tutti sono personaliz
     - **Custom Edges** (Vertici personalizzati): è possibile specificare i valori iniziali di ogni bin. Il valore dei vertici è sempre il limite inferiore del bin. 
     
       Si supponga, ad esempio, di voler raggruppare i valori in due contenitori. Uno avrà valori maggiori di 0 e uno avrà valori minori o uguali a 0. In questo caso, per i bordi di bin immettere **0** in un elenco delimitato **da virgole di bordi del cestino**. L'output del modulo sarà 1 e 2, che indica l'indice bin per ogni valore di riga. Si noti che l'elenco di valori separati da virgole deve essere in ordine crescente, ad esempio 1, 3, 5, 7.
+    
+    > [!Note]
+    > La modalità *MDL entropia* è definita in studio (classico) e non esiste alcun pacchetto open source corrispondente che può essere utilizzato per supportare ancora nella finestra di progettazione.        
 
 4. Se si usano le modalità di suddivisione in contenitori **quantili** e **Equal Width** , usare l'opzione **Number of bins** per specificare il numero di bin o *quantili*che si vuole creare.
 

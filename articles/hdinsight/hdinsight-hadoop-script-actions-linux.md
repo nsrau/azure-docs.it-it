@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082251"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>Specificare come destinazione la versione del sistema operativo
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> Specificare come destinazione la versione del sistema operativo
 
 HDInsight si basa sulla distribuzione di Ubuntu Linux. Versioni diverse di HDInsight si basano su versioni differenti di Ubuntu e questo può influire sul comportamento dello script. HDInsight 3.4 e versioni precedenti si basano ad esempio su versioni di Ubuntu che usano Upstart. La versione 3.5 e le versioni superiori si basano su Ubuntu 16.04 che usa Systemd. Systemd e Upstart si basano su comandi diversi, quindi lo script deve essere scritto in modo da funzionare con entrambi.
 
@@ -177,7 +177,7 @@ Questo codice reindirizza a STDERR (2) le informazioni scritte in STDOUT. Per ul
 
 Per ulteriori informazioni sulla visualizzazione delle informazioni registrate dalle azioni script, vedere [risolvere i problemi relativi alle azioni script](./troubleshoot-script-action.md).
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>Salva i file come ASCII con terminazioni di riga LF
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> Salva i file come ASCII con terminazioni di riga LF
 
 Gli script Bash devono essere archiviati nel formato ASCII con righe terminate da LF. Se i file vengono archiviati in formato UTF-8 o usano CRLF come terminazione di riga, è possibile che abbiano esito negativo con l'errore seguente:
 
@@ -319,7 +319,7 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 * Portale di Azure
 * Azure PowerShell
-* Modelli di Gestione risorse di Azure
+* Modelli di Azure Resource Manager
 * HDInsight .NET SDK
 
 Per altre informazioni sull'utilizzo di ogni metodo, vedere [Come usare azioni script](hdinsight-hadoop-customize-cluster-linux.md).

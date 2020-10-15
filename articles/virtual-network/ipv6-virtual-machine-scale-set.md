@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: f969d7edc22c9c36481ca42449193af5f8c7b0d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84709998"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Distribuire set di scalabilità di macchine virtuali con IPv6 in Azure
@@ -27,7 +27,7 @@ Questo articolo illustra come distribuire un set di scalabilità di macchine vir
 2.    Creare un servizio di bilanciamento del carico dual stack.  
 3.    Creare regole del gruppo di sicurezza di rete (NSG).  
 
-L'unico passaggio diverso dalle singole macchine virtuali consiste nel creare la configurazione dell'interfaccia di rete (NIC) che usa la risorsa del set di scalabilità di macchine virtuali: networkProfile/networkInterfaceConfigurations. La struttura JSON è simile a quella dell'oggetto Microsoft. Network/networkInterfaces usato per le singole VM con l'aggiunta dell'impostazione della scheda di interfaccia di rete e del configurazione IP IPv4 come interfaccia primaria usando l'attributo **"Primary": true** , come illustrato nell'esempio seguente:
+L'unico passaggio diverso dalle singole macchine virtuali consiste nel creare la configurazione dell'interfaccia di rete (NIC) che usa la risorsa del set di scalabilità di macchine virtuali: networkProfile/networkInterfaceConfigurations. La struttura JSON è simile a quella dell'oggetto Microsoft. Network/networkInterfaces usato per le singole VM con l'aggiunta dell'impostazione della scheda di interfaccia di rete e del configurazione IP IPv4 come interfaccia primaria usando l'attributo **"Primary": true**  , come illustrato nell'esempio seguente:
 
 ```json
           "networkProfile": {

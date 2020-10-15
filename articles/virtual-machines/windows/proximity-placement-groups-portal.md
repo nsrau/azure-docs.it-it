@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: cynthn
 ms.openlocfilehash: 6a14e2bd7385430c3d0fbec06259a876af556e38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82190402"
 ---
 # <a name="create-a-proximity-placement-group-using-the-portal"></a>Creare un gruppo di posizionamento di prossimità usando il portale
@@ -58,7 +58,7 @@ Se la macchina virtuale fa parte del set di disponibilità, prima di aggiungere 
 1. Nel [portale](https://portal.azure.com) cercare i *set di disponibilità* e selezionare il set di disponibilità dai risultati.
 1. Stop\deallocate ogni macchina virtuale nel set di disponibilità selezionando la macchina virtuale, quindi selezionando **Interrompi** nella pagina della macchina virtuale e quindi selezionando **OK** per arrestare la macchina virtuale.
 1. Nella pagina del set di disponibilità, verificare che tutte le macchine virtuali abbiano lo **stato** elencato come **arrestato (deallocato)**.
-1. Nel menu a sinistra selezionare **configurazione**.
+1. Nel menu a sinistra selezionare **Configurazione**.
 1. In **gruppo di posizionamento prossimità**selezionare un gruppo di selezione nell'elenco a discesa, quindi fare clic su **Salva**.
 1. Selezionare **Panoramica** dal menu a sinistra per visualizzare di nuovo l'elenco di macchine virtuali. 
 1. Selezionare ogni macchina virtuale nel set di disponibilità e quindi selezionare **Avvia** nella pagina per ogni macchina virtuale. 

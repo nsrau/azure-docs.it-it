@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 994fe6c5005eeeab1399091dca5f72024fdd7262
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812591"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
@@ -92,7 +92,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 Il filtro del **servizio** consente di effettuare una selezione da un elenco a discesa dei servizi seguenti:
 
-- All
+- Tutti
 - UX di gestione AAD
 - Verifiche di accesso
 - Provisioning degli account
@@ -114,7 +114,7 @@ Il filtro del **servizio** consente di effettuare una selezione da un elenco a d
 
 Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
-- All
+- Tutti
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
@@ -128,7 +128,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - KerberosDomain
 - KeyManagement
 - Etichetta
-- Altri
+- Altro
 - PermissionGrantPolicy
 - Policy
 - ResourceManagement
@@ -141,7 +141,7 @@ Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
-- All
+- Tutti
 - Operazione completata
 - Operazioni non riuscite
 

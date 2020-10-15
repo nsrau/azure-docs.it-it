@@ -4,10 +4,10 @@ description: Informazioni su come configurare il ripristino di emergenza in Azur
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448979"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
@@ -34,11 +34,11 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Quando la procedura è completata, è quindi possibile eseguire un failover completo in Azure nel modo e nel momento necessari.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 ![Il diagramma Mostra gli insiemi di credenziali dei servizi di ripristino per due tenant in cloud associati a sottoscrizioni tenant sia in un'infrastruttura Azure Stack comune.](./media/azure-stack-site-recovery/architecture.png)
 
-**Posizione** | **Componente** |**Informazioni dettagliate**
+**Posizione** | **Componente** |**Dettagli**
 --- | --- | ---
 **Server di configurazione** | Viene eseguito in una singola macchina virtuale di Azure Stack. | In ogni sottoscrizione viene impostata una macchina virtuale del server di configurazione. Tale macchina virtuale esegue questi componenti di Site Recovery:<br/><br/> - Server di configurazione: coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati. - Server di elaborazione: agisce come un gateway di replica. Riceve i dati di replica, li ottimizza tramite la memorizzazione nella cache, la compressione e la crittografia e li invia ad Archiviazione di Azure.<br/><br/> Se le macchine virtuali da replicare superano i limiti indicati di seguito, è possibile configurare un server di elaborazione autonomo separato. [Altre informazioni](vmware-azure-set-up-process-server-scale.md)
 **Servizio Mobility** | Installato in ogni macchina virtuale da replicare. | Nei passaggi descritti in questo articolo si procede alla preparazione di un account in modo che il servizio Mobility venga installato automaticamente in una macchina virtuale quando è abilitata la replica. Se non si intende installare automaticamente il servizio, è possibile usare altri metodi. [Altre informazioni](vmware-azure-install-mobility-service.md)
@@ -316,7 +316,7 @@ Eseguire quindi un failover come indicato di seguito:
 
 Quando il sito primario è operativo, è possibile eseguire il failback da Azure ad Azure Stack. A tale scopo, seguire i passaggi elencati [qui](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questo articolo le macchine virtuali di Azure Stack sono state replicate in Azure. Dopo che la replica è stata completata, è stato eseguito un ripristino di emergenza per verificare che il failover in Azure funzioni come previsto. L'articolo contiene anche i passaggi per eseguire un failover completo in Azure e per eseguire il failback in Azure Stack.
 

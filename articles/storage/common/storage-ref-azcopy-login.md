@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 98f8554d6313147c03d4a0bec74e36043cdce342
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285272"
 ---
 # <a name="azcopy-login"></a>azcopy login
@@ -95,7 +95,7 @@ azcopy login --service-principal --certificate-path /path/to/my/cert --applicati
 
 Trattare `/path/to/my/cert` come un percorso di un file PEM o Pkcs12. AzCopy non raggiunge l'archivio certificati di sistema per ottenere il certificato.
 
-`--certificate-path`è obbligatorio quando si esegue l'autenticazione dell'entità servizio basata su certificato.
+`--certificate-path` è obbligatorio quando si esegue l'autenticazione dell'entità servizio basata su certificato.
 
 ## <a name="options"></a>Opzioni
 
@@ -105,7 +105,7 @@ Trattare `/path/to/my/cert` come un percorso di un file PEM o Pkcs12. AzCopy non
 
 **--Certificate-percorso** stringa percorso del certificato per l'autenticazione del nome SPN. Obbligatorio per l'autenticazione dell'entità servizio basata su certificato.
 
-**--** guida per il `azcopy login` comando.
+**--**   guida per il `azcopy login` comando.
 
 **--Identity**   Accedere usando l'identità della macchina virtuale, nota anche come identità del servizio gestito.
 

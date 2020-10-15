@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a15125e5b15db18b3844c79d3c8b44f26006053
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 68f7e010a2d60640447a87d2fb910a1c96f2db83
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554634"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Esercitazione: Integrazione di Azure Active Directory con Mobile Xpense
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mobile Xpense, seguire 
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Mobile Xpense](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://mobilexpense.com/ServiceProvider`
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mobile Xpense, seguire 
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Mobile Xpense](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<sub-domain>.mobilexpense.com/<customername>`
 

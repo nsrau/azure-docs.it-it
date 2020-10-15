@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885976"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Abilitare la registrazione nelle pipeline di Azure Machine Learning Designer
@@ -59,7 +59,7 @@ L'esempio seguente illustra come registrare l'errore quadratico medio di due mod
         return dataframe1,
     ```
     
-Questo codice USA Azure Machine Learning Python SDK per registrare i valori. USA Run. get_context () per ottenere il contesto dell'esecuzione corrente. Registra quindi i valori nel contesto con il metodo Run. Parent. log (). USA `parent` per registrare i valori nell'esecuzione della pipeline padre anziché nell'esecuzione del modulo.
+Questo codice USA Azure Machine Learning Python SDK per registrare i valori. USA Run.get_context () per ottenere il contesto dell'esecuzione corrente. Registra quindi i valori nel contesto con il metodo Run. Parent. log (). USA `parent` per registrare i valori nell'esecuzione della pipeline padre anziché nell'esecuzione del modulo.
 
 Per altre informazioni su come usare Python SDK per registrare i valori, vedere [abilitare la registrazione nelle esecuzioni di training di Azure ml](how-to-track-experiments.md).
 

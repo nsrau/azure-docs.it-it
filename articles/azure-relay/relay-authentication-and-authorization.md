@@ -4,10 +4,10 @@ description: Questo articolo fornisce una panoramica dell'autenticazione con fir
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 4b0a5c7a092155a006419eedd170a63abed42bb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87033378"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticazione e autorizzazione di Inoltro di Azure

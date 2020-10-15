@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548355"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713648"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Amazon Web Services (AWS)
 
@@ -304,7 +304,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 18. Creare un nuovo criterio per questo utente.
 
-    ![Screenshot di Aggiungi utente](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Screenshot che mostra la pagina Add user page in cui è possibile creare un criterio per l'utente.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Selezionare **Attach existing policies directly** (Collega direttamente i criteri esistenti).
 
@@ -322,7 +322,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 20. Scaricare le credenziali utente di un utente.
 
-    ![Screenshot di Aggiungi utente](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Screenshot che mostra la pagina Add user con il pulsante Download .csv per ottenere le credenziali utente.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copiare l'**ID chiave di accesso** e la **chiave di accesso segreta** dell'utente.
 

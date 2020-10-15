@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269727"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015822"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformità alle normative di servizi multimediali
 
@@ -33,11 +33,11 @@ I servizi per enti pubblici di servizi multimediali sono conformi a DoD CC SRG I
 
 Una revisione di servizi multimediali di 3PAO e JAB non è pianificata per 2020.
 
-Per altre informazioni sulla conformità dei servizi di Azure, vedere l'articolo [servizi di Azure di FedRAMP e DOD CC SRG audit scope](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) .
+Per altre informazioni sulla conformità dei servizi di Azure, vedere l'articolo [servizi di Azure di FedRAMP e DOD CC SRG audit scope](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) .
 
 ## <a name="azure-compliance-documentation"></a>Documentazione sulla conformità in Azure
 
-Se l'organizzazione deve rispettare gli standard legali o normativi per i servizi globali, per enti pubblici degli Stati Uniti, regionali, servizi finanziari, integrità, media e produzione, iniziare con la [documentazione di conformità di Azure](https://docs.microsoft.com/azure/compliance/).
+Se l'organizzazione deve rispettare gli standard legali o normativi per i servizi globali, per enti pubblici degli Stati Uniti, regionali, servizi finanziari, integrità, media e produzione, iniziare con la [documentazione di conformità di Azure](../../compliance/index.yml).
 
 Sono inoltre disponibili ulteriori risorse di conformità quali i report di controllo, un elenco di controllo per la privacy e Regolamento generale sulla protezione dei dati (GDPR), i progetti di conformità, le linee guida per i paesi e le aree geografiche, l'implementazione e i mapping, nonché i white paper e i report degli analisti.
 

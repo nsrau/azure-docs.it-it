@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165243"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service
@@ -318,7 +318,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                           | Obbligatorio | Descrizione                                                                                                                                                            |
+| Parametro                                           | Obbligatoria | Descrizione                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | Sì      | Può essere generato accettando l' `email` attestazione inviata all'API, sostituendo il `@` carattere con `_` e pre-in sospeso a `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | Sì      | Il valore deve essere impostato su `true`.                                                                                                                                                 |

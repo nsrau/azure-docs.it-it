@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86120637"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716081"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Esercitazione: Eseguire la migrazione dei dati locali in una risorsa di archiviazione nel cloud con AzCopy
 
@@ -62,7 +62,7 @@ Salvare il file di AzCopy in una posizione qualsiasi sul computer. Aggiungere la
 
 ## <a name="authenticate-with-azure-ad"></a>Eseguire l'autenticazione con Azure AD
 
-Assegnare per prima cosa il ruolo [Collaboratore ai dati dei BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) alla propria identità. Vedere [Concedere l'accesso ai dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Assegnare per prima cosa il ruolo [Collaboratore ai dati dei BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) alla propria identità. Vedere [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di accodamento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Aprire quindi un prompt dei comandi, digitare il comando seguente e premere INVIO.
 

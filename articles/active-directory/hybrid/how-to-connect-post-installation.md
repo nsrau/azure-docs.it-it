@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657109"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Passaggi successivi e come gestire Azure AD Connect
@@ -56,12 +56,12 @@ Usare il portale di Azure per controllare lo stato di una sincronizzazione.
 Se è necessario eseguire un'attività di sincronizzazione, è possibile procedere nel modo seguente:
 
 1. Fare doppio clic sul collegamento Azure AD Connect desktop per avviare la procedura guidata.
-2. Fare clic su **Configura**.
+2. Fare clic su **Configure**.
 3. Nella schermata attività selezionare le **Opzioni Personalizza sincronizzazione** e fare clic su **Avanti** .
 4. Immettere le credenziali di Azure AD
 5. Fare clic su **Avanti**. Fare clic su **Avanti**.  Fare clic su **Avanti**.
 5.  Nella schermata **pronto per** la configurazione assicurarsi che la casella **Avvia il processo di sincronizzazione al termine della configurazione** sia selezionata.
-6.  Fare clic su **Configura**.
+6.  Fare clic su **Configure**.
 
 Per ulteriori informazioni sull'utilità di pianificazione della sincronizzazione Azure AD Connect, vedere [Azure ad Connect utilità di pianificazione](how-to-connect-sync-feature-scheduler.md).
 

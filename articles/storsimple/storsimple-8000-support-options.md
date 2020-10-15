@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070335"
 ---
 # <a name="storsimple-solution-support"></a>Supporto della soluzione StorSimple
@@ -82,7 +82,7 @@ Il supporto per problemi correlati a fatturazione e gestione delle sottoscrizion
 | **GRAVITÀ** |**SITUAZIONE DEL CLIENTE**                                                                                                                                | RISPOSTA PREVISTA DA PARTE DI MICROSOFT <sup>2                                                                                       | RISPOSTA PREVISTA DA PARTE DEL CLIENTE                                                                                                                                                       |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Una        | Impatto aziendale critico: <ul> <br> <li> L'azienda del cliente riscontra perdita o riduzione significativa delle prestazioni dei servizi. <sup>1</sup> <br> <li> Necessita di attenzione immediata.                          | Risposta iniziale: <sup>1</sup> <ul><br> <li>Massimo 1 ora per Premium. <br> <li> Massimo 2 ore per Standard. <br> <li> Tentativi di risoluzione per tutto il giorno, tutti i giorni. | <ul><li> Allocazione delle risorse appropriate per sostenere tentativi di risoluzione continui per tutto il giorno, tutti i giorni. <br> <li> Informazioni di contatto accurate per l'autore della richiesta di assistenza.                                                |
-| b        | Impatto aziendale moderato: <ul><br> <li> L'azienda del cliente riscontra perdita o riduzione moderata delle prestazioni dei servizi, ma è in grado di continuare a lavorare, sebbene in modo non ottimale. | Risposta iniziale: <sup>1</sup><ul><br> <li> Massimo 2 ore per Premium. <br> <li> Massimo 4 ore per Standard.                                      | <ul><li> Allocazione delle risorse appropriate per sostenere tentativi di risoluzione durante l'orario lavorativo, a meno che il cliente non rifiuti esplicitamente la soluzione 24x7. <br> <li> Informazioni di contatto accurate per l'autore della richiesta di assistenza. |
+| B        | Impatto aziendale moderato: <ul><br> <li> L'azienda del cliente riscontra perdita o riduzione moderata delle prestazioni dei servizi, ma è in grado di continuare a lavorare, sebbene in modo non ottimale. | Risposta iniziale: <sup>1</sup><ul><br> <li> Massimo 2 ore per Premium. <br> <li> Massimo 4 ore per Standard.                                      | <ul><li> Allocazione delle risorse appropriate per sostenere tentativi di risoluzione durante l'orario lavorativo, a meno che il cliente non rifiuti esplicitamente la soluzione 24x7. <br> <li> Informazioni di contatto accurate per l'autore della richiesta di assistenza. |
 | C        | Impatto aziendale minimo: <ul><br> <li> L'azienda del cliente riscontra impedimenti minimi o impercettibili per i servizi.                                 | Risposta iniziale: <sup>1</sup><ul> <br> <li> Massimo 4 ore per Premium. <br> <li> Massimo 8 ore per Standard.                                      | <ul><li>Informazioni di contatto accurate per l'autore della richiesta di assistenza                                                                                                                                    |
  
 <sup>1 </sup> Microsoft può ridurre il livello di gravità di un caso di Gravità A se il cliente non è in grado di fornire risposte o risorse adeguate per permettere a Microsoft di procedere con i tentativi di risoluzione dei problemi.
@@ -111,7 +111,7 @@ Il supporto degli array di archiviazione StorSimple 8000 Series vengono forniti 
 
 
 
-*<text>* La copertura Premium non è disponibile in tutte le località. Contattare Microsoft all'indirizzo SSSupOps \@ Microsoft.com per la copertura geografica prima di acquistare il supporto per StorSimple Premium.*
+*<text> * La copertura Premium non è disponibile in tutte le località. Contattare Microsoft all'indirizzo SSSupOps \@ Microsoft.com per la copertura geografica prima di acquistare il supporto per StorSimple Premium.*
 
 ***Il dispositivo StorSimple deve essere distribuito in un'area in cui il cliente sia coperto dal supporto Premier per essere idoneo per un aggiornamento gratuito al supporto di StorSimple premium.*
 

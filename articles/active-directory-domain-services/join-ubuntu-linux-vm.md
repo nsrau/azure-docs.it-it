@@ -2,7 +2,7 @@
 title: Aggiungere una macchina virtuale Ubuntu a Azure AD Domain Services | Microsoft Docs
 description: Informazioni su come configurare e aggiungere un Ubuntu Linux macchina virtuale a un dominio gestito da Azure AD Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/13/2020
-ms.author: iainfou
+ms.author: joflore
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d01d961a5d5b86f74bb785c3fddfa09843aa060c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ac620ffa36bdeb35ef524ef2956db03c8edcb566
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283147"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962089"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito Azure Active Directory Domain Services
 
@@ -77,7 +77,7 @@ Al termine, salvare e chiudere il file *host* usando il `:wq` comando dell'edito
 
 ## <a name="install-required-packages"></a>Installare i pacchetti necessari
 
-La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio usando`apt-get`
+La VM necessita di alcuni pacchetti aggiuntivi per aggiungere la macchina virtuale al dominio gestito. Per installare e configurare questi pacchetti, aggiornare e installare gli strumenti di aggiunta al dominio usando `apt-get`
 
 Durante l'installazione di Kerberos, il pacchetto *krb5-User* richiede il nome dell'area di autenticazione in tutti i caratteri maiuscoli. Ad esempio, se il nome del dominio gestito è *aaddscontoso.com*, immettere *AADDSCONTOSO.com* come area di autenticazione. L'installazione scrive le `[realm]` `[domain_realm]` sezioni e nel file di configurazione */etc/krb5.conf* . Assicurarsi di specificare l'area di autenticazione in MAIUSCOLo:
 

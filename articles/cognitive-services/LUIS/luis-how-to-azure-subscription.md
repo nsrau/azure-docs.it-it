@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327222"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
@@ -254,7 +254,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Type|Impostazione|valore|
+    |Type|Impostazione|Valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore della proprietà `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|La chiave di creazione.|

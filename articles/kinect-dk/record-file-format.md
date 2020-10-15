@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: reference
 keywords: Kinect, Azure, Sensor, SDK, profondità, RGB, record, riproduzione, Matroska, MKV
 ms.openlocfilehash: 3a78ed158c78df1c9a6eadcc0bfb2e40b22750bd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87501781"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Usare Azure Kinect Sensor SDK per registrare il formato di file
@@ -22,7 +22,7 @@ I dettagli di basso livello del formato del contenitore. MKV sono disponibili ne
 
 | Nome traccia | Formato codec                          |
 |------------|---------------------------------------|
-| Colore      | Dipendente dalla modalità (MJPEG, NV12 o YUY2) |
+| Colore      | Mode-Dependent (MJPEG, NV12 o YUY2) |
 | DEPTH      | b16g (scala di grigi a 16 bit, big endian)   |
 | IR         | b16g (scala di grigi a 16 bit, big endian)   |
 | IMU        | Struttura personalizzata, vedere la [struttura di esempio IMU](record-file-format.md#imu-sample-structure) di seguito. |
@@ -46,7 +46,7 @@ Il `-vsync 0` parametro impone a ffmpeg di estrarre i frame così come sono anzi
 Se i dati IMU vengono estratti dal file senza usare l'API di riproduzione, i dati saranno in formato binario.
 Di seguito è riportata la struttura dei dati IMU. Tutti i campi sono little-endian.
 
-| Campo                        | Tipo     |
+| Campo                        | Type     |
 |------------------------------|----------|
 | Timestamp accelerometro (μs) | uint64   |
 | Dati accelerometro (x, y, z) | float [3] |

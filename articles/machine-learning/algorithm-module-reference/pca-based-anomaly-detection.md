@@ -1,7 +1,7 @@
 ---
-title: 'Rilevamento di anomalie basato su PCA: riferimento al modulo'
+title: 'Rilevamento anomalie PCA-Based: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo di rilevamento delle anomalie basato su PCA per creare un modello di rilevamento delle anomalie basato sull'analisi dei componenti principali (PCA).
+description: Informazioni su come usare il modulo di rilevamento delle anomalie PCA-Based per creare un modello di rilevamento delle anomalie basato sull'analisi dei componenti principali (PCA).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898467"
 ---
-# <a name="pca-based-anomaly-detection-module"></a>Modulo di rilevamento delle anomalie basato su PCA
+# <a name="pca-based-anomaly-detection-module"></a>Modulo di rilevamento anomalie PCA-Based
 
-Questo articolo descrive come usare il modulo di rilevamento delle anomalie basato su PCA in Azure Machine Learning Designer, per creare un modello di rilevamento delle anomalie basato sull'analisi dei componenti principali (PCA).
+Questo articolo descrive come usare il modulo di rilevamento delle anomalie PCA-Based in Azure Machine Learning Designer, per creare un modello di rilevamento delle anomalie basato sull'analisi dei componenti principali (PCA).
 
 Questo modulo consente di creare un modello in scenari in cui è facile ottenere i dati di training da una classe, ad esempio transazioni valide, ma è difficile ottenere campioni sufficienti delle anomalie di destinazione. 
 
-Per rilevare le transazioni fraudolente, ad esempio, spesso non si dispone di un numero sufficiente di esempi di illecito di cui eseguire il training. Tuttavia, si potrebbero avere molti esempi di transazioni valide. Il modulo di rilevamento delle anomalie basato su PCA risolve il problema analizzando le funzionalità disponibili per determinare ciò che costituisce una classe "normale". Il modulo applica quindi le metriche di distanza per identificare i casi che rappresentano le anomalie. Questo approccio consente di eseguire il training di un modello utilizzando dati sbilanciati esistenti.
+Per rilevare le transazioni fraudolente, ad esempio, spesso non si dispone di un numero sufficiente di esempi di illecito di cui eseguire il training. Tuttavia, si potrebbero avere molti esempi di transazioni valide. Il modulo di rilevamento delle anomalie PCA-Based risolve il problema analizzando le funzionalità disponibili per determinare ciò che costituisce una classe "normale". Il modulo applica quindi le metriche di distanza per identificare i casi che rappresentano le anomalie. Questo approccio consente di eseguire il training di un modello utilizzando dati sbilanciati esistenti.
 
 ## <a name="more-about-principal-component-analysis"></a>Altre informazioni sull'analisi dei componenti principali
 
@@ -38,7 +38,7 @@ Per altre informazioni sul funzionamento della PCA e sull'implementazione per il
 
 - [Ricerca della struttura con casualità: algoritmi probabilistici per la costruzione di decomposizione di matrici approssimative](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (Download PDF), da Halko, Martinsson e tropp
 
-## <a name="how-to-configure-pca-based-anomaly-detection"></a>Come configurare il rilevamento delle anomalie basato su PCA
+## <a name="how-to-configure-pca-based-anomaly-detection"></a>Come configurare il rilevamento delle anomalie PCA-Based
 
 1. Aggiungere il modulo di **rilevamento delle anomalie basato su PCA** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo nella categoria **Rilevamento anomalie** .
 

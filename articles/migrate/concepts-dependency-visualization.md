@@ -4,13 +4,13 @@ description: Viene descritto come utilizzare l'analisi delle dipendenze per la v
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530251"
 ---
-# <a name="dependency-analysis"></a>Analisi delle dipendenze
+# <a name="dependency-analysis"></a>analisi delle dipendenze
 
 Questo articolo descrive l'analisi delle dipendenze in Azure Migrate: server assessment.
 
@@ -73,7 +73,7 @@ Le differenze tra la visualizzazione senza agente e la visualizzazione basata su
 
 **Requisito** | **Senza agente** | **Basata su agenti**
 --- | --- | ---
-**Supporto** | In anteprima solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
+**Supporto tecnico** | In anteprima solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
 **Agent** | Non sono necessari agenti nei computer che si vuole analizzare. | Agenti necessari in ogni computer locale che si vuole analizzare.
 **Log Analytics** | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](../azure-monitor/insights/service-map.md) nei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per l'analisi delle dipendenze.<br/><br/> Associare un'area di lavoro Log Analytics a un progetto Azure Migrate. L'area di lavoro deve trovarsi nelle aree Stati Uniti orientali, Asia sud-orientale o Europa occidentale. L'area di lavoro deve trovarsi in una regione in cui la soluzione [Mapping dei servizi](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) è supportata.
 **Processo** | Acquisisce i dati di connessione TCP. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.

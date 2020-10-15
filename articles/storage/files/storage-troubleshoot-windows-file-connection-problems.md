@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715991"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
@@ -332,7 +332,7 @@ Prima di tutto, assicurarsi di aver seguito tutti e quattro i passaggi per [abil
 
 Secondo, provare [a montare la condivisione file di Azure con la chiave dell'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se non è stato possibile eseguire il montaggio, scaricare [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) per convalidare l'ambiente in cui viene eseguito il client, rilevare la configurazione del client incompatibile che potrebbe causare un errore di accesso per file di Azure, fornire indicazioni dettagliate sulla correzione automatica e raccogliere le tracce di diagnostica.
 
-In terzo luogo, è possibile eseguire il cmdlet debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella [versione AzFilesHybrid v 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). È necessario eseguire questo cmdlet con un utente di AD che disponga dell'autorizzazione di proprietario per l'account di archiviazione di destinazione.  
+In terzo luogo, è possibile eseguire il cmdlet Debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella [versione AzFilesHybrid v 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). È necessario eseguire questo cmdlet con un utente di AD che disponga dell'autorizzazione di proprietario per l'account di archiviazione di destinazione.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -360,7 +360,7 @@ Quando si tenta di configurare gli ACL di Windows con Esplora file in una condiv
 
 È consigliabile usare [lo strumento icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) per configurare le autorizzazioni a livello di directory/file come soluzione alternativa. 
 
-## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Errori durante l'esecuzione del cmdlet join-AzStorageAccountForAuth
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Errori durante l'esecuzione di Join-AzStorageAccountForAuth cmdlet
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Errore: "il servizio directory non è stato in grado di allocare un identificatore relativo"
 

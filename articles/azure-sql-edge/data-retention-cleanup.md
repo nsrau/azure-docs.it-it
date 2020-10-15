@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888141"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gestire i dati cronologici con i criteri di conservazione
@@ -79,7 +79,7 @@ I sei eventi estesi seguenti consentono di tenere traccia dello stato delle oper
 | data_retention_cleanup_exception  | Si verifica un processo di pulizia della tabella con criteri di conservazione non riuscito. |
 | data_retention_cleanup_completed  | Si verifica quando termina il processo di pulizia della tabella con criteri di conservazione dei dati. |  
 
-Inoltre, è stato aggiunto un nuovo tipo di buffer circolare denominato `RING_BUFFER_DATA_RETENTION_CLEANUP` alla vista a gestione dinamica sys. dm_os_ring_buffers. Questa vista può essere utilizzata per monitorare le operazioni di pulizia della conservazione dei dati. 
+È stato inoltre aggiunto un nuovo tipo di buffer circolare denominato `RING_BUFFER_DATA_RETENTION_CLEANUP` per sys.dm_os_ring_buffers vista a gestione dinamica. Questa vista può essere utilizzata per monitorare le operazioni di pulizia della conservazione dei dati. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

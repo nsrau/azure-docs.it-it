@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840252"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089724"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -39,7 +39,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Chiavi di accesso](#access-keys)
     * [Impostazioni avanzate](#advanced-settings)
     * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-    * [Scalabilità](#scale)
+    * [Ridimensionamento](#scale)
     * [Dimensioni del cluster](#cluster-size)
     * [Salvataggio permanente dei dati](#redis-data-persistence)
     * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -51,7 +51,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
     * [Script di automazione](#automation-script)
 * Amministrazione
     * [Importa dati](#importexport)
-    * [Esporta dati](#importexport)
+    * [Esportazione dei dati](#importexport)
     * [Reboot](#reboot)
 * [Monitoring](#monitoring)
     * [Metriche Redis](#redis-metrics)
@@ -72,7 +72,7 @@ Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cac
 
 ### <a name="access-control-iam"></a>Controllo di accesso (IAM)
 
-La sezione **Controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo nel portale di Azure. Questa configurazione consente alle organizzazioni di soddisfare i propri requisiti di gestione degli accessi in modo semplice e accurato. Per altre informazioni, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../role-based-access-control/role-assignments-portal.md).
+La sezione **controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) nella portale di Azure. Questa configurazione consente alle organizzazioni di soddisfare i propri requisiti di gestione degli accessi in modo semplice e accurato. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure nel portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Tag
 
@@ -91,7 +91,7 @@ La sezione **Impostazioni** consente di accedere alle impostazioni seguenti per 
 * [Chiavi di accesso](#access-keys)
 * [Impostazioni avanzate](#advanced-settings)
 * [Redis Cache Advisor](#azure-cache-for-redis-advisor)
-* [Scalabilità](#scale)
+* [Ridimensionamento](#scale)
 * [Dimensioni del cluster](#cluster-size)
 * [Salvataggio permanente dei dati](#redis-data-persistence)
 * [Pianificare gli aggiornamenti](#schedule-updates)
@@ -214,7 +214,7 @@ Per modificare la dimensione del cluster, usare il dispositivo di scorrimento op
 
 
 ### <a name="redis-data-persistence"></a>Persistenza dei dati Redis:
-Fare clic su **persistenza dei dati** per abilitare, disabilitare o configurare la persistenza dei dati per la cache Premium. Cache Redis di Azure offre la persistenza dei dati Redis tramite la [persistenza RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) o la [persistenza AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Fare clic su **persistenza dei dati** per abilitare, disabilitare o configurare la persistenza dei dati per la cache Premium. Cache Redis di Azure offre la persistenza dei dati Redis tramite la persistenza RDB o la persistenza AOF.
 
 Per altre informazioni, vedere [Come configurare la persistenza dei dati per un'istanza di Cache Redis di Azure Premium](cache-how-to-premium-persistence.md).
 
@@ -291,7 +291,7 @@ Le impostazioni della sezione **Amministrazione** consentono di eseguire le atti
 ![Amministrazione](./media/cache-configure/redis-cache-administration.png)
 
 * [Importa dati](#importexport)
-* [Esporta dati](#importexport)
+* [Esportazione dei dati](#importexport)
 * [Reboot](#reboot)
 
 

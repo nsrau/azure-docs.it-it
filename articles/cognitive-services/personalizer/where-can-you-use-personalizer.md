@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 87179950c33a6facb59ce499aa0ae393e53fb37f
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777225"
 ---
 # <a name="where-and-how-to-use-personalizer"></a>Dove e come usare il Personalizzatore
@@ -34,7 +34,7 @@ Il Personalizzatore usa l'apprendimento per rinforzo per selezionare l'azione (c
 |Linee guida|Spiegazione|
 |--|--|
 |Obiettivo aziendale|Si ha un obiettivo aziendale o di usabilità per l'applicazione.|
-|Contenuto|Decidere contestualmente cosa mostrare agli utenti in un determinato punto dell'applicazione migliora tale obiettivo.|
+|Content|Decidere contestualmente cosa mostrare agli utenti in un determinato punto dell'applicazione migliora tale obiettivo.|
 |Quantità di contenuto|Sono presenti meno di 50 azioni di rango per chiamata.|
 |Dati aggregati|La scelta migliore può e deve essere appresa in base al comportamento collettivo degli utenti e al punteggio totale.|
 |Uso etico|L'uso dell'apprendimento automatico per la personalizzazione segue le [linee guida per l'uso responsabile](ethics-responsible-use.md) e le scelte personali.

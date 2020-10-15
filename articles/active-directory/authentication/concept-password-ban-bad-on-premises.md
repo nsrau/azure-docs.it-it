@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: c4802c4faf245819f57f9885129fa876110407dd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116649"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965234"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Applicare la protezione Azure AD password locale per Active Directory Domain Services
 
@@ -91,7 +91,7 @@ La foresta di servizi di dominio Active Directory e tutti i servizi proxy distri
 > [!NOTE]
 > I clienti che hanno più tenant di Azure AD devono quindi scegliere un tenant distinto per registrare ogni foresta per Azure AD la protezione con password.
 
-## <a name="download"></a>Scarica
+## <a name="download"></a>Download
 
 I due programmi di installazione degli agenti necessari per la protezione Azure AD password sono disponibili nell' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 

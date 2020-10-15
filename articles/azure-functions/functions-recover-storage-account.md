@@ -3,12 +3,12 @@ title: 'Errore di risoluzione dei problemi: runtime di Funzioni di Azure non è 
 description: Informazioni su come risolvere il problema di un account di archiviazione non valido.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: c46ca214ab6c0798fdc39ead575fb2873b8c51c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385858"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054730"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Errore di risoluzione dei problemi: "runtime di Funzioni di Azure non è raggiungibile"
 
@@ -36,7 +36,7 @@ Nel passaggio precedente, se non è possibile trovare una stringa di connessione
 
 * Obbligatoria:
     * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
-* Obbligatorio per le funzioni del piano a consumo:
+* Obbligatorio per le funzioni di consumo e piano Premium:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
     * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 

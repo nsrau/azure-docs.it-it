@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
 ms.openlocfilehash: 5b823b0429feffa87a05faadc78574287bc9b4a4
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708340"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
@@ -234,9 +234,9 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 3. Indirizzo di supporto (collegamento)
 4. Termini e condizioni
 5. Indirizzo privacy policy (collegamento)
-6. Name
+6. Nome
 7. Riepilogo
-8. Descrizione
+8. Description
 9. Collegamenti utili
 10. Screenshot/video
 
@@ -256,8 +256,8 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
-1. Name
-2. Descrizione
+1. Nome
+2. Description
 3. Collegamenti utili
 4. Schermate
 

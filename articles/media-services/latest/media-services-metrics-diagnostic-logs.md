@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296652"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica tramite monitoraggio di Azure
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle app. Tutti i dati raccolti da monitoraggio di Azure si integrano in uno dei due tipi fondamentali: metriche e log. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile visualizzare e analizzare i dati di metrica usando [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md). È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), esportarli in [log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
+[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle app. Tutti i dati raccolti da Monitoraggio di Azure rientrano in uno di due tipi fondamentali: metriche e log. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile visualizzare e analizzare i dati di metrica usando [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md). È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), esportarli in [log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
 
 Per una panoramica dettagliata, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md) e [log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
@@ -44,7 +44,7 @@ Servizi multimediali supporta le metriche di monitoraggio per le risorse seguent
 
 È possibile monitorare le metriche dell'account seguenti.
 
-|Nome metrica|Nome visualizzato|Descrizione|
+|Nome metrica|Nome visualizzato|Description|
 |---|---|---|
 |AssetCount|Asset count (Conteggio asset)|Asset nell'account.|
 |AssetQuota|Asset quota (Quota asset)|Quota di asset nell'account.|
@@ -62,7 +62,7 @@ Servizi multimediali supporta le metriche di monitoraggio per le risorse seguent
 
 Sono supportate le metriche seguenti per gli [endpoint di streaming](/rest/api/media/streamingendpoints) di servizi multimediali:
 
-|Nome metrica|Nome visualizzato|Descrizione|
+|Nome metrica|Nome visualizzato|Description|
 |---|---|---|
 |Requests|Requests|Specifica il numero totale di richieste HTTP gestite dall'endpoint di streaming.|
 |Egress|Egress|Byte in uscita totali al minuto per endpoint di streaming.|
@@ -94,7 +94,7 @@ Servizi multimediali supporta i log di diagnostica seguenti:
 
 ### <a name="key-delivery"></a>Distribuzione delle chiavi
 
-|Nome|Descrizione|
+|Nome|Description|
 |---|---|
 |Richiesta del servizio di distribuzione delle chiavi|Log che mostrano le informazioni della richiesta del servizio di distribuzione delle chiavi. Per ulteriori informazioni, vedere [schemi](media-services-diagnostic-logs-schema.md).|
 
@@ -114,6 +114,6 @@ Vedere [come monitorare i log di diagnostica del servizio multimediale](media-se
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come raccogliere e utilizzare i dati di log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md)
+* [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md)
 * [Come monitorare le metriche di servizi multimediali](media-services-metrics-howto.md)
 * [Come monitorare i log di diagnostica del servizio multimediale](media-services-diagnostic-logs-howto.md)

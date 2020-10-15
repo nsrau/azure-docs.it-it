@@ -4,45 +4,54 @@ description: Scopri di più su Defender per le funzionalità e i servizi di Inte
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: 434a977a6d8c5b2243996063f758f409c20723fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/07/2020
+ms.author: rkarlin
+ms.openlocfilehash: 1d039208ba99ba11cb562f82301a5bb3c02c6603
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940914"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089996"
 ---
-# <a name="introducing-azure-defender-for-iot"></a>Introduzione ad Azure Defender per l'it
+# <a name="introducing-azure-defender-for-iot-preview"></a>Introduzione ad Azure Defender per l'anteprima
 
-Unifica la gestione della sicurezza e Abilita l'analisi e il rilevamento delle minacce end-to-end nei carichi di lavoro cloud ibridi e nella tua soluzione Azure.
+> [!IMPORTANT]
+> Azure Defender per l'it è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Proteggi la tua intera soluzione Internet delle cose da dispositivi Internet in Azure
+Poiché le aziende implementano la trasformazione digitale per una maggiore efficienza e produttività, le lavagne e i team di gestione sono sempre più preoccupati per quanto riguarda la responsabilità e i rischi finanziari derivanti dalla distribuzione di un numero elevato di dispositivi non gestiti di Internet delle cose e tecnologia operativa (OT).
+Gli attori minacciati che puntano a questa superficie di attacco espansa possono causare un notevole impatto aziendale, tra cui sicurezza e incidenti ambientali, tempi di inattività di produzione costosi e furto di proprietà intellettuale riservate.
 
-È possibile scegliere tra la soluzione senza agente senza problemi o sfruttare la sicurezza completa basata su agenti, Azure Defender per l'it fornisce la prevenzione e l'analisi delle minacce per ogni dispositivo, IoT Edge e l'hub Internet.
+I dispositivi obsoleti e OT non supportano gli agenti e spesso sono senza patch, configurati in modo non corretto e invisibile ai team IT, rendendoli obiettivi soft per gli attori di minacce che vogliono passare a più approfondimenti sulle reti aziendali. 
 
-Man mano che miliardi di nuovi dispositivi sono connessi a Internet e integrati nella nostra vita quotidiana e nelle nostre aziende, i team delle operazioni di sicurezza devono garantire che le strategie di sicurezza si evolvano abbastanza rapidamente per coprire ogni nuova superficie di attacco. Analogamente a qualsiasi altro sistema, per proteggere completamente la soluzione Internet delle cose, richiede la protezione in ogni fase dell'implementazione.
+Gli strumenti tradizionali di monitoraggio della sicurezza di rete sviluppati per le reti IT aziendali non sono in grado di risolvere questi ambienti perché non hanno una conoscenza approfondita dei protocolli specializzati, dei dispositivi e dei comportamenti da computer a computer (M2M) trovati negli ambienti Internet e Internet.
 
-Defender per le cose semplifica la protezione del carico di lavoro ibrido grazie alla visibilità e al controllo unificati, alla prevenzione delle minacce adattiva e al rilevamento intelligente delle minacce e alla risposta tra i carichi di lavoro in esecuzione in Microsoft Edge, in locale, in Azure e in altri cloud.
+Azure Defender per l'it è una soluzione olistica che consente di individuare, monitorare e gestire in modo continuo gli elementi e le minacce, i rischi e le vulnerabilità in tutti i dispositivi e i dispositivi più recenti, sia che si tratti di dispositivi più recenti gestiti tramite l'hub Azure o i dispositivi non gestiti legacy. Azure Defender per le cose aiuta ad accelerare la risposta agli eventi imprevisti, fornisce informazioni approfondite sulle problemi operativi e semplifica la protezione dei carichi di lavoro ibridi grazie alla visibilità e al controllo delle cose unificate.
 
-![Defender per l'architettura dell'it](./media/architecture/azure-iot-security-architecture.png)
+Questa soluzione olistica risolve i casi d'uso principali che includono:
+- Individuazione automatica delle risorse per tutti i dispositivi e dispositivi OT
+- Gestione dei rischi e delle vulnerabilità continua
+- E risposta agli eventi imprevisti e alla ricerca di minacce
+- Efficienza operativa 
 
-### <a name="unified-visibility-and-control"></a>Visibilità e controllo unificati
+Azure Defender per l'it è una soluzione unificata per la sicurezza dei dispositivi e per la sicurezza in tutti i dispositivi. Ti offre gli strumenti per creare sicurezza in nuovi dispositivi e dispositivi gestiti tramite l'hub Azure Internet, nonché le funzionalità di monitoraggio a livello di rete senza agenti che ti servono per proteggere le risorse e gli asset non gestiti.
 
-Ottieni una visualizzazione unificata della sicurezza in tutti i tuoi carichi di lavoro locali e cloud, tra cui la tua soluzione Azure. Carica i nuovi dispositivi e applica i criteri di sicurezza nei tuoi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub Internet) per garantire la conformità agli standard di sicurezza e al miglioramento del comportamento di sicurezza.
+## <a name="unified-visibility-and-control"></a>Visibilità e controllo unificati
 
-### <a name="adaptive-threat-prevention"></a>Prevenzione delle minacce adattiva
+Ottieni una visualizzazione unificata della sicurezza in tutti i tuoi carichi di lavoro locali e cloud, tra cui la tua soluzione Azure. È possibile eseguire l'onboarding di nuovi dispositivi e applicare i criteri di sicurezza nei diversi carichi di lavoro (dispositivi foglia, dispositivi Microsoft Edge, hub IoT) per assicurare la conformità agli standard di sicurezza e migliorare il comportamento di sicurezza.
+
+## <a name="adaptive-threat-prevention"></a>Prevenzione delle minacce adattiva
 
 USA Defender for Internet per monitorare continuamente la sicurezza di computer, reti e servizi di Azure. È possibile scegliere tra centinaia di valutazioni della sicurezza predefinite o crearne di personalizzate nel dashboard centrale di Defender per gli hub. Ottimizza le impostazioni di sicurezza e migliora il Punteggio di sicurezza con raccomandazioni di utilità pratica tra macchine virtuali, reti, app e dati. Grazie alle nuove funzionalità di gestione delle risorse, è ora possibile ridurre la superficie di attacco per la soluzione Azure Internet e correggere i problemi prima che possano essere sfruttati.
 
-### <a name="intelligent-threat-detection-and-response"></a>Rilevamento delle minacce e risposta intelligente
+## <a name="intelligent-threat-detection-and-response"></a>Rilevamento delle minacce e risposta intelligente
 
 Usa l'analisi avanzata e il Microsoft Intelligent Security Graph per ottenere un vantaggio per gli attacchi informatici in continua evoluzione. L'analisi comportamentale incorporata e l'apprendimento automatico identificano gli attacchi e gli exploit zero-day. Monitora la tua soluzione Internet per gli attacchi in ingresso e le attività post-violazione. Semplifica l'analisi e la correzione dei dispositivi con strumenti interattivi e Intelligence per le minacce contestuale.
 
@@ -51,8 +60,4 @@ Usa l'analisi avanzata e il Microsoft Intelligent Security Graph per ottenere un
 In questa panoramica sono state illustrate le funzionalità e i servizi di Defender per l'it. Per altre informazioni su Defender per l'architettura dell'it, i prerequisiti e informazioni su come iniziare, vedere gli articoli seguenti:
 
 - [Architettura](architecture.md)
-- [Prerequisiti del servizio](service-prerequisites.md)
 - [Introduzione](getting-started.md)
-- [Definire la soluzione](quickstart-configure-your-solution.md)
-- [Domande frequenti su Defender](resources-frequently-asked-questions.md)
-- [Defender per gli avvisi relativi a Internet](concept-security-alerts.md)

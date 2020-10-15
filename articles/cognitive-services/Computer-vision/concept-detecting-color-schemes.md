@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80244733"
 ---
 # <a name="detect-color-schemes-in-images"></a>Rilevare le combinazioni di colori nelle immagini
@@ -54,7 +54,7 @@ L'esempio seguente illustra la risposta JSON restituita da Visione artificiale q
 
 La tabella seguente mostra i colori di primo piano, di sfondo e dell'immagine restituiti per ogni immagine di esempio.
 
-| Image | Colori dominanti |
+| Immagine | Colori dominanti |
 |-------|-----------------|
 |![Fiore bianco su sfondo verde](./Images/flower.png)| Primo piano: nero<br/>Sfondo: bianco<br/>Colori: nero, bianco, verde|
 ![Treno che passa per una stazione](./Images/train_station.png) | Primo piano: nero<br/>Sfondo: nero<br/>Colori: nero |
@@ -63,7 +63,7 @@ La tabella seguente mostra i colori di primo piano, di sfondo e dell'immagine re
 
  La tabella seguente mostra il colore principale restituito come valore di colore HTML esadecimale per ogni immagine di esempio.
 
-| Image | Colore principale |
+| Immagine | Colore principale |
 |-------|--------------|
 |![Persona in piedi su una roccia al tramonto](./Images/mountain_vista.png) | #BB6D10 |
 |![Fiore bianco su sfondo verde](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ La tabella seguente mostra i colori di primo piano, di sfondo e dell'immagine re
 
 La tabella seguente mostra la valutazione in bianco e nero di Visione artificiale nelle immagini di esempio.
 
-| Image | Bianco e nero? |
+| Immagine | Bianco e nero? |
 |-------|----------------|
 |![Immagine in bianco e nero di edifici di Manhattan](./Images/bw_buildings.png) | true |
 |![Casa azzurra con giardino](./Images/house_yard.png) | false |

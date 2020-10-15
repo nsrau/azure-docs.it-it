@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631342"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096335"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -40,13 +40,13 @@ Le reti sono in genere protette tramite firewall e gruppi di sicurezza di rete (
 >[!IMPORTANT]
 > Se si usa un proxy autenticato per controllare la connettività di rete, questo non è supportato da Site Recovery e non è possibile abilitare la replica.
 
+>[!NOTE]
+> Non è necessario eseguire il filtro basato su indirizzi IP per controllare la connettività in uscita.
+> Azure Site Recovery gli indirizzi IP non devono essere aggiunti nella tabella di routing di Azure per controllare la connettività in uscita.
 
 ## <a name="outbound-connectivity-for-urls"></a>Connettività in uscita per gli URL
 
 Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, assicurarsi di consentire gli URL di Site Recovery seguenti:
-
->[!NOTE]
-> Non è necessario eseguire il filtro basato su indirizzi IP per controllare la connettività in uscita.
 
 **URL** | **Dettagli**
 --- | ---
@@ -59,7 +59,7 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Connettività in uscita tramite tag di servizio
 
-Se si usa un NSG per controllare la connettività in uscita, questi tag del servizio devono essere consentiti.
+Quando si usa NSG per controllare la connettività in uscita, questi tag del servizio devono essere consentiti.
 
 - Per gli account di archiviazione nell'area di origine:
     - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.

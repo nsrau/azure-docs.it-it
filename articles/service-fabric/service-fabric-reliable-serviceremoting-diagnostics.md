@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86245926"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Service Remoting
@@ -19,7 +19,7 @@ Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](/dotn
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable ServiceRemoting definisce le categorie di contatori delle prestazioni seguenti.
 
-| Categoria | Descrizione |
+| Category | Descrizione |
 | --- | --- |
 | Servizio Service Fabric |Contatori specifici per Azure Service Fabric Serivce Remoting, ad esempio tempo medio impiegato per elaborare la richiesta |
 | Metodo del servizio Service Fabric |Contatori specifici dei metodi implementati da Service Fabric Remoting Service, ad esempio per la frequenza con cui viene richiamato un metodo di un servizio |

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: pepogors
 ms.openlocfilehash: 86a02fd489ca0eec61b798db7136f963277f6c82
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261090"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Procedure consigliate per applicazioni e cluster di Azure Service Fabric
@@ -29,7 +29,7 @@ Questo articolo fornisce i collegamenti alle procedure consigliate per la gestio
 * [Procedure consigliate per il ridimensionamento del calcolo](service-fabric-best-practices-capacity-scaling.md)
 * [Pianificazione della capacità di calcolo](./service-fabric-cluster-capacity.md)
 
-## <a name="infrastructure-as-code"></a>Infrastruttura come codice
+## <a name="infrastructure-as-code"></a>Infrastructure as code
 
 * [Procedure consigliate per l'implementazione di Infrastructure as Code (IaC)](service-fabric-best-practices-infrastructure-as-code.md)
 

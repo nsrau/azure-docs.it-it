@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985268"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
@@ -33,7 +33,7 @@ Dopo aver selezionato **modifica** o **nuovo**, il dashboard si trova in modalit
 1. Selezionare uno o più dispositivi nell'elenco a discesa **dispositivi** da visualizzare sul riquadro. Verranno ora visualizzati i dati di telemetria, le proprietà e i comandi disponibili dai dispositivi.
 1. Selezionare **temperatura** nella sezione telemetria, quindi selezionare **Aggiungi riquadro**. Il riquadro ora viene visualizzato nel dashboard in cui è possibile modificare la visualizzazione, ridimensionare il riquadro e configurarlo:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Aggiungere un riquadro di telemetria della temperatura al dashboard":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
 Al termine dell'aggiunta e della personalizzazione dei riquadri nel dashboard, selezionare **Salva**.
 
@@ -75,23 +75,23 @@ Per i riquadri che visualizzano i valori di aggregazione, selezionare l'icona de
 
 Per i grafici a linee, i grafici a barre e i grafici a torta, è possibile personalizzare il colore dei diversi valori di telemetria. Selezionare l'icona della tavolozza accanto ai dati di telemetria che si desidera personalizzare:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Modificare il colore di un valore di telemetria":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
 Per i riquadri che mostrano le proprietà di stringa o i valori di telemetria, è possibile scegliere come visualizzare il testo. Se, ad esempio, il dispositivo archivia un URL in una proprietà di stringa, è possibile visualizzarlo come collegamento selezionabile. Se l'URL fa riferimento a un'immagine, è possibile eseguire il rendering dell'immagine in un riquadro ultimo valore noto o proprietà. Per modificare la modalità di visualizzazione di una stringa, selezionare l'icona a forma di ingranaggio accanto alla proprietà o al tipo di telemetria:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Modificare il modo in cui una stringa viene visualizzata in un riquadro":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
 Per **indicatori KPI**numerici, **ultimo valore noto**e riquadri delle **proprietà** , è possibile usare la formattazione condizionale per personalizzare il colore del riquadro in base al relativo valore corrente. Per aggiungere la formattazione condizionale, selezionare **Configura** nel riquadro, quindi selezionare l'icona **formattazione condizionale** accanto al valore da personalizzare:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot che illustra come trovare l'opzione Configura per un riquadro e quindi l'icona formattazione condizionale":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
 Aggiungere le regole di formattazione condizionale:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot che illustra le regole di formattazione condizionale per il flusso medio. Sono disponibili tre regole: meno 20 è verde, minore di 50 è gialla e tutto il valore di 50 è rosso":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
 Lo screenshot seguente mostra l'effetto della regola di formattazione condizionale:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot che mostra il colore di sfondo giallo nel riquadro medio del flusso d'acqua. Il numero sul riquadro è 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

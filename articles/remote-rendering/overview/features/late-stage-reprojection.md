@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022181"
+ms.locfileid: "91893204"
 ---
 # <a name="late-stage-reprojection"></a>Riproiezione in fase avanzata
 
@@ -34,7 +34,9 @@ In caso contrario, l'App utilizzerà LSR di profondità, in caso contrario utili
 
 Per il funzionamento del LSR di profondità, l'applicazione client deve fornire un buffer di profondità valido che contiene tutta la geometria pertinente da considerare durante LSR.
 
-Depth LSR tenta di stabilizzare il fotogramma video in base al contenuto del buffer di profondità fornito. Di conseguenza, il contenuto di cui non è stato eseguito il rendering, ad esempio gli oggetti trasparenti, non può essere modificato da LSR e può mostrare elementi di instabilità e di riproiezione.
+Depth LSR tenta di stabilizzare il fotogramma video in base al contenuto del buffer di profondità fornito. Di conseguenza, il contenuto di cui non è stato eseguito il rendering, ad esempio gli oggetti trasparenti, non può essere modificato da LSR e può mostrare elementi di instabilità e di riproiezione. 
+
+Per mitigare l'instabilità della riproiezione per gli oggetti trasparenti, è possibile forzare la scrittura del buffer di profondità. Vedere il flag Material *TransparencyWritesDepth* per i materiali [color](color-materials.md) e [PBR](pbr-materials.md) . Si noti, tuttavia, che la qualità visiva dell'interazione di oggetti trasparenti/opachi può subire un problema quando si Abilita questo flag.
 
 ## <a name="planar-lsr"></a>LSR planare
 

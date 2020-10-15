@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b629ddeb1db8dd94c1c96ecb62fafb9ca7bfc60
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569666"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759646"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Database di Azure per MySQL - Server flessibile (anteprima)
 
@@ -54,7 +54,9 @@ Per informazioni dettagliate, vedere i [concetti sulla disponibilità elevata](c
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Applicazione automatica delle patch con la finestra di manutenzione gestita
 
-Il servizio esegue l'applicazione automatica di patch dell'hardware, del sistema operativo e del motore di database sottostanti. L'applicazione di patch include aggiornamenti di sicurezza e software. Per il motore MySQL, sono inclusi anche gli aggiornamenti della versione secondaria come parte della versione di manutenzione pianificata. Gli utenti possono configurare la pianificazione dell'applicazione di patch in modo che sia gestita dal sistema o definire la pianificazione personalizzata. Durante la pianificazione della manutenzione, viene applicata la patch e potrebbe essere necessario riavviare il server come parte di questo processo per completare l'aggiornamento. Con la pianificazione personalizzata gli utenti possono prevedere il ciclo di applicazione delle patch e scegliere una finestra di manutenzione con un impatto minimo sull'attività. Il servizio segue in genere la pianificazione di rilascio mensile come parte del processo continuo di integrazione e rilascio. 
+Il servizio esegue l'applicazione automatica di patch dell'hardware, del sistema operativo e del motore di database sottostanti. L'applicazione di patch include aggiornamenti di sicurezza e software. Per il motore MySQL, sono inclusi anche gli aggiornamenti della versione secondaria come parte della versione di manutenzione pianificata. Gli utenti possono configurare la pianificazione dell'applicazione di patch in modo che sia gestita dal sistema o definire la pianificazione personalizzata. Durante la pianificazione della manutenzione, viene applicata la patch e potrebbe essere necessario riavviare il server come parte di questo processo per completare l'aggiornamento. Con la pianificazione personalizzata gli utenti possono prevedere il ciclo di applicazione delle patch e scegliere una finestra di manutenzione con un impatto minimo sull'attività. Il servizio segue in genere la pianificazione di rilascio mensile come parte del processo continuo di integrazione e rilascio.
+
+Per altre informazioni, vedere [Manutenzione pianificata](concepts-maintenance.md). 
 
 ## <a name="automatic-backups"></a>Backup automatici
 
@@ -87,13 +89,15 @@ Per altre informazioni, vedere i [concetti su calcolo e archiviazione](concepts-
 
 Il servizio server flessibile consente di arrestare e avviare il server su richiesta per ottimizzare i costi. La fatturazione del livello di calcolo viene interrotta immediatamente quando il server viene arrestato. Ciò consente un notevole risparmio sui costi durante lo sviluppo, il test e i carichi di lavoro di produzione prevedibili con limiti temporali. Se non viene riavviato prima, il server rimane nello stato interrotto per sette giorni. 
 
+Per altre informazioni, vedere [Concetti relativi al server](concept-servers.md). 
+
 ## <a name="enterprise-grade-security-and-privacy"></a>Sicurezza e privacy di livello aziendale
 
 Il servizio server flessibile usa il modulo crittografico convalidato FIPS 140-2 per la crittografia dei dati archiviati inattivi. I dati, inclusi i backup e i file temporanei creati durante l'esecuzione di query, sono crittografati. Il servizio usa la crittografia AES a 256 bit inclusa nella crittografia di archiviazione di Azure e le chiavi possono essere gestite dal sistema (predefinito). 
 
 Il servizio crittografa i dati in transito con il protocollo Transport Layer Security applicato per impostazione predefinita. I server flessibili supportano solo connessioni crittografate con Transport Layer Security (TLS 1.2), mentre tutte le connessioni in ingresso con TLS 1.0 e TLS 1.1 verranno negate. 
 
-Per altre informazioni, vedere [come usare connessioni crittografate a server flessibili](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md).
+Per altre informazioni, vedere [come usare connessioni crittografate a server flessibili](https://docs.mongodb.com/manual/tutorial/configure-ssl).
 
 I server flessibili consentono l'accesso privato completo ai server tramite l'integrazione della [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). I server nella rete virtuale di Azure possono essere raggiunti e connessi solo tramite indirizzi IP privati. Con l'integrazione di VNet, l'accesso pubblico viene negato e non è possibile raggiungere i server usando gli endpoint pubblici. 
 

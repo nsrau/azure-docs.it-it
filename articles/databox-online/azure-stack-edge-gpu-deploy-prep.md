@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf7719487d4f03b8d9524234e1a58cf792a4843b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899877"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743267"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro con GPU 
 
@@ -66,14 +66,16 @@ Di seguito sono indicati i prerequisiti di configurazione per la risorsa Azure S
 
 Prima di iniziare, verificare che:
 
-- La sottoscrizione di Microsoft Azure sia abilitata per una risorsa Azure Stack Edge. Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Le sottoscrizioni con pagamento in base al consumo non sono supportate.
+- La sottoscrizione di Microsoft Azure sia abilitata per una risorsa Azure Stack Edge. Assicurarsi di aver usato una sottoscrizione supportata, ad esempio [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Le sottoscrizioni con pagamento in base al consumo non sono supportate. Per identificare il tipo di sottoscrizione di Azure disponibile, vedere [Che cos'è un'offerta di Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer).
 - Si abbia accesso di tipo Proprietario o Collaboratore a livello di gruppo di risorse per le risorse Azure Stack Edge Pro/Data Box Gateway, hub IoT e Archiviazione di Azure.
 
-    - Per creare qualsiasi risorsa Azure Stack Edge/Data Box Gateway, è necessario disporre di autorizzazioni di Collaboratore o superiori con ambito a livello di gruppo di risorse. È anche necessario assicurarsi che il provider `Microsoft.DataBoxEdge` sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Per creare qualsiasi risorsa hub IoT, assicurarsi che il provider Microsoft.Devices sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Per creare qualsiasi risorsa Azure Stack Edge/Data Box Gateway, è necessario disporre di autorizzazioni di Collaboratore o superiori con ambito a livello di gruppo di risorse. 
+    - È anche necessario assicurarsi che i provider di risorse `Microsoft.DataBoxEdge` e `MicrosoftKeyVault` siano registrati. Per creare qualsiasi risorsa dell'hub IoT, è necessario che sia registrato il provider `Microsoft.Devices`. 
+        - Per registrare un provider di risorse, nel portale di Azure passare a **Home > Sottoscrizioni > Sottoscrizione personale > Provider di risorse**. 
+        - Cercare il provider di risorse specifico, ad esempio `Microsoft.DataBoxEdge`, e registrarlo. 
     - Per creare una risorsa account di archiviazione, è ugualmente necessario l'accesso di tipo Collaboratore o superiore con ambito a livello di gruppo di risorse. Archiviazione di Azure è un provider di risorse registrato per impostazione predefinita.
-- Si abbia accesso all'API Graph di Azure Active Directory Graph come utente o amministratore. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
+- Si ha accesso amministratore o utente all'API Graph di Azure Active Directory per generare operazioni relative a credenziali o chiavi di attivazione, ad esempio la creazione della condivisione che usa un account di archiviazione. Per altre informazioni, vedere [API Graph di Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Per il dispositivo Azure Stack Edge Pro
 
@@ -150,11 +152,15 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
 
 10. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi**, le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare la casella combinata **Dichiaro di aver esaminato le informazioni fornite e di accettare le condizioni relative alla privacy**.
 
-    ![Creare una risorsa 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+    ![Creare una risorsa 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+
+    Viene anche visualizzata una notifica che indica che durante la creazione della risorsa verrà abilitata un'identità del servizio gestita che consente di eseguire l'autenticazione ai servizi cloud. Questa identità esiste fintanto che esiste la risorsa.
 
 11. Selezionare **Create** (Crea).
 
-La creazione della risorsa richiede alcuni minuti. Al termine della creazione e della distribuzione della risorsa, si riceverà una notifica. Selezionare **Vai alla risorsa**.
+La creazione della risorsa richiede alcuni minuti. Viene anche creata un'identità del servizio gestita che consente al dispositivo Azure Stack Edge di comunicare con il provider di risorse in Azure.
+
+Al termine della creazione e della distribuzione della risorsa, si riceverà una notifica. Selezionare **Vai alla risorsa**.
 
 ![Andare alla risorsa Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
@@ -172,9 +178,16 @@ Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ott
 
     ![Selezionare Configurazione dispositivo](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. Nel riquadro **Attiva** selezionare **Genera chiave** per creare una chiave di attivazione. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.
+2. Nel riquadro **Attiva** specificare un nome per l'istanza di Azure Key Vault o accettare il nome predefinito. La lunghezza del nome dell'insieme di credenziali delle chiavi deve essere compresa tra 3 e 24 caratteri. 
+
+    Viene creato un insieme di credenziali delle chiavi per ogni risorsa Azure Stack Edge attivata con il dispositivo. L'insieme di credenziali delle chiavi consente di archiviare e accedere ai segreti, ad esempio la chiave di integrità del canale per il servizio viene archiviata nell'insieme di credenziali delle chiavi. 
+
+    Dopo aver specificato un nome dell'insieme di credenziali delle chiavi, selezionare **Genera chiave** per creare una chiave di attivazione. 
 
     ![Ottenere una chiave di attivazione](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Attendere alcuni minuti mentre vengono creati l'insieme di credenziali delle chiavi e la chiave di attivazione. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.
+
 
 > [!IMPORTANT]
 > - La chiave di attivazione scade tre giorni dopo la generazione.

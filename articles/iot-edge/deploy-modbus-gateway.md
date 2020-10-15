@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a1d1ab0d3b1f4315c09f1c403126139b34612
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76511145"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043902"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connettere dispositivi Modbus TCP tramite un dispositivo gateway IoT Edge
 
@@ -35,7 +35,7 @@ Questo articolo presuppone l'uso del protocollo Modbus TCP. Per altre informazio
 
 Se si vuole testare la funzionalità del gateway Modbus, Microsoft offre un modulo di esempio che può essere usato a questo scopo. È possibile accedere al modulo da Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)o con l'URI dell'immagine `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
-Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponibile un [modulo Modbus per Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) open source in GitHub. Seguire le indicazioni nel progetto per creare l'immagine del contenitore personalizzata. Per creare un'immagine del contenitore, vedere [sviluppare moduli C# in Visual Studio](how-to-visual-studio-develop-csharp-module.md) o [sviluppare moduli in Visual Studio Code](how-to-vs-code-develop-module.md). Questi articoli contengono istruzioni per la creazione di nuovi moduli e la pubblicazione di immagini del contenitore in un registro.
+Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponibile un [modulo Modbus per Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) open source in GitHub. Seguire le indicazioni nel progetto per creare l'immagine del contenitore personalizzata. Per creare un'immagine del contenitore, vedere [sviluppare moduli C# in Visual Studio](./how-to-visual-studio-develop-module.md) o [sviluppare moduli in Visual Studio Code](how-to-vs-code-develop-module.md). Questi articoli contengono istruzioni per la creazione di nuovi moduli e la pubblicazione di immagini del contenitore in un registro.
 
 ## <a name="try-the-solution"></a>Prova la soluzione
 

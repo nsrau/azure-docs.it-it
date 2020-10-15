@@ -8,10 +8,10 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
 ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654413"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Creare una copia di una macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure e i dischi gestiti
@@ -22,7 +22,7 @@ Questo articolo illustra come creare una copia della macchina virtuale (VM) di A
 
 ## <a name="prerequisites"></a>Prerequisiti
 
--   Installare l' [interfaccia](/cli/azure/install-az-cli2)della riga di comando di Azure.
+-   Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2).
 
 -   Accedere a un account di Azure con [az login](/cli/azure/reference-index#az-login).
 

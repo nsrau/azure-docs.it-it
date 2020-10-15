@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439069"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979088"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Eseguire la migrazione di VM Hyper-V ad Azure 
 
@@ -25,7 +25,7 @@ Questa esercitazione è la terza di una serie che illustra come valutare le macc
  In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Aggiungere lo strumento Azure Migrate: Migrazione del server.
+> * Aggiungere lo strumento Migrazione server di Azure Migrate.
 > * Individuare le VM di cui eseguire la migrazione.
 > * Avviare la replica delle VM.
 > * Eseguire una migrazione di test per verificare che tutti gli elementi funzionino come previsto.

@@ -1,80 +1,86 @@
 ---
-title: Esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure su SIEMs | Microsoft Docs
-description: Questo articolo illustra come configurare l'esportazione continua degli avvisi di sicurezza e le raccomandazioni per SIEM
+title: L'esportazione continua può inviare avvisi e raccomandazioni del Centro sicurezza di Azure per Log Analytics aree di lavoro o hub eventi di Azure
+description: Informazioni su come configurare l'esportazione continua degli avvisi di sicurezza e le raccomandazioni per Log Analytics aree di lavoro o hub eventi di Azure
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: d0ada1b615d4673f696c6f1b003288f3e7aa02e4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 8b27c3d0982e945fcabc6e7748646ea2ee1a4184
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449153"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945285"
 ---
-# <a name="export-security-alerts-and-recommendations"></a>Esportare avvisi e raccomandazioni di sicurezza
+# <a name="continuously-export-security-alerts-and-recommendations"></a>Esporta continuamente avvisi e raccomandazioni sulla sicurezza
 
-Il Centro sicurezza di Azure genera avvisi e raccomandazioni di sicurezza dettagliati. È possibile visualizzarli nel portale o tramite gli strumenti programmatici. Potrebbe anche essere necessario esportare queste informazioni o inviarle ad altri strumenti di monitoraggio nell'ambiente in uso. 
+Il Centro sicurezza di Azure genera avvisi e raccomandazioni di sicurezza dettagliati. È possibile visualizzarli nel portale o tramite gli strumenti programmatici. Potrebbe anche essere necessario esportare alcune o tutte queste informazioni per tenere traccia con altri strumenti di monitoraggio nell'ambiente in uso. 
 
-Questo articolo descrive il set di strumenti che consentono di esportare avvisi e consigli manualmente o in modo continuo e continuo.
+L' **esportazione continua** consente di personalizzare completamente gli *elementi che* verranno esportati e la *posizione in cui* verranno rilasciati. Ad esempio, è possibile configurarlo in modo che:
 
-Con questi strumenti è possibile:
+- Tutti gli avvisi con livello di gravità elevato vengono inviati a un hub eventi di Azure
+- Tutti i risultati della gravità media o superiore delle analisi di valutazione della vulnerabilità dei server SQL vengono inviati a un'area di lavoro di Log Analytics specifica
+- Le raccomandazioni specifiche vengono recapitate a un hub eventi o Log Analytics area di lavoro ogni volta che vengono generate 
 
-* Esporta continuamente in aree di lavoro Log Analytics
-* Esportazione continua in hub eventi di Azure (per integrazioni con SIEM di terze parti)
-* Esporta in CSV (una volta)
+Questo articolo descrive come configurare l'esportazione continua in Log Analytics aree di lavoro o hub eventi di Azure.
 
+> [!NOTE]
+> Se è necessario integrare il Centro sicurezza con SIEM, esaminare gli [avvisi di streaming a Siem](export-to-siem.md) per le opzioni disponibili.
+
+> [!TIP]
+> Il Centro sicurezza offre inoltre la possibilità di eseguire un'esportazione monouso manuale nel volume condiviso cluster. Ulteriori informazioni sono disponibili nell' [esportazione manuale di avvisi e consigli](#manual-one-time-export-of-alerts-and-recommendations).
 
 
 ## <a name="availability"></a>Disponibilità
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibile a livello generale|
-|Prezzi|Livello gratuito|
-|Ruoli e autorizzazioni necessari:|**Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione|
+|Stato della versione:|Disponibile a livello generale|
+|Prezzi:|Livello gratuito|
+|Autorizzazioni e ruoli obbligatori:|<ul><li>**Amministratore della sicurezza** o **proprietario** del gruppo di risorse</li><li>Autorizzazioni di scrittura per la risorsa di destinazione</li><li>Se si usano i criteri di Azure ' DeployIfNotExist ' descritti di seguito, sono necessarie anche le autorizzazioni per l'assegnazione di criteri</li></ul>|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![Sì](./media/icons/yes-icon.png) Gov Cina (per hub eventi), altri gov|
 |||
 
 
 
-## <a name="set-up-a-continuous-export"></a>Configurare un'esportazione continua
+
+
+## <a name="set-up-a-continuous-export"></a>Configurare un'esportazione continua 
+
+È possibile configurare l'esportazione continua dalle pagine del Centro sicurezza in portale di Azure, tramite l'API REST del Centro sicurezza o su larga scala usando i modelli di criteri di Azure forniti. Selezionare la scheda appropriata di seguito per informazioni dettagliate.
+
+### <a name="use-the-azure-portal"></a>[**Usare il portale di Azure**](#tab/azure-portal)
+
+### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Configurare l'esportazione continua dalle pagine del Centro sicurezza in portale di Azure
 
 I passaggi seguenti sono necessari se si sta configurando un'esportazione continua in Log Analytics area di lavoro o hub eventi di Azure.
 
 1. Dall'intestazione laterale del Centro sicurezza selezionare **prezzi & impostazioni**.
-
 1. Selezionare la sottoscrizione specifica per la quale si desidera configurare l'esportazione dei dati.
-    
 1. Dall'intestazione laterale della pagina impostazioni per la sottoscrizione selezionare **esportazione continua**.
-
     [ ![ Opzioni di esportazione nel centro sicurezza di Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) qui è possibile visualizzare le opzioni di esportazione. È disponibile una scheda per ogni destinazione di esportazione disponibile. 
-
 1. Selezionare il tipo di dati che si desidera esportare e scegliere tra i filtri in ogni tipo (ad esempio, esportare solo gli avvisi con livello di gravità elevato).
-
 1. Facoltativamente, se la selezione include una di queste quattro raccomandazioni, è possibile includere i risultati della valutazione della vulnerabilità insieme ad essi:
-
     - È necessario correggere i risultati della valutazione della vulnerabilità nei database SQL
     - I risultati della valutazione della vulnerabilità nei computer SQL Server devono essere corretti (anteprima)
     - È consigliabile correggere le vulnerabilità delle immagini del Registro Azure Container (con tecnologia Qualys)
-    - È necessario correggere le vulnerabilità nelle macchine virtuali
+    - È consigliabile correggere le vulnerabilità nelle macchine virtuali
 
     Per includere i risultati con questi consigli, abilitare l'opzione **Includi risultati di sicurezza** .
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Includi risultati di sicurezza/Nascondi nella configurazione dell'esportazione continua&quot; :::
-
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
 
 1. Dall'area &quot;Esporta destinazione" scegliere il percorso in cui salvare i dati. I dati possono essere salvati in una destinazione in una sottoscrizione diversa, ad esempio in un'istanza centrale dell'hub eventi o in un'area di lavoro centrale Log Analytics.
-
 1. Selezionare **Salva**.
 
+### <a name="use-the-rest-api"></a>[**Usare l'API REST**](#tab/rest-api)
 
-## <a name="set-up-continuous-export-via-the-rest-api"></a>Configurare l'esportazione continua tramite l'API REST
+### <a name="configure-continuous-export-using-the-rest-api"></a>Configurare l'esportazione continua con l'API REST
 
-La funzionalità di esportazione continua può essere configurata e gestita tramite l' [API di automazione](https://docs.microsoft.com/rest/api/securitycenter/automations)del Centro sicurezza di Azure. Usare questa API per creare o aggiornare le automazioni per l'esportazione in una delle destinazioni possibili seguenti:
+L'esportazione continua può essere configurata e gestita tramite l' [API di automazione](https://docs.microsoft.com/rest/api/securitycenter/automations)del Centro sicurezza di Azure. Usare questa API per creare o aggiornare le regole per l'esportazione in una delle destinazioni possibili seguenti:
 
 - Hub eventi di Azure
 - Area di lavoro Log Analytics
@@ -95,47 +101,73 @@ Altre informazioni sull'API Automations sono disponibili nella [documentazione d
 
 
 
-## <a name="configure-siem-integration-via-azure-event-hubs"></a>Configurare l'integrazione SIEM tramite hub eventi di Azure
-
-Hub eventi di Azure è un'ottima soluzione per a livello che utilizzano i dati di streaming. Per gli avvisi e le raccomandazioni del Centro sicurezza di Azure, si tratta del metodo preferito per l'integrazione con SIEM di terze parti.
-
-> [!NOTE]
-> Il metodo più efficace per trasmettere i dati di monitoraggio agli strumenti esterni nella maggior parte dei casi consiste nell'usare hub eventi di Azure. [Questo articolo](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) fornisce una breve descrizione di come è possibile trasmettere i dati di monitoraggio da origini diverse a un hub eventi e collegamenti a istruzioni dettagliate.
-
-> [!NOTE]
-> Se in precedenza sono stati esportati avvisi del Centro sicurezza a un SIEM usando il log attività di Azure, la procedura seguente sostituisce tale metodologia.
-
-Per visualizzare gli schemi di eventi dei tipi di dati esportati, vedere gli [schemi degli eventi dell'hub eventi](https://aka.ms/ASCAutomationSchemas).
 
 
-### <a name="to-integrate-with-a-siem"></a>Per l'integrazione con un SIEM 
+### <a name="deploy-at-scale-with-azure-policy"></a>[**Distribuisci su larga scala con criteri di Azure**](#tab/azure-policy)
 
-Dopo aver configurato l'esportazione continua dei dati del Centro sicurezza scelto in hub eventi di Azure, è possibile configurare il connettore appropriato per SIEM:
+### <a name="configure-continuous-export-at-scale-using-the-supplied-policies"></a>Configurare l'esportazione continua su larga scala usando i criteri forniti
 
-* **Azure Sentinel** : usare il [connettore dati](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center) avvisi del Centro sicurezza di Azure nativo disponibile.
-* **Splunk** -usare il [componente aggiuntivo monitoraggio di Azure per Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md)
-* **IBM QRadar** : usare [un'origine di log configurata manualmente](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/t_dsm_guide_microsoft_azure_enable_event_hubs.html)
-* **ArcSight** : USA [SmartConnector](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)
+L'automazione dei processi di monitoraggio e risposta agli eventi imprevisti dell'organizzazione può migliorare significativamente il tempo necessario per indagare e attenuare gli eventi imprevisti relativi alla sicurezza.
 
-Inoltre, per spostare automaticamente i dati esportati dall'hub eventi configurato in Esplora dati di Azure, seguire le istruzioni in inserire i [dati dall'hub eventi in azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub).
+Per distribuire le configurazioni di esportazione continua nell'organizzazione, usare i criteri di Azure ' DeployIfNotExist ' indicati di seguito per creare e configurare le procedure di esportazione continua.
 
+**Per implementare questi criteri**
 
+1. Nella tabella seguente selezionare il criterio che si vuole applicare:
 
-## <a name="continuous-export-to-a-log-analytics-workspace"></a>Esportazione continua in un'area di lavoro Log Analytics
+    |Obiettivo  |Policy  |ID condizione  |
+    |---------|---------|---------|
+    |Esportazione continua in Hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+    |Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+    ||||
 
-Per analizzare i dati del Centro sicurezza di Azure all'interno di un'area di lavoro Log Analytics o usare gli avvisi di Azure insieme al centro sicurezza, configurare l'esportazione continua nell'area di lavoro Log Analytics.
+    > [!TIP]
+    > È anche possibile trovarli cercando criteri di Azure:
+    > 1. Aprire Criteri di Azure.
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
 
-Per eseguire l'esportazione in un'area di lavoro Log Analytics, è necessario che siano abilitate le soluzioni Log Analytics del Centro sicurezza nell'area di lavoro. Se si usa il portale di Azure, la soluzione gratuita del Centro sicurezza viene abilitata automaticamente quando si Abilita l'esportazione continua. Tuttavia, se si configurano le impostazioni di esportazione continua a livello di codice, è necessario attivare o disattivare manualmente Azure Defender dall'interno della pagina dei **prezzi & impostazioni** .
+1. Dall'area &quot;Esporta destinazione":::
+    > 2. Dal menu criteri di Azure selezionare **definizioni** e cercarle in base al nome. 
+
+1. Nella pagina Criteri di Azure pertinente selezionare **assegna**.
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
+
+1. Dall'area &quot;Esporta destinazione":::
+
+1. Aprire ogni scheda e impostare i parametri nel modo desiderato:
+    1. Nella scheda **nozioni di base** impostare l'ambito per il criterio. Per utilizzare la gestione centralizzata, assegnare il criterio al gruppo di gestione contenente le sottoscrizioni che utilizzeranno la configurazione dell'esportazione continua. 
+    1. Nella scheda **parametri** impostare i dettagli del gruppo di risorse e del tipo di dati. 
+        > [!TIP]
+        > Ogni parametro presenta una descrizione comando che illustra le opzioni disponibili.
+        >
+        > La scheda parametri di criteri di Azure (1) consente di accedere a opzioni di configurazione simili come pagina di esportazione continua del Centro sicurezza (2).
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
+
+1. Dall'area &quot;Esporta destinazione" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+    1. Facoltativamente, per applicare questa assegnazione alle sottoscrizioni esistenti, aprire la scheda **monitoraggio e aggiornamento** e selezionare l'opzione per creare un'attività di correzione.
+1. Esaminare la pagina Riepilogo e selezionare **Crea**.
+
+--- 
+
+## <a name="information-about-exporting-to-a-log-analytics-workspace"></a>Informazioni sull'esportazione in un'area di lavoro Log Analytics
+
+Per analizzare i dati del Centro sicurezza di Azure all'interno di un'area di lavoro Log Analytics o usare gli avvisi di Azure insieme agli avvisi del Centro sicurezza, configurare l'esportazione continua nell'area di lavoro di Log Analytics.
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabelle e schemi
 
-Gli avvisi di sicurezza e le raccomandazioni vengono archiviati rispettivamente nelle tabelle *SecurityAlert* e *SecurityRecommendations* . Il nome della soluzione Log Analytics contenente queste tabelle varia a seconda che Azure Defender sia abilitato: Security (' Sicurezza e controllo ') o SecurityCenterFree.
+Gli avvisi di sicurezza e le raccomandazioni vengono archiviati rispettivamente nelle tabelle *SecurityAlert* e *SecurityRecommendations* . 
+
+Il nome della soluzione Log Analytics contenente queste tabelle varia a seconda che Azure Defender sia abilitato: Security (' Sicurezza e controllo ') o SecurityCenterFree. 
+
+> [!TIP]
+> Per visualizzare i dati nell'area di lavoro di destinazione, è necessario abilitare una di queste soluzioni **sicurezza e controllo** o **SecurityCenterFree**.
 
 ![La tabella * SecurityAlert * in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
 Per visualizzare gli schemi di eventi dei tipi di dati esportati, visitare gli [schemi della tabella log Analytics](https://aka.ms/ASCAutomationSchemas).
 
-###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Visualizzare le raccomandazioni e gli avvisi di sicurezza esportati in monitoraggio di Azure
+
+##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Visualizzare gli avvisi e le raccomandazioni esportati in monitoraggio di Azure
 
 In alcuni casi, è possibile scegliere di visualizzare gli avvisi di sicurezza e/o le raccomandazioni esportati in [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview). 
 
@@ -156,9 +188,9 @@ Per visualizzare gli avvisi e le raccomandazioni dal centro sicurezza in monitor
     * Facoltativamente, configurare il [gruppo di azioni](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) che si vuole attivare. I gruppi di azioni possono attivare l'invio di posta elettronica, i ticket ITSM, i webhook e altro ancora.
     ![Regola di avviso di monitoraggio di Azure](./media/continuous-export/azure-monitor-alert-rule.png)
 
-Verranno ora visualizzati nuovi avvisi del Centro sicurezza di Azure o consigli (a seconda della configurazione) negli avvisi di monitoraggio di Azure, con attivazione automatica di un gruppo di azioni (se specificato).
+Verranno ora visualizzati nuovi avvisi del Centro sicurezza di Azure o consigli (a seconda delle regole di esportazione continua configurate e della condizione definita nella regola di avviso di monitoraggio di Azure) negli avvisi di monitoraggio di Azure, con attivazione automatica di un gruppo di azioni (se specificato).
 
-## <a name="manual-one-time-export-of-security-alerts"></a>Esportazione manuale di avvisi di sicurezza
+## <a name="manual-one-time-export-of-alerts-and-recommendations"></a>Esportazione manuale di avvisi e raccomandazioni
 
 Per scaricare un report CSV per avvisi o raccomandazioni, aprire la pagina avvisi o **raccomandazioni** di **sicurezza** e selezionare il pulsante **Scarica report CSV** .
 
@@ -166,7 +198,6 @@ Per scaricare un report CSV per avvisi o raccomandazioni, aprire la pagina avvis
 
 > [!NOTE]
 > Questi report contengono avvisi e consigli per le risorse delle sottoscrizioni attualmente selezionate.
-
 
 
 ## <a name="faq---continuous-export"></a>Domande frequenti-esportazione continua
@@ -180,13 +211,16 @@ Scopri di più su [log Analytics prezzi dell'area di lavoro](https://azure.micro
 Scopri di più sui [prezzi di hub eventi di Azure](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo si è appreso come configurare le esportazioni continue dei consigli e degli avvisi. Si è inoltre appreso come scaricare i dati degli avvisi come file CSV. 
 
 Per materiale correlato, vedere la documentazione seguente: 
 
+- Altre informazioni sui [modelli di automazione del flusso di lavoro](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 - [Documentazione di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/)
 - [Documentazione di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Documentazione di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/)
-- [Schemi di automazione del flusso di lavoro e tipi di dati di esportazione continua](https://aka.ms/ASCAutomationSchemas)
+- [Esportare gli schemi dei tipi di dati](https://aka.ms/ASCAutomationSchemas)

@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250029"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurare le impostazioni dell'applicazione per App Web statiche di Azure (anteprima)
@@ -110,7 +110,7 @@ Il portale di Azure fornisce un'interfaccia per la creazione, l'aggiornamento e 
 
 1. Fare clic su **OK**.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
 
@@ -144,7 +144,7 @@ Il comando dell'interfaccia della riga di comando di Azure richiede diversi valo
 2. Nome del gruppo di risorse
 3. ID sottoscrizione
 
-:::image type="content" source="media/application-settings/overview.png" alt-text="Panoramica di App Web statiche di Azure":::
+:::image type="content" source="media/application-settings/overview.png" alt-text="Visualizzazione di configurazione delle app Web statiche di Azure":::
 
 4. Da un terminale o da una riga di comando, eseguire il comando seguente. Assicurarsi di sostituire i segnaposto di `<YOUR_STATIC_SITE_NAME>`, `<YOUR_RESOURCE_GROUP_NAME>`e `<YOUR_SUBSCRIPTION_ID>` con i valori della finestra _Panoramica_.
 

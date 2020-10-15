@@ -8,14 +8,16 @@ ms.topic: conceptual
 manager: gwallace
 description: Informazioni su come configurare l'integrazione continua/distribuzione continua con Azure DevOps con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, servizio Azure Container, contenitori
-ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: de409aa060034c9ba0faaaa56ce21f904b02cdac
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080267"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960389"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usare CI/CD con Azure Dev Spaces
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 Questo articolo illustra la configurazione di integrazione continua/distribuzione continua (CI/CD) nel servizio Azure Kubernetes con Dev Spaces abilitato. CI/CD nel servizio Azure Kubernetes consente di distribuire automaticamente gli aggiornamenti delle app ogni volta che viene eseguito il push di codice sottoposto a commit nel repository di origine. L'uso di CI/CD in combinazione con un cluster abilitato per Dev Spaces è utile perché consente di mantenere aggiornata una baseline dell'applicazione che il team può usare.
 
@@ -160,7 +162,7 @@ La versione viene eseguita al termine di tutte le attività.
 
 La fase _Prod_ della pipeline di integrazione continua/recapito continuo usa un servizio di bilanciamento del carico anziché il controller di ingresso di spazi di sviluppo per fornire l'accesso ai servizi _Prod_ . I servizi distribuiti nella fase _Prod_ sono accessibili come indirizzi IP anziché come nomi DNS. In un ambiente di produzione è possibile scegliere di creare un controller di ingresso personalizzato per ospitare i servizi in base alla propria configurazione DNS.
 
-Per determinare l'indirizzo IP del servizio WebFrontEnd, fare clic sul passaggio di **stampa IP pubblico del WebFrontEnd** per espandere l'output del log. Usare l'IP visualizzato nell'output del log per accedere all'applicazione **WebFrontEnd** .
+Per determinare l'indirizzo IP del servizio WebFrontEnd, fare clic sul passaggio di  **stampa IP pubblico del WebFrontEnd** per espandere l'output del log. Usare l'IP visualizzato nell'output del log per accedere all'applicazione **WebFrontEnd** .
 
 ```cmd
 ...

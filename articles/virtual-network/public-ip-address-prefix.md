@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
 ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87432582"
 ---
 # <a name="public-ip-address-prefix"></a>Prefisso di indirizzo IP pubblico
@@ -63,7 +63,7 @@ Quando si assegnano indirizzi alle risorse da un prefisso di indirizzo IP pubbli
 |Macchine virtuali| L'associazione di indirizzi IP pubblici da un prefisso alle macchine virtuali in Azure riduce il sovraccarico di gestione quando si aggiungono indirizzi IP a un elenco Consenti nel firewall. È possibile aggiungere un prefisso intero con una singola regola del firewall. Quando si scala con macchine virtuali in Azure, è possibile associare gli indirizzi IP dallo stesso prefisso risparmiando costi, tempi e spese generali di gestione.| Per associare gli IP da un prefisso alla macchina virtuale: </br> 1. [creare un prefisso.](manage-public-ip-address-prefix.md) </br> 2. [creare un IP dal prefisso.](manage-public-ip-address-prefix.md) </br> 3. [associare l'indirizzo IP all'interfaccia di rete della macchina virtuale.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> È anche possibile [associare gli indirizzi IP a un set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 | Bilanciamento del carico standard | L'associazione di indirizzi IP pubblici da un prefisso alla configurazione IP front-end o alla regola in uscita di un servizio di bilanciamento del carico garantisce la semplificazione dello spazio degli indirizzi IP pubblici di Azure. Semplifica lo scenario tramite la pulitura delle connessioni in uscita da un intervallo di indirizzi IP contigui. | Per associare gli IP da un prefisso al servizio di bilanciamento del carico: </br> 1. [creare un prefisso.](manage-public-ip-address-prefix.md) </br> 2. [creare un IP dal prefisso.](manage-public-ip-address-prefix.md) </br> 3. quando si crea il servizio di bilanciamento del carico, selezionare o aggiornare l'indirizzo IP creato nel passaggio 2 precedente come IP front-end del servizio di bilanciamento del carico. |
 | Firewall di Azure | È possibile usare un indirizzo IP pubblico da un prefisso per lo SNAT in uscita. Tutto il traffico di rete virtuale in uscita viene convertito nell'IP pubblico del [firewall di Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . | Per associare un indirizzo IP da un prefisso al firewall: </br> 1. [creare un prefisso.](manage-public-ip-address-prefix.md) </br> 2. [creare un IP dal prefisso.](manage-public-ip-address-prefix.md) </br> 3. quando si [distribuisce il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), assicurarsi di selezionare l'indirizzo IP assegnato in precedenza dal prefisso.|
-| Gateway applicazione V2 | È possibile usare un indirizzo IP pubblico da un prefisso per la scalabilità automatica e il gateway applicazione con ridondanza della zona V2. | Per associare un indirizzo IP da un prefisso al gateway: </br> 1. [creare un prefisso.](manage-public-ip-address-prefix.md) </br> 2. [creare un IP dal prefisso.](manage-public-ip-address-prefix.md) </br> 3. quando si [distribuisce il gateway applicazione](../application-gateway/quick-create-portal.md#create-an-application-gateway), assicurarsi di selezionare l'indirizzo IP assegnato in precedenza dal prefisso.|
+| Gateway applicazione versione 2 | È possibile usare un indirizzo IP pubblico da un prefisso per la scalabilità automatica e il gateway applicazione con ridondanza della zona V2. | Per associare un indirizzo IP da un prefisso al gateway: </br> 1. [creare un prefisso.](manage-public-ip-address-prefix.md) </br> 2. [creare un IP dal prefisso.](manage-public-ip-address-prefix.md) </br> 3. quando si [distribuisce il gateway applicazione](../application-gateway/quick-create-portal.md#create-an-application-gateway), assicurarsi di selezionare l'indirizzo IP assegnato in precedenza dal prefisso.|
 
 ## <a name="constraints"></a>Vincoli
 

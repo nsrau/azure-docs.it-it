@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479560"
 ---
 # <a name="install-azure-farmbeats"></a>Installare Azure FarmBeats
@@ -198,7 +198,7 @@ Per la prima volta agli utenti verrà richiesto di selezionare una sottoscrizion
 
 Il percorso input.jssu file è facoltativo. Se non specificato, lo script richiederà tutti gli input necessari. L'aggiornamento verrà completato in circa 30 minuti.
 
-## <a name="uninstall"></a>Disinstallare
+## <a name="uninstall"></a>Uninstall
 
 Per disinstallare Azure FarmBeats datahub o Accelerator, seguire questa procedura:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5bae2173fc49cb9f41787905be66cf32a99fa03a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5ffdc510fd2a0f81fbfa5d9d04c337c99b389110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536982"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Esercitazione: Integrazione di Azure Active Directory con Dealpath
 
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Dealpath, seguire quest
 
 2. In alto a destra fare clic su **Admin Tools** e passare a **Integrazioni**. Nella sezione **Autenticazione SAML 2.0** fare clic su **Aggiorna impostazioni**:
 
-    ![Configurazione Dealpath](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+    ![Screenshot che mostra la pagina "Admin Tools - Integrations" con la sezione "SAML 2.0 Authentication" e l'opzione "Update Settings" selezionata.](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
 3. Nella pagina **Set up SAML 2.0 authentication** (Configura autenticazione SAML 2.0) seguire questa procedura:
 

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481834"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partizionamento in Azure Cosmos DB
@@ -48,7 +48,7 @@ La selezione della chiave di partizione è una scelta di progettazione semplice,
 Per **tutti i** contenitori, la chiave di partizione deve:
 
 * Essere una proprietà con un valore che non cambia. Se una proprietà è la chiave di partizione, non è possibile aggiornare il valore della proprietà.
-* Hanno una cardinalità elevata. In altre parole, la proprietà deve avere un'ampia gamma di valori possibili.
+* Avere una cardinalità elevata. In altre parole, la proprietà deve avere un'ampia gamma di valori possibili.
 * Diffondere il consumo delle unità richiesta e l'archiviazione dei dati in modo uniforme in tutte le partizioni logiche. In questo modo si garantisce anche il consumo di ur e la distribuzione di archiviazione tra le partizioni fisiche.
 
 Se sono necessarie [transazioni ACID](database-transactions-optimistic-concurrency.md#multi-item-transactions) con più elementi in Azure Cosmos DB, sarà necessario usare [stored procedure o trigger](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). Tutte le stored procedure e i trigger basati su JavaScript hanno come ambito un'unica partizione logica.

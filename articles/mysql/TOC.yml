@@ -245,6 +245,9 @@
             - name: Azure PowerShell
               href: howto-restore-server-powershell.md
               displayName: 'restore server, backup, geo-restore powershell'
+            - name: Ripristinare un server eliminato
+              href: howto-restore-dropped-server.md
+              displayName: 'restore server,dropped, recover'
         - name: Connettere le applicazioni
           items:
             - name: Configurare SSL
@@ -323,20 +326,26 @@
             - name: Creare repliche in lettura in Azure PowerShell
               href: howto-read-replicas-powershell.md
               displayName: 'data-in replication, replica, failover'
-            - name: Risolvere problemi
-              items:
-                - name: Risolvere gli errori di connessione
-                  href: howto-troubleshoot-common-connection-issues.md
-                  displayName: 'debug, connection issues, connectivity, cannot connect'
-                - name: Risoluzione dei problemi di prestazioni delle query
-                  href: howto-troubleshoot-query-performance.md
-                  displayName: 'debug, performance issues, query performance'
-                - name: Come usare le viste nello schema sys
-                  href: howto-troubleshoot-sys-schema.md
-                  displayName: 'sys schema, views'
-                - name: Risolvere i problemi relativi alla crittografia dei dati
-                  href: howto-data-encryption-troubleshoot.md
-                  displayName: 'encryption, security'
+        - name: Risolvere problemi
+          items:
+            - name: Risolvere gli errori di connessione
+              href: howto-troubleshoot-common-connection-issues.md
+              displayName: 'debug, connection issues, connectivity, cannot connect'
+            - name: Risolvere gli errori comuni
+              href: howto-troubleshoot-common-errors.md
+              displayName: 'SUPER privilege, DBA role, Access is denied'
+            - name: Risoluzione dei problemi di prestazioni delle query
+              href: howto-troubleshoot-query-performance.md
+              displayName: 'debug, performance issues, query performance'
+            - name: Come usare le viste nello schema sys
+              href: howto-troubleshoot-sys-schema.md
+              displayName: 'sys schema, views'
+            - name: Risolvere i problemi relativi alla crittografia dei dati
+              href: howto-data-encryption-troubleshoot.md
+              displayName: 'encryption, security'
+            - name: Risolvere i problemi relativi alla latenza di replica
+              href: howto-troubleshoot-replication-latency.md
+              displayName: 'replication, latency, monitor'
         - name: Protezione avanzata dalle minacce
           items:
             - name: Portale di Azure

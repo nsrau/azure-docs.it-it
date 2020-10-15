@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.openlocfilehash: 6e472c65897fa57cdb1e0b09d94c62913e268040
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86087471"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>Eseguire carichi di lavoro Azure Machine Learning con Machine Learning automatizzato in Apache Spark in HDInsight
@@ -21,7 +21,7 @@ Azure Machine Learning semplifica e accelera la compilazione, il training e la d
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>Installare Azure Machine Learning in un cluster HDInsight
 
 Per esercitazioni generali sull'apprendimento automatico automatico, vedere [esercitazione: usare Machine Learning automatizzato per compilare il modello di regressione](../../machine-learning/tutorial-auto-train-models.md).
-Tutti i nuovi cluster HDInsight-Spark vengono preinstallati con AzureML-AutoML SDK.
+Tutti i nuovi cluster di HDInsight-Spark vengono preinstallati con AzureML-AutoML SDK.
 
 > [!Note]
 > I pacchetti di Azure Machine Learning vengono installati nell'ambiente Conda Python3 e il notebook di Jupyter installato deve essere eseguito con il kernel PySpark3.

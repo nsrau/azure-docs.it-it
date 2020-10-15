@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e3861cf3df11fa147814fc80246fe2714653b30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd541b9ff65a5417bff21c0293f4d62f5b6791a7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331387"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972850"
 ---
 # <a name="create-a-vm-using-a-generalized-image"></a>Creare una VM usando un'immagine generalizzata 
 
@@ -59,6 +59,7 @@ New-AzVM `
    -Location $location `
    -Name $vmName `
    -Image $imageDefinition.Id
+   -Credential $cred
 ```
 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 45285f2f26f1f17408f97bfede2b97e4c4752a5c
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762469"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996889"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Registrazione automatica con il provider di risorse VM SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -77,6 +77,25 @@ Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Mi
 
 ---
 
+## <a name="enable-for-multiple-subscriptions"></a>Abilita per più sottoscrizioni
+
+È possibile abilitare la funzionalità di registrazione automatica per più sottoscrizioni di Azure tramite PowerShell. 
+
+A tale scopo, seguire questa procedura:
+
+1. Salvare lo [script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/RegisterSubscriptionsToSqlVmAutomaticRegistration.ps1) in un `.ps1` file, ad esempio `EnableBySubscription.ps1` . 
+1. Passare al percorso in cui è stato salvato lo script usando un prompt dei comandi amministrativo o una finestra di PowerShell. 
+1. Connettersi ad Azure ( `az login` ).
+1. Eseguire lo script passando valori SubscriptionId come parametri come   
+   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+
+   Ad esempio: 
+
+   ```console
+   .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+
+Gli errori di registrazione non riusciti vengono archiviati nella `RegistrationErrors.csv` stessa directory in cui è stato salvato ed eseguito lo `.ps1` script da. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

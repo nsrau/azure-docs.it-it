@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86496996"
 ---
 # <a name="weather-partner-integration"></a>Integrazione di partner per il meteo
@@ -18,7 +18,7 @@ Questo articolo fornisce informazioni sul componente Docker di Azure FarmBeats *
 
  > [!NOTE]
  > Ai fini di questa documentazione, si userà un'implementazione di riferimento compilata usando NOAA da Azure Open DataSets ed è disponibile all'indirizzo [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker) .
- > L'immagine Docker corrispondente è disponibile all'indirizzo[https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
+ > L'immagine Docker corrispondente è disponibile all'indirizzo [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
 
 Un partner Meteo dovrà fornire un'immagine o un programma Docker (con le specifiche indicate di seguito) e ospitare l'immagine Docker in un registro contenitori accessibile ai clienti. Il partner meteorologico dovrà fornire le informazioni seguenti ai clienti:
 
@@ -36,10 +36,10 @@ Usando le informazioni di Docker sopra indicate, il cliente registrerà un partn
 
 Le API FarmBeats contengono la documentazione tecnica di spavalderia. Per informazioni su tutte le API e le relative richieste o risposte corrispondenti, vedere [FarmBeats spavalderia](https://aka.ms/farmbeatsswagger). 
 
-Se è stato installato FarmBeats, è possibile accedere al FarmBeats spavalderia`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+Se è stato installato FarmBeats, è possibile accedere al FarmBeats spavalderia `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Si noti che "-API" viene aggiunto al nome del sito Web FarmBeats.
-L'endpoint API sarà:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
+L'endpoint API sarà: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Lib datahub
 
@@ -134,7 +134,7 @@ Questo componente verrà richiamato ogni volta che un utente FarmBeats esegue un
 
 ### <a name="details-of-the-objects"></a>Dettagli degli oggetti
 
-  WeatherDataModel | Description |
+  WeatherDataModel | Descrizione |
   --- | ---
   Nome  | Nome del modello di dati meteorologici |
   Descrizione  | Inserire una descrizione significativa del modello. |

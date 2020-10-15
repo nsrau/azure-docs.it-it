@@ -14,10 +14,10 @@ ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b02b8f3b94d191c7439aadf5a56ec0e2a1c38e28
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88782499"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Risolvere un problema con Privileged Identity Management
@@ -34,7 +34,7 @@ Un proprietario attivo o un amministratore di accesso utente per una risorsa di 
 
 Questo problema può verificarsi quando il ruolo amministratore accesso utenti per l'entità servizio PIM è stato accidentalmente rimosso dalla sottoscrizione. Affinché il servizio Privileged Identity Management sia in grado di accedere alle risorse di Azure, è necessario che all'entità servizio MS-PIM sia sempre assegnato il [ruolo amministratore accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) sulla sottoscrizione di Azure.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Assegnare il ruolo amministratore accesso utenti al nome dell'entità servizio (MS-PIM) Privileged Identity Management a livello di sottoscrizione. Questa assegnazione dovrebbe consentire al servizio Privileged Identity Management di accedere alle risorse di Azure. Il ruolo può essere assegnato a livello di gruppo di gestione o a livello di sottoscrizione, a seconda dei requisiti. Per ulteriori informazioni sulle entità servizio, vedere [assegnare un'applicazione a un ruolo](../develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application).
 

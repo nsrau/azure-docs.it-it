@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90528654"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
@@ -30,7 +30,7 @@ Questo articolo descrive come usare il servizio Device provisioning in hub Azure
 
 Per completare la procedura di questa esercitazione, effettuare le attività seguenti:
 
-* Configurare la connessione Wi-Fi di DevKit e preparare l'ambiente di sviluppo seguendo la procedura descritta nella sezione "preparare l'ambiente di sviluppo" in [Connect DevKit AZ3166 nell'hub Azure Internet nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Configurare la Wi-Fi di DevKit e preparare l'ambiente di sviluppo seguendo la procedura descritta nella sezione "preparare l'ambiente di sviluppo" in [Connect DevKit AZ3166 nell'hub di Azure Internet nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Eseguire l'aggiornamento al firmware più recente (1.3.0 o versioni successive) seguendo l'esercitazione [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Aggiornare il firmware del DevKit).
 * Creare e collegare un hub Internet delle cose con un'istanza del servizio Device provisioning seguendo la procedura descritta in [configurare il servizio Device provisioning in hub Internet con il portale di Azure](/azure/iot-dps/quick-setup-auto-provision).
 

@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87924207"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunicare con il DPS usando il protocollo MQTT
@@ -48,7 +48,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
 * Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTPS e AMQP:
 
-  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration`Il formato di resourceURI deve essere `{idScope}/registrations/{registration_id}` . Il nome del criterio deve essere `registration` .
+  `SharedAccessSignature sr={URL-encoded-resourceURI}&sig={signature-string}&se={expiry}&skn=registration` Il formato di resourceURI deve essere `{idScope}/registrations/{registration_id}` . Il nome del criterio deve essere `registration` .
 
   > [!NOTE]
   > Le password di token SAS non sono obbligatorie se si usa l'autenticazione dei certificati X.509.

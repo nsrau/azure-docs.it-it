@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 705e389c83fbab6075c25a3f56e5392fb8cafcd9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998435"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756818"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>Avvio rapido: Effettuare il provisioning di un modulo di protezione hardware gestito e attivarlo tramite l'interfaccia della riga di comando di Azure
 
@@ -76,7 +76,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 L'output di questo comando mostra le proprietà del modulo di protezione hardware gestito creato. Le due proprietà più importanti sono:
 
 * **name**: nell'esempio il nome è ContosoMHSM. Questo nome verrà usato per altri comandi di Key Vault.
-* **hsmUri**: nell'esempio l'URI è https://contosohsm.managedhsm.azure.net. Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
+* **hsmUri**: nell'esempio l'URI è "https://contosohsm.managedhsm.azure.net". Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo modulo di protezione hardware gestito. Per ora, nessun altro è autorizzato.
 

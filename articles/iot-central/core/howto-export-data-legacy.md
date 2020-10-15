@@ -8,10 +8,10 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90974415"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati (legacy)
@@ -69,7 +69,7 @@ Se non si ha un account di archiviazione di Azure esistente da esportare, seguir
     |-|-|
     |Standard|per utilizzo generico V2|
     |Standard|per utilizzo generico V1|
-    |Standard|Archiviazione - BLOB|
+    |Standard|Archiviazione BLOB|
     |Premium|Archiviazione BLOB in blocchi|
 
 2. Creare un contenitore nell'account di archiviazione. Passare all'account di archiviazione. In **Servizio BLOB** selezionare **Esplora BLOB**. Selezionare **+ Contenitore** in alto per creare un nuovo contenitore.

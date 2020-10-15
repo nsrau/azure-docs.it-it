@@ -1,20 +1,19 @@
 ---
 title: Distribuire la soluzione di monitoraggio remoto localmente-IDE IntelliJ-Azure | Microsoft Docs
 description: Questa guida illustra come distribuire Remote Monitoring Solution Accelerator nel computer locale usando IntelliJ per il test e lo sviluppo.
-author: v-krghan
-manager: dominicbetts
+author: dominicbetts
 ms.custom: devx-track-java
-ms.author: v-krghan
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319168"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998595"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 
@@ -191,10 +190,10 @@ Ogni servizio Web apre una finestra del prompt dei comandi e una finestra del br
 
 Per accedere allo stato dei servizi, passare agli URL seguenti:
 
-* Gestione Hub:`http://localhost:9002/v1/status`
-* Telemetria del dispositivo:`http://localhost:9004/v1/status`
-* config`http://localhost:9005/v1/status`
-* scheda di archiviazione:`http://localhost:9022/v1/status`
+* Gestione IoT-Hub: `http://localhost:9002/v1/status`
+* Telemetria del dispositivo: `http://localhost:9004/v1/status`
+* config `http://localhost:9005/v1/status`
+* scheda di archiviazione: `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Avviare il processo di analisi di flusso
 

@@ -8,37 +8,36 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 08/27/2020
-ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/07/2020
+ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300106"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812319"
 ---
-# <a name="prerequisites"></a>Prerequisiti
-
-Per completare questa esercitazione, è necessario avere accesso a un gruppo di risorse per il quale si dispone del ruolo di **Proprietrio**. Creare l'area di lavoro Synapse in questo gruppo di risorse.
-
-## <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
+# <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
 In questa esercitazione si apprenderà a creare un'area di lavoro di Synapse, un pool SQL e un pool di Apache Spark. 
 
-## <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa esercitazione, è necessario avere accesso a un gruppo di risorse per il quale si dispone del ruolo di **Proprietrio**. Creare l'area di lavoro Synapse in questo gruppo di risorse.
+
+## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Creare un'area di lavoro Synapse nel portale di Azure
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e nella parte superiore cercare **Synapse**.
 1. Nei risultati della ricerca, in **Servizi** selezionare **Azure Synapse Analytics (anteprima delle aree di lavoro)** .
 1. Selezionare **Aggiungi** per creare un'area di lavoro.
-1. In **Informazioni di base** scegliere un nome per l'area di lavoro. In questa esercitazione si userà **myworkspace**.
+1. In **Nozioni di base** immettere i campi obbligatori e scegliere un nome per l'area di lavoro. In questa esercitazione si userà **myworkspace**.
 1. Per creare un'area di lavoro, è necessario un account ADLSGEN2. La scelta più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
 1. OPZIONE 1 Creazione di un nuovo account ADLSGEN2 
     1. Passare a **Selezionare Data Lake Storage Gen 2**. 
     1. Fare clic su **Crea nuovo** e scegliere **contosolake** come nome.
-    1. Fare clic su **File system** e scegliere **users** come nome.
+    1. Fare clic su **File system** e scegliere **users** come nome. Verrà creato un contenitore denominato **users**
 1. OPZIONE 2 Uso di un account ADLSGEN2 esistente. Vedere le istruzioni riportate in **Preparare un account di archiviazione ADLSGEN2** alla fine di questo documento.
 1. L'area di lavoro di Azure Synapse userà questo account di archiviazione come account di archiviazione "primario" e il contenitore per archiviare i dati dell'area di lavoro. L'area di lavoro archivia i dati in tabelle Apache Spark. Archivia i log delle applicazioni Spark in una cartella denominata **/synapse/nome_area_di_lavoro**.
 1. Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
-
 
 ## <a name="open-synapse-studio"></a>Aprire Synapse Studio
 
@@ -117,8 +116,8 @@ Configurare l'accesso all'account di archiviazione dall'area di lavoro. Le ident
 1. Assegnare i ruoli seguenti o verificare che siano già assegnati. Per l'identità dell'area di lavoro e il nome dell'area di lavoro verrà usato lo stesso nome.
     * Per il ruolo **Collaboratore ai dati dei BLOB di archiviazione** nell'account di archiviazione, assegnare **myworkspace** come identità dell'area di lavoro.
     * Assegnare **myworkspace** come nome dell'area di lavoro.
-
 1. Selezionare **Salva**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
 ms.openlocfilehash: c68bedb37722fb6a8b7ad9dccdeaaaa4fab9d020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264131"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Aggiornare Servizi multimediali dopo il rollover delle chiavi di accesso alle risorse di archiviazione
@@ -47,7 +47,7 @@ Servizi multimediali dipende da una chiave di archiviazione fornita. In particol
 ## <a name="steps-to-rotate-storage-keys"></a>Passaggi per ruotare le chiavi di archiviazione 
  
  1. Modificare la chiave primaria dell'account di archiviazione tramite il cmdlet PowerShell o il portale di [Azure](https://portal.azure.com/).
- 2. Chiamare il cmdlet Sync-AzMediaServiceStorageKeys con i parametri appropriati per forzare l'account multimediale a prelevare le chiavi dell'account di archiviazione
+ 2. Chiamare Sync-AzMediaServiceStorageKeys cmdlet con i parametri appropriati per forzare l'account multimediale a prelevare le chiavi dell'account di archiviazione
  
     Nell'esempio seguente viene illustrato come sincronizzare le chiavi con gli account di archiviazione.
   

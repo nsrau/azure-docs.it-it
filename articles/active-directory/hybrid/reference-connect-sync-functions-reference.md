@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279772"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
@@ -115,7 +115,7 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
 * **Con valori più ***
   * [Contiene](#contains)
   * [Numero](#count)
-  * [Elemento](#item)
+  * [Item](#item)
   * [ItemOrNull](#itemornull)
   * [Join](#join).
   * [RemoveDuplicates](#removeduplicates)
@@ -135,7 +135,7 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
   * [Sinistra](#left)
   * [Len](#len)
   * [LTrim](#ltrim)
-  * [Mid](#mid)
+  * [Metà](#mid)
   * [PadLeft](#padleft)
   * [PadRight](#padright)
   * [PCase](#pcase)
@@ -368,7 +368,7 @@ Restituisce l'Oid dell'algoritmo usato per creare la firma di un certificato.
 ---
 ### <a name="certsubject"></a>CertSubject
 **Descrizione:**  
-Ottiene il nome distintivo del soggetto da un certificato.
+Ottiene il nome distinto del soggetto da un certificato.
 
 **Sintassi:**  
 `str CertSubject(binary certificateRawData)`  
@@ -868,7 +868,7 @@ La funzione inversa di questa funzione è denominata IsPresent.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>Elemento
+### <a name="item"></a>Item
 **Descrizione:**  
  La funzione Item restituisce un elemento da una stringa o un attributo multivalore.
 
@@ -913,7 +913,7 @@ Se l'indice non è compreso nell'intervallo, restituisce un valore Null.
 `str Join(mvstr attribute, str Delimiter)`
 
 * attribute: attributo multivalore contenente stringhe da unire.
-* delimiter: qualsiasi stringa usata per separare le sottostringhe nella stringa restituita. Se omessa, viene usato uno spazio (" "). Se Delimiter è una stringa di lunghezza zero ("") o Nothing, tutti gli elementi nell'elenco vengono concatenati senza delimitatori.
+* delimiter: qualsiasi stringa usata per separare le sottostringhe nella stringa restituita. Se omesso, viene utilizzato il carattere spazio (" "). Se Delimiter è una stringa di lunghezza zero ("") o Nothing, tutti gli elementi nell'elenco vengono concatenati senza delimitatori.
 
 **Osservazioni:**  
  Esiste un'analogia tra le funzioni Join e Split. La funzione Join accetta una matrice di stringhe e le unisce usando una stringa delimitatore per restituire una singola stringa. La funzione Split accetta una stringa e la separa in corrispondenza del delimitatore per restituire una matrice di stringhe. Tuttavia, la differenza principale consiste nel fatto che Join può concatenare stringhe con qualsiasi stringa delimitatore, mentre Split può separare stringhe usando unicamente un delimitatore di un solo carattere.
@@ -1275,7 +1275,7 @@ Restituisce tutti i valori dell'attributo multivalore otherPhone dopo che sono s
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Commutatore
+### <a name="switch"></a>Opzione
 **Descrizione:**  
  La funzione Switch viene usata per restituire un singolo valore basato sulle condizioni valutate.
 
@@ -1304,7 +1304,7 @@ Value può anche essere la funzione Error che restituirà una stringa personaliz
 Restituisce la lingua parlata in alcune città importanti. In caso contrario restituisce un errore.
 
 ---
-### <a name="trim"></a>Trim
+### <a name="trim"></a>Taglio
 **Descrizione:**  
  La funzione Trim rimuove gli spazi vuoti iniziali e finali da una stringa.
 

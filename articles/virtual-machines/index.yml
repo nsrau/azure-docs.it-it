@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: eb7d7c911fc099a5f3b5456d7fb77688e0b06af5
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 09e6d6400c9aa2fcdd54dbc568c4429c1b71497c
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88816474"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91970062"
 highlightedContent:
   items:
   - title: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
@@ -33,7 +33,7 @@ highlightedContent:
     url: ./spot-vms.md
   - title: 'Host dedicati: server fisici per ospitare una o più macchine virtuali.'
     itemType: concept
-    url: ./linux/dedicated-hosts.md
+    url: ./dedicated-hosts.md
   - title: 'Gruppo di selezione host di prossimità: per ottenere le macchine virtuali più vicine e ridurre la latenza.'
     itemType: how-to-guide
     url: ./linux/proximity-placement-groups.md

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504339"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
@@ -45,7 +45,7 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità                  | AzCopy                                 | API REST di Archiviazione di Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fattore di forma                 | Strumento da riga di comando di Microsoft       | I clienti sviluppano nelle API REST di <br> Archiviazione usando le librerie client di Azure |
-| Configurazione singola iniziale     | Minimal                                | Moderata, lavoro richiesto per lo sviluppo variabile    |
+| Configurazione singola iniziale     | Minime                                | Moderata, lavoro richiesto per lo sviluppo variabile    |
 | Formato dati                 | BLOB di Azure, file di Azure, tabelle di Azure | BLOB di Azure, file di Azure, tabelle di Azure   |
 | Prestazioni                 | Già ottimizzate                      | Ottimizzazione durante lo sviluppo                  |
 | Prezzi                     | Gratuiti, si applicano le tariffe per dati in uscita      | Gratuiti, si applicano le tariffe per dati in uscita        |
@@ -55,7 +55,7 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fattore di forma                                   | Dispositivo virtuale             | Dispositivo fisico          | Servizio nel portale di Azure, agente in locale                                                            |
-| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
+| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | N/D                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
 | Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Sì                                                           |

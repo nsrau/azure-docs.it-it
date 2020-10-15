@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 794a952ba719faa16e3584afaf8f2f292deb6c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8a8a9587fd50b63dc862f8b74bc99548699fa6e2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551816"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Esercitazione: Integrazione di Azure Active Directory con ClickUp Productivity Platform
 
@@ -118,17 +118,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con ClickUp Productivity Pl
 
 2. Fare clic su **User profile** (Profilo utente) e quindi selezionare **Settings** (Impostazioni).
 
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Screenshot che mostra il tenant ClickUp Productivity con l'icona delle impostazioni selezionata.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione Settings.](./media/clickup-productivity-platform-tutorial/configure1.png)
 
 3. In Single Sign-On (SSO) Provider (Provider SSO) selezionare **Microsoft**.
 
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure2.png)
+    ![Screenshot che mostra il riquadro Authentication con l'opzione Microsoft selezionata.](./media/clickup-productivity-platform-tutorial/configure2.png)
 
 4. Nella pagina **Configure Microsoft Single Sign On** (Configura Single Sign-On Microsoft) seguire questa procedura:
 
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure3.png)
+    ![Screenshot che mostra la pagina Configure Microsoft Single Sign On in cui è possibile copiare l'ID entità e salvare l'URL dei metadati di federazione di Azure.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. Fare clic su **Copy** (Copia) per copiare il valore dell'ID entità e incollarlo nella casella di testo **Identificatore (ID entità)** della sezione **Configurazione SAML di base** del portale di Azure.
     
@@ -136,7 +136,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ClickUp Productivity Pl
 
 5. Per completare la configurazione, fare clic su **Authenticate With Microsoft to complete setup** (Esegui l'autenticazione con Microsoft per completare la configurazione) ed eseguire l'autenticazione con l'account Microsoft.
 
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure4.png)
+    ![Screenshot che mostra il pulsante Authenticate with Microsoft to complete setup.](./media/clickup-productivity-platform-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -195,13 +195,13 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Fare clic su **User profile** (Profilo utente) e quindi selezionare **People** (Persone).
    
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![Screenshot che mostra il tenant ClickUp Productivity.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/user1.png)
+    ![Screenshot che mostra il collegamento People selezionato.](./media/clickup-productivity-platform-tutorial/user1.png)
 
 3. Immettere l'indirizzo di posta elettronica dell'utente nella casella di testo e fare clic su **Invite** (Invita).
 
-    ![Configurazione di ClickUp Productivity](./media/clickup-productivity-platform-tutorial/user2.png)
+    ![Screenshot che mostra la schermata Team Users Settings in cui è possibile invitare utenti tramite posta elettronica.](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
     > L'utente riceverà la notifica e dovrà accettare l'invito per attivare l'account.

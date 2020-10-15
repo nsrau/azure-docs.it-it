@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1714c1c3c9efb0e78d137ed042420f1c7ba2139f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4394cc4cb21b288215c75e484cb6446f0321158b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330112"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079072"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -118,11 +118,6 @@ La finestra di progettazione consente di eseguire il training dei modelli utiliz
 
 + [Informazioni sulla finestra di progettazione](concept-designer.md)
 + [Esercitazione: stimare il prezzo dell'automobile](tutorial-designer-automobile-price-train-score.md)
-+ [Regressione: Stimare il prezzo](how-to-designer-sample-regression-automobile-price-basic.md)
-+ [Classificazione: Stimare il reddito](how-to-designer-sample-classification-predict-income.md)
-+ [Classificazione: Stimare varianza, appetibilità e upsell](how-to-designer-sample-classification-churn.md)
-+ [Classificazione con script R personalizzato: Prevedere i ritardi dei voli](how-to-designer-sample-classification-flight-delay.md)
-+ [Classificazione del testo: Set di dati SP 500 di Wikipedia](how-to-designer-sample-text-classification.md)
 
 ## <a name="many-models-solution-accelerator"></a>Acceleratore di soluzioni molti modelli
 

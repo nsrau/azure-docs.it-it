@@ -4,12 +4,12 @@ description: Informazioni sugli scenari di sicurezza per un cluster di Azure Ser
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261077"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946196"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 
@@ -134,7 +134,7 @@ Il concetto di creazione di cluster sicuri è lo stesso per i cluster sia Linux 
 
 ### <a name="client-authentication-certificates-optional"></a>Certificati di autenticazione client (facoltativo)
 
-Per le operazioni client degli utenti o degli amministratori è possibile specificare un numero qualsiasi di certificati aggiuntivi. Il client può usare tali certificati quando è necessaria l'autenticazione reciproca. I certificati client in genere non vengono rilasciati da un'autorità di certificazione di terze parti. In genere l'archivio personale della località utente corrente contiene invece certificati client inseriti da un'autorità radice. Il certificato deve avere un valore **Scopi designati** dell’**autenticazione client**.  
+Per le operazioni client degli utenti o degli amministratori è possibile specificare un numero qualsiasi di certificati aggiuntivi. Il client può usare questi certificati quando è necessaria l'autenticazione reciproca. I certificati client in genere non vengono rilasciati da un'autorità di certificazione di terze parti. In genere l'archivio personale della località utente corrente contiene invece certificati client inseriti da un'autorità radice. Il certificato deve avere un valore **Scopi designati** dell’**autenticazione client**.  
 
 Per impostazione predefinita, il certificato del cluster ha privilegi "Client amministratore". Questi certificati client aggiuntivi non devono essere installati nel cluster, ma vengono specificati come consentiti nella configurazione del cluster.  Tuttavia, i certificati client devono essere installati nel client del computer per connettersi al cluster ed eseguire qualsiasi operazione.
 

@@ -3,12 +3,13 @@ title: Specifica degli endpoint di servizio Service Fabric
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.custom: contperfq1
+ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91354760"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017591"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -220,7 +221,7 @@ Se in ServiceManifest è stato specificato
 
 Si supponga che il valore PORT1 e Protocol1 per i parametri dell'applicazione sia null o vuoto. La porta verrà decisa da ServiceFabric e il protocollo sarà TCP.
 
-Si supponga di specificare un valore errato. Supponiamo che per Port sia stato specificato un valore stringa "foo" invece di int.  Il comando New-ServiceFabricApplication avrà esito negativo con un errore: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+Si supponga di specificare un valore errato. Supponiamo che per Port sia stato specificato un valore stringa "foo" invece di int.  New-ServiceFabricApplication comando non riuscirà e verrà eseguito un errore: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

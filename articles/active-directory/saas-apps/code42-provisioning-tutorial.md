@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/23/2020
 ms.author: Zhchia
 ms.openlocfilehash: 57c4cff4e7a35d934a0c5105fa359d440c02db38
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91343348"
 ---
 # <a name="tutorial-configure-code42-for-automatic-user-provisioning"></a>Esercitazione: configurare Code42 per il provisioning utenti automatico
@@ -49,7 +49,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Code42](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
-## <a name="step-2-configure-code42-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Code42 per supportare il provisioning con Azure AD
+## <a name="step-2-configure-code42-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Code42 per supportare il provisioning con Azure AD
 
 Questa sezione illustra i passaggi per configurare Azure AD come provider di provisioning nella sezione Identity Management della console di Code42's. Questa operazione consentirà a Code42 di ricevere in modo sicuro richieste di provisioning da Azure AD. È consigliabile esaminare la [documentazione del supporto di Code42's](https://support.code42.com/Administrator/Cloud/Configuring/Introduction_to_SCIM_provisioning/How_to_provision_users_to_Code42_from_Azure_AD) prima di eseguire il provisioning con Azure ad.
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91290688"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurare l'acceleratore di soluzioni Fabbrica connessa
 
 > [!IMPORTANT]
-> Durante l'aggiornamento di questo articolo, vedere [Azure Industrial](https://azure.github.io/Industrial-IoT/) Internet per il contenuto più aggiornato.
+> Mentre questo articolo viene aggiornato, vedere [Azure IoT industriale](https://azure.github.io/Industrial-IoT/) per il contenuto più aggiornato.
 
 L'acceleratore di soluzioni Fabbrica connessa mostra un dashboard simulato per la società fittizia Contoso. Questa società ha fabbriche in numerose località a livello globale.
 
@@ -265,7 +265,7 @@ Tutte le proprietà usate nel file di configurazione possono essere raggruppate 
 
 ### <a name="visual-appearance"></a>Aspetto visivo
 
-Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Ecco alcuni esempi:
+Le proprietà in questa categoria definiscono l'aspetto visivo del dashboard di Fabbrica connessa. Tra gli esempi sono inclusi:
 
 * Nome
 * Descrizione

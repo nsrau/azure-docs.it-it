@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940803"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Eliminare un gruppo di server con iperscalabilità PostgreSQL abilitato per Azure Arc
@@ -49,7 +49,7 @@ azdata arc postgres server delete -n postgres01
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Recuperare le attestazioni del volume permanente Kubernetes (PVC)
 
-L'eliminazione di un gruppo di server non comporta la rimozione del [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associato. Questo si verifica per motivi strutturali. L'intenzione è di consentire all'utente di accedere ai file di database nel caso in cui l'eliminazione dell'istanza fosse accidentale. L'eliminazione di PVC non è obbligatoria. È tuttavia consigliabile. Se questi PVC non vengono recuperati, si verificheranno degli errori perché il cluster Kubernetes risulterà insufficiente per lo spazio su disco. Per recuperare il PVC, seguire questa procedura:
+L'eliminazione di un gruppo di server non comporta la rimozione del [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)associato. Questo si verifica per motivi strutturali. L'intento è di consentire all'utente di accedere ai file di database nel caso in cui l'eliminazione dell'istanza fosse accidentale. L'eliminazione dei PVC non è obbligatoria, ma è consigliabile. Se i PVC non vengono recuperati, alla fine si verificheranno degli errori perché il cluster Kubernetes rileverà spazio insufficiente su disco. Per recuperare i PVC, seguire questa procedura:
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. elencare il PVC per il gruppo di server che è stato eliminato
 Per elencare il PVC, eseguire questo comando:

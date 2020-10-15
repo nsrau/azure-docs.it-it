@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282348"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993636"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminazione TLS con certificati Key Vault
 
@@ -32,7 +32,7 @@ L'integrazione del gateway applicazione con Key Vault offre molti vantaggi, tra 
 - Supporto per l'importazione di certificati esistenti nell'insieme di credenziali delle chiavi. In alternativa, è possibile usare Key Vault API per creare e gestire nuovi certificati con i partner Key Vault attendibili.
 - Supporto per il rinnovo automatico dei certificati archiviati nell'insieme di credenziali delle chiavi.
 
-Il gateway applicazione supporta attualmente solo certificati convalidati per il software. Modulo di protezione hardware (HSM): i certificati convalidati non sono supportati. Dopo la configurazione del gateway applicazione per l'uso di certificati Key Vault, le relative istanze recuperano il certificato da Key Vault e le installano localmente per la terminazione TLS. Anche le istanze eseguono il polling Key Vault a intervalli di 24 ore per recuperare una versione rinnovata del certificato, se esistente. Se viene trovato un certificato aggiornato, il certificato TLS/SSL attualmente associato al listener HTTPS viene ruotato automaticamente.
+Il gateway applicazione supporta attualmente solo certificati convalidati per il software. Modulo di protezione hardware (HSM): i certificati convalidati non sono supportati. Dopo la configurazione del gateway applicazione per l'uso di certificati Key Vault, le relative istanze recuperano il certificato da Key Vault e le installano localmente per la terminazione TLS. Anche le istanze eseguono il polling Key Vault a intervalli di 4 ore per recuperare una versione rinnovata del certificato, se esistente. Se viene trovato un certificato aggiornato, il certificato TLS/SSL attualmente associato al listener HTTPS viene ruotato automaticamente.
 
 > [!NOTE]
 > Il portale di Azure supporta solo certificati dell'insieme di credenziali delle chiavi, non segreti. Il gateway applicazione supporta ancora i segreti di riferimento da un insieme di credenziali delle chiavi, ma solo tramite risorse non del portale come PowerShell, CLI, API, modelli ARM e così via. 

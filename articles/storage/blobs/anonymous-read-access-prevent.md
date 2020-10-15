@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/02/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 0ed8b04353c50bff53d074ebdb1efa2a286c8e59
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 3d843440adc61b315616a05f223c5a13ebe271ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086573"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930833"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedisci l'accesso in lettura pubblico anonimo a contenitori e BLOB
 
-L'accesso in lettura pubblico anonimo a contenitori e BLOB in archiviazione di Azure è un modo pratico per condividere i dati, ma può anche presentare un rischio per la sicurezza. È importante gestire l'accesso anonimo in modo oculato e comprendere come valutare l'accesso anonimo ai dati. La complessità operativa, gli errori umani o gli attacchi dannosi contro i dati accessibili pubblicamente possono comportare violazioni dei dati costose. Microsoft consiglia di abilitare l'accesso anonimo solo quando necessario per lo scenario dell'applicazione.
+L'accesso in lettura pubblico anonimo a contenitori e BLOB in Archiviazione di Azure è un metodo pratico per condividere i dati, ma potrebbe comportare rischi per la sicurezza. È importante gestire l'accesso anonimo in modo oculato e comprendere come valutare l'accesso anonimo ai dati. La complessità operativa, gli errori umani o gli attacchi dannosi contro i dati accessibili pubblicamente possono comportare violazioni dei dati costose. Microsoft consiglia di abilitare l'accesso anonimo solo quando necessario per lo scenario dell'applicazione.
 
-Per impostazione predefinita, l'accesso pubblico ai dati BLOB è sempre vietato. Tuttavia, la configurazione predefinita per un account di archiviazione consente a un utente con le autorizzazioni appropriate di configurare l'accesso pubblico a contenitori e BLOB in un account di archiviazione. Per una maggiore sicurezza, è possibile impedire l'accesso pubblico all'account di archiviazione, indipendentemente dall'impostazione di accesso pubblico per un singolo contenitore. Non consentire l'accesso pubblico all'account di archiviazione impedisce a un utente di abilitare l'accesso pubblico per un contenitore nell'account. Microsoft consiglia di non consentire l'accesso pubblico a un account di archiviazione, a meno che lo scenario non lo richieda. La disattivazione dell'accesso pubblico impedisce la violazione dei dati causata da un accesso anonimo indesiderato.
+Per impostazione predefinita, l'accesso pubblico ai dati BLOB è sempre vietato. Tuttavia, la configurazione predefinita per un account di archiviazione consente a un utente con le autorizzazioni appropriate di configurare l'accesso pubblico a contenitori e BLOB in un account di archiviazione. Per una maggiore sicurezza, è possibile impedire l'accesso pubblico all'account di archiviazione, indipendentemente dall'impostazione di accesso pubblico per un singolo contenitore. Non consentendo l'accesso pubblico all'account di archiviazione si impedisce a un utente di abilitare l'accesso pubblico per un contenitore nell'account. Microsoft consiglia di non consentire l'accesso pubblico a un account di archiviazione, a meno che la situazione specifica non lo richieda. La disattivazione dell'accesso pubblico contribuisce a impedire la violazione dei dati causata da un accesso anonimo indesiderato.
 
 Quando si impedisce l'accesso al BLOB pubblico per l'account di archiviazione, archiviazione di Azure rifiuta tutte le richieste anonime a tale account. Dopo che l'accesso pubblico non è consentito per un account, i contenitori di tale account non possono essere configurati per l'accesso pubblico. Tutti i contenitori già configurati per l'accesso pubblico non accettano più richieste anonime. Per altre informazioni, vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).
 
@@ -59,7 +59,7 @@ Seguire questa procedura per creare una metrica per tenere traccia delle richies
 
 Dopo aver configurato la metrica, le richieste anonime inizieranno a essere visualizzate nel grafico. Nell'immagine seguente vengono mostrate le richieste anonime aggregate negli ultimi trenta minuti.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot che mostra le richieste anonime aggregate sull'archiviazione BLOB":::
+:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
 
 È anche possibile configurare una regola di avviso per ricevere una notifica quando viene effettuato un determinato numero di richieste anonime nell'account di archiviazione. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 
@@ -70,6 +70,9 @@ I log di archiviazione di Azure acquisiscono informazioni dettagliate sulle rich
 Per registrare le richieste nell'account di archiviazione di Azure per valutare le richieste anonime, è possibile usare la registrazione di archiviazione di Azure in monitoraggio di Azure (anteprima). Per altre informazioni, vedere [monitorare archiviazione di Azure](../common/monitor-storage.md).
 
 Registrazione di archiviazione di Azure in monitoraggio di Azure supporta l'uso di query di log per analizzare i dati di log. Per eseguire query sui log, è possibile usare un'area di lavoro di Azure Log Analytics. Per altre informazioni sulle query di log, vedere [esercitazione: Introduzione alle query log Analytics](../../azure-monitor/log-query/get-started-portal.md).
+
+> [!NOTE]
+> L'anteprima della registrazione di archiviazione di Azure in monitoraggio di Azure è supportata solo nel cloud pubblico di Azure. I cloud governativi non supportano la registrazione per archiviazione di Azure con monitoraggio di Azure.
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Creare un'impostazione di diagnostica nel portale di Azure
 
@@ -85,7 +88,7 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 1. In **Dettagli categoria**, nella sezione **log** , scegliere i tipi di richieste da registrare. Tutte le richieste anonime saranno richieste di lettura, quindi selezionare **StorageRead** per acquisire richieste anonime.
 1. In **Dettagli destinazione**selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
+    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
 
 Dopo aver creato l'impostazione di diagnostica, le richieste all'account di archiviazione vengono registrate successivamente in base a tale impostazione. Per altre informazioni, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche delle risorse in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -241,7 +244,7 @@ Per visualizzare il report di conformità nel portale di Azure, attenersi alla s
 1. Filtrare i risultati per il nome dell'assegnazione di criteri creata nel passaggio precedente. Il report Mostra il numero di risorse non conformi ai criteri.
 1. È possibile eseguire il drill-down del report per ulteriori dettagli, incluso un elenco di account di archiviazione non conformi.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot che mostra il report di conformità per i criteri di controllo per l'accesso pubblico ai BLOB":::
+    :::image type="content" source="media/anonymous-read-access-prevent/compliance-report-policy-portal.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
 
 ## <a name="use-azure-policy-to-enforce-authorized-access"></a>Usare i criteri di Azure per applicare l'accesso autorizzato
 
@@ -277,7 +280,7 @@ Dopo aver creato il criterio con l'effetto nega e averlo assegnato a un ambito, 
 
 La figura seguente mostra l'errore che si verifica se si tenta di creare un account di archiviazione che consente l'accesso pubblico (impostazione predefinita per un nuovo account) quando un criterio con un effetto di negazione richiede che l'accesso pubblico non sia consentito.
 
-:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot che mostra l'errore che si verifica quando si crea un account di archiviazione in violazione dei criteri":::
+:::image type="content" source="media/anonymous-read-access-prevent/deny-policy-error.png" alt-text="Screenshot che illustra come configurare la metrica per la somma delle transazioni BLOB":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

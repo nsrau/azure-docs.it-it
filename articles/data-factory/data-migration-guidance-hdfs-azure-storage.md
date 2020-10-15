@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417125"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Usare Azure Data Factory per migrare i dati da un cluster Hadoop locale ad archiviazione di Azure 
@@ -139,7 +139,7 @@ Ecco il prezzo stimato in base ai presupposti seguenti:
 > Si tratta di un esempio di prezzo ipotetico. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente.
 > Il prezzo di una VM Windows di Azure (con il runtime di integrazione self-hosted installato) non è incluso.
 
-### <a name="additional-references"></a>Riferimenti aggiuntivi
+### <a name="additional-references"></a>Altri riferimenti
 
 - [Connettore HDFS](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
 - [Connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)

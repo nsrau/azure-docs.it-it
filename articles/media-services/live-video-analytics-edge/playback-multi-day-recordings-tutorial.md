@@ -3,12 +3,12 @@ title: Riproduzione di registrazioni di più giorni - Azure
 description: In questa esercitazione si apprenderà come usare le API di Servizi multimediali di Azure per riprodurre una registrazione continua di video di più giorni.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530574"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803433"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Esercitazione: Riproduzione di registrazioni di più giorni  
 
@@ -70,13 +70,22 @@ Quindi, in Visual Studio Code aprire src/ams-asset-player. Questa cartella conti
 } 
 ```
 
-In Visual Studio Code è possibile fare clic sull'icona Esegui a sinistra (o CTRL+MAIUSC+D) per visualizzare le applicazioni disponibili per l'esecuzione:
+1. In Visual Studio Code aprire la scheda **Estensioni** (oppure premere CTRL+MAIUSC+X) e cercare Hub IoT di Azure.
+1. Fare clic con il pulsante destro del mouse e scegliere **Impostazioni estensione**.
 
-![Screenshot che mostra un menu in Visual Studio Code con l'elemento di esecuzione selezionato.](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-Selezionare l'applicazione AMS Asset Player dalla casella di riepilogo a discesa, come illustrato di seguito, e premere F5 per avviare il debug.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Impostazioni estensione&quot;:::
+1. Cercare e abilitare &quot;Show Verbose Message" (Visualizza messaggio dettagliato).
 
-![Screenshot che mostra un menu in Visual Studio Code con l'applicazione AMS Asset Player selezionata.](./media/playback-multi-day-recordings-tutorial/debug.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Impostazioni estensione&quot;:::
+1. Cercare e abilitare &quot;Show Verbose Message":::
+1. <!--In Visual Studio Code, you can click-->Fare clic sull'icona Esegui a sinistra (o premere CTRL+MAIUSC+D) per visualizzare le applicazioni disponibili per l'esecuzione:
+
+    ![Screenshot che mostra un menu in Visual Studio Code con l'elemento di esecuzione selezionato.](./media/playback-multi-day-recordings-tutorial/run.png)
+1. Selezionare l'applicazione AMS Asset Player dalla casella di riepilogo a discesa, come illustrato di seguito, e premere F5 per avviare il debug.
+
+    ![Screenshot che mostra un menu in Visual Studio Code con l'applicazione AMS Asset Player selezionata.](./media/playback-multi-day-recordings-tutorial/debug.png)
 
 L'applicazione di esempio compilerà e avvierà l'app browser predefinita e aprirà la pagina di AMS Asset Player.
 

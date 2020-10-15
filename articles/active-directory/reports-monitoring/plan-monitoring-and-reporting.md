@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331200"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
@@ -102,7 +102,7 @@ La creazione di report e il monitoraggio vengono usati per soddisfare i requisit
 |Area |Descrizione |
 |-|-|
 |Conservazione| **Conservazione dei log di più di 30 giorni**. A causa dei requisiti legali o aziendali, è necessario archiviare i log di controllo e i log di accesso di Azure AD più di 30 giorni. |
-|Analytics| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |
+|Analisi| **I log devono essere disponibili per la ricerca**. È necessario eseguire ricerche nei log archiviati con gli strumenti di analisi. |
 | Operational Insights| **Informazioni dettagliate per diversi team**. La necessità di concedere l'accesso a utenti diversi per ottenere informazioni operative, ad esempio l'utilizzo delle applicazioni, errori di accesso, utilizzo self-service, tendenze e così via. |
 | Informazioni dettagliate sulla sicurezza| **Informazioni dettagliate per diversi team**. La necessità di concedere l'accesso a utenti diversi per ottenere informazioni operative, ad esempio l'utilizzo delle applicazioni, errori di accesso, utilizzo self-service, tendenze e così via. |
 | Integrazione nei sistemi SIEM      | **Integrazione Siem**. La necessità di integrare e trasmettere in flusso Azure AD log di accesso e i log di controllo ai sistemi SIEM esistenti. |

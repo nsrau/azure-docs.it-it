@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536456"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057740"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -84,7 +84,7 @@ Le sezioni seguenti illustrano come completare diverse operazioni di gestione de
 Una volta creati i modelli, è possibile caricarli nell'istanza di Azure Digital gemelli.
 
 > [!TIP]
-> È consigliabile convalidare i modelli offline prima di caricarli nell'istanza di Azure Digital gemelli. È possibile usare la [libreria del parser lato client DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e l' [esempio di validator DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) descritto in [*procedura: analizzare e convalidare i modelli*](how-to-parse-models.md) per verificare i modelli prima di caricarli nel servizio.
+> È consigliabile convalidare i modelli offline prima di caricarli nell'istanza di Azure Digital gemelli. È possibile usare la [libreria del parser lato client DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e l' [esempio di validator DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) descritto in [*procedura: analizzare e convalidare i modelli*](how-to-parse-models.md) per verificare i modelli prima di caricarli nel servizio.
 
 Quando si è pronti per caricare un modello, è possibile usare il frammento di codice seguente:
 

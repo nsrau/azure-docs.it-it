@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044380"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
@@ -119,7 +119,7 @@ Le prestazioni di questi modelli dipendono dalle dimensioni della cronologia, da
 * **Carico dell'evento** : maggiore è il **carico dell'evento**, maggiore è il lavoro eseguito dai modelli, che influisca sul consumo della CPU. Il processo può essere scalato orizzontalmente in modo imbarazzante, supponendo che sia opportuno che la logica di business usi più partizioni di input.
 * Partizionamento a livello di **funzione**  -  Il **partizionamento a livello di funzione** viene eseguito usando ```PARTITION BY``` all'interno della chiamata di funzione di rilevamento anomalie. Questo tipo di partizionamento aggiunge un overhead, in quanto lo stato deve essere mantenuto per più modelli nello stesso momento. Il partizionamento a livello di funzione viene usato in scenari come il partizionamento a livello di dispositivo.
 
-### <a name="relationship"></a>Relazione
+### <a name="relationship"></a>Relationship
 Le dimensioni della cronologia, la durata della finestra e il carico totale degli eventi sono correlate nel modo seguente:
 
 windowDuration (in MS) = 1000 * historySize/(Totale eventi di input al secondo/numero di partizioni di input)
@@ -131,20 +131,20 @@ La tabella seguente include le osservazioni sulla velocità effettiva per un sin
 
 | Dimensioni cronologia (eventi) | Durata finestra (MS) | Totale eventi di input al secondo |
 | --------------------- | -------------------- | -------------------------- |
-| 60 | 55 | 2,200 |
+| 60 | 55 | 2.200 |
 | 600 | 728 | 1.650 |
-| 6000 | 10.910 | 1\.100 |
+| 6.000 | 10.910 | 1.100 |
 
 La tabella seguente include le osservazioni sulla velocità effettiva per un singolo nodo (6 SU) per il caso partizionato:
 
 | Dimensioni cronologia (eventi) | Durata finestra (MS) | Totale eventi di input al secondo | Conteggio dispositivi |
 | --------------------- | -------------------- | -------------------------- | ------------ |
-| 60 | 1.091 | 1\.100 | 10 |
-| 600 | 10.910 | 1\.100 | 10 |
-| 6000 | 218.182 | <550 | 10 |
+| 60 | 1.091 | 1.100 | 10 |
+| 600 | 10.910 | 1.100 | 10 |
+| 6.000 | 218.182 | <550 | 10 |
 | 60 | 21.819 | 550 | 100 |
 | 600 | 218.182 | 550 | 100 |
-| 6000 | 2.181.819 | <550 | 100 |
+| 6.000 | 2.181.819 | <550 | 100 |
 
 Il codice di esempio per eseguire le configurazioni non partizionate sopra è disponibile nel [repository di Azure in streaming su larga scala](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) . Il codice crea un processo di analisi di flusso senza partizionamento a livello di funzione, che usa l'hub eventi come input e output. Il carico di input viene generato utilizzando client di test. Ogni evento di input è un documento JSON 1 KB. Gli eventi simulano un dispositivo Internet che invia dati JSON (per un massimo di 1K dispositivi). Le dimensioni della cronologia, della durata della finestra e del carico totale degli eventi sono diverse rispetto a 2 partizioni di input.
 

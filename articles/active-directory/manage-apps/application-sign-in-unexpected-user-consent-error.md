@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321947"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874544"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Errore imprevisto durante la richiesta di consenso per un'applicazione
 
@@ -79,10 +79,12 @@ Tutti questi errori si verificano quando l'applicazione per la quale un utente s
     -   Aggiungendo l'applicazione dalla raccolta di applicazioni di Azure AD
 
 ## <a name="risky-app-error-and-warning"></a>Errore e avviso dell'app rischiosa
+* **AADSTS900941:** Il consenso dell'amministratore è obbligatorio. L'app è considerata rischiosa. (AdminConsentRequiredDueToRiskyApp)
 * Questa app potrebbe essere rischiosa. Se si considera attendibile questa app, rivolgersi all'amministratore per concedere l'accesso.
+* **AADSTS900981:** Per un'app rischiosa è stata ricevuta una richiesta di consenso dell'amministratore. (AdminConsentRequestRiskyAppWarning)
 * Questa app potrebbe essere rischiosa. Continuare solo se si considera attendibile l'app.
 
-Entrambi questi messaggi verranno visualizzati quando Microsoft ha stabilito che la richiesta di consenso potrebbe essere rischiosa. Tra molti altri fattori, questo problema può verificarsi se un [editore verificato](../develop/publisher-verification-overview.md) non è stato aggiunto alla registrazione dell'app. Il primo messaggio verrà visualizzato agli utenti finali quando il flusso di [lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md) è disabilitato. Il secondo messaggio verrà visualizzato agli utenti finali quando il flusso di lavoro di consenso dell'amministratore è abilitato e agli amministratori. 
+Entrambi questi messaggi verranno visualizzati quando Microsoft ha stabilito che la richiesta di consenso potrebbe essere rischiosa. Tra molti altri fattori, questo problema può verificarsi se un [editore verificato](../develop/publisher-verification-overview.md) non è stato aggiunto alla registrazione dell'app. Il primo codice di errore e il messaggio verranno visualizzati agli utenti finali quando il [flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md) è disabilitato. Il secondo codice e messaggio verrà visualizzato agli utenti finali quando il flusso di lavoro di consenso dell'amministratore è abilitato e agli amministratori. 
 
 Gli utenti finali non saranno in grado di concedere il consenso alle app che sono state rilevate come rischiose. Gli amministratori sono in grado di valutare l'app in modo molto accurato e procedere con cautela. Se l'app sembra sospetta dopo un'ulteriore verifica, può essere segnalata a Microsoft dalla schermata del consenso. 
 

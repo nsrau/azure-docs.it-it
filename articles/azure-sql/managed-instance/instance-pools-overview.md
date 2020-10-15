@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325165"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Che cos'è un pool di Istanza gestita SQL di Azure (anteprima)?
@@ -24,7 +24,7 @@ ms.locfileid: "91325165"
 
 I pool di istanze nel Istanza gestita SQL di Azure offrono un modo pratico ed economico per eseguire la migrazione di istanze di SQL Server più piccole al cloud su larga scala.
 
-I pool di istanze consentono di eseguire il pre-provisioning di risorse di calcolo in base ai requisiti di migrazione complessivi. È quindi possibile distribuire più istanze gestite singole fino al livello di calcolo di cui è stato eseguito il pre-provisioning. Ad esempio, se si esegue il pre-provisioning di 8 Vcore, è possibile distribuire due vCore e un'istanza di vCore 4 e quindi eseguire la migrazione dei database in queste istanze. Prima che i pool di istanze fossero disponibili, i carichi di lavoro a elevato utilizzo di calcolo e minori dovrebbero spesso essere consolidati in un'istanza gestita più ampia durante la migrazione al cloud. La necessità di eseguire la migrazione di gruppi di database a un'istanza di grandi dimensioni richiede in genere un'attenta pianificazione della capacità e governance delle risorse, considerazioni aggiuntive sulla sicurezza e alcune operazioni di consolidamento dei dati aggiuntive a livello di istanza.
+I pool di istanze consentono di eseguire il pre-provisioning di risorse di calcolo in base ai requisiti di migrazione complessivi. È quindi possibile distribuire più istanze gestite singole fino al livello di calcolo di cui è stato eseguito il pre-provisioning. Se, ad esempio, si esegue il pre-provisioning di 8 Vcore, è possibile distribuire l'istanza 2 2-vCore e 1 4-vCore e quindi migrare i database in tali istanze. Prima che i pool di istanze fossero disponibili, i carichi di lavoro a elevato utilizzo di calcolo e minori dovrebbero spesso essere consolidati in un'istanza gestita più ampia durante la migrazione al cloud. La necessità di eseguire la migrazione di gruppi di database a un'istanza di grandi dimensioni richiede in genere un'attenta pianificazione della capacità e governance delle risorse, considerazioni aggiuntive sulla sicurezza e alcune operazioni di consolidamento dei dati aggiuntive a livello di istanza.
 
 Inoltre, i pool di istanze supportano l'integrazione VNet nativa, in modo da poter distribuire più pool di istanze e più istanze singole nella stessa subnet.
 
@@ -57,7 +57,7 @@ Nell'elenco seguente sono riportati i principali casi d'uso in cui devono essere
 - Gli scenari in cui è importante un *costo fisso* o un *limite di spesa* . Ad esempio, l'esecuzione di ambienti di sviluppo/test o dimostrativi condivisi di una dimensione fissa (o raramente modificata), in cui si distribuiscono periodicamente istanze gestite quando necessario.
 - Scenari in cui l' *allocazione minima degli indirizzi IP* in una subnet VNet è importante. Tutte le istanze in un pool condividono una macchina virtuale, pertanto il numero di indirizzi IP allocati è inferiore rispetto al caso di istanze singole.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 I pool di istanze hanno un'architettura simile alle istanze gestite regolari (*Single*). Per supportare le [distribuzioni nelle reti virtuali di Azure](../../virtual-network/virtual-network-for-azure-services.md)   e garantire l'isolamento e la sicurezza per i clienti, i pool di istanze si basano anche sui [cluster virtuali](connectivity-architecture-overview.md#high-level-connectivity-architecture). I cluster virtuali rappresentano un set dedicato di macchine virtuali isolate distribuite all'interno della subnet della rete virtuale del cliente.
 
@@ -113,7 +113,7 @@ Funzionalità o funzionalità facoltative che richiedono la scelta di valori spe
 
 Sebbene le istanze gestite all'interno dei pool dispongano di vCore e RAM dedicate, condividono il disco locale (per l'utilizzo di tempdb) e le risorse di rete. Non è probabile, ma è possibile che si verifichi il fastidioso effetto *adiacente* se più istanze nel pool hanno un consumo di risorse elevato allo stesso tempo. Se si osserva questo comportamento, è consigliabile distribuire queste istanze in un pool più grande o come istanze singole.
 
-## <a name="security-considerations"></a>Considerazioni sulla sicurezza
+## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
 Poiché le istanze distribuite in un pool condividono la stessa macchina virtuale, è opportuno considerare la possibilità di disabilitare le funzionalità che introducono rischi di sicurezza più elevati o di controllare con sicurezza le autorizzazioni di accesso a queste funzionalità. Ad esempio, l'integrazione con CLR, il backup e il ripristino nativi, la posta elettronica del database e così via.
 
@@ -152,10 +152,10 @@ Per dettagli completi sui prezzi dei pool di istanze, vedere la sezione *pool di
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per iniziare a usare i pool di istanze, vedere [Guida alle procedure per i pool di SQL istanza gestita](instance-pools-configure.md).
-- Per informazioni su come creare la prima istanza gestita, vedere [Guida introduttiva](instance-create-quickstart.md).
+- Per informazioni su come creare la prima istanza gestita, vedere [Guida di avvio rapido](instance-create-quickstart.md).
 - Per un elenco di funzionalità e confronto, vedere [funzionalità comuni di SQL Azure](../database/features-comparison.md).
-- Per ulteriori informazioni sulla configurazione di VNet, vedere la pagina relativa alla [configurazione di SQL istanza gestita VNet](connectivity-architecture-overview.md).
-- Per una guida introduttiva per la creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [creare un'istanza gestita](instance-create-quickstart.md).
-- Per un'esercitazione sull'uso del servizio migrazione del database di Azure per la migrazione, vedere la pagina relativa alla [migrazione istanza gestita SQL con il servizio migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).
-- Per il monitoraggio avanzato delle prestazioni del database SQL Istanza gestita con l'Intelligence per la risoluzione dei problemi incorporata, vedere [monitorare istanza gestita SQL di Azure con analisi SQL di Azure](../../azure-monitor/insights/azure-sql.md).
+- Per altre informazioni sulla configurazione della rete virtuale, vedere [Configurazione di una rete virtuale per Istanza gestita di SQL](connectivity-architecture-overview.md).
+- Per una guida di avvio rapido sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](instance-create-quickstart.md).
+- Per un'esercitazione sull'uso del Servizio Migrazione del database di Azure, vedere [Migrazione a Istanza gestita di SQL con il Servizio Migrazione del database](../../dms/tutorial-sql-server-to-managed-instance.md).
+- Per informazioni sul monitoraggio avanzato delle prestazioni del database dell'istanza gestita di SQL con intelligence predefinita per la risoluzione dei problemi, vedere [Monitorare l'istanza gestita di SQL di Azure usando Analisi SQL di Azure](../../azure-monitor/insights/azure-sql.md).
 - Per informazioni sui prezzi, vedere la pagina relativa ai [prezzi di SQL istanza gestita](https://azure.microsoft.com/pricing/details/sql-database/managed/).

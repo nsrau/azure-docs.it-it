@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713781"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077440"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Baseline di sicurezza di Azure per Gestione API
 
@@ -100,7 +100,7 @@ Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per n
 
 * [Come configurare la protezione DDoS di Azure standard](../virtual-network/manage-ddos-protection.md)
 
-* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/threat-protection.md)
+* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -588,7 +588,7 @@ Configurare il monitoraggio avanzato con Gestione API usando il criterio `log-to
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -774,7 +774,7 @@ Usare inoltre Criteri di Azure per applicare restrizioni al tipo di risorse che 
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -838,7 +838,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 * [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1114,7 +1114,7 @@ Le identità gestite possono essere usate per ottenere i certificati da Azure Ke
 
 Abilitare l'eliminazione temporanea in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose.
 
-* [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

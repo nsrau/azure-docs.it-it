@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43dfe3ad28417e13196c5ac1e75419906f6eae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549155"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820499"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con HRworks Single Sign-On
 
@@ -156,15 +156,15 @@ Per consentire agli utenti di Azure di AD di accedere a HRworks Single Sign-On, 
 
 1. Fare clic su **Administrator (Amministratore)**  > **Persons (Persone)**  > **Persons (Persone)**  > **New person (Nuova persona)** sulla barra dei menu a sinistra.
 
-     ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Screenshot che mostra la pagina di HRworks con le opzioni Persons e New person selezionate.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. Nella finestra popup fare clic su **Avanti**.
 
-    ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![Screenshot che mostra un elenco di paesi da cui scegliere per la persona.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. Nella finestra popup **Create new person with country for legal terms** (Crea una nuova persona con il paese per le note legali) compilare i rispettivi dettagli, come **First name** (Nome), **Last name** (Cognome), e fare clic su **Create** (Crea).
 
-    ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![Screenshot che mostra le caselle di testo in cui immettere nome e cognome della persona.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

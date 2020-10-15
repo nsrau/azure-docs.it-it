@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
 ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308419"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Usare Apache Spark per leggere e scrivere dati Apache HBase
@@ -91,7 +91,7 @@ __Nota__: prima di procedere, assicurarsi di aver aggiunto l'account di archivia
 1. Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) nel cluster HBase per applicare le modifiche con le considerazioni seguenti: 
 
 
-    |Proprietà | valore |
+    |Proprietà | Valore |
     |---|---|
     |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
     |Tipo/i di nodo|Region|
@@ -103,7 +103,7 @@ __Nota__: prima di procedere, assicurarsi di aver aggiunto l'account di archivia
 
 2.  Usare l'azione script nel cluster Spark per applicare le modifiche con le considerazioni seguenti:
 
-    |Proprietà | valore |
+    |Proprietà | Valore |
     |---|---|
     |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |Tipo/i di nodo|Head, Worker, Zookeeper|

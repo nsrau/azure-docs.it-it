@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271961"
 ---
 # <a name="retrieve-offers"></a>Recuperare le offerte
@@ -27,7 +27,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 
 | **Nome**         |  **Descrizione**                         |  **Tipo di dati** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   Stringa    |
+|  publisherId     | Identificatore dell'editore, per esempio `contoso` |   string    |
 |  api-version     | Ultima versione dell'API                    |    Data        |
 |  |  |
 
@@ -91,7 +91,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  NotStarted                  | L'offerta è nuova, ma non è stata attivata.                 |
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.         |
 |  In esecuzione                     | Invio dell'offerta in corso.             |
-|  Completato                   | Invio dell'offerta completato.       |
+|  Operazione riuscita                   | Invio dell'offerta completato.       |
 |  Cancellati                    | Invio dell'offerta annullato.                   |
-|  Non riuscito                      | Invio dell'offerta non riuscito.                         |
+|  Operazione non riuscita                      | Invio dell'offerta non riuscito.                         |
 |  |  |

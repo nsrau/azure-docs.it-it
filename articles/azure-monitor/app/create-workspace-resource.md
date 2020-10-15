@@ -1,16 +1,14 @@
 ---
 title: Creare una nuova risorsa di Application Insights basata sull'area di lavoro in Monitoraggio di Azure | Microsoft Docs
 description: Informazioni sui passaggi necessari per abilitare le nuove risorse di Application Insights basate sull'area di lavoro in Monitoraggio di Azure.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/06/2020
+ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894539"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945414"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Risorse di Application Insights basate sull’area di lavoro
 
@@ -206,6 +204,10 @@ Dal riquadro della risorsa di Application Insights selezionare **Proprietà** > 
 ## <a name="export-telemetry"></a>Esportare i dati di telemetria
 
 La funzionalità di esportazione continua legacy non è supportata per risorse basate su area di lavoro. Selezionare invece **Impostazioni di diagnostica** > **Aggiungi impostazione di diagnostica** dalla risorsa di Application Insights. È possibile selezionare tutte le tabelle o un subset di tabelle da archiviare in un account di archiviazione o di cui eseguire lo streaming in Hub eventi di Azure.
+
+> [!NOTE]
+> Non sono attualmente previsti addebiti aggiuntivi per l'esportazione dei dati di telemetria. Le informazioni sui prezzi per questa funzionalità saranno disponibili nella [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).  Prima dell'inizio della fatturazione, verranno inviate le notifiche. Se si sceglie di continuare a usare <feature name> dopo il periodo di preavviso, l'addebito verrà addebitato alla tariffa applicabile. 
+ 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

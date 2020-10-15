@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
 ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86224588"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Migliorare la sintesi con lo strumento di creazione del contenuto audio
@@ -105,7 +105,7 @@ Dopo aver esaminato l'output audio e aver soddisfatto l'ottimizzazione e la rego
 | wav | riff-16kHz-16 bit-mono-PCM | riff-24kHz-16 bit-mono-PCM |
 | mp3 | audio-16kHz-128kbitrate-mono-MP3 | audio-24kHz-160kbitrate-mono-MP3 |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [API Long audio](https://aka.ms/long-audio-api)
 

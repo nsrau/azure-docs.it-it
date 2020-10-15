@@ -17,10 +17,10 @@ ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88653614"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
@@ -138,7 +138,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | --- | --- | --- | 
 | VHD di base del sistema operativo | adatto | tutti i sistemi |
 | Disco dati | adatto | tutti i sistemi, [specialmente per SAP Hana](../../how-to-enable-write-accelerator.md) |
-| Directory di trasporto globale SAP | YES | [Supportato](https://launchpad.support.sap.com/#/notes/2015553) |
+| Directory di trasporto globale SAP | YES | [Supporto](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | adatto | tutti i sistemi |
 | Archiviazione di backup | adatto | per l'archiviazione a breve termine dei backup |
 | Condivisioni/disco condiviso | non disponibile | Necessita di file Premium di Azure o di terze parti |
@@ -196,7 +196,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non funziona | - |
 | Disco dati | adatto | tutti i sistemi  |
-| Directory di trasporto globale SAP | YES | [Supportato](https://launchpad.support.sap.com/#/notes/2015553) |
+| Directory di trasporto globale SAP | YES | [Supporto](https://launchpad.support.sap.com/#/notes/2015553) |
 | Sapmnt SAP | adatto | tutti i sistemi |
 | Archiviazione di backup | adatto | per l'archiviazione a breve termine dei backup |
 | Condivisioni/disco condiviso | non disponibile | Necessita di terze parti |
@@ -312,7 +312,7 @@ Archiviazione HDD Standard di Azure è l'unico tipo di archiviazione quando l'in
 | VHD di base del sistema operativo | non adatto | - |
 | Disco dati | non adatto | - |
 | Directory di trasporto globale SAP | NO | [Non supportato](https://launchpad.support.sap.com/#/notes/2015553) |
-| Sapmnt SAP | NO | Non supportate |
+| Sapmnt SAP | NO | Non supportato |
 | Archiviazione di backup | adatto | - |
 | Condivisioni/disco condiviso | non disponibile | Necessità File di Azure o di terze parti |
 | Resilienza | LRS, GRS | Nessun ZRS disponibile per i dischi |
@@ -352,7 +352,7 @@ Quando si ridimensionano le macchine virtuali di Azure nel ciclo di vita di un s
 
 
 ## <a name="striping-or-not-striping"></a>Striping o non striping
-La creazione di un set di striping su più dischi di Azure in un volume più grande consente di accumulare i IOPS e la velocità effettiva dei singoli dischi in un unico volume. Viene usato solo per archiviazione standard di Azure e per archiviazione Premium di Azure. Azure ultra disk, in cui è possibile configurare la velocità effettiva e IOPS indipendentemente dalla capacità di un disco, non richiede l'uso di set di striping. Non è possibile eseguire lo striping di volumi condivisi basati su NFS o SMB. A causa della natura non lineare della velocità effettiva e delle operazioni di i/o al secondo di archiviazione Premium di Azure, è possibile effettuare il provisioning di una capacità ridotta con gli stessi IOPS e velocità effettiva rispetto ai dischi di archiviazione Premium Questo è il metodo per ottenere maggiore velocità effettiva o IOPS a costi ridotti usando archiviazione Premium di Azure. Esempio:
+La creazione di un set di striping su più dischi di Azure in un volume più grande consente di accumulare i IOPS e la velocità effettiva dei singoli dischi in un unico volume. Viene usato solo per archiviazione standard di Azure e per archiviazione Premium di Azure. Azure ultra disk, in cui è possibile configurare la velocità effettiva e IOPS indipendentemente dalla capacità di un disco, non richiede l'uso di set di striping. Non è possibile eseguire lo striping di volumi condivisi basati su NFS o SMB. A causa della natura non lineare della velocità effettiva e delle operazioni di i/o al secondo di archiviazione Premium di Azure, è possibile effettuare il provisioning di una capacità ridotta con gli stessi IOPS e velocità effettiva rispetto ai dischi di archiviazione Premium Questo è il metodo per ottenere maggiore velocità effettiva o IOPS a costi ridotti usando archiviazione Premium di Azure. Ad esempio:
 
 - Lo striping tra due dischi di archiviazione Premium P15 ti permette di ottenere una velocità effettiva 
 - 250 MiB/sec. Tale volume avrà una capacità di 512 GiB. Se si vuole avere un singolo disco che fornisce una velocità effettiva di 250 MiB al secondo, è necessario selezionare un disco P40 con capacità di 2 TiB. 

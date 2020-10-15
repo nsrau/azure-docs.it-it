@@ -3,19 +3,19 @@ title: Gestire i feed di dati in metriche Advisor
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come gestire i feed di dati aggiunti a metrica Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: aahi
-ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.author: mbullwin
+ms.openlocfilehash: de8d5d8e9fc5ce1df05cfd4c67ef146760e2c7e9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937811"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043171"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>Procedura: gestire i feed di dati
 
@@ -97,7 +97,7 @@ Quando si crea un nuovo feed di dati sono disponibili diverse impostazioni avanz
 > Questa impostazione non influirà sull'origine dati e non influirà sui grafici dei dati visualizzati nel portale. Il riempimento automatico si verifica solo durante il rilevamento delle anomalie.
 
 Alcune serie temporali non sono continue. Quando non sono presenti punti dati, Metrics Advisor utilizzerà il valore specificato per riempirli prima del rilevamento delle anomalie per una maggiore accuratezza.
-Le opzioni disponibili sono le seguenti: 
+Le opzioni disponibili sono: 
 
 * Utilizzo del valore del punto dati effettivo precedente. Viene usato per impostazione predefinita.
 * Utilizzando un valore specifico.
@@ -106,11 +106,11 @@ Le opzioni disponibili sono le seguenti:
 
 I modelli di collegamento all'azione vengono usati per predefinire URL http di utilità pratica, che sono costituiti da segnaposto,,, `%datafeed` `%metric` `%timestamp` `%detect_config` e `%tagset` . È possibile usare il modello per il Reindirizzamento da un'anomalia o da un evento imprevisto a un URL specifico per eseguire il drill-down.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="Modello di collegamento all'azione" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="Recupero feed di dati" lightbox="../media/action-link-template.png":::
 
 Dopo aver compilato il collegamento all'azione, fare clic sul **collegamento Vai a azione** nell'opzione azione dell'elenco eventi imprevisti e sul menu di scelta rapida dell'albero degli eventi imprevisti. Sostituire i segnaposto nel modello di collegamento all'azione con i valori corrispondenti dell'anomalia o dell'evento imprevisto.
 
-| Segnaposto | Esempi | Commento |
+| Segnaposto | Esempi | Aggiungere commenti |
 | ---------- | -------- | ------- |
 | `%datafeed` | - | ID feed di dati |
 | `%metric` | - | ID metrica |

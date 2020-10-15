@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441715"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Che cos'è un server SQL logico nel database SQL di Azure e in una sinapsi di Azure?
@@ -147,7 +147,7 @@ Per creare e gestire server, database e firewall con Transact-SQL, usare i coman
 
 | Comando | Descrizione |
 | --- | --- |
-|[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Consente di creare un nuovo database nel database SQL di Azure. È necessario essere connessi al database master per creare un nuovo database.|
+|[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Crea un nuovo database nel database SQL di Azure. È necessario essere connessi al database master per creare un nuovo database.|
 |[CREATE DATABASE (sinapsi di Azure)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Consente di creare un nuovo database di data warehouse in sinapsi di Azure. È necessario essere connessi al database master per creare un nuovo database.|
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica il database o il pool elastico. |
 |[ALTER DATABASE (Azure sinapsi Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifica un database data warehouse in sinapsi di Azure.|

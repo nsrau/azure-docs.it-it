@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87290734"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurare un Lab per le classi di progettazione con SOLIDWORKs
@@ -76,7 +76,7 @@ I passaggi descritti in questa sezione illustrano come configurare la macchina v
     > [!NOTE]
     > Nella finestra di dialogo **Aggiungi server** verrà richiesto il **numero di porta** utilizzato per il server licenze e il nome o l'indirizzo IP del server licenze.
 
-## <a name="cost"></a>Costo
+## <a name="cost"></a>Cost
 
 Verrà ora trattata una possibile stima dei costi per questa classe. Questa stima non include il costo di esecuzione del server licenze. Verrà usata una classe di 25 studenti. Sono previste 20 ore di tempo della classe pianificata. Ogni studente riceve inoltre una quota di 10 ore per il lavoro o assegnazioni al di fuori dell'orario di classe pianificato. Le dimensioni della macchina virtuale scelte sono **small GPU (visualizzazione)**, ovvero 160 unità Lab.
 

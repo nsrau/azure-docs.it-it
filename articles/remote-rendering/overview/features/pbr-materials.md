@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ad7fc7d9d02cd9a9a6fe74534a7c674fe0ac778d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613672"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893255"
 ---
 # <a name="pbr-materials"></a>Materiali PBR
 
@@ -40,6 +40,8 @@ Queste proprietà sono comuni a tutti i materiali:
 * **useVertexColor:** Se la mesh contiene :::no-loc text="vertex"::: colori e questa opzione è abilitata, il colore dei mesh :::no-loc text="vertex"::: viene moltiplicato in *albedoColor* e *albedoMap*. Per impostazione predefinita, *useVertexColor* è disabilitato.
 
 * **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per l'illuminazione dei materiali PBR viene anche calcolato correttamente per i back-face. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [ :::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
+
+* **TransparencyWritesDepth:** Se il flag TransparencyWritesDepth è impostato sul materiale e il materiale è trasparente, gli oggetti che usano questo materiale contribuiranno anche al buffer di profondità finale. Vedere il flag del materiale PBR *trasparente* nella sezione successiva. L'abilitazione di questa funzionalità è consigliata se il caso d'uso necessita di una riproiezione più plausibile della [fase ritardata](late-stage-reprojection.md) di scene completamente trasparenti. Per le scene miste/trasparenti miste, questa impostazione può presentare un comportamento di riproiezione non plausibile o elementi di riproiezione. Per questo motivo, l'impostazione predefinita e consigliata per il caso d'uso generale è disabilitare questo flag. I valori di profondità scritti sono ricavati dal livello di profondità per pixel dell'oggetto più vicino alla fotocamera.
 
 ## <a name="pbr-material-properties"></a>Proprietà del materiale PBR
 
@@ -76,7 +78,7 @@ Il concetto di base del rendering fisico consiste nell'usare le proprietà *Base
 
 ## <a name="technical-details"></a>Dettagli tecnici
 
-Il rendering remoto di Azure usa il microfacet Cook-Torrance BRDF con GGX NDF, Schlick Fresnel e un termine di visibilità correlato di GGX Smith con un termine di diffusione di Lambert. Questo modello è attualmente lo standard di settore. Per informazioni più dettagliate, vedere questo articolo: [rendering basato su fisico-Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+Il rendering remoto di Azure usa il Cook-Torrance micro-facet BRDF con GGX NDF, Schlick Fresnel e un termine di visibilità correlato di GGX Smith con un termine di diffusione di Lambert. Questo modello è attualmente lo standard di settore. Per informazioni più dettagliate, vedere questo articolo: [rendering basato su fisico-Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Un'alternativa al modello di riattivazione della *rugosità del metallo* usato nel rendering remoto di Azure è il modello di *lucentezza PBR speculare* . Questo modello può rappresentare una gamma più ampia di materiali. Tuttavia, è più costoso e in genere non funziona correttamente per i casi in tempo reale.
 Non è sempre possibile eseguire la conversione da *speculare-lucentezza* a *metallo-rugosità* come le coppie valore *(diffusa, speculare)* che non possono essere convertite in *(baseColor, metality)*. La conversione nell'altra direzione è più semplice e precisa, dal momento che tutte le coppie *(baseColor, metality)* corrispondono a coppie ben definite *(diffuse, speculari)* .

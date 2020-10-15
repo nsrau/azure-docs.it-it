@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 1c64bd10b34b61797cb3bf3de0cd7d2aa819e795
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777132"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016043"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Livelli di servizio per Azure NetApp Files
 I livelli di servizio sono un attributo di un pool di capacità. I livelli di servizio sono definiti e differenziati dalla velocità effettiva massima consentita per un volume nel pool di capacità in base alla quota assegnata al volume.
@@ -49,19 +49,19 @@ Il limite di velocità effettiva per un volume è determinato dalla combinazione
 
 ### <a name="throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool"></a>Esempi di limiti di velocità effettiva dei volumi in un pool di capacità QoS automatica
 
-Il diagramma seguente mostra i limiti di velocità effettiva dei volumi in un pool di capacità QoS automatica:
+Il diagramma seguente Mostra gli esempi di limiti di velocità effettiva dei volumi in un pool di capacità QoS automatica:
 
 ![Illustrazione del livello di servizio](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-* Nell'esempio 1 precedente, a un volume di un pool di capacità QoS automatica con il livello di archiviazione Premium assegnato 2 TiB della quota verrà assegnato un limite di velocità effettiva pari a 128 MiB/s (2 TiB * 64 MiB/s). Questo scenario si applica indipendentemente dalle dimensioni del pool di capacità o dal consumo effettivo del volume.
+* Nell'esempio 1, a un volume di un pool di capacità QoS automatica con il livello di archiviazione Premium assegnato 2 TiB della quota verrà assegnato un limite di velocità effettiva pari a 128 MiB/s (2 TiB * 64 MiB/s). Questo scenario si applica indipendentemente dalle dimensioni del pool di capacità o dal consumo effettivo del volume.
 
-* Nell'esempio 2 precedente, a un volume di un pool di capacità QoS automatica con il livello di archiviazione Premium assegnato 100 GiB della quota verrà assegnato un limite di velocità effettiva pari a 6,25 MiB/s (0,09765625 TiB * 64 MiB/s). Questo scenario si applica indipendentemente dalle dimensioni del pool di capacità o dal consumo effettivo del volume.
+* Nell'esempio 2, a un volume di un pool di capacità QoS automatica con il livello di archiviazione Premium assegnato 100 GiB della quota verrà assegnato un limite di velocità effettiva pari a 6,25 MiB/s (0,09765625 TiB * 64 MiB/s). Questo scenario si applica indipendentemente dalle dimensioni del pool di capacità o dal consumo effettivo del volume.
 
 ### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>Esempi di limiti di velocità effettiva dei volumi in un pool di capacità QoS manuale 
 
 Se si usa un pool di capacità QoS manuale, è possibile assegnare la capacità e la velocità effettiva per un volume in modo indipendente. Quando si crea un volume in un pool di capacità QoS manuale, è possibile specificare il valore di velocità effettiva (MiB/S). La velocità effettiva totale assegnata ai volumi in un pool di capacità QoS manuale dipende dalle dimensioni del pool e dal livello di servizio. Il limite è limitato dalle dimensioni del pool di capacità in TiB x velocità effettiva/TiB del livello di servizio. Ad esempio, un pool di capacità da 10 TiB con il livello di servizio ultra ha una capacità di velocità effettiva totale di 1280 MiB/s (10 TiB x 128 MiB/s/TiB) disponibile per i volumi.
 
-Per un sistema di SAP HANA, questo pool di capacità può essere utilizzato per creare i volumi seguenti. Ogni volume fornisce le singole dimensioni e la velocità effettiva per soddisfare i requisiti dell'applicazione:
+Per un sistema di SAP HANA, ad esempio, è possibile utilizzare questo pool di capacità per creare i volumi seguenti. Ogni volume fornisce le singole dimensioni e la velocità effettiva per soddisfare i requisiti dell'applicazione:
 
 * Volume di dati SAP HANA: dimensioni 4 TiB con fino a 704 MiB/s
 * Volume di log SAP HANA: dimensioni 0,5 TiB con fino a 256 MiB/s
@@ -76,7 +76,7 @@ Il diagramma seguente illustra gli scenari per i volumi SAP HANA:
 
 - [Pagina dei prezzi di Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 - [Modello di costi per Azure NetApp Files](azure-netapp-files-cost-model.md) 
-- [Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
+- [Creare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)
 - [Contratto di servizio (SLA) per Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Modificare dinamicamente il livello di servizio di un volume](dynamic-change-volume-service-level.md) 
 - [Obiettivi a livello di servizio per la replica tra aree](cross-region-replication-introduction.md#service-level-objectives)

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441120"
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
@@ -103,7 +103,7 @@ Il gateway di gestione dati può essere installato nei seguenti modi:
 10. Nella pagina **Registra gateway** di **Gestione configurazione di Gateway di gestione dati** in esecuzione sul computer in uso attenersi alla procedura seguente:
     1. Incollare la chiave nel testo.
     2. Facoltativamente, fare clic su **Mo_stra chiave del gateway** per visualizzare il testo della chiave.
-    3. Fare clic su **Register**.
+    3. Fare clic su **Registra**.
 
 ### <a name="register-gateway-using-key"></a>Registrare il gateway con la chiave
 #### <a name="if-you-havent-already-created-a-logical-gateway-in-the-portal"></a>Se non è ancora stato creato un gateway logico nel portale
@@ -307,7 +307,7 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Gestione configurazione
+## <a name="configuration-manager"></a>Configuration Manager
 Dopo aver installato il gateway, è possibile avviare Gestione configurazione di Gateway di gestione dati in uno dei modi seguenti:
 
 1. Nella finestra **Cerca** digitare **Gateway di gestione dati** per accedere a questa utilità.
@@ -386,7 +386,7 @@ Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
 Aggiornamento | È in corso l'aggiornamento automatico del nodo.
 Limitato | La causa è un problema di connettività, ad esempio un problema della porta HTTP 8050, di connettività del bus di servizio o di sincronizzazione delle credenziali.
-Inattivo | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi.
+Inactive | Il nodo è in una configurazione diversa da quella della maggior parte degli altri nodi.<br/><br/> Un nodo può essere inattivo quando non riesce a connettersi agli altri nodi.
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway.
 
@@ -422,7 +422,7 @@ Questa sezione illustra la procedura per spostare il client del gateway da un co
     ![Pagina Configura](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. Tenere aperto **Gestione configurazione di Gateway di gestione dati di Microsoft** .
 
-    ![Gestione configurazione](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Nella pagina **Configura** del portale fare clic su **Ricrea chiave** nella barra dei comandi e su **Sì** per il messaggio di avviso. Fare clic sul **pulsante Copia** accanto al testo della chiave per copiare la chiave negli Appunti. Il gateway nel computer precedente smette di funzionare non appena si ricrea la chiave.
 
     ![Ricrea chiave 2](./media/data-factory-data-management-gateway/RecreateKey.png)

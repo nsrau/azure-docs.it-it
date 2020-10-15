@@ -13,10 +13,10 @@ ms.date: 02/22/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052395"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurare una distribuzione controllata per gli sviluppatori di applicazioni (ADCD) in IBM zD&T V1
@@ -184,7 +184,7 @@ Ora l'immagine può essere distribuita ed è pronta per essere montata da un emu
 > [!NOTE]
 > Se viene visualizzato un errore che informa che non si dispone di spazio su disco sufficiente, si noti che l'area richiede 151 GB.
 
-A questo punto, Si sta ora eseguendo un ambiente IBM mainframe in Azure.
+Congratulazioni! Si sta ora eseguendo un ambiente IBM mainframe in Azure.
 
 ## <a name="learn-more"></a>Altre informazioni
 

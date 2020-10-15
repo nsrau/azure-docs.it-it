@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761363"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configurare l'ambiente per le guide introduttive e le esercitazioni Plug and Play
@@ -83,8 +83,8 @@ Creare cinque variabili di ambiente per configurare gli esempi nelle guide intro
 
 Gli esempi di servizio richiedono le seguenti variabili di ambiente per identificare l'hub e il dispositivo a cui connettersi:
 
-* **IOTHUB_CONNECTION_STRING**: la stringa di connessione dell'hub Internet è stata annotata in precedenza.
-* **IOTHUB_DEVICE_ID**: `my-pnp-device` .
+* **IOTHUB_CONNECTION_STRING**: stringa di connessione dell'hub IoT annotata in precedenza.
+* **IOTHUB_DEVICE_ID**: `my-pnp-device`.
 
 Ad esempio, in una shell bash Linux:
 
@@ -128,7 +128,7 @@ La prima volta che si esegue lo strumento, viene richiesta la stringa di conness
 
 Configurare lo strumento per l'uso dei file di modello scaricati in precedenza. Dal home page nello strumento selezionare **impostazioni plug and Play**Internet e quindi **+ Aggiungi > cartella locale**. Selezionare la cartella *Models* creata in precedenza. Quindi selezionare **Save (Salva** ) per salvare le impostazioni.
 
-Per altre informazioni, vedere [installare e usare Esplora risorse di Azure](howto-use-iot-explorer.md).
+Per altre informazioni, vedere [Installare e usare Azure IoT Explorer](howto-use-iot-explorer.md).
 
 ## <a name="remove-the-resources"></a>Rimuovere le risorse
 

@@ -1,5 +1,5 @@
 ---
-title: 'Foresta delle decisioni a due classi: riferimento al modulo'
+title: 'Foresta delle decisioni Two-Class: riferimento al modulo'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare il modulo Two-Class Decision Forest in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo delle foreste delle decisioni.
 services: machine-learning
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907710"
 ---
-# <a name="two-class-decision-forest-module"></a>Modulo della foresta delle decisioni a due classi
+# <a name="two-class-decision-forest-module"></a>Modulo della foresta delle decisioni Two-Class
 
 Questo articolo descrive un modulo in Azure Machine Learning Designer.
 

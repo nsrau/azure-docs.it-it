@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
 ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324332"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Funzionalità di ottimizzazione delle prestazioni dell'attività di copia
@@ -148,7 +148,7 @@ Attualmente, non è possibile copiare i dati tra due archivi dati connessi trami
 
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se si desidera che i dati vengano gestiti temporaneamente nello spazio di archiviazione prima di caricarli in un archivio dati di destinazione. Quando si imposta **enableStaging** su `TRUE` , specificare le proprietà aggiuntive elencate nella tabella seguente. 
 
-| Proprietà | Descrizione | Valore predefinito | Necessario |
+| Proprietà | Descrizione | Valore predefinito | Obbligatoria |
 | --- | --- | --- | --- |
 | enableStaging |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
 | linkedServiceName |Specificare il nome di un archivio [BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o di [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) servizio collegato, che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. |N/D |Sì, quando **enableStaging** è impostato su TRUE |

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987330"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Creare runbook grafici in Automazione di Azure
@@ -95,7 +95,7 @@ Quando si abilita la ripetizione dei tentativi per un'attività, è possibile im
 
 La condizione di ripetizione dei tentativi è un'espressione di PowerShell che viene valutata dopo ogni esecuzione dell'attività. Se l'espressione restituisce True, l'attività viene eseguita di nuovo. Se l'espressione restituisce False, l'attività non viene eseguita di nuovo e il runbook passa all'attività successiva.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot che mostra il nuovo tentativo fino a quando questa condizione è true Field ed esempi di espressioni di PowerShell che possono essere usate nella condizione di ripetizione dei tentativi.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot delle impostazioni della funzionalità Abilita ripetizione tentativi.":::
 
 La condizione di ripetizione dei tentativi può usare una variabile denominata `RetryData` che consente di accedere alle informazioni sulla ripetizione dei tentativi dell'attività. Questa variabile include le proprietà elencate nella tabella seguente:
 

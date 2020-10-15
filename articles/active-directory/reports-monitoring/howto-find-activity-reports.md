@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230620"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
@@ -55,7 +55,7 @@ Le categorie includono:
 - Tutti
 - AdministrativeUnit
 - ApplicationManagement
-- Autenticazione
+- Authentication
 - Autorizzazione
 - Contatto
 - Dispositivo
@@ -106,7 +106,7 @@ Per accedere al report degli accessi:
 
 È possibile usare i report degli accessi per visualizzare i dettagli sull'uso delle applicazioni, filtrando in base al nome utente o al nome dell'applicazione.
 
-![Pagina Filtra eventi di accesso](./media/howto-find-activity-reports/07.png "Pagina Filtra eventi di accesso")
+![Pagina Filtra eventi Sign-In](./media/howto-find-activity-reports/07.png "Pagina Filtra eventi Sign-In")
 
 ## <a name="security-reports"></a>Report sulla sicurezza
 
@@ -155,7 +155,7 @@ I log attività (controllo o accessi) sono stati scaricati ma non vengono visual
 
 Quando si scaricano i log attività nel portale di Azure, viene limitata la scalabilità a 250000 record, ordinati in base alla prima più recente. 
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 È possibile sfruttare le [API di Creazione rapporti di Azure AD](concept-reporting-api.md) per recuperare fino a un milione di record per un momento specifico.
 
@@ -176,7 +176,7 @@ Le azioni non vengono visualizzate immediatamente nei log attività. La tabella 
 | Directory Audit (Controllo directory) | 2 min | 5 min |
 | Attività di accesso | 2 min | 5 min |
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate nel log. Se i log non vengono visualizzati nemmeno dopo due ore, [inviare un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) che verrà preso in esame.
 
@@ -197,7 +197,7 @@ Le azioni non vengono visualizzate immediatamente nei log attività. La tabella 
 | Directory Audit (Controllo directory) | 2 min | 5 min |
 | Attività di accesso | 2 min | 5 min |
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate nel log. Se i log non vengono visualizzati nemmeno dopo due ore, [inviare un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) che verrà preso in esame.
 
@@ -220,7 +220,7 @@ In base alla licenza, Azioni di Azure Active Directory archivia i report delle a
 
 Per altre informazioni, vedere [Criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Sono disponibili due opzioni per conservare i dati per più di 30 giorni. È possibile usare le [API creazione report di Azure AD](concept-reporting-api.md) per recuperare i dati a livello di codice e archiviarli in un database. In alternativa, è possibile integrare i log di controllo in un sistema SIEM di terze parti, ad esempio Splunk o SumoLogic.
 

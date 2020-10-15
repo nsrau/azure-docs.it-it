@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009257"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Creazione di tenant e pool host in un desktop virtuale di Windows (versione classica)
@@ -20,7 +20,7 @@ ms.locfileid: "88009257"
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Inviare feedback
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -51,7 +51,7 @@ Contact your IT Admin to review the configuration of your service subscriptions.
 
 **Correzione:** [seguire questa guida](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) per concedere il consenso.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Errore: l'utente non è autorizzato a eseguire una query sul servizio di gestione
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Errore: L'utente non è autorizzato a eseguire query per il servizio di gestione
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot della finestra di PowerShell in cui un utente non è autorizzato a eseguire query sul servizio di gestione.](../media/UserNotAuthorizedNewTenant.png)
@@ -177,7 +177,7 @@ Per risolvere il problema, eseguire le operazioni seguenti:
 3. Il menu server DNS verrà visualizzato sul lato destro dello schermo. Nel menu selezionare **personalizzato**.
 4. Verificare che i server DNS elencati in personalizzato corrispondano al controller di dominio o al dominio Active Directory. Se il server DNS non è visibile, è possibile aggiungerlo immettendo il relativo valore nel campo **Aggiungi server DNS** .
 
-### <a name="error-your-deployment-failedunauthorized"></a>Errore: la distribuzione non è riuscita. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Errore: La distribuzione non è riuscita...\Non autorizzato
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -198,7 +198,7 @@ Per risolvere il problema, eseguire le operazioni seguenti:
 
 **Correzione:** Verificare che l'ambiente desktop virtuale Windows sia integro eseguendo l'accesso con PowerShell. Completare manualmente la registrazione della macchina virtuale in [creare un pool di host con PowerShell](create-host-pools-powershell-2019.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Errore: il nome utente amministratore specificato non è consentito
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Errore: Il nome utente amministratore specificato non è consentito
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot della distribuzione non riuscita. l'amministratore specificato non è consentito.](../media/f2b3d3700e9517463ef88fa41875bac9.png)
@@ -218,7 +218,7 @@ Esempio di errore non elaborato:
 
 **Correzione:** Aggiornare il nome utente o usare utenti diversi.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Errore: la macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Errore: La macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot dell'operazione della risorsa completata con lo stato di provisioning terminal nella distribuzione non riuscita.](../media/49c4a1836a55d91cd65125cf227f411f.png)
@@ -351,7 +351,7 @@ the VM.\\\"
 
 **Correzione:** Rimuovere la route statica di blocco, la regola del firewall o NSG. Facoltativamente, aprire il file JSON del modello di Azure Resource Manager in un editor di testo, fare il collegamento al file zip e scaricare la risorsa in un percorso consentito.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Errore: l'utente non è autorizzato a eseguire una query sul servizio di gestione
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Errore: L'utente non è autorizzato a eseguire query per il servizio di gestione
 
 Esempio di errore non elaborato:
 
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Errore: l'utente richiede Azure Multi-Factor Authentication (autenticazione a più fattori)
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Errore: L'utente richiede la funzionalità Microsoft Azure Multi-Factor Authentication (Azure MFA)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot della distribuzione non riuscita a causa della mancanza di Multi-Factor Authentication (autenticazione a più fattori)](../media/MFARequiredError.png)

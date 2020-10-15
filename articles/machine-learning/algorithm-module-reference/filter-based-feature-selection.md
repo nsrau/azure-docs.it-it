@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893798"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945703"
 ---
 # <a name="filter-based-feature-selection"></a>Filter Based Feature Selection
 
@@ -36,7 +36,7 @@ In genere si utilizzano solo le colonne con i punteggi migliori per compilare il
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Come scegliere una metrica di selezione delle funzionalità
 
-Il modulo Filter-based feature selection fornisce un'ampia gamma di metriche per la valutazione del valore delle informazioni in ogni colonna. Questa sezione fornisce una descrizione generale di ogni metrica e come viene applicata. È possibile trovare ulteriori requisiti per l'utilizzo di ogni metrica nelle [Note tecniche](#technical-notes) e nelle [istruzioni](#how-to-configure-filter-based-feature-selection) per la configurazione di ogni modulo.
+Il modulo di selezione delle funzionalità Filter-Based offre un'ampia gamma di metriche per la valutazione del valore delle informazioni in ogni colonna. Questa sezione fornisce una descrizione generale di ogni metrica e come viene applicata. È possibile trovare ulteriori requisiti per l'utilizzo di ogni metrica nelle [Note tecniche](#technical-notes) e nelle [istruzioni](#how-to-configure-filter-based-feature-selection) per la configurazione di ogni modulo.
 
 -   **Correlazione di Pearson**  
 
@@ -52,11 +52,11 @@ Il modulo Filter-based feature selection fornisce un'ampia gamma di metriche per
 > [!TIP]
 > Se è necessaria un'opzione diversa per il metodo di selezione delle funzioni personalizzate, usare il modulo [Execute R script](execute-r-script.md) . 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Come configurare la selezione delle funzioni basata su filtro
+## <a name="how-to-configure-filter-based-feature-selection"></a>Come configurare Filter-Based selezione delle funzioni
 
 Si sceglie una metrica statistica standard. Il modulo calcola la correlazione tra una coppia di colonne, ovvero la colonna Label e una colonna feature.
 
-1.  Aggiungere il modulo Filter-based Feature Selection alla pipeline. È possibile trovarlo nella categoria **Selezione funzionalità** nella finestra di progettazione.
+1.  Aggiungere il modulo di selezione delle funzionalità Filter-Based alla pipeline. È possibile trovarlo nella categoria **Selezione funzionalità** nella finestra di progettazione.
 
 2. Connettere un set di dati di input contenente almeno due colonne che rappresentano funzionalità potenziali.  
 
@@ -90,8 +90,14 @@ Si sceglie una metrica statistica standard. Il modulo calcola la correlazione tr
 
     - Se si specifica un numero inferiore di colonne di risultati rispetto alle colonne di funzionalità, le funzionalità vengono classificate in base al Punteggio decrescente. Vengono restituite solo le funzionalità principali. 
 
-7.  Inviare la pipeline oppure selezionare il modulo filtro basato sulle funzionalità di selezione e quindi selezionare **Esegui**selezione.
+7.  Inviare la pipeline.
 
+> [!IMPORTANT]
+> Se si intende utilizzare la **selezione delle funzioni basata su filtro** nell'inferenza, è necessario utilizzare la [trasformazione Seleziona colonne](./select-columns-transform.md) per archiviare il risultato selezionato della funzionalità e [applicare la trasformazione](./apply-transformation.md) per applicare la trasformazione selezionata alla funzionalità al set di dati di assegnazione dei punteggi.
+>
+> Per creare la pipeline, fare riferimento allo screenshot seguente per assicurarsi che le selezioni di colonna siano le stesse per il processo di assegnazione dei punteggi.
+> [!div class="mx-imgBorder"]
+> ![Pipeline di esempio](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Risultati
 

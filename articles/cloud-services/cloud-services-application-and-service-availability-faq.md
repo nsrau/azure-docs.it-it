@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d7a2596d4f6a8aa9fb4c95dfb5a3ccab7d7206f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2707c5a6cb110d30b85b765f6c8b144e8cca7abe
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461307"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074720"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di disponibilità di applicazioni e servizi per Servizi cloud di Azure: domande frequenti
 
@@ -33,7 +33,7 @@ Circa una volta al mese, Microsoft rilascia una nuova versione del sistema opera
 
 Per informazioni complete sugli aggiornamenti recenti del sistema operativo guest vedere [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](cloud-services-guestos-update-matrix.md).
 
-Per informazioni utili sui riavvii e collegamenti ad altri dettagli tecnici degli aggiornamenti dei sistemi operativi guest e host, vedere il post di blog MSDN [Role Instance Restarts Due to OS Upgrades](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades) (Riavvii delle istanze dei ruoli a causa di aggiornamenti del sistema operativo).
+Per informazioni utili sui riavvii e collegamenti ad altri dettagli tecnici degli aggiornamenti dei sistemi operativi guest e host, vedere il post di blog MSDN [Role Instance Restarts Due to OS Upgrades](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades) (Riavvii delle istanze dei ruoli a causa di aggiornamenti del sistema operativo).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Perché la prima richiesta al servizio cloud dopo che il servizio è rimasto inattivo per un po' di tempo impiega più del solito?
 Quando il server Web riceve la prima richiesta, prima di tutto ricompila il codice e quindi elabora la richiesta. Per questo motivo la prima richiesta richiede più tempo rispetto alle altre. Per impostazione predefinita, il pool di app viene arrestato in caso di inattività dell'utente. Il pool di app viene inoltre riciclato per impostazione predefinita ogni 1.740 minuti (29 ore).

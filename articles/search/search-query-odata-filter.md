@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934855"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintassi di $filter OData in Azure ricerca cognitiva
@@ -32,7 +32,7 @@ Azure ricerca cognitiva usa le [espressioni di filtro OData](query-odata-filter-
 
 ## <a name="syntax"></a>Sintassi
 
-Un filtro nel linguaggio OData è un'espressione booleana, che a sua volta può essere uno dei diversi tipi di espressione, come illustrato nel seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
+Un filtro nel linguaggio OData è un'espressione booleana, che a sua volta può essere uno dei diversi tipi di espressione, come illustrato nel seguente EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -75,7 +75,7 @@ I tipi di espressioni booleane includono:
 
 Se si scrive un'espressione di filtro senza parentesi intorno alle relative espressioni secondarie, Azure ricerca cognitiva valuterà tale espressione in base a un set di regole di precedenza degli operatori. Queste regole sono basate sugli operatori utilizzati per combinare sottoespressioni. La tabella seguente elenca i gruppi di operatori in ordine dalla precedenza più alta alla più bassa:
 
-| Raggruppare | Operatore/i |
+| Gruppo | Operatore/i |
 | --- | --- |
 | Operatori logici | `not` |
 | Operatori di confronto | `eq`, `ne`, `gt`, `lt`, `ge`, `le` |

@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 4b4946da9f63299c7ba2b383d6c153673595a1ab
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450113"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Rimuovere Gestione aggiornamenti dall'account di automazione
@@ -30,7 +30,7 @@ Prima di poter scollegare l'account di automazione dall'area di lavoro, è neces
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Quando si inizia a digitare, l'elenco Filtra i suggerimenti in base all'input. Selezionare **log Analytics**.
+2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Quando si inizia a digitare, l'elenco Filtra i suggerimenti in base all'input. Selezionare **Log Analytics**.
 
 3. Nell'elenco delle aree di lavoro Log Analytics selezionare l'area di lavoro scelta quando è stata abilitata Gestione aggiornamenti.
 
@@ -65,7 +65,7 @@ Mentre tenta di scollegare l'account di automazione, è possibile tenere traccia
 Se Gestione aggiornamenti è stato configurato per supportare le versioni precedenti di monitoraggio di Azure SQL, il programma di installazione della funzionalità potrebbe avere creato asset di automazione da rimuovere. Per Gestione aggiornamenti, è necessario rimuovere gli elementi seguenti non più necessari:
 
    * Pianificazioni degli aggiornamenti - Ognuna ha un nome corrispondente alla distribuzione dell'aggiornamento creata.
-   * Gruppi di lavoro ibridi creati per Gestione aggiornamenti. ognuno è denominato in modo analogo a *machine1. contoso. com_9ceb8108-26C9-4051-B6B3-227600d715c8)*.
+   * I gruppi di lavoro ibridi creati per Gestione aggiornamenti-each sono denominati in modo analogo a *machine1.contoso.com_9ceb8108-26C9-4051-B6B3-227600d715c8)*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

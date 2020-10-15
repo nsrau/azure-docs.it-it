@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 787de3e3e44ca921c5dccd7b51a2e655a31d112b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ba76618892cace6681c82e96d7a2f9b36f839664
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555968"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775610"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Esercitazione: Integrazione di Azure Active Directory con Datahug
 
@@ -99,7 +99,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Datahug, seguire questa
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Datahug](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione "Configurazione SAML di base" con le opzioni "Identificatore" e "URL di risposta" e il pulsante "Salva" evidenziati.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://apps.datahug.com/identity/<uniqueID>`
 
@@ -206,11 +206,11 @@ In Datahug il provisioning è un'attività manuale.
 
 2. Passare il puntatore sull'**ingranaggio** nell'angolo superiore destro e fare clic su **Impostazioni**
    
-    ![Aggiungere un dipendente](./media/datahug-tutorial/1.png)
+    ![Screenshot che mostra la home page di "Datahug" con l'icona dell'ingranaggio selezionata e l'opzione "Settings" selezionata nel menu a discesa.](./media/datahug-tutorial/1.png)
 
 3. Scegliere **Persone** e fare clic sulla scheda **Aggiungi utenti**.
 
-    ![Aggiungere un dipendente](./media/datahug-tutorial/2.png)
+    ![Screenshot che mostra la pagina "Settings" con la scheda "People" e l'opzione "Add Users" selezionate.](./media/datahug-tutorial/2.png)
 
 4. Digitare l'indirizzo di posta elettronica della persona per la quale si vuole creare un account e fare clic su **Aggiungi**.
 

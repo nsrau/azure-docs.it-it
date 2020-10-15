@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
 ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87287945"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
@@ -72,10 +72,10 @@ Tuttavia, test drive funziona automaticamente, senza interazione umana, pertanto
 
 | Tipo di metadati   | Tipo di parametro  | Descrizione     | Valore di esempio    |
 |---|---|---|---|
-| **baseUri**     | Stringa          | URI di base del pacchetto di distribuzione| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **nome utente**    | Stringa          | Nuovo nome utente casuale.| admin68876      |
+| **baseUri**     | string          | URI di base del pacchetto di distribuzione| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **username**    | string          | Nuovo nome utente casuale.| admin68876      |
 | **password**    | stringa sicura    | Nuova password casuale | Lp!ACS\^2kh     |
-| **ID sessione**   | Stringa          | ID di sessione test drive univoco (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID sessione**   | string          | ID di sessione test drive univoco (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseUri
 
@@ -122,7 +122,7 @@ Test Drive Inizializza questo parametro con un nuovo nome utente casuale:
 }
 ```
 
-Valore di esempio:`admin68876`
+Valore di esempio: `admin68876`
 
 È possibile usare i nomi utente casuali o costanti per la soluzione.
 
@@ -144,7 +144,7 @@ Test Drive Inizializza questo parametro con una nuova password casuale:
 }
 ```
 
-Valore di esempio:`Lp!ACS^2kh`
+Valore di esempio:  `Lp!ACS^2kh`
 
 È possibile usare password casuali o costanti per la soluzione.
 
@@ -166,7 +166,7 @@ Test Drive Inizializza questo parametro con un GUID univoco che rappresenta l'ID
 }
 ```
 
-Valore di esempio:`b8c8693e-5673-449c-badd-257a405a6dee`
+Valore di esempio: `b8c8693e-5673-449c-badd-257a405a6dee`
 
 È possibile usare questo parametro per identificare in modo univoco la sessione di test drive, se necessario.
 
@@ -266,7 +266,7 @@ Esempio:
 
 ### <a name="subscription-limits"></a>Limiti delle sottoscrizioni
 
-Non dimenticare i limiti di sottoscrizione e servizio. Se ad esempio si vuole distribuire fino a dieci macchine virtuali a 4 core, è necessario assicurarsi che la sottoscrizione usata per il Lab consenta di usare i core 40. Per altre informazioni sui limiti di sottoscrizione e servizio di Azure, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md). Poiché è possibile eseguire contemporaneamente più unità di test, verificare che la sottoscrizione sia in grado di gestire il numero di core moltiplicato per il numero totale di unità di test simultanee che possono essere eseguite.
+Non dimenticare i limiti di sottoscrizione e servizio. Se, ad esempio, si vuole distribuire fino a 10 4 macchine virtuali core, è necessario assicurarsi che la sottoscrizione usata per il Lab consenta di usare i core 40. Per altre informazioni sui limiti di sottoscrizione e servizio di Azure, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md). Poiché è possibile eseguire contemporaneamente più unità di test, verificare che la sottoscrizione sia in grado di gestire il numero di core moltiplicato per il numero totale di unità di test simultanee che possono essere eseguite.
 
 ### <a name="what-to-upload"></a>Elementi da caricare
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f8b2454bb0e39f5923af00502367f7b16bb040a4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268384"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018985"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introduzione alla distribuzione di contenuto on demand tramite il portale di Azure
 
@@ -93,7 +93,7 @@ Per codificare il contenuto tramite Media Encoder Standard nel portale di Azure:
    Per una gestione più semplice delle risorse è possibile modificare il nome dell'asset di output e il nome del processo.
    
    ![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Selezionare **Crea**.
+5. Selezionare **Create** (Crea).
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorare lo stato del processo di codifica
 Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** nella parte superiore della pagina e selezionare **Processi**.
@@ -127,7 +127,7 @@ Un URL di firma di accesso condiviso ha il formato seguente:
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[API REST](/rest/api/media/operations/locator#update_a_locator) o [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > Quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.

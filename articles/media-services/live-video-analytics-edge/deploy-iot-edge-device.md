@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887225"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019580"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -20,11 +20,11 @@ Questo articolo elenca i passaggi che consentono di distribuire analisi video in
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un dispositivo x86-64 o ARM64 che esegue uno dei [sistemi operativi Linux supportati](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
+* Un dispositivo x86-64 o ARM64 che esegue uno dei [sistemi operativi Linux supportati](../../iot-edge/support.md#operating-systems)
 * Sottoscrizione di Azure a cui si dispone dei [privilegi di proprietario](../../role-based-access-control/built-in-roles.md#owner)
 * [Creare e configurare l'hub Internet](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrare IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
-* [Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Installare il runtime di Azure IoT Edge nei sistemi Linux basati su Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Creare un account di Servizi multimediali di Azure](../latest/create-account-howto.md)
 
     * Usare una di queste aree: Stati Uniti orientali 2, Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-settentrionali, Stati Uniti centro-occidentali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale, Regno Unito meridionale, Francia centrale, Francia meridionale, Svizzera settentrionale, Svizzera occidentale e Giappone occidentale.

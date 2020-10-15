@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
 ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321150"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Monitoraggio delle metriche e dei log non elaborati per la rete CDN di Azure da Microsoft
@@ -61,7 +61,7 @@ Per configurare i log non elaborati per la rete CDN di Azure dal Microsoft:
     * **Streaming in un hub eventi**
         * Selezionare la **sottoscrizione**, lo **spazio dei nomi dell'hub eventi**, il **nome dell'hub eventi (facoltativo)** e il **nome criterio hub eventi**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configurare la destinazione per le impostazioni del log." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
 
 7. Selezionare **Salva**.
 
@@ -235,23 +235,23 @@ Scenari esclusi dal calcolo della percentuale di riscontri in byte:
 
 2. In **monitoraggio**selezionare **metriche**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metriche per il profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
 
 3. Selezionare **Aggiungi metrica**e selezionare la metrica da aggiungere:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Aggiungere e selezionare metrica per profilo di rete CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
 
 4. Selezionare **Aggiungi filtro** per aggiungere un filtro:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Applicare il filtro alla metrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
 
 5. Selezionare **applica** suddivisione per visualizzare la tendenza in base a dimensioni diverse:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Applicare la suddivisione alla metrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
 
 6. Selezionare **nuovo grafico** per aggiungere un nuovo grafico:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Aggiungere un nuovo grafico alla visualizzazione metrica." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
 
 ### <a name="alerts"></a>Avvisi
 
@@ -259,7 +259,7 @@ Scenari esclusi dal calcolo della percentuale di riscontri in byte:
 
 Selezionare **nuova regola di avviso** per le metriche elencate nella sezione metrica:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configurare gli avvisi per l'endpoint della rete CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::
 
 L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazioni sugli avvisi, vedere [avvisi di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
@@ -270,21 +270,21 @@ L'avviso verrà addebitato in base al monitoraggio di Azure. Per altre informazi
 
 2. Selezionare l'area di lavoro di Log Analytics creata:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Selezionare l'area di lavoro di log Analytics" border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
 
 3. Selezionare **log** in **generale** nell'area di lavoro di log Analytics.  Quindi selezionare **inizia**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Area di lavoro risorse di log Analytics." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
  
 4. Selezionare **profili**di rete CDN.  Selezionare una query di esempio per eseguire o chiudere la schermata di esempio per immettere una query personalizzata:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Schermata di query di esempio." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Esecuzione della query." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true":::   
 
 4. Per visualizzare i dati in base al grafico, selezionare **grafico**.  Selezionare **Aggiungi al dashboard** per aggiungere il grafico al dashboard di Azure:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Aggiungere il grafico al dashboard." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Aggiungere l'impostazione di diagnostica per il profilo di rete CDN." border="true"::: 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono stati abilitati i log non elaborati HTTP per il servizio rete CDN Microsoft.

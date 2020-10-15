@@ -4,10 +4,10 @@ description: Informazioni su come configurare un criterio di conservazione, puli
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 115fdff215399a9a51171161191ecf5009e8e20e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476054"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurare i criteri di conservazione in Azure DevTest Labs
@@ -47,7 +47,7 @@ Questa attività rimuove le immagini obsolete, mantenendo solo una cronologia co
 
 ![Ritirare le immagini obsolete attività PowerShell](./media/set-retention-policy-cleanup/retire-old-image-task.png)
 
-I parametri dello script sono:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
+I parametri dello script sono: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
 ## <a name="queue-the-build"></a>Accoda la compilazione
 Ora che è stata completata la definizione di compilazione, accodare una nuova compilazione per assicurarsi che tutto funzioni correttamente. Al termine della compilazione, le nuove immagini personalizzate vengono visualizzate nel Lab di destinazione e, se si seleziona il Lab della factory di immagini, non viene visualizzata alcuna VM di cui è stato effettuato il provisioning. Inoltre, se si accodano altre compilazioni, le attività di pulizia ritireranno le immagini personalizzate obsolete da DevTest Labs in base al valore di conservazione impostato nelle variabili di compilazione.

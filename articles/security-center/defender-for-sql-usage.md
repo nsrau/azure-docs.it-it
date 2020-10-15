@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577850"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender per SQL Server nei computer 
@@ -30,10 +30,10 @@ Si vedranno avvisi su attività di database sospette, potenziali vulnerabilità 
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Anteprima|
-|Prezzi|**Azure Defender per SQL Server nei computer** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
-|Versioni SQL protette:|Azure SQL Server (tutte le versioni coperte dal supporto tecnico Microsoft)|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|Stato della versione:|Anteprima|
+|Prezzi:|**Azure Defender per SQL Server nei computer** viene fatturato come indicato nella [pagina dei prezzi](security-center-pricing.md)|
+|Versioni di SQL protette:|Azure SQL Server (tutte le versioni coperte dal supporto tecnico Microsoft)|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Configurare Azure Defender per SQL Server nei computer
@@ -58,7 +58,7 @@ Entrambi sono descritti di seguito.
     - **Connettere il computer Windows senza Azure Arc** : se si sceglie di connettere un SQL Server in esecuzione in un computer Windows senza usare Azure Arc, seguire le istruzioni riportate in [connettere computer Windows a monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Passaggio 2. Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
+### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Passaggio 2: Abilitare il piano facoltativo nella pagina dei prezzi e delle impostazioni del Centro sicurezza:
 
 1. Dal menu del Centro sicurezza aprire la pagina dei **prezzi & impostazioni** .
 
@@ -129,6 +129,6 @@ Gli avvisi di Azure Defender sono disponibili nella pagina degli avvisi del Cent
 Per materiale correlato, vedere l'articolo seguente:
 
 - [Avvisi di sicurezza per il database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
-- [Configurare le notifiche di posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md)
+- [Configurare le notifiche tramite posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md)
 - [Scopri di più su Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Pacchetto di sicurezza dei dati del Centro sicurezza di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

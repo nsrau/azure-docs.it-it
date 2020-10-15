@@ -3,12 +3,12 @@ title: Ridurre i costi del servizio con Azure Advisor
 description: Usare Azure Advisor per ottimizzare il costo delle distribuzioni di Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 3b7e57aa178380ff4cf0561718c292dc1e6c6aa9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448165"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075910"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Ridurre i costi del servizio usando Azure Advisor
 
@@ -60,7 +60,7 @@ Advisor analizza i modelli di utilizzo per gli ultimi 30 giorni per le risorse s
 Advisor analizza i modelli di utilizzo del Azure Cosmos DB negli ultimi 30 giorni e consiglia gli acquisti di capacità riservata per ottimizzare i costi. Utilizzando la capacità riservata, è possibile effettuare il pre-acquisto Azure Cosmos DB utilizzo orario e risparmiare sui costi con pagamento in base al consumo. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e estrapolando i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio.
 
 ### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>Capacità riservata per database SQL e SQL Istanza gestita
-Advisor analizza i modelli di utilizzo del database SQL e di SQL Istanza gestita negli ultimi 30 giorni. Si consiglia quindi di acquistare la capacità riservata per ottimizzare i costi. Con la capacità riservata è possibile pre-acquistare l'utilizzo orario del database SQL e risparmiare sui costi di calcolo SQL. La licenza SQL viene addebitata separatamente e non viene scontata dalla prenotazione. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e estrapolando i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio. Per informazioni dettagliate, vedere [database SQL di Azure & capacità riservata di sql istanza gestita](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview).
+Advisor analizza i modelli di utilizzo del database SQL e di SQL Istanza gestita negli ultimi 30 giorni. Si consiglia quindi di acquistare la capacità riservata per ottimizzare i costi. Con la capacità riservata è possibile pre-acquistare l'utilizzo orario del database SQL e risparmiare sui costi di calcolo SQL. La licenza SQL viene addebitata separatamente e non viene scontata dalla prenotazione. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola le stime di risparmio per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni e estrapolando i modelli di utilizzo osservati negli ultimi 30 giorni. Sono disponibili raccomandazioni per l'ambito condiviso per gli acquisti di capacità riservata e possono aumentare il risparmio. Per informazioni dettagliate, vedere [database SQL di Azure & capacità riservata di sql istanza gestita](../azure-sql/database/reserved-capacity-overview.md).
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Capacità riservata del timbro del servizio app
 Advisor analizza il modello di utilizzo della tariffa per gli Stamp per l'ambiente di isolamento del servizio app Azure negli ultimi 30 giorni e consiglia gli acquisti di capacità riservata che ottimizzano i costi. Con la capacità riservata è possibile pre-acquistare l'utilizzo orario per la tassa di timbro per l'ambiente isolato e risparmiare sui costi con pagamento in base al consumo. Si noti che la capacità riservata si applica solo alla tariffa di timbro e non alle istanze del servizio app. La capacità riservata è un vantaggio di fatturazione e si applica automaticamente alle distribuzioni nuove ed esistenti. Advisor calcola il salvataggio delle stime per le singole sottoscrizioni usando i prezzi di prenotazione di 3 anni in base ai modelli di utilizzo negli ultimi 30 giorni.

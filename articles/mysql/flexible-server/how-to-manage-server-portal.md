@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7a01863b3a0c29e94550be67ca957655cff32660
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937327"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Gestire un database di Azure per MySQL-server flessibile (anteprima) con portale di Azure
@@ -50,7 +50,7 @@ Dopo la creazione del server è possibile applicare la scalabilità tra i divers
 2. Immettere una nuova password e confermarla. Nella casella di testo vengono visualizzati i requisiti di complessità delle password.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="Reimposta la password per il server flessibile":::
+   > :::image type="content" source="./media/howto-manage-server-portal/reset-password.png" alt-text="ridimensionamento del server flessibile di archiviazione":::
 
 3. Selezionare **Save (Salva** ) per salvare la nuova password.
 
@@ -63,7 +63,7 @@ Se non è più necessario, è possibile eliminare il server.
 2. Digitare il nome del server nella casella di input per confermare che si desidera eliminare il server.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="eliminare il server flessibile":::
+   > :::image type="content" source="./media/howto-manage-server-portal/delete-server.png" alt-text="ridimensionamento del server flessibile di archiviazione":::
 
    > [!NOTE]
    > L'eliminazione di un server è irreversibile.

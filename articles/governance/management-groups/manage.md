@@ -1,14 +1,14 @@
 ---
 title: Come lavorare con i gruppi di gestione - Governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 4ce265084662fb7a83f902e046d6e079abff9a48
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531038"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058098"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -119,7 +119,7 @@ az account management-group delete --name 'Contoso'
 
 1. Selezionare **Tutti i servizi** > **Gruppi di gestione**.
 
-1. Viene caricata la pagina della gerarchia del gruppo di gestione. Questa è la pagina in cui è possibile esplorare tutti i gruppi di gestione e le sottoscrizioni a cui si ha accesso. Quando si seleziona il nome del gruppo si scende di un livello nella gerarchia. Le funzioni di spostamento sono le stesse di Esplora file.
+1. Viene caricata la pagina della gerarchia del gruppo di gestione. Questa è la pagina in cui è possibile esplorare tutti i gruppi di gestione e le sottoscrizioni a cui si ha accesso. Selezionando il nome del gruppo si passa a un livello inferiore nella gerarchia. Le funzioni di spostamento sono le stesse di Esplora file.
 
 1. Per visualizzare i dettagli del gruppo di gestione, selezionare il collegamento **(dettagli)** accanto al titolo del gruppo di gestione. Se questo collegamento non è disponibile, non si hanno le autorizzazioni per visualizzare il gruppo di gestione.
 
@@ -211,7 +211,7 @@ Per eseguire l'azione di spostamento, è necessario avere:
 
 **Eccezione**: se il gruppo di gestione padre di destinazione o esistente è il gruppo di gestione radice, i requisiti delle autorizzazioni non sono applicabili. Poiché il gruppo di gestione radice è il punto di destinazione predefinito per tutti i nuovi gruppi di gestione e le sottoscrizioni, non è necessario avere le autorizzazioni per spostare un elemento.
 
-Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si ha il ruolo Proprietario. Non è possibile spostarla in un gruppo di gestione in cui si ha il ruolo Collaboratore perché si perderebbe la proprietà della sottoscrizione. Se il ruolo Proprietario per la sottoscrizione è stato assegnato direttamente (non ereditato dal gruppo di gestione), è possibile eseguire lo spostamento in qualsiasi gruppo di gestione in cui si ha il ruolo Collaboratore.
+Se il ruolo Proprietario nella sottoscrizione viene ereditato dal gruppo di gestione corrente, le destinazioni di spostamento sono limitate. È possibile spostare la sottoscrizione solo in un altro gruppo di gestione in cui si ha il ruolo Proprietario. Non è possibile spostare la sottoscrizione in un gruppo di gestione in cui si è solo un collaboratore perché si perde la proprietà della sottoscrizione. Se si è direttamente assegnati al ruolo proprietario per la sottoscrizione, è possibile spostarlo in qualsiasi gruppo di gestione in cui si è collaboratore.
 
 Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli di Azure, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
@@ -349,7 +349,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Per altre informazioni sui gruppi di gestione, vedere:
 
-- [Creare gruppi di gestione per organizzare le risorse di Azure](./create.md)
+- [Creare gruppi di gestione per organizzare le risorse di Azure](./create-management-group-portal.md)
 - [Come modificare, eliminare o gestire i gruppi di gestione](./manage.md)
 - [Gruppi di gestione nel modulo Resources di Azure PowerShell](/powershell/module/az.resources#resources)
 - [Gruppi di gestione nell'API REST](/rest/api/resources/managementgroups)

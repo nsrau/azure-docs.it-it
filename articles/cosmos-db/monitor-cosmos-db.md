@@ -9,10 +9,10 @@ ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797820"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Monitoraggio di Azure Cosmos DB
@@ -62,7 +62,7 @@ Azure Cosmos DB raccoglie gli stessi tipi di dati di monitoraggio di altre risor
 
 La pagina **Panoramica** nel portale di Azure per ogni database Azure Cosmos include una breve visualizzazione dell'utilizzo del database, inclusa la relativa richiesta e l'utilizzo della fatturazione oraria. Queste informazioni sono utili, ma è disponibile solo una piccola quantità di dati di monitoraggio. Alcuni di questi dati vengono raccolti automaticamente e sono disponibili per l'analisi non appena si crea il database, mentre è possibile abilitare la raccolta dati aggiuntiva con alcune configurazioni.
 
-:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Pagina di panoramica":::
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Opzioni di monitoraggio disponibili in portale di Azure":::
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Analisi dei dati delle metriche
 
@@ -82,27 +82,27 @@ Azure Cosmos DB offre un'esperienza personalizzata per lavorare con le metriche.
 
 1. Nel menu di spostamento a sinistra selezionare **Monitoraggio** e quindi selezionare **Metriche**.
 
-   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Riquadro Metriche in Monitoraggio di Azure":::
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Opzioni di monitoraggio disponibili in portale di Azure":::
 
 1. Nel riquadro **Metriche** > **Selezionare una risorsa** > scegliere la **sottoscrizione** e il **gruppo di risorse** richiesti. Per **Tipo di risorsa** selezionare **Account Azure Cosmos DB**, scegliere uno degli account Azure Cosmos esistenti e selezionare **Applica**.
 
-   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Scegliere un account Cosmos DB per visualizzare le metriche":::
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Opzioni di monitoraggio disponibili in portale di Azure":::
 
 1. È quindi possibile selezionare una metrica dall'elenco delle metriche disponibili. È possibile selezionare metriche specifiche per unità richiesta, archiviazione, latenza, disponibilità, Cassandra e altre. Per informazioni dettagliate su tutte le metriche disponibili in questo elenco, vedere l'articolo [Metriche per categoria](monitor-cosmos-db-reference.md). In questo esempio, selezionare **Unità richiesta** e **Media** come valore di aggregazione.
 
    Oltre a questi dettagli, è anche possibile selezionare l'**Intervallo di tempo** e la **Granularità temporale** delle metriche. Al massimo, è possibile visualizzare le metriche degli ultimi 30 giorni.  Dopo aver applicato il filtro, viene visualizzato un grafico in base al filtro. È possibile visualizzare il numero medio di unità richiesta utilizzate al minuto per il periodo selezionato.  
 
-   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Scegliere una metrica dal portale di Azure":::
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Opzioni di monitoraggio disponibili in portale di Azure":::
 
 ### <a name="add-filters-to-metrics"></a>Aggiungere filtri alle metriche
 
 È anche possibile filtrare le metriche e il grafico visualizzato in base a un elemento specifico: **CollectionName**, **DatabaseName**, **OperationType**, **Region** e **StatusCode**. Per filtrare le metriche, selezionare **Aggiungi filtro** e scegliere la proprietà richiesta, ad esempio **OperationType**, e selezionare un valore, ad esempio **Query**. Il grafico visualizza quindi le unità richiesta utilizzate per l'operazione di query per il periodo selezionato. Le operazioni eseguite tramite stored procedure non vengono registrate e quindi non sono disponibili nella metrica OperationType.
 
-:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Aggiungere un filtro per selezionare la granularità della metrica":::
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Opzioni di monitoraggio disponibili in portale di Azure":::
 
 È possibile raggruppare le metriche usando l'opzione **Applicare separazione**. È ad esempio possibile raggruppare le unità richiesta per tipo di operazione e visualizzare contemporaneamente il grafico per tutte le operazioni, come illustrato nell'immagine seguente:
 
-:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Aggiungere il filtro Applicare separazione":::
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Opzioni di monitoraggio disponibili in portale di Azure":::
 
 ## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a> Analisi dei dati di log
 

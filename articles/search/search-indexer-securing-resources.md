@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 5075c4858f9584cb19442e19d9009d46d0e00ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85446847e8ad77bc83eea657ab17268839e0b231
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463713"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949820"
 ---
 # <a name="indexer-access-to-data-sources-using-azure-network-security-features"></a>Accesso dell'indicizzatore alle origini dati usando le funzionalità di sicurezza di rete di Azure
 
@@ -24,7 +24,7 @@ Gli indicizzatori di Azure ricerca cognitiva possono eseguire chiamate in uscita
 | Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Origine dati |
 | Archiviazione di Azure (BLOB, tabelle) | Skillsets (memorizzazione nella cache di documenti arricchiti e archiviazione delle proiezioni dell'archivio informazioni) |
 | Azure Cosmos DB (varie API) | Origine dati |
-| database SQL di Azure | Origine dati |
+| Database SQL di Azure | Origine dati |
 | SQL Server in macchine virtuali IaaS di Azure | Origine dati |
 | Istanze gestite SQL | Origine dati |
 | Funzioni di Azure | Host per le competenze personalizzate dell'API Web |
@@ -40,17 +40,17 @@ I clienti possono proteggere queste risorse tramite diversi meccanismi di isolam
 | Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Supportato solo se l'account di archiviazione e il servizio di ricerca si trovano in aree diverse | Supportato |
 | API Azure Cosmos DB-SQL | Supportato | Supportato |
 | Azure Cosmos DB-Cassandra, Mongo e Gremlin API | Supportato | Non supportato |
-| database SQL di Azure | Supportato | Supportato |
+| Database SQL di Azure | Supportato | Supportato |
 | SQL Server in macchine virtuali IaaS di Azure | Supportato | N/D |
 | Istanze gestite SQL | Supportato | N/D |
 | Funzioni di Azure | Supportato | Supportato, solo per determinati SKU di funzioni di Azure |
 
 > [!NOTE]
-> Oltre alle opzioni elencate in precedenza, per gli account di archiviazione di Azure protetti da rete, i clienti possono sfruttare il fatto che Azure ricerca cognitiva è un [servizio Microsoft attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Questo significa che un servizio di ricerca specifico può ignorare le restrizioni di rete virtuale o IP nell'account di archiviazione e può accedere ai dati nell'account di archiviazione, se il controllo degli accessi in base al ruolo appropriato è abilitato nell'account di archiviazione. I dettagli sono disponibili nella [Guida alle procedure](search-indexer-howto-access-trusted-service-exception.md). Questa opzione può essere usata al posto della route di restrizione IP, nel caso in cui non sia possibile spostare l'account di archiviazione o il servizio di ricerca in un'area diversa.
+> Oltre alle opzioni elencate in precedenza, per gli account di archiviazione di Azure protetti da rete, i clienti possono sfruttare il fatto che Azure ricerca cognitiva è un [servizio Microsoft attendibile](../storage/common/storage-network-security.md#trusted-microsoft-services). Questo significa che un servizio di ricerca specifico può ignorare le restrizioni di rete virtuale o IP nell'account di archiviazione e può accedere ai dati nell'account di archiviazione, se il controllo degli accessi in base al ruolo appropriato è abilitato nell'account di archiviazione. I dettagli sono disponibili nella [Guida alle procedure](search-indexer-howto-access-trusted-service-exception.md). Questa opzione può essere usata al posto della route di restrizione IP, nel caso in cui non sia possibile spostare l'account di archiviazione o il servizio di ricerca in un'area diversa.
 
 Quando si sceglie quale meccanismo di accesso sicuro deve essere usato da un indicizzatore, tenere presenti i vincoli seguenti:
 
-- Gli [endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) non saranno supportati per le risorse di Azure.
+- Gli [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) non saranno supportati per le risorse di Azure.
 - Non è possibile eseguire il provisioning di un servizio di ricerca in una rete virtuale specifica. questa funzionalità non verrà offerta da Azure ricerca cognitiva.
 - Quando gli indicizzatori utilizzano endpoint privati (in uscita) per accedere alle risorse, possono essere applicati [addebiti](https://azure.microsoft.com/pricing/details/search/) aggiuntivi per i collegamenti privati.
 
@@ -68,31 +68,31 @@ Per ogni esecuzione dell'indicizzatore, Azure ricerca cognitiva determina l'ambi
 Se la risorsa a cui l'indicizzatore tenta di accedere è limitata a un determinato set di intervalli IP, è necessario espandere il set per includere i possibili intervalli IP da cui può provenire una richiesta dell'indicizzatore. Come indicato in precedenza, esistono due possibili ambienti in cui vengono eseguiti gli indicizzatori e da cui possono provenire le richieste di accesso. Per il corretto funzionamento dell'indicizzatore, sarà necessario aggiungere gli indirizzi IP di __entrambi__ gli ambienti.
 
 - Per ottenere l'indirizzo IP dell'ambiente privato specifico del servizio di ricerca, `nslookup` o `ping` il nome di dominio completo (FQDN) del servizio di ricerca. Il nome di dominio completo (FQDN) di un servizio di ricerca nel cloud pubblico, ad esempio, sarebbe `<service-name>.search.windows.net` . Queste informazioni sono disponibili nella portale di Azure.
-- Gli indirizzi IP degli ambienti multi-tenant sono disponibili tramite il `AzureCognitiveSearch` tag del servizio. I [tag dei servizi di Azure](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) hanno un intervallo di indirizzi IP pubblicato per ogni servizio, disponibile tramite un'API di [individuazione (anteprima)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) o un [file JSON scaricabile](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). In entrambi i casi, gli intervalli IP sono suddivisi in base all'area. è possibile selezionare solo gli intervalli IP assegnati per l'area in cui viene effettuato il provisioning del servizio di ricerca.
+- Gli indirizzi IP degli ambienti multi-tenant sono disponibili tramite il `AzureCognitiveSearch` tag del servizio. I [tag dei servizi di Azure](../virtual-network/service-tags-overview.md) hanno un intervallo di indirizzi IP pubblicato per ogni servizio, disponibile tramite un'API di [individuazione (anteprima)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) o un [file JSON scaricabile](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). In entrambi i casi, gli intervalli IP sono suddivisi in base all'area. è possibile selezionare solo gli intervalli IP assegnati per l'area in cui viene effettuato il provisioning del servizio di ricerca.
 
-Per alcune origini dati, è possibile usare direttamente il tag del servizio anziché enumerare l'elenco di intervalli IP (l'indirizzo IP del servizio di ricerca deve comunque essere usato in modo esplicito). Queste origini dati limitano l'accesso tramite la configurazione di una [regola del gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview)che supporta in modo nativo l'aggiunta di un tag di servizio, a differenza delle regole IP, ad esempio quelle offerte da archiviazione di Azure, CosmosDB, Azure SQL e così via, le origini dati che supportano la possibilità di usare il tag di `AzureCognitiveSearch` servizio direttamente oltre all'indirizzo IP del servizio di ricerca sono:
+Per alcune origini dati, è possibile usare direttamente il tag del servizio anziché enumerare l'elenco di intervalli IP (l'indirizzo IP del servizio di ricerca deve comunque essere usato in modo esplicito). Queste origini dati limitano l'accesso tramite la configurazione di una [regola del gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md)che supporta in modo nativo l'aggiunta di un tag di servizio, a differenza delle regole IP, ad esempio quelle offerte da archiviazione di Azure, CosmosDB, Azure SQL e così via, le origini dati che supportano la possibilità di usare il tag di `AzureCognitiveSearch` servizio direttamente oltre all'indirizzo IP del servizio di ricerca sono:
 
-- [SQL Server in macchine virtuali IaaS](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers#restrict-access-to-the-azure-cognitive-search)
+- [SQL Server in macchine virtuali IaaS](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
-- [Istanze gestite di SQL](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers#verify-nsg-rules)
+- [Istanze gestite di SQL](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
 I dettagli sono descritti nella [Guida alla procedura](search-indexer-howto-access-ip-restricted.md).
 
 ## <a name="granting-access-via-private-endpoints"></a>Concessione dell'accesso tramite endpoint privati
 
-Gli indicizzatori possono usare [endpoint privati](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) per accedere alle risorse. l'accesso a è bloccato per selezionare le reti virtuali o non è abilitato l'accesso pubblico.
+Gli indicizzatori possono usare [endpoint privati](../private-link/private-endpoint-overview.md) per accedere alle risorse. l'accesso a è bloccato per selezionare le reti virtuali o non è abilitato l'accesso pubblico.
 Questa funzionalità è disponibile solo per i servizi a pagamento, con limiti per il numero di endpoint privati da creare. I dettagli sui limiti sono documentati nella [pagina limiti di ricerca di Azure](search-limits-quotas-capacity.md).
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Passaggio 1: creare un endpoint privato per la risorsa protetta
 
-I clienti devono chiamare l'operazione di gestione di ricerca, [creare o aggiornare l'API per le *risorse di collegamento privato condiviso* ](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) per creare una connessione di endpoint privato alla propria risorsa protetta, ad esempio un account di archiviazione. Il traffico che supera questa connessione all'endpoint privato (in uscita) verrà originato solo dalla rete virtuale presente nell'ambiente di esecuzione dell'indicizzatore "privato" specifico del servizio di ricerca.
+I clienti devono chiamare l'operazione di gestione di ricerca, [creare o aggiornare l'API per le *risorse di collegamento privato condiviso* ](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) per creare una connessione di endpoint privato alla propria risorsa protetta, ad esempio un account di archiviazione. Il traffico che supera questa connessione all'endpoint privato (in uscita) verrà originato solo dalla rete virtuale presente nell'ambiente di esecuzione dell'indicizzatore "privato" specifico del servizio di ricerca.
 
 Azure ricerca cognitiva convaliderà che i chiamanti di questa API dispongono delle autorizzazioni per approvare le richieste di connessione all'endpoint privato alla risorsa protetta. Se ad esempio si richiede una connessione a un endpoint privato a un account di archiviazione a cui non si ha accesso, questa chiamata verrà rifiutata.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Passaggio 2: approvare la connessione all'endpoint privato
 
 Quando l'operazione (asincrona) che crea una risorsa di collegamento privato condivisa viene completata, viene creata una connessione all'endpoint privato in stato "in sospeso". Non viene ancora trasmesso alcun traffico sulla connessione.
-Il cliente deve quindi individuare la richiesta sulla risorsa protetta e "approvarla". In genere, questa operazione può essere eseguita tramite il portale o tramite l' [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
+Il cliente deve quindi individuare la richiesta sulla risorsa protetta e "approvarla". In genere, questa operazione può essere eseguita tramite il portale o tramite l' [API REST](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### <a name="step-3-force-indexers-to-run-in-the-private-environment"></a>Passaggio 3: forzare l'esecuzione degli indicizzatori nell'ambiente "privato"
 
