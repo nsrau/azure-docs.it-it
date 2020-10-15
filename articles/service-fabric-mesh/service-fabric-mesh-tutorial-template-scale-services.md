@@ -1,17 +1,17 @@
 ---
 title: Esercitazione - Ridimensionare un'app in esecuzione in Azure Service Fabric Mesh
 description: In questa esercitazione si apprenderà come ridimensionare i servizi in un'applicazione in esecuzione in Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aad0da53dc667039a62d2115c1afe4e2c6662bff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351813"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840167"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Esercitazione: Ridimensionare un'applicazione in esecuzione in Service Fabric Mesh
 

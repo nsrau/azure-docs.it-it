@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243716"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071286"
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
-Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Criteri di autenticazione
 
@@ -48,13 +48,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |authentication-basic|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |username|Specifica il nome utente della credenziale di base.|Sì|N/D|
 |password|Specifica la password della credenziale di base.|Sì|N/D|
@@ -67,7 +67,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   **Ambiti del criterio:** tutti gli ambiti
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticazione con certificato client
- Usare il criterio `authentication-certificate` per eseguire l'autenticazione con un servizio di back-end tramite il certificato client. Il certificato deve essere prima [installato in Gestione API](https://go.microsoft.com/fwlink/?LinkID=511599) e viene identificato tramite la relativa identificazione personale.
+ Usare il criterio `authentication-certificate` per eseguire l'autenticazione con un servizio di back-end tramite il certificato client. Il certificato deve essere prima [installato in Gestione API](./api-management-howto-mutual-certificates.md) e viene identificato tramite la relativa identificazione personale.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
 
@@ -97,13 +97,13 @@ In questo esempio, il certificato client viene impostato nei criteri anziché es
 
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatoria|  
+|Nome|Description|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatoria|Predefinito|  
+|Nome|Description|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Identificazione personale del certificato client.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
 |ID certificato|Nome della risorsa del certificato.|`thumbprint` `certificate-id` È necessario che sia presente o.|N/D|
@@ -174,13 +174,13 @@ Per richiedere il token, è possibile usare sia l'identità assegnata dal sistem
 
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatoria|  
+|Nome|Description|Obbligatoria|  
 |----------|-----------------|--------------|  
 |autenticazione-gestita-identità |Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatoria|Predefinito|  
+|Nome|Description|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |Risorsa|Stringa. ID app dell'API Web di destinazione (risorsa protetta) in Azure Active Directory.|Sì|N/D|
 |ID client|Stringa. ID app dell'identità assegnata dall'utente in Azure Active Directory.|No|identità assegnata dal sistema|
@@ -200,4 +200,4 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Trasformare le API](transform-api.md)
 + [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
-+ [Esempi di criteri](policy-samples.md)
++ [Esempi di criteri](./policy-reference.md)
