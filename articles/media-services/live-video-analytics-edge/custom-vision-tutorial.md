@@ -3,12 +3,12 @@ title: Analizzare video live con Analisi video live in IoT Edge e Visione person
 description: Informazioni su come usare Visione personalizzata per creare un modello in contenitori in grado di rilevare un camion giocattolo e usare la funzionalità di estendibilità dell'intelligenza artificiale di Analisi video live in IoT Edge per distribuire il modello nella rete perimetrale per rilevare i veicoli giocattolo da un flusso video live.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: e77521765156a13f0675602ffd0b39f78d8957bb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804147"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016791"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Esercitazione: Analizzare video live con Analisi video live in IoT Edge e Visione personalizzata di Azure
 
@@ -32,12 +32,12 @@ L'esercitazione illustra come:
 Prima di iniziare, è consigliabile leggere gli articoli seguenti: 
 
 * [Panoramica di Analisi di video live in IoT Edge](overview.md)
-* [Panoramica di Visione personalizzata di Azure](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)
+* [Panoramica di Visione personalizzata di Azure](../../cognitive-services/custom-vision-service/overview.md)
 * [Terminologia di Analisi di video live in IoT Edge](terminology.md)
 * [Concetti del grafo multimediale](media-graph-concept.md)
 * [Live Video Analytics senza registrazione video](analyze-live-video-concept.md)
 * [Eseguire l'analisi di video live con un modello personalizzato](use-your-model-quickstart.md)
-* [Esercitazione: Sviluppo di un modulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Esercitazione: Sviluppo di un modulo IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
 * [Come modificare deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -56,7 +56,7 @@ I prerequisiti per questa esercitazione sono:
 
 ## <a name="review-the-sample-video"></a>Esaminare il video di esempio
 
-Questa esercitazione usa un file [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv/) per simulare un flusso live. È possibile esaminare il video tramite un'applicazione come il [lettore multimediale VLC](https://www.videolan.org/vlc/). Premere CTRL+N, quindi incollare un collegamento al [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per avviare la riproduzione. Si noti che, in corrispondenza del trentaseiesimo secondo della riproduzione, nel video compare un camion giocattolo. Il modello personalizzato è stato sottoposto a training per rilevare questo camion giocattolo specifico. In questa esercitazione si userà Analisi video live in IoT Edge per rilevare il camion giocattolo e pubblicare gli eventi di inferenza associati nell'hub IoT Edge.
+Questa esercitazione usa un file [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per simulare un flusso live. È possibile esaminare il video tramite un'applicazione come il [lettore multimediale VLC](https://www.videolan.org/vlc/). Premere CTRL+N, quindi incollare un collegamento al [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per avviare la riproduzione. Si noti che, in corrispondenza del trentaseiesimo secondo della riproduzione, nel video compare un camion giocattolo. Il modello personalizzato è stato sottoposto a training per rilevare questo camion giocattolo specifico. In questa esercitazione si userà Analisi video live in IoT Edge per rilevare il camion giocattolo e pubblicare gli eventi di inferenza associati nell'hub IoT Edge.
 
 ## <a name="overview"></a>Panoramica
 
@@ -64,17 +64,17 @@ Questa esercitazione usa un file [video di inferenza di una vettura giocattolo](
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Panoramica di Visione personalizzata":::
 
 Il diagramma mostra il flusso dei segnali in questa esercitazione. Un [modulo Edge](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula una videocamera IP che ospita un server RTSP (Real-Time Streaming Protocol). Un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) estrae il feed video da questo server e invia i fotogrammi video al nodo del [processore di filtro della frequenza dei fotogrammi](media-graph-concept.md#frame-rate-filter-processor). Questo processore limita la frequenza dei fotogrammi dello streaming video che raggiunge il nodo del [processore di estensioni HTTP](media-graph-concept.md#http-extension-processor).
-Il nodo di estensioni HTTP svolge il ruolo di proxy. Converte i fotogrammi video nel tipo di immagine specificato. Quindi inoltra l'immagine su REST a un altro modulo Edge che esegue un modello di intelligenza artificiale dietro un endpoint HTTP. In questo esempio, il modulo Edge è il modello di rilevamento del camion giocattolo creato tramite Visione personalizzata. Il nodo del processore di estensioni HTTP raccoglie i risultati del rilevamento e pubblica gli eventi nel nodo [sink dell'hub IoT](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub).
+Il nodo di estensioni HTTP svolge il ruolo di proxy. Converte i fotogrammi video nel tipo di immagine specificato. Quindi inoltra l'immagine su REST a un altro modulo Edge che esegue un modello di intelligenza artificiale dietro un endpoint HTTP. In questo esempio, il modulo Edge è il modello di rilevamento del camion giocattolo creato tramite Visione personalizzata. Il nodo del processore di estensioni HTTP raccoglie i risultati del rilevamento e pubblica gli eventi nel nodo [sink dell'hub IoT](media-graph-concept.md#iot-hub-message-sink). Il nodo invia quindi gli eventi all'[hub di IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Creare e distribuire un modello di rilevamento del giocattolo di Visione personalizzata 
 
 Come suggerisce il nome stesso, è possibile sfruttare Visione personalizzata per creare un rilevatore o un classificatore di oggetti personalizzato nel cloud. La sua interfaccia semplice e intuitiva consente di creare facilmente modelli di Visione personalizzata che possono essere distribuiti nel cloud o nella rete perimetrale tramite contenitori. 
 
-Per creare un rilevatore del camion giocattolo, è consigliabile seguire la guida di avvio rapido [Come creare un rilevatore di oggetti con Visione personalizzata](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector).
+Per creare un rilevatore del camion giocattolo, è consigliabile seguire la guida di avvio rapido [Come creare un rilevatore di oggetti con Visione personalizzata](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 
 Note aggiuntive:
  
-* Per questa esercitazione non usare le immagini di esempio fornite nella [sezione Prerequisiti](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#prerequisites) della guida di avvio rapido. Per creare un modello di rilevamento del giocattolo di Visione personalizzata è stato usato un set di immagini specifico, quindi è consigliabile usare [queste immagini](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) quando viene chiesto di [scegliere le immagini di training](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images) nella guida di avvio rapido.
+* Per questa esercitazione non usare le immagini di esempio fornite nella [sezione Prerequisiti](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites) della guida di avvio rapido. Per creare un modello di rilevamento del giocattolo di Visione personalizzata è stato usato un set di immagini specifico, quindi è consigliabile usare [queste immagini](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) quando viene chiesto di [scegliere le immagini di training](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) nella guida di avvio rapido.
 * Nella sezione della guida di avvio rapido relativa all'aggiunta di tag alle immagini assicurarsi di contrassegnare il camion giocattolo visualizzato nell'immagine con il tag "delivery truck".
 
 Al termine, se il modello soddisfa le aspettative, è possibile esportarlo in un contenitore Docker usando il pulsante Esporta nella scheda Prestazioni. Assicurarsi di scegliere Linux come tipo di piattaforma del contenitore. È la piattaforma in cui verrà eseguito il contenitore. Il computer in cui si scarica il contenitore può essere Windows o Linux. Le istruzioni seguenti sono basate sul file contenitore scaricato in un computer Windows.
@@ -175,7 +175,7 @@ La serie successiva di chiamate pulisce le risorse:
     
 ## <a name="interpret-the-results"></a>Interpretare i risultati
 
-Quando si esegue il grafo multimediale, i risultati del nodo del processore di estensioni HTTP vengono inviati all'hub IoT tramite il nodo sink dell'hub IoT. I messaggi visualizzati nella finestra OUTPUT contengono una sezione body e una sezione applicationProperties. Per altre informazioni, vedere [Creare e leggere messaggi dell'hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+Quando si esegue il grafo multimediale, i risultati del nodo del processore di estensioni HTTP vengono inviati all'hub IoT tramite il nodo sink dell'hub IoT. I messaggi visualizzati nella finestra OUTPUT contengono una sezione body e una sezione applicationProperties. Per altre informazioni, vedere [Creare e leggere messaggi dell'hub IoT](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 Nei messaggi seguenti il modulo Analisi video live definisce le proprietà dell'applicazione e il contenuto del corpo.
 
@@ -311,7 +311,6 @@ Se si prevede di provare le altre esercitazioni o guide di avvio rapido, è nece
 Esaminare altri problemi per utenti avanzati:
 
 * Usare una [videocamera IP](https://en.wikipedia.org/wiki/IP_camera) con supporto per RTSP invece del simulatore RTSP. È possibile cercare videocamere IP che supportano RTSP nella pagina dei prodotti [conformi a ONVIF](https://www.onvif.org/conformant-products/). Cercare dispositivi conformi ai profili G, S o T.
-* Usare un dispositivo Linux AMD64 o x64 invece di una VM Linux di Azure. Il dispositivo deve trovarsi nella stessa rete della videocamera IP. È possibile seguire le istruzioni riportate in [Installare il runtime Azure IoT Edge in Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). 
+* Usare un dispositivo Linux AMD64 o x64 invece di una VM Linux di Azure. Il dispositivo deve trovarsi nella stessa rete della videocamera IP. È possibile seguire le istruzioni riportate in [Installare il runtime Azure IoT Edge in Linux](../../iot-edge/how-to-install-iot-edge-linux.md). 
 
-Quindi seguire il dispositivo con l'hub IoT di Azure seguendo le istruzioni riportate in [Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).
-
+Quindi seguire il dispositivo con l'hub IoT di Azure seguendo le istruzioni riportate in [Distribuire il primo modulo IoT Edge in un dispositivo Linux virtuale](../../iot-edge/quickstart-linux.md).

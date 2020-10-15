@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 489a1afd8e247b69761d521f51e16310176e31f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564084"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075332"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -235,7 +235,7 @@ Vedere le risorse seguenti per procedure dettagliate diverse del processo di bac
 
 -   [Replicare account di Gestione API di Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automazione del backup e del ripristino di Gestione API con App per la logica)
--   [Gestione API di Azure: backup e ripristino della configurazione](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) 
+-   [Gestione API di Azure: backup e ripristino della configurazione](/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) 
      _L'approccio descritto da Stuart non corrisponde alle linee guida ufficiali, ma è interessante._
 
 [backup an api management service]: #step1
