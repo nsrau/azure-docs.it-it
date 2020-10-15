@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327732"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093753"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -287,7 +287,32 @@ Per ricevere aggiornamenti sulle modifiche apportate a questi indirizzi IP, è c
 
 Un Gruppo di azioni può contenere un numero limitato di azioni di tipo Webhook.
 
+### <a name="service-tag"></a>Tag del servizio
+Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete per un ActionGroup.
 
+1. In portale di Azure in servizi di Azure cercare il *gruppo di sicurezza di rete*.
+2. Fare clic su **Aggiungi** e creare un gruppo di sicurezza di rete.
+
+   1. Aggiungere il nome del gruppo di risorse e quindi immettere i *Dettagli dell'istanza*.
+   1. Fare clic su **Verifica + crea** e quindi su *Crea*.
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Esempio su come creare un gruppo di sicurezza di rete."border="true":::
+
+3. Passare a gruppo di risorse e quindi fare clic sul *gruppo di sicurezza di rete* creato.
+
+    1. Selezionare *regole di sicurezza in ingresso*.
+    1. Fare clic su **Aggiungi**.
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
+
+4. Nel riquadro destro viene aperta una nuova finestra.
+    1.  Seleziona origine: **tag servizio**
+    1.  Tag del servizio di origine: **ActionGroup**
+    1.  Scegliere **Aggiungi**.
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
+
+L'uso di **tag di servizio** per ActionGroup consente di ridurre al minimo la complessità degli aggiornamenti frequenti degli indirizzi IP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [Comportamento degli avvisi SMS](./alerts-sms-behavior.md).  

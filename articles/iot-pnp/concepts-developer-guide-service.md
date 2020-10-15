@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 431ea692ac734a875e27cb8ed4b015155e0e9b91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7523dd39303a211772dd39eef811f55739336ff0
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042423"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093702"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>Guida per gli sviluppatori del servizio Plug and Play
 
@@ -30,14 +30,14 @@ Gli SDK dei servizi consentono di accedere alle informazioni sul dispositivo da 
 
 - Client del servizio hub Internet. Questo servizio espone l'ID modello come proprietà del dispositivo gemello.
 
-- Client del servizio digitale gemelli. La nuova API dei gemelli digitali opera sui costrutti del modello [DTDL (Digital gemelle Definition Language)](concepts-digital-twin.md) , ad esempio componenti, proprietà e comandi. Le API dei dispositivi gemelli digitali semplificano la creazione di soluzioni Plug and Play per i generatori di soluzioni.
+- Client di dispositivi digitali gemelli. La nuova API dei gemelli digitali opera sui costrutti del modello [DTDL (Digital gemelle Definition Language)](concepts-digital-twin.md) , ad esempio componenti, proprietà e comandi. Le API dei dispositivi gemelli digitali semplificano la creazione di soluzioni Plug and Play per i generatori di soluzioni.
 
-| Piattaforma | Client del servizio hub Internet | Client Servizi gemelli digitali |
-| -------- | ---------------------- | ---------------------------- |
-| .NET     | [Documentazione](/dotnet/api/microsoft.azure.devices) <br/> [Esempi](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Esempi](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
-| Java     | [Documentazione](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> [Esempi](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Esempi](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
-| Node.js  | [Documentazione](/javascript/api/azure-iothub/twin?preserve-view=true&view=azure-node-latest) <br/> [Esempio](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentazione](/javascript/api/azure-iot-digitaltwins-service/?preserve-view=true&view=azure-node-latest) <br/> [Esempio](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
-| Python   | [Documentazione](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?preserve-view=true&view=azure-python) <br/> [Esempio](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentazione](/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?preserve-view=true&view=azure-python) <br/> [Esempio](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
+| Piattaforma | Documentazione | Esempi |
+| -------- | ------------- | ------- |
+| .NET     | [Riferimento](/dotnet/api/microsoft.azure.devices) | [Client del servizio](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples) </br> [Gemelli digitali](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [Riferimento](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> | [Client del servizio](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample) </br>[Gemelli digitali](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [Riferimento](/javascript/api/azure-iothub?preserve-view=true&view=azure-node-latest) | [Client del servizio](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js) </br> [Gemelli digitali](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
+| Python   | [Riferimento](/python/api/azure-iot-hub/azure.iot.hub?preserve-view=true&view=azure-python) <br/> | [Client del servizio](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py) </br> [Gemelli digitali](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
 
 ## <a name="iot-hub-service-client-examples"></a>Esempi client del servizio hub Internet
 
@@ -161,7 +161,7 @@ catch (DeviceNotFoundException)
 }
 ```
 
-## <a name="digital-twin-examples"></a>Esempi di dispositivi gemelli digitali
+## <a name="iot-hub-digital-twin-examples"></a>Esempi di dispositivi gemelli per hub Internet
 
 Usare la classe **DigitalTwinClient** per interagire con lo stato del dispositivo con i dispositivi gemelli digitali. Il modello [DTDL](concepts-digital-twin.md) per il dispositivo consente di definire le proprietà e i comandi implementati dal dispositivo.
 
@@ -369,43 +369,6 @@ catch (HttpOperationException e)
         Console.WriteLine("Unable to execute command getMaxMinReport on component thermostat1.");
     }
 }
-```
-
-## <a name="rest-api"></a>API REST
-
-Gli esempi seguenti usano l'API REST dell'hub Internet per interagire con un dispositivo Plug and Play. La versione corrente dell'API è `2020-09-30` . Accodare `?api-version=2020-09-30` le chiamate a Rest pi.
-
-> [!NOTE]
-> I moduli gemelli non sono attualmente supportati dall' `digitalTwins` API.
-
-Se il dispositivo termostato viene chiamato `t-123` , si ottengono tutte le proprietà di tutte le interfacce implementate dal dispositivo con una chiamata Get dell'API REST:
-
-```REST
-GET /digitalTwins/t-123
-```
-
-Questa chiamata includerà la proprietà JSON `$metadata.$model` con l'ID modello annunciato dal dispositivo.
-
-Tutte le proprietà di tutte le interfacce sono accessibili con il `GET /DigitalTwin/{device-id}` modello API REST in cui `{device-id}` è l'identificatore del dispositivo:
-
-```REST
-GET /digitalTwins/{device-id}
-```
-
-È possibile chiamare direttamente i comandi del dispositivo Plug and Play. Se il `Thermostat` componente nel `t-123` dispositivo ha un `restart` comando, è possibile chiamarlo con una chiamata all'API REST:
-
-```REST
-POST /digitalTwins/t-123/components/Thermostat/commands/restart
-```
-
-Più in generale, i comandi possono essere chiamati tramite questo modello API REST:
-
-- `device-id`: identificatore per il dispositivo.
-- `component-name`: nome dell'interfaccia dalla sezione Implements nel modello di funzionalità del dispositivo.
-- `command-name`: nome del comando.
-
-```REST
-/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
 ```
 
 ## <a name="read-device-telemetry"></a>Leggere i dati di telemetria del dispositivo

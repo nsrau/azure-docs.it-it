@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a1af644bbd88af5c513ed9a43ce154f285c06df
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85318625"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856008"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Esercitazione: Distribuire un'app ASP.NET e il codice di un database SQL di Azure usando Azure DevOps Starter
 
@@ -190,7 +190,7 @@ Facoltativamente, è possibile modificare queste pipeline di compilazione e di v
 Per altre informazioni sulla pipeline CI/CD, vedere:
 
 > [!div class="nextstepaction"]
-> [Definire la pipeline di distribuzione continua (CD) in più fasi](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Definire la pipeline di distribuzione continua (CD) in più fasi](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>Video
 

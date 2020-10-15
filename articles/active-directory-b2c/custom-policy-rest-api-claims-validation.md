@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388919"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089520"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Procedura dettagliata: integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C per convalidare l'input dell'utente
 
@@ -93,7 +93,7 @@ Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzio
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configurare il profilo tecnico dell'API RESTful 
+## <a name="add-the-restful-api-technical-profile"></a>Aggiungere il profilo tecnico dell'API RESTful 
 
 Un [profilo tecnico RESTful](restful-technical-profile.md) fornisce supporto per l'interazione con il servizio RESTful. Azure AD B2C invia dati al servizio RESTful in una raccolta `InputClaims` e riceve dati in una raccolta `OutputClaims`. Trovare l'elemento **ClaimsProviders** e aggiungere un nuovo provider di attestazioni come indicato di seguito:
 
@@ -105,6 +105,7 @@ Un [profilo tecnico RESTful](restful-technical-profile.md) fornisce supporto per
       <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -129,6 +130,17 @@ Un [profilo tecnico RESTful](restful-technical-profile.md) fornisce supporto per
 ```
 
 In questo esempio `userLanguage` viene inviato al servizio REST come `lang` nel payload JSON. Il valore dell'attestazione `userLanguage` contiene l'ID della lingua utente corrente. Per altre informazioni, vedere i [resolver di attestazioni](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Configurare il profilo tecnico dell'API RESTful 
+
+Dopo aver distribuito l'API REST, impostare i metadati del `REST-ValidateProfile` profilo tecnico in modo da riflettere la propria API REST, tra cui:
+
+- **ServiceUrl**. Impostare l'URL dell'endpoint dell'API REST.
+- **SendClaimsIn**. Consente di specificare la modalità di invio delle attestazioni di input al provider di attestazioni RESTful.
+- **AuthenticationType**. Consente di impostare il tipo di autenticazione eseguito dal provider di attestazioni RESTful. 
+- **AllowInsecureAuthInProduction**. In un ambiente di produzione, assicurarsi di impostare i metadati su `true`
+    
+Vedere i [metadati del profilo tecnico RESTful](restful-technical-profile.md#metadata) per altre configurazioni.
 
 I commenti precedenti `AuthenticationType` e `AllowInsecureAuthInProduction` specificano le modifiche che è necessario apportare quando si passa a un ambiente di produzione. Per informazioni su come proteggere le API RESTful per la produzione, vedere [Proteggere i servizi RESTful](secure-rest-api.md).
 
