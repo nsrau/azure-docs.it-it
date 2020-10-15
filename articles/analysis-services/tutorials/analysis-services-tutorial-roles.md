@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229362"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018696"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli amministratore e utente del server
 
- In questa esercitazione si usa SQL Server Management Studio (SSMS) per connettersi al server in Azure per configurare i ruoli del database modello e di amministratore del server. Viene anche presentato [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL è un linguaggio di scripting basato su JSON per i modelli tabulari ai livelli di compatibilità 1200 e superiori. Può essere usato per automatizzare molte attività di modellazione tabulare. TMSL viene spesso usato con PowerShell, ma in questa esercitazione si usa l'editor di query XMLA in SSMS. Con questa esercitazione, si completano le attività seguenti: 
+ In questa esercitazione si usa SQL Server Management Studio (SSMS) per connettersi al server in Azure per configurare i ruoli del database modello e di amministratore del server. Viene anche presentato [Tabular Model Scripting Language (TMSL)](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL è un linguaggio di scripting basato su JSON per i modelli tabulari ai livelli di compatibilità 1200 e superiori. Può essere usato per automatizzare molte attività di modellazione tabulare. TMSL viene spesso usato con PowerShell, ma in questa esercitazione si usa l'editor di query XMLA in SSMS. Con questa esercitazione, si completano le attività seguenti: 
   
 > [!div class="checklist"]
 > * Ottenere il nome del server dal portale
@@ -33,7 +33,7 @@ Per altre informazioni sulla sicurezza utente in Azure Analysis Services, vedere
 - Avere creato un [server di Azure Analysis Services](../analysis-services-create-server.md) nella sottoscrizione.
 - Avere autorizzazioni di [amministratore del server](../analysis-services-server-admins.md).
 - [Aggiungere il modello di esempio adventureworks](../analysis-services-create-sample-model.md) al server.
-- [Installare la versione più recente di SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
+- [Installare la versione più recente di SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -82,7 +82,7 @@ In questa attività si aggiunge un account utente o gruppo da Azure AD al ruolo 
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Aggiungere un utente al ruolo di amministratore del database modello
 
-In questa attività si aggiunge un account utente o gruppo al ruolo Internet Sales Administrator già esistente nel modello. Questo ruolo ha le autorizzazioni Controllo completo (amministratore) per il database modello di esempio adventureworks. Questa attività usa il comando TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) in uno script creato automaticamente.
+In questa attività si aggiunge un account utente o gruppo al ruolo Internet Sales Administrator già esistente nel modello. Questo ruolo ha le autorizzazioni Controllo completo (amministratore) per il database modello di esempio adventureworks. Questa attività usa il comando TMSL [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) in uno script creato automaticamente.
 
 1. In **Esplora oggetti** espandere **Database** > **adventureworks** > **Ruoli**. 
 2. Fare clic con il pulsante destro del mouse su **Internet Sales Administrator**, quindi scegliere **Crea script per ruolo** > **CREATE OR REPLACE per** > **Nuova finestra editor di query**.
@@ -98,7 +98,7 @@ In questa attività si aggiunge un account utente o gruppo al ruolo Internet Sal
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Aggiungere un nuovo ruolo del database modello e aggiungere un utente o un gruppo
 
-In questa attività si usa il comando [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) in uno script TMSL per creare un nuovo ruolo Internet Sales Global, specificare le autorizzazioni di *lettura* per il ruolo e aggiungere un account utente o gruppo da Azure AD.
+In questa attività si usa il comando [Create](/analysis-services/tmsl/create-command-tmsl) in uno script TMSL per creare un nuovo ruolo Internet Sales Global, specificare le autorizzazioni di *lettura* per il ruolo e aggiungere un account utente o gruppo da Azure AD.
 
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse su **adventureworks** e quindi scegliere **Nuova query** > **XMLA**. 
 2. Copiare e incollare lo script TMSL seguente nell'editor di query:
@@ -144,4 +144,3 @@ In questa esercitazione è stato illustrato come connettersi al server di Azure 
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Connettersi con Power BI Desktop](analysis-services-tutorial-pbid.md)
-
