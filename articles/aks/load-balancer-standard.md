@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182123"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070504"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
@@ -317,12 +317,12 @@ spec:
 
 Di seguito è riportato un elenco di annotazioni supportate per i servizi Kubernetes con tipo `LoadBalancer` . queste annotazioni si applicano solo ai flussi in **ingresso** :
 
-| Annotazione | Valore | Descrizione
+| Annotazione | valore | Descrizione
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` o `false`                     | Consente di specificare se il servizio di bilanciamento del carico deve essere interno. Il valore predefinito è Public se non impostato.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nome della subnet                    | Specificare la subnet a cui deve essere associato il servizio di bilanciamento del carico interno. Il valore predefinito è la subnet configurata nel file di configurazione cloud se non è impostata.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nome dell'etichetta DNS negli indirizzi IP pubblici   | Specificare il nome dell'etichetta DNS per il servizio **pubblico** . Se è impostato su una stringa vuota, la voce DNS nell'indirizzo IP pubblico non verrà usata.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` o `false`                     | Specificare che il servizio deve essere esposto usando una regola di sicurezza di Azure che può essere condivisa con un altro servizio, scambiando la specificità delle regole per un aumento del numero di servizi che possono essere esposti. Questa annotazione si basa sulla funzionalità delle [regole di sicurezza aumentata](../virtual-network/security-overview.md#augmented-security-rules) di Azure dei gruppi di sicurezza di rete. 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` o `false`                     | Specificare che il servizio deve essere esposto usando una regola di sicurezza di Azure che può essere condivisa con un altro servizio, scambiando la specificità delle regole per un aumento del numero di servizi che possono essere esposti. Questa annotazione si basa sulla funzionalità delle [regole di sicurezza aumentata](../virtual-network/network-security-groups-overview.md#augmented-security-rules) di Azure dei gruppi di sicurezza di rete. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nome del gruppo di risorse            | Specificare il gruppo di risorse degli indirizzi IP pubblici del servizio di bilanciamento del carico che non si trovano nello stesso gruppo di risorse dell'infrastruttura del cluster (gruppo di risorse nodo).
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | Elenco di tag di servizio consentiti          | Consente di specificare un elenco di [tag di servizio][service-tags] consentiti separati da virgola.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Timeout di inattività TCP in minuti          | Specificare l'intervallo di tempo, in minuti, per cui si verificano i timeout di inattività della connessione TCP nel servizio di bilanciamento del carico. Il valore predefinito e il valore minimo è 4. Il valore massimo è 30. Deve essere un valore Integer.
@@ -426,4 +426,4 @@ Per altre informazioni sull'uso di Load Balancer interni per il traffico in ingr
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
-[service-tags]: ../virtual-network/security-overview.md#service-tags
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
