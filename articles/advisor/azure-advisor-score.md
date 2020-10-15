@@ -3,12 +3,12 @@ title: Ottimizzare i carichi di lavoro di Azure usando il Punteggio di Advisor
 description: Usa il Punteggio di Advisor per sfruttare al meglio Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335620"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074023"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Ottimizzare i carichi di lavoro di Azure usando il Punteggio di Advisor
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335620"
 Azure Advisor fornisce consigli sulle procedure consigliate per i carichi di lavoro. Questi consigli sono personalizzati e possono essere utili per eseguire le operazioni seguenti:
 * Migliorare la postura dei carichi di lavoro e ottimizzare le distribuzioni di Azure
 * Prevenire in modo proattivo i problemi principali seguendo le procedure consigliate
-* Valutazione dei carichi di lavoro di Azure rispetto ai cinque pilastri del [Framework Microsoft Azure Well-Architected](https://docs.microsoft.com/azure/architecture/framework/)
+* Valutazione dei carichi di lavoro di Azure rispetto ai cinque pilastri del [Framework Microsoft Azure Well-Architected](/azure/architecture/framework/)
 
 Come caratteristica principale di Advisor, il **Punteggio di Advisor** è concepito per aiutare a raggiungere questi obiettivi in modo efficace ed efficiente. 
 
@@ -56,7 +56,7 @@ Il calcolo del Punteggio di Advisor può essere riepilogato in quattro passaggi:
   * Le risorse con raccomandazioni di lunga durata vengono conteggiate più in base al punteggio.
   * Le risorse rimandate o ignorate in Advisor vengono rimosse dal calcolo del punteggio. 
     
-Advisor applica questo modello a livello di categoria Advisor (sicurezza usa il modello di [Punteggio sicuro](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) ), assegnando il Punteggio di Advisor per ogni categoria e una media più semplice produce il punteggio finale di Advisor.
+Advisor applica questo modello a livello di categoria Advisor (sicurezza usa il modello di [Punteggio sicuro](../security-center/secure-score-security-controls.md#introduction-to-secure-score) ), assegnando il Punteggio di Advisor per ogni categoria e una media più semplice produce il punteggio finale di Advisor.
 
 
 ## <a name="advisor-score-faq"></a>Domande frequenti sul punteggio di Advisor

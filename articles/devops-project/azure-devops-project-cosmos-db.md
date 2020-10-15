@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ceac6edf6cadd380d6eeec545a85c4822748d3a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: de98d9db515e4ed88759efa7f22dddcca06151c8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316121"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854682"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-starter"></a>Distribuire app Node.js con tecnologia Azure Cosmos DB con DevOps Starter
 
@@ -167,6 +167,4 @@ Quando non servono più, eliminare le risorse correlate create in precedenza. Us
 > * Eseguire il commit delle modifiche in Git e la distribuzione automatica in Azure
 > * Pulire le risorse
 
-Per altre informazioni e per i passaggi successivi, vedere [Definire la pipeline di distribuzione continua (CD) in più fasi](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
-
-
+Per altre informazioni e per i passaggi successivi, vedere [Definire la pipeline di distribuzione continua (CD) in più fasi](/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts).
