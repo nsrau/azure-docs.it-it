@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9093872b2a5e069aef43ae2230b08447eea602
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389361"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069858"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Aggiungere attestazioni e input di personalizzazione dell'esperienza utente tramite criteri personalizzati in Azure Active Directory B2C
 
@@ -95,12 +95,12 @@ Per raccogliere l'attestazione City durante l'iscrizione, è necessario aggiunge
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProvider>
 ```
 
 Per raccogliere l'attestazione City dopo l'accesso iniziale con un account federato, è necessario aggiungerla come attestazione di output al `SelfAsserted-Social` profilo tecnico. Per consentire agli utenti di account locali e federati di modificare i dati di profilo in un secondo momento, aggiungere l'attestazione di output al `SelfAsserted-ProfileUpdate` profilo tecnico. Eseguire l'override di questi profili tecnici nel file di estensione. Specificare l'intero elenco delle attestazioni di output per controllare l'ordine in cui le attestazioni vengono presentate sullo schermo. Trovare l'elemento **ClaimsProviders**. Aggiungere un nuovo ClaimsProviders come segue:
 
 ```xml
+<ClaimsProvider>
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->

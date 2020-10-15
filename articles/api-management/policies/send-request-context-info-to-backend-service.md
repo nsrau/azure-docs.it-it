@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 8cef989ca7ce8ee649c4f4aeb579c43bf8a8d6ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7782af3c8a533ceb3a6d2bd3b412c21469f9a021
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442412"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078817"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>Inviare informazioni di contesto per la richiesta al servizio back-end
 
-Questo articolo descrive un esempio di criteri di Gestione API di Azure che spiega come inviare informazioni di contesto per la richiesta al servizio back-end. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
+Questo articolo descrive un esempio di criteri di Gestione API di Azure che spiega come inviare informazioni di contesto per la richiesta al servizio back-end. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-reference.md).
 
 ## <a name="policy"></a>Policy
 
@@ -35,5 +35,4 @@ Incollare il codice nel blocco **inbound**.
 Altre informazioni sui criteri di Gestione API:
 
 + [Criteri di trasformazione](../api-management-transformation-policies.md)
-+ [Esempi di criteri](../policy-samples.md)
-
++ [Esempi di criteri](../policy-reference.md)

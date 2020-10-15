@@ -3,12 +3,12 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729050"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078885"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
@@ -197,11 +197,14 @@ Collaborare con il team di vendita VMware EUC per determinare il costo della lic
 
 In base all'architettura di distribuzione standard, le macchine virtuali dell'infrastruttura Horizon sono costituite da server di connessione, UAGs, responsabili del volume delle app e vengono distribuiti nella rete virtuale di Azure del cliente. Sono necessarie altre istanze native di Azure per supportare i servizi di disponibilità elevata, Microsoft SQL o Microsoft Active Directory (AD) in Azure. Di seguito è riportato un elenco di istanze di Azure basate su un esempio di distribuzione di 2.000 desktop. 
 
+>[!NOTE]
+>Per essere in grado di gestire l'errore, distribuire un server più del necessario per il numero di connessioni (n + 1). Il numero minimo consigliato di istanze del server di connessione, UAG e gestione volumi app è 2 e il numero di richieste aumenterà in base alla quantità di utenti che verrà supportata dall'ambiente.  Un singolo server di connessione supporta un massimo di 4.000 sessioni, sebbene la procedura consigliata sia 2.000. Sono supportati fino a sette server di connessione per ogni pod con una raccomandazione di 12.000 sessioni attive in totale per ogni pod. Per i numeri più recenti, vedere l' [articolo della Knowledge Base VMware limiti di ridimensionamento e consigli per VMware Horizon 7](https://kb.vmware.com/s/article/2150348).
+
 | Componente dell'infrastruttura Horizon | Istanza di Azure | Numero di istanze necessarie (per 2.000-desktop)    | Commento  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Server di connessione                | D4sv3          | 2       | *Include 1 istanza per HA*             |    
-| UAG                              | F2sv2          | 2       | *Include 1 istanza per HA*             |
-| Gestione volumi app              | D4sv3          | 2       | *Include 1 istanza per HA*             |
+| Server di connessione                | D4sv3          | 2       | *Vedere la nota sopra*                         |    
+| UAG                              | F2sv2          | 2       | *Vedere la nota sopra*                         |
+| Gestione volumi app              | D4sv3          | 2       | *Vedere la nota sopra*                         |
 | Connettore Cloud                  | D4sv3          | 1       |                                          |
 | Controller AD                    | D4sv3          | 2       | *Opzione per usare il servizio AD di MSFT in Azure* |
 | Database MS-SQL                  | D4sv3          | 2       | *Opzione per l'uso del servizio SQL in Azure*     |

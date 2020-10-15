@@ -2,17 +2,17 @@
 title: 'Configurare Azure AD autenticazione per la connessione VPN utente: rete WAN virtuale'
 description: Informazioni su come configurare l'autenticazione Azure Active Directory per la VPN utente.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/17/2020
+ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1102e2dafcf1a78bc9c243f27549b13793ec5408
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832519"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079174"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configurare l'autenticazione Azure Active Directory per la VPN utente
 
@@ -22,15 +22,14 @@ Questo tipo di connessione richiede la configurazione di un client nel computer 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Creare una rete WAN virtuale
-> * Creare un hub virtuale
-> * Creare una configurazione VPN utente
-> * Scaricare un profilo VPN utente WAN virtuale
-> * Applicare la configurazione VPN utente a un hub virtuale
-> * Connettere una VNet a un hub virtuale
-> * Scaricare e applicare la configurazione del client VPN utente
-> * Visualizza la rete WAN virtuale
+* Creare una rete WAN virtuale
+* Creare un hub virtuale
+* Creare una configurazione VPN utente
+* Scaricare un profilo VPN utente WAN virtuale
+* Applicare la configurazione VPN utente a un hub virtuale
+* Connettere una VNet a un hub virtuale
+* Scaricare e applicare la configurazione del client VPN utente
+* Visualizza la rete WAN virtuale
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwanp2s.png)
 

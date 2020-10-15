@@ -5,22 +5,22 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: 851ec86feb5244ff43759a7aef2b80876dcfa734
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: e4f0a3ea85fa479826fe9e666df2b18f8dba7ce3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018543"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079123"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Creare un host di Azure Bastion usando l'interfaccia della riga di comando
 
-Questo articolo illustra come creare un host Bastion di Azure usando l'interfaccia della riga di comando di Azure. Dopo la distribuzione di Bastion, è possibile connettersi a una macchina virtuale tramite l'indirizzo IP privato tramite il browser usando il portale di Azure. La macchina virtuale non necessita di un indirizzo IP pubblico, un client aggiuntivo o un software speciale. La distribuzione di Azure Bastion viene effettuata per rete virtuale e non per sottoscrizione/account o macchina virtuale. L'esperienza RDP/SSH trasparente è disponibile per tutte le macchine virtuali nella stessa rete virtuale.
+Questo articolo illustra come creare un host Bastion di Azure usando l'interfaccia della riga di comando di Azure. Dopo aver effettuato il provisioning del servizio Azure Bastion nella rete virtuale, l'esperienza RDP/SSH trasparente è disponibile per tutte le macchine virtuali nella stessa rete virtuale. La distribuzione di Azure Bastion viene effettuata per rete virtuale e non per sottoscrizione/account o macchina virtuale.
 
-Facoltativamente, è possibile creare un host Bastion di Azure usando il [portale di Azure](tutorial-create-host-portal.md)o [Azure PowerShell](bastion-create-host-powershell.md).
+Facoltativamente, è possibile creare un host Bastion di Azure usando il [portale di Azure](./tutorial-create-host-portal.md)o [Azure PowerShell](bastion-create-host-powershell.md).
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
 
@@ -53,7 +53,5 @@ Questa sezione consente di creare una nuova risorsa di Azure Bastion usando l'in
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Connettersi a una macchina virtuale.
-   * [VM Linux](bastion-connect-vm-ssh.md)
-   * [Macchina virtuale Windows](bastion-connect-vm-rdp.md)
-
+* Per ulteriori informazioni, vedere le [domande frequenti su Bastion](bastion-faq.md) .
+* Per usare i gruppi di sicurezza di rete con la subnet di Azure Bastion, vedere [Usare i gruppi di sicurezza di rete](bastion-nsg.md).

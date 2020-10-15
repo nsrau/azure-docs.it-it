@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 7cc19adcc4769baaf34a75ef7217de639d0a357c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171018"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079038"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -51,7 +51,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!NOTE]
-> L'archiviazione fino a 16TB e 20.000 IOPS è supportata nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale
+> Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale e Canada Central.
 >
 > Tutte le altre aree supportano fino a 4 TB di spazio di archiviazione e fino a 6000 IOPS.
 >

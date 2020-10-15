@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092729"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069926"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come `http://contoso.cloudapp.net`. Azure assegna anche un indirizzo IP virtuale.
@@ -119,7 +119,7 @@ Il record A seguente, ad esempio, inoltra tutto il traffico da **contoso.com** a
 In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si vuole creare una voce con caratteri jolly per tutti i sottodomini, immettere '*****' come sottodominio.
 
 > [!WARNING]
-> Gli indirizzi IP in Azure sono dinamici per impostazione predefinita. È possibile utilizzare un [indirizzo IP riservato](../virtual-network/virtual-networks-reserved-public-ip.md) per garantire che l'indirizzo IP non venga modificato.
+> Gli indirizzi IP in Azure sono dinamici per impostazione predefinita. È possibile utilizzare un [indirizzo IP riservato](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) per garantire che l'indirizzo IP non venga modificato.
 > 
 > 
 
@@ -138,6 +138,3 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 [Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-
