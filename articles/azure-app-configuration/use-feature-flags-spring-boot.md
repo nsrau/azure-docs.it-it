@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326597"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077831"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Esercitazione: Usare i flag di funzionalità in un'app Spring Boot
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 In questa esercitazione si è appreso come implementare i flag di funzionalità in un'applicazione Spring Boot usando le librerie `spring-cloud-azure-feature-management-web`. Per altre informazioni sul supporto della gestione delle funzionalità in Spring Boot e Configurazione app, vedere le risorse seguenti:
 
-* [Codice di esempio per i flag di funzionalità in Spring Boot](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Codice di esempio per i flag di funzionalità in Spring Boot](./quickstart-feature-flag-spring-boot.md)
 * [Gestire i flag di funzionalità](./manage-feature-flags.md)

@@ -1,14 +1,14 @@
 ---
 title: Estensione Criteri di Azure per Visual Studio Code
 description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Azure Resource Manager alias.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89648337"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077933"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
@@ -82,7 +82,7 @@ Quando si accede per la prima volta, solo le risorse e i criteri di sottoscrizio
 
    - Tavolozza comandi: 
 
-     Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: selezionare sottoscrizioni**.
+     Dalla barra dei menu passare a **Visualizza** > **riquadro comandi**e immettere **Azure: selezionare sottoscrizioni**.
 
    - Piè di pagina della finestra
 

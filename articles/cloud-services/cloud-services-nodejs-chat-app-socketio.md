@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-js
-ms.openlocfilehash: a3f661aa31511c5f1cf35d2e3c0429af6ab0c997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef7325b53f7d6450acdff4664f3e338c31be9612
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327528"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077219"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
 
@@ -169,9 +169,9 @@ L'applicazione è ora in esecuzione in Azure ed è in grado di inoltrare i messa
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato illustrato come creare un'applicazione di chat di base ospitata in un servizio cloud di Azure. Per informazioni su come ospitare questa applicazione in un sito Web di Azure, vedere [Creazione di un'applicazione di chat Node.js con Socket.IO in un sito Web di Azure][chatwebsite].
 
-Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js](https://docs.microsoft.com/azure/developer/javascript/).
+Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js](/azure/developer/javascript/).
 
-[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
+[chatwebsite]: ./cloud-services-nodejs-develop-deploy-app.md
 
 [Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -191,8 +191,3 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di Node.js]
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
-
-
-
-
-

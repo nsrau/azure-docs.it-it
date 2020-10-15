@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9c9bac20beb415f8bc29ca63d530e5cd8492d2d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8ffb2d2f52e1bdfece7fe1bdcd04dcf9b1b600f3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997009"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077644"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Connettersi a una macchina virtuale Windows con Azure Bastion
 
@@ -20,7 +20,7 @@ Con Azure Bastion è possibile connettersi in modo sicuro e trasparente alle mac
 
 Azure Bastion offre connettività sicura a tutte le macchine virtuali nella rete virtuale in cui viene effettuato il provisioning. L'uso di Azure Bastion consente di proteggere le macchine virtuali dall'esposizione delle porte RDP/SSH all'esterno, offrendo al tempo stesso l'accesso sicuro tramite RDP/SSH. Per ulteriori informazioni, vedere la pagina relativa a [What is Azure Bastion?](bastion-overview.md).
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che siano soddisfatti i criteri seguenti:
 
