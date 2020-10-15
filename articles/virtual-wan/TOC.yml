@@ -5,6 +5,7 @@
     - name: Che cos'è una rete WAN virtuale?
       href: virtual-wan-about.md
 - name: Esercitazioni
+  expanded: true
   items:
     - name: Creare una connessione da sito a sito
       href: virtual-wan-site-to-site-portal.md
