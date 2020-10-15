@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbff4cc067ce831e9d9f69a457f348a94257e86d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874340"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076913"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 <a name="required-ports"> </a> Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, vengono usate le porte indicate nella tabella seguente.
 
-| Porte di origine/destinazione | Direction          | Protocollo di trasporto |   [Tag di servizio](../virtual-network/security-overview.md#service-tags) <br> Origine/Destinazione   | Scopo (\*)                                                 | Tipo di rete virtuale |
+| Porte di origine/destinazione | Direction          | Protocollo di trasporto |   [Tag di servizio](../virtual-network/network-security-groups-overview.md#service-tags) <br> Origine/Destinazione   | Scopo (\*)                                                 | Tipo di rete virtuale |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | In ingresso            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterno             |
 | */3443                     | In ingresso            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Endpoint di gestione per il portale di Azure e PowerShell         | Esterno e interno  |
@@ -153,7 +153,7 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 + **Azure Load Balancer**: consentire le richieste in ingresso dal tag di servizio `AZURE_LOAD_BALANCER` non è un requisito per lo SKU `Developer`, poiché viene distribuita solo un'unità di calcolo. Tuttavia, consentire le richieste in ingresso da [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) diventa cruciale quando si passa a uno SKU superiore, ad esempio `Premium`, perché in caso di errore di un probe di integrità da Load Balancer, la distribuzione ha esito negativo.
 
-+ **Application Insights**: se il monitoraggio di [applicazione Azure Insights](api-management-howto-app-insights.md) è abilitato in gestione API, è necessario consentire la connettività in uscita all' [endpoint di telemetria](/azure/azure-monitor/app/ip-addresses#outgoing-ports) dalla rete virtuale. 
++ **Application Insights**: se il monitoraggio di [applicazione Azure Insights](api-management-howto-app-insights.md) è abilitato in gestione API, è necessario consentire la connettività in uscita all' [endpoint di telemetria](../azure-monitor/app/ip-addresses.md#outgoing-ports) dalla rete virtuale. 
 
 + **Forzare il tunneling del traffico al firewall locale usando ExpressRoute o un'appliance virtuale di rete**: Una configurazione comune dei clienti prevede la definizione di una route predefinita (0.0.0.0/0) personalizzata che forza tutto il traffico dalla subnet delegata di Gestione API a passare attraverso un firewall locale o a un'appliance virtuale di rete. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. Per la soluzione è necessario eseguire alcune operazioni:
 
@@ -272,7 +272,7 @@ Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consente le ri
 * [Connessione di una rete virtuale da modelli di distribuzione differenti](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure](api-management-howto-api-inspector.md)
 * [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md)
-* [Tag di servizio](../virtual-network/security-overview.md#service-tags)
+* [Tag di servizio](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
@@ -285,6 +285,6 @@ Gli indirizzi IP sono divisi per **ambiente di Azure**. Quando si consente le ri
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/security-overview.md
+[Network Security Group]: ../virtual-network/network-security-groups-overview.md
 [ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

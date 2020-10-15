@@ -3,12 +3,12 @@ title: Miglioramento dell'eccellenza operativa con Advisor
 description: USA Azure Advisor per ottimizzare e maturare l'eccellenza operativa per le tue sottoscrizioni di Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258477"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077389"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Ottenere l'eccellenza operativa usando Azure Advisor
 
@@ -38,7 +38,7 @@ Se il pool usa un componente interno deprecato, eliminare e ricreare il pool per
 
 ## <a name="repair-invalid-log-alert-rules"></a>Ripristinare le regole di avviso del log non valide
 
-Azure Advisor rileva le regole di avviso con query non valide specificate nella relativa sezione di condizione. È possibile creare regole di avviso del log in monitoraggio di Azure e usarle per eseguire query di analisi a intervalli specificati. I risultati della query determinano se è necessario attivare un avviso. Le query di analisi possono diventare non valide nel tempo a causa di modifiche nelle risorse, nelle tabelle o nei comandi a cui si fa riferimento. Advisor consiglia di correggere la query nella regola di avviso per impedirne la disabilitazione automatica e garantire il monitoraggio della copertura delle risorse in Azure. [Altre informazioni sulla risoluzione dei problemi relativi alle regole di avviso.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor rileva le regole di avviso con query non valide specificate nella relativa sezione di condizione. È possibile creare regole di avviso del log in monitoraggio di Azure e usarle per eseguire query di analisi a intervalli specificati. I risultati della query determinano se è necessario attivare un avviso. Le query di analisi possono diventare non valide nel tempo a causa di modifiche nelle risorse, nelle tabelle o nei comandi a cui si fa riferimento. Advisor consiglia di correggere la query nella regola di avviso per impedirne la disabilitazione automatica e garantire il monitoraggio della copertura delle risorse in Azure. [Altre informazioni sulla risoluzione dei problemi relativi alle regole di avviso.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Usare le raccomandazioni relative ai criteri di Azure
 
@@ -55,7 +55,7 @@ Criteri di Azure è un servizio di Azure che è possibile usare per creare, asse
 **Abilitare *ereditare un tag dai gruppi di risorse*.** Questi criteri aggiungono o sostituiscono il tag e il valore specifici del gruppo di risorse padre quando una risorsa viene aggiunta o aggiornata. È possibile monitorare e aggiornare le risorse esistenti attivando un'attività di correzione.
 
 ## <a name="no-validation-environment-enabled"></a>Nessun ambiente di convalida abilitato
-Azure Advisor determina che nella sottoscrizione corrente non è abilitato un ambiente di convalida. Quando si creano i pool host, \" nella scheda proprietà è stato selezionato No \" per \" ambiente di convalida \" . Avere almeno un pool host con un ambiente di convalida abilitato garantisce la continuità aziendale tramite le distribuzioni del servizio desktop virtuale di Windows con il rilevamento iniziale dei potenziali problemi. [Scopri di più](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor determina che nella sottoscrizione corrente non è abilitato un ambiente di convalida. Quando si creano i pool host, \" nella scheda proprietà è stato selezionato No \" per \" ambiente di convalida \" . Avere almeno un pool host con un ambiente di convalida abilitato garantisce la continuità aziendale tramite le distribuzioni del servizio desktop virtuale di Windows con il rilevamento iniziale dei potenziali problemi. [Altre informazioni](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Assicurarsi che l'ambiente di produzione (non di convalida) tragga vantaggio da funzionalità stabili
 Azure Advisor rileva che l'ambiente di convalida è abilitato per troppi pool host. Affinché gli ambienti di convalida soddisfino al meglio lo scopo, è necessario disporre di almeno uno, ma mai più della metà dei pool host nell'ambiente di convalida. Con un equilibrio integro tra i pool host con l'ambiente di convalida abilitato e quelli con disabilitato, è possibile sfruttare al meglio i vantaggi delle distribuzioni in più fasi offerte da desktop virtuale di Windows con determinati aggiornamenti. Per risolvere il problema, aprire le proprietà del pool host e selezionare \" No \" accanto all' \" impostazione dell'ambiente di convalida \" .
