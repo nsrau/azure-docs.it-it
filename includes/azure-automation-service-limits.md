@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: aa7b997fe112be5d974d0e82597e786fa219e1f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f01ca03167c7088c344f72e9943c103d9611bbc6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85570191"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082235"
 ---
 #### <a name="process-automation"></a>Automazione dei processi
 
@@ -60,4 +60,4 @@ La tabella seguente mostra i limiti per Gestione aggiornamenti.
 
 | **Risorsa** | **Limite**| **Note** |
 |---|---|---|
-|Numero di computer per ogni distribuzione di aggiornamenti|1000||
+|Numero di computer per ogni distribuzione di aggiornamenti|500||

@@ -171,7 +171,7 @@
             - name: Usare i pool di nodi di sistema
               href: use-system-pools.md
         - name: Distribuire servizio Azure Kubernetes con Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
         - name: Usare il visualizzatore di risorse di Kubernetes (anteprima)
           href: kubernetes-portal.md
@@ -358,10 +358,10 @@
     - name: DevOps
       items:
         - name: Usare Ansible per creare cluster servizio Azure Kubernetes
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Distribuzione continua di Jenkins
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Progetto DevOps di Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true

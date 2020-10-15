@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255249"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082110"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -36,7 +36,8 @@ Per impostazione predefinita, l'app instrada solo il traffico RFC1918 in VNet. S
 1. Selezionare **OK**.
 1. Selezionare **Salva**.
 
-Se si instrada tutto il traffico in uscita nel VNet, è soggetto a gruppi e UdR applicati alla subnet di integrazione. Quando si esegue il routing di tutto il traffico in uscita nella VNet, gli indirizzi in uscita sono ancora gli indirizzi in uscita elencati nelle proprietà dell'app, a meno che non si forniscano route per inviare il traffico altrove.
+> [!NOTE]
+> Se si instrada tutto il traffico in uscita nel VNet, è soggetto a gruppi e UdR applicati alla subnet di integrazione. Quando si esegue il routing di tutto il traffico in uscita nella VNet, gli indirizzi in uscita sono ancora gli indirizzi in uscita elencati nelle proprietà dell'app, a meno che non si forniscano route per inviare il traffico altrove.
 
 Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali nella stessa area:
 

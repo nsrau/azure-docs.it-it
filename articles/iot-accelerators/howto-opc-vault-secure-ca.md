@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f54467c03a67797d52ac499ca9ba455c0f75e240
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399636"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071456"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Eseguire il servizio di gestione certificati dell'insieme di credenziali OPC in modo sicuro
 
@@ -97,7 +97,7 @@ Tutti i sistemi devono essere monitorati e aggiornati continuamente con gli aggi
 Sottoscrivere o implementare il monitoraggio della sicurezza appropriato. Ad esempio, sottoscrivere una soluzione di monitoraggio centrale, ad esempio il Centro sicurezza di Azure o la soluzione di monitoraggio Microsoft 365, e configurarla in modo appropriato per assicurarsi che gli eventi di sicurezza vengano trasmessi alla soluzione di monitoraggio.
 
 > [!IMPORTANT]
-> Per impostazione predefinita, il servizio dell'insieme di credenziali OPC viene distribuito con [applicazione Azure Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) come soluzione di monitoraggio. Si consiglia vivamente di aggiungere una soluzione di sicurezza come il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) .
+> Per impostazione predefinita, il servizio dell'insieme di credenziali OPC viene distribuito con [applicazione Azure Insights](../azure-monitor/app/devops.md) come soluzione di monitoraggio. Si consiglia vivamente di aggiungere una soluzione di sicurezza come il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/) .
 
 ### <a name="assess-the-security-of-open-source-software-components"></a>Valutazione della sicurezza dei componenti software open source
 
@@ -145,7 +145,7 @@ Fornire un set completo di tutti i certificati rilasciati negli ultimi 12 mesi.
 
 ### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Documentare la procedura operativa standard per eliminare in modo sicuro le chiavi crittografiche
 
-Durante la durata di una CA, l'eliminazione della chiave potrebbe verificarsi solo raramente. Questo è il motivo per cui a nessun utente è stato assegnato il diritto di eliminazione del certificato Key Vault e perché non sono presenti API esposte per eliminare un certificato CA dell'emittente. La procedura manuale standard per l'eliminazione sicura delle chiavi crittografiche di autorità di certificazione è disponibile solo accedendo direttamente a Key Vault nel portale di Azure. È anche possibile eliminare il gruppo di certificati in Key Vault. Per garantire l'eliminazione immediata, disabilitare la Key Vault funzionalità di [eliminazione](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) temporanea.
+Durante la durata di una CA, l'eliminazione della chiave potrebbe verificarsi solo raramente. Questo è il motivo per cui a nessun utente è stato assegnato il diritto di eliminazione del certificato Key Vault e perché non sono presenti API esposte per eliminare un certificato CA dell'emittente. La procedura manuale standard per l'eliminazione sicura delle chiavi crittografiche di autorità di certificazione è disponibile solo accedendo direttamente a Key Vault nel portale di Azure. È anche possibile eliminare il gruppo di certificati in Key Vault. Per garantire l'eliminazione immediata, disabilitare la Key Vault funzionalità di [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea.
 
 ## <a name="certificates"></a>Certificati
 

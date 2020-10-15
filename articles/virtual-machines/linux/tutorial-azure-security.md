@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4fc8a0a4ea5063f52b6f9553018bddddd7bcf312
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: eadbc7e7831805c92fdc13982516f64cdf725dd8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974600"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963721"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Esercitazione: usare il Centro sicurezza di Azure per monitorare le macchine virtuali Linux
 
@@ -70,7 +70,7 @@ Per configurare criteri di sicurezza per un'intera sottoscrizione:
 
 ## <a name="view-vm-configuration-health"></a>Visualizzare lo stato della configurazione delle VM
 
-Dopo aver attivato la raccolta dei dati e impostato un criterio di sicurezza, il Centro sicurezza inizia a generare avvisi e raccomandazioni. Man mano che le macchine virtuali vengono distribuite, viene installato l'agente di raccolta dati. Il Centro sicurezza viene quindi popolato con i dati per le nuove macchine virtuali. Per informazioni dettagliate sullo stato di configurazione delle macchine virtuali, vedere [Protezione delle macchine virtuali nel Centro sicurezza di Azure](../../security-center/security-center-virtual-machine-protection.md). 
+Dopo aver attivato la raccolta dei dati e impostato un criterio di sicurezza, il Centro sicurezza inizia a generare avvisi e raccomandazioni. Man mano che le macchine virtuali vengono distribuite, viene installato l'agente di raccolta dati. Il Centro sicurezza viene quindi popolato con i dati per le nuove macchine virtuali. Per informazioni dettagliate sullo stato di configurazione delle macchine virtuali, vedere [Protezione delle macchine virtuali nel Centro sicurezza di Azure](../../security-center/asset-inventory.md). 
 
 Man mano che i dati vengono raccolti, i dati relativi all'integrità delle risorse di ogni macchina virtuale e delle risorse di Azure correlate vengono aggregati. Le informazioni vengono mostrate in un grafico di facile lettura. 
 
