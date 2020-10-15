@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797718"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Esercitazione: Pubblicare un sito Hugo in App Web statiche di Azure (anteprima)
@@ -115,7 +115,7 @@ I passaggi seguenti illustrano come creare una nuova app del sito statica e dist
 
 1. In _SKU_ selezionare **Gratuito**.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Dettagli inseriti":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Creare una risorsa di App Web statiche di Azure nel portale":::
 
 1. Fare clic sul pulsante **Accedi con GitHub**.
 
@@ -125,7 +125,7 @@ I passaggi seguenti illustrano come creare una nuova app del sito statica e dist
 
 1. In _Ramo_ selezionare **master**.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Informazioni su GitHub inserite":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Creare una risorsa di App Web statiche di Azure nel portale":::
 
 ### <a name="build"></a>Compilare
 
@@ -149,7 +149,7 @@ Successivamente, verranno aggiunte le impostazioni di configurazione usate dal p
 
 1. Nella finestra _Panoramica_ del portale di Azure della risorsa di App Web statiche di Azure appena creata, fare clic sul collegamento _URL_ per aprire l'applicazione distribuita.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Applicazione distribuita":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Creare una risorsa di App Web statiche di Azure nel portale":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

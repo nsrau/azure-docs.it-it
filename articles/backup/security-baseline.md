@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a05c7a6f9c3752507705e1c4242becfe1d65ffd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24bdb192ddfe1759cb1d70fff9936979f5e28143
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334838"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093362"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -486,7 +486,7 @@ Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di ges
 
 - [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure](./backup-rbac-rs-vault.md)
+- [Usare il controllo di accesso in base al ruolo di Azure per gestire i punti di ripristino di backup di Azure](./backup-rbac-rs-vault.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
