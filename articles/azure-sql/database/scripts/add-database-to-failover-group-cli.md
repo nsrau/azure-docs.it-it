@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 07/16/2019
 ms.openlocfilehash: 48f82dcc1fa9e1f6843df4e89daca6a01c57ed63
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321450"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Usare l'interfaccia della riga di comando di Azure per aggiungere un database a un gruppo di failover

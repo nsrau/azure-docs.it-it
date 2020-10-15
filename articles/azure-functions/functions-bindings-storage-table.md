@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 50706e1b525a3e3a39701ef2135d44c02c35077e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70329d07a9966a5cbdafcd64000470c4edcbca9e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181137"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072051"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione tabelle di Azure per Funzioni di Azure
 
@@ -273,8 +273,8 @@ public class Person : TableEntity
 ```
 
 ```csharp
-#r "Microsoft.Azure.Cosmos"
-using Microsoft.Azure.Cosmos.Table;
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -561,10 +561,10 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
 |**nome** | n/d | Nome della variabile che rappresenta la tabella o l'entità nel codice della funzione. | 
 |**tableName** | **TableName** | Nome della tabella.| 
-|**partitionKey** | **PartitionKey** |Facoltativa. Chiave di partizione dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
-|**rowKey** |**RowKey** | Facoltativa. Chiave di riga dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
-|**take** |**Take** | Facoltativa. Numero massimo di entità da leggere in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
-|**filter** |**Filter** | Facoltativa. Espressione di filtro OData per l'input della tabella in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**partitionKey** | **PartitionKey** |facoltativo. Chiave di partizione dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**rowKey** |**RowKey** | facoltativo. Chiave di riga dell'entità della tabella da leggere. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**take** |**Take** | facoltativo. Numero massimo di entità da leggere in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
+|**filter** |**Filter** | facoltativo. Espressione di filtro OData per l'input della tabella in JavaScript. Per istruzioni su come usare questa proprietà, vedere la sezione relativa all' [utilizzo](#input---usage) .| 
 |**connection** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. L'impostazione può essere il nome di un'impostazione dell'app con prefisso "AzureWebJobs" o di una stringa di connessione. Ad esempio, se il nome dell'impostazione è "AzureWebJobsMyStorage", è possibile specificare "Storage" qui. Il runtime di funzioni cercherà automaticamente un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -976,9 +976,9 @@ Accedere all'evento di output usando `context.bindings.<name>` dove `<name>` è 
 
 Sono disponibili due opzioni per l'output di un messaggio di riga di archiviazione tabelle da una funzione:
 
-- **Valore restituito**: impostare la `name` Proprietà in *function.jssu* `$return` . Con questa configurazione, il valore restituito della funzione viene reso permanente come riga di archiviazione tabelle.
+- **Valore restituito**: impostare la proprietà `name` in *function.json* su `$return`. Con questa configurazione, il valore restituito della funzione viene reso permanente come riga di archiviazione tabelle.
 
-- **Imperativo**: passare un valore al metodo [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [out](/python/api/azure-functions/azure.functions.out?view=azure-python) . Il valore passato a `set` viene reso permanente come messaggio dell'hub eventi.
+- **Imperativo**: passare un valore al metodo [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). Il valore passato a `set` viene salvato in modo permanente come messaggi dell'hub eventi.
 
 # <a name="java"></a>[Java](#tab/java)
 

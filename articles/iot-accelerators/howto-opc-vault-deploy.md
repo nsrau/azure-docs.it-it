@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282024"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071490"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilare e distribuire il servizio di gestione certificati dell'insieme di credenziali OPC
 
@@ -31,7 +31,7 @@ Questo articolo illustra come distribuire il servizio di gestione certificati de
 
 Attualmente, l'operazione di compilazione e distribuzione è limitata a Windows.
 Gli esempi sono tutti scritti per C# .NET Standard, che è necessario compilare il servizio ed esempi per la distribuzione.
-Tutti gli strumenti necessari per .NET Standard sono disponibili con gli strumenti di .NET Core. Vedere [Introduzione a .NET Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+Tutti gli strumenti necessari per .NET Standard sono disponibili con gli strumenti di .NET Core. Vedere [Introduzione a .NET Core](/dotnet/articles/core/getting-started).
 
 1. [Installare .NET Core 2.1 +][dotnet-install].
 2. [Installare Docker][docker-url] (facoltativo, solo se è richiesta la compilazione Docker locale).
