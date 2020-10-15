@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559417"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094076"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identità gestite per il servizio Azure SignalR
 
@@ -59,13 +59,13 @@ Il servizio Azure SignalR è un servizio completamente gestito, pertanto non è 
 2. Configurare le impostazioni upstream e usare **ManagedIdentity** come impostazioni di **autenticazione** . Per informazioni su come creare le impostazioni upstream con l'autenticazione, vedere [Impostazioni upstream](concept-upstream.md).
 
 3. In impostazioni di autenticazione identità gestite, per **risorsa**, è possibile specificare la risorsa di destinazione. La risorsa diventerà un' `aud` attestazione nel token di accesso ottenuto, che può essere usata come parte della convalida negli endpoint upstream. La risorsa può essere una delle seguenti:
-    - Vuoto
+    - Empty
     - ID applicazione (client) dell'entità servizio
     - URI dell'ID applicazione dell'entità servizio
     - [ID risorsa di un servizio di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > Se si convalida un token di accesso autonomamente nel servizio, è possibile scegliere uno qualsiasi dei formati di risorse. È sufficiente assicurarsi che il valore della **risorsa** nelle impostazioni di **autenticazione** e la convalida siano coerenti. Se si usa il controllo degli accessi in base al ruolo (RBAC) per un piano dati, è necessario usare la risorsa richiesta dal provider di servizi.
+    > Se si convalida un token di accesso autonomamente nel servizio, è possibile scegliere uno qualsiasi dei formati di risorse. È sufficiente assicurarsi che il valore della **risorsa** nelle impostazioni di **autenticazione** e la convalida siano coerenti. Se si usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per un piano dati, è necessario usare la risorsa richiesta dal provider di servizi.
 
 ### <a name="validate-access-tokens"></a>Convalidare i token di accesso
 

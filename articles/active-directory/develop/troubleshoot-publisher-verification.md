@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873150"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073734"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -33,7 +33,7 @@ Se non si riesce a completare il processo o si verifica un comportamento imprevi
 ## <a name="common-issues"></a>Problemi comuni
 Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante il processo. 
 
-- **Non si conosce l'ID di Microsoft Partner Network (MPN ID) o non si sa chi è il contatto principale per l'account** 
+- **Non conosco il mio ID Microsoft Partner Network (MPN ID) o non so chi è il contatto principale per l'account** 
     1. Accedere alla [pagina di registrazione di MPN](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Accedere con un account utente nel tenant di Azure AD primario dell'organizzazione 
     1. Se esiste già un account MPN, verrà riconosciuto e l'utente verrà aggiunto all'account 

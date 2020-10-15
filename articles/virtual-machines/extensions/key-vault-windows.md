@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1e7a58ba5e858b44f137834b2e1ab5472b9d0965
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970079"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072289"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -106,6 +106,10 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli sono uno strumento ideale per distribuire una o più macchine virtuali per cui è necessario l'aggiornamento dei certificati successivamente alla distribuzione. L'estensione può essere distribuita in singole macchine virtuali o in set di scalabilità di macchine virtuali. Lo schema e la configurazione sono comuni a entrambi i tipi di modello. 
 
 La configurazione JSON per un'estensione macchina virtuale deve essere annidata all'interno del frammento delle risorse della macchina virtuale del modello, in particolare nell'oggetto `"resources": []` per il modello di macchina virtuale e nell'oggetto `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` nel caso di un set di scalabilità di macchine virtuali.
+
+ > [!NOTE]
+> Per l'autenticazione nell'insieme di credenziali delle chiavi, l'estensione della macchina virtuale richiede l'assegnazione dell'identità gestita dal sistema o dall'utente.  Vedere [come eseguire l'autenticazione a Key Vault e assegnare un criterio di accesso key Vault.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> 
 
 ```json
     {
@@ -201,9 +205,9 @@ Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virt
 
    ```azurecli
         # Start the deployment
-        az vmss extension set -n "KeyVaultForWindows" `
+        az vmss extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```

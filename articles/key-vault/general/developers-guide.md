@@ -8,19 +8,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: df59d944a15e22e9884b0d177deedb9968ea1aef
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994987"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072765"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
 Key Vault consente di accedere in modo sicuro ai dati sensibili dall'interno delle applicazioni:
 
 - Le chiavi, i segreti e i certificati vengono protetti senza dover scrivere manualmente il codice ed è possibile usarli facilmente dalle applicazioni.
-- È possibile fare in modo che i clienti possiedano e gestiscano chiavi, segreti e certificati, per consentirti di concentrarti sulla fornitura delle funzionalità software di base. In questo modo, le applicazioni non sono proprietarie della responsabilità o della responsabilità potenziale per le chiavi del tenant, i segreti e i certificati dei clienti.
+- È possibile consentire ai clienti di possedere e gestire chiavi, segreti e certificati, per consentirti di concentrarti sulla fornitura delle funzionalità software di base. In questo modo, le applicazioni non sono proprietarie della responsabilità o della responsabilità potenziale per le chiavi del tenant, i segreti e i certificati dei clienti.
 - L'applicazione può usare chiavi per la firma e la crittografia, ma mantiene la gestione delle chiavi esterna dall'applicazione. Per ulteriori informazioni sulle chiavi, vedere [informazioni sulle chiavi](../keys/about-keys.md) .
 - È possibile gestire le credenziali, ad esempio le password, le chiavi di accesso, i token di firma di accesso condiviso archiviati in Key Vault come segreti, vedere [informazioni sui segreti](../secrets/about-secrets.md)
 - Gestire i certificati. Per ulteriori informazioni, vedere [informazioni sui certificati](../certificates/about-certificates.md) .
