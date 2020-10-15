@@ -9,10 +9,10 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67180077"
 ---
 Durante la distribuzione delle risorse in Azure, è possibile avere una notevole flessibilità al momento di decidere quali tipi di risorse distribuire, dove posizionarle e come configurarle. Tuttavia, tale flessibilità potrebbe rendere disponibili più opzioni rispetto a quelle che devono essere consentite nell'organizzazione. Quando si valuta la distribuzione delle risorse in Azure, ci si potrebbe chiedere:
