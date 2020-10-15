@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8dfc69bf251a811363426a3aeca7379d18458b47
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667232"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950687"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Esercitazione: Aggiungere la paginazione ai risultati della ricerca con .NET SDK
 
@@ -304,7 +304,7 @@ Aprire la soluzione della pagina di ricerca di base.
     }
     ```
 
-1. Il metodo **RunQueryAsync**, introdotto nella lezione precedente, deve essere modificato per risolvere l'errore di sintassi. Si usano i campi **Skip**, **Top** e **IncludeTotalCount** della classe [**SearchOptions**](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) per richiedere una sola pagina di risultati, a partire dall'impostazione **Skip**. È inoltre necessario calcolare le variabili di paginazione per la visualizzazione. Sostituire l'intero metodo con il codice seguente.
+1. Il metodo **RunQueryAsync**, introdotto nella lezione precedente, deve essere modificato per risolvere l'errore di sintassi. Si usano i campi **Skip**, **Top** e **IncludeTotalCount** della classe [**SearchOptions**](/dotnet/api/azure.search.documents.searchoptions) per richiedere una sola pagina di risultati, a partire dall'impostazione **Skip**. È inoltre necessario calcolare le variabili di paginazione per la visualizzazione. Sostituire l'intero metodo con il codice seguente.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)

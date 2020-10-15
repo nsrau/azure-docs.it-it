@@ -8,10 +8,10 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961099"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Esercitazione: Creare un notebook in Azure Cosmos DB per analizzare e visualizzare i dati
@@ -30,11 +30,11 @@ In questa sezione si creeranno il database di Azure Cosmos e il contenitore e si
 
 1. Andare alla scheda **Notebooks** (Notebook) e selezionare `…` accanto a **My Notebooks** (Notebook personali) e quindi **New Notebook** (Nuovo notebook) per creare un nuovo notebook. Selezionare **Python 3** come kernel predefinito.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Creare un nuovo notebook":::
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Creare un nuovo notebook&quot;:::
 
 1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
 
-1. Si creeranno quindi un database denominato "RetailDemo" e un contenitore denominato "WebsiteData" per archiviare i dati delle vendite al dettaglio. È possibile usare /CartID come chiave di partizione. Copiare e incollare il codice seguente in una nuova cella del notebook ed eseguirlo:
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData" per archiviare i dati delle vendite al dettaglio. È possibile usare /CartID come chiave di partizione. Copiare e incollare il codice seguente in una nuova cella del notebook ed eseguirlo:
 
    ```python
    import azure.cosmos
@@ -49,7 +49,11 @@ In questa sezione si creeranno il database di Azure Cosmos e il contenitore e si
 
    Per eseguire una cella, premere `Shift + Enter` oppure selezionare la cella e scegliere l'opzione **Run Active Cell** (Esegui cella attiva) sulla barra di spostamento di Esplora dati.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Eseguire la cella attiva":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Creare un nuovo notebook&quot;:::
+
+1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
+
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData":::
 
    Il database e il contenitore vengono creati nell'account Azure Cosmos corrente. Viene effettuato il provisioning del contenitore con 400 UR/s. Al termine della creazione del database e del contenitore verrà visualizzato l'output seguente. 
 
@@ -60,23 +64,11 @@ In questa sezione si creeranno il database di Azure Cosmos e il contenitore e si
 
    È anche possibile visualizzare le risorse appena create aggiornando la scheda **Data** (Dati):
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Aggiornare la scheda Data (Dati) per visualizzare il nuovo contenitore":::
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Creare un nuovo notebook&quot;:::
 
-1. Si importeranno quindi i dati delle vendite al dettaglio di esempio nel contenitore di Azure Cosmos. Ecco il formato di un elemento dei dati delle vendite al dettaglio:
+1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
 
-   ```json
-    {
-       "CartID":5399,
-       "Action":"Viewed",
-       "Item":"Cosmos T-shirt",
-       "Price":350,
-       "UserName":"Demo.User10",
-       "Country":"Iceland",
-       "EventDate":"2015-06-25T00:00:00",
-       "Year":2015,"Latitude":-66.8673,
-       "Longitude":-29.8214,
-       "Address":"852 Modesto Loop, Port Ola, Iceland",
-       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData"
     }
    ```
 
@@ -135,7 +127,11 @@ In una nuova cella del notebook eseguire questo codice per leggere i primi 10 el
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Eseguire la query per ottenere i primi 10 elementi":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Creare un nuovo notebook&quot;:::
+
+1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
+
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Eseguire query e analizzare i dati
 
@@ -148,7 +144,11 @@ In questa sezione si eseguiranno alcune query sui dati recuperati.
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Output relativo al fatturato di vendita totale":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Creare un nuovo notebook&quot;:::
+
+1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
+
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData":::
 
 * **Query2:** per ottenere un elenco dei cinque articoli più acquistati, aprire una nuova cella del notebook ed eseguire questo codice:
 
@@ -159,7 +159,11 @@ In questa sezione si eseguiranno alcune query sui dati recuperati.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Cinque articoli più acquistati":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Creare un nuovo notebook&quot;:::
+
+1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
+
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData":::
 
 ## <a name="visualize-your-data"></a>Visualizzare i dati  
 
@@ -235,7 +239,11 @@ In questa sezione si eseguiranno alcune query sui dati recuperati.
 
    L'output visualizza la mappa del mondo con diversi colori, da quelli più scuri che rappresentano i paesi/aree geografiche con il fatturato più alto a quelli più chiari che rappresentano il fatturato più basso.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualizzazione mappa con il fatturato dei paesi/aree geografiche":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Creare un nuovo notebook&quot;:::
+
+1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
+
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData":::
 
 1. Esaminiamo un altro caso di visualizzazione dei dati. Nel contenitore WebsiteData vengono registrati gli utenti che hanno visualizzato un articolo, lo hanno aggiunto al carrello e lo hanno acquistato. Tracciamo il tasso di conversione degli articoli acquistati. Eseguire questo codice in una nuova cella per visualizzare il tasso di conversione per ogni articolo:
 
@@ -286,7 +294,11 @@ In questa sezione si eseguiranno alcune query sui dati recuperati.
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualizzare il tasso di conversione in acquisto":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Creare un nuovo notebook&quot;:::
+
+1. Dopo aver creato un nuovo notebook è possibile rinominarlo, ad esempio in **VisualizeRetailData.ipynb**.
+
+1. Si creeranno quindi un database denominato &quot;RetailDemo&quot; e un contenitore denominato &quot;WebsiteData":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
