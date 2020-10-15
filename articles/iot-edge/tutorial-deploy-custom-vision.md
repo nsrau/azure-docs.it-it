@@ -9,16 +9,16 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042803"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044582"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
-Azure IoT Edge può rendere più efficienti le soluzioni IoT spostando i carichi di lavoro dal cloud alla rete perimetrale. Questa funzionalità è particolarmente utile per i servizi che elaborano grandi quantità di dati, come i modelli di visione artificiale. Il [Servizio visione artificiale personalizzato](../cognitive-services/custom-vision-service/home.md) consente di compilare classificatori di immagini personalizzate e di distribuirli ai dispositivi come contenitori. Insieme, questi due servizi consentono di trovare informazioni dettagliate nelle immagini e nei flussi video senza dover prima trasferire tutti i dati in remoto. Il Servizio visione artificiale personalizzato fornisce un classificatore che confronta un'immagine con un modello con training per generare informazioni dettagliate.
+Azure IoT Edge può rendere più efficienti le soluzioni IoT spostando i carichi di lavoro dal cloud alla rete perimetrale. Questa funzionalità è particolarmente utile per i servizi che elaborano grandi quantità di dati, come i modelli di visione artificiale. Il [Servizio visione artificiale personalizzato](../cognitive-services/custom-vision-service/overview.md) consente di compilare classificatori di immagini personalizzate e di distribuirli ai dispositivi come contenitori. Insieme, questi due servizi consentono di trovare informazioni dettagliate nelle immagini e nei flussi video senza dover prima trasferire tutti i dati in remoto. Il Servizio visione artificiale personalizzato fornisce un classificatore che confronta un'immagine con un modello con training per generare informazioni dettagliate.
 
 In un dispositivo IoT Edge, ad esempio, il Servizio visione artificiale personalizzato potrebbe determinare se un'autostrada sta registrando un traffico superiore o inferiore al normale o se in un garage ci sono posti disponibili in una fila. Queste informazioni dettagliate possono essere condivise con un altro servizio in modo da intraprende l'azione appropriata.
 
@@ -46,7 +46,7 @@ Prima di iniziare questa esercitazione, è necessario aver completato l'esercita
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure.
 * Un [dispositivo Linux che esegue Azure IoT Edge](quickstart-linux.md)
-* Un registro contenitori, ad esempio [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/).
+* Un registro contenitori, ad esempio [Registro Azure Container](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurato con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurato per eseguire i contenitori Linux.
 
