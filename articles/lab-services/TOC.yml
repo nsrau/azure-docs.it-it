@@ -64,7 +64,9 @@
               href: how-to-manage-user-lists-within-teams.md
             - name: Gestire il pool di macchine virtuali
               href: how-to-manage-vm-pool-within-teams.md
-            - name: Creare pianificazioni
+            - name: Eliminare lab
+              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+            - name: Pianificazioni e impostazioni
               href: how-to-create-schedules-within-teams.md
             - name: Accedere a una macchina virtuale (visualizzazione studente)
               href: how-to-access-vm-for-students-within-teams.md

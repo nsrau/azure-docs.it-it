@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540575"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076250"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Usare Time Series Insights per visualizzare i dati di telemetria inviati dall'acceleratore della soluzione Simulazione dispositivi
 
@@ -63,12 +63,12 @@ I passaggi seguenti usano l'interfaccia della riga di comando di Azure in Azure 
 
 1. Per creare l'ambiente Time Series Insights nello stesso gruppo di risorse dell'acceleratore di soluzioni, usare i valori nella tabella seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome ambiente | Nella screenshot seguente viene usato il nome **Contoso-TSI**. Quando si completa questo passaggio, scegliere il proprio nome univoco. |
     | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Resource group | **contoso-simulation**. Usare il nome dell'acceleratore di soluzioni. |
-    | Location | In questo esempio viene usato **Stati Uniti orientali**. Creare l'ambiente nella stessa area dell'acceleratore di Simulazione dispositivi. |
+    | Posizione | In questo esempio viene usato **Stati Uniti orientali**. Creare l'ambiente nella stessa area dell'acceleratore di Simulazione dispositivi. |
     | Sku |**S1** |
     | Capacità | **1** |
 
@@ -95,7 +95,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Usare il gruppo 
 
 1. Per configurare l'hub IoT come nuova origine evento, usare i valori nella tabella seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome Origine evento | Nella screenshot seguente viene usato il nome **contoso-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
     | Source (Sorgente) | **Hub IoT** |
@@ -113,7 +113,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Usare il gruppo 
 1. Fare clic su **Crea**.
 
 > [!NOTE]
-> È possibile [concedere l'accesso ad altri utenti](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) allo strumento di esplorazione di Time Series Insights.
+> È possibile [concedere l'accesso ad altri utenti](../time-series-insights/concepts-access-policies.md#grant-data-access) allo strumento di esplorazione di Time Series Insights.
 
 ## <a name="start-a-simulation"></a>Avviare una simulazione
 
