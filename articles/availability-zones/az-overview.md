@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773740"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078375"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Aree e zone di disponibilità in Azure
 
@@ -37,7 +37,7 @@ Per comprendere meglio le aree e zone di disponibilità in Azure, è utile compr
 
 ## <a name="regions"></a>Regioni
 
-Un'area è un set di centri dati distribuiti in un perimetro definito dalla latenza e connessi tramite una rete a bassa latenza regionale dedicata. Azure offre la flessibilità necessaria per distribuire le applicazioni in cui è necessario, tra cui più aree, per offrire resilienza tra aree diverse. Per altre informazioni, vedere [Panoramica del pilastro di resilienza](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
+Un'area è un set di centri dati distribuiti in un perimetro definito dalla latenza e connessi tramite una rete a bassa latenza regionale dedicata. Azure offre la flessibilità necessaria per distribuire le applicazioni in cui è necessario, tra cui più aree, per offrire resilienza tra aree diverse. Per altre informazioni, vedere [Panoramica del pilastro di resilienza](/azure/architecture/framework/resiliency/overview).
 
 ## <a name="availability-zones"></a>Zone di disponibilità
 
@@ -78,7 +78,7 @@ Se un'offerta di servizio non è disponibile in un'area specifica, è possibile 
 
 | Tipo di area | Non a livello di area | Fondamentale | Mainstream | Specializzata | Zone di disponibilità | Residenza dei dati |
 | --- | --- | --- | --- | --- | --- | --- |
-| Implementazione consigliata | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
+| Consigliato | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Basata su richiesta | Basata su richiesta | N/D | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>Servizi per categoria
@@ -170,9 +170,9 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Creare una macchina virtuale](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Aggiungere un disco gestito usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md)
+- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md)
 - [Database SQL](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Ripristino di emergenza geografico del bus di servizio](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)

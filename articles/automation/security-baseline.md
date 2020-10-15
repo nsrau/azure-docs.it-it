@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400518"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070691"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -84,7 +84,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 * [Come distribuire il firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/threat-protection.md)
+* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 * [Informazioni sul centro sicurezza di Azure Adaptive Network hardening](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook ospitati in macchine virtuali d
 
 * [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/#network)
+* [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network)
 
 * [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -520,7 +520,7 @@ Tuttavia, quando si usano i ruoli di lavoro ibridi per Runbook supportati da mac
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -720,7 +720,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 * [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](../governance/management-groups/create.md)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
 * [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Usare anche il grafico delle risorse di Azure per eseguire query e individuare l
 
 * [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-samples.md)
+* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -854,7 +854,7 @@ Il controllo delle applicazioni adattivi è una soluzione end-to-end intelligent
 
 * [Panoramica di Web Application Firewall di Azure](../web-application-firewall/overview.md)
 
-* [Gruppi di sicurezza di rete](../virtual-network/security-overview.md)
+* [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md)
 
 * [Panoramica di rete virtuale di Azure](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 * [Esercitazione: Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-samples.md)
+* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-reference.md)
 
 * [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ Quando si usa la funzionalità Hybrid Runbook Worker, usare la raccomandazione d
 
 * [Distribuire un account di automazione usando un modello di Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-samples.md)
+* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -984,7 +984,7 @@ Quando si usa la funzionalità Hybrid Runbook Worker, assicurarsi di limitare co
 
 * [Come usare gli alias](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-samples.md)
+* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1014,7 +1014,7 @@ Quando si usa la funzionalità Hybrid Runbook Worker, sfruttare il Centro sicure
 
 * [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-samples.md)
+* [Esempi di criteri di Azure predefiniti per automazione di Azure](./policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
