@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045296"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097525"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -93,9 +93,9 @@ Si passerà alla pagina di distribuzione per il connettore. Al termine della dis
 
 Successivamente, verrà configurato il connettore creato per raggiungere i dispositivi gemelli digitali di Azure.
 
-Prima di tutto, scaricare un'app personalizzata dei gemelli digitali di Azure che è stata modificata per lavorare con le app per la logica. Scaricare l'esempio di **spavalderia personalizzato di Azure Digital Twins** da [**questo collegamento**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) facendo clic sul pulsante *Scarica zip* . Passare alla cartella *Azure_Digital_Twins_Custom_Swaggers.zip* scaricata e decomprimerla. 
+Prima di tutto, scaricare un'app personalizzata dei gemelli digitali di Azure che è stata modificata per lavorare con le app per la logica. Scaricare l'esempio **personalizzato di Azure Digital gemelli (connettore app per la logica)** da [**questo collegamento**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) facendo clic sul pulsante *Scarica zip* . Passare alla cartella *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* scaricata e decomprimerla. 
 
-Il spavalderia personalizzato per questa esercitazione si trova nella cartella _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ . Questa cartella contiene sottocartelle denominate *stable* e *Preview*, entrambe che contengono versioni diverse della spavalderia organizzata per data. La cartella con la data più recente conterrà la copia più recente della spavalderia. Indipendentemente dalla versione selezionata, il file di spavalderia è denominato _**digitaltwins.json**_.
+Il spavalderia personalizzato per questa esercitazione si trova nella cartella _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_. Questa cartella contiene sottocartelle denominate *stable* e *Preview*, entrambe che contengono versioni diverse della spavalderia organizzata per data. La cartella con la data più recente conterrà la copia più recente della spavalderia. Indipendentemente dalla versione selezionata, il file di spavalderia è denominato _** digitaltwins.json * * _.
 
 > [!NOTE]
 > A meno che non si stia lavorando a una funzionalità di anteprima, è in genere consigliabile usare la versione *stabile* più recente di spavalderia. Sono comunque supportate anche le versioni precedenti e le versioni di anteprima della spavalderia. 

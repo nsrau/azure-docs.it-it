@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: ea62592ed155215b14666d0d56e09dbb1a83ed6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093464"
+ms.locfileid: "92096318"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender per l'architettura dell'it
 
@@ -29,12 +29,19 @@ Questo articolo descrive l'architettura del sistema funzionale della soluzione D
 Defender for Internet è connesso al cloud di Azure e ai componenti locali. La soluzione è progettata per la scalabilità in ambienti di grandi dimensioni e distribuiti geograficamente con più posizioni remote. Questa soluzione Abilita un'architettura distribuita a più livelli per paese, area, business unit o zona. 
 
 Azure Defender per l'it include i componenti seguenti: 
-- Azure Defender per sensori Internet
-- Console di gestione:
-    - Console del sensore
-    - Console di gestione locale
-    - Portale di Azure
-- Agente sicurezza embedded (Security Module and Internets SDK)
+
+**Distribuzioni connesse al cloud**
+
+- Azure Defender per macchina virtuale o appliance del sensore Internet
+- portale di Azure per l'integrazione e la gestione del cloud in Sentinel di Azure
+- Console di gestione locale per la gestione del sito locale
+- Un agente di sicurezza incorporato (facoltativo)
+
+**Distribuzioni gapped (offline)**
+
+- Azure Defender per macchina virtuale o appliance del sensore Internet
+- Management Console locale per la gestione del sito locale
+
 
 ![Defender per l'architettura dell'it](./media/architecture/defender-iot-security-architecture.png)
 

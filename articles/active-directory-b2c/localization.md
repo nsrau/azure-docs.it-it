@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005379"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095900"
 ---
 # <a name="localization-element"></a>Elemento Localization
 
@@ -45,7 +45,7 @@ L'elemento **Localizzazione** contiene gli attributi seguenti:
 
 L'elemento **Localizazzione**contiene gli elementi XML seguenti
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1:n | elenco delle lingue supportate. |
 | LocalizedResources | 0:n | Elenco delle risorse localizzate. |
@@ -54,7 +54,7 @@ L'elemento **Localizazzione**contiene gli elementi XML seguenti
 
 L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Sì | La lingua predefinita da usare per le risorse localizzate. |
 | MergeBehavior | No | Un valore di enumerazione dei valori che vengono uniti a qualsiasi ClaimType presente in un criterio padre con lo stesso identificatore. Usare questo attributo quando si sovrascrive un'attestazione specificata nei criteri di base. I valori possibili sono: `Append`, `Prepend` o `ReplaceAll`. Il valore `Append` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `Prepend` specifica che la raccolta dei dati presenti deve essere accodata alla fine della raccolta specificata nel criterio padre. Il valore `ReplaceAll` specifica che la raccolta di dati definita nel criterio padre deve essere ignorata e di usare i dati definiti nel criterio corrente. |
@@ -63,7 +63,7 @@ L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
 L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1:n | Visualizza il contenuto che è conforme a un tag di linguaggio per RFC 5646 - Tag pe l'identificazione delle lingue. |
 
@@ -71,13 +71,13 @@ L'elemento **SupportedLanguages** contiene gli attributi seguenti:
 
 L'elemento **LocalizedResources** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | ID | Sì | Identificatore usato per identificare unicamente le risorse localizzate. |
 
 L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0:n | Definisce le intere raccolte in diverse impostazioni cultura. Una raccolta può avere un numero diverso di elementi e stringhe diverse per diverse impostazioni cultura. Raccolte di esempi include le enumerazioni visualizzate nei tipi di attestazione. Ad esempio, viene visualizzato dall'utente una lista per paese/area geografica in un elenco a discesa. |
 | LocalizedStrings | 0:n | Definisce tutte le stringhe, ad eccezione delle stringhe che vengono visualizzate nelle raccolte, in diverse impostazioni cultura. |
@@ -86,7 +86,7 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | elenco delle lingue supportate. |
 
@@ -94,7 +94,7 @@ L'elemento **LocalizedResources** contiene gli elementi seguenti:
 
 L'elemento **LocalizedCollection** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | ElementType | Sì | Fa riferimento a un elemento ClaimType o un elemento dell'interfaccia utente nel file dei criteri. |
 | ElementId | Sì | Una stringa che contiene un riferimento a un tipo di attestazione già definito nella sezione che viene usata se **ElementType** è impostato su un ClaimType. |
@@ -108,7 +108,7 @@ L'elemento **LocalizedCollection** contiene gli elementi seguenti:
 
 L'elemento **Item** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | Testo | Sì | La stringa di visualizzazione intuitiva che deve essere visualizzata dall'utente nell'interfaccia utente per questa opzione. |
 | Valore | Sì | Il valore di attestazione della stringa associato alla selezione di questa opzione. |
@@ -138,13 +138,13 @@ L'esempio seguente illustra l'uso dell'elemento **LocalizedCollections**. Contie
 
 L'elemento **LocalizedStrings** contiene gli elementi seguenti:
 
-| Elemento | Occorrenze | Descrizione |
+| Elemento | Occorrenze | Description |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | Una stringa localizzata. |
 
 L'elemento **LocalizedString** contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | ElementType | Sì | Valori possibili: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [predicate](#predicate), [InputValidation](#inputvalidation)o [UxElement](#uxelement).   | 
 | ElementId | Sì | Se **elementType** è impostato su `ClaimType` , `Predicate` o `InputValidation` , questo elemento contiene un riferimento a un tipo di attestazione già definito nella sezione ClaimsSchema. |
@@ -163,6 +163,7 @@ Riferimento ElementType a un tipo di attestazione, a una trasformazione di attes
 |Messaggio utente predicato|`Predicate`|Nome del predicato| Attributo del predicato da localizzare. Valori possibili: `HelpText` .|
 |Messaggio utente gruppo predicato|`InputValidation`|ID dell'elemento PredicateValidation.|ID dell'elemento PredicateGroup. Il gruppo predicato deve essere un elemento figlio dell'elemento validation Predicate come definito in ElementId.|
 |Elementi dell'interfaccia utente |`UxElement` | | ID dell'elemento dell'interfaccia utente da localizzare.|
+|[Controllo di visualizzazione](display-controls.md) |`DisplayControl` |ID del controllo di visualizzazione. | ID dell'elemento dell'interfaccia utente da localizzare.|
 
 ## <a name="examples"></a>Esempi
 
@@ -330,6 +331,23 @@ Il valore UxElement viene usato per localizzare uno degli elementi dell'interfac
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### <a name="displaycontrol"></a>DisplayControl
+
+Il valore DisplayControl viene usato per localizzare uno degli elementi dell'interfaccia utente del [controllo di visualizzazione](display-controls.md) . Nell'esempio seguente viene illustrato come localizzare i pulsanti Invia e verifica. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+Nella sezione dei metadati di un profilo tecnico autocertificato, il ContentDefinition a cui si fa riferimento deve avere DataUri impostato sulla [versione del layout di pagina](page-layout.md) 2.1.0 o successiva. Ad esempio:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

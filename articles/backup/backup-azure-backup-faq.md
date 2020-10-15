@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058081"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096624"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -57,6 +57,10 @@ Se il backup è già stato configurato e deve essere spostato da GRS a con ridon
 
 - Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
 - ILR non è supportato per i punti di ripristino online delle macchine virtuali locali di cui è stato eseguito il backup da server di Backup di Azure (MAB) o System Center DPM.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Come è possibile spostare i dati dall'insieme di credenziali dei servizi di ripristino in locale?
+
+L'esportazione dei dati direttamente dall'insieme di credenziali dei servizi di ripristino in locale usando Data Box non è supportata. I dati devono essere ripristinati in un account di archiviazione e quindi possono essere spostati in locale tramite [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) o [importazione/esportazione](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 

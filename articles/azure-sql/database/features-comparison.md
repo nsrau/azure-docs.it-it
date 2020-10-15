@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 07/22/2020
-ms.openlocfilehash: 30107c99f16b1b2f7c91ce8a662f44a041410d01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d11f350c82fa09abf0803e795a92fdb373c36c
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119369"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097610"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -184,7 +184,7 @@ Il database SQL di Azure e Azure SQL Istanza gestita supportano diversi strument
 Microsoft introduce costantemente nuove funzionalità per il database SQL di Azure. Visitare la pagina Web Aggiornamenti di Azure per ottenere informazioni sugli aggiornamenti più recenti usando questi filtri:
 
 - Filtrato per il [database SQL di Azure](https://azure.microsoft.com/updates/?service=sql-database).
-- Filtrato per Disponibilità generale [annunci](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) per le funzionalità del database SQL.
+- Filtrato per gli [ \( \) annunci GA di disponibilità generale per le](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) funzionalità del database SQL.
 
 Per ulteriori informazioni sul database SQL di Azure e Istanza gestita SQL di Azure, vedere:
 

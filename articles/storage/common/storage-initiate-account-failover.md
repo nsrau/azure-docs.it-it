@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e39548a923e76fc118dec4158398d02577ec20c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 300b9b6279231079807f8c923570bddab657ff56
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610059"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095906"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Avviare un failover dell'account di archiviazione
 
@@ -51,7 +51,7 @@ Per avviare un failover dell'account dal portale di Azure, seguire questa proced
 
 1. Verificare che l'account di archiviazione sia configurato per l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura. In caso contrario, selezionare **Configurazione** in **Impostazioni** per aggiornare l'account in modo che sia abilitata la ridondanza geografica.
 1. La proprietà **Ora ultima sincronizzazione** indica quanto tempo è passato tra la replica primaria e quella secondaria. **Ora ultima sincronizzazione** offre una stima della portata della perdita di dati che si verificherà al termine del failover. Per altre informazioni sul controllo della proprietà dell' **ora dell'ultima sincronizzazione** , vedere [controllare la proprietà dell'ora dell'ultima sincronizzazione per un account di archiviazione](last-sync-time-get.md).
-1. Selezionare **prepara per il failover**.
+1. Selezionare **Preparare il failover**.
 1. Rivedere la finestra di conferma. Quando si è pronti, immettere **Sì** per confermare e avviare il failover.
 
     :::image type="content" source="media/storage-initiate-account-failover/portal-failover-confirm.png" alt-text="Screenshot che mostra la replica geografica e lo stato del failover":::
@@ -107,6 +107,8 @@ az storage account failover \ --name accountName
 Quando si avvia un failover per l'account di archiviazione, vengono aggiornati i record DNS per l'endpoint secondario in modo che l'endpoint secondario diventi l'endpoint primario. Assicurarsi di aver compreso l'impatto potenziale sull'account di archiviazione prima di avviare un failover.
 
 Per stimare l'entità della probabile perdita di dati prima di avviare un failover, controllare la proprietà **ora ultima sincronizzazione** . Per altre informazioni sul controllo della proprietà dell' **ora dell'ultima sincronizzazione** , vedere [controllare la proprietà dell'ora dell'ultima sincronizzazione per un account di archiviazione](last-sync-time-get.md).
+
+Il tempo necessario per il failover dopo l'avvio può variare anche in genere meno di un'ora.
 
 Dopo il failover, il tipo di account di archiviazione viene convertito automaticamente in archiviazione con ridondanza locale nella nuova area primaria. È possibile abilitare nuovamente l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura per l'account. Tenere presente che la conversione da archiviazione con ridondanza locale ad archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura comporta un costo aggiuntivo. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 

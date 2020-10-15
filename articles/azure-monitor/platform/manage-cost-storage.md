@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0f71b1e75ecb60a53a004b7bf1bf0bd0c7522cc9
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044106"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096522"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -46,9 +46,9 @@ Si noti inoltre che alcune soluzioni, ad esempio [Centro sicurezza di Azure](htt
 
 ### <a name="log-analytics-dedicated-clusters"></a>Cluster dedicati di Log Analytics
 
-I cluster dedicati di Log Analytics sono raccolte di aree di lavoro in un singolo cluster di Esplora dati di Azure gestito per supportare scenari avanzati, ad esempio [chiavi gestite dal cliente](customer-managed-keys.md).  Log Analytics cluster dedicati usano un modello di determinazione dei prezzi per la prenotazione della capacità, che deve essere configurato per almeno 1000 GB/giorno. Questo livello di capacità ha uno sconto del 25% rispetto ai prezzi con pagamento in base al consumo. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. La prenotazione della capacità del cluster ha un periodo di impegno di 31 giorni dopo l'incremento del livello di prenotazione. Durante il periodo di impegno non è possibile ridurre il livello di prenotazione della capacità, ma è possibile aumentarlo in qualsiasi momento. Quando le aree di lavoro sono associate a un cluster, la fatturazione per l'inserimento dei dati per tali aree di lavoro viene eseguita a livello di cluster usando il livello di prenotazione di capacità configurato. Altre informazioni sulla [creazione di un cluster di Log Analytics](customer-managed-keys.md#create-cluster-resource) e l’[associazione di aree di lavoro ad esso](customer-managed-keys.md#workspace-association-to-cluster-resource). Le informazioni sui prezzi per la prenotazione della capacità sono disponibili nella [pagina dei prezzi di monitoraggio di Azure]( https://azure.microsoft.com/pricing/details/monitor/).  
+I cluster dedicati di Log Analytics sono raccolte di aree di lavoro in un singolo cluster di Esplora dati di Azure gestito per supportare scenari avanzati, ad esempio [chiavi gestite dal cliente](customer-managed-keys.md).  Log Analytics cluster dedicati usano un modello di determinazione dei prezzi per la prenotazione della capacità, che deve essere configurato per almeno 1000 GB/giorno. Questo livello di capacità ha uno sconto del 25% rispetto ai prezzi con pagamento in base al consumo. Qualsiasi utilizzo sopra il livello di prenotazione verrà fatturato in base alla tariffa con pagamento in base al consumo. La prenotazione della capacità del cluster ha un periodo di impegno di 31 giorni dopo l'incremento del livello di prenotazione. Durante il periodo di impegno non è possibile ridurre il livello di prenotazione della capacità, ma è possibile aumentarlo in qualsiasi momento. Quando le aree di lavoro sono associate a un cluster, la fatturazione per l'inserimento dei dati per tali aree di lavoro viene eseguita a livello di cluster usando il livello di prenotazione di capacità configurato. Altre informazioni sulla [creazione di un cluster di Log Analytics](customer-managed-keys.md#create-cluster) e l’[associazione di aree di lavoro ad esso](customer-managed-keys.md#link-workspace-to-cluster). Le informazioni sui prezzi per la prenotazione della capacità sono disponibili nella [pagina dei prezzi di monitoraggio di Azure]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Il livello di prenotazione della capacità del cluster viene configurato tramite a livello di codice con Azure Resource Manager utilizzando il `Capacity` parametro in `Sku` . La `Capacity` viene specificata in unità di GB e può includere valori di 1000 GB/giorno o più in incrementi di 100 GB al giorno. Questa operazione è descritta in dettaglio nella [chiave gestita dal cliente di monitoraggio di Azure](customer-managed-keys.md#create-cluster-resource). Se il cluster necessita di una prenotazione superiore a 2000 GB/giorno, contattare [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
+Il livello di prenotazione della capacità del cluster viene configurato tramite a livello di codice con Azure Resource Manager utilizzando il `Capacity` parametro in `Sku` . La `Capacity` viene specificata in unità di GB e può includere valori di 1000 GB/giorno o più in incrementi di 100 GB al giorno. Questa operazione è descritta in dettaglio nella [chiave gestita dal cliente di monitoraggio di Azure](customer-managed-keys.md#create-cluster). Se il cluster necessita di una prenotazione superiore a 2000 GB/giorno, contattare [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
 Sono disponibili due modalità di fatturazione per l'utilizzo in un cluster. Questi possono essere specificati dal `billingType` parametro durante la [configurazione del cluster](customer-managed-keys.md#cmk-management). Le due modalità sono: 
 
