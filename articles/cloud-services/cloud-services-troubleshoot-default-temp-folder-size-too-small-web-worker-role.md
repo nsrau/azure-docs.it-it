@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 77c4f627668b91c4bc21ad73b3511c1775943229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d18e174eac30bbcf87010531821a4017efb088ba
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460202"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075111"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Dimensioni della cartella TEMP predefinita ridotte per un ruolo di lavoro/Web del servizio cloud
 La directory temporanea predefinita di un ruolo Web o di lavoro del servizio cloud ha una dimensione massima di 100 MB, che può esaurirsi. Questo articolo descrive come evitare l'esaurimento dello spazio della directory temporanea.
@@ -70,8 +70,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere il blog [How to increase the size of the Windows Azure Web Role ASP.NET Temporary Folder](https://docs.microsoft.com/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder)(Come aumentare le dimensioni della cartella temporanea ASP.NET del ruolo Web di Azure).
+Vedere il blog [How to increase the size of the Windows Azure Web Role ASP.NET Temporary Folder](/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder)(Come aumentare le dimensioni della cartella temporanea ASP.NET del ruolo Web di Azure).
 
-Altri [articoli sulla risoluzione dei problemi](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) per i servizi cloud.
+Altri [articoli sulla risoluzione dei problemi](/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) per i servizi cloud.
 
-Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del computer Azure PaaS, vedere la [serie di blog di Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Per informazioni su come risolvere i problemi dei ruoli del servizio cloud usando i dati di diagnostica del computer Azure PaaS, vedere la [serie di blog di Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

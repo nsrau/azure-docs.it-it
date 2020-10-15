@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601385"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093311"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informazioni sulle workstation sicure gestite da Azure
 
@@ -64,7 +64,7 @@ Tutti gli utenti e gli operatori traggono vantaggio dall'utilizzo di una worksta
 * Workstation estremamente sensibile, ad esempio un terminale di pagamento SWIFT
 * Gestione dei segreti commerciali con la workstation
 
-Per ridurre il rischio, è necessario implementare controlli di sicurezza elevati per le workstation con privilegi che usano questi account. Per ulteriori informazioni, vedere la [Guida alla distribuzione delle funzionalità Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 roadmap](https://aka.ms/o365secroadmap)e [protezione di Access Privileged Access roadmap](https://aka.ms/sparoadmap).
+Per ridurre il rischio, è necessario implementare controlli di sicurezza elevati per le workstation con privilegi che usano questi account. Per ulteriori informazioni, vedere la [Guida alla distribuzione delle funzionalità Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 roadmap](/microsoft-365/security/office-365-security/security-roadmap)e [protezione di Access Privileged Access roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 ## <a name="why-use-dedicated-workstations"></a>Perché usare le workstation dedicate?
 

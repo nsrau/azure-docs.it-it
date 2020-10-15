@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2776b18dc3faded103b49e8ff58a8a0a6dccf144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74168357"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074465"
 ---
 # <a name="add-an-email-action"></a>Aggiungere un'azione di posta elettronica
 
@@ -166,7 +166,7 @@ La procedura seguente mostra come modificare il modello di messaggio di posta el
 
 ## <a name="throttling"></a>Limitazione
 
-L'acceleratore della soluzione di monitoraggio remoto usa Outlook per inviare notifiche tramite posta elettronica. Outlook limita il numero di messaggi di posta elettronica inviati a [30 messaggi al minuto](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Anche i client di posta elettronica che ricevono i messaggi possono limitare il numero di messaggi ricevuti al minuto. Controllare quindi le limitazioni imposte dal client di posta elettronica. Quando si configura una notifica tramite posta elettronica per una regola, la regola deve calcolare i valori medi su un periodo di almeno un minuto e non usare valori immediati:
+L'acceleratore della soluzione di monitoraggio remoto usa Outlook per inviare notifiche tramite posta elettronica. Outlook limita il numero di messaggi di posta elettronica inviati a [30 messaggi al minuto](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Anche i client di posta elettronica che ricevono i messaggi possono limitare il numero di messaggi ricevuti al minuto. Controllare quindi le limitazioni imposte dal client di posta elettronica. Quando si configura una notifica tramite posta elettronica per una regola, la regola deve calcolare i valori medi su un periodo di almeno un minuto e non usare valori immediati:
 
 ![Calcolo medio](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

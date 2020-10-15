@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563897"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093090"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Pianificare la distribuzione del dispositivo Azure Active Directory
 
@@ -34,7 +34,7 @@ Sono disponibili diversi metodi per integrare i dispositivi in Azure AD:
 
 * [Creare un join di Azure ad ibrido](concept-azure-ad-join-hybrid.md) tra dispositivi nel Active Directory locale e Azure ad. 
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Informazioni
 
 Prima di iniziare, assicurarsi di avere familiarità con la [panoramica sulla gestione delle identità dei dispositivi](overview.md).
 
@@ -62,7 +62,7 @@ Considerare le esigenze organizzative quando si determina la strategia per la di
 
 ### <a name="engage-the-right-stakeholders"></a>Coinvolgere gli stakeholder appropriati
 
-Quando i progetti tecnologici non hanno successo, in genere la causa è legata alle diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](https://aka.ms/deploymentplans) e che i ruoli di stakeholder nel progetto siano ben noti. 
+Quando i progetti tecnologici non hanno successo, in genere la causa è legata alle diverse aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere gli stakeholder appropriati](../fundamentals/active-directory-deployment-plans.md) e che i ruoli di stakeholder nel progetto siano ben noti. 
 
 Per questo piano, aggiungere gli stakeholder seguenti all'elenco:
 

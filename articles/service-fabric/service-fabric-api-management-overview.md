@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259302"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091135"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
 
@@ -23,19 +23,19 @@ In questo articolo viene illustrata un'introduzione all'uso di Gestione API di A
 > [!IMPORTANT]
 > Questa funzionalità è disponibile nei livelli **Premium** e **Developer** di Gestione API, dato il supporto di rete virtuale richiesto.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Un'architettura Service Fabric comune usa un'applicazione Web di una pagina che esegue chiamate HTTP ai servizi back-end che espongono API HTTP. L'[applicazione introduttive a Service Fabric di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) mostra un esempio di questa architettura.
 
 In questo scenario, un servizio Web senza stato funge da gateway nell'applicazione Service Fabric. Questo approccio richiede la scrittura di un servizio Web che possa inoltrare richieste HTTP a servizi back-end, come illustrato nel diagramma seguente:
 
-![Panoramica di Service Fabric con topologia di Gestione API di Azure][sf-web-app-stateless-gateway]
+![Diagramma che illustra come un servizio Web senza stato funge da gateway nell'applicazione Service Fabric.][sf-web-app-stateless-gateway]
 
 Man mano che le applicazioni aumentano in termini di complessità, lo stesso avviene per i gateway che devono presentare un'API a una miriade di servizi back-end. Gestione API di Azure è progettato per gestire API complesse con regole di routing, controllo di accesso, limitazione della velocità, monitoraggio, registrazione degli eventi e memorizzazione delle risposte nella cache con minimo intervento dell'utente. Gestione API di Azure supporta l'individuazione di servizi Service Fabric, la risoluzione delle partizioni e la selezione di repliche per indirizzare in modo intelligente le richieste direttamente ai servizi back-end in Service Fabric, senza richiedere all'utente di scrivere un gateway API senza stato personalizzato. 
 
 In questo scenario, l'interfaccia utente Web viene comunque gestita tramite un servizio Web, mentre le chiamate API HTTP vengono gestite e instradate tramite Gestione API di Azure, come illustrato nel diagramma seguente:
 
-![Panoramica di Service Fabric con topologia di Gestione API di Azure][sf-apim-web-app]
+![Diagramma che illustra il modo in cui l'interfaccia utente Web viene ancora gestita tramite un servizio Web, mentre le chiamate API HTTP vengono gestite e indirizzate tramite gestione API di Azure.][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Scenari applicativi
 
@@ -51,7 +51,7 @@ Nel caso più semplice, il traffico viene inoltrato a un'istanza del servizio se
 
 Nello scenario seguente un'applicazione Service Fabric contiene un servizio senza stato denominato `fabric:/app/fooservice`, che espone un'API HTTP interna. Il nome dell'istanza del servizio è noto e può essere specificato a livello di codice direttamente nei criteri di elaborazione in ingresso di Gestione API. 
 
-![Panoramica di Service Fabric con topologia di Gestione API di Azure][sf-apim-static-stateless]
+![Diagramma che mostra un'applicazione Service Fabric contiene un servizio senza stato che espone un'API HTTP interna.][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>Inviare traffico a un servizio con stato
 
@@ -77,12 +77,12 @@ Questo esempio illustra come creare una nuova istanza del servizio senza stato p
 
 - `fabric:/app/users/<username>`
 
-  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio:
+  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Esempio:
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`
 
-![Panoramica di Service Fabric con topologia di Gestione API di Azure][sf-apim-dynamic-stateless]
+![Diagramma che illustra un esempio in cui viene creata una nuova istanza del servizio senza stato per ogni utente di un'applicazione con un nome generato dinamicamente.][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Inviare traffico a più servizi con stato
 
@@ -96,14 +96,14 @@ Questo esempio illustra come creare una nuova istanza del servizio con stato per
 
 - `fabric:/app/users/<username>`
 
-  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio:
+  Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Esempio:
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`
 
 Ogni istanza del servizio viene anche partizionata usando lo schema di partizione Int64 con due partizioni e un intervallo di chiavi compreso tra `Int64.MinValue` e `Int64.MaxValue`. I criteri back-end calcolano una chiave di partizione entro l'intervallo specificato convertendo il valore `id` indicato nel percorso della richiesta URL in un intero a 64 bit, sebbene sia possibile usare qualsiasi algoritmo per calcolare la chiave di partizione. 
 
-![Panoramica di Service Fabric con topologia di Gestione API di Azure][sf-apim-dynamic-stateful]
+![Diagramma che mostra che anche ogni istanza del servizio viene partizionata mediante lo schema di partizione Int64 con due partizioni e un intervallo di chiavi che si estende da Int64. MinValue a Int64. MaxValue.][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

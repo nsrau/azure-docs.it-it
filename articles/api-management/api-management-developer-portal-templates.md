@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430780"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092886"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
@@ -41,7 +41,7 @@ La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando v
 
 Per accedere ai modelli del portale per sviluppatori, fare clic sull'icona di personalizzazione a sinistra per visualizzare il menu di personalizzazione e quindi fare clic su **Templates**.
 
-![Modelli del portale per sviluppatori][api-management-customize-menu]
+![Screenshot che evidenzia l'icona Personalizza per visualizzare il menu di personalizzazione.][api-management-customize-menu]
 
 L'elenco dei modelli include varie categorie di modelli che coprono le diverse pagine del portale per sviluppatori. Ogni modello è diverso, ma i passaggi per modificarli e pubblicare le modifiche sono uguali per tutti. Per modificare un modello, fare clic sul nome del modello.
 
@@ -145,7 +145,7 @@ I modelli salvati possono essere pubblicati singolarmente o tutti insieme. Per p
 
 Fare clic su **Yes** per confermare e rendere il modello attivo nel portale per sviluppatori.
 
-![Confermare la pubblicazione][api-management-publish-template-confirm]
+![Schermata che mostra la posizione in cui si seleziona Sì per fare in modo che il modello sia attivo.][api-management-publish-template-confirm]
 
 Per pubblicare tutte le versioni dei modelli non ancora pubblicate, fare clic su **Publish** nell'elenco dei modelli. I modelli non pubblicati sono contraddistinti da un asterisco dopo il nome del modello. In questo esempio vengono pubblicati i modelli **Product list** (Elenco prodotti) e **Product** (Prodotto).
 
@@ -160,11 +160,11 @@ I modelli appena pubblicati diventano immediatamente disponibili nel portale per
 ## <a name="to-revert-a-template-to-the-previous-version"></a>Per annullare la modifiche alla versione precedente di un modello
 Per annullare la modifiche alla versione pubblicata precedente di un modello, fare clic sull'icona di annullamento nell'editor del modello.
 
-![Annullare le modifiche al modello][api-management-revert-template]
+![Screenshot che evidenzia l'icona usata per ripristinare un modello.][api-management-revert-template]
 
 Fare clic su **Sì** per confermare.
 
-![Confirm][api-management-revert-template-confirm]
+![Screenshot che mostra la posizione in cui si seleziona Sì per confermare le modifiche.][api-management-revert-template-confirm]
 
 Al termine dell'operazione di annullamento, la versione pubblicata precedente del modello sarà disponibile nel portale per sviluppatori.
 
