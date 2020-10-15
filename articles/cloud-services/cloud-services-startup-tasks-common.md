@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: beebe60d70b7e4908bd3e9348fe815036d6955c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85920074"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075179"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -52,7 +52,7 @@ Le variabili possono inoltre usare un [valore XPath di Azure valido](cloud-servi
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Configurare l'avvio IIS con AppCmd.exe
-Lo strumento da riga di comando [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) può essere usato per gestire le impostazioni IIS all'avvio in Azure. *AppCmd.exe* offre un comodo accesso da riga di comando alle impostazioni di configurazione da usare nelle attività di avvio in Azure. Tramite *AppCmd.exe*è possibile aggiungere, modificare o rimuovere impostazioni per applicazioni e siti Web.
+Lo strumento da riga di comando [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) può essere usato per gestire le impostazioni IIS all'avvio in Azure. *AppCmd.exe* offre un comodo accesso da riga di comando alle impostazioni di configurazione da usare nelle attività di avvio in Azure. Tramite *AppCmd.exe*è possibile aggiungere, modificare o rimuovere impostazioni per applicazioni e siti Web.
 
 È necessario tuttavia tenere conto di alcuni aspetti se si usa *AppCmd.exe* come attività di avvio:
 
@@ -499,14 +499,14 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [Creare e distribuire](cloud-services-how-to-create-deploy-portal.md) il pacchetto del servizio cloud.
 
 [File ServiceDefinition. csdef]: cloud-services-model-and-package.md#csdef
-[Attività]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-[RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
-[LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
-[LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[Attività]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
+[Startup]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
+[Runtime]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
+[Environment]: /previous-versions/azure/reference/gg557552(v=azure.100)#Environment
+[Variabile]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
+[RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
+[RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)
+[Endpoints]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
+[LocalStorage]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalStorage
+[LocalResources]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalResources
+[RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
