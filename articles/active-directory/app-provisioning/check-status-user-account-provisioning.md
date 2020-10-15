@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235078"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069807"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: creazione di report sul provisioning automatico degli account utente
 
@@ -29,7 +29,7 @@ In questo articolo viene descritto come controllare lo stato dei processi di pro
 I connettori di provisioning vengono impostati e configurati tramite il [portale di Azure](https://portal.azure.com) in base alla [documentazione disponibile](../saas-apps/tutorial-list.md) per l'applicazione supportata. Una volta configurati e in esecuzione, i processi di provisioning possono essere segnalati tramite uno dei due metodi seguenti:
 
 * **Portale di Azure** : questo articolo descrive principalmente il recupero delle informazioni del report dall' [portale di Azure](https://portal.azure.com), che fornisce un report di riepilogo del provisioning, oltre ai log di controllo dettagliati del provisioning per una determinata applicazione.
-* **API di controllo**: Azure Active Directory offre anche un'API di controllo che consente di abilitare il recupero programmatico dei log di controllo dettagliati sul provisioning. Vedere [Informazioni di riferimento sull'API di controllo di Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) per la documentazione specifica sull'uso di questa API. Sebbene questo articolo non si concentri in particolare sull'uso dell'API, contiene informazioni dettagliate sui tipi di eventi di provisioning registrati nel log di controllo.
+* **API di controllo**: Azure Active Directory offre anche un'API di controllo che consente di abilitare il recupero programmatico dei log di controllo dettagliati sul provisioning. Vedere [Informazioni di riferimento sull'API di controllo di Azure Active Directory](/graph/api/resources/directoryaudit) per la documentazione specifica sull'uso di questa API. Sebbene questo articolo non si concentri in particolare sull'uso dell'API, contiene informazioni dettagliate sui tipi di eventi di provisioning registrati nel log di controllo.
 
 ### <a name="definitions"></a>Definizioni
 

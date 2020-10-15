@@ -1,24 +1,24 @@
 ---
 title: Controlli dell'esempio di progetto DoD Impact Level 5
-description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 5. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
+description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 5. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
 ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 6cd92cba69367c611a0e3a3c435e41e973a80d73
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540541"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929490"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 5
 
-L'articolo seguente illustra come viene eseguito il mapping tra l'esempio di progetto di Azure Blueprints Department of Defense Impact Level 5 (DoD IL5) e i controlli DoD Impact Level 5. Per altre informazioni sui controlli, vedere [DoD Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). La Defense Information Systems Agency (DISA) è un'agenzia del Department of Defense (DoD) degli Stati Uniti responsabile dello sviluppo e della gestione della DoD Cloud Computing Security Requirements Guide (SRG). La guida SRG definisce i requisiti di sicurezza di base per i provider di servizi cloud che ospitano informazioni, sistemi e applicazioni del DoD e per l'uso di servizi cloud da parte del DoD.  
+L'articolo seguente illustra come viene eseguito il mapping tra l'esempio di progetto di Azure Blueprints Department of Defense Impact Level 5 (DoD IL5) e i controlli DoD Impact Level 5. Per altre informazioni sui controlli, vedere [DoD Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
+La Defense Information Systems Agency (DISA) è un'agenzia del Department of Defense (DoD) degli Stati Uniti responsabile dello sviluppo e della gestione della DoD Cloud Computing Security Requirements Guide (SRG). La guida SRG definisce i requisiti di sicurezza di base per i provider di servizi cloud che ospitano informazioni, sistemi e applicazioni del DoD e per l'uso di servizi cloud da parte del DoD.  
 
 I mapping seguenti fanno riferimento ai controlli **DoD Impact Level 5**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\]: DoD Impact Level 5**.
 
 > [!IMPORTANT]
-> Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza 1:1 o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo.
-> Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
+> Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
 
 ## <a name="ac-2-account-management"></a>AC-2 Gestione degli account
 
@@ -238,7 +238,8 @@ Questo progetto fornisce le definizioni dei criteri per il controllo dei record 
 
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 Analisi delle vulnerabilità
 
-Questo progetto consente di gestire le vulnerabilità dei sistemi informativi assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano le vulnerabilità del sistema operativo, nonché di SQL e delle macchine virtuali nel Centro sicurezza di Azure. Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite. Questo progetto assegna anche definizioni di criteri che controllano e impongono l'uso di Sicurezza dei dati avanzata nei server SQL. Sicurezza dei dati avanzata include le funzionalità Valutazione della vulnerabilità e Advanced Threat Protection che consentono di comprendere le vulnerabilità nelle risorse distribuite.
+Questo progetto consente di gestire le vulnerabilità dei sistemi informativi assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che monitorano le vulnerabilità del sistema operativo, nonché di SQL e delle macchine virtuali nel Centro sicurezza di Azure.
+Centro sicurezza di Azure fornisce funzionalità di report che consentono di ricevere informazioni dettagliate in tempo reale sullo stato di sicurezza delle risorse di Azure distribuite. Questo progetto assegna anche definizioni di criteri che controllano e impongono l'uso di Sicurezza dei dati avanzata nei server SQL. Sicurezza dei dati avanzata include le funzionalità Valutazione della vulnerabilità e Advanced Threat Protection che consentono di comprendere le vulnerabilità nelle risorse distribuite.
 
 - La soluzione Sicurezza dei dati avanzata deve essere abilitata nell'istanza gestita di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
@@ -255,8 +256,7 @@ Il livello Standard per gli attacchi Distributed Denial of Service (DDoS) di Azu
 
 ## <a name="sc-7-boundary-protection"></a>SC-7 Protezione dei limiti
 
-Questo progetto consente di gestire e controllare i limiti di sistema assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora l'applicazione delle raccomandazioni sulla protezione avanzata per i gruppi di sicurezza di rete nel Centro sicurezza di Azure. Centro sicurezza di Azure analizza i criteri relativi al traffico di macchine virtuali connesse a Internet e fornisce raccomandazioni sulle regole dei gruppi di sicurezza di rete per ridurre la potenziale superficie di attacco.
-Questo progetto assegna inoltre definizioni di criteri che monitorano endpoint, applicazioni e account di archiviazione non protetti. Gli endpoint e le applicazioni non protetti da un firewall e gli account di archiviazione con accesso illimitato possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo.
+Questo progetto consente di gestire e controllare i limiti di sistema assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora l'applicazione delle raccomandazioni sulla protezione avanzata per i gruppi di sicurezza di rete nel Centro sicurezza di Azure. Centro sicurezza di Azure analizza i criteri relativi al traffico di macchine virtuali connesse a Internet e fornisce raccomandazioni sulle regole dei gruppi di sicurezza di rete per ridurre la potenziale superficie di attacco. Questo progetto assegna inoltre definizioni di criteri che monitorano endpoint, applicazioni e account di archiviazione non protetti. Gli endpoint e le applicazioni non protetti da un firewall e gli account di archiviazione con accesso illimitato possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo.
 
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
 - Gli account di archiviazione devono limitare l'accesso alla rete
