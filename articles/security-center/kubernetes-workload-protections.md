@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999322"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091152"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -67,21 +67,21 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
     > 
     > Se non si immettono i parametri necessari per le raccomandazioni che richiedono la configurazione, i carichi di lavoro verranno visualizzati come non integri.
 
-    | Nome raccomandazione                                                                   | Controllo di sicurezza                         | Configurazione necessaria |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | È necessario applicare i limiti di memoria e CPU del contenitore (anteprima)                          | Proteggi le applicazioni da attacchi DDoS | No                     |
-    | I contenitori con privilegi devono essere evitati (anteprima)                                     | Gestire l'accesso e le autorizzazioni            | No                     |
-    | È necessario applicare il file system radice non modificabile (di sola lettura) per i contenitori (anteprima)     | Gestire l'accesso e le autorizzazioni            | No                     |
-    | Il contenitore con escalation dei privilegi deve essere evitato (anteprima)                       | Gestire l'accesso e le autorizzazioni            | No                     |
-    | Evitare l'esecuzione di contenitori come utente root (anteprima)                           | Gestire l'accesso e le autorizzazioni            | No                     |
-    | I contenitori che condividono spazi dei nomi host sensibili devono essere evitati (anteprima)              | Gestire l'accesso e le autorizzazioni            | No                     |
-    | È necessario applicare le funzionalità di Linux con privilegi minimi per i contenitori (anteprima)       | Gestire l'accesso e le autorizzazioni            | **Sì**                |
-    | L'utilizzo dei montaggi del volume Pod HostPath deve essere limitato a un elenco noto (anteprima)    | Gestire l'accesso e le autorizzazioni            | **Sì**                |
-    | I contenitori devono restare in ascolto solo sulle porte consentite (anteprima)                              | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
-    | I servizi devono essere in ascolto solo sulle porte consentite (anteprima)                                | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
-    | L'utilizzo della rete e delle porte dell'host deve essere limitato (anteprima)                     | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
-    | L'override o la disabilitazione del profilo AppArmor dei contenitori deve essere limitata (anteprima) | Correggere le configurazioni di sicurezza        | **Sì**                |
-    | Le immagini del contenitore devono essere distribuite solo da registri attendibili (anteprima)            | Correggere le vulnerabilità                | **Sì**                |
+    | Nome raccomandazione                                                         | Controllo di sicurezza                         | Configurazione necessaria |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | I limiti della CPU e della memoria del contenitore devono essere applicati                          | Proteggi le applicazioni da attacchi DDoS | No                     |
+    | I contenitori con privilegi devono essere evitati                                     | Gestire l'accesso e le autorizzazioni            | No                     |
+    | È necessario applicare il file system radice non modificabile (di sola lettura) per i contenitori     | Gestire l'accesso e le autorizzazioni            | No                     |
+    | Evitare il contenitore con escalation dei privilegi                       | Gestire l'accesso e le autorizzazioni            | No                     |
+    | Evitare l'esecuzione di contenitori come utente root                           | Gestire l'accesso e le autorizzazioni            | No                     |
+    | È consigliabile evitare i contenitori che condividono spazi dei nomi host sensibili              | Gestire l'accesso e le autorizzazioni            | No                     |
+    | Per i contenitori è necessario applicare le funzionalità di Linux con privilegi minimi       | Gestire l'accesso e le autorizzazioni            | **Sì**                |
+    | L'utilizzo dei montaggi del volume Pod HostPath deve essere limitato a un elenco noto    | Gestire l'accesso e le autorizzazioni            | **Sì**                |
+    | I contenitori devono restare in ascolto solo sulle porte consentite                              | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
+    | I servizi devono restare in ascolto solo sulle porte consentite                                | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
+    | L'utilizzo della rete e delle porte dell'host deve essere limitato                     | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
+    | L'override o la disabilitazione del profilo AppArmor dei contenitori deve essere limitata | Correggere le configurazioni di sicurezza        | **Sì**                |
+    | Le immagini del contenitore devono essere distribuite solo da registri attendibili            | Correggere le vulnerabilità                | **Sì**                |
 
 
 1. Per le raccomandazioni con i parametri devono essere personalizzati, impostare i parametri:

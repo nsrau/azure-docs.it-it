@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441596"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073105"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurare l'acquisizione di pacchetti per i gateway VPN
 
@@ -318,7 +318,7 @@ Gli esempi seguenti di JSON e di uno schema JSON forniscono spiegazioni di ogni 
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>Configurare l'acquisizione di pacchetti tramite PowerShell
 
-Gli esempi seguenti mostrano i comandi di PowerShell che avviano e arrestano le acquisizioni di pacchetti. Per ulteriori informazioni sulle opzioni dei parametri, vedere [questo documento di PowerShell](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+Gli esempi seguenti mostrano i comandi di PowerShell che avviano e arrestano le acquisizioni di pacchetti. Per ulteriori informazioni sulle opzioni dei parametri, vedere [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Avviare l'acquisizione pacchetti per un gateway VPN
 
@@ -354,6 +354,9 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - La durata di acquisizione pacchetti minima suggerita è di 600 secondi. A causa dei problemi di sincronizzazione tra più componenti del percorso, le acquisizioni di pacchetti più brevi potrebbero non fornire dati completi.
 - I file di dati di acquisizione di pacchetti vengono generati nel formato PCAP. Usare Wireshark o altre applicazioni comunemente disponibili per aprire i file PCAP.
 - Le acquisizioni di pacchetti non sono supportate nei gateway basati su criteri.
+- Se il `SASurl` parametro non è configurato correttamente, la traccia potrebbe avere esito negativo con errori di archiviazione. Per esempi relativi alla generazione corretta di un `SASurl` parametro, vedere [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

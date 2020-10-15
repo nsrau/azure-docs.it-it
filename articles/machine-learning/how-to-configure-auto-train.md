@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709088"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091203"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
@@ -343,7 +343,7 @@ Dopo &nbsp; un &nbsp; periodo &nbsp; di &nbsp; tempo| Usare `experiment_timeout_
 
 È possibile visualizzare i risultati del training in un widget o inline in un notebook. Per altri dettagli, vedere [Tenere traccia dei modelli e valutarli](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs).
 
-Vedere [informazioni sui risultati automatici di Machine Learning](how-to-understand-automated-ml.md) per le definizioni e gli esempi dei grafici delle prestazioni e delle metriche disponibili per ogni esecuzione. 
+Vedere [valutare i risultati automatici dell'esperimento di Machine Learning](how-to-understand-automated-ml.md) per le definizioni e gli esempi dei grafici delle prestazioni e delle metriche disponibili per ogni esecuzione. 
 
 Per ottenere un riepilogo di conteggi e comprendere quali funzionalità sono state aggiunte a un particolare modello, vedere la pagina relativa alla [trasparenza di conteggi](how-to-configure-auto-features.md#featurization-transparency). 
 

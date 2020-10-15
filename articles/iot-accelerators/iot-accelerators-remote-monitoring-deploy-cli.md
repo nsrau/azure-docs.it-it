@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9dcf19f5318021df5d9fdde777b8786942e33d8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80258295"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072255"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
@@ -68,17 +68,17 @@ La distribuzione di base è orientata verso la presentazione della soluzione. Pe
 
 Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 
-| Conteggio | Risorsa                       | Type         | Utilizzo |
+| Count | Risorsa                       | Type         | Utilizzo |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Archiviazione dei dati di configurazione, delle regole, degli avvisi e di altre risorse di archiviazione offline sicura |  
-| 1     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Archiviazione per le macchine virtuali e i checkpoint di streaming |
+| 1     | [Account di archiviazione di Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)  | Standard        | Archiviazione per le macchine virtuali e i checkpoint di streaming |
 | 1     | [Applicazione Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting dell'applicazione web front-end |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestione della sicurezza e delle identità utente |
 | 1     | [Mappe di Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizzazione della posizione degli asset |
-| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
-| 1     | [Servizio Device Provisioning di Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning dei dispositivi su larga scala |
+| 1     | [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
+| 1     | [Servizio Device Provisioning di Azure](../iot-dps/index.yml)        |       S1          | Provisioning dei dispositivi su larga scala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
 
 ### <a name="standard"></a>Standard
@@ -89,17 +89,17 @@ Una distribuzione standard è una distribuzione pronta per l'ambiente di produzi
 
 Una distribuzione standard crea i servizi seguenti nella sottoscrizione di Azure:
 
-| Conteggio | Risorsa                                     | SKU / Dimensioni      | Utilizzo |
+| Count | Risorsa                                     | SKU / Dimensioni      | Utilizzo |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service)| Usa un servizio di orchestrazione di contenitori Kubernetes completamente gestito, con un'impostazione predefinita di tre agenti|
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 - livello Standard | Gestione, comando e controllo dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |
-| 5     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 per l'archiviazione di macchine virtuali e 1 per i checkpoint di streaming |
+| 5     | [Account di archiviazione di Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)    | Standard        | 4 per l'archiviazione di macchine virtuali e 1 per i checkpoint di streaming |
 | 1     | [Servizio app](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway applicazione su TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestione della sicurezza e delle identità utente |
 | 1     | [Mappe di Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizzazione della posizione degli asset |
-| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
-| 1     | [Servizio Device Provisioning di Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning dei dispositivi su larga scala |
+| 1     | [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
+| 1     | [Servizio Device Provisioning di Azure](../iot-dps/index.yml)        |       S1          | Provisioning dei dispositivi su larga scala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
 
 > [!NOTE]

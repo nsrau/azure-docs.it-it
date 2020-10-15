@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939402"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090846"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: configurare gli agenti di sicurezza
 
@@ -105,7 +105,7 @@ Per usare un valore di proprietà predefinito, rimuovere la proprietà dall'ogge
     }
     ```
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ### <a name="using-a-default-value"></a>Uso di un valore predefinito
 
@@ -117,8 +117,8 @@ La tabella seguente contiene le proprietà controllabili di Defender per gli age
 
 I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Nome| Stato | Valori validi| Valori predefiniti| Descrizione |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+| Nome| Stato | Valori validi| Valori predefiniti| Description |
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Obbligatorio: false |Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT7M |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
 |lowPriorityMessageFrequency |Obbligatorio: false|Valori validi: durata nel formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dell'invio dei messaggi con priorità bassa.|
 |snapshotFrequency |Richiedi: false|Valori validi: durata nel formato ISO 8601 |Valore predefinito PT13H |Intervallo di tempo per la creazione di snapshot dello stato del dispositivo.|
@@ -129,7 +129,7 @@ I valori predefiniti sono disponibili nello schema appropriato in [GitHub](https
 ### <a name="supported-security-events"></a>Eventi di sicurezza supportati
 
 |Nome evento| PropertyName | Valore predefinito| Evento snapshot| Stato dettagli  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Evento di diagnostica|eventPriorityDiagnostic| Off| False| Eventi di diagnostica correlati agli agenti. Utilizzare questo evento per la registrazione dettagliata.|
 |Errore di configurazione |eventPriorityConfigurationError |Basso |False |L'agente non è riuscito ad analizzare la configurazione. Verificare la configurazione in base allo schema.|
 |Statistiche eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True|Statistiche evento correlate agli agenti. |

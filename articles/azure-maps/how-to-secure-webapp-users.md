@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 50194341d1d34da4b02558461f532ae64b941b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1668c7ccad75771a598aaa55f5403f070ea2dff8
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319623"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090217"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Proteggere un'applicazione Web con l'accesso utente
 
@@ -59,7 +59,7 @@ Per consentire agli utenti di eseguire l'accesso, è necessario creare l'applica
    * Per un'implementazione non AspNetCore o un altro, vedere [acquisire il token per l'app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) da Azure ad documentazione.
    * L'endpoint del token protetto è responsabile della restituzione di un token di accesso per l'utente autenticato e autorizzato per chiamare le API REST di Azure maps.
 
-8. Configurare il controllo degli accessi in base al ruolo di Azure per utenti o gruppi. Vedere [concedere l'accesso basato sui ruoli per gli utenti](#grant-role-based-access-for-users-to-azure-maps).
+8. Configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per utenti o gruppi. Vedere [concedere l'accesso in base al ruolo per gli utenti](#grant-role-based-access-for-users-to-azure-maps).
 
 9. Configurare la pagina dell'applicazione Web con Azure Maps Web SDK per accedere all'endpoint del token di sicurezza. 
 
@@ -94,7 +94,7 @@ var map = new atlas.Map("map", {
     });
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

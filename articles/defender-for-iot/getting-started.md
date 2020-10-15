@@ -13,35 +13,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: aaed6cd789ca6178410c05b940a8f498e2c067a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940935"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090064"
 ---
-# <a name="get-started-with-defender-for-iot"></a>Inizia a usare Defender per le cose
+# <a name="getting-started-with-azure-defender-for-iot"></a>Introduzione ad Azure Defender per l'it
 
-Questo articolo fornisce una spiegazione dei diversi componenti di Defender per il servizio Internet e spiega come iniziare a usare il servizio usando due opzioni di distribuzione possibili.
+Questo articolo descrive i processi di distribuzione e di onboarding necessari per ottenere Azure Defender per l'esecuzione di tutto. Sono inoltre necessari passaggi aggiuntivi. Si consiglia di comprendere questi passaggi e acquisire familiarità con le informazioni contenute nei documenti associati.
 
-Per iniziare a usare il modulo di sicurezza per Azure RTO, Passare alla sezione [avvio rapido per il modulo Security per Azure RTO](quickstart-azure-rtos-security-module.md) . 
+Una volta completati tutti i passaggi, Azure Defender per i sensori Internet monitorerà la rete. A seconda di come si configura la soluzione, i rilevamenti possono essere inviati anche alla console di gestione locale o all'hub Internet delle cose.
 
-## <a name="deployment-options"></a>Opzioni di distribuzione
+Completare la procedura seguente per fare in modo che Azure Defender sia attivo e in esecuzione.
 
-Scegliere lo scenario del servizio che meglio soddisfa i requisiti dell'ambiente e del dispositivo Internet.
+## <a name="1-set-up-azure"></a>1. configurare Azure
 
-### <a name="built-in-deployment"></a>Distribuzione incorporata
+- Configurare un account Azure. Per altre informazioni, vedere [creare un account Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
 
-Usando l'opzione di distribuzione semplice e integrata, Defender for Internet è rapidamente integrato nell'hub Internet delle cose e offre un'analisi della sicurezza della configurazione dell'hub Internet, dell'identità e della gestione del dispositivo e dei modelli di comunicazione Hub-Device.
+- Firewall o proxy: se si dispone di un firewall o di un dispositivo di rete simile configurato per consentire connessioni specifiche, verificare che *. azure-devices.net:443 sia aperto al firewall o al proxy. Se i caratteri jolly non sono supportati o si desidera un maggiore controllo, il nome di dominio completo dell'hub Internet deve essere aperto nel FW o nel proxy. Per altre informazioni, vedere [endpoint dell'hub di riferimento-](/azure/iot-hub/iot-hub-devguide-endpoints)Internet.
 
-Avviare una [distribuzione incorporata](iot-hub-integration.md) con il monitoraggio e le raccomandazioni dell'hub Internet.
-    <br>
+## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. distribuire l'hardware, il software e l'onboarding nel sensore
 
-### <a name="enhanced-deployment"></a>Distribuzione avanzata
+- Acquistare l'hardware del sensore e installare il software. Seguire i passaggi descritti in questo articolo e per altre informazioni, vedere questo articolo e la Guida all' [installazione](https://aka.ms/AzureDefenderforIoTInstallSensorISO)di [Defender per l'hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) .
 
-Per le funzionalità di sicurezza avanzate, la distribuzione di Defender per gli agenti Internet, oltre all'abilitazione della sicurezza dell'hub Internet, fornisce la raccolta di eventi basata su agente, l'analisi e il rilevamento delle minacce per i dati di sicurezza principali dei dispositivi Internet e le funzionalità di gestione delle posizioni di sicurezza complete
+  - Dopo aver installato il sensore, registrare in modo sicuro le credenziali di accesso del sensore. Sono necessarie le credenziali per caricare il file di attivazione nel sensore.
 
-Inizia una [distribuzione avanzata](security-agents.md) con una soluzione di gestione delle minacce completa basata su agenti e sicurezza.
+  - Se si utilizzano sensori gestiti localmente, registrare in modo sicuro l'indirizzo IP del sensore o il nome del sensore definito nell'installazione. È possibile usarlo durante la creazione di un nome di sensore durante la registrazione del sensore nel portale Defender for Internet. È possibile usarli in un secondo momento per garantire una maggiore semplicità di rilevamento e nomi coerenti tra il nome di registrazione nel portale di Azure Defender per le cose e l'indirizzo IP del sensore distribuito visualizzato nella console del sensore.
+
+- Registrare il sensore con il portale Defender for Internet e scaricare un file di attivazione del sensore.
+
+- Caricare il file di attivazione nel sensore.
+
+## <a name="3-perform-network-setup-for-sensor-monitoring-and-management"></a>3. eseguire la configurazione di rete per il monitoraggio e la gestione dei sensori
+
+- Connettere il sensore alla rete. Descritto nella [Guida all'installazione di rete](https://aka.ms/AzureDefenderForIoTNetworkSetup).
+
+## <a name="4-start-discovering-your-network"></a>4. iniziare a individuare la rete
+
+- Modificare le impostazioni di sistema nella console del sensore.
+
+- Connettere i sensori a una console di gestione locale.
+
+Per altre informazioni, vedere il manuale dell'utente di [Azure Defender per il sensore](https://aka.ms/AzureDefenderforIoTUserGuide) Internet e il [manuale dell'utente della console di gestione locale di Defender for](https://aka.ms/DefenderForIoTManagementConsole)Internet.
+
+## <a name="5-populate-azure-sentinel-with-alert-information"></a>5. popolare Azure Sentinel con le informazioni sugli avvisi
+
+- Per inviare le informazioni sugli avvisi ad Azure Sentinel, configurare Sentinel di Azure: [connettere i dati da Defender per le cose ad Azure Sentinel](how-to-configure-with-sentinel.md).
+ 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

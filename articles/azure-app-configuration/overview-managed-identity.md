@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82981222"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072799"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Come usare le identità gestite per la configurazione di app Azure
 
@@ -33,7 +33,7 @@ Per configurare un'identità gestita usando l'interfaccia della riga di comando 
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
 - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", situato nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
-- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2,1 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
+- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2,1 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 La procedura seguente illustra la creazione di un archivio di configurazione dell'app e l'assegnazione di un'identità usando l'interfaccia della riga di comando:
 
@@ -66,7 +66,7 @@ Per configurare un'identità gestita usando l'interfaccia della riga di comando 
 
 - Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
 - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", situato nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
-- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
+- [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.31 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 La procedura seguente illustra come creare un'identità assegnata dall'utente e un archivio di configurazione dell'app e quindi assegnare l'identità all'archivio usando l'interfaccia della riga di comando:
 

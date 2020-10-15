@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4338bc4a11b785b27f6316748f9cbc4eeaaddbea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015103"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073530"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Avviare un runbook da un webhook
 
@@ -89,7 +89,7 @@ Prendere in considerazione le strategie seguenti:
 
 * Fare in modo che il Runbook esegua una convalida di una condizione esterna quando riceve una richiesta di webhook. Si consideri ad esempio un runbook chiamato da GitHub ogni volta che viene eseguito un nuovo commit in un repository di GitHub. Il runbook può connettersi a GitHub per verificare che sia stato eseguito un nuovo commit prima di continuare.
 
-* Automazione di Azure supporta i tag del servizio rete virtuale di Azure, in particolare [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md) e attivare i webhook dall'interno della rete virtuale. I tag di servizio possono essere usati al posto di indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio **GuestAndHybridManagement**  nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio di automazione. Questo tag di servizio non supporta l'abilitazione di un controllo più granulare limitando gli intervalli IP a un'area specifica.
+* Automazione di Azure supporta i tag del servizio rete virtuale di Azure, in particolare [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md) e attivare i webhook dall'interno della rete virtuale. I tag di servizio possono essere usati al posto di indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio **GuestAndHybridManagement**  nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio di automazione. Questo tag di servizio non supporta l'abilitazione di un controllo più granulare limitando gli intervalli IP a un'area specifica.
 
 ## <a name="create-a-webhook"></a>Creare un webhook
 
