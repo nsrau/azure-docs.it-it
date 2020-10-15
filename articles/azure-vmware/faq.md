@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdfe3956d8c715e391270aab6b3c589430c91593
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8868f86f0cf46ff82e37cd433d7b5bca0d69567d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058030"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078936"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -74,7 +74,7 @@ Sì, a condizione che il sistema su cui è installato possa accedere al cloud pr
 No, usare le [istruzioni fornite da VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e soddisfare i prerequisiti della macchina virtuale specificati in tali istruzioni. 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>VMware HCX è supportato nelle VPN?
-No.
+No, a causa dei requisiti di larghezza di banda e latenza.
 
 #### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>È possibile usare Azure Bastion per la connessione alle macchine virtuali AVS?
 Azure Bastion è il servizio consigliato per connettersi alla casella di salto per impedire l'esposizione della soluzione VMware di Azure a Internet. Non è possibile usare Azure Bastion per connettersi alle macchine virtuali della soluzione VMware di Azure perché non sono oggetti IaaS di Azure.

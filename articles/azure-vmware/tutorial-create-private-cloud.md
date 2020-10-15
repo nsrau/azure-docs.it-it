@@ -3,12 +3,12 @@ title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
 description: Informazioni su come distribuire un cluster vSphere in Azure con la soluzione Azure VMWare
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578318"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952285"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
 
@@ -43,7 +43,7 @@ Per creare un cloud privato della soluzione Azure VMware, è possibile usare il 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Anziché usare il portale di Azure creare un cloud privato della soluzione Azure VMware, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell.  Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Anziché usare il portale di Azure creare un cloud privato della soluzione Azure VMware, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell.  Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Aprire Azure Cloud Shell
 
@@ -96,7 +96,7 @@ Una volta eliminato un cloud privato, non è possibile recuperare le macchine vi
 
 ## <a name="azure-vmware-commands"></a>Comandi di Azure VMware
 
-Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+Per un elenco di comandi che è possibile usare con la soluzione Azure VMware, vedere i [comandi di az vmware](/cli/azure/ext/vmware/vmware).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

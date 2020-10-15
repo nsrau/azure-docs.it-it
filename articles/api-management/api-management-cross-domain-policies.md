@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d26769fa3ef49684f8a2eedf6a0691316e742b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499614"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071235"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
-Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
 
 ## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Criteri tra domini
 
@@ -53,7 +53,7 @@ Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Fl
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |cross-domain|Elemento radice. Gli elementi figlio devono essere conformi alla [specifica dei file di criteri tra domini Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sì|
 
@@ -124,7 +124,7 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |CORS|Elemento radice.|Sì|N/D|
 |allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Sì|N/D|
@@ -137,7 +137,7 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|L' `Access-Control-Allow-Credentials` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No|false|
 |preflight-result-max-age|L' `Access-Control-Max-Age` intestazione nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|
@@ -169,13 +169,13 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |jsonp|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Sì|N/D|
 
@@ -192,4 +192,4 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Trasformare le API](transform-api.md)
 + [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
-+ [Esempi di criteri](policy-samples.md)
++ [Esempi di criteri](./policy-reference.md)

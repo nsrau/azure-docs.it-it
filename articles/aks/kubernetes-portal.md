@@ -6,12 +6,12 @@ author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335603"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070640"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Accedere alle risorse di Kubernetes dalla portale di Azure (anteprima)
 
@@ -20,7 +20,7 @@ Il portale di Azure include un visualizzatore di risorse Kubernetes (anteprima) 
 La visualizzazione risorse Kubernetes dalla portale di Azure sostituisce il [componente aggiuntivo del dashboard AKS][kubernetes-dashboard], che è impostato per la deprecazione.
 
 >[!NOTE]
->Il capabilty non è attualmente supportato nei [cluster di servizi Kubernetes di Azure privati](https://docs.microsoft.com/azure/aks/private-clusters).
+>Il capabilty non è attualmente supportato nei [cluster di servizi Kubernetes di Azure privati](./private-clusters.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
