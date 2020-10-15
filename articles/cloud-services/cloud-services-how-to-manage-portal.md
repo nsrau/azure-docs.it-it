@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 471aa6e5297f8b68f08567a66e3f07e9688ca57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002931"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076709"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gestire Servizi cloud nel portale di Azure
 Nell'area **Servizi cloud** del portale di Azure è possibile:
@@ -83,7 +83,7 @@ Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni 
 
 **Uno scambio comporta tempi di inattività per l'applicazione? Come è possibile gestirla?**
 
-Come descritto nella sezione precedente, lo scambio di distribuzioni è in genere veloce perché è una semplice modifica della configurazione in Azure Load Balancer. In alcuni casi, può richiedere più di 10 secondi e causare errori di connessione temporanei. Per limitare l'impatto sui clienti, si consiglia di implementare la [logica di ripetizione dei tentativi nel client](../best-practices-retry-general.md).
+Come descritto nella sezione precedente, lo scambio di distribuzioni è in genere veloce perché è una semplice modifica della configurazione in Azure Load Balancer. In alcuni casi, può richiedere più di 10 secondi e causare errori di connessione temporanei. Per limitare l'impatto sui clienti, si consiglia di implementare la [logica di ripetizione dei tentativi nel client](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Eliminare le distribuzioni e un servizio cloud
 Per eliminare un servizio cloud è necessario prima eliminare tutte le distribuzioni esistenti.
@@ -124,6 +124,3 @@ Il pannello **Panoramica** comprende una barra di stato in alto. Quando si selez
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare un [nome di dominio personalizzato](cloud-services-custom-domain-name-portal.md).
 * Configurare i [certificati TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

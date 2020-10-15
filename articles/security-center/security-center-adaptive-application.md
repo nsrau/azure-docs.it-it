@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996828"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076981"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -159,7 +159,7 @@ Per modificare le regole per un gruppo di computer:
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Apertura di controlli applicazione adattivi dal dashboard di Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > L'opzione **Imponi** nelle impostazioni della modalità di protezione dei tipi di file è disattivata in tutti gli scenari. Al momento non sono disponibili opzioni di imposizione. 
+    > L'opzione **applica** , nelle impostazioni della modalità di protezione dei tipi di file, è disattivata in **tutti gli** scenari. Al momento non sono disponibili opzioni di imposizione. 
     >
     > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Apertura di controlli applicazione adattivi dal dashboard di Azure":::
 
