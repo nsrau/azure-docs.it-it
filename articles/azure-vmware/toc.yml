@@ -64,6 +64,8 @@
       href: ./deploy-vm-content-library.md
     - name: Configurare GitHub Enterprise Server
       href: github-enterprise-server.md
+    - name: Utilizzo di IP pubblici
+      href: public-ip-usage.md
     - name: Creare un tunnel IPSec
       href: create-ipsec-tunnel.md
     - name: Integrazione nativa di Azure
@@ -84,8 +86,6 @@
           href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Gestione traffico
           href: deploy-traffic-manager-balance-workloads.md
-        - name: Utilizzo di IP pubblici
-          href: public-ip-usage.md
     - name: Soluzioni VMware
       items:
         - name: Configurare operazioni vRealize
