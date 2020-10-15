@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892562"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093039"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
 
@@ -27,7 +27,7 @@ Usando la funzionalità di diagnostica di Azure Spring cloud, è possibile anali
 Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
 > [!TIP]
-> Vuoi semplicemente trasmettere i log? Vedere questo [comando dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs).
+> Vuoi semplicemente trasmettere i log? Vedere questo [comando dell'interfaccia della riga di comando di Azure](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs).
 
 ## <a name="logs"></a>Log
 
@@ -38,7 +38,7 @@ Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
 ## <a name="metrics"></a>Metriche
 
-Per un elenco completo delle metriche, vedere la pagina relativa alle [metriche di Spring cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
+Per un elenco completo delle metriche, vedere la pagina relativa alle [metriche di Spring cloud](./spring-cloud-concept-metrics.md#user-metrics-options).
 
 Per iniziare, abilitare uno di questi servizi per la ricezione dei dati. Per informazioni sulla configurazione di Log Analytics, vedere [Introduzione ai log Analytics in monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md).
 
@@ -110,7 +110,7 @@ Sono disponibili diversi metodi per visualizzare i log e le metriche, come descr
 > [!NOTE]
 > `==` fa distinzione tra maiuscole e minuscole, ma `=~` non lo è.
 
-Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](../azure-monitor/log-query/query-language.md).
+Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](/azure/data-explorer/kusto/query/).
 
 ### <a name="use-your-storage-account"></a>Usare l'account di archiviazione
 
@@ -131,7 +131,7 @@ Per ulteriori informazioni sull'invio di informazioni di diagnostica a un accoun
 1. Per esaminare i log dell'applicazione, cercare un hub eventi denominato **Insights-logs-applicationconsole**.
 1. Per esaminare le metriche dell'applicazione, cercare un hub eventi denominato **Insights-Metrics-PT1M**.
 
-Per altre informazioni sull'invio di informazioni di diagnostica a un hub eventi, vedere [trasmettere dati diagnostica di Azure nel percorso critico tramite hub eventi](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs).
+Per altre informazioni sull'invio di informazioni di diagnostica a un hub eventi, vedere [trasmettere dati diagnostica di Azure nel percorso critico tramite hub eventi](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 ## <a name="analyze-the-logs"></a>Analizzare i log
 

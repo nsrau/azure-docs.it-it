@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000108"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093396"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Debug dell'applicazione di Service Fabric mediante Visual Studio
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Per risparmiare tempo e denaro, è possibile distribuire l'applicazione di Servi
 1. Avviare un cluster di sviluppo locale seguendo la procedura descritta nell'articolo [Configurazione dell'ambiente di sviluppo di Service Fabric](service-fabric-get-started.md).
 2. Premere **F5** oppure fare clic su **Debug** > **Avvia debug**.
    
-    ![Avviare il debug di un'applicazione][startdebugging]
+    ![Screenshot che mostra il menu debug.][startdebugging]
 3. Impostare i punti di interruzione nel codice ed eseguire l'applicazione un'istruzione alla volta scegliendo i comandi dal menu **Debug** .
    
    > [!NOTE]

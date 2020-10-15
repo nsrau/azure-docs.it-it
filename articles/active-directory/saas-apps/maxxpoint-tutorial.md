@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 50cc53e7e8a5f39b53d6dcd39de61894cbbb3842
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4d325eb0dbd5d30e94df07ebad21ff30316bcbb4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518895"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>Esercitazione: Integrazione di Azure Active Directory con MaxxPoint
 
@@ -99,11 +99,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con MaxxPoint, seguire ques
 
 4. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di MaxxPoint](common/preintegrated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base.](common/preintegrated.png)
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di MaxxPoint](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure`
 
