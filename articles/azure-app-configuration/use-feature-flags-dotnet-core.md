@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317311"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078902"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -27,7 +27,7 @@ Le librerie di gestione delle funzionalità di .NET Core offrono supporto idioma
 
 Le librerie di gestione delle funzionalità gestiscono anche i cicli di vita dei flag di funzionalità in background. Ad esempio, le librerie aggiornano e memorizzano nella cache gli stati del flag o garantiscono lo stato immutabile di un flag durante una chiamata di richiesta. In aggiunta, la libreria ASP.NET Core offre integrazioni predefinite, tra cui le azioni del controller MVC, viste, route e middleware.
 
-La guida di avvio rapido [Aggiungere i flag di funzionalità a un'app ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) mostra diversi modi per aggiungere flag di funzionalità in un'applicazione ASP.NET Core. Questa esercitazione illustra questi metodi più dettagliatamente. Per informazioni di riferimento complete, vedere la [documentazione sulla gestione della funzionalità ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410).
+La guida di avvio rapido [Aggiungere i flag di funzionalità a un'app ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) mostra diversi modi per aggiungere flag di funzionalità in un'applicazione ASP.NET Core. Questa esercitazione illustra questi metodi più dettagliatamente. Per informazioni di riferimento complete, vedere la [documentazione sulla gestione della funzionalità ASP.NET Core](/dotnet/api/microsoft.featuremanagement).
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -301,6 +301,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 In questa esercitazione si è appreso come implementare i flag di funzionalità nell'applicazione ASP.NET Core usando le librerie `Microsoft.FeatureManagement`. Per altre informazioni sul supporto della gestione funzionalità in ASP.NET Core e Configurazione app, vedere le risorse seguenti:
 
-* [Codice di esempio del flag di funzionalità di ASP.NET Core](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Documentazione di Microsoft.FeatureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [Codice di esempio del flag di funzionalità di ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Documentazione di Microsoft.FeatureManagement](/dotnet/api/microsoft.featuremanagement)
 * [Gestire i flag di funzionalità](./manage-feature-flags.md)

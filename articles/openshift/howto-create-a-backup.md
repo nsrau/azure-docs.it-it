@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470069"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078579"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creare un backup dell'applicazione cluster Red Hat OpenShift 4 di Azure
 
@@ -90,7 +90,7 @@ EOF
 
 ## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Installare Velero nel cluster Azure Red Hat OpenShift 4
 
-Questo passaggio consente di installare Velero nel proprio progetto e le [definizioni di risorse personalizzate](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessarie per eseguire backup e ripristini con Velero. Assicurarsi di aver effettuato l'accesso a un cluster di Azure Red Hat OpenShift V4.
+Questo passaggio consente di installare Velero nel proprio progetto e le [definizioni di risorse personalizzate](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessarie per eseguire backup e ripristini con Velero. Assicurarsi di aver effettuato l'accesso a un cluster Azure Red Hat OpenShift V4.
 
 
 ```bash
@@ -120,14 +120,34 @@ oc get backups -n velero <name of backup> -o yaml
 
 Viene restituito un backup con esito positivo `phase:Completed` e gli oggetti si trovano nel contenitore nell'account di archiviazione.
 
+## <a name="create-a-backup-with-velero-to-include-snapshots"></a>Creare un backup con Velero per includere gli snapshot
+
+Per creare un backup dell'applicazione con Velero per includere i volumi persistenti dell'applicazione, è necessario includere lo spazio dei nomi in cui si trova l'applicazione e includere il `snapshot-volumes=true` flag durante la creazione del backup
+
+```bash
+velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
+```
+
+Per controllare lo stato del backup, è possibile eseguire:
+
+```bash
+oc get backups -n velero <name of backup> -o yaml
+```
+
+Un backup con esito positivo con output `phase:Completed` e gli oggetti risiederanno nel contenitore nell'account di archiviazione.
+
+Per altre informazioni su come creare backup e ripristini usando Velero, vedere [backup OpenShift Resources in modalità nativa](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo è stato eseguito il backup di un'applicazione cluster Azure Red Hat OpenShift 4. Si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un backup dell'applicazione cluster OpenShift V4 con Velero
+> * Creare un backup dell'applicazione cluster OpenShift V4 con snapshot usando Velero
 
 
 Passare all'articolo successivo per informazioni su come creare un ripristino dell'applicazione cluster Red Hat OpenShift 4 di Azure.
 
 * [Creare un ripristino dell'applicazione cluster Red Hat OpenShift 4 di Azure](howto-create-a-restore.md)
+* [Creare un ripristino dell'applicazione cluster Red Hat OpenShift 4 di Azure, inclusi gli snapshot](howto-create-a-restore.md)

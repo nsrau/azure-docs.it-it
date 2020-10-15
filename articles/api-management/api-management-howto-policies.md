@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905517"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070895"
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
 
@@ -70,7 +70,7 @@ Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, 
 
 ## <a name="policy-samples"></a>Esempi di criteri
 
-Per altri esempi di codice, vedere [Esempi di criteri](policy-samples.md).
+Per altri esempi di codice, vedere [Esempi di criteri](./policy-reference.md).
 
 ## <a name="examples"></a>Esempi
 
@@ -119,7 +119,7 @@ Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Trasformare le API](transform-api.md)
 + [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
-+ [Esempi di criteri](policy-samples.md)   
++ [Esempi di criteri](./policy-reference.md)   
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

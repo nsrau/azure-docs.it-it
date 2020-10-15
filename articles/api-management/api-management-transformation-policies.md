@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0182c3aa9095ad6f7bf3d8d86f115517e9efb020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097f7b0b6b69dc470877d4951efbcbd3c7482b1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86249604"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078494"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
-Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
 
 ##  <a name="transformation-policies"></a><a name="TransformationPolicies"></a> Criteri di trasformazione
 
@@ -69,13 +69,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - applica sempre la conversione.<br />-   content-type-json - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di JSON.|Sì|N/D|
 |consider-accept-header|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   true - applica la conversione se XML è richiesto nell'intestazione Accept della richiesta.<br />-   false - applica sempre la conversione.|No|true|
@@ -113,13 +113,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |xml-to-json|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |kind|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   javascript-friendly - il JSON convertito ha un formato intuitivo per gli sviluppatori JavaScript.<br />-   direct - il JSON convertito riflette la struttura del documento XML originario.|Sì|N/D|
 |apply|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   always - esegue sempre la conversione.<br />-   content-type-xml - applica la conversione solo se l'intestazione Content-Type della risposta indica la presenza di XML.|Sì|N/D|
@@ -149,13 +149,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |find-and-replace|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |da|Stringa da cercare.|Sì|N/D|
 |to|Stringa di sostituzione. Specificare una stringa di sostituzione con lunghezza zero per rimuovere la stringa di ricerca.|Sì|N/D|
@@ -187,7 +187,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |redirect-content-urls|Elemento radice.|Sì|
 
@@ -207,7 +207,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
-oppure
+o
 
 ```xml
 <set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
@@ -260,13 +260,13 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-backend-service|Elemento radice.|Sì|
 
 ### <a name="attributes"></a>Attributi
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |base-url|Nuovo URL di base del servizio back-end.|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
 |backend-id|Identificatore del back-end verso cui avviene il routing. Le entità back-end vengono gestite tramite [API](/rest/api/apimanagement/2019-12-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).|`base-url` `backend-id` È necessario che sia presente uno di o.|N/D|
@@ -396,13 +396,13 @@ Il criterio `set-body` può essere configurato per l'uso del linguaggio di model
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-body|Elemento radice. Contiene il testo del corpo o un'espressione che restituisce un corpo.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |template|Consente di modificare la modalità di modello in cui verrà eseguito il criterio del corpo impostato. Al momento, l'unico valore supportato è:<br /><br />-liquid - i criteri del corpo impostati useranno il motore del modello liquidi |No||
 
@@ -510,14 +510,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-header|Elemento radice.|Sì|
-|value|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
+|Valore|Specifica il valore dell'intestazione da impostare. Se occorrono più intestazioni con lo stesso nome, aggiungere altri elementi `value`.|No|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |exists-action|Specifica l'azione da eseguire quando l'intestazione è già specificata. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore dell'intestazione esistente.<br />-   skip - non sostituisce il valore dell'intestazione esistente.<br />-   append - aggiunge il valore dell'intestazione esistente.<br />-   delete - elimina l'intestazione dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione dell'intestazione in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No|override|
 |name|Specifica il nome dell'intestazione da impostare.|Sì|N/D|
@@ -565,14 +565,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento radice.|Sì|
-|value|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
+|Valore|Specifica il valore del parametro di query da impostare. Se occorrono più parametri di query con lo stesso nome, aggiungere altri elementi `value`.|Sì|
 
 ### <a name="properties"></a>Proprietà
 
-|Nome|Descrizione|Obbligatoria|Predefinito|
+|Nome|Description|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
 |exists-action|Specifica l'azione da eseguire quando il parametro di query è già specificato. Questo attributo deve avere uno dei valori seguenti.<br /><br /> -   override - sostituisce il valore del parametro esistente.<br />-   skip - non sostituisce il valore del parametro di query esistente.<br />-   append - aggiunge il valore del parametro di query esistente.<br />-   delete - elimina il parametro di query dalla richiesta.<br /><br /> Se è impostato su `override`, l'integrazione di più voci con lo stesso nome avrà come risultato l'impostazione del parametro di query in base a tutte le voci, che saranno elencate più volte. Nel risultato saranno impostati solo i valori elencati.|No|override|
 |name|Specifica il nome del parametro di query da impostare.|Sì|N/D|
@@ -644,7 +644,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento radice.|Sì|
 
@@ -713,7 +713,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementi
 
-|Nome|Descrizione|Obbligatoria|
+|Nome|Description|Obbligatoria|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento radice.|Sì|
 |parameter|Consente di definire le variabili usate nella trasformazione|No|
@@ -732,4 +732,4 @@ Per altre informazioni, vedere gli argomenti seguenti:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
 + [Informazioni di riferimento sui criteri](./api-management-policies.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
-+ [Esempi di criteri](policy-samples.md)
++ [Esempi di criteri](./policy-reference.md)
