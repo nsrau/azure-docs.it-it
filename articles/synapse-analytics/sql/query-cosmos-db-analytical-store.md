@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cc2c04208c4800a883848896a0f1659e8bf72e9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097253"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102358"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB usando il collegamento SQL Server in Azure sinapsi (anteprima)
 
@@ -266,8 +266,10 @@ La tabella seguente elenca i possibili errori e le azioni per la risoluzione dei
 | --- | --- |
 | Errori di sintassi:<br/> -Sintassi non corretta in prossimità di ' OpenRowset '<br/> - `...` non è un'opzione del provider BULK OPENROWSET riconosciuta.<br/> -Sintassi non corretta in prossimità `...` | Possibili cause principali<br/> -Non si usa ' CosmosDB ' come primo parametro,<br/> -Utilizzo di un valore letterale stringa anziché di un identificatore nel terzo parametro<br/> -Non specifica del terzo parametro (nome contenitore) |
 | Si è verificato un errore nella stringa di connessione CosmosDB | -Account, database, chiave non specificata <br/> -È presente un'opzione nella stringa di connessione non riconosciuta.<br/> -Il punto e virgola `;` viene inserito alla fine della stringa di connessione |
-| La risoluzione del percorso di CosmosDB non è riuscita con errore ' nome account/database errato ' | Impossibile trovare il nome di account o il nome di database specificato. |
-| La risoluzione del percorso di CosmosDB non è riuscita con errore ' il segreto del valore del segreto '' è null o vuoto ' | La chiave dell'account non è valida o è mancante. |
+| La risoluzione del percorso di CosmosDB non è riuscita con errore ' nome account errato ' o ' nome database errato ' | Il nome dell'account, il nome del database o il contenitore specificato non è stato trovato oppure non è stata abilitata l'archiviazione analitica o la raccolta specificata|
+| La risoluzione del percorso di CosmosDB non è riuscita con errore ' valore segreto errato ' o ' Secret is null o Empty ' | La chiave dell'account non è valida o è mancante. |
+| La colonna `column name` di tipo `type name` non è compatibile con il tipo di dati esterno `type name` | Il tipo di colonna specificato nella `WITH` clausola non corrisponde al tipo in Cosmos DB contenitore. Provare a modificare il tipo di colonna, come descritto nella sezione [Azure Cosmos DB ai mapping dei tipi SQL o al](#azure-cosmos-db-to-sql-type-mappings) tipo di utilizzo `VARCHAR` . |
+| La colonna contiene `NULL` i valori in tutte le celle. | È probabile che il nome di colonna o l'espressione di percorso nella clausola sia errato `WITH` . Il nome della colonna (o l'espressione di percorso dopo il tipo di colonna) nella `WITH` clausola deve corrispondere a un nome di proprietà nella raccolta Cosmos DB. Il confronto fa **distinzione tra maiuscole**  e minuscole (ad esempio, `productCode` e `ProductCode` sono proprietà diverse). |
 
 È possibile segnalare suggerimenti e problemi nella [pagina dei commenti](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862)e suggerimenti su sinapsi di Azure.
 

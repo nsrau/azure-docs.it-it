@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 01c0b6f280b8179760c6ecc55fd7feca3ddf2080
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039055"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104241"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonne standard nei log di monitoraggio di Azure
-I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](../log-query/logs-structure.md), ognuno con un particolare tipo di dati che dispone di un set univoco di colonne. Molti tipi di dati avranno colonne standard comuni tra più tipi. Questo articolo descrive queste colonne e fornisce esempi di come è possibile usarle nelle query.
+I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](./data-platform-logs.md), ognuno con un particolare tipo di dati che dispone di un set univoco di colonne. Molti tipi di dati avranno colonne standard comuni tra più tipi. Questo articolo descrive queste colonne e fornisce esempi di come è possibile usarle nelle query.
 
 Le applicazioni basate su aree di lavoro in Application Insights archiviano i dati in un'area di lavoro Log Analytics e utilizzano le stesse colonne standard di altre tabelle nell'area di lavoro. Le applicazioni classiche archiviano separatamente i dati e hanno colonne standard diverse, come specificato in questo articolo.
 
@@ -212,4 +212,3 @@ union withsource = tt *
 - Leggere altre informazioni su come [vengono archiviati i dati di log di Monitoraggio di Azure](../log-query/log-query-overview.md).
 - Seguire una lezione sulla [scrittura di query di log](../log-query/get-started-queries.md).
 - Seguire una lezione sul [join di tabelle nelle query di log](../log-query/joins.md).
-

@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75aec9f3509881c35de9309fa1532b961fb2bc03
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 11d2172d085fe9b47587f4084908f99d7b54437e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875559"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103238"
 ---
-Quando si creano reti virtuali classiche nel portale di Azure, il nome da visualizzare non è il nome completo usato per PowerShell. Ad esempio, una rete virtuale che sembra avere il nome **TestVNet1** nel portale potrebbe avere un nome molto più lungo nel file di configurazione di rete. Il nome potrebbe essere simile a: **Gruppo ClassicRG TestVNet1**. Quando si creano le connessioni, è importante usare i valori visualizzati nel file di configurazione di rete.
+Quando si creano reti virtuali classiche nel portale di Azure, il nome da visualizzare non è il nome completo usato per PowerShell. Ad esempio, una rete virtuale che sembra avere il nome **TestVNet1** nel portale potrebbe avere un nome molto più lungo nel file di configurazione di rete. Per un VNet nel gruppo di risorse "ClassicRG", il nome potrebbe essere simile al seguente: **Group ClassicRG TestVNet1**. Quando si creano le connessioni, è importante usare i valori visualizzati nel file di configurazione di rete.
 
 Nelle procedure seguenti, ci si connetterà al proprio account Azure per scaricare e visualizzare il file di configurazione di rete per ottenere i valori necessari alle connessioni.
 
@@ -36,9 +36,10 @@ Nelle procedure seguenti, ci si connetterà al proprio account Azure per scarica
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
-1. Esportare e visualizzare il file di configurazione di rete. Creare una directory nel computer ed esportarvi il file di configurazione di rete. In questo esempio, il file di configurazione di rete viene esportato in **C:\AzureNet**.
+1. Creare una directory nel computer. Ad esempio, C:\AzureVNet
+1. Esportare il file di configurazione di rete nella directory. In questo esempio, il file di configurazione di rete viene esportato in **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-1. Aprire il file con un editor di testo e visualizzare il nome delle reti virtuali e dei siti. Questi nomi saranno i nomi usati quando si creano le connessioni.<br>I nomi delle reti virtuali sono elencati come **Nome VirtualNetworkSite =**<br>I nomi dei siti sono elencati come **Nome LocalNetworkSiteRef =**
+1. Aprire il file con un editor di testo e visualizzare il nome delle reti virtuali e dei siti. Questi nomi saranno i nomi usati quando si creano le connessioni.<br>I nomi di **VNet** sono elencati come **nome VirtualNetworkSite =**<br>I nomi dei **siti** sono elencati come **nome LocalNetworkSiteRef =**

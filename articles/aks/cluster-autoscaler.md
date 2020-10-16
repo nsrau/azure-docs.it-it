@@ -4,12 +4,12 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88257509"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103867"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -135,18 +135,8 @@ Monitorare le prestazioni delle applicazioni e dei servizi e modificare il numer
 
 > [!IMPORTANT]
 > Il profilo di scalabilità automatica del cluster interessa tutti i pool di nodi che usano il componente di scalabilità automatica del cluster. Non è possibile impostare un profilo di scalabilità automatica per ogni pool di nodi.
-
-### <a name="install-aks-preview-cli-extension"></a>Installare l'estensione dell'interfaccia della riga comando di aks-preview
-
-Per impostare il profilo delle impostazioni di scalabilità automatica del cluster, è necessaria l'estensione *aks-preview* dell'interfaccia della riga di comando versione 0.4.30 o successiva. Installare l'estensione *aks-preview* dell'interfaccia della riga di comando di Azure usando il comando [az extension add][az-extension-add], quindi verificare la disponibilità di eventuali aggiornamenti usando il comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> Il profilo di scalabilità automatica del cluster richiede la versione *2.11.1* o successiva dell'interfaccia della riga di comando di Azure. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Impostare il componente di scalabilità automatica del cluster in un cluster AKS esistente
 

@@ -3,12 +3,12 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761414"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102307"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -24,7 +24,7 @@ Questa sezione illustra come configurare ed eseguire l'app per le funzioni nel m
 
 ### <a name="security-center"></a>Centro sicurezza
 
-Il Centro sicurezza si integra con l'app per le funzioni nel portale. Offre gratuitamente una rapida valutazione delle potenziali vulnerabilità della sicurezza relative alla configurazione. Le app per le funzioni in esecuzione in un piano dedicato possono anche usare le funzionalità di sicurezza in tempo reale del Centro sicurezza, con un costo aggiuntivo. Per altre informazioni, vedere [Proteggere le app Web e le API del Servizio app di Azure](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
+Il Centro sicurezza si integra con l'app per le funzioni nel portale. Offre gratuitamente una rapida valutazione delle potenziali vulnerabilità della sicurezza relative alla configurazione. Le app per le funzioni in esecuzione in un piano dedicato possono anche usare le funzionalità di sicurezza in tempo reale del Centro sicurezza, con un costo aggiuntivo. Per altre informazioni, vedere [Proteggere le app Web e le API del Servizio app di Azure](../security-center/defender-for-app-service-introduction.md). 
 
 ### <a name="log-and-monitor"></a>Log e monitoraggio
 

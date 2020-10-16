@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849490"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102779"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -63,7 +63,7 @@ Quando si crea un pool in Azure Batch usando la configurazione della macchina vi
 
 ### <a name="third-party-images"></a>Immagini di terze parti
 
-I pool possono essere creati usando immagini di terze parti pubblicate in Azure Marketplace. Con gli account batch della modalità di sottoscrizione utente, è possibile che venga visualizzato l'errore "allocazione non riuscita a causa di un controllo di idoneità acquisti nel Marketplace" quando si crea un pool con immagini di terze parti. Per correggere l'errore, accettare le condizioni impostate dall'editore dell'immagine. A tale scopo, è possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/vm/image/terms).
+I pool possono essere creati usando immagini di terze parti pubblicate in Azure Marketplace. Con gli account batch della modalità di sottoscrizione utente, è possibile che venga visualizzato l'errore "allocazione non riuscita a causa di un controllo di idoneità acquisti nel Marketplace" quando si crea un pool con immagini di terze parti. Per correggere l'errore, accettare le condizioni impostate dall'editore dell'immagine. A tale scopo, è possibile usare [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) o l'interfaccia della riga di comando di [Azure](/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Dipendenza dall'area di Azure
 

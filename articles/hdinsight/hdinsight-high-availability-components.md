@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842581"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102932"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servizi a disponibilità elevata supportati da Azure HDInsight
 
@@ -62,9 +62,9 @@ Microsoft fornisce supporto per i quattro servizi Apache nella tabella seguente 
 | Apache Livy | Nodo head attivo | Spark | Consente una facile interazione con un cluster Spark su un'interfaccia REST |
 
 >[!Note]
-> I cluster HDInsight Enterprise Security Package (ESP) attualmente forniscono solo la disponibilità elevata del server Ambari.
+> I cluster HDInsight Enterprise Security Package (ESP) attualmente forniscono solo la disponibilità elevata del server Ambari. Sequenza temporale applicazione server, il server di cronologia processo e il Livio sono tutti in esecuzione solo in headnode0 e non eseguono il failover in headnode1 quando Ambari failsover. Il database della sequenza temporale dell'applicazione si trova anche in headnode0 e non in Ambari SQL Server.
 
-### <a name="architecture"></a>Architettura
+### <a name="architecture"></a>Architecture
 
 Ogni cluster HDInsight ha due nodi head in modalità attivo e standby, rispettivamente. I servizi a disponibilità elevata HDInsight vengono eseguiti solo in nodi head. Questi servizi devono essere sempre in esecuzione sul nodo head attivo e arrestati e messi in modalità di manutenzione sulla nodo head di standby.
 

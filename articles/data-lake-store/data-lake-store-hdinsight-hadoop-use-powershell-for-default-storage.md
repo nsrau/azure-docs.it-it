@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: db29b6743458a4a3ec87dfec9e367bef0c946a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 675f68a36963d19f42cb7c0c5d49ae8c4f0006f2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857011"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103425"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 come risorsa di archiviazione predefinita usando PowerShell
 
@@ -281,9 +281,9 @@ hdfs dfs -ls adl:///
 
 È anche possibile usare il comando `hdfs dfs -put` per caricare alcuni file in Data Lake Storage Gen1 e quindi usare `hdfs dfs -ls` per verificare se i file sono stati caricati correttamente.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Usare Data Lake Storage Gen1 con i cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [Portale di Azure: Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

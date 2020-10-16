@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191401"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104037"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Accedere ad Azure Data Lake Storage Gen1 dalle macchine virtuali di una rete virtuale di Azure
 Azure Data Lake Storage Gen1 è un servizio PaaS eseguito su indirizzi IP Internet pubblici. Qualunque server in grado di connettersi alla rete Internet pubblica può generalmente connettersi anche agli endpoint di Azure Data Lake Storage Gen1. Per impostazione predefinita, tutte le macchine virtuali delle reti virtuali di Azure possono accedere a Internet e quindi anche ad Azure Data Lake Storage Gen1. Tuttavia, è possibile configurare le macchine virtuali di una rete virtuale per l'accesso a Internet. Anche per queste macchine virtuali, l'accesso ad Azure Data Lake Storage Gen1 è limitato. L'accesso a Internet pubblico per le macchine virtuali delle reti virtuali di Azure può essere bloccato tramite uno degli approcci seguenti:
@@ -46,7 +46,7 @@ Aliases:  mydatastore.azuredatalakestore.net
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Abilitare la connettività da macchine virtuali limitatamente all'uso di NSG
-Quando l'accesso a Internet è bloccato tramite una regola NSG, è possibile creare un altro NSG che consenta di accedere all'indirizzo IP di Data Lake Storage Gen1. Per altre informazioni sulle regole NSG, vedere [Network security groups overview](../virtual-network/security-overview.md) (Panoramica sui gruppi di sicurezza di rete). Per istruzioni su come creare un NSG, vedere [Creare un gruppo di sicurezza di rete tramite il portale di Azure](../virtual-network/tutorial-filter-network-traffic.md).
+Quando l'accesso a Internet è bloccato tramite una regola NSG, è possibile creare un altro NSG che consenta di accedere all'indirizzo IP di Data Lake Storage Gen1. Per altre informazioni sulle regole NSG, vedere [Network security groups overview](../virtual-network/network-security-groups-overview.md) (Panoramica sui gruppi di sicurezza di rete). Per istruzioni su come creare un NSG, vedere [Creare un gruppo di sicurezza di rete tramite il portale di Azure](../virtual-network/tutorial-filter-network-traffic.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>Abilitare la connettività da macchine virtuali limitatamente all'uso di UDR o ExpressRoute
 Quando l'accesso a Internet è bloccato da route di tipo UDR o scambiate tramite BGP, è necessario configurare una route speciale in modo che le macchine virtuali in queste subnet possano accedere agli endpoint di Data Lake Storage Gen1. Per altre informazioni, vedere [User-defined routes overview](../virtual-network/virtual-networks-udr-overview.md) (Panoramica delle route definite dall'utente). Per istruzioni sulla creazione di UDR, vedere [Creare route definite dall'utente in Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
@@ -54,7 +54,6 @@ Quando l'accesso a Internet è bloccato da route di tipo UDR o scambiate tramite
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Abilitare la connettività dalle macchine virtuali con ExpressRoute
 Quando viene configurato un circuito ExpressRoute, i server locali possono accedere a Data Lake Storage Gen1 tramite peering pubblico. Per altre informazioni sulla configurazione di ExpressRoute per il peering pubblico, consultare le [Domande frequenti su ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Protezione dei dati archiviati in Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
-

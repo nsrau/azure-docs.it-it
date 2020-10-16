@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273297"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101767"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
 
@@ -77,15 +77,15 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
-    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
+    ![Screenshot Visualizza il collegamento impostazioni selezionato.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
 
 7. Nel pannello di navigazione sinistro fare clic su **My Personal Information** (Informazioni personali) per espandere la sezione corrispondente e quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
   
-    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
+    ![Screenshot Visualizza Reimposta il token di sicurezza selezionato da informazioni personali.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
 
 8. Nella pagina **Reset Security Token** (Reimposta token di sicurezza) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
 
-    ![Abilita provisioning utenti automatico](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
+    ![Screenshot mostra la pagina token di sicurezza Rest, con testo esplicativo e l'opzione per reimpostare il token di sicurezza](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
 
 9. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce.com contenente il nuovo token di sicurezza.
 

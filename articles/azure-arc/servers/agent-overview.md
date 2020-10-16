@@ -3,12 +3,12 @@ title: Panoramica dell'agente Connected Machine per Windows
 description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 248604884cf1b7592b382a3490aab60102e12faf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 344bd2c801cb21932b35bcdfdcc38cc3fa73783b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979156"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102983"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
@@ -105,7 +105,7 @@ Gli agenti di anteprima (versione 0,11 e inferiore) richiedono anche l'accesso a
 |`agentserviceapi.azure-automation.net`|Configurazione guest|
 |`*-agentservice-prod-1.azure-automation.net`|Configurazione guest|
 
-Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](../../virtual-network/security-overview.md#service-tags).
+Per un elenco degli indirizzi IP per ogni tag del servizio/area, vedere il file JSON [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) (Indirizzi IP di Azure e tag del servizio - Cloud pubblico). Microsoft pubblica aggiornamenti settimanali contenenti ogni servizio di Azure e gli intervalli IP usati dal servizio. Per altre informazioni, vedere [Tag di servizio](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 Gli URL nella tabella precedente sono necessari in aggiunta alle informazioni relative agli intervalli di indirizzi IP dei tag del servizio, perché la maggior parte dei servizi non dispone attualmente di una registrazione dei tag del servizio e, di conseguenza, gli indirizzi IP sono soggetti a modifiche. Se gli intervalli di indirizzi IP sono necessari per la configurazione del firewall, occorre usare il tag del servizio **AzureCloud** per consentire l'accesso a tutti i servizi di Azure. Non disabilitare il monitoraggio della sicurezza o l'ispezione di questi URL, ma consentire tali URL come si farebbe con il resto del traffico Internet.
 

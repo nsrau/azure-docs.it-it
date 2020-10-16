@@ -1,5 +1,5 @@
 ---
-title: Aggiungere connettori API ai flussi utente
+title: Aggiungere connettori API ai flussi utente (anteprima)
 description: Configurare un connettore API da usare in un flusso utente.
 services: active-directory-b2c
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854359"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102273"
 ---
-# <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Aggiungere un connettore API a un flusso utente di iscrizione
+# <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Aggiungere un connettore API a un flusso utente di iscrizione (anteprima)
 
 Per usare un [connettore API](api-connectors-overview.md), è necessario innanzitutto creare il connettore API e quindi abilitarlo in un flusso utente.
 
@@ -234,12 +234,12 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                          | Type              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
+| Parametro                                          | Tipo              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
 | action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori possono essere archiviati nella directory se hanno selezionato come **attestazione per la ricezione** nella configurazione del connettore API e negli **attributi utente** per un flusso utente. I valori possono essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione restituita non deve contenere `_<extensions-app-id>_` . I valori vengono archiviati nella directory se hanno selezionato come **attestazione per la ricezione** nella configurazione del connettore API e nell' **attributo utente** per un flusso utente. Gli attributi personalizzati non possono essere restituiti nel token. |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | L'attestazione non deve contenere `_<extensions-app-id>_` . I valori restituiti possono sovrascrivere i valori raccolti da un utente. Possono anche essere restituiti nel token se selezionato come **attestazione dell'applicazione**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Esempio di una risposta di blocco
 
@@ -255,7 +255,7 @@ Content-type: application/json
 
 ```
 
-| Parametro   | Type   | Obbligatoria | Descrizione                                                                |
+| Parametro   | Tipo   | Obbligatoria | Descrizione                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | string | Sì      | Versione dell'API.                                                    |
 | action      | string | Sì      | Il valore deve essere `ShowBlockPage`                                              |
@@ -266,6 +266,8 @@ Content-type: application/json
 ![Pagina blocco di esempio](./media/add-api-connector/blocking-page-response.png)
 
 ### <a name="example-of-a-validation-error-response"></a>Esempio di una risposta di errore di convalida
+
+
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -279,12 +281,14 @@ Content-type: application/json
 }
 ```
 
-| Parametro   | Type    | Obbligatoria | Descrizione                                                                |
+| Parametro   | Tipo    | Obbligatoria | Descrizione                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | string  | Sì      | Versione dell'API.                                                    |
 | action      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |
 | status      | Integer | Sì      | Deve essere `400` un valore per una risposta ValidationError.                        |
 | userMessage | string  | Sì      | Messaggio da visualizzare all'utente.                                            |
+
+*Nota:* Il codice di stato HTTP deve essere "400" oltre al valore "status" nel corpo della risposta.
 
 **Esperienza dell'utente finale con una risposta di errore di convalida**
 

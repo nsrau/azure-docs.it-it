@@ -1,5 +1,5 @@
 ---
-title: Accedere in modo sicuro alle risorse dell'indicizzatore
+title: Accesso dell'indicizzatore alle risorse protette
 titleSuffix: Azure Cognitive Search
 description: Panoramica concettuale delle opzioni di sicurezza a livello di rete per l'accesso ai dati di Azure da parte degli indicizzatori in Azure ricerca cognitiva.
 manager: nitinme
@@ -7,92 +7,92 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: 85446847e8ad77bc83eea657ab17268839e0b231
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949820"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101257"
 ---
-# <a name="indexer-access-to-data-sources-using-azure-network-security-features"></a>Accesso dell'indicizzatore alle origini dati usando le funzionalità di sicurezza di rete di Azure
+# <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Accesso dell'indicizzatore al contenuto protetto dalle funzionalità di sicurezza di rete di Azure (Azure ricerca cognitiva)
 
-Gli indicizzatori di Azure ricerca cognitiva possono eseguire chiamate in uscita a varie risorse di Azure durante l'esecuzione. Questo articolo illustra i concetti alla base dell'accesso dell'indicizzatore alle risorse quando tali risorse sono protette da firewall IP, endpoint privati e altri meccanismi di sicurezza a livello di rete. I tipi di risorsa possibili a cui un indicizzatore può accedere in un'esecuzione tipica sono elencati nella tabella seguente.
+Gli indicizzatori di Azure ricerca cognitiva possono eseguire chiamate in uscita a varie risorse di Azure durante l'esecuzione. Questo articolo illustra i concetti alla base dell'accesso dell'indicizzatore ai contenuti protetti da firewall IP, endpoint privati o altri meccanismi di sicurezza a livello di rete di Azure. Un indicizzatore esegue chiamate in uscita in due situazioni: la connessione a origini dati durante l'indicizzazione e la connessione a codice incapsulato tramite un skillt. Nella tabella seguente è riportato un elenco di tutti i possibili tipi di risorse a cui un indicizzatore può accedere in una tipica esecuzione.
 
 | Risorsa | Scopo nell'esecuzione dell'indicizzatore |
 | --- | --- |
 | Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Origine dati |
 | Archiviazione di Azure (BLOB, tabelle) | Skillsets (memorizzazione nella cache di documenti arricchiti e archiviazione delle proiezioni dell'archivio informazioni) |
 | Azure Cosmos DB (varie API) | Origine dati |
-| Database SQL di Azure | Origine dati |
-| SQL Server in macchine virtuali IaaS di Azure | Origine dati |
-| Istanze gestite SQL | Origine dati |
+| database SQL di Azure | Origine dati |
+| SQL Server in Macchine virtuali di Azure | Origine dati |
+| Istanza gestita di SQL | Origine dati |
 | Funzioni di Azure | Host per le competenze personalizzate dell'API Web |
 | Servizi cognitivi | Allegato a skillt che verrà usato per fatturare l'arricchimento oltre il limite di 20 documenti gratuiti |
 
 > [!NOTE]
-> La risorsa servizio cognitivo associata a un skillt viene utilizzata per la fatturazione, in base agli arricchimenti eseguiti e scritti nell'indice di ricerca. Non viene utilizzato per accedere al API Servizi cognitivi. L'accesso dalla pipeline di arricchimento di un indicizzatore a API Servizi cognitivi avviene tramite un canale di comunicazione protetto, in cui i dati vengono crittografati in modo sicuro in transito e non vengono mai archiviati inattivi.
+> La risorsa servizio cognitivo associata a un skillt viene utilizzata per la fatturazione, in base agli arricchimenti eseguiti e scritti nell'indice di ricerca. Non viene utilizzato per accedere al API Servizi cognitivi. L'accesso dalla pipeline di arricchimento di un indicizzatore a API Servizi cognitivi avviene tramite un canale di comunicazione protetto interno, in cui i dati vengono crittografati in transito e non vengono mai archiviati inattivi.
 
-I clienti possono proteggere queste risorse tramite diversi meccanismi di isolamento della rete offerti da Azure. Fatta eccezione per la risorsa del servizio cognitivo, gli indicizzatori hanno la possibilità di accedere a tutte le altre risorse anche se sono isolate in rete, come descritto nella tabella seguente.
+I clienti possono proteggere queste risorse tramite diversi meccanismi di isolamento della rete offerti da Azure. Fatta eccezione per una risorsa di servizio cognitivo, gli indicizzatori hanno la possibilità di accedere a tutte le altre risorse anche se sono isolate dalla rete, descritte nella tabella seguente.
 
 | Risorsa | Restrizione IP | Endpoint privato |
 | --- | --- | ---- |
 | Archiviazione di Azure (BLOB, tabelle, ADLS gen 2) | Supportato solo se l'account di archiviazione e il servizio di ricerca si trovano in aree diverse | Supportato |
 | API Azure Cosmos DB-SQL | Supportato | Supportato |
 | Azure Cosmos DB-Cassandra, Mongo e Gremlin API | Supportato | Non supportato |
-| Database SQL di Azure | Supportato | Supportato |
-| SQL Server in macchine virtuali IaaS di Azure | Supportato | N/D |
-| Istanze gestite SQL | Supportato | N/D |
-| Funzioni di Azure | Supportato | Supportato, solo per determinati SKU di funzioni di Azure |
+| database SQL di Azure | Supportato | Supportato |
+| SQL Server in Macchine virtuali di Azure | Supportato | N/D |
+| Istanza gestita di SQL | Supportato | N/D |
+| Funzioni di Azure | Supportato | Supportato, solo per determinati livelli di funzioni di Azure |
 
 > [!NOTE]
-> Oltre alle opzioni elencate in precedenza, per gli account di archiviazione di Azure protetti da rete, i clienti possono sfruttare il fatto che Azure ricerca cognitiva è un [servizio Microsoft attendibile](../storage/common/storage-network-security.md#trusted-microsoft-services). Questo significa che un servizio di ricerca specifico può ignorare le restrizioni di rete virtuale o IP nell'account di archiviazione e può accedere ai dati nell'account di archiviazione, se il controllo degli accessi in base al ruolo appropriato è abilitato nell'account di archiviazione. I dettagli sono disponibili nella [Guida alle procedure](search-indexer-howto-access-trusted-service-exception.md). Questa opzione può essere usata al posto della route di restrizione IP, nel caso in cui non sia possibile spostare l'account di archiviazione o il servizio di ricerca in un'area diversa.
+> Oltre alle opzioni elencate in precedenza, per gli account di archiviazione di Azure protetti da rete, i clienti possono sfruttare il fatto che Azure ricerca cognitiva è un [servizio Microsoft attendibile](../storage/common/storage-network-security.md#trusted-microsoft-services). Questo significa che un servizio di ricerca specifico può ignorare le restrizioni di rete virtuale o IP nell'account di archiviazione e può accedere ai dati nell'account di archiviazione, se il controllo degli accessi in base al ruolo appropriato è abilitato nell'account di archiviazione. Per altre informazioni, vedere [connessioni indicizzatore con l'eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md). Questa opzione può essere usata al posto della route di restrizione IP, nel caso in cui non sia possibile spostare l'account di archiviazione o il servizio di ricerca in un'area diversa.
 
 Quando si sceglie quale meccanismo di accesso sicuro deve essere usato da un indicizzatore, tenere presenti i vincoli seguenti:
 
-- Gli [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) non saranno supportati per le risorse di Azure.
-- Non è possibile eseguire il provisioning di un servizio di ricerca in una rete virtuale specifica. questa funzionalità non verrà offerta da Azure ricerca cognitiva.
+- Un indicizzatore non è in grado di connettersi a un [endpoint del servizio rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md). Gli endpoint pubblici con credenziali, endpoint privati, servizio attendibile e indirizzi IP sono le uniche metodologie supportate per le connessioni dell'indicizzatore.
+- Non è possibile eseguire il provisioning di un servizio di ricerca in una rete virtuale specifica, in esecuzione in modalità nativa in una macchina virtuale. Questa funzionalità non verrà offerta da Azure ricerca cognitiva.
 - Quando gli indicizzatori utilizzano endpoint privati (in uscita) per accedere alle risorse, possono essere applicati [addebiti](https://azure.microsoft.com/pricing/details/search/) aggiuntivi per i collegamenti privati.
 
 ## <a name="indexer-execution-environment"></a>Ambiente di esecuzione dell'indicizzatore
 
 Gli indicizzatori di Azure ricerca cognitiva sono in grado di estrarre in modo efficiente il contenuto dalle origini dati, aggiungendo arricchimenti al contenuto estratto, generando facoltativamente le proiezioni prima di scrivere i risultati nell'indice di ricerca. A seconda del numero di responsabilità assegnate a un indicizzatore, può essere eseguito in uno dei due ambienti seguenti:
 
-- Ambiente privato per un servizio di ricerca specifico. Gli indicizzatori in esecuzione in tali ambienti condividono risorse con altri carichi di lavoro, ad esempio l'indicizzazione o l'esecuzione di query di altri clienti. In genere, solo gli indicizzatori che non necessitano di molte risorse (ad esempio, non usano un skillt) vengono eseguiti in questo ambiente.
-- Ambiente multi-tenant che ospita indicizzatori con risorse affamate, ad esempio quelli con un insieme di competenze. Le risorse affamate di risorse vengono eseguite in questo ambiente per offrire prestazioni ottimali garantendo al tempo stesso la disponibilità delle risorse del servizio di ricerca per altri carichi di lavoro. Questo ambiente multi-tenant è gestito e protetto da Azure ricerca cognitiva, senza costi aggiuntivi per il cliente.
+- Ambiente privato per un servizio di ricerca specifico. Gli indicizzatori in esecuzione in tali ambienti condividono risorse con altri carichi di lavoro, ad esempio altri carichi di lavoro di indicizzazione o query avviati dal cliente. In genere, solo gli indicizzatori che eseguono l'indicizzazione basata su testo (ad esempio, non usano un skillt) vengono eseguiti in questo ambiente.
+- Ambiente multi-tenant che ospita indicizzatori che richiedono un utilizzo intensivo delle risorse, ad esempio quelli con skillsets. Questo ambiente viene utilizzato per l'offload dell'elaborazione a elevato utilizzo di calcolo, lasciando disponibili risorse specifiche per il servizio per le operazioni di routine. Questo ambiente multi-tenant è gestito e protetto da Microsoft, senza costi aggiuntivi per il cliente.
 
-Per ogni esecuzione dell'indicizzatore, Azure ricerca cognitiva determina l'ambiente migliore in cui eseguire l'indicizzatore.
+Per ogni esecuzione dell'indicizzatore, Azure ricerca cognitiva determina l'ambiente migliore in cui eseguire l'indicizzatore. Se si usa un firewall IP per controllare l'accesso alle risorse di Azure, la conoscenza degli ambienti di esecuzione consentirà di configurare un intervallo di indirizzi IP compreso tra loro.
 
 ## <a name="granting-access-to-indexer-ip-ranges"></a>Concessione dell'accesso agli intervalli IP dell'indicizzatore
 
-Se la risorsa a cui l'indicizzatore tenta di accedere è limitata a un determinato set di intervalli IP, è necessario espandere il set per includere i possibili intervalli IP da cui può provenire una richiesta dell'indicizzatore. Come indicato in precedenza, esistono due possibili ambienti in cui vengono eseguiti gli indicizzatori e da cui possono provenire le richieste di accesso. Per il corretto funzionamento dell'indicizzatore, sarà necessario aggiungere gli indirizzi IP di __entrambi__ gli ambienti.
+Se la risorsa a cui l'indicizzatore tenta di accedere è limitata a un determinato set di intervalli IP, è necessario espandere il set per includere i possibili intervalli IP da cui può provenire una richiesta dell'indicizzatore. Come indicato in precedenza, esistono due possibili ambienti in cui vengono eseguiti gli indicizzatori e da cui possono provenire le richieste di accesso. Per il corretto funzionamento dell'indicizzatore, sarà necessario aggiungere gli indirizzi IP di **entrambi** gli ambienti.
 
-- Per ottenere l'indirizzo IP dell'ambiente privato specifico del servizio di ricerca, `nslookup` o `ping` il nome di dominio completo (FQDN) del servizio di ricerca. Il nome di dominio completo (FQDN) di un servizio di ricerca nel cloud pubblico, ad esempio, sarebbe `<service-name>.search.windows.net` . Queste informazioni sono disponibili nella portale di Azure.
+- Per ottenere l'indirizzo IP dell'ambiente privato specifico del servizio di ricerca, `nslookup` o `ping` il nome di dominio completo (FQDN) del servizio di ricerca. Ad esempio, il nome di dominio completo (FQDN) di un servizio di ricerca nel cloud pubblico è `<service-name>.search.windows.net` . Queste informazioni sono disponibili nella portale di Azure.
 - Gli indirizzi IP degli ambienti multi-tenant sono disponibili tramite il `AzureCognitiveSearch` tag del servizio. I [tag dei servizi di Azure](../virtual-network/service-tags-overview.md) hanno un intervallo di indirizzi IP pubblicato per ogni servizio, disponibile tramite un'API di [individuazione (anteprima)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) o un [file JSON scaricabile](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). In entrambi i casi, gli intervalli IP sono suddivisi in base all'area. è possibile selezionare solo gli intervalli IP assegnati per l'area in cui viene effettuato il provisioning del servizio di ricerca.
 
-Per alcune origini dati, è possibile usare direttamente il tag del servizio anziché enumerare l'elenco di intervalli IP (l'indirizzo IP del servizio di ricerca deve comunque essere usato in modo esplicito). Queste origini dati limitano l'accesso tramite la configurazione di una [regola del gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md)che supporta in modo nativo l'aggiunta di un tag di servizio, a differenza delle regole IP, ad esempio quelle offerte da archiviazione di Azure, CosmosDB, Azure SQL e così via, le origini dati che supportano la possibilità di usare il tag di `AzureCognitiveSearch` servizio direttamente oltre all'indirizzo IP del servizio di ricerca sono:
+Per alcune origini dati, è possibile usare direttamente il tag del servizio anziché enumerare l'elenco di intervalli IP (l'indirizzo IP del servizio di ricerca deve comunque essere usato in modo esplicito). Queste origini dati limitano l'accesso tramite la configurazione di una [regola del gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md), che supporta in modo nativo l'aggiunta di un tag di servizio, a differenza delle regole IP, ad esempio quelle offerte da archiviazione di azure, Cosmos DB, Azure SQL e così via. Le origini dati che supportano la possibilità di utilizzare il `AzureCognitiveSearch` tag di servizio direttamente oltre all'indirizzo IP del servizio di ricerca sono:
 
-- [SQL Server in macchine virtuali IaaS](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
+- [SQL Server in macchine virtuali di Azure](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
-- [Istanze gestite di SQL](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
+- [Istanze gestite SQL](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
-I dettagli sono descritti nella [Guida alla procedura](search-indexer-howto-access-ip-restricted.md).
+Per altre informazioni su questa opzione di connettività, vedere [connessioni a indicizzatore tramite un firewall IP](search-indexer-howto-access-ip-restricted.md).
 
 ## <a name="granting-access-via-private-endpoints"></a>Concessione dell'accesso tramite endpoint privati
 
 Gli indicizzatori possono usare [endpoint privati](../private-link/private-endpoint-overview.md) per accedere alle risorse. l'accesso a è bloccato per selezionare le reti virtuali o non è abilitato l'accesso pubblico.
-Questa funzionalità è disponibile solo per i servizi a pagamento, con limiti per il numero di endpoint privati da creare. I dettagli sui limiti sono documentati nella [pagina limiti di ricerca di Azure](search-limits-quotas-capacity.md).
+Questa funzionalità è disponibile solo nei servizi di ricerca fatturabili, con limiti sul numero di endpoint privati da creare. Per altre informazioni, vedere [limiti del servizio](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ### <a name="step-1-create-a-private-endpoint-to-the-secure-resource"></a>Passaggio 1: creare un endpoint privato per la risorsa protetta
 
-I clienti devono chiamare l'operazione di gestione di ricerca, [creare o aggiornare l'API per le *risorse di collegamento privato condiviso* ](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) per creare una connessione di endpoint privato alla propria risorsa protetta, ad esempio un account di archiviazione. Il traffico che supera questa connessione all'endpoint privato (in uscita) verrà originato solo dalla rete virtuale presente nell'ambiente di esecuzione dell'indicizzatore "privato" specifico del servizio di ricerca.
+I clienti devono chiamare l'operazione di gestione di ricerca, l' [API CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) su una **risorsa di collegamento privato condiviso**, per creare una connessione all'endpoint privato alla propria risorsa protetta, ad esempio un account di archiviazione. Il traffico che supera questa connessione all'endpoint privato (in uscita) verrà originato solo dalla rete virtuale presente nell'ambiente di esecuzione dell'indicizzatore "privato" specifico del servizio di ricerca.
 
-Azure ricerca cognitiva convaliderà che i chiamanti di questa API dispongono delle autorizzazioni per approvare le richieste di connessione all'endpoint privato alla risorsa protetta. Se ad esempio si richiede una connessione a un endpoint privato a un account di archiviazione a cui non si ha accesso, questa chiamata verrà rifiutata.
+Azure ricerca cognitiva convaliderà che i chiamanti di questa API dispongono delle autorizzazioni RBAC per approvare le richieste di connessione all'endpoint privato alla risorsa protetta. Se ad esempio si richiede una connessione a un endpoint privato a un account di archiviazione con autorizzazioni di sola lettura, la chiamata verrà rifiutata.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Passaggio 2: approvare la connessione all'endpoint privato
 
 Quando l'operazione (asincrona) che crea una risorsa di collegamento privato condivisa viene completata, viene creata una connessione all'endpoint privato in stato "in sospeso". Non viene ancora trasmesso alcun traffico sulla connessione.
-Il cliente deve quindi individuare la richiesta sulla risorsa protetta e "approvarla". In genere, questa operazione può essere eseguita tramite il portale o tramite l' [API REST](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
+Il cliente deve quindi individuare la richiesta sulla risorsa protetta e "approvarla". In genere, questa operazione può essere eseguita tramite il portale di Azure o tramite l' [API REST](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### <a name="step-3-force-indexers-to-run-in-the-private-environment"></a>Passaggio 3: forzare l'esecuzione degli indicizzatori nell'ambiente "privato"
 
@@ -116,15 +116,21 @@ Per consentire agli indicizzatori di accedere alle risorse tramite connessioni a
     }
 ```
 
-Questi passaggi sono descritti in modo più dettagliato nella [Guida alle procedure](search-indexer-howto-access-private.md).
+Questi passaggi sono descritti in modo più dettagliato nelle [connessioni dell'indicizzatore tramite un endpoint privato](search-indexer-howto-access-private.md).
 Quando si dispone di un endpoint privato approvato per una risorsa, gli indicizzatori impostati come *privati* tentano di ottenere l'accesso tramite la connessione all'endpoint privato.
 
 ### <a name="limits"></a>Limiti
 
-Per garantire prestazioni e stabilità ottimali del servizio di ricerca, vengono imposte le restrizioni (mediante lo SKU del servizio di ricerca) sulle dimensioni seguenti:
+Per garantire prestazioni e stabilità ottimali del servizio di ricerca, vengono imposte restrizioni (dal livello di servizio di ricerca) sulle dimensioni seguenti:
 
 - Tipi di indicizzatori che possono essere impostati come *privati*.
 - Il numero di risorse di collegamento privato condivise che è possibile creare.
 - Numero di tipi di risorse distinti per i quali è possibile creare risorse di collegamento privato condivise.
 
 Questi limiti sono documentati in [limiti di servizio](search-limits-quotas-capacity.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Connessioni di indicizzatore tramite firewall IP](search-indexer-howto-access-ip-restricted.md)
+- [Connessioni dell'indicizzatore con l'eccezione del servizio attendibile](search-indexer-howto-access-trusted-service-exception.md)
+- [Connessioni dell'indicizzatore a un endpoint privato](search-indexer-howto-access-private.md)

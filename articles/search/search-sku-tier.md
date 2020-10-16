@@ -1,23 +1,23 @@
 ---
-title: Scegliere uno SKU o un piano tariffario
+title: Scegliere un piano tariffario
 titleSuffix: Azure Cognitive Search
-description: 'È possibile eseguire il provisioning di Azure ricerca cognitiva in questi SKU: gratuito, Basic e standard, mentre standard è disponibile in diverse configurazioni di risorse e livelli di capacità.'
+description: 'È possibile eseguire il provisioning di Azure ricerca cognitiva in questi livelli: gratuito, Basic e standard, mentre standard è disponibile in diverse configurazioni di risorse e livelli di capacità.'
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948086"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101274"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
-Quando si crea un servizio ricerca cognitiva di Azure, [viene creata una risorsa](search-create-service-portal.md) a un piano tariffario (o SKU) fissa per la durata del servizio. I livelli includono gratuito, Basic, standard e con ottimizzazione per l'archiviazione. Sono disponibili standard e ottimizzati per l'archiviazione con diverse configurazioni e capacità.
+Quando si crea un servizio ricerca cognitiva di Azure, [viene creata una risorsa](search-create-service-portal.md) a un piano tariffario fisso per la durata del servizio. I livelli includono gratuito, Basic, standard e con ottimizzazione per l'archiviazione. Sono disponibili standard e ottimizzati per l'archiviazione con diverse configurazioni e capacità.
 
 La maggior parte dei clienti inizia con il livello gratuito, in modo da poter valutare il servizio. Dopo la valutazione, è comune creare un secondo servizio in uno dei livelli superiori per le distribuzioni di sviluppo e produzione.
 
@@ -27,15 +27,15 @@ Nella tabella seguente vengono descritti i vincoli di funzionalità correlati al
 
 | Funzionalità | Limitazioni |
 |---------|-------------|
-| [indicizzatori](search-indexer-overview.md) | Gli indicizzatori non sono disponibili in S3 HD. |
+| [indicizzatori](search-indexer-overview.md) | Gli indicizzatori non sono disponibili in S3 HD.  |
 | [Arricchimento con intelligenza artificiale](search-security-manage-encryption-keys.md) | Viene eseguito sul livello gratuito, ma non consigliato. |
 | [Chiavi di crittografia gestite dal cliente](search-security-manage-encryption-keys.md) | Non disponibile per il livello gratuito. |
 | [Accesso al firewall IP](service-configure-firewall.md) | Non disponibile per il livello gratuito. |
-| [Integrazione con collegamento privato di Azure](service-create-private-endpoint.md) | Non disponibile per il livello gratuito. |
+| [Endpoint privato (integrazione con collegamento privato di Azure)](service-create-private-endpoint.md) | Per le connessioni in ingresso a un servizio di ricerca, non disponibile nel livello gratuito. Per le connessioni in uscita da indicizzatori ad altre risorse di Azure, non disponibile in versione gratuita o S3 HD. Per gli indicizzatori che usano skillsets, non disponibile su gratuito, Basic, S1 o S3 HD.|
 
 La maggior parte delle funzionalità è disponibile in ogni livello, incluso gratuito, ma le funzionalità che richiedono un utilizzo intensivo delle risorse potrebbero non funzionare correttamente a meno che non si fornisca una capacità sufficiente. Ad esempio, l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che si timeout su un servizio gratuito, a meno che il set di dati non sia di piccole dimensioni.
 
-## <a name="tiers-skus"></a>Livelli (SKU)
+## <a name="tiers"></a>Livelli
 
 I livelli sono differenziati per:
 
@@ -158,7 +158,7 @@ Per determinare le dimensioni di un indice, è necessario [crearne uno](search-w
 Per la ricerca full-text, la struttura dei dati primaria è una struttura di [Indice invertita](https://en.wikipedia.org/wiki/Inverted_index) , che presenta caratteristiche diverse rispetto ai dati di origine. Per un indice invertito, le dimensioni e la complessità sono determinate dal contenuto, non necessariamente dalla quantità di dati da inserire. Un'origine dati di grandi dimensioni con ridondanza elevata può comportare un indice più piccolo rispetto a un set di dati più piccolo che contiene contenuto altamente variabile. Pertanto, è raramente possibile dedurre le dimensioni dell'indice in base alle dimensioni del set di dati originale.
 
 > [!NOTE] 
-> Anche se la stima delle esigenze future per gli indici e l'archiviazione può sembrare una supposizione, vale la pena. Se la capacità di un livello risulta troppo bassa, è necessario effettuare il provisioning di un nuovo servizio a un livello superiore e quindi [ricaricare gli indici](search-howto-reindex.md). Non è disponibile alcun aggiornamento sul posto di un servizio da uno SKU a un altro.
+> Anche se la stima delle esigenze future per gli indici e l'archiviazione può sembrare una supposizione, vale la pena. Se la capacità di un livello risulta troppo bassa, è necessario effettuare il provisioning di un nuovo servizio a un livello superiore e quindi [ricaricare gli indici](search-howto-reindex.md). Non è disponibile alcun aggiornamento sul posto di un servizio da un livello a un altro.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>Stima con il livello gratuito

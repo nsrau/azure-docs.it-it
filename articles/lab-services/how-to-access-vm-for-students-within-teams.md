@@ -3,12 +3,12 @@ title: Accedere a una macchina virtuale (visualizzazione studente) in Azure Lab 
 description: Informazioni su come accedere a una macchina virtuale (visualizzazione studente) in Azure Lab dai team.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: 346f4bcd75356b0466b1eea46e1da74aa2c63784
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c786a8b3fcee57cefb551a61087d4b49ee5e93c0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043446"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102409"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Accedere a una macchina virtuale (visualizzazione studente) in Azure Lab dai team
 
@@ -16,7 +16,7 @@ Quando viene creato un Lab all'interno dei team, gli utenti possono visualizzare
 
 ## <a name="view-labs"></a>Visualizza Lab
 
-Se il Lab è ancora in stato di pubblicazione o se non è ancora stata attivata una sincronizzazione dopo l'aggiunta al team, verrà visualizzato un messaggio simile per gli studenti. In ' se il lab deve essere pubblicato o se non è ancora stata attivata una sincronizzazione dopo l'aggiunta al team, viene visualizzato un messaggio simile ai membri del team.
+Se il Lab è ancora in stato di pubblicazione o se non è ancora stata attivata una sincronizzazione dopo l'aggiunta al team, verrà visualizzato un messaggio simile ai membri del team.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Lab Azure Lab Services":::

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848858"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103000"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 |**Contratto di servizio relativo al tempo di attività**|99,99%|99,99%|99,99%|
 |**Conservazione del backup massima**|7 giorni|35 giorni|35 giorni|
 |**CPU**|Basso|Basso, medio, elevato|Medio, elevato|
-|**IOPS (approssimativa)**\* |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**IOPS (approssimativa)**\* |1-4 IOPS per DTU| 1-4 IOPS per DTU | 25 IOPS per DTU|
 |**Latenza di I/O (approssimativa)**|5 ms (lettura), 10 ms (scrittura)|5 ms (lettura), 10 ms (scrittura)|2 ms (lettura/scrittura)|
 |**Indicizzazione ColumnStore** |N/D|S3 e superiore|Supportato|
 |**OLTP in memoria**|N/D|N/D|Supportato|
@@ -123,7 +123,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Elimina |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Delete |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -139,7 +139,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Elimina |2 |
+| Delete |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità

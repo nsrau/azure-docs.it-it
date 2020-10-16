@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256757"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103153"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per Microsoft Identity Platform
 
@@ -46,7 +46,7 @@ Molte app moderne hanno un front-end dell'app a singola pagina scritto principal
 
 Il diagramma di flusso seguente illustra la concessione del codice di autorizzazione OAuth 2,0 (con informazioni dettagliate su PKCE omesso), in cui l'app riceve un codice dall'endpoint della piattaforma di identità Microsoft `authorize` e lo riscatta per i token e i token di aggiornamento usando le richieste Web tra siti. Il token di aggiornamento scade ogni 24 ore e l'app deve richiedere un altro codice. Oltre al token di accesso, un oggetto `id_token` che rappresenta l'utente che ha eseguito l'accesso all'applicazione client viene in genere richiesto anche tramite lo stesso flusso e/o una richiesta di OpenID Connect separata (non illustrata di seguito).
 
-![Flusso di codice per le applicazioni a pagina singola](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagramma che mostra il flusso del codice di autorizzazione OAuth 2 tra un'app a singola pagina e l'endpoint del servizio token di sicurezza." border="false":::
 
 Per osservare il funzionamento di questo scenario, consultare l’[Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a pagina singola JavaScript usando il flusso del codice di autenticazione](tutorial-v2-javascript-auth-code.md).
 

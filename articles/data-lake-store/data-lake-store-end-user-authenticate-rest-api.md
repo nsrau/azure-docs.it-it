@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462cd06c9da3b1f0a57c293d52c59181372b709b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85984852"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103748"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite API REST
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ L'autenticazione dell'utente finale è l'approccio consigliato se si vuole che u
 
 L'accesso effettuato dall'utente finale comporta l'assegnazione di un token di accesso e un token di aggiornamento all'applicazione. Il token di accesso viene associato a ogni richiesta effettuata a Data Lake Storage Gen1 o Data Lake Analytics ed è valido per un'ora per impostazione predefinita. Il token di aggiornamento può essere usato per ottenere un nuovo token di accesso, ed è valido per un massimo di due settimane per impostazione predefinita (se usato di frequente). È possibile usare due diversi approcci per l'accesso degli utenti finali.
 
-In questo scenario, l'applicazione richiede all'utente di accedere e tutte le operazioni vengono eseguite nel contesto utente. Eseguire questa procedura:
+In questo scenario, l'applicazione richiede all'utente di accedere e tutte le operazioni vengono eseguite nel contesto utente. Eseguire la procedura seguente:
 
 1. Tramite l'applicazione, reindirizzare l'utente all'URL seguente:
 
@@ -82,11 +82,10 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
          -F refresh_token=<REFRESH-TOKEN>
     ```
 
-Per altre informazioni sull'autenticazione utente interattiva, vedere [Flusso di concessione del codice di autorizzazione](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+Per altre informazioni sull'autenticazione utente interattiva, vedere [Flusso di concessione del codice di autorizzazione](/previous-versions/azure/dn645542(v=azure.100)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare l'autenticazione da servizio a servizio per eseguire l'autenticazione con Azure Data Lake Storage Gen1 usando l'API REST. È ora possibile leggere gli articoli seguenti per informazioni su come usare l'API REST in Azure Data Lake Storage Gen1.
 
 * [Operazioni di gestione degli account in Data Lake Storage Gen1 usando l'API REST](data-lake-store-get-started-rest-api.md)
 * [Operazioni dati in Data Lake Storage Gen1 con API REST](data-lake-store-data-operations-rest-api.md)
-
