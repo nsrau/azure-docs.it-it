@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714215"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126842"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
 
@@ -185,7 +185,7 @@ Il flusso è leggermente diverso a seconda che i dispositivi usino token di firm
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Connettività dei dispositivi basata sulla registrazione singola
 
-Per i clienti che connettono dispositivi che dispongono ognuno delle proprie credenziali di autenticazione, usare le registrazioni singole. Una registrazione singola è una voce per un singolo dispositivo a cui è consentita la registrazione. Le registrazioni singole possono usare sia certificati foglia X.509 che token di firma di accesso condiviso (da un TPM fisico o virtuale) come meccanismo di attestazione. L'ID dispositivo (definito anche ID di registrazione) in una registrazione singola è alfanumerico, con caratteri minuscoli e può contenere trattini. Per altre informazioni, vedere [Registrazione singola DPS](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+Per i clienti che connettono dispositivi che dispongono ognuno delle proprie credenziali di autenticazione, usare le registrazioni singole. Una registrazione singola è una voce per un singolo dispositivo a cui è consentita la registrazione. Le registrazioni singole possono usare sia certificati foglia X.509 che token di firma di accesso condiviso (da un TPM fisico o virtuale) come meccanismo di attestazione. L'ID dispositivo (definito anche ID di registrazione) in una registrazione singola è alfanumerico, con caratteri minuscoli e può contenere trattini. Per altre informazioni, vedere [Registrazione singola DPS](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Quando si crea una registrazione singola per un dispositivo, essa ha la precedenza sulle opzioni di registrazione di gruppo predefinite nell'applicazione IoT Central.
@@ -204,7 +204,7 @@ IoT Central supporta i meccanismi di attestazione seguenti per le registrazioni 
     > [!TIP]
     > Per il test, è possibile usare [Strumenti per Azure IoT SDK Device Provisioning Device per Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) per generare un certificato autofirmato: `node create_test_cert.js device "mytestdevice"`
 
-- **Attestazione TPM (Trusted Platform Module):** Un [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) è un tipo di modulo di protezione hardware. L'uso di un TPM è uno dei modi più sicuri per connettere un dispositivo. Questo articolo presuppone che l'utente usi un TPM discreto, firmware o integrato. I TPM emulati dal software sono ideali per la creazione di prototipi o i test, ma non forniscono lo stesso livello di sicurezza di un TPM discreto, firmware o integrato. Non usare TPM software nell'ambiente di produzione. Per creare una registrazione singola che usa un TPM, aprire la pagina **Connessione dispositivo**, selezionare **Registrazione singola** come metodo di connessione e **TPM** come meccanismo. Immettere la chiave di verifica dell'autenticità del TPM e salvare le informazioni di connessione del dispositivo.
+- **Attestazione TPM (Trusted Platform Module):** Un [TPM](../../iot-dps/concepts-tpm-attestation.md) è un tipo di modulo di protezione hardware. L'uso di un TPM è uno dei modi più sicuri per connettere un dispositivo. Questo articolo presuppone che l'utente usi un TPM discreto, firmware o integrato. I TPM emulati dal software sono ideali per la creazione di prototipi o i test, ma non forniscono lo stesso livello di sicurezza di un TPM discreto, firmware o integrato. Non usare TPM software nell'ambiente di produzione. Per creare una registrazione singola che usa un TPM, aprire la pagina **Connessione dispositivo**, selezionare **Registrazione singola** come metodo di connessione e **TPM** come meccanismo. Immettere la chiave di verifica dell'autenticità del TPM e salvare le informazioni di connessione del dispositivo.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Associare automaticamente a un modello di dispositivo
 

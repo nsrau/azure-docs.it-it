@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015977"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122961"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Monitorare la connettività dei dispositivi con l'interfaccia della riga di comando di Azure
 
@@ -22,11 +22,11 @@ ms.locfileid: "90015977"
 
 Usare l'estensione dell'interfaccia della riga di comando di Azure per visualizzare i messaggi inviati dai dispositivi a IoT Central e osservare le modifiche nel dispositivo gemello. È possibile usare questo strumento per eseguire il debug e osservare la connettività dei dispositivi e diagnosticare i problemi dei messaggi del dispositivo che non raggiungono il cloud o i dispositivi che non rispondono alle modifiche del dispositivo gemello
 
-[Vedere le informazioni di riferimento sulle estensioni dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Vedere le informazioni di riferimento sulle estensioni dell'interfaccia della riga di comando di Azure](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ L'interfaccia della riga di comando di Azure è installata ed è 2.7.0 o versione successiva. Controllare la versione dell'interfaccia della riga di comando di Azure eseguendo `az --version` . Informazioni su come installare e aggiornare dalla [documentazione dell'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli) della riga di comando di Azure
++ L'interfaccia della riga di comando di Azure è installata ed è 2.7.0 o versione successiva. Controllare la versione dell'interfaccia della riga di comando di Azure eseguendo `az --version` . Informazioni su come installare e aggiornare dalla [documentazione dell'interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure
 + Un account aziendale o dell'Istituto di istruzione in Azure, aggiunto come utente in un'applicazione IoT Central.
 
 ## <a name="install-the-iot-central-extension"></a>Installare l'estensione IoT Central

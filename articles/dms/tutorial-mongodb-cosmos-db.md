@@ -1,7 +1,7 @@
 ---
-title: "Esercitazione: eseguire la migrazione offline di MongoDB all'API Azure Cosmos DB per MongoDB"
+title: "Esercitazione: Eseguire la migrazione offline di MongoDB all'API di Azure Cosmos DB per MongoDB"
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire la migrazione da MongoDB locale a Azure Cosmos DB API per MongoDB offline usando il servizio migrazione del database di Azure.
+description: Informazioni su come eseguire la migrazione offline da un'istanza locale di MongoDB all'API di Azure Cosmos DB per MongoDB con il Servizio Migrazione del database di Azure.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -13,13 +13,13 @@ ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.openlocfilehash: b5e335659a26568ae11a17425c4e53c53f02a843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282358"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Esercitazione: eseguire la migrazione di MongoDB all'API Azure Cosmos DB per MongoDB offline con DMS
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Esercitazione: Eseguire la migrazione offline di MongoDB all'API di Azure Cosmos DB per MongoDB con il servizio Migrazione del database
 
 È possibile usare Servizio Migrazione del database di Azure per eseguire una migrazione offline (una tantum) di database da un'istanza locale o cloud di MongoDB all'API di Azure Cosmos DB per MongoDB.
 
@@ -39,10 +39,10 @@ Per completare questa esercitazione, è necessario:
 
 * [Completare la procedura di pre-migrazione](../cosmos-db/mongodb-pre-migration.md), ad esempio stimare la velocità effettiva, scegliere una chiave di partizione e i criteri di indicizzazione.
 * [Creare un account dell'API di Azure Cosmos DB per MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
+* Creare una rete virtuale di Microsoft Azure per il Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere la [documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
 
     > [!NOTE]
-    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete a Microsoft, aggiungere i seguenti [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio alla subnet in cui verrà eseguito il provisioning del servizio:
+    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete per Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
     >
     > * Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
     > * Endpoint di archiviazione
@@ -50,7 +50,7 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale (NSG) non blocchino le porte di comunicazione seguenti: 53, 443, 445, 9354 e 10000-20000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione: 53, 443, 445, 9354 e da 10000 a 20000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server MongoDB di origine, per impostazione predefinita attraverso la porta TCP 27017.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 
@@ -84,13 +84,13 @@ Per completare questa esercitazione, è necessario:
 
 5. Selezionare una rete virtuale esistente o crearne una nuova.
 
-    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso all'istanza di MongoDB di origine e l'account Azure Cosmos DB di destinazione.
+    La rete virtuale consente al Servizio Migrazione del database di Azure di accedere all'istanza di MongoDB di origine e all'account Azure Cosmos DB di destinazione.
 
-    Per altre informazioni su come creare una rete virtuale nella portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
+    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale con il portale di Azure](https://aka.ms/DMSVnet).
 
 6. Selezione di un piano tariffario.
 
-    Per ulteriori informazioni sui costi e sui piani tariffari, vedere la [pagina](https://aka.ms/dms-pricing)relativa ai prezzi.
+    Per altre informazioni sui costi e i piani tariffari, vedere la [pagina relativa ai prezzi](https://aka.ms/dms-pricing).
 
     ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
 
@@ -106,7 +106,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 2. Nella schermata **Servizi Migrazione del database di Azure** cercare il nome dell'istanza di Servizio Migrazione del database di Azure appena creata e quindi selezionare l'istanza.
 
-3. Selezionare + **nuovo progetto di migrazione**.
+3. Selezionare **+ Nuovo progetto di migrazione**.
 
 4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **MongoDB** nella casella di testo **Tipo del server di origine**, **CosmosDB (API MongoDB)** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati offline** per **Scegli il tipo di attività**. 
 
@@ -134,7 +134,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
      Questa stringa di connessione della firma di accesso condiviso del contenitore BLOB si trova in Azure Storage Explorer. La creazione della firma di accesso condiviso per il contenitore interessato fornirà l'URL nel formato richiesto descritto sopra.
      
-     Inoltre, in base alle informazioni sul dump del tipo in archiviazione di Azure, tenere presente i dettagli seguenti.
+     Inoltre, in base alle informazioni sui dump in Archiviazione di Azure, tenere presenti i dettagli seguenti.
 
      * Per i dump BSON, i dati all'interno del contenitore di BLOB devono essere in formato bsondump, in modo che i file di dati vengano inseriti in cartelle con gli stessi nomi dei database che li contengono nel formato collection.bson. I nomi dei file di metadati (se presenti) dovranno essere in formato *collection*.metadata.json.
 

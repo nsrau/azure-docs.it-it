@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042882"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126825"
 ---
 # <a name="device-model-repository"></a>Repository del modello di dispositivo
 
@@ -30,7 +30,7 @@ Microsoft ospita una ricevitore pubblica con queste caratteristiche:
 
 ## <a name="custom-device-model-repository"></a>Repository del modello di dispositivo personalizzato
 
-Per creare un ricevitore personalizzato, è possibile usare lo stesso modello ricevitore in qualsiasi supporto di archiviazione, ad esempio file system locali o server Web HTTP personalizzati. È possibile recuperare i modelli dal ricevitore personalizzato in modo analogo al DRM pubblico semplicemente modificando l'URL di base usato per accedere a ricevitore.
+Per creare un ricevitore personalizzato, è possibile usare lo stesso modello ricevitore in qualsiasi supporto di archiviazione, ad esempio file system locali o server Web HTTP personalizzati. È possibile recuperare i modelli dal ricevitore personalizzato in modo analogo al ricevitore pubblico semplicemente modificando l'URL di base usato per accedere a ricevitore.
 
 > [!NOTE]
 > Gli strumenti usati per convalidare i modelli nel ricevitore pubblico possono essere riutilizzati in repository personalizzati.

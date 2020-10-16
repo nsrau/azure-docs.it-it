@@ -3,12 +3,12 @@ title: Miglioramento dell'eccellenza operativa con Advisor
 description: USA Azure Advisor per ottimizzare e maturare l'eccellenza operativa per le tue sottoscrizioni di Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077389"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122620"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Ottenere l'eccellenza operativa usando Azure Advisor
 
@@ -53,6 +53,12 @@ Criteri di Azure è un servizio di Azure che è possibile usare per creare, asse
 **Applicare le *VM di controllo che non usano Managed disks*.**
 
 **Abilitare *ereditare un tag dai gruppi di risorse*.** Questi criteri aggiungono o sostituiscono il tag e il valore specifici del gruppo di risorse padre quando una risorsa viene aggiunta o aggiornata. È possibile monitorare e aggiornare le risorse esistenti attivando un'attività di correzione.
+
+Advisor consiglia alcuni singoli criteri di Azure che aiutano i clienti a raggiungere l'eccellenza operativa adottando procedure consigliate. Se un cliente decide di assegnare un criterio consigliato, il Consiglio verrà eliminato. Se il cliente decide di rimuovere il criterio in un secondo momento, Advisor continuerà a eliminare la raccomandazione perché la rimozione verrà interpretata come un segnale forte dei seguenti elementi:
+
+1.  Il cliente ha rimosso i criteri perché, nonostante la raccomandazione di Advisor, non si applica al caso d'uso specifico. 
+2.  Il cliente è a conoscenza e ha familiarità con il criterio dopo l'assegnazione e la rimozione e può assegnarlo o rimuoverlo di nuovo, se necessario, senza alcuna indicazione se successivamente diventa pertinente per il caso d'uso. Se il cliente trova il proprio interesse a assegnare di nuovo lo stesso criterio, è possibile farlo in criteri di Azure senza richiedere una raccomandazione in Advisor. Si noti che questa logica si applica in modo specifico alla raccomandazione dei criteri nella categoria di eccellenza operativa. Queste regole non si applicano alle raccomandazioni sulla sicurezza.  
+
 
 ## <a name="no-validation-environment-enabled"></a>Nessun ambiente di convalida abilitato
 Azure Advisor determina che nella sottoscrizione corrente non è abilitato un ambiente di convalida. Quando si creano i pool host, \" nella scheda proprietà è stato selezionato No \" per \" ambiente di convalida \" . Avere almeno un pool host con un ambiente di convalida abilitato garantisce la continuità aziendale tramite le distribuzioni del servizio desktop virtuale di Windows con il rilevamento iniziale dei potenziali problemi. [Altre informazioni](../virtual-desktop/create-validation-host-pool.md)

@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 3182f7fa913cd61e6c51ea91be6b46e83a1ab949
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa10b2170024760fe20d6ed037353b12a0a9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540103"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127251"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il database di Azure per MariaDB
 
-Il database di Azure per MariaDB modificherà il certificato radice per l'applicazione client o il driver abilitato con SSL, da usare per [connettersi al server di database](concepts-connectivity-architecture.md). Il certificato radice attualmente disponibile è impostato sulla scadenza del 26 ottobre 2020 (10/26/2020) come parte delle procedure consigliate per la manutenzione e la protezione standard. In questo articolo vengono fornite ulteriori informazioni sulle modifiche imminenti, sulle risorse interessate e sui passaggi necessari per garantire che l'applicazione mantenga la connettività al server di database.
+Il database di Azure per MariaDB modificherà il certificato radice per l'applicazione client o il driver abilitato con SSL, da usare per [connettersi al server di database](concepts-connectivity-architecture.md). Il certificato radice attualmente disponibile è impostato in modo da scadere il 15 febbraio 2021 (02/15/2021) come parte delle procedure consigliate per la manutenzione e la sicurezza standard. In questo articolo vengono fornite ulteriori informazioni sulle modifiche imminenti, sulle risorse interessate e sui passaggi necessari per garantire che l'applicazione mantenga la connettività al server di database.
+
+>[!NOTE]
+> In base ai commenti e suggerimenti dei clienti, è stata estesa la deprecazione del certificato radice per la CA radice Baltimore esistente dal 26 ottobre 2020 fino al 15 febbraio 2021. Ci auguriamo che questa estensione fornisca lead time sufficienti per consentire agli utenti di implementare le modifiche apportate al client, se interessate.
 
 ## <a name="what-update-is-going-to-happen"></a>Quale aggiornamento verrà eseguita?
 
@@ -24,12 +27,12 @@ In alcuni casi, le applicazioni utilizzano un file di certificato locale generat
 In base ai requisiti di conformità del settore, i fornitori di CA hanno iniziato a revocare i certificati della CA per le CA non conformi, che richiedono che i server usino certificati rilasciati da CA conformi e firmati da certificati della CA da tali CA conformi. Poiché il database di Azure per MariaDB attualmente usa uno di questi certificati non conformi, che le applicazioni client usano per convalidare le connessioni SSL, è necessario assicurarsi che vengano eseguite le azioni appropriate (descritte di seguito) per ridurre al minimo il potenziale impatto sui server MariaDB.
 
 
-Il nuovo certificato verrà usato a partire dal 26 ottobre 2020 (10/26/2020). Se si usa la convalida della CA o la convalida completa del certificato del server quando ci si connette da un client MySQL (sslmode = Verify-CA o sslmode = Verify-Full), è necessario aggiornare la configurazione dell'applicazione prima del 26 ottobre 2020 (10/26/2020).
+Il nuovo certificato verrà usato a partire dal 15 febbraio 2021 (02/15/2021). Se si usa la convalida della CA o la convalida completa del certificato del server quando ci si connette da un client MySQL (sslmode = Verify-CA o sslmode = Verify-Full), è necessario aggiornare la configurazione dell'applicazione prima del 15 febbraio 2021 (02/15/2021).
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Ricerca per categorie verificare se il database sarà interessato?
 
 Tutte le applicazioni che usano SSL/TLS e verificano che il certificato radice debba aggiornare il certificato radice. È possibile stabilire se le connessioni verificano il certificato radice rivedendo la stringa di connessione.
--   Se la stringa di connessione include `sslmode=verify-ca` o `sslmode=verify-full` , è necessario aggiornare il certificato.
+-   Se la stringa di connessione include `sslmode=verify-ca` o `sslmode=verify-identity` , è necessario aggiornare il certificato.
 -   Se la stringa di connessione include `sslmode=disable` ,, `sslmode=allow` `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati. 
 -   Se la stringa di connessione non specifica sslmode, non è necessario aggiornare i certificati.
 
@@ -83,6 +86,9 @@ Se si usa il certificato rilasciato da database di Azure per MariaDB, come descr
 *   Certificato/certificato revocato non valido
 *   Timeout della connessione
 
+> [!NOTE]
+> Non eliminare o modificare il **certificato Baltimore** fino a quando non viene apportata la modifica del certificato. Al termine della modifica verrà inviata una comunicazione, dopo la quale è possibile eliminare il certificato Baltimore. 
+
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. se non si usa SSL/TLS, è ancora necessario aggiornare la CA radice?
@@ -91,8 +97,8 @@ Non sono necessarie azioni se non si usa SSL/TLS.
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. Se si usa SSL/TLS, è necessario riavviare il server di database per aggiornare la CA radice?
 No, non è necessario riavviare il server di database per iniziare a usare il nuovo certificato. L'aggiornamento del certificato è una modifica lato client e le connessioni client in ingresso devono usare il nuovo certificato per assicurarsi che possano connettersi al server di database.
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. cosa accade se non si aggiorna il certificato radice prima del 26 ottobre 2020 (10/26/2020)?
-Se non si aggiorna il certificato radice prima del 26 ottobre 2020, le applicazioni che si connettono tramite SSL/TLS e la verifica per il certificato radice non saranno in grado di comunicare con il server di database MariaDB e l'applicazione verificherà problemi di connettività al server di database MariaDB.
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. cosa accade se non si aggiorna il certificato radice prima del 15 febbraio 2021 (02/15/2021)?
+Se non si aggiorna il certificato radice prima del 15 febbraio 2021 (02/15/2021), le applicazioni che si connettono tramite SSL/TLS e la verifica del certificato radice non saranno in grado di comunicare con il server di database MariaDB e l'applicazione verificherà problemi di connettività al server di database MariaDB.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mariadb"></a>4. quali sono le conseguenze dell'uso del servizio app con il database di Azure per MariaDB?
 Per i servizi app di Azure che si connettono al database di Azure per MariaDB, è possibile avere due scenari possibili e dipende da come si usa SSL con l'applicazione.
@@ -110,11 +116,11 @@ Per il connettore che usa Integration Runtime self-hosted in cui si include in m
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. è necessario pianificare un tempo di inattività per la manutenzione del server di database per questa modifica?
 No. Poiché la modifica è disponibile solo sul lato client per la connessione al server di database, non è necessario alcun tempo di inattività di manutenzione per il server di database per questa modifica.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. cosa accade se non è possibile ottenere un tempo di inattività pianificato per questa modifica prima del 26 ottobre 2020 (10/26/2020)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. cosa accade se non è possibile ottenere un tempo di inattività pianificato per questa modifica prima del 15 febbraio 2021 (02/15/2021)?
 Poiché i client usati per la connessione al server devono aggiornare le informazioni del certificato come descritto [nella sezione correzione](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), in questo caso non è necessario un tempo di inattività per il server.
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. Se si crea un nuovo server dopo il 26 ottobre 2020, I ripercussioni saranno compromessi?
-Per i server creati dopo il 26 ottobre 2020 (10/26/2020), è possibile usare il certificato appena emesso per le applicazioni per la connessione tramite SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Se si crea un nuovo server dopo il 15 febbraio 2021 (02/15/2021), si avrà un effetto?
+Per i server creati dopo il 15 febbraio 2021 (02/15/2021), è possibile usare il certificato appena emesso per le applicazioni per la connessione tramite SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?
 Questi certificati usati da database di Azure per MariaDB sono forniti da autorità di certificazione (CA) attendibili. Il supporto di questi certificati nel database di Azure per MariaDB è quindi associato al supporto di questi certificati da parte della CA. Tuttavia, come in questo caso, in questi certificati predefiniti possono essere presenti bug non previsti, che devono essere corretti al più presto.

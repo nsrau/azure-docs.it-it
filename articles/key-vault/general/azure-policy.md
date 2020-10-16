@@ -7,12 +7,12 @@ ms.date: 01/28/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 62ea64f6f0ccf3a9f4ceabc64a97e1e5570b92b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef41516d516ce6498fc8c502a229084acdebfa1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586070"
+ms.locfileid: "91875517"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrare Azure Key Vault con Criteri di Azure
 
@@ -148,7 +148,10 @@ Si gestisce un insieme di credenziali delle chiavi usato da più team che contie
 L'assegnazione di un criterio con un effetto "Nega" può richiedere fino a 30 minuti (caso medio) e 1 ora (caso peggiore) per iniziare a negare la creazione di risorse non conformi. La valutazione dei criteri dei componenti esistenti in un insieme di credenziali può richiedere fino a 1 ora (caso medio) e 2 ore (caso peggiore) prima che i risultati di conformità vengano visualizzabili nell'interfaccia utente del portale. Se i risultati di conformità vengono visualizzati come "non avviati", i motivi possono essere i seguenti:
 - La valutazione dei criteri non è ancora stata completata. La latenza di valutazione iniziale può richiedere fino a 2 ore nello scenario peggiore. 
 - Non sono presenti insiemi di credenziali delle chiavi nell'ambito dell'assegnazione dei criteri.
-- Non sono presenti insiemi di credenziali delle chiavi con certificati nell'ambito dell'assegnazione di criteri. 
+- Non sono presenti insiemi di credenziali delle chiavi con certificati nell'ambito dell'assegnazione di criteri.
+
+> [!NOTE]
+> Le [modalità Provider di risorse](../../governance/policy/concepts/definition-structure.md#resource-provider-modes) di Criteri di Azure, ad esempio quelle per Azure Key Vault, offrono informazioni sulla conformità nella pagina [Conformità dei componenti](../../governance/policy/how-to/get-compliance-data.md#component-compliance).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

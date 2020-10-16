@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80365509"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122978"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gestire utenti e ruoli nell'applicazione IoT Central
 
@@ -25,7 +25,7 @@ Per accedere alla sezione **Amministrazione** e usarla, è necessario disporre d
 
 Ogni utente deve avere un account utente prima di poter accedere a un'applicazione Azure IoT Central. Gli account Microsoft e Azure Active Directory sono supportati in Azure IoT Central. I gruppi di Azure Active Directory non sono attualmente supportati in Azure IoT Central.
 
-Per altre informazioni, vedere [Guida di Account Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [Guida introduttiva: Aggiungere nuovi utenti ad Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Per altre informazioni, vedere [Guida di Account Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [Guida introduttiva: Aggiungere nuovi utenti ad Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Per aggiungere un utente a un'applicazione IoT Central, passare alla pagina **Utenti** nella sezione **Amministrazione**.
     
@@ -106,7 +106,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Create | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
-| Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Comandi Execute | Aggiorna, Visualizza <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare ed eseguire comandi <br/> Altre dipendenze: visualizzare i modelli di dispositivo e i gruppi di dispositivi  |
 
@@ -116,8 +116,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
-| Crea | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
-| Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare <br/> Altre dipendenze: visualizzare i modelli di dispositivo e le istanze del dispositivo |
 
 **Autorizzazioni di gestione della connettività del dispositivo**
@@ -136,8 +136,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
-| Crea | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
-| Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi |
 | Execute | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivo |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare ed eseguire <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze del dispositivo e i gruppi di dispositivi; Aggiornare le istanze del dispositivo; Eseguire comandi sulle istanze del dispositivo |
 
@@ -147,8 +147,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 | Aggiornamento | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
-| Crea | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
-| Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Create | Visualizza, aggiorna <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare <br/> Altre dipendenze: visualizzare i modelli di dispositivo |
 
 #### <a name="managing-the-app"></a>Gestione dell'app
@@ -160,7 +160,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
 | Copia | Visualizzazione <br/> Altre dipendenze: visualizzare i modelli di dispositivo, le istanze di dispositivo, i gruppi di dispositivi, i dashboard, l'esportazione dei dati, la personalizzazione, i collegamenti guida, i ruoli personalizzati, le regole |
-| Elimina | Visualizzazione   |
+| Delete | Visualizzazione   |
 | Controllo completo | Visualizzazione, aggiornamento, copia, eliminazione <br/> Altre dipendenze: visualizzare modelli di dispositivi, gruppi di dispositivi, dashboard dell'applicazione, esportazione dei dati, personalizzazione, collegamenti alla guida, ruoli personalizzati, regole |
 
 **Autorizzazioni esportazione modello applicazione**
@@ -186,8 +186,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno |
 | Aggiornamento | Visualizzazione |
-| Crea | Visualizza, aggiorna |
-| Elimina | Visualizzazione |
+| Create | Visualizza, aggiorna |
+| Delete | Visualizzazione |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni di gestione dell'utente**
@@ -196,7 +196,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 | Add | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
-| Elimina | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
+| Delete | Visualizzazione <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 | Controllo completo | Visualizza, Aggiungi, Elimina <br/> Altre dipendenze: visualizzare i ruoli personalizzati |
 
 > [!NOTE]
@@ -210,8 +210,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
-| Crea | Visualizza, aggiorna |
-| Elimina | Visualizzazione   |
+| Create | Visualizza, aggiorna |
+| Delete | Visualizzazione   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni per Dashboard personali**
@@ -220,8 +220,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
-| Crea | Visualizza, aggiorna   |
-| Elimina | Visualizzazione   |
+| Create | Visualizza, aggiorna   |
+| Delete | Visualizzazione   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni per personalizzazione, favicon e colori**
@@ -248,8 +248,8 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno     |
 | Aggiornamento | Visualizzazione   |
-| Crea | Visualizza, aggiorna  |
-| Elimina | Visualizzazione   |
+| Create | Visualizza, aggiorna  |
+| Delete | Visualizzazione   |
 | Controllo completo | Visualizzare, aggiornare, creare, eliminare |
 
 **Autorizzazioni token API**
@@ -258,7 +258,7 @@ Quando si definisce un ruolo personalizzato, si sceglie il set di autorizzazioni
 | ---- | -------- |
 | Visualizzazione | Nessuno     |
 | Create | Visualizzazione   |
-| Elimina | Visualizzazione   |
+| Delete | Visualizzazione   |
 | Controllo completo | Visualizza, crea, Elimina |
 
 ## <a name="next-steps"></a>Passaggi successivi

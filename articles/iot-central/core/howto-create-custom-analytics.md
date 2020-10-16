@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e261e8d5d9cd147f3157303b7a2a50db7c33e58
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660136"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123046"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estendi IoT Central di Azure con analisi personalizzate con Azure Databricks
 
-Questa guida dettagliata illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con le analisi e le visualizzazioni personalizzate. Nell'esempio viene usata un'area di lavoro di [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) per analizzare il flusso di dati di telemetria IOT Central e generare visualizzazioni, ad esempio i [tracciati box](https://wikipedia.org/wiki/Box_plot).
+Questa guida dettagliata illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con le analisi e le visualizzazioni personalizzate. Nell'esempio viene usata un'area di lavoro di [Azure Databricks](/azure/azure-databricks/) per analizzare il flusso di dati di telemetria IOT Central e generare visualizzazioni, ad esempio i [tracciati box](https://wikipedia.org/wiki/Box_plot).
 
 Questa guida dettagliata illustra come estendere IoT Central oltre quello che può già fare con gli [strumenti di analisi incorporati](./howto-create-custom-analytics.md).
 
@@ -109,7 +109,7 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
     | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Attivato | On |
+    | Enabled | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
     | Misurazioni | On |

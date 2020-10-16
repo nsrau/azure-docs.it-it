@@ -1,54 +1,56 @@
 ---
-title: 'Azure ExpressRoute: collegare un VNet al circuito: interfaccia della riga di comando'
-description: Questo articolo mostra come collegare le reti virtuali ai circuiti di ExpressRoute usando il modello di distribuzione di Resource Manager e dell’interfaccia della riga di comando.
+title: 'Esercitazione: Collegare una rete virtuale a un circuito ExpressRoute - Interfaccia della riga di comando di Azure'
+description: Questa esercitazione illustra come collegare reti virtuali a circuiti ExpressRoute usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando.
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 07/27/2020
+ms.topic: tutorial
+ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: ac36e303cbeaf5167b5bbec3cea503c37b276058
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
-ms.translationtype: MT
+ms.openlocfilehash: 41bb72ba4c220a0dd2ebb93f2bd313a15d108faa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393208"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856280"
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Connettere una rete virtuale a un circuito ExpressRoute usando l'interfaccia della riga di comando
+# <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Esercitazione: Connettere una rete virtuale a un circuito ExpressRoute usando l'interfaccia della riga di comando
 
-Questo articolo illustra come collegare reti virtuali a circuiti ExpressRoute di Azure usando l'interfaccia della riga di comando. Per creare un collegamento tramite l'interfaccia della riga di comando di Azure, è necessario creare le reti virtuali con il modello di distribuzione Resource Manager. Le reti virtuali possono essere nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Se si vuole usare un metodo diverso per connettere la rete virtuale a un circuito ExpressRoute, è possibile scegliere uno degli articoli seguenti:
+Questa esercitazione illustra come collegare reti virtuali a circuiti Azure ExpressRoute usando l'interfaccia della riga di comando di Azure. Per creare un collegamento tramite l'interfaccia della riga di comando di Azure, è necessario creare le reti virtuali con il modello di distribuzione Resource Manager. Le reti virtuali possono essere nella stessa sottoscrizione o appartenere a un'altra sottoscrizione. Se si vuole usare un metodo diverso per connettere la rete virtuale a un circuito ExpressRoute, è possibile scegliere uno degli articoli seguenti:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md) (PowerShell (classico))
 > 
 
-## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
+In questa esercitazione verranno illustrate le procedure per:
+> [!div class="checklist"]
+> - Collegare una rete virtuale della stessa sottoscrizione a un circuito
+> - Collegare una rete virtuale di un'altra sottoscrizione a un circuito
+> - Modificare una connessione di rete virtuale
+> - Configurare ExpressRoute FastPath
+
+## <a name="prerequisites"></a>Prerequisiti
 
 * È necessaria la versione più recente dell'interfaccia della riga di comando. Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-* Prima di procedere con la configurazione, è necessario verificare i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
-
+* Verificare i [prerequisiti](expressroute-prerequisites.md), i [requisiti di routing](expressroute-routing.md) e i [flussi di lavoro](expressroute-workflows.md).
 * È necessario avere un circuito ExpressRoute attivo. 
   * Seguire le istruzioni per [creare un circuito ExpressRoute](howto-circuit-cli.md) e fare in modo che venga abilitato dal provider di connettività. 
   * Assicurarsi di disporre del peering privato di Azure configurato per il circuito. Vedere l'articolo relativo alla [configurazione del routing](howto-routing-cli.md) per istruzioni relative al routing. 
-  * Verificare che il peering privato di Azure sia configurato. Per abilitare la connettività end-to-end è necessario che il peering BGP tra la rete e Microsoft sia attivo.
+  * Verificare che il peering privato di Azure sia configurato. Per abilitare la connettività end-to-end è necessario stabilire il peering BGP tra la rete e Microsoft.
   * Assicurarsi di disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [configurare un gateway di rete virtuale per ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Assicurarsi di usare `--gateway-type ExpressRoute`.
-
 * È possibile collegare fino a 10 reti virtuali a un circuito ExpressRoute standard. Tutte le reti virtuali devono essere nella stessa area geopolitica quando si usa un circuito ExpressRoute standard. 
-
-* Una singola rete virtuale può essere collegata a un massimo di quattro circuiti ExpressRoute. Usare la procedura seguente per creare un nuovo oggetto di connessione per ogni circuito ExpressRoute a cui si esegue la connessione. I circuiti ExpressRoute possono essere nella stessa sottoscrizione, diverse sottoscrizioni o una combinazione di entrambe le situazioni.
-
-* Abilitando il componente aggiuntivo ExpressRoute Premium, è possibile collegare una rete virtuale esterna all'area geopolitica del circuito ExpressRoute o connettere un numero maggiore di reti virtuali al circuito ExpressRoute. Per altre informazioni sul componente aggiuntivo Premium, vedere le [domande frequenti](expressroute-faqs.md).
+* Una singola rete virtuale può essere collegata a un massimo di quattro circuiti ExpressRoute. Usare la procedura seguente per creare un nuovo oggetto di connessione per ogni circuito ExpressRoute a cui ci si connette. I circuiti ExpressRoute possono essere nella stessa sottoscrizione, diverse sottoscrizioni o una combinazione di entrambe le situazioni.
+* Abilitando il componente aggiuntivo ExpressRoute Premium, è possibile collegare reti virtuali esterne all'area geopolitica del circuito ExpressRoute. Il componente aggiuntivo Premium consente anche di connettere più di 10 reti virtuali al circuito ExpressRoute, in base alla larghezza di banda scelta. Per altre informazioni sul componente aggiuntivo Premium, vedere le [domande frequenti](expressroute-faqs.md) .
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Collegare una rete virtuale della stessa sottoscrizione a un circuito
 
 È possibile connettere un gateway di rete virtuale a un circuito ExpressRoute usando l'esempio seguente. Prima di eseguire il comando, assicurarsi che il gateway di rete virtuale sia stato creato e sia pronto per il collegamento.
 
-```azurecli
+```azurecli-interactive
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
@@ -56,7 +58,7 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 È possibile condividere un circuito ExpressRoute tra più sottoscrizioni. La figura seguente mostra un semplice schema del funzionamento della condivisione di circuiti ExpressRoute tra più sottoscrizioni.
 
-Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ciascun reparto dell'organizzazione può usare la propria sottoscrizione per distribuire i servizi, ma i reparti possono condividere un singolo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può possedere il circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
+Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per rappresentare le sottoscrizioni appartenenti a reparti diversi di un'organizzazione. Ciascun reparto dell'organizzazione usa la propria sottoscrizione per distribuire i servizi, ma può condividere un solo circuito ExpressRoute per la connessione alla rete locale. Un singolo reparto (in questo esempio, IT) può possedere il circuito ExpressRoute. Altre sottoscrizioni all'interno dell'organizzazione possono usare il circuito ExpressRoute.
 
 > [!NOTE]
 > I costi relativi a connettività e larghezza di banda per il circuito dedicato saranno addebitati al proprietario del circuito ExpressRoute. Tutte le reti virtuali condividono la stessa larghezza di banda.
@@ -67,7 +69,7 @@ Ciascuno dei cloud più piccoli nel cloud di grandi dimensioni viene usato per r
 
 ### <a name="administration---circuit-owners-and-circuit-users"></a>Amministrazione: proprietari e utenti del circuito
 
-Il "proprietario del circuito" è un utente esperto autorizzato della risorsa del circuito ExpressRoute. Il proprietario del circuito può creare le autorizzazioni che possono essere riscattate dagli utenti del circuito. Gli "utenti del circuito" sono i proprietari dei gateway di rete virtuale che non sono nella stessa sottoscrizione del circuito ExpressRoute. Gli utenti del circuito possono riscattare le autorizzazioni, una per ogni rete virtuale.
+Il "proprietario del circuito" è un utente esperto autorizzato della risorsa del circuito ExpressRoute. Il proprietario del circuito può creare le autorizzazioni che possono essere riscattate dagli utenti del circuito. Gli utenti del circuito sono i proprietari dei gateway di rete virtuale che non sono nella stessa sottoscrizione del circuito ExpressRoute. Gli utenti del circuito possono riscattare le autorizzazioni, una per ogni rete virtuale.
 
 Il proprietario del circuito ha la facoltà di modificare e revocare le autorizzazioni in qualsiasi momento. Quando un'autorizzazione viene revocata, tutti i collegamenti vengono eliminati dalla sottoscrizione di cui è stato revocato l'accesso.
 
@@ -75,11 +77,11 @@ Il proprietario del circuito ha la facoltà di modificare e revocare le autorizz
 
 **Per creare un'autorizzazione**
 
-Il proprietario del circuito crea un'autorizzazione, che consente di creare una chiave di autorizzazione che può essere usata da un utente del circuito per connettere i propri gateway di rete virtuale al circuito ExpressRoute. Un'autorizzazione è valida per una sola connessione.
+Il proprietario del circuito crea un'autorizzazione, che crea a sua volta una chiave di autorizzazione che può essere usata da un utente del circuito per connettere i propri gateway di rete virtuale al circuito ExpressRoute. Un'autorizzazione è valida per una sola connessione.
 
 L'esempio seguente mostra come creare un'autorizzazione:
 
-```azurecli
+```azurecli-interactive
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization
 ```
 
@@ -99,7 +101,7 @@ La risposta contiene la chiave di autorizzazione e lo stato:
 
 Il proprietario del circuito può esaminare tutte le autorizzazioni rilasciate in un determinato circuito eseguendo questo esempio:
 
-```azurecli
+```azurecli-interactive
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
@@ -107,7 +109,7 @@ az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResou
 
 Il proprietario del circuito può aggiungere autorizzazioni usando questo esempio:
 
-```azurecli
+```azurecli-interactive
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
 ```
 
@@ -115,7 +117,7 @@ az network express-route auth create --circuit-name MyCircuit -g ExpressRouteRes
 
 Il proprietario del circuito può revocare o eliminare le autorizzazioni dell'utente eseguendo questo esempio:
 
-```azurecli
+```azurecli-interactive
 az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
 ```
 
@@ -123,15 +125,15 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 L'utente del circuito deve richiedere l'ID peer e una chiave di autorizzazione al proprietario del circuito. La chiave di autorizzazione è un GUID.
 
-```powershell
-Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+```azurecli-interactive
+az network express-route show -n MyCircuit -g ExpressRouteResourceGroup
 ```
 
 **Per riscattare un'autorizzazione di connessione**
 
 Per riscattare un'autorizzazione di collegamento, l'utente del circuito può eseguire questo esempio:
 
-```azurecli
+```azurecli-interactive
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit --authorization-key "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 ```
 
@@ -146,27 +148,37 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 
 La rete virtuale può essere connessa a più circuiti ExpressRoute. È possibile ricevere lo stesso prefisso da più di un circuito ExpressRoute. Per scegliere la connessione per l'invio di traffico destinato per questo prefisso, è possibile modificare il valore *RoutingWeight* di una connessione. Il traffico verrà inviato sulla connessione con il valore massimo di *RoutingWeight*.
 
-```azurecli
+```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
 ```
 
 L'intervallo di *RoutingWeight* va da 0 a 32.000. Il valore predefinito è 0.
 
 ## <a name="configure-expressroute-fastpath"></a>Configurare ExpressRoute FastPath 
-È possibile abilitare [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se il gateway di rete virtuale è con prestazioni ultra o ErGw3AZ. FastPath migliora la conformità del percorso dati, ad esempio i pacchetti al secondo e le connessioni al secondo tra la rete locale e la rete virtuale. 
+È possibile abilitare [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se il gateway di rete virtuale è Prestazioni extra o ErGw3AZ. FastPath migliora le prestazioni del percorso dati come i pacchetti al secondo e le connessioni al secondo tra la rete locale e la rete virtuale. 
 
 **Configurare FastPath in una nuova connessione**
 
-```azurecli
+```azurecli-interactive
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
 **Aggiornamento di una connessione esistente per abilitare FastPath**
 
-```azurecli
+```azurecli-interactive
 az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se la connessione ExpressRoute non serve più, usare il comando `az network vpn-connection delete` dalla sottoscrizione in cui si trova il the gateway per rimuovere il collegamento tra il gateway e il circuito.
+
+```azurecli-interactive
+az network vpn-connection delete --name ERConnection --resource-group ExpressRouteResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+In questa esercitazione è stato illustrato come connettere una rete virtuale a un circuito nella stessa sottoscrizione e in una sottoscrizione diversa. Per altre informazioni sul gateway ExpressRoute, vedere: 
+
+> [!div class="nextstepaction"]
+> [Informazioni sui gateway di rete virtuale per ExpressRoute](expressroute-about-virtual-network-gateways.md)

@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86530173"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
@@ -30,7 +30,7 @@ Creare un nuovo back-end WebAPI ASP.NET eseguendo le azioni seguenti:
 >
 >A questo scopo, avviare Visual Studio. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti**. Cercare **Gestione pacchetti NuGet** nella versione di Visual Studio e verificare che sia installata la versione più recente. Se la versione installata non è la più recente, disinstallarla e reinstallare Gestione pacchetti NuGet.
 
-![Screenshot della finestra di dialogo estensioni e aggiornamenti con il pacchetto NuGet Gestione pacchetti di Visual Studio evidenziato.][B4]
+![Screenshot della finestra di dialogo Estensioni e aggiornamenti con il pacchetto Gestione pacchetti NuGet per Visual Studio evidenziato.][B4]
 
 > [!NOTE]
 > Assicurarsi che sia installato Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) per la distribuzione del sito Web.
@@ -386,11 +386,11 @@ L'app verrà ora distribuita in un sito Web Azure per renderla accessibile da tu
 
 1. Fare clic con il pulsante destro del mouse sul progetto **AppBackend** e scegliere **Pubblica**.
 
-2. Selezionare **Microsoft Azure servizio app** come destinazione di pubblicazione e quindi selezionare * * pubblica. Verrà visualizzata la finestra Crea servizio app. Qui è possibile creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
+2. Selezionare **Servizio app di Microsoft Azure** come destinazione di pubblicazione e quindi selezionare **Pubblica. Verrà visualizzata la finestra Crea servizio app. Qui è possibile creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
 
     ![Riquadro Servizio app di Microsoft Azure][B15]
 
-3. Nella finestra **Crea servizio app** selezionare l'account Azure. Selezionare **modifica tipo**  >  **app Web**. Mantenere il valore di **Nome app Web** predefinito e selezionare la **sottoscrizione**, il **gruppo di risorse** e il **piano di servizio app**.
+3. Nella finestra **Crea servizio app** selezionare l'account Azure. Selezionare **Modifica tipo** > **App Web**. Mantenere il valore di **Nome app Web** predefinito e selezionare la **sottoscrizione**, il **gruppo di risorse** e il **piano di servizio app**.
 
 4. Selezionare **Crea**.
 

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974405"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126704"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
@@ -93,7 +93,7 @@ Se non si dispone di uno spazio dei nomi del bus di servizio esistente in cui es
 
 Se non si ha un account di archiviazione di Azure esistente da esportare, seguire questa procedura:
 
-1. Creare un [nuovo account di archiviazione nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). È possibile ottenere altre informazioni sulla creazione di nuovi [account di archiviazione BLOB di Azure](https://aka.ms/blobdocscreatestorageaccount) o [Azure Data Lake storage V2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). L'esportazione dei dati può scrivere solo i dati negli account di archiviazione che supportano i BLOB in blocchi. L'elenco seguente illustra i tipi di account di archiviazione compatibili noti:
+1. Creare un [nuovo account di archiviazione nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). È possibile ottenere altre informazioni sulla creazione di nuovi [account di archiviazione BLOB di Azure](../../storage/blobs/storage-quickstart-blobs-portal.md) o [Azure Data Lake storage V2](../../storage/common/storage-account-create.md). L'esportazione dei dati può scrivere solo i dati negli account di archiviazione che supportano i BLOB in blocchi. L'elenco seguente illustra i tipi di account di archiviazione compatibili noti:
 
     |Livello di prestazioni|Tipo di account|
     |-|-|

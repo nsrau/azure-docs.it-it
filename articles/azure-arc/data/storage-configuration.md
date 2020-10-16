@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317328"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127234"
 ---
 # <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
@@ -166,7 +166,7 @@ Quando si crea un'istanza `azdata arc sql mi create` usando `azdata arc postgres
 > [!NOTE]
 > Alcuni di questi parametri sono in fase di sviluppo e diventeranno disponibili in `azdata arc sql mi create` e `azdata arc postgres server create` nelle prossime versioni.
 
-|Nome parametro, nome breve|Utilizzato per|
+|Nome parametro, nome breve|Utilizzo|
 |---|---|
 |`--storage-class-data`, `-scd`|Consente di specificare la classe di archiviazione per tutti i file di dati, inclusi i file di log delle transazioni|
 |`--storage-class-logs`, `-scl`|Consente di specificare la classe di archiviazione per tutti i file di log|
@@ -238,6 +238,6 @@ Per i servizi Kubernetes gestiti basati su cloud pubblici, è possibile effettua
 
 |Servizio cloud pubblico|Recommendation|
 |---|---|
-|**Servizio Azure Kubernetes**|Azure Kubernetes Service (AKS) include due tipi di File di Azure di archiviazione e dischi di Azure. Ogni tipo di archiviazione ha due livelli di prezzo/prestazioni: standard (HDD) e Premium (SSD). Quindi, le quattro classi di archiviazione disponibili in AKS sono `azurefile` (file di Azure livello standard), `azurefile-premium` (file di Azure livello Premium), `default` (livello standard di dischi di Azure) e `managed-premium` (livello Premium di dischi di Azure). La classe di archiviazione predefinita è `default` (livello standard di Azure Disks). Esistono differenze sostanziali nei **[prezzi](https://azure.microsoft.com/en-us/pricing/details/storage/)** tra i tipi e i livelli che devono essere presi in considerazione per la decisione dell'utente. Per i carichi di lavoro di produzione con requisiti di prestazioni elevate, è consigliabile usare `managed-premium` per tutte le classi di archiviazione. Per i carichi di lavoro di sviluppo/test, il concetto di prova e così via, in cui il costo è una considerazione, `azurefile` è l'opzione meno costosa. Tutte e quattro le opzioni possono essere usate per situazioni in cui è richiesta l'archiviazione condivisa e remota, perché si tratta di tutti i dispositivi di archiviazione collegati alla rete in Azure. Scopri di più sull' [archiviazione AKS](../../aks/concepts-storage.md).|
+|**Servizio Azure Kubernetes**|Azure Kubernetes Service (AKS) include due tipi di File di Azure di archiviazione e Managed Disks di Azure. Ogni tipo di archiviazione ha due livelli di prezzo/prestazioni: standard (HDD) e Premium (SSD). Quindi, le quattro classi di archiviazione disponibili in AKS sono `azurefile` (file di Azure livello standard), `azurefile-premium` (file di Azure livello Premium), `default` (livello standard di dischi di Azure) e `managed-premium` (livello Premium di dischi di Azure). La classe di archiviazione predefinita è `default` (livello standard di Azure Disks). Esistono differenze sostanziali nei **[prezzi](https://azure.microsoft.com/en-us/pricing/details/storage/)** tra i tipi e i livelli che devono essere presi in considerazione per la decisione dell'utente. Per i carichi di lavoro di produzione con requisiti di prestazioni elevate, è consigliabile usare `managed-premium` per tutte le classi di archiviazione. Per i carichi di lavoro di sviluppo/test, il concetto di prova e così via, in cui il costo è una considerazione, `azurefile` è l'opzione meno costosa. Tutte e quattro le opzioni possono essere usate per situazioni in cui è richiesta l'archiviazione condivisa e remota, perché si tratta di tutti i dispositivi di archiviazione collegati alla rete in Azure. Scopri di più sull' [archiviazione AKS](../../aks/concepts-storage.md).|
 |**AWS Elastic Kubernetes Service (EKS)**| Il servizio Elastic Kubernetes di Amazon ha una classe di archiviazione primaria basata sul [driver di archiviazione EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Questa operazione è consigliata per i carichi di lavoro di produzione. È disponibile un nuovo [driver di archiviazione EFS CSI](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) , che può essere aggiunto a un cluster EKS, ma è attualmente in fase beta e soggetto a modifiche. Anche se AWS afferma che questo driver di archiviazione è supportato per la produzione, non è consigliabile utilizzarlo perché è ancora in versione beta e soggetto a modifiche. La classe di archiviazione EBS è l'impostazione predefinita e viene chiamato `gp2` . Scopri di più sull' [archiviazione EKS](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html).|
 |**Google Kubernetes Engine (GKE)**|Il motore di Google Kubernetes (GKE) dispone di una sola classe di archiviazione denominata `standard` usata per i [dischi persistenti di GCE](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). È anche l'unico valore predefinito. Sebbene sia disponibile un [provisioning statico del volume locale](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) per GKE che è possibile usare con le unità SSD collegate direttamente, non è consigliabile usarlo perché non è gestito né supportato da Google. Scopri di più sull' [archiviazione GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).

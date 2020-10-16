@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 7/7/2020
-ms.openlocfilehash: ec06fff73b1a4209546af5ca845e28aaa9dfb0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: fcf368c9fbbb185ac3f47faa5705e1933d085c81
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532347"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126454"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliche in lettura in Database di Azure per MariaDB
 
@@ -47,7 +47,7 @@ La funzionalità di lettura della replica utilizza la replica asincrona. La funz
 ### <a name="universal-replica-regions"></a>Aree di replica universali
 È possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server di origine. Le aree di replica universali supportate includono:
 
-Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali.
+Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali
 
 ### <a name="paired-regions"></a>Aree abbinate
 Oltre alle aree di replica universale, è possibile creare una replica di lettura nell'area abbinata di Azure del server di origine. Se non si conosce la coppia di aree di appartenenza, vedere l'[articolo Aree associate di Azure](../best-practices-availability-paired-regions.md) per altre informazioni.

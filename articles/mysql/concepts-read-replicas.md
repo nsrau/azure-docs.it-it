@@ -1,17 +1,17 @@
 ---
-title: Repliche in lettura - Database di Azure per MySQL
+title: Leggere repliche-database di Azure per MySQL
 description: 'Informazioni sulle repliche in lettura in Database di Azure per MySQL: scelta delle aree, creazione di repliche, connessione alle repliche, monitoraggio della replica e arresto della replica.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876550"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126661"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -38,7 +38,7 @@ Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri pe
 Questa funzionalità di replica in lettura si avvale della replica asincrona di MySQL. La funzionalità non è concepita per scenari di replica sincrona. Si verifica un ritardo misurabile tra l'origine e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
 
 > [!IMPORTANT]
-> Database di Azure per MySQL usa la registrazione binaria basata su **righe** . Se nella tabella manca una chiave primaria, verranno analizzate tutte le righe della tabella per le operazioni DML. Questo causa un aumento del ritardo di replica. Per assicurarsi che la replica sia in grado di mantenere le modifiche nell'origine, in genere è consigliabile aggiungere una chiave primaria nelle tabelle nel server di origine prima di creare il server di replica o ricreare il server di replica se ne è già presente uno.
+> Database di Azure per MySQL usa la registrazione binaria basata su **ROW**. Se nella tabella manca una chiave primaria, verranno analizzate tutte le righe della tabella per le operazioni DML. Ciò causa una maggiore latenza di replica. Per assicurarsi che la replica rimanga al passo con le modifiche nell'origine, in genere è consigliabile aggiungere una chiave primaria nelle tabelle nel server di origine prima di creare il server di replica o ricreare il server di replica se ne è già presente uno.
 
 ## <a name="cross-region-replication"></a>Replica tra più aree
 È possibile creare una replica di lettura in un'area diversa dal server di origine. La replica tra più aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
@@ -50,7 +50,7 @@ Questa funzionalità di replica in lettura si avvale della replica asincrona di 
 ### <a name="universal-replica-regions"></a>Aree di replica universali
 È possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server di origine. Le aree di replica universali supportate includono:
 
-Australia orientale, Australia sudorientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali.
+Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali
 
 ### <a name="paired-regions"></a>Aree abbinate
 Oltre alle aree di replica universale, è possibile creare una replica di lettura nell'area abbinata di Azure del server di origine. Se non si conosce la coppia di aree di appartenenza, vedere l'[articolo Aree associate di Azure](../best-practices-availability-paired-regions.md) per altre informazioni.

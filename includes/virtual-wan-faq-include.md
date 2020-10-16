@@ -8,13 +8,17 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89570187"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91859670"
 ---
+### <a name="is-azure-virtual-wan-in-ga"></a>La rete WAN virtuale di Azure è disponibile a livello generale?
+
+Sì, la rete WAN virtuale di Azure è disponibile a livello generale. Tuttavia, la rete WAN virtuale è costituita da diverse funzionalità e diversi scenari. Per alcune funzionalità o alcuni scenari all'interno della rete WAN virtuale, Microsoft applica il tag di anteprima. In questi casi, la funzionalità specifica o lo scenario stesso è disponibile in anteprima. Se non si usa una funzionalità di anteprima specifica, si applica il normale supporto della disponibilità generale. Per altre informazioni sul supporto di anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
 La rete WAN virtuale offre molte funzionalità integrate in un singolo pannello di controllo, ad esempio connettività VPN sito/da sito a sito, connettività utente/da punto a sito, connettività ExpressRoute, connettività di rete virtuale, interconnettività VPN ExpressRoute, connettività transitiva da rete virtuale a rete virtuale, routing centralizzato, sicurezza di Firewall e Gestione firewall di Azure, monitoraggio, crittografia ExpressRoute e molte altre. Per iniziare a usare la rete WAN virtuale, non è necessario avere tutti questi casi d'uso. È possibile iniziare semplicemente con uno solo. L'architettura della rete WAN virtuale è di tipo hub-spoke, con scalabilità e prestazioni predefinite in cui i rami (dispositivi VPN/SD-WAN), gli utenti (client VPN di Azure, client openVPN o IKEv2), i circuiti ExpressRoute e le reti virtuali fungono da spoke per uno o più hub virtuali. Tutti gli hub sono connessi in una mesh completa in una rete WAN virtuale standard, per cui è possibile usare il backbone Microsoft per la connettività tra qualsiasi spoke. Gli utenti possono configurare manualmente l'architettura hub-spoke con dispositivi SD-WAN/VPN nel portale della rete WAN virtuale di Azure oppure usare le apparecchiature CPE dei partner di rete WAN virtuale (SD-WAN/VPN) per configurare la connettività con Azure. I partner di reti WAN virtuali forniscono l'automazione per la connettività, ovvero la possibilità di esportare le informazioni sui dispositivi in Azure, scaricare la configurazione di Azure e stabilire la connettività con l'hub della rete WAN virtuale di Azure. Per la connettività VPN utente/da punto a sito, sono supportati il [client VPN di Azure](https://go.microsoft.com/fwlink/?linkid=2117554), il client OpenVPN o il client IKEv2. 

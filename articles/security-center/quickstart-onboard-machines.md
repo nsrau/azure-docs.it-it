@@ -7,27 +7,30 @@ ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: non-azure-machines
+ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612218"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993614"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Connettere macchine virtuali non di Azure al Centro sicurezza
 
-Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. 
+Il Centro sicurezza può monitorare la postura di sicurezza dei computer non di Azure, ma è prima necessario connetterli ad Azure. 
 
-È possibile aggiungere computer non Azure in uno dei modi seguenti:
+È possibile connettere i computer non di Azure in uno dei modi seguenti:
 
 - Usando Azure Arc (**consigliato**)
 - Dalle pagine del Centro sicurezza nel portale di Azure (**Attività iniziali** e **Inventario**)
 
-Ogni modalità è illustrata di seguito.
+Le relative procedure sono descritte in questa pagina.
+
+::: zone pivot="azure-arc"
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Aggiungere computer non Azure con Azure Arc
 
-Usare Azure Arc è il modo migliore per aggiungere i computer non Azure al Centro sicurezza di Azure.
+Per aggiungere i computer non di Azure al Centro sicurezza di Azure, è preferibile usare Azure Arc.
 
 Un computer con Azure Arc abilitato diventa una risorsa di Azure e viene visualizzato nel Centro sicurezza con raccomandazioni quali le altre risorse di Azure. 
 
@@ -43,7 +46,11 @@ Altre informazioni su [Azure Arc](../azure-arc/servers/overview.md).
 > [!TIP]
 > Se si esegue l'onboarding di computer AWS, il connettore del Centro sicurezza per AWS gestisce in modo trasparente e automatico la distribuzione di Azure Arc. Per altre informazioni, vedere [Connettere gli account AWS a Centro sicurezza di Azure](quickstart-onboard-aws.md).
 
-## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Aggiungere computer non Azure dalle pagine del portale del Centro sicurezza
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+## <a name="add-non-azure-machines-from-the-azure-portal"></a>Aggiungere computer non di Azure dal portale di Azure
 
 1. Dal menu del Centro sicurezza aprire la pagina **Attività iniziali**.
 1. Selezionare la scheda **Introduzione**.
@@ -114,6 +121,7 @@ Al termine, l'**agente di Log Analytics** verrà visualizzato nel **Pannello di 
 
 Per altre informazioni sull'installazione e la configurazione dell'agente, vedere [Connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## <a name="verifying"></a>Verifica
 Congratulazioni! A questo punto è possibile visualizzare i computer Azure e non Azure in un'unica posizione. Aprire la pagina inventario dell'[inventario degli asset](asset-inventory.md) e filtrare in base ai tipi di risorsa appropriati. Queste icone distinguono i tipi:

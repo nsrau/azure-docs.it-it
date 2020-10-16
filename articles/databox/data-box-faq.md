@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b65d1be9fa3ddb28a216d51e91ce2a8b20f15e6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051169"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127183"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -236,8 +236,8 @@ R.  Quando si copiano i dati in Data Box, a seconda che siano BLOB in blocchi, B
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. Se non si seguono i requisiti di denominazione di Azure per i contenitori, i dati non verranno caricati in Azure?
 R.  Se i nomi dei contenitori includono lettere maiuscole, tali nomi verranno convertiti automaticamente in lettere minuscole. Se i nomi non sono conformi per altri aspetti (caratteri speciali, altre lingue e così via), il caricamento non viene eseguito in modo corretto. Per altre informazioni sulle procedure consigliate per la denominazione di condivisioni, contenitori e file, vedere:
-- [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Assegnazione di nomi e riferimenti a condivisioni)
-- [Block blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Convenzioni su BLOB in blocchi e BLOB di pagine)
+- [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata) (Assegnazione di nomi e riferimenti a condivisioni)
+- [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Convenzioni su BLOB in blocchi e BLOB di pagine)
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>Q. Come è possibile verificare i dati copiati in Data Box?
 R.  Dopo aver completato la copia dei dati, quando si esegue l'operazione **Prepara per la spedizione** i dati vengono convalidati. Data Box genera un elenco di file e di valori di checksum per i dati durante il processo di convalida. È possibile scaricare l'elenco di file e confrontarlo con i file nei dati di origine. Per altre informazioni, vedere [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship) (Preparare per la spedizione).

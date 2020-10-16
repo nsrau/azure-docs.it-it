@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: vpn-gateway
 author: cherylmc
@@ -9,14 +9,14 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "68780132"
 ---
-1. Aprire la pagina per il gateway di rete virtuale. Questa operazione può essere eseguita in vari modi. È possibile passare al gateway passando al **nome della Panoramica di VNet->-> dispositivi connessi-> nome del gateway**.
-2. Nella pagina del gateway fare clic su **connessioni**. Nella parte superiore della pagina Connessioni fare clic su **+Aggiungi** per aprire la pagina **Aggiungi connessione**.
+1. Aprire la pagina relativa al gateway di rete virtuale. Questa operazione può essere eseguita in vari modi. È possibile accedere al gateway passando a **Nome della rete virtuale -> Panoramica -> Dispositivi connessi-> Nome del gateway**.
+2. Nella pagina del gateway fare clic su **Connessioni**. Nella parte superiore della pagina Connessioni fare clic su **+Aggiungi** per aprire la pagina **Aggiungi connessione**.
 
    ![Configurare una connessione da sito a sito](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. Nella pagina **Aggiungi connessione** configurare i valori per la connessione.
