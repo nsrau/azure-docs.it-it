@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408873"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123733"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività di rete con monitoraggio connessione (anteprima)
 
@@ -123,10 +123,10 @@ Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un grup
 
 | Numero di test | Source (Sorgente) | Destination | Configurazione di test |
 | --- | --- | --- | --- |
-| 1 | Una | D | Configurazione 1 |
-| 2 | Una | D | Configurazione 2 |
-| 3 | Una | E | Configurazione 1 |
-| 4 | Una | E | Configurazione 2 |
+| 1 | A | D | Configurazione 1 |
+| 2 | A | D | Configurazione 2 |
+| 3 | A | E | Configurazione 1 |
+| 4 | A | E | Configurazione 2 |
 | 5 | B | D | Configurazione 1 |
 | 6 | B | D | Configurazione 2 |
 | 7 | B | E | Configurazione 1 |
@@ -143,9 +143,7 @@ I monitoraggi connessione presentano i limiti di scalabilità seguenti:
 * Numero massimo di monitoraggi di connessione per ogni sottoscrizione per area: 100
 * Numero massimo di gruppi di test per connessione: 20
 * Numero massimo di origini e destinazioni per monitoraggio connessione: 100
-* Numero massimo di configurazioni di test per ogni monitoraggio della connessione: 
-    * 20 tramite ARMClient
-    * 2 tramite il portale di Azure
+* Numero massimo di configurazioni di test per ogni monitoraggio connessione: 20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>Analizzare i dati di monitoraggio e impostare gli avvisi
 
@@ -273,7 +271,7 @@ Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio conness
 
 Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Description | Dimensioni |
+| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
 | AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |

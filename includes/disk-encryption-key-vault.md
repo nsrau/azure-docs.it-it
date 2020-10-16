@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 6f7f319d2ebb4cd39933addf04f249df02d7819f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234aa602cccb90d130e4d4b6aca375726ca29f0d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81314106"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989566"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -120,7 +120,7 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e selezionare **Fare clic per visualizzare i criteri di accesso avanzati**.
 2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.
 3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli**, se necessario. 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
     ![Criteri di accesso avanzati per l'insieme di credenziali delle chiavi di Azure](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -148,7 +148,7 @@ Crittografia dischi di Azure non supporta la possibilità di specificare i numer
 Usare il comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) dell'interfaccia della riga di comando di Azure per generare una nuova chiave di crittografia della chiave nell'insieme di credenziali delle chiavi.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
 ```
 
 Si può in alternativa importare una chiave privata usando il comando [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) dell'interfaccia della riga di comando di Azure:

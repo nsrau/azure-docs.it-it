@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9305ff5904588241ff8319f28eab2ce20ad77876
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826141"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125116"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
 
@@ -66,7 +66,7 @@ Se, ad esempio, si desidera spostare i dati in un percorso in Canada in un accou
 
 ### <a name="option-1"></a>Opzione 1: 
 
-Spedire un [disco supportato](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) contenente i dati usando il [servizio di importazione/esportazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) dalla posizione di origine in Canada al Data Center di Azure westus.
+Spedire un [disco supportato](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) contenente i dati usando il [servizio di importazione/esportazione di Azure](../storage/common/storage-import-export-service.md) dalla posizione di origine in Canada al Data Center di Azure westus.
 
 ### <a name="option-2"></a>Opzione 2:
 
@@ -77,7 +77,7 @@ Spedire un [disco supportato](https://docs.microsoft.com/azure/storage/common/st
 3. È quindi possibile usare uno strumento come AzCopy per copiare i dati in un account di archiviazione in Westus. Questo passaggio comporta costi di archiviazione e [larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/) [standard](https://azure.microsoft.com/pricing/details/storage/) che non sono inclusi nel data box disk la fatturazione.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. A chi ci si può rivolgere in caso di problemi con i dischi di Data Box?
-R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto tecnico Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
+R. Se si verificano problemi con i dischi di Data Box, [contattare il supporto tecnico Microsoft](./data-box-disk-contact-microsoft-support.md).
 
 ## <a name="configure-and-connect"></a>Configurazione e connessione
  
@@ -147,7 +147,7 @@ R.  Per velocizzare il processo di copia:
 - Usare più flussi di copia dei dati. Con Robocopy, ad esempio, usare l'opzione a thread multipli. Per altre informazioni sul comando esatto da usare, vedere [Esercitazione: copiare i dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Usare più sessioni.
 - Invece di eseguire la copia tramite una condivisione di rete (operazione che potrebbe essere limitata dalle velocità di rete) assicurarsi di avere a disposizione i dati in locale nel computer a cui sono collegati i dischi.
-- Assicurarsi di usare USB 3.0 o versione successiva nel corso del processo di copia. Scaricare e usare lo [strumento USBView](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) per identificare i controller USB e i dispositivi USB connessi al computer.
+- Assicurarsi di usare USB 3.0 o versione successiva nel corso del processo di copia. Scaricare e usare lo [strumento USBView](/windows-hardware/drivers/debugger/usbview) per identificare i controller USB e i dispositivi USB connessi al computer.
 - Valutare le prestazioni del computer usato per copiare i dati. Scaricare e usare lo [strumento Bluestop FIO](https://ci.appveyor.com/project/axboe/fio) per ottenere un benchmark delle prestazioni dell'hardware del server. Selezionare la build x86 o x64 più recente, selezionare la scheda **Artefatti** e scaricare il file MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>Q. In quale modo si può velocizzare la copia dei dati se i dati di origine sono in file di piccole dimensioni (KB o pochi MB)?

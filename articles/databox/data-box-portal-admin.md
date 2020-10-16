@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611657"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123716"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Usare il portale di Azure per amministrare i Azure Data Box e Azure Data Box Heavy
 
@@ -55,7 +55,7 @@ Per clonare un ordine di importazione, seguire questa procedura.
 
     ![Clonazione ordine 1](media/data-box-portal-admin/clone-order1.png)
 
-2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Fare clic su **Crea**.
+2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Scegliere **Crea**.
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
@@ -222,8 +222,8 @@ Ecco gli Stati per un ordine di importazione.
 |Ricevuto     | Il dispositivo viene ricevuto e scansionato nel data center di Azure. <br> Dopo il controllo della spedizione viene avviato il caricamento del dispositivo.      |
 |Copia dati     | La copia dei dati è in corso. Tenere traccia dello stato della copia dell'ordine nel portale di Azure. <br> Attendere il completamento della copia dei dati. |
 |Completato       |L'ordine è stato completato.<br> Verificare che i dati siano in Azure prima di eliminare i dati locali dai server.         |
-|Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Vedere [esempi di log di copia quando il caricamento è stato completato con errori](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Completato con avvisi| La copia dei dati è stata completata, ma i dati sono stati modificati. I dati contengono errori di BLOB o di file non critici corretti cambiando il nome del file o del BLOB. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota delle modifiche apportate ai dati. Vedere [esempi di log di copia quando il caricamento è stato completato con avvisi](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Operazione completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Vedere [esempi di log di copia quando il caricamento è stato completato con errori](./data-box-logs.md#upload-completed-with-errors).   |
+|Completato con avvisi| La copia dei dati è stata completata, ma i dati sono stati modificati. I dati contengono errori di BLOB o di file non critici corretti cambiando il nome del file o del BLOB. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota delle modifiche apportate ai dati. Vedere [esempi di log di copia quando il caricamento è stato completato con avvisi](./data-box-logs.md#upload-completed-with-warnings).   |
 |Cancellati            |L'ordine è stato annullato. <br> L'ordine è stato annullato o si è verificato un errore e il servizio ha annullato l'ordine. Se l'ordine non può essere soddisfatto entro 90 giorni, viene anche annullato e l'utente riceve una notifica.     |
 |Eseguire la pulizia | I dati nei dischi del dispositivo vengono cancellati. La pulizia del dispositivo viene considerata completa quando la cronologia ordini è disponibile per il download nel portale di Azure.|
 
@@ -238,9 +238,9 @@ Ecco gli Stati per un ordine di esportazione.
 |Elaborato     | L'elaborazione dell'ordine è stata completata. In base all'ordine, il dispositivo viene preparato per la copia dei dati nel Data Center. Vengono create le condivisioni del dispositivo.         |
 |La copia dei dati è in corso     | La copia dei dati dagli account di archiviazione di Azure specificati al dispositivo è in corso. Tenere traccia dello stato della copia dell'ordine nel portale di Azure. <br> Attendere il completamento della copia dei dati. |
 |Copia completata     | La copia dei dati dagli account di archiviazione di Azure specificati al dispositivo è stata completata. Un file di log dettagliato (se l'opzione è stata abilitata nell'ordine) e viene creato un log di copia nell'account di archiviazione. Il log dettagliato contiene le informazioni su tutti i file (nome, percorso, checksum di calcolo) che vengono copiati nel dispositivo. Il log di copia contiene il riepilogo del processo di copia, incluso un elenco di file che non è stato possibile copiare a causa di eventuali errori.<br> I dati dell'account di archiviazione rimangono invariati. |
-|Copia completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia nell'account di archiviazione di Azure usando il percorso fornito nella portale di Azure. Vedere [esempi di log di copia quando il download è stato completato con errori](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Copia completata con avvisi| La copia dei dati dall'account di archiviazione di Azure è stata completata, ma i dati contengono errori non critici. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota degli errori non critici. Vedere [esempi di log di copia quando il download è stato completato con avvisi](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Copia non riuscita con errori| La copia dei dati dall'account di archiviazione di Azure non è riuscita e l'ordine è terminato. Un dispositivo non verrà spedito.<br> Esaminare i log di copia nell'account di archiviazione di Azure usando il percorso fornito nella portale di Azure. Vedere [esempi di log di copia quando il download non è riuscito con errori](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Copia completata con errori| La copia dei dati è stata completata ma si sono verificati errori durante la copia. <br> Esaminare i log di copia nell'account di archiviazione di Azure usando il percorso fornito nella portale di Azure. Vedere [esempi di log di copia quando il download è stato completato con errori](./data-box-logs.md#upload-completed-with-errors).   |
+|Copia completata con avvisi| La copia dei dati dall'account di archiviazione di Azure è stata completata, ma i dati contengono errori non critici. <br> Esaminare i log di copia usando il percorso specificato nel portale di Azure. Prendere nota degli errori non critici. Vedere [esempi di log di copia quando il download è stato completato con avvisi](./data-box-logs.md#upload-completed-with-warnings).   |
+|Copia non riuscita con errori| La copia dei dati dall'account di archiviazione di Azure non è riuscita e l'ordine è terminato. Un dispositivo non verrà spedito.<br> Esaminare i log di copia nell'account di archiviazione di Azure usando il percorso fornito nella portale di Azure. Vedere [esempi di log di copia quando il download non è riuscito con errori](./data-box-logs.md#upload-completed-with-errors).   |
 |Spedito     |L'ordine è stato spedito. Usare l'ID di traccia visualizzato nell'ordine nel portale per tenere traccia della spedizione.        |
 |Recapitato     |La spedizione è stata recapitata all'indirizzo specificato.        |
 |Ritirato     |La spedizione di restituzione è stata prelevata e scansionata dal trasportatore.         |

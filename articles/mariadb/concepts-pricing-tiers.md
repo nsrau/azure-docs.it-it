@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074805"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125783"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Piani tariffari di Database di Azure per MariaDB
 
@@ -71,7 +71,7 @@ Sono stati aumentati i limiti di archiviazione nei livelli per utilizzo generico
 | Operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS| 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!IMPORTANT]
-> Archiviazione di grandi dimensioni è attualmente disponibile in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Canada orientale
+> Archiviazione di grandi dimensioni è attualmente disponibile in anteprima pubblica nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Brasile meridionale, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sud-orientale, Stati Uniti occidentali 2 e Canada Central.
 >
 > Tutte le altre aree supportano fino a 4 TB di spazio di archiviazione e fino a 6000 IOPS.
 >

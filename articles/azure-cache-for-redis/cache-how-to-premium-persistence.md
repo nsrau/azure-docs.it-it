@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000007"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125680"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Come configurare la persistenza dei dati per una Cache Redis Premium di Azure
 In questo articolo si apprenderà come configurare la persistenza in una cache di Azure Premium per l'istanza di redis tramite il portale di Azure. Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. 
@@ -63,7 +63,7 @@ La persistenza scrive i dati Redis in un account di archiviazione di Azure di cu
    | Impostazione      | Valore consigliato  | Descrizione |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Frequenza di backup** | A discesa e selezionare un intervallo di backup, le scelte includono **15 minuti**, **30 minuti**, **60 minuti**, **6 ore**, **12 ore**e **24 ore**. | Il conto alla rovescia per l'intervallo inizia dopo il corretto completamento dell'operazione di backup precedente e al termine viene avviato un nuovo backup. | 
-   | **Storage Account** | A discesa e selezionare l'account di archiviazione. | È necessario scegliere un account di archiviazione nella stessa area della cache ed è consigliato un account **Archiviazione Premium** , poiché archiviazione premium ha una velocità effettiva maggiore.  | 
+   | **Storage Account** | A discesa e selezionare l'account di archiviazione. | È necessario scegliere un account di archiviazione nella stessa area e nella stessa sottoscrizione della cache e un account di **archiviazione Premium** è consigliato perché archiviazione Premium ha una velocità effettiva superiore.  | 
    | **Chiave di archiviazione** | A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**. | 
 
     Il primo backup viene avviato una volta trascorso l'intervallo di frequenza di backup.
@@ -72,9 +72,9 @@ La persistenza scrive i dati Redis in un account di archiviazione di Azure di cu
    
    | Impostazione      | Valore consigliato  | Descrizione |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Primo account di archiviazione** | A discesa e selezionare l'account di archiviazione. | Questo account deve trovarsi nella stessa area della cache e deve essere preferibilmente un account di **Archiviazione Premium** perché questo tipo di archiviazione offre una velocità effettiva superiore. | 
+   | **Primo account di archiviazione** | A discesa e selezionare l'account di archiviazione. | Questo account di archiviazione deve trovarsi nella stessa area e nella stessa sottoscrizione della cache ed è consigliabile usare un account di **archiviazione Premium** perché l'archiviazione Premium ha una velocità effettiva più elevata. | 
    | **Prima chiave di archiviazione** | A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**. | 
-   | **Secondo account di archiviazione** | Opzionale A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Facoltativamente, è possibile configurare un account di archiviazione aggiuntivo. Se si configura un secondo account di archiviazione, è qui che vengono scritte le operazioni di scrittura alla cache di replica. | 
+   | **Secondo account di archiviazione** | Opzionale A discesa e selezionare l'account di archiviazione secondario. | Facoltativamente, è possibile configurare un account di archiviazione aggiuntivo. Se si configura un secondo account di archiviazione, è qui che vengono scritte le operazioni di scrittura alla cache di replica. | 
    | **Seconda chiave di archiviazione** | Opzionale A discesa e scegliere la chiave **primaria** o la **chiave secondaria** da usare. | Se la chiave di archiviazione per l'account di persistenza viene rigenerata, è necessario riconfigurare la chiave desiderata dall'elenco a discesa **Chiave di archiviazione**. | 
 
     Quando la persistenza AOF è abilitata, le operazioni di scrittura alla cache vengono salvate nell'account di archiviazione designato (o negli account se è stato configurato un secondo account di archiviazione). In caso di un errore irreversibile che danneggia sia la cache primaria che quella di replica, viene usato il log AOF archiviato per ricreare la cache.

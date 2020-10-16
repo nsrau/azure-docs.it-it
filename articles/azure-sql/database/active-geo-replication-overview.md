@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445058"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124759"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Per impostazione predefinita, la ridondanza dell'archiviazione di backup del dat
 > La velocità del log delle transazioni nel database primario può essere limitata per motivi non correlati a dimensioni di calcolo inferiori in un database secondario. Questo tipo di limitazione può verificarsi anche se il database secondario ha una dimensione di calcolo uguale o superiore a quella del database primario. Per informazioni dettagliate, inclusi i tipi di attesa per diversi tipi di limitazione della frequenza dei log, vedere [gestione della frequenza dei log delle transazioni](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> La ridondanza dell'archivio di backup configurabile del database SQL di Azure è attualmente disponibile in anteprima pubblica solo nell'area di Azure Asia sud-orientale. Nell'anteprima, se il database di origine viene creato con ridondanza del backup con ridondanza locale o con ridondanza della zona, la creazione di un database secondario in un'area di Azure diversa non sarà supportata. 
+> La ridondanza dell'archiviazione di backup configurabile del database SQL di Azure è attualmente disponibile a livello generale solo nell'area di Azure Asia sudorientale. Quando il database di origine viene creato con ridondanza di archiviazione di backup con ridondanza locale o con ridondanza della zona, non è supportata la creazione di un database secondario in un'area di Azure diversa. 
 
 Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Quali sono i livelli di servizio del database SQL di Azure?](purchasing-models.md).
 

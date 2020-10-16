@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e10336b9c817c71026c167144a190b2ed6b4ab6d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: fa6f569a1a857c09f1e7d1173a5948b1747c05ed
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070266"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124362"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
@@ -97,8 +97,8 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matrice di stringhe
-| msiEndpoint | http://169.254.169.254/metadata/identity | Stringa |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | Stringa |
+| msiEndpoint | http://169.254.169.254/metadata/identity | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
@@ -222,6 +222,11 @@ Tenere presenti le restrizioni e i requisiti seguenti:
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una macchina virtuale specifica, eseguire il comando seguente tramite Azure PowerShell.
 
+### <a name="frequently-asked-questions"></a>Domande frequenti
+
+* È previsto un limite per il numero di observedCertificates che è possibile configurare?
+  No, Key Vault estensione della macchina virtuale non ha limiti per il numero di observedCertificates.
+  
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>

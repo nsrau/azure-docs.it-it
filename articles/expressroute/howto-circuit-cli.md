@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eebb2693d3bc0f65059c6c3c377f1afb7ae7eccd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d50c3f8f94fbfd7dbcb9b25e051b7f2951c518
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757606"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969076"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>Avvio rapido: Creare e modificare un circuito ExpressRoute tramite l'interfaccia della riga di comando di Azure
 
@@ -347,7 +347,7 @@ Per effettuare il deprovisioning e l'eliminazione di un circuito ExpressRoute, a
 * Se lo stato di provisioning del provider del servizio del circuito ExpressRoute è **Provisioning in corso** o **Provisioning eseguito**, è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato del provider. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
 * Se il provider di servizi ha effettuato il deprovisioning del circuito, ovvero lo stato di provisioning del provider di servizi è impostato su **Senza provisioning**, è possibile eliminare il circuito. La fatturazione per il circuito verrà quindi interrotta.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile eliminare un circuito ExpressRoute eseguendo questo comando:
 

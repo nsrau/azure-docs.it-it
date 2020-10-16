@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2a72e22b600f7dd7737a877e2fdf5d34c4dd4b4c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: ac7fc5af21f11699331d41a074e88ae757170664
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876108"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975995"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-azure-cli"></a>Esercitazione: Configurare i filtri di route per il peering Microsoft: Interfaccia della riga di comando di Azure
 
@@ -27,7 +27,7 @@ I filtri di route rappresentano un modo per usare un subset di servizi supportat
 
 I servizi di Microsoft 365 come Exchange Online, SharePoint Online e Skype for Business sono accessibili tramite il peering Microsoft. Quando il peering Microsoft viene configurato in un circuito ExpressRoute, tutti i prefissi relativi a questi servizi vengono annunciati tramite le sessioni BGP stabilite. A ogni prefisso viene associato un valore di community BGP per identificare il servizio offerto tramite il prefisso. Per un elenco dei valori di community BGP e i servizi a cui sono associati, vedere [community BGP](expressroute-routing.md#bgp).
 
-Con la connettività a tutti i servizi di Azure e Microsoft 365 viene annunciato un numero elevato di prefissi tramite BGP. Questo numero elevato aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. È possibile:
+Con la connettività a tutti i servizi di Azure e Microsoft 365 viene annunciato un numero elevato di prefissi tramite BGP. Questo numero elevato aumenta notevolmente le dimensioni delle tabelle di route gestite dai router all'interno della rete. Se si prevede di usare solo un subset dei servizi offerti tramite il peering Microsoft, è possibile ridurre le dimensioni delle tabelle di route in due modi. è possibile:
 
 * Escludere i prefissi indesiderati applicando filtri di route alle community BGP. Il filtro delle route è una procedura di rete standard usata comunemente in molte reti.
 
@@ -51,7 +51,7 @@ Per associare i filtri di route ai servizi Microsoft 365, è necessario avere l'
 > Il peering Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1° agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering Microsoft, anche se non sono definiti i filtri di route. Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito.
 > 
 
-## <a name="prerequisites"></a><a name="workflow"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per connettersi correttamente ai servizi tramite il peering Microsoft, è necessario completare la procedura di configurazione seguente:
 
@@ -143,7 +143,7 @@ Dopo aver rimosso l'associazione di un filtro di route dal circuito ExpressRoute
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Si può eliminare un filtro di route solo se non è associato a un circuito. Assicurarsi che il filtro di route non sia associato a un circuito prima di provare a eliminarlo. È possibile eliminare un filtro di route con il comando seguente:
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053454"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124677"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Risolvere i problemi relativi a Azure Data Box e Azure Data Box Heavy
 
@@ -27,10 +27,10 @@ Gli errori in Data Box e Data Box Heavy sono riepilogati come segue:
 
 | Categoria di errore *        | Descrizione        | Azione consigliata    |
 |----------------------------------------------|---------|--------------------------------------|
-| Nomi di contenitori o condivisioni | I nomi di contenitore o condivisione non seguono le regole di denominazione di Azure.  |Scaricare gli elenchi degli errori. <br> Rinominare i contenitori o le condivisioni. [Altre informazioni](#container-or-share-name-errors)  |
-| Limite dimensioni contenitore o condivisione | Il totale dei dati in contenitori o condivisioni supera il limite di Azure.   |Scaricare gli elenchi degli errori. <br> Ridurre i dati complessivi nel contenitore o nella condivisione. [Altre informazioni](#container-or-share-size-limit-errors)|
-| Limite dimensioni oggetti o file | L'oggetto o i file in contenitori o condivisioni superano il limite di Azure.|Scaricare gli elenchi degli errori. <br> Ridurre le dimensioni del file nel contenitore o nella condivisione. [Altre informazioni](#object-or-file-size-limit-errors) |    
-| Tipo di dati o di file | Il formato dei dati o il tipo di file non è supportato. |Scaricare gli elenchi degli errori. <br> Per i BLOB di pagine o i dischi gestiti, assicurarsi che i dati siano allineati a 512 byte e che vengano copiati nelle cartelle create in precedenza. [Altre informazioni](#data-or-file-type-errors) |
+| Nomi di contenitori o condivisioni | I nomi di contenitore o condivisione non seguono le regole di denominazione di Azure.  |Scaricare gli elenchi degli errori. <br> Rinominare i contenitori o le condivisioni. [Altre informazioni](#container-or-share-name-errors).  |
+| Limite dimensioni contenitore o condivisione | Il totale dei dati in contenitori o condivisioni supera il limite di Azure.   |Scaricare gli elenchi degli errori. <br> Ridurre i dati complessivi nel contenitore o nella condivisione. [Altre informazioni](#container-or-share-size-limit-errors).|
+| Limite dimensioni oggetti o file | L'oggetto o i file in contenitori o condivisioni superano il limite di Azure.|Scaricare gli elenchi degli errori. <br> Ridurre le dimensioni del file nel contenitore o nella condivisione. [Altre informazioni](#object-or-file-size-limit-errors). |    
+| Tipo di dati o di file | Il formato dei dati o il tipo di file non è supportato. |Scaricare gli elenchi degli errori. <br> Per i BLOB di pagine o i dischi gestiti, assicurarsi che i dati siano allineati a 512 byte e che vengano copiati nelle cartelle create in precedenza. [Altre informazioni](#data-or-file-type-errors). |
 | Errori di BLOB o file non critici  | I nomi di BLOB o file non seguono le regole di denominazione di Azure o il tipo di file non è supportato. | È possibile che questi BLOB o file non vengano copiati o che i nomi vengano modificati. [Informazioni su come risolvere questi errori](#non-critical-blob-or-file-errors). |
 
 \* Le prime quattro categorie di errore sono errori critici e devono essere corrette prima di procedere alla preparazione per la spedizione.
@@ -56,7 +56,7 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
     - Esempi di nomi validi: `my-folder-1` , `my-really-extra-long-folder-111`
     - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` , `myfolder!`
 
-    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
 ### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
@@ -75,7 +75,7 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
     - Esempi di nomi validi: `my-folder-1` , `my-really-extra-long-folder-111`
     - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` , `myfolder!`
 
-    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 ### <a name="error_container_or_share_name_improper_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
@@ -93,7 +93,7 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
     - Esempi di nomi validi: `my-folder-1` , `my-really-extra-long-folder-111`
     - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` , `myfolder!`
 
-    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
 ### <a name="error_file_or_directory_name_illegal"></a>ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
 
@@ -104,7 +104,7 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
 - Nella pagina Connetti e copia dell'interfaccia utente Web locale scaricare ed esaminare i file di errore per identificare i nomi delle cartelle con problemi. 
 - Rinominare la directory o i contenitori per assicurarsi che siano conformi alle convenzioni di denominazione di Azure.
 
-Per altre informazioni, vedere convenzioni di denominazione di Azure per [directory](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   e [contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+Per altre informazioni, vedere convenzioni di denominazione di Azure per [directory](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   e [contenitori](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Errori limite dimensioni contenitore o condivisione
 
@@ -190,7 +190,7 @@ Tutti gli errori non critici relativi ai nomi di BLOB, file o contenitori visual
 Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 Rimuovere o rinominare i file per rimuovere i caratteri non supportati.
 
-Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 ### <a name="error_blob_or_file_name_character_illegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
 
@@ -201,7 +201,7 @@ Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi
 Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 Rimuovere o rinominare i file per rimuovere i caratteri non supportati.
 
-Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### <a name="error_blob_or_file_name_ending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
@@ -213,7 +213,7 @@ Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi
 Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 Rimuovere o rinominare i file per rimuovere i caratteri non supportati.
 
-Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi di BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi di file](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### <a name="error_blob_or_file_name_segment_count"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
@@ -223,7 +223,7 @@ Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi
 **Risoluzione suggerita:** I BLOB o i file copiati superano il numero massimo di segmenti di percorso. Un segmento di percorso è la stringa tra i caratteri delimitatori consecutivi, ad esempio la barra/.
 
 - Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
-- Verificare che i [nomi dei BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi dei file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) siano conformi alle convenzioni di denominazione di Azure.
+- Verificare che i [nomi dei BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi dei file](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) siano conformi alle convenzioni di denominazione di Azure.
 
 ### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
@@ -244,7 +244,7 @@ Per altre informazioni, vedere convenzioni di denominazione di Azure per i nomi 
 **Risoluzione suggerita:** Uno dei segmenti di percorso nel BLOB o nel nome file supera il numero massimo di caratteri. Un segmento di percorso è la stringa tra i caratteri delimitatori consecutivi, ad esempio la barra/.
 
 - Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
-- Verificare che i [nomi dei BLOB](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi dei file](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) siano conformi alle convenzioni di denominazione di Azure.
+- Verificare che i [nomi dei BLOB](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e i [nomi dei file](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) siano conformi alle convenzioni di denominazione di Azure.
 
 
 ### <a name="error_container_or_share_name_disallowed_for_type"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
