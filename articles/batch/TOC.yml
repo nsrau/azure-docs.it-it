@@ -168,6 +168,7 @@
         - name: Attività di preparazione e completamento dei processi
           href: batch-job-prep-release.md
         - name: Attività simultanee nei nodi
+          displayName: concurrent
           href: batch-parallel-node-tasks.md
         - name: Dipendenze dell'attività
           href: batch-task-dependencies.md
