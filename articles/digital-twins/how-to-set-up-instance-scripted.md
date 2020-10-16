@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047421"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132517"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -28,11 +28,11 @@ Questa versione di questo articolo completa questa procedura eseguendo un esempi
 
 ## <a name="prerequisites-download-the-script"></a>Prerequisiti: scaricare lo script
 
-Lo script di esempio è scritto in PowerShell. Fa parte degli esempi di [**Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo.
+Lo script di esempio è scritto in PowerShell. Fa parte degli [**esempi end-to-end di Azure Digital gemelli**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo.
 
-Il progetto di esempio verrà scaricato nel computer come _**Azure_Digital_Twins_samples.zip**_. Passare alla cartella del computer e decomprimerla per estrarre i file.
+Il progetto di esempio verrà scaricato nel computer come _**Azure_Digital_Twins_end_to_end_samples.zip**_. Passare alla cartella del computer e decomprimerla per estrarre i file.
 
-Nella cartella decompressa lo script di distribuzione si trova in _Azure_Digital_Twins_samples script > > **deploy.ps1** _.
+Nella cartella decompressa lo script di distribuzione si trova in _Azure_Digital_Twins_end_to_end_samples script > > **deploy.ps1** _.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,7 +57,7 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
 
 1. Selezionare l'icona &quot;Carica/Scarica file":::
 
-    Passare al file di _**deploy.ps1**_ nel computer (in _Azure_Digital_Twins_samples > script > **deploy.ps1** _) e premere "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
+    Passare al file di _**deploy.ps1**_ nel computer (in _Azure_Digital_Twins_end_to_end_samples > script > **deploy.ps1** _) e premere "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
 
 4. Eseguire lo script inviando il `./deploy.ps1` comando nella finestra cloud Shell. Ricordare che per incollare in Cloud Shell, è possibile usare **Ctrl + Maiusc + v** in Windows e Linux oppure **cmd + Maiusc + v** in MacOS. È anche possibile usare il menu di scelta rapida.
 

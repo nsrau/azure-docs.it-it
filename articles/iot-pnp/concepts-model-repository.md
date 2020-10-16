@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126825"
+ms.locfileid: "92131361"
 ---
 # <a name="device-model-repository"></a>Repository del modello di dispositivo
 
@@ -24,20 +24,20 @@ RICEVITORE definisce un modello per archiviare le interfacce DTDL in una struttu
 
 Microsoft ospita una ricevitore pubblica con queste caratteristiche:
 
-- Modelli curati. Microsoft esamina e approva tutte le interfacce disponibili usando un flusso di lavoro di convalida della richiesta pull di GitHub aperto.
+- Modelli curati. Microsoft esamina e approva tutte le interfacce disponibili usando un flusso di lavoro di convalida della richiesta pull di GitHub.
 - Immutabilità.  Dopo la pubblicazione, non è possibile aggiornare un'interfaccia.
-- Hyper-scale. Microsoft fornisce tutte le infrastrutture necessarie per creare un endpoint sicuro ed estremamente scalabile.
+- Hyper-scale. Microsoft fornisce l'infrastruttura necessaria per creare un endpoint sicuro e scalabile in cui è possibile pubblicare e utilizzare i modelli di dispositivo.
 
 ## <a name="custom-device-model-repository"></a>Repository del modello di dispositivo personalizzato
 
-Per creare un ricevitore personalizzato, è possibile usare lo stesso modello ricevitore in qualsiasi supporto di archiviazione, ad esempio file system locali o server Web HTTP personalizzati. È possibile recuperare i modelli dal ricevitore personalizzato in modo analogo al ricevitore pubblico semplicemente modificando l'URL di base usato per accedere a ricevitore.
+Per creare un ricevitore personalizzato, è possibile usare lo stesso modello ricevitore in qualsiasi supporto di archiviazione, ad esempio file system locali o server Web HTTP personalizzati. È possibile recuperare i modelli di dispositivo dal ricevitore personalizzato in modo analogo al ricevitore pubblico semplicemente modificando l'URL di base usato per accedere a ricevitore.
 
 > [!NOTE]
-> Gli strumenti usati per convalidare i modelli nel ricevitore pubblico possono essere riutilizzati in repository personalizzati.
+> Microsoft fornisce gli strumenti per convalidare i modelli di dispositivo nella ricevitore pubblica. È possibile riutilizzare questi strumenti in repository personalizzati.
 
 ## <a name="public-models"></a>Modelli pubblici
 
-I modelli di dispositivi gemelli digitali pubblici archiviati nel repository dei modelli sono disponibili per l'utilizzo e l'integrazione delle applicazioni da parte degli utenti. I modelli pubblici consentono a un ecosistema aperto per i compilatori di dispositivi e gli sviluppatori di soluzioni di condividere e riutilizzare i propri Plug and Play i modelli di dispositivo.
+I modelli di dispositivo pubblico archiviati nel repository del modello sono disponibili per l'utilizzo e l'integrazione da parte di tutti gli utenti nelle proprie applicazioni. I modelli di dispositivo pubblico consentono a un eco-sistema aperto per i generatori di dispositivi e gli sviluppatori di soluzioni di condividere e riutilizzare i propri dispositivi Plug and Play modelli di dispositivo.
 
 Vedere la sezione [pubblicare un modello](#publish-a-model) per istruzioni su come pubblicare un modello nel repository del modello per renderlo pubblico.
 
@@ -47,7 +47,7 @@ Tutte le interfacce nelle `dtmi` cartelle sono disponibili anche dall'endpoint p
 
 ### <a name="resolve-models"></a>Risolvere i modelli
 
-Per accedere a livello di codice a queste interfacce, è necessario convertire un dtmi in un percorso relativo che è possibile usare per eseguire una query sull'endpoint pubblico. Nell'esempio di codice seguente viene illustrato come eseguire questa operazione:
+Per accedere a livello di codice a queste interfacce, è necessario convertire un DTMI in un percorso relativo che è possibile usare per eseguire una query sull'endpoint pubblico. Nell'esempio di codice seguente viene illustrato come eseguire questa operazione:
 
 Per convertire DTMI in un percorso assoluto, viene usata la `DtmiToPath` funzione con `IsValidDtmi` :
 
@@ -88,12 +88,12 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Creare un fork del repository GitHub pubblico: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models) .
 1. Clonare il repository con fork. Se lo si desidera, è possibile creare un nuovo ramo per evitare che le modifiche siano isolate dal `main` ramo.
 1. Aggiungere le nuove interfacce alla `dtmi` cartella usando la convenzione cartella/nome file. Vedere lo strumento [Aggiungi modello](#add-model) .
-1. Convalidare i modelli localmente utilizzando la sezione [script per convalidare le modifiche](#validate-files) .
+1. Convalidare i modelli di dispositivo localmente utilizzando la sezione [script per convalidare le modifiche](#validate-files) .
 1. Eseguire il commit delle modifiche in locale ed effettuare il push nel fork.
 1. Dal fork creare una richiesta pull destinata al `main` ramo. Vedere la documentazione relativa alla [creazione di un problema o di una richiesta pull](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) .
-1. Esaminare i [requisiti della richiesta](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md)pull.
+1. Esaminare i [requisiti della richiesta pull](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-La richiesta pull attiva una serie di azioni di GitHub che convalideranno le nuove interfacce inviate e assicurarsi che la richiesta pull soddisfi tutti i controlli.
+La richiesta pull attiva una serie di azioni GitHub che convalideranno le nuove interfacce inviate e assicurarsi che la richiesta pull soddisfi tutti i controlli.
 
 Microsoft risponderà a una richiesta pull con tutti i controlli in tre giorni lavorativi.
 
@@ -109,7 +109,7 @@ Controllare l'output della console per eventuali messaggi di errore.
 
 ### <a name="local-validation"></a>Convalida locale
 
-È possibile eseguire gli stessi controlli di convalida in locale prima di inviare la richiesta pull per facilitare la diagnosi dei problemi in anticipo.
+È possibile eseguire gli stessi controlli di convalida localmente prima di inviare la richiesta pull per facilitare la diagnosi dei problemi in anticipo.
 
 #### <a name="validate-files"></a>Validate-files
 
@@ -125,7 +125,7 @@ Controllare l'output della console per eventuali messaggi di errore.
 
 #### <a name="validate-models"></a>Validate-modelli
 
-È possibile eseguire l' [esempio di convalida DTDL](https://github.com/Azure-Samples/DTDL-Validator) per convalidare i modelli localmente.
+È possibile eseguire l' [esempio di convalida DTDL](https://github.com/Azure-Samples/DTDL-Validator) per convalidare i modelli di dispositivo in locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

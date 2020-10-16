@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6140260b75580270b365e59358d97e0a54c7b4a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22d048b15cc097cd8a24e5ed57bbe4d5a6183e2f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503940"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131599"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare l'interfaccia della riga di comando di Azure per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2
 
-Questo articolo illustra come usare l['interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per creare e gestire directory, file e autorizzazioni negli account di archiviazione che hanno uno spazio dei nomi gerarchico. 
+Questo articolo illustra come usare l['interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/) per creare e gestire directory, file e autorizzazioni negli account di archiviazione che hanno uno spazio dei nomi gerarchico. 
 
 [Esempi](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  di [Invia commenti e suggerimenti](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -32,14 +32,14 @@ Questo articolo illustra come usare l['interfaccia della riga di comando di Azur
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Assicurarsi che sia installata la versione corretta dell'interfaccia della riga di comando di Azure
 
-1. Aprire [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)o aprire un'applicazione console comando come Windows PowerShell, se è stata [installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) l'interfaccia della riga di comando di Azure in locale.
+1. Aprire [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)o aprire un'applicazione console comando come Windows PowerShell, se è stata [installata](https://docs.microsoft.com/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure in locale.
 
 2. Verificare con il comando seguente che la versione dell'interfaccia della riga di comando di Azure installata corrisponda a `2.6.0` o successive.
 
    ```azurecli
     az --version
    ```
-   Se la versione dell'interfaccia della riga di comando di Azure fosse inferiore a `2.6.0`, installare una versione successiva. Vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   Se la versione dell'interfaccia della riga di comando di Azure fosse inferiore a `2.6.0`, installare una versione successiva. Vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Effettuare la connessione all'account
 
@@ -216,7 +216,7 @@ Questo esempio illustra come eliminare un file denominato `my-file.txt`
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## <a name="manage-permissions"></a>Gestione autorizzazioni
+## <a name="manage-access-control-lists-acls"></a>Gestire gli elenchi di controllo di accesso (ACL)
 
 È possibile ottenere, impostare e aggiornare le autorizzazioni di accesso di file e directory.
 
@@ -273,7 +273,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 
 Nell'immagine seguente illustra l'output dopo aver impostato l'ACL di un file.
 
-![Recuperare l'output di un ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Ottenere l'output ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
 In questo esempio, l'utente proprietario e il gruppo proprietario sono provvisti delle sole autorizzazioni di lettura e scrittura. Tutti gli altri utenti sono provvisti di autorizzazioni di scrittura ed esecuzione. Per altre informazioni sugli elenchi di controllo di accesso, vedere [Controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 

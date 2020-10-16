@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564841"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132075"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per l'hint ID token in un Azure Active Directory B2C criteri personalizzati
 
@@ -87,13 +87,13 @@ Quando si utilizza una chiave simmetrica, i metadati seguenti sono rilevanti.
 | autorità di certificazione | Sì | Identifica il servizio token di sicurezza (emittente del token). Questo valore deve essere identico all' `iss` attestazione nell'attestazione del token JWT. | 
 | IdTokenAudience | Sì | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione con l'attestazione del token JWT. | 
 
-Quando si utilizza una chiave simmetrica, i metadati seguenti sono rilevanti. 
+Quando si utilizza una chiave asimmetrica, i metadati seguenti sono rilevanti. 
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | METADATI| Sì | URL che punta a un documento di configurazione dell'emittente del token, noto anche come endpoint di configurazione OpenID noto.   |
 | autorità di certificazione | No | Identifica il servizio token di sicurezza (emittente del token). Questo valore può essere usato per sovrascrivere il valore configurato nei metadati e deve essere identico all' `iss` attestazione nell'attestazione del token JWT. |  
-| IdTokenAudience | No | Identifica il destinatario del token. Questo valore può essere usato per sovrascrivere il valore configurato nei metadati e deve essere identico all' `aud` attestazione nell'attestazione del token JWT. |  
+| IdTokenAudience | No | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione con l'attestazione del token JWT. |  
 
 ## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
@@ -219,7 +219,7 @@ Il profilo tecnico seguente convalida il token ed estrae le attestazioni. Modifi
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

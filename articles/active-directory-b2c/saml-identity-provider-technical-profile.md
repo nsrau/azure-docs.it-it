@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f2b4d6da8d4d69a44ca3aabd755c72fd87aaa8e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 956773872babbd30dea1e17a9a3d7ede7a022850
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054900"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131735"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico del provider di identità SAML in un Azure Active Directory B2C criteri personalizzati
 
@@ -144,11 +144,11 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatoria | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | PartnerEntity | Sì | URL dei metadati del provider di identità SAML. Copiare i metadati del provider di identità e aggiungerli nell'elemento CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | No | Indica se il profilo tecnico richiede che tutte le richieste di autenticazione in uscita siano firmate. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`. Quando il valore è impostato su `true`, la chiave di crittografia **SamlMessageSigning** deve essere specificata e tutte le richieste di autenticazione in uscita sono firmate. Se il valore è impostato su `false`, i parametri **SigAlg** e **Signature** (stringa di query o parametro Post) vengono omessi dalla richiesta. Questi metadati controllano anche l'attributo **AuthnRequestsSigned**, emesso nei metadati del profilo tecnico di Azure AD B2C condiviso con il provider di identità. Azure AD B2C non firma la richiesta se il valore di **WantsSignedRequests** nei metadati del profilo tecnico è impostato su `false` e i metadati del provider di identità **WantAuthnRequestsSigned** sono impostati su `false` o non specificati. |
-| XmlSignatureAlgorithm | No | Metodo usato da Azure AD B2C per firmare la richiesta SAML. Questi metadati controllano il valore del parametro **SigAlg** (stringa di query o parametro Post) nella richiesta SAML. I valori possibili sono: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. |
+| XmlSignatureAlgorithm | No | Metodo usato da Azure AD B2C per firmare la richiesta SAML. Questi metadati controllano il valore del parametro **SigAlg** (stringa di query o parametro Post) nella richiesta SAML. Valori possibili: `Sha256` , `Sha384` , `Sha512` o `Sha1` (impostazione predefinita). Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. |
 | WantsSignedAssertions | No | Indica se il profilo tecnico richiede che tutte le asserzioni in ingresso siano firmate. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`. Se il valore è impostato su `true`, tutta la sezione `saml:Assertion` delle asserzioni inviate dal provider di identità del provider ad Azure AD B2C deve essere firmata. Se il valore è impostato su `false`, il provider di identità non deve firmare le asserzioni e anche se esegue questa operazione Azure AD B2C non convalida la firma. Questi metadati controllano anche il flag **WantsAssertionsSigned** emesso nei metadati del profilo tecnico di Azure AD B2C condiviso con il provider di identità. Se si disabilita la convalida delle asserzioni, è anche possibile disabilitare la convalida della firma della risposta. Per altre informazioni, vedere **ResponsesSigned**. |
 | ResponsesSigned | No | I valori possibili sono: `true` o `false`. Il valore predefinito è `true`. Se il valore è impostato su `false`, il provider di identità non deve firmare la risposta SAML e anche se esegue questa operazione Azure AD B2C non convalida la firma. Se il valore è impostato su `true`, la risposta SAML inviata dal provider di identità ad Azure AD B2C è firmata e deve essere convalidata. Se si disabilita la convalida della risposta SAML, è anche possibile disabilitare la convalida della firma di asserzione. Per altre informazioni, vedere **WantsSignedAssertions**. |
 | WantsEncryptedAssertions | No | Indica se il profilo tecnico richiede che tutte le asserzioni in ingresso siano crittografate. I valori possibili sono: `true` o `false`. Il valore predefinito è `false`. Se il valore è impostato su `true`, le asserzioni inviate dal provider di identità ad Azure AD B2C devono essere firmate e la chiave di crittografia **SamlAssertionDecryption** deve essere specificata. Se il valore è impostato su `true`, i metadati del profilo tecnico di Azure AD B2C includono la sezione **encryption**. Il provider di identità legge i metadati e crittografa l'asserzione di risposta SAML con la chiave pubblica contenuta nei metadati del profilo tecnico di Azure AD B2C. Se si abilita la crittografia delle asserzioni, può anche essere necessario disabilitare la convalida della firma della risposta. Per altre informazioni, vedere **ResponsesSigned**. |
@@ -163,7 +163,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 L'elemento **CryptographicKeys** contiene gli attributi seguenti:
 
-| Attributo |Obbligatoria | Description |
+| Attributo |Obbligatoria | Descrizione |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |Sì | Certificato X509 (set di chiavi RSA) da usare per firmare i messaggi SAML. Azure AD B2C usa questa chiave per firmare le richieste e inviarle al provider di identità. |
 | SamlAssertionDecryption |No | Il certificato X509 (set di chiavi RSA). Un provider di identità SAML usa la parte pubblica del certificato per crittografare l'asserzione della risposta SAML. Azure AD B2C usa la parte privata del certificato per decrittografare l'asserzione. |

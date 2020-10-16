@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993174"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132058"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Raccogliere i log di Azure Active Directory B2C con Application Insights
 
@@ -26,7 +26,7 @@ Questo articolo illustra i passaggi per la raccolta di log da Active Directory B
 I log attività dettagliati descritti in questa sezione devono essere abilitati **solo** durante lo sviluppo dei criteri personalizzati.
 
 > [!WARNING]
-> Non abilitare la modalità di sviluppo nell'ambiente di produzione. I log raccolgono tutte le attestazioni inviate da e verso i provider di identità. Gli sviluppatori si assumono la responsabilità di tutti i dati personali raccolti nei log del Application Insights. Questi log dettagliati vengono raccolti solo quando i criteri vengono inseriti in **modalità sviluppatore**.
+> Non impostare `DeploymentMode` su `Developer` negli ambienti di produzione. I log raccolgono tutte le attestazioni inviate da e verso i provider di identità. Gli sviluppatori si assumono la responsabilità di tutti i dati personali raccolti nei log del Application Insights. Questi log dettagliati vengono raccolti solo quando i criteri vengono inseriti in **modalità sviluppatore**.
 
 ## <a name="set-up-application-insights"></a>Configurare Application Insights
 
@@ -58,7 +58,7 @@ Se non ne è già presente uno, creare un'istanza di Application Insights nella 
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"` indica a ApplicationInsights di accelerare i dati di telemetria attraverso la pipeline di elaborazione. Ideale per lo sviluppo, ma vincolato a volumi elevati.
+    * `DeveloperMode="true"` indica a ApplicationInsights di accelerare i dati di telemetria attraverso la pipeline di elaborazione. Ideale per lo sviluppo, ma vincolato a volumi elevati. In produzione, impostare `DeveloperMode` su `false` .
     * `ClientEnabled="true"` Invia lo script del lato client di ApplicationInsights per tenere traccia degli errori sul lato client e sulla visualizzazione pagina. È possibile visualizzarli nella tabella **browserTimings** nel portale di Application Insights. Impostando `ClientEnabled= "true"` , si aggiungono Application Insights allo script di pagina e si ottengono i tempi di caricamento delle pagine e le chiamate AJAX, i conteggi, i dettagli delle eccezioni del browser e degli errori Ajax, nonché i conteggi degli utenti e delle sessioni. Questo campo è **facoltativo**e è impostato su per `false` impostazione predefinita.
     * `ServerEnabled="true"` invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights.
 
@@ -102,6 +102,31 @@ Di seguito è riportato un elenco di query che è possibile usare per visualizza
 Le voci possono essere lunghe. Per visualizzarle meglio è possibile esportarle in formato CSV.
 
 Per altre informazioni sull'esecuzione di query, vedere [Panoramica delle query di log in monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="configure-application-insights-in-production"></a>Configurare Application Insights nell'ambiente di produzione
+
+Per migliorare le prestazioni dell'ambiente di produzione e migliorare l'esperienza utente, è importante configurare i criteri per ignorare i messaggi che non sono importanti. Utilizzare la configurazione seguente per inviare solo messaggi di errore critici al Application Insights. 
+
+1. Impostare l' `DeploymentMode` attributo di [TrustFrameworkPolicy](trustframeworkpolicy.md) su `Production` . 
+
+   ```xml
+   <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+   TenantId="yourtenant.onmicrosoft.com"
+   PolicyId="B2C_1A_signup_signin"
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin"
+   DeploymentMode="Production"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights">
+   ```
+
+1. Impostare `DeveloperMode` di [JourneyInsights](relyingparty.md#journeyinsights) su `false` .
+
+   ```xml
+   <UserJourneyBehaviors>
+     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   </UserJourneyBehaviors>
+   ```
+   
+1. Caricare e testare i criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

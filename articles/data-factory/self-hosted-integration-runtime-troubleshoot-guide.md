@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: abnarain
-ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069476"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131311"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -615,6 +615,37 @@ Nell'esempio seguente viene illustrato l'aspetto di uno scenario valido.
 
     ![Flusso di lavoro TCP 4 handshake](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Ricezione di un messaggio di posta elettronica per aggiornare la configurazione di rete per consentire la comunicazione con nuovi indirizzi IP
+
+#### <a name="symptoms"></a>Sintomi
+
+È possibile ricevere una notifica di posta elettronica di seguito, che consiglia di aggiornare la configurazione di rete per consentire la comunicazione con i nuovi indirizzi IP per Azure Data Factory entro l'8 novembre 2020:
+
+   ![Notifica tramite posta elettronica](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="resolution"></a>Soluzione
+
+Questa notifica riguarda le **comunicazioni in uscita** dal **Integration Runtime** in esecuzione **in locale** o all'interno di una **rete privata virtuale di Azure** al servizio ADF. Ad esempio, se si dispone di un runtime di integrazione self-hosted o di Azure-SQL Server Integration Services (SSIS) in Azure VNET, che deve accedere al servizio ADF, è necessario verificare se è necessario aggiungere questo nuovo intervallo IP nelle regole del **gruppo di sicurezza di rete (NSG)** . Se la regola NSG in uscita USA un tag di servizio, non vi sarà alcun effetto.
+
+#### <a name="more-details"></a>Altre informazioni
+
+Questi nuovi intervalli IP **hanno un effetto sulle** regole di comunicazione in uscita dal **firewall locale** o dalla **rete privata virtuale di Azure** al servizio ADF (vedere [configurazione del firewall e configurazione dell'elenco Consenti per l'indirizzo IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) per riferimento), per gli scenari in cui è presente un runtime di integrazione self-hosted o un runtime di integrazione SSIS nella rete locale o nella rete virtuale di Azure, che deve comunicare con il
+
+Per gli utenti esistenti che usano la **VPN di Azure**:
+
+1. Controllare le regole NSG in uscita nella rete privata in cui è configurato SSIS o Azure SSIS. Se non sono presenti restrizioni in uscita, nessun effetto su di essi.
+1. Se sono presenti restrizioni per le regole in uscita, controllare se si usa o meno il tag di servizio. Se si usa il tag di servizio, non è necessario modificare o aggiungere nulla perché i nuovi intervalli IP sono sotto il tag del servizio esistente. 
+  
+    ![Verifica destinazione](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. Se si usano indirizzi IP direttamente nell'impostazione della regola, controllare se si aggiungono tutti gli intervalli IP nel [collegamento di download dell'intervallo IP dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Sono già stati inseriti i nuovi intervalli IP in questo file. Per i nuovi utenti: è sufficiente completare la configurazione del runtime di integrazione self-hosted o del runtime di integrazione self-hosted pertinente nel documento per configurare le regole NSG.
+
+Per gli utenti esistenti che hanno un runtime di integrazione self-hosted o IR **locale**:
+
+- Convalidare il team dell'infrastruttura di rete e verificare se è necessario includere i nuovi indirizzi di intervallo IP nella comunicazione per le regole in uscita.
+- Per le regole del firewall basate sui nomi FQDN, non sono necessari aggiornamenti quando si usano le impostazioni documentate nella [configurazione del firewall e la configurazione dell'elenco Consenti per l'indirizzo IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+- Alcuni firewall locali supportano i tag del servizio, se si usa il file di configurazione aggiornato dei tag di servizio di Azure, non sono necessarie altre modifiche.
 
 ## <a name="self-hosted-ir-sharing"></a>Condivisione del runtime di integrazione self-hosted
 

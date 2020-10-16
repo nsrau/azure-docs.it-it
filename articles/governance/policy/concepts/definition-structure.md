@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074261"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132483"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -589,8 +589,8 @@ La funzione seguente è disponibile per l'uso in una regola dei criteri, ma è d
 Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
-  - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere.
+  - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601' aaaa-mm-ggThh: mm: SS. FFFFFFFZ'
+  - **numberOfDaysToAdd**: [Obbligatorio] numero intero - Numero intero di giorni da aggiungere
 - `field(fieldName)`
   - **fieldName**: [Obbligatorio] stringa - Nome del [campo](#fields) da recuperare
   - Restituisce il valore di tale campo dalla risorsa valutata dalla condizione If.

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023874"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132789"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Log di monitoraggio di Azure per il firewall di Azure
 
@@ -30,7 +30,7 @@ Eseguire la procedura seguente per aggiungere la visualizzazione all'area di lav
 2. Aprire **Progettazione viste** sotto **Generale**.
 3. Fare clic su **Importa**.
 4. Sfogliare e selezionare il file **AzureFirewall.omsview** scaricato in precedenza.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 Ecco come è illustrato l'aspetto della visualizzazione dei dati del log delle regole di applicazione:
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 Negli esempi di log seguenti vengono illustrati i dati inclusi in una voce di log.
 
-![voce di log 1](media/log-analytics-samples/log1.png)
+:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, un numero di porta, un'azione, una raccolta regole e una regola." border="false":::
 
-![voce di log due ](media/log-analytics-samples/log2.png)
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, un numero di porta, un'azione, una raccolta regole e una regola." border="false":::
 
-![voce di log tre](media/log-analytics-samples/log3.png)
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, un numero di porta, un'azione, una raccolta regole e una regola." border="false":::
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sul monitoraggio e la diagnostica di Firewall di Azure, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).

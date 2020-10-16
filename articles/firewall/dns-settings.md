@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ffac4f19d50d9a386110e1b89f8f147652a2cd
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85610643"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132007"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Impostazioni DNS del firewall di Azure (anteprima)
 
@@ -57,6 +57,7 @@ Per configurare il proxy DNS, è necessario configurare l'impostazione dei serve
 3. Selezionare **personalizzata** in **server DNS**.
 4. Immettere l'indirizzo IP privato del firewall.
 5. Selezionare **Salva**.
+6. Riavviare le macchine virtuali connesse alla rete virtuale in modo che vengano loro assegnate le nuove impostazioni del server DNS. Le VM continuano a usare le impostazioni DNS correnti finché non vengono riavviate.
 
 #### <a name="enable-dns-proxy-preview"></a>Abilita proxy DNS (anteprima)
 

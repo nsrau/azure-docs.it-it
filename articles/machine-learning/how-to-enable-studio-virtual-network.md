@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776086"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131820"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -67,7 +67,7 @@ Se non si Abilita l'identità gestita, verrà visualizzato questo errore, `Error
 * Avviare un progetto di assegnazione di etichette.
 
 > [!NOTE]
-> L' [etichettatura dei dati assistiti da ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) non supporta gli account di archiviazione predefiniti protetti dietro una rete virtuale. È necessario usare un account di archiviazione non predefinito per l'etichettatura dei dati assistiti da ML. L'account di archiviazione non predefinito può essere protetto dietro la rete virtuale. 
+> L' [etichettatura dei dati assistiti da ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) non supporta gli account di archiviazione predefiniti protetti dietro una rete virtuale. È necessario usare un account di archiviazione non predefinito per l'etichettatura dei dati assistita da ML. L'account di archiviazione non predefinito può essere protetto tramite la rete virtuale. 
 
 Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una rete virtuale:
 
@@ -106,7 +106,7 @@ Per l' __archiviazione BLOB di Azure__, l'identità gestita dall'area di lavoro 
 
 È possibile utilizzare gli elenchi di controllo di accesso (ACL) di tipo RBAC e POSIX per controllare l'accesso ai dati all'interno di una rete virtuale.
 
-Per utilizzare il controllo degli accessi in base al ruolo, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control).
+Per utilizzare il controllo degli accessi in base al ruolo, aggiungere l'identità gestita dall'area di lavoro al ruolo [lettore dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Per usare gli ACL, è possibile assegnare l'accesso all'identità gestita dall'area di lavoro in modo analogo a qualsiasi altro principio di sicurezza. Per altre informazioni, vedere [elenchi di controllo di accesso per file e directory](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

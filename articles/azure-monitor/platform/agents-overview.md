@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: de9623eb0eb14957c1554b7b0f74baa256a15d47
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8ca6794024d3a6327b918eb1c369a627837e0bd0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108389"
+ms.locfileid: "92131021"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -148,9 +148,9 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(incluse la funzionalità multisessione) e Pro  | X | X | X | X |
-| Windows 8 Enterprise e Pro                             |   | X | X |   |
-| Windows 7 SP1                                            |   | X | X |   |
+| Windows 10 Enterprise<br>(incluse la funzionalità multisessione) e Pro<br>(Solo scenari server)  | X | X | X | X |
+| Windows 8 Enterprise e Pro<br>(Solo scenari server)  |   | X | X |   |
+| Windows 7 SP1<br>(Solo scenari server)                 |   | X | X |   |
 
 
 ### <a name="linux"></a>Linux

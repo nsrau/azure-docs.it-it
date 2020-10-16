@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 94abc54c63b7d2a9998cffe7cf1396f81a26a5a1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 530aa17a165092fc9219629180c81014039c3dac
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107981"
+ms.locfileid: "92132687"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -42,7 +42,7 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Tipo di contenuto |application/json |
 
 ### <a name="request-uri-parameters"></a>Parametri URI della richiesta
-| Parametro | Description |
+| Parametro | Descrizione |
 |:--- |:--- |
 | CustomerID |Identificatore univoco per l'area di lavoro Log Analytics. |
 | Risorsa |Nome della risorsa API: /api/logs. |
@@ -552,10 +552,102 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 
+### <a name="java-sample"></a>Esempio Java
+
+```java
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.springframework.http.MediaType;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Base64;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
+
+public class ApiExample {
+
+  private static final String workspaceId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+  private static final String sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  private static final String logName = "DemoExample";
+  /*
+  You can use an optional field to specify the timestamp from the data. If the time field is not specified,
+  Azure Monitor assumes the time is the message ingestion time
+   */
+  private static final String timestamp = "";
+  private static final String json = "{\"name\": \"test\",\n" + "  \"id\": 1\n" + "}";
+  private static final String RFC_1123_DATE = "EEE, dd MMM yyyy HH:mm:ss z";
+
+  public static void main(String[] args) throws IOException, NoSuchAlgorithmException, InvalidKeyException {
+    String dateString = getServerTime();
+    String httpMethod = "POST";
+    String contentType = "application/json";
+    String xmsDate = "x-ms-date:" + dateString;
+    String resource = "/api/logs";
+    String stringToHash = String
+        .join("\n", httpMethod, String.valueOf(json.getBytes(StandardCharsets.UTF_8).length), contentType,
+            xmsDate , resource);
+    String hashedString = getHMAC254(stringToHash, sharedKey);
+    String signature = "SharedKey " + workspaceId + ":" + hashedString;
+
+    postData(signature, dateString, json);
+  }
+
+  private static String getServerTime() {
+    Calendar calendar = Calendar.getInstance();
+    SimpleDateFormat dateFormat = new SimpleDateFormat(RFC_1123_DATE);
+    dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+    return dateFormat.format(calendar.getTime());
+  }
+
+  private static void postData(String signature, String dateString, String json) throws IOException {
+    String url = "https://" + workspaceId + ".ods.opinsights.azure.com/api/logs?api-version=2016-04-01";
+    HttpPost httpPost = new HttpPost(url);
+    httpPost.setHeader("Authorization", signature);
+    httpPost.setHeader(CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
+    httpPost.setHeader("Log-Type", logName);
+    httpPost.setHeader("x-ms-date", dateString);
+    httpPost.setHeader("time-generated-field", timestamp);
+    httpPost.setEntity(new StringEntity(json));
+    try(CloseableHttpClient httpClient = HttpClients.createDefault()){
+      HttpResponse response = httpClient.execute(httpPost);
+      int statusCode = response.getStatusLine().getStatusCode();
+      System.out.println("Status code: " + statusCode);
+    }
+  }
+
+  private static String getHMAC254(String input, String key) throws InvalidKeyException, NoSuchAlgorithmException {
+    String hash;
+    Mac sha254HMAC = Mac.getInstance("HmacSHA256");
+    Base64.Decoder decoder = Base64.getDecoder();
+    SecretKeySpec secretKey = new SecretKeySpec(decoder.decode(key.getBytes(StandardCharsets.UTF_8)), "HmacSHA256");
+    sha254HMAC.init(secretKey);
+    Base64.Encoder encoder = Base64.getEncoder();
+    hash = new String(encoder.encode(sha254HMAC.doFinal(input.getBytes(StandardCharsets.UTF_8))));
+    return hash;
+  }
+
+}
+
+
+```
+
+
 ## <a name="alternatives-and-considerations"></a>Alternative e considerazioni
 Sebbene l'API dell'agente di raccolta dati debba coprire la maggior parte delle proprie esigenze per raccogliere dati in formato libero nei log di Azure, esistono istanze in cui potrebbe essere necessaria un'alternativa per superare alcune delle limitazioni dell'API. Tutte le opzioni sono le seguenti: considerazioni principali:
 
-| Alternativa | Description | Ideale per |
+| Alternativa | Descrizione | Ideale per |
 |---|---|---|
 | [Eventi personalizzati](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inserimento basato su SDK nativo in Application Insights | Application Insights, in genere instrumentato tramite un SDK all'interno dell'applicazione, offre la possibilità di inviare dati personalizzati tramite eventi personalizzati. | <ul><li> Dati generati all'interno dell'applicazione, ma non prelevati dall'SDK tramite uno dei tipi di dati predefiniti (richieste, dipendenze, eccezioni e così via).</li><li> Dati più spesso correlati ad altri dati dell'applicazione in Application Insights </li></ul> |
 | API dell'agente di raccolta dati nei log di monitoraggio di Azure | L'API dell'agente di raccolta dati nei log di monitoraggio di Azure è un modo completamente aperto per inserire i dati. I dati formattati in un oggetto JSON possono essere inviati qui. Una volta inviato, verrà elaborato e disponibile nei log per la correlazione con altri dati nei log o con altri dati Application Insights. <br/><br/> È abbastanza semplice caricare i dati come file in un BLOB BLOB di Azure, da dove questi file verranno elaborati e caricati in Log Analytics. Vedere [questo](./create-pipeline-datacollector-api.md) articolo per un'implementazione di esempio di una pipeline di questo tipo. | <ul><li> Dati non necessariamente generati all'interno di un'applicazione instrumentata all'interno Application Insights.</li><li> Gli esempi includono le tabelle di ricerca e dei fatti, i dati di riferimento, le statistiche pre-aggregate e così via. </li><li> Destinato ai dati a cui viene fatto riferimento incrociato rispetto ad altri dati di monitoraggio di Azure (Application Insights, altri tipi di dati dei log, Centro sicurezza, monitoraggio di Azure per contenitori/VM e così via). </li></ul> |

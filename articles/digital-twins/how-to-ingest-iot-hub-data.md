@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048050"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131497"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
 
@@ -242,7 +242,7 @@ Selezionare _Crea_ per creare una sottoscrizione di eventi.
 
 ## <a name="send-simulated-iot-data"></a>Inviare dati dell'Internet delle cose simulati
 
-Per testare la nuova funzione di ingresso, usare il simulatore di dispositivi da [*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md). Questa esercitazione è basata su un progetto di esempio scritto in C#. Il codice di esempio è disponibile qui: esempi di dispositivi [gemelli digitali di Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Si userà il progetto **DeviceSimulator** in tale repository.
+Per testare la nuova funzione di ingresso, usare il simulatore di dispositivi da [*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md). Questa esercitazione è basata su un progetto di esempio scritto in C#. Il codice di esempio è disponibile qui: [esempi end-to-end di Azure Digital gemelli](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Si userà il progetto **DeviceSimulator** in tale repository.
 
 Nell'esercitazione end-to-end completare i passaggi seguenti:
 1. [*Registrare il dispositivo simulato con l'hub IoT*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

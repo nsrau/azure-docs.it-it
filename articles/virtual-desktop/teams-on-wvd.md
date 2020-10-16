@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88922566"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131769"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
@@ -92,7 +92,7 @@ La tabella seguente elenca le versioni più recenti del servizio WebSocket:
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
-        In questo modo, i team vengono installati nella cartella Program Files (x86) in un sistema operativo a 64 bit e nella cartella programmi in un sistema operativo a 32 bit. A questo punto, la configurazione dell'immagine dorata è stata completata. L'installazione di team per computer è necessaria per le configurazioni non permanenti.
+        In questo modo, i team vengono installati nella cartella Program Files (x86) in un sistema operativo a 32 bit e nella cartella programmi in un sistema operativo a 64 bit. A questo punto, la configurazione dell'immagine dorata è stata completata. L'installazione di team per computer è necessaria per le configurazioni non permanenti.
 
         Sono disponibili due flag che è possibile impostare quando si installano i team, **ALLUSER = 1** e **ALLUSERS = 1**. È importante comprendere la differenza tra questi parametri. Il parametro **ALLUSER = 1** viene usato solo negli ambienti VDI per specificare un'installazione per computer. Il parametro **ALLUSERS = 1** può essere usato in ambienti non VDI e VDI. Quando si imposta questo parametro, il programma di installazione teams Machine-Wide viene visualizzato in programma e funzionalità nel pannello di controllo, nonché nelle app & funzionalità nelle impostazioni di Windows. Tutti gli utenti con credenziali di amministratore nel computer possono disinstallare i team.
 
@@ -123,7 +123,7 @@ Dopo aver installato il servizio WebSocket e l'app desktop teams, attenersi alla
 
       Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto**, chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, verificare le impostazioni di privacy nel PC locale. Verificare che le **Settings**  >  **Privacy**  >  **autorizzazioni** per l'app privacy dell'impostazione **Consenti alle app di accedere al microfono** siano **On**attivate. Disconnettersi dalla sessione remota, quindi riconnettersi e controllare di nuovo i dispositivi audio e video. Per partecipare a chiamate e riunioni con video, è inoltre necessario concedere l'autorizzazione per l'accesso delle app alla fotocamera.
 
-## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
+## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
 L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team in un ambiente non virtualizzato. Per ulteriori informazioni sulle limitazioni dei team negli ambienti virtualizzati, consultare i [team per l'infrastruttura desktop virtualizzata](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
 
