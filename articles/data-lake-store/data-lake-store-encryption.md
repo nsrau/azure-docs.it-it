@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497183"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109154"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Crittografia dei dati in Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Anche i dati in transito (noti anche come dati in movimento) vengono sempre crit
 
 La crittografia per Data Lake Storage Gen1 viene configurata durante la creazione di un account ed è sempre abilitata per impostazione predefinita. È possibile gestire le chiavi manualmente o consentire a Data Lake Storage Gen1 di gestirle automaticamente (impostazione predefinita).
 
-Per altre informazioni, vedere la [Introduzione](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Per altre informazioni, vedere la [Introduzione](./data-lake-store-get-started-portal.md).
 
 ## <a name="how-encryption-works-in-data-lake-storage-gen1"></a>Come funziona la crittografia in Data Lake Storage Gen1
 
@@ -105,7 +105,7 @@ Il diagramma seguente illustra questi concetti:
 
 ## <a name="key-rotation"></a>Rotazione delle chiavi
 
-Quando si usano le chiavi gestite dal cliente, è possibile ruotare la chiave di crittografia master. Per informazioni su come configurare un account Data Lake Storage Gen1 con chiavi gestite dal cliente, vedere [Introduzione](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Quando si usano le chiavi gestite dal cliente, è possibile ruotare la chiave di crittografia master. Per informazioni su come configurare un account Data Lake Storage Gen1 con chiavi gestite dal cliente, vedere [Introduzione](./data-lake-store-get-started-portal.md).
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -135,4 +135,4 @@ Tenere presente che, se si usano le opzioni predefinite per la crittografia, i d
 Questa operazione richiederà meno di due minuti e non sono previsti tempi di inattività a causa della rotazione della chiave. Al termine dell'operazione, sarà in uso la nuova versione della chiave.
 
 > [!IMPORTANT]
-> Al termine dell'operazione di rotazione delle chiavi, la versione precedente della chiave non viene più usata attivamente per la crittografia dei dati.  In rari casi di errori imprevisti che interessano anche le copie ridondanti dei dati, è tuttavia possibile che i dati vengano ripristinati da un backup che usa ancora la chiave precedente. Per assicurare che i dati siano accessibili in tali circostanze rare, mantenere una copia della versione precedente della chiave di crittografia. Per procedure consigliate per la pianificazione del ripristino di emergenza, vedere [Linee guida per il ripristino di emergenza in Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md). 
+> Al termine dell'operazione di rotazione delle chiavi, la versione precedente della chiave non viene più usata attivamente per la crittografia dei dati.  In rari casi di errori imprevisti che interessano anche le copie ridondanti dei dati, è tuttavia possibile che i dati vengano ripristinati da un backup che usa ancora la chiave precedente. Per assicurare che i dati siano accessibili in tali circostanze rare, mantenere una copia della versione precedente della chiave di crittografia. Per procedure consigliate per la pianificazione del ripristino di emergenza, vedere [Linee guida per il ripristino di emergenza in Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md).

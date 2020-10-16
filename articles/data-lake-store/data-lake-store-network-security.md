@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 716e3766fdd7c1999efa12456346862a9902d7a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85855713"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108712"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integrazione della rete virtuale per Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ L'integrazione della rete virtuale per Data Lake Storage Gen1 usa la sicurezza d
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Scenari di integrazione della rete virtuale per Data Lake Storage Gen1
 
-Con l'integrazione della rete virtuale per Data Lake Storage Gen1, è possibile limitare l'accesso al proprio account Data Lake Storage Gen1 da reti virtuali e subnet specifiche. Dopo che l'account è bloccato a una specifica subnet di rete virtuale, le altre reti virtuali o macchine virtuali in Azure non possono accedervi. A livello funzionale, l'integrazione della rete virtuale per Data Lake Storage Gen1 abilita lo stesso scenario degli [endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Alcune differenze importanti sono descritte in dettaglio nelle sezioni successive. 
+Con l'integrazione della rete virtuale per Data Lake Storage Gen1, è possibile limitare l'accesso al proprio account Data Lake Storage Gen1 da reti virtuali e subnet specifiche. Dopo che l'account è bloccato a una specifica subnet di rete virtuale, le altre reti virtuali o macchine virtuali in Azure non possono accedervi. A livello funzionale, l'integrazione della rete virtuale per Data Lake Storage Gen1 abilita lo stesso scenario degli [endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md). Alcune differenze importanti sono descritte in dettaglio nelle sezioni successive. 
 
 ![Diagramma dello scenario di integrazione della rete virtuale per Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -42,9 +42,9 @@ Con l'integrazione della rete virtuale per Data Lake Storage Gen1, è possibile 
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Routing ottimale con l'integrazione della rete virtuale per Data Lake Storage Gen1
 
-Un vantaggio importante offerto dagli endpoint servizio di rete virtuale è il [routing ottimale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) dalla rete virtuale. È possibile applicare la stessa ottimizzazione delle route agli account Data Lake Storage Gen1. Usare le [route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) seguenti dalla rete virtuale all'account Data Lake Storage Gen1.
+Un vantaggio importante offerto dagli endpoint servizio di rete virtuale è il [routing ottimale](../virtual-network/virtual-network-service-endpoints-overview.md#key-benefits) dalla rete virtuale. È possibile applicare la stessa ottimizzazione delle route agli account Data Lake Storage Gen1. Usare le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md#user-defined) seguenti dalla rete virtuale all'account Data Lake Storage Gen1.
 
-**Indirizzo IP pubblico di Data Lake Storage**: usare l'indirizzo IP pubblico per gli account Data Lake Storage Gen1 di destinazione. Per identificare gli indirizzi IP dell'account Data Lake Storage Gen1, [risolvere i nomi DNS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) degli account in uso. Creare una voce separata per ogni indirizzo.
+**Indirizzo IP pubblico di Data Lake Storage**: usare l'indirizzo IP pubblico per gli account Data Lake Storage Gen1 di destinazione. Per identificare gli indirizzi IP dell'account Data Lake Storage Gen1, [risolvere i nomi DNS](./data-lake-store-connectivity-from-vnets.md#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) degli account in uso. Creare una voce separata per ogni indirizzo.
 
 ```azurecli
 # Create a route table for your resource group.
@@ -65,7 +65,7 @@ Oltre a proteggere gli account Data Lake Storage per l'accesso dalla rete virtua
 Usare una soluzione firewall nella rete virtuale per filtrare il traffico in uscita in base all'URL dell'account di destinazione. Consentire l'accesso solo agli account Data Lake Storage Gen1 approvati.
 
 Alcune opzioni disponibili sono:
-- [Firewall di Azure](https://docs.microsoft.com/azure/firewall/overview): [distribuire e configurare un'istanza di Firewall di Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) per la rete virtuale. Proteggere il traffico Data Lake Storage in uscita bloccandolo all'URL dell'account noto e approvato.
+- [Firewall di Azure](../firewall/overview.md): [distribuire e configurare un'istanza di Firewall di Azure](../firewall/tutorial-firewall-deploy-portal.md) per la rete virtuale. Proteggere il traffico Data Lake Storage in uscita bloccandolo all'URL dell'account noto e approvato.
 - Firewall dell'[appliance virtuale di rete](https://azure.microsoft.com/solutions/network-appliances/): l'amministratore potrebbe consentire solo l'uso di alcuni fornitori firewall commerciali. Usare una soluzione firewall di tipo appliance virtuale di rete disponibile in Azure Marketplace per eseguire la stessa funzione.
 
 > [!NOTE]
@@ -77,7 +77,7 @@ Alcune opzioni disponibili sono:
  
 - Quando si crea un nuovo cluster HDInsight e si seleziona un account Data Lake Storage Gen1 con l'integrazione della rete virtuale abilitata, il processo ha esito negativo. Per prima cosa, disabilitare la regola di rete virtuale. In alternativa, nel pannello **Firewall e reti virtuali** dell'account Data Lake Storage selezionare l'opzione per **consentire l'accesso da tutte le reti e i servizi**. Creare quindi il cluster HDInsight prima di riabilitare la regola di rete virtuale o di deselezionare **Consentire l'accesso da tutte le reti e servizi**. Per ulteriori informazioni, vedere la sezione [eccezioni](#exceptions) .
 
-- L'integrazione della rete virtuale per Data Lake Storage Gen1 non funziona con le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- L'integrazione della rete virtuale per Data Lake Storage Gen1 non funziona con le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
   
 - I dati di file e cartelle contenuti in un account Data Lake Storage Gen1 abilitato per le reti virtuali non sono accessibili dal portale. Questa limitazione include l'accesso da una macchina virtuale che si trova all'interno della rete virtuale e le attività come l'uso di Esplora dati. Le attività di gestione dell'account continuano a funzionare. I dati di file e cartelle contenuti in un account Data Lake Storage abilitato per le reti virtuali sono accessibili tramite tutte le risorse diverse dal portale. Queste risorse includono SDK, script di PowerShell e altri servizi di Azure, se non originati dal portale. 
 
@@ -87,7 +87,7 @@ Alcune opzioni disponibili sono:
 
 1.  Passare al portale di Azure ed eseguire l'accesso all'account.
  
-2.  [Creare una nuova rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) nella sottoscrizione. In alternativa, è possibile accedere a una rete virtuale esistente. La rete virtuale deve trovarsi nella stessa area dell'account Data Lake Storage Gen1.
+2.  [Creare una nuova rete virtuale](../virtual-network/quick-create-portal.md) nella sottoscrizione. In alternativa, è possibile accedere a una rete virtuale esistente. La rete virtuale deve trovarsi nella stessa area dell'account Data Lake Storage Gen1.
  
 3.  Nel pannello **Rete virtuale** selezionare **Endpoint servizio**.
  

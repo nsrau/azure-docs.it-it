@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760307"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108151"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Caricare i dati di fatturazione in Azure e visualizzarli nel portale di Azure
 
@@ -30,7 +30,7 @@ In futuro, saranno disponibili due modalità in cui è possibile eseguire i serv
 - **Connessa indirettamente** : non esiste alcuna connessione diretta ad Azure. I dati vengono inviati ad Azure solo tramite un processo di esportazione/caricamento. Tutte le distribuzioni di Azure Arc Data Services funzionano in questa modalità oggi in anteprima.
 - **Connessione diretta: in** questa modalità sarà presente una dipendenza dal servizio Kubernetes abilitato per Azure Arc per fornire una connessione diretta tra Azure e il cluster Kubernetes in cui sono in esecuzione i servizi dati abilitati per Azure Arc. Questo consentirà di abilitare un numero maggiore di funzionalità e consentirà anche di usare il portale di Azure e l'interfaccia della riga di comando di Azure per gestire i servizi dati abilitati per Azure Arc come la gestione dei servizi dati in Azure PaaS.  Questa modalità di connettività non è ancora disponibile in anteprima, ma sarà presto disponibile.
 
-Per altre informazioni sulla differenza tra le modalità di [connettività](https://docs.microsoft.com/azure/azure-arc/data/connectivity), vedere.
+Per altre informazioni sulla differenza tra le modalità di [connettività](./connectivity.md), vedere.
 
 In modalità connessa indirettamente i dati di fatturazione vengono periodicamente esportati dal controller dati di Azure Arc a un file protetto e quindi caricati in Azure ed elaborati.  Nell'imminente modalità di connessione diretta i dati di fatturazione verranno inviati automaticamente ad Azure circa 1 ora per offrire una visualizzazione quasi in tempo reale ai costi dei servizi. Il processo di esportazione e caricamento dei dati nella modalità connessa indirettamente può inoltre essere automatizzato tramite script oppure è possibile creare un servizio che lo eseguirà automaticamente.
 

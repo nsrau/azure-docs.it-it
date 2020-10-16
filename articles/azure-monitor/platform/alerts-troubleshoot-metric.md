@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715332"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102154"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -77,14 +77,14 @@ Per ulteriori informazioni sulla raccolta di dati dal sistema operativo guest di
 > Se sono state configurate le metriche Guest da inviare a un'area di lavoro Log Analytics, le metriche vengono visualizzate sotto la risorsa Log Analytics area di lavoro e inizieranno a visualizzare i dati **solo** dopo la creazione di una regola di avviso che li monitora. A tal proposito, seguire la procedura per [configurare un avviso delle metriche per i log](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 > [!NOTE] 
-> Il monitoraggio di una metrica Guest per più macchine virtuali con una singola regola di avviso non è attualmente supportato dagli avvisi delle metriche. È possibile ottenere questo risultato con una [regola di avviso del log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). A tale scopo, verificare che le metriche Guest vengano raccolte in un'area di lavoro Log Analytics e creare una regola di avviso del log nell'area di lavoro.
+> Il monitoraggio di una metrica Guest per più macchine virtuali con una singola regola di avviso non è attualmente supportato dagli avvisi delle metriche. È possibile ottenere questo risultato con una [regola di avviso del log](./alerts-unified-log.md). A tale scopo, verificare che le metriche Guest vengano raccolte in un'area di lavoro Log Analytics e creare una regola di avviso del log nell'area di lavoro.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Impossibile trovare la metrica per l'avviso
 
-Se si sta cercando di generare un avviso per una metrica specifica ma non è possibile visualizzarla quando si crea una regola di avviso, verificare quanto segue:
-- Se non è possibile visualizzare alcuna metrica per la risorsa, [controllare se il tipo di risorsa è supportato per gli avvisi delle metriche](./alerts-metric-near-real-time.md).
-- Se è possibile visualizzare alcune metriche per la risorsa, ma non si riesce a trovare una metrica specifica, [verificare se tale metrica è disponibile](./metrics-supported.md)e, in tal caso, vedere la descrizione della metrica per verificare se è disponibile solo in versioni o edizioni specifiche della risorsa.
-- Se la metrica non è disponibile per la risorsa, potrebbe essere disponibile nei log delle risorse e può essere monitorata usando gli avvisi del log. Vedere qui per altre informazioni su come [raccogliere e analizzare i log delle risorse da una risorsa di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
+Se si sta cercando di generare un avviso per una metrica specifica ma non è possibile visualizzarla durante la creazione di una regola di avviso, verificare quanto segue:
+- Se non è possibile vedere le metriche per il tipo di risorsa, [verificare se tale tipo di risorsa è supportato per gli avvisi delle metriche](./alerts-metric-near-real-time.md).
+- Se è possibile visualizzare alcune metriche per la risorsa, ma non si riesce a trovare una metrica specifica, [verificare se tale metrica è disponibile](./metrics-supported.md) e, in tal caso, vedere la descrizione della metrica per verificare se è disponibile solo in versioni o edizioni specifiche della risorsa.
+- Se la metrica non è disponibile per la risorsa, potrebbe essere disponibile nei log della risorsa e potrebbe essere monitorata usando gli avvisi del log. Vedere qui per altre informazioni su come [raccogliere e analizzare i log delle risorse da una risorsa di Azure](../learn/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Impossibile trovare la dimensione metrica su cui inviare l'avviso
 
@@ -250,7 +250,7 @@ Quando si usano le dimensioni in una regola di avviso che contiene più condizio
 - È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
 - Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
 - Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
-Ad esempio:
+Esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
         * Media **SuccessE2ELatency** > 250 ms

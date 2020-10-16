@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076896"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107590"
 ---
 # <a name="api-management-policies"></a>Criteri in Gestione API
 Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).
@@ -79,7 +79,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [Trasforma XML usando una trasformazione XSLT](api-management-transformation-policies.md#XSLTransform): si applica una trasformazione da XSL a XML nel corpo della richiesta o della risposta.
 - [Criteri di integrazione di Dapr](api-management-dapr-policies.md)
     - [Inviare una richiesta a un servizio](api-management-dapr-policies.md#invoke) : usa il runtime Dapr per individuare e comunicare in modo affidabile con un microservizio Dapr.
-    -  [Invia messaggio a pub/argomento secondario](api-management-dapr-policies.md#pubsub) : usa il runtime Dapr per pubblicare un messaggio in un argomento di pubblicazione/sottoscrizione. per ulteriori informazioni sulla messaggistica di pubblicazione/sottoscrizione in Dapr, vedere la pagina relativa alla pubblicazione/sottoscrizione di messaggistica/file Leggimi. MD).
+    -  [Invia messaggio a pub/argomento secondario](api-management-dapr-policies.md#pubsub) : usa il runtime Dapr per pubblicare un messaggio in un argomento di pubblicazione/sottoscrizione.
     -  [Attiva binding di output](api-management-dapr-policies.md#bind) : usa il runtime Dapr per richiamare un sistema esterno tramite l'associazione di output.
 
 ## <a name="next-steps"></a>Passaggi successivi

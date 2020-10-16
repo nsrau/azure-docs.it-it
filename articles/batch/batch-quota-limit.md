@@ -4,12 +4,12 @@ description: Informazioni sui vincoli, limiti e quote di Azure Batch predefiniti
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84417277"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107539"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -125,7 +125,7 @@ Dopo aver inviato la richiesta di supporto, si verrà contattati dal supporto te
 
 I pool di Batch nella configurazione di macchine virtuali distribuita in una rete virtuale di Azure allocano automaticamente risorse di rete di Azure aggiuntive. Le risorse seguenti sono necessarie per ogni 50 nodi del pool in una rete virtuale:
 
-- Un [gruppo di sicurezza di rete](../virtual-network/security-overview.md#network-security-groups)
+- Un [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - Un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md)
 - Un [bilanciamento del carico](../load-balancer/load-balancer-overview.md)
 

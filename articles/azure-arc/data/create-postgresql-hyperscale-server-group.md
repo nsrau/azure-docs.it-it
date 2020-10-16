@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317345"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108304"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 
@@ -24,7 +24,7 @@ Questo documento descrive i passaggi per creare un gruppo di server con iperscal
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 Se si ha già familiarità con gli argomenti riportati di seguito, è possibile ignorare questo paragrafo.
 È possibile leggere alcuni argomenti importanti prima di procedere con la creazione:
 - [Panoramica dei servizi dati abilitati per Azure Arc](overview.md)
@@ -112,7 +112,7 @@ Per visualizzare gli endpoint per un'istanza di PostgreSQL, eseguire il comando 
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Ad esempio:
+Esempio:
 ```console
 [
   {
@@ -130,7 +130,7 @@ Ad esempio:
 ]
 ```
 
-È possibile usare l'endpoint dell'istanza di PostgreSQL per connettersi al gruppo di server con iperscalabilità PostgreSQL dallo strumento preferito:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [Pgcli](https://www.pgcli.com/) PSQL, pgAdmin e così via.
+È possibile usare l'endpoint dell'istanza di PostgreSQL per connettersi al gruppo di server con iperscalabilità PostgreSQL dallo strumento preferito:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [Pgcli](https://www.pgcli.com/) PSQL, pgAdmin e così via.
 
 Se si usa una macchina virtuale di Azure da testare, seguire le istruzioni seguenti:
 

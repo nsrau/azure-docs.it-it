@@ -5,12 +5,12 @@ author: apwestgarth
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: ab04aa4ca7f54e8de120d078a313c3096a350aa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e3b82e497afcdc8239a9f4fda3e4f739166a1f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74226637"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108440"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Panoramica di runtime di Funzioni di Azure (anteprima)
 
@@ -45,7 +45,7 @@ Per iniziare a usare il runtime di Funzioni di Azure è necessario disporre di u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Installare l' [anteprima runtime di funzioni di Azure](https://aka.ms/azafrdoc)
+Installare l' [anteprima runtime di funzioni di Azure](./functions-runtime-install.md)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

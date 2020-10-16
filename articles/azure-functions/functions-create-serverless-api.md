@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083022"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104751"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizzare un endpoint HTTP in funzioni di Azure
 
@@ -75,7 +75,7 @@ Nella sezione successiva verrà illustrata la superficie dell'API tramite un pro
 Un proxy può puntare a qualsiasi risorsa HTTP, ad esempio:
 - Funzioni di Azure 
 - App per le API in [Servizio app di Azure](../app-service/overview.md)
-- Contenitori docker in [Servizio App in Linux](../app-service/containers/app-service-linux-intro.md)
+- Contenitori docker in [Servizio App in Linux](../app-service/overview.md#app-service-on-linux)
 - Qualsiasi altra API in hosting
 
 Per altre informazioni sui proxy, vedere [Uso dei proxy di Funzioni di Azure].

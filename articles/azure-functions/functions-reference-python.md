@@ -4,12 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0de25cc804844b5aa414e521fa641761d9a4b4f4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642198"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108423"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guida per sviluppatori Python per Funzioni di Azure
 
@@ -295,21 +295,38 @@ In questa funzione il valore del parametro di query `name` si ottiene dal parame
 
 Allo stesso modo, è possibile impostare `status_code` e `headers` per il messaggio di risposta nell'oggetto [HttpResponse] restituito.
 
-## <a name="scaling-and-concurrency"></a>Scalabilità e concorrenza
+## <a name="scaling-and-performance"></a>Scalabilità e prestazioni
 
-Per impostazione predefinita, Funzioni di Azure monitora automaticamente il carico dell'applicazione e crea istanze host aggiuntive per Python, se necessario. Funzioni usa soglie predefinite (non configurabili dall'utente) per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Per altre informazioni, vedere [Come funzionano i piani a consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+È importante comprendere come funzionano le funzioni e in che modo le prestazioni influiscono sul modo in cui l'app per le funzioni viene ridimensionata. Questa operazione è particolarmente importante quando si progettano app a prestazioni elevate. Di seguito sono riportati alcuni fattori da considerare durante la progettazione, la scrittura e la configurazione delle app per le funzioni.
 
-Questo comportamento di scalabilità è sufficiente per molte applicazioni. Le applicazioni con le caratteristiche seguenti, tuttavia, potrebbero non essere dimensionate in modo altrettanto efficace:
+### <a name="horizontal-scaling"></a>Scalabilità orizzontale
+Per impostazione predefinita, Funzioni di Azure monitora automaticamente il carico dell'applicazione e crea istanze host aggiuntive per Python, se necessario. Funzioni utilizza soglie predefinite per diversi tipi di trigger per decidere quando aggiungere istanze, ad esempio l'età dei messaggi e le dimensioni della coda per QueueTrigger. Queste soglie non sono configurabili dall'utente. Per altre informazioni, vedere [Come funzionano i piani a consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-- L'applicazione deve gestire molte chiamate simultanee.
-- L'applicazione elabora un numero elevato di eventi di I/O.
-- L'applicazione è associata all'I/O.
+### <a name="improving-throughput-performance"></a>Miglioramento delle prestazioni della velocità effettiva
 
-In questi casi, è possibile migliorare ulteriormente le prestazioni tramite modelli asincroni e usando più processi di lavoro del linguaggio.
+Una chiave per migliorare le prestazioni consiste nel comprendere il modo in cui l'app usa le risorse e la possibilità di configurare l'app per le funzioni di conseguenza.
 
-### <a name="async"></a>Async
+#### <a name="understanding-your-workload"></a>Informazioni sul carico di lavoro
 
-Poiché Python è un runtime a thread singolo, un'istanza host per Python può elaborare solo una chiamata di funzione alla volta. Per le applicazioni che elaborano un numero elevato di eventi di I/O e/o sono associate all'I/O, è possibile migliorare le prestazioni eseguendo le funzioni in modo asincrono.
+Le configurazioni predefinite sono adatte alla maggior parte delle applicazioni di funzioni di Azure. Tuttavia, è possibile migliorare le prestazioni della velocità effettiva delle applicazioni usando le configurazioni basate sul profilo del carico di lavoro. Il primo passaggio consiste nel comprendere il tipo di carico di lavoro in esecuzione.
+
+|| Carico di lavoro associato a I/O | Carico di lavoro associato alla CPU |
+|--| -- | -- |
+|Caratteristiche delle app per le funzioni| <ul><li>L'app deve gestire molte chiamate simultanee.</li> <li> L'app elabora un numero elevato di eventi di I/O, ad esempio chiamate di rete e lettura/scrittura su disco.</li> </ul>| <ul><li>L'app esegue calcoli a esecuzione prolungata, ad esempio il ridimensionamento delle immagini.</li> <li>L'app esegue la trasformazione dei dati.</li> </ul> |
+|Esempi| <ul><li>API Web</li><ul> | <ul><li>Elaborazione dati</li><li> Inferenza di Machine Learning</li><ul>|
+
+ 
+> [!NOTE]
+>  Poiché il carico di lavoro delle funzioni reali è spesso una combinazione di I/O e di CPU, è consigliabile profilare il carico di lavoro in base ai carichi di produzione realistici.
+
+
+#### <a name="performance-specific-configurations"></a>Configurazioni specifiche delle prestazioni
+
+Dopo aver compreso il profilo del carico di lavoro dell'app per le funzioni, di seguito sono riportate le configurazioni che è possibile usare per migliorare le prestazioni della velocità effettiva delle funzioni.
+
+##### <a name="async"></a>Async
+
+Poiché [Python è un runtime a thread singolo](https://wiki.python.org/moin/GlobalInterpreterLock), un'istanza host per Python può elaborare solo una chiamata di funzione alla volta. Per le applicazioni che elaborano un numero elevato di eventi di I/o e/o è associato a I/o, è possibile migliorare significativamente le prestazioni eseguendo funzioni in modo asincrono.
 
 Per eseguire una funzione in modo asincrono, usare l'istruzione `async def`, che esegue la funzione direttamente con [asyncio](https://docs.python.org/3/library/asyncio.html):
 
@@ -317,6 +334,21 @@ Per eseguire una funzione in modo asincrono, usare l'istruzione `async def`, che
 async def main():
     await some_nonblocking_socket_io_op()
 ```
+Di seguito è riportato un esempio di una funzione con trigger HTTP che usa il client http [aiohttp](https://pypi.org/project/aiohttp/) :
+
+```python
+import aiohttp
+
+import azure.functions as func
+
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    async with aiohttp.ClientSession() as client:
+        async with client.get("PUT_YOUR_URL_HERE") as response:
+            return func.HttpResponse(await response.text())
+
+    return func.HttpResponse(body='NotFound', status_code=404)
+```
+
 
 Una funzione senza la parola chiave `async` viene eseguita automaticamente in un pool di thread asyncio:
 
@@ -327,11 +359,25 @@ def main():
     some_blocking_socket_io()
 ```
 
-### <a name="use-multiple-language-worker-processes"></a>Usare più processi di lavoro del linguaggio
+Per ottenere il massimo vantaggio delle funzioni in esecuzione in modo asincrono, è necessario implementare anche la libreria e l'operazione di I/O usata nel codice. L'utilizzo di operazioni di I/O sincrone in funzioni definite come asincrone **può compromettere** le prestazioni complessive.
+
+Di seguito sono riportati alcuni esempi di librerie client che hanno implementato il modello asincrono:
+- [aiohttp](https://pypi.org/project/aiohttp/) -client/server http per asyncio 
+- [Flussi](https://docs.python.org/3/library/asyncio-stream.html) di primitive API per async/await pronti per l'uso con la connessione di rete
+- [Coda Janus](https://pypi.org/project/janus/) -coda thread-safe Asyncio per Python
+- [pyzmq](https://pypi.org/project/pyzmq/) -binding Python per ZeroMQ
+ 
+
+##### <a name="use-multiple-language-worker-processes"></a>Usare più processi di lavoro del linguaggio
 
 Per impostazione predefinita, ogni istanza host di Funzioni include un singolo processo di lavoro del linguaggio. È possibile aumentare il numero di processi di lavoro per host (fino a 10) usando l'impostazione [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) dell'applicazione. Funzioni di Azure prova quindi a distribuire uniformemente le chiamate di funzioni simultanee tra questi processi di lavoro.
 
+Per le app associate alla CPU, è necessario impostare il numero di Language worker in modo che sia uguale o superiore al numero di core disponibili per ogni app per le funzioni. Per altre informazioni, vedere [SKU di istanze disponibili](functions-premium-plan.md#available-instance-skus). 
+
+Le app con binding i/O possono anche trarre vantaggio dall'aumento del numero di processi di lavoro oltre il numero di core disponibili. Tenere presente che l'impostazione del numero di ruoli di lavoro troppo elevata può influisca sulle prestazioni complessive a causa del numero maggiore di cambi di contesto richiesti. 
+
 FUNCTIONS_WORKER_PROCESS_COUNT si applica a ogni host creato da Funzioni quando le istanze dell'applicazione vengono aumentate per soddisfare la domanda.
+
 
 ## <a name="context"></a>Context
 

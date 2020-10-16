@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68963515e1208868efb40c2d3fc56c9ab4e0df
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328854"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107760"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Connettere Azure agli strumenti ITSM usando l'esportazione sicura
 
@@ -51,7 +51,7 @@ L'esportazione protetta supporta BMC Helix. Ecco alcuni vantaggi dell'integrazio
 
 * **Autenticazione migliore**: Azure ad offre un'autenticazione più sicura senza i timeout che in genere si verificano in connettore.
 * **Avvisi risolti nello strumento ITSM**: gli avvisi delle metriche implementano gli Stati "attivato" e "risolto". Quando la condizione viene soddisfatta, lo stato dell'avviso è "attivato". Quando la condizione non viene più soddisfatta, lo stato dell'avviso è "risolto". In connettore gli avvisi non possono essere risolti automaticamente. Con l'esportazione protetta, lo stato risolto passa allo strumento ITSM e pertanto viene aggiornato automaticamente.
-* **[Schema di avviso comune](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)**: in connettore lo schema del payload dell'avviso è diverso in base al tipo di avviso. Nell'esportazione protetta esiste uno schema comune per tutti i tipi di avviso. Questo schema comune contiene la CI per tutti i tipi di avviso. Tutti i tipi di avviso saranno in grado di associare l'integrazione continua con CMDB.
+* **[Schema di avviso comune](./alerts-common-schema.md)**: in connettore lo schema del payload dell'avviso è diverso in base al tipo di avviso. Nell'esportazione protetta esiste uno schema comune per tutti i tipi di avviso. Questo schema comune contiene la CI per tutti i tipi di avviso. Tutti i tipi di avviso saranno in grado di associare l'integrazione continua con CMDB.
 
 Per iniziare a usare lo strumento ITSM Connector, seguire questa procedura:
 
@@ -63,7 +63,7 @@ Per iniziare a usare lo strumento ITSM Connector, seguire questa procedura:
 
 Per registrare l'applicazione con Azure AD, attenersi alla procedura seguente:
 
-1. Eseguire la procedura descritta in [registrare un'applicazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+1. Eseguire la procedura descritta in [registrare un'applicazione con la piattaforma di identità Microsoft](../../active-directory/develop/quickstart-register-app.md).
 1. In Azure AD selezionare **Expose Application**.
 1. Selezionare **imposta** per **URI ID applicazione**.
 
@@ -75,7 +75,7 @@ Per registrare l'applicazione con Azure AD, attenersi alla procedura seguente:
 Dopo che l'applicazione è stata registrata con Azure AD, è possibile creare elementi di lavoro nello strumento ITSM in base agli avvisi di Azure, usando l'azione webhook sicura nei gruppi di azioni.
 
 I gruppi di azioni forniscono un metodo modulare e riutilizzabile per attivare le azioni per gli avvisi di Azure. È possibile usare i gruppi di azioni con avvisi metrica, avvisi del log attività e avvisi di Azure Log Analytics nel portale di Azure.
-Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](./action-groups.md).
 
 Usare la procedura seguente nell'ambiente BMC Helix:
 
@@ -89,7 +89,7 @@ Per aggiungere un webhook a un'azione, seguire queste istruzioni per il webhook 
 
 1. Nel [portale di Azure](https://portal.azure.com/) cercare e selezionare **Monitoraggio**. Il riquadro **Monitoraggio** consolida tutte le impostazioni e i dati di monitoraggio in una vista.
 1. Selezionare **avvisi**  >  **Gestisci azioni**.
-1. Selezionare [Aggiungi gruppo di azione](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal) e compilare i campi.
+1. Selezionare [Aggiungi gruppo di azione](./action-groups.md#create-an-action-group-by-using-the-azure-portal) e compilare i campi.
 1. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
 1. Selezionare il **webhook protetto**.
 1. Selezionare i dettagli seguenti:
@@ -140,4 +140,4 @@ Assicurarsi di aver soddisfatto i prerequisiti seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)
+* [Creare elementi di lavoro di Connettore di Gestione dei servizi IT da avvisi di Azure](./itsmc-overview.md)

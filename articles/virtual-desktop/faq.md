@@ -3,15 +3,15 @@ title: Domande frequenti sul desktop virtuale Windows-Azure
 description: Domande frequenti e procedure consigliate per desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121120"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108508"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Domande frequenti su Desktop virtuale Windows
 
@@ -23,18 +23,16 @@ Se si desidera creare pool host e altri oggetti, è necessario disporre del ruol
 
 È necessario disporre del ruolo amministratore accesso utenti per un gruppo di app per pubblicare gruppi di app per utenti o gruppi di utenti.
 
-Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio l'invio di messaggi agli utenti, la disconnessione degli utenti e così via, è possibile creare ruoli personalizzati. Ad esempio:
+Per impedire a un amministratore di gestire solo le sessioni utente, ad esempio l'invio di messaggi agli utenti, la disconnessione degli utenti e così via, è possibile creare ruoli personalizzati. Esempio:
 
 ```powershell
 "actions": [
 "Microsoft.Resources/deployments/operations/read",
 "Microsoft.Resources/tags/read",
 "Microsoft.Authorization/roleAssignments/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/write",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+"Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
 ],
 "notActions": [],
 "dataActions": [],
@@ -58,7 +56,7 @@ Anche le aree di lavoro devono trovarsi nella stessa posizione dei gruppi di app
 
 Quando si esegue un cmdlet di PowerShell, vengono visualizzati solo il nome e il percorso della risorsa.
 
-Ad esempio:
+Esempio:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -70,7 +68,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Per visualizzare tutte le proprietà di una risorsa, aggiungere `format-list` o `fl` alla fine del cmdlet.
 
-Ad esempio:
+Esempio:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -78,7 +76,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Per visualizzare proprietà specifiche, aggiungere i nomi di proprietà specifici dopo `format-list` o `fl` .
 
-Ad esempio:
+Esempio:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty

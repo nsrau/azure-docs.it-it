@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e9bc7969c5fee83944dab7cb35832f82b57c5595
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de4962326a06080ff2bf81954cf85d3b6bbfefd5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552344"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Esercitazione: Integrazione di Azure Active Directory con Printix
 
@@ -61,19 +61,19 @@ Per configurare l'integrazione di Printix in Azure AD è necessario aggiungere P
 
 1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![APPLICAZIONI][2]
+    ![Screenshot mostra le applicazioni aziendali portale di Azure selezionate in Gestisci, con tutte le applicazioni selezionate.][2]
     
 1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![APPLICAZIONI][3]
+    ![Screenshot mostra la nuova applicazione selezionata.][3]
 
 1. Nella casella di ricerca digitare **Printix**.
 
-    ![Creazione di un utente di test di Azure AD](./media/printix-tutorial/tutorial_printix_search.png)
+    ![Screenshot mostra la ricerca di Printix nella finestra di dialogo Aggiungi dalla raccolta.](./media/printix-tutorial/tutorial_printix_search.png)
 
 1. Nel pannello dei risultati selezionare **Printix** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Creazione di un utente di test di Azure AD](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
+    ![Screenshot mostra l'opzione Printix selezionata.](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Printix con un utente test di nome "Britta Simon".
@@ -98,15 +98,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Printix** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configure Single Sign-On][4]
+    ![Screenshot che mostra l'accesso Single Sign-on selezionato in Gestisci nel portale di Azure.][4]
 
 1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_samlbase.png)
+    ![Screenshot mostra la modalità di accesso basata su SAML selezionata.](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
 1. Nella sezione **URL e dominio Printix** seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_url.png)
+    ![Screenshot mostra la sezione URL e dominio Printix in cui è possibile specificare un U R L per l'accesso.](./media/printix-tutorial/tutorial_printix_url.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.printix.net`
 
@@ -115,33 +115,33 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_certificate.png) 
+    ![Screenshot mostra il riquadro certificato di firma SAML in cui è possibile scaricare un certificato.](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
 1. Fare clic sul pulsante **Salva** .
 
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_general_400.png)
+    ![Screenshot che mostra il pulsante Save.](./media/printix-tutorial/tutorial_general_400.png)
 
 1. Accedere al tenant di Printix come amministratore.
 
 1. Nel menu in alto, fare clic sull'icona nell'angolo superiore destro e selezionare "**Authentication**" (Autenticazione).
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_06.png)
+    ![Screenshot mostra l'autenticazione selezionata dal menu.](./media/printix-tutorial/tutorial_printix_06.png)
 
 1. Nella scheda **Setup** (Configurazione) selezionare **Enable Azure/Office 365 authentication** (Abilita autenticazione Azure/Office 365)
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_07.png)
+    ![Screenshot mostra la pagina Printix.net in cui è possibile selezionare Abilita autenticazione di Azure/Office 365.](./media/printix-tutorial/tutorial_printix_07.png)
 
 1. Nella scheda **Azure**, immettere l'URL dei metadati della federazione nella casella di testo "**Federation metadata document**" (Documento metadati federazione). 
 
     Allegare il file dei metadati con estensione xml scaricato da Azure AD e inviarlo al [team di supporto Printix](mailto:support@printix.net). Il team carica il file con estensione xml e metterà a disposizione un URL di metadati di federazione.
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_08.png)
+    ![Screenshot mostra la pagina Printix.net in cui è possibile specificare un documento di metadati della Federazione.](./media/printix-tutorial/tutorial_printix_08.png)
    
 1. Fare clic sul pulsante "**Test**" e quindi su "**OK**", se il test ha avuto esito positivo.
    
      Dopo aver fatto clic sul pulsante **test** verrà visualizzata la pagina di Azure Active Directory. In questo caso, "esito positivo" significa che dopo aver immesso le credenziali dell'account di test di Azure verrà visualizzato un messaggio "Settings tested OK" (Il test delle impostazioni è riuscito). Fare clic sul pulsante **OK**.
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_09.png)
+    ![Screenshot mostra i risultati del test.](./media/printix-tutorial/tutorial_printix_09.png)
 
 1. Fare clic sul pulsante **Save** (Salva) nella pagina "**Authentication**" (Autenticazione).
 
@@ -159,19 +159,19 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 1. Nel **portale di Azure**, nel riquadro di spostamento a sinistra, fare clic su **Azure Active Directory** icona.
 
-    ![Creazione di un utente di test di Azure AD](./media/printix-tutorial/create_aaduser_01.png) 
+    ![Screenshot mostra un nome e un nome utente da creare.](./media/printix-tutorial/create_aaduser_01.png) 
 
 1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
     
-    ![Creazione di un utente di test di Azure AD](./media/printix-tutorial/create_aaduser_02.png) 
+    ![Screenshot mostra l'icona Azure a D nella portale di Azure.](./media/printix-tutorial/create_aaduser_02.png) 
 
 1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
  
-    ![Creazione di un utente di test di Azure AD](./media/printix-tutorial/create_aaduser_03.png) 
+    ![Screenshot Mostra gli utenti e i gruppi selezionati dal menu Gestisci con tutti gli utenti selezionati.](./media/printix-tutorial/create_aaduser_03.png) 
 
 1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
  
-    ![Creazione di un utente di test di Azure AD](./media/printix-tutorial/create_aaduser_04.png) 
+    ![Screenshot Visualizza la finestra di dialogo utente in cui è possibile immettere i valori descritti.](./media/printix-tutorial/create_aaduser_04.png) 
 
     a. Nella casella di testo **Nome** digitare **BrittaSimon**.
 
@@ -195,25 +195,25 @@ Non è necessario alcun intervento dell'utente in questa sezione. Durante un ten
 
 In questa sezione, Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Printix.
 
-![Assegna utente][200] 
+![Screenshot mostra un utente con accesso predefinito.][200] 
 
 **Per assegnare Britta Simon a Printix, seguire questa procedura:**
 
 1. Nella portale di Azure aprire la visualizzazione applicazioni, quindi passare alla visualizzazione directory e passare ad **applicazioni aziendali** e quindi fare clic su **tutte le applicazioni**.
 
-    ![Assegna utente][201] 
+    ![Screenshot mostra le applicazioni aziendali selezionate in Gestisci, con tutte le applicazioni selezionate.][201] 
 
 1. Nell'elenco di applicazioni selezionare **Printix**.
 
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_app.png) 
+    ![Screenshot che mostra l'elenco di applicazioni in cui è possibile selezionare Printix.](./media/printix-tutorial/tutorial_printix_app.png) 
 
 1. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Assegna utente][202] 
+    ![Screenshot Mostra gli utenti e i gruppi selezionati dal menu Gestisci.][202] 
 
 1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Assegna utente][203]
+    ![Screenshot che mostra il pulsante Aggiungi e la pagina Aggiungi assegnazione in cui è possibile selezionare utenti e gruppi.][203]
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
 

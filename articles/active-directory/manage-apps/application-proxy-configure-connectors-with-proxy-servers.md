@@ -1,6 +1,6 @@
 ---
-title: Usare server proxy locali esistenti e Azure AD | Documentazione Microsoft
-description: Tratta l'uso di server proxy locali esistenti.
+title: Usare server proxy locali esistenti e Azure Active Directory
+description: Illustra come usare server proxy locali esistenti con Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2311b905aeeaacb6c445f441d5268d06a150de64
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88077510"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107641"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -117,12 +116,12 @@ Consentire l'accesso agli URL seguenti:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Il connettore usa questi URL per verificare i certificati |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
 
-È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS.
 
 Se non è possibile consentire la connettività in base al nome di dominio completo ed è necessario specificare invece intervalli IP, usare queste opzioni:
 
 * Consentire al connettore l'accesso in uscita a tutte le destinazioni.
-* Consentire al connettore l'accesso in uscita a tutti gli [intervalli di indirizzi IP del data center di Azure](https://www.microsoft.com//download/details.aspx?id=41653). Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza. L'uso di un solo subset di indirizzi IP può provocare errori di configurazione.
+* Consentire al connettore l'accesso in uscita a tutti gli intervalli di indirizzi IP del data center di Azure. Il problema con l'elenco di intervalli di indirizzi IP del data center di Azure è che viene aggiornato ogni settimana. È necessario implementare un processo per assicurare che le regole di accesso vengano aggiornate di conseguenza. L'uso di un solo subset di indirizzi IP può provocare errori di configurazione. Per scaricare gli intervalli IP del Data Center di Azure più recenti, passare a [https://download.microsoft.com](https://download.microsoft.com) e cercare "Azure IP Ranges and Service Tags". Assicurarsi di selezionare il cloud pertinente. Ad esempio, gli intervalli di indirizzi IP del cloud pubblico sono disponibili con "Azure IP Ranges and Service Tags-Public Cloud". Il cloud governo per gli Stati Uniti è disponibile cercando "Azure IP Ranges and Service Tags-US governo cloud".
 
 #### <a name="proxy-authentication"></a>Autenticazione proxy
 

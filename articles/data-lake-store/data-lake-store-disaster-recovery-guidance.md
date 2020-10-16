@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48136f8d9172c3674e849e24efca4ae5070f83ab
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666246"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109120"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Guida alla disponibilità elevata e al ripristino di emergenza per Data Lake Storage Gen1
 
@@ -21,8 +21,8 @@ Data Lake Storage Gen1 fornisce l'archiviazione con ridondanza locale (con ridon
 
 È essenziale preparare un piano di ripristino di emergenza. Esaminare le informazioni contenute in questo articolo e queste risorse aggiuntive per creare un piano personalizzato.
 
-* [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Indicazioni tecniche sulla resilienza di Azure](../resiliency/resiliency-technical-guidance.md)
+* [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Indicazioni tecniche sulla resilienza di Azure](/azure/architecture/framework/resiliency/overview)
 
 ### <a name="best-practice-recommendations"></a>Indicazioni sulle procedure consigliate
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
-ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde3b95c7997a7f742a9d48a964f4275169f6e9c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482174"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106927"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Trigger e associazioni di Azure Cosmos DB per funzioni di Azure 2. x e una panoramica superiore
 
@@ -20,7 +20,7 @@ ms.locfileid: "85482174"
 
 Questo set di articoli illustra come usare le associazioni di [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) in funzioni di Azure 2. x e versioni successive. Funzioni di Azure supporta i trigger e le associazioni di input e output per Azure Cosmos DB.
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Esegue una funzione quando viene creato o modificato un documento di Azure Cosmos DB | [Trigger](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Leggi un documento Azure Cosmos DB | [Binding di input](./functions-bindings-cosmosdb-v2-input.md) |
@@ -50,7 +50,7 @@ Per utilizzare il trigger e le associazioni è necessario fare riferimento al pa
 [Pacchetto NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB
 [core tools]: ./functions-run-local.md
 [Bundle di estensione]: ./functions-bindings-register.md#extension-bundles
-[Aggiornare le estensioni]: ./install-update-binding-extensions-manual.md
+[Aggiornare le estensioni]: ./functions-bindings-register.md
 [Estensione degli strumenti di Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funzioni 1.x

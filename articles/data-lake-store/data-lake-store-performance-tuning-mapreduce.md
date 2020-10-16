@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 03c35d0af97cf24d1683d0ff21f10a0371391616
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2653e0b557f7c5c04184628b3266e8f2909130f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190216"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108287"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Linee guida per l'ottimizzazione delle prestazioni di MapReduce in HDInsight e Azure Data Lake Storage Gen1
 
@@ -20,14 +20,14 @@ ms.locfileid: "88190216"
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
-* **Uso di MapReduce in HDInsight**. Per ulteriori informazioni, vedere [Usare MapReduce in Hadoop su HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Esaminare le linee guida per l'ottimizzazione delle prestazioni per data Lake storage Gen1**. Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen1 linee guida per l'ottimizzazione delle prestazioni](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Uso di MapReduce in HDInsight**. Per ulteriori informazioni, vedere [Usare MapReduce in Hadoop su HDInsight](../hdinsight/hadoop/hdinsight-use-mapreduce.md)
+* **Esaminare le linee guida per l'ottimizzazione delle prestazioni per data Lake storage Gen1**. Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen1 linee guida per l'ottimizzazione delle prestazioni](./data-lake-store-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametri
 
 Vengono ora illustrati i parametri più importanti da configurare per aumentare le prestazioni in Data Lake Storage Gen1 durante l'esecuzione di processi MapReduce:
 
-|Parametro      | Descrizione  |
+|Parametro      | Description  |
 |---------|---------|
 |`Mapreduce.map.memory.mb`  |  Quantità di memoria da allocare a ogni Mapper.  |
 |`Mapreduce.job.maps`     |  Numero di attività mappa per processo.  |

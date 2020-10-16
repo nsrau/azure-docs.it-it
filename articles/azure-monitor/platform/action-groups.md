@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093753"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104394"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -67,7 +67,7 @@ In **Dettagli istanza**:
 
     c. **Dettagli**: in base al tipo di notifica selezionato, immettere un indirizzo di posta elettronica, un numero di telefono e così via.
     
-    d. **Schema di avviso comune**: è possibile scegliere di abilitare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
+    d. **Schema di avviso comune**: è possibile scegliere di abilitare lo [schema di avviso comune](./alerts-common-schema.md), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
 
     ![Scheda notifiche](./media/action-groups/action-group-2-notifications.png)
     
@@ -83,7 +83,7 @@ In **Dettagli istanza**:
 
     c. **Dettagli**: in base al tipo di azione, immettere un URI del webhook, un'app di Azure, una connessione ITSM o Runbook di automazione. Per l'azione ITSM, specificare anche **Elemento di lavoro** e altri campi richiesti dallo strumento ITSM.
     
-    d. **Schema di avviso comune**: è possibile scegliere di abilitare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
+    d. **Schema di avviso comune**: è possibile scegliere di abilitare lo [schema di avviso comune](./alerts-common-schema.md), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
     
     ![Scheda azioni](./media/action-groups/action-group-3-actions.png)
 
@@ -321,4 +321,3 @@ L'uso di **tag di servizio** per ActionGroup consente di ridurre al minimo la co
 * Altre informazioni sulla [limitazione della frequenza](./alerts-rate-limiting.md) degli avvisi.
 * Leggere una [panoramica degli avvisi del log attività](./alerts-overview.md) e informazioni su come ricevere gli avvisi.  
 * Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](../../service-health/alerts-activity-log-service-notifications-portal.md).
-

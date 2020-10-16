@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df904e183d3f77751d86d0cefab5423d753f146b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b6f4e50cac2f809172c2525ea9136a63e6bd9066
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979797"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107012"
 ---
 # <a name="access-built-in-metrics"></a>Accedere alle metriche predefinite
 
 I componenti di IoT Edge Runtime, Hub IoT Edge e IoT Edge Agent, producono metriche predefinite nel [formato di esposizione Prometeo](https://prometheus.io/docs/instrumenting/exposition_formats/). Accedere a queste metriche in remoto per monitorare e comprendere l'integrità di un dispositivo IoT Edge.
 
-A partire dalla versione 1.0.10, le metriche vengono automaticamente esposte per impostazione predefinita sulla **porta 9600** dei moduli **edgeHub** e **edgeAgent** ( `http://edgeHub:9600/metrics` e `http://edgeAgent:9600/metics` ). Per impostazione predefinita, la porta non è mappata all'host.
+A partire dalla versione 1.0.10, le metriche vengono automaticamente esposte per impostazione predefinita sulla **porta 9600** dei moduli **edgeHub** e **edgeAgent** ( `http://edgeHub:9600/metrics` e `http://edgeAgent:9600/metrics` ). Per impostazione predefinita, la porta non è mappata all'host.
 
 Accedere alle metriche dall'host esponendo ed eseguendo il mapping della porta metrica dall'oggetto del modulo `createOptions` . Nell'esempio seguente viene eseguito il mapping della porta metrica predefinita alla porta 9601 nell'host:
 
@@ -50,7 +50,7 @@ Scegliere numeri di porta host diversi e univoci se si esegue il mapping degli e
 
 Le metriche contengono tag che consentono di identificare la natura della metrica raccolta. Tutte le metriche contengono i tag seguenti:
 
-| Tag | Descrizione |
+| Tag | Description |
 |-|-|
 | iothub | Hub con cui comunica il dispositivo |
 | edge_device | ID del dispositivo corrente |

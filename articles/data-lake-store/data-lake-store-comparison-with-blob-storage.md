@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 170f20cbd3405ea6af8aef5650e4dd7ebeaeef7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ac3c0809c08719d77457c59ef311ad43ef99cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458213"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108338"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Confronto tra Azure Data Lake Storage Gen1 e Archiviazione BLOB di Azure
 
@@ -26,11 +26,11 @@ Questo articolo propone una tabella di riepilogo delle differenze tra Azure Data
 | Concetti chiave |Un account di Data Lake Storage Gen1 contiene cartelle, che a loro volta contengono dati archiviati come file |Un account di archiviazione include contenitori, che a loro volta contengono dati sotto forma di BLOB |
 | Struttura |File system gerarchico |Archivio di oggetti con spazio dei nomi flat |
 | API |API REST su HTTPS |API REST su HTTP/HTTPS |
-| API lato server |[API REST compatibile con WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST dell'archivio BLOB di Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| API lato server |[API REST compatibile con WebHDFS](/rest/api/datalakestore/) |[API REST dell'archivio BLOB di Azure](/rest/api/storageservices/Blob-Service-REST-API) |
 | Client del file system Hadoop |Sì |Sì |
-| Operazioni sui dati: autenticazione |Basata sulle [identità di Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basata su segreti condivisi: [chiavi di accesso dell'account](../storage/common/storage-account-keys-manage.md) e [chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Operazioni sui dati: autenticazione |Basata sulle [identità di Azure Active Directory](../active-directory/develop/authentication-vs-authorization.md) |Basata su segreti condivisi: [chiavi di accesso dell'account](../storage/common/storage-account-keys-manage.md) e [chiavi di firma di accesso condiviso](../storage/common/storage-sas-overview.md). |
 | Operazioni sui dati: protocollo di autenticazione |[OpenID Connect](https://openid.net/connect/). Le chiamate devono contenere un token Web JSON (JWT) valido emesso da Azure Active Directory.|Message Authentication Code basato su hash (HMAC). Le chiamate devono contenere un hash SHA-256 con codifica Base64 su una parte della richiesta HTTP. |
-| Operazioni sui dati: autorizzazione |Elenchi di controllo di accesso (ACL) POSIX.  Gli ACL basati su identità di Azure Active Directory possono essere impostati a livello di file e cartella. |Per l'autorizzazione a livello di account: usare [Chiavi di accesso dell'account](../storage/common/storage-account-keys-manage.md)<br>Per l'autorizzazione relativa all'account, al contenitore o al BLOB: usare [Chiavi di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Operazioni sui dati: autorizzazione |Elenchi di controllo di accesso (ACL) POSIX.  Gli ACL basati su identità di Azure Active Directory possono essere impostati a livello di file e cartella. |Per l'autorizzazione a livello di account: usare [Chiavi di accesso dell'account](../storage/common/storage-account-keys-manage.md)<br>Per l'autorizzazione relativa all'account, al contenitore o al BLOB: usare [Chiavi di firma di accesso condiviso](../storage/common/storage-sas-overview.md) |
 | Operazioni sui dati: controllo |Disponibile. Per informazioni, vedere [qui](data-lake-store-diagnostic-logs.md) . |Disponibile |
 | Crittografia dei dati inattivi |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente nell'insieme di credenziali delle chiavi di Azure</li></ul></ul> |<ul><li>Trasparente, lato server</li> <ul><li>Con chiavi gestite dal servizio</li><li>Con chiavi gestite dal cliente in Azure Key Vault (anteprima)</li></ul><li>crittografia lato client</li></ul> |
 | Operazioni di gestione (ad esempio, creazione di account) |[Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) per la gestione degli account |[Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) per la gestione degli account |

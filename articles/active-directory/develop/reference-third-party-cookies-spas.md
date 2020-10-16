@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87311756"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104581"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Gestire ITP in Safari e in altri browser in cui i cookie di terze parti sono bloccati
 
@@ -49,7 +49,7 @@ Le applicazioni a pagina singola prevedono due restrizioni aggiuntive:
 * [L'URI di reindirizzamento deve essere contrassegnato come tipo `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) per abilitare CORS sugli endpoint di accesso.
 * I token di aggiornamento rilasciati tramite il flusso del codice di autorizzazione agli URI di reindirizzamento `spa` prevedono una durata di 24 ore anziché una durata di 90 giorni.
 
-![Flusso del codice per le applicazioni a pagina singola](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagramma che mostra il flusso del codice di autorizzazione OAuth 2 tra un'app a singola pagina e l'endpoint del servizio token di sicurezza." border="false":::
 
 ## <a name="performance-and-ux-implications"></a>Prestazioni e implicazioni per l'esperienza utente
 

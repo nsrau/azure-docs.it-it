@@ -9,16 +9,16 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: aa13baf7c6fc6d3bb66b97e533da29e4a1a6e73c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876244"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107573"
 ---
 # <a name="azure-data-studio-dashboards"></a>Dashboard Azure Data Studio
 
-[Azure Data Studio](https://aka.ms/azuredatastudio) offre un'esperienza simile a quella portale di Azure per la visualizzazione delle informazioni sulle risorse di Azure Arc.  Queste visualizzazioni sono denominate **Dashboard** e hanno un layout e opzioni simili a quelle che è possibile visualizzare su una determinata risorsa nel portale di Azure, ma offrono la flessibilità di visualizzare le informazioni in locale nell'ambiente nei casi in cui non è disponibile una connessione ad Azure.
+[Azure Data Studio](/sql/azure-data-studio/what-is) offre un'esperienza simile a quella portale di Azure per la visualizzazione delle informazioni sulle risorse di Azure Arc.  Queste visualizzazioni sono denominate **Dashboard** e hanno un layout e opzioni simili a quelle che è possibile visualizzare su una determinata risorsa nel portale di Azure, ma offrono la flessibilità di visualizzare le informazioni in locale nell'ambiente nei casi in cui non è disponibile una connessione ad Azure.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "91876244"
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Scarica [Azure Data Studio](https://aka.ms/getazuredatastudio)
+- Scarica [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - L'estensione Azure Arc è installata
 
 ### <a name="determine-the-data-controller-server-api-endpoint-url"></a>Determinare l'URL dell'endpoint dell'API del server del controller di dati

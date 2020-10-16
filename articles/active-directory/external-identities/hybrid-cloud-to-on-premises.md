@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819386"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107624"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -43,7 +43,7 @@ Per fornire agli utenti B2B l'accesso alle applicazioni locali protette con l'au
 - **Autorizzazione tramite un oggetto utente B2B nella directory locale**. L'applicazione deve poter eseguire i controlli di accesso utente e concedere l'accesso alle risorse corrette. L'autenticazione integrata di Windows e la delega vincolata Kerberos richiedono un oggetto utente nell'istanza locale di Windows Server Active Directory per completare l'autorizzazione. Come descritto in [Funzionamento di Single Sign-On con KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy richiede questo oggetto utente per rappresentare l'utente e ottenere un token Kerberos per l'app. 
 
    > [!NOTE]
-   > Quando si configura il proxy di applicazione Azure AD, assicurarsi che l' **identità di accesso delegata** sia impostata sul **nome dell'entità utente** (impostazione predefinita) per la Single Sign-on di autenticazione integrata.
+   > Quando si configura il proxy di applicazione Azure AD, assicurarsi che l' **identità di accesso delegata** sia impostata su **nome entità utente** (impostazione predefinita) nella configurazione Single Sign-on per autenticazione integrata di Windows (IWA).
 
    Per lo scenario utente B2B, sono disponibili due metodi per creare gli oggetti utente guest necessari per l'autorizzazione nella directory locale:
 
@@ -64,7 +64,7 @@ Il diagramma seguente offre una panoramica generale del funzionamento combinato 
 
 ### <a name="lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita
 
-È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Ad esempio:
+È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Esempio:
 
 - È possibile impostare criteri di autenticazione a più fattori (MFA) per l'utente guest in modo che l'autenticazione a più fattori venga usata durante l'autenticazione di Application Proxy. Per altre informazioni, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
 - Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato attraverso i criteri di gestione del ciclo di vita, l'utente locale viene anche eliminato dalla sincronizzazione MIM o tramite Azure AD Connect sincronizzazione. Per altre informazioni, vedere [gestire l'accesso guest con le verifiche di accesso Azure ad](../governance/manage-guest-access-with-access-reviews.md).

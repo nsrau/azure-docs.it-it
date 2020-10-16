@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446182"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108848"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creare avvisi delle metriche per i log in Monitoraggio di Azure
 
@@ -62,7 +62,7 @@ Prima che sia possibile usare la metrica per i log raccolta sui dati di Log Anal
 
  Gli avvisi delle metriche possono essere creati e gestiti tramite il portale di Azure, i modelli di Resource Manager, l'API REST, PowerShell e l'interfaccia della riga di comando di Azure. Poiché gli avvisi delle metriche per i log sono una variante degli avvisi delle metriche, una volta soddisfatti i prerequisiti, possono essere creati per l'area di lavoro Log Analytics specificata. Tutte le caratteristiche e le funzionalità degli [ avvisi delle metriche](./alerts-metric-near-real-time.md) sono applicabili agli avvisi delle metriche per i log, ad esempio lo schema di payload, i limiti di quota applicabile e il prezzo fatturato.
 
-Per informazioni dettagliate ed esempi, vedere [Creazione e gestione degli avvisi delle metriche](https://aka.ms/createmetricalert). In particolare, per gli avvisi delle metriche per i log, seguire le istruzioni per la gestione e verificare quanto segue:
+Per informazioni dettagliate ed esempi, vedere [Creazione e gestione degli avvisi delle metriche](./alerts-metric.md). In particolare, per gli avvisi delle metriche per i log, seguire le istruzioni per la gestione e verificare quanto segue:
 
 - La destinazione per un avviso delle metriche è un'*area di lavoro Log Analytics*
 - Il segnale scelto per l'avviso delle metriche relativo all'*area di lavoro Log Analytics* selezionata deve essere di tipo **Metrica**
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - Altre informazioni sugli [avvisi delle metriche](alerts-metric.md).
 - Per altre informazioni, fare riferimento agli [avvisi di log in Azure](./alerts-unified-log.md).
 - Informazioni sugli [avvisi in Azure](alerts-overview.md).
-
