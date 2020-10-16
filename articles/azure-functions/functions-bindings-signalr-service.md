@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77523037"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104377"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associazioni del servizio SignalR per Funzioni di Azure
 
 Questo set di articoli illustra come eseguire l'autenticazione e inviare messaggi in tempo reale ai client connessi al [servizio Azure SignalR](https://azure.microsoft.com/services/signalr-service/) usando le associazioni del servizio SignalR in funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per il servizio SignalR.
 
-| Azione | Type |
+| Azione | Tipo |
 |---------|---------|
 | Restituisce l'URL dell'endpoint del servizio e il token di accesso | [Binding di input](./functions-bindings-signalr-service-input.md) |
 | Inviare messaggi del servizio SignalR |[Binding di output](./functions-bindings-signalr-service-output.md) |
@@ -27,7 +27,7 @@ Questo set di articoli illustra come eseguire l'autenticazione e inviare messagg
 
 Per utilizzare il trigger e le associazioni è necessario fare riferimento al pacchetto appropriato. Il pacchetto NuGet viene usato per le librerie di classi .NET mentre il bundle di estensione viene usato per tutti gli altri tipi di applicazioni.
 
-| Linguaggio                                        | Aggiungi da...                                   | Osservazioni 
+| Linguaggio                                        | Aggiungi da...                                   | Commenti 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installazione del [pacchetto NuGet]versione 3. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrazione del [bundle di estensione]          | L' [estensione degli strumenti di Azure] è consigliata per l'uso con Visual Studio Code. |
@@ -36,7 +36,7 @@ Per utilizzare il trigger e le associazioni è necessario fare riferimento al pa
 [Pacchetto NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [Bundle di estensione]: ./functions-bindings-register.md#extension-bundles
-[Aggiornare le estensioni]: ./install-update-binding-extensions-manual.md
+[Aggiornare le estensioni]: ./functions-bindings-register.md
 [Estensione degli strumenti di Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 Per informazioni dettagliate su come configurare e usare insieme il servizio SignalR e funzioni di Azure, vedere [sviluppo e configurazione di funzioni di Azure con il servizio Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md).
@@ -56,4 +56,4 @@ Per usare le annotazioni del servizio SignalR nelle funzioni Java, è necessario
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Restituire l'URL dell'endpoint del servizio e il token di accesso (associazione di input)](./functions-bindings-signalr-service-input.md)
-- [Inviare messaggi del servizio SignalR (associazione di output)](./functions-bindings-signalr-service-output.md) 
+- [Inviare messaggi del servizio SignalR (associazione di output)](./functions-bindings-signalr-service-output.md)

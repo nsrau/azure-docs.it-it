@@ -1,6 +1,6 @@
 ---
-title: Come eseguire l'aggiornamento al monitoraggio dinamico della conformità alle normative nel dashboard di conformità alle normative del Centro sicurezza di Azure | Microsoft Docs
-description: Aggiornamento dei pacchetti di conformità alle normative
+title: Uso del dashboard conformità normativa nel centro sicurezza di Azure
+description: Informazioni su come aggiungere e rimuovere gli standard normativi dal dashboard conformità normativa nel centro sicurezza
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078103"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106264"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzazione del set di standard nel dashboard di conformità alle normative
 

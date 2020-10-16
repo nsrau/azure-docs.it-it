@@ -4,12 +4,12 @@ description: Registrare e analizzare gli eventi di registrazione diagnostica per
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848688"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108100"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
@@ -105,7 +105,7 @@ Per creare una nuova impostazione di diagnostica nella portale di Azure, attener
 6. Selezionare **ServiceLog**, **AllMetrics**o entrambi.
 7. Selezionare **Save (Salva** ) per creare l'impostazione di diagnostica.
 
-È anche possibile [abilitare la raccolta tramite monitoraggio di Azure nel portale di Azure](../azure-monitor/platform/diagnostic-settings.md) per configurare le impostazioni di diagnostica, usando un [modello di Gestione risorse](../azure-monitor/platform/diagnostic-settings-template.md)o con Azure PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Panoramica dei log della piattaforma Azure](../azure-monitor/platform/platform-logs-overview.md).
+È anche possibile [abilitare la raccolta tramite monitoraggio di Azure nel portale di Azure](../azure-monitor/platform/diagnostic-settings.md) per configurare le impostazioni di diagnostica, usando un [modello di Gestione risorse](../azure-monitor/samples/resource-manager-diagnostic-settings.md)o con Azure PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Panoramica dei log della piattaforma Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accedere ai log di diagnostica nell'archiviazione
 
@@ -119,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Ad esempio:
+Esempio:
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/

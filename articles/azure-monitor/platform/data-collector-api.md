@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94abc54c63b7d2a9998cffe7cf1396f81a26a5a1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384855"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107981"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -42,7 +42,7 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Tipo di contenuto |application/json |
 
 ### <a name="request-uri-parameters"></a>Parametri URI della richiesta
-| Parametro | Descrizione |
+| Parametro | Description |
 |:--- |:--- |
 | CustomerID |Identificatore univoco per l'area di lavoro Log Analytics. |
 | Risorsa |Nome della risorsa API: /api/logs. |
@@ -54,7 +54,7 @@ Per usare l'API dell'agente di raccolta dati HTTP, creare una richiesta POST che
 | Autorizzazione |Firma di autorizzazione. Più avanti nell'articolo sono disponibili informazioni sulla creazione di un'intestazione HMAC-SHA256. |
 | Log-Type |Specificare il tipo di record dei dati inviati. Può contenere solo lettere, numeri e caratteri di sottolineatura (_) e non può superare i 100 caratteri. |
 | x-ms-date |Data di elaborazione della richiesta, in formato RFC 1123. |
-| x-ms-AzureResourceId | ID risorsa della risorsa di Azure a cui devono essere associati i dati. Questa operazione consente di popolare la proprietà [_ResourceId](log-standard-properties.md#_resourceid) e di includere i dati nelle query del [contesto di risorsa](design-logs-deployment.md#access-mode) . Se questo campo non è specificato, i dati non verranno inclusi nelle query del contesto delle risorse. |
+| x-ms-AzureResourceId | ID risorsa della risorsa di Azure a cui devono essere associati i dati. Questa operazione consente di popolare la proprietà [_ResourceId](./log-standard-columns.md#_resourceid) e di includere i dati nelle query del [contesto di risorsa](design-logs-deployment.md#access-mode) . Se questo campo non è specificato, i dati non verranno inclusi nelle query del contesto delle risorse. |
 | time-generated-field | Nome di un campo nei dati che contiene il timestamp dell'elemento di dati. Se si specifica un campo, il relativo contenuto verrà usato per **TimeGenerated**. Se questo campo non è specificato, il valore predefinito di **TimeGenerated** sarà la data/ora di inserimento del messaggio. Il contenuto del campo del messaggio deve seguire il formato ISO 8601 AAAA-MM-GGThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorizzazione
@@ -555,7 +555,7 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternative e considerazioni
 Sebbene l'API dell'agente di raccolta dati debba coprire la maggior parte delle proprie esigenze per raccogliere dati in formato libero nei log di Azure, esistono istanze in cui potrebbe essere necessaria un'alternativa per superare alcune delle limitazioni dell'API. Tutte le opzioni sono le seguenti: considerazioni principali:
 
-| Alternativa | Descrizione | Ideale per |
+| Alternativa | Description | Ideale per |
 |---|---|---|
 | [Eventi personalizzati](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): inserimento basato su SDK nativo in Application Insights | Application Insights, in genere instrumentato tramite un SDK all'interno dell'applicazione, offre la possibilità di inviare dati personalizzati tramite eventi personalizzati. | <ul><li> Dati generati all'interno dell'applicazione, ma non prelevati dall'SDK tramite uno dei tipi di dati predefiniti (richieste, dipendenze, eccezioni e così via).</li><li> Dati più spesso correlati ad altri dati dell'applicazione in Application Insights </li></ul> |
 | API dell'agente di raccolta dati nei log di monitoraggio di Azure | L'API dell'agente di raccolta dati nei log di monitoraggio di Azure è un modo completamente aperto per inserire i dati. I dati formattati in un oggetto JSON possono essere inviati qui. Una volta inviato, verrà elaborato e disponibile nei log per la correlazione con altri dati nei log o con altri dati Application Insights. <br/><br/> È abbastanza semplice caricare i dati come file in un BLOB BLOB di Azure, da dove questi file verranno elaborati e caricati in Log Analytics. Vedere [questo](./create-pipeline-datacollector-api.md) articolo per un'implementazione di esempio di una pipeline di questo tipo. | <ul><li> Dati non necessariamente generati all'interno di un'applicazione instrumentata all'interno Application Insights.</li><li> Gli esempi includono le tabelle di ricerca e dei fatti, i dati di riferimento, le statistiche pre-aggregate e così via. </li><li> Destinato ai dati a cui viene fatto riferimento incrociato rispetto ad altri dati di monitoraggio di Azure (Application Insights, altri tipi di dati dei log, Centro sicurezza, monitoraggio di Azure per contenitori/VM e così via). </li></ul> |

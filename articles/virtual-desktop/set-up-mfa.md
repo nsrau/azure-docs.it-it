@@ -3,15 +3,15 @@ title: Configurare Multi-Factor Authentication di Azure per desktop virtuale Win
 description: Come configurare Multi-Factor Authentication di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089922"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108984"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per Desktop virtuale Windows
 
@@ -64,6 +64,8 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
 
    >[!IMPORTANT]
    > Non selezionare l'app denominata Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Questa app viene usata solo per recuperare il feed dell'utente e non deve avere l'autenticazione a più fattori.
+   > 
+   > Se si usa desktop virtuale di Windows (versione classica), se i criteri di accesso condizionale bloccano tutti gli accessi e escludono solo gli ID app del desktop virtuale di Windows, è possibile risolvere il problema aggiungendo l'ID app 9cdead84-A844-4324-93f2-b2e6bb768d07 al criterio. Se non si aggiunge questo ID app, si blocca l'individuazione dei feed delle risorse di desktop virtuali Windows (classiche).
 
 10. Passare a **condizioni**  >  **app client**, quindi selezionare la posizione in cui si desidera applicare il criterio:
     

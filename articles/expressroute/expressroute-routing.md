@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569612"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106315"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -158,7 +158,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | **America del Nord** | |
 | Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
 | Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
-| Stati Uniti Occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
+| Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
 | West US 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
 | Stati Uniti centro-occidentali | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
 | Stati Uniti centro-settentrionali | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
@@ -258,6 +258,7 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype for Business Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Altri servizi online di Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Passaggi successivi

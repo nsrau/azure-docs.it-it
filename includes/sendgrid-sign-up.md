@@ -4,12 +4,12 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 4eb1a6f351cdf129611949049f762fe51cac4b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377405"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116817"
 ---
 I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 di messaggi di posta elettronica mensili gratuiti ti consentono di accedere a report avanzati e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altro ancora). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [soluzioni di SendGrid][SendGrid Solutions].
 
@@ -69,7 +69,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 ### <a name="to-find-your-sendgrid-credentials"></a>Per individuare le credenziali di SendGrid
 1. Fare clic sull'icona della chiave per trovare il **nome utente**.
 
-    ! Screenshot della pagina dell'account ContosoSendGrid con l'icona della chiave evidenziata.] [chiave] di
+    ![Screenshot della pagina dell'account ContosoSendGrid con l'icona della chiave evidenziata.][key]
 2. La password è quella specificata al momento della configurazione. È possibile selezionare **Cambia password** o **Reimposta password** per apportare modifiche.
 
 Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Gestisci**. Si verrà reindirizzati al dashboard di SendGrid.

@@ -1,37 +1,32 @@
 ---
-title: Problemi di installazione del connettore dell'agente proxy dell'applicazione | Microsoft Docs
-description: Come risolvere i problemi che potrebbero verificarsi durante l'installazione del connettore dell'agente proxy dell'applicazione
+title: Problemi di installazione del connettore dell'agente proxy dell'applicazione
+description: Come risolvere i problemi che potrebbero verificarsi durante l'installazione del connettore dell'agente proxy di applicazione per Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764690"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108202"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
 
-Il connettore proxy dell'applicazione AAD di Microsoft è un componente di dominio interno che usa le connessioni in uscita per stabilire la connettività dall'endpoint disponibile del cloud al dominio interno.
+Microsoft Azure Active Directory connettore del proxy di applicazione è un componente di dominio interno che usa le connessioni in uscita per stabilire la connettività dall'endpoint disponibile del cloud al dominio interno.
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Aree problematiche generali con l'installazione del connettore
 
 Quando l'installazione di un connettore non riesce, la causa principale riguarda in genere una delle seguenti aree:
 
-1.  **Connettività**: per completare un'installazione, è necessario che il nuovo connettore registri e definisca le future proprietà di attendibilità. Questa operazione viene eseguita tramite la connessione al servizio cloud proxy dell’applicazione AAD.
+1.  **Connettività**: per completare un'installazione, è necessario che il nuovo connettore registri e definisca le future proprietà di attendibilità. Questa operazione viene eseguita connettendosi al servizio Cloud Azure Active Directory Application Proxy.
 
 2.  **Definizione dell'attendibilità**: il nuovo connettore crea un certificato autofirmato ed effettua la registrazione al servizio cloud.
 
@@ -42,7 +37,7 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Verificare la connettività al servizio proxy dell'applicazione cloud e alla pagina di accesso Microsoft
 
-**Obiettivo:** verificare che il computer di connessione possa connettersi all'endpoint di registrazione proxy dell'applicazione AAD, nonché alla pagina di accesso Microsoft.
+**Obiettivo:** Verificare che il computer connettore sia in grado di connettersi all'endpoint di registrazione del proxy di applicazione e alla pagina di accesso di Microsoft.
 
 1.  Sul server del connettore, eseguire un test di porta utilizzando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) o un altro strumento di test della porta per verificare che le porte 443 e 80 siano aperte.
 
@@ -67,7 +62,7 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 **Per verificare il certificato client:**
 
-Verificare l'identificazione personale del certificato client corrente. L'archivio certificati è disponibile in%ProgramData%\microsoft\Microsoft AAD application proxy Connector\Config\TrustSettings.xml
+Verificare l'identificazione personale del certificato client corrente. L'archivio certificati si trova in `%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml` .
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,23 +74,17 @@ Verificare l'identificazione personale del certificato client corrente. L'archiv
 </ConnectorTrustSettingsFile>
 ```
 
-Ecco i valori e i significati possibili di **IsInUserStore** :
+I possibili valori di **IsInUserStore** sono **true** e **false**. Il valore **true** indica che il certificato rinnovato automaticamente viene archiviato nel contenitore personale nell'archivio certificati utente del servizio di rete. Il valore **false** indica che il certificato client è stato creato durante l'installazione o la registrazione avviata dal comando Register-AppProxyConnector e viene archiviato nel contenitore personale nell'archivio certificati del computer locale.
 
-- **false** : il certificato client è stato creato durante l'installazione o la registrazione avviata dal comando Register-AppProxyConnector. Viene archiviato nel contenitore personale nell'archivio certificati del computer locale. 
-
-Seguire i passaggi per verificare il certificato:
-
-1. Eseguire **certlm. msc**
-2. Nella console di gestione espandere il contenitore personale e fare clic su certificati.
-3. Individuare il certificato emesso da **connectorregistrationca.msappproxy.NET**
-
-- **true** : il certificato rinnovato automaticamente viene archiviato nel contenitore personale nell'archivio certificati utente del servizio di rete. 
-
-Seguire i passaggi per verificare il certificato:
-
+Se il valore è **true**, attenersi alla seguente procedura per verificare il certificato:
 1. Scarica [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. Estrarre [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) dal pacchetto ed eseguire **psexec-i-u "NT authority\network Service" cmd.exe** da un prompt dei comandi con privilegi elevati.
 3. Eseguire **certmgr. msc** nel prompt dei comandi appena visualizzato
+4. Nella console di gestione espandere il contenitore personale e fare clic su certificati.
+5. Individuare il certificato emesso da **connectorregistrationca.msappproxy.NET**
+
+Se il valore è **false**, attenersi alla seguente procedura per verificare il certificato:
+1. Eseguire **certlm. msc**
 2. Nella console di gestione espandere il contenitore personale e fare clic su certificati.
 3. Individuare il certificato emesso da **connectorregistrationca.msappproxy.NET**
 

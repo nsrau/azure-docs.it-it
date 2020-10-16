@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88929491"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108491"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java usa un archetipo Maven per creare il progetto di funzioni locali, insieme alla prima funzione attivata tramite HTTP. Usare il comando seguente per creare il progetto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Per un esempio di utilizzo dell'archetipo Maven, vedere la [Guida introduttiva alla riga di comando](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+> Java usa un archetipo Maven per creare il progetto di funzioni locali, insieme alla prima funzione attivata tramite HTTP. Usare il comando seguente per creare il progetto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Per un esempio di utilizzo dell'archetipo Maven, vedere la [Guida introduttiva alla riga di comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
 
 Quando si fornisce un nome di progetto, viene creata e inizializzata una nuova cartella con lo stesso nome. In caso contrario, viene inizializzata la cartella corrente.  
 Nella versione 3. x/2. x, quando si esegue il comando è necessario scegliere un runtime per il progetto. 
@@ -194,7 +194,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` supporta le opzioni seguenti, ovvero la versione 3. x/2. x-only, salvo diversa indicazione:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Crea funzioni .NET come script C#, che è il comportamento della versione 1. x. È valido esclusivamente con `--worker-runtime dotnet`. |
 | **`--docker`** | Crea un Dockerfile per un contenitore usando un'immagine di base basata sull'oggetto selezionato `--worker-runtime` . Usare questa opzione quando si prevede di pubblicare in un contenitore Linux personalizzato. |
@@ -309,7 +309,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 È anche possibile specificare queste opzioni nel comando usando gli argomenti seguenti:
 
-| Argomento     | Descrizione                            |
+| Argomento     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versione 2. x e versioni successive). Genera gli stessi modelli di script C# (. CSX) usati nella versione 1. x e nel portale. |
 | **`--language`**, **`-l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2. x e versioni successive, non usare questa opzione o scegliere una lingua corrispondente al runtime del ruolo di lavoro. |
@@ -377,7 +377,7 @@ npm start
 
 `func start` supporta le opzioni seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Per il progetto corrente non viene creata una build prima dell'esecuzione. Solo per progetti dotnet. Il valore predefinito è false. Non supportato per la versione 1. x. |
 | **`--cors-credentials`** | Consenti le richieste autenticate tra le origini, ad esempio i cookie e l'intestazione di autenticazione, non sono supportate per la versione 1. x. |
@@ -486,7 +486,7 @@ Nella versione 1. x, è anche possibile richiamare una funzione direttamente usa
 
 `func run` supporta le opzioni seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Contenuto inline. |
 | **`--debug`**, **`-d`** | Associare un debugger al processo host prima di eseguire la funzione.|
@@ -528,14 +528,14 @@ Questo comando consente di pubblicare un'app per le funzioni esistente in Azure.
 
 Le seguenti opzioni di pubblicazione si applicano a tutte le versioni:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Pubblicare le impostazioni di local.settings.json in Azure, suggerendo di sovrascrivere eventuali impostazioni esistenti. Se si usa il Emulatore di archiviazione di Microsoft Azure, modificare prima l'impostazione dell'app in una [connessione di archiviazione effettiva](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Eliminare il prompt per sovrascrivere le impostazioni dell'app quando si usa `--publish-local-settings -i`.|
 
 Le opzioni di pubblicazione seguenti sono supportate solo per la versione 2. x e le versioni successive:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  Pubblicare solo le impostazioni e ignorare il contenuto. Viene suggerito il valore predefinito. |
 |**`--list-ignored-files`** | Visualizza un elenco di file che vengono ignorati durante la pubblicazione basato sul file con estensione funcignore. |
@@ -559,7 +559,7 @@ func deploy
 
 Sono disponibili le opzioni di distribuzione del contenitore personalizzato seguenti:
 
-| Opzione     | Descrizione                            |
+| Opzione     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Il nome di un registro Docker a cui l'utente corrente ha eseguito l'accesso. |
 | **`--platform`** | Piattaforma di hosting per le app per le funzioni. Le opzioni valide sono `kubernetes` |

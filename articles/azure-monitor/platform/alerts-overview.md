@@ -4,12 +4,12 @@ description: Panoramica degli avvisi in Azure. Avvisi, avvisi classici e l'inter
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: f58175d105e1dd36d58fbe4d8b68109810797b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317141"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108797"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -84,7 +84,7 @@ Sono supportati i tipi di avviso seguenti.
 
 Lo *stato dell'avviso* è diverso ed è indipendente dalla *condizione del monitoraggio*. Lo stato dell'avviso viene impostato dall'utente, mentre la condizione del monitoraggio viene impostata dal sistema. Quando viene generato un avviso, la condizione di monitoraggio dell'avviso è impostata su *"attivato"* e quando la condizione sottostante che ha causato l'attivazione dell'avviso viene cancellata, la condizione di monitoraggio è impostata su *"risolto"*. 
 
-Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).
+Lo stato dell'avviso non viene modificato fino a quando l'utente non esegue l'operazione di modifica. Informazioni su [come modificare lo stato degli avvisi e dei gruppi intelligenti](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 
 ## <a name="alerts-experience"></a>Esperienza degli avvisi 
 La pagina avvisi predefiniti fornisce un riepilogo degli avvisi creati in un intervallo di tempo specifico. Vengono visualizzati gli avvisi totali per ogni gravità, con colonne che identificano il numero totale di avvisi in ogni stato per ogni gravità. Selezionare uno dei valori di gravità per aprire la pagina [Tutti gli avvisi](#all-alerts-page) filtrata in base al livello di gravità specificato.
@@ -108,7 +108,7 @@ Non Mostra o tiene traccia degli avvisi classici. È possibile modificare le sot
 
 Selezionare i valori seguenti nella parte superiore della pagina degli avvisi per aprire un'altra pagina:
 
-| Valore | Descrizione |
+| Valore | Description |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -169,7 +169,7 @@ Nella pagina Dettagli avviso sono incluse le seguenti sezioni:
 
 | Sezione | Descrizione |
 |:---|:---|
-| Riepilogo | Mostra le proprietà e altre informazioni significative sull'avviso. |
+| Summary | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
 | Diagnostica | Informazioni sul gruppo intelligente in cui è incluso l'avviso. *Conteggio avvisi* si riferisce al numero di avvisi inclusi nel gruppo intelligente. Include altri avvisi nello stesso gruppo intelligente creati negli ultimi 30 giorni, indipendentemente dal filtro temporale nella pagina dell'elenco degli avvisi. Selezionare un avviso per visualizzarne i dettagli. |
 
@@ -181,7 +181,7 @@ Per il consumo e la gestione delle istanze di avviso è necessario che l'utente 
 
 Potrebbe essere necessario eseguire una query a livello di codice per gli avvisi generati per la sottoscrizione. È possibile che le query creino visualizzazioni personalizzate al di fuori della portale di Azure o per analizzare gli avvisi per identificare modelli e tendenze.
 
-È possibile eseguire una query per gli avvisi generati per le sottoscrizioni usando l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) o il [grafico delle risorse di Azure](../../governance/resource-graph/overview.md) e l' [API REST per le risorse](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
+È possibile eseguire una query per gli avvisi generati per le sottoscrizioni usando l' [API REST di gestione avvisi](/rest/api/monitor/alertsmanagement/alerts) o il [grafico delle risorse di Azure](../../governance/resource-graph/overview.md) e l' [API REST per le risorse](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
 L'API REST del grafico risorse per le risorse consente di eseguire una query per le istanze di avviso su larga scala. Il grafico risorse è consigliato quando è necessario gestire gli avvisi generati in più sottoscrizioni. 
 
@@ -200,16 +200,16 @@ La richiesta di esempio seguente all'API REST del grafico risorse restituisce il
 
 È possibile eseguire una query sugli avvisi per i campi [essenziali](alerts-common-schema-definitions.md#essentials) .
 
-Usare l' [API REST di gestione avvisi](https://aka.ms/alert-management-api) per ottenere altre informazioni su avvisi specifici, inclusi i relativi campi di [contesto degli avvisi](alerts-common-schema-definitions.md#alert-context) .
+Usare l' [API REST di gestione avvisi](/rest/api/monitor/alertsmanagement/alerts) per ottenere altre informazioni su avvisi specifici, inclusi i relativi campi di [contesto degli avvisi](alerts-common-schema-definitions.md#alert-context) .
 
 ## <a name="smart-groups"></a>Gruppi intelligenti
 
-I gruppi intelligenti sono aggregazioni di avvisi basati sugli algoritmi di Machine Learning, che possono contribuire a ridurre il rumore degli avvisi e ad agevolare la risoluzione dei problemi. [Sono disponibili altre informazioni sui gruppi intelligenti](https://aka.ms/smart-groups) e su [come gestire i gruppi intelligenti](https://aka.ms/managing-smart-groups).
+I gruppi intelligenti sono aggregazioni di avvisi basati sugli algoritmi di Machine Learning, che possono contribuire a ridurre il rumore degli avvisi e ad agevolare la risoluzione dei problemi. [Sono disponibili altre informazioni sui gruppi intelligenti](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) e su [come gestire i gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni sui gruppi intelligenti](https://aka.ms/smart-groups)
+- [Altre informazioni sui gruppi intelligenti](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Informazioni sui gruppi di azioni](./action-groups.md)
-- [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances) (Gestione delle istanze di avvio in Azure)
-- [Gestione di gruppi intelligenti](https://aka.ms/managing-smart-groups)
+- [Managing your alert instances in Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json) (Gestione delle istanze di avvio in Azure)
+- [Gestione di gruppi intelligenti](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Scopri di più sui prezzi per gli avvisi di Azure](https://azure.microsoft.com/pricing/details/monitor/)

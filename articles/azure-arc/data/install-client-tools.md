@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3eb41b868aba7e7350f54594fa43f01eeeabebc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61bc99e851b28712262dba8512c06b6e8872c0e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940674"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108219"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Installare strumenti client per distribuire e gestire servizi dati abilitati per Azure Arc
 
@@ -32,7 +32,7 @@ La tabella seguente elenca gli strumenti comuni necessari per la creazione e la 
 | Strumento | Obbligatoria | Descrizione | Installazione |
 |---|---|---|---|
 | INTERFACCIA della riga di comando di Azure Data (azdata) | Sì | Strumento da riga di comando per l'installazione e la gestione di un cluster Big Data. L'interfaccia della riga di comando di Azure include anche un'utilità della riga di comando per connettersi ed eseguire query in istanze di Azure SQL e SQL Server e server Postgres usando i comandi `azdata sql query` (eseguire una singola query dalla riga di comando), `azdata sql shell` (una shell interattiva) `azdata postgres query` e `azdata postgres shell` . | [Installazione](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
-| Azure Data Studio | Sì | Strumento di esperienza avanzata per la connessione e l'esecuzione di query su diversi database, tra cui SQL di Azure, SQL Server, PostrgreSQL e MySQL. Le estensioni per Azure Data Studio offrono un'esperienza di amministrazione per i servizi dati abilitati per Azure Arc. | [Installazione](https://aka.ms/getazuredatastudio) |
+| Azure Data Studio | Sì | Strumento di esperienza avanzata per la connessione e l'esecuzione di query su diversi database, tra cui SQL di Azure, SQL Server, PostrgreSQL e MySQL. Le estensioni per Azure Data Studio offrono un'esperienza di amministrazione per i servizi dati abilitati per Azure Arc. | [Installazione](/sql/azure-data-studio/download-azure-data-studio) |
 | Estensione dell'interfaccia della riga di comando di Azure per Azure Data Studio | Sì | Estensione per Azure Data Studio che installerà l'interfaccia della riga di comando di Azure, se non è già presente.| Installare dalla raccolta estensioni in Azure Data Studio.|
 | Estensione di Azure Arc per Azure Data Studio | Sì | Estensione per Azure Data Studio che fornisce un'esperienza di gestione per i servizi dati abilitati per Azure Arc. È presente una dipendenza dall'estensione dell'interfaccia della riga di comando di Azure per Azure Data Studio. | Installare dalla raccolta estensioni in Azure Data Studio.|
 | Estensione PostgreSQL in Azure Data Studio | No | Estensione PostgreSQL per Azure Data Studio che fornisce funzionalità di gestione per PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Installare dalla raccolta estensioni in Azure Data Studio.|

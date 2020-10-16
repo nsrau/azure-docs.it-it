@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fd23cab844d40f75aa0034096be1bca897d54ff6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048118"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108355"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrare i dispositivi gemelli digitali di Azure con il servizio Azure SignalR
 
@@ -195,7 +195,7 @@ Non è necessario eseguire altre operazioni in questa console, ma lasciarla in e
 ### <a name="configure-the-sample-client-web-app"></a>Configurare l'app Web client di esempio
 
 Configurare quindi l'esempio di **app Web di integrazione SignalR** con i passaggi seguenti:
-1. Usando Visual Studio o un editor di codice di propria scelta, aprire la cartella _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ decompressa scaricata nella sezione [*prerequisiti*](#prerequisites) .
+1. Usando Visual Studio o un editor di codice di propria scelta, aprire la cartella _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ decompressa [*scaricata nella sezione scaricare le applicazioni di esempio*](#download-the-sample-applications) .
 
 1. Aprire il file *src/App.js* e sostituire l'URL in `HubConnectionBuilder` con l'URL dell'endpoint HTTP della funzione **Negotiate** salvata in precedenza:
 
@@ -228,7 +228,7 @@ Verrà aperta una finestra del browser che esegue l'app di esempio, che visualiz
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Visualizzazione dei servizi di Azure in uno scenario end-to-end. Viene illustrato il flusso di dati da un dispositivo all'hub Internet, tramite una funzione di Azure (freccia B) a un'istanza di Azure Digital gemelli (sezione A), quindi tramite griglia di eventi a un'altra funzione di Azure per l'elaborazione (freccia C). La sezione D Mostra il flusso di dati dalla stessa griglia di eventi nella freccia C a una funzione di Azure con etichetta &quot;broadcast&quot;. ' Broadcast ' comunica con un'altra funzione di Azure con etichetta ' Negotiate ' è Broadcast ' è Negotiate ' comunicano con i dispositivi computer.":::
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Se le risorse create in questo articolo non sono più necessarie, attenersi alla procedura seguente per eliminarle. 
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fc09f9145b7a1652b621ed38a8bf9af7c4c82a8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692293"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106570"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticazione con Azure Data Lake Storage Gen1 tramite Azure Active Directory
 
@@ -40,11 +40,9 @@ La tabella seguente illustra come vengono supportati i meccanismi di autenticazi
 <i>* Fare clic sul simbolo <b>✔ \* </b> . Si tratta di un collegamento.</i><br>
 <i>** MFA sta per autenticazione a più fattori</i>
 
-Per altre informazioni su come usare Azure Active Directory per l'autenticazione, vedere [Scenari di autenticazione per Azure AD](../active-directory/develop/authentication-scenarios.md).
+Per altre informazioni su come usare Azure Active Directory per l'autenticazione, vedere [Scenari di autenticazione per Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [Autenticazione da servizio a servizio](data-lake-store-service-to-service-authenticate-using-active-directory.md)
-
-
