@@ -230,12 +230,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Problema durante l'accesso a un'app Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: Problema con accesso Single Sign-On federato - App non della raccolta
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: Problema con accesso Single Sign-On federato - App della raccolta
+            - name: Problema relativo all'accesso Single Sign-On
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: Problema con app sviluppata in modo personalizzato
-              href: application-sign-in-problem-custom-dev.md
         - name: Risolvere i problemi relativi alle app locali
           items:
             - name: Risoluzione dei problemi del proxy dell'applicazione

@@ -37,6 +37,8 @@
       href: concepts-route-events.md
     - name: Sicurezza per le soluzioni di Gemelli digitali di Azure
       href: concepts-security.md
+    - name: Disponibilità elevata e ripristino di emergenza
+      href: concepts-high-availability-disaster-recovery.md
 - name: Guide pratiche
   items:
     - name: Distribuire
@@ -199,7 +201,7 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Esempio di integrazione di DPS e dell'hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: Swagger personalizzati per Gemelli digitali di Azure
+        - name: Swagger personalizzati per Gemelli digitali di Azure per il connettore di App per la logica
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: Esempio di integrazione SignalR
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/

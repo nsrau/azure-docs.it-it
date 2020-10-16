@@ -23,6 +23,10 @@
 - name: Avvi rapidi
   expanded: true
   items:
+    - name: Preparare la rete
+      href: quickstart-prepare-network-for-defender-for-iot.md
+    - name: Eseguire l'onboarding dei sensori
+      href: quickstart-onboard-sensors.md
     - name: Configurare il modulo di sicurezza per Azure RTOS
       href: quickstart-azure-rtos-security-module.md
     - name: Eseguire l'onboarding di Azure Defender per IoT nell'hub IoT
@@ -63,6 +67,10 @@
       href: concept-pricing.md
 - name: Guide pratiche
   items:
+    - name: Visualizzare e gestire i sensori
+      href: how-to-deploy-view-sensors.md
+    - name: Distribuire la console di gestione locale
+      href: how-to-deploy-management-console-appliance.md
     - name: Uso del modulo di sicurezza per Azure RTOS
       href: how-to-azure-rtos-security-module.md
     - name: Quale agente distribuire?
@@ -95,14 +103,16 @@
       href: how-to-investigate-device.md
     - name: Connettersi ad Azure Sentinel
       href: how-to-configure-with-sentinel.md
-    - name: Personalizzare la soluzione
+    - name: Personalizzare l'agente
       href: how-to-customize-solution.md
 - name: Riferimenti
   items:
     - name: API del modulo di sicurezza per Azure RTOS
       href: azure-rtos-security-module-api.md
-    - name: Domande frequenti
+    - name: Domande frequenti - servizio
       href: resources-frequently-asked-questions.md
+    - name: Domande frequenti - agente
+      href: resources-agent-frequently-asked-questions.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
 - name: Risorse
