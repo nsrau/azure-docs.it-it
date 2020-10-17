@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494486"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147955"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rilevamento e registrazione degli eventi per il Azure Data Box e Azure Data Box Heavy gli ordini di esportazione
 
@@ -25,7 +25,7 @@ Nella tabella seguente viene illustrato un riepilogo dei Data Box passaggi dell'
 
 | Data Box fase dell'ordine di esportazione       | Strumento di rilevamento e controllo                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Creare un ordine               | [Configurare il controllo di accesso nell'ordine tramite RBAC](#set-up-access-control-on-the-order) <br> [Abilita log dettagliato nell'ordine](#enable-verbose-log-in-the-order)                                                    |
+| Creare un ordine               | [Configurare il controllo di accesso nell'ordine tramite RBAC di Azure](#set-up-access-control-on-the-order) <br> [Abilita log dettagliato nell'ordine](#enable-verbose-log-in-the-order)                                                    |
 | Ordine elaborato            | [Tenere traccia dell'ordine](#track-the-order) <ul><li> Portale di Azure </li><li> Sito Web del vettore di spedizione </li><li>Notifiche di posta elettronica</ul> |
 | Configurare il dispositivo              | Credenziali del dispositivo accesso ai [log attività](#query-activity-logs-during-setup) registrate              |
 | Copia dei dati dal dispositivo        | [Esaminare i log di copia](#copy-log) <br> [Esaminare i log dettagliati](#verbose-log) prima di copiare i dati            |
@@ -46,7 +46,7 @@ Per limitare l'accesso a un ordine, è possibile:
 - Assegnare un ruolo a livello di ordine. L'utente dispone solo delle autorizzazioni in base a quanto definito dai ruoli per interagire solo con l'ordine specifico Data Box e nient'altro.
 - Assegnare un ruolo a livello di gruppo di risorse, l'utente ha accesso a tutti gli ordini di Data Box all'interno di un gruppo di risorse.
 
-Per altre informazioni sull'uso di RBAC suggerito, vedere [procedure consigliate per](../role-based-access-control/best-practices.md)il controllo degli accessi in base al ruolo
+Per altre informazioni sull'uso di RBAC di Azure, vedere [procedure consigliate per RBAC di Azure](../role-based-access-control/best-practices.md).
 
 ## <a name="enable-verbose-log-in-the-order"></a>Abilita log dettagliato nell'ordine
 

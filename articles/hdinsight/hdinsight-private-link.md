@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: c51b99ed04357cdebaabbde2b2bd0400adcfef30
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134154"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147917"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteggere e isolare i cluster HDInsight di Azure con collegamento privato (anteprima)
 
@@ -56,7 +56,7 @@ Il collegamento privato, disabilitato per impostazione predefinita, richiede una
 
 Quando `privateLink` è impostato su *Abilita*, vengono creati i servizi di [bilanciamento del carico standard](../load-balancer/load-balancer-overview.md) interni (SLB) e viene eseguito il provisioning di un servizio di collegamento privato di Azure per ogni SLB. Il servizio di collegamento privato consente di accedere al cluster HDInsight da endpoint privati.
 
-I bilanciamenti del carico standard non forniscono automaticamente il NAT in uscita pubblico come i bilanciamenti del carico di base. Per le dipendenze in uscita, è necessario fornire una soluzione NAT personalizzata, ad esempio [NAT della rete virtuale](../virtual-network/nat-overview.md) o un [Firewall](./hdinsight-restrict-outbound-traffic.md). Il cluster HDInsight deve ancora accedere alle dipendenze in uscita. Se queste dipendenze in uscita non sono consentite, la creazione del cluster potrebbe non riuscire.
+I bilanciamenti del carico standard non forniscono automaticamente il [NAT in uscita pubblico](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) come i bilanciamenti del carico di base. Per le dipendenze in uscita, è necessario fornire una soluzione NAT personalizzata, ad esempio [NAT della rete virtuale](../virtual-network/nat-overview.md) o un [Firewall](./hdinsight-restrict-outbound-traffic.md). Il cluster HDInsight deve ancora accedere alle dipendenze in uscita. Se queste dipendenze in uscita non sono consentite, la creazione del cluster potrebbe non riuscire.
 
 ### <a name="prepare-your-environment"></a>Preparare l'ambiente
 
