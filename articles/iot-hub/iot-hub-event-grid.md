@@ -12,18 +12,18 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072306"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152130"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
 L'hub IoT di Azure si integra con Griglia di eventi di Azure per consentire l'invio di notifiche degli eventi ad altri servizi e attivare processi downstream. Configurare le applicazioni aziendali per l'ascolto degli eventi dell'hub IoT in modo da poter reagire a eventi critici in modo affidabile, scalabile e sicuro.Creare ad esempio un'applicazione che aggiorna un database, crea un ticket di lavoro e recapita una notifica di posta elettronica ogni volta che viene registrato un nuovo dispositivo IoT nell'hub IoT.
 
-[Griglia di eventi di Azure](../event-grid/overview.md) è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto predefinito per i servizi di Azure, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md) e [App per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md), e può recapitare gli avvisi relativi agli eventi ai servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
+[Griglia di eventi di Azure](../event-grid/overview.md) è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. Griglia di eventi include il supporto predefinito per i servizi di Azure, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md) e [App per la logica di Azure](../logic-apps/logic-apps-overview.md), e può recapitare gli avvisi relativi agli eventi ai servizi non di Azure usando i webhook. Per un elenco completo dei gestori di eventi supportati da Griglia di eventi, vedere [Introduzione a Griglia di eventi di Azure](../event-grid/overview.md).
 
 ![Architettura di Griglia di eventi di Azure](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
@@ -184,13 +184,13 @@ L'oggetto di eventi IoT usa il formato:
 devices/{deviceId}
 ```
 
-Griglia di eventi consente inoltre di filtrare gli attributi di ogni evento, incluso il contenuto dei dati. In questo modo è possibile scegliere quali eventi vengono recapitati in base al contenuto del messaggio di telemetria. Per visualizzare esempi, vedere [filtro avanzato](../event-grid/event-filtering.md#advanced-filtering) . Per filtrare il corpo del messaggio di telemetria, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio. Entrambe le proprietà non fanno distinzione tra maiuscole e minuscole.
+Griglia di eventi consente inoltre di filtrare gli attributi di ogni evento, incluso il contenuto dei dati. In questo modo è possibile scegliere quali eventi vengono recapitati in base al contenuto del messaggio di telemetria. Per visualizzare esempi, vedere [filtro avanzato](../event-grid/event-filtering.md#advanced-filtering) . Per filtrare il corpo del messaggio di telemetria, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](./iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambe le proprietà non fanno distinzione tra maiuscole e minuscole.
 
 Per gli eventi non di telemetria come DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, è possibile usare il filtro di griglia di eventi durante la creazione della sottoscrizione. Per gli eventi di telemetria, oltre al filtro in griglia di eventi, gli utenti possono anche filtrare in dispositivi gemelli, proprietà e corpo del messaggio tramite la query di routing dei messaggi. 
 
 Quando si effettua la sottoscrizione agli eventi di telemetria tramite griglia di eventi, l'hub Internet crea una route di messaggio predefinita per inviare i messaggi del dispositivo di tipo origine dati a griglia di eventi. Per ulteriori informazioni sul routing dei messaggi, vedere il [routing dei messaggi dell'hub](iot-hub-devguide-messages-d2c.md)Internet. Questa route sarà visibile nel portale nell'hub degli indirizzi Internet > il routing dei messaggi. Viene creata una sola route per griglia di eventi indipendentemente dal numero di sottoscrizioni ad esempio create per gli eventi di telemetria. Quindi, se sono necessarie più sottoscrizioni con filtri diversi, è possibile usare l'operatore OR in queste query sulla stessa route. La creazione e l'eliminazione della route vengono controllate tramite la sottoscrizione di eventi di telemetria tramite griglia di eventi. Non è possibile creare o eliminare una route a griglia di eventi usando il routing del messaggio dell'hub Internet.
 
-Per filtrare i messaggi prima dell'invio dei dati di telemetria, è possibile aggiornare la [query di routing](iot-hub-devguide-routing-query-syntax.md). Si noti che la query di routing può essere applicata al corpo del messaggio solo se il corpo è JSON. È inoltre necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)del messaggio.
+Per filtrare i messaggi prima dell'invio dei dati di telemetria, è possibile aggiornare la [query di routing](iot-hub-devguide-routing-query-syntax.md). Si noti che la query di routing può essere applicata al corpo del messaggio solo se il corpo è JSON. È inoltre necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](./iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitazioni per gli eventi correlati a dispositivi connessi e disconnessi
 

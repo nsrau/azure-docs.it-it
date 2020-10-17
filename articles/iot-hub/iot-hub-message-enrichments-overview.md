@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 792486a78dfed606ce8317d9bc037221ae33d508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd1ae82450c6203833a1e7b9947d516950c0330
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767190"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146595"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Arricchimento dei messaggi per i messaggi dell'hub da dispositivo a cloud
 
@@ -63,8 +63,8 @@ Gli arricchimenti vengono applicati per ogni endpoint. Se si specificano cinque 
 | **Metodo** | **Comando** |
 | ----- | -----| 
 | Portale | [Portale di Azure](https://portal.azure.com) | Vedere l' [esercitazione relativa all'arricchimento dei messaggi](tutorial-message-enrichments.md) | 
-| Interfaccia della riga di comando di Azure   | [AZ all hub Message-arricchimento](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
-| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
+| Interfaccia della riga di comando di Azure   | [AZ all hub Message-arricchimento](/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 L'aggiunta di arricchimenti dei messaggi non consente di aggiungere latenza al routing dei messaggi.
 

@@ -3,12 +3,12 @@ title: Regole di accesso al firewall
 description: Configurare le regole per accedere a un registro contenitori di Azure da dietro un firewall, consentendo l'accesso (inserimento in un "elenco elementi consentiti") all'API REST e ai nomi di dominio dell'endpoint dati o agli intervalli di indirizzi IP specifici del servizio.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246980"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148514"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurare le regole per accedere a un registro contenitori di Azure dietro un firewall
 
@@ -113,7 +113,7 @@ Cercare l'area specifica, ad esempio **storage.AustraliaCentral**.
 
 ## <a name="allow-access-by-service-tag"></a>Consentire l'accesso in base ai tag del servizio
 
-In una rete virtuale di Azure, usare le regole di sicurezza di rete per filtrare il traffico da una risorsa, ad esempio una macchina virtuale, a un registro contenitori. Per semplificare la creazione delle regole di rete di Azure, usare il [tag del servizio](../virtual-network/security-overview.md#service-tags) **AzureContainerRegistry**. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP per accedere a un servizio di Azure a livello globale o per area di Azure. Il tag viene aggiornato automaticamente in caso di modifica degli indirizzi. 
+In una rete virtuale di Azure, usare le regole di sicurezza di rete per filtrare il traffico da una risorsa, ad esempio una macchina virtuale, a un registro contenitori. Per semplificare la creazione delle regole di rete di Azure, usare il [tag del servizio](../virtual-network/network-security-groups-overview.md#service-tags) **AzureContainerRegistry**. Un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP per accedere a un servizio di Azure a livello globale o per area di Azure. Il tag viene aggiornato automaticamente in caso di modifica degli indirizzi. 
 
 Ad esempio, creare una regola del gruppo di sicurezza di rete in uscita con destinazione **AzureContainerRegistry** per consentire il traffico verso un registro contenitori di Azure. Per consentire l'accesso al tag del servizio solo in un'area specifica, specificare l'area nel formato seguente: **AzureContainerRegistry**.[*nome regione*].
 
@@ -183,7 +183,7 @@ Se è necessario accedere a Registro Azure Container Microsoft (MCR) da dietro u
 
 * Informazioni sulle [procedure consigliate di Azure per la sicurezza di rete](../security/fundamentals/network-best-practices.md)
 
-* Altre informazioni sui [gruppi di sicurezza](../virtual-network/security-overview.md) in una rete virtuale di Azure
+* Altre informazioni sui [gruppi di sicurezza](../virtual-network/network-security-groups-overview.md) in una rete virtuale di Azure
 
 * Altre informazioni sulla configurazione di un [collegamento privato](container-registry-private-link.md) per un registro contenitori
 

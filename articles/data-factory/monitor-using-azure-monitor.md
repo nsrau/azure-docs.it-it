@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6862fa6c9dfa3e8ba26d6f07dc1d9096cf16f092
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563552"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151919"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorare e inviare avvisi Data Factory tramite monitoraggio di Azure
 
@@ -40,7 +40,7 @@ Data Factory archivia i dati di esecuzione della pipeline solo per 45 giorni. Us
   * Si desidera scrivere query complesse su un set completo di metriche pubblicate da Data Factory per il monitoraggio. È possibile creare avvisi personalizzati per queste query tramite monitoraggio.
   * Per eseguire il monitoraggio nelle data factory È possibile indirizzare i dati da più data factory a una singola area di lavoro di monitoraggio.
 
-È anche possibile usare un account di archiviazione o uno spazio dei nomi dell'hub eventi che non si trovi nella sottoscrizione della risorsa che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso di controllo degli accessi in base al ruolo (RBAC) appropriato a entrambe le sottoscrizioni.
+È anche possibile usare un account di archiviazione o uno spazio dei nomi dell'hub eventi che non si trovi nella sottoscrizione della risorsa che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso appropriato per il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) a entrambe le sottoscrizioni.
 
 ## <a name="configure-diagnostic-settings-and-workspace"></a>Configurare le impostazioni di diagnostica e l'area di lavoro
 
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| Proprietà | Type | Description |
+| Proprietà | Type | Descrizione |
 | --- | --- | --- |
 | **storageAccountId** |string | ID risorsa dell'account di archiviazione a cui si vogliono inviare i log di diagnostica. |
 | **serviceBusRuleId** |string | ID regola del bus di servizio per lo spazio dei nomi del bus di servizio in cui si vuole creare hub eventi per la trasmissione dei log di diagnostica. Il formato dell'ID regola è `{service bus resource ID}/authorizationrules/{key name}` .|

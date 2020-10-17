@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940782"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151843"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Usare Azure Data Studio per gestire il gruppo di server con iperscalabilità PostgreSQL abilitata per Azure Arc
 
@@ -61,9 +61,8 @@ Visualizzazione dashboard di PostgreSQL:
 
 Che include diversi dashboard elencati sul lato sinistro del riquadro:
 
-- **Panoramica:** Visualizza le informazioni di riepilogo sull'istanza, ad esempio il nome, l'ID sottoscrizione di Azure, la configurazione, la versione del motore di database, gli endpoint per Grafana e Kibana...
+- **Panoramica:** Visualizza le informazioni di riepilogo sull'istanza, ad esempio nome, nome utente amministratore PostgreSQL, ID sottoscrizione di Azure, configurazione, versione del motore di database, endpoint per Grafana e Kibana...
 - **Stringhe di connessione:** Visualizza varie stringhe di connessione potrebbe essere necessario connettersi all'istanza di PostgreSQL come PSQL, Node.js, PHP, Ruby...
-- **Proprietà:** Visualizza varie proprietà, ad esempio il nome utente dell'amministratore PostgreSQL, il gruppo di risorse associato per la risorsa Shadow...
 - **Diagnosticare e risolvere i problemi:** È la pagina di destinazione in cui sono disponibili varie risorse che consentono di risolvere i problemi relativi all'istanza durante l'espansione dei notebook per la risoluzione dei problemi
 - **Nuova richiesta di supporto:** È la pagina di destinazione dalla quale sarà possibile richiedere assistenza da parte dei servizi di supporto tecnico che avviano l'annuncio dell'anteprima pubblica.
 

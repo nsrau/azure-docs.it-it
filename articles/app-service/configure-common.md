@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816488"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152049"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -292,7 +292,7 @@ Vedere [configurare un contenitore Linux personalizzato per il servizio app Azur
 [Portale di Azure]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurare gli ambienti di gestione temporanea in Servizio app di Azure]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Informazioni di base sul monitoraggio nel Servizio app di Azure]: ./web-sites-monitor.md
 [modalità pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Aumentare le prestazioni di un'app nel Servizio app di Azure]: ./manage-scale-up.md

@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326457"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148930"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con griglia di eventi di Azure: 
@@ -23,7 +23,7 @@ Questo articolo descrive come usare le funzionalità di sicurezza seguenti con g
 ## <a name="service-tags"></a>Tag di servizio
 Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
 
-È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o in [Firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel *source*   campo di origine o di *destinazione*appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o in [Firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel *source*   campo di origine o di *destinazione*appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
 | Tag di servizio | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|
@@ -69,7 +69,7 @@ Quando viene risolto da VNet che ospita l'endpoint privato, l'argomento o l'URL 
 | Nome                                          | Type      | valore                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | Una         | 10.0.0.5
+| `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
 
 Questo approccio consente di accedere all'argomento o al dominio usando la stessa stringa di connessione per i client in VNet che ospitano gli endpoint privati e i client esterni al VNet.
 

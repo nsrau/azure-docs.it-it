@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021429"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151665"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
-Come primo passaggio verso l'implementazione di una soluzione IoT resiliente, architetti, sviluppatori e proprietari di aziende devono definire gli obiettivi dei tempi di attività per le soluzioni che stanno costruendo. Questi obiettivi possono essere definiti principalmente in base a obiettivi di business specifici per ogni scenario di base. In questo contesto, l'articolo [Informazioni tecniche sulla continuità aziendale Azure](https://docs.microsoft.com/azure/architecture/resiliency/) descrive un contesto generale per aiutare a pensare alla continuità aziendale e al ripristino di emergenza. Il documento [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) fornisce informazioni sull'architettura nelle strategie per consentire alle applicazioni di Azure di ottenere disponibilità elevata e ripristino di emergenza.
+Come primo passaggio verso l'implementazione di una soluzione IoT resiliente, architetti, sviluppatori e proprietari di aziende devono definire gli obiettivi dei tempi di attività per le soluzioni che stanno costruendo. Questi obiettivi possono essere definiti principalmente in base a obiettivi di business specifici per ogni scenario di base. In questo contesto, l'articolo [Informazioni tecniche sulla continuità aziendale Azure](/azure/architecture/resiliency/) descrive un contesto generale per aiutare a pensare alla continuità aziendale e al ripristino di emergenza. Il documento [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](/azure/architecture/reliability/disaster-recovery) fornisce informazioni sull'architettura nelle strategie per consentire alle applicazioni di Azure di ottenere disponibilità elevata e ripristino di emergenza.
 
 Questo articolo illustra le funzionalità di disponibilità elevata e ripristino di emergenza offerte in modo specifico dal servizio IoT Hub. Le aree generali illustrate in questo articolo sono:
 
@@ -64,7 +64,7 @@ Una volta completata l'operazione di failover per l'Hub IoT, tutte le operazioni
 >
 > - Se si usa funzioni di Azure o analisi di flusso di Azure per connettere l'endpoint degli eventi predefiniti, potrebbe essere necessario eseguire un **riavvio**. Questo è dovuto al fatto che durante il failover gli offset precedenti non sono più validi.
 >
-> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) per l'elenco di file. Per altre informazioni, vedere [archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. È possibile usare l' [API List Blobs](/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) per l'elenco di file. Per altre informazioni, vedere [archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Failover avviato da Microsoft
 
@@ -136,7 +136,7 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 | --- | --- | --- | --- | --- | --- |
 | Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|nessuno|nessuno|
 | Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|Nessuno|
-| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alto|> 1 x il costo di 1 Hub IoT|
+| Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alta|> 1 x il costo di 1 Hub IoT|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

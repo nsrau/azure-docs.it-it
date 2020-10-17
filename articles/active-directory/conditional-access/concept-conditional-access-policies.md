@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016128"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145363"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
 
 Come illustrato nell'articolo relativo all' [accesso condizionale](overview.md), i criteri di accesso condizionale sono un'istruzione if-then, di **assegnazioni** e **controlli di accesso**. I criteri di accesso condizionale riuniscono i segnali, per prendere decisioni e applicare i criteri dell'organizzazione.
 
-In che modo un'organizzazione crea questi criteri? Cosa è necessario?
+In che modo un'organizzazione crea questi criteri? Cosa è necessario? Come vengono applicati?
 
 ![Accesso condizionale (segnali + decisioni + applicazione = criteri)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+È possibile che più criteri di accesso condizionale si applichino a un singolo utente in qualsiasi momento. In questo caso, devono essere soddisfatti tutti i criteri applicati. Se, ad esempio, un criterio richiede l'autenticazione a più fattori e un altro richiede un dispositivo conforme, è necessario completare l'autenticazione a più fattori e usare un dispositivo conforme. Tutte le assegnazioni vengono collegate logicamente con l'operatore **AND**. Se sono configurate più assegnazioni, per attivare un criterio devono essere soddisfatte tutte.
+
+Tutti i criteri vengono applicati in due fasi:
+
+- Fase 1: raccogliere i dettagli della sessione 
+   - Raccogliere i dettagli della sessione, ad esempio il percorso di rete e l'identità del dispositivo che saranno necessari per la valutazione dei criteri. 
+   - La fase 1 della valutazione dei criteri si verifica per i criteri e i criteri abilitati in [modalità di sola segnalazione](concept-conditional-access-report-only.md).
+- Fase 2: imposizione 
+   - Usare i dettagli della sessione raccolti nella fase 1 per identificare tutti i requisiti che non sono stati soddisfatti. 
+   - Se è presente un criterio configurato per bloccare l'accesso, con il controllo di concessione blocco, l'imposizione verrà arrestata qui e l'utente verrà bloccato. 
+   - All'utente verrà richiesto di completare i requisiti di controllo di concessione aggiuntivi che non sono stati soddisfatti durante la fase 1 nell'ordine seguente, fino a quando non viene soddisfatto il criterio:  
+      - Autenticazione a più fattori 
+      - App client approvata/criterio di protezione delle app 
+      - Dispositivo gestito (join conforme o ibrido Azure AD) 
+      - Condizioni per l'utilizzo 
+      - Controlli personalizzati  
+   - Una volta soddisfatti tutti i controlli di concessione, applicare i controlli della sessione (applicazione applicata, Microsoft Cloud App Security e durata del token) 
+   - La fase 2 della valutazione dei criteri viene eseguita per tutti i criteri abilitati. 
 
 ## <a name="assignments"></a>Assegnazioni
 

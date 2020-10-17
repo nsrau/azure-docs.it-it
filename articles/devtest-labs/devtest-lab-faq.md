@@ -3,12 +3,12 @@ title: Domande frequenti su Azure DevTest Labs | Documentazione Microsoft
 description: Questo articolo offre risposte ad alcune domande frequenti su Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289365"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144592"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -145,7 +145,7 @@ Scenario con gruppo di risorse separato:
 -   DevTest Labs crea un gruppo di risorse per i computer con IP condivisi che hanno in comune le stesse dimensioni.
 
 Scenario di gruppo di risorse comune:
--   Tutte le macchine virtuali vengono attivate nel gruppo di risorse comune specificato dall'utente. Altre informazioni sull'[allocazione di gruppi di risorse per il lab](https://aka.ms/RGControl).
+-   Tutte le macchine virtuali vengono attivate nel gruppo di risorse comune specificato dall'utente. Altre informazioni sull'[allocazione di gruppi di risorse per il lab](./resource-group-control.md).
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Come è possibile gestire una convenzione di denominazione nell'ambiente di DevTest Labs?
 È possibile estendere le convenzioni di denominazione correnti dell'organizzazione alle operazioni di Azure e renderle coerenti in tutto l'ambiente DevTest Labs. In fase di distribuzione di DevTest Labs è consigliabile avere criteri iniziali specifici. Questi criteri vengono distribuiti in base a uno script centrale e a modelli JSON per garantire la coerenza. I criteri di denominazione possono essere implementati tramite i criteri di Azure applicati a livello di sottoscrizione. Per esempi JSON per Criteri di Azure, vedere [Esempi di Criteri di Azure](../governance/policy/samples/index.md).
@@ -200,7 +200,7 @@ Per copiare le macchine virtuali esistenti in DevTest Labs:
 Sì, è possibile collegare più dischi alle macchine virtuali.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Le immagini di seconda generazione (Gen 2) sono supportate da DevTest Labs?
-Sì. Il servizio DevTest Labs supporta le [Immagini di generazione 2](../virtual-machines/windows/generation-2.md). Tuttavia, se per un'immagine sono disponibili entrambe le versioni di generazione 1 e di generazione 2, DevTest Labs Mostra solo la versione di generazione 1 dell'immagine durante la creazione di una macchina virtuale. Viene visualizzata l'immagine se è disponibile solo la versione di generazione 2. 
+Sì. Il servizio DevTest Labs supporta le [Immagini di generazione 2](../virtual-machines/generation-2.md). Tuttavia, se per un'immagine sono disponibili entrambe le versioni di generazione 1 e di generazione 2, DevTest Labs Mostra solo la versione di generazione 1 dell'immagine durante la creazione di una macchina virtuale. Viene visualizzata l'immagine se è disponibile solo la versione di generazione 2. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Per usare un'immagine del sistema operativo per le operazioni di test è necessario acquistare un abbonamento a MSDN?
 Per usare immagini del sistema operativo client Windows (Windows 7 o versioni successive) per attività di sviluppo o test in Azure, eseguire una delle operazioni seguenti:

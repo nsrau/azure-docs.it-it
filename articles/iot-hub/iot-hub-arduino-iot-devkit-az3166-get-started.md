@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5147d6d7f1bd1fcd43835f6a66196c7642ad4ff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839555"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151947"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "91839555"
 
 Non hai ancora DevKit? Provare il [simulatore di DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) o [acquistare DevKit](https://aka.ms/iot-devkit-purchase).
 
-È possibile trovare il codice sorgente per tutte le esercitazioni di DevKit dalla [raccolta di esempi di codice](https://docs.microsoft.com/samples/browse/?term=mxchip).
+È possibile trovare il codice sorgente per tutte le esercitazioni di DevKit dalla [raccolta di esempi di codice](/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Elementi necessari
 
@@ -267,7 +267,7 @@ Anziché effettuare il provisioning dell'hub IoT di Azure e del dispositivo dal 
 
     ![Selezionare sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Quindi selezionare un [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology) o crearne uno nuovo.
+1. Quindi selezionare un [gruppo di risorse](../azure-resource-manager/management/overview.md#terminology) o crearne uno nuovo.
 
     ![Selezionare il gruppo di risorse](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 

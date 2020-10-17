@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d824c94a2c5751013b78c69ed5abd048c50856b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78673393"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151723"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Sviluppare per la piattaforma Android Things tramite Azure IoT SDK
 
-Gli [SDK per l'hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) offrono il supporto di primo livello per piattaforme note come Windows, Linux, OSX, MBED e piattaforme per dispositivi mobili come Android e iOS.  Come parte dell'impegno volto a offrire una più ampia scelta e maggiore flessibilità nelle distribuzioni di IoT, Java SDK supporta anche la piattaforma [Android Things](https://developer.android.com/things/).  Gli sviluppatori possono sfruttare i vantaggi del sistema operativo Android Things sul lato dispositivo e usare l'[hub IoT di Azure](about-iot-hub.md) come hub di messaggi centrale che garantisce la scalabilità per milioni di dispositivi connessi simultaneamente.
+Gli [SDK per l'hub IoT di Azure](./iot-hub-devguide-sdks.md) offrono il supporto di primo livello per piattaforme note come Windows, Linux, OSX, MBED e piattaforme per dispositivi mobili come Android e iOS.  Come parte dell'impegno volto a offrire una più ampia scelta e maggiore flessibilità nelle distribuzioni di IoT, Java SDK supporta anche la piattaforma [Android Things](https://developer.android.com/things/).  Gli sviluppatori possono sfruttare i vantaggi del sistema operativo Android Things sul lato dispositivo e usare l'[hub IoT di Azure](about-iot-hub.md) come hub di messaggi centrale che garantisce la scalabilità per milioni di dispositivi connessi simultaneamente.
 
 Questa esercitazione illustra i passaggi per compilare un'applicazione lato dispositivo in Android Things con Azure IoT Java SDK.
 

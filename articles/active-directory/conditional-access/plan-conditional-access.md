@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992867"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145281"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -291,11 +291,7 @@ Azure Active Directory consente di creare [località denominate](location-condit
 
 ### <a name="plan-your-policy-deployment"></a>Pianificare la distribuzione dei criteri
 
-Quando per l'ambiente sono pronti nuovi criteri, assicurarsi di esaminare ogni criterio prima di rilasciarlo per evitare risultati indesiderati. Per informazioni importanti sul modo in cui vengono applicati i criteri e su come evitare problemi, consultare la documentazione seguente
-
-* [Informazioni utili](best-practices.md)
-
-* [Azioni da evitare](best-practices.md)
+Quando per l'ambiente sono pronti nuovi criteri, assicurarsi di esaminare ogni criterio prima di rilasciarlo per evitare risultati indesiderati.
 
 ## <a name="common-policies"></a>Criteri comuni
 
@@ -462,10 +458,6 @@ I [controlli personalizzati](controls.md) reindirizzano gli utenti a un servizio
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
 Prima che gli utenti accedano ad applicazioni cloud specifiche all'interno dell'ambiente in uso, è possibile ottenere il consenso di questi sotto forma di accettazione delle Condizioni per l'utilizzo (Terms of Use, ToU). Seguire questo [Avvio rapido per creare le Condizioni per l'utilizzo](require-tou.md).
-
-### <a name="classic-policies"></a>Criteri classici
-
-Nel [portale di Azure](https://portal.azure.com/) è possibile trovare i criteri di accesso condizionale in Azure Active Directory > Sicurezza > Accesso condizionale. È possibile che l'organizzazione disponga anche di criteri di accesso condizionale meno recenti, non creati utilizzando questa pagina. Questi criteri sono conosciuti come criteri classici. Si consiglia di [valutare di eseguire la migrazione dei criteri classici nel portale di Azure](best-practices.md).
 
 ## <a name="troubleshoot-conditional-access"></a>Risolvere i problemi di accesso condizionale
 

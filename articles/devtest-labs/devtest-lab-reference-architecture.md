@@ -4,12 +4,12 @@ description: Questo articolo fornisce indicazioni sull'architettura di riferimen
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367751"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144548"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architettura di riferimento Azure DevTest Labs per le aziende
 Questo articolo fornisce un'architettura di riferimento per facilitare la distribuzione di una soluzione basata su Azure DevTest Labs in un'organizzazione. Include quanto segue:
@@ -20,7 +20,7 @@ Questo articolo fornisce un'architettura di riferimento per facilitare la distri
 
 ![Diagramma dell'architettura di riferimento](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 Questi sono gli elementi chiave dell'architettura di riferimento:
 
 - **Azure Active Directory (Azure ad)**: DevTest Labs usa il [servizio Azure ad per la gestione delle identità](../active-directory/fundamentals/active-directory-whatis.md). Considerare questi due aspetti chiave quando si concede agli utenti l'accesso a un ambiente basato su DevTest Labs:
@@ -30,7 +30,7 @@ Questi sono gli elementi chiave dell'architettura di riferimento:
     - Sono presenti dati locali che non possono essere spostati nel cloud.
     - Si preferisce aggiungere le macchine virtuali del Lab al dominio locale.
     - Si vuole forzare tutto il traffico di rete all'interno e all'esterno dell'ambiente cloud tramite un firewall locale per la sicurezza e la conformità.
-- **Gruppi di sicurezza di rete**: un modo comune per limitare il traffico all'ambiente cloud (o all'interno dell'ambiente cloud) in base agli indirizzi IP di origine e di destinazione consiste nell'usare un [gruppo di sicurezza di rete](../virtual-network/security-overview.md). Ad esempio, si desidera consentire solo il traffico proveniente dalla rete aziendale nelle reti del Lab.
+- **Gruppi di sicurezza di rete**: un modo comune per limitare il traffico all'ambiente cloud (o all'interno dell'ambiente cloud) in base agli indirizzi IP di origine e di destinazione consiste nell'usare un [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md). Ad esempio, si desidera consentire solo il traffico proveniente dalla rete aziendale nelle reti del Lab.
 - **Gateway Desktop remoto**: le aziende in genere bloccano le connessioni Desktop remoto in uscita nel firewall aziendale. Sono disponibili diverse opzioni per abilitare la connettività all'ambiente basato su cloud in DevTest Labs, tra cui:
   - Usare un [Gateway Desktop remoto](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)e consentire l'indirizzo IP statico del servizio di bilanciamento del carico del gateway.
   - [Indirizzare tutto il traffico RDP in ingresso](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) attraverso la connessione VPN da sito a sito o ExpressRoute. Questa funzionalità è una considerazione comune quando le aziende pianificano una distribuzione di DevTest Labs.

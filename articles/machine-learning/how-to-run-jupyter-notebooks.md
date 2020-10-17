@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d17fb9bee77aae9945c12d45a5ffff316f9d639
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460034"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144251"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 
@@ -222,6 +222,9 @@ Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'ist
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> Per la gestione dei pacchetti in un notebook, utilizzare **% PIP** o **% conda** Magic Functions installa automaticamente i pacchetti nel **kernel attualmente in esecuzione** anziché **! PIP** o **! conda** che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
 
 È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 

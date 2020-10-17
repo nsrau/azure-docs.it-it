@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421066ef30e23a79b26f97939cdfffb5be83afb5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029988"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148239"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -38,4 +38,4 @@ Il modello supportato per i messaggi da cloud a dispositivo con HTTPS è rappres
 
 In alternativa, migliorare la logica lato dispositivo per completare, rifiutare o abbandonare i messaggi in coda in modo rapido, abbreviare la durata o prendere in considerazione l'invio di un minor numero di messaggi. Vedere [Durata dei messaggi C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Infine, provare a usare l' [API della coda di ripulitura](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) per pulire periodicamente i messaggi in sospeso prima che venga raggiunto il limite.
+Infine, provare a usare l' [API della coda di ripulitura](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) per pulire periodicamente i messaggi in sospeso prima che venga raggiunto il limite.

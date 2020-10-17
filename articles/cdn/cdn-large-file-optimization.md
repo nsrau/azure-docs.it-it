@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192633"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148711"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Ottimizzazione del download di file di grandi dimensioni mediante la rete CDN di Azure
 
@@ -44,10 +44,10 @@ Quando il blocco arriva al server perimetrale della rete CDN, viene memorizzato 
 
 Per altre informazioni sulla richiesta di intervalli di byte, vedere [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-La rete CDN memorizza nella cache tutti i blocchi alla loro ricezione. Il file non deve essere necessariamente memorizzato interamente nella cache della rete CDN. Le richieste successive del file o di intervalli di byte vengono soddisfatte dalla cache della rete CDN. Se non tutti i blocchi vengono memorizzati nella cache della rete CDN, viene usata la prelettura per richiedere i blocchi dall'origine. Questa ottimizzazione si basa sulla capacità del server di origine di supportare le richieste di intervallo di byte. Se il server di origine non supporta le richieste di intervallo di byte, questa ottimizzazione non è efficace. 
+La rete CDN memorizza nella cache tutti i blocchi alla loro ricezione. Il file non deve essere necessariamente memorizzato interamente nella cache della rete CDN. Le richieste successive del file o di intervalli di byte vengono soddisfatte dalla cache della rete CDN. Se non tutti i blocchi vengono memorizzati nella cache della rete CDN, viene usata la prelettura per richiedere i blocchi dall'origine. Questa ottimizzazione si basa sulla capacità del server di origine di supportare le richieste di intervallo di byte. Se il server di origine non supporta le richieste di intervalli di byte, le richieste di download dei dati con dimensioni maggiori di 8 MB avranno esito negativo. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Condizioni per l'ottimizzazione dei file di grandi dimensioni
-Le funzionalità di ottimizzazione dei file di grandi dimensioni per la **rete CDN Standard di Azure di Microsoft** sono attivate per impostazione predefinita quando si usa il tipo di ottimizzazione della distribuzione Web generale. Non viene applicato alcun limite per le dimensioni massime dei file.
+Non viene applicato alcun limite per le dimensioni massime dei file.
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Ottimizzazione per la distribuzione di file di grandi dimensioni con la rete CDN di Azure di Verizon

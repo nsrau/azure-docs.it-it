@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258643"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145115"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale
 
@@ -126,4 +126,4 @@ In Windows 7, iOS, Android, macOS e alcuni Web browser di terze parti Azure AD i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Prima di configurare i criteri di accesso condizionale basato su dispositivo nell'ambiente in uso, è consigliabile esaminare le [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).
+[Valutare l'effetto dei criteri di accesso condizionale prima di abilitare ampiamente la modalità di sola segnalazione](concept-conditional-access-report-only.md).

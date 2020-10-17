@@ -3,12 +3,12 @@ title: Configurare un collegamento privato
 description: Configurare un endpoint privato in un registro contenitori e abilitare l'accesso tramite un collegamento privato in una rete virtuale locale. L'accesso ai collegamenti privati è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743642"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148472"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure
 
@@ -375,7 +375,7 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-Quando si configura una connessione endpoint privato eseguendo la procedura descritta in questo articolo, il registro accetta automaticamente le connessioni da client e servizi che hanno autorizzazioni Controllo degli accessi in base al ruolo per il registro. È possibile configurare l'endpoint in modo che richieda l'approvazione manuale delle connessioni. Per informazioni su come approvare e rifiutare connessioni endpoint privato, vedere [Gestire una connessione endpoint privato](../private-link/manage-private-endpoint.md).
+Quando si configura una connessione a un endpoint privato eseguendo la procedura descritta in questo articolo, il registro di sistema accetta automaticamente le connessioni da client e servizi con autorizzazioni RBAC di Azure nel registro di sistema. È possibile configurare l'endpoint in modo che richieda l'approvazione manuale delle connessioni. Per informazioni su come approvare e rifiutare connessioni endpoint privato, vedere [Gestire una connessione endpoint privato](../private-link/manage-private-endpoint.md).
 
 ## <a name="add-zone-records-for-replicas"></a>Aggiungere record della zona per le repliche
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f47e201f0fe6f44eb33916b2b3ed71ef963d5a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531213"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148141"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -35,7 +35,7 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
    3. **Gruppo di risorse**: gruppo di risorse di Azure in cui creare l'account. 
    4. **Posizione**: data center di Azure per l'account di Data Lake Analytics. 
    5. **Data Lake Store**: archivio predefinito da usare per l'account di Data Lake Analytics. L'account di Azure Data Lake Store e quello di Data Lake Analytics devono trovarsi nella stessa posizione.
-4. Fare clic su **Crea**. 
+4. Scegliere **Crea**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminare un account di Data Lake Analytics
 
@@ -91,9 +91,9 @@ Se altri servizi di Azure, come Azure Data Factory o Macchine virtuali, si conne
 7. Esaminare tutte le modifiche selezionate e quindi fare clic su **Esegui**.
 8. Al termine della procedura guidata, fare clic su **Fine**.
 
-## <a name="manage-role-based-access-control"></a>Gestire il controllo degli accessi in base al ruolo
+## <a name="manage-azure-role-based-access-control"></a>Gestire il controllo degli accessi in base al ruolo di Azure
 
-Come per altri servizi di Azure, è possibile usare il controllo degli accessi in base al ruolo (RBAC, Role-Based Access Control) per controllare il modo con cui gli utenti interagiscono con il servizio.
+Analogamente ad altri servizi di Azure, è possibile usare il controllo degli accessi in base al ruolo di Azure per controllare il modo in cui gli utenti interagiscono con il servizio.
 
 I ruoli di Azure standard offrono le funzionalità seguenti:
 * **Proprietario**: può inviare e monitorare i processi, annullarli da qualsiasi utente e configurare l'account.

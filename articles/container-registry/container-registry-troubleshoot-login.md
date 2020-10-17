@@ -3,12 +3,12 @@ title: Risolvere i problemi di accesso al registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253355"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148446"
 ---
 # <a name="troubleshoot-registry-login"></a>Risolvere i problemi di accesso al registro
 
@@ -95,7 +95,7 @@ Collegamenti correlati:
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Verificare che le credenziali siano autorizzate ad accedere al registro
 
-Confermare le autorizzazioni del registro di sistema associate alle credenziali, ad esempio il ruolo controllo degli accessi `AcrPull` in base al ruolo per eseguire il pull delle immagini dal registro di sistema o il `AcrPush` ruolo per eseguire il push delle immagini. 
+Confermare le autorizzazioni del registro di sistema associate alle credenziali, ad esempio il `AcrPull` ruolo Azure per eseguire il pull delle immagini dal registro di sistema o il `AcrPush` ruolo per eseguire il push delle immagini. 
 
 Per accedere a un registro nel portale o alla gestione del registro di sistema con l'interfaccia della riga di comando di Azure, è necessario almeno il `Reader` ruolo per eseguire Azure Resource Manager operazioni.
 
@@ -103,7 +103,7 @@ Per aggiungere o rimuovere assegnazioni di ruolo, l'utente o il proprietario del
 
 Collegamenti correlati:
 
-* [Ruoli e autorizzazioni RBAC-Azure Container Registry](container-registry-roles.md)
+* [Ruoli e autorizzazioni di Azure-Azure Container Registry](container-registry-roles.md)
 * [Accedi con token con ambito repository](container-registry-repository-scoped-permissions.md)
 * [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
 * [Usare il portale per creare un'applicazione Azure AD e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ Se non si risolve il problema, vedere le opzioni seguenti.
   * [Risolvere i problemi di rete con il registro di sistema](container-registry-troubleshoot-access.md)
   * [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
 * Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
-* [Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/)
+* [Domane e risposte Microsoft](/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/) in base alle informazioni fornite, è possibile che venga eseguita una diagnostica rapida per gli errori di autenticazione nel registro di sistema
-
-

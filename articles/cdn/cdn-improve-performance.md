@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358288"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148756"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
 La compressione dei file è un metodo semplice ed efficace per aumentare la velocità di trasferimento dei file e migliorare le prestazioni di caricamento delle pagine mediante la riduzione delle dimensioni del file prima che venga inviato dal server. Riduce i costi della larghezza di banda e offre un'esperienza più reattiva per gli utenti.
@@ -112,6 +112,8 @@ Questi profili supportano le codifiche di compressione seguenti:
 Se la richiesta supporta più di un tipo di compressione, la compressione brotli ha la precedenza.
 
 Quando una richiesta per una risorsa indica la compressione gzip e i risultati della richiesta non sono presenti nella cache, la rete CDN di Azure esegue la compressione gzip della risorsa direttamente nel server POP. In seguito, il file compresso viene gestito nella cache.
+
+Se l'origine usa la codifica di trasferimento in blocchi (CTE) per inviare i dati compressi al POP della rete CDN, le dimensioni della risposta maggiori di 8MB non sono supportate. 
 
 ### <a name="azure-cdn-from-verizon-profiles"></a>Profili di rete CDN di Azure con tecnologia Verizon
 

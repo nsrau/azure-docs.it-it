@@ -8,18 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: a1f878361a96c5584f43b31135d79ff799f66efa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fedadfa7e5b4ec3d7de30d0ad3ef1b1bfa0e0ec
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75976614"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144401"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creare un hub IoT usando un modello di Azure Resource Manager (PowerShell)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-Informazioni su come usare un modello di Azure Resource Manager per creare un hub e un gruppo di consumer. I modelli di Resource Manager sono file JSON che definiscono le risorse da distribuire per la soluzione. Per ulteriori informazioni sullo sviluppo di modelli di Gestione risorse, vedere [Azure Resource Manager documentazione](https://docs.microsoft.com/azure/azure-resource-manager/).
+Informazioni su come usare un modello di Azure Resource Manager per creare un hub e un gruppo di consumer. I modelli di Resource Manager sono file JSON che definiscono le risorse da distribuire per la soluzione. Per ulteriori informazioni sullo sviluppo di modelli di Gestione risorse, vedere [Azure Resource Manager documentazione](../azure-resource-manager/index.yml).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -29,7 +29,7 @@ Il modello di Gestione risorse usato in questa Guida introduttiva è da [modelli
 
 [!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
 
-Il modello crea un hub Azure Internet con tre endpoint (eventhub, da cloud a dispositivo e messaggistica) e un gruppo di consumer. Per altri esempi di modelli, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Lo schema del modello dell'hub Internet è disponibile  [qui](https://docs.microsoft.com/azure/templates/microsoft.devices/iothub-allversions).
+Il modello crea un hub Azure Internet con tre endpoint (eventhub, da cloud a dispositivo e messaggistica) e un gruppo di consumer. Per altri esempi di modelli, vedere [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular). Lo schema del modello dell'hub Internet è disponibile  [qui](/azure/templates/microsoft.devices/iothub-allversions).
 
 Sono disponibili diversi metodi per la distribuzione di un modello.  In questa esercitazione si usa Azure PowerShell.
 
@@ -71,11 +71,11 @@ Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
+[lnk-rest-api]: /rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/management/manage-resources-powershell.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-iotedge]: ../iot-edge/quickstart-linux.md

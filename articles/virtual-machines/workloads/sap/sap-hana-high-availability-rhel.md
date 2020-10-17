@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 2184a6e67b17f9fcaefc0a8e556ba81e839a2399
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81cbbe06db2426cda8fde4a8fa0bca2cd8f097bb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598054"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144148"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su Red Hat Enterprise Linux
 
@@ -123,6 +123,13 @@ Per distribuire il modello, seguire questi passaggi:
 1. Creare la macchina virtuale 2.  
    Usare almeno Red Hat Enterprise Linux 7.4 per SAP HANA. In questo esempio viene usata l'immagine di Red Hat Enterprise Linux 7.4 per SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Selezionare il set di disponibilità creato al passaggio 3.
 1. Aggiungere dischi dati.
+
+> [!IMPORTANT]
+> L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.    
+
+> [!Note]
+> Se vengono inserite macchine virtuali senza indirizzi IP pubblici nel pool back-end di Load Balancer Standard interno ad Azure (nessun indirizzo IP pubblico), non sarà presente alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
 1. Se si usa Load Balancer standard, seguire questa procedura di configurazione:
    1. Prima, creare il pool di indirizzi IP front-end:
 
@@ -158,8 +165,6 @@ Per distribuire il modello, seguire questi passaggi:
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
 
-   > [!Note]
-   > Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del Load Balancer interno standard di Azure (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [Connettività degli endpoint pubblici per le macchine virtuali usando Load Balancer Standard di Azure negli scenari a disponibilità elevata SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 1. In alternativa, se lo scenario prevede l'uso del servizio di bilanciamento del carico di base, seguire questa procedura di configurazione:
    1. Configurare il servizio di bilanciamento del carico. Prima, creare il pool di indirizzi IP front-end:

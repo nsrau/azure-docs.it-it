@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f52d1d1c5f264550076688d5e25e110de230eff4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81767022"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152239"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
 
@@ -28,7 +28,7 @@ L'articolo si conclude rivedendo alcuni argomenti trattati negli articoli preced
 
 Tutto ciò che viene descritto in questo articolo si basa sugli esempi dell'SDK per **serializer** . Se si vuole seguire la procedura, vedere le applicazioni **simplesample\_amqp** e **simplesample\_http** incluse in Azure IoT SDK per dispositivi per C.
 
-È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+È possibile trovare il repository GitHub di [**Azure IoT SDK per dispositivi per C**](https://github.com/Azure/azure-iot-sdk-c) e visualizzare i dettagli dell'API nelle [informazioni di riferimento per l'API C](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>Linguaggio di modellazione
 
@@ -670,4 +670,4 @@ Si conclude inoltre la serie in tre parti per lo sviluppo di applicazioni con l'
 
 Per altre informazioni sullo sviluppo dell'hub IoT, vedere gli [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
-Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere l'argomento relativo alla [distribuzione di intelligenza artificiale ai dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere l'argomento relativo alla [distribuzione di intelligenza artificiale ai dispositivi perimetrali con Azure IoT Edge](../iot-edge/quickstart-linux.md).

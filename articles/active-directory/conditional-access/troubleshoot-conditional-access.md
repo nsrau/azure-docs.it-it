@@ -5,22 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032969"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145095"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Risoluzione dei problemi di accesso con l'accesso condizionale
 
 Le informazioni contenute in questo articolo possono essere usate per risolvere i problemi di accesso imprevisto correlati all'accesso condizionale usando i messaggi di errore e Azure AD log degli accessi.
+
+## <a name="select-all-consequences"></a>Selezionare le conseguenze "tutti"
+
+Il framework di accesso condizionale offre ottima flessibilità di configurazione. Tuttavia, una grande flessibilità significa anche esaminare attentamente ogni criterio di configurazione prima di rilasciarlo per evitare risultati indesiderati. In questo contesto, è necessario prestare particolare attenzione alle assegnazioni che interessano set completi, ad esempio **tutti gli utenti/i gruppi/le applicazioni cloud**.
+
+Le organizzazioni devono evitare le configurazioni seguenti:
+
+**Per tutti gli utenti e tutte le applicazioni cloud:**
+
+- **Blocca l'accesso** : questa configurazione blocca l'intera organizzazione.
+- **Richiedi che il dispositivo sia contrassegnato come conforme** : per gli utenti che non hanno ancora registrato i propri dispositivi, questo criterio blocca tutti gli accessi, incluso l'accesso al portale di Intune. Se l'utente è amministratore senza un dispositivo registrato, questo criterio blocca l'accesso al portale di Azure per la modifica dei criteri.
+- **Richiedi Azure ad ibrido dispositivo aggiunto** a un dominio: questo criterio consente di bloccare l'accesso a tutti gli utenti dell'organizzazione se non dispongono di un dispositivo ibrido Azure ad aggiunto.
+- **Richiedi i criteri di protezione delle app** : questo criterio consente di bloccare l'accesso a tutti gli utenti dell'organizzazione se non si dispone di un criterio di Intune. Se si è un amministratore senza un'applicazione client con criteri di protezione delle app di Intune, questo criterio impedisce di tornare ai portali, ad esempio Intune e Azure.
+
+**Per tutti gli utenti, tutte le applicazioni cloud e tutte le piattaforme per dispositivi:**
+
+- **Blocca l'accesso** : questa configurazione blocca l'intera organizzazione.
 
 ## <a name="conditional-access-sign-in-interrupt"></a>Interrupt di accesso con accesso condizionale
 
@@ -82,8 +99,14 @@ Quando si invia l'evento imprevisto, fornire l'ID richiesta e l'ora e la data de
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## <a name="what-to-do-if-you-are-locked-out-of-the-azure-portal"></a>Cosa fare se si è bloccati dal portale di Azure?
+
+Se il portale di Azure non è stato bloccato a causa di un'impostazione non corretta in un criterio di accesso condizionale:
+
+- Controllare se siano presenti altri amministratori dell'organizzazione che non sono ancora stati bloccati. Un amministratore con accesso al portale di Azure può disabilitare i criteri che influiscano sull'accesso. 
+- Se nessuno degli amministratori dell'organizzazione può aggiornare i criteri, inviare una richiesta di supporto. Il supporto tecnico Microsoft può rivedere e dopo la conferma aggiornare i criteri di accesso condizionale che impediscono l'accesso.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Report delle attività di accesso nel portale di Azure Active Directory](../reports-monitoring/concept-sign-ins.md)
 - [Risoluzione dei problemi di Accesso condizionale tramite lo strumento What If](troubleshoot-conditional-access-what-if.md)
-- Procedure consigliate per [l'accesso condizionale in Azure Active Directory](best-practices.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085910"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145397"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -129,7 +129,7 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
     I criteri di accesso condizionale personalizzati consentono condizioni di utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici. Per altre informazioni, vedere [Guida introduttiva: richiedere che le condizioni per l'utilizzo vengano accettate prima di accedere alle app Cloud](require-tou.md).
 
-1. Fare clic su **Crea**.
+1. Scegliere **Crea**.
 
    Se è stato selezionato un modello di accesso condizionale personalizzato, viene visualizzata una nuova schermata che consente di creare i criteri di accesso condizionale personalizzato.
 
@@ -253,7 +253,7 @@ L'impostazione **Richiedi agli utenti di acconsentire su ogni dispositivo** cons
 Ecco un elenco dei software e delle piattaforme supportate.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Altro |
+> |  | iOS | Telefoni | Windows 10 | Altro |
 > | --- | --- | --- | --- | --- |
 > | **App nativa** | Sì | Sì | Sì |  |
 > | **Microsoft Edge** | Sì | Sì | Sì |  |
@@ -392,4 +392,3 @@ R: Condizioni per l'utilizzo utilizza gli endpoint seguenti per l'autenticazione
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Avvio rapido: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud](require-tou.md)
-- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md)

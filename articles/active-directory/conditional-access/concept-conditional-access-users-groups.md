@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552901"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145415"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accesso condizionale: utenti e gruppi
 
-Un criterio di accesso condizionale deve includere un'assegnazione utente come uno dei segnali nel processo decisionale. Gli utenti possono essere inclusi o esclusi dai criteri di accesso condizionale. 
+Un criterio di accesso condizionale deve includere un'assegnazione utente come uno dei segnali nel processo decisionale. Gli utenti possono essere inclusi o esclusi dai criteri di accesso condizionale. Azure Active Directory valuta tutti i criteri e garantisce che tutti i requisiti siano soddisfatti prima di concedere l'accesso all'utente.
 
 ![Utente come segnale nelle decisioni prese dall'accesso condizionale](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -73,6 +73,8 @@ Per impedire a un amministratore di bloccarsi dalla propria directory quando si 
 Per impostazione predefinita, il criterio fornirà un'opzione per escludere l'utente corrente dal criterio, ma questa impostazione predefinita può essere sostituita dall'amministratore, come illustrato nella figura seguente. 
 
 ![Avviso: non bloccarsi.](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[Cosa fare se si è bloccati dal portale di Azure?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

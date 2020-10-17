@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326814"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152285"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
 
@@ -33,7 +33,7 @@ Per gli utenti .NET, prendere in considerazione le <a href="https://docs.microso
 
 ## <a name="authentication"></a>Authentication
 
-Quando si discute dell'autenticazione, esistono diversi equivoci comuni. L'autenticazione e l'autorizzazione sono spesso confuse tra loro. L'identità è anche un componente principale della sicurezza. Un'identità è una raccolta di informazioni su un' <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entità <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. I provider di identità (IdP) forniscono identità ai servizi di autenticazione. L'autenticazione è l'azione di verifica dell'identità di un utente. L'autorizzazione è la specifica dei diritti di accesso e dei privilegi per le risorse per una determinata identità. Diverse offerte di servizi cognitivi includono il controllo degli accessi in base al ruolo (RBAC). È possibile utilizzare il controllo degli accessi in base al ruolo per semplificare la cerimonia relativa alla gestione manuale delle entità. Per informazioni dettagliate, vedere [controllo degli accessi in base al ruolo per le risorse di Azure](../role-based-access-control/overview.md).
+Quando si discute dell'autenticazione, esistono diversi equivoci comuni. L'autenticazione e l'autorizzazione sono spesso confuse tra loro. L'identità è anche un componente principale della sicurezza. Un'identità è una raccolta di informazioni su un' <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entità <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. I provider di identità (IdP) forniscono identità ai servizi di autenticazione. L'autenticazione è l'azione di verifica dell'identità di un utente. L'autorizzazione è la specifica dei diritti di accesso e dei privilegi per le risorse per una determinata identità. Diverse offerte di servizi cognitivi includono il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Il controllo degli accessi in base al ruolo di Azure può essere usato per semplificare alcune delle cerimonie necessarie per la gestione manuale delle entità. Per altre informazioni, vedere [controllo degli accessi in base al ruolo di Azure per le risorse di Azure](../role-based-access-control/overview.md).
 
 Per altre informazioni sull'autenticazione con chiavi di sottoscrizione, token di accesso e Azure Active Directory (AAD), vedere <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticare le richieste ai servizi <span class="docon docon-navigate-external x-hidden-focus"></span> cognitivi di Azure</a>.
 
@@ -162,7 +162,7 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Node.JS](#tab/node-js)
+# <a name="nodejs"></a>[Node.js](#tab/node-js)
 
 Per ulteriori informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 

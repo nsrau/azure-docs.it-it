@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fc768890e932d1f17ad111b4681b75721ae1e06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628418"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148104"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Selezione host del gruppo di server con iperscalabilità PostgreSQL abilitata per Azure Arc
 
@@ -67,8 +67,8 @@ postgres01-2         3/3     Running   0          9h
 Ognuno di questi Pod ospita un'istanza di PostgreSQL. Insieme formano il gruppo di server per l'iperscalabilità PostgreSQL abilitato per Azure Arc:
 
 ```output
-Pod name    Role in the server group
-postgres01-0            Coordinator
+Pod name        Role in the server group
+postgres01-0  Coordinator
 postgres01-1    Worker
 postgres01-2    Worker
 ```
@@ -121,7 +121,7 @@ Containers:
 
 Ogni pod che fa parte del gruppo di server con iperscalabilità PostgreSQL abilitata per Azure Arc ospita i tre contenitori seguenti:
 
-|Contenitori|Description
+|Contenitori|Descrizione
 |----|----|
 |`Fluentbit` |Raccolta dati * log: https://fluentbit.io/
 |`Postgres`|Parte dell'istanza di PostgreSQL del gruppo di server con iperscalabilità abilitata per Azure Arc PosgreSQL

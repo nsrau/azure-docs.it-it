@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -293,7 +293,7 @@
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
                 - name: Modello di Resource Manager
-                  href: platform/template-workspace-configuration.md
+                  href: ./samples/resource-manager-workspace.md
             - name: Eliminare e recuperare un'area di lavoro
               href: platform/delete-workspace.md
             - name: Gestire l'accesso

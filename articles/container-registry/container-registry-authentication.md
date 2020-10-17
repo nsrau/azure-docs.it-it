@@ -3,12 +3,12 @@ title: Opzioni di autenticazione del registro
 description: Opzioni di autenticazione per un registro contenitori di Azure privato, incluso l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 1747dfa0664778283d0cea06940ea95982c269a2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5315c11e0f1e2c859384e3783ae4be5d709adb42
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048016"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148559"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Eseguire l'autenticazione con un Registro Azure Container
 
@@ -20,7 +20,7 @@ Le modalità consigliate includono l'autenticazione a un registro direttamente t
 
 Nella tabella seguente sono elencati i metodi di autenticazione disponibili e gli scenari tipici. Per informazioni dettagliate, vedere contenuti collegati.
 
-| Metodo                               | Come eseguire l'autenticazione                                           | Scenari                                                            | Controllo degli accessi in base al ruolo                             | Limitazioni                                |
+| Metodo                               | Come eseguire l'autenticazione                                           | Scenari                                                            | Controllo degli accessi in base al ruolo di Azure                             | Limitazioni                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Identità di Active Directory singola](#individual-login-with-azure-ad)                | `az acr login` nell'interfaccia della riga di comando di Azure                             | Push/pull interattivo da parte di sviluppatori e tester                                    | Sì                              | Il token AD deve essere rinnovato ogni 3 ore     |
 | [Entità servizio Active Directory](#service-principal)                  | `docker login`<br/><br/>`az acr login` nell'interfaccia della riga di comando di Azure<br/><br/> Impostazioni di accesso del registro di sistema nelle API o negli strumenti<br/><br/> [Kubernetes segreto pull](container-registry-auth-kubernetes.md)                                           | Push automatico dalla pipeline CI/CD<br/><br/> Pull automatico in Azure o servizi esterni  | Sì                              | La scadenza predefinita della password SP è 1 anno       |                                                           

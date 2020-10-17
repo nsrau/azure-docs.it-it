@@ -4,12 +4,12 @@ description: Informazioni sull'interazione tra Istanze di Azure Container e agen
 ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7faeecfcc3a1d006cc923b48339a1242a0b9e9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74533670"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148598"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di Azure Container e agenti di orchestrazione dei contenitori
 
@@ -54,7 +54,7 @@ Invece di aumentare il numero di macchine virtuali nel cluster e quindi distribu
 
 Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del [servizio Azure Kubernetes](../aks/intro-kubernetes.md) è possibile usare *nodi virtuali* creati dinamicamente in Istanze di Azure Container. I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in ACI e nel cluster del servizio Azure Kubernetes. 
 
-I nodi virtuali supportano attualmente le istanze di contenitore di Linux. Per imparare a usare i nodi virtuali usare l'[interfaccia della riga di comando di Azure](https://go.microsoft.com/fwlink/?linkid=2047538) o il [portale di Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
+I nodi virtuali supportano attualmente le istanze di contenitore di Linux. Per imparare a usare i nodi virtuali usare l'[interfaccia della riga di comando di Azure](../aks/virtual-nodes-cli.md) o il [portale di Azure](../aks/virtual-nodes-portal.md).
 
 I nodi virtuali usano il [kubelet virtuale][aci-connector-k8s] open source per simulare il [kubelet][kubelet-doc] di Kubernetes eseguendo la registrazione come nodo con capacità illimitata. Il kubelet virtuale recapita la creazione di [pod][pod-doc] come gruppi di contenitori in Istanze di Azure Container.
 

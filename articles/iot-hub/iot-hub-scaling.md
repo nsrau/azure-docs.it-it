@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: 725fc422bc11a19bebcbb8895cc0a9bedd58afed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c82f6eb37d542f80b6cb79ffb1fae6fe0cf0c233
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577765"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144275"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -77,37 +77,37 @@ La differenza a livello di funzionalità supportate tra i livelli Basic e Standa
 
 | API | Livello Basic | Livello gratuito/standard |
 | --- | ---------- | ------------- |
-| [Eliminazione dispositivo](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Sì | Sì |
-| [Recupero dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Sì | Sì |
-| [Eliminazione modulo](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Sì | Sì |
-| [Recupero modulo](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | Sì | Sì |
-| [Recupero statistiche del Registro di sistema](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | Sì | Sì |
-| [Recupero statistiche dei servizi](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | Sì | Sì |
-| [Creazione o aggiornamento dispositivo](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | Sì | Sì |
-| [Creazione o aggiornamento modulo](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Sì | Sì |
-| [Query su hub IoT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Sì | Sì |
-| [Creazione URI di firma di accesso condiviso per il caricamento di file](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sì | Sì |
-| [Ricezione notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sì | Sì |
-| [Invio evento dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sì | Sì |
+| [Eliminazione dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#deletedevice-string--models-registrymanagerdeletedeviceoptionalparams-) | Sì | Sì |
+| [Recupero dispositivo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) | Sì | Sì |
+| [Eliminazione modulo](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletemodule) | Sì | Sì |
+| [Recupero modulo](/java/api/com.microsoft.azure.sdk.iot.service.registrymanager.getmodule?view=azure-java-stable) | Sì | Sì |
+| [Recupero statistiche del Registro di sistema](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getdevicestatistics-msrest-requestoptionsbase-) | Sì | Sì |
+| [Recupero statistiche dei servizi](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#getservicestatistics-msrest-requestoptionsbase-) | Sì | Sì |
+| [Creazione o aggiornamento dispositivo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatedevice-string--device--servicecallback-device--) | Sì | Sì |
+| [Creazione o aggiornamento modulo](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Sì | Sì |
+| [Query su hub IoT](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Sì | Sì |
+| [Creazione URI di firma di accesso condiviso per il caricamento di file](/rest/api/iothub/device/createfileuploadsasuri) | Sì | Sì |
+| [Ricezione notifica di dispositivo associato](/rest/api/iothub/device/receivedeviceboundnotification) | Sì | Sì |
+| [Invio evento dispositivo](/rest/api/iothub/device/senddeviceevent) | Sì | Sì |
 | Invio evento modulo | Solo AMQP e MQTT | Solo AMQP e MQTT |
-| [Aggiornamento stato di caricamento file](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sì | Sì |
-| [Operazioni in blocco su dispositivi](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Sì, ad eccezione delle funzionalità di IoT Edge | Sì |
-| [Annullamento processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/jobs/cancelimportexportjob) | Sì | Sì |
-| [Creazione processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/jobs/createimportexportjob) | Sì | Sì |
-| [Recupero processo di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjob) | Sì | Sì |
-| [Recupero processi di importazione/esportazione](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) | Sì | Sì |
-| [Eliminazione coda di comandi](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Sì |
-| [Recupero dispositivo gemello](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | Sì |
-| [Recupero modulo gemello](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Sì |
-| [Richiamo metodo dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods) |   | Sì |
-| [Aggiornamento dispositivo gemello](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) |   | Sì |
-| [Aggiornamento modulo gemello](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Sì |
-| [Abbandono notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sì |
-| [Completamento notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sì |
-| [Annullamento processo](https://docs.microsoft.com/rest/api/media/jobs/canceljob) |   | Sì |
-| [Creazione processo](https://docs.microsoft.com/rest/api/media/jobs/create) |   | Sì |
-| [Recupero processo](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | Sì |
-| [Query sui processi](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Sì |
+| [Aggiornamento stato di caricamento file](/rest/api/iothub/device/updatefileuploadstatus) | Sì | Sì |
+| [Operazioni in blocco su dispositivi](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#bulkdevicecrud-exportimportdevice----msrest-requestoptionsbase-) | Sì, ad eccezione delle funzionalità di IoT Edge | Sì |
+| [Annullamento processo di importazione/esportazione](/rest/api/iothub/service/jobs/cancelimportexportjob) | Sì | Sì |
+| [Creazione processo di importazione/esportazione](/rest/api/iothub/service/jobs/createimportexportjob) | Sì | Sì |
+| [Recupero processo di importazione/esportazione](/rest/api/iothub/service/jobs/getimportexportjob) | Sì | Sì |
+| [Recupero processi di importazione/esportazione](/rest/api/iothub/service/jobs/getimportexportjobs) | Sì | Sì |
+| [Eliminazione coda di comandi](/javascript/api/azure-iot-digitaltwins-service/registrymanager?view=azure-node-latest#purgecommandqueue-string--msrest-requestoptionsbase-) |   | Sì |
+| [Recupero dispositivo gemello](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) |   | Sì |
+| [Recupero modulo gemello](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-getmoduletwin) |   | Sì |
+| [Richiamo metodo dispositivo](./iot-hub-devguide-direct-methods.md) |   | Sì |
+| [Aggiornamento dispositivo gemello](./iot-hub-devguide-device-twins.md) |   | Sì |
+| [Aggiornamento modulo gemello](/azure/iot-hub/iot-c-sdk-ref/iothub-devicetwin-h/iothubdevicetwin-updatemoduletwin) |   | Sì |
+| [Abbandono notifica di dispositivo associato](/rest/api/iothub/device/abandondeviceboundnotification) |   | Sì |
+| [Completamento notifica di dispositivo associato](/rest/api/iothub/device/completedeviceboundnotification) |   | Sì |
+| [Annullamento processo](/rest/api/media/jobs/canceljob) |   | Sì |
+| [Creazione processo](/rest/api/media/jobs/create) |   | Sì |
+| [Recupero processo](/java/api/com.microsoft.azure.sdk.iot.service.jobs.jobclient.getjob?view=azure-java-stable) |   | Sì |
+| [Query sui processi](/javascript/api/azure-iot-digitaltwins-service/jobclient?view=azure-node-latest#queryjobs-jobclientqueryjobsoptionalparams--servicecallback-queryresult--) |   | Sì |
 
 ## <a name="message-throughput"></a>Velocità effettiva dei messaggi
 
